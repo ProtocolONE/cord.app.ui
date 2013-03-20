@@ -117,7 +117,15 @@ Item {
 
         currentIndex = GameListModelHelper.indexByServiceId(currentItem.serviceId);
 
-        if (!MaintenanceHelper.updatedService.hasOwnProperty(currentItem.serviceId)) {
+        var serviceId = currentItem.serviceId,
+            succes = parseInt(Settings.value("gameExecutor/serviceInfo/" + serviceId + "/", "successCount", "0"), 10),
+            fail = parseInt(Settings.value("gameExecutor/serviceInfo/" + serviceId + "/", "failedCount", "0"), 10);
+
+        if ((succes + fail) == 0 && !d.currentItemMaintenance) {
+            mainWindow.downloadButtonStart(serviceId);
+        }
+
+        if (!MaintenanceHelper.updatedService.hasOwnProperty(serviceId)) {
             root._maintenance = false;
             return;
         }
