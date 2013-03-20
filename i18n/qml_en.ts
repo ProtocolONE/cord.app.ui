@@ -6,7 +6,7 @@
     <message>
         <location filename="../Blocks/AccountActivation.qml" line="65"/>
         <location filename="../Blocks/AccountActivation.qml" line="92"/>
-        <location filename="../Blocks/AccountActivation.qml" line="200"/>
+        <location filename="../Blocks/AccountActivation.qml" line="223"/>
         <source>TITLE_ACCOUNT_ACTIVATION</source>
         <translation type="unfinished"></translation>
     </message>
@@ -31,37 +31,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="128"/>
+        <location filename="../Blocks/AccountActivation.qml" line="144"/>
         <source>PLACEHOLDER_MOBILE_NUMBER_INPUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="140"/>
+        <location filename="../Blocks/AccountActivation.qml" line="157"/>
         <source>BUTTON_GET_CODE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="179"/>
+        <location filename="../Blocks/AccountActivation.qml" line="162"/>
+        <source>ACCOUNT_ACTIVATION_PHONE_NOT_FOUND</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/AccountActivation.qml" line="202"/>
         <source>SUBTITLE_VK_ACTIVATION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="207"/>
+        <location filename="../Blocks/AccountActivation.qml" line="230"/>
         <source>TEXT_CODE_IS_SENT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="217"/>
+        <location filename="../Blocks/AccountActivation.qml" line="240"/>
         <source>PLACEHOLDER_ACTIVATION_CODE_INPUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="227"/>
+        <location filename="../Blocks/AccountActivation.qml" line="250"/>
         <source>BUTTON_CODE_CONFIRM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="250"/>
+        <location filename="../Blocks/AccountActivation.qml" line="273"/>
         <source>BUTTON_CANCEL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -758,62 +763,62 @@
 <context>
     <name>GamesSwitch</name>
     <message>
-        <location filename="../Blocks/GamesSwitch.qml" line="147"/>
+        <location filename="../Blocks/GamesSwitch.qml" line="183"/>
         <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GamesSwitch.qml" line="229"/>
+        <location filename="../Blocks/GamesSwitch.qml" line="267"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GamesSwitch.qml" line="245"/>
+        <location filename="../Blocks/GamesSwitch.qml" line="307"/>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GamesSwitch.qml" line="246"/>
+        <location filename="../Blocks/GamesSwitch.qml" line="308"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GamesSwitch.qml" line="262"/>
+        <location filename="../Blocks/GamesSwitch.qml" line="324"/>
         <source>TEXT_PROGRESSBAR_EXTRACTING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GamesSwitch.qml" line="396"/>
+        <location filename="../Blocks/GamesSwitch.qml" line="458"/>
         <source>SUPPORT_ICON_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GamesSwitch.qml" line="397"/>
+        <location filename="../Blocks/GamesSwitch.qml" line="459"/>
         <source>SUPPORT_ICON_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GamesSwitch.qml" line="541"/>
+        <location filename="../Blocks/GamesSwitch.qml" line="604"/>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GamesSwitch.qml" line="542"/>
+        <location filename="../Blocks/GamesSwitch.qml" line="605"/>
         <source>BUTTON_PLAY_ON_PAUSE_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GamesSwitch.qml" line="543"/>
+        <location filename="../Blocks/GamesSwitch.qml" line="606"/>
         <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GamesSwitch.qml" line="544"/>
+        <location filename="../Blocks/GamesSwitch.qml" line="607"/>
         <source>BUTTON_PLAY_ERROR_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GamesSwitch.qml" line="545"/>
+        <location filename="../Blocks/GamesSwitch.qml" line="608"/>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1037,6 +1042,82 @@
     <message>
         <location filename="../Elements/Password.qml" line="45"/>
         <source>password</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ProgressWidget</name>
+    <message>
+        <location filename="../Blocks/ProgressWidget.qml" line="74"/>
+        <location filename="../Blocks/ProgressWidget.qml" line="85"/>
+        <location filename="../Blocks/ProgressWidget.qml" line="96"/>
+        <location filename="../Blocks/ProgressWidget.qml" line="134"/>
+        <source>%1/seconds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/ProgressWidget.qml" line="25"/>
+        <source>%1 KB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/ProgressWidget.qml" line="29"/>
+        <source>%1 MB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/ProgressWidget.qml" line="32"/>
+        <source>%1 GB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/ProgressWidget.qml" line="51"/>
+        <source>DOWNLOAD_INFO_CAPTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/ProgressWidget.qml" line="74"/>
+        <source>DOWNLOAD_PEER_DOWNLOAD_SPEED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/ProgressWidget.qml" line="85"/>
+        <source>DOWNLOAD_PEER_DIRECT_SPEED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/ProgressWidget.qml" line="96"/>
+        <source>DOWNLOAD_PEER_UPLOAD_SPEED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/ProgressWidget.qml" line="111"/>
+        <source>DOWNLOAD_COMPLETE_FROM_TO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/ProgressWidget.qml" line="125"/>
+        <source>DOWNLOAD_COMPLETE_TOTAL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/ProgressWidget.qml" line="134"/>
+        <source>DOWNLOAD_SPEED_TOTAL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/ProgressWidget.qml" line="149"/>
+        <source>DOWNLOAD_PEER_DOWNLOAD_TOTAL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/ProgressWidget.qml" line="158"/>
+        <source>DOWNLOAD_PEER_DIRECT_TOTAL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/ProgressWidget.qml" line="167"/>
+        <source>DOWNLOAD_PEER_UPLOAD_TOTAL</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

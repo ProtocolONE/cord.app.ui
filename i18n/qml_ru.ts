@@ -21,11 +21,11 @@
     </message>
     <message>
         <source>TITLE_ACCOUNT_ACTIVATION</source>
-        <translation>Активация аккаунта</translation>
+        <translation type="unfinished">Активация аккаунта</translation>
     </message>
     <message>
         <source>SUBTITLE_MOBILE_ACTIVATION</source>
-        <translation>Введите номер вашего мобильного телефона </translation>
+        <translation type="unfinished">Введите номер вашего мобильного телефона&lt;br&gt;в международном формате, например: +7 900 123 45 67 </translation>
     </message>
     <message>
         <source>PLACEHOLDER_MOBILE_NUMBER_INPUT</source>
@@ -55,6 +55,10 @@
     <message>
         <source>SUBTITLE_VK_ACTIVATION</source>
         <translation>Привязать аккаунт с помощью Вконтакте</translation>
+    </message>
+    <message>
+        <source>ACCOUNT_ACTIVATION_PHONE_NOT_FOUND</source>
+        <translation>Указанный номер не существует. Пожалуйста, введите новый номер телефона.</translation>
     </message>
 </context>
 <context>
@@ -1117,6 +1121,109 @@ Please try again later.</source>
     <message>
         <source>password</source>
         <translation>пароль</translation>
+    </message>
+</context>
+<context>
+    <name>ProgressWidget</name>
+    <message>
+        <source>DOWNLOAD_COMPLETE %1 FROM %2 (%3%)</source>
+        <translation type="obsolete">Завершено: %1 из %2 (%3%)</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_COMPLETE_TOTAL %1</source>
+        <translation type="obsolete">Загружено: %1</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_SPEED_TOTAL %1</source>
+        <translation type="obsolete">Скорость загрузки данных %1</translation>
+    </message>
+    <message>
+        <source>%1/seconds</source>
+        <translation>%1/сек</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_DOWNLOAD_TOTAL %1</source>
+        <translation type="obsolete">Пиринговая загрузка: %1</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_PAYLOAD_TOTAL %1</source>
+        <translation type="obsolete">Прямая загрузка: %1</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_UPLOAD_TOTAL %1</source>
+        <translation type="obsolete">Отправленно: %1</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_DOWNLOAD_SPEED %1</source>
+        <translation type="obsolete">Скорость пиринговой загрузки: %1</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_PAYLOAD_SPEED %1</source>
+        <translation type="obsolete">Скорость прямой загрузки: %1</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_UPLOAD_SPEED %1</source>
+        <translation type="obsolete">Скорость отправки: %1</translation>
+    </message>
+    <message>
+        <source>%1 KB</source>
+        <translation>%1 КБ</translation>
+    </message>
+    <message>
+        <source>%1 MB</source>
+        <translation>%1 МБ</translation>
+    </message>
+    <message>
+        <source>%1 GB</source>
+        <translation>%1 ГБ</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_INFO_CAPTION</source>
+        <translation>Сведения о подключении</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_DIRECT_TOTAL %1</source>
+        <translation type="obsolete">Прямая загрузка: %1</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_DIRECT_SPEED %1</source>
+        <translation type="obsolete">Скорость прямой загрузки: %1</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_DOWNLOAD_SPEED</source>
+        <translation>Скорость пиринговой загрузки: %1</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_DIRECT_SPEED</source>
+        <translation>Скорость прямой загрузки: %1</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_UPLOAD_SPEED</source>
+        <translation>Скорость отправки: %1</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_COMPLETE_FROM_TO</source>
+        <translation>Завершено: %1 из %2 (%3%)</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_COMPLETE_TOTAL</source>
+        <translation>Загружено: %1</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_SPEED_TOTAL</source>
+        <translation>Скорость загрузки данных %1</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_DOWNLOAD_TOTAL</source>
+        <translation>Пиринговая загрузка: %1</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_DIRECT_TOTAL</source>
+        <translation>Прямая загрузка: %1</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_UPLOAD_TOTAL</source>
+        <translation>Отправленно: %1</translation>
     </message>
 </context>
 <context>

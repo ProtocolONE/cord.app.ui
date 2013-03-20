@@ -20,6 +20,7 @@ import "../js/GameListModelHelper.js" as GameListModelHelper
 import "../js/GoogleAnalytics.js" as GoogleAnalytics
 import "../js/support.js" as SupportHelper
 import "../Blocks/Features/Maintenance/MaintenanceHelper.js" as MaintenanceHelper
+import "../js/GamesSwitchHelper.js" as GamesSwitchHelper
 
 Item {
     id: root
@@ -72,7 +73,7 @@ Item {
 
     onCurrentIndexChanged: {
         buttonsBlock.visible = false;
-        serviceStatusText.visible = false;
+        serviceStatusText.opacity = 0;
         newsBlock.visible = false;
         labelTextImage.visible = false;
 
@@ -102,7 +103,7 @@ Item {
         }
 
         backgroundImage.scale = 1;
-        serviceStatusText.visible = true;
+        serviceStatusText.opacity = 1;
         switchAnimation.start();
         lastGameIndex = currentIndex;
     }
@@ -117,38 +118,44 @@ Item {
 
         currentIndex = GameListModelHelper.indexByServiceId(currentItem.serviceId);
 
-        var serviceId = currentItem.serviceId,
-            succes = parseInt(Settings.value("gameExecutor/serviceInfo/" + serviceId + "/", "successCount", "0"), 10),
-            fail = parseInt(Settings.value("gameExecutor/serviceInfo/" + serviceId + "/", "failedCount", "0"), 10);
+        d.ignoreMaintenance = false;
+        d.updateMaintenance();
 
-        if ((succes + fail) == 0 && !d.currentItemMaintenance) {
-            mainWindow.downloadButtonStart(serviceId);
-        }
-
-        if (!MaintenanceHelper.updatedService.hasOwnProperty(serviceId)) {
-            root._maintenance = false;
-            return;
-        }
-
-        root._maintenance = d.currentItemMaintenance;
+        downloadIcon.update();
+        processWidget.refresh();
     }
 
     QtObject {
         id: d
 
-        property bool currentItemMaintenance: currentItem
-                                              ? (currentItem.maintenance &&
-                                                 currentItem.status === 'Normal' &&
-                                                 (currentItem.allreadyDownloaded ||
-                                                  1 == Settings.value("GameDownloader/" + currentItem.serviceId + "/",
-                                                                      "isInstalled", 0)))
-                                              : false
-
-        onCurrentItemMaintenanceChanged: {
-            if (!currentItemMaintenance) {
-                root._maintenance = d.currentItemMaintenance;
+        function updateMaintenance() {
+            if (d.ignoreMaintenance) {
+                return;
             }
+
+            if (!MaintenanceHelper.updatedService.hasOwnProperty(currentItem.serviceId)) {
+                root._maintenance = false;
+                return;
+            }
+
+            root._maintenance = isServiceMaintenance(currentItem.serviceId);
         }
+
+        function isServiceMaintenance(serviceId) {
+            var item = GameListModelHelper.serviceItemByServiceId(serviceId);
+
+            return item ? (item.maintenance &&
+                           item.status === 'Normal' &&
+                           (item.allreadyDownloaded ||
+                            1 == Settings.value("GameDownloader/" + serviceId + "/",
+                                                "isInstalled", 0)))
+                        : false
+        }
+
+        property bool currentItemMaintenance: currentItem ? isServiceMaintenance(currentItem.serviceId) : false
+        property bool ignoreMaintenance: false
+
+        onCurrentItemMaintenanceChanged: updateMaintenance();
     }
 
     Connections {       
@@ -207,6 +214,9 @@ Item {
 
             item.status = "Downloading";
             item.allreadyDownloaded = false;
+
+            GamesSwitchHelper.gamesDownloadData[service] = {};
+            downloadIcon.update();
             console.log("START DOWNLOAD");
         }
 
@@ -258,8 +268,8 @@ Item {
             console.log("DOWNLOAD FINISHED");
 
             MaintenanceHelper.updatedService[service] = true;
+            d.updateMaintenance();
 
-            root._maintenance = d.currentItemMaintenance;
             if (!root._maintenance) {
                 mainWindow.executeService(service);
             }
@@ -275,7 +285,24 @@ Item {
 
             var isInstalled = root.isServiceInstalled(serviceId);
 
-            item.progress = progress
+            if (totalWanted > 0) {
+                GamesSwitchHelper.gamesDownloadData[serviceId] = {
+                    totalWantedDone: totalWantedDone,
+                    totalWanted: totalWanted,
+                    directTotalDownload: directTotalDownload,
+                    peerTotalDownload: peerTotalDownload,
+                    payloadTotalDownload: payloadTotalDownload,
+                    peerPayloadDownloadRate: peerPayloadDownloadRate,
+                    payloadDownloadRate: payloadDownloadRate,
+                    directPayloadDownloadRate: directPayloadDownloadRate,
+                    playloadUploadRate: playloadUploadRate,
+                    totalPayloadUpload: totalPayloadUpload
+                }
+
+                processWidget.refresh();
+            }
+
+            item.progress = progress;
             if (totalWantedDone >= 0) {
                 item.statusText = (isInstalled ? qsTr("TEXT_PROGRESSBAR_UPDATING_NOW_STATE") :
                                                  qsTr("TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE"))
@@ -562,7 +589,8 @@ Item {
                     && (event.modifiers & Qt.ShiftModifier)
                     && (event.modifiers & Qt.ControlModifier)
                     ) {
-                _maintenance = false;
+                root._maintenance = false;
+                d.ignoreMaintenance = true;
             }
         }
 
@@ -616,12 +644,92 @@ Item {
     Text {
         id: serviceStatusText
 
-        visible: !_maintenance
+        visible: !root._maintenance
         text: currentItem ? currentItem.statusText : ""
 
         anchors { left: parent.left; bottom: parent.bottom; leftMargin: 31; bottomMargin: 80 }
         font { family: "Segoe UI Light"; bold: false; pixelSize: 24; weight: "Light" }
         color: infoTextColor
         smooth: true
+    }
+
+    ProgressWidget {
+        id: processWidget
+
+        anchors { left: parent.left; bottom: parent.bottom; leftMargin: 8; bottomMargin: 72 }
+        visible: false
+
+        function refresh() {
+            totalWantedDone = progressValue('totalWantedDone')
+            totalWanted =  progressValue('totalWanted')
+            directTotalDownload = progressValue('directTotalDownload')
+            peerTotalDownload = progressValue('peerTotalDownload')
+            payloadTotalDownload = progressValue('payloadTotalDownload')
+            peerPayloadDownloadRate = progressValue('peerPayloadDownloadRate')
+            payloadDownloadRate = progressValue('payloadDownloadRate')
+            directPayloadDownloadRate = progressValue('directPayloadDownloadRate')
+            playloadUploadRate = progressValue('playloadUploadRate')
+            totalPayloadUpload = progressValue('totalPayloadUpload')
+        }
+
+        function progressValue(arg) {
+            if (!currentItem ||
+                !GamesSwitchHelper.gamesDownloadData.hasOwnProperty(currentItem.serviceId)) {
+                return '0';
+            }
+
+            var item = GamesSwitchHelper.gamesDownloadData[currentItem.serviceId][arg];
+
+            return item ? (item >= 0 ? item : '0') : '0'
+        }
+
+        //HACK Using mainWindow, mainWindowRectanglw in Block. But there is no any other ways to make QGNA-60
+        Connections {
+            target: mainWindow
+            onLeftMouseClick: {
+                if (!processWidget.visible || downloadIcon.containsMouse)
+                    return;
+
+                var posInWidget = processWidget.mapToItem(mainWindowRectanglw, mainWindowRectanglw.x, mainWindowRectanglw.y);
+                if (globalX >= posInWidget.x
+                    && globalX <= posInWidget.x + processWidget.width
+                    && globalY >= posInWidget.y
+                    && globalY <= posInWidget.y + processWidget.height)
+                    return;
+
+                processWidget.visible = false;
+            }
+        }
+
+        MouseArea { // Отключаем фоновые клики
+            anchors.fill: parent
+            hoverEnabled: true
+        }
+    }
+
+    Elements.ImageButton {
+        id: downloadIcon
+
+        function update() {
+            opacity = currentItem ? GamesSwitchHelper.gamesDownloadData.hasOwnProperty(currentItem.serviceId) : false;
+        }
+
+        opacity: 0
+        width: 10
+        height: 10
+        source: installPath + 'images/downloadInfo.png'
+        anchors { left: parent.left; bottom: parent.bottom; leftMargin: 17; bottomMargin: 56 }
+        onClicked: {
+            processWidget.visible = !processWidget.visible;
+
+            if (qGNA_main.currentGameItem) {
+                GoogleAnalytics.trackEvent('/game/' + qGNA_main.currentGameItem.gaName,
+                                           'Game ' + qGNA_main.currentGameItem.gaName, 'Open torrent stat', 'Small info button');
+            }
+        }
+
+        Behavior on opacity {
+            PropertyAnimation { duration: 200 }
+        }
     }
 }

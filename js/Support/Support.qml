@@ -39,8 +39,21 @@ Window {
     WebView {
         id: view
 
+        property variant _lastParent;
+
         function url() {
             return UserInfo.getUrlWithCookieAuth("http://www.gamenet.ru/support/qgna/" + itemName);
+        }
+
+        function updateNewWindowParent() {
+            if (view._lastParent) {
+                view._lastParent.destroy();
+            }
+
+            view._lastParent = _newParentHack.createObject(null);
+            view._lastParent.parent = view;
+
+            view.newWindowParent = view._lastParent;
         }
 
         anchors.fill: parent
@@ -48,6 +61,7 @@ Window {
         preferredHeight: 400
         scale: 1
         smooth: false
+        pressGrabTime: 0
 
         settings.pluginsEnabled: false
         settings.javascriptCanOpenWindows: true
@@ -56,7 +70,32 @@ Window {
 
         html: "<html><head><script type='text/javascript'>window.location='" + url() + "';</script></head><body></body></html>"
 
-        Component.onCompleted: clearCookie();
+        newWindowComponent: Item {
+            WebView {
+                id: self
+
+                settings.pluginsEnabled: false
+                settings.javascriptEnabled: false
+                settings.autoLoadImages: false
+
+                onUrlChanged: {
+                    Qt.openUrlExternally(url);
+                    self.stop.trigger();
+                    view.updateNewWindowParent();
+                }
+            }
+        }
+
+        Component.onCompleted: {
+            clearCookie();
+            updateNewWindowParent();
+        }
+
+        Component {
+           id: _newParentHack
+
+           Item {}
+        }
 
         Elements.WorkInProgress {
             anchors.fill: parent

@@ -56,9 +56,14 @@ Rectangle {
     }
 
     Component.onCompleted: {
-        RestApi.Core.setup( {lang: 'ru'})
-        var desktop = Desktop.screenWidth + 'x' + Desktop.screenHeight;
+        var desktop = Desktop.screenWidth + 'x' + Desktop.screenHeight
+            , url = Settings.value('qGNA/restApi', 'url', 'https://gnapi.com:8443/restapi');
+
+        RestApi.Core.setup({lang: 'ru', url: url});
+
         console.log('Version ', mainWindow.fileVersion);
+        console.log('Desktop ', desktop);
+        console.log('RestApi ', url);
 
         GoogleAnalytics.init({
                                  saveSettings: Settings.setValue,
