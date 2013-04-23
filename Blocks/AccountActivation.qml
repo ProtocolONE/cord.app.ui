@@ -150,48 +150,58 @@ Blocks.MoveUpPage {
 
                             Item { height: 5; width: 1 }
 
-                            Elements.Button4 {
-                                function isDefaultNumber(str) {
-                                    var result = '';
+                            Row {
+                                spacing: 7
 
-                                    for (var i = 0; i < str.length; ++i) {
-                                        var c = str[i];
-                                        if (c >= '0' && c <= '9')
-                                            result += c
+                                Elements.Button4 {
+                                    function isDefaultNumber(str) {
+                                        var result = '';
+
+                                        for (var i = 0; i < str.length; ++i) {
+                                            var c = str[i];
+                                            if (c >= '0' && c <= '9')
+                                                result += c
+                                        }
+
+                                        return result == '79001234567';
                                     }
 
-                                    return result == '79001234567';
+                                    isEnabled: nickNameInput.textEditComponent.text.length
+                                               && nickNameInput.acceptableInput && !page.isInProgress
+
+                                    buttonText: qsTr("BUTTON_GET_CODE")
+
+                                    onButtonClicked: {
+                                        if (isDefaultNumber(nickNameInput.textEditComponent.text)) {
+                                            showError(qsTr("ACCOUNT_ACTIVATION_PHONE_NOT_FOUND"));
+                                            return;
+                                        }
+
+                                        page.isInProgress = true;
+                                        RestApi.User.sendMobileActivationCode(
+                                            nickNameInput.textEditComponent.text,
+                                            function(response) {
+                                                page.isInProgress = false;
+                                                page.phoneNumber = nickNameInput.textEditComponent.text
+
+                                                if (response.result === 1) {
+                                                    page.state = "confirmation"
+                                                    return;
+                                                }
+
+                                                if (response.error) {
+                                                    console.debug(response.error.code)
+                                                    showError(response.error.message)
+                                                }
+                                            },
+                                            function(httpError) { page.isInProgress = false; });
+                                    }
                                 }
 
-                                isEnabled: nickNameInput.textEditComponent.text.length
-                                           && nickNameInput.acceptableInput && !page.isInProgress
-
-                                buttonText: qsTr("BUTTON_GET_CODE")
-
-                                onButtonClicked: {
-                                    if (isDefaultNumber(nickNameInput.textEditComponent.text)) {
-                                        showError(qsTr("ACCOUNT_ACTIVATION_PHONE_NOT_FOUND"));
-                                        return;
-                                    }
-
-                                    page.isInProgress = true;
-                                    RestApi.User.sendMobileActivationCode(
-                                        nickNameInput.textEditComponent.text,
-                                        function(response) {
-                                            page.isInProgress = false;
-                                            page.phoneNumber = nickNameInput.textEditComponent.text
-
-                                            if (response.result === 1) {
-                                                page.state = "confirmation"
-                                                return;
-                                            }
-
-                                            if (response.error) {
-                                                console.debug(response.error.code)
-                                                showError(response.error.message)
-                                            }
-                                        },
-                                        function(httpError) { page.isInProgress = false; });
+                                Elements.Button4 {
+                                    isEnabled: true
+                                    buttonText: qsTr("BUTTON_CANCEL")
+                                    onButtonClicked: page.closeMoveUpPage();
                                 }
                             }
                         }

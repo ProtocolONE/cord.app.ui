@@ -8,7 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.0
+import QtQuick 1.1
 import qGNA.Library 1.0
 import Tulip 1.0
 import Qt 4.7
@@ -21,7 +21,7 @@ import "Blocks/Features/Announcements" as Announcements
 import "Blocks/Features/Maintenance" as Maintenance
 import "Elements/Tooltip" as Tooltip
 import "js/restapi.js" as RestApi
-import "js/userInfo.js" as UserInfo
+import "js/UserInfo.js" as UserInfo
 import "js/GameListModelHelper.js" as GameListModelHelper
 import "js/GoogleAnalytics.js" as GoogleAnalytics
 
@@ -736,5 +736,10 @@ Rectangle {
         onOpenUrlRequest: mainAuthModule.openWebPage(url);
     }
 
+    Blocks.TryLoader {
+        source: "Blocks/GameOverlay.qml"
+        onFailed: console.log('Can not load overlay');
+        onSuccessed: console.log('Overlay ready');
+    }
 }
 

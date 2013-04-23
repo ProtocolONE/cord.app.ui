@@ -11,6 +11,7 @@
 		<file>Blocks/FirstLicense.qml</file>
 		<file>Blocks/GameFailed.qml</file>
 		<file>Blocks/GameIsBoring.qml</file>
+		<file>Blocks/GameOverlay.qml</file>
 		<file>Blocks/GamesSwitch.qml</file>
 		<file>Blocks/GamesSwitchFooter.qml</file>
 		<file>Blocks/GameSwitch/ImageButton.qml</file>
@@ -27,6 +28,7 @@
 		<file>Blocks/SettingsGeneralPage.qml</file>
 		<file>Blocks/SettingsPage.qml</file>
 		<file>Blocks/Tray.qml</file>
+		<file>Blocks/TryLoader.qml</file>
 		<file>Blocks/UserInfo.qml</file>
 		<file>Delegates/FlowViewDelegate.qml</file>
 		<file>Delegates/GameIconDelegate.qml</file>
@@ -85,7 +87,7 @@
 		<file>js/restapi.js</file>
 		<file>js/support.js</file>
 		<file>js/Support/Support.qml</file>
-		<file>js/userInfo.js</file>
+		<file>js/UserInfo.js</file>
 		<file>Models/GamesListModel.qml</file>
 		<file>Models/GamesSwitchModel.qml</file>
 		<file>Models/HomeModel.qml</file>
