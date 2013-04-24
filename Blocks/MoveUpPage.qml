@@ -5,7 +5,7 @@ Item {
     id: page
 
     implicitWidth: 800
-    implicitHeight: 400
+    implicitHeight: 550
 
     default property alias content: mainContainer.data
     property int openHeight: 300

@@ -28,7 +28,7 @@ Blocks.MoveUpPage {
 //    }
 
     state: "main"
-    openHeight: 400
+    openHeight: 550
 
     onVisibleChanged: {
         if (!visible) {

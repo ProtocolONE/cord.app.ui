@@ -3,7 +3,7 @@ import Tulip 1.0
 
 import "../Elements" as Elements
 import "." as Blocks
-import "../js/GameListModelHelper.js" as GameListModelHelper
+import "../js/Core.js" as Core
 
 Blocks.MoveUpPage {
     id: page
@@ -152,7 +152,7 @@ Blocks.MoveUpPage {
 
                     anchors.fill: parent
                     onClicked: {
-                        var item = GameListModelHelper.serviceItemByServiceId(page.serviceId);
+                        var item = Core.serviceItemByServiceId(page.serviceId);
                         if (!item) {
                             return;
                         }

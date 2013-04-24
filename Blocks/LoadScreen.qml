@@ -9,16 +9,10 @@
 ****************************************************************************/
 
 import QtQuick 1.0
-import qGNA.Library 1.0
 import "../Elements" as Elements
 
 Rectangle {
     id: baseItem
-    radius: 6
-    color: "#00000000"
-
-    width: 800
-    height: 400
 
     //property string installPath: "../"
 
@@ -26,80 +20,73 @@ Rectangle {
     property int loadPercent
     property string loadText
     property string updateText
-    property color updateTextColor: "white"
+    property color updateTextColor: "#ffffff"
     property bool endAnimationStart: false
     property string versionString: qsTr("TEXT_VERSION").arg(fileVersion)
 
     signal finishAnimation()
 
+    radius: 6
+    color: "#00000000"
+    width: 800
+    height: 550
+
     Image {
         id: logoImage
-        x: 35
-        y: 110
+
+        x: 25
+        y: 30
         source: installPath + "images/logo.png"
     }
 
     Text {
         id: startingGameNetText
-        x: 35
-        y: 245
-        text: qsTr("TEXT_STARTING_APPLICATION")
+
+        x: 30
+        y: 465
+        text: qsTr("TEXT_STARTING_APPLICATION") + ": " + updateText
         smooth: true
         color: "#ffffff"
-        font.family: fontTahoma.name
-        font.weight: "Light"
-        font.pixelSize: 20
+        font { family: "Segoe UI Light"; pixelSize: 30; }
     }
-
-    Text {
-        id: loadingUpdatesText
-        x: 35
-        y: 275
-        text: updateText
-        smooth: true
-        color: updateTextColor
-
-        font.family: fontTahoma.name
-        font.pixelSize: 16
-        font.bold: false
-    }
-
     Elements.ProgressBar {
         id: progressBar
-        x: 500
-        y: 258
-        progressPercent: loadPercent
+
+        width: parent.width
+
+        x: 0
+        y: 440
     }
 
     Text {
         id: versionTextId
-        color: "#999999"
+
+        color: "#ffffff"
         text: versionString
-        anchors.right: parent.right
-        anchors.rightMargin: 32
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 18
-        font.pixelSize: 11
+        anchors { right: parent.right; rightMargin: 32;  }
+        anchors { bottom: parent.bottom; bottomMargin: 50; }
+        font { family: "Segoe UI"; pixelSize: 11; weight: Font.DemiBold; }
+        opacity: 0.5
+        smooth: true
     }
 
     SequentialAnimation {
         id: endAnimation
+
         running: endAnimationStart
+        onCompleted: finishAnimation()
+
         ParallelAnimation {
-            NumberAnimation { target: progressBar; easing.type: Easing.OutQuad; property: "x"; from: 502; to: 602; duration: 250 }
+            NumberAnimation { target: progressBar; easing.type: Easing.OutQuad; property: "x"; from: 0; to: 602; duration: 250 }
             NumberAnimation { target: progressBar; easing.type: Easing.OutQuad; property: "opacity"; from: 1; to: 0; duration: 300 }
 
             NumberAnimation { target: startingGameNetText; easing.type: Easing.OutQuad; property: "x"; from: 30; to: -34; duration: 250 }
             NumberAnimation { target: startingGameNetText; easing.type: Easing.OutQuad; property: "opacity"; from: 1; to: 0; duration: 300 }
-
-            NumberAnimation { target: loadingUpdatesText; easing.type: Easing.OutQuad; property: "x"; from: 30; to: -54; duration: 250 }
-            NumberAnimation { target: loadingUpdatesText; easing.type: Easing.OutQuad; property: "opacity"; from: 1; to: 0; duration: 300 }
 
             NumberAnimation { target: logoImage; easing.type: Easing.OutQuad; property: "scale"; from: 1; to: 0; duration: 300 }
             NumberAnimation { target: logoImage; easing.type: Easing.OutQuad; property: "opacity"; from: 1; to: 0; duration: 300 }
 
             NumberAnimation { target: versionTextId; easing.type: Easing.OutQuad; property: "opacity"; from: 1; to: 0; duration: 300 }
         }
-        onCompleted: finishAnimation()
     }
 }

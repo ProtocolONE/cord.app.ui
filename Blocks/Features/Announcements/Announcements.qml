@@ -4,7 +4,7 @@ import Tulip 1.0
 import "AnnouncementsHelper.js" as AnnouncementsHelper
 import "../../../js/PopupHelper.js" as PopupHelper
 import "../../../js/restapi.js" as RestApi
-import "../../../js/GameListModelHelper.js" as GameListModelHelper
+import "../../../js/Core.js" as Core
 import "../../../js/GoogleAnalytics.js" as GoogleAnalytics
 
 import "../../../Elements" as Elements
@@ -32,7 +32,7 @@ Item {
 
         Marketing.send(Marketing.AnnouncementShown, serviceId, { type: "installedGame" });
 
-        var gameItem = GameListModelHelper.serviceItemByServiceId(serviceId);
+        var gameItem = Core.serviceItemByServiceId(serviceId);
 
         PopupHelper.showPopup(remindAboutGamePopUp,
                               {
@@ -97,7 +97,7 @@ Item {
                        announceItem.serviceId,
                        { type: "announcementSmall", id: announceItem.id });
 
-        var gameItem = GameListModelHelper.serviceItemByServiceId(announceItem.serviceId);
+        var gameItem = Core.serviceItemByServiceId(announceItem.serviceId);
         PopupHelper.showPopup(announceGameItemPopUp,
                               {
                                   gameItem: gameItem,
@@ -139,7 +139,7 @@ Item {
         bigAnnounceWindow.announceItem = announceItem;
         bigAnnounceWindow.visible = true
 
-        var gameItem = GameListModelHelper.serviceItemByServiceId(announceItem.serviceId);
+        var gameItem = Core.serviceItemByServiceId(announceItem.serviceId);
         GoogleAnalytics.trackEvent('/announcement/big/' + announceItem.id,
                                    'Announcement', 'Show Announcement', gameItem.gaName);
     }
@@ -262,7 +262,7 @@ Item {
         Settings.setValue("qml/Announcements2/reminderNeverExecute/" + serviceId + "/", "showDate", now);
         Marketing.send(Marketing.AnnouncementShown, serviceId, { type: "reminderNeverExecute" });
 
-        var gameItem = GameListModelHelper.serviceItemByServiceId(serviceId);
+        var gameItem = Core.serviceItemByServiceId(serviceId);
         PopupHelper.showPopup(remindAboutGamePopUp,
                               {
                                   popupType: "reminderNeverExecute",
@@ -282,7 +282,7 @@ Item {
         Settings.setValue("qml/Announcements2/reminderExecuteLongAgo/" + serviceId + "/", "showDate", now);
         Marketing.send(Marketing.AnnouncementShown, serviceId, { type: "reminderExecuteLongAgo" });
 
-        var gameItem = GameListModelHelper.serviceItemByServiceId(serviceId);
+        var gameItem = Core.serviceItemByServiceId(serviceId);
         PopupHelper.showPopup(remindAboutGamePopUp,
                               {
                                   popupType: "reminderExecuteLongAgo",
@@ -464,7 +464,7 @@ Item {
                 Marketing.send(Marketing.AnnouncementActionClicked,
                                announceItem.serviceId,
                                { type: "announcementSmall", id: announceItem.id });
-                var gameItem = GameListModelHelper.serviceItemByServiceId(announceItem.serviceId);
+                var gameItem = Core.serviceItemByServiceId(announceItem.serviceId);
                 GoogleAnalytics.trackEvent('/announcement/small/' + announceItem.id,
                                            'Announcement', 'Action on Announcement', gameItem.gaName);
             }
@@ -490,7 +490,7 @@ Item {
                                { type: "announcementSmall", id: announceItem.id });
                 announcements.missClicked(announceItem.serviceId);
 
-                var gameItem = GameListModelHelper.serviceItemByServiceId(announceItem.serviceId);
+                var gameItem = Core.serviceItemByServiceId(announceItem.serviceId);
                 GoogleAnalytics.trackEvent('/announcement/small/' + announceItem.id,
                                            'Announcement', 'Miss Click On Announcement', gameItem.gaName);
 
@@ -507,7 +507,7 @@ Item {
                                { type: "announcementSmall", id: announceItem.id });
                 announcements.announceCloseClick(announceItem);
 
-                var gameItem = GameListModelHelper.serviceItemByServiceId(announceItem.serviceId);
+                var gameItem = Core.serviceItemByServiceId(announceItem.serviceId);
                 GoogleAnalytics.trackEvent('/announcement/small/' + announceItem.id,
                                            'Announcement', 'Close Announcement', gameItem.gaName);
             }
@@ -526,7 +526,7 @@ Item {
             function sendAnnouncementActionClicked() {
                 Marketing.send(Marketing.AnnouncementActionClicked, serviceId, { type: popupType });
 
-                var gameItem = GameListModelHelper.serviceItemByServiceId(serviceId);
+                var gameItem = Core.serviceItemByServiceId(serviceId);
                 GoogleAnalytics.trackEvent('/announcement/'+ popupType +'/' + serviceId,
                                            'Announcement', 'Action on Announcement', gameItem.gaName);
             }
@@ -546,7 +546,7 @@ Item {
                 Marketing.send(Marketing.AnnouncementMissClicked, serviceId, { type: popupType });
                 announcements.missClicked(serviceId);
 
-                var gameItem = GameListModelHelper.serviceItemByServiceId(serviceId);
+                var gameItem = Core.serviceItemByServiceId(serviceId);
                 GoogleAnalytics.trackEvent('/announcement/'+ popupType +'/' + serviceId,
                                            'Announcement', 'Miss Click On Announcement', gameItem.gaName);
             }
@@ -554,7 +554,7 @@ Item {
             onCloseButtonClicked: {
                 Marketing.send(Marketing.AnnouncementClosedClicked, serviceId, { type: popupType });
 
-                var gameItem = GameListModelHelper.serviceItemByServiceId(serviceId);
+                var gameItem = Core.serviceItemByServiceId(serviceId);
                 GoogleAnalytics.trackEvent('/announcement/'+ popupType +'/' + serviceId,
                                            'Announcement', 'Close Announcement', gameItem.gaName);
             }
@@ -607,7 +607,7 @@ Item {
                            bigAnnounceWindow.announceItem.serviceId,
                            { type: "announcementBig", id: bigAnnounceWindow.announceItem.id });
 
-            var gameItem = GameListModelHelper.serviceItemByServiceId(bigAnnounceWindow.announceItem.serviceId);
+            var gameItem = Core.serviceItemByServiceId(bigAnnounceWindow.announceItem.serviceId);
             GoogleAnalytics.trackEvent('/announcement/big/' + bigAnnounceWindow.announceItem.id,
                                        'Announcement', 'Show Announcement', gameItem.gaName);
         }
@@ -620,7 +620,7 @@ Item {
             bigAnnounceWindow.visible = false;
             announcements.announceCloseClick(bigAnnounceWindow.announceItem);
 
-            var gameItem = GameListModelHelper.serviceItemByServiceId(bigAnnounceWindow.announceItem.serviceId);
+            var gameItem = Core.serviceItemByServiceId(bigAnnounceWindow.announceItem.serviceId);
             GoogleAnalytics.trackEvent('/announcement/big/' + bigAnnounceWindow.announceItem.id, 'Announcement', 'Close Announcement', gameItem.gaName);
         }
 
@@ -655,7 +655,7 @@ Item {
                         bigAnnounceWindow.visible = false
                         announcements.announceActionClick(bigAnnounceWindow.announceItem);
 
-                        var gameItem = GameListModelHelper.serviceItemByServiceId(bigAnnounceWindow.announceItem.serviceId);
+                        var gameItem = Core.serviceItemByServiceId(bigAnnounceWindow.announceItem.serviceId);
                         GoogleAnalytics.trackEvent('/announcement/big/' + bigAnnounceWindow.announceItem.id,
                                                    'Announcement', 'Action on Announcement', gameItem.gaName);
                     }

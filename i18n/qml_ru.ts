@@ -707,23 +707,23 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_CA_MINI_DESC</source>
-        <translation>Динамичный шутер</translation>
+        <translation>ДИНАМИЧНЫЙ ШУТЕР</translation>
     </message>
     <message>
         <source>GAME_BS_MINI_DESC</source>
-        <translation>Классическая MMORPG</translation>
+        <translation>КЛАССИЧЕСКАЯ MMORPG</translation>
     </message>
     <message>
         <source>GAME_GA_MINI_DESC</source>
-        <translation>Браузерная стратегия</translation>
+        <translation>БРАУЗЕРНАЯ СТРАТЕГИЯ</translation>
     </message>
     <message>
         <source>GAME_MW2_MINI_DESC</source>
-        <translation>Хардкорная MMORPG</translation>
+        <translation>ХАРДКОРНАЯ MMORPG</translation>
     </message>
     <message>
         <source>GAME_WI_MINI_DESC</source>
-        <translation>Тактический шутер</translation>
+        <translation>ТАКТИЧЕСКИЙ ШУТЕР</translation>
     </message>
     <message>
         <source>GAME_AIKA_MINI_DESC</source>
@@ -866,18 +866,18 @@ Please try again later.</source>
     </message>
     <message>
         <source>SUPPORT_ICON_BUTTON</source>
-        <translation>ПОМОЩЬ</translation>
+        <translation type="obsolete">ПОМОЩЬ</translation>
     </message>
     <message>
         <source>SUPPORT_ICON_TOOLTIP</source>
-        <translation>Онлайн чат со специалистом службы поддержки пользователей GameNet. Вам помогут с любой проблемой и ответят на любые вопросы!</translation>
+        <translation type="obsolete">Онлайн чат со специалистом службы поддержки пользователей GameNet. Вам помогут с любой проблемой и ответят на любые вопросы!</translation>
     </message>
 </context>
 <context>
     <name>GamesSwitchFooter</name>
     <message>
         <source>OTHER_GAMES</source>
-        <translation>Другие игры</translation>
+        <translation type="obsolete">Другие игры</translation>
     </message>
     <message>
         <source>GAMENET_LINK</source>
@@ -889,15 +889,26 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAMENET_MONEY_LINK</source>
-        <translation>Пополнить счет</translation>
+        <translation type="obsolete">Пополнить счет</translation>
     </message>
     <message>
         <source>GAMENET_ICON_TOOLTIP</source>
-        <translation>Новости моих друзей на сайте gamenet.ru</translation>
+        <translation type="obsolete">Новости моих друзей на сайте gamenet.ru</translation>
     </message>
     <message>
         <source>SUPPORT_ICON_TOOLTIP</source>
         <translation type="obsolete">Тут помогут с любой проблемой и ответят на любые вопросы</translation>
+    </message>
+</context>
+<context>
+    <name>Header</name>
+    <message>
+        <source>FREE_OF_CHARGE</source>
+        <translation>Бесплатно</translation>
+    </message>
+    <message>
+        <source>ALL_GAMES</source>
+        <translation>Все игры</translation>
     </message>
 </context>
 <context>
@@ -1055,19 +1066,75 @@ Please try again later.</source>
     </message>
     <message>
         <source>TAB_NEWS</source>
-        <translation>Новости</translation>
+        <translation>НОВОСТИ</translation>
     </message>
     <message>
         <source>TAB_FORUM</source>
-        <translation>Форум</translation>
+        <translation>ФОРУМ</translation>
     </message>
     <message>
         <source>TAB_NEWS_ABOUT_GAME</source>
-        <translation>Об игре</translation>
+        <translation>ОБ ИГРЕ</translation>
     </message>
     <message>
         <source>TAB_BLOG</source>
-        <translation>Блог</translation>
+        <translation>БЛОГ</translation>
+    </message>
+    <message>
+        <source>SUPPORT_ICON_BUTTON</source>
+        <translation>ПОМОЩЬ</translation>
+    </message>
+    <message>
+        <source>JANUARY</source>
+        <translation>января</translation>
+    </message>
+    <message>
+        <source>FEBRUARY</source>
+        <translation>февраля</translation>
+    </message>
+    <message>
+        <source>MARCH</source>
+        <translation>марта</translation>
+    </message>
+    <message>
+        <source>APRIL</source>
+        <translation>апреля</translation>
+    </message>
+    <message>
+        <source>MAY</source>
+        <translation>мая</translation>
+    </message>
+    <message>
+        <source>JUNE</source>
+        <translation>июня</translation>
+    </message>
+    <message>
+        <source>JULY</source>
+        <translation>июля</translation>
+    </message>
+    <message>
+        <source>AUGUST</source>
+        <translation>августа</translation>
+    </message>
+    <message>
+        <source>SEPTEMBER</source>
+        <translation>сентября</translation>
+    </message>
+    <message>
+        <source>OCTOBER</source>
+        <translation>октября</translation>
+    </message>
+    <message>
+        <source>NOVEMBER</source>
+        <translation>ноября</translation>
+    </message>
+    <message>
+        <source>DECEMBER</source>
+        <translation>декабря</translation>
+    </message>
+    <message>
+        <source>MENU_ITEM_SETTINGS</source>
+        <translation>НАСТРОЙКА</translation>
     </message>
 </context>
 <context>
@@ -1097,23 +1164,51 @@ Please try again later.</source>
     </message>
     <message>
         <source>MENU_ITEM_MONEY</source>
-        <translation>Баланс</translation>
+        <translation type="obsolete">Баланс</translation>
     </message>
     <message>
         <source>MENU_ITEM_SETTINGS</source>
-        <translation>Настройки</translation>
+        <translation type="obsolete">Настройки</translation>
     </message>
     <message>
         <source>MENU_ITEM_QUIT</source>
-        <translation>Выход</translation>
+        <translation type="obsolete">Выход</translation>
     </message>
     <message>
         <source>MENU_ITEM_GUEST_CONFIRM</source>
-        <translation>Завершить регистрацию</translation>
+        <translation type="obsolete">Завершить регистрацию</translation>
     </message>
     <message>
         <source>MENU_ITEM_NICK_NAME_CONFIRM</source>
-        <translation>Выбрать никнейм</translation>
+        <translation type="obsolete">Выбрать никнейм</translation>
+    </message>
+    <message>
+        <source>ACCOUNT_DEPOSIT</source>
+        <translation>ПОПОЛНИТЬ СЧЁТ</translation>
+    </message>
+    <message>
+        <source>LOGOUT_TOOLTIP</source>
+        <translation>Логаут</translation>
+    </message>
+    <message>
+        <source>LEVEL_AVATAR_TOOLTIP</source>
+        <translation>Ваш аватар и уровень</translation>
+    </message>
+    <message>
+        <source>PREMIUM_TOOLTIP</source>
+        <translation>Премиум аккаунт</translation>
+    </message>
+    <message>
+        <source>PREMIUM_NO_TOOLTIP</source>
+        <translation>Обычный аккаунт</translation>
+    </message>
+    <message>
+        <source>NICKNAME_TOOLTIP</source>
+        <translation>Никнейм</translation>
+    </message>
+    <message>
+        <source>MONEY_TOOLTIP</source>
+        <translation>Деньги</translation>
     </message>
 </context>
 <context>
@@ -1440,27 +1535,27 @@ Please try again later.</source>
     </message>
     <message>
         <source>50 KBit/s</source>
-        <translation>50 КБит/с</translation>
+        <translation type="obsolete">50 КБит/с</translation>
     </message>
     <message>
         <source>200 KBit/s</source>
-        <translation>200 КБит/с</translation>
+        <translation type="obsolete">200 КБит/с</translation>
     </message>
     <message>
         <source>500 KBit/s</source>
-        <translation>500 КБит/с</translation>
+        <translation type="obsolete">500 КБит/с</translation>
     </message>
     <message>
         <source>1000 KBit/s</source>
-        <translation>1000 КБит/с</translation>
+        <translation type="obsolete">1000 КБит/с</translation>
     </message>
     <message>
         <source>2000 KBit/s</source>
-        <translation>2000 КБит/с</translation>
+        <translation type="obsolete">2000 КБит/с</translation>
     </message>
     <message>
         <source>5000 KBit/s</source>
-        <translation>5000 КБит/с</translation>
+        <translation type="obsolete">5000 КБит/с</translation>
     </message>
     <message>
         <source>LABEL_NUMBER_OF_CONNECTIONS_LIMIT_INPUT</source>
@@ -1481,6 +1576,30 @@ Please try again later.</source>
     <message>
         <source>LABEL_DOWNLOAD_SPEED_LIMIT_INPUT</source>
         <translation>Ограничение скорости загрузки</translation>
+    </message>
+    <message>
+        <source>50 KByte/s</source>
+        <translation>50 КБайт/c</translation>
+    </message>
+    <message>
+        <source>200 KByte/s</source>
+        <translation>200 КБайт/c</translation>
+    </message>
+    <message>
+        <source>500 KByte/s</source>
+        <translation>500 КБайт/c</translation>
+    </message>
+    <message>
+        <source>1000 KByte/s</source>
+        <translation>1000 КБайт/c</translation>
+    </message>
+    <message>
+        <source>2000 KByte/s</source>
+        <translation>2000 КБайт/c</translation>
+    </message>
+    <message>
+        <source>5000 KByte/s</source>
+        <translation>5000 КБайт/c</translation>
     </message>
 </context>
 <context>
@@ -1605,23 +1724,23 @@ Please try again later.</source>
     </message>
     <message>
         <source>MENU_ITEM_AIKA</source>
-        <translation>Aika 2</translation>
+        <translation type="obsolete">Aika 2</translation>
     </message>
     <message>
         <source>MENU_ITEM_WARINC</source>
-        <translation>FireStorm</translation>
+        <translation type="obsolete">FireStorm</translation>
     </message>
     <message>
         <source>MENU_ITEM_BS</source>
-        <translation>BS.ru Demonion</translation>
+        <translation type="obsolete">BS.ru Demonion</translation>
     </message>
     <message>
         <source>MENU_ITEM_COMBATARMS</source>
-        <translation>Combat Arms</translation>
+        <translation type="obsolete">Combat Arms</translation>
     </message>
     <message>
         <source>MENU_ITEM_MW2</source>
-        <translation>Magic World 2</translation>
+        <translation type="obsolete">Magic World 2</translation>
     </message>
     <message>
         <source>MENU_ITEM_ROT</source>
@@ -1710,7 +1829,7 @@ Please try again later.</source>
     <name>UserInfo</name>
     <message>
         <source>BUTTON_SHOW_LOG_IN_FORM</source>
-        <translation>Войти</translation>
+        <translation>ВОЙТИ</translation>
     </message>
     <message>
         <source>GUEST_DEFAULT_NICKNAME</source>

@@ -22,14 +22,14 @@ import "Blocks/Features/Maintenance" as Maintenance
 import "Elements/Tooltip" as Tooltip
 import "js/restapi.js" as RestApi
 import "js/UserInfo.js" as UserInfo
-import "js/GameListModelHelper.js" as GameListModelHelper
+import "js/Core.js" as Core
 import "js/GoogleAnalytics.js" as GoogleAnalytics
 
 Rectangle {
     id: mainWindowRectanglw
     clip: true
     width: 808
-    height: 408
+    height: 558
     color: "#00000000"
 
     signal onWindowPressed(int x, int y);
@@ -80,19 +80,13 @@ Rectangle {
     Maintenance.Maintenance {
     }
 
-    Models.GamesListModel {
-        id: gamesListModel
-
-        Component.onCompleted: GameListModelHelper.initGameItemList(gamesListModel);
-    }
-
     BorderImage {
         id: imageBorder
 
         source: installPath + "images/mainBorder.png"
         x:0
         y:0
-        width: 808; height: 408
+        width: 808; height: 558
         border.left: 0; border.top: 0
         border.right: 0; border.bottom: 0
         smooth: true
@@ -104,13 +98,10 @@ Rectangle {
 
         x: 4; y: 0;
         width: 800
-        height: 400
+        height: 550
         state: "LoadingPage"
         color: "#00000000"
         clip: true
-
-        property int currentGameIndex: -1
-        property variant currentGameItem
 
         property string lastState
         property bool isPageControlAccepted: !mainAuthModule.isAuthMenuOpen
@@ -188,10 +179,28 @@ Rectangle {
             id: gamesSwitchPageModel
 
             visible: false
-            onHomeButtonClicked: qGNA_main.state = "HomePage";
+
             onGameSelection: {
                 GoogleAnalytics.trackPageView('/game/' + item.gaName);
                 userInfoBlock.closeMenu();
+            }
+        }
+
+        Blocks.Header{
+            id: headerMain
+
+            width: parent.width
+            visible: false
+
+            onHomeButtonClicked: {
+                var currentGame = Core.currentGame();
+                if (currentGame) {
+                    GoogleAnalytics.trackEvent('/game/' + currentGame.gaName,
+                                               'Navigation', 'Switch To Home', 'Header');
+                }
+
+                Core.activateGame(null);
+                qGNA_main.state = "HomePage";
             }
         }
 
@@ -207,12 +216,8 @@ Rectangle {
                 return;
             }
 
-            var item = GameListModelHelper.serviceItemByServiceId(serviceId);
-            if (!item ) {
-                return;
-            }
+            Core.activateGameByServiceId(serviceId);
 
-            qGNA_main.currentGameItem = item;
             if (qGNA_main.state != "GamesSwitchPage")
                 qGNA_main.state = "GamesSwitchPage"
         }
@@ -266,7 +271,7 @@ Rectangle {
                     qGNA_main.selectService(serviceId);
 
                     if (!mainWindow.anyLicenseAccepted()) {
-                        var item = GameListModelHelper.serviceItemByServiceId(serviceId);
+                        var item = Core.serviceItemByServiceId(serviceId);
 
                         firstLicense.withPath = (serviceId != "0" && serviceId != "300007010000000000" && !!item)
                         firstLicense.serviceId = serviceId;
@@ -281,10 +286,7 @@ Rectangle {
                         return;
                     }
 
-                    if (qGNA_main.currentGameIndex < 0) {
-                        qGNA_main.state = "HomePage";
-                    }
-
+                    qGNA_main.state = "HomePage";
                     mainWindow.initFinished();
                 }
             }
@@ -292,8 +294,8 @@ Rectangle {
 
         Image {
             id: backTextImage
-            x: 37
-            y: 33
+            x: 90
+            y: 40
             smooth: true
             source: installPath + "images/gamenet.png"
         }
@@ -302,13 +304,17 @@ Rectangle {
             id: userInfoBlock
 
             visible: false
-            anchors { top: parent.top; right: parent.right; topMargin: 35; rightMargin: 20 }
+            anchors { top: parent.top; right: parent.right; topMargin: 43; rightMargin: 33 }
             onLoginRequest: mainAuthModule.switchAnimation();
             onLogoutRequest: mainAuthModule.logout();
             onOpenMoneyRequest: mainAuthModule.openWebPage("http://www.gamenet.ru/money")
-            onOpenSettings: qGNA_main.openSettings()
             onConfirmGuest: mainAuthModule.openLinkGuest();
             onRequestNickname: enterNickName.openFromMenu();
+
+            Rectangle {
+                anchors.fill: parent
+                border{ width: 1; color: "red"; }
+            }
         }
 
         Blocks.Auth {
@@ -333,7 +339,9 @@ Rectangle {
                                             }
 
                                             var info = response.userInfo[0].shortInfo;
+                                            var level = response.userInfo[0].experience.level;
                                             userInfoBlock.setUserInfo(info);
+                                            userInfoBlock.setLevel(level);
                                             mainAuthModule.updateGuestStatus(info.guest || "0");
                                         }, function() {});
             }
@@ -343,7 +351,7 @@ Rectangle {
                 return Settings.value("qml/Announcements/", "AnyGameStarted", -1) != 1;
             }
 
-            selectedGame: qGNA_main.currentGameItem
+            selectedGame: Core.currentGame()
             guestAuthEnabled: isGuestAuthEnabled()
             Component.onCompleted: mainAuthModule.startAutoLogin();
 
@@ -400,11 +408,11 @@ Rectangle {
             visible: false
             anchors.fill: parent
             onCanceled: {
-                if (!qGNA_main.currentGameItem) {
+                if (!Core.currentGame()) {
                     return;
                 }
 
-                qGNA_main.currentGameItem.status = "Normal";
+                Core.currentGame().status = "Normal";
             }
         }
 
@@ -547,7 +555,7 @@ Rectangle {
             id: closeButtonImage
 
             x: 780
-            y: 10
+            y: 12
             source: installPath + "images/closeButton.png"
             opacity: 0.5
 
@@ -607,7 +615,7 @@ Rectangle {
             target: mainWindow
 
             onServiceStarted: {
-                var item = GameListModelHelper.serviceItemByServiceId(service);
+                var item = Core.serviceItemByServiceId(service);
                 if (!item || item.serviceId == "300007010000000000") {
                     return;
                 }
@@ -620,7 +628,7 @@ Rectangle {
                     return;
                 }
 
-                var item = GameListModelHelper.serviceItemByServiceId(service);
+                var item = Core.serviceItemByServiceId(service);
                 if (!gameExecuteTime.startTime || !item || item.serviceId == "300007010000000000") {
                     return;
                 }
@@ -651,6 +659,7 @@ Rectangle {
                 PropertyChanges { target: mainAuthModule; visible: false }
                 PropertyChanges { target: userInfoBlock; visible: false }
                 PropertyChanges { target: backTextImage; visible: true }
+                PropertyChanges { target: headerMain; visible: false; textVisible: true }
             },
 
             State {
@@ -659,7 +668,8 @@ Rectangle {
                 PropertyChanges { target: gamesSwitchPageModel ; visible: false; }
                 PropertyChanges { target: mainAuthModule; visible: true }
                 PropertyChanges { target: userInfoBlock; visible: true }
-                PropertyChanges { target: backTextImage; visible: true }
+                PropertyChanges { target: backTextImage; visible: false }
+                PropertyChanges { target: headerMain; visible: true; textVisible: true }
                 StateChangeScript {
                     script:  {
                         GoogleAnalytics.trackPageView('/home');
@@ -674,6 +684,7 @@ Rectangle {
                 PropertyChanges { target: mainAuthModule; visible: true }
                 PropertyChanges { target: userInfoBlock; visible: true }
                 PropertyChanges { target: backTextImage; visible: false }
+                PropertyChanges { target: headerMain; visible: true; textVisible: true }
             },
 
             State {
@@ -684,6 +695,7 @@ Rectangle {
                 PropertyChanges { target: mainAuthModule; visible: true }
                 PropertyChanges { target: userInfoBlock; visible: true }
                 PropertyChanges { target: backTextImage; visible: false }
+                PropertyChanges { target: headerMain; visible: true; textVisible: false }
                 StateChangeScript {
                     script:  {
                         GoogleAnalytics.trackPageView('/settings');
@@ -717,7 +729,7 @@ Rectangle {
                 return;
             }
 
-            var item = GameListModelHelper.serviceItemByServiceId(serviceId);
+            var item = Core.serviceItemByServiceId(serviceId);
             if (!item) {
                 console.log('bad service id ' + serviceId);
                 return;

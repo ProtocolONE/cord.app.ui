@@ -11,6 +11,7 @@
 import QtQuick 1.0
 import "../Elements" as Elements
 import "../Delegates" as Delegates
+import "../js/Core.js" as Core
 
 Delegates.FlowViewDelegate {
     id: gameIconDelegate
@@ -153,7 +154,7 @@ Delegates.FlowViewDelegate {
                     smooth: true
                     //Слудующая линия - мерзкий хак, но по другому не получить
                     //локализованный текст. См. примечания в моделе.
-                    text: gamesListModel.logoText(model.gameId)
+                    text: Core.gamesListModel.logoText(model.gameId)
                 }
             }
         }

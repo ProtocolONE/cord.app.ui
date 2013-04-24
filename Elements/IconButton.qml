@@ -13,35 +13,37 @@
 
 import QtQuick 1.1
 
-Item {
+Rectangle {
     property alias text: text.text;
     property alias toolTip: mouser.toolTip
     property alias source: image.source
+    property bool isUnderline: false
 
     signal clicked();
 
-    width: Math.max(image.width, text.width)
+    width: image.width
     height: image.height + text.height
 
-    Column {
-        Image {
-            id: image
+    color: "#00000000"
 
-            anchors.horizontalCenter: parent.horizontalCenter
-            opacity: mouser.containsMouse ? 1 : 0.60
+    Image {
+        id: image
 
-            Behavior on opacity {
-                PropertyAnimation { duration: 200 }
-            }
+        anchors.horizontalCenter: parent.horizontalCenter
+        opacity: (mouser.containsMouse || isUnderline)? 1 : 0.60
+
+        Behavior on opacity {
+            PropertyAnimation { duration: 200 }
         }
+    }
 
-        Text {
-            id: text
+    Text {
+        id: text
 
-            anchors.horizontalCenter: parent.horizontalCenter
-            color: "#FFFFFF"
-            font { family: "Segoe UI Light"; bold: true; pixelSize: 12; weight: Font.DemiBold }
-        }
+        anchors { top: image.bottom; topMargin: 2; horizontalCenter: parent.horizontalCenter }
+        color: isUnderline? "#FE9900" : "#FFFFFF"
+        smooth: true
+        font {  family: "Segoe UI Light"; pixelSize: 11; letterSpacing: 0.7 }
     }
 
     CursorMouseArea {

@@ -11,6 +11,8 @@
 import QtQuick 1.0
 
 ListModel {
+    property variant currentGameItem
+
     //К сожалению только так
     //http://qt-project.org/wiki/Qt_Quick_Carousel#70b4903abcb62ace84264ad0443ae759
     function logoText(gameId) {
@@ -81,6 +83,7 @@ ListModel {
         imageSource: "images/games/ca_icon_small.png"
         name: "Combat Arms"
         imageSmall: "images/games/ca_icon_small.png"
+        imageFooter: "images/games/Combat-Arms.png"
         imageMini: "images/games/ca_icon_mini.png"
         imageBig: "images/games/ca_icon_big.png"
         imageHorizontalSmall: "images/games/ca_icon_horizontal_small.png"
@@ -108,12 +111,18 @@ ListModel {
 
         licenseUrl: "http://www.combatarms.ru/license"
 
+
+        itemState: "Normal"
+        animationPause: 100
+        hasOverlay: false
+
     }
 
     ListElement {
         imageSource: "images/games/bs_icon_small.png"
         name: "BS.ru Demonion"
         imageSmall: "images/games/bs_icon_small.png"
+        imageFooter: "images/games/BS.png"
         imageMini: "images/games/bs_icon_mini.png"
         imageBig: "images/games/bs_icon_big.png"
         imageHorizontal: "images/games/bs_icon_horizontal.png"
@@ -140,12 +149,17 @@ ListModel {
         maintenanceProposal2: "300009010000000000"
 
         licenseUrl: "http://www.bs.ru/license"
+
+        itemState: "Normal"
+        animationPause: 150
+        hasOverlay: true
     }
 
     ListElement {
         imageSource: "images/games/aika_icon_small.png"
         name: "Aika2"
         imageSmall: "images/games/aika_icon_small.png"
+        imageFooter: "images/games/AIKA-2.png"
         imageMini: "images/games/aika_icon_mini.png"
         imageBig: ""
         imageLogoSmall: "images/games/aika_logo_small.png"
@@ -173,12 +187,17 @@ ListModel {
         maintenanceProposal2: "300009010000000000"
 
         licenseUrl: "http://www.aika2.ru/license"
+
+        itemState: "Normal";
+        animationPause: 0
+        hasOverlay: false
     }
 
     ListElement {
         imageSource: "images/games/ga_icon_small.png"
         name: "Golden Age"
         imageSmall: "images/games/ga_icon_small.png"
+        imageFooter: "images/games/Golden-Age.png"
         imageMini: "images/games/ga_icon_mini.png"
         imageBig: ""
         imageLogoSmall: "images/games/ga_logo_small.png"
@@ -204,6 +223,10 @@ ListModel {
         maintenanceProposal2: "300009010000000000"
 
         licenseUrl: "http://www.playga.ru/license"
+
+        itemState: "Normal";
+        animationPause: 0
+        hasOverlay: false
     }
 
 
@@ -211,6 +234,7 @@ ListModel {
         imageSource: "images/games/wi_icon_small.png"
         name: "FireStorm"
         imageSmall: "images/games/wi_icon_small.png"
+        imageFooter: "images/games/Fire-Storm.png"
         imageMini: "images/games/wi_icon_mini.png"
         imageBig: ""
         imageHorizontalSmall: "images/games/wi_icon_horizontal_small.png"
@@ -238,12 +262,17 @@ ListModel {
         maintenanceProposal2: "300002010000000000"
 
         licenseUrl: "http://www.firestorm.ru/license"
+
+        itemState: "Normal"
+        animationPause: 100
+        hasOverlay: false
     }
 
     ListElement {
         imageSource: "images/games/mw_icon_small.png"
         name: "Magic World 2"
         imageSmall: "images/games/mw_icon_small.png"
+        imageFooter: "images/games/MW2.png"
         imageMini: "images/games/mw_icon_mini.png"
         imageBig: ""
         imageLogoSmall: "images/games/mw_logo_small.png"
@@ -270,6 +299,10 @@ ListModel {
         maintenanceProposal2: "300002010000000000"
 
         licenseUrl: "http://www.mw2.ru/license"
+
+        itemState: "Normal"
+        animationPause: 150
+        hasOverlay: false
     }
 
 

@@ -796,7 +796,7 @@ User.getSpeedyInfo = function(successCallback, failedCallback) {
 };
 
 User.getProfile = function(profiles, successCallback, failedCallback) {
-    Core.execute('user.getProfile', {profileId : profiles, shortInfo : 1}, true, successCallback, failedCallback);
+    Core.execute('user.getProfile', {profileId : profiles, shortInfo : 1, achievements : 1}, true, successCallback, failedCallback);
 };
 
 //Следующий метод не должен тестироваться по понятным причинам

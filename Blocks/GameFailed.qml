@@ -12,11 +12,11 @@ Blocks.MoveUpPage {
 
     signal openUrl(string url);
 
-    openHeight: 400
+    openHeight: 550
 
     Item {
         width: parent.width
-        height: 400
+        height: 550
 
         Image {
             source: installPath  + "images/backImage.png"

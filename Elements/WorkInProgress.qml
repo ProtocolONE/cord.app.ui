@@ -6,7 +6,7 @@ Item {
     y: 0
     z: 1000
     width: 800
-    height: 400
+    height: 550
     state: 'closed'
     visible: back.opacity !== 0
 

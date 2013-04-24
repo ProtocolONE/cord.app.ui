@@ -5,5 +5,5 @@ import "../Blocks" as Blocks
 Blocks.SettingsPage {
     signal testAndCloseSignal();
     width: 800
-    height: 400
+    height: 550
 }

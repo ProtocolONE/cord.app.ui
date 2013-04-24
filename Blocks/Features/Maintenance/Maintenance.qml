@@ -3,7 +3,7 @@ import QtQuick 1.1
 import "MaintenanceHelper.js" as Helper
 
 import "../../../js/restapi.js" as RestApi
-import "../../../js/GameListModelHelper.js" as GameListModelHelper
+import "../../../js/Core.js" as Core
 
 Item {
     Component.onCompleted: maintCheck.start();
@@ -23,7 +23,7 @@ Item {
             multiplier = schedule[index].hasOwnProperty('id') ? 1000 : 1;
             endTime = schedule[index].endTime * multiplier;
 
-            item = GameListModelHelper.serviceItemByServiceId(index);
+            item = Core.serviceItemByServiceId(index);
             if (!item) {
                 continue;
             }

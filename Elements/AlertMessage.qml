@@ -23,7 +23,7 @@ Blocks.MoveUpPage {
     signal buttonClicked(int messageId, int buttonId)
 
     width: 800
-    height: 400
+    height: 550
     openHeight: 292
 
     Component.onCompleted: alertModule.openMoveUpPage();

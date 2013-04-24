@@ -20,7 +20,7 @@ Blocks.MoveUpPage {
     property bool isBlockOpen: false
 
     width: 800
-    height: 400
+    height: 550
     openHeight: 308
 
     Rectangle {

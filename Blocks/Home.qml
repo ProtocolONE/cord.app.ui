@@ -12,7 +12,7 @@ import QtQuick 1.0
 import "../Models" as Models
 import "../Elements" as Elements
 import "../Delegates" as Delegates
-import "../js/GameListModelHelper.js" as GameListModelHelper
+import "../js/Core.js" as Core
 import "../js/GoogleAnalytics.js" as GoogleAnalytics
 
 Item {
@@ -24,11 +24,6 @@ Item {
 //        property string emptyString: ""
 //        signal torrentListenPortChanged();
 //        signal downloadButtonStartSignal();
-//    }
-
-//    Models.GamesListModel {
-//        id: gamesListModel
-//        Component.onCompleted: GameListModelHelper.initGameItemList(gamesListModel);
 //    }
 
 //    property string installPath: "../"
@@ -48,7 +43,7 @@ Item {
     Connections {
         target: mainWindow
         onDownloadButtonStartSignal: {
-            var item = GameListModelHelper.serviceItemByServiceId(serviceId);
+            var item = Core.serviceItemByServiceId(serviceId);
             mouseItemClicked(item);
         }
     }
@@ -56,7 +51,7 @@ Item {
     Elements.FlowView {
         anchors { fill: parent; leftMargin: 46; topMargin: 109 }
         width: 700
-        height: 400
+        height: 550
         delegate: Delegates.GameIconDelegate {
             model: model
             onMouseClicked: {
@@ -65,6 +60,6 @@ Item {
             }
         }
 
-        model: gamesListModel
+        model: Core.gamesListModel
     }
 }

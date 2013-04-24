@@ -12,8 +12,8 @@ import QtQuick 1.0
 import "." as Elements
 
 Item {
-    width: 58
-    height: 58
+    width: 80
+    height: 25
 
     anchors { top: parent.top; right: parent.right }
     visible: true
@@ -30,25 +30,28 @@ Item {
     Rectangle {
         id: enterBox
 
-        width: 56
-        height: 56
+    width: 80
+    height: 25
         anchors {left: parent.left; leftMargin: 1; top: parent.top; topMargin: 1;}
         color: enterAction.containsMouse ? "#006600" : "#339900"
 
         Image {
-            width: 30
-            height: 32
-            anchors { top: parent.top; topMargin: 6; horizontalCenter: parent.horizontalCenter }
-            fillMode: Image.Tile
-            source: installPath + "images/i_key.png"
+            width: 16
+            height: 18
+            anchors { top: parent.top; topMargin: 4;  }
+            anchors { left: parent.left; leftMargin: 6; }
+            fillMode: Image.PreserveAspectFit
+            source: installPath + "images/key.png"
         }
 
         Text {
             color: "#fff"
             text: buttonText;
-            anchors { bottom: parent.bottom; bottomMargin: 2; horizontalCenter: parent.horizontalCenter }
+            anchors { verticalCenter: parent.verticalCenter }
+            anchors { left: parent.left; leftMargin: 30; }
             wrapMode: Text.NoWrap
             style: Text.Normal
+            smooth: true
             font { family: "Arial"; pixelSize: 12 }
         }
     }

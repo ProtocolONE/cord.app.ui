@@ -21,7 +21,7 @@ Window {
     flags: Qt.Tool | Qt.WindowStaysOnTopHint
 
     width: 800
-    height: 400
+    height: 550
 
     visible: true
     topMost: true
@@ -58,7 +58,7 @@ Window {
 
         anchors.fill: parent
         preferredWidth: 800
-        preferredHeight: 400
+        preferredHeight: 550
         scale: 1
         smooth: false
         pressGrabTime: 0

@@ -12,6 +12,7 @@ import QtQuick 1.0
 import "../Blocks" as Blocks
 
 import "../js/GoogleAnalytics.js" as GoogleAnalytics
+import "../js/Core.js" as Core
 
 Blocks.Home {
     id: homeModel
@@ -20,7 +21,7 @@ Blocks.Home {
     onMouseItemClicked: {
         homeModel.closeAnimationStart();
         userInfoBlock.closeMenu();
-        qGNA_main.currentGameItem = item;
+        Core.activateGame(item);
         qGNA_main.state = "GamesSwitchPage";
         GoogleAnalytics.trackPageView('/game/' + item.gaName);
     }

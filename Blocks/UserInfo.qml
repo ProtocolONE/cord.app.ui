@@ -15,11 +15,11 @@ Item {
     property string avatarLarge
     property string avatarMedium
     property string avatarSmall
+    property string level
     property bool guest: false
 
     signal loginRequest();
     signal logoutRequest();
-    signal openSettings();
     signal openMoneyRequest();
     signal confirmGuest();
     signal requestNickname();
@@ -40,6 +40,10 @@ Item {
         avatarMedium = userInfo.avatarMedium;
         avatarSmall = userInfo.avatarSmall;
         guest = (userInfo.guest == 1);
+    }
+
+    function setLevel(_level) {
+        level = _level;
     }
 
     function switchToUserInfo()
@@ -117,7 +121,7 @@ Item {
                 easing.type: Easing.OutQuad;
                 property: "anchors.rightMargin";
                 from: -nickNameView.width;
-                to: 0;
+                to: -5;
                 duration: 200;
             }
 
@@ -140,7 +144,7 @@ Item {
                 target: nickNameView;
                 easing.type: Easing.OutQuad;
                 property: "anchors.rightMargin";
-                from: 0;
+                from: -5;
                 to: -nickNameView.width;
                 duration: 200;
             }
@@ -186,10 +190,11 @@ Item {
     Blocks.NickNameView {
         id: nickNameView
 
-        anchors { top: parent.top; right: parent.right }
+        anchors { top: parent.top; topMargin: -36; right: parent.right; rightMargin: 100 }
         opacity: 0
         upText: getUserNickName()
-        downText: userInfoPage.balance        
+        downText: userInfoPage.balance
+        level: userInfoPage.level
         avatarSource: avatarMedium != undefined ? avatarMedium : installPath + "images/avatar.png"
 
         isGuest: userInfoPage.guest
@@ -198,11 +203,6 @@ Item {
         onQuitClicked: {
             GoogleAnalytics.trackEvent('/NickNameView', 'Auth', 'Logout');
             logoutRequest();
-        }
-
-        onSettingsClicked: {
-            GoogleAnalytics.trackEvent('/NickNameView', 'Navigation', 'Switch To Settings');
-            openSettings();
         }
 
         onMoneyClicked: {

@@ -5,7 +5,7 @@ import "../Elements" as Elements
 import "../Blocks/GameSwitch"
 import "../Blocks" as Blocks
 
-import "../js/GameListModelHelper.js" as GameListModelHelper
+import "../js/Core.js" as Core
 
 Blocks.MoveUpPage {
     id: page
@@ -15,13 +15,13 @@ Blocks.MoveUpPage {
     signal launchGame(string serviceId);
 
     function setupButton(button, serviceId) {
-        var item = GameListModelHelper.serviceItemByServiceId(serviceId);
+        var item = Core.serviceItemByServiceId(serviceId);
         button.source = installPath + item.imageHorizontalSmall;
         button.name = item.name;
         button.serviceId = item.serviceId ;
     }
 
-    openHeight: 400
+    openHeight: 550
     onCurrentItemChanged: {
         page.setupButton(button1, page.currentItem.maintenanceProposal1);
         page.setupButton(button2, page.currentItem.maintenanceProposal2);
@@ -29,7 +29,7 @@ Blocks.MoveUpPage {
 
     Item {
         width: parent.width
-        height: 400
+        height: 550
 
         Image {
             source: installPath  + "images/backImage.png"

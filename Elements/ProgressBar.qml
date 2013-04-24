@@ -12,25 +12,13 @@ import QtQuick 1.0
 
 Rectangle {
     id: progressBar
+
     color: "#00000000"
-
-    property int progressPercent
-    property int ticks
-
-    SequentialAnimation {
-        running: true
-        ParallelAnimation {
-            NumberAnimation { target: progressBar; property: "ticks"; from: progressPercent; to: 100; duration: 1750  }
-            NumberAnimation { target: progressLighting; property: "opacity"; easing.type: Easing.InExpo; from: 1; to: 0; duration: 1750; }
-        }
-        PauseAnimation { duration: 20 }
-        loops: Animation.Infinite
-    }
 
     Rectangle {
         id: progressMainRect
 
-        width: 500
+        width: parent.width
         height: 6
         color: "#00000000"
         clip: true
@@ -39,46 +27,33 @@ Rectangle {
 
         Rectangle {
             height: 1
-            color: "#393939"
-            anchors.top: parent.top
-            anchors.topMargin: 3
-            anchors.right: parent.right
-            anchors.rightMargin: 0
-            anchors.left: parent.left
-            anchors.leftMargin: 0
-        }
-
-        Rectangle {
-            height: 1
-            color: "#262626"
-            anchors.top: parent.top
-            anchors.topMargin: 4
-            anchors.right: parent.right
-            anchors.rightMargin: 0
-            anchors.left: parent.left
-            anchors.leftMargin: 0
-        }
-
-        Rectangle {
-            id: progressRect
-            height: 1
-            width: (parent.width / 100) * progressPercent
-            anchors.top: parent.top
-            anchors.topMargin: 3
-            anchors.left: parent.left
-            anchors.leftMargin: 0
-            color: "#fdfdfd"
+            color: "#ffffff"
+            opacity: 0.3
+            anchors { left: parent.left; top: parent.top; right: parent.right; }
+            anchors { topMargin: 3; rightMargin: 0; leftMargin: 0; }
         }
 
         Image {
-            id: progressLighting
-            x: ticks * progressRect.width / 100 - width
+            id: lightImage
+
             y: 1
-            source: installPath + "images/lighting.png"
-            visible: progressPercent > 6 ? true : false
+            anchors.left: parent.left
+            anchors.leftMargin: -250
+            source: installPath + "images/progression.png"
+            width: 250
         }
 
-    }
+        SequentialAnimation {
+            running: lightImage.visible
+            loops: Animation.Infinite
 
+            PauseAnimation { duration: 20 }
+            ParallelAnimation {
+                PropertyAnimation { target: lightImage; property: "opacity"; from: 0; to: 1 ; duration: 100 }
+            }
+            PropertyAnimation { target: lightImage; property: "anchors.leftMargin"; from: -250; to: progressBar.width ; duration: 3000; }
+            PropertyAnimation { target: lightImage;  property: "opacity"; from: 1; to: 0 ; duration: 200 }
+        }
+    }
 }
 

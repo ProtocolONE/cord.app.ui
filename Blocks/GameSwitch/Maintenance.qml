@@ -14,7 +14,7 @@
 import QtQuick 1.1
 
 import "."
-import "../../js/GameListModelHelper.js" as GameListModelHelper
+import "../../js/Core.js" as Core
 
 Item {
     property variant currentItem;
@@ -22,7 +22,7 @@ Item {
     signal launchGame(string serviceId);
 
     function setupButton(button, serviceId) {
-        var item = GameListModelHelper.serviceItemByServiceId(serviceId);
+        var item = Core.serviceItemByServiceId(serviceId);
         button.source = installPath + item.imageHorizontalSmall;
         button.name = item.name;
         button.serviceId = item.serviceId ;

@@ -16,12 +16,12 @@ Rectangle {
     id: mainDownloadPageRectangle
     color: "#00000000"
 
-    property variant speedItems:           { "50" : QT_TR_NOOP("50 KBit/s"),
-                                             "200" : QT_TR_NOOP("200 KBit/s"),
-                                             "500" : QT_TR_NOOP("500 KBit/s"),
-                                             "1000" : QT_TR_NOOP("1000 KBit/s"),
-                                             "2000" : QT_TR_NOOP("2000 KBit/s"),
-                                             "5000" : QT_TR_NOOP("5000 KBit/s"),
+    property variant speedItems:           { "50" : QT_TR_NOOP("50 KByte/s"),
+                                             "200" : QT_TR_NOOP("200 KByte/s"),
+                                             "500" : QT_TR_NOOP("500 KByte/s"),
+                                             "1000" : QT_TR_NOOP("1000 KByte/s"),
+                                             "2000" : QT_TR_NOOP("2000 KByte/s"),
+                                             "5000" : QT_TR_NOOP("5000 KByte/s"),
                                              "0" : QT_TR_NOOP("Unlimited")
     }
 
@@ -178,27 +178,27 @@ Rectangle {
 
         listModel: ListModel {
             ListElement {
-                textValue: QT_TR_NOOP("50 KBit/s")
+                textValue: QT_TR_NOOP("50 KByte/s")
                 shortValue: "50"
             }
             ListElement {
-                textValue: QT_TR_NOOP("200 KBit/s")
+                textValue: QT_TR_NOOP("200 KByte/s")
                 shortValue: "200"
             }
             ListElement {
-                textValue: QT_TR_NOOP("500 KBit/s")
+                textValue: QT_TR_NOOP("500 KByte/s")
                 shortValue: "500"
             }
             ListElement {
-                textValue:  QT_TR_NOOP("1000 KBit/s")
+                textValue:  QT_TR_NOOP("1000 KByte/s")
                 shortValue: "1000"
             }
             ListElement {
-                textValue: QT_TR_NOOP("2000 KBit/s")
+                textValue: QT_TR_NOOP("2000 KByte/s")
                 shortValue: "2000"
             }
             ListElement {
-                textValue: QT_TR_NOOP("5000 KBit/s")
+                textValue: QT_TR_NOOP("5000 KByte/s")
                 shortValue: "5000"
             }
             ListElement {
@@ -227,27 +227,27 @@ Rectangle {
 
         listModel: ListModel {
             ListElement {
-                textValue: QT_TR_NOOP("50 KBit/s")
+                textValue: QT_TR_NOOP("50 KByte/s")
                 shortValue: "50"
             }
             ListElement {
-                textValue: QT_TR_NOOP("200 KBit/s")
+                textValue: QT_TR_NOOP("200 KByte/s")
                 shortValue: "200"
             }
             ListElement {
-                textValue: QT_TR_NOOP("500 KBit/s")
+                textValue: QT_TR_NOOP("500 KByte/s")
                 shortValue: "500"
             }
             ListElement {
-                textValue:  QT_TR_NOOP("1000 KBit/s")
+                textValue:  QT_TR_NOOP("1000 KByte/s")
                 shortValue: "1000"
             }
             ListElement {
-                textValue: QT_TR_NOOP("2000 KBit/s")
+                textValue: QT_TR_NOOP("2000 KByte/s")
                 shortValue: "2000"
             }
             ListElement {
-                textValue: QT_TR_NOOP("5000 KBit/s")
+                textValue: QT_TR_NOOP("5000 KByte/s")
                 shortValue: "5000"
             }
             ListElement {

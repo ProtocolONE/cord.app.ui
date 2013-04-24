@@ -16,7 +16,7 @@ import "../js/restapi.js" as RestApi
 Blocks.MoveUpPage {
     id: alertModule
 
-    openHeight: 400
+    openHeight: 550
 
     property string nickname
     property string nametech

@@ -13,7 +13,9 @@ import Tulip 1.0
 import "../Elements" as Elements
 import "../js/GoogleAnalytics.js" as GoogleAnalytics
 import "../js/restapi.js" as RestApi
-
+import "../js/support.js" as SupportHelper
+import "../js/DateHelper.js" as DateHelper
+import "../js/Core.js" as Core
 Item {
     id: newsBlock
 
@@ -25,178 +27,127 @@ Item {
         newsBlock.newsReady();
     }
 
-    implicitWidth: 313
-    implicitHeight: 141
+    implicitWidth: 450
+    implicitHeight: 206
     state: "AboutGameTab"
 
-    Component.onCompleted: newsItem.reloadNews();
+    Component.onCompleted: {
+
+        DateHelper.setMonthNames([qsTr("JANUARY"), qsTr("FEBRUARY"), qsTr("MARCH"), qsTr("APRIL"), qsTr("MAY"),
+                                 qsTr("JUNE"), qsTr("JULY"), qsTr("AUGUST"), qsTr("SEPTEMBER"), qsTr("OCTOBER"),
+                                 qsTr("NOVEMBER"), qsTr("DECEMBER")]);
+
+        newsItem.reloadNews();
+    }
 
     QtObject {
         id: d
 
         function getExecuteCount() {
-            if (qGNA_main.currentGameItem) {
-                var successCount = parseInt(Settings.value('gameExecutor/serviceInfo/' + qGNA_main.currentGameItem.serviceId, 'successCount', 0));
-                var failCount = parseInt(Settings.value('gameExecutor/serviceInfo/' + qGNA_main.currentGameItem.serviceId, 'failedCount', 0));
+            if (Core.currentGame()) {
+                var successCount = parseInt(Settings.value('gameExecutor/serviceInfo/' + Core.currentGame().serviceId, 'successCount', 0));
+                var failCount = parseInt(Settings.value('gameExecutor/serviceInfo/' + Core.currentGame().serviceId, 'failedCount', 0));
                 return successCount + failCount;
             }
 
             return 0;
         }
-
-        function timeStampToTimeConverter(timeValue) {
-            var a = new Date(timeValue * 1000);
-            return a.getDate() + "." + (a.getMonth() + 1) + "." + a.getFullYear();
-        }
     }
 
     Connections {
-        target: qGNA_main
+        target: Core.gamesListModel
         onCurrentGameItemChanged: {
-            newsBlock.state = qGNA_main.currentGameItem
+            newsBlock.state = Core.currentGame()
                     ? (d.getExecuteCount() > 0 ? "NewsTab": "AboutGameTab")
                     : "AboutGameTab";
         }
     }
 
     Column {
-        spacing: 0
+        spacing: 10
 
         Row {
-            spacing: 0
+            spacing: 26
 
-            Item {
+            Elements.IconButton {
                 id: aboutGameTab
 
-                property bool isUnderline: false
-
-                width: 70
-                height: 25
-
-                Rectangle {
-                    anchors.fill: parent
-                    color: "#0066cc"
-                    opacity: 0.75
-                }
-
-                Elements.TextH4 {
-                    anchors.centerIn: parent
-                    font { bold: true; underline: aboutGameTab.isUnderline }
-                    text: qsTr("TAB_NEWS_ABOUT_GAME")
-                }
-
-                Elements.CursorMouseArea {
-                    anchors.fill: parent;
-                    onClicked: {
-                        GoogleAnalytics.trackEvent('/newsBlock/' + qGNA_main.currentGameItem.gaName,
-                                                   'Navigation', 'About Game');
-                        newsBlock.state = "AboutGameTab"
-                    }
+                text: qsTr("TAB_NEWS_ABOUT_GAME")
+                source: aboutGameTab.isUnderline ?  installPath + "images/menu/info_active.png" : installPath + "images/menu/info.png"
+                onClicked: {
+                    GoogleAnalytics.trackEvent('/newsBlock/' + Core.currentGame().gaName,
+                                               'Navigation', 'About Game');
+                    newsBlock.state = "AboutGameTab"
                 }
             }
 
-            Item {
+            Elements.IconButton {
                 id: newsTab
 
-                property bool isUnderline: false;
-
-                width: 70
-                height: 26
-
-                Rectangle {
-                    anchors { fill: parent; leftMargin: 1 }
-                    color: "#0066cc"
-                    opacity: 0.75
-                }
-
-                Elements.TextH4 {
-                    anchors.centerIn: parent
-                    font { bold: true; underline: newsTab.isUnderline }
-                    text: qsTr("TAB_NEWS")
-                }
-
-                Elements.CursorMouseArea {
-                    anchors.fill: parent;
-                    onClicked: {
-                        if (qGNA_main && qGNA_main.currentGameItem) {
-                            GoogleAnalytics.trackEvent('/newsBlock/' + qGNA_main.currentGameItem.gaName,
-                                                       'Navigation', 'News');
-                        }
-
-                        newsBlock.state = "NewsTab"
+                text: qsTr("TAB_NEWS")
+                source: newsTab.isUnderline ? installPath + "images/menu/news_active.png" : installPath + "images/menu/news.png"
+                onClicked: {
+                    if (qGNA_main && Core.currentGame()) {
+                        GoogleAnalytics.trackEvent('/newsBlock/' + Core.currentGame().gaName,
+                                                   'Navigation', 'News');
                     }
+                    newsBlock.state = "NewsTab"
                 }
             }
 
-            Item {
-                width: 64
-                height: 25
-                visible: qGNA_main.currentGameItem != undefined  && qGNA_main.currentGameItem.blogUrl
-
-                Rectangle {
-                    width: 63
-                    height: 25
-                    color: "#0066cc"
-                    opacity: 0.75
-                    anchors { top: parent.top; left: parent.left; leftMargin: 1 }
-
-                    Elements.CursorMouseArea {
-                        anchors.fill: parent
-                        hoverEnabled: true
-                        onClicked: {
-                            GoogleAnalytics.trackEvent('/newsBlock/' + qGNA_main.currentGameItem.gaName,
-                                                       'Navigation', 'Blog');
-                            mainAuthModule.openWebPage(qGNA_main.currentGameItem.blogUrl);
-                        }
-                    }
-                }
-
-                Elements.TextH4 {
-                    anchors.centerIn: parent
-                    font { bold: true; underline: true }
-                    text: qsTr("TAB_BLOG")
+            Elements.IconButton {
+                visible: Core.currentGame() != undefined  && Core.currentGame().blogUrl
+                text: qsTr("TAB_BLOG")
+                source: installPath + "images/menu/blog.png"
+                onClicked: {
+                    GoogleAnalytics.trackEvent('/newsBlock/' + Core.currentGame().gaName,
+                                               'Navigation', 'Blog');
+                    mainAuthModule.openWebPage(Core.currentGame().blogUrl);
                 }
             }
 
-            Item {
-                width: 64
-                height: 25
+            Elements.IconButton {
 
-                Rectangle {
-                    width: 64
-                    height: 25
-                    color: "#0066cc"
-                    opacity: 0.75
-                    anchors { top: parent.top; left: parent.left; leftMargin: 1 }
-
-                    Elements.CursorMouseArea {
-                        anchors.fill: parent
-                        hoverEnabled: true
-                        onClicked: {
-                            GoogleAnalytics.trackEvent('/newsBlock/' + qGNA_main.currentGameItem.gaName,
-                                                       'Navigation', 'Forum');
-                            mainAuthModule.openWebPage(qGNA_main.currentGameItem.forumUrl);
-                        }
-                    }
+                text: qsTr("TAB_FORUM")
+                source: installPath + "images/menu/forum.png"
+                onClicked: {
+                    GoogleAnalytics.trackEvent('/newsBlock/' + Core.currentGame().gaName,
+                                               'Navigation', 'Forum');
+                    mainAuthModule.openWebPage(Core.currentGame().forumUrl);
                 }
+            }
 
-                Elements.TextH4 {
-                    anchors.centerIn: parent
-                    font { bold: true; underline: true }
-                    text: qsTr("TAB_FORUM")
-                }
+            Elements.IconButton {
+                text: qsTr('SUPPORT_ICON_BUTTON')
+                source: installPath + "images/menu/help.png"
+                onClicked: SupportHelper.show(parent, Core.currentGame() ? Core.currentGame().gaName : '');
+            }
+
+            Elements.IconButton {
+                text: qsTr('MENU_ITEM_SETTINGS')
+                source: installPath + "images/menu/settings.png"
+                onClicked: qGNA_main.openSettings();
             }
         }
 
         Rectangle {
-            width: 313
-            height: 115
+            width: 444
+            height: 180
             color: "#00000000"
 
             Rectangle {
-                anchors.fill: parent
-                color: "#0066cc"
-                opacity: 0.75
+                id: opacityBlock
+
+                anchors { top: parent.top; topMargin: 5 }
+                anchors { left: parent.left; right: parent.right; leftMargin: -62 }
+                color: "#000000"
+                opacity: 0.4
+                Image{
+                    id: cornerPoint
+
+                    anchors{ right: parent.right; bottom: parent.top }
+                    source: installPath + "images/corner.png"
+                }
             }
 
             Item {
@@ -204,13 +155,16 @@ Item {
                 anchors.fill: parent
 
                 Text {
-                    text: qGNA_main.currentGameItem != undefined ? gamesListModel.aboutGameText(qGNA_main.currentGameItem.gameId) : ""
+                    id: aboutGamesText
+
+                    text: Core.currentGame() != undefined ? Core.gamesListModel.aboutGameText(Core.currentGame().gameId) : ""
                     textFormat: Text.RichText
                     onLinkActivated: mainAuthModule.openWebPage(link);
-
                     color: "#ffffff"
-                    font.pixelSize: 13
-                    anchors { fill: parent; margins: 7 }
+                    font{ pixelSize: 17; letterSpacing: -0.5 }
+                    smooth:  true
+                    anchors { topMargin: 18; top: parent.top }
+                    anchors { left: parent.left; right: parent.right; rightMargin: 30 }
                     wrapMode: Text.WordWrap
                 }
             }
@@ -269,21 +223,6 @@ Item {
                     }
                 }
 
-                Rectangle {
-                    height: 1
-                    anchors { left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter }
-                    opacity: 0.2
-                    color: "#000000"
-                }
-
-                Rectangle {
-                    height: 1
-                    anchors { left: parent.left; right: parent.right }
-                    anchors { verticalCenter: parent.verticalCenter; verticalCenterOffset: 1 }
-                    opacity: 0.25
-                    color: "#ffffff"
-                }
-
                 ListView {
                     visible: true;
                     width: parent.width;
@@ -292,9 +231,9 @@ Item {
                     clip: true
                     interactive: false
                     delegate:  Elements.NewsItem {
-                        width: 313
-                        height: 57
-                        newsTextDate: d.timeStampToTimeConverter(time);
+                        width: parent.width
+                        height: 50
+                        newsTextDate: DateHelper.toLocaleFormat(new Date(time * 1000), '%d %m');
                         newsTextBody: title;
                         newsCommentCount: commentCount
                         newsLikeCount: likeCount
@@ -308,21 +247,21 @@ Item {
     states: [
         State {
             name: "AboutGameTab"
-            PropertyChanges { target: aboutGameTab; height: 26 }
-            PropertyChanges { target: newsTab; height: 25 }
-            PropertyChanges { target: aboutGameTab; isUnderline: false }
-            PropertyChanges { target: newsTab; isUnderline: true }
+            PropertyChanges { target: aboutGameTab; isUnderline: true }
+            PropertyChanges { target: newsTab; isUnderline: false }
             PropertyChanges { target: newsItem; visible: false }
             PropertyChanges { target: aboutGamesItem; visible: true }
+            PropertyChanges { target: opacityBlock; height: aboutGamesText.height + 38 }
+            PropertyChanges { target: cornerPoint; anchors.rightMargin: 413 }
         },
         State {
             name: "NewsTab"
-            PropertyChanges { target: aboutGameTab; height: 25 }
-            PropertyChanges { target: newsTab; height: 26 }
-            PropertyChanges { target: aboutGameTab; isUnderline: true }
-            PropertyChanges { target: newsTab; isUnderline: false }
+            PropertyChanges { target: aboutGameTab; isUnderline: false }
+            PropertyChanges { target: newsTab; isUnderline: true }
             PropertyChanges { target: newsItem; visible: true }
             PropertyChanges { target: aboutGamesItem; visible: false }
+            PropertyChanges { target: opacityBlock; height: 180 }
+            PropertyChanges { target: cornerPoint; anchors.rightMargin: 346 }
         }
     ]
 }

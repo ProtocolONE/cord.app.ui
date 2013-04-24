@@ -18,7 +18,7 @@ Blocks.MoveUpPage {
 
     signal canceled();
 
-    openHeight: 400
+    openHeight: 550
 
     Rectangle {
         color: "#353945"

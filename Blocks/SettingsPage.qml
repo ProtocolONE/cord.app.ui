@@ -11,12 +11,19 @@
 import QtQuick 1.0
 import qGNA.Library 1.0
 import Tulip 1.0
-
+import "../js/Core.js" as Core
 import "../Elements" as Elements
 import "../Delegates" as Delegates
 import ".."
 
 Rectangle {
+
+    Component.onCompleted: changeGameByServiceId(Core.currentGame().serviceId)
+
+    function changeGameByServiceId(serviceId){
+        gameSettingsListView.changeGameByIndex(Core.indexByServiceId(serviceId));
+        gameSettingsListView.currentItem.state = "Active";
+    }
 
  //HACK
 //    Item {
@@ -46,7 +53,7 @@ Rectangle {
 //    property string installPath: "../"
 
     width: 800
-    height: 400
+    height: 550
 
     id: settingsPageId
     color: "#00000000"
@@ -220,70 +227,36 @@ Rectangle {
                             clip: true
                             spacing: 3
 
+                            function changeGameByIndex (index){
+                                generalSettings.visible = false;
+                                gameSettings.visible = true;
+                                if (gameSettingsListView.currentIndex != index){
+                                    if (gameSettingsListView.currentIndex != -1) {
+                                        gameSettingsListView.currentItem.state = "Normal";
+                                    }
+
+                                    gameSettingsListView.currentIndex = index;
+                                    gameSettings.hasOverlay = gameSettingsListView.currentItem.hasOverlayAlias;
+                                    gameSettings.serviceId = gameSettingsListView.currentItem.serviceIdAlias;
+                                    overlayEnabledCheckBox.resetValue();
+                                    gameSettingsModel.switchGame(gameSettingsListView.currentItem.serviceIdAlias);
+                                }
+
+                                if (listViewId.currentIndex !== -1) {
+                                    listViewId.currentItem.state = "Normal";
+                                    listViewId.currentIndex = -1;
+                                }
+                            }
+
                             delegate: Delegates.SettingsMenuDelegate {
                                 property string serviceIdAlias: serviceId
-                                buttonText: qsTr(itemText)
-                                onTextClicked: {
-                                    generalSettings.visible = false;
-                                    gameSettings.visible = true;
-                                    if (gameSettingsListView.currentIndex != index){
-                                        if (gameSettingsListView.currentIndex != -1) {
-                                            gameSettingsListView.currentItem.state = "Normal";
-                                        }
+                                property bool hasOverlayAlias: hasOverlay
 
-                                        gameSettingsListView.currentIndex = index;
-                                        gameSettings.hasOverlay = model.hasOverlay;
-                                        gameSettings.serviceId = model.serviceId;
-                                        overlayEnabledCheckBox.resetValue();
-                                        gameSettingsModel.switchGame(serviceId);
-                                    }
-
-                                    if (listViewId.currentIndex !== -1) {
-                                        listViewId.currentItem.state = "Normal";
-                                        listViewId.currentIndex = -1;
-                                    }
-                                }
+                                buttonText: qsTr(name)
+                                onTextClicked: gameSettingsListView.changeGameByIndex(index);
                             }
 
-
-                            model: ListModel{
-                                ListElement{
-                                    itemText: QT_TR_NOOP("MENU_ITEM_AIKA");
-                                    serviceId: "300002010000000000"
-                                    itemState: "Normal";
-                                    animationPause: 0
-                                    hasOverlay: false
-                                }
-                                ListElement{
-                                    itemText: QT_TR_NOOP("MENU_ITEM_WARINC");
-                                    serviceId: "300005010000000000"
-                                    itemState: "Normal"
-                                    animationPause: 100
-                                    hasOverlay: false
-                                }
-                                ListElement{
-                                    itemText: QT_TR_NOOP("MENU_ITEM_BS");
-                                    serviceId: "300003010000000000"
-                                    itemState: "Normal"
-                                    animationPause: 150
-                                    hasOverlay: true
-                                }
-                                ListElement{
-                                    itemText: QT_TR_NOOP("MENU_ITEM_COMBATARMS");
-                                    serviceId: "300009010000000000"
-                                    itemState: "Normal"
-                                    animationPause: 100
-                                    hasOverlay: false
-                                }
-                                ListElement{
-                                    itemText: QT_TR_NOOP("MENU_ITEM_MW2");
-                                    serviceId: "300006010000000000"
-                                    itemState: "Normal"
-                                    animationPause: 150
-                                    hasOverlay: false
-                                }
-                            }
-
+                            model: Core.gamesListModel
                         }
                     }
                 }
