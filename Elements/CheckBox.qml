@@ -18,6 +18,8 @@ Item {
     property string buttonText
     property bool isChecked: state == "Active";
 
+    property alias toolTip: mouser.toolTip
+
     signal checked();
     signal unchecked();
 
@@ -70,6 +72,7 @@ Item {
         opacity: mouser.containsMouse ? 0.95 : 0.85
         smooth: true
         color: mainCheckBoxId.enabled ? "#FFFFFF" : "#666666"
+        wrapMode: Text.WordWrap
     }
 
     Elements.CursorMouseArea {

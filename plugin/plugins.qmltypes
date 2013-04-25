@@ -141,6 +141,51 @@ Module {
         Method { name: "mid"; type: "string" }
     }
     Component {
+        name: "GGS::Overlay::QmlOverlay"
+        defaultProperty: "data"
+        prototype: "QDeclarativeItem"
+        exports: [
+            "Tulip/Overlay 1.0"
+        ]
+        Property { name: "x"; type: "int" }
+        Property { name: "y"; type: "int" }
+        Property { name: "height"; type: "int" }
+        Property { name: "width"; type: "int" }
+        Property { name: "visible"; type: "bool" }
+        Property { name: "flags"; type: "int" }
+        Property { name: "windowState"; type: "Qt::WindowState" }
+        Property { name: "captureMouse"; type: "bool" }
+        Property { name: "captureKeyboard"; type: "bool" }
+        Property { name: "blockMouse"; type: "bool" }
+        Property { name: "blockKeyboard"; type: "bool" }
+        Property { name: "drawFps"; type: "bool" }
+        Signal { name: "sizeChanged" }
+        Signal { name: "xChanged" }
+        Signal { name: "yChanged" }
+        Signal { name: "visibleChanged" }
+        Signal { name: "beforeClosed" }
+        Signal { name: "flagsChanged" }
+        Signal { name: "windowStateChanged" }
+        Signal { name: "captureMouseChanged" }
+        Signal { name: "captureKeyboardChanged" }
+        Signal { name: "blockMouseChanged" }
+        Signal { name: "blockKeyboardChanged" }
+        Signal { name: "drawFpsChanged" }
+        Signal {
+            name: "gameInit"
+            Parameter { name: "width"; type: "int" }
+            Parameter { name: "height"; type: "int" }
+        }
+        Signal {
+            name: "keyPressed"
+            Parameter { name: "key"; type: "int" }
+            Parameter { name: "modifiers"; type: "int" }
+            Parameter { name: "text"; type: "string" }
+        }
+        Method { name: "init" }
+        Method { name: "repaint" }
+    }
+    Component {
         name: "GGS::WebView::NetworkAccessManagerInteractor"
         prototype: "QObject"
         exports: [

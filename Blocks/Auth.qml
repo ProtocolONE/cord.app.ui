@@ -308,19 +308,97 @@ Blocks.MoveUpPage {
                 }
             }
 
-            Rectangle {
-                width: parent.width
-                height: openHeight - 49
-                color: "#2d8700"
+        // Страница ошибки
+        Rectangle {
+            id: failPage
+
+            property string errorMessage
+
+            function trigger() {
+                GoogleAnalytics.trackEvent('/AuthFail', 'Auth', 'Confirm Ok');
+                authRegisterMoveUpPage.state = (authRegisterMoveUpPage.state === "FailAuthPage")
+                             ? "AuthPage"
+                             : "RegistrationPage";
+            }
+
+            anchors { fill: parent; topMargin: 1 }
+            color: "#339900"
+            visible: false
+            focus: visible
+
+            Keys.onEnterPressed: failPage.trigger();
+            Keys.onReturnPressed: failPage.trigger();
+
+            Item {
+                id: authError
+
+                height: 200
+                anchors { left: parent.left; top: parent.top; right: parent.right }
+                anchors { leftMargin: 316; topMargin: 30; rightMargin: 20 }
+
+                Column {
+                    spacing: 10
+                    anchors.fill: parent
+
+                    Text {
+                        id: authErrorText
+
+                        color: "#ffff66"
+                        anchors { left: parent.left; right: parent.right }
+                        text: failPage.errorMessage
+                        textFormat: Text.RichText
+                        wrapMode: Text.WordWrap
+                        width: 500
+                        font { family: "Segoe UI Light"; pixelSize: 13; bold: false }
+                        onLinkActivated: Qt.openUrlExternally(link);
+                    }
+
+                    Elements.Button {
+                        id: forgotPasswordOKbutton
+
+                        buttonText: qsTr("BUTTON_OK")
+                        width: 68
+                        focus: true
+                        fontFamily: "Segoe UI Light"
+                        onButtonPressed: failPage.trigger();
+                    }
+
+                    Text {
+                        color: "#ffff66"
+                        anchors { left: parent.left;  }
+                        text: qsTr("RESTORE_PASSWORD_LINK")
+                        textFormat: Text.RichText
+                        wrapMode: Text.WordWrap
+                        font { family: "Segoe UI Light"; pixelSize: 13; bold: false }
+                        onLinkActivated: Qt.openUrlExternally(link);
+
+                        Elements.CursorShapeArea { anchors.fill: parent }
+                    }
+                }
             }
         }
 
         Item {
             id: hubPage
 
-            width: parent.width
-            height: openHeight
-            visible: authRegisterMoveUpPage.state === "AuthPage"
+            function startRegister() {
+                authRegisterMoveUpPage.isInProgress = true;
+                var register = new Authorization.ProviderRegister(Marketing.mid()),
+                    login = registerLoginTextInput.editText,
+                    password = registerPasswordTextInput.editText;
+                registerPasswordTextInput.clear();
+                register.register(login, password, function(error, response) {
+                                      if (error === Authorization.Result.Success) {
+                                          registerLoginTextInput.clear();
+                                          var auth = new Authorization.ProviderGameNet();
+                                          auth.login(login, password, function(error, response) {
+                                                         authPage.authCallback(error, response, true, false);
+                                                         if (error !== Authorization.Result.Success) {
+                                                             authRegisterMoveUpPage.state = "FailRegistrationPage";
+                                                             if (!response) {
+                                                                 failPage.errorMessage = qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_ERROR");
+                                                                 return;
+                                                             }
 
             Hub {
                 id: hubWidget

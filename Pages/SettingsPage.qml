@@ -304,7 +304,16 @@ Rectangle {
 
             anchors { fill: parent; leftMargin: 301; topMargin: 116; bottomMargin: 100 }
 
-            Loader { id: pageLoader; focus: true; }
+            Loader {
+                id: pageLoader;
+
+                focus: true;
+                anchors {
+                    fill: parent;
+                    rightMargin: 42
+                }
+            }
+
             NumberAnimation {
                 running: pageLoader.status == Loader.Ready;
                 target: pageLoaderItem;

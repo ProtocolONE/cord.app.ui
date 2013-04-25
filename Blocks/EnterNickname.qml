@@ -304,6 +304,7 @@ Blocks.MoveUpPage {
                     techNameInput.editFocus = true;
                     nickNameInput.editFocus = false;
                 }
+                onEnterPressed: buttonSaveAndGo.trigger();
             }
 
             Text {
@@ -370,6 +371,7 @@ Blocks.MoveUpPage {
                             techNameInput.editFocus = false;
                             nickNameInput.editFocus = true;
                         }
+                        onEnterPressed: buttonSaveAndGo.trigger();
                     }
 
                     Text {
@@ -391,11 +393,9 @@ Blocks.MoveUpPage {
             spacing: 10
 
             Elements.Button4 {
-                isEnabled: (mainBlock.isNickNameSaved || mainBlock.isNickNameValid)
-                           && (mainBlock.isTechNameSaved || mainBlock.isTechNameValid)
-                buttonText: qsTr("BUTTON_SAVE_AND_GO")
+                id: buttonSaveAndGo
 
-                onButtonClicked: {
+                function trigger() {
                     if (!mainBlock.isNickNameSaved) {
                         mainBlock.saveNickName(nickNameInput.textEditComponent.text);
                     }
@@ -406,6 +406,12 @@ Blocks.MoveUpPage {
 
                     mainBlock.checkAndFinish();
                 }
+
+                isEnabled: (mainBlock.isNickNameSaved || mainBlock.isNickNameValid)
+                           && (mainBlock.isTechNameSaved || mainBlock.isTechNameValid)
+                buttonText: qsTr("BUTTON_SAVE_AND_GO")
+
+                onButtonClicked: trigger();
             }
 
             Elements.Button4 {

@@ -4,7 +4,7 @@ Qt.include('./Crypt.js');
 Qt.include('./restapi.js');
 
 //Replaced during CI build
-var authVersion = "1.0.19.e08a1273a5f1fe0f20e53307adaae5cc50ade3df";
+var authVersion = "1.0.21.2c4e2d1556b40a62c070d183a2ebce6a86c8b0a3";
 
 function extend(Child, Parent) {
     var F = function() { }
@@ -68,7 +68,8 @@ ProviderBase.prototype = {
     }
 };
 
-var ProviderRegister = function() {
+var ProviderRegister = function(mid) {
+    this.mid = mid || null;
 };
 extend(ProviderRegister, ProviderBase);
 
@@ -78,6 +79,7 @@ ProviderRegister.prototype.register = function(login, password, callback) {
             .addQueryParam('json', '1')
             .addQueryParam('registration', '1')
             .addQueryParam('license', 'true')
+            .addQueryParam('mid', self.mid)
             .addQueryParam('login', login)
             .addQueryParam('password', password);
 

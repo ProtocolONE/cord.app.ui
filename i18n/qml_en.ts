@@ -4,70 +4,70 @@
 <context>
     <name>AccountActivation</name>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="65"/>
-        <location filename="../Blocks/AccountActivation.qml" line="92"/>
-        <location filename="../Blocks/AccountActivation.qml" line="244"/>
+        <location filename="../Blocks/AccountActivation.qml" line="68"/>
+        <location filename="../Blocks/AccountActivation.qml" line="95"/>
+        <location filename="../Blocks/AccountActivation.qml" line="253"/>
         <source>TITLE_ACCOUNT_ACTIVATION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="97"/>
+        <location filename="../Blocks/AccountActivation.qml" line="100"/>
         <source>SUBTITLE_VK_AND_MOBILE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="99"/>
+        <location filename="../Blocks/AccountActivation.qml" line="102"/>
         <source>SUBTITLE_MOBILE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="100"/>
+        <location filename="../Blocks/AccountActivation.qml" line="103"/>
         <source>SUBTITLE_VK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="117"/>
+        <location filename="../Blocks/AccountActivation.qml" line="120"/>
         <source>SUBTITLE_MOBILE_ACTIVATION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="144"/>
+        <location filename="../Blocks/AccountActivation.qml" line="147"/>
         <source>PLACEHOLDER_MOBILE_NUMBER_INPUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="172"/>
+        <location filename="../Blocks/AccountActivation.qml" line="205"/>
         <source>BUTTON_GET_CODE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="176"/>
+        <location filename="../Blocks/AccountActivation.qml" line="166"/>
         <source>ACCOUNT_ACTIVATION_PHONE_NOT_FOUND</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="223"/>
+        <location filename="../Blocks/AccountActivation.qml" line="232"/>
         <source>SUBTITLE_VK_ACTIVATION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="251"/>
+        <location filename="../Blocks/AccountActivation.qml" line="260"/>
         <source>TEXT_CODE_IS_SENT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="261"/>
+        <location filename="../Blocks/AccountActivation.qml" line="270"/>
         <source>PLACEHOLDER_ACTIVATION_CODE_INPUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="271"/>
+        <location filename="../Blocks/AccountActivation.qml" line="302"/>
         <source>BUTTON_CODE_CONFIRM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="203"/>
-        <location filename="../Blocks/AccountActivation.qml" line="294"/>
+        <location filename="../Blocks/AccountActivation.qml" line="212"/>
+        <location filename="../Blocks/AccountActivation.qml" line="308"/>
         <source>BUTTON_CANCEL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -165,7 +165,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AlertAdapter.qml" line="68"/>
+        <location filename="../Blocks/AlertAdapter.qml" line="76"/>
         <source>Default Text</source>
         <translation type="unfinished"></translation>
     </message>
@@ -218,12 +218,71 @@
 <context>
     <name>Auth</name>
     <message>
-        <location filename="../Blocks/Auth.qml" line="290"/>
+        <location filename="../Blocks/Auth.qml" line="756"/>
+        <source>BUTTON_OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="333"/>
+        <location filename="../Blocks/Auth.qml" line="347"/>
+        <location filename="../Blocks/Auth.qml" line="797"/>
+        <location filename="../Blocks/Auth.qml" line="811"/>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="339"/>
+        <location filename="../Blocks/Auth.qml" line="803"/>
+        <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="328"/>
+        <location filename="../Blocks/Auth.qml" line="343"/>
+        <location filename="../Blocks/Auth.qml" line="807"/>
+        <source>AUTH_FAIL_MESSAGE_WRONG</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="371"/>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_GUEST_ERROR</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="323"/>
+        <location filename="../Blocks/Auth.qml" line="389"/>
+        <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="395"/>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="444"/>
         <source>AUTH_LOGIN_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth.qml" line="355"/>
+        <location filename="../Blocks/Auth.qml" line="457"/>
+        <location filename="../Blocks/Auth.qml" line="972"/>
+        <source>PLACEHOLDER_LOGIN_INPUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="475"/>
+        <location filename="../Blocks/Auth.qml" line="1003"/>
+        <source>PLACEHOLDER_PASSWORD_INPUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="500"/>
+        <source>AUTH_LOGIN_BUTTON</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="514"/>
         <source>AUTH_CANCEL_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
@@ -274,53 +333,127 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/AuthBlock.qml" line="126"/>
-        <source>AUTH_FAIL_MESSAGE_UNKNOWN_GUEST_ERROR</source>
+        <location filename="../Blocks/Auth.qml" line="698"/>
+        <location filename="../Blocks/Auth.qml" line="1101"/>
+        <source>AUTH_VK_LOGIN_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/AuthBlock.qml" line="150"/>
-        <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
+        <location filename="../Blocks/Auth.qml" line="766"/>
+        <source>RESTORE_PASSWORD_LINK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/AuthBlock.qml" line="196"/>
-        <source>VK_LOGIN_BUTTON_TEXT</source>
+        <location filename="../Blocks/Auth.qml" line="862"/>
+        <source>LINK_GUEST_UNKNOWN_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/AuthBlock.qml" line="227"/>
-        <source>REGISTRATION_LEFT_LABEL_TEXT</source>
+        <location filename="../Blocks/Auth.qml" line="931"/>
+        <source>GUEST_VK_LINK_UNKNOWN_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/AuthBlock.qml" line="241"/>
-        <source>PLACEHOLDER_LOGIN_INPUT</source>
+        <location filename="../Blocks/Auth.qml" line="947"/>
+        <location filename="../Blocks/Auth.qml" line="1113"/>
+        <source>AUTH_REGISTER_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/AuthBlock.qml" line="259"/>
-        <source>PLACEHOLDER_PASSWORD_INPUT</source>
+        <location filename="../Blocks/Auth.qml" line="984"/>
+        <source>AUTH_REGISTER_LOGIN_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/AuthBlock.qml" line="274"/>
+        <location filename="../Blocks/Auth.qml" line="1016"/>
+        <source>AUTH_REGISTER_PASSWORD_CAPTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="1026"/>
+        <source>AUTH_START_REGISTER_BUTTON</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="1041"/>
+        <location filename="../Blocks/Auth.qml" line="1115"/>
+        <source>AUTH_NORMAL_REGISTER_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="1050"/>
+        <source>AUTH_REGISTER_LICENSE_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="1074"/>
+        <location filename="../Blocks/Auth.qml" line="1114"/>
+        <source>AUTH_LEFT_BUTTON</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="1121"/>
+        <source>AUTH_REGISTER_TITLE_GUEST_LOGOUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="1122"/>
+        <source>AUTH_LEFT_BUTTON_GUEST_LOGOUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="1123"/>
+        <source>AUTH_GUEST_LOGOUT_REGISTER_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="1129"/>
+        <source>AUTH_REGISTER_TITLE_GUEST_EXPIRED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="1130"/>
+        <source>AUTH_LEFT_BUTTON_GUEST_EXPIRED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="1131"/>
+        <source>AUTH_GUEST_EXPIRED_REGISTER_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="1137"/>
+        <source>AUTH_REGISTER_TITLE_GUEST_OPEN_URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="1138"/>
+        <source>AUTH_LEFT_BUTTON_GUEST_OPEN_URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="1139"/>
+        <source>AUTH_GUEST_OPEN_URL_REGISTER_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="1145"/>
+        <source>AUTH_REGISTER_TITLE_GUEST_REQUEST_CONFIGRM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="1146"/>
+        <source>AUTH_LEFT_BUTTON_GUEST_REQUEST_CONFIGRM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="1147"/>
+        <source>AUTH_GUEST_REQUEST_CONFIGRM_REGISTER_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Auth.qml" line="490"/>
         <source>CHECKBOX_REMEMBER_ME</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Auth/AuthBlock.qml" line="284"/>
-        <source>AUTH_LOGIN_BUTTON</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Auth/AuthBlock.qml" line="292"/>
-        <source>AUTH_CANCEL_BUTTON</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Auth/AuthBlock.qml" line="319"/>
-        <source>REGISTER_NEW_USER_LINK</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -365,32 +498,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/EnterNickname.qml" line="335"/>
+        <location filename="../Blocks/EnterNickname.qml" line="336"/>
         <source>LABEL_PROFILE_LINK_INPUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/EnterNickname.qml" line="347"/>
+        <location filename="../Blocks/EnterNickname.qml" line="348"/>
         <source>PREFIX_PROFILE_LINK_INPUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/EnterNickname.qml" line="362"/>
+        <location filename="../Blocks/EnterNickname.qml" line="363"/>
         <source>PLACEHOLDER_PROFILE_LINK_INPUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/EnterNickname.qml" line="396"/>
+        <location filename="../Blocks/EnterNickname.qml" line="412"/>
         <source>BUTTON_SAVE_AND_GO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/EnterNickname.qml" line="414"/>
+        <location filename="../Blocks/EnterNickname.qml" line="420"/>
         <source>BUTTON_CANCEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/EnterNickname.qml" line="429"/>
+        <location filename="../Blocks/EnterNickname.qml" line="435"/>
         <source>NOTICE_CANT_SKIP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -564,6 +697,14 @@
     <message>
         <location filename="../Blocks/GameIsBoring.qml" line="112"/>
         <source>GAME_FAILED_BUTTON_CLOSE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GameOverlay</name>
+    <message>
+        <location filename="../Blocks/GameOverlay.qml" line="223"/>
+        <source>OPEN_WEB_SHOP_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1002,33 +1143,46 @@
 <context>
     <name>LoadScreen</name>
     <message>
-        <location filename="../Pages/LoadScreen.qml" line="33"/>
-        <source>TEXT_INITIALIZATION</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Pages/LoadScreen.qml" line="78"/>
+        <location filename="../Blocks/LoadScreen.qml" line="34"/>
         <source>TEXT_VERSION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/LoadScreen.qml" line="111"/>
-        <location filename="../Pages/LoadScreen.qml" line="143"/>
+        <location filename="../Blocks/LoadScreen.qml" line="49"/>
+        <source>TEXT_STARTING_APPLICATION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/LoadScreen.qml" line="81"/>
+        <source>TECHNICAL_PROBLEM_INFO</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LoadScreenModel</name>
+    <message>
+        <location filename="../Models/LoadScreenModel.qml" line="23"/>
+        <source>TEXT_INITIALIZATION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/LoadScreenModel.qml" line="31"/>
+        <location filename="../Models/LoadScreenModel.qml" line="59"/>
         <source>TEXT_RETRY_UPDATE_CHECK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/LoadScreen.qml" line="163"/>
+        <location filename="../Models/LoadScreenModel.qml" line="79"/>
         <source>TEXT_CHEKING_FOR_UPDATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/LoadScreen.qml" line="165"/>
+        <location filename="../Models/LoadScreenModel.qml" line="81"/>
         <source>TEXT_DOWNLOADING_UPDATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/LoadScreen.qml" line="175"/>
+        <location filename="../Models/LoadScreenModel.qml" line="91"/>
         <source>TEXT_ERROR_UPDATE_CHECK</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1653,8 +1807,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/SettingsPage/SettingsGeneralPage.qml" line="117"/>
+        <location filename="../Blocks/SettingsGeneralPage.qml" line="118"/>
         <source>CHECKBOX_AUTORUN_MINIMIZED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/SettingsGeneralPage.qml" line="149"/>
+        <source>CHECKBOX_GNA_TEST_VERSION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/SettingsGeneralPage.qml" line="155"/>
+        <source>CHECKBOX_GNA_TEST_VERSION_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1686,43 +1850,43 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/SettingsPage.qml" line="337"/>
+        <location filename="../Blocks/SettingsPage.qml" line="373"/>
         <source>SUBTITLE_FOLDERS_GAME_SETTING</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/SettingsPage.qml" line="345"/>
+        <location filename="../Blocks/SettingsPage.qml" line="381"/>
         <source>LABEL_INSTALL_PATH_INPUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/SettingsPage.qml" line="358"/>
-        <location filename="../Pages/SettingsPage.qml" line="382"/>
+        <location filename="../Blocks/SettingsPage.qml" line="394"/>
+        <location filename="../Blocks/SettingsPage.qml" line="418"/>
         <source>BUTTON_SET_PATH</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/SettingsPage.qml" line="369"/>
+        <location filename="../Blocks/SettingsPage.qml" line="405"/>
         <source>LABEL_DISTR_PATH_INPUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/SettingsPage.qml" line="411"/>
+        <location filename="../Blocks/SettingsPage.qml" line="447"/>
         <source>ENABLE_OVERLAY_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/SettingsPage.qml" line="420"/>
+        <location filename="../Blocks/SettingsPage.qml" line="456"/>
         <source>BUTTON_CREATE_DESKTOP_SHORTCUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/SettingsPage.qml" line="425"/>
+        <location filename="../Blocks/SettingsPage.qml" line="461"/>
         <source>BUTTON_CREATE_START_MENU_SHORTCUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/SettingsPage.qml" line="444"/>
+        <location filename="../Blocks/SettingsPage.qml" line="480"/>
         <source>BUTTON_RESTORE_GAME_CLIENT</source>
         <translation type="unfinished"></translation>
     </message>

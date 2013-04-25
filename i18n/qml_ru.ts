@@ -21,11 +21,11 @@
     </message>
     <message>
         <source>TITLE_ACCOUNT_ACTIVATION</source>
-        <translation type="unfinished">Активация аккаунта</translation>
+        <translation>Активация аккаунта</translation>
     </message>
     <message>
         <source>SUBTITLE_MOBILE_ACTIVATION</source>
-        <translation type="unfinished">Введите номер вашего мобильного телефона&lt;br&gt;в международном формате, например: +7 900 123 45 67 </translation>
+        <translation>Введите номер вашего мобильного телефона&lt;br&gt;в международном формате, например: +7 900 123 45 67 </translation>
     </message>
     <message>
         <source>PLACEHOLDER_MOBILE_NUMBER_INPUT</source>
@@ -795,6 +795,13 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>GameOverlay</name>
+    <message>
+        <source>OPEN_WEB_SHOP_BUTTON</source>
+        <translation>Открыть оверлей</translation>
+    </message>
+</context>
+<context>
     <name>GamesListModel</name>
     <message>
         <source>LOGO_CA</source>
@@ -1327,24 +1334,12 @@ Please try again later.</source>
         <translation>Запуск GameNet</translation>
     </message>
     <message>
-        <source>TEXT_INITIALIZATION</source>
-        <translation type="unfinished">Инициализация...</translation>
-    </message>
-    <message>
-        <source>TEXT_RETRY_UPDATE_CHECK</source>
-        <translation type="unfinished">Повторная попытка проверки обновлений...</translation>
-    </message>
-    <message>
-        <source>TEXT_CHEKING_FOR_UPDATE</source>
-        <translation type="unfinished">Проверка обновлений...</translation>
-    </message>
-    <message>
-        <source>TEXT_DOWNLOADING_UPDATE</source>
-        <translation type="unfinished">Загрузка обновлений...</translation>
-    </message>
-    <message>
-        <source>TEXT_ERROR_UPDATE_CHECK</source>
-        <translation type="unfinished">Ошибка при загрузке обновлений...</translation>
+        <source>TECHNICAL_PROBLEM_INFO</source>
+        <translation>Уважаемые игроки!
+
+1 июня с 22:00 по московскому времени в дата-центре будут проводиться плановые работы в системе электропитания, ожидаемое время завершения работ - 2 июня 03:00 МСК. В связи с этим наши игры, приложения, сайты и форум в этот период времени будут недоступны.
+
+Приносим извинения за доставленные неудобства.</translation>
     </message>
 </context>
 <context>
@@ -2211,6 +2206,14 @@ Please try again later.</source>
     <message>
         <source>CHECKBOX_AUTORUN_MINIMIZED</source>
         <translation>Запускать приложение свернутым</translation>
+    </message>
+    <message>
+        <source>CHECKBOX_GNA_TEST_VERSION</source>
+        <translation>Принять участие в тестировании клиента GameNet</translation>
+    </message>
+    <message>
+        <source>CHECKBOX_GNA_TEST_VERSION_TOOLTIP</source>
+        <translation>Поставьте отметку, чтобы учавствовать в тестировании новых функций клиента GameNet. Вы можете столкнуться с различными ошибками и недочетами. Если во время использования тестового клиента вы нашли ошибку, пожалуйста, сообщите о ней в нашу службу поддержки.</translation>
     </message>
 </context>
 <context>

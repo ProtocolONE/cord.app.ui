@@ -57,6 +57,9 @@ Blocks.MoveUpPage {
 
         color: "#353945"
         anchors.fill: parent
+        focus: true
+        Keys.onReturnPressed: back();
+        Keys.onEnterPressed: back();
 
         Component {
             id: errorPage
@@ -145,6 +148,8 @@ Blocks.MoveUpPage {
                                     maximumLength: 17
                                     textEditComponent.text: page.phoneNumber
                                     focus: true
+
+                                    onEnterPressed: if (confirmButton.isEnabled) confirmButton.trigger();
                                 }
                             }
 
@@ -154,24 +159,9 @@ Blocks.MoveUpPage {
                                 spacing: 7
 
                                 Elements.Button4 {
-                                    function isDefaultNumber(str) {
-                                        var result = '';
+                                    id: confirmButton
 
-                                        for (var i = 0; i < str.length; ++i) {
-                                            var c = str[i];
-                                            if (c >= '0' && c <= '9')
-                                                result += c
-                                        }
-
-                                        return result == '79001234567';
-                                    }
-
-                                    isEnabled: nickNameInput.textEditComponent.text.length
-                                               && nickNameInput.acceptableInput && !page.isInProgress
-
-                                    buttonText: qsTr("BUTTON_GET_CODE")
-
-                                    onButtonClicked: {
+                                    function trigger() {
                                         if (isDefaultNumber(nickNameInput.textEditComponent.text)) {
                                             showError(qsTr("ACCOUNT_ACTIVATION_PHONE_NOT_FOUND"));
                                             return;
@@ -196,6 +186,25 @@ Blocks.MoveUpPage {
                                             },
                                             function(httpError) { page.isInProgress = false; });
                                     }
+
+                                    function isDefaultNumber(str) {
+                                        var result = '';
+
+                                        for (var i = 0; i < str.length; ++i) {
+                                            var c = str[i];
+                                            if (c >= '0' && c <= '9')
+                                                result += c
+                                        }
+
+                                        return result == '79001234567';
+                                    }
+
+                                    isEnabled: nickNameInput.textEditComponent.text.length
+                                               && nickNameInput.acceptableInput && !page.isInProgress
+
+                                    buttonText: qsTr("BUTTON_GET_CODE")
+
+                                    onButtonClicked: trigger();
                                 }
 
                                 Elements.Button4 {
@@ -261,15 +270,16 @@ Blocks.MoveUpPage {
                         editDefaultText: qsTr("PLACEHOLDER_ACTIVATION_CODE_INPUT")
                         maximumLength: 10
                         focus: true
+                        onEnterPressed: if (buttonCodeConfirm.isEnabled) buttonCodeConfirm.trigger();
                     }
 
                     Row {
                         spacing: 10
 
                         Elements.Button4 {
-                            isEnabled: true
-                            buttonText: qsTr("BUTTON_CODE_CONFIRM")
-                            onButtonClicked: {
+                            id: buttonCodeConfirm
+
+                            function trigger() {
                                 page.isInProgress = true;
                                 RestApi.User.validateMobileActivationCode(
                                     codeInput.textEditComponent.text,
@@ -287,6 +297,10 @@ Blocks.MoveUpPage {
                                     },
                                     function(httpError) { page.isInProgress = false;});
                             }
+
+                            isEnabled: true
+                            buttonText: qsTr("BUTTON_CODE_CONFIRM")
+                            onButtonClicked: trigger();
                         }
 
                         Elements.Button4 {

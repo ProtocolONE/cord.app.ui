@@ -50,7 +50,15 @@ Item {
     Component {
         id: alertMessage
 
-        Elements.AlertMessage { }
+        Elements.AlertMessage {
+
+            signal enterClicked(int buttonId);
+
+            focus: visible
+
+            Keys.onEnterPressed: enterClicked(Message.Ok);
+            Keys.onReturnPressed: enterClicked(Message.Ok);
+        }
     }
 
     Component {
@@ -78,11 +86,15 @@ Item {
 
             newButton.clicked.connect(comp.clicked);
             newButton.buttonClicked.connect(comp.buttonClicked);
+
+            return newButton;
         }
 
 
         onEmitMessage: {
-            var comp = alertMessage.createObject(page,
+            var lastButton,
+                buttonCount = 0,
+                comp = alertMessage.createObject(page,
                                                  {
                                                     messageText: text,
                                                     headerTitle: title
@@ -92,8 +104,13 @@ Item {
 
             for (var button in page._buttonMesages) {
                 if ((buttons & button) == button) {
-                    messageConnections.addButton(button, messageId, comp);
+                    ++buttonCount;
+                    lastButton = messageConnections.addButton(button, messageId, comp);
                 }
+            }
+
+            if (buttonCount < 2) {
+                comp.enterClicked.connect(lastButton.clicked);
             }
 
             page.alertShown();

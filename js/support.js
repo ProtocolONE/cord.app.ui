@@ -22,7 +22,7 @@ function show(parent, name) {
     }
 
     if (supportFrame.status !== 1) {
-        console.log('FATAL! Can`t create support.qml component');
+        console.log('FATAL! Can`t create support.qml component', supportFrame.status, supportFrame.errorString());
         return;
     }
 
