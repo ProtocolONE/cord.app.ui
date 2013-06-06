@@ -20,7 +20,7 @@ Rectangle {
 
     Component.onCompleted: changeGameByServiceId(Core.currentGame().serviceId)
 
-    function changeGameByServiceId(serviceId){
+    function changeGameByServiceId(serviceId) {
         gameSettingsListView.changeGameByIndex(Core.indexByServiceId(serviceId));
         gameSettingsListView.currentItem.state = "Active";
     }

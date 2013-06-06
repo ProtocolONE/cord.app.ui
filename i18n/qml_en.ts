@@ -789,27 +789,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GamesSwitch.qml" line="515"/>
+        <location filename="../Blocks/GamesSwitch.qml" line="407"/>
+        <source>REWARDS_BUTTON</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/GamesSwitch.qml" line="408"/>
+        <source>REWARDS_TOOLTIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/GamesSwitch.qml" line="524"/>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GamesSwitch.qml" line="516"/>
+        <location filename="../Blocks/GamesSwitch.qml" line="525"/>
         <source>BUTTON_PLAY_ON_PAUSE_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GamesSwitch.qml" line="517"/>
+        <location filename="../Blocks/GamesSwitch.qml" line="526"/>
         <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GamesSwitch.qml" line="518"/>
+        <location filename="../Blocks/GamesSwitch.qml" line="527"/>
         <source>BUTTON_PLAY_ERROR_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GamesSwitch.qml" line="519"/>
+        <location filename="../Blocks/GamesSwitch.qml" line="528"/>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -823,7 +833,7 @@
     </message>
     <message>
         <location filename="../Blocks/Header.qml" line="90"/>
-        <location filename="../Blocks/Header.qml" line="141"/>
+        <location filename="../Blocks/Header.qml" line="140"/>
         <source>ALL_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1063,7 +1073,7 @@
 <context>
     <name>NickNameView</name>
     <message>
-        <location filename="../Blocks/NickNameView.qml" line="76"/>
+        <location filename="../Blocks/NickNameView.qml" line="77"/>
         <source>LOGOUT_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>

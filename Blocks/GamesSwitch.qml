@@ -403,6 +403,15 @@ Item {
         }
     }
 
+    Elements.IconButton {
+        toolTip: qsTr('REWARDS_TOOLTIP')
+        text: qsTr('REWARDS_BUTTON')
+        source: installPath + "images/menu/Rewards.png"
+        anchors { top: parent.top; right: parent.right }
+        anchors { topMargin: 99; rightMargin: 33 }
+        onClicked: mainAuthModule.openWebPage("http://www.gamenet.ru/");
+    }
+
     Image {
         source: installPath + "images/rightArrow.png"
         opacity: rightArrowImageMouseArea.containsMouse ? 1 : 0.5

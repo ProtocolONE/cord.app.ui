@@ -872,6 +872,14 @@ Please try again later.</source>
         <source>SUPPORT_ICON_TOOLTIP</source>
         <translation type="obsolete">Онлайн чат со специалистом службы поддержки пользователей GameNet. Вам помогут с любой проблемой и ответят на любые вопросы!</translation>
     </message>
+    <message>
+        <source>REWARDS_BUTTON</source>
+        <translation>НАГРАДЫ</translation>
+    </message>
+    <message>
+        <source>REWARDS_TOOLTIP</source>
+        <translation>Награды</translation>
+    </message>
 </context>
 <context>
     <name>GamesSwitchFooter</name>
