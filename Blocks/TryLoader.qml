@@ -13,6 +13,10 @@
 
 import QtQuick 1.1
 
+/*
+  TODO: Перенести в Elements
+*/
+
 Loader {
     signal failed();
     signal successed();

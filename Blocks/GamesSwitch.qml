@@ -24,8 +24,8 @@ import "../js/GamesSwitchHelper.js" as GamesSwitchHelper
 Item {
     id: root
 
-    width: 800
-    height: 600
+    width: Core.clientWidth
+    height: Core.clientHeight
 
     property string labelImage
 
@@ -89,13 +89,13 @@ Item {
         if (lastGameIndex == -1) {
             animationType = 0;
         } else if (lastGameIndex === (Core.count - 1) && currentIndex === 0) {
-            backgroundImage.x = 800;
+            backgroundImage.x = Core.clientWidth;
             animationType = 2;
         } else if (currentIndex < lastGameIndex) {
-            backgroundImage.x = -800;
+            backgroundImage.x = -Core.clientWidth;
             animationType = 1;
         } else {
-            backgroundImage.x = 800;
+            backgroundImage.x = Core.clientWidth;
             animationType = 2;
         }
 
@@ -346,7 +346,7 @@ Item {
                 target: backgroundImage;
                 easing.type: Easing.OutQuad;
                 property: animationType == 0 ? "scale" : "x";
-                from: animationType == 0 ? 0.7 : animationType == 1 ? -800 : 800;
+                from: animationType == 0 ? 0.7 : animationType == 1 ? -Core.clientWidth : Core.clientWidth;
                 to: animationType == 0 ? 1 : 0;
                 duration: 150
             }
@@ -355,7 +355,7 @@ Item {
                 target: backgroundImage2;
                 property: "x";
                 from: 0
-                to: animationType == 1 ? 800 : -800;
+                to: animationType == 1 ? Core.clientWidth : -Core.clientWidth;
                 duration: 150
             }
 

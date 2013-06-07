@@ -10,6 +10,7 @@
 
 import QtQuick 1.0
 import "../Elements" as Elements
+import "../js/Core.js" as Core
 
 Rectangle {
     id: baseItem
@@ -28,8 +29,8 @@ Rectangle {
 
     radius: 6
     color: "#00000000"
-    width: 800
-    height: 550
+    width: Core.clientWidth
+    height: Core.clientHeight
 
     Image {
         id: logoImage
@@ -37,6 +38,14 @@ Rectangle {
         x: 25
         y: 30
         source: installPath + "images/logo.png"
+    }
+
+    Image {
+        id: backTextImage
+        x: 90
+        y: 40
+        smooth: true
+        source: installPath + "images/gamenet.png"
     }
 
     Text {

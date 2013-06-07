@@ -263,7 +263,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>BUTTON_OK</source>
-        <translation>OK</translation>
+        <translation type="obsolete">OK</translation>
     </message>
     <message>
         <source>LINK_REMIND_PASSWORD</source>
@@ -271,11 +271,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>PLACEHOLDER_LOGIN_INPUT</source>
-        <translation>e-mail</translation>
+        <translation type="obsolete">Почта</translation>
     </message>
     <message>
         <source>PLACEHOLDER_PASSWORD_INPUT</source>
-        <translation>пароль</translation>
+        <translation type="obsolete">Пароль</translation>
     </message>
     <message>
         <source>TITLE_USER_AUTHORIZATION</source>
@@ -287,7 +287,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>CHECKBOX_REMEMBER_ME</source>
-        <translation>Запомнить меня</translation>
+        <translation type="obsolete">Запомнить меня</translation>
     </message>
     <message>
         <source>BUTTON_LOG_IN</source>
@@ -308,27 +308,27 @@ Please try again later.</source>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
-        <translation>GameNet недоступен. Попробуйте авторизоваться позже.</translation>
+        <translation type="obsolete">GameNet недоступен. Попробуйте авторизоваться позже.</translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
-        <translation>Неправильный формат электронной почты. Проверьте правильность ввода.</translation>
+        <translation type="obsolete">Неправильный формат электронной почты. Проверьте правильность ввода.</translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_WRONG</source>
-        <translation>Неправильный логин или пароль</translation>
+        <translation type="obsolete">Неправильный логин или пароль</translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_GUEST_ERROR</source>
-        <translation>Не удалось войти в гостевой аккаунт. Попробуйте ещё раз позже.</translation>
+        <translation type="obsolete">Не удалось войти в гостевой аккаунт. Попробуйте ещё раз позже.</translation>
     </message>
     <message>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
-        <translation>Учётная запись заблокирована. Если вы считаете, что так не должно быть, обратитесь в службу поддержки &lt;a href=&quot;http://support.gamenet.ru&quot;&gt;службу поддержки&lt;/a&gt;.</translation>
+        <translation type="obsolete">Учётная запись заблокирована. Если вы считаете, что так не должно быть, обратитесь в службу поддержки &lt;a href=&quot;http://support.gamenet.ru&quot;&gt;службу поддержки&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
-        <translation>Не удалось войти как пользователь Вконтакте. Попробуйте ещё раз позже.</translation>
+        <translation type="obsolete">Не удалось войти как пользователь Вконтакте. Попробуйте ещё раз позже.</translation>
     </message>
     <message>
         <source>AUTH_LOGIN_TITLE</source>
@@ -336,7 +336,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>AUTH_LOGIN_BUTTON</source>
-        <translation>Войти</translation>
+        <translation type="obsolete">Войти</translation>
     </message>
     <message>
         <source>AUTH_CANCEL_BUTTON</source>
@@ -344,120 +344,120 @@ Please try again later.</source>
     </message>
     <message>
         <source>AUTH_GUEST_TITLE</source>
-        <translation>Вход без регистрации</translation>
+        <translation type="obsolete">Вход без регистрации</translation>
     </message>
     <message>
         <source>AUTH_GUEST_TIMER_MESSAGE</source>
-        <translation>Запуск игры в демо-режиме через&lt;br /&gt;%1 секунд</translation>
+        <translation type="obsolete">Запуск игры в демо-режиме через&lt;br /&gt;%1 секунд</translation>
     </message>
     <message>
         <source>AUTH_GUEST_DESCRIPTION</source>
-        <translation>Вы сможете зарегистрироваться позже с сохранением прогресса в игре</translation>
+        <translation type="obsolete">Вы сможете зарегистрироваться позже с сохранением прогресса в игре</translation>
     </message>
     <message>
         <source>AUTH_GUEST_LOGIN_BUTTON</source>
-        <translation>Играть сейчас</translation>
+        <translation type="obsolete">Играть сейчас</translation>
     </message>
     <message>
         <source>AUTH_GUEST_AUTO_LOGIN_CANCEL</source>
-        <translation>Остановить</translation>
+        <translation type="obsolete">Остановить</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_BUTTON</source>
-        <translation>Регистрация нового пользователя</translation>
+        <translation type="obsolete">Регистрация нового пользователя</translation>
     </message>
     <message>
         <source>AUTH_VK_LOGIN_BUTTON</source>
-        <translation>Войти как пользователь ВКонтакте</translation>
+        <translation type="obsolete">Войти как пользователь ВКонтакте</translation>
     </message>
     <message>
         <source>LINK_GUEST_UNKNOWN_ERROR</source>
-        <translation>Не удалось зарегистрировать вашу учётную запись. Попробуйте ещё раз позже.</translation>
+        <translation type="obsolete">Не удалось зарегистрировать вашу учётную запись. Попробуйте ещё раз позже.</translation>
     </message>
     <message>
         <source>GUEST_VK_LINK_UNKNOWN_ERROR</source>
-        <translation>Не удалось зарегистрировать вас как пользователя Вконтакте. Попробуйте ещё раз позже  или воспользуйтесь регистрацией с помощью логина и пароля.</translation>
+        <translation type="obsolete">Не удалось зарегистрировать вас как пользователя Вконтакте. Попробуйте ещё раз позже  или воспользуйтесь регистрацией с помощью логина и пароля.</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_TITLE</source>
-        <translation>Регистрация нового пользователя</translation>
+        <translation type="obsolete">Регистрация нового пользователя</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_LOGIN_CAPTION</source>
-        <translation>не будет отображаться на сайте</translation>
+        <translation type="obsolete">не будет отображаться на сайте</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_PASSWORD_CAPTION</source>
-        <translation>от 6 до 32 символов</translation>
+        <translation type="obsolete">от 6 до 32 символов</translation>
     </message>
     <message>
         <source>AUTH_START_REGISTER_BUTTON</source>
-        <translation>Зарегистрироваться</translation>
+        <translation type="obsolete">Зарегистрироваться</translation>
     </message>
     <message>
         <source>AUTH_NORMAL_REGISTER_MESSAGE</source>
-        <translation>Учетная запись GameNet может быть использована для авторизации во всех проектах и приложениях GameNet, в том числе на сайте &lt;a href=&apos;http://www.gamenet.ru&apos;&gt;&lt;font color=&apos;#ffffff&apos;&gt;www.gamenet.ru&lt;/font&gt;&lt;/a&gt;.</translation>
+        <translation type="obsolete">Учетная запись GameNet может быть использована для авторизации во всех проектах и приложениях GameNet, в том числе на сайте &lt;a href=&apos;http://www.gamenet.ru&apos;&gt;&lt;font color=&apos;#ffffff&apos;&gt;www.gamenet.ru&lt;/font&gt;&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_LICENSE_MESSAGE</source>
-        <translation>Фактом регистрации вы соглашаетесь &lt;br/&gt;с условиями &lt;a href=&apos;http://www.gamenet.ru/license&apos;&gt;&lt;font color=&apos;#b9d3b3&apos;&gt;пользовательского соглашения&lt;/font&gt;&lt;/a&gt;.</translation>
+        <translation type="obsolete">Фактом регистрации вы соглашаетесь &lt;br/&gt;с условиями &lt;a href=&apos;http://www.gamenet.ru/license&apos;&gt;&lt;font color=&apos;#b9d3b3&apos;&gt;пользовательского соглашения&lt;/font&gt;&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>AUTH_LEFT_BUTTON</source>
-        <translation>Вход</translation>
+        <translation type="obsolete">Вход</translation>
     </message>
     <message>
         <source>AUTH_LEFT_BUTTON_GUEST_LOGOUT</source>
-        <translation>Выход</translation>
+        <translation type="obsolete">Выход</translation>
     </message>
     <message>
         <source>AUTH_GUEST_LOGOUT_REGISTER_MESSAGE</source>
-        <translation>Выйдя из гостевой учётной записи вы потеряете весь прогресс в играх, зарегистрируйтесь и мы перенесем весь прогресс на вашу новую учётную запись.</translation>
+        <translation type="obsolete">Выйдя из гостевой учётной записи вы потеряете весь прогресс в играх, зарегистрируйтесь и мы перенесем весь прогресс на вашу новую учётную запись.</translation>
     </message>
     <message>
         <source>AUTH_LEFT_BUTTON_GUEST_EXPIRED</source>
-        <translation>Отмена</translation>
+        <translation type="obsolete">Отмена</translation>
     </message>
     <message>
         <source>AUTH_GUEST_EXPIRED_REGISTER_MESSAGE</source>
-        <translation>Чтобы продолжать играть вам необходимо зарегистрироваться. Весь прогресс в играх будет сохранен.</translation>
+        <translation type="obsolete">Чтобы продолжать играть вам необходимо зарегистрироваться. Весь прогресс в играх будет сохранен.</translation>
     </message>
     <message>
         <source>AUTH_LEFT_BUTTON_GUEST_OPEN_URL</source>
-        <translation>Позже</translation>
+        <translation type="obsolete">Позже</translation>
     </message>
     <message>
         <source>AUTH_GUEST_OPEN_URL_REGISTER_MESSAGE</source>
-        <translation>Для использования всех функций GameNet вам необходимо зарегистрироваться, весь прогресс под гостевой учётной записью в играх будет сохранён.</translation>
+        <translation type="obsolete">Для использования всех функций GameNet вам необходимо зарегистрироваться, весь прогресс под гостевой учётной записью в играх будет сохранён.</translation>
     </message>
     <message>
         <source>RESTORE_PASSWORD_LINK</source>
         <translatorcomment>Важно чтобы в тексте была валидныя ссылка и цвет текста - без него будет синия дефолтная ссылка. Пример:  &lt;a href=&apos;http://www.gamenet.ru/restore/&apos;&gt;&lt;font color=&apos;#eded55&apos;&gt;Напомнить пароль&lt;/font&gt;&lt;/a&gt; </translatorcomment>
-        <translation>&lt;a href=&apos;http://www.gamenet.ru/restore/&apos;&gt;&lt;font color=&apos;#ffff66&apos;&gt;Напомнить пароль&lt;/font&gt;&lt;/a&gt;</translation>
+        <translation type="obsolete">&lt;a href=&apos;http://www.gamenet.ru/restore/&apos;&gt;&lt;font color=&apos;#d8e5d4&apos;&gt;Напомнить пароль&lt;/font&gt;&lt;/a&gt;</translation>
     </message>
     <message>
         <source>AUTH_LEFT_BUTTON_GUEST_REQUEST_CONFIGRM</source>
-        <translation>Позже</translation>
+        <translation type="obsolete">Позже</translation>
     </message>
     <message>
         <source>AUTH_GUEST_REQUEST_CONFIGRM_REGISTER_MESSAGE</source>
-        <translation>Для использования всех функций GameNet вам необходимо зарегистрироваться, весь прогресс под гостевой учётной записью в играх будет сохранён.</translation>
+        <translation type="obsolete">Для использования всех функций GameNet вам необходимо зарегистрироваться, весь прогресс под гостевой учётной записью в играх будет сохранён.</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_TITLE_GUEST_LOGOUT</source>
-        <translation>Сохраните свои достижения в играх!</translation>
+        <translation type="obsolete">Сохраните свои достижения в играх!</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_TITLE_GUEST_EXPIRED</source>
-        <translation>Повысьте безопасность вашего аккаунта</translation>
+        <translation type="obsolete">Повысьте безопасность вашего аккаунта</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_TITLE_GUEST_OPEN_URL</source>
-        <translation>Повысьте безопасность вашего аккаунта</translation>
+        <translation type="obsolete">Повысьте безопасность вашего аккаунта</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_TITLE_GUEST_REQUEST_CONFIGRM</source>
-        <translation>Завершение регистрации</translation>
+        <translation type="obsolete">Завершение регистрации</translation>
     </message>
     <message>
         <source>AUTH_ACCOUNT_BLOCK_ERROR</source>
@@ -465,11 +465,124 @@ Please try again later.</source>
     </message>
     <message>
         <source>OLD_GUEST_AUTH_BUTTON</source>
-        <translation>Войти</translation>
+        <translation type="obsolete">Войти</translation>
     </message>
     <message>
         <source>OLD_GUEST_CAPTION</source>
-        <translation>Вам не обязательно регистрироваться - мы уже создали для вас гостевой аккаунт. Нажмите &quot;Войти&quot; и начните играть!</translation>
+        <translation type="obsolete">Вам не обязательно регистрироваться - мы уже создали для вас гостевой аккаунт. Нажмите &quot;Войти&quot; и начните играть!</translation>
+    </message>
+    <message>
+        <source>REGISTRATION_LEFT_LABEL_TEXT</source>
+        <translation type="obsolete">Введите почту и пароль
+и нажмите войти или авторизуйтесь аккаунтом ВКонтакте</translation>
+    </message>
+    <message>
+        <source>REGISTER_NEW_USER_LINK</source>
+        <translation type="obsolete">Регистрация нового пользователя</translation>
+    </message>
+    <message>
+        <source>VK_LOGIN_BUTTON_TEXT</source>
+        <translation type="obsolete">Войти ВКонтакте</translation>
+    </message>
+    <message>
+        <source>AUTH_REGISTER_LOGIN_LABEL</source>
+        <translation type="obsolete">Почта</translation>
+    </message>
+    <message>
+        <source>AUTH_REGISTER_PASSWORD_LABEL</source>
+        <translation type="obsolete">Пароль</translation>
+    </message>
+    <message>
+        <source>AUTH_REGISTER_LICENSE_ACCEPT</source>
+        <translation type="obsolete">Фактом регистрации вы соглашаетесь &lt;br/&gt;с условиями &lt;a href=&apos;http://www.gamenet.ru/license&apos;&gt;&lt;font color=&apos;#b9d3b3&apos;&gt;пользовательского соглашения&lt;/font&gt;&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <source>AUTH_CANCEL_REGISTER_BUTTON</source>
+        <translation type="obsolete">Отмена</translation>
+    </message>
+    <message>
+        <source>GUEST_WIDGET_HEAD_DESC</source>
+        <translation type="unfinished">Играй сейчас - регистрируйся потом, игра сохранится</translation>
+    </message>
+    <message>
+        <source>GUEST_WIDGET_HEAD_DESC_NOT_GAME</source>
+        <translation type="unfinished">Вы можете войти&lt;br&gt;под гостевым аккаунтом</translation>
+    </message>
+    <message>
+        <source>AUTH_GUEST_REGISTER_MESSAGE</source>
+        <translation type="obsolete">Для использования всех&lt;br&gt;функций GameNet вам&lt;br&gt;необходимо&lt;br&gt;зарегистрироваться, весь&lt;br&gt;прогресс под гостевой&lt;br&gt;учетной записью в играх будет&lt;br&gt;сохранен.</translation>
+    </message>
+    <message>
+        <source>AUTH_GUEST_REGISTER_HEADER</source>
+        <translation type="unfinished">Завершение регистрации</translation>
+    </message>
+    <message>
+        <source>AUTH_NORMAL_REGISTER_HEADER</source>
+        <translation type="unfinished">Регистрация</translation>
+    </message>
+    <message>
+        <source>AUTH_REGISTER_NORMAL_MESSAGE_DESC</source>
+        <translation type="obsolete">Заполните поля и нажмите&lt;br&gt;зарегистрироваться&lt;br&gt;или воспользуйтесь аккаунтом&lt;br&gt;ВКонтакте</translation>
+    </message>
+</context>
+<context>
+    <name>AuthBlock</name>
+    <message>
+        <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
+        <translation type="unfinished">Учётная запись заблокирована. Если вы считаете, что так не должно быть, обратитесь в службу поддержки &lt;a href=&quot;http://support.gamenet.ru&quot;&gt;службу поддержки&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_WRONG</source>
+        <translation type="unfinished">Неправильный логин или пароль</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
+        <translation type="unfinished">GameNet недоступен. Попробуйте авторизоваться позже.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
+        <translation type="unfinished">Неправильный формат электронной почты. Проверьте правильность ввода.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_GUEST_ERROR</source>
+        <translation type="unfinished">Не удалось войти в гостевой аккаунт. Попробуйте ещё раз позже.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
+        <translation type="unfinished">Не удалось войти как пользователь Вконтакте. Попробуйте ещё раз позже.</translation>
+    </message>
+    <message>
+        <source>VK_LOGIN_BUTTON_TEXT</source>
+        <translation type="unfinished">Войти ВКонтакте</translation>
+    </message>
+    <message>
+        <source>REGISTRATION_LEFT_LABEL_TEXT</source>
+        <translation type="unfinished">Введите почту и пароль
+и нажмите войти или авторизуйтесь аккаунтом ВКонтакте</translation>
+    </message>
+    <message>
+        <source>PLACEHOLDER_LOGIN_INPUT</source>
+        <translation type="unfinished">Почта</translation>
+    </message>
+    <message>
+        <source>PLACEHOLDER_PASSWORD_INPUT</source>
+        <translation type="unfinished">Пароль</translation>
+    </message>
+    <message>
+        <source>CHECKBOX_REMEMBER_ME</source>
+        <translation type="unfinished">Запомнить меня</translation>
+    </message>
+    <message>
+        <source>AUTH_LOGIN_BUTTON</source>
+        <translation type="unfinished">Войти</translation>
+    </message>
+    <message>
+        <source>AUTH_CANCEL_BUTTON</source>
+        <translation type="unfinished">Отмена</translation>
+    </message>
+    <message>
+        <source>REGISTER_NEW_USER_LINK</source>
+        <translation type="unfinished">Регистрация нового пользователя</translation>
     </message>
 </context>
 <context>
@@ -539,6 +652,17 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>FailBlock</name>
+    <message>
+        <source>BUTTON_OK</source>
+        <translation type="unfinished">OK</translation>
+    </message>
+    <message>
+        <source>RESTORE_PASSWORD_LINK</source>
+        <translation type="unfinished">&lt;a href=&apos;http://www.gamenet.ru/restore/&apos;&gt;&lt;font color=&apos;#d8e5d4&apos;&gt;Напомнить пароль&lt;/font&gt;&lt;/a&gt;</translation>
+    </message>
+</context>
+<context>
     <name>FirstLicense</name>
     <message>
         <source>LABEL_GAME_INSTALLATION_PATH_INPUT</source>
@@ -575,6 +699,57 @@ Please try again later.</source>
     <message>
         <source>FIRSTLICENSE_CREATE_SHORTCUTS</source>
         <translation>Создать ярлык на рабочем столе</translation>
+    </message>
+</context>
+<context>
+    <name>Game</name>
+    <message>
+        <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
+        <translation>Игра запущена</translation>
+    </message>
+    <message>
+        <source>TEXT_PROGRESSBAR_DOWNLOADED_AND_READY_STATE</source>
+        <translation>Игра готова к запуску</translation>
+    </message>
+    <message>
+        <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
+        <translation>Обновление игры: %1 из %2 МБ...</translation>
+    </message>
+    <message>
+        <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
+        <translation>Загрузка игры: %1 из %2 МБ...</translation>
+    </message>
+    <message>
+        <source>TEXT_PROGRESSBAR_EXTRACTING_NOW_STATE</source>
+        <translation>Извлечение игры: %1 из %2</translation>
+    </message>
+    <message>
+        <source>REWARDS_TOOLTIP</source>
+        <translation>Награды</translation>
+    </message>
+    <message>
+        <source>REWARDS_BUTTON</source>
+        <translation>НАГРАДЫ</translation>
+    </message>
+    <message>
+        <source>BUTTON_PLAY_DEFAULT_STATE</source>
+        <translation>Играть</translation>
+    </message>
+    <message>
+        <source>BUTTON_PLAY_ON_PAUSE_STATE</source>
+        <translation>Играть</translation>
+    </message>
+    <message>
+        <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
+        <translation>Пауза</translation>
+    </message>
+    <message>
+        <source>BUTTON_PLAY_ERROR_STATE</source>
+        <translation>Ошибка</translation>
+    </message>
+    <message>
+        <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
+        <translation>Играть</translation>
     </message>
 </context>
 <context>
@@ -909,6 +1084,77 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>Guide</name>
+    <message>
+        <source>BUTTON_PREV</source>
+        <translation>Предыдущий</translation>
+    </message>
+    <message>
+        <source>BUTTON_NEXT</source>
+        <translation>Следующий</translation>
+    </message>
+    <message>
+        <source>TEXT_CURRENT_FROM_MAX</source>
+        <translation>%1 из %2</translation>
+    </message>
+    <message>
+        <source>BUTTON_DISABLE_SOUND</source>
+        <translation>Выключить звук</translation>
+    </message>
+    <message>
+        <source>BUTTON_ENABLE_SOUND</source>
+        <translation>Включить звук</translation>
+    </message>
+    <message>
+        <source>GUIDE_WELLCOME</source>
+        <translation>Вы можете узнать больше о приложении GameNet всего за 40 секунд</translation>
+    </message>
+    <message>
+        <source>GUIDE_BUTTON_OK</source>
+        <translation>Ок</translation>
+    </message>
+    <message>
+        <source>GUIDE_BUTTON_LATER</source>
+        <translation>Послушать позже</translation>
+    </message>
+    <message>
+        <source>GUIDE_BUTTON_REFUSE</source>
+        <translation>Мне не интересно</translation>
+    </message>
+    <message>
+        <source>GUIDE_2</source>
+        <translation>Приложение GameNet будет загружать обновления для игры, информировать вас о новостях и акциях, обеспечит простую и безопасную авторизацию</translation>
+    </message>
+    <message>
+        <source>GUIDE_3</source>
+        <translation>В приложении вы можете читать новости игры, перейти в блог или на форум</translation>
+    </message>
+    <message>
+        <source>GUIDE_4</source>
+        <translation>На любой ваш вопрос готовы ответить наши агенты поддержки</translation>
+    </message>
+    <message>
+        <source>GUIDE_5</source>
+        <translation>Игра запустится сразу после завершения загрузки и установки</translation>
+    </message>
+    <message>
+        <source>GUIDE_6</source>
+        <translation>В дальнейшем запустить игру можно будет нажав на кнопку «Играть»</translation>
+    </message>
+    <message>
+        <source>GUIDE_7</source>
+        <translation>Здесь вы видите информацию о своем уровне и состоянии счета GameNet. Аватарку можно изменить в профиле на сайте</translation>
+    </message>
+    <message>
+        <source>GUIDE_8</source>
+        <translation>Здесь вы можете зарегистрироваться или войти</translation>
+    </message>
+    <message>
+        <source>GUIDE_9</source>
+        <translation>Мы желаем вам приятной игры</translation>
+    </message>
+</context>
+<context>
     <name>Header</name>
     <message>
         <source>FREE_OF_CHARGE</source>
@@ -917,6 +1163,64 @@ Please try again later.</source>
     <message>
         <source>ALL_GAMES</source>
         <translation>Все игры</translation>
+    </message>
+</context>
+<context>
+    <name>Home</name>
+    <message>
+        <source>FREE_OF_CHARGE</source>
+        <translation>Бесплатно</translation>
+    </message>
+    <message>
+        <source>ALL_GAMES</source>
+        <translation>Все игры</translation>
+    </message>
+</context>
+<context>
+    <name>Hub</name>
+    <message>
+        <source>GUEST_WIDGET_HEAD_LABEL</source>
+        <translation type="unfinished">Моментальный вход</translation>
+    </message>
+    <message>
+        <source>GUEST_WIDGET_HEAD_DESC</source>
+        <translation type="obsolete">Играй сейчас - регистрируйся потом, игра сохранится</translation>
+    </message>
+    <message>
+        <source>PLAY_NOW_BUTTON</source>
+        <translation type="unfinished">Играть сейчас</translation>
+    </message>
+    <message>
+        <source>ACCOUNT_WIDGET_HEAD_LABEL</source>
+        <translation type="unfinished">Есть аккаунт</translation>
+    </message>
+    <message>
+        <source>ACCOUNT_WIDGET_HEAD_DESC</source>
+        <translation type="unfinished">Используйте единый&lt;br&gt;аккаунт GameNet</translation>
+    </message>
+    <message>
+        <source>AUTH_LOGIN_BUTTON</source>
+        <translation type="unfinished">Войти</translation>
+    </message>
+    <message>
+        <source>AUTH_WIDGET_HEAD_LABEL</source>
+        <translation type="unfinished">С помощью ВКонтакте</translation>
+    </message>
+    <message>
+        <source>AUTH_WIDGET_HEAD_DESC</source>
+        <translation type="unfinished">Используйте свой аккаунт&lt;br&gt;ВКонтакте для входа</translation>
+    </message>
+    <message>
+        <source>NEW_WIDGET_HEAD_LABEL</source>
+        <translation>Новый пользователь</translation>
+    </message>
+    <message>
+        <source>NEW_WIDGET_HEAD_DESC</source>
+        <translation type="unfinished">Получи больше&lt;br&gt;возможностей, рейтинги,&lt;br&gt; общение, награды,&lt;br&gt;подарки</translation>
+    </message>
+    <message>
+        <source>REGISTRATION_BUTTON</source>
+        <translation type="unfinished">Регистрация</translation>
     </message>
 </context>
 <context>
@@ -1227,6 +1531,21 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>Ping</name>
+    <message>
+        <source>HEADER_TITLE</source>
+        <translation>Устанавливается соединение с GameNet</translation>
+    </message>
+    <message>
+        <source>MESSAGE_GAMENET_UNAVAILABLE</source>
+        <translation>В настоящий момент сервисы GameNet недоступны. Мы работаем над скорейшим устранением этой проблемы.</translation>
+    </message>
+    <message>
+        <source>MESSAGE_INTERNET_UNAVAILABLE</source>
+        <translation>В настоящий момент сервисы GameNet недоступны. Вероятно по нашей вине, но, возможно, это ваше интернет-соединение. Пожалуйста, на всякий случай проверьте ваше соединение.</translation>
+    </message>
+</context>
+<context>
     <name>ProgressWidget</name>
     <message>
         <source>DOWNLOAD_COMPLETE %1 FROM %2 (%3%)</source>
@@ -1327,6 +1646,188 @@ Please try again later.</source>
     <message>
         <source>DOWNLOAD_PEER_UPLOAD_TOTAL</source>
         <translation>Отправленно: %1</translation>
+    </message>
+</context>
+<context>
+    <name>Registration</name>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
+        <translation type="unfinished">GameNet недоступен. Попробуйте авторизоваться позже.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
+        <translation type="unfinished">Неправильный формат электронной почты. Проверьте правильность ввода.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_WRONG</source>
+        <translation type="unfinished">Неправильный логин или пароль</translation>
+    </message>
+    <message>
+        <source>LINK_GUEST_UNKNOWN_ERROR</source>
+        <translation type="unfinished">Не удалось зарегистрировать вашу учётную запись. Попробуйте ещё раз позже.</translation>
+    </message>
+    <message>
+        <source>GUEST_VK_LINK_UNKNOWN_ERROR</source>
+        <translation type="unfinished">Не удалось зарегистрировать вас как пользователя Вконтакте. Попробуйте ещё раз позже  или воспользуйтесь регистрацией с помощью логина и пароля.</translation>
+    </message>
+    <message>
+        <source>VK_LOGIN_BUTTON_TEXT</source>
+        <translation type="unfinished">Войти ВКонтакте</translation>
+    </message>
+    <message>
+        <source>AUTH_GUEST_REGISTER_MESSAGE</source>
+        <translation type="unfinished">Для использования всех&lt;br&gt;функций GameNet вам&lt;br&gt;необходимо&lt;br&gt;зарегистрироваться, весь&lt;br&gt;прогресс под гостевой&lt;br&gt;учетной записью в играх будет&lt;br&gt;сохранен.</translation>
+    </message>
+    <message>
+        <source>AUTH_REGISTER_NORMAL_MESSAGE_DESC</source>
+        <translation type="unfinished">Заполните поля и нажмите&lt;br&gt;зарегистрироваться&lt;br&gt;или воспользуйтесь аккаунтом&lt;br&gt;ВКонтакте</translation>
+    </message>
+    <message>
+        <source>AUTH_REGISTER_LOGIN_LABEL</source>
+        <translation type="unfinished">Почта</translation>
+    </message>
+    <message>
+        <source>PLACEHOLDER_LOGIN_INPUT</source>
+        <translation type="unfinished">Почта</translation>
+    </message>
+    <message>
+        <source>AUTH_REGISTER_LOGIN_CAPTION</source>
+        <translation type="unfinished">не будет отображаться на сайте</translation>
+    </message>
+    <message>
+        <source>AUTH_REGISTER_PASSWORD_LABEL</source>
+        <translation type="unfinished">Пароль</translation>
+    </message>
+    <message>
+        <source>PLACEHOLDER_PASSWORD_INPUT</source>
+        <translation type="unfinished">Пароль</translation>
+    </message>
+    <message>
+        <source>AUTH_REGISTER_PASSWORD_CAPTION</source>
+        <translation type="unfinished">от 6 до 32 символов</translation>
+    </message>
+    <message>
+        <source>AUTH_REGISTER_LICENSE_MESSAGE</source>
+        <translation type="unfinished">Фактом регистрации вы соглашаетесь &lt;br/&gt;с условиями &lt;a href=&apos;http://www.gamenet.ru/license&apos;&gt;&lt;font color=&apos;#b9d3b3&apos;&gt;пользовательского соглашения&lt;/font&gt;&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <source>AUTH_START_REGISTER_BUTTON</source>
+        <translation type="unfinished">Зарегистрироваться</translation>
+    </message>
+    <message>
+        <source>AUTH_CANCEL_REGISTER_BUTTON</source>
+        <translation type="unfinished">Отмена</translation>
+    </message>
+    <message>
+        <source>AUTH_REGISTER_TITLE</source>
+        <translation type="unfinished">Регистрация нового пользователя</translation>
+    </message>
+    <message>
+        <source>AUTH_LEFT_BUTTON</source>
+        <translation type="unfinished">Вход</translation>
+    </message>
+    <message>
+        <source>AUTH_NORMAL_REGISTER_MESSAGE</source>
+        <translation type="unfinished">Учетная запись GameNet может быть использована для авторизации во всех проектах и приложениях GameNet, в том числе на сайте &lt;a href=&apos;http://www.gamenet.ru&apos;&gt;&lt;font color=&apos;#ffffff&apos;&gt;www.gamenet.ru&lt;/font&gt;&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <source>AUTH_REGISTER_TITLE_GUEST_LOGOUT</source>
+        <translation type="unfinished">Сохраните свои достижения в играх!</translation>
+    </message>
+    <message>
+        <source>AUTH_LEFT_BUTTON_GUEST_LOGOUT</source>
+        <translation type="unfinished">Выход</translation>
+    </message>
+    <message>
+        <source>AUTH_GUEST_LOGOUT_REGISTER_MESSAGE</source>
+        <translation type="unfinished">Выйдя из гостевой учётной записи вы потеряете весь прогресс в играх, зарегистрируйтесь и мы перенесем весь прогресс на вашу новую учётную запись.</translation>
+    </message>
+    <message>
+        <source>AUTH_REGISTER_TITLE_GUEST_EXPIRED</source>
+        <translation type="unfinished">Повысьте безопасность вашего аккаунта</translation>
+    </message>
+    <message>
+        <source>AUTH_LEFT_BUTTON_GUEST_EXPIRED</source>
+        <translation type="unfinished">Отмена</translation>
+    </message>
+    <message>
+        <source>AUTH_GUEST_EXPIRED_REGISTER_MESSAGE</source>
+        <translation type="unfinished">Чтобы продолжать играть вам необходимо зарегистрироваться. Весь прогресс в играх будет сохранен.</translation>
+    </message>
+    <message>
+        <source>AUTH_REGISTER_TITLE_GUEST_OPEN_URL</source>
+        <translation type="unfinished">Повысьте безопасность вашего аккаунта</translation>
+    </message>
+    <message>
+        <source>AUTH_LEFT_BUTTON_GUEST_OPEN_URL</source>
+        <translation type="unfinished">Позже</translation>
+    </message>
+    <message>
+        <source>AUTH_GUEST_OPEN_URL_REGISTER_MESSAGE</source>
+        <translation type="unfinished">Для использования всех функций GameNet вам необходимо зарегистрироваться, весь прогресс под гостевой учётной записью в играх будет сохранён.</translation>
+    </message>
+    <message>
+        <source>AUTH_REGISTER_TITLE_GUEST_REQUEST_CONFIGRM</source>
+        <translation type="unfinished">Завершение регистрации</translation>
+    </message>
+    <message>
+        <source>AUTH_LEFT_BUTTON_GUEST_REQUEST_CONFIGRM</source>
+        <translation type="unfinished">Позже</translation>
+    </message>
+    <message>
+        <source>AUTH_GUEST_REQUEST_CONFIGRM_REGISTER_MESSAGE</source>
+        <translation type="unfinished">Для использования всех функций GameNet вам необходимо зарегистрироваться, весь прогресс под гостевой учётной записью в играх будет сохранён.</translation>
+    </message>
+</context>
+<context>
+    <name>RoatateNews</name>
+    <message>
+        <source>JANUARY</source>
+        <translation>января</translation>
+    </message>
+    <message>
+        <source>FEBRUARY</source>
+        <translation>февраля</translation>
+    </message>
+    <message>
+        <source>MARCH</source>
+        <translation>марта</translation>
+    </message>
+    <message>
+        <source>APRIL</source>
+        <translation>апреля</translation>
+    </message>
+    <message>
+        <source>MAY</source>
+        <translation>мая</translation>
+    </message>
+    <message>
+        <source>JUNE</source>
+        <translation>июня</translation>
+    </message>
+    <message>
+        <source>JULY</source>
+        <translation>июля</translation>
+    </message>
+    <message>
+        <source>AUGUST</source>
+        <translation>августа</translation>
+    </message>
+    <message>
+        <source>SEPTEMBER</source>
+        <translation>сентября</translation>
+    </message>
+    <message>
+        <source>OCTOBER</source>
+        <translation>октября</translation>
+    </message>
+    <message>
+        <source>NOVEMBER</source>
+        <translation>ноября</translation>
+    </message>
+    <message>
+        <source>DECEMBER</source>
+        <translation>декабря</translation>
     </message>
 </context>
 <context>
@@ -1792,6 +2293,13 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>SocialNet</name>
+    <message>
+        <source>SOCIAL_NET_TEXT</source>
+        <translation>Играешь сам - поделись с друзьями</translation>
+    </message>
+</context>
+<context>
     <name>Support</name>
     <message>
         <source>SUPPORT_HELP</source>
@@ -1853,6 +2361,41 @@ Please try again later.</source>
     <message>
         <source>WINDOW_TITLE_VK_AUTH</source>
         <translation>Авторизация с помощью ВКонтакте</translation>
+    </message>
+</context>
+<context>
+    <name>WellcomeGuide</name>
+    <message>
+        <source>GUIDE_2</source>
+        <translation>Приложение GameNet будет загружать обновления для игры, информировать вас о новостях и акциях, обеспечит простую и безопасную авторизацию</translation>
+    </message>
+    <message>
+        <source>GUIDE_3</source>
+        <translation>В приложении вы можете читать новости игры, перейти в блог или на форум</translation>
+    </message>
+    <message>
+        <source>GUIDE_4</source>
+        <translation>На любой ваш вопрос готовы ответить наши агенты поддержки</translation>
+    </message>
+    <message>
+        <source>GUIDE_5</source>
+        <translation>Игра запустится сразу после завершения загрузки и установки</translation>
+    </message>
+    <message>
+        <source>GUIDE_6</source>
+        <translation>В дальнейшем запустить игру можно будет нажав на кнопку «Играть»</translation>
+    </message>
+    <message>
+        <source>GUIDE_7</source>
+        <translation>Здесь вы видите информацию о своем уровне и состоянии счета GameNet. Аватарку можно изменить в профиле на сайте</translation>
+    </message>
+    <message>
+        <source>GUIDE_8</source>
+        <translation>Здесь вы можете зарегистрироваться или войти</translation>
+    </message>
+    <message>
+        <source>GUIDE_9</source>
+        <translation>Мы желаем вам приятной игры</translation>
     </message>
 </context>
 <context>

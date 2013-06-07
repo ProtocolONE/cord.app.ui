@@ -16,6 +16,9 @@ import "." as Current
 import "Elements" as Elements
 import "Blocks" as Blocks
 import "Models" as Models
+import "Pages" as Pages
+import "Features/Guide" as Guide
+import "Features/Ping" as Ping
 
 import "Blocks/Features/Announcements" as Announcements
 import "Blocks/Features/Maintenance" as Maintenance
@@ -25,11 +28,14 @@ import "js/UserInfo.js" as UserInfo
 import "js/Core.js" as Core
 import "js/GoogleAnalytics.js" as GoogleAnalytics
 
-Rectangle {
+import "Proxy/App.js" as App
+
+Item {
     id: mainWindowRectanglw
+
     clip: true
-    width: 808
-    height: 558
+    width: Core.clientWidth + 8
+    height: Core.clientHeight + 8
     color: "#00000000"
 
     signal onWindowPressed(int x, int y);
@@ -38,7 +44,6 @@ Rectangle {
     signal onWindowOpen();
     signal onWindowPositionChanged(int x, int y);
     signal onWindowMinimize();
-
 
     function setMidToGoogleAnalytics() {
         var mid = Marketing.mid();
@@ -61,7 +66,7 @@ Rectangle {
 
         RestApi.Core.setup({lang: 'ru', url: url});
 
-        console.log('Version ', mainWindow.fileVersion);
+        console.log('Version ', App.fileVersion());
         console.log('Desktop ', desktop);
         console.log('RestApi ', url);
 
@@ -71,43 +76,38 @@ Rectangle {
                                  desktop: desktop,
                                  systemVersion: GoogleAnalyticsHelper.systemVersion(),
                                  globalLocale: GoogleAnalyticsHelper.systemLanguage(),
-                                 applicationVersion: mainWindow.fileVersion
+                                 applicationVersion: App.fileVersion()
                              });
 
         setMidToGoogleAnalytics();
     }
 
-    Maintenance.Maintenance {
-    }
+    Maintenance.Maintenance {}
 
     BorderImage {
         id: imageBorder
 
         source: installPath + "images/mainBorder.png"
-        x:0
-        y:0
-        width: 808; height: 558
-        border.left: 0; border.top: 0
-        border.right: 0; border.bottom: 0
+        width: Core.clientWidth + 8
+        height: Core.clientHeight + 8
         smooth: true
         visible: false
     }
 
-    Rectangle {
+    Item {
         id: qGNA_main
 
-        x: 4; y: 0;
-        width: 800
-        height: 550
+        x: 4
+        width: Core.clientWidth
+        height: Core.clientHeight
         state: "LoadingPage"
-        color: "#00000000"
         clip: true
 
         property string lastState
         property bool isPageControlAccepted: !mainAuthModule.isAuthMenuOpen
 
-        FontLoader { id: fontTahoma; source: installPath + "fonts/Tahoma.ttf"}
-        FontLoader { id: fontMyriadProLight; source: installPath + "fonts/MyriadProLight.ttf" }
+        FontLoader { id: fontTahoma; source: installPath + "fonts/Tahoma.ttf"} // TODO убрать
+        FontLoader { id: fontMyriadProLight; source: installPath + "fonts/MyriadProLight.ttf" } // TODO убрать
 
         function activateWindow() {
             qGNA_main.scale = 1;
@@ -142,7 +142,7 @@ Rectangle {
             NumberAnimation { target: qGNA_main; property: "opacity"; from: 1; to: 0;  duration: 150 }
             onStarted: imageBorder.visible = false;
             onCompleted: {
-                mainWindow.hide();
+                App.hide();
                 qGNA_main.activateWindow();
             }
         }
@@ -161,7 +161,7 @@ Rectangle {
 
         Image {
             source: installPath  + "images/backImage.png"
-            anchors.centerIn: parent
+            anchors.top: parent.top
 
             MouseArea {
                 anchors.fill: parent
@@ -175,7 +175,7 @@ Rectangle {
 
         }
 
-        Blocks.GamesSwitch {
+        Pages.Game {
             id: gamesSwitchPageModel
 
             visible: false
@@ -186,23 +186,7 @@ Rectangle {
             }
         }
 
-        Blocks.Header{
-            id: headerMain
 
-            width: parent.width
-            visible: false
-
-            onHomeButtonClicked: {
-                var currentGame = Core.currentGame();
-                if (currentGame) {
-                    GoogleAnalytics.trackEvent('/game/' + currentGame.gaName,
-                                               'Navigation', 'Switch To Home', 'Header');
-                }
-
-                Core.activateGame(null);
-                qGNA_main.state = "HomePage";
-            }
-        }
 
         Loader {
             id: pageLoader;
@@ -251,7 +235,7 @@ Rectangle {
             }
 
             onServiceInstalled: {
-                if (!mainWindow.isWindowVisible()) {
+                if (!App.isWindowVisible()) {
                     announcementsFeature.showGameInstalledAnnounce(serviceId);
                 }
             }
@@ -263,21 +247,24 @@ Rectangle {
             onFinishAnimation: {
                 var serviceId, item;
                 if (qGNA_main.state === "LoadingPage") {
+                    ping.start();
+
                     qGNA_main.lastState = "HomePage";
 
                     mainWindow.updateFinishedSlot();
 
-                    serviceId = mainWindow.startingService() || "0";
+                    serviceId = App.startingService() || "0";
                     qGNA_main.selectService(serviceId);
 
-                    if (!mainWindow.anyLicenseAccepted()) {
+
+                    if (!App.isAnyLicenseAccepted()) {
                         var item = Core.serviceItemByServiceId(serviceId);
 
                         firstLicense.withPath = (serviceId != "0" && serviceId != "300007010000000000" && !!item)
                         firstLicense.serviceId = serviceId;
 
                         if (serviceId != "0" && item) {
-                            firstLicense.pathInput = mainWindow.getExpectedInstallPath(serviceId);
+                            firstLicense.pathInput = App.getExpectedInstallPath(serviceId);
                         } else {
                             qGNA_main.state = "HomePage";
                         }
@@ -292,29 +279,16 @@ Rectangle {
             }
         }
 
-        Image {
-            id: backTextImage
-            x: 90
-            y: 40
-            smooth: true
-            source: installPath + "images/gamenet.png"
-        }
-
         Blocks.UserInfo {
             id: userInfoBlock
 
-            visible: false
-            anchors { top: parent.top; right: parent.right; topMargin: 43; rightMargin: 33 }
+            visible: qGNA_main.state != "LoadingPage"
+            anchors { top: parent.top; right: parent.right; topMargin: 43; rightMargin: 30 }
             onLoginRequest: mainAuthModule.switchAnimation();
             onLogoutRequest: mainAuthModule.logout();
             onOpenMoneyRequest: mainAuthModule.openWebPage("http://www.gamenet.ru/money")
             onConfirmGuest: mainAuthModule.openLinkGuest();
             onRequestNickname: enterNickName.openFromMenu();
-
-            Rectangle {
-                anchors.fill: parent
-                border{ width: 1; color: "red"; }
-            }
         }
 
         Blocks.Auth {
@@ -325,7 +299,7 @@ Rectangle {
 
             function openWebPage(url) {
                 if (!mainAuthModule.isAuthed || !mainAuthModule.authedAsGuest) {
-                    mainWindow.openExternalBrowser(url);
+                    App.openExternalBrowser(url);
                     return;
                 }
 
@@ -360,13 +334,13 @@ Rectangle {
                 guestAuthEnabled = false;
                 RestApi.Core.setUserId(userId);
                 RestApi.Core.setAppKey(appKey);
-                mainWindow.authSuccessSlot(userId, appKey, cookie);
+                App.authSuccessSlot(userId, appKey, cookie);
                 UserInfo.setCredential(userId, appKey, cookie);
                 refreshUserInfo();
                 userInfoBlock.switchToUserInfo();
 
                 if (startAfterAuthGame) {
-                    mainWindow.downloadButtonStart(mainAuthModule.startAfterAuthGame);
+                    App.downloadButtonStart(mainAuthModule.startAfterAuthGame);
                     mainAuthModule.startAfterAuthGame = "";
                 }
 
@@ -375,7 +349,7 @@ Rectangle {
 
             onLogoutDone: {
                 GoogleAnalytics.userId = null;
-                mainWindow.logout();
+                App.logout();
                 UserInfo.reset();
                 userInfoBlock.switchToLoginButton();
                 userInfoBlock.resetUserInfo();
@@ -388,7 +362,7 @@ Rectangle {
 
             onLinkGuestDone: {
                 if (mainAuthModule.startAfterLinkServiceId) {
-                    mainWindow.downloadButtonStart(mainAuthModule.startAfterLinkServiceId);
+                    App.downloadButtonStart(mainAuthModule.startAfterLinkServiceId);
                     mainAuthModule.startAfterLinkServiceId = "";
                 }
             }
@@ -426,7 +400,7 @@ Rectangle {
 
             visible: false
             property string serviceId;
-            onPhoneLinked: mainWindow.downloadButtonStart(accountActivation.serviceId);
+            onPhoneLinked: App.downloadButtonStart(accountActivation.serviceId);
         }
 
         Connections {
@@ -551,25 +525,6 @@ Rectangle {
             onActivate: qGNA_main.activateWindow();
         }
 
-        Image {
-            id: closeButtonImage
-
-            x: 780
-            y: 12
-            source: installPath + "images/closeButton.png"
-            opacity: 0.5
-
-            NumberAnimation { id: closeButtonDownAnimation; running: false; target: closeButtonImage; property: "opacity"; from: 0.9; to: 0.5; duration: 225 }
-            NumberAnimation { id: closeButtonUpAnimation; running: false; target: closeButtonImage; property: "opacity"; from: 0.5; to: 0.9; duration: 225 }
-            Elements.CursorMouseArea {
-                anchors.fill: parent
-                hoverEnabled: true
-                onClicked: hideAnimation.start();
-                onEntered: closeButtonUpAnimation.start()
-                onExited: closeButtonDownAnimation.start()
-            }
-        }
-
         Blocks.FirstLicense {
             id: firstLicense
 
@@ -581,6 +536,7 @@ Rectangle {
 
                 mainWindow.acceptFirstLicense(firstLicense.serviceId);
                 firstLicense.closeMoveUpPage();
+                guide.start();
             }
         }
 
@@ -595,6 +551,34 @@ Rectangle {
 
             onLaunchGame: mainWindow.downloadButtonStart(serviceId);
             onStartClosing: qGNA_main.state = "HomePage";
+        }
+
+        Guide.WellcomeGuide {
+            id: guide
+        }
+
+        Ping.Ping {
+            id: ping
+        }
+
+        Image {
+            id: closeButtonImage
+
+            anchors { top: parent.top; right: parent.right; rightMargin: 9; topMargin: 12 }
+            source: installPath + "images/closeButton.png"
+            opacity: closeButtomMouse.containsMouse ? 0.9 : 0.5
+
+            Behavior on opacity {
+                NumberAnimation { duration: 225 }
+            }
+
+            Elements.CursorMouseArea {
+                id: closeButtomMouse
+
+                anchors.fill: parent
+                hoverEnabled: true
+                onClicked: hideAnimation.start();
+            }
         }
 
         Connections {
@@ -657,9 +641,6 @@ Rectangle {
                 PropertyChanges { target: pageLoader; source: "Models/LoadScreenModel.qml" }
                 PropertyChanges { target: gamesSwitchPageModel ; visible: false; }
                 PropertyChanges { target: mainAuthModule; visible: false }
-                PropertyChanges { target: userInfoBlock; visible: false }
-                PropertyChanges { target: backTextImage; visible: true }
-                PropertyChanges { target: headerMain; visible: false; textVisible: true }
             },
 
             State {
@@ -667,9 +648,6 @@ Rectangle {
                 PropertyChanges { target: pageLoader; source: "Models/HomeModel.qml" }
                 PropertyChanges { target: gamesSwitchPageModel ; visible: false; }
                 PropertyChanges { target: mainAuthModule; visible: true }
-                PropertyChanges { target: userInfoBlock; visible: true }
-                PropertyChanges { target: backTextImage; visible: false }
-                PropertyChanges { target: headerMain; visible: true; textVisible: true }
                 StateChangeScript {
                     script:  {
                         GoogleAnalytics.trackPageView('/home');
@@ -682,9 +660,7 @@ Rectangle {
                 PropertyChanges { target: gamesSwitchPageModel; visible: true; }
                 PropertyChanges { target: pageLoader; visible: false; }
                 PropertyChanges { target: mainAuthModule; visible: true }
-                PropertyChanges { target: userInfoBlock; visible: true }
-                PropertyChanges { target: backTextImage; visible: false }
-                PropertyChanges { target: headerMain; visible: true; textVisible: true }
+                StateChangeScript { script: guide.start(); }
             },
 
             State {
@@ -693,9 +669,6 @@ Rectangle {
                 PropertyChanges { target: gamesSwitchPageModel ; visible: false; }
                 PropertyChanges { target: pageLoader; visible: true; }
                 PropertyChanges { target: mainAuthModule; visible: true }
-                PropertyChanges { target: userInfoBlock; visible: true }
-                PropertyChanges { target: backTextImage; visible: false }
-                PropertyChanges { target: headerMain; visible: true; textVisible: false }
                 StateChangeScript {
                     script:  {
                         GoogleAnalytics.trackPageView('/settings');
@@ -722,6 +695,7 @@ Rectangle {
 
     Announcements.Announcements {
         id: announcementsFeature
+
         isAuthed: mainAuthModule.isAuthed
         onGamePlayClicked: {
             if (!serviceId || serviceId == 0) {

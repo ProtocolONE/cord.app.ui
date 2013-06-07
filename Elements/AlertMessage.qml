@@ -11,6 +11,7 @@
 import QtQuick 1.0
 import "." as Elements
 import "../Blocks" as Blocks
+import "../js/Core.js" as Core
 
 Blocks.MoveUpPage {
     id: alertModule
@@ -22,8 +23,8 @@ Blocks.MoveUpPage {
     signal clicked(int buttonId)
     signal buttonClicked(int messageId, int buttonId)
 
-    width: 800
-    height: 550
+    width: Core.clientWidth
+    height: Core.clientHeight
     openHeight: 292
 
     Component.onCompleted: alertModule.openMoveUpPage();

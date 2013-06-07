@@ -9,55 +9,66 @@
 ****************************************************************************/
 
 import QtQuick 1.0
-import "." as Elements
 
 Rectangle {
-    id: buttonT1
+    id: root
 
-    property color buttonColor: "#00000000"
-    property color buttonColorHover: "#006600"
-    property string buttonText
-    property string fontFamily: fontTahoma.name
+    default property alias content: container.data
 
-    signal buttonPressed();
+    property alias buttonColor: root.color // @deprecated
+    property alias buttonColorHover: hover.color // @deprecated
+    property alias fontFamily: label.font.family // @deprecated
+    property alias buttonText: label.text // @deprecated
 
-    color: buttonColor
-    border.color: "#fff"
-    height: 27
-    width: 70
+    property alias font: label.font
+    property alias text: label.text
+    property alias containsMouse: mouseArea.containsMouse
+    property alias hoverColor: hover.color
 
-    Image {
-        id: buttonT1Img
+    signal buttonPressed(); // #deprecated
+
+    signal clicked();
+
+    color: "#00000000"
+    border { width: 1; color: "#ffffff" }
+    height: 28
+    width: Math.max(70, container.width + label.width + 20)
+
+    Rectangle {
+        id: hover
+
         anchors { fill: parent; leftMargin: 1; topMargin: 1 }
-        sourceSize.height: 27
-        source: installPath + "images/button_bg.png"
+        color: '#006600'
+        visible: mouseArea.containsMouse
+    }
+
+    Row {
+        id: container
+
+        x: 3
+        width: childrenRect.width
+        height: parent.height
     }
 
     Text {
-        id: text1
-        x: 24
-        y: 7
-        text: buttonText
+        id: label
+
+        anchors { verticalCenter: parent.verticalCenter }
+        anchors { left: container.right; leftMargin: (root.width - container.width - width - container.x) / 2 }
+        font { family: 'Arial'; pixelSize: 16 }
         color: "#ffffff"
-        font { family: fontFamily; weight: "Light"; pixelSize: 16; bold: false }
-        anchors.centerIn: parent
+        smooth: true
+        text: buttonText
     }
 
-    Elements.CursorMouseArea {
-        id: buttonMouseArea
+    CursorMouseArea {
+        id: mouseArea
 
         anchors.fill: parent
         hoverEnabled: true
-
-        onClicked: buttonPressed();
-        onEntered: {
-            buttonT1Img.source = ""
-            buttonT1.color = buttonColorHover
-        }
-
-        onExited: {
-            buttonT1Img.source = installPath + "images/button_bg.png"
-            buttonT1.color = buttonColor
+        onClicked: {
+            root.clicked();
+            buttonPressed();
         }
     }
 }

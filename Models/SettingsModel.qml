@@ -1,9 +1,11 @@
 
 import QtQuick 1.0
 import "../Blocks" as Blocks
+import "../js/Core.js" as Core
 
 Blocks.SettingsPage {
     signal testAndCloseSignal();
-    width: 800
-    height: 550
+
+    width: Core.clientWidth
+    height: Core.clientHeight
 }

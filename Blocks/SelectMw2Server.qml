@@ -12,6 +12,7 @@ import QtQuick 1.0
 import "../Delegates" as Delegates
 import "../Elements" as Elements
 import "." as Blocks
+import "../js/Core.js" as Core
 
 Blocks.MoveUpPage {
     id: page
@@ -19,8 +20,8 @@ Blocks.MoveUpPage {
 
     property bool isBlockOpen: false
 
-    width: 800
-    height: 550
+    width: Core.clientWidth
+    height: Core.clientHeight
     openHeight: 308
 
     Rectangle {

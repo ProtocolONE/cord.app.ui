@@ -1,14 +1,16 @@
 import QtQuick 1.1
 import "../Elements" as Elements
+import "../js/Core.js" as Core
 
 Item {
     id: page
 
-    implicitWidth: 800
-    implicitHeight: 550
+    implicitWidth: Core.clientWidth
+    implicitHeight: Core.clientHeight
 
     default property alias content: mainContainer.data
     property int openHeight: 300
+    property real openBackgroundOpacity: 0.5
     property bool isOpen: false;
     property bool isInProgress: false
 
@@ -82,7 +84,7 @@ Item {
                 target: backGroundShadow;
                 property: "opacity";
                 from: 0;
-                to: 0.5;
+                to: openBackgroundOpacity;
                 duration: 350;
             }
         }
@@ -102,7 +104,7 @@ Item {
             NumberAnimation {
                 target: backGroundShadow;
                 property: "opacity";
-                from: 0.5;
+                from: openBackgroundOpacity;
                 to: 0;
                 duration: 350;
             }

@@ -13,24 +13,22 @@
 
 import QtQuick 1.1
 
-Rectangle {
+Item {
     property alias text: text.text;
     property alias toolTip: mouser.toolTip
     property alias source: image.source
-    property bool isUnderline: false
+    property bool isActive: false
 
     signal clicked();
 
     width: image.width
-    height: image.height + text.height
-
-    color: "#00000000"
+    height: image.height + text.height + 2
 
     Image {
         id: image
 
         anchors.horizontalCenter: parent.horizontalCenter
-        opacity: (mouser.containsMouse || isUnderline)? 1 : 0.60
+        opacity: (mouser.containsMouse || isActive)? 1 : 0.60
 
         Behavior on opacity {
             PropertyAnimation { duration: 200 }
@@ -41,7 +39,7 @@ Rectangle {
         id: text
 
         anchors { top: image.bottom; topMargin: 2; horizontalCenter: parent.horizontalCenter }
-        color: isUnderline? "#FE9900" : "#FFFFFF"
+        color: isActive ? "#FE9900" : "#FFFFFF"
         smooth: true
         font {  family: "Segoe UI Light"; pixelSize: 11; letterSpacing: 0.7 }
     }

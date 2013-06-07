@@ -1,16 +1,121 @@
 .pragma library
-
+var socialNetTable = {
+    "300002010000000000":[//Aika
+        {
+            link: "http://www.youtube.com/user/GamenetAika",
+            icon: "images/socialNet/yt.png"
+        },
+        {
+            link: "http://vk.com/aikaonlineru",
+            icon: "images/socialNet/vk.png"
+        },
+        {
+            link: "http://my.mail.ru/community/aikaonline.ru",
+            icon: "images/socialNet/mail.png"
+        },
+        {
+            link: "https://www.facebook.com/AikaOnlineRu",
+            icon: "images/socialNet/fb.png"
+        },
+        {
+            link: "https://twitter.com/AikaOnlineRu",
+            icon: "images/socialNet/t.png"
+        }
+    ],
+    "300003010000000000":[//BS
+        {
+            link: "http://www.youtube.com/bloodandsoulru",
+            icon: "images/socialNet/yt.png"
+        },
+        {
+            link: "http://vk.com/bloodandsoul",
+            icon: "images/socialNet/vk.png"
+        },
+        {
+            link: "http://my.mail.ru/community/bloodandsoul.ru",
+            icon: "images/socialNet/mail.png"
+        },
+        {
+            link: "www.facebook.com/pages/Blood-Soul/201464389893835",
+            icon: "images/socialNet/fb.png"
+        },
+        {
+            link: "https://twitter.com/#!/BloodandSoul1",
+            icon: "images/socialNet/t.png"
+        }
+    ],
+    "300005010000000000":[//FireStorm
+        {
+            link: "http://vk.com/warinc",
+            icon: "images/socialNet/vk.png"
+        }
+    ],
+    "300006010000000000":[//MW2
+        {
+            link: "http://vk.com/magicworld2",
+            icon: "images/socialNet/vk.png"
+        }
+    ],
+    "300007010000000000":[//Golden Age
+        {
+            link: "https://www.youtube.com/user/GoldenAgeGuide",
+            icon: "images/socialNet/yt.png"
+        },
+        {
+            link: "https://vk.com/golden_age_game",
+            icon: "images/socialNet/vk.png"
+        }
+    ],
+    "300009010000000000":[//Combat Arms
+        {
+            link: "http://www.youtube.com/user/CombatArmsRussia",
+            icon: "images/socialNet/yt.png"
+        },
+        {
+            link: "http://vk.com/ca_ru",
+            icon: "images/socialNet/vk.png"
+        },
+        {
+            link: "http://my.mail.ru/community/combatarmsru/",
+            icon: "images/socialNet/mail.png"
+        },
+        {
+            link: "https://www.facebook.com/pages/Combat-Arms-RU/465773090177989",
+            icon: "images/socialNet/fb.png"
+        },
+        {
+            link: "http://www.odnoklassniki.ru/group/52003182084281/members",
+            icon: "images/socialNet/ok.png"
+        },
+        {
+            link: "https://twitter.com/gmcaru",
+            icon: "images/socialNet/t.png"
+        }
+    ]
+}
 var serviceIdToGameItemIdex = {},
     indexToGameItem = {},
-    count = 0;
+    gameIdToGameItem = {},
+    count = 0,
+    clientWidth = 930,
+    clientHeight = 550;
 
 var gamesListModel = initModel();
+var _previousGame = gamesListModel.currentGameItem
 
 var gamenetGameItem = {
     imageLogoSmall: "images/games/gamenet_logo_small.png",
     name: "GameNet",
     serviceId: "0"
 };
+function getCurrentSocialTable() {
+    var current = currentGame();
+    if (!current) {
+        return null;
+    }
+
+    return socialNetTable[current.serviceId];
+}
 
 function initModel() {
     var component = Qt.createComponent('../Models/GamesListModel.qml');
@@ -31,6 +136,7 @@ function initModel() {
     for (i = 0; i < count; ++i) {
         item = list.get(i);
         indexToGameItem[i] = item;
+        gameIdToGameItem[item.gameId] = item;
         serviceIdToGameItemIdex[item.serviceId] = i;
     }
 
@@ -38,7 +144,12 @@ function initModel() {
 }
 
 function activateGame(item) {
+    _previousGame = gamesListModel.currentGameItem;
     gamesListModel.currentGameItem = item;
+}
+
+function previousGame(item) {
+    return _previousGame;
 }
 
 function activateGameByServiceId(serviceId) {
@@ -47,7 +158,7 @@ function activateGameByServiceId(serviceId) {
     if (!item)
         return;
 
-    setCurrentGameItem(item);
+    activateGame(item);
 }
 
 function currentGame() {
@@ -56,6 +167,10 @@ function currentGame() {
 
 function serviceItemByIndex(index) {
     return indexToGameItem[index];
+}
+
+function serviceItemByGameId(gameId) {
+    return gameIdToGameItem[gameId];
 }
 
 function serviceItemByServiceId(serviceId) {

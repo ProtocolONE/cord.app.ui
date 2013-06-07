@@ -16,6 +16,8 @@ import "../js/restapi.js" as RestApi
 import "../js/support.js" as SupportHelper
 import "../js/DateHelper.js" as DateHelper
 import "../js/Core.js" as Core
+import "../Models" as Models
+
 Item {
     id: newsBlock
 
@@ -73,7 +75,7 @@ Item {
                 id: aboutGameTab
 
                 text: qsTr("TAB_NEWS_ABOUT_GAME")
-                source: aboutGameTab.isUnderline ?  installPath + "images/menu/info_active.png" : installPath + "images/menu/info.png"
+                source: aboutGameTab.isActive ?  installPath + "images/menu/info_active.png" : installPath + "images/menu/info.png"
                 onClicked: {
                     GoogleAnalytics.trackEvent('/newsBlock/' + Core.currentGame().gaName,
                                                'Navigation', 'About Game');
@@ -85,13 +87,14 @@ Item {
                 id: newsTab
 
                 text: qsTr("TAB_NEWS")
-                source: newsTab.isUnderline ? installPath + "images/menu/news_active.png" : installPath + "images/menu/news.png"
+                source: newsTab.isActive ? installPath + "images/menu/news_active.png" : installPath + "images/menu/news.png"
                 onClicked: {
+                    newsBlock.state = "NewsTab"
+
                     if (qGNA_main && Core.currentGame()) {
                         GoogleAnalytics.trackEvent('/newsBlock/' + Core.currentGame().gaName,
                                                    'Navigation', 'News');
                     }
-                    newsBlock.state = "NewsTab"
                 }
             }
 
@@ -131,7 +134,7 @@ Item {
         }
 
         Rectangle {
-            width: 444
+            width: 470
             height: 180
             color: "#00000000"
 
@@ -139,9 +142,10 @@ Item {
                 id: opacityBlock
 
                 anchors { top: parent.top; topMargin: 5 }
-                anchors { left: parent.left; right: parent.right; leftMargin: -62 }
+                anchors { left: parent.left; right: parent.right; leftMargin: -15 }
                 color: "#000000"
                 opacity: 0.4
+
                 Image{
                     id: cornerPoint
 
@@ -152,6 +156,7 @@ Item {
 
             Item {
                 id: aboutGamesItem
+
                 anchors.fill: parent
 
                 Text {
@@ -162,76 +167,28 @@ Item {
                     onLinkActivated: mainAuthModule.openWebPage(link);
                     color: "#ffffff"
                     font{ pixelSize: 17; letterSpacing: -0.5 }
-                    smooth:  true
+                    smooth: true
                     anchors { topMargin: 18; top: parent.top }
                     anchors { left: parent.left; right: parent.right; rightMargin: 30 }
                     wrapMode: Text.WordWrap
                 }
             }
 
-            Item {
+            Models.NewsModel {
                 id: newsItem
 
                 anchors.fill: parent
-
-                property bool timerReload: false
-
-                function reloadNews() {
-                    RestApi.Wall.getNewsXml(function(news) {
-                        if (news) {
-                            feedModel.xml = news;
-                        }
-
-                    }, function(){});
-                }
-
-                XmlListModel {
-                    id: feedModel
-
-                    query: "/response/news/row[gameId=" + filterGameId + "]";
-
-                    XmlRole { name: "gameId"; query: "gameId/string()" }
-                    XmlRole { name: "gameShortName"; query: "gameShortName/string()" }
-                    XmlRole { name: "eventId"; query: "eventId/string()" }
-                    XmlRole { name: "title"; query: "title/string()" }
-                    XmlRole { name: "announcement"; query: "announcement/string()" }
-                    XmlRole { name: "time"; query: "time/number()" }
-                    XmlRole { name: "commentCount"; query: "commentCount/number()" }
-                    XmlRole { name: "likeCount"; query: "likeCount/number()" }
-
-                    onStatusChanged: {
-                        if (feedModel.status == XmlListModel.Ready && feedModel.get(0)) {
-                            if (newsItem.timerReload === false) {
-                                newsReady();
-                            }
-
-                            newsItem.timerReload = false;
-                        }
-                    }
-                }
-
-                Timer {
-                    //INFO from 15 to 60 minutes
-                    interval: 900000 + Math.floor(Math.random() * 2700000)
-                    running: true
-                    repeat: true
-                    onTriggered: {
-                        console.log('Reloading news block');
-
-                        newsItem.timerReload = true;
-                        newsItem.reloadNews();
-                    }
-                }
+                filterGameId: newsBlock.filterGameId
 
                 ListView {
                     visible: true;
                     width: parent.width;
                     height: parent.height
-                    model: feedModel
+                    model: newsItem.currentGame
                     clip: true
                     interactive: false
                     delegate:  Elements.NewsItem {
-                        width: parent.width
+                        width: newsItem.width
                         height: 50
                         newsTextDate: DateHelper.toLocaleFormat(new Date(time * 1000), '%d %m');
                         newsTextBody: title;
@@ -247,21 +204,21 @@ Item {
     states: [
         State {
             name: "AboutGameTab"
-            PropertyChanges { target: aboutGameTab; isUnderline: true }
-            PropertyChanges { target: newsTab; isUnderline: false }
+            PropertyChanges { target: aboutGameTab; isActive: true }
+            PropertyChanges { target: newsTab; isActive: false }
             PropertyChanges { target: newsItem; visible: false }
             PropertyChanges { target: aboutGamesItem; visible: true }
             PropertyChanges { target: opacityBlock; height: aboutGamesText.height + 38 }
-            PropertyChanges { target: cornerPoint; anchors.rightMargin: 413 }
+            PropertyChanges { target: cornerPoint; anchors.rightMargin: 442 }
         },
         State {
             name: "NewsTab"
-            PropertyChanges { target: aboutGameTab; isUnderline: false }
-            PropertyChanges { target: newsTab; isUnderline: true }
+            PropertyChanges { target: aboutGameTab; isActive: false }
+            PropertyChanges { target: newsTab; isActive: true }
             PropertyChanges { target: newsItem; visible: true }
             PropertyChanges { target: aboutGamesItem; visible: false }
             PropertyChanges { target: opacityBlock; height: 180 }
-            PropertyChanges { target: cornerPoint; anchors.rightMargin: 346 }
+            PropertyChanges { target: cornerPoint; anchors.rightMargin: 374 }
         }
     ]
 }

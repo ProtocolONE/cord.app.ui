@@ -1,12 +1,12 @@
 import QtQuick 1.1
+import "../js/Core.js" as Core
 
 Item {
     id: main
-    x: 0
-    y: 0
+
     z: 1000
-    width: 800
-    height: 550
+    width: Core.clientWidth
+    height: Core.clientHeight
     state: 'closed'
     visible: back.opacity !== 0
 

@@ -3,7 +3,7 @@ import QtWebKit 1.0
 import Tulip 1.0
 
 import "../restapi.js" as Api
-import "../userInfo.js" as UserInfo
+import "../UserInfo.js" as UserInfo
 import "../../Elements" as Elements
 
 Window {

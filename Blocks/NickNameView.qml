@@ -8,17 +8,16 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.0
+import QtQuick 1.1
 import Tulip 1.0
 import "../Delegates" as Delegates
 import "../Elements" as Elements
 
-Rectangle {
+Item {
     id: nickNameViewClass
 
     width: getWidgetWidth();
     height: 68
-    color: "#00000000"
 
     property string avatarSource
     property string upText
@@ -38,12 +37,12 @@ Rectangle {
     }
 
     function mouseButtonClick() {
-        if(isGuest){
+        if (isGuest) {
             confirmGuest();
             return;
         }
 
-        if(!isNickNameSaved) {
+        if (!isNickNameSaved) {
             requestNickname();
             return;
         }
@@ -54,8 +53,6 @@ Rectangle {
     }
 
     Rectangle {
-        id: opacityBlock
-
         anchors.fill: parent;
         opacity: 0.35
         color: "#000000"
@@ -145,7 +142,7 @@ Rectangle {
             width: 18
             visible: !isGuest && isNickNameSaved
             height: 14
-            source: premium? installPath + "images/vip.png": installPath + "images/vip-no.png"
+            source: premium ? installPath + "images/vip.png": installPath + "images/vip-no.png"
             smooth : true
             opacity: premium? 1 : 0.2
 
@@ -181,13 +178,12 @@ Rectangle {
 
         anchors { bottom: parent.bottom; left: parent.left; bottomMargin: 11; leftMargin: 68 }
         height: 22
-        spacing: 0
 
         Rectangle {
             width: balanceText.width + 28
             height: 27
             color: "#006600"
-            border{ width: 1; color: "#339900" }
+            border { width: 1; color: "#339900" }
 
             Image {
                 width: 13
@@ -222,9 +218,9 @@ Rectangle {
         }
 
         Rectangle {
-        width: 123
-        height: 28
-        color: "#339900"
+            width: 123
+            height: 28
+            color: "#339900"
 
             Text {
                 color: "#fff"
@@ -241,8 +237,9 @@ Rectangle {
                 anchors.fill: parent
                 hoverEnabled: true
                 onClicked: {
-                    if(!isGuest && isNickNameSaved)
+                    if (!isGuest && isNickNameSaved) {
                         moneyClicked();
+                    }
                 }
             }
         }

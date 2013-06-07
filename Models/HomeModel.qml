@@ -16,6 +16,7 @@ import "../js/Core.js" as Core
 
 Blocks.Home {
     id: homeModel
+
     signal testAndCloseSignal();
 
     onMouseItemClicked: {

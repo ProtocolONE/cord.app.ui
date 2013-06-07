@@ -3,6 +3,11 @@
 		<file>Blocks/AccountActivation.qml</file>
 		<file>Blocks/AlertAdapter.qml</file>
 		<file>Blocks/Auth.qml</file>
+		<file>Blocks/Auth/AuthBlock.qml</file>
+		<file>Blocks/Auth/FailBlock.qml</file>
+		<file>Blocks/Auth/Hub.qml</file>
+		<file>Blocks/Auth/Registration.qml</file>
+		<file>Blocks/Auth/SingleWidget.qml</file>
 		<file>Blocks/EnterNickname.qml</file>
 		<file>Blocks/Features/Announcements/Announcements.qml</file>
 		<file>Blocks/Features/Announcements/AnnouncementsHelper.js</file>
@@ -14,6 +19,7 @@
 		<file>Blocks/GameOverlay.qml</file>
 		<file>Blocks/GamesSwitch.qml</file>
 		<file>Blocks/GamesSwitchFooter.qml</file>
+		<file>Blocks/GamesSwitchFooter/FooterButton.qml</file>
 		<file>Blocks/GameSwitch/ImageButton.qml</file>
 		<file>Blocks/GameSwitch/Maintenance.qml</file>
 		<file>Blocks/Header.qml</file>
@@ -24,10 +30,12 @@
 		<file>Blocks/NewsBlock.qml</file>
 		<file>Blocks/NickNameView.qml</file>
 		<file>Blocks/ProgressWidget.qml</file>
+		<file>Blocks/RoatateNews.qml</file>
 		<file>Blocks/SelectMw2Server.qml</file>
 		<file>Blocks/SettingsDownloadPage.qml</file>
 		<file>Blocks/SettingsGeneralPage.qml</file>
 		<file>Blocks/SettingsPage.qml</file>
+		<file>Blocks/SocialNet.qml</file>
 		<file>Blocks/Tray.qml</file>
 		<file>Blocks/TryLoader.qml</file>
 		<file>Blocks/UserInfo.qml</file>
@@ -78,6 +86,11 @@
 		<file>Elements/Tooltip/Tooltip.qml</file>
 		<file>Elements/WheelArea.qml</file>
 		<file>Elements/WorkInProgress.qml</file>
+		<file>Features/Guide/Guide.js</file>
+		<file>Features/Guide/Guide.qml</file>
+		<file>Features/Guide/Private/ImageButton.qml</file>
+		<file>Features/Guide/WellcomeGuide.qml</file>
+		<file>Features/Ping/Ping.qml</file>
 		<file>js/Authorization.js</file>
 		<file>js/Authorization/Vk.qml</file>
 		<file>js/Core.js</file>
@@ -95,6 +108,11 @@
 		<file>Models/HomeModel.qml</file>
 		<file>Models/LoadScreenModel.qml</file>
 		<file>Models/SettingsModel.qml</file>
+		<file>Pages/Game.qml</file>
+		<file>Proxy/App.js</file>
+		<file>Proxy/App.qml</file>
+		<file>Proxy/Player.qml</file>
+		<file>Proxy/Player/Wrapper.qml</file>
 		<file>qGNA_Main.qml</file>
 	</qresource>
 </RCC>

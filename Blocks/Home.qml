@@ -12,12 +12,15 @@ import QtQuick 1.0
 import "../Models" as Models
 import "../Elements" as Elements
 import "../Delegates" as Delegates
+import "../Blocks" as Blocks
+
 import "../js/Core.js" as Core
 import "../js/GoogleAnalytics.js" as GoogleAnalytics
 
 Item {
+    id: cHome
 
-//    width: 800
+//    width: Core.clientWidth
 //    height: 400
 //    Item {
 //        id: mainWindow
@@ -28,7 +31,7 @@ Item {
 
 //    property string installPath: "../"
 
-    id: cHome
+
     focus: true
 
     signal finishAnimation()
@@ -45,6 +48,71 @@ Item {
         onDownloadButtonStartSignal: {
             var item = Core.serviceItemByServiceId(serviceId);
             mouseItemClicked(item);
+        }
+    }
+
+    Item {
+        anchors { left: parent.left; right: parent.right; top: parent.top }
+        height: 86
+
+        Rectangle {
+            color: "#000000"
+            height: 86
+            width: parent.width
+            opacity: 0.4
+        }
+
+        Item {
+            anchors { fill: parent; leftMargin: 30 }
+
+            Item {
+                anchors { top: parent.top; left: gameTitle.left }
+                anchors { topMargin: 12; leftMargin: gameTitle.width * 0.7 }
+                visible: gameTitle.visible
+                height: 21
+                width: textDescribtion.width + 11
+
+                Rectangle{
+                    anchors.fill: parent
+                    color :"#ffffff"
+                    opacity: 0.7
+                }
+
+                Text {
+                    id: textDescribtion
+
+                    color: "#000000"
+                    font { family: "Arial"; bold: false; pixelSize: 12; letterSpacing: 0.4 }
+                    anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 6 }
+                    text: qsTr("FREE_OF_CHARGE")
+                    smooth: true
+                }
+            }
+
+            Text {
+                id: gameTitle
+
+                anchors { top: parent.top; topMargin: 20 }
+                font { family: "Segoe UI Light"; bold: false; pixelSize: 46 }
+                smooth: true
+                color: "#ffffff"
+                text: qsTr("ALL_GAMES")
+            }
+
+            Text{
+                id: blockGameNet
+
+                color: "#ffffff"
+                text: "GameNet"
+                anchors { top: parent.top; topMargin: 14 }
+                font { family: "Arial"; bold: false; pixelSize: 14; }
+
+                Elements.CursorMouseArea {
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    onClicked: mainAuthModule.openWebPage("http://www.gamenet.ru/");
+                }
+            }
         }
     }
 

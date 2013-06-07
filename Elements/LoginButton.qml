@@ -8,51 +8,44 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.0
+import QtQuick 1.1
 import "." as Elements
 
 Item {
+    property string buttonText
+
+    signal mouseClicked()
+
     width: 80
     height: 25
 
-    anchors { top: parent.top; right: parent.right }
-    visible: true
-
-    property string buttonText;
-    signal mouseClicked();
-
     Rectangle {
-        anchors.fill: parent
-        color: "#fff"
+        anchors { fill: parent }
+        border { width: 1; color: "#fff000" }
+        color: '#00000000'
         opacity: 0.4
     }
 
     Rectangle {
         id: enterBox
 
-    width: 80
-    height: 25
-        anchors {left: parent.left; leftMargin: 1; top: parent.top; topMargin: 1;}
+        anchors { fill: parent; leftMargin: 1; topMargin: 1 }
         color: enterAction.containsMouse ? "#006600" : "#339900"
 
         Image {
             width: 16
             height: 18
-            anchors { top: parent.top; topMargin: 4;  }
-            anchors { left: parent.left; leftMargin: 6; }
+            anchors { top: parent.top; left: parent.left; topMargin: 4; leftMargin: 6 }
             fillMode: Image.PreserveAspectFit
             source: installPath + "images/key.png"
         }
 
         Text {
-            color: "#fff"
-            text: buttonText;
-            anchors { verticalCenter: parent.verticalCenter }
-            anchors { left: parent.left; leftMargin: 30; }
-            wrapMode: Text.NoWrap
-            style: Text.Normal
+            text: buttonText
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 30 }
             smooth: true
             font { family: "Arial"; pixelSize: 12 }
+            color: "#fff"
         }
     }
 

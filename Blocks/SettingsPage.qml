@@ -52,8 +52,8 @@ Rectangle {
 //    }
 //    property string installPath: "../"
 
-    width: 800
-    height: 550
+    width: Core.clientWidth
+    height: Core.clientHeight
 
     id: settingsPageId
     color: "#00000000"
@@ -292,7 +292,7 @@ Rectangle {
             onButtonClicked: {
                 globalAnimationSpeed = 1;
                 settingsViewModel.setDefaultSettings();
-                mainWindow.selectLanguage("ru");
+                App.selectLanguage("ru");
                 var pageSource = pageLoader.source;
                 pageLoader.source = "";
                 pageLoader.source = pageSource;
