@@ -22,15 +22,6 @@ import "../../js/GoogleAnalytics.js" as GoogleAnalytics
 Item {
     id: root
 
-    implicitWidth: Core.clientWidth
-    implicitHeight: Core.clientHeight
-    state: 'closed'
-
-    Component.onCompleted: {
-        inner.init();
-        Guide._qml = root;
-    }
-
     function show() {
         if (!inner.isAllowToShowHelp) {
             return;
@@ -46,6 +37,15 @@ Item {
         }
 
         GoogleAnalytics.trackEvent('/', 'Guide', root.state);
+    }
+
+    implicitWidth: Core.clientWidth
+    implicitHeight: Core.clientHeight
+    state: 'closed'
+
+    Component.onCompleted: {
+        inner.init();
+        Guide._qml = root;
     }
 
     QtObject {
@@ -94,7 +94,7 @@ Item {
 
         function init() {
             var showCount = Settings.value("qml/features/guide/", "showCount", 0) |0;
-            inner.isAllowToShowHelp = (showCount === 1) && (showCount !== 3)
+            inner.isAllowToShowHelp = (showCount !== 2) && (showCount !== 3)
             inner.isWellcomeMustBeShown = (showCount < 2);
             inner.isFirstTime = (showCount === 0);
         }
@@ -102,12 +102,14 @@ Item {
 
     MouseArea {
         id: backMouser
+
         anchors.fill: parent
         hoverEnabled: true
     }
 
     Timer {
         id: nextEntryTimer
+
         onTriggered: inner.showNext();
     }
 
@@ -115,6 +117,7 @@ Item {
         id: hideGuide
 
         alwaysRunToEnd: true
+
         ParallelAnimation {
             PropertyAnimation { target: attention; from: 0; to: 0.7; property: "opacity"; duration: 400 }
             PropertyAnimation { target: attentionBorder; from: 1; to: 0; property: 'opacity'; duration: 400}
@@ -182,48 +185,55 @@ Item {
 
         Rectangle {
             id: up
+
             color: "#000000"
             opacity: 0.7
-            anchors {top: parent.top; left: parent.left; right: parent.right; bottom: attention.top}
+            anchors { top: parent.top; left: parent.left; right: parent.right; bottom: attention.top }
         }
 
         Rectangle {
             id: down
+
             color: "#000000"
             opacity: 0.7
-            anchors {top: attention.bottom; left: parent.left; right: parent.right; bottom: parent.bottom}
+            anchors { top: attention.bottom; left: parent.left; right: parent.right; bottom: parent.bottom }
         }
 
         Rectangle {
             id: left
+
             color: "#000000"
             opacity: 0.7
-            anchors {top: attention.top; left: parent.left; right: attention.left; bottom: attention.bottom}
+            anchors { top: attention.top; left: parent.left; right: attention.left; bottom: attention.bottom }
         }
 
         Rectangle {
             id: right
+
             color: "#000000"
             opacity: 0.7
-            anchors {top: attention.top; left: attention.right; right: parent.right; bottom: attention.bottom}
+            anchors { top: attention.top; left: attention.right; right: parent.right; bottom: attention.bottom }
         }
 
         Rectangle {
             id: attention
+
             color: "#000000"
             opacity: 0.7
         }
 
         Rectangle {
             id: attentionBorder
+
             anchors.fill: attention
             color: "#00000000"
-            border {color: "#f0f0dc"}
+            border.color: "#f0f0dc"
         }
     }
 
     Proxy.Player {
         id: sound
+
         volume: inner.isSoundEnabled ? 1 : 0
 
         Behavior on volume {
@@ -255,10 +265,8 @@ Item {
             Text {
                 id: infoText
 
-                anchors.fill: parent
-                anchors.margins: 10
+                anchors { fill: parent; margins: 10 }
                 horizontalAlignment: Text.AlignJustify
-                text: ""
                 color: "#333333"
                 font.pixelSize: 18
                 wrapMode: Text.WordWrap
@@ -271,7 +279,7 @@ Item {
 
         opacity: 0
         spacing: 30
-        anchors {left: parent.left; bottom: parent.bottom; leftMargin: 130; bottomMargin: 95}
+        anchors { left: parent.left; bottom: parent.bottom; leftMargin: 130; bottomMargin: 95 }
 
         Row {
             spacing: 5
@@ -322,10 +330,10 @@ Item {
     Item {
         id: wellcomePage
 
+        property int closeInterval: 15000
+
         opacity: 0
         anchors.fill: parent
-
-        property int closeInterval: 15000
 
         Rectangle {
             anchors.fill: parent
@@ -359,7 +367,7 @@ Item {
                     buttonText: qsTr('GUIDE_BUTTON_OK')
                     buttonHighlightColor: "#413c37"
                     onButtonClicked: {
-                        _progressAnim.stop();
+                        progressAnim.stop();
                         inner.markWellcomeAsShown();
                         root.show();
                         GoogleAnalytics.trackEvent('/', 'Guide', 'acceptGuide');
@@ -384,7 +392,7 @@ Item {
         }
 
         Timer {
-            id: _closeTimer
+            id: closeTimer
 
             running: root.state == 'firstEnter'
             interval: wellcomePage.closeInterval
@@ -395,22 +403,22 @@ Item {
         }
 
         ParallelAnimation {
-            id: _progressAnim
+            id: progressAnim
 
-            running: root.state == 'firstEnter'
+            running: root.state === 'firstEnter'
+
             ScriptAction {
                 script: sound.source = installPath + '/Sounds/Features/Guide/1.wma'
             }
 
             PropertyAnimation {
-                target: _progress;
+                target: progress;
                 property: "width"
                 from: root.width;
                 to: 0;
                 duration: wellcomePage.closeInterval
             }
         }
-
 
         Rectangle {
             color: "#c0bdb3"
@@ -421,10 +429,10 @@ Item {
         }
 
         Rectangle {
-            id: _progress
+            id: progress
 
             color: "#FFFFFF"
-            anchors {bottom: parent.bottom; bottomMargin: 107}
+            anchors { bottom: parent.bottom; bottomMargin: 107 }
             height: 1
             width: root.width
         }
@@ -479,7 +487,7 @@ Item {
             SequentialAnimation {
                 PropertyAnimation {targets: [background, wellcomePage]; property: "opacity"; duration: 250}
                 ScriptAction {
-                    script: _progressAnim.start();
+                    script: progressAnim.start();
                 }
             }
         },

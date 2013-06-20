@@ -13,6 +13,8 @@ import QtQuick 1.0
 Rectangle {
     id: progressBar
 
+    property bool running: true
+
     color: "#00000000"
 
     Rectangle {
@@ -44,7 +46,7 @@ Rectangle {
         }
 
         SequentialAnimation {
-            running: lightImage.visible
+            running: progressBar.running
             loops: Animation.Infinite
 
             PauseAnimation { duration: 20 }

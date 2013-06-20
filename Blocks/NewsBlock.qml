@@ -21,6 +21,7 @@ import "../Models" as Models
 Item {
     id: newsBlock
 
+    property bool forceShowNews: false
     property string filterGameId: "631"
 
     signal newsReady();
@@ -60,7 +61,7 @@ Item {
         target: Core.gamesListModel
         onCurrentGameItemChanged: {
             newsBlock.state = Core.currentGame()
-                    ? (d.getExecuteCount() > 0 ? "NewsTab": "AboutGameTab")
+                    ? (d.getExecuteCount() > 0 || forceShowNews ? "NewsTab": "AboutGameTab")
                     : "AboutGameTab";
         }
     }

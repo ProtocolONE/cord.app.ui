@@ -9,21 +9,10 @@
 ****************************************************************************/
 
 import QtQuick 1.0
-import "../Blocks" as Blocks
+import qGNA.Library 1.0
 
-import "../js/GoogleAnalytics.js" as GoogleAnalytics
-import "../js/Core.js" as Core
-
-Blocks.Home {
-    id: homeModel
-
-    signal testAndCloseSignal();
-
-    onMouseItemClicked: {
-        homeModel.closeAnimationStart();
-        userInfoBlock.closeMenu();
-        Core.activateGame(item);
-        qGNA_main.state = "GamesSwitchPage";
-        GoogleAnalytics.trackPageView('/game/' + item.gaName);
-    }
+UpdateManagerViewModel {
+    installPath: mainWindow.installUpdateGnaPath
+    updateArea: mainWindow.updateArea
+    updateUrl: mainWindow.updateUrl
 }

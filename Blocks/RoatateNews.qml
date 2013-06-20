@@ -85,18 +85,25 @@ Item {
     }
 
     Item {
-        anchors { right: parent.right; rightMargin: 30; top: parent.top; topMargin: 22 }
+        anchors { right: parent.right; top: parent.top }
         width: arrows.width
 
         Column {
             id: arrows
+            width: 50
 
             spacing: 5
 
-            Image {
-                source: installPath + "images/controlarrow.png"
-                opacity: mouserUp.containsMouse ? 1: 0.5
-                rotation: 180
+            Item {
+                width: parent.width
+                height: 30
+
+                Image {
+                    anchors { right: parent.right; rightMargin: 30; bottom: parent.bottom }
+                    source: installPath + "images/controlarrow.png"
+                    opacity: mouserUp.containsMouse ? 1: 0.5
+                    rotation: 180
+                }
 
                 Elements.CursorMouseArea {
                     id: mouserUp
@@ -116,9 +123,15 @@ Item {
                 }
             }
 
-            Image {
-                source: installPath + "images/controlarrow.png"
-                opacity: mouserDown.containsMouse ? 1: 0.5
+            Item {
+                width: parent.width
+                height: 30
+
+                Image {
+                    anchors { right: parent.right; rightMargin: 30; top: parent.top }
+                    source: installPath + "images/controlarrow.png"
+                    opacity: mouserDown.containsMouse ? 1: 0.5
+                }
 
                 Elements.CursorMouseArea {
                     id: mouserDown
@@ -194,7 +207,7 @@ Item {
     Timer {
         id: delay
 
-        interval: 4000
+        interval: 10000
         running: true
         repeat: false
         onTriggered: timer.start()
@@ -226,7 +239,7 @@ Item {
             // дальше хак, потому что restapi присылает старые несуществующие игры
             var item = news.allGames.get(d.currentIndex);
 
-            if (Core.serviceItemByGameId(item.gameId)) {
+            if (item && Core.serviceItemByGameId(item.gameId)) {
                 counterBadNews = 100;
                 currentItem = item;
             } else {

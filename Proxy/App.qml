@@ -10,7 +10,7 @@
 
 import QtQuick 1.1
 
-Item {
+QtObject {
     function isWindowVisible() {
         return mainWindow.isWindowVisible();
     }

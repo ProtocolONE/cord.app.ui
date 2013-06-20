@@ -49,8 +49,7 @@ Item {
         }
     }
 
-    Timer
-    {
+    Timer {
         id: startAnimTimer
 
         running: false

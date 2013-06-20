@@ -22,8 +22,8 @@ Rectangle {
     width: circleRadius
     height: circleRadius
     radius: circleRadius / 2
-
     opacity: enabled ? (mouser.containsMouse ? 1 : 0.75) : 0.5
+
     Behavior on opacity {
         NumberAnimation { duration: 250 }
     }

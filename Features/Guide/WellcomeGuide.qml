@@ -33,6 +33,7 @@ Item {
 
     Timer {
         id: runTimer
+
         interval: 3000
         onTriggered: d.start()
     }

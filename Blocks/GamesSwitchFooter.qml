@@ -13,18 +13,22 @@ import "../Elements" as Elements
 import "../js/Core.js" as Core
 import "../Blocks/GamesSwitchFooter" as FooterBlocks
 
-Rectangle
-{
+Rectangle {
     id: footer
 
-    property bool additionalArea: false
-    property bool buttonVisible: additionalArea || footerArea.containsMouse
+    property bool buttonVisible: d.additionalArea || footerArea.containsMouse
     property variant currentGameItem
 
     signal itemClicked(variant item);
 
     width: 114
     color: "#292937"
+
+    QtObject {
+        id: d
+
+        property bool additionalArea: false
+    }
 
     Elements.CursorMouseArea {
         id: footerArea
@@ -36,11 +40,11 @@ Rectangle
     Image {
         anchors.fill: parent;
         fillMode: Image.Tile
-        source: installPath + "images/fonklone.png"
+        source: installPath + "images/backClone.png"
     }
 
     ListView {
-        id : listViewId
+        id: listViewId
 
         Elements.WheelArea {
             property date lastTime
@@ -54,10 +58,10 @@ Rectangle
                 }
 
                 lastTime = new Date();
-                if (delta>0) {
+                if (delta > 0) {
                     listViewId.moveUp();
                 }
-                if (delta<0) {
+                if (delta < 0) {
                     listViewId.moveDown();
                 }
             }
@@ -77,7 +81,7 @@ Rectangle
                     : Math.max(0, internal._tempContentY + step);
         }
 
-        currentIndex: (!!footer.currentGameItem)? Core.indexByServiceId(footer.currentGameItem.serviceId) : -1
+        currentIndex: (!!footer.currentGameItem) ? Core.indexByServiceId(footer.currentGameItem.serviceId) : -1
         clip: true
         focus: true
         interactive: false
@@ -102,8 +106,8 @@ Rectangle
                     footer.itemClicked(game);
                     listViewId.currentIndex = index;
                 }
-                onEntered: footer.additionalArea = true
-                onExited: footer.additionalArea = false
+                onEntered: d.additionalArea = true
+                onExited: d.additionalArea = false
             }
 
             Rectangle {
@@ -113,11 +117,11 @@ Rectangle
                 Image {
                     anchors.fill: parent;
                     fillMode: Image.Tile
-                    source: installPath + "images/fonhoverklone.png"
+                    source: installPath + "images/backHoverClone.png"
                 }
             }
 
-            Item{
+            Item {
                 anchors{ fill: parent; leftMargin: 7 }
 
                 Column {
@@ -156,17 +160,15 @@ Rectangle
                             anchors { left: parent.left; leftMargin: 7 }
                             source: installPath + imageFooter
                         }
-
                     }
-
                 }
             }
 
             Image {
                 visible: mouseArea.containsMouse && !parent.isSelectedItem
-                anchors{ fill: parent; leftMargin: 7 }
+                anchors { fill: parent; leftMargin: 7 }
                 fillMode: Image.Tile
-                source: installPath + "images/hoverklone.png"
+                source: installPath + "images/hoverClone.png"
             }
         }
 
@@ -212,8 +214,8 @@ Rectangle
         visible: listViewId.contentY < (listViewId.contentHeight - listViewId.height)
         opacity: buttonVisible? 1 : 0
 
-        onEnter: additionalArea = true
-        onExit: additionalArea = false
+        onEnter: d.additionalArea = true
+        onExit: d.additionalArea = false
         onClick: listViewId.moveDown()
     }
     FooterBlocks.FooterButton {
@@ -225,8 +227,8 @@ Rectangle
         visible: listViewId.contentY > 0
         opacity: buttonVisible? 1 : 0
 
-        onEnter: additionalArea = true
-        onExit: additionalArea = false
+        onEnter: d.additionalArea = true
+        onExit: d.additionalArea = false
         onClick: listViewId.moveUp()
     }
 }

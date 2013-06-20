@@ -64,45 +64,6 @@ Rectangle {
     height: 55
     border { color: "#ffffff"; width: 1 }
 
-    Component {
-        id: progressItem
-
-        Item {
-            Image {
-                id: lightImage
-
-                anchors.left: parent.left
-                source: installPath + "images/lighting3.png"
-            }
-
-            SequentialAnimation {
-                running: lightImage.visible
-                loops: Animation.Infinite
-
-                ParallelAnimation {
-                    PropertyAnimation { target: lightImage; property: "opacity"; from: 0; to: 1 ; duration: 100 }
-                    PropertyAnimation { target: lightImage; property: "width"; from: 0; to: bigButtonRectangle.width; duration: 1500 }
-                }
-
-                PropertyAnimation {target: lightImage;  property: "opacity"; from: 1; to: 0 ; duration: 200 }
-            }
-        }
-    }
-
-    Loader {
-        sourceComponent: progressItem;
-        z: 1
-        anchors { top: parent.top; topMargin: -2; }
-        visible: startDownloading && !isPause && !isError && !allreadyDownloaded;
-    }
-
-    Loader {
-        sourceComponent: progressItem;
-        z: 1
-        anchors { bottom: parent.bottom; bottomMargin: 2;}
-        visible: startDownloading && !isPause && !isError && !allreadyDownloaded;
-    }
-
     Rectangle {
         id: gradientRectangle
 

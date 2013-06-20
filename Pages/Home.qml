@@ -20,8 +20,6 @@ import "../js/GoogleAnalytics.js" as GoogleAnalytics
 Item {
     id: cHome
 
-//    width: Core.clientWidth
-//    height: 400
 //    Item {
 //        id: mainWindow
 //        property string emptyString: ""
@@ -31,15 +29,18 @@ Item {
 
 //    property string installPath: "../"
 
-
-    focus: true
-
     signal finishAnimation()
-    signal mouseItemClicked(variant item)
+    signal mouseItemClicked(variant item, bool force)
 
     function closeAnimationStart() {
         closeHomeAnimation.start();
     }
+
+    onVisibleChanged: opacity = 1
+
+    width: Core.clientWidth
+    height: Core.clientHeight
+    focus: true
 
     NumberAnimation { id: closeHomeAnimation; easing.type: Easing.OutQuad; target: cHome; property: "opacity"; from: 1; to: 0; duration: 150 }
 
@@ -47,7 +48,7 @@ Item {
         target: mainWindow
         onDownloadButtonStartSignal: {
             var item = Core.serviceItemByServiceId(serviceId);
-            mouseItemClicked(item);
+            mouseItemClicked(item,false);
         }
     }
 
@@ -63,7 +64,7 @@ Item {
         }
 
         Item {
-            anchors { fill: parent; leftMargin: 30 }
+            anchors { fill: parent; leftMargin: 23 }
 
             Item {
                 anchors { top: parent.top; left: gameTitle.left }
@@ -74,15 +75,14 @@ Item {
 
                 Rectangle{
                     anchors.fill: parent
-                    color :"#ffffff"
-                    opacity: 0.7
+                    color :"#257514"
                 }
 
                 Text {
                     id: textDescribtion
 
-                    color: "#000000"
-                    font { family: "Arial"; bold: false; pixelSize: 12; letterSpacing: 0.4 }
+                    color: "#ffffff"
+                    font { family: "Arial"; pixelSize: 12; letterSpacing: 0.4 }
                     anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 6 }
                     text: qsTr("FREE_OF_CHARGE")
                     smooth: true
@@ -93,7 +93,7 @@ Item {
                 id: gameTitle
 
                 anchors { top: parent.top; topMargin: 20 }
-                font { family: "Segoe UI Light"; bold: false; pixelSize: 46 }
+                font { family: "Segoe UI Light"; pixelSize: 46 }
                 smooth: true
                 color: "#ffffff"
                 text: qsTr("ALL_GAMES")
@@ -105,7 +105,7 @@ Item {
                 color: "#ffffff"
                 text: "GameNet"
                 anchors { top: parent.top; topMargin: 14 }
-                font { family: "Arial"; bold: false; pixelSize: 14; }
+                font { family: "Arial"; pixelSize: 14; }
 
                 Elements.CursorMouseArea {
                     anchors.fill: parent
@@ -116,15 +116,21 @@ Item {
         }
     }
 
+    Blocks.RoatateNews {
+        anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
+        onOpenWebPage: mainAuthModule.openWebPage(url);
+    }
+
     Elements.FlowView {
-        anchors { fill: parent; leftMargin: 46; topMargin: 109 }
+        anchors { fill: parent; leftMargin: 25; topMargin: 110 }
         width: 700
         height: 550
-        delegate: Delegates.GameIconDelegate {
+        delegate: Delegates.HomeItem {
             model: model
+            visible: cHome.visible
             onMouseClicked: {
                 GoogleAnalytics.trackEvent('/Home', 'Navigation', 'Switch To Game ' + item.gaName, 'Flow Image');
-                mouseItemClicked(item)
+                mouseItemClicked(item,force);
             }
         }
 

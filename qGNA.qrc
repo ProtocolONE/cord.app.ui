@@ -23,24 +23,20 @@
 		<file>Blocks/GameSwitch/ImageButton.qml</file>
 		<file>Blocks/GameSwitch/Maintenance.qml</file>
 		<file>Blocks/Header.qml</file>
-		<file>Blocks/Home.qml</file>
 		<file>Blocks/LicenseBlock.qml</file>
-		<file>Blocks/LoadScreen.qml</file>
 		<file>Blocks/MoveUpPage.qml</file>
 		<file>Blocks/NewsBlock.qml</file>
 		<file>Blocks/NickNameView.qml</file>
 		<file>Blocks/ProgressWidget.qml</file>
 		<file>Blocks/RoatateNews.qml</file>
 		<file>Blocks/SelectMw2Server.qml</file>
-		<file>Blocks/SettingsDownloadPage.qml</file>
-		<file>Blocks/SettingsGeneralPage.qml</file>
-		<file>Blocks/SettingsPage.qml</file>
 		<file>Blocks/SocialNet.qml</file>
 		<file>Blocks/Tray.qml</file>
 		<file>Blocks/TryLoader.qml</file>
 		<file>Blocks/UserInfo.qml</file>
 		<file>Delegates/FlowViewDelegate.qml</file>
 		<file>Delegates/GameIconDelegate.qml</file>
+		<file>Delegates/HomeItem.qml</file>
 		<file>Delegates/ImageButtonDelegate.qml</file>
 		<file>Delegates/MiniGamesIconDelegate.qml</file>
 		<file>Delegates/SelectMw2ServerDelegate.qml</file>
@@ -105,10 +101,15 @@
 		<file>js/UserInfo.js</file>
 		<file>Models/GamesListModel.qml</file>
 		<file>Models/GamesSwitchModel.qml</file>
-		<file>Models/HomeModel.qml</file>
-		<file>Models/LoadScreenModel.qml</file>
+		<file>Models/NewsModel.qml</file>
 		<file>Models/SettingsModel.qml</file>
 		<file>Pages/Game.qml</file>
+		<file>Pages/Home.qml</file>
+		<file>Pages/LoadScreen.qml</file>
+		<file>Pages/LoadScreen/UpdateManager.qml</file>
+		<file>Pages/SettingsPage.qml</file>
+		<file>Pages/SettingsPage/SettingsDownloadPage.qml</file>
+		<file>Pages/SettingsPage/SettingsGeneralPage.qml</file>
 		<file>Proxy/App.js</file>
 		<file>Proxy/App.qml</file>
 		<file>Proxy/Player.qml</file>

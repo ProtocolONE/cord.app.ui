@@ -9,8 +9,9 @@ Item {
     signal homeButtonClicked();
 
     function setupText() {
-        gameTitle.text = currentItem ? currentItem.name :  qsTr("ALL_GAMES");
-        descr.text = currentItem ? Core.gamesListModel.shortDescribtion(currentItem.gameId) : qsTr("FREE_OF_CHARGE");
+        gameTitle.text = currentItem ? currentItem.name :  ""
+        descr.text = currentItem ? Core.gamesListModel.shortDescribtion(currentItem.gameId) : ""
+        container.visible = !!currentItem;
     }
 
     implicitHeight: 86
@@ -23,8 +24,7 @@ Item {
         }
     }
 
-    Timer
-    {
+    Timer {
         id: startAnimTimer
 
         running: false
@@ -76,7 +76,7 @@ Item {
                 id: descr
 
                 color: "#000000"
-                font { family: "Arial"; bold: false; pixelSize: 12; letterSpacing: 0.4 }
+                font { family: "Arial"; pixelSize: 12; letterSpacing: 0.4 }
                 anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 6 }
                 smooth: true
             }
@@ -86,7 +86,7 @@ Item {
             id: gameTitle
 
             anchors { top: parent.top; topMargin: 20 }
-            font { family: "Segoe UI Light"; bold: false; pixelSize: 46 }
+            font { family: "Segoe UI Light"; pixelSize: 46 }
             smooth: true
             color: "#ffffff"
         }
@@ -95,7 +95,7 @@ Item {
             anchors { top: parent.top; left: parent.left; topMargin: 14 }
             color: "#ffffff"
             text: qsTr("ALL_GAMES")
-            font { family: "Arial"; bold: false; pixelSize: 14 }
+            font { family: "Arial"; pixelSize: 14 }
 
             Elements.CursorMouseArea {
                 anchors.fill: parent

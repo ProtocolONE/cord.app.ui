@@ -15,7 +15,7 @@ Item {
     Image {
         anchors.verticalCenter: parent.verticalCenter
         source: installPath + "images/control.png"
-        rotation: isTopButton? 180: 0
+        rotation: isTopButton ? 180 : 0
 
         Elements.CursorMouseArea {
             id: mouser
@@ -31,7 +31,7 @@ Item {
     Image {
         anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 54 }
         source: installPath + "images/controlarrow.png"
-        opacity: mouser.containsMouse ? 1: 0.8
-        rotation: isTopButton? 180: 0
+        opacity: mouser.containsMouse ? 1 : 0.8
+        rotation: isTopButton ? 180 : 0
     }
 }

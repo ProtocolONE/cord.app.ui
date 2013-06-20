@@ -908,6 +908,22 @@ Please try again later.</source>
         <source>GAME_ROT_MINI_DESC</source>
         <translation>Хардкорная Dota</translation>
     </message>
+    <message>
+        <source>LOGO_FJ</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GAME_FJ_ABOUT_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GAME_FJ_MINI_TOOLTIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GAME_FJ_MINI_DESC</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>GamesSwitch</name>
@@ -1158,7 +1174,7 @@ Please try again later.</source>
     <name>Header</name>
     <message>
         <source>FREE_OF_CHARGE</source>
-        <translation>Бесплатно</translation>
+        <translation type="unfinished">Бесплатно</translation>
     </message>
     <message>
         <source>ALL_GAMES</source>
@@ -1174,6 +1190,17 @@ Please try again later.</source>
     <message>
         <source>ALL_GAMES</source>
         <translation>Все игры</translation>
+    </message>
+</context>
+<context>
+    <name>HomeItem</name>
+    <message>
+        <source>TO_PLAY</source>
+        <translation>ИГРАТЬ</translation>
+    </message>
+    <message>
+        <source>DETAILS</source>
+        <translation>ПОДРОБНЕЙ</translation>
     </message>
 </context>
 <context>
@@ -1299,6 +1326,26 @@ Please try again later.</source>
         <source>TEXT_STARTING_APPLICATION</source>
         <translation>Запуск GameNet</translation>
     </message>
+    <message>
+        <source>TEXT_INITIALIZATION</source>
+        <translation type="unfinished">Инициализация...</translation>
+    </message>
+    <message>
+        <source>TEXT_RETRY_UPDATE_CHECK</source>
+        <translation type="unfinished">Повторная попытка проверки обновлений...</translation>
+    </message>
+    <message>
+        <source>TEXT_CHEKING_FOR_UPDATE</source>
+        <translation type="unfinished">Проверка обновлений...</translation>
+    </message>
+    <message>
+        <source>TEXT_DOWNLOADING_UPDATE</source>
+        <translation type="unfinished">Загрузка обновлений...</translation>
+    </message>
+    <message>
+        <source>TEXT_ERROR_UPDATE_CHECK</source>
+        <translation type="unfinished">Ошибка при загрузке обновлений...</translation>
+    </message>
 </context>
 <context>
     <name>LoadScreenModel</name>
@@ -1324,23 +1371,23 @@ Please try again later.</source>
     </message>
     <message>
         <source>TEXT_RETRY_UPDATE_CHECK</source>
-        <translation>Повторная попытка проверки обновлений...</translation>
+        <translation type="obsolete">Повторная попытка проверки обновлений...</translation>
     </message>
     <message>
         <source>TEXT_CHEKING_FOR_UPDATE</source>
-        <translation>Проверка обновлений...</translation>
+        <translation type="obsolete">Проверка обновлений...</translation>
     </message>
     <message>
         <source>TEXT_DOWNLOADING_UPDATE</source>
-        <translation>Загрузка обновлений...</translation>
+        <translation type="obsolete">Загрузка обновлений...</translation>
     </message>
     <message>
         <source>TEXT_ERROR_UPDATE_CHECK</source>
-        <translation>Ошибка при загрузке обновлений...</translation>
+        <translation type="obsolete">Ошибка при загрузке обновлений...</translation>
     </message>
     <message>
         <source>TEXT_INITIALIZATION</source>
-        <translation>Инициализация...</translation>
+        <translation type="obsolete">Инициализация...</translation>
     </message>
 </context>
 <context>

@@ -18,7 +18,7 @@ import ".."
 
 Rectangle {
 
-    Component.onCompleted: changeGameByServiceId(Core.currentGame().serviceId)
+    onVisibleChanged: changeGameByServiceId(Core.currentGame().serviceId)
 
     function changeGameByServiceId(serviceId) {
         gameSettingsListView.changeGameByIndex(Core.indexByServiceId(serviceId));
@@ -66,11 +66,11 @@ Rectangle {
     states: [
         State {
             name: "GeneralPage"
-            PropertyChanges { target: pageLoader; source: "SettingsGeneralPage.qml" }
+            PropertyChanges { target: pageLoader; source: "SettingsPage/SettingsGeneralPage.qml" }
         },
         State {
             name: "DownloadPage"
-            PropertyChanges { target: pageLoader; source: "SettingsDownloadPage.qml" }
+            PropertyChanges { target: pageLoader; source: "SettingsPage/SettingsDownloadPage.qml" }
         }
     ]
 

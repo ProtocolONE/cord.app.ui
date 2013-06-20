@@ -109,6 +109,10 @@ Item {
         FontLoader { id: fontTahoma; source: installPath + "fonts/Tahoma.ttf"} // TODO убрать
         FontLoader { id: fontMyriadProLight; source: installPath + "fonts/MyriadProLight.ttf" } // TODO убрать
 
+        function activateNews(force) {
+            gamePage.activateNews(force);
+        }
+
         function activateWindow() {
             qGNA_main.scale = 1;
             qGNA_main.opacity = 1;
@@ -160,7 +164,7 @@ Item {
         }
 
         Image {
-            source: installPath  + "images/backImage.png"
+            source: installPath  + (qGNA_main.state == "HomePage" || qGNA_main.state == "LoadingPage" ? "images/abstraction.png" : "images/backImage.png")
             anchors.top: parent.top
 
             MouseArea {
@@ -176,9 +180,9 @@ Item {
         }
 
         Pages.Game {
-            id: gamesSwitchPageModel
+            id: gamePage
 
-            visible: false
+            visible: qGNA_main.state === "GamesSwitchPage"
 
             onGameSelection: {
                 GoogleAnalytics.trackPageView('/game/' + item.gaName);
@@ -187,12 +191,72 @@ Item {
         }
 
 
+        Pages.LoadScreen {
+            id: loadScreen
 
-        Loader {
-            id: pageLoader;
+            anchors.fill: parent
+            focus: true
+            visible: qGNA_main.state === "LoadingPage"
 
-            anchors.fill: parent;
-            focus: true;
+            onFinishAnimation: {
+                var serviceId, item;
+
+                imageBorder.visible = true;
+                ping.start();
+
+                qGNA_main.lastState = "HomePage";
+
+                App.updateFinishedSlot();
+
+                serviceId = App.startingService() || "0";
+                qGNA_main.selectService(serviceId);
+
+
+                if (!App.isAnyLicenseAccepted()) {
+                    var item = Core.serviceItemByServiceId(serviceId);
+
+                    firstLicense.withPath = (serviceId != "0" && serviceId != "300007010000000000" && !!item)
+                    firstLicense.serviceId = serviceId;
+
+                    if (serviceId != "0" && item) {
+                        firstLicense.pathInput = App.getExpectedInstallPath(serviceId);
+                    } else {
+                        qGNA_main.state = "HomePage";
+                    }
+
+                    firstLicense.openMoveUpPage();
+                    return;
+                }
+
+                qGNA_main.state = "HomePage";
+                App.initFinished();
+            }
+        }
+
+        Pages.Home {
+            id: homePage
+
+            anchors.fill: parent
+            focus: true
+            visible: qGNA_main.state === "HomePage"
+
+            onMouseItemClicked: {
+                homePage.closeAnimationStart();
+                qGNA_main.activateNews(force);
+                Core.activateGame(item);
+                qGNA_main.state = "GamesSwitchPage";
+                GoogleAnalytics.trackPageView('/game/' + item.gaName);
+            }
+        }
+
+        Pages.SettingsPage {
+            id: settingsPage
+
+            anchors.fill: parent
+            focus: true
+            visible: qGNA_main.state === "SettingsPage"
+            width: Core.clientWidth
+            height: Core.clientHeight
         }
 
         function selectService(serviceId) {
@@ -208,6 +272,7 @@ Item {
 
         Connections {
             target: mainWindow
+
             onSelectService: qGNA_main.selectService(serviceId);
 
             onCloseMainWindow: {
@@ -237,44 +302,6 @@ Item {
             onServiceInstalled: {
                 if (!App.isWindowVisible()) {
                     announcementsFeature.showGameInstalledAnnounce(serviceId);
-                }
-            }
-        }
-
-        Connections {
-            target: pageLoader.item
-            onTestAndCloseSignal: userInfoBlock.closeMenu();
-            onFinishAnimation: {
-                var serviceId, item;
-                if (qGNA_main.state === "LoadingPage") {
-                    ping.start();
-
-                    qGNA_main.lastState = "HomePage";
-
-                    mainWindow.updateFinishedSlot();
-
-                    serviceId = App.startingService() || "0";
-                    qGNA_main.selectService(serviceId);
-
-
-                    if (!App.isAnyLicenseAccepted()) {
-                        var item = Core.serviceItemByServiceId(serviceId);
-
-                        firstLicense.withPath = (serviceId != "0" && serviceId != "300007010000000000" && !!item)
-                        firstLicense.serviceId = serviceId;
-
-                        if (serviceId != "0" && item) {
-                            firstLicense.pathInput = App.getExpectedInstallPath(serviceId);
-                        } else {
-                            qGNA_main.state = "HomePage";
-                        }
-
-                        firstLicense.openMoveUpPage();
-                        return;
-                    }
-
-                    qGNA_main.state = "HomePage";
-                    mainWindow.initFinished();
                 }
             }
         }
@@ -491,40 +518,6 @@ Item {
             }
         }
 
-        Connections {
-            target: trayMenu
-            onMenuClick: {
-                switch(index) {
-                case TrayWindow.ProfileMenu: {
-                    GoogleAnalytics.trackEvent('/Tray', 'Open External Link', 'User Profile');
-                    mainAuthModule.openWebPage("http://www.gamenet.ru/users/" +
-                                               userInfoBlock.nametech == undefined ?  mainAuthModule.userId
-                                                                                   : userInfoBlock.nametech)
-                    break;
-                }
-                case TrayWindow.MoneyMenu: {
-                    GoogleAnalytics.trackEvent('/Tray', 'Open External Link', 'Money');
-                    mainAuthModule.openWebPage("http://www.gamenet.ru/money")
-                    break;
-                }
-                case TrayWindow.SettingsMenu: {
-                    GoogleAnalytics.trackEvent('/Tray', 'Navigation', 'Switch To Settings');
-                    mainWindow.activateWindow();
-                    userInfoBlock.closeMenu();
-                    qGNA_main.openSettings()
-                }
-                break;
-                case TrayWindow.QuitMenu: {
-                    GoogleAnalytics.trackEvent('/Tray', 'Application', 'Quit');
-                    closeAnimation.start();
-                    break;
-                }
-                }
-            }
-
-            onActivate: qGNA_main.activateWindow();
-        }
-
         Blocks.FirstLicense {
             id: firstLicense
 
@@ -559,6 +552,39 @@ Item {
 
         Ping.Ping {
             id: ping
+        }
+
+        Blocks.Tray {
+            isFullMenu: mainAuthModule.isAuthed && !mainAuthModule.mustBeShown
+
+            onMenuClick: {
+                switch(name) {
+                case 'Profile': {
+                    GoogleAnalytics.trackEvent('/Tray', 'Open External Link', 'User Profile');
+                    mainAuthModule.openWebPage("http://www.gamenet.ru/users/" +
+                                               userInfoBlock.nametech == undefined ?  mainAuthModule.userId
+                                                                                   : userInfoBlock.nametech)
+                    break;
+                }
+                case 'Balance': {
+                    GoogleAnalytics.trackEvent('/Tray', 'Open External Link', 'Money');
+                    mainAuthModule.openWebPage("http://www.gamenet.ru/money")
+                    break;
+                }
+                case 'Settings': {
+                    GoogleAnalytics.trackEvent('/Tray', 'Navigation', 'Switch To Settings');
+                    App.activateWindow();
+                    userInfoBlock.closeMenu();
+                    qGNA_main.openSettings()
+                }
+                break;
+                case 'Quit': {
+                    GoogleAnalytics.trackEvent('/Tray', 'Application', 'Quit');
+                    closeAnimation.start();
+                    break;
+                }
+                }
+            }
         }
 
         Image {
@@ -638,15 +664,12 @@ Item {
         states: [
             State {
                 name: "LoadingPage"
-                PropertyChanges { target: pageLoader; source: "Models/LoadScreenModel.qml" }
-                PropertyChanges { target: gamesSwitchPageModel ; visible: false; }
                 PropertyChanges { target: mainAuthModule; visible: false }
+
             },
 
             State {
                 name: "HomePage"
-                PropertyChanges { target: pageLoader; source: "Models/HomeModel.qml" }
-                PropertyChanges { target: gamesSwitchPageModel ; visible: false; }
                 PropertyChanges { target: mainAuthModule; visible: true }
                 StateChangeScript {
                     script:  {
@@ -657,17 +680,12 @@ Item {
 
             State {
                 name: "GamesSwitchPage"
-                PropertyChanges { target: gamesSwitchPageModel; visible: true; }
-                PropertyChanges { target: pageLoader; visible: false; }
                 PropertyChanges { target: mainAuthModule; visible: true }
                 StateChangeScript { script: guide.start(); }
             },
 
             State {
                 name: "SettingsPage"
-                PropertyChanges { target: pageLoader; source: "Models/SettingsModel.qml" }
-                PropertyChanges { target: gamesSwitchPageModel ; visible: false; }
-                PropertyChanges { target: pageLoader; visible: true; }
                 PropertyChanges { target: mainAuthModule; visible: true }
                 StateChangeScript {
                     script:  {
@@ -709,9 +727,9 @@ Item {
                 return;
             }
 
-            gamesSwitchPageModel.gamesButtonClicked(item);
-            mainWindow.activateWindow();
-            mainWindow.downloadButtonStart(serviceId);
+            gamePage.gamesButtonClicked(item);
+            App.activateWindow();
+            App.downloadButtonStart(serviceId);
         }
 
         onMissClicked: {

@@ -16,6 +16,10 @@ Rectangle {
     width: Core.clientWidth
     height: Core.clientHeight
 
+    function activateNews(force) {
+        newsBlock.forceShowNews = force;
+    }
+
     /* HACK
     color: "black"
     Component.onCompleted: Core.activateGameByServiceId("300003010000000000")
@@ -382,6 +386,17 @@ Rectangle {
                     anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
                     height: 86
 
+                    Rectangle {
+                        color: "#000000"
+                        opacity: 0.45
+                        anchors.fill: parent
+                    }
+
+                    Elements.ProgressBar {
+                        width: parent.width
+                        running: currentItem ? (currentItem.status === "Downloading" && !currentItem.allreadyDownloaded) : false
+                    }
+
                     Keys.onPressed:  {
                         if ((event.key === Qt.Key_M)
                                 && (event.modifiers & Qt.ShiftModifier)
@@ -390,12 +405,6 @@ Rectangle {
                             d._maintenance = false;
                             d.ignoreMaintenance = true;
                         }
-                    }
-
-                    Rectangle {
-                        color: "#000000"
-                        opacity: 0.45
-                        anchors.fill: parent
                     }
 
                     Elements.ButtonBig {
@@ -416,8 +425,9 @@ Rectangle {
                         startDownloading: currentItem ? currentItem.status === "Downloading" : false
                         isError: currentItem ? currentItem.status === "Error" : false
                         isPause: currentItem ? currentItem.status === "Paused" : false
-                        isStarted: currentItem ? currentItem.status === "Started" : false
+                        allreadyDownloaded: currentItem ? currentItem.allreadyDownloaded : false
 
+                        isStarted: currentItem ? currentItem.status === "Started" : false
                         progressPercent: currentItem ? currentItem.progress : -1
 
                         onButtonClicked: {

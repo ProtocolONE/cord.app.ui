@@ -1,202 +1,179 @@
-import qGNA.Library 1.0
+/****************************************************************************
+** This file is a part of Syncopate Limited GameNet Application or it parts.
+**
+** Copyright (©) 2011 - 2012, Syncopate Limited and/or affiliates.
+** All rights reserved.
+**
+** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
+** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+****************************************************************************/
+
 import QtQuick 1.1
-import Qt 4.7
+import Tulip 1.0
 
-Rectangle {
-    id: trayBlock
-    width: 204
-    height: 127
-    focus: true
+Item {
+    id: root
 
-    Connections {
-        target: trayMenu
+    property bool isFullMenu: true
 
-        onMenuTypeChanged: {
-            switch(trayMenu.menuType) {
-                case TrayWindow.FullMenu:
-                  trayMenu.resizeWindow(204, 127);
-                  break;
-                case TrayWindow.OnlyQuitMenu:
-                  trayMenu.resizeWindow(204, 127 - 22 * 3 - 15);
-                  break;
-                }
-        }
+    signal menuClick(string name)
+    signal activate()
 
-        onHideMenu: {
-            if (listViewId.currentIndex >= 0) {
-                listViewId.currentItem.isHover = false;
-                listViewId.currentIndex = -1;
-            }
-        }
+    onMenuClick: window.hide();
 
-        onKeyPressed: {
-            switch(key) {
-            case Qt.Key_Up: {
-                if (listViewId.currentIndex >= 0) {
-                    listViewId.currentItem.isHover = false;
+    Component.onCompleted: {
+        var iconPath = installPath + 'images//icon.png';
+        iconPath = iconPath.replace('file:///', '');
 
-                    if (0 === listViewId.currentIndex) {
-                        listViewId.currentIndex = listViewId.count - 1;
-                    } else {
-                        listViewId.currentIndex = listViewId.currentIndex - 1;
-                    }
-
-                    listViewId.currentItem.isHover = true;
-                } else {
-                    listViewId.currentIndex = listViewId.count - 1;
-                    listViewId.currentItem.isHover = true;
-                }
-                break;
-            }
-            case Qt.Key_Down: {
-                if (listViewId.currentIndex >= 0) {
-                    listViewId.currentItem.isHover = false;
-
-                    if (listViewId.count - 1 === listViewId.currentIndex) {
-                        listViewId.currentIndex = 0;
-                    } else {
-                        listViewId.currentIndex = listViewId.currentIndex + 1;
-                    }
-
-                    listViewId.currentItem.isHover = true;
-                } else {
-                    listViewId.currentIndex = 0;
-                    listViewId.currentItem.isHover = true;
-                }
-                break;
-            }
-            case Qt.Key_Return:
-            case Qt.Key_Enter:
-                if (listViewId.currentIndex >= 0) {
-                    trayBlock.menuClick( listViewId.currentItem.value );
-                } else
-                    trayMenu.hide();
-
-                break;
-            }
-        }
+        TrayWindow.install(iconPath);
+        TrayWindow.activate.connect(App.activateWindow);
+        TrayWindow.activateWindow.connect(window.moveToTray);
     }
 
-    signal menuClick(int id);
+    Window {
+        id: window
 
-    property ListModel fullMenu: ListModel {
-                        ListElement {
-                            icon:  "images/trayProfileIcon.png"
-                            label: QT_TR_NOOP("MENU_ITEM_PROFILE")
-                            value: 0
-                        }
-                        ListElement {
-                            icon:  "images/trayMoneyIcon.png"
-                            label: QT_TR_NOOP("MENU_ITEM_MONEY")
-                            value: 1
-                        }
-                        ListElement {
-                            icon:  "images/traySettingsIcon.png"
-                            label: QT_TR_NOOP("MENU_ITEM_SETTINGS")
-                            value: 2
-                        }
-                        ListElement {
-                            label: QT_TR_NOOP("MENU_ITEM_QUIT")
-                            value: 3
-                        }
-                    }
+        function moveToTray(mouseX, mouseY) {
+            var space = 15;
 
-    property ListModel quitMenu: ListModel {
-        ListElement {
-            label: QT_TR_NOOP("MENU_ITEM_QUIT")
-            icon: ""
-            value: 3
+            var relativeX = mouseX;
+            var relativeY = mouseY;
+
+            var resultX = relativeX;
+            if (relativeX < 0)
+                resultX = space;
+            else if (relativeX > Desktop.primaryScreenAvailableGeometry.width - window.width)
+                resultX = Desktop.primaryScreenAvailableGeometry.width - window.width;
+
+            var resultY = relativeY;
+            if (relativeY < 0)
+                resultY = space;
+            else if (relativeY > Desktop.primaryScreenAvailableGeometry.height - window.height)
+                resultY = (Desktop.primaryScreenAvailableGeometry.height - window.height + space);
+
+            window.x = resultX;
+            window.y = resultY;
+            window.visible = true;
         }
-    }
 
-    Image {
-        source: installPath + "images/trayBackIcon.png"
-        anchors.fill: parent
-    }
-    Rectangle {
-        anchors.fill: parent
-        anchors.topMargin: 29
-        color: "#000000"
-        opacity: 0.30
-        Image {
-            source: installPath + "images/trayBackShadow.png"
-            anchors.left: parent.left
-            anchors.top: parent.top
-            anchors.right: parent.right
+        function hide() {
+            window.visible = false;
         }
-    }
-    Text {
-        color: "#ececec"
-        text: "qGNA"
-        anchors.top: parent.top
-        anchors.topMargin: 5
-        anchors.left: parent.left
-        anchors.leftMargin: 12
-        font.pixelSize: 15
-        font.family: "Tahoma"
-        smooth: true
-    }
-    ListView {
-        id: listViewId
-        anchors.fill: parent
-        anchors.topMargin: 29 + 5
-        currentIndex: -1
 
-        delegate:
-            Rectangle {
-                color: "#00000000"
-                height: 22
-                width: listViewId.width
-                property bool isHover: false
+        deleteOnClose: false
+
+        flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Popup
+
+        width: 205
+        height: isFullMenu ? 128 : (22 + menuView.spacing) * 3
+
+        visible: false
+        topMost: true
+
+        Rectangle {
+            width:  window.width - 1
+            height: window.height - 1
+
+
+            color: '#06335a'
+
+            border { width: 1; color: '#3276c3' }
+
+            Column {
+                anchors { fill: parent; margins: 1 }
+                spacing: 1
 
                 Rectangle {
-                    id: hoverRectangle
-                    color: "#ffffff"
-                    anchors.fill: parent
-                    opacity: 0.15
-                    visible: isHover
+                    width: parent.width
+                    height: 28
+                    color: '#04243f'
 
-                }
-                MouseArea {
-                    id: delegateMouseAreaId
-                    anchors.fill: parent
-                    hoverEnabled: true
-                    onClicked: {
-                        trayBlock.menuClick(value);
-                    }
-                    onEntered: {
-                        if (listViewId.currentItem)
-                            listViewId.currentItem.isHover = false;
-
-                        listViewId.currentIndex = index;
-                        isHover = true;
-                    }
-
-                    onExited: {
-                        isHover = false;
+                    Text {
+                        anchors { left: parent.left; top: parent.top }
+                        anchors { leftMargin: 14; topMargin: 3 }
+                        text: 'GameNet'
+                        font { family: 'Segue UI'; pixelSize: 18 }
+                        color: '#ececec'
                     }
                 }
-                Image {
-                    source: icon ? installPath + icon : ""
-                    visible: icon ? true : false
-                    anchors.left: parent.left
-                    anchors.leftMargin: 12
-                    anchors.top: parent.top
-                    anchors.topMargin: 4
+
+                ListView {
+                    id: menuView
+
+                    function fullMenuAvailable(name) {
+                        return (isFullMenu || name == 'Quit') ? true : false
+                    }
+
+                    width: parent.width
+                    height: parent.height - 28
+                    interactive: false
+
+                    spacing: 2
+
+                    delegate: Rectangle {
+
+                        width: menuView.width
+                        height: menuView.fullMenuAvailable(name) ? 22 : 0
+                        color: '#00000000'
+                        visible: menuView.fullMenuAvailable(name)
+
+                        Image {
+                            source: installPath + 'images/Blocks/Tray/hover.png'
+                            visible: mouseArea.containsMouse
+                        }
+
+                        Image {
+                            anchors { verticalCenter: parent.verticalCenter }
+                            x: 5
+
+                            source: icon ? installPath + 'images/Blocks/Tray/' + icon : ''
+                            visible: !!icon
+                        }
+
+                        Text {
+                            anchors { verticalCenter: parent.verticalCenter }
+                            x: 30
+                            font { family: 'Segue UI'; pixelSize: 18 }
+                            color: '#ececec'
+                            text: qsTr(label)
+                        }
+
+                        MouseArea {
+                            id: mouseArea
+
+                            hoverEnabled: true
+                            anchors { fill: parent }
+                            onClicked: root.menuClick(name);
+                        }
+                    }
+
+                    model: ListModel {
+                        ListElement {
+                            name: 'Profile'
+                            icon: 'profile.png'
+                            label: QT_TR_NOOP("MENU_ITEM_PROFILE")
+                        }
+
+                        ListElement {
+                            name: 'Balance'
+                            icon: 'balance.png'
+                            label: QT_TR_NOOP("MENU_ITEM_MONEY")
+                        }
+
+                        ListElement {
+                            name: 'Settings'
+                            icon: 'settings.png'
+                            label: QT_TR_NOOP("MENU_ITEM_SETTINGS")
+                        }
+
+                        ListElement {
+                            name: 'Quit'
+                            icon: ''
+                            label: QT_TR_NOOP("MENU_ITEM_QUIT")
+                        }
+                    }
                 }
-                Text {
-                    color: "#ececec"
-                    anchors.left: parent.left
-                    anchors.leftMargin: 39
-                    anchors.top: parent.top
-                    anchors.topMargin: 2
-                    text: qsTr(label)
-                    font.pixelSize: 14
-                    font.family: "Tahoma"
-                    smooth: true
-                }
+            }
         }
-
-        model: trayMenu.menuType === TrayWindow.FullMenu ? fullMenu : quitMenu
     }
 }

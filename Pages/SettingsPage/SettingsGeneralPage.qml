@@ -10,7 +10,8 @@
 
 import QtQuick 1.0
 import qGNA.Library 1.0
-import "../Elements" as Elements
+import "../../Elements" as Elements
+import "../../Proxy/App.js" as App
 
 
 Item {

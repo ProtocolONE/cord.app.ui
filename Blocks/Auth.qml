@@ -390,7 +390,6 @@ Blocks.MoveUpPage {
             y: 25
             width: 10
             height: 10
-            anchors.fill: parent
             z: 100
             onClicked: cat.visible = true
         }
