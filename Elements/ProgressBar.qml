@@ -8,21 +8,53 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.0
+import QtQuick 1.1
 
-Rectangle {
+Item {
     id: progressBar
 
     property bool running: true
+    property int progress: 0
 
-    color: "#00000000"
+    onRunningChanged: {
+        if (running) {
+            hideAnim.complete();
+            startAnimTimer.start();
+        } else {
+            startAnimTimer.stop();
+            progressAnim.stop();
+        }
+    }
 
-    Rectangle {
+    Timer {
+        id: startAnimTimer
+
+        running: false
+        interval: 500
+        repeat: false
+        onTriggered: progressAnim.start()
+    }
+
+    SequentialAnimation {
+        id: hideAnim
+
+        running: !progressBar.running
+
+        PropertyAnimation {
+            target: lightImage;
+            property: "opacity";
+            to: 0;
+            duration: 250
+        }
+
+        PropertyAction { target: lightImage; property: "anchors.leftMargin"; value: -250; }
+    }
+
+    Item {
         id: progressMainRect
 
         width: parent.width
         height: 6
-        color: "#00000000"
         clip: true
 
         anchors.centerIn: parent
@@ -32,7 +64,15 @@ Rectangle {
             color: "#ffffff"
             opacity: 0.3
             anchors { left: parent.left; top: parent.top; right: parent.right; }
-            anchors { topMargin: 3; rightMargin: 0; leftMargin: 0; }
+            anchors { topMargin: 3; }
+        }
+
+        Rectangle {
+            height: 1
+            color: "#ffffff"
+            opacity: 0.5
+            width: Math.floor(parent.width * progress / 100)
+            anchors { left: parent.left; top: parent.top; topMargin: 3; }
         }
 
         Image {
@@ -46,7 +86,8 @@ Rectangle {
         }
 
         SequentialAnimation {
-            running: progressBar.running
+            id: progressAnim
+
             loops: Animation.Infinite
 
             PauseAnimation { duration: 20 }

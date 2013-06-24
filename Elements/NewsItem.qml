@@ -8,10 +8,11 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.0
+import QtQuick 1.1
 import "." as Elements
 import "../js/GoogleAnalytics.js" as GoogleAnalytics
 import "../js/Core.js" as Core
+
 Item {
 
     property string newsTextDate

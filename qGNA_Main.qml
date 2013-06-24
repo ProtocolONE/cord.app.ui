@@ -106,9 +106,6 @@ Item {
         property string lastState
         property bool isPageControlAccepted: !mainAuthModule.isAuthMenuOpen
 
-        FontLoader { id: fontTahoma; source: installPath + "fonts/Tahoma.ttf"} // TODO убрать
-        FontLoader { id: fontMyriadProLight; source: installPath + "fonts/MyriadProLight.ttf" } // TODO убрать
-
         function activateNews(force) {
             gamePage.activateNews(force);
         }
@@ -163,50 +160,37 @@ Item {
             }
         }
 
-        Image {
-            source: installPath  + (qGNA_main.state == "HomePage" || qGNA_main.state == "LoadingPage" ? "images/abstraction.png" : "images/backImage.png")
-            anchors.top: parent.top
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    onWindowPressed(mouseX,mouseY);
-                    userInfoBlock.closeMenu();
-                }
-                onReleased: onWindowReleased(mouseX,mouseY);
-                onPositionChanged: onWindowPositionChanged(mouseX,mouseY);
-            }
-
-        }
-
-        Pages.Game {
-            id: gamePage
-
-            visible: qGNA_main.state === "GamesSwitchPage"
-
-            onGameSelection: {
-                GoogleAnalytics.trackPageView('/game/' + item.gaName);
+        MouseArea {
+            anchors.fill: parent
+            onPressed: {
+                onWindowPressed(mouseX,mouseY);
                 userInfoBlock.closeMenu();
             }
+            onReleased: onWindowReleased(mouseX,mouseY);
+            onPositionChanged: onWindowPositionChanged(mouseX,mouseY);
         }
 
+        Image {
+            source: installPath + (qGNA_main.state == "HomePage" || qGNA_main.state == "LoadingPage"
+                                   ? "images/abstraction.png"
+                                   : "images/backImage.png")
+            anchors.top: parent.top
+        }
 
         Pages.LoadScreen {
             id: loadScreen
 
+            z: 10000
             anchors.fill: parent
             focus: true
-            visible: qGNA_main.state === "LoadingPage"
 
-            onFinishAnimation: {
+            onUpdateFinished: {
                 var serviceId, item;
 
                 imageBorder.visible = true;
                 ping.start();
 
                 qGNA_main.lastState = "HomePage";
-
-                App.updateFinishedSlot();
 
                 serviceId = App.startingService() || "0";
                 qGNA_main.selectService(serviceId);
@@ -230,6 +214,17 @@ Item {
 
                 qGNA_main.state = "HomePage";
                 App.initFinished();
+            }
+        }
+
+        Pages.Game {
+            id: gamePage
+
+            visible: qGNA_main.state === "GamesSwitchPage"
+
+            onGameSelection: {
+                GoogleAnalytics.trackPageView('/game/' + item.gaName);
+                userInfoBlock.closeMenu();
             }
         }
 
@@ -664,12 +659,13 @@ Item {
         states: [
             State {
                 name: "LoadingPage"
-                PropertyChanges { target: mainAuthModule; visible: false }
 
+                PropertyChanges { target: mainAuthModule; visible: false }
             },
 
             State {
                 name: "HomePage"
+
                 PropertyChanges { target: mainAuthModule; visible: true }
                 StateChangeScript {
                     script:  {
@@ -680,12 +676,14 @@ Item {
 
             State {
                 name: "GamesSwitchPage"
+
                 PropertyChanges { target: mainAuthModule; visible: true }
                 StateChangeScript { script: guide.start(); }
             },
 
             State {
                 name: "SettingsPage"
+
                 PropertyChanges { target: mainAuthModule; visible: true }
                 StateChangeScript {
                     script:  {

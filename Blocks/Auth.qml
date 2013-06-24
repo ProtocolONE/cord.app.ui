@@ -39,7 +39,14 @@ Blocks.MoveUpPage {
     signal linkGuestCanceled();
     signal autoLoginFailed();
 
-    onLogoutDone: authedAsGuest = false;
+    onLogoutDone: {
+        if (!authedAsGuest) {
+            return;
+        }
+
+        guestAuthEnabled = true;
+        authedAsGuest = false;
+    }
 
     function logout() {
         if (authRegisterMoveUpPage.authedAsGuest) {

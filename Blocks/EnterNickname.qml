@@ -8,7 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.0
+import QtQuick 1.1
 import "../Elements" as Elements
 import "../Blocks" as Blocks
 import "../js/restapi.js" as RestApi

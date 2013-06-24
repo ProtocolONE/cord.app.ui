@@ -8,7 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.0
+import QtQuick 1.1
 import "../Elements" as Elements
 import "../Delegates" as Delegates
 import "../js/Core.js" as Core
@@ -152,9 +152,7 @@ Delegates.FlowViewDelegate {
                     wrapMode: Text.WordWrap
                     color: "#FFFFFF"
                     smooth: true
-                    //Слудующая линия - мерзкий хак, но по другому не получить
-                    //локализованный текст. См. примечания в моделе.
-                    text: Core.gamesListModel.logoText(model.gameId)
+                    text: model.logoText
                 }
             }
         }

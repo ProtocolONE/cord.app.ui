@@ -8,7 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.0
+import QtQuick 1.1
 import "../Elements" as Elements
 
 Item {
@@ -87,7 +87,6 @@ Item {
 
         smooth: imageSmooth
         source: imgSource
-        //source: imageMini
         fillMode: Image.PreserveAspectFit
     }
 

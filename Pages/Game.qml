@@ -224,8 +224,7 @@ Rectangle {
             }
         }
 
-        onProgressbarChange:
-        {
+        onProgressbarChange: {
             var item = Core.serviceItemByServiceId(serviceId);
             if (!item) {
                 console.log('Unknown service ' + serviceId)
@@ -260,8 +259,7 @@ Rectangle {
             }
         }
 
-        onProgressbarExtractionChange:
-        {
+        onProgressbarExtractionChange: {
             var item = Core.serviceItemByServiceId(serviceId);
             if (!item) {
                 console.log('Unknown service ' + serviceId)
@@ -358,6 +356,12 @@ Rectangle {
                         bottomMargin: 86
                     }
 
+                    Image {
+                        anchors.fill: parent
+                        smooth: true
+                        source: installPath + "images/lay.png"
+                    }
+
                     Elements.IconButton { //rewards
                         toolTip: qsTr('REWARDS_TOOLTIP')
                         text: qsTr('REWARDS_BUTTON')
@@ -388,7 +392,7 @@ Rectangle {
 
                     Rectangle {
                         color: "#000000"
-                        opacity: 0.45
+                        opacity: 0.35
                         anchors.fill: parent
                     }
 

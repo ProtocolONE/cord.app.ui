@@ -10,34 +10,27 @@ Item {
 
     function setupText() {
         gameTitle.text = currentItem ? currentItem.name :  ""
-        descr.text = currentItem ? Core.gamesListModel.shortDescribtion(currentItem.gameId) : ""
+        descr.text = currentItem ? currentItem.shortDescription : ""
         container.visible = !!currentItem;
     }
 
     implicitHeight: 86
     onCurrentItemChanged: {
-        if (Core.previousGame()) {
-            gameChangeAnim.start();
+        if (!!Core.previousGame()) {
+            fromHomeAnim.stop();
+            gameChangeAnim.restart();
         } else {
+            gameChangeAnim.stop();
             container.opacity = 0;
-            startAnimTimer.start();
+            fromHomeAnim.restart();
         }
-    }
-
-    Timer {
-        id: startAnimTimer
-
-        running: false
-        interval: 1
-        repeat: false
-        onTriggered: fromHomeAnim.start()
     }
 
     Rectangle {
         color: "#000000"
         height: 86
         width: parent.width
-        opacity: 0.4
+        opacity: 0.35
     }
 
     SequentialAnimation {

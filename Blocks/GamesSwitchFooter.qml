@@ -95,21 +95,6 @@ Rectangle {
             width: 114
             height: 121
 
-            Elements.CursorMouseArea {
-                id: mouseArea
-
-                anchors.fill: parent
-                hoverEnabled: true
-                toolTip: Core.gamesListModel.miniToolTip(gameId)
-                onClicked: {
-                    var game = Core.serviceItemByIndex(index);
-                    footer.itemClicked(game);
-                    listViewId.currentIndex = index;
-                }
-                onEntered: d.additionalArea = true
-                onExited: d.additionalArea = false
-            }
-
             Rectangle {
                 anchors{ fill: parent; leftMargin: 7 }
                 visible: parent.isSelectedItem
@@ -154,21 +139,36 @@ Rectangle {
                             opacity: 0.15
                         }
 
+                        Elements.CursorMouseArea {
+                            id: mouseArea
+
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            toolTip: footer.currentGameItem ? footer.currentGameItem.miniToolTip : ""
+                            onClicked: {
+                                var game = Core.serviceItemByIndex(index);
+                                footer.itemClicked(game);
+                                listViewId.currentIndex = index;
+                            }
+                            onEntered: d.additionalArea = true
+                            onExited: d.additionalArea = false
+                        }
+
                         Image {
                             id: imageGame
 
                             anchors { left: parent.left; leftMargin: 7 }
                             source: installPath + imageFooter
                         }
+
+                        Image {
+                            visible: mouseArea.containsMouse && !parent.isSelectedItem
+                            anchors.fill: imageGame
+                            fillMode: Image.Tile
+                            source: installPath + "images/hoverClone.png"
+                        }
                     }
                 }
-            }
-
-            Image {
-                visible: mouseArea.containsMouse && !parent.isSelectedItem
-                anchors { fill: parent; leftMargin: 7 }
-                fillMode: Image.Tile
-                source: installPath + "images/hoverClone.png"
             }
         }
 

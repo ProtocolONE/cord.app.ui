@@ -8,7 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.0
+import QtQuick 1.1
 import qGNA.Library 1.0
 import Tulip 1.0
 import "../js/Core.js" as Core
@@ -18,10 +18,11 @@ import ".."
 
 Rectangle {
 
-    onVisibleChanged: changeGameByServiceId(Core.currentGame().serviceId)
-
-    function changeGameByServiceId(serviceId) {
-        gameSettingsListView.changeGameByIndex(Core.indexByServiceId(serviceId));
+    onVisibleChanged: {
+        var currentGame = Core.currentGame();
+        if (!currentGame)
+            return;
+        gameSettingsListView.changeGameByIndex(Core.indexByServiceId(currentGame.serviceId));
         gameSettingsListView.currentItem.state = "Active";
     }
 
@@ -56,7 +57,7 @@ Rectangle {
     height: Core.clientHeight
 
     id: settingsPageId
-    color: "#00000000"
+    color: "#353945"
 
     state: "GeneralPage"
 
@@ -88,6 +89,13 @@ Rectangle {
         case 1: { settingsPageId.state = "DownloadPage"; break }
         }
 
+    }
+
+    Rectangle {
+        color: "#000000"
+        height: 86
+        width: parent.width
+        opacity: 0.4
     }
 
     Item {
@@ -251,6 +259,9 @@ Rectangle {
                             delegate: Delegates.SettingsMenuDelegate {
                                 property string serviceIdAlias: serviceId
                                 property bool hasOverlayAlias: hasOverlay
+
+                                visible: gameType != "browser"
+                                height: gameType != "browser" ? 32 : 0
 
                                 buttonText: qsTr(name)
                                 onTextClicked: gameSettingsListView.changeGameByIndex(index);

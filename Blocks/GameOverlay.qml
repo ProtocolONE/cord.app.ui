@@ -37,7 +37,7 @@ Item {
                 return;
             }
 
-            if (service != "300003010000000000") {
+            if (service !== "300003010000000000") {
                 return;
             }
 
@@ -124,65 +124,81 @@ Item {
             }
 
             function onBsWindowCreate(name, arg) {
-                if (arg == 'Loading') {
+                if (arg === 'Loading') {
                     over.setBsGameState("Loading");
+                    return;
                 }
 
-                if (arg == 'SystemBack') {
+                if (arg === 'SystemBack') {
                     over.worldInitializing = true;
+                    return;
                 }
 
-                if (arg == 'OptWin') {
+                if (arg === 'OptWin') {
                     over.charSelectInitializing = true;
+                    return;
                 }
             }
 
             function onBsWindowDestroy(name, arg) {
-                if (arg == 'Loading') {
+                if (arg === 'Loading') {
                     if (over.charSelectInitializing) {
                         over.setBsGameState("CharSelect");
-                    } else if (over.worldInitializing) {
-                        over.setBsGameState("EnteredWorld");
-                    } else {
-                        over.setBsGameState("None");
+                        return;
                     }
+
+                    if (over.worldInitializing) {
+                        over.setBsGameState("EnteredWorld");
+                        return;
+                    }
+
+                    over.setBsGameState("None");
+                    return;
                 }
 
-                if (arg == 'SystemBack') {
+                if (arg === 'SystemBack') {
                     over.worldInitializing = false;
+                    return;
                 }
 
-                if (arg == 'OptWin') {
+                if (arg === 'OptWin') {
                     over.charSelectInitializing = false;
+                    return;
                 }
             }
 
             function onBSNetworkPacket(name, arg) {
                 var packet = JSON.parse(arg);
-                var name = packet.type;
+                var packetType = packet.type;
 
-                if (name == 'NS_CreateRole') {
+                if (packetType === 'NS_CreateRole') {
                     over.charCount += 1;
+                    return;
                 }
-                if (name == 'NS_DeleteRole') {
+
+                if (packetType === 'NS_DeleteRole') {
                     over.charCount -= 1;
+                    return;
                 }
 
-                if (name == 'NS_ServerInfo') {
-                    over.isDemonion = packet.demonion == 1;
+                if (packetType === 'NS_ServerInfo') {
+                    over.isDemonion = (packet.demonion == 1);
+                    return;
                 }
 
-                if (name == 'NS_EnumRole') {
+                if (packetType === 'NS_EnumRole') {
                     over.loadingCharTooLong = false;
                     over.charInfoLoaded = true;
                     over.charCount = packet.charCount;
                     loadingCharTimer.stop();
+                    return;
                 }
 
-                if (name == 'NS_SynchronismTime') {
+                if (packetType === 'NS_SynchronismTime') {
                     over.loadingCharTooLong = false;
                     over.charInfoLoaded = false;
                     loadingCharTimer.start();
+                    return;
                 }
             }
 

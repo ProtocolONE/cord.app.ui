@@ -102,19 +102,20 @@ Item {
     Rectangle {
         id: baseRect
 
-        width: textItem.width + 10
-        height: textItem.height + 10
-        color: "#747474"
+        width: textItem.width + 20
+        height: textItem.height + 14
+        color: "#f0f0dc"
 
         Text {
             id: textItem
 
             anchors.centerIn: parent
-            font { family: "Arial"; pixelSize: 12 }
+            font { family: "Arial"; pixelSize: 14 }
             text: inner.text
             wrapMode: Text.WordWrap
             onLinkActivated: Qt.openUrlExternally(link)
-            color: "#FFFFFF"
+            color: "#000000"
+            lineHeight: 1.1
 
             onTextChanged: {
               width = text.length > root.maxTextLen ? (root.maxTextLen * textItem.font.pixelSize) : undefined

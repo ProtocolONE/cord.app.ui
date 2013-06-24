@@ -28,10 +28,10 @@ Item {
         id: image
 
         anchors.horizontalCenter: parent.horizontalCenter
-        opacity: (mouser.containsMouse || isActive)? 1 : 0.60
+        opacity: (mouser.containsMouse || isActive)? 1 : 0.80
 
         Behavior on opacity {
-            PropertyAnimation { duration: 200 }
+            PropertyAnimation { duration: 100 }
         }
     }
 

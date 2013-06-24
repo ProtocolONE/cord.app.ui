@@ -23,7 +23,8 @@ Item {
     id: root
 
     function show() {
-        if (!inner.isAllowToShowHelp) {
+        inner.init();
+        if (!inner.isAllowToShowHelp || inner.selectMoreOneAskOnWellcome) {
             return;
         }
 
@@ -43,10 +44,7 @@ Item {
     implicitHeight: Core.clientHeight
     state: 'closed'
 
-    Component.onCompleted: {
-        inner.init();
-        Guide._qml = root;
-    }
+    Component.onCompleted: Guide._qml = root;
 
     QtObject {
         id: inner
@@ -57,6 +55,7 @@ Item {
         property bool isAllowToShowHelp: false
         property bool isWellcomeMustBeShown: false
         property bool isForward: true
+        property bool selectMoreOneAskOnWellcome: false
         property int currentIndex: -1
         property int maxIndex: 0
 
@@ -78,6 +77,7 @@ Item {
 
         function markAsMoreOneAsk() {
             Settings.setValue("qml/features/guide/", "showCount", 1);
+            inner.selectMoreOneAskOnWellcome = true;
         }
 
         function markAsRefuseHelp() {
@@ -94,7 +94,7 @@ Item {
 
         function init() {
             var showCount = Settings.value("qml/features/guide/", "showCount", 0) |0;
-            inner.isAllowToShowHelp = (showCount !== 2) && (showCount !== 3)
+            inner.isAllowToShowHelp = !(showCount === 2 || showCount === 4);
             inner.isWellcomeMustBeShown = (showCount < 2);
             inner.isFirstTime = (showCount === 0);
         }
@@ -422,7 +422,7 @@ Item {
 
         Rectangle {
             color: "#c0bdb3"
-            anchors {bottom: parent.bottom; bottomMargin: 107}
+            anchors { bottom: parent.bottom; bottomMargin: 107 }
             height: 1
             width: root.width
             opacity: 0.2
@@ -473,11 +473,8 @@ Item {
             from: "*"
             to: "closed"
             SequentialAnimation {
-                ScriptAction {
-                    script: sound.stop();
-                }
-                PropertyAnimation {targets: [wellcomePage, guidePage, controlls]; property: "opacity"; duration: 250}
-                PropertyAnimation {targets: [background]; property: "opacity"; duration: 250}
+                PropertyAnimation { targets: [wellcomePage, guidePage, controlls]; property: "opacity"; duration: 250 }
+                PropertyAnimation { targets: [background]; property: "opacity"; duration: 250 }
             }
         },
 
@@ -485,7 +482,7 @@ Item {
             from: "closed"
             to: "firstEnter"
             SequentialAnimation {
-                PropertyAnimation {targets: [background, wellcomePage]; property: "opacity"; duration: 250}
+                PropertyAnimation { targets: [background, wellcomePage]; property: "opacity"; duration: 250 }
                 ScriptAction {
                     script: progressAnim.start();
                 }
@@ -496,7 +493,7 @@ Item {
             from: "closed"
             to: "guideShow"
             SequentialAnimation {
-                PropertyAnimation {targets: [background, guidePage, controlls]; property: "opacity"; duration: 250}
+                PropertyAnimation { targets: [background, guidePage, controlls]; property: "opacity"; duration: 250 }
                 ScriptAction {
                     script: inner.showNext()
                 }
@@ -507,7 +504,7 @@ Item {
             from: "firstEnter"
             to: "guideShow"
             SequentialAnimation {
-                PropertyAnimation {targets: [wellcomePage, background, controlls]; property: "opacity"; duration: 250}
+                PropertyAnimation { targets: [wellcomePage, background, controlls]; property: "opacity"; duration: 250 }
                 ScriptAction {
                     script: inner.showNext()
                 }

@@ -17,6 +17,8 @@ import "../../Proxy/App.js" as App
 import "Guide.js" as Guide
 
 Item {
+    id: root
+
     implicitWidth: Core.clientWidth
     implicitHeight: Core.clientHeight
 
@@ -31,10 +33,26 @@ Item {
         runTimer.start();
     }
 
+    function stop() {
+        runTimer.stop();
+    }
+
+    Connections {
+        target: mainWindow
+
+        onDownloadButtonStartSignal: root.stop();
+        onServiceStarted: root.stop();
+        onServiceFinished: root.start();
+        onDownloaderStarted: root.start();
+        onDownloaderStopped: root.start();
+        onDownloaderFailed: root.start();
+        onDownloaderFinished: root.start();
+    }
+
     Timer {
         id: runTimer
 
-        interval: 3000
+        interval: 5000
         onTriggered: d.start()
     }
 

@@ -8,7 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.0
+import QtQuick 1.1
 import "." as Elements
 
 Item {
@@ -30,7 +30,7 @@ Item {
         x: 24
         y: 7
         text: buttonText
-        font { family: fontTahoma.name; weight: "Light"; pixelSize: 16; bold: false }
+        font { family: "Tahoma"; weight: "Light"; pixelSize: 16; bold: false }
         color: "#ffffff"
         opacity: buttonMouseArea.containsMouse ? 1 : 0.7
         anchors { centerIn: parent }

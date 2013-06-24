@@ -123,9 +123,7 @@ Delegates.FlowViewDelegate {
             font { family: "Tahoma"; pixelSize : 15 }
             color: "#FFFFFF"
             smooth: true
-            //Следующая линия - мерзкий хак, но по другому не получить
-            //локализованный текст. См. примечания в моделе.
-            text: Core.gamesListModel.logoText(model.gameId)
+            text: model.logoText
         }
     }
 

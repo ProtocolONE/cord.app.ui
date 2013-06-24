@@ -655,11 +655,11 @@ Please try again later.</source>
     <name>FailBlock</name>
     <message>
         <source>BUTTON_OK</source>
-        <translation type="unfinished">OK</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>RESTORE_PASSWORD_LINK</source>
-        <translation type="unfinished">&lt;a href=&apos;http://www.gamenet.ru/restore/&apos;&gt;&lt;font color=&apos;#d8e5d4&apos;&gt;Напомнить пароль&lt;/font&gt;&lt;/a&gt;</translation>
+        <translation>&lt;a href=&apos;http://www.gamenet.ru/restore/&apos;&gt;&lt;font color=&apos;#d8e5d4&apos;&gt;Напомнить пароль&lt;/font&gt;&lt;/a&gt;</translation>
     </message>
 </context>
 <context>
@@ -798,7 +798,7 @@ Please try again later.</source>
     <name>GameOverlay</name>
     <message>
         <source>OPEN_WEB_SHOP_BUTTON</source>
-        <translation>Открыть оверлей</translation>
+        <translation type="obsolete">Открыть оверлей</translation>
     </message>
 </context>
 <context>
@@ -829,7 +829,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>LOGO_ROT</source>
-        <translation>Хардкорная Dota</translation>
+        <translation type="obsolete">Хардкорная Dota</translation>
     </message>
     <message>
         <source>GAME_CA_ABOUT_TEXT</source>
@@ -857,7 +857,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_ROT_ABOUT_TEXT</source>
-        <translation>RoT – хардкорная командная игра в стиле легендарной DotA! Десятки уникальных героев на выбор, сотни предметов, огромное количество тактических вариантов и стратегий победы! Стань лучшим из лучших!</translation>
+        <translation type="obsolete">RoT – хардкорная командная игра в стиле легендарной DotA! Десятки уникальных героев на выбор, сотни предметов, огромное количество тактических вариантов и стратегий победы! Стань лучшим из лучших!</translation>
     </message>
     <message>
         <source>GAME_CA_MINI_TOOLTIP</source>
@@ -885,7 +885,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_ROT_MINI_TOOLTIP</source>
-        <translation>RoT — Многопользовательская 3D action MMO игра</translation>
+        <translation type="obsolete">RoT — Многопользовательская 3D action MMO игра</translation>
     </message>
     <message>
         <source>GAME_CA_MINI_DESC</source>
@@ -913,23 +913,23 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_ROT_MINI_DESC</source>
-        <translation>Хардкорная Dota</translation>
+        <translation type="obsolete">Хардкорная Dota</translation>
     </message>
     <message>
         <source>LOGO_FJ</source>
-        <translation type="unfinished"></translation>
+        <translation>Симулятор фермы</translation>
     </message>
     <message>
         <source>GAME_FJ_ABOUT_TEXT</source>
-        <translation type="unfinished"></translation>
+        <translation>Ферма Джейн – уникальный симулятор фермы. Совершите свое экономическое чудо! Начните с маленького хозяйства, сделайте из него крупную ферму: высаживайте растения, разводите домашних животных, изготавливайте продукцию на заводах!</translation>
     </message>
     <message>
         <source>GAME_FJ_MINI_TOOLTIP</source>
-        <translation type="unfinished"></translation>
+        <translation>Америка, 30-е годы нелегкое время для фермеров, но не для тех, кто любит и умеет работать. Дженнифер, молодая энергичная женщина из Каролины, бросает вызов всем...</translation>
     </message>
     <message>
         <source>GAME_FJ_MINI_DESC</source>
-        <translation type="unfinished"></translation>
+        <translation>Симулятор</translation>
     </message>
 </context>
 <context>
@@ -1012,39 +1012,39 @@ Please try again later.</source>
     </message>
     <message>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>
-        <translation>Играть</translation>
+        <translation type="obsolete">Играть</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_ON_PAUSE_STATE</source>
-        <translation>Играть</translation>
+        <translation type="obsolete">Играть</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
-        <translation>Пауза</translation>
+        <translation type="obsolete">Пауза</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_ERROR_STATE</source>
-        <translation>Ошибка</translation>
+        <translation type="obsolete">Ошибка</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
-        <translation>Играть</translation>
+        <translation type="obsolete">Играть</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_DOWNLOADED_AND_READY_STATE</source>
-        <translation>Игра готова к запуску</translation>
+        <translation type="obsolete">Игра готова к запуску</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
-        <translation>Загрузка игры: %1 из %2 МБ...</translation>
+        <translation type="obsolete">Загрузка игры: %1 из %2 МБ...</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_EXTRACTING_NOW_STATE</source>
-        <translation>Извлечение игры: %1 из %2</translation>
+        <translation type="obsolete">Извлечение игры: %1 из %2</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
-        <translation>Игра запущена</translation>
+        <translation type="obsolete">Игра запущена</translation>
     </message>
     <message>
         <source>STATUS_TEXT_MAINTENANCE_GREATE_HOUR</source>
@@ -1060,7 +1060,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
-        <translation>Обновление игры: %1 из %2 МБ...</translation>
+        <translation type="obsolete">Обновление игры: %1 из %2 МБ...</translation>
     </message>
     <message>
         <source>SUPPORT_ICON_BUTTON</source>
@@ -1072,11 +1072,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>REWARDS_BUTTON</source>
-        <translation>НАГРАДЫ</translation>
+        <translation type="obsolete">НАГРАДЫ</translation>
     </message>
     <message>
         <source>REWARDS_TOOLTIP</source>
-        <translation>Награды</translation>
+        <translation type="obsolete">Награды</translation>
     </message>
 </context>
 <context>
@@ -1181,7 +1181,7 @@ Please try again later.</source>
     <name>Header</name>
     <message>
         <source>FREE_OF_CHARGE</source>
-        <translation type="unfinished">Бесплатно</translation>
+        <translation type="obsolete">Бесплатно</translation>
     </message>
     <message>
         <source>ALL_GAMES</source>
@@ -1335,11 +1335,31 @@ Please try again later.</source>
     </message>
     <message>
         <source>TECHNICAL_PROBLEM_INFO</source>
-        <translation>Уважаемые игроки!
+        <translation type="obsolete">Уважаемые игроки!
 
 1 июня с 22:00 по московскому времени в дата-центре будут проводиться плановые работы в системе электропитания, ожидаемое время завершения работ - 2 июня 03:00 МСК. В связи с этим наши игры, приложения, сайты и форум в этот период времени будут недоступны.
 
 Приносим извинения за доставленные неудобства.</translation>
+    </message>
+    <message>
+        <source>TEXT_INITIALIZATION</source>
+        <translation>Инициализация...</translation>
+    </message>
+    <message>
+        <source>TEXT_RETRY_UPDATE_CHECK</source>
+        <translation type="obsolete">Повторная попытка проверки обновлений...</translation>
+    </message>
+    <message>
+        <source>TEXT_CHEKING_FOR_UPDATE</source>
+        <translation type="obsolete">Проверка обновлений...</translation>
+    </message>
+    <message>
+        <source>TEXT_DOWNLOADING_UPDATE</source>
+        <translation type="obsolete">Загрузка обновлений...</translation>
+    </message>
+    <message>
+        <source>TEXT_ERROR_UPDATE_CHECK</source>
+        <translation type="obsolete">Ошибка при загрузке обновлений...</translation>
     </message>
 </context>
 <context>
@@ -1489,6 +1509,14 @@ Please try again later.</source>
     <message>
         <source>MENU_ITEM_SETTINGS</source>
         <translation>НАСТРОЙКА</translation>
+    </message>
+    <message>
+        <source>ALL_NEWS</source>
+        <translation>Все новости</translation>
+    </message>
+    <message>
+        <source>MORE_ABOUT_GAME</source>
+        <translation>Подробнее об игре</translation>
     </message>
 </context>
 <context>
@@ -2389,6 +2417,29 @@ Please try again later.</source>
     <message>
         <source>MENU_ITEM_QUIT</source>
         <translation>Выход</translation>
+    </message>
+</context>
+<context>
+    <name>UpdateManager</name>
+    <message>
+        <source>RETRY_CHECKING_UPDATE</source>
+        <translation>Повторная попытка проверки обновлений...</translation>
+    </message>
+    <message>
+        <source>LOAD_UPDATE_RETRY_WARNING</source>
+        <translation>Повторная попытка проверки обновлений...</translation>
+    </message>
+    <message>
+        <source>CHECK_UPDATE</source>
+        <translation>Проверка обновлений...</translation>
+    </message>
+    <message>
+        <source>LOAD_UPDATE</source>
+        <translation>Загрузка обновлений...</translation>
+    </message>
+    <message>
+        <source>UPDATE_ERROR</source>
+        <translation>Ошибка при загрузке обновлений...</translation>
     </message>
 </context>
 <context>

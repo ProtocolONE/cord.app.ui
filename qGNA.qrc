@@ -17,7 +17,6 @@
 		<file>Blocks/GameFailed.qml</file>
 		<file>Blocks/GameIsBoring.qml</file>
 		<file>Blocks/GameOverlay.qml</file>
-		<file>Blocks/GamesSwitch.qml</file>
 		<file>Blocks/GamesSwitchFooter.qml</file>
 		<file>Blocks/GamesSwitchFooter/FooterButton.qml</file>
 		<file>Blocks/GameSwitch/ImageButton.qml</file>
@@ -100,9 +99,7 @@
 		<file>js/Support/Support.qml</file>
 		<file>js/UserInfo.js</file>
 		<file>Models/GamesListModel.qml</file>
-		<file>Models/GamesSwitchModel.qml</file>
 		<file>Models/NewsModel.qml</file>
-		<file>Models/SettingsModel.qml</file>
 		<file>Pages/Game.qml</file>
 		<file>Pages/Home.qml</file>
 		<file>Pages/LoadScreen.qml</file>

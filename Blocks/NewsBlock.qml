@@ -46,6 +46,20 @@ Item {
     QtObject {
         id: d
 
+        property variant lastOpenExternalBrowserTime: 0
+
+        function openExteranlBorwser(url) {
+            var now = (+ new Date()),
+                dif = now - d.lastOpenExternalBrowserTime;
+
+            if (dif > 0 && dif < 3000) {
+                return;
+            }
+
+            d.lastOpenExternalBrowserTime = now;
+            mainAuthModule.openWebPage(url);
+        }
+
         function getExecuteCount() {
             if (Core.currentGame()) {
                 var successCount = parseInt(Settings.value('gameExecutor/serviceInfo/' + Core.currentGame().serviceId, 'successCount', 0));
@@ -104,9 +118,10 @@ Item {
                 text: qsTr("TAB_BLOG")
                 source: installPath + "images/menu/blog.png"
                 onClicked: {
+
                     GoogleAnalytics.trackEvent('/newsBlock/' + Core.currentGame().gaName,
                                                'Navigation', 'Blog');
-                    mainAuthModule.openWebPage(Core.currentGame().blogUrl);
+                    d.openExteranlBorwser(Core.currentGame().blogUrl);
                 }
             }
 
@@ -117,20 +132,21 @@ Item {
                 onClicked: {
                     GoogleAnalytics.trackEvent('/newsBlock/' + Core.currentGame().gaName,
                                                'Navigation', 'Forum');
-                    mainAuthModule.openWebPage(Core.currentGame().forumUrl);
+                    d.openExteranlBorwser(Core.currentGame().forumUrl);
                 }
             }
 
             Elements.IconButton {
                 text: qsTr('SUPPORT_ICON_BUTTON')
                 source: installPath + "images/menu/help.png"
-                onClicked: SupportHelper.show(parent, Core.currentGame() ? Core.currentGame().gaName : '');
+                onClicked: SupportHelper.show(newsBlock, Core.currentGame() ? Core.currentGame().gaName : '');
             }
 
             Elements.IconButton {
                 text: qsTr('MENU_ITEM_SETTINGS')
                 source: installPath + "images/menu/settings.png"
                 onClicked: qGNA_main.openSettings();
+                visible: Core.currentGame() != undefined  && Core.currentGame().gameType != "browser"
             }
         }
 
@@ -139,39 +155,48 @@ Item {
             height: 180
             color: "#00000000"
 
-            Rectangle {
-                id: opacityBlock
-
-                anchors { top: parent.top; topMargin: 5 }
-                anchors { left: parent.left; right: parent.right; leftMargin: -15 }
-                color: "#000000"
-                opacity: 0.4
-
-                Image{
-                    id: cornerPoint
-
-                    anchors{ right: parent.right; bottom: parent.top }
-                    source: installPath + "images/corner.png"
-                }
-            }
-
             Item {
                 id: aboutGamesItem
 
                 anchors.fill: parent
 
-                Text {
-                    id: aboutGamesText
+                Column {
+                    anchors { top: parent.top; left: parent.left; right: parent.right }
+                    anchors { topMargin: 13; rightMargin: 30 }
+                    spacing: 9
 
-                    text: Core.currentGame() != undefined ? Core.gamesListModel.aboutGameText(Core.currentGame().gameId) : ""
-                    textFormat: Text.RichText
-                    onLinkActivated: mainAuthModule.openWebPage(link);
-                    color: "#ffffff"
-                    font{ pixelSize: 17; letterSpacing: -0.5 }
-                    smooth: true
-                    anchors { topMargin: 18; top: parent.top }
-                    anchors { left: parent.left; right: parent.right; rightMargin: 30 }
-                    wrapMode: Text.WordWrap
+                    Text {
+                        text: Core.currentGame() != undefined ? Core.currentGame().aboutGameText : ""
+                        textFormat: Text.RichText
+                        onLinkActivated: mainAuthModule.openWebPage(link);
+                        color: "#ffffff"
+                        font{ pixelSize: 17; letterSpacing: -0.5 }
+                        smooth: true
+                        wrapMode: Text.WordWrap
+                        anchors{ left: parent.left; right: parent.right }
+                    }
+
+                    Text {
+                        anchors{ left: parent.left; right: parent.right }
+
+                        text: qsTr("MORE_ABOUT_GAME")
+                        visible: Core.currentGame() ? !!Core.currentGame().guideUrl : false
+                        color: "#ffffff"
+                        font{ pixelSize: 17; letterSpacing: -0.5 }
+                        smooth: true
+
+                        Elements.CursorMouseArea {
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            onClicked: {
+                                var currentGame = Core.currentGame();
+                                if (!currentGame)
+                                    return;
+
+                                mainAuthModule.openWebPage(currentGame.guideUrl);
+                            }
+                        }
+                    }
                 }
             }
 
@@ -198,6 +223,28 @@ Item {
                         newsUrl: "http://www.gamenet.ru/games/" + gameShortName + "/post/" + eventId
                     }
                 }
+
+                Text {
+                    anchors{ top: parent.bottom; left: parent.left; right: parent.right }
+
+                    text: qsTr("ALL_NEWS")
+                    anchors { rightMargin: 5; topMargin: -14 }
+                    color: "#ffffff"
+                    font { family: "Tahoma"; pixelSize: 15; }
+                    smooth: true
+
+                    Elements.CursorMouseArea {
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        onClicked: {
+                            var currentGame = newsItem.currentGame.get(0)
+                            if (!currentGame || !currentGame.gameShortName)
+                                return;
+
+                            mainAuthModule.openWebPage("http://www.gamenet.ru/games/" + currentGame.gameShortName + "/news/");
+                        }
+                    }
+                }
             }
         }
     }
@@ -209,8 +256,6 @@ Item {
             PropertyChanges { target: newsTab; isActive: false }
             PropertyChanges { target: newsItem; visible: false }
             PropertyChanges { target: aboutGamesItem; visible: true }
-            PropertyChanges { target: opacityBlock; height: aboutGamesText.height + 38 }
-            PropertyChanges { target: cornerPoint; anchors.rightMargin: 442 }
         },
         State {
             name: "NewsTab"
@@ -218,8 +263,6 @@ Item {
             PropertyChanges { target: newsTab; isActive: true }
             PropertyChanges { target: newsItem; visible: true }
             PropertyChanges { target: aboutGamesItem; visible: false }
-            PropertyChanges { target: opacityBlock; height: 180 }
-            PropertyChanges { target: cornerPoint; anchors.rightMargin: 374 }
         }
     ]
 }

@@ -42,7 +42,7 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         text: qsTranslate("asdfsdf",value)
         anchors.horizontalCenterOffset: 10
-        font.family: fontTahoma.name
+        font.family: "Tahoma"
         font.bold: false
         font.pixelSize: 14
         color: "#bdbdbd"

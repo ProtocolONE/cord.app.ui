@@ -44,7 +44,7 @@ Item {
         Elements.CursorMouseArea {
             id: mouser
 
-            anchors.fill: parent
+            anchors { fill: parent; rightMargin: 50 }
             hoverEnabled: true
             onClicked: {
                 if (d.currentItem) {

@@ -14,24 +14,30 @@ import "../Elements" as Elements
 import "../Blocks" as Blocks
 import "../js/Core.js" as Core
 
-Rectangle {
+Item {
     id: loadScreen
 
-    //property string installPath: "../"
+    signal updateFinished()
 
-    signal finishAnimation()
-
-    radius: 6
-    color: "#00000000"
     width: Core.clientWidth
     height: Core.clientHeight
 
     QtObject {
         id: d
 
-        property bool endAnimationStart: false
         property string updateText: qsTr("TEXT_INITIALIZATION")
-        property int loadPercent: 0
+        property int progress: 0
+
+        function updateFinished() {
+            startingGameNetText.text = qsTr("TEXT_STARTING_APPLICATION");
+            closeAnimation.start();
+            loadScreen.updateFinished();
+        }
+    }
+
+    Image {
+        source: installPath +  "images/abstraction.png"
+        anchors.top: parent.top
     }
 
     Image {
@@ -65,17 +71,18 @@ Rectangle {
     Elements.ProgressBar {
         id: progressBar
 
-        width: parent.width
-
-        x: 0
         y: 440
+        height: 1
+        width: parent.width
+        running: false
+        progress: d.progress
     }
 
     Text {
         id: versionTextId
 
         color: "#ffffff"
-        text: qsTr("TEXT_VERSION").arg(mainWindow.fileVersion)
+        text: qsTr("TEXT_VERSION").arg(updateManger.item ? updateManger.item.fileVersion : "Debug")
         anchors { right: parent.right; rightMargin: 32;  }
         anchors { bottom: parent.bottom; bottomMargin: 50; }
         font { family: "Segoe UI"; pixelSize: 11; weight: Font.DemiBold; }
@@ -84,112 +91,40 @@ Rectangle {
     }
 
     SequentialAnimation {
-        id: endAnimation
+        id: closeAnimation
 
-        running: d.endAnimationStart
-        onCompleted: finishAnimation()
+        onCompleted: loadScreen.visible = false
 
-        ParallelAnimation {
-            NumberAnimation { target: progressBar; easing.type: Easing.OutQuad; property: "x"; from: 0; to: 602; duration: 250 }
-            NumberAnimation { target: progressBar; easing.type: Easing.OutQuad; property: "opacity"; from: 1; to: 0; duration: 300 }
+        PauseAnimation { duration: 2000 }
 
-            NumberAnimation { target: startingGameNetText; easing.type: Easing.OutQuad; property: "x"; from: 30; to: -34; duration: 250 }
-            NumberAnimation { target: startingGameNetText; easing.type: Easing.OutQuad; property: "opacity"; from: 1; to: 0; duration: 300 }
-
-            NumberAnimation { target: logoImage; easing.type: Easing.OutQuad; property: "scale"; from: 1; to: 0; duration: 300 }
-            NumberAnimation { target: logoImage; easing.type: Easing.OutQuad; property: "opacity"; from: 1; to: 0; duration: 300 }
-
-            NumberAnimation { target: versionTextId; easing.type: Easing.OutQuad; property: "opacity"; from: 1; to: 0; duration: 300 }
+        PropertyAction { target: progressBar; property: "running"; value: "false" }
+        PauseAnimation { duration: 200 }
+        PropertyAnimation {
+            target: loadScreen
+            property: "opacity"
+            to: 0
+            duration: 1000
         }
-    }
-
-    Timer {
-        id: changeTextTimer
-
-        interval: 1500; running: false; repeat: false
-        onTriggered: {
-            d.updateText =  qsTr("TEXT_RETRY_UPDATE_CHECK")
-        }
-    }
-
-    Blocks.TryLoader {
-        id: updateManager
-
-        source: "LoadScreen/UpdateManager.qml"
-        onFailed: console.log('Can not load Update Manager');
-        onSuccessed: console.log('Update Manager');
     }
 
     Connections {
-        target: updateManager.item
+        target: updateManger.item
+        onStatusChanged: d.updateText = msg
+        onProgressChanged: d.progress = progress
+        onFinished: d.updateFinished()
+    }
 
-        onDownloadUpdateProgress: {
-            d.loadPercent = 100 * (currentSize / totalSize);
-        }
+    Blocks.TryLoader {
+        id: updateManger
 
-        onUpdatesFound: {
-            changeTextTimer.stop();
-            console.log("[DEBUG][QML] Found updates.")
-            console.log("[DEBUG][QML] Installing updates.");
-            installUpdates();
-        }
-
-        onNoUpdatesFound: {
-            changeTextTimer.stop();
-            console.log("[DEBUG][QML] Updates not found.")
-        }
-
-        onDownloadRetryNumber: {
-            d.updateText = qsTr("TEXT_RETRY_UPDATE_CHECK")
-            changeTextTimer.start();
-        }
-
-        onAllCompleted: {
-            changeTextTimer.stop();
-            if (isNeedRestart) {
-                mainWindow.restartApplication()
-            } else {
-                mainWindow.startBackgroundCheckUpdate();
-            }
-
-            console.log("[DEBUG][QML] Update complete with state " + updateManager.item.updateState);
-
-            d.endAnimationStart = true
-        }
-
-        onUpdateStateChanged: {
-            changeTextTimer.stop();
-            if (updateManager.item.updateState == 0)
-                d.updateText = qsTr("TEXT_CHEKING_FOR_UPDATE")
-            else if (updateManager.item.updateState == 1) {
-                d.updateText = qsTr("TEXT_DOWNLOADING_UPDATE")
-            }
-        }
-
-        onUpdateError: {
-            d.loadPercent = 100;
-            changeTextTimer.start();
-
-            if (errorCode > 0 ) {
-                if (updateManager.item.updateState == 0)
-                    d.updateText = qsTr("TEXT_ERROR_UPDATE_CHECK")
-            }
-
-            switch(errorCode) {
-            case UpdateInfoGetterResults.NoError: console.log("[DEBUG][QML] Update no error"); break;
-            case UpdateInfoGetterResults.DownloadError: console.log("[DEBUG][QML] Update download error"); break;
-            case UpdateInfoGetterResults.ExtractError: console.log("[DEBUG][QML] Update extract error"); break;
-            case UpdateInfoGetterResults.XmlContentError: console.log("[DEBUG][QML] Update xml content error"); break;
-            case UpdateInfoGetterResults.BadArguments: console.log("[DEBUG][QML] Update bad arguments"); break;
-            case UpdateInfoGetterResults.CanNotDeleteOldUpdateFiles: console.log("[DEBUG][QML] Update CanNotDeleteOldUpdateFiles"); break;
-            }
-        }
+        source: "LoadScreen/UpdateManager.qml"
+        onFailed: d.updateFinished()
+        onSuccessed: updateManger.item.start();
     }
 
     Component.onCompleted: {
         console.log("[DEBUG][QML] Updater started")
-
-        updateManager.item.startCheckUpdate();
+        progressBar.running = true;
     }
 }
 

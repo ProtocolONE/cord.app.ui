@@ -626,7 +626,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.74.6f6a4ca51518fbb83621ea296c0973dc68c01f99",
+    version: "1.0.76.f3f873640a2e15e4bae161e54d1cdbf60700be51",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',
@@ -745,6 +745,10 @@ Games.getCSMapsStat = function(successCallback, failedCallback) {
 Games.getCSCharStat = function(successCallback, failedCallback) {
     Core.execute('games.getCSCharStat', {}, true, successCallback, failedCallback);
 };
+
+Games.getFacts = function(successCallback, failedCallback) {
+    Core.execute('games.getFacts', {version: 2}, false, successCallback, failedCallback);
+};
 var Marketing = function() {
 };
 
@@ -796,7 +800,7 @@ User.getSpeedyInfo = function(successCallback, failedCallback) {
 };
 
 User.getProfile = function(profiles, successCallback, failedCallback) {
-    Core.execute('user.getProfile', {profileId : profiles, shortInfo : 1, achievements : 1}, true, successCallback, failedCallback);
+    Core.execute('user.getProfile', {profileId: profiles, shortInfo: 1, achievements: 1}, true, successCallback, failedCallback);
 };
 
 //Следующий метод не должен тестироваться по понятным причинам
@@ -836,14 +840,7 @@ var Virality = function() {
 //INFO Метод не может быть протестирован.
 Virality.linkAccount = function(code, vkReturnPath, successCallback, failedCallback) {
     Core.execute('virality.linkAccount', {code : code, vkReturnPath: vkReturnPath}, true, successCallback, failedCallback);
-};/**
- * Created with JetBrains PhpStorm.
- * User: Ilya
- * Date: 04.02.13
- * Time: 11:45
- * To change this template use File | Settings | File Templates.
- */
-var Wall = function() {
+};var Wall = function() {
 };
 
 Wall.getNews = function(successCallback, failedCallback) {

@@ -4,8 +4,8 @@ import "../Elements" as Elements
 Elements.TextClick {    
     id: generalMenuText
 
-    width: 181
-    height: 32
+    implicitWidth: 181
+    implicitHeight: 32
     state: itemState
 
     SequentialAnimation {

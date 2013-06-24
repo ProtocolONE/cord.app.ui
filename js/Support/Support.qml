@@ -13,6 +13,12 @@ Window {
 
     signal closeRequest();
 
+    function clearCookie() {
+        WebViewHelper.setCookiesFromUrl('', 'http://www.gamenet.ru')
+        WebViewHelper.setCookiesFromUrl('', 'http://gamenet.ru')
+        WebViewHelper.setCookiesFromUrl('', 'https://gnlogin.ru')
+    }
+
     x: (Desktop.primaryScreenAvailableGeometry.width  - width) / 2 + 50
     y: (Desktop.primaryScreenAvailableGeometry.height - height) / 2 - 50
 
@@ -27,13 +33,6 @@ Window {
     topMost: true
 
     title: qsTr("SUPPORT_HELP")
-
-    function clearCookie() {
-        WebViewHelper.setCookiesFromUrl('', 'http://www.gamenet.ru')
-        WebViewHelper.setCookiesFromUrl('', 'http://gamenet.ru')
-        WebViewHelper.setCookiesFromUrl('', 'https://gnlogin.ru')
-    }
-
     onBeforeClosed: clearCookie();
 
     WebView {
