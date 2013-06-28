@@ -19,6 +19,8 @@ import "Guide.js" as Guide
 Item {
     id: root
 
+    property bool preventRunning: false
+
     implicitWidth: Core.clientWidth
     implicitHeight: Core.clientHeight
 
@@ -27,7 +29,7 @@ Item {
     }
 
     function start() {
-        if (runTimer.running || !App.isAnyLicenseAccepted()) {
+        if (runTimer.running || !App.isAnyLicenseAccepted() || preventRunning) {
             return;
         }
         runTimer.start();
@@ -61,7 +63,7 @@ Item {
 
         function start() {
             var item = Core.currentGame();
-            if (!item || !App.isWindowVisible()) {
+            if (!item || !App.isWindowVisible() || preventRunning) {
                 return;
             }
 

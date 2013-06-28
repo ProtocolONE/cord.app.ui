@@ -52,7 +52,13 @@ Item {
     }
 
     function nickNameWidth() {
-        return premiumImage.visible ? downRowWidget.width - 16 - 18 - 8: downRowWidget.width - 16;
+        if (isGuest) {
+            return downRowWidget.width - 30;
+        } else if (!isNickNameSaved) {
+            return downRowWidget.width - 10;
+        } else {
+            return downRowWidget.width - 16 - 18 - 8;
+        }
     }
 
     Rectangle {

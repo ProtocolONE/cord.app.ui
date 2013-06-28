@@ -729,7 +729,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>REWARDS_TOOLTIP</source>
-        <translation>Награды</translation>
+        <translation>Нажмите, чтобы узнать подробности</translation>
     </message>
     <message>
         <source>REWARDS_BUTTON</source>
@@ -1582,7 +1582,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>PREMIUM_TOOLTIP</source>
-        <translation>Премиум аккаунт</translation>
+        <translation>Расширенный аккаунт</translation>
     </message>
     <message>
         <source>PREMIUM_NO_TOOLTIP</source>

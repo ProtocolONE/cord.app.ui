@@ -46,6 +46,7 @@ Rectangle {
             return;
         }
 
+        processWidget.visible = false;
         d.ignoreMaintenance = false;
         d.updateMaintenance();
 

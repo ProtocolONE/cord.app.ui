@@ -144,7 +144,8 @@ Rectangle {
 
                             anchors.fill: parent
                             hoverEnabled: true
-                            toolTip: Core.serviceItemByIndex(index) ? Core.serviceItemByIndex(index).miniToolTip : ""
+                            // Убрано - объяснение вот тут https://jira.gamenet.ru:8443/browse/QGNA-351
+                            //toolTip: Core.serviceItemByIndex(index) ? Core.serviceItemByIndex(index).miniToolTip : ""
                             onClicked: {
                                 var game = Core.serviceItemByIndex(index);
                                 footer.itemClicked(game);

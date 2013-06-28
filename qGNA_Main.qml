@@ -548,6 +548,8 @@ Item {
 
         Guide.WellcomeGuide {
             id: guide
+
+            preventRunning: mainAuthModule.isOpen
         }
 
         Ping.Ping {

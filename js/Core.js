@@ -36,7 +36,7 @@ var socialNetTable = {
             icon: "images/socialNet/mail.png"
         },
         {
-            link: "www.facebook.com/pages/Blood-Soul/201464389893835",
+            link: "http://www.facebook.com/pages/Blood-Soul/201464389893835",
             icon: "images/socialNet/fb.png"
         },
         {
