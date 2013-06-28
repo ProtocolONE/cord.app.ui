@@ -9,6 +9,7 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+import Tulip 1.0
 
 import "../../Elements" as Elements
 import "../../js/Authorization.js" as Authorization

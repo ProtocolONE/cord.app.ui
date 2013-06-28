@@ -459,62 +459,62 @@
 <context>
     <name>Game</name>
     <message>
-        <location filename="../Pages/Game.qml" line="133"/>
+        <location filename="../Pages/Game.qml" line="137"/>
         <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="217"/>
+        <location filename="../Pages/Game.qml" line="221"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="256"/>
+        <location filename="../Pages/Game.qml" line="260"/>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="257"/>
+        <location filename="../Pages/Game.qml" line="261"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="272"/>
+        <location filename="../Pages/Game.qml" line="276"/>
         <source>TEXT_PROGRESSBAR_EXTRACTING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="367"/>
+        <location filename="../Pages/Game.qml" line="371"/>
         <source>REWARDS_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="368"/>
+        <location filename="../Pages/Game.qml" line="372"/>
         <source>REWARDS_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="422"/>
+        <location filename="../Pages/Game.qml" line="431"/>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="423"/>
+        <location filename="../Pages/Game.qml" line="432"/>
         <source>BUTTON_PLAY_ON_PAUSE_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="424"/>
+        <location filename="../Pages/Game.qml" line="433"/>
         <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="425"/>
+        <location filename="../Pages/Game.qml" line="434"/>
         <source>BUTTON_PLAY_ERROR_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="426"/>
+        <location filename="../Pages/Game.qml" line="435"/>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1010,17 +1010,18 @@
 <context>
     <name>LoadScreen</name>
     <message>
-        <location filename="../Pages/LoadScreen.qml" line="28"/>
+        <location filename="../Pages/LoadScreen.qml" line="33"/>
         <source>TEXT_INITIALIZATION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/LoadScreen.qml" line="84"/>
+        <location filename="../Pages/LoadScreen.qml" line="96"/>
         <source>TEXT_VERSION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/LoadScreen.qml" line="64"/>
+        <location filename="../Pages/LoadScreen.qml" line="37"/>
+        <location filename="../Pages/LoadScreen.qml" line="85"/>
         <source>TEXT_STARTING_APPLICATION</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1164,37 +1165,37 @@
 <context>
     <name>NickNameView</name>
     <message>
-        <location filename="../Blocks/NickNameView.qml" line="74"/>
+        <location filename="../Blocks/NickNameView.qml" line="83"/>
         <source>LOGOUT_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NickNameView.qml" line="125"/>
+        <location filename="../Blocks/NickNameView.qml" line="135"/>
         <source>LEVEL_AVATAR_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NickNameView.qml" line="152"/>
+        <location filename="../Blocks/NickNameView.qml" line="162"/>
         <source>PREMIUM_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NickNameView.qml" line="152"/>
+        <location filename="../Blocks/NickNameView.qml" line="162"/>
         <source>PREMIUM_NO_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NickNameView.qml" line="171"/>
+        <location filename="../Blocks/NickNameView.qml" line="181"/>
         <source>NICKNAME_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NickNameView.qml" line="215"/>
+        <location filename="../Blocks/NickNameView.qml" line="225"/>
         <source>MONEY_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NickNameView.qml" line="227"/>
+        <location filename="../Blocks/NickNameView.qml" line="237"/>
         <source>ACCOUNT_DEPOSIT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1304,163 +1305,163 @@
 <context>
     <name>Registration</name>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="34"/>
-        <location filename="../Blocks/Auth/Registration.qml" line="48"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="35"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="49"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="40"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="41"/>
         <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="44"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="45"/>
         <source>AUTH_FAIL_MESSAGE_WRONG</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="99"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="100"/>
         <source>LINK_GUEST_UNKNOWN_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="168"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="169"/>
         <source>GUEST_VK_LINK_UNKNOWN_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="186"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="187"/>
         <source>VK_LOGIN_BUTTON_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="225"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="226"/>
         <source>AUTH_GUEST_REGISTER_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="226"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="227"/>
         <source>AUTH_REGISTER_NORMAL_MESSAGE_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="235"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="236"/>
         <source>AUTH_REGISTER_LOGIN_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="252"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="253"/>
         <source>PLACEHOLDER_LOGIN_INPUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="264"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="265"/>
         <source>AUTH_REGISTER_LOGIN_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="273"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="274"/>
         <source>AUTH_REGISTER_PASSWORD_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="290"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="291"/>
         <source>PLACEHOLDER_PASSWORD_INPUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="304"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="305"/>
         <source>AUTH_REGISTER_PASSWORD_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="319"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="320"/>
         <source>AUTH_REGISTER_LICENSE_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="330"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="331"/>
         <source>AUTH_START_REGISTER_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="335"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="336"/>
         <source>AUTH_CANCEL_REGISTER_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="349"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="350"/>
         <source>AUTH_REGISTER_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="350"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="351"/>
         <source>AUTH_LEFT_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="351"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="352"/>
         <source>AUTH_NORMAL_REGISTER_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="357"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="358"/>
         <source>AUTH_REGISTER_TITLE_GUEST_LOGOUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="358"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="359"/>
         <source>AUTH_LEFT_BUTTON_GUEST_LOGOUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="359"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="360"/>
         <source>AUTH_GUEST_LOGOUT_REGISTER_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="365"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="366"/>
         <source>AUTH_REGISTER_TITLE_GUEST_EXPIRED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="366"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="367"/>
         <source>AUTH_LEFT_BUTTON_GUEST_EXPIRED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="367"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="368"/>
         <source>AUTH_GUEST_EXPIRED_REGISTER_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="373"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="374"/>
         <source>AUTH_REGISTER_TITLE_GUEST_OPEN_URL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="374"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="375"/>
         <source>AUTH_LEFT_BUTTON_GUEST_OPEN_URL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="375"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="376"/>
         <source>AUTH_GUEST_OPEN_URL_REGISTER_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="381"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="382"/>
         <source>AUTH_REGISTER_TITLE_GUEST_REQUEST_CONFIGRM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="382"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="383"/>
         <source>AUTH_LEFT_BUTTON_GUEST_REQUEST_CONFIGRM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Registration.qml" line="383"/>
+        <location filename="../Blocks/Auth/Registration.qml" line="384"/>
         <source>AUTH_GUEST_REQUEST_CONFIGRM_REGISTER_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1668,68 +1669,68 @@
 <context>
     <name>SettingsPage</name>
     <message>
-        <location filename="../Pages/SettingsPage.qml" line="107"/>
+        <location filename="../Pages/SettingsPage.qml" line="97"/>
         <source>TITLE_SETTINGS_SCREEN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/SettingsPage.qml" line="183"/>
+        <location filename="../Pages/SettingsPage.qml" line="174"/>
         <source>MENU_ITEM_GENERAL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/SettingsPage.qml" line="188"/>
+        <location filename="../Pages/SettingsPage.qml" line="179"/>
         <source>MENU_ITEM_DOWNLOAD</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/SettingsPage.qml" line="223"/>
+        <location filename="../Pages/SettingsPage.qml" line="214"/>
         <source>MENU_GAMES_SECTION_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/SettingsPage.qml" line="301"/>
+        <location filename="../Pages/SettingsPage.qml" line="292"/>
         <source>BUTTON_DEFAULT_SETTINGS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/SettingsPage.qml" line="357"/>
+        <location filename="../Pages/SettingsPage.qml" line="347"/>
         <source>SUBTITLE_FOLDERS_GAME_SETTING</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/SettingsPage.qml" line="365"/>
+        <location filename="../Pages/SettingsPage.qml" line="355"/>
         <source>LABEL_INSTALL_PATH_INPUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/SettingsPage.qml" line="378"/>
-        <location filename="../Pages/SettingsPage.qml" line="402"/>
+        <location filename="../Pages/SettingsPage.qml" line="368"/>
+        <location filename="../Pages/SettingsPage.qml" line="392"/>
         <source>BUTTON_SET_PATH</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/SettingsPage.qml" line="389"/>
+        <location filename="../Pages/SettingsPage.qml" line="379"/>
         <source>LABEL_DISTR_PATH_INPUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/SettingsPage.qml" line="431"/>
+        <location filename="../Pages/SettingsPage.qml" line="421"/>
         <source>ENABLE_OVERLAY_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/SettingsPage.qml" line="440"/>
+        <location filename="../Pages/SettingsPage.qml" line="430"/>
         <source>BUTTON_CREATE_DESKTOP_SHORTCUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/SettingsPage.qml" line="445"/>
+        <location filename="../Pages/SettingsPage.qml" line="435"/>
         <source>BUTTON_CREATE_START_MENU_SHORTCUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/SettingsPage.qml" line="464"/>
+        <location filename="../Pages/SettingsPage.qml" line="454"/>
         <source>BUTTON_RESTORE_GAME_CLIENT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1753,22 +1754,22 @@
 <context>
     <name>Tray</name>
     <message>
-        <location filename="../Blocks/Tray.qml" line="154"/>
+        <location filename="../Blocks/Tray.qml" line="155"/>
         <source>MENU_ITEM_PROFILE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Tray.qml" line="160"/>
+        <location filename="../Blocks/Tray.qml" line="161"/>
         <source>MENU_ITEM_MONEY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Tray.qml" line="166"/>
+        <location filename="../Blocks/Tray.qml" line="167"/>
         <source>MENU_ITEM_SETTINGS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Tray.qml" line="172"/>
+        <location filename="../Blocks/Tray.qml" line="173"/>
         <source>MENU_ITEM_QUIT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1804,17 +1805,17 @@
 <context>
     <name>UserInfo</name>
     <message>
-        <location filename="../Blocks/UserInfo.qml" line="97"/>
+        <location filename="../Blocks/UserInfo.qml" line="98"/>
         <source>GUEST_DEFAULT_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/UserInfo.qml" line="103"/>
+        <location filename="../Blocks/UserInfo.qml" line="104"/>
         <source>DEFAULT_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/UserInfo.qml" line="229"/>
+        <location filename="../Blocks/UserInfo.qml" line="232"/>
         <source>BUTTON_SHOW_LOG_IN_FORM</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1830,42 +1831,42 @@
 <context>
     <name>WellcomeGuide</name>
     <message>
-        <location filename="../Features/Guide/WellcomeGuide.qml" line="74"/>
+        <location filename="../Features/Guide/WellcomeGuide.qml" line="76"/>
         <source>GUIDE_2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/WellcomeGuide.qml" line="82"/>
+        <location filename="../Features/Guide/WellcomeGuide.qml" line="84"/>
         <source>GUIDE_3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/WellcomeGuide.qml" line="90"/>
+        <location filename="../Features/Guide/WellcomeGuide.qml" line="92"/>
         <source>GUIDE_4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/WellcomeGuide.qml" line="101"/>
+        <location filename="../Features/Guide/WellcomeGuide.qml" line="103"/>
         <source>GUIDE_5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/WellcomeGuide.qml" line="111"/>
+        <location filename="../Features/Guide/WellcomeGuide.qml" line="113"/>
         <source>GUIDE_6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/WellcomeGuide.qml" line="121"/>
+        <location filename="../Features/Guide/WellcomeGuide.qml" line="123"/>
         <source>GUIDE_7</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/WellcomeGuide.qml" line="130"/>
+        <location filename="../Features/Guide/WellcomeGuide.qml" line="132"/>
         <source>GUIDE_8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/WellcomeGuide.qml" line="140"/>
+        <location filename="../Features/Guide/WellcomeGuide.qml" line="142"/>
         <source>GUIDE_9</source>
         <translation type="unfinished"></translation>
     </message>

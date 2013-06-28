@@ -1594,7 +1594,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>MONEY_TOOLTIP</source>
-        <translation>Деньги</translation>
+        <translation>GameNet монеты</translation>
     </message>
 </context>
 <context>
@@ -2245,7 +2245,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>CHECKBOX_GNA_TEST_VERSION_TOOLTIP</source>
-        <translation>Поставьте отметку, чтобы учавствовать в тестировании новых функций клиента GameNet. Вы можете столкнуться с различными ошибками и недочетами. Если во время использования тестового клиента вы нашли ошибку, пожалуйста, сообщите о ней в нашу службу поддержки.</translation>
+        <translation type="unfinished">Поставьте отметку, чтобы участвовать в тестировании новых функций клиента GameNet. Вы можете столкнуться с различными ошибками и недочетами. Если во время использования тестового клиента вы нашли ошибку, пожалуйста, сообщите о ней в нашу службу поддержки.</translation>
     </message>
 </context>
 <context>

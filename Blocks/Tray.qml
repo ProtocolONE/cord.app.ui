@@ -34,8 +34,14 @@ Item {
     Window {
         id: window
 
+        property int _mouseX
+        property int _mouseY
+
         function moveToTray(mouseX, mouseY) {
             var space = 15;
+
+            window._mouseX = mouseX;
+            window._mouseY = mouseY;
 
             var relativeX = mouseX;
             var relativeY = mouseY;
@@ -67,6 +73,14 @@ Item {
 
         width: 205
         height: isFullMenu ? 128 : (22 + menuView.spacing) * 3
+
+        onHeightChanged: {
+            if (!visible) {
+                return;
+            }
+
+            moveToTray(_mouseX, _mouseY);
+        }
 
         visible: false
         topMost: true

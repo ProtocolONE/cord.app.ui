@@ -423,15 +423,18 @@ Blocks.MoveUpPage {
                 }
 
                 onGenericAuth: {
+                    authPage.stopGuestAutoStart();
                     authRegisterMoveUpPage.state = "GenericAuthPage"
                 }
 
                 onVkAuth: {
                     GoogleAnalytics.trackEvent('/Auth', 'Auth', 'Vk Login');
                     authPage.startVkAuth();
+                    authPage.stopGuestAutoStart();
                 }
                 onRegister: {
                     authRegisterMoveUpPage.state = "RegistrationPage";
+                    authPage.stopGuestAutoStart();
                 }
             }
 
@@ -439,7 +442,10 @@ Blocks.MoveUpPage {
                 anchors { right: parent.right; top: parent.top; topMargin: 10; rightMargin: 30 }
                 text: qsTr("AUTH_CANCEL_BUTTON")
                 hoverColor: '#ff9900'
-                onClicked: authRegisterMoveUpPage.switchAnimation();
+                onClicked: {
+                    authPage.stopGuestAutoStart();
+                    authRegisterMoveUpPage.switchAnimation();
+                }
             }
         }
 

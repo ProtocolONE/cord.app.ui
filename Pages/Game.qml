@@ -10,7 +10,8 @@ import "../js/GoogleAnalytics.js" as GoogleAnalytics
 import "../Blocks/Features/Maintenance/MaintenanceHelper.js" as MaintenanceHelper
 import "../Features/Facts" as Feature
 import "../js/GamesSwitchHelper.js" as GamesSwitchHelper
-
+import "../Proxy/App.js" as App
+import "../Proxy/MouseClick.js" as MouseClick
 
 
 Rectangle {
@@ -111,6 +112,15 @@ Rectangle {
         onCurrentItemMaintenanceChanged: updateMaintenance();
     }
 
+    Timer {
+        id: activateWindowTimer
+
+        interval: 1000
+        running: false
+
+        onTriggered: App.activateWindow();
+    }
+
     Connections {
         target: mainWindow
 
@@ -153,7 +163,11 @@ Rectangle {
 
             item.status = "Finished"; //(Может и ошибку надо выставлять в случаи не успех)
             item.statusText = ""
-            console.log("onServiceFinished " + service + " with state " + serviceState)
+            console.log("onServiceFinished " + service + " with state " + serviceState);
+
+            if (item.gameType != 'browser') {
+                activateWindowTimer.start();
+            }
 
             announcementsFeature.gameClosedCallback();
         }
@@ -423,7 +437,7 @@ Rectangle {
                     Elements.ButtonBig {
                         id: singleBigButton
 
-                        visible: !d._maintenance && currentItem.serviceId != "300011010000000000"
+                        visible: !!currentItem && !d._maintenance && currentItem.serviceId != "300011010000000000"
 
                         anchors { right: parent.right; rightMargin: 30; verticalCenter: parent.verticalCenter }
 
@@ -469,7 +483,7 @@ Rectangle {
 
                     // Hack Убираем ферму для запуска
                     Elements.ButtonBig {
-                        visible: !d._maintenance && currentItem.serviceId == "300011010000000000"
+                        visible: !!currentItem && !d._maintenance && currentItem.serviceId == "300011010000000000"
 
                         anchors { right: parent.right; rightMargin: 30; verticalCenter: parent.verticalCenter }
 
@@ -573,6 +587,8 @@ Rectangle {
                             anchors.fill: parent
                             hoverEnabled: true
                         }
+
+                        Component.onCompleted: MouseClick.addWidget(processWidget);
                     }
 
                 }

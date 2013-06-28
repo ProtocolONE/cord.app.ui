@@ -17,6 +17,7 @@ import "Elements" as Elements
 import "Blocks" as Blocks
 import "Models" as Models
 import "Pages" as Pages
+import "Proxy" as Proxy
 import "Features/Guide" as Guide
 import "Features/Ping" as Ping
 
@@ -556,8 +557,12 @@ Item {
             id: ping
         }
 
+        Proxy.MouseClick {
+
+        }
+
         Blocks.Tray {
-            isFullMenu: mainAuthModule.isAuthed && !mainAuthModule.mustBeShown
+            isFullMenu: mainAuthModule.isAuthed && !ping.mustBeShown
 
             onMenuClick: {
                 switch(name) {
