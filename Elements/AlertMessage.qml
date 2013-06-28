@@ -25,7 +25,7 @@ Blocks.MoveUpPage {
 
     width: Core.clientWidth
     height: Core.clientHeight
-    openHeight: 292
+    openHeight: 464
 
     Component.onCompleted: alertModule.openMoveUpPage();
 

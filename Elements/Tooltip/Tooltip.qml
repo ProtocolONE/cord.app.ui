@@ -114,7 +114,7 @@ Item {
             text: inner.text
             wrapMode: Text.WordWrap
             onLinkActivated: Qt.openUrlExternally(link)
-            color: "#000000"
+            color: "#333333"
             lineHeight: 1.1
 
             onTextChanged: {
@@ -135,8 +135,8 @@ Item {
 
         property int margin: 15
 
-        height: 5
-        width: 5
+        height: 7
+        width: 13
 
         Image {
             id: arrowImage

@@ -529,7 +529,7 @@ Please try again later.</source>
     <name>AuthBlock</name>
     <message>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
-        <translation type="unfinished">Учётная запись заблокирована. Если вы считаете, что так не должно быть, обратитесь в службу поддержки &lt;a href=&quot;http://support.gamenet.ru&quot;&gt;службу поддержки&lt;/a&gt;.</translation>
+        <translation type="unfinished">Учётная запись заблокирована. Если вы считаете, что так не должно быть, обратитесь &lt;a href=&quot;http://support.gamenet.ru&quot;&gt;&lt;font color=&apos;#d8e5d4&apos;&gt;службу поддержки&lt;/font&gt;&lt;/a&gt;.  </translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_WRONG</source>
@@ -583,6 +583,10 @@ Please try again later.</source>
     <message>
         <source>REGISTER_NEW_USER_LINK</source>
         <translation type="unfinished">Регистрация нового пользователя</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_ACCOUNT_BLOCKED_HREF</source>
+        <translation type="obsolete">&lt;a href=&quot;http://support.gamenet.ru&quot;&gt;&lt;font color=&apos;#d8e5d4&apos;&gt;службу поддержки&lt;/font&gt;&lt;/a&gt;</translation>
     </message>
 </context>
 <context>

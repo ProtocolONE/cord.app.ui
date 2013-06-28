@@ -438,6 +438,7 @@ Blocks.MoveUpPage {
             Elements.Button {
                 anchors { right: parent.right; top: parent.top; topMargin: 10; rightMargin: 30 }
                 text: qsTr("AUTH_CANCEL_BUTTON")
+                hoverColor: '#ff9900'
                 onClicked: authRegisterMoveUpPage.switchAnimation();
             }
         }

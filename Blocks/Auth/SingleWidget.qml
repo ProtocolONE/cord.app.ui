@@ -71,7 +71,6 @@ Rectangle {
 
         anchors { horizontalCenter: parent.horizontalCenter; top: parent.top; topMargin: 265 }
         onClicked: root.clicked()
-        color: "#006600"
         hoverColor: '#ff9900'
     }
 }

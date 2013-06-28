@@ -18,6 +18,22 @@ Item {
 
     property string errorMessage
 
+    focus: visible
+
+    Keys.onEnterPressed: d.trigger();
+    Keys.onReturnPressed: d.trigger();
+
+    QtObject {
+        id: d
+
+        function trigger() {
+            GoogleAnalytics.trackEvent('/AuthFail', 'Auth', 'Confirm Ok');
+            authRegisterMoveUpPage.state = (authRegisterMoveUpPage.state === "FailAuthPage")
+                    ? "AuthPage"
+                    : "RegistrationPage";
+        }
+    }
+
     Item {
         id: authError
 
@@ -47,12 +63,7 @@ Item {
                 buttonText: qsTr("BUTTON_OK")
                 width: 68
                 focus: true
-                onButtonPressed: {
-                    GoogleAnalytics.trackEvent('/AuthFail', 'Auth', 'Confirm Ok');
-                    authRegisterMoveUpPage.state = (authRegisterMoveUpPage.state === "FailAuthPage")
-                            ? "AuthPage"
-                            : "RegistrationPage";
-                }
+                onClicked: d.trigger();
             }
 
             Item {

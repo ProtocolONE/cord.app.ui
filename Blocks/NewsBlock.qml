@@ -145,7 +145,7 @@ Item {
             Elements.IconButton {
                 text: qsTr('MENU_ITEM_SETTINGS')
                 source: installPath + "images/menu/settings.png"
-                onClicked: qGNA_main.openSettings();
+                onClicked: qGNA_main.openSettings(Core.currentGame());
                 visible: Core.currentGame() != undefined  && Core.currentGame().gameType != "browser"
             }
         }

@@ -115,11 +115,23 @@ Item {
             qGNA_main.opacity = 1;
         }
 
-        function openSettings() {
+        function openSettings(game) {
             if (qGNA_main.state != "SettingsPage") {
                 qGNA_main.lastState = qGNA_main.state;
                 qGNA_main.state = "SettingsPage";
+                settingsPage.selectGame(game);
             }
+        }
+
+        function selectService(serviceId) {
+            if (serviceId == "0") {
+                return;
+            }
+
+            Core.activateGameByServiceId(serviceId);
+
+            if (qGNA_main.state != "GamesSwitchPage")
+                qGNA_main.state = "GamesSwitchPage"
         }
 
         ParallelAnimation {
@@ -180,7 +192,7 @@ Item {
         Pages.LoadScreen {
             id: loadScreen
 
-            z: 10000
+            z: 2
             anchors.fill: parent
             focus: true
 
@@ -254,17 +266,6 @@ Item {
             height: Core.clientHeight
         }
 
-        function selectService(serviceId) {
-            if (serviceId == "0") {
-                return;
-            }
-
-            Core.activateGameByServiceId(serviceId);
-
-            if (qGNA_main.state != "GamesSwitchPage")
-                qGNA_main.state = "GamesSwitchPage"
-        }
-
         Connections {
             target: mainWindow
 
@@ -311,6 +312,10 @@ Item {
             onOpenMoneyRequest: mainAuthModule.openWebPage("http://www.gamenet.ru/money")
             onConfirmGuest: mainAuthModule.openLinkGuest();
             onRequestNickname: enterNickName.openFromMenu();
+            onOpenProfileRequest: {
+                var url = "http://www.gamenet.ru/users/" + (userInfoBlock.nametech == undefined ? mainAuthModule.userId : userInfoBlock.nametech);
+                mainAuthModule.openWebPage(url);
+            }
         }
 
         Blocks.Auth {

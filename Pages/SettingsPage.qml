@@ -17,14 +17,7 @@ import "../Delegates" as Delegates
 import ".."
 
 Rectangle {
-
-    onVisibleChanged: {
-        var currentGame = Core.currentGame();
-        if (!currentGame)
-            return;
-        gameSettingsListView.changeGameByIndex(Core.indexByServiceId(currentGame.serviceId));
-        gameSettingsListView.currentItem.state = "Active";
-    }
+    id: settingsPageId
 
  //HACK
 //    Item {
@@ -53,27 +46,32 @@ Rectangle {
 //    }
 //    property string installPath: "../"
 
+    property int globalAnimationSpeed: 200
+
+    signal finishAnimation();
+
+    function navigationTextClicked(index){
+        switch (index){
+        case 0: { settingsPageId.state = "GeneralPage"; break }
+        case 1: { settingsPageId.state = "DownloadPage"; break }
+        }
+    }
+
+    function selectGame(game) {
+        if (!game) {
+            listViewId.itemClick(0);
+            return;
+        }
+
+        gameSettingsListView.changeGameByIndex(Core.indexByServiceId(game.serviceId));
+        gameSettingsListView.currentItem.state = "Active";
+    }
+
     width: Core.clientWidth
     height: Core.clientHeight
 
-    id: settingsPageId
     color: "#353945"
-
     state: "GeneralPage"
-
-    signal finishAnimation();
-    property int globalAnimationSpeed: 200
-
-    states: [
-        State {
-            name: "GeneralPage"
-            PropertyChanges { target: pageLoader; source: "SettingsPage/SettingsGeneralPage.qml" }
-        },
-        State {
-            name: "DownloadPage"
-            PropertyChanges { target: pageLoader; source: "SettingsPage/SettingsDownloadPage.qml" }
-        }
-    ]
 
     // undone: перенести куда-то куда коля хотел
     Connections {
@@ -81,14 +79,6 @@ Rectangle {
         onTorrentListenPortChanged:{
             settingsViewModel.setIncomingPort(port);
         }
-    }
-
-    function navigationTextClicked(index){
-        switch (index){
-        case 0: { settingsPageId.state = "GeneralPage"; break }
-        case 1: { settingsPageId.state = "DownloadPage"; break }
-        }
-
     }
 
     Rectangle {
@@ -148,6 +138,25 @@ Rectangle {
                 ListView {
                     id: listViewId
 
+                    function itemClick(index) {
+                        generalSettings.visible = true;
+                        gameSettings.visible = false;
+                        if (listViewId.currentIndex != index) {
+                            if (listViewId.currentIndex != -1) {
+                                listViewId.currentItem.state = "Normal";
+                            }
+
+                            navigationTextClicked(index);
+                            listViewId.currentIndex = index;
+                            listViewId.currentItem.state = "Active";
+                        }
+
+                        if (gameSettingsListView.currentIndex !== -1) {
+                            gameSettingsListView.currentItem.state = "Normal";
+                            gameSettingsListView.currentIndex = -1;
+                        }
+                    }
+
                     width: 228
                     height: 70
                     currentIndex: 0
@@ -157,25 +166,7 @@ Rectangle {
                     focus: true
                     delegate: Delegates.SettingsMenuDelegate {
                         buttonText: qsTr(itemText)
-
-                        onTextClicked: {
-                            generalSettings.visible = true;
-                            gameSettings.visible = false;
-                            if (listViewId.currentIndex != index) {
-                                if (listViewId.currentIndex != -1) {
-                                    listViewId.currentItem.state = "Normal";
-                                }
-
-                                navigationTextClicked(index);
-                                listViewId.currentIndex = index;
-                            }
-
-                            if (gameSettingsListView.currentIndex !== -1) {
-                                gameSettingsListView.currentItem.state = "Normal";
-                                gameSettingsListView.currentIndex = -1;
-                            }
-
-                        }
+                        onTextClicked: listViewId.itemClick(index)
                     }
 
                     model: ListModel{
@@ -235,10 +226,10 @@ Rectangle {
                             clip: true
                             spacing: 3
 
-                            function changeGameByIndex (index){
+                            function changeGameByIndex (index) {
                                 generalSettings.visible = false;
                                 gameSettings.visible = true;
-                                if (gameSettingsListView.currentIndex != index){
+                                if (gameSettingsListView.currentIndex != index) {
                                     if (gameSettingsListView.currentIndex != -1) {
                                         gameSettingsListView.currentItem.state = "Normal";
                                     }
@@ -336,7 +327,6 @@ Rectangle {
             }
         }
     }
-
 
     Item {
         id: gameSettings
@@ -471,4 +461,15 @@ Rectangle {
             }
         }
     }
+
+    states: [
+        State {
+            name: "GeneralPage"
+            PropertyChanges { target: pageLoader; source: "SettingsPage/SettingsGeneralPage.qml" }
+        },
+        State {
+            name: "DownloadPage"
+            PropertyChanges { target: pageLoader; source: "SettingsPage/SettingsDownloadPage.qml" }
+        }
+    ]
 }

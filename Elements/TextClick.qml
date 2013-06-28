@@ -47,12 +47,12 @@ Rectangle {
         State {
             name: "Normal"
             PropertyChanges { target: textClick; color: "#00000000" }
-            PropertyChanges { target: mainClickText; color: "white" }
+            PropertyChanges { target: mainClickText; color: "#ffffff" }
         },
         State {
             name: "Active"
             PropertyChanges { target: textClick; color: "#ff9800" }
-            PropertyChanges { target: mainClickText; color: "black" }
+            PropertyChanges { target: mainClickText; color: "#000000" }
         }
     ]
 

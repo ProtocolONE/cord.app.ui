@@ -8,7 +8,10 @@ import "../Blocks/GameSwitch" as GameSwitch
 import "../js/Core.js" as Core
 import "../js/GoogleAnalytics.js" as GoogleAnalytics
 import "../Blocks/Features/Maintenance/MaintenanceHelper.js" as MaintenanceHelper
+import "../Features/Facts" as Feature
 import "../js/GamesSwitchHelper.js" as GamesSwitchHelper
+
+
 
 Rectangle {
     id: root
@@ -383,6 +386,11 @@ Rectangle {
                     Blocks.SocialNet {
                         anchors { bottom: parent.bottom; right: parent.right }
                         anchors { bottomMargin: 20; rightMargin: 30 }
+                    }
+
+                    Feature.Facts {
+                        anchors { bottom: parent.bottom; left: parent.left }
+                        anchors { bottomMargin: 20; leftMargin: 30 }
                     }
                 }
 

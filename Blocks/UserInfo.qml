@@ -23,6 +23,7 @@ Item {
     signal openMoneyRequest();
     signal confirmGuest();
     signal requestNickname();
+    signal openProfileRequest();
 
     function resetUserInfo() {
         nickname = "";
@@ -219,6 +220,8 @@ Item {
             GoogleAnalytics.trackEvent('/NickNameView', 'Auth', 'Switch To Set Nickname');
             userInfoPage.requestNickname();
         }
+
+        onProfileClicked: openProfileRequest();
     }
 
     Elements.LoginButton {

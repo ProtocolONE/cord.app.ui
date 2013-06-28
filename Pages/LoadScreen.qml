@@ -22,6 +22,11 @@ Item {
     width: Core.clientWidth
     height: Core.clientHeight
 
+    Component.onCompleted: {
+        console.log("[DEBUG][QML] Updater started")
+        progressBar.running = true;
+    }
+
     QtObject {
         id: d
 
@@ -57,17 +62,6 @@ Item {
         source: installPath + "images/gamenet.png"
     }
 
-    Text {
-        id: startingGameNetText
-
-        x: 30
-        y: 465
-        text: qsTr("TEXT_STARTING_APPLICATION") + ": " + d.updateText
-        smooth: true
-        color: "#ffffff"
-        font { family: "Segoe UI Light"; pixelSize: 30; }
-    }
-
     Elements.ProgressBar {
         id: progressBar
 
@@ -78,16 +72,34 @@ Item {
         progress: d.progress
     }
 
-    Text {
-        id: versionTextId
+    Item {
+        width: parent.width
+        height: 108
+        anchors.bottom: parent.bottom
 
-        color: "#ffffff"
-        text: qsTr("TEXT_VERSION").arg(updateManger.item ? updateManger.item.fileVersion : "Debug")
-        anchors { right: parent.right; rightMargin: 32;  }
-        anchors { bottom: parent.bottom; bottomMargin: 50; }
-        font { family: "Segoe UI"; pixelSize: 11; weight: Font.DemiBold; }
-        opacity: 0.5
-        smooth: true
+        Text {
+            id: startingGameNetText
+
+            x: 30
+            anchors { verticalCenter: parent.verticalCenter; verticalCenterOffset: -5 }
+            text: qsTr("TEXT_STARTING_APPLICATION") + ": " + d.updateText
+
+            smooth: true
+            color: "#ffffff"
+            font { family: "Segoe UI Light"; pixelSize: 28; }
+        }
+
+        Text {
+            id: versionTextId
+
+            color: "#ffffff"
+            text: qsTr("TEXT_VERSION").arg(updateManger.item ? updateManger.item.fileVersion : "Debug")
+            anchors { right: parent.right; rightMargin: 32;  }
+            anchors { baseline: startingGameNetText.baseline; }
+            font { family: "Segoe UI"; pixelSize: 11; weight: Font.DemiBold; }
+            opacity: 0.5
+            smooth: true
+        }
     }
 
     SequentialAnimation {
@@ -95,6 +107,7 @@ Item {
 
         onCompleted: loadScreen.visible = false
 
+        PropertyAction { target: closeMouseBlocker; property: "visible"; value: "true" }
         PauseAnimation { duration: 2000 }
 
         PropertyAction { target: progressBar; property: "running"; value: "false" }
@@ -103,7 +116,7 @@ Item {
             target: loadScreen
             property: "opacity"
             to: 0
-            duration: 1000
+            duration: 500
         }
     }
 
@@ -122,10 +135,14 @@ Item {
         onSuccessed: updateManger.item.start();
     }
 
-    Component.onCompleted: {
-        console.log("[DEBUG][QML] Updater started")
-        progressBar.running = true;
+    MouseArea {
+        id: closeMouseBlocker
+
+        anchors.fill: parent
+        hoverEnabled: true
+        visible: false
     }
+
 }
 
 

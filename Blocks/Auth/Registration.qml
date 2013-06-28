@@ -11,6 +11,7 @@
 import QtQuick 1.1
 
 import "../../Elements" as Elements
+import "../../js/Authorization.js" as Authorization
 import "../../js/GoogleAnalytics.js" as GoogleAnalytics
 
 Item {
@@ -74,7 +75,7 @@ Item {
     }
 
     function registerButtonClicked() {
-        if (registrationPage.state === "Normal") {
+        if (registrationPage.state === "Normal" || !authRegisterMoveUpPage.isAuthed) {
             GoogleAnalytics.trackEvent('/Registration/' + registrationPage.state, 'Auth', 'Registration');
             registrationPage.startRegister();
         } else {

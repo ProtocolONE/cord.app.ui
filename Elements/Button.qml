@@ -16,31 +16,23 @@ Rectangle {
     default property alias content: container.data
 
     property alias buttonColor: root.color // @deprecated
-    property alias buttonColorHover: hover.color // @deprecated
+    property alias buttonColorHover: root.hoverColor // @deprecated
     property alias fontFamily: label.font.family // @deprecated
     property alias buttonText: label.text // @deprecated
 
     property alias font: label.font
     property alias text: label.text
     property alias containsMouse: mouseArea.containsMouse
-    property alias hoverColor: hover.color
+    property color hoverColor: '#006600'
 
-    signal buttonPressed(); // #deprecated
+    signal buttonPressed(); //@deprecated
 
     signal clicked();
 
-    color: "#00000000"
+    color:  mouseArea.containsMouse ? root.hoverColor : "#00000000"
     border { width: 1; color: "#ffffff" }
     height: 28
     width: Math.max(70, container.width + label.width + 20)
-
-    Rectangle {
-        id: hover
-
-        anchors { fill: parent; leftMargin: 1; topMargin: 1 }
-        color: '#006600'
-        visible: mouseArea.containsMouse
-    }
 
     Row {
         id: container

@@ -144,7 +144,7 @@ Rectangle {
 
                             anchors.fill: parent
                             hoverEnabled: true
-                            toolTip: footer.currentGameItem ? footer.currentGameItem.miniToolTip : ""
+                            toolTip: Core.serviceItemByIndex(index) ? Core.serviceItemByIndex(index).miniToolTip : ""
                             onClicked: {
                                 var game = Core.serviceItemByIndex(index);
                                 footer.itemClicked(game);

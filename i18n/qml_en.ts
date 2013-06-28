@@ -401,12 +401,12 @@
 <context>
     <name>FailBlock</name>
     <message>
-        <location filename="../Blocks/Auth/FailBlock.qml" line="47"/>
+        <location filename="../Blocks/Auth/FailBlock.qml" line="63"/>
         <source>BUTTON_OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/FailBlock.qml" line="66"/>
+        <location filename="../Blocks/Auth/FailBlock.qml" line="77"/>
         <source>RESTORE_PASSWORD_LINK</source>
         <translation type="unfinished"></translation>
     </message>

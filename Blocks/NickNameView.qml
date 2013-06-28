@@ -31,6 +31,7 @@ Item {
     signal moneyClicked();
     signal confirmGuest();
     signal requestNickname();
+    signal profileClicked();
 
     function getWidgetWidth() {
         return downRowWidget.width + avatarImage.width + 3 * 5;
@@ -46,10 +47,12 @@ Item {
             requestNickname();
             return;
         }
+
+        profileClicked();
     }
 
     function nickNameWidth() {
-        return premiumImage.visible? downRowWidget.width - 16 - 18 - 8: downRowWidget.width - 16;
+        return premiumImage.visible ? downRowWidget.width - 16 - 18 - 8: downRowWidget.width - 16;
     }
 
     Rectangle {
@@ -100,7 +103,7 @@ Item {
             fillMode: Image.PreserveAspectFit
             onSourceChanged: console.log("source " + source);
 
-            Rectangle{
+            Rectangle {
                 id: levelBack
 
                 height: 20
@@ -109,6 +112,7 @@ Item {
                 anchors { bottom: parent.bottom; left: parent.left }
                 opacity: 0.7
             }
+
             Text{
                 id: levelText
 
@@ -127,7 +131,7 @@ Item {
         }
     }
 
-    Row{
+    Row {
         id: upRowWidget
 
         spacing: 8
@@ -236,11 +240,7 @@ Item {
             Elements.CursorMouseArea {
                 anchors.fill: parent
                 hoverEnabled: true
-                onClicked: {
-                    if (!isGuest && isNickNameSaved) {
-                        moneyClicked();
-                    }
-                }
+                onClicked: moneyClicked()
             }
         }
     }
