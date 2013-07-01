@@ -151,14 +151,21 @@ Delegates.FlowViewDelegate {
                     return;
                 }
 
-                var status = model.status;
-                if (status !== "Downloading" && status !== "Started") {
-                    App.downloadButtonStart(model.serviceId);
+                // HACK Отключаем ферму от запуска
+                if (model.serviceId != "300011010000000000") {
+                    var status = model.status;
+                    if (status !== "Downloading" && status !== "Started") {
+                        App.downloadButtonStart(model.serviceId);
+                    }
                 }
 
                 mouseClicked(model,false);
             } else if (buttonDetailsObj.x >= 0 && buttonDetailsObj.x <= buttonDetails.width && buttonDetailsObj.y >= 0 && buttonDetailsObj.y <= buttonDetails.height) { // кнопка Details
-                mouseClicked(model,true);
+                 if (model.serviceId != "300011010000000000") {
+                    mouseClicked(model,true);
+                 } else {
+                    mouseClicked(model,false);
+                 }
             } else {
                 mouseClicked(model,false);
             }
@@ -179,26 +186,31 @@ Delegates.FlowViewDelegate {
             width: 64
             height: 28
 
-            Rectangle {
-                color: "#ffffff"
-                opacity: 0.5
+            Item {
                 anchors.fill: parent
-            }
+                visible: model.serviceId != "300011010000000000"
 
-            Rectangle {
-                anchors { left: parent.left; top: parent.top; leftMargin: 1; topMargin: 1 }
-                width: 62
-                height: 26
-                color: "#339900"
-
-                Text {
-                    color: "#fff"
-                    text: qsTr("TO_PLAY")
-                    anchors.centerIn: parent
-                    smooth: true
-                    font { family: "Arial"; pixelSize: 12 }
+                Rectangle {
+                    color: "#ffffff"
+                    opacity: 0.5
+                    anchors.fill: parent
                 }
 
+                Rectangle {
+                    anchors { left: parent.left; top: parent.top; leftMargin: 1; topMargin: 1 }
+                    width: 62
+                    height: 26
+                    color: "#339900"
+
+                    Text {
+                        color: "#fff"
+                        text: qsTr("TO_PLAY")
+                        anchors.centerIn: parent
+                        smooth: true
+                        font { family: "Arial"; pixelSize: 12 }
+                    }
+
+                }
             }
         }
 
@@ -208,24 +220,29 @@ Delegates.FlowViewDelegate {
             width: 92
             height: 28
 
-            Rectangle {
-                color: "#ffffff"
-                opacity: 0.5
+            Item {
                 anchors.fill: parent
-            }
+                visible: model.serviceId != "300011010000000000"
 
-            Rectangle {
-                color: "#114400"
-                anchors { left: parent.left; top: parent.top; leftMargin: 1; topMargin: 1 }
-                width: 90
-                height: 26
+                Rectangle {
+                    color: "#ffffff"
+                    opacity: 0.5
+                    anchors.fill: parent
+                }
 
-                Text {
-                    color: "#fff"
-                    text: qsTr("DETAILS")
-                    anchors { centerIn: parent }
-                    smooth: true
-                    font { family: "Arial"; pixelSize: 12 }
+                Rectangle {
+                    color: "#114400"
+                    anchors { left: parent.left; top: parent.top; leftMargin: 1; topMargin: 1 }
+                    width: 90
+                    height: 26
+
+                    Text {
+                        color: "#fff"
+                        text: qsTr("DETAILS")
+                        anchors { centerIn: parent }
+                        smooth: true
+                        font { family: "Arial"; pixelSize: 12 }
+                    }
                 }
             }
         }
