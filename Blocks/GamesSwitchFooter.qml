@@ -109,6 +109,18 @@ Rectangle {
             Item {
                 anchors{ fill: parent; leftMargin: 7 }
 
+                Elements.CursorMouseArea {
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    onClicked: {
+                        var game = Core.serviceItemByIndex(index);
+                        footer.itemClicked(game);
+                        listViewId.currentIndex = index;
+                    }
+                    onEntered: d.additionalArea = true
+                    onExited: d.additionalArea = false
+                }
+
                 Column {
                     anchors{ left: parent.left; right: parent.right }
                     spacing: 6
@@ -139,27 +151,27 @@ Rectangle {
                             opacity: 0.15
                         }
 
-                        Elements.CursorMouseArea {
-                            id: mouseArea
-
-                            anchors.fill: parent
-                            hoverEnabled: true
-                            // Убрано - объяснение вот тут https://jira.gamenet.ru:8443/browse/QGNA-351
-                            //toolTip: Core.serviceItemByIndex(index) ? Core.serviceItemByIndex(index).miniToolTip : ""
-                            onClicked: {
-                                var game = Core.serviceItemByIndex(index);
-                                footer.itemClicked(game);
-                                listViewId.currentIndex = index;
-                            }
-                            onEntered: d.additionalArea = true
-                            onExited: d.additionalArea = false
-                        }
-
                         Image {
                             id: imageGame
 
                             anchors { left: parent.left; leftMargin: 7 }
                             source: installPath + imageFooter
+
+                            Elements.CursorMouseArea {
+                                id: mouseArea
+
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                toolTip: Core.serviceItemByIndex(index) ? Core.serviceItemByIndex(index).miniToolTip : ""
+                                tooltipPosition: 'E'
+                                onClicked: {
+                                    var game = Core.serviceItemByIndex(index);
+                                    footer.itemClicked(game);
+                                    listViewId.currentIndex = index;
+                                }
+                                onEntered: d.additionalArea = true
+                                onExited: d.additionalArea = false
+                            }
                         }
 
                         Image {

@@ -6,6 +6,8 @@ MouseArea {
 
     property alias cursor: cursorArea.cursor
     property string toolTip
+    property string tooltipPosition
+    property bool tooltipGlueCenter: false
 
     hoverEnabled: true
     Component.onCompleted: Tooltip.track(mouser)

@@ -21,6 +21,40 @@ Item {
     property variant _buttonMesages
     signal alertShown();
 
+    function addMessage(text, title, buttons, callback) {
+        var comp = d.emitMessage(text, title, buttons, 0, 100500);
+        comp.clicked.connect(callback);
+    }
+
+    QtObject {
+        id: d
+
+        function emitMessage(text, title, buttons, icon, messageId) {
+            var lastButton,
+                buttonCount = 0,
+                comp = alertMessage.createObject(page,
+                                                 {
+                                                    messageText: text,
+                                                    headerTitle: title
+                                                 });
+
+            for (var button in page._buttonMesages) {
+                if ((buttons & button) == button) {
+                    ++buttonCount;
+                    lastButton = messageConnections.addButton(button, messageId, comp);
+                }
+            }
+
+            if (buttonCount < 2) {
+                comp.enterClicked.connect(lastButton.clicked);
+            }
+
+            page.alertShown();
+
+            return comp;
+        }
+    }
+
     Component.onCompleted: {
 
         var result = {};
@@ -92,28 +126,8 @@ Item {
 
 
         onEmitMessage: {
-            var lastButton,
-                buttonCount = 0,
-                comp = alertMessage.createObject(page,
-                                                 {
-                                                    messageText: text,
-                                                    headerTitle: title
-                                                 });
-
+            var comp = d.emitMessage(text, title, buttons, icon, messageId);
             messageBox.bindSlot(comp, messageId);
-
-            for (var button in page._buttonMesages) {
-                if ((buttons & button) == button) {
-                    ++buttonCount;
-                    lastButton = messageConnections.addButton(button, messageId, comp);
-                }
-            }
-
-            if (buttonCount < 2) {
-                comp.enterClicked.connect(lastButton.clicked);
-            }
-
-            page.alertShown();
         }
     }
 }

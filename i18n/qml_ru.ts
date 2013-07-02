@@ -764,7 +764,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_FAILED_HELP_TEXT1</source>
-        <translation>Кажется, при запуске %1  что-то пошло не так, как задумано. </translation>
+        <translation>Кажется, при запуске &lt;b&gt;%1&lt;/b&gt;  что-то пошло не так, как задумано. </translation>
     </message>
     <message>
         <source>GAME_FAILED_HELP_TEXT2</source>
@@ -787,7 +787,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_BORING_HELP_TEXT1</source>
-        <translation>Мы очень переживаем, что вам не понравилась игра %1. Примите наши извинения и две лучшие бесплатные игры:</translation>
+        <translation>Мы очень переживаем, что вам не понравилась игра &lt;b&gt;%1&lt;/b&gt;. Примите наши извинения и две лучшие бесплатные игры:</translation>
     </message>
     <message>
         <source>GAME_BORING_HELP_TEXT2</source>
@@ -2599,6 +2599,22 @@ Please try again later.</source>
     <message>
         <source>RestoreDefaults</source>
         <translation type="obsolete">Сбросить по умолчанию</translation>
+    </message>
+    <message>
+        <source>QUIT_TOOLTIP_MESSAGE</source>
+        <translation type="obsolete">Подтверждение выхода</translation>
+    </message>
+    <message>
+        <source>QUIT_TOOLTIP_MESSAGE_DESC</source>
+        <translation type="obsolete">Игра %1 будет закрыта вместе с приложением. Работа игры без приложения невозможна. Закрыть приложение и игру?</translation>
+    </message>
+    <message>
+        <source>CLOSE_APP_TOOLTIP_MESSAGE</source>
+        <translation type="unfinished">Подтверждение выхода</translation>
+    </message>
+    <message>
+        <source>CLOSE_APP_TOOLTIP_MESSAGE_DESC</source>
+        <translation type="unfinished">Игра %1 будет закрыта вместе с приложением. Работа игры без приложения невозможна. Закрыть приложение и игру?</translation>
     </message>
 </context>
 <context>

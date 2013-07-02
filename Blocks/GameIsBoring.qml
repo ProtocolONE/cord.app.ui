@@ -10,7 +10,7 @@ import "../js/Core.js" as Core
 Blocks.MoveUpPage {
     id: page
 
-    property variant currentItem;
+    property variant currentItem: Core.currentGame();
 
     signal launchGame(string serviceId);
 
@@ -68,6 +68,7 @@ Blocks.MoveUpPage {
                     text: qsTr("GAME_BORING_HELP_TEXT1").arg(!!currentItem ? currentItem.name : "")
                     wrapMode: Text.WordWrap
                     color: "#ffffff"
+                    textFormat: Text.StyledText
                     font.pixelSize: 14
                     lineHeight: 1.3
                 }

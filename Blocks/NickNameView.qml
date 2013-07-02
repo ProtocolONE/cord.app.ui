@@ -81,6 +81,7 @@ Item {
             anchors.fill: parent
             hoverEnabled: true
             toolTip:qsTr("LOGOUT_TOOLTIP")
+            tooltipGlueCenter: true
             onClicked: quitClicked();
         }
     }
@@ -159,7 +160,9 @@ Item {
             Elements.CursorMouseArea {
                 anchors.fill: parent;
                 hoverEnabled: true
+                tooltipGlueCenter: true
                 toolTip: parent.premium? qsTr("PREMIUM_TOOLTIP"): qsTr("PREMIUM_NO_TOOLTIP")
+                tooltipPosition: "W"
                 cursor: CursorArea.ArrowCursor
             }
         }
@@ -223,7 +226,7 @@ Item {
                 anchors.fill: parent
                 hoverEnabled: true
                 toolTip: qsTr("MONEY_TOOLTIP")
-                cursor: CursorArea.ArrowCursor
+                onClicked: moneyClicked()
             }
         }
 

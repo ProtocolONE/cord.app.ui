@@ -93,7 +93,8 @@ var socialNetTable = {
         }
     ]
 }
-var serviceIdToGameItemIdex = {},
+var runningService = {},
+    serviceIdToGameItemIdex = {},
     indexToGameItem = {},
     gameIdToGameItem = {},
     count = 0,

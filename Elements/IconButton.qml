@@ -16,6 +16,8 @@ import QtQuick 1.1
 Item {
     property alias text: text.text;
     property alias toolTip: mouser.toolTip
+    property alias tooltipPosition: mouser.tooltipPosition
+    property alias tooltipGlueCenter: mouser.tooltipGlueCenter
     property alias source: image.source
     property bool isActive: false
 

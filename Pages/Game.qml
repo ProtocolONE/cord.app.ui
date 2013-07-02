@@ -144,7 +144,9 @@ Rectangle {
 
             item.status = "Started";
             item.statusText = qsTr("TEXT_PROGRESSBAR_NOW_PLAYING_STATE")
-            console.log("onServiceStarted " + service)
+            console.log("onServiceStarted " + service);
+
+            Core.runningService[service] = 1;
 
             if (root.currentItem) {
                 GoogleAnalytics.trackEvent('/game/' + root.currentItem.gaName,
@@ -164,6 +166,8 @@ Rectangle {
             item.status = "Finished"; //(Может и ошибку надо выставлять в случаи не успех)
             item.statusText = ""
             console.log("onServiceFinished " + service + " with state " + serviceState);
+
+            delete Core.runningService[service];
 
             if (item.gameType != 'browser') {
                 activateWindowTimer.start();
@@ -386,6 +390,7 @@ Rectangle {
                         source: installPath + "images/menu/Rewards.png"
                         anchors { top: parent.top; right: parent.right }
                         anchors { topMargin: 13; rightMargin: 30 }
+                        tooltipGlueCenter: true
                         onClicked: mainAuthModule.openWebPage("http://rewards.gamenet.ru/");
                     }
 

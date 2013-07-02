@@ -37,6 +37,8 @@ Item {
 
         property variant tempItem;
         property variant tempText: !!tempItem ? tempItem.toolTip: '';
+        property bool tooltipGlueCenter: !!item ? item.tooltipGlueCenter : false;
+        property string tooltipPosition: !!item ? item.tooltipPosition : '';
 
         function entered(item) {
             inner.tempItem = item
@@ -84,18 +86,56 @@ Item {
 
             var point = inner.item.mapToItem(root.parent, 0, 0),
                 leftCheck = (point.x + root.width) < root.parent.width,
-                topCheck = (point.y - root.height) > 0;
+                topCheck = (point.y - root.height - arrow.height) > 0,
+                topAlign = point.y + root.height < root.parent.height;
 
-            root.x = leftCheck
-                ? point.x
-                : (root.parent.x + root.parent.width - root.width)
+            switch (inner.tooltipPosition) {
+            case 'N':
+                topCheck = true;
+                arrow.state = (leftCheck ? "left" : "right") + "Bottom";
+                root.x = leftCheck ? point.x : (root.parent.x + root.parent.width - root.width);
+                root.y = point.y - baseRect.height - arrow.height;
+                break;
+            case 'S':
+                topCheck = false;
+                root.x = leftCheck ? point.x : (root.parent.x + root.parent.width - root.width);
+                root.y = point.y + inner.item.height +  arrow.height;
+                arrow.state = (leftCheck ? "left" : "right") + "Top";
+                break;
+            case 'E':
+                leftCheck = false;
+                arrow.state = (topAlign ? "top" : "bottom") + "Right";
+                root.x = point.x + inner.item.width + arrow.height;
+                root.y = topAlign ? point.y : (point.y + inner.item.height - root.height);
+                break;
+            case 'W':
+                leftCheck = true;
+                arrow.state = (topAlign ? "top" : "bottom") + "Left";
+                root.x = point.x - root.width - arrow.height;
+                root.y = topAlign ? point.y : (point.y + inner.item.height - root.height);
+                break;
+            default:
+                root.x = leftCheck ? point.x : (root.parent.x + root.parent.width - root.width);
+                root.y = topCheck ? (point.y - baseRect.height - arrow.height) : (point.y + inner.item.height +  arrow.height);
+                arrow.state = (leftCheck ? "left" : "right") + (topCheck ? "Bottom" : "Top");
+                break;
+            }
 
-            root.y = topCheck
-                ? (point.y - baseRect.height - arrow.height)
-                : (point.y + inner.item.height +  arrow.height)
-
-            arrow.margin = leftCheck ? 15 : (root.x + root.width - point.x - 15 )
-            arrow.state = (leftCheck ? "left" : "right") + (topCheck ? "Bottom" : "Top")
+            var offset = inner.item.mapToItem(root, 0, 0);
+            if (inner.tooltipGlueCenter) {
+                if (inner.tooltipPosition == 'E' || inner.tooltipPosition == 'W') {
+                    arrow.margin = inner.item.height / 2 - arrow.width / 2;
+                } else {
+                    arrow.margin = leftCheck ? (offset.x + inner.item.width / 2 - arrow.width / 2):
+                                               (root.width - offset.x - inner.item.width / 2 - arrow.width / 2);
+                }
+            } else {
+                if (inner.tooltipPosition == 'E' || inner.tooltipPosition == 'W') {
+                    arrow.margin = 15;
+                } else {
+                    arrow.margin = leftCheck ? 15 : root.width - offset.x - inner.item.width + 15;
+                }
+            }
         }
     }
 
@@ -167,6 +207,31 @@ Item {
                 name: "rightBottom"
                 AnchorChanges { target: arrow; anchors { right: baseRect.right; top: baseRect.bottom } }
                 PropertyChanges { target: arrow; anchors { rightMargin: margin } }
+            },
+
+            State {
+                name: "topLeft"
+                AnchorChanges { target: arrow; anchors { top: baseRect.top; left: baseRect.right } }
+                PropertyChanges { target: arrow; anchors { topMargin: margin } }
+                PropertyChanges { target: arrowImage; rotation: -90; x: -3; y: 3 }
+            },
+            State {
+                name: "bottomLeft"
+                AnchorChanges { target: arrow; anchors { bottom: baseRect.bottom; left: baseRect.right } }
+                PropertyChanges { target: arrow; anchors { bottomMargin: margin } }
+                PropertyChanges { target: arrowImage; rotation: -90; x: -3; y: -3 }
+            },
+            State {
+                name: "topRight"
+                AnchorChanges { target: arrow; anchors { top: baseRect.top; right: baseRect.left } }
+                PropertyChanges { target: arrow; anchors { topMargin: margin } }
+                PropertyChanges { target: arrowImage; rotation: 90; x: 3; y: 3 }
+            },
+            State {
+                name: "bottomRight"
+                AnchorChanges { target: arrow; anchors { bottom: baseRect.bottom; right: baseRect.left } }
+                PropertyChanges { target: arrow; anchors { bottomMargin: margin } }
+                PropertyChanges { target: arrowImage; rotation: 90; x: 3; y: -3 }
             }
         ]
     }

@@ -95,6 +95,7 @@
 		<file>js/DateHelper.js</file>
 		<file>js/GamesSwitchHelper.js</file>
 		<file>js/GoogleAnalytics.js</file>
+		<file>js/Message.js</file>
 		<file>js/PopupHelper.js</file>
 		<file>js/restapi.js</file>
 		<file>js/support.js</file>

@@ -11,7 +11,6 @@
 import QtQuick 1.1
 import qGNA.Library 1.0
 import Tulip 1.0
-import Qt 4.7
 import "." as Current
 import "Elements" as Elements
 import "Blocks" as Blocks
@@ -28,8 +27,10 @@ import "js/restapi.js" as RestApi
 import "js/UserInfo.js" as UserInfo
 import "js/Core.js" as Core
 import "js/GoogleAnalytics.js" as GoogleAnalytics
+import "js/Message.js" as AlertMessage
 
 import "Proxy/App.js" as App
+
 
 Item {
     id: mainWindowRectanglw
@@ -81,6 +82,7 @@ Item {
                              });
 
         setMidToGoogleAnalytics();
+        AlertMessage.setAdapter(alertAdapter);
     }
 
     Maintenance.Maintenance {}
@@ -495,7 +497,9 @@ Item {
         }
 
         Blocks.AlertAdapter {
-            onAlertShown: mainWindow.activateWindow();
+            id: alertAdapter
+
+            onAlertShown: App.activateWindow();
         }
 
         Item {
@@ -564,6 +568,11 @@ Item {
         Blocks.Tray {
             isFullMenu: mainAuthModule.isAuthed && !ping.mustBeShown
 
+            function quitTrigger() {
+                GoogleAnalytics.trackEvent('/Tray', 'Application', 'Quit');
+                closeAnimation.start();
+            }
+
             onMenuClick: {
                 switch(name) {
                 case 'Profile': {
@@ -586,8 +595,29 @@ Item {
                 }
                 break;
                 case 'Quit': {
-                    GoogleAnalytics.trackEvent('/Tray', 'Application', 'Quit');
-                    closeAnimation.start();
+                    var services = Object.keys(Core.runningService).filter(function(e) {
+                        var obj = Core.serviceItemByServiceId(e);
+                        return obj.gameType != 'browser';
+                    }), firstGame;
+
+                    if (!services || services.length === 0) {
+                        quitTrigger();
+                        break;
+                    }
+
+                    firstGame = Core.serviceItemByServiceId(services[0]);
+
+                    AlertMessage.addAlertMessage(qsTr("CLOSE_APP_TOOLTIP_MESSAGE_DESC").arg(firstGame.name),
+                                                 qsTr("CLOSE_APP_TOOLTIP_MESSAGE"),
+                                                 AlertMessage.button.Ok | AlertMessage.button.Cancel,
+                                                 function(button) {
+                                                     if (button != AlertMessage.button.Ok) {
+                                                         return;
+                                                     }
+
+                                                    quitTrigger();
+                                                 });
+
                     break;
                 }
                 }
@@ -662,8 +692,8 @@ Item {
                         return;
                     }
 
-                    gameBoringPage.currentItem = item;
-                    gameBoringPage.openMoveUpPage()
+                    Core.activateGame(item);
+                    gameBoringPage.openMoveUpPage();
                 }
             }
         }

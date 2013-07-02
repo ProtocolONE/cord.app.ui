@@ -189,7 +189,7 @@ Item {
                         text: qsTr("MORE_ABOUT_GAME")
                         visible: Core.currentGame() ? !!Core.currentGame().guideUrl : false
                         color: "#ffffff"
-                        font{ pixelSize: 17; letterSpacing: -0.5 }
+                        font { underline: true; family: "Tahoma"; pixelSize: 15; }
                         smooth: true
 
                         Elements.CursorMouseArea {
@@ -237,7 +237,7 @@ Item {
                     text: qsTr("ALL_NEWS")
                     anchors { rightMargin: 5; topMargin: -14 }
                     color: "#ffffff"
-                    font { family: "Tahoma"; pixelSize: 15; }
+                    font { underline: true; family: "Tahoma"; pixelSize: 15; }
                     smooth: true
 
                     Elements.CursorMouseArea {

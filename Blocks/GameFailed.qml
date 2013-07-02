@@ -54,6 +54,7 @@ Blocks.MoveUpPage {
                     text: qsTr("GAME_FAILED_HELP_TEXT1").arg(page.currentItem ? page.currentItem.name : '')
                     wrapMode: Text.WordWrap
                     color: "#ffffff"
+                    textFormat: Text.StyledText
                     font.pixelSize: 14
                     lineHeight: 1.3
                 }
