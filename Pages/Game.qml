@@ -7,7 +7,7 @@ import "../Blocks/GameSwitch" as GameSwitch
 
 import "../js/Core.js" as Core
 import "../js/GoogleAnalytics.js" as GoogleAnalytics
-import "../Blocks/Features/Maintenance/MaintenanceHelper.js" as MaintenanceHelper
+import "../Features/Maintenance/MaintenanceHelper.js" as MaintenanceHelper
 import "../Features/Facts" as Feature
 import "../js/GamesSwitchHelper.js" as GamesSwitchHelper
 import "../Proxy/App.js" as App
@@ -417,6 +417,17 @@ Rectangle {
                 Item {
                     anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
                     height: 86
+                    focus: visible
+
+                    Keys.onPressed:  {
+                        if ((event.key === Qt.Key_M)
+                                && (event.modifiers & Qt.ShiftModifier)
+                                && (event.modifiers & Qt.ControlModifier)
+                                ) {
+                            d._maintenance = false;
+                            d.ignoreMaintenance = true;
+                        }
+                    }
 
                     Rectangle {
                         color: "#000000"
@@ -427,16 +438,6 @@ Rectangle {
                     Elements.ProgressBar {
                         width: parent.width
                         running: currentItem ? (currentItem.status === "Downloading" && !currentItem.allreadyDownloaded) : false
-                    }
-
-                    Keys.onPressed:  {
-                        if ((event.key === Qt.Key_M)
-                                && (event.modifiers & Qt.ShiftModifier)
-                                && (event.modifiers & Qt.ControlModifier)
-                                ) {
-                            d._maintenance = false;
-                            d.ignoreMaintenance = true;
-                        }
                     }
 
                     Elements.ButtonBig {
@@ -601,7 +602,7 @@ Rectangle {
                 GameSwitch.Maintenance {
                     visible: d._maintenance
                     anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
-                    currentItem: parent.currentItem
+                    currentItem: root.currentItem
                     onLaunchGame: {
                         var item = Core.serviceItemByServiceId(serviceId);
                         mainWindow.downloadButtonStart(serviceId);

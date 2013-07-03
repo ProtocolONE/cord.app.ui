@@ -74,6 +74,12 @@ ToolTip.prototype.release = function(item) {
     }
 }
 
+ToolTip.prototype.releaseAll = function() {
+    if (this.holder) {
+        this.holder.releaseAll();
+    }
+}
+
 if (!ToolTip._instance) {
     ToolTip._instance = new ToolTip();
 }
@@ -84,6 +90,10 @@ function track(item) {
 
 function release(item) {
     ToolTip._instance.release(item);
+}
+
+function releaseAll() {
+    ToolTip._instance.releaseAll();
 }
 
 function setup(item) {

@@ -19,42 +19,34 @@ import "Guide.js" as Guide
 Item {
     id: root
 
-    property bool preventRunning: false
-
     implicitWidth: Core.clientWidth
     implicitHeight: Core.clientHeight
 
+    /*
+    //Uncomment for debug
     Component.onCompleted: {
-        //Settings.setValue("qml/features/guide/", "showCount", 0);
+        Settings.setValue("qml/features/guide/", "showCount", 0);
+        start()
     }
+    */
 
     function start() {
-        if (runTimer.running || !App.isAnyLicenseAccepted() || preventRunning) {
+        var currentGame = Core.currentGame();
+        if (runTimer.running || !App.isAnyLicenseAccepted() || !currentGame) {
             return;
         }
+
+        if (currentGame.gameType !== 'standalone' || currentGame.gameId === 70) {
+            return;
+        }
+
         runTimer.start();
-    }
-
-    function stop() {
-        runTimer.stop();
-    }
-
-    Connections {
-        target: mainWindow
-
-        onDownloadButtonStartSignal: root.stop();
-        onServiceStarted: root.stop();
-        onServiceFinished: root.start();
-        onDownloaderStarted: root.start();
-        onDownloaderStopped: root.start();
-        onDownloaderFailed: root.start();
-        onDownloaderFinished: root.start();
     }
 
     Timer {
         id: runTimer
 
-        interval: 5000
+        interval: 1000
         onTriggered: d.start()
     }
 
@@ -63,7 +55,7 @@ Item {
 
         function start() {
             var item = Core.currentGame();
-            if (!item || !App.isWindowVisible() || preventRunning) {
+            if (!item || !App.isWindowVisible() ) {
                 return;
             }
 
@@ -85,7 +77,7 @@ Item {
                     sound: "3.wma"
                 },
                 {
-                    focusRect: {x: 414, y: 87, width: 73, height: 79},
+                    focusRect: {x: 410, y: 87, width: 73, height: 79},
                     textRect: {x: 120, y: 295, width: 420, height: 65},
                     dock: {x: 270, y: 125},
                     duration: 7000,
@@ -106,7 +98,7 @@ Item {
             }
 
             storyLine.push({
-               focusRect: {x: 741, y: 474, width: 170, height: 65},
+               focusRect: {x: 737, y: 474, width: 170, height: 65},
                textRect: {x: 321, y: 297, width: 422, height: 66},
                dock: {x: 553, y: 505},
                duration: 8000,
@@ -116,7 +108,7 @@ Item {
 
             if (UserInfo.userId()) {
                 storyLine.push({
-                   focusRect: {x: 672, y: 6, width: 238, height: 70},
+                   focusRect: {x: 668, y: 6, width: 238, height: 70},
                    textRect: {x: 371, y: 217, width: 422, height: 89},
                    dock: {x: 489, y: 40},
                    duration: 11000,
@@ -125,7 +117,7 @@ Item {
                 });
             } else {
                 storyLine.push({
-                   focusRect: {x: 819, y: 39, width: 90, height: 35},
+                   focusRect: {x: 815, y: 39, width: 90, height: 35},
                    textRect: {x: 130 + 191, y: 227, width: 422, height: 45},
                    dock: {x: 130 + 550, y: 52},
                    duration: 6000,

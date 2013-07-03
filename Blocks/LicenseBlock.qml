@@ -24,6 +24,17 @@ Blocks.MoveUpPage {
         color: "#353945"
         anchors.fill: parent
 
+        /*
+        //Use it for debug page. Or write proxy object for licenseModell from c++ mainwindow
+        Item {
+            id: licenseModel
+            property string license: ""
+            property string pathToInstall: ""
+            Component.onCompleted: openMoveUpPage()
+
+        }
+        */
+
         Connections {
             target: licenseModel
             onOpenLicenseBlock: {
@@ -56,130 +67,120 @@ Blocks.MoveUpPage {
             smooth: true
         }
 
-        Rectangle {
-            width: 490
-            height: 150
+        Column {
             anchors { left: parent.left; top: parent.top; leftMargin: 276; topMargin: 37 }
-            border { color: "#909299"; width: 1 }
-            color: "#00000000"
+            spacing: 20
 
-            Elements.ScrollBar {
-                id: scrollableChannelTextAreaElement
-                height: parent.height
-                anchors { right: parent.right; top: parent.top}
-                flickable: channelTextArea.flicElement
-            }
+            Column {
+                Rectangle {
+                    width: 610
+                    height: 290
 
-            Elements.TextArea {
-                id: channelTextArea
+                    border { color: "#909299"; width: 1 }
+                    color: "#00000000"
 
-                anchors.fill: parent
-                anchors {
-                    leftMargin: 5;
-                    topMargin: 5;
-                    bottomMargin: 5;
-                    rightMargin: 5 + scrollableChannelTextAreaElement.width
+                    Elements.ScrollBar {
+                        id: scrollableChannelTextAreaElement
+                        height: parent.height
+                        anchors { right: parent.right; top: parent.top}
+                        flickable: channelTextArea.flicElement
+                    }
+
+                    Elements.TextArea {
+                        id: channelTextArea
+
+                        anchors.fill: parent
+                        anchors {
+                            leftMargin: 5;
+                            topMargin: 5;
+                            bottomMargin: 5;
+                            rightMargin: 5 + scrollableChannelTextAreaElement.width
+                        }
+
+                        textElement.text: licenseModel.license
+                    }
                 }
 
-                textElement.text: licenseModel.license
-            }
-        }
-
-        Rectangle {
-            anchors { top: parent.top; left: parent.left; topMargin: 195; leftMargin: 276 }
-
-            Elements.CheckBox {
-                id: licenseAppectedCheckBox
-
-                anchors { top: parent.top; left: parent.left }
-                state: licenseModel.licenseAccepted ? "Active" : "Normal"
-                onChecked: licenseModel.setLicenseAccepted(isChecked);
-                onUnchecked: licenseModel.setLicenseAccepted(isChecked);
+                Text {
+                    color: "#fff"
+                    font { family: "Arial"; pixelSize: 12 }
+                    text: qsTr("CHECKBOX_I_AGREE")
+                }
             }
 
-            Text {
-                anchors { top: parent.top; left: parent.left; leftMargin: 28 }
-                color: "#fff"
-                font { family: "Arial"; pixelSize: 16 }
-                text: qsTr("CHECKBOX_I_AGREE")
-            }
-        }
+            Column {
+                spacing: 8
 
-        Rectangle {
-            anchors { left: parent.left; top: parent.top; topMargin: 235; leftMargin: 276 }
+                Text {
+                    color: "#fff"
+                    font { family: "Arial"; pixelSize: 16 }
+                    text: qsTr("LABEL_GAME_INSTALLATION_PATH_INPUT")
+                }
 
-            Text {
-                anchors { top: parent.top; left: parent.left }
-                color: "#fff"
-                font { family: "Arial"; pixelSize: 16 }
-                text: qsTr("LABEL_GAME_INSTALLATION_PATH_INPUT")
-            }
+                Row {
+                    spacing: 8
 
-            Elements.FileInput {
-                width: 407
-                anchors { top: parent.top; left: parent.left; topMargin: 20 }
-                textElement { text: licenseModel.pathToInstall; readOnly: true }
-                onEditTextChanged: licenseModel.setPathToInstall(text);
-            }
+                    Elements.FileInput {
+                        width: 407
+                        textElement { text: licenseModel.pathToInstall; readOnly: true }
+                        onEditTextChanged: licenseModel.setPathToInstall(text);
+                    }
 
-            Elements.Button3 {
-                anchors { top: parent.top; left: parent.left; topMargin: 20; leftMargin: 415 }
-                buttonText: qsTr("BUTTON_BROWSE")
-                onButtonClicked: licenseModel.searchPressed();
-            }
-        }
+                    Elements.Button3 {
+                        buttonText: qsTr("BUTTON_BROWSE")
+                        onButtonClicked: licenseModel.searchPressed();
+                    }
+                }
 
-        Rectangle {
-            anchors { top: parent.top; left: parent.left; topMargin: 295; leftMargin: 276 }
+                Row {
+                    Elements.CheckBox {
+                        state: licenseModel.shurtCutInDesktop ? "Active" : "Normal"
+                        onChecked: licenseModel.setShurtCutInDesktop(isChecked);
+                        onUnchecked: licenseModel.setShurtCutInDesktop(isChecked);
+                    }
 
-            Elements.CheckBox {
-                anchors { top: parent.top; left: parent.left }
-                state: licenseModel.shurtCutInDesktop ? "Active" : "Normal"
-                onChecked: licenseModel.setShurtCutInDesktop(isChecked);
-                onUnchecked: licenseModel.setShurtCutInDesktop(isChecked);
-            }
+                    Text {
+                        color: "#fff"
+                        font { family: "Arial"; pixelSize: 16 }
+                        text: qsTr("CHECKBOX_CREATE_SHORTCUT_ON_DESKTOP")
+                    }
+                }
 
-            Text {
-                anchors { top: parent.top; left: parent.left; leftMargin: 28 }
-                color: "#fff"
-                font { family: "Arial"; pixelSize: 16 }
-                text: qsTr("CHECKBOX_CREATE_SHORTCUT_ON_DESKTOP")
-            }
-        }
+                Row {
+                    Elements.CheckBox {
+                        state: licenseModel.shurtCutInStart ? "Active" : "Normal"
+                        onChecked: licenseModel.setShurtCutInStart(isChecked);
+                        onUnchecked: licenseModel.setShurtCutInStart(isChecked);
+                    }
 
-        Rectangle {
-            anchors { top: parent.top; left: parent.left; topMargin: 320; leftMargin: 276 }
+                    Text {
+                        color: "#fff"
+                        font { family: "Arial"; pixelSize: 16 }
+                        text: qsTr("CHECKBOX_CREATE_SHORTCUT_IN_START_MENU")
+                    }
+                }
 
-            Elements.CheckBox {
-                anchors { top: parent.top; left: parent.left }
-                state: licenseModel.shurtCutInStart ? "Active" : "Normal"
-                onChecked: licenseModel.setShurtCutInStart(isChecked);
-                onUnchecked: licenseModel.setShurtCutInStart(isChecked);
-            }
+                Row {
+                    spacing: 10
 
-            Text {
-                anchors { top: parent.top; left: parent.left; leftMargin: 28 }
-                color: "#fff"
-                font { family: "Arial"; pixelSize: 16 }
-                text: qsTr("CHECKBOX_CREATE_SHORTCUT_IN_START_MENU")
-            }
-        }
+                    Elements.Button4 {
+                        buttonText: qsTr("BUTTON_NEXT")
+                        onButtonClicked: {
+                            licenseModel.setLicenseAccepted(true);
+                            licenseModel.okPressed();
+                        }
+                        buttonColor: "#227700"
+                        isEnabled: true
+                    }
 
-        Elements.Button4 {
-            anchors { top: parent.top; left: parent.left; topMargin: 353; leftMargin: 276 }
-            buttonText: qsTr("BUTTON_NEXT")
-
-            // этот параметр, когда пользователь поставит галочку в "Я принимаю условия лицензионного соглашения" - true
-            isEnabled: licenseAppectedCheckBox.isChecked
-            onButtonClicked: licenseModel.okPressed();
-        }
-
-        Elements.Button3 {
-            anchors { top: parent.top; left: parent.left; topMargin: 353; leftMargin: 405 }
-            buttonText: qsTr("BUTTON_CANCEL")
-            onButtonClicked: {
-                canceled();
-                page.closeMoveUpPage();
+                    Elements.Button3 {
+                        buttonText: qsTr("BUTTON_CANCEL")
+                        onButtonClicked: {
+                            canceled();
+                            page.closeMoveUpPage();
+                        }
+                    }
+                }
             }
         }
     }

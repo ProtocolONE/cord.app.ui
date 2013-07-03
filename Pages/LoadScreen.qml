@@ -18,6 +18,8 @@ Item {
     id: loadScreen
 
     signal updateFinished()
+    signal backgroundMousePressed(int mouseX, int mouseY);
+    signal backgroundMousePositionChanged(int mouseX, int mouseY);
 
     width: Core.clientWidth
     height: Core.clientHeight
@@ -36,8 +38,7 @@ Item {
         function updateFinished() {
             startingGameNetText.text = qsTr("TEXT_STARTING_APPLICATION");
             closeAnimation.start();
-            loadScreen.updateFinished();
-        }
+         }
     }
 
     Image {
@@ -112,12 +113,9 @@ Item {
 
         PropertyAction { target: progressBar; property: "running"; value: "false" }
         PauseAnimation { duration: 200 }
-        PropertyAnimation {
-            target: loadScreen
-            property: "opacity"
-            to: 0
-            duration: 500
-        }
+
+        ScriptAction { script: loadScreen.updateFinished(); }
+        PropertyAnimation { target: loadScreen; property: "opacity"; to: 0; duration: 500 }
     }
 
     Connections {
@@ -141,8 +139,14 @@ Item {
         anchors.fill: parent
         hoverEnabled: true
         visible: false
-    }
 
+        onPressed: backgroundMousePressed(mouseX, mouseY);
+        onPositionChanged: {
+            if (pressedButtons & Qt.LeftButton === Qt.LeftButton) {
+                backgroundMousePositionChanged(mouseX, mouseY);
+            }
+        }
+    }
 }
 
 

@@ -12,6 +12,7 @@ import QtQuick 1.1
 import "../Elements" as Elements
 import "../js/Core.js" as Core
 import "../Blocks/GamesSwitchFooter" as FooterBlocks
+import "../Elements/Tooltip/Tooltip.js" as Tooltip
 
 Rectangle {
     id: footer
@@ -79,24 +80,26 @@ Rectangle {
             internal._tempContentY = step > 0
                     ? Math.min(listViewId.contentHeight - listViewId.height, internal._tempContentY + step)
                     : Math.max(0, internal._tempContentY + step);
+            if (internal._moving) {
+                Tooltip.releaseAll();
+            }
         }
 
         currentIndex: (!!footer.currentGameItem) ? Core.indexByServiceId(footer.currentGameItem.serviceId) : -1
         clip: true
-        focus: true
+        focus: visible
         interactive: false
         anchors { fill: parent; verticalCenter: parent.verticalCenter }
-        spacing: 2
 
         delegate: Item {
             property bool isSelectedItem : footer.currentGameItem != undefined &&
                                            footer.currentGameItem.serviceId == serviceId
 
             width: 114
-            height: 121
+            height: 107
 
-            Rectangle {
-                anchors{ fill: parent; leftMargin: 7 }
+            Item {
+                anchors { fill: parent; leftMargin: 7 }
                 visible: parent.isSelectedItem
 
                 Image {
@@ -107,7 +110,7 @@ Rectangle {
             }
 
             Item {
-                anchors{ fill: parent; leftMargin: 7 }
+                anchors { fill: parent; margins: 7 }
 
                 Elements.CursorMouseArea {
                     anchors.fill: parent
@@ -115,50 +118,56 @@ Rectangle {
                     onClicked: {
                         var game = Core.serviceItemByIndex(index);
                         footer.itemClicked(game);
-                        listViewId.currentIndex = index;
                     }
                     onEntered: d.additionalArea = true
                     onExited: d.additionalArea = false
                 }
 
-                Column {
-                    anchors{ left: parent.left; right: parent.right }
-                    spacing: 6
+                Item {
+                    height: imageGame.height
+                    anchors { left: parent.left; right: parent.right }
 
-                    Item {
-                        height: textGame.height
-                        anchors { left: parent.left; right: parent.right }
-
-                        Text {
-                            id: textGame
-
-                            color: isSelectedItem ? "#000000" : "#ffffff"
-                            text: name
-                            anchors { horizontalCenter: parent.horizontalCenter; top: parent.top; topMargin: 3 }
-                            font { capitalization: Font.AllUppercase; family : "Arial"; pixelSize : 12 }
-                        }
+                    Rectangle {
+                        width: imageGame.width + 2
+                        height: imageGame.height + 2
+                        anchors { left: parent.left; leftMargin: 6; top: parent.top; topMargin: -1 }
+                        color: "#ffffff"
+                        opacity: 0.15
                     }
 
-                    Item {
-                        height: imageGame.height
-                        anchors { left: parent.left; right: parent.right }
+                    Image {
+                        id: imageGame
 
-                        Rectangle {
-                            width: imageGame.width + 2
-                            height: imageGame.height + 2
-                            anchors { left: parent.left; leftMargin: 6; top: parent.top; topMargin: -1 }
-                            color: "#ffffff"
-                            opacity: 0.15
+                        anchors { left: parent.left; margins: 7 }
+                        source: installPath + imageFooter
+
+                        Elements.CursorMouseArea {
+                            id: mouseArea
+
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            toolTip: Core.serviceItemByIndex(index) ? Core.serviceItemByIndex(index).miniToolTip : ""
+                            tooltipPosition: 'E'
+                            onClicked: {
+                                var game = Core.serviceItemByIndex(index);
+                                footer.itemClicked(game);
+                            }
+                            onEntered: d.additionalArea = true
+                            onExited: d.additionalArea = false
                         }
 
-                        Image {
-                            id: imageGame
+                        Item {
+                            height: (textGame.lineCount + 1) * 12
+                            anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
 
-                            anchors { left: parent.left; leftMargin: 7 }
-                            source: installPath + imageFooter
+                            Rectangle {
+                                anchors.fill: parent
+                                color: '#000000'
+                                opacity: 0.5
+                            }
 
-                            Elements.CursorMouseArea {
-                                id: mouseArea
+                            Text {
+                                id: textGame
 
                                 anchors.fill: parent
                                 hoverEnabled: true
@@ -167,18 +176,10 @@ Rectangle {
                                 onClicked: {
                                     var game = Core.serviceItemByIndex(index);
                                     footer.itemClicked(game);
-                                    listViewId.currentIndex = index;
                                 }
                                 onEntered: d.additionalArea = true
                                 onExited: d.additionalArea = false
                             }
-                        }
-
-                        Image {
-                            visible: mouseArea.containsMouse && !parent.isSelectedItem
-                            anchors.fill: imageGame
-                            fillMode: Image.Tile
-                            source: installPath + "images/hoverClone.png"
                         }
                     }
                 }

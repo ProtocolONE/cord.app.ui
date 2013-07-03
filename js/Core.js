@@ -8,18 +8,6 @@ var socialNetTable = {
         {
             link: "http://vk.com/aikaonlineru",
             icon: "images/socialNet/vk.png"
-        },
-        {
-            link: "http://my.mail.ru/community/aikaonline.ru",
-            icon: "images/socialNet/mail.png"
-        },
-        {
-            link: "https://www.facebook.com/AikaOnlineRu",
-            icon: "images/socialNet/fb.png"
-        },
-        {
-            link: "https://twitter.com/AikaOnlineRu",
-            icon: "images/socialNet/t.png"
         }
     ],
     "300003010000000000":[//BS
@@ -28,21 +16,14 @@ var socialNetTable = {
             icon: "images/socialNet/yt.png"
         },
         {
-            link: "http://vk.com/bloodandsoul",
-            icon: "images/socialNet/vk.png"
-        },
-        {
-            link: "http://my.mail.ru/community/bloodandsoul.ru",
-            icon: "images/socialNet/mail.png"
-        },
-        {
             link: "http://www.facebook.com/pages/Blood-Soul/201464389893835",
             icon: "images/socialNet/fb.png"
         },
         {
-            link: "https://twitter.com/#!/BloodandSoul1",
-            icon: "images/socialNet/t.png"
+            link: "http://vk.com/bloodandsoul",
+            icon: "images/socialNet/vk.png"
         }
+
     ],
     "300005010000000000":[//FireStorm
         {
@@ -58,10 +39,6 @@ var socialNetTable = {
     ],
     "300007010000000000":[//Golden Age
         {
-            link: "https://www.youtube.com/user/GoldenAgeGuide",
-            icon: "images/socialNet/yt.png"
-        },
-        {
             link: "https://vk.com/golden_age_game",
             icon: "images/socialNet/vk.png"
         }
@@ -72,24 +49,16 @@ var socialNetTable = {
             icon: "images/socialNet/yt.png"
         },
         {
-            link: "http://vk.com/ca_ru",
-            icon: "images/socialNet/vk.png"
-        },
-        {
-            link: "http://my.mail.ru/community/combatarmsru/",
-            icon: "images/socialNet/mail.png"
-        },
-        {
             link: "https://www.facebook.com/pages/Combat-Arms-RU/465773090177989",
             icon: "images/socialNet/fb.png"
         },
         {
-            link: "http://www.odnoklassniki.ru/group/52003182084281/members",
+            link: "http://www.odnoklassniki.ru/group/52003182084281",
             icon: "images/socialNet/ok.png"
         },
         {
-            link: "https://twitter.com/gmcaru",
-            icon: "images/socialNet/t.png"
+            link: "http://vk.com/ca_ru",
+            icon: "images/socialNet/vk.png"
         }
     ]
 }

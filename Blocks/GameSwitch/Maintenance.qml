@@ -29,33 +29,37 @@ Item {
     }
 
     onCurrentItemChanged: {
+        if (!currentItem) {
+            return;
+        }
+
         setupButton(button1, currentItem.maintenanceProposal1);
         setupButton(button2, currentItem.maintenanceProposal2);
     }
 
-    height: 240
+    height: 183
 
     Rectangle {
         anchors.fill: parent
         color: "#000000"
-        opacity: 0.80
+        opacity: 0.9
     }
 
     Rectangle {
-        anchors { left: parent.left; top: parent.top; leftMargin: 260; topMargin: 20 }
+        anchors { left: parent.left; top: parent.top; leftMargin: 310; topMargin: 5 }
         width: 1
-        height: 200
+        height: 170
         color: "#353535"
     }
 
     Column {
-        anchors { left: parent.left; top: parent.top; leftMargin: 40; topMargin: 20 }
-        spacing: 10
+        anchors { left: parent.left; top: parent.top; leftMargin: 40; topMargin: 5 }
+        spacing: 5
 
         Text {
             color: "#e4cd32"
             text: qsTr("MAINTENANCE_FIRST_TITLE")
-            font { family: "Segoe UI Light"; bold: false; pixelSize: 23; weight: "Light" }
+            font { bold: false; pixelSize: 20; }
             smooth: true
         }
 
@@ -88,23 +92,22 @@ Item {
     }
 
     Column {
-        anchors { left: parent.left; top: parent.top; leftMargin: 280; topMargin: 20 }
-        spacing: 10
+        anchors { left: parent.left; top: parent.top; leftMargin: 330; topMargin: 5 }
+        spacing: 8
 
         Text {
             color: "#ffffff"
             text: qsTr("MAINTENANCE_SECOND_TITLE")
-            font { family: "Segoe UI Light"; bold: false; pixelSize: 23; weight: "Light" }
+            font { bold: false; pixelSize: 20; }
             smooth: true
         }
 
         Text {
-            color: "#e4cd32"
-            width: 487
+            color: "#ffffff"
+            width: 395
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
             text: currentItem ? qsTr("MAINTENANCE_ADV_TITLE").arg(currentItem.name) : ""
             font.pixelSize: 14
-            lineHeight: 1.1
             smooth: true
         }
 

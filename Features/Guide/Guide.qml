@@ -23,8 +23,7 @@ Item {
     id: root
 
     function show() {
-        inner.init();
-        if (!inner.isAllowToShowHelp || inner.selectMoreOneAskOnWellcome) {
+        if (!inner.isAllowToShowHelp) {
             return;
         }
 
@@ -44,18 +43,19 @@ Item {
     implicitHeight: Core.clientHeight
     state: 'closed'
 
-    Component.onCompleted: Guide._qml = root;
+    Component.onCompleted: {
+        Guide._qml = root;
+        inner.init();
+    }
 
     QtObject {
         id: inner
 
         property bool isSoundEnabled: true
         property bool isVisible: false
-        property bool isFirstTime: false
         property bool isAllowToShowHelp: false
-        property bool isWellcomeMustBeShown: false
+        property bool isWellcomeMustBeShown: true
         property bool isForward: true
-        property bool selectMoreOneAskOnWellcome: false
         property int currentIndex: -1
         property int maxIndex: 0
 
@@ -75,28 +75,17 @@ Item {
             showNext();
         }
 
-        function markAsMoreOneAsk() {
-            Settings.setValue("qml/features/guide/", "showCount", 1);
-            inner.selectMoreOneAskOnWellcome = true;
-        }
-
         function markAsRefuseHelp() {
-            Settings.setValue("qml/features/guide/", "showCount", 2);
-        }
-
-        function markWellcomeAsShown() {
-            Settings.setValue("qml/features/guide/", "showCount", 3);
+            Settings.setValue("qml/features/guide/", "showCount", 1);
         }
 
         function markAsShown() {
-            Settings.setValue("qml/features/guide/", "showCount", 4);
+            Settings.setValue("qml/features/guide/", "showCount", 2);
         }
 
         function init() {
             var showCount = Settings.value("qml/features/guide/", "showCount", 0) |0;
-            inner.isAllowToShowHelp = !(showCount === 2 || showCount === 4);
-            inner.isWellcomeMustBeShown = (showCount < 2);
-            inner.isFirstTime = (showCount === 0);
+            inner.isAllowToShowHelp = (showCount == 0);
         }
     }
 
@@ -105,6 +94,7 @@ Item {
 
         anchors.fill: parent
         hoverEnabled: true
+        onClicked: nextEntryTimer.stop()
     }
 
     Timer {
@@ -368,24 +358,19 @@ Item {
                     buttonHighlightColor: "#413c37"
                     onButtonClicked: {
                         progressAnim.stop();
-                        inner.markWellcomeAsShown();
+                        inner.markAsShown();
                         root.show();
                         GoogleAnalytics.trackEvent('/', 'Guide', 'acceptGuide');
                     }
                 }
 
                 Elemetns.Button3 {
-                    buttonText: inner.isFirstTime ? qsTr('GUIDE_BUTTON_LATER') : qsTr('GUIDE_BUTTON_REFUSE')
+                    buttonText: qsTr('GUIDE_BUTTON_REFUSE')
                     buttonHighlightColor: "#413c37"
                     onButtonClicked: {
                         root.state = "closed";
-                        if (inner.isFirstTime) {
-                            inner.markAsMoreOneAsk()
-                            GoogleAnalytics.trackEvent('/', 'Guide', 'showLater');
-                        } else {
-                            inner.markAsRefuseHelp();
-                            GoogleAnalytics.trackEvent('/', 'Guide', 'showRefuse');
-                        }
+                        inner.markAsRefuseHelp();
+                        GoogleAnalytics.trackEvent('/', 'Guide', 'refuseGuide');
                     }
                 }
             }

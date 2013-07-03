@@ -502,11 +502,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>GUEST_WIDGET_HEAD_DESC</source>
-        <translation type="unfinished">Играй сейчас - регистрируйся потом, игра сохранится</translation>
+        <translation>Играй сейчас - регистрируйся потом, игра сохранится</translation>
     </message>
     <message>
         <source>GUEST_WIDGET_HEAD_DESC_NOT_GAME</source>
-        <translation type="unfinished">Вы можете войти&lt;br&gt;под гостевым аккаунтом</translation>
+        <translation>Вы можете войти&lt;br&gt;под гостевым аккаунтом</translation>
     </message>
     <message>
         <source>AUTH_GUEST_REGISTER_MESSAGE</source>
@@ -514,11 +514,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>AUTH_GUEST_REGISTER_HEADER</source>
-        <translation type="unfinished">Завершение регистрации</translation>
+        <translation>Завершение регистрации</translation>
     </message>
     <message>
         <source>AUTH_NORMAL_REGISTER_HEADER</source>
-        <translation type="unfinished">Регистрация</translation>
+        <translation>Регистрация</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_NORMAL_MESSAGE_DESC</source>
@@ -529,60 +529,60 @@ Please try again later.</source>
     <name>AuthBlock</name>
     <message>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
-        <translation type="unfinished">Учётная запись заблокирована. Если вы считаете, что так не должно быть, обратитесь &lt;a href=&quot;http://support.gamenet.ru&quot;&gt;&lt;font color=&apos;#d8e5d4&apos;&gt;службу поддержки&lt;/font&gt;&lt;/a&gt;.  </translation>
+        <translation>Учётная запись заблокирована. Если вы считаете, что так не должно быть, обратитесь в &lt;a href=&quot;http://support.gamenet.ru&quot;&gt;&lt;font color=&apos;#d8e5d4&apos;&gt;службу поддержки&lt;/font&gt;&lt;/a&gt;.  </translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_WRONG</source>
-        <translation type="unfinished">Неправильный логин или пароль</translation>
+        <translation>Неправильный логин или пароль</translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
-        <translation type="unfinished">GameNet недоступен. Попробуйте авторизоваться позже.</translation>
+        <translation>GameNet недоступен. Попробуйте авторизоваться позже.</translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
-        <translation type="unfinished">Неправильный формат электронной почты. Проверьте правильность ввода.</translation>
+        <translation>Неправильный формат электронной почты. Проверьте правильность ввода.</translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_GUEST_ERROR</source>
-        <translation type="unfinished">Не удалось войти в гостевой аккаунт. Попробуйте ещё раз позже.</translation>
+        <translation>Не удалось войти в гостевой аккаунт. Попробуйте ещё раз позже.</translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
-        <translation type="unfinished">Не удалось войти как пользователь Вконтакте. Попробуйте ещё раз позже.</translation>
+        <translation>Не удалось войти как пользователь Вконтакте. Попробуйте ещё раз позже.</translation>
     </message>
     <message>
         <source>VK_LOGIN_BUTTON_TEXT</source>
-        <translation type="unfinished">Войти ВКонтакте</translation>
+        <translation>Войти ВКонтакте</translation>
     </message>
     <message>
         <source>REGISTRATION_LEFT_LABEL_TEXT</source>
-        <translation type="unfinished">Введите почту и пароль
+        <translation>Введите почту и пароль
 и нажмите войти или авторизуйтесь аккаунтом ВКонтакте</translation>
     </message>
     <message>
         <source>PLACEHOLDER_LOGIN_INPUT</source>
-        <translation type="unfinished">Почта</translation>
+        <translation>Почта</translation>
     </message>
     <message>
         <source>PLACEHOLDER_PASSWORD_INPUT</source>
-        <translation type="unfinished">Пароль</translation>
+        <translation>Пароль</translation>
     </message>
     <message>
         <source>CHECKBOX_REMEMBER_ME</source>
-        <translation type="unfinished">Запомнить меня</translation>
+        <translation>Запомнить меня</translation>
     </message>
     <message>
         <source>AUTH_LOGIN_BUTTON</source>
-        <translation type="unfinished">Войти</translation>
+        <translation>Войти</translation>
     </message>
     <message>
         <source>AUTH_CANCEL_BUTTON</source>
-        <translation type="unfinished">Отмена</translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>REGISTER_NEW_USER_LINK</source>
-        <translation type="unfinished">Регистрация нового пользователя</translation>
+        <translation>Регистрация нового пользователя</translation>
     </message>
     <message>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED_HREF</source>
@@ -783,15 +783,15 @@ Please try again later.</source>
     <name>GameIsBoring</name>
     <message>
         <source>GAME_BORING_TITLE</source>
-        <translation>Не понравилась игра?</translation>
+        <translation>Вам не понравилась игра?</translation>
     </message>
     <message>
         <source>GAME_BORING_HELP_TEXT1</source>
-        <translation>Мы очень переживаем, что вам не понравилась игра &lt;b&gt;%1&lt;/b&gt;. Примите наши извинения и две лучшие бесплатные игры:</translation>
+        <translation>Нам очень жаль, что вам не понравилась игра &lt;b&gt;%1&lt;/b&gt;. Приносим свои извинения. Попробуйте другие наши игры.</translation>
     </message>
     <message>
         <source>GAME_BORING_HELP_TEXT2</source>
-        <translation>Их выбрали миллионы других игроков. Вам понравится!</translation>
+        <translation>В них играют миллионы людей. Вам обязательно понравится!</translation>
     </message>
     <message>
         <source>GAME_FAILED_BUTTON_CLOSE</source>
@@ -813,7 +813,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>LOGO_BS</source>
-        <translation>Классическая MMORPG</translation>
+        <translation>Романтическая MMORPG</translation>
     </message>
     <message>
         <source>LOGO_GA</source>
@@ -829,7 +829,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>LOGO_AIKA</source>
-        <translation>PVP MMORPG</translation>
+        <translation>Масштабная MMORPG</translation>
     </message>
     <message>
         <source>LOGO_ROT</source>
@@ -837,27 +837,27 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_CA_ABOUT_TEXT</source>
-        <translation>Combat Arms – динамичный онлайн шутер №1* в мире! 34 карты, более 300 видов оружия, 14 режимов игры, тысячи вариантов экипировки – это больше чем в любом другом шутере современности!&lt;br /&gt;&lt;br /&gt;&lt;font size=\&quot;8\&quot;&gt;* - по версии gameguru.ru&lt;/font&gt;</translation>
+        <translation type="unfinished">Combat Arms – это ураганный онлайн-шутер №1* в мире! Увлекательные киберспортивные турниры, 34 карты, более 300 видов оружия, 14 режимов игры, тысячи вариантов экипировки для ваших бойцов – это больше, чем в любом другом современном шутере!&lt;br /&gt;&lt;br /&gt;&lt;font size=\&quot;8\&quot;&gt;* - по версии gameguru.ru&lt;/font&gt;</translation>
     </message>
     <message>
         <source>GAME_BS_ABOUT_TEXT</source>
-        <translation>BS.ru – захватывающая MMORPG, с уникальной системой развития божественных навыков – стань богом и получи невиданную мощь! Система развития эльфов позволяет получить уникального боевого друга!</translation>
+        <translation>В ярком мире Blood and Soul каждый игрок сможет проявить себя: создать уникального персонажа, войти в состав семьи или гильдии и сразиться с другими героями на специальном PVP-сервере Демонион.</translation>
     </message>
     <message>
         <source>GAME_GA_ABOUT_TEXT</source>
-        <translation>Golden Age – браузерная военно-экономическая стратегия в реальном времени, не требует установки! Создайте армию, наймите эпических героев и стройте великую империю!</translation>
+        <translation>Golden Age — это мир, в котором от вас зависит все: экономика, войны и политические интриги. Нанимайте великих полководцев, создавайте альянсы,  сжигайте вражеские города, стройте неприступные крепости, завоевывайте новые территории и подчиняйте вассалов!</translation>
     </message>
     <message>
         <source>GAME_MW2_ABOUT_TEXT</source>
-        <translation>Magic World 2 – по-настоящему хардкорная MMORPG, PvP старой школы! Эпические противостояния гильдий за доминирование! Собирайте ресурсы, отстраивайте собственную крепость и разрушайте вражескую! </translation>
+        <translation>Magic World 2 – это уникальная MMORPG, ориентированная на масштабные войны между фракциями! Создавайте гильдии, уничтожайте врагов, собирайте ресурсы, возводите замки и участвуйте в эпических сражениях за контроль над Миром Магии!</translation>
     </message>
     <message>
         <source>GAME_WI_ABOUT_TEXT</source>
-        <translation>FireStorm – красивейший тактический командный шутер с возможностью играть от третьего лица! Отличная графика, качественные спец-эффекты, высочайшая реалистичность делают игровой процесс действительно незабываемым!</translation>
+        <translation>FireStorm – это командный шутер, в который можно играть как от первого, так и от третьего лица! Отличная графика, яркие спецэффекты и высочайшая реалистичность карт делают игровой процесс действительно незабываемым!</translation>
     </message>
     <message>
         <source>GAME_AIKA_ABOUT_TEXT</source>
-        <translation>Aika 2 – Яркая и захватывающая MMORPG с мощной PvP составляющей! Развивай своего героя с милой помощницей, захватывай власть с друзьями, уничтожай другие нации и увековечь своё имя в прекрасном мире Айки.</translation>
+        <translation>Aika 2 – это увлекательная MMORPG c эпическими войнами. Круглосуточные сражения, зрелищные осады замков, противостояния пяти разных наций, бесконечные подземелья и море ярких впечатлений в сказочном и волшебном мире Айки.</translation>
     </message>
     <message>
         <source>GAME_ROT_ABOUT_TEXT</source>
@@ -865,27 +865,27 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_CA_MINI_TOOLTIP</source>
-        <translation>Combat Arms — онлайн-шутер №1 в мире, по версии GameGuru. От создателей Counter Strike Online</translation>
+        <translation>Онлайн-шутер с самым большим выбором оружия и экипировки.</translation>
     </message>
     <message>
         <source>GAME_BS_MINI_TOOLTIP</source>
-        <translation>BS.ru — более 2 миллионов игроков уже играют в классику MMORPG. Уникальное межсерверное PVP и...</translation>
+        <translation>Красивая онлайн-игра, полная любви и беспощадных межсерверных сражений.</translation>
     </message>
     <message>
         <source>GAME_GA_MINI_TOOLTIP</source>
-        <translation>Golden Age — уникальная браузерная стратегия в реальном времени</translation>
+        <translation>Глобальная браузерная стратегия в реальном времени.</translation>
     </message>
     <message>
         <source>GAME_MW2_MINI_TOOLTIP</source>
-        <translation>Magic World 2 — хардкорная MMORPG с жестоким PvP и GvG - для тех кто ценит...</translation>
+        <translation>Суровый и таинственный мир, полный сражений между гильдиями.</translation>
     </message>
     <message>
         <source>GAME_WI_MINI_TOOLTIP</source>
-        <translation>FireStorm — тактический шутер нового поколения с отличной графикой и реализмом</translation>
+        <translation>Реалистичный тактический шутер с отличной графикой и шикарным арсеналом.</translation>
     </message>
     <message>
         <source>GAME_AIKA_MINI_TOOLTIP</source>
-        <translation>AIKA2 — 1200 человек с пяти серверов одновременно участвуют в межсерверном PVP! И это не предел в...</translation>
+        <translation>Ожесточенная борьба за превосходство между пятью нациями.</translation>
     </message>
     <message>
         <source>GAME_ROT_MINI_TOOLTIP</source>
@@ -897,7 +897,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_BS_MINI_DESC</source>
-        <translation>КЛАССИЧЕСКАЯ MMORPG</translation>
+        <translation>РОМАНТИЧЕСКАЯ MMORPG</translation>
     </message>
     <message>
         <source>GAME_GA_MINI_DESC</source>
@@ -913,7 +913,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_AIKA_MINI_DESC</source>
-        <translation>PvP MMORPG</translation>
+        <translation>МАСШТАБНАЯ MMORPG</translation>
     </message>
     <message>
         <source>GAME_ROT_MINI_DESC</source>
@@ -925,15 +925,15 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_FJ_ABOUT_TEXT</source>
-        <translation>Ферма Джейн – уникальный симулятор фермы. Совершите свое экономическое чудо! Начните с маленького хозяйства, сделайте из него крупную ферму: высаживайте растения, разводите домашних животных, изготавливайте продукцию на заводах!</translation>
+        <translation>Совершите свое экономическое чудо в увлекательной игре «Ферма Джейн»: начните с маленького хозяйства и сделайте из него крупную ферму. Высаживайте растения, разводите домашних животных и выпускайте продукцию на заводах!</translation>
     </message>
     <message>
         <source>GAME_FJ_MINI_TOOLTIP</source>
-        <translation>Америка, 30-е годы нелегкое время для фермеров, но не для тех, кто любит и умеет работать. Дженнифер, молодая энергичная женщина из Каролины, бросает вызов всем...</translation>
+        <translation>Превратите свое маленькое хозяйство в огромную и прибыльную ферму!</translation>
     </message>
     <message>
         <source>GAME_FJ_MINI_DESC</source>
-        <translation>Симулятор</translation>
+        <translation>Симулятор фермы</translation>
     </message>
 </context>
 <context>
@@ -1142,7 +1142,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GUIDE_BUTTON_LATER</source>
-        <translation>Послушать позже</translation>
+        <translation type="obsolete">Послушать позже</translation>
     </message>
     <message>
         <source>GUIDE_BUTTON_REFUSE</source>
@@ -1218,7 +1218,7 @@ Please try again later.</source>
     <name>Hub</name>
     <message>
         <source>GUEST_WIDGET_HEAD_LABEL</source>
-        <translation type="unfinished">Моментальный вход</translation>
+        <translation>Моментальный вход</translation>
     </message>
     <message>
         <source>GUEST_WIDGET_HEAD_DESC</source>
@@ -1226,27 +1226,27 @@ Please try again later.</source>
     </message>
     <message>
         <source>PLAY_NOW_BUTTON</source>
-        <translation type="unfinished">Играть сейчас</translation>
+        <translation>Играть сейчас</translation>
     </message>
     <message>
         <source>ACCOUNT_WIDGET_HEAD_LABEL</source>
-        <translation type="unfinished">Есть аккаунт</translation>
+        <translation>Есть аккаунт</translation>
     </message>
     <message>
         <source>ACCOUNT_WIDGET_HEAD_DESC</source>
-        <translation type="unfinished">Используйте единый&lt;br&gt;аккаунт GameNet</translation>
+        <translation>Используйте единый&lt;br&gt;аккаунт GameNet</translation>
     </message>
     <message>
         <source>AUTH_LOGIN_BUTTON</source>
-        <translation type="unfinished">Войти</translation>
+        <translation>Войти</translation>
     </message>
     <message>
         <source>AUTH_WIDGET_HEAD_LABEL</source>
-        <translation type="unfinished">С помощью ВКонтакте</translation>
+        <translation>С помощью ВКонтакте</translation>
     </message>
     <message>
         <source>AUTH_WIDGET_HEAD_DESC</source>
-        <translation type="unfinished">Используйте свой аккаунт&lt;br&gt;ВКонтакте для входа</translation>
+        <translation>Используйте свой аккаунт&lt;br&gt;ВКонтакте для входа</translation>
     </message>
     <message>
         <source>NEW_WIDGET_HEAD_LABEL</source>
@@ -1254,11 +1254,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>NEW_WIDGET_HEAD_DESC</source>
-        <translation type="unfinished">Получи больше&lt;br&gt;возможностей, рейтинги,&lt;br&gt; общение, награды,&lt;br&gt;подарки</translation>
+        <translation>Получи больше&lt;br&gt;возможностей, рейтинги,&lt;br&gt; общение, награды,&lt;br&gt;подарки</translation>
     </message>
     <message>
         <source>REGISTRATION_BUTTON</source>
-        <translation type="unfinished">Регистрация</translation>
+        <translation>Регистрация</translation>
     </message>
 </context>
 <context>
@@ -1287,7 +1287,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>CHECKBOX_I_AGREE</source>
-        <translation>Я принимаю условия лицензионного соглашения</translation>
+        <translation>Нажимая &quot;Продолжить&quot;, Вы подтверждаете, что согласны с условиями лицензионного соглашения</translation>
     </message>
     <message>
         <source>LABEL_GAME_INSTALLATION_PATH_INPUT</source>
@@ -1726,131 +1726,131 @@ Please try again later.</source>
     <name>Registration</name>
     <message>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
-        <translation type="unfinished">GameNet недоступен. Попробуйте авторизоваться позже.</translation>
+        <translation>GameNet недоступен. Попробуйте авторизоваться позже.</translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
-        <translation type="unfinished">Неправильный формат электронной почты. Проверьте правильность ввода.</translation>
+        <translation>Неправильный формат электронной почты. Проверьте правильность ввода.</translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_WRONG</source>
-        <translation type="unfinished">Неправильный логин или пароль</translation>
+        <translation>Неправильный логин или пароль</translation>
     </message>
     <message>
         <source>LINK_GUEST_UNKNOWN_ERROR</source>
-        <translation type="unfinished">Не удалось зарегистрировать вашу учётную запись. Попробуйте ещё раз позже.</translation>
+        <translation>Не удалось зарегистрировать вашу учётную запись. Попробуйте ещё раз позже.</translation>
     </message>
     <message>
         <source>GUEST_VK_LINK_UNKNOWN_ERROR</source>
-        <translation type="unfinished">Не удалось зарегистрировать вас как пользователя Вконтакте. Попробуйте ещё раз позже  или воспользуйтесь регистрацией с помощью логина и пароля.</translation>
+        <translation>Не удалось зарегистрировать вас как пользователя Вконтакте. Попробуйте ещё раз позже  или воспользуйтесь регистрацией с помощью логина и пароля.</translation>
     </message>
     <message>
         <source>VK_LOGIN_BUTTON_TEXT</source>
-        <translation type="unfinished">Войти ВКонтакте</translation>
+        <translation>Войти ВКонтакте</translation>
     </message>
     <message>
         <source>AUTH_GUEST_REGISTER_MESSAGE</source>
-        <translation type="unfinished">Для использования всех&lt;br&gt;функций GameNet вам&lt;br&gt;необходимо&lt;br&gt;зарегистрироваться, весь&lt;br&gt;прогресс под гостевой&lt;br&gt;учетной записью в играх будет&lt;br&gt;сохранен.</translation>
+        <translation>Для использования всех&lt;br&gt;функций GameNet вам&lt;br&gt;необходимо&lt;br&gt;зарегистрироваться, весь&lt;br&gt;прогресс под гостевой&lt;br&gt;учетной записью в играх будет&lt;br&gt;сохранен.</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_NORMAL_MESSAGE_DESC</source>
-        <translation type="unfinished">Заполните поля и нажмите&lt;br&gt;зарегистрироваться&lt;br&gt;или воспользуйтесь аккаунтом&lt;br&gt;ВКонтакте</translation>
+        <translation>Заполните поля и нажмите&lt;br&gt;зарегистрироваться&lt;br&gt;или воспользуйтесь аккаунтом&lt;br&gt;ВКонтакте</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_LOGIN_LABEL</source>
-        <translation type="unfinished">Почта</translation>
+        <translation>Почта</translation>
     </message>
     <message>
         <source>PLACEHOLDER_LOGIN_INPUT</source>
-        <translation type="unfinished">Почта</translation>
+        <translation>Почта</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_LOGIN_CAPTION</source>
-        <translation type="unfinished">не будет отображаться на сайте</translation>
+        <translation>не будет отображаться на сайте</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_PASSWORD_LABEL</source>
-        <translation type="unfinished">Пароль</translation>
+        <translation>Пароль</translation>
     </message>
     <message>
         <source>PLACEHOLDER_PASSWORD_INPUT</source>
-        <translation type="unfinished">Пароль</translation>
+        <translation>Пароль</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_PASSWORD_CAPTION</source>
-        <translation type="unfinished">от 6 до 32 символов</translation>
+        <translation>от 6 до 32 символов</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_LICENSE_MESSAGE</source>
-        <translation type="unfinished">Фактом регистрации вы соглашаетесь &lt;br/&gt;с условиями &lt;a href=&apos;http://www.gamenet.ru/license&apos;&gt;&lt;font color=&apos;#b9d3b3&apos;&gt;пользовательского соглашения&lt;/font&gt;&lt;/a&gt;.</translation>
+        <translation>Фактом регистрации вы соглашаетесь &lt;br/&gt;с условиями &lt;a href=&apos;http://www.gamenet.ru/license&apos;&gt;&lt;font color=&apos;#b9d3b3&apos;&gt;пользовательского соглашения&lt;/font&gt;&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>AUTH_START_REGISTER_BUTTON</source>
-        <translation type="unfinished">Зарегистрироваться</translation>
+        <translation>Зарегистрироваться</translation>
     </message>
     <message>
         <source>AUTH_CANCEL_REGISTER_BUTTON</source>
-        <translation type="unfinished">Отмена</translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_TITLE</source>
-        <translation type="unfinished">Регистрация нового пользователя</translation>
+        <translation>Регистрация нового пользователя</translation>
     </message>
     <message>
         <source>AUTH_LEFT_BUTTON</source>
-        <translation type="unfinished">Вход</translation>
+        <translation>Вход</translation>
     </message>
     <message>
         <source>AUTH_NORMAL_REGISTER_MESSAGE</source>
-        <translation type="unfinished">Учетная запись GameNet может быть использована для авторизации во всех проектах и приложениях GameNet, в том числе на сайте &lt;a href=&apos;http://www.gamenet.ru&apos;&gt;&lt;font color=&apos;#ffffff&apos;&gt;www.gamenet.ru&lt;/font&gt;&lt;/a&gt;.</translation>
+        <translation>Учетная запись GameNet может быть использована для авторизации во всех проектах и приложениях GameNet, в том числе на сайте &lt;a href=&apos;http://www.gamenet.ru&apos;&gt;&lt;font color=&apos;#ffffff&apos;&gt;www.gamenet.ru&lt;/font&gt;&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_TITLE_GUEST_LOGOUT</source>
-        <translation type="unfinished">Сохраните свои достижения в играх!</translation>
+        <translation>Сохраните свои достижения в играх!</translation>
     </message>
     <message>
         <source>AUTH_LEFT_BUTTON_GUEST_LOGOUT</source>
-        <translation type="unfinished">Выход</translation>
+        <translation>Выход</translation>
     </message>
     <message>
         <source>AUTH_GUEST_LOGOUT_REGISTER_MESSAGE</source>
-        <translation type="unfinished">Выйдя из гостевой учётной записи вы потеряете весь прогресс в играх, зарегистрируйтесь и мы перенесем весь прогресс на вашу новую учётную запись.</translation>
+        <translation>Выйдя из гостевой учётной записи вы потеряете весь прогресс в играх, зарегистрируйтесь и мы перенесем весь прогресс на вашу новую учётную запись.</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_TITLE_GUEST_EXPIRED</source>
-        <translation type="unfinished">Повысьте безопасность вашего аккаунта</translation>
+        <translation>Повысьте безопасность вашего аккаунта</translation>
     </message>
     <message>
         <source>AUTH_LEFT_BUTTON_GUEST_EXPIRED</source>
-        <translation type="unfinished">Отмена</translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>AUTH_GUEST_EXPIRED_REGISTER_MESSAGE</source>
-        <translation type="unfinished">Чтобы продолжать играть вам необходимо зарегистрироваться. Весь прогресс в играх будет сохранен.</translation>
+        <translation>Чтобы продолжать играть вам необходимо зарегистрироваться. Весь прогресс в играх будет сохранен.</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_TITLE_GUEST_OPEN_URL</source>
-        <translation type="unfinished">Повысьте безопасность вашего аккаунта</translation>
+        <translation>Повысьте безопасность вашего аккаунта</translation>
     </message>
     <message>
         <source>AUTH_LEFT_BUTTON_GUEST_OPEN_URL</source>
-        <translation type="unfinished">Позже</translation>
+        <translation>Позже</translation>
     </message>
     <message>
         <source>AUTH_GUEST_OPEN_URL_REGISTER_MESSAGE</source>
-        <translation type="unfinished">Для использования всех функций GameNet вам необходимо зарегистрироваться, весь прогресс под гостевой учётной записью в играх будет сохранён.</translation>
+        <translation>Для использования всех функций GameNet вам необходимо зарегистрироваться, весь прогресс под гостевой учётной записью в играх будет сохранён.</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_TITLE_GUEST_REQUEST_CONFIGRM</source>
-        <translation type="unfinished">Завершение регистрации</translation>
+        <translation>Завершение регистрации</translation>
     </message>
     <message>
         <source>AUTH_LEFT_BUTTON_GUEST_REQUEST_CONFIGRM</source>
-        <translation type="unfinished">Позже</translation>
+        <translation>Позже</translation>
     </message>
     <message>
         <source>AUTH_GUEST_REQUEST_CONFIGRM_REGISTER_MESSAGE</source>
-        <translation type="unfinished">Для использования всех функций GameNet вам необходимо зарегистрироваться, весь прогресс под гостевой учётной записью в играх будет сохранён.</translation>
+        <translation>Для использования всех функций GameNet вам необходимо зарегистрироваться, весь прогресс под гостевой учётной записью в играх будет сохранён.</translation>
     </message>
 </context>
 <context>
@@ -2245,7 +2245,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>CHECKBOX_GNA_TEST_VERSION_TOOLTIP</source>
-        <translation type="unfinished">Поставьте отметку, чтобы участвовать в тестировании новых функций клиента GameNet. Вы можете столкнуться с различными ошибками и недочетами. Если во время использования тестового клиента вы нашли ошибку, пожалуйста, сообщите о ней в нашу службу поддержки.</translation>
+        <translation>Поставьте отметку, чтобы участвовать в тестировании новых функций клиента GameNet. Вы можете столкнуться с различными ошибками и недочетами. Если во время использования тестового клиента вы нашли ошибку, пожалуйста, сообщите о ней в нашу службу поддержки.</translation>
     </message>
 </context>
 <context>
@@ -2610,11 +2610,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>CLOSE_APP_TOOLTIP_MESSAGE</source>
-        <translation type="unfinished">Подтверждение выхода</translation>
+        <translation>Подтверждение выхода</translation>
     </message>
     <message>
         <source>CLOSE_APP_TOOLTIP_MESSAGE_DESC</source>
-        <translation type="unfinished">Игра %1 будет закрыта вместе с приложением. Работа игры без приложения невозможна. Закрыть приложение и игру?</translation>
+        <translation>Игра %1 будет закрыта вместе с приложением. Работа игры без приложения невозможна. Закрыть приложение и игру?</translation>
     </message>
 </context>
 <context>

@@ -110,10 +110,7 @@ Rectangle {
 
     MouseArea {
         anchors.fill: parent
-        onClicked: {
-            deactiveAllItems();
-            userInfoBlock.closeMenu();
-        }
+        onClicked: deactiveAllItems();
     }
 
     function getLeftCoord() {

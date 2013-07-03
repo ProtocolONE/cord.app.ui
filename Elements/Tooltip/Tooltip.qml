@@ -59,6 +59,12 @@ Item {
             inner.item = null;
         }
 
+        function releaseAll() {
+            root.opacity = 0;
+            inner.tempItem = null
+            showTimer.stop();
+        }
+
         function restartTimer() {
             if (tempText.length > 0 && !showTimer.running) {
                 showTimer.restart();

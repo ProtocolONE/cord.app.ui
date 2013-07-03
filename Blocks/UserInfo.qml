@@ -69,11 +69,6 @@ Item {
         balanceTimer.stop();
     }
 
-    function closeMenu() {
-        if (nickNameView.isMenuOpen)
-            nickNameView.switchMenu();
-    }
-
     function refreshBalance() {
         RestApi.User.getBalance(function(response) {
             if (response.error) {

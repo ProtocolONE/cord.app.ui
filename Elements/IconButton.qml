@@ -43,7 +43,7 @@ Item {
         anchors { top: image.bottom; topMargin: 2; horizontalCenter: parent.horizontalCenter }
         color: isActive ? "#FE9900" : "#FFFFFF"
         smooth: true
-        font {  family: "Segoe UI Light"; pixelSize: 11; letterSpacing: 0.7 }
+        font {  family: "Arial"; pixelSize: 11; }
     }
 
     CursorMouseArea {

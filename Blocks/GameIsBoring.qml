@@ -23,8 +23,10 @@ Blocks.MoveUpPage {
 
     openHeight: 550
     onCurrentItemChanged: {
-        page.setupButton(button1, page.currentItem.maintenanceProposal1);
-        page.setupButton(button2, page.currentItem.maintenanceProposal2);
+        if (!!page.currentItem) {
+            page.setupButton(button1, page.currentItem.maintenanceProposal1);
+            page.setupButton(button2, page.currentItem.maintenanceProposal2);
+        }
     }
 
     Item {

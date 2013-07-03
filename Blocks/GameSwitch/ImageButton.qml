@@ -20,23 +20,28 @@ Image {
 
     signal clicked(string serviceId);
 
-    Rectangle {
+    Item {
         anchors {left: parent.left; right: parent.right; bottom: parent.bottom}
         height: 30
-        color: "#227700"
-        opacity: mouser.containsMouse ? 1 : 0.80
 
-        Behavior on opacity {
-            PropertyAnimation { duration: 200 }
+        Rectangle {
+            anchors.fill: parent
+            color: "#000000"
+            opacity: mouser.containsMouse ? 0.75: 0.45
+
+            Behavior on opacity {
+                PropertyAnimation { duration: 200 }
+            }
         }
 
         Text {
             anchors.centerIn: parent
             color: "#FFFFFF"
             text: currentItem ? qsTr("MAINTENANCE_IMAGE_BUTTON_TEXT").arg(name): ""
-            font { family: "Segoe UI Light"; bold: false; pixelSize: 18; weight: "Normal" }
+            font { bold: false; pixelSize: 16; }
         }
     }
+
 
     Rectangle {
         anchors.fill: parent

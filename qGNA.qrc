@@ -11,8 +11,6 @@
 		<file>Blocks/EnterNickname.qml</file>
 		<file>Blocks/Features/Announcements/Announcements.qml</file>
 		<file>Blocks/Features/Announcements/AnnouncementsHelper.js</file>
-		<file>Blocks/Features/Maintenance/Maintenance.qml</file>
-		<file>Blocks/Features/Maintenance/MaintenanceHelper.js</file>
 		<file>Blocks/FirstLicense.qml</file>
 		<file>Blocks/GameFailed.qml</file>
 		<file>Blocks/GameIsBoring.qml</file>
@@ -87,6 +85,8 @@
 		<file>Features/Guide/Guide.qml</file>
 		<file>Features/Guide/Private/ImageButton.qml</file>
 		<file>Features/Guide/WellcomeGuide.qml</file>
+		<file>Features/Maintenance/Maintenance.qml</file>
+		<file>Features/Maintenance/MaintenanceHelper.js</file>
 		<file>Features/Ping/Ping.qml</file>
 		<file>js/Authorization.js</file>
 		<file>js/Authorization/Vk.qml</file>

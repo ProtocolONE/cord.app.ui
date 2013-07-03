@@ -21,7 +21,7 @@ import "Features/Guide" as Guide
 import "Features/Ping" as Ping
 
 import "Blocks/Features/Announcements" as Announcements
-import "Blocks/Features/Maintenance" as Maintenance
+import "Features/Maintenance" as Maintenance
 import "Elements/Tooltip" as Tooltip
 import "js/restapi.js" as RestApi
 import "js/UserInfo.js" as UserInfo
@@ -113,11 +113,6 @@ Item {
             gamePage.activateNews(force);
         }
 
-        function activateWindow() {
-            qGNA_main.scale = 1;
-            qGNA_main.opacity = 1;
-        }
-
         function openSettings(game) {
             if (qGNA_main.state != "SettingsPage") {
                 qGNA_main.lastState = qGNA_main.state;
@@ -141,46 +136,37 @@ Item {
             id: closeAnimation;
 
             running: false;
-            NumberAnimation { target: qGNA_main; property: "scale"; from: 1; to: 0.05; duration: 150 }
-            NumberAnimation { target: qGNA_main; property: "opacity"; from: 1; to: 0;  duration: 150 }
             onStarted: imageBorder.visible = false;
-            onCompleted: {
-                console.log('qml closeAnimation onWindowClose');
-                onWindowClose()
-            }
+            onCompleted: onWindowClose()
+            NumberAnimation { target: mainWindowRectanglw; property: "opacity"; from: 1; to: 0;  duration: 250 }
         }
 
         ParallelAnimation {
             id: hideAnimation;
 
             running: false;
-            NumberAnimation { target: qGNA_main; property: "scale"; from: 1; to: 0.05; duration: 150 }
-            NumberAnimation { target: qGNA_main; property: "opacity"; from: 1; to: 0;  duration: 150 }
             onStarted: imageBorder.visible = false;
             onCompleted: {
                 App.hide();
-                qGNA_main.activateWindow();
+                mainWindowRectanglw.opacity = 1;
             }
+            NumberAnimation { target: mainWindowRectanglw; property: "opacity"; from: 1; to: 0;  duration: 250 }
         }
 
         ParallelAnimation {
             id: openAnimation;
 
             running: true;
-            NumberAnimation { target: qGNA_main; property: "scale"; from: 0.05; to: 1; duration: 250 }
-            NumberAnimation { target: qGNA_main; property: "opacity"; from: 0; to: 1;  duration: 250 }
             onCompleted: {
                 imageBorder.visible = true;
                 onWindowOpen()
             }
+            NumberAnimation { target: mainWindowRectanglw; property: "opacity"; from: 0; to: 1;  duration: 750 }
         }
 
         MouseArea {
             anchors.fill: parent
-            onPressed: {
-                onWindowPressed(mouseX,mouseY);
-                userInfoBlock.closeMenu();
-            }
+            onPressed: onWindowPressed(mouseX,mouseY);
             onReleased: onWindowReleased(mouseX,mouseY);
             onPositionChanged: onWindowPositionChanged(mouseX,mouseY);
         }
@@ -192,13 +178,46 @@ Item {
             anchors.top: parent.top
         }
 
-        Pages.LoadScreen {
-            id: loadScreen
+        Pages.Game {
+            id: gamePage
 
+            visible: qGNA_main.state === "GamesSwitchPage"
+            onGameSelection: GoogleAnalytics.trackPageView('/game/' + item.gaName);
+        }
+
+        Pages.Home {
+            id: homePage
+
+            anchors.fill: parent
+            focus: true
+            visible: qGNA_main.state === "HomePage"
+
+            onMouseItemClicked: {
+                homePage.closeAnimationStart();
+                qGNA_main.activateNews(force);
+                Core.activateGame(item);
+                qGNA_main.state = "GamesSwitchPage";
+                GoogleAnalytics.trackPageView('/game/' + item.gaName);
+            }
+        }
+
+        Pages.SettingsPage {
+            id: settingsPage
+
+            anchors.fill: parent
+            focus: true
+            visible: qGNA_main.state === "SettingsPage"
+            width: Core.clientWidth
+            height: Core.clientHeight
+        }
+
+        Pages.LoadScreen {
             z: 2
             anchors.fill: parent
             focus: true
 
+            onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX, mouseY);
+            onBackgroundMousePressed: onWindowPressed(mouseX, mouseY);
             onUpdateFinished: {
                 var serviceId, item;
 
@@ -228,45 +247,10 @@ Item {
                 }
 
                 qGNA_main.state = "HomePage";
+
+                //INFO App.initFinished also called from c++ slot MainWindow::acceptFirstLicense()
                 App.initFinished();
             }
-        }
-
-        Pages.Game {
-            id: gamePage
-
-            visible: qGNA_main.state === "GamesSwitchPage"
-
-            onGameSelection: {
-                GoogleAnalytics.trackPageView('/game/' + item.gaName);
-                userInfoBlock.closeMenu();
-            }
-        }
-
-        Pages.Home {
-            id: homePage
-
-            anchors.fill: parent
-            focus: true
-            visible: qGNA_main.state === "HomePage"
-
-            onMouseItemClicked: {
-                homePage.closeAnimationStart();
-                qGNA_main.activateNews(force);
-                Core.activateGame(item);
-                qGNA_main.state = "GamesSwitchPage";
-                GoogleAnalytics.trackPageView('/game/' + item.gaName);
-            }
-        }
-
-        Pages.SettingsPage {
-            id: settingsPage
-
-            anchors.fill: parent
-            focus: true
-            visible: qGNA_main.state === "SettingsPage"
-            width: Core.clientWidth
-            height: Core.clientHeight
         }
 
         Connections {
@@ -542,6 +526,8 @@ Item {
             id: gameFailedPage
 
             onOpenUrl: mainAuthModule.openWebPage(url);
+            onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX,mouseY);
+            onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
         }
 
         Blocks.GameIsBoring {
@@ -549,20 +535,22 @@ Item {
 
             onLaunchGame: mainWindow.downloadButtonStart(serviceId);
             onStartClosing: qGNA_main.state = "HomePage";
+            onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX,mouseY);
+            onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
         }
 
         Guide.WellcomeGuide {
             id: guide
-
-            preventRunning: mainAuthModule.isOpen
         }
 
         Ping.Ping {
             id: ping
+
+            onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX,mouseY);
+            onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
         }
 
         Proxy.MouseClick {
-
         }
 
         Blocks.Tray {
@@ -590,7 +578,6 @@ Item {
                 case 'Settings': {
                     GoogleAnalytics.trackEvent('/Tray', 'Navigation', 'Switch To Settings');
                     App.activateWindow();
-                    userInfoBlock.closeMenu();
                     qGNA_main.openSettings()
                 }
                 break;
@@ -627,6 +614,7 @@ Item {
         Image {
             id: closeButtonImage
 
+            z: 10000
             anchors { top: parent.top; right: parent.right; rightMargin: 9; topMargin: 12 }
             source: installPath + "images/closeButton.png"
             opacity: closeButtomMouse.containsMouse ? 0.9 : 0.5
@@ -701,13 +689,11 @@ Item {
         states: [
             State {
                 name: "LoadingPage"
-
                 PropertyChanges { target: mainAuthModule; visible: false }
             },
 
             State {
                 name: "HomePage"
-
                 PropertyChanges { target: mainAuthModule; visible: true }
                 StateChangeScript {
                     script:  {
@@ -718,14 +704,11 @@ Item {
 
             State {
                 name: "GamesSwitchPage"
-
                 PropertyChanges { target: mainAuthModule; visible: true }
-                StateChangeScript { script: guide.start(); }
             },
 
             State {
                 name: "SettingsPage"
-
                 PropertyChanges { target: mainAuthModule; visible: true }
                 StateChangeScript {
                     script:  {

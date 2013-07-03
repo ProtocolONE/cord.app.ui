@@ -55,6 +55,7 @@ Item {
 
     function stopGuestAutoStart() {
         authRegisterMoveUpPage.guestAuthTimerStarted = false;
+        authPage.autoGuestLoginTimout = 10;
         guestAutoStartTimer.stop();
     }
 
@@ -112,10 +113,9 @@ Item {
         stopGuestAutoStart();
         Marketing.send(Marketing.GuestAccountRequest, "0", {});
 
-        var mid = Marketing.mid();
-        console.log('Guest login mid - ', mid);
         var gameId,
-                auth = new Authorization.ProviderGuest(mid);
+            auth = new Authorization.ProviderGuest();
+
         if (selectedGame && selectedGame.serviceId)
             gameId = selectedGame.serviceId;
 
@@ -292,7 +292,7 @@ Item {
                                     text: qsTr("AUTH_CANCEL_BUTTON")
                                     onClicked: {
                                         GoogleAnalytics.trackEvent('/Auth', 'Auth', 'Auth Cancel');
-                                        authRegisterMoveUpPage.switchAnimation();
+                                        authRegisterMoveUpPage.state = "AuthPage";
                                     }
                                 }
                             }

@@ -39,6 +39,13 @@ Blocks.MoveUpPage {
     signal linkGuestCanceled();
     signal autoLoginFailed();
 
+    Component.onCompleted: {
+        var mid = Marketing.mid();
+        Authorization.setup({ mid: mid, hwid: App.hwid()});
+
+        console.log('Authorization use mid `' + mid + '`');
+    }
+
     onLogoutDone: {
         if (!authedAsGuest) {
             return;
