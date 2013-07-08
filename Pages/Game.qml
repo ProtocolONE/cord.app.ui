@@ -7,12 +7,12 @@ import "../Blocks/GameSwitch" as GameSwitch
 
 import "../js/Core.js" as Core
 import "../js/GoogleAnalytics.js" as GoogleAnalytics
+import "../js/PopupHelper.js" as PopupHelper
+import "../js/GamesSwitchHelper.js" as GamesSwitchHelper
 import "../Features/Maintenance/MaintenanceHelper.js" as MaintenanceHelper
 import "../Features/Facts" as Feature
-import "../js/GamesSwitchHelper.js" as GamesSwitchHelper
 import "../Proxy/App.js" as App
 import "../Proxy/MouseClick.js" as MouseClick
-
 
 Rectangle {
     id: root
@@ -42,6 +42,21 @@ Rectangle {
         Core.activateGame(item);
     }
 
+    function showPopupGameInstalled(serviceId) {
+        var gameItem = Core.serviceItemByServiceId(serviceId)
+            , popUpOptions;
+
+        popUpOptions = {
+            gameItem: gameItem,
+            buttonCaption: qsTr('POPUP_PLAY'),
+            message: qsTr('POPUP_READY_TO_START')
+        };
+
+        PopupHelper.showPopup(gameInstalledPopUp, popUpOptions, 'gameInstalled' + serviceId);
+        GoogleAnalytics.trackEvent('/announcement/gameInstalled/' + gameItem.serviceId,
+                                   'Announcement', 'Show Announcement', gameItem.gaName);
+    }
+
     onCurrentItemChanged: {
         if (!currentItem) {
             return;
@@ -58,6 +73,37 @@ Rectangle {
         backImage.source = currentItem ? installPath + currentItem.imageBack : ""
 
         changeGameAnim.start();
+    }
+
+    Component {
+        id: gameInstalledPopUp
+
+        Elements.GameItemPopUp {
+            id: popUp
+
+            function gaEvent(name) {
+                GoogleAnalytics.trackEvent('/announcement/gameInstalled/' + gameItem.serviceId,
+                                           'Announcement', name, gameItem.gaName);
+            }
+
+            Connections {
+                target: mainWindow
+                onServiceStarted: {
+                    if (gameItem.serviceId == service) {
+                        shadowDestroy();
+                    }
+                }
+            }
+
+            state: "Green"
+            onAnywhereClicked: gaEvent('Miss Click On Announcement')
+            onCloseButtonClicked: gaEvent('Close Announcement')
+            onPlayClicked: {
+                gaEvent('Action on Announcement');
+                Core.activateGame(gameItem);
+                App.executeService(gameItem.serviceId);
+            }
+        }
     }
 
     ParallelAnimation {
@@ -241,8 +287,15 @@ Rectangle {
             MaintenanceHelper.updatedService[service] = true;
             d.updateMaintenance();
 
-            if (!d._maintenance) {
-                mainWindow.executeService(service);
+            if (d._maintenance) {
+                return;
+            }
+
+            var isPopUpCase = (App.isWindowVisible() && Core.currentGame() !== item); //QGNA-378
+            if (isPopUpCase) {
+                showPopupGameInstalled(service);
+            } else {
+                App.executeService(service);
             }
         }
 
@@ -399,7 +452,6 @@ Rectangle {
 
                         anchors { top: parent.top; left: parent.left }
                         anchors { topMargin: 11; leftMargin: 30 }
-                        visible: !d._maintenance
                         filterGameId: currentItem ? currentItem.gameId : "671"
                     }
 
@@ -437,7 +489,9 @@ Rectangle {
 
                     Elements.ProgressBar {
                         width: parent.width
-                        running: currentItem ? (currentItem.status === "Downloading" && !currentItem.allreadyDownloaded) : false
+                        running: currentItem
+                                    ? (currentItem.status === "Downloading" && !currentItem.allreadyDownloaded)
+                                    : false
                     }
 
                     Elements.ButtonBig {
@@ -519,7 +573,9 @@ Rectangle {
                         id: downloadIcon
 
                         function update() {
-                            opacity = currentItem ? GamesSwitchHelper.gamesDownloadData.hasOwnProperty(currentItem.serviceId) : false;
+                            opacity = currentItem
+                                    ? GamesSwitchHelper.gamesDownloadData.hasOwnProperty(currentItem.serviceId)
+                                    : false;
                         }
 
                         opacity: 1
@@ -528,11 +584,13 @@ Rectangle {
                         source: installPath + 'images/downloadInfo.png'
                         anchors { left: parent.left; bottom: parent.bottom; leftMargin: 17; bottomMargin: 4 }
                         onClicked: {
-                            processWidget.visible = !processWidget.visible;
+                            processWidget.visible = true;
+                            enabled = false;
 
                             if (root.currentItem) {
                                 GoogleAnalytics.trackEvent('/game/' + root.currentItem.gaName,
-                                                           'Game ' + root.currentItem.gaName, 'Open torrent stat', 'Small info button');
+                                                           'Game ' + root.currentItem.gaName,
+                                                           'Open torrent stat', 'Small info button');
                             }
                         }
 
@@ -541,11 +599,23 @@ Rectangle {
                         }
                     }
 
+                    Timer {
+                        id: downloadIconEnable
+
+                        interval: 10
+                        onTriggered: downloadIcon.enabled = true
+                    }
+
                     Blocks.ProgressWidget {
                         id: processWidget
 
                         anchors { left: parent.left; bottom: parent.bottom; leftMargin: 8; bottomMargin: 20 }
                         visible: false
+                        onVisibleChanged: {
+                            if (!visible) {
+                                downloadIconEnable.start();
+                            }
+                        }
 
                         function refresh() {
                             totalWantedDone = progressValue('totalWantedDone')

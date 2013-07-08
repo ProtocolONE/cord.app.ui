@@ -755,6 +755,14 @@ Please try again later.</source>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
         <translation>Играть</translation>
     </message>
+    <message>
+        <source>POPUP_PLAY</source>
+        <translation>Играть</translation>
+    </message>
+    <message>
+        <source>POPUP_READY_TO_START</source>
+        <translation>Игра готова к запуску!</translation>
+    </message>
 </context>
 <context>
     <name>GameFailed</name>
@@ -837,11 +845,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_CA_ABOUT_TEXT</source>
-        <translation type="unfinished">Combat Arms – это ураганный онлайн-шутер №1* в мире! Увлекательные киберспортивные турниры, 34 карты, более 300 видов оружия, 14 режимов игры, тысячи вариантов экипировки для ваших бойцов – это больше, чем в любом другом современном шутере!&lt;br /&gt;&lt;br /&gt;&lt;font size=\&quot;8\&quot;&gt;* - по версии gameguru.ru&lt;/font&gt;</translation>
+        <translation>Combat Arms – ураганный онлайн шутер №1&lt;br/&gt;Динамичный геймплей, правильная графика и 300 видов стволов уже объединили два миллиона человек. Противостояние полиции и террористов, борьба с зомби на выживание, все доступно тебе в Combat Arms. Будь собой, бей, стреляй, круши и превращайся в зомби.</translation>
     </message>
     <message>
         <source>GAME_BS_ABOUT_TEXT</source>
-        <translation>В ярком мире Blood and Soul каждый игрок сможет проявить себя: создать уникального персонажа, войти в состав семьи или гильдии и сразиться с другими героями на специальном PVP-сервере Демонион.</translation>
+        <translation>Найди друзей среди пяти миллионов человек, играющих в ролевую онлайн игру BS: Демонион. Захватывающий мир полный опасностей, любви и приключений подарит тебе удивительные по красоте города, таинственные локации, сплоченные гильдии и семьи, а также массовые сражения с другими игроками.</translation>
     </message>
     <message>
         <source>GAME_GA_ABOUT_TEXT</source>
@@ -897,7 +905,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_BS_MINI_DESC</source>
-        <translation>РОМАНТИЧЕСКАЯ MMORPG</translation>
+        <translation>РОМАНТИЧЕСКАЯ ОНЛАЙН ИГРА</translation>
     </message>
     <message>
         <source>GAME_GA_MINI_DESC</source>

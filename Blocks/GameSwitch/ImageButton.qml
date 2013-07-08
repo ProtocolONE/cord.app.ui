@@ -37,8 +37,8 @@ Image {
         Text {
             anchors.centerIn: parent
             color: "#FFFFFF"
-            text: currentItem ? qsTr("MAINTENANCE_IMAGE_BUTTON_TEXT").arg(name): ""
-            font { bold: false; pixelSize: 16; }
+            text: qsTr("MAINTENANCE_IMAGE_BUTTON_TEXT").arg(name)
+            font { bold: false; pixelSize: 12; }
         }
     }
 

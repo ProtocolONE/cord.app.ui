@@ -278,6 +278,11 @@ Item {
     }
 
     function showReminderLongTimeExecute(serviceId) {
+        //INFO На момент 9 июля 2013 эффективность этого окна порядка 3,75%. В тоже время оно сильно раздражает
+        //особенно если у тебя много установленных игр. При запуске обновленного QGNA принято решение временно
+        //выключить этот функционал, чтобы доработать его и сделать менее раздражающим. Подробности у Бондаренко.
+        return;
+
         var now = +(new Date());
         Settings.setValue("qml/Announcements2/reminderExecuteLongAgo/" + serviceId + "/", "showDate", now);
         Marketing.send(Marketing.AnnouncementShown, serviceId, { type: "reminderExecuteLongAgo" });

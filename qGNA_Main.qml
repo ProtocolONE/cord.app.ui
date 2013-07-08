@@ -345,9 +345,9 @@ Item {
 
             onAuthDone: {
                 GoogleAnalytics.userId = userId;
-                guestAuthEnabled = false;
                 RestApi.Core.setUserId(userId);
                 RestApi.Core.setAppKey(appKey);
+                guestAuthEnabled = false;
                 App.authSuccessSlot(userId, appKey, cookie);
                 UserInfo.setCredential(userId, appKey, cookie);
                 refreshUserInfo();

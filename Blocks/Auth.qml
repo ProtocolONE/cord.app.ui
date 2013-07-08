@@ -29,6 +29,14 @@ Blocks.MoveUpPage {
     property bool authedAsGuest: false
     property bool guestAuthEnabled: false
     property bool guestAuthTimerStarted: false
+    property string lastState: ''
+
+    onStateChanged: {
+        if (state != 'FailAuthPage' &&
+            state != 'FailRegistrationPage') {
+            lastState = state;
+        }
+    }
 
     property bool hasGuestInfo: false
     property variant guestInfo
@@ -237,6 +245,16 @@ Blocks.MoveUpPage {
         }
     }
 
+    onVisibleChanged: {
+        if (!visible) {
+            return;
+        }
+
+        var guest = CredentialStorage.loadGuest();
+        hubWidget.guestEnable = (guest && guest.userId && guest.appKey && guest.cookie)
+                || authRegisterMoveUpPage.guestAuthEnabled;
+    }
+
     Timer {
         running: true
         interval: 3600
@@ -419,7 +437,7 @@ Blocks.MoveUpPage {
 
                 anchors { fill: parent; topMargin: 49 }
 
-                guestEnable: authRegisterMoveUpPage.guestAuthEnabled
+                guestEnable: false
                 guestDescText: (!!authRegisterMoveUpPage.selectedGame) ? qsTr("GUEST_WIDGET_HEAD_DESC") :
                                                                          qsTr("GUEST_WIDGET_HEAD_DESC_NOT_GAME")
                 autoGuestLoginTimout: authPage.autoGuestLoginTimout
@@ -511,6 +529,7 @@ Blocks.MoveUpPage {
 
     states: [
         State { name: "AuthPage" },
+        State { name: "GenericAuthPage" },
         State { name: "FailAuthPage" },
         State { name: "FailRegistrationPage" },
         State { name: "RegistrationPage" }

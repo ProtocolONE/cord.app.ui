@@ -39,6 +39,16 @@ Item {
                                  response.cookie,
                                  shouldSave,
                                  guest);
+
+            if (!rememberCheckBox.isChecked) {
+                return;
+            }
+
+            var login = loginTextInput.editText,
+                currentValue = JSON.parse(Settings.value("qml/auth/", "authedLogins", "{}"));
+
+            currentValue[login] = +new Date();
+            Settings.setValue("qml/auth/" , "authedLogins", JSON.stringify(currentValue));
         }
     }
 
@@ -229,9 +239,11 @@ Item {
                         width: parent.width
                         spacing: 11
 
+
                         Elements.Input {
                             id: loginTextInput
 
+                            z: 1
                             width: 208
                             height: 28
                             textEchoMode: TextInput.Normal
@@ -245,7 +257,22 @@ Item {
                             }
 
                             onTabPressed: passwordTextInput.textEditComponent.focus = true;
+
+                            onVisibleChanged: {
+                                if (!visible) {
+                                    return;
+                                }
+
+                                var currentValue = Settings.value("qml/auth/", "authedLogins", "{}");
+                                setAutoCompleteSource(JSON.parse(currentValue));
+                            }
+
+                            function filterFunc(a, b) {
+                                return (a.toLowerCase().indexOf(b.toLowerCase()) == 0) &&
+                                        (b != '') && (a.toLowerCase() != b.toLowerCase());
+                            }
                         }
+
 
                         Elements.Input {
                             id: passwordTextInput

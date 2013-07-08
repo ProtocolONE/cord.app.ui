@@ -25,6 +25,8 @@ Item {
     property bool selected: false
     property alias source: image.source
     property alias toolTip: mouser.toolTip
+    property alias enabled: mouser.visible
+
     property bool containsMouse: mouser.containsMouse
 
     property double defaultOpacity : 0.2

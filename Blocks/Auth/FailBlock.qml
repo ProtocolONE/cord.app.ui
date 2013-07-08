@@ -28,9 +28,7 @@ Item {
 
         function trigger() {
             GoogleAnalytics.trackEvent('/AuthFail', 'Auth', 'Confirm Ok');
-            authRegisterMoveUpPage.state = (authRegisterMoveUpPage.state === "FailAuthPage")
-                    ? "AuthPage"
-                    : "RegistrationPage";
+            authRegisterMoveUpPage.state = authRegisterMoveUpPage.lastState;
         }
     }
 
