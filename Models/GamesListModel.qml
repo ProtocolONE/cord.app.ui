@@ -157,7 +157,7 @@ ListModel {
 
         itemState: "Normal";
         animationPause: 0
-        hasOverlay: false
+        hasOverlay: true
 
         logoText: QT_TR_NOOP("LOGO_AIKA")
         aboutGameText: QT_TR_NOOP("GAME_AIKA_ABOUT_TEXT")

@@ -19,8 +19,9 @@ Item {
             var obj = Js.widgets();
 
             Object.keys(obj).forEach(function(e){
-                var item = obj[e],
-                     posInWidget;
+                var item = obj[e].item,
+                    callback = obj[e].callback,
+                    posInWidget;
 
                 if (!item || !item.visible) {
                     return;
@@ -30,7 +31,7 @@ Item {
 
                 if (!(globalX >= posInWidget.x && globalX <= (posInWidget.x + item.width) &&
                       globalY >= posInWidget.y && globalY <= (posInWidget.y + item.height))) {
-                    item.visible = false;
+                    callback();
                 }
             });
         }

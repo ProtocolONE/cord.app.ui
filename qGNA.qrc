@@ -14,7 +14,6 @@
 		<file>Blocks/FirstLicense.qml</file>
 		<file>Blocks/GameFailed.qml</file>
 		<file>Blocks/GameIsBoring.qml</file>
-		<file>Blocks/GameOverlay.qml</file>
 		<file>Blocks/GamesSwitchFooter.qml</file>
 		<file>Blocks/GamesSwitchFooter/FooterButton.qml</file>
 		<file>Blocks/GameSwitch/ImageButton.qml</file>
@@ -87,6 +86,10 @@
 		<file>Features/Guide/WellcomeGuide.qml</file>
 		<file>Features/Maintenance/Maintenance.qml</file>
 		<file>Features/Maintenance/MaintenanceHelper.js</file>
+		<file>Features/Overlay/GameOverlay.qml</file>
+		<file>Features/Overlay/Games/Aika.qml</file>
+		<file>Features/Overlay/Games/BS.qml</file>
+		<file>Features/Overlay/OverlayBase.qml</file>
 		<file>Features/Ping/Ping.qml</file>
 		<file>js/Authorization.js</file>
 		<file>js/Authorization/Vk.qml</file>

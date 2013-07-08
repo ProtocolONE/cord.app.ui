@@ -726,7 +726,10 @@ Item {
 
         MouseArea {
             anchors.fill: parent
-            onDoubleClicked: closeAnimation.start();
+            onDoubleClicked: {
+                GoogleAnalytics.trackEvent('/Tray', 'Application', 'Quit', 'TopLeft');
+                closeAnimation.start();
+            }
         }
     }
 
@@ -764,7 +767,7 @@ Item {
     }
 
     Blocks.TryLoader {
-        source: "Blocks/GameOverlay.qml"
+        source: "Features/Overlay/GameOverlay.qml"
         onFailed: console.log('Can not load overlay');
         onSuccessed: console.log('Overlay ready');
     }

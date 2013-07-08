@@ -594,7 +594,9 @@ Rectangle {
                             hoverEnabled: true
                         }
 
-                        Component.onCompleted: MouseClick.addWidget(processWidget);
+                        Component.onCompleted: MouseClick.register(processWidget, function() {
+                            processWidget.visible = false;
+                        });
                     }
 
                 }

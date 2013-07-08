@@ -11,8 +11,8 @@
 
 var _widgetList = [];
 
-function addWidget(obj) {
-    _widgetList.push(obj);
+function register(item, callback) {
+    _widgetList.push({item: item, callback: callback});
 }
 
 function widgets() {
