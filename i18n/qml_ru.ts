@@ -1582,7 +1582,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>LOGOUT_TOOLTIP</source>
-        <translation>Логаут</translation>
+        <translation>Выйти</translation>
     </message>
     <message>
         <source>LEVEL_AVATAR_TOOLTIP</source>
