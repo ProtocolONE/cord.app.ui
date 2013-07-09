@@ -69,7 +69,7 @@ Item {
                 id: descr
 
                 color: "#000000"
-                font { family: "Arial"; pixelSize: 12; letterSpacing: 0.4 }
+                font { family: "Arial"; pixelSize: 12; letterSpacing: 0.4; capitalization: Font.AllUppercase }
                 anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 6 }
                 smooth: true
             }

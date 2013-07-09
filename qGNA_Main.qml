@@ -222,7 +222,7 @@ Item {
                 var serviceId, item;
 
                 imageBorder.visible = true;
-                ping.start();
+                //ping.start();
 
                 qGNA_main.lastState = "HomePage";
 
@@ -543,18 +543,19 @@ Item {
             id: guide
         }
 
+/*
         Ping.Ping {
             id: ping
 
             onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX,mouseY);
             onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
         }
-
+*/
         Proxy.MouseClick {
         }
 
         Blocks.Tray {
-            isFullMenu: mainAuthModule.isAuthed && !ping.mustBeShown
+            isFullMenu: mainAuthModule.isAuthed// && !ping.mustBeShown
 
             function quitTrigger() {
                 GoogleAnalytics.trackEvent('/Tray', 'Application', 'Quit');

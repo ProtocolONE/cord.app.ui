@@ -41,6 +41,7 @@ Item {
                                  guest);
 
             if (!rememberCheckBox.isChecked) {
+                loginTextInput.clear();
                 return;
             }
 

@@ -24,7 +24,8 @@ Item {
     Elements.CursorMouseArea {
         id: mouser
 
-        anchors.fill: parent
+        anchors { top: parent.top; left: parent.left; bottom: parent.bottom}
+        width: textBodyId.paintedWidth + 10
         hoverEnabled: true
         onClicked: {
             var currentitem = Core.currentGame();
@@ -55,7 +56,7 @@ Item {
         anchors { rightMargin: 5; topMargin: 36 }
         color: "#ffffff"
         wrapMode: Text.WordWrap
-        font { family: "Tahoma"; pixelSize: 16; }
+        font { family: "Tahoma"; pixelSize: 16; underline: mouser.containsMouse }
         smooth: true
         elide: Text.ElideRight
    }
