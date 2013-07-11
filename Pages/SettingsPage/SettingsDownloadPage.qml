@@ -11,6 +11,7 @@
 import QtQuick 1.1
 import qGNA.Library 1.0
 import "../../Elements" as Elements
+import "../../js/GoogleAnalytics.js" as GoogleAnalytics
 
 Rectangle {
     id: mainDownloadPageRectangle
@@ -23,6 +24,12 @@ Rectangle {
                                              "2000" : QT_TR_NOOP("2000 KByte/s"),
                                              "5000" : QT_TR_NOOP("5000 KByte/s"),
                                              "0" : QT_TR_NOOP("Unlimited")
+    }
+
+    QtObject {
+        id: d
+
+        property string port
     }
 
     Component {
@@ -141,8 +148,20 @@ Rectangle {
         buttonCheckListBoxText: settingsViewModel.incomingPort
         textInputElement.validator: IntValidator {bottom: 0; top: 65535;}
 
-        onTextChanged: settingsViewModel.setIncomingPort(text);
+        onTextChanged: {
+            d.port = text;
+            timer.restart();
+        }
         Elements.CursorShapeArea { anchors.fill: parent }
+    }
+
+    Timer {
+        id: timer
+
+        running: false
+        onTriggered: settingsViewModel.setIncomingPort(d.port);
+        repeat: false
+        interval: 500
     }
 
     Elements.Button3 {
@@ -255,4 +274,21 @@ Rectangle {
 
         Elements.CursorShapeArea { anchors.fill: parent }
     }
+
+    Elements.CheckBox {
+        enabled: true
+        anchors { top: parent.top; topMargin: 144 }
+
+        state: settingsViewModel.seedEnabled ? "Active" : "Normal"
+        buttonText: qsTr("CHECKBOX_GNA_SEED_ENABLED")
+        onChecked: {
+            settingsViewModel.seedEnabled = true;
+            GoogleAnalytics.trackEvent('/Settings', 'SettingsChange', 'Seed enabled', 'True');
+        }
+        onUnchecked: {
+            settingsViewModel.seedEnabled = false;
+            GoogleAnalytics.trackEvent('/Settings', 'SettingsChange', 'Seed enabled', 'False');
+        }
+    }
+
 }

@@ -113,6 +113,7 @@
 		<file>Pages/SettingsPage/SettingsGeneralPage.qml</file>
 		<file>Proxy/App.js</file>
 		<file>Proxy/App.qml</file>
+		<file>Proxy/MainWindow.qml</file>
 		<file>Proxy/MouseClick.js</file>
 		<file>Proxy/MouseClick.qml</file>
 		<file>Proxy/Player.qml</file>

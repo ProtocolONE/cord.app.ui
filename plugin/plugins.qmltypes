@@ -10,6 +10,9 @@ Module {
         exports: [
             "Tulip/App 1.0"
         ]
+        exportMetaObjectRevisions: [
+            0
+        ]
         Method { name: "arguments"; type: "QStringList" }
         Method { name: "hwid"; type: "string" }
     }
@@ -18,6 +21,9 @@ Module {
         prototype: "QObject"
         exports: [
             "Tulip/CredentialStorage 1.0"
+        ]
+        exportMetaObjectRevisions: [
+            0
         ]
         Method {
             name: "save"
@@ -121,6 +127,9 @@ Module {
         exports: [
             "Tulip/Marketing 1.0"
         ]
+        exportMetaObjectRevisions: [
+            0
+        ]
         Method {
             name: "send"
             Parameter { name: "target"; type: "int" }
@@ -147,6 +156,9 @@ Module {
         prototype: "QDeclarativeItem"
         exports: [
             "Tulip/Overlay 1.0"
+        ]
+        exportMetaObjectRevisions: [
+            0
         ]
         Enum {
             name: "InputType"
@@ -208,6 +220,9 @@ Module {
         exports: [
             "Tulip/WebViewHelper 1.0"
         ]
+        exportMetaObjectRevisions: [
+            0
+        ]
         Method { name: "clearCookies" }
         Method { name: "clearAllCookies" }
         Method {
@@ -226,6 +241,9 @@ Module {
         exports: [
             "Tulip/GoogleAnalyticsHelper 1.0"
         ]
+        exportMetaObjectRevisions: [
+            0
+        ]
         Method { name: "systemLanguage"; type: "string" }
         Method { name: "systemVersion"; type: "string" }
     }
@@ -235,6 +253,9 @@ Module {
         prototype: "QDeclarativeItem"
         exports: [
             "Tulip/CursorArea 1.0"
+        ]
+        exportMetaObjectRevisions: [
+            0
         ]
         Enum {
             name: "Cursor"
@@ -259,6 +280,9 @@ Module {
         prototype: "QObject"
         exports: [
             "Tulip/Desktop 1.0"
+        ]
+        exportMetaObjectRevisions: [
+            0
         ]
         Property { name: "screenWidth"; type: "int"; isReadonly: true }
         Property { name: "screenHeight"; type: "int"; isReadonly: true }
@@ -288,6 +312,9 @@ Module {
         exports: [
             "Tulip/QFileDialog 1.0"
         ]
+        exportMetaObjectRevisions: [
+            0
+        ]
         Method {
             name: "getOpenFileName"
             type: "string"
@@ -308,6 +335,9 @@ Module {
         exports: [
             "Tulip/QMultimedia 1.0"
         ]
+        exportMetaObjectRevisions: [
+            0
+        ]
         Method {
             name: "playSound"
             Parameter { name: "url"; type: "string" }
@@ -319,6 +349,9 @@ Module {
         prototype: "QDeclarativeItem"
         exports: [
             "Tulip/Window 1.0"
+        ]
+        exportMetaObjectRevisions: [
+            0
         ]
         Property { name: "x"; type: "int" }
         Property { name: "y"; type: "int" }
@@ -360,6 +393,9 @@ Module {
         exports: [
             "Tulip/Settings 1.0"
         ]
+        exportMetaObjectRevisions: [
+            0
+        ]
         Method {
             name: "setValue"
             Parameter { name: "group"; type: "string" }
@@ -386,6 +422,9 @@ Module {
         exports: [
             "Tulip/TrayWindow 1.0"
         ]
+        exportMetaObjectRevisions: [
+            0
+        ]
         Signal { name: "activate" }
         Signal {
             name: "activateWindow"
@@ -404,6 +443,9 @@ Module {
         prototype: "QDeclarativeItem"
         exports: [
             "Tulip/WheelArea 1.0"
+        ]
+        exportMetaObjectRevisions: [
+            0
         ]
         Signal {
             name: "verticalWheel"

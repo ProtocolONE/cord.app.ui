@@ -431,12 +431,6 @@ Rectangle {
                         bottomMargin: 86
                     }
 
-                    Image {
-                        anchors.fill: parent
-                        smooth: true
-                        source: installPath + "images/lay.png"
-                    }
-
                     Elements.IconButton { //rewards
                         toolTip: qsTr('REWARDS_TOOLTIP')
                         text: qsTr('REWARDS_BUTTON')
@@ -461,6 +455,7 @@ Rectangle {
                     }
 
                     Feature.Facts {
+                        visible: !d._maintenance
                         anchors { bottom: parent.bottom; left: parent.left }
                         anchors { bottomMargin: 20; leftMargin: 30 }
                     }
@@ -492,6 +487,7 @@ Rectangle {
                         running: currentItem
                                     ? (currentItem.status === "Downloading" && !currentItem.allreadyDownloaded)
                                     : false
+
                     }
 
                     Elements.ButtonBig {

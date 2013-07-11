@@ -62,7 +62,11 @@ Item {
     Timer {
         id: maintCheck
 
-        interval: scheduleTick.running ? (300000 + Math.random() * 300000) : 3600000 //10-20 minutes or 1 hour
+        function rand(min, max) {
+            return min + (Math.random() * (max - min)) | 0;
+        }
+
+        interval: scheduleTick.running ? rand(300000, 600000) : rand(1800000, 5400000) //10-20 min or 30 - 90 min
         onIntervalChanged: console.log('Maintenance interval: ' + interval)
         repeat: true
         triggeredOnStart: true

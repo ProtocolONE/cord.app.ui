@@ -42,7 +42,7 @@ Item {
     }
 
     Image {
-        source: installPath +  "images/abstraction.png"
+        source: installPath +  "images/backImage.png"
         anchors.top: parent.top
     }
 

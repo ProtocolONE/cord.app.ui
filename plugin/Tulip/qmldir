@@ -1,2 +1,5 @@
 plugin QmlExtensionX86
+plugin QmlViewerDevHelperX86
+plugin QmlOverlayX86
+
 

@@ -9,8 +9,13 @@
  ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  ****************************************************************************/
 
-var supportFrame = null;
-var supportFrameInstance = null;
+var supportFrame = null,
+    supportFrameInstance = null,
+    callback = [];
+
+function setCallback(func) {
+    callback.push(func);
+}
 
 function show(parent, name) {
     if (supportFrameInstance) {
@@ -29,5 +34,12 @@ function show(parent, name) {
     supportFrameInstance = supportFrame.createObject(parent, {itemName: name || ''});
     supportFrameInstance.beforeClosed.connect(function() {
        supportFrameInstance = null;
+        callback.forEach(function(e) {
+            e(false);
+        })
     });
+
+    callback.forEach(function(e) {
+        e(true);
+    })
 }

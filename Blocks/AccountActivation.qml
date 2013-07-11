@@ -3,6 +3,8 @@ import QtQuick 1.1
 import "." as Blocks
 import "../Elements" as Elements
 import "../js/restapi.js" as RestApi
+import "../js/Core.js" as Core
+import "../js/GoogleAnalytics.js" as GoogleAnalytics
 
 Blocks.MoveUpPage {
     id: page
@@ -33,6 +35,15 @@ Blocks.MoveUpPage {
     onVisibleChanged: {
         if (!visible) {
             state = "main";
+        }
+    }
+
+    onFinishOpening: sendGoogleStat('show')
+
+    function sendGoogleStat(action) {
+        var game = Core.currentGame();
+        if (game) {
+            GoogleAnalytics.trackEvent('/game/' + game.gaName, 'Add Cellphone', action);
         }
     }
 

@@ -209,7 +209,7 @@ Item {
                     visible: true;
                     width: parent.width;
                     height: parent.height
-                    model: newsItem.currentGame
+                    model: newsItem.model
                     clip: true
                     interactive: false
                     delegate:  Elements.NewsItem {
@@ -236,7 +236,7 @@ Item {
                         anchors.fill: parent
                         hoverEnabled: true
                         onClicked: {
-                            var currentGame = newsItem.currentGame.get(0)
+                            var currentGame = newsItem.model.get(0)
                             if (!currentGame || !currentGame.gameShortName)
                                 return;
 

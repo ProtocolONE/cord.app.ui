@@ -1,3 +1,6 @@
+@rem /////////////////////////////////////////
+@rem @set QTDIR=E:\Qt\4.8.5_2
+
 @echo It's necessary for QmlExtensionX86.
 @echo Copy SettingsX86.dll to qmlviewer directory
 @xcopy /Y /I /R /E "%QGNACOMMONDIR%\GGS\Settings\trunk\bin\SettingsX86.dll" "%QTDIR%\bin"

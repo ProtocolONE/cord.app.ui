@@ -30,6 +30,7 @@ import "js/Core.js" as Core
 import "js/GoogleAnalytics.js" as GoogleAnalytics
 import "js/Message.js" as AlertMessage
 
+import "js/support.js" as Support
 import "Proxy/App.js" as App
 
 
@@ -88,16 +89,6 @@ Item {
 
     Maintenance.Maintenance {}
 
-    BorderImage {
-        id: imageBorder
-
-        source: installPath + "images/mainBorder.png"
-        width: Core.clientWidth + 8
-        height: Core.clientHeight + 8
-        smooth: true
-        visible: false
-    }
-
     Item {
         id: qGNA_main
 
@@ -137,7 +128,6 @@ Item {
             id: closeAnimation;
 
             running: false;
-            onStarted: imageBorder.visible = false;
             onCompleted: onWindowClose()
             NumberAnimation { target: mainWindowRectanglw; property: "opacity"; from: 1; to: 0;  duration: 250 }
         }
@@ -146,7 +136,6 @@ Item {
             id: hideAnimation;
 
             running: false;
-            onStarted: imageBorder.visible = false;
             onCompleted: {
                 App.hide();
                 mainWindowRectanglw.opacity = 1;
@@ -157,12 +146,9 @@ Item {
         ParallelAnimation {
             id: openAnimation
 
-            running: true
-            onCompleted: {
-                Core.isClientLoaded = true;
-                imageBorder.visible = true;
-                onWindowOpen()
-            }
+            running: true;
+            onCompleted: onWindowOpen()
+
             NumberAnimation { target: mainWindowRectanglw; property: "opacity"; from: 0; to: 1;  duration: 750 }
         }
 
@@ -174,9 +160,7 @@ Item {
         }
 
         Image {
-            source: installPath + (qGNA_main.state == "HomePage" || qGNA_main.state == "LoadingPage"
-                                   ? "images/abstraction.png"
-                                   : "images/backImage.png")
+            source: installPath + "images/backImage.png"
             anchors.top: parent.top
         }
 
@@ -223,8 +207,7 @@ Item {
             onUpdateFinished: {
                 var serviceId, item;
 
-                imageBorder.visible = true;
-                //ping.start();
+                ping.start();
 
                 qGNA_main.lastState = "HomePage";
 
@@ -545,7 +528,6 @@ Item {
             id: guide
         }
 
-/*
         Ping.Ping {
             id: ping
 
@@ -559,7 +541,7 @@ Item {
         }
 
         Blocks.Tray {
-            isFullMenu: mainAuthModule.isAuthed// && !ping.mustBeShown
+            isFullMenu: mainAuthModule.isAuthed && !ping.mustBeShown
 
             function quitTrigger() {
                 GoogleAnalytics.trackEvent('/Tray', 'Application', 'Quit');

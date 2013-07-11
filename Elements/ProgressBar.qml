@@ -13,27 +13,11 @@ import QtQuick 1.1
 Item {
     id: progressBar
 
-    property bool running: true
+    property bool running: false
     property int progress: 0
 
-    onRunningChanged: {
-        if (running) {
-            hideAnim.complete();
-            startAnimTimer.start();
-        } else {
-            startAnimTimer.stop();
-            progressAnim.stop();
-        }
-    }
-
-    Timer {
-        id: startAnimTimer
-
-        running: false
-        interval: 500
-        repeat: false
-        onTriggered: progressAnim.start()
-    }
+    onRunningChanged: progressAnim.switchTimer();
+    Component.onCompleted: progressAnim.switchTimer();
 
     SequentialAnimation {
         id: hideAnim
@@ -48,6 +32,7 @@ Item {
         }
 
         PropertyAction { target: lightImage; property: "anchors.leftMargin"; value: -250; }
+        PropertyAction { target: progressAnim; property: "ainmationStep"; value: 0; }
     }
 
     Item {
@@ -85,17 +70,32 @@ Item {
             width: 250
         }
 
-        SequentialAnimation {
+        Timer {
             id: progressAnim
 
-            loops: Animation.Infinite
+            property real ainmationStep: 0
 
-            PauseAnimation { duration: 20 }
-            ParallelAnimation {
-                PropertyAnimation { target: lightImage; property: "opacity"; from: 0; to: 1 ; duration: 100 }
+            function switchTimer()
+            {
+                if (progressBar.running) {
+                    hideAnim.complete();
+                    lightImage.opacity = 1;
+                    progressAnim.ainmationStep = 0;
+                    progressAnim.start();
+                } else {
+                    progressAnim.stop();
+                }
             }
-            PropertyAnimation { target: lightImage; property: "anchors.leftMargin"; from: -250; to: progressBar.width ; duration: 3000; }
-            PropertyAnimation { target: lightImage;  property: "opacity"; from: 1; to: 0 ; duration: 200 }
+
+            interval: 33
+            repeat: true
+            onTriggered: {
+                var dif = 33 * ((progressBar.width + 250) / 3000)
+                ainmationStep = (ainmationStep + dif) % (progressBar.width + 250)
+                lightImage.anchors.leftMargin = Math.floor(ainmationStep - 250);
+            }
+
+            running: false
         }
     }
 }

@@ -821,7 +821,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>LOGO_BS</source>
-        <translation>Романтическая MMORPG</translation>
+        <translation>Романтическая ролевая игра</translation>
     </message>
     <message>
         <source>LOGO_GA</source>
@@ -2191,6 +2191,10 @@ Please try again later.</source>
     <message>
         <source>5000 KByte/s</source>
         <translation>5000 КБайт/c</translation>
+    </message>
+    <message>
+        <source>CHECKBOX_GNA_SEED_ENABLED</source>
+        <translation>Участвовать в раздаче игр</translation>
     </message>
 </context>
 <context>

@@ -162,7 +162,7 @@ Item {
     Models.NewsModel {
         id: news
 
-        onAllNewsReady: timer.start();
+        onNewsReady: timer.start();
     }
 
     SequentialAnimation {
@@ -226,6 +226,7 @@ Item {
 
         function refresh() {
             if (counterBadNews == 0) {
+                counterBadNews = 100;
                 return;
             }
 
@@ -236,7 +237,7 @@ Item {
             }
 
             // дальше хак, потому что restapi присылает старые несуществующие игры
-            var item = news.allGames.get(d.currentIndex);
+            var item = news.model.get(d.currentIndex);
 
             if (item && Core.serviceItemByGameId(item.gameId)) {
                 counterBadNews = 100;
@@ -249,14 +250,14 @@ Item {
 
         function up() {
             if (currentIndex == 0) {
-                currentIndex = news.allGames.count - 1;
+                currentIndex = news.model.count - 1;
             } else {
                 currentIndex--;
             }
         }
 
         function down() {
-            if (currentIndex == news.allGames.count - 1) {
+            if (currentIndex == news.model.count - 1) {
                 currentIndex = 0;
             } else {
                 currentIndex++;

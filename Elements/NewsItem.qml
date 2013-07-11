@@ -21,43 +21,45 @@ Item {
     property int newsCommentCount
     property int newsLikeCount
 
-    Elements.CursorMouseArea {
-        id: mouser
+    Item {
+        anchors { fill: parent; rightMargin: 5; topMargin: 19 }
 
-        anchors { top: parent.top; left: parent.left; bottom: parent.bottom}
-        width: textBodyId.paintedWidth + 10
-        hoverEnabled: true
-        onClicked: {
-            var currentitem = Core.currentGame();
-            if (currentitem) {
-                GoogleAnalytics.trackEvent('/newsBlock/' + currentitem.gaName, 'Navigation', 'Open News');
+        Elements.CursorMouseArea {
+            id: mouser
+
+            anchors { top: parent.top; left: parent.left; bottom: parent.bottom}
+            width: textBodyId.paintedWidth + 10
+            hoverEnabled: true
+            onClicked: {
+                var currentitem = Core.currentGame();
+                if (currentitem) {
+                    GoogleAnalytics.trackEvent('/newsBlock/' + currentitem.gaName, 'Navigation', 'Open News');
+                }
+
+                mainAuthModule.openWebPage(newsUrl);
             }
-
-            mainAuthModule.openWebPage(newsUrl);
         }
+
+        Text {
+            text: newsTextDate
+
+            anchors.fill: parent
+            color: "#ffffff"
+            wrapMode: Text.WordWrap
+            font.pixelSize: 14
+            opacity: 0.7
+        }
+
+        Text {
+            id: textBodyId
+
+            text: newsTextBody
+            anchors { right: parent.right; left: parent.left; top: parent.top; topMargin: 17}
+            color: "#ffffff"
+            wrapMode: Text.WordWrap
+            font { family: "Tahoma"; pixelSize: 16; underline: mouser.containsMouse }
+            smooth: true
+            elide: Text.ElideRight
+       }
     }
-
-    Text {
-        text: newsTextDate
-
-        anchors.fill: parent
-        anchors { rightMargin: 5; topMargin: 19 }
-        color: "#ffffff"
-        wrapMode: Text.WordWrap
-        font.pixelSize: 14
-        opacity: 0.7
-    }
-
-    Text {
-        id: textBodyId
-
-        text: newsTextBody
-        anchors { right: parent.right; left: parent.left; top: parent.top }
-        anchors { rightMargin: 5; topMargin: 36 }
-        color: "#ffffff"
-        wrapMode: Text.WordWrap
-        font { family: "Tahoma"; pixelSize: 16; underline: mouser.containsMouse }
-        smooth: true
-        elide: Text.ElideRight
-   }
 }

@@ -12,6 +12,7 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+import Tulip 1.0
 import "../../Blocks" as Blocks
 
 Blocks.MoveUpPage {
@@ -60,28 +61,28 @@ Blocks.MoveUpPage {
         property int maxIndex: checkList.length
         property int failCount: 0
         property variant checkList: [
-            'http://google.ru',
-            'http://wordpress.com',
-            'http://ya.ru',
-            'http://baidu.com',
-            'http://mail.ru',
-            'http://yahoo.com',
-            'http://www.gismeteo.ru',
-            'http://bing.com',
-            'http://rutube.ru',
-            'http://vk.com',
-            'http://live.com',
-            'http://liveinternet.ru',
-            'http://twitter.com',
-            'http://wikipedia.org',
-            'http://youtube.com',
-            'http://i.ua',
-            'http://www.facebook.com/',
-            'http://myspace.com',
-            'http://ukr.net',
-            'http://blogspot.com',
-            'http://ebay.ru',
-            'http://skype.com'
+            'google.ru',
+            'wordpress.com',
+            'ya.ru',
+            'baidu.com',
+            'mail.ru',
+            'yahoo.com',
+            'www.gismeteo.ru',
+            'bing.com',
+            'rutube.ru',
+            'vk.com',
+            'live.com',
+            'liveinternet.ru',
+            'twitter.com',
+            'wikipedia.org',
+            'youtube.com',
+            'i.ua',
+            'www.facebook.com',
+            'myspace.com',
+            'ukr.net',
+            'blogspot.com',
+            'ebay.ru',
+            'skype.com'
         ]
 
         function checkInternet() {
@@ -98,23 +99,13 @@ Blocks.MoveUpPage {
         }
 
         function checkGameNet() {
-            isUrlAvailable('http://gamenet.ru', function(isAvailable) {
+            isUrlAvailable('test.gamenet.ru', function(isAvailable) {
                 root.gameNetAvailable = isAvailable;
             });
         }
 
         function isUrlAvailable(url, fn) {
-            var http = new XMLHttpRequest();
-            http.onreadystatechange = function() {
-                if (http.readyState !== XMLHttpRequest.DONE) {
-                    return;
-                }
-
-                fn(http.status > 0 && http.status !== 404)
-            };
-
-            http.open('HEAD', url);
-            http.send();
+            fn(QPing.pingHost(url) > 0);
         }
     }
 

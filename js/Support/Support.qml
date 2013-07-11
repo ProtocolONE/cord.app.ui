@@ -5,6 +5,7 @@ import Tulip 1.0
 import "../restapi.js" as Api
 import "../UserInfo.js" as UserInfo
 import "../../Elements" as Elements
+import "../../Proxy" as Proxy
 
 Window {
     id: window
@@ -24,7 +25,7 @@ Window {
 
     deleteOnClose: true
 
-    flags: Qt.Tool | Qt.WindowStaysOnTopHint
+    flags: Qt.Tool
 
     width: 800
     height: 550
@@ -35,6 +36,35 @@ Window {
     title: qsTr("SUPPORT_HELP")
     onBeforeClosed: clearCookie();
 
+    Timer {
+        id: delayTimer
+
+        /*
+          HACK - нужно определять как-то активацию основного окна, и отличать её от клика по рабочей области приложения,
+          лучшего решения пока не удалось найти.
+        */
+
+        interval: 5
+        onTriggered: {
+            if (mainWindowProxy.isLeftClick) {
+                return;
+            }
+
+            window.activate();
+            mainWindowProxy.isLeftClick = false;
+        }
+    }
+
+    Proxy.MainWindow {
+        id: mainWindowProxy
+
+        property bool isLeftClick: false
+
+        onLeftMouseClick: isLeftClick = true;
+        onWindowActivate: delayTimer.restart();
+        onWindowDeactivate: isLeftClick = false;
+    }
+
     WebView {
         id: view
 
@@ -42,17 +72,6 @@ Window {
 
         function url() {
             return UserInfo.getUrlWithCookieAuth("http://www.gamenet.ru/support/qgna/" + itemName);
-        }
-
-        function updateNewWindowParent() {
-            if (view._lastParent) {
-                view._lastParent.destroy();
-            }
-
-            view._lastParent = _newParentHack.createObject(null);
-            view._lastParent.parent = view;
-
-            view.newWindowParent = view._lastParent;
         }
 
         anchors.fill: parent
@@ -69,7 +88,10 @@ Window {
 
         html: "<html><head><script type='text/javascript'>window.location='" + url() + "';</script></head><body></body></html>"
 
+        newWindowParent: view
         newWindowComponent: Item {
+            id: delegate
+
             WebView {
                 id: self
 
@@ -78,28 +100,28 @@ Window {
                 settings.autoLoadImages: false
 
                 onUrlChanged: {
-                    Qt.openUrlExternally(url);
-                    self.stop.trigger();
-                    view.updateNewWindowParent();
+                    delegate.visible = false;
+                    Qt.openUrlExternally(url)
                 }
             }
         }
 
         Component.onCompleted: {
             clearCookie();
-            updateNewWindowParent();
-        }
 
-        Component {
-           id: _newParentHack
-
-           Item {}
+            if (view.hasOwnProperty('activateLinkClicked')
+                && view.hasOwnProperty('linkClicked')) {
+                view.activateLinkClicked = true;
+                view.linkClicked.connect(function(url) {
+                    Qt.openUrlExternally(url);
+                });
+            }
         }
+    }
 
-        Elements.WorkInProgress {
-            anchors.fill: parent
-            interval: 0
-            state: view.progress !== 1 ? 'opened' : 'closed'
-        }
+    Elements.WorkInProgress {
+        anchors.fill: parent
+        interval: 0
+        state: view.progress !== 1 ? 'opened' : 'closed'
     }
 }

@@ -161,7 +161,6 @@ Item {
             smooth: true
             color: "#999999"
         }
-
     }
 }
 
