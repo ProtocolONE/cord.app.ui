@@ -82,7 +82,9 @@ Module {
                 "AnyStartQCS": 2728,
                 "FirstSuccessAuthInQCS": 2729,
                 "SuccessAuthInQCS": 2730,
-                "AnyStartQGna": 2731
+                "AnyStartQGna": 2731,
+                "ProblemAfterGameStart": 2748,
+                "NotLikeTheGame": 2749
             }
         }
         Enum {
@@ -140,67 +142,6 @@ Module {
             Parameter { name: "params"; type: "QVariantMap" }
         }
         Method { name: "mid"; type: "string" }
-    }
-    Component {
-        name: "GGS::Overlay::QmlOverlay"
-        defaultProperty: "data"
-        prototype: "QDeclarativeItem"
-        exports: [
-            "Tulip/Overlay 1.0"
-        ]
-        Enum {
-            name: "InputType"
-            values: {
-                "None": 0,
-                "Mouse": 1,
-                "Keyboard": 2,
-                "MouseAndKeyboard": 3
-            }
-        }
-        Property { name: "x"; type: "int" }
-        Property { name: "y"; type: "int" }
-        Property { name: "height"; type: "int" }
-        Property { name: "width"; type: "int" }
-        Property { name: "visible"; type: "bool" }
-        Property { name: "flags"; type: "int" }
-        Property { name: "windowState"; type: "Qt::WindowState" }
-        Property { name: "inputCapture"; type: "InputType" }
-        Property { name: "inputBlock"; type: "InputType" }
-        Property { name: "drawFps"; type: "bool" }
-        Signal { name: "sizeChanged" }
-        Signal { name: "xChanged" }
-        Signal { name: "yChanged" }
-        Signal { name: "visibleChanged" }
-        Signal { name: "beforeClosed" }
-        Signal { name: "flagsChanged" }
-        Signal { name: "windowStateChanged" }
-        Signal { name: "drawFpsChanged" }
-        Signal { name: "inputBlockChanged" }
-        Signal { name: "inputCaptureChanged" }
-        Signal {
-            name: "gameInit"
-            Parameter { name: "width"; type: "int" }
-            Parameter { name: "height"; type: "int" }
-        }
-        Signal {
-            name: "keyPressed"
-            Parameter { name: "key"; type: "int" }
-            Parameter { name: "modifiers"; type: "int" }
-            Parameter { name: "text"; type: "string" }
-            Parameter { name: "virtualCode"; type: "int" }
-        }
-        Signal {
-            name: "customMessage"
-            Parameter { name: "name"; type: "string" }
-            Parameter { name: "arg"; type: "string" }
-        }
-        Method { name: "init" }
-        Method { name: "repaint" }
-        Method {
-            name: "sendMessage"
-            Parameter { name: "name"; type: "string" }
-            Parameter { name: "arg"; type: "string" }
-        }
     }
     Component {
         name: "GGS::WebView::NetworkAccessManagerInteractor"

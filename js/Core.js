@@ -68,7 +68,9 @@ var runningService = {},
     gameIdToGameItem = {},
     count = 0,
     clientWidth = 930,
-    clientHeight = 550;
+    clientHeight = 550,
+    isClientLoaded = false;
+
 
 var gamesListModel = initModel();
 var _previousGame = gamesListModel.currentGameItem

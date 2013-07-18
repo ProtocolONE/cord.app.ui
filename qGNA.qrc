@@ -86,10 +86,8 @@
 		<file>Features/Guide/WellcomeGuide.qml</file>
 		<file>Features/Maintenance/Maintenance.qml</file>
 		<file>Features/Maintenance/MaintenanceHelper.js</file>
-		<file>Features/Overlay/GameOverlay.qml</file>
-		<file>Features/Overlay/Games/Aika.qml</file>
-		<file>Features/Overlay/Games/BS.qml</file>
-		<file>Features/Overlay/OverlayBase.qml</file>
+		<file>Features/News/News.js</file>
+		<file>Features/News/News.qml</file>
 		<file>Features/Ping/Ping.qml</file>
 		<file>js/Authorization.js</file>
 		<file>js/Authorization/Vk.qml</file>

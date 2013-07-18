@@ -19,6 +19,7 @@ import "Pages" as Pages
 import "Proxy" as Proxy
 import "Features/Guide" as Guide
 import "Features/Ping" as Ping
+import "Features/News" as News
 
 import "Blocks/Features/Announcements" as Announcements
 import "Features/Maintenance" as Maintenance
@@ -154,10 +155,11 @@ Item {
         }
 
         ParallelAnimation {
-            id: openAnimation;
+            id: openAnimation
 
-            running: true;
+            running: true
             onCompleted: {
+                Core.isClientLoaded = true;
                 imageBorder.visible = true;
                 onWindowOpen()
             }
@@ -550,7 +552,9 @@ Item {
             onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX,mouseY);
             onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
         }
-*/
+
+        News.News {}
+
         Proxy.MouseClick {
         }
 

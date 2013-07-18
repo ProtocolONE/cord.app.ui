@@ -11,6 +11,7 @@
 import QtQuick 1.1
 import Tulip 1.0
 import "../Proxy/App.js" as App
+import "../js/Core.js" as Core
 
 Item {
     id: root
@@ -27,7 +28,7 @@ Item {
         iconPath = iconPath.replace('file:///', '');
 
         TrayWindow.install(iconPath);
-        TrayWindow.activate.connect(App.activateWindow);
+        TrayWindow.activate.connect(window.activateWindow);
         TrayWindow.activateWindow.connect(window.moveToTray);
     }
 
@@ -36,6 +37,14 @@ Item {
 
         property int _mouseX
         property int _mouseY
+
+        function activateWindow() {
+            if (!Core.isClientLoaded) {
+                return;
+            }
+
+            App.activateWindow();
+        }
 
         function moveToTray(mouseX, mouseY) {
             var space = 15;

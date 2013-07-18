@@ -157,7 +157,6 @@ Item {
         DateHelper.setMonthNames([qsTr("JANUARY"), qsTr("FEBRUARY"), qsTr("MARCH"), qsTr("APRIL"), qsTr("MAY"),
                                   qsTr("JUNE"), qsTr("JULY"), qsTr("AUGUST"), qsTr("SEPTEMBER"), qsTr("OCTOBER"),
                                   qsTr("NOVEMBER"), qsTr("DECEMBER")]);
-        news.reloadNews();
     }
 
     Models.NewsModel {

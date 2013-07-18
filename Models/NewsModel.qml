@@ -10,11 +10,11 @@
 import QtQuick 1.1
 
 import "../js/restapi.js" as RestApi
+import "../Features/News/News.js" as News
 
 Item {
     id: newsItem
 
-    property bool timerReload: false
     property string filterGameId: "631"
     property alias currentGame: feedGame
     property alias allGames: feedAll
@@ -22,15 +22,12 @@ Item {
     signal newsReady()
     signal allNewsReady()
 
-    function reloadNews() {
-        RestApi.Wall.getNewsXml(function(news) {
-            if (news) {
-                feedGame.xml = news;
-                feedAll.xml = news;
-            }
-
-        }, function(){});
+    function updateNews() {
+        feedAll.xml = News.getNews();
+        feedGame.xml = News.getNews();
     }
+
+    Component.onCompleted: News.subscribe(newsItem)
 
     XmlListModel {
         id: feedGame
@@ -48,11 +45,10 @@ Item {
 
         onStatusChanged: {
             if (feedAll.status == XmlListModel.Ready && feedAll.get(0)) {
-                if (newsItem.timerReload === false) {
+                if (!News.timerReload()) {
                     newsReady();
                 }
-
-                newsItem.timerReload = false;
+                News.setTimerReload(false);
             }
         }
     }
@@ -73,25 +69,11 @@ Item {
 
         onStatusChanged: {
             if (feedAll.status == XmlListModel.Ready && feedAll.get(0)) {
-                if (newsItem.timerReload === false) {
+                if (!News.timerReload()) {
                     allNewsReady();
                 }
-
-                newsItem.timerReload = false;
+                News.setTimerReload(false);
             }
-        }
-    }
-
-    Timer {
-        //INFO from 15 to 60 minutes
-        interval: 900000 + Math.floor(Math.random() * 2700000)
-        running: true
-        repeat: true
-        onTriggered: {
-            console.log('Reloading news block');
-
-            newsItem.timerReload = true;
-            newsItem.reloadNews();
         }
     }
 }

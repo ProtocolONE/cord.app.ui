@@ -24,12 +24,6 @@ Item {
     property bool forceShowNews: false
     property string filterGameId: "631"
 
-    signal newsReady();
-
-    function reloadNews() {
-        newsBlock.newsReady();
-    }
-
     implicitWidth: 450
     implicitHeight: 206
     state: "AboutGameTab"
@@ -39,8 +33,6 @@ Item {
         DateHelper.setMonthNames([qsTr("JANUARY"), qsTr("FEBRUARY"), qsTr("MARCH"), qsTr("APRIL"), qsTr("MAY"),
                                  qsTr("JUNE"), qsTr("JULY"), qsTr("AUGUST"), qsTr("SEPTEMBER"), qsTr("OCTOBER"),
                                  qsTr("NOVEMBER"), qsTr("DECEMBER")]);
-
-        newsItem.reloadNews();
     }
 
     QtObject {
