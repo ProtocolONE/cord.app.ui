@@ -5,7 +5,6 @@ Item {
     id: root
 
     property string newsXml
-    property bool timerReload: false
 
     function reloadNews() {
         RestApi.Wall.getNewsXml(function(news) {
@@ -16,17 +15,18 @@ Item {
         }, function(){});
     }
 
-    Component.onCompleted: reloadNews()
+    Component.onCompleted: refreshNewsTimer.start()
 
     Timer {
+        id: refreshNewsTimer
+
         //INFO from 15 to 60 minutes
         interval: 900000 + Math.floor(Math.random() * 2700000)
-        running: true
+        running: false
         repeat: true
+        triggeredOnStart: true
         onTriggered: {
             console.log('Reloading news block');
-
-            root.timerReload = true;
             root.reloadNews();
         }
     }

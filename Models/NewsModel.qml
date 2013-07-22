@@ -37,10 +37,7 @@ Item {
 
         onStatusChanged: {
             if (feed.status == XmlListModel.Ready && feed.get(0)) {
-                if (!News.timerReload()) {
-                    newsReady();
-                }
-                News.setTimerReload(false);
+                newsReady();
             }
         }
     }

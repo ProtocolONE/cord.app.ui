@@ -249,7 +249,10 @@ Item {
         }
 
         function up() {
-            if (currentIndex == 0) {
+            if (news.model.count <= 0)
+                return;
+
+            if (currentIndex <= 0) {
                 currentIndex = news.model.count - 1;
             } else {
                 currentIndex--;
@@ -257,7 +260,10 @@ Item {
         }
 
         function down() {
-            if (currentIndex == news.model.count - 1) {
+            if (news.model.count <= 0)
+                return;
+
+            if (currentIndex >= news.model.count - 1) {
                 currentIndex = 0;
             } else {
                 currentIndex++;

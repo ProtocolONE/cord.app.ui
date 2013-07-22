@@ -22,13 +22,3 @@ function init() {
 function getNews() {
     return  _news.newsXml;
 }
-
-function timerReload() {
-    return _news ? _news.timerReload : false;
-}
-
-function setTimerReload(timerReload) {
-    if (_news) {
-        _news.timerReload = timerReload;
-    }
-}
