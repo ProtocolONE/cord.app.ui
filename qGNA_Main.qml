@@ -19,7 +19,6 @@ import "Pages" as Pages
 import "Proxy" as Proxy
 import "Features/Guide" as Guide
 import "Features/Ping" as Ping
-import "Features/News" as News
 
 import "Blocks/Features/Announcements" as Announcements
 import "Features/Maintenance" as Maintenance
@@ -207,7 +206,7 @@ Item {
             onUpdateFinished: {
                 var serviceId, item;
 
-                //ping.start();
+                ping.start();
 
                 qGNA_main.lastState = "HomePage";
 
@@ -528,14 +527,12 @@ Item {
             id: guide
         }
 
-//        Ping.Ping {
-//            id: ping
+        Ping.Ping {
+            id: ping
 
-//            onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX,mouseY);
-//            onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
-//        }
-
-        News.News {}
+            onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX,mouseY);
+            onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
+        }
 
         Proxy.MouseClick {
         }

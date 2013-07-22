@@ -105,8 +105,15 @@ Blocks.MoveUpPage {
         }
 
         function isUrlAvailable(url, fn) {
-            fn(QPing.pingHost(url) > 0);
+            ping.start(url);
+            ping.success.connect(function(value) {
+                fn(value > 0);
+            });
         }
+    }
+
+    PingEx {
+        id: ping
     }
 
     Column {

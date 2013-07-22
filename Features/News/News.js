@@ -1,19 +1,26 @@
 .pragma library
 
-var _news = null;
-var _objects  = [];
+var _news = init();
 
-function getNews() {
-    return _news ? _news.newsXml : '';
+function init() {
+    var component = Qt.createComponent('News.qml');
+
+    if (component.status != 1) {
+        console.log('FATAL: error loading news component');
+        return null;
+    }
+
+    var obj = component.createObject(null);
+    if (!obj) {
+        console.log('FATAL: error creating news');
+        return null;
+    }
+
+    return obj;
 }
 
-function setNews(news) {
-    _news = news;
-    _news.newsObtained.connect(function() {
-        _objects.forEach(function(e){
-            e.updateNews();
-        });
-    });
+function getNews() {
+    return  _news.newsXml;
 }
 
 function timerReload() {
@@ -24,8 +31,4 @@ function setTimerReload(timerReload) {
     if (_news) {
         _news.timerReload = timerReload;
     }
-}
-
-function subscribe(obj) {
-    _objects.push(obj);
 }

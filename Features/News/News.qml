@@ -1,5 +1,4 @@
 import QtQuick 1.1
-import 'News.js' as News
 import  "../../js/restapi.js" as RestApi
 
 Item {
@@ -8,22 +7,16 @@ Item {
     property string newsXml
     property bool timerReload: false
 
-    signal newsObtained();
-
     function reloadNews() {
         RestApi.Wall.getNewsXml(function(news) {
             if (news) {
                 newsXml = news;
-                newsObtained();
             }
 
         }, function(){});
     }
 
-    Component.onCompleted: {
-            News.setNews(root);
-            reloadNews();
-    }
+    Component.onCompleted: reloadNews()
 
     Timer {
         //INFO from 15 to 60 minutes

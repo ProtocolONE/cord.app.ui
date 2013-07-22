@@ -20,15 +20,10 @@ Item {
 
     signal newsReady()
 
-    function updateNews() {
-        feed.xml = News.getNews();
-    }
-
-    Component.onCompleted: News.subscribe(newsItem)
-
     XmlListModel {
         id: feed
 
+        xml: News.getNews()
         query: filterGameId === "-1" ? "/response/news/row" : ("/response/news/row[gameId=" + filterGameId + "]")
 
         XmlRole { name: "gameId"; query: "gameId/string()" }
