@@ -66,7 +66,7 @@ Item {
     Connections {
         target: Core.gamesListModel
         onCurrentGameItemChanged: {
-            if (!!Core.currentGame() && Core.currentGame().serviceId == "300011010000000000") {
+            if (!!Core.currentGame()) {
                newsBlock.state = "AboutGameTab";
                return;
             }
@@ -98,7 +98,7 @@ Item {
             Elements.IconButton {
                 id: newsTab
 
-                visible: Core.currentGame() != undefined && Core.currentGame().serviceId != "300011010000000000"
+                visible: Core.currentGame() != undefined
                 text: qsTr("TAB_NEWS")
                 source: newsTab.isActive ? installPath + "images/menu/news_active.png" : installPath + "images/menu/news.png"
                 onClicked: {
@@ -135,7 +135,7 @@ Item {
             }
 
             Elements.IconButton {
-                visible: Core.currentGame() != undefined && Core.currentGame().serviceId != "300011010000000000"
+                visible: Core.currentGame() != undefined
                 text: qsTr('SUPPORT_ICON_BUTTON')
                 source: installPath + "images/menu/help.png"
                 onClicked: SupportHelper.show(newsBlock, Core.currentGame() ? Core.currentGame().gaName : '');

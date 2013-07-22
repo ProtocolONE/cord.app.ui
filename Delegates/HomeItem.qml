@@ -152,20 +152,14 @@ Delegates.FlowViewDelegate {
                 }
 
                 // HACK Отключаем ферму от запуска
-                if (model.serviceId != "300011010000000000") {
-                    var status = model.status;
-                    if (status !== "Downloading" && status !== "Started") {
-                        App.downloadButtonStart(model.serviceId);
-                    }
+                var status = model.status;
+                if (status !== "Downloading" && status !== "Started") {
+                    App.downloadButtonStart(model.serviceId);
                 }
 
                 mouseClicked(model,false);
             } else if (buttonDetailsObj.x >= 0 && buttonDetailsObj.x <= buttonDetails.width && buttonDetailsObj.y >= 0 && buttonDetailsObj.y <= buttonDetails.height) { // кнопка Details
-                 if (model.serviceId != "300011010000000000") {
-                    mouseClicked(model,true);
-                 } else {
-                    mouseClicked(model,false);
-                 }
+                mouseClicked(model,true);
             } else {
                 mouseClicked(model,false);
             }
@@ -188,7 +182,6 @@ Delegates.FlowViewDelegate {
 
             Item {
                 anchors.fill: parent
-                visible: model.serviceId != "300011010000000000"
 
                 Rectangle {
                     color: "#ffffff"
@@ -222,7 +215,6 @@ Delegates.FlowViewDelegate {
 
             Item {
                 anchors.fill: parent
-                visible: model.serviceId != "300011010000000000"
 
                 Rectangle {
                     color: "#ffffff"

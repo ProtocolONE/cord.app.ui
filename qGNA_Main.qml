@@ -207,7 +207,7 @@ Item {
             onUpdateFinished: {
                 var serviceId, item;
 
-                ping.start();
+                //ping.start();
 
                 qGNA_main.lastState = "HomePage";
 
@@ -528,12 +528,12 @@ Item {
             id: guide
         }
 
-        Ping.Ping {
-            id: ping
+//        Ping.Ping {
+//            id: ping
 
-            onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX,mouseY);
-            onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
-        }
+//            onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX,mouseY);
+//            onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
+//        }
 
         News.News {}
 
@@ -541,7 +541,7 @@ Item {
         }
 
         Blocks.Tray {
-            isFullMenu: mainAuthModule.isAuthed && !ping.mustBeShown
+            isFullMenu: mainAuthModule.isAuthed // && !ping.mustBeShown
 
             function quitTrigger() {
                 GoogleAnalytics.trackEvent('/Tray', 'Application', 'Quit');
@@ -651,7 +651,7 @@ Item {
                 }
 
                 var item = Core.serviceItemByServiceId(service);
-                if (!gameExecuteTime.startTime || !item || item.serviceId == "300007010000000000") {
+                if (!gameExecuteTime.startTime || !item || item.gameType == "browser") {
                     return;
                 }
 

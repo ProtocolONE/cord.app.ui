@@ -493,7 +493,7 @@ Rectangle {
                     Elements.ButtonBig {
                         id: singleBigButton
 
-                        visible: !!currentItem && !d._maintenance && currentItem.serviceId != "300011010000000000"
+                        visible: !!currentItem && !d._maintenance
 
                         anchors { right: parent.right; rightMargin: 30; verticalCenter: parent.verticalCenter }
 
@@ -535,22 +535,6 @@ Rectangle {
                                 }
                             }
                         }
-                    }
-
-                    // Hack Убираем ферму для запуска
-                    Elements.ButtonBig {
-                        visible: !!currentItem && !d._maintenance && currentItem.serviceId == "300011010000000000"
-
-                        anchors { right: parent.right; rightMargin: 30; verticalCenter: parent.verticalCenter }
-
-                        buttonText: qsTr("BUTTON_PLAY_DEFAULT_STATE")
-                        buttonPauseText: qsTr("BUTTON_PLAY_ON_PAUSE_STATE")
-                        buttonDownloadText: qsTr("BUTTON_PLAY_DOWNLOADING_NOW_STATE")
-                        buttonErrorText: qsTr("BUTTON_PLAY_ERROR_STATE")
-                        buttonDownloadedText: qsTr("BUTTON_PLAY_DOWNLOADED_AND_READY_STATE")
-
-                        isMouseAreaAccepted: false
-                        isStarted: true
                     }
 
                     Text {
