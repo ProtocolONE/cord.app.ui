@@ -109,6 +109,9 @@ Blocks.MoveUpPage {
             ping.success.connect(function(value) {
                 fn(value > 0);
             });
+            ping.failed.connect(function(value) {
+                fn(false);
+            });
         }
     }
 
