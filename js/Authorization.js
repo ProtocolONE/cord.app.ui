@@ -4,7 +4,7 @@ Qt.include('./Crypt.js');
 Qt.include('./restapi.js');
 
 //Replaced during CI build
-var authVersion = "1.0.23.e5c61c357e3ab28bc0ad13e332f3f920ec91b56f"
+var authVersion = "1.0.24.beeea4039d4beede077626a67f2d78de4cac477f"
     , _hwid
     , _mid;
 
@@ -280,12 +280,12 @@ ProviderVk.prototype.login = function(callback) {
 
 ProviderVk.prototype.getUrl = function(redirectUrl) {
     var uri = new Uri()
-        .setHost('http://api.vk.com')
+        .setHost('http://oauth.vk.com')
         .setPath('/oauth/authorize')
         .addQueryParam('client_id', this.appId)
         .addQueryParam('response_type', 'code')
         .addQueryParam('scope', 'friends,offline')
-        .addQueryParam('display', 'popup')
+        .addQueryParam('display', 'mobile')
         .addQueryParam('redirect_uri', redirectUrl)
 
     return uri.toString()

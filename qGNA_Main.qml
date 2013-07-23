@@ -206,7 +206,7 @@ Item {
             onUpdateFinished: {
                 var serviceId, item;
 
-                ping.start();
+                // ping.start();
 
                 qGNA_main.lastState = "HomePage";
 
@@ -526,14 +526,14 @@ Item {
         Guide.WellcomeGuide {
             id: guide
         }
-
+/*
         Ping.Ping {
             id: ping
 
             onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX,mouseY);
             onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
         }
-
+*/
         Proxy.MouseClick {
         }
 

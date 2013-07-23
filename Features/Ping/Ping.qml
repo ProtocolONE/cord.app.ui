@@ -40,8 +40,8 @@ Blocks.MoveUpPage {
     Timer {
         id: gameNetCheck
 
-        interval: root.gameNetAvailable ? 30000 : 5000
-        repeat: true
+        interval: d.gamenetFailCount == 0 ? 30000 : 5000
+        repeat: false
         running: root.internetAvailable
         onTriggered: d.checkGameNet()
     }
@@ -60,6 +60,7 @@ Blocks.MoveUpPage {
         property int currentIndex: (Math.random() * checkList.length) % checkList.length
         property int maxIndex: checkList.length
         property int failCount: 0
+        property int gamenetFailCount: 0
         property variant checkList: [
             'google.ru',
             'wordpress.com',
@@ -86,37 +87,53 @@ Blocks.MoveUpPage {
         ]
 
         function checkInternet() {
-            isUrlAvailable(checkList[++currentIndex % maxIndex], function(isAvailable) {
-                if (!isAvailable && ++failCount < 3) {
-                    checkInternet();
-                    return;
-                }
-
-                failCount = 0;
-                root.internetAvailable = isAvailable;
-                inetCheck.restart();
-            });
+            inetCheck.stop();
+            ping.start(checkList[++currentIndex % maxIndex]);
         }
 
         function checkGameNet() {
-            isUrlAvailable('test.gamenet.ru', function(isAvailable) {
-                root.gameNetAvailable = isAvailable;
-            });
-        }
-
-        function isUrlAvailable(url, fn) {
-            ping.start(url);
-            ping.success.connect(function(value) {
-                fn(value > 0);
-            });
-            ping.failed.connect(function(value) {
-                fn(false);
-            });
+            gameNetPing.start('test.gamenet.ru');
         }
     }
 
     PingEx {
         id: ping
+
+        onSuccess: {
+            d.failCount = 0;
+            root.internetAvailable = true;
+            inetCheck.restart();
+        }
+
+        onFailed: {
+            if (++d.failCount < 3) {
+                d.checkInternet();
+                return;
+            }
+
+            root.internetAvailable = false;
+            inetCheck.restart();
+        }
+    }
+
+    PingEx {
+        id: gameNetPing
+
+        onSuccess: {
+            d.gamenetFailCount = 0;
+            root.gameNetAvailable = true;
+            gameNetCheck.restart();
+        }
+
+        onFailed: {
+            if (++d.gamenetFailCount < 3) {
+                d.checkGameNet();
+                return;
+            }
+
+            root.gameNetAvailable = false;
+            gameNetCheck.restart();
+        }
     }
 
     Column {

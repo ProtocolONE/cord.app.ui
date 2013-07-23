@@ -49,7 +49,7 @@ Blocks.MoveUpPage {
 
     Component.onCompleted: {
         var mid = Marketing.mid();
-        Authorization.setup({ mid: mid, hwid: App.hwid()});
+        Authorization.setup({ mid: mid, hwid: encodeURIComponent(App.hwid())});
 
         console.log('Authorization use mid `' + mid + '`');
     }
