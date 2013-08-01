@@ -431,6 +431,22 @@ Rectangle {
                         bottomMargin: 86
                     }
 
+
+                    AnimatedImage {
+                        source: installPath + "images/hot.gif"
+                        anchors { top: parent.top; right: parent.right }
+                        anchors { topMargin: 13; rightMargin: 30 }
+
+                        Elements.CursorMouseArea {
+                            anchors.fill: parent
+                            toolTip: qsTr('REWARDS_TOOLTIP')
+                            tooltipGlueCenter: true
+                            onClicked: mainAuthModule.openWebPage("http://www.gamenet.ru/hotsummer");
+                        }
+                    }
+
+                    /*
+                    //INFO Временно заменена на кнопку "Жара" (до 15 августа 2013)
                     Elements.IconButton { //rewards
                         toolTip: qsTr('REWARDS_TOOLTIP')
                         text: qsTr('REWARDS_BUTTON')
@@ -440,7 +456,7 @@ Rectangle {
                         tooltipGlueCenter: true
                         onClicked: mainAuthModule.openWebPage("http://rewards.gamenet.ru/");
                     }
-
+*/
                     Blocks.NewsBlock {
                         id: newsBlock
 
