@@ -63,8 +63,9 @@ ListModel {
 
         maintenance: false
         maintenanceInterval: 0
-        maintenanceProposal1: "300005010000000000"
+        maintenanceProposal1: "300011010000000000"
         maintenanceProposal2: "300003010000000000"
+        maintenanceEndPause: false
 
         licenseUrl: "http://www.combatarms.ru/license"
 
@@ -107,7 +108,8 @@ ListModel {
         maintenance: false
         maintenanceInterval: 0
         maintenanceProposal1: "300002010000000000"
-        maintenanceProposal2: "300009010000000000"
+        maintenanceProposal2: "300011010000000000"
+        maintenanceEndPause: false
 
         licenseUrl: "http://www.bs.ru/license"
 
@@ -151,7 +153,8 @@ ListModel {
         maintenance: false
         maintenanceInterval: 0
         maintenanceProposal1: "300003010000000000"
-        maintenanceProposal2: "300009010000000000"
+        maintenanceProposal2: "300011010000000000"
+        maintenanceEndPause: false
 
         licenseUrl: "http://www.aika2.ru/license"
 
@@ -163,6 +166,43 @@ ListModel {
         aboutGameText: QT_TR_NOOP("GAME_AIKA_ABOUT_TEXT")
         miniToolTip: QT_TR_NOOP("GAME_AIKA_MINI_TOOLTIP")
         shortDescription: QT_TR_NOOP("GAME_AIKA_MINI_DESC")
+    }
+
+    ListElement {
+        gameType: "browser"
+        name: "Ферма Джейн"
+        imageFooter: "images/games/Farm-Jane.png"
+        imageSmall: "images/games/fj_icon_small.png"
+        imageBack : "images/games/fj_back.png"
+        imageHorizontalSmall: "images/games/fj_horizontal_small.png"
+
+        size: "normal"
+        serviceId: "300011010000000000"
+        gameId: "759"
+
+        forumUrl: ""
+        blogUrl: ""
+
+        status: "Normal" // Error Started Paused Downloading
+        statusText: ""
+        progress: -1
+        allreadyDownloaded: false
+        gaName: "FermaJane" // Never change please
+
+        maintenance: false
+        maintenanceInterval: 0
+        maintenanceProposal1: "300003010000000000"
+        maintenanceProposal2: "300009010000000000"
+        maintenanceEndPause: false
+
+        itemState: "Normal";
+        animationPause: 0
+        hasOverlay: false
+
+        logoText: QT_TR_NOOP("LOGO_FJ")
+        aboutGameText: QT_TR_NOOP("GAME_FJ_ABOUT_TEXT")
+        miniToolTip: QT_TR_NOOP("GAME_FJ_MINI_TOOLTIP")
+        shortDescription: QT_TR_NOOP("GAME_FJ_MINI_DESC")
     }
 
     ListElement {
@@ -194,6 +234,7 @@ ListModel {
         maintenanceInterval: 0
         maintenanceProposal1: "300003010000000000"
         maintenanceProposal2: "300009010000000000"
+        maintenanceEndPause: false
 
         licenseUrl: "http://www.playga.ru/license"
 
@@ -206,7 +247,6 @@ ListModel {
         miniToolTip: QT_TR_NOOP("GAME_GA_MINI_TOOLTIP")
         shortDescription: QT_TR_NOOP("GAME_GA_MINI_DESC")
     }
-
 
     ListElement {
         gameType: "standalone"
@@ -238,6 +278,7 @@ ListModel {
         maintenanceInterval: 0
         maintenanceProposal1: "300009010000000000"
         maintenanceProposal2: "300002010000000000"
+        maintenanceEndPause: false
 
         licenseUrl: "http://www.firestorm.ru/license"
 
@@ -281,6 +322,7 @@ ListModel {
         maintenanceInterval: 0
         maintenanceProposal1: "300003010000000000"
         maintenanceProposal2: "300002010000000000"
+        maintenanceEndPause: false
 
         licenseUrl: "http://www.mw2.ru/license"
 
@@ -292,40 +334,5 @@ ListModel {
         aboutGameText: QT_TR_NOOP("GAME_MW2_ABOUT_TEXT")
         miniToolTip: QT_TR_NOOP("GAME_MW2_MINI_TOOLTIP")
         shortDescription: QT_TR_NOOP("GAME_MW2_MINI_DESC")
-    }
-
-    ListElement {
-        gameType: "browser"
-        name: "Ферма Джейн"
-        imageFooter: "images/games/Farm-Jane.png"
-        imageSmall: "images/games/fj_icon_small.png"
-        imageBack : "images/games/fj_back.png"
-
-        size: "normal"
-        serviceId: "300011010000000000"
-        gameId: "759"
-
-        forumUrl: ""
-        blogUrl: ""
-
-        status: "Normal" // Error Started Paused Downloading
-        statusText: ""
-        progress: -1
-        allreadyDownloaded: false
-        gaName: "FermaJane" // Never change please
-
-        maintenance: false
-        maintenanceInterval: 0
-        maintenanceProposal1: "300003010000000000"
-        maintenanceProposal2: "300009010000000000"
-
-        itemState: "Normal";
-        animationPause: 0
-        hasOverlay: false
-
-        logoText: QT_TR_NOOP("LOGO_FJ")
-        aboutGameText: QT_TR_NOOP("GAME_FJ_ABOUT_TEXT")
-        miniToolTip: QT_TR_NOOP("GAME_FJ_MINI_TOOLTIP")
-        shortDescription: QT_TR_NOOP("GAME_FJ_MINI_DESC")
     }
 }

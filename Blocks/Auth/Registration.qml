@@ -253,7 +253,15 @@ Item {
                                 textEchoMode: TextInput.Normal
                                 editDefaultText: qsTr("PLACEHOLDER_LOGIN_INPUT")
                                 focus: true
-                                onEnterPressed: registrationPage.registerButtonClicked();
+                                onEnterPressed: {
+                                    if (!registerPasswordTextInput.textEditComponent.text) {
+                                        registerPasswordTextInput.textEditComponent.focus = true;
+                                        return;
+                                    }
+
+                                    registrationPage.registerButtonClicked();
+                                }
+
                                 textEditComponent.onTextChanged: {
                                     if (authRegisterMoveUpPage.guestAutoStart)
                                         authPage.stopGuestAutoStart();

@@ -28,19 +28,22 @@ Item {
                 continue;
             }
 
+            startTime = schedule[index].startTime * multiplier;
+
+            //INFO maintenanceEndPause корректно отработает и выключился, потому, что будет вызван из maintCheck, т.о. состояние
+            //"паузы" после профилактики продлится минимум от получаса до 90 минут.
+            item.maintenanceEndPause = (currentTime >= startTime) && (currentTime < (endTime + (1800 * multiplier)));
+
             if (endTime < currentTime) {
                 item.maintenance = false;
                 item.maintenanceInterval = 0;
                 continue;
             }
 
-            startTime = schedule[index].startTime * multiplier;
-
             Helper.schedule[index] = {
                 startTime: startTime,
                 endTime: endTime
             };
-
 
             item.maintenance = currentTime >= startTime && currentTime < endTime;
             item.maintenanceInterval = Math.round((endTime - currentTime) / 1000);

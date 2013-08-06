@@ -99,7 +99,9 @@ Blocks.MoveUpPage {
                     buttonText: qsTr("BUTTON_BROWSE")
                     height: 27
                     onButtonClicked: {
-                        var result = QFileDialog.getExistingDirectory(qsTr('FIRSTLICENSE_BROWSE_WINDOW_CAPTION'), page.pathInput);
+                        var result = gameSettingsModel.browseDirectory(page.serviceId,
+                                                                       Core.serviceItemByServiceId(page.serviceId).name,
+                                                                       page.pathInput);
                         if (result) {
                             page.pathInput = result;
                         }

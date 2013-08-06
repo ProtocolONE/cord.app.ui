@@ -464,6 +464,21 @@ Item {
             }
         }
 
+        Blocks.FirstLicense {
+            id: firstLicense
+
+            anchors.fill: parent
+            onAccept: {
+                if (firstLicense.serviceId && firstLicense.serviceId != "0" && firstLicense.serviceId != "300007010000000000") {
+                    App.setServiceInstallPath(firstLicense.serviceId, firstLicense.pathInput, firstLicense.createShortcut);
+                }
+
+                App.acceptFirstLicense(firstLicense.serviceId);
+                firstLicense.closeMoveUpPage();
+                guide.start();
+            }
+        }
+
         Blocks.AlertAdapter {
             id: alertAdapter
 
@@ -488,21 +503,6 @@ Item {
                 onPressed: onWindowPressed(mouseX,mouseY);
                 onReleased: onWindowReleased(mouseX,mouseY);
                 onPositionChanged: onWindowPositionChanged(mouseX,mouseY);
-            }
-        }
-
-        Blocks.FirstLicense {
-            id: firstLicense
-
-            anchors.fill: parent
-            onAccept: {
-                if (firstLicense.serviceId && firstLicense.serviceId != "0" && firstLicense.serviceId != "300007010000000000") {
-                    mainWindow.setServiceInstallPath(firstLicense.serviceId, firstLicense.pathInput, firstLicense.createShortcut);
-                }
-
-                mainWindow.acceptFirstLicense(firstLicense.serviceId);
-                firstLicense.closeMoveUpPage();
-                guide.start();
             }
         }
 

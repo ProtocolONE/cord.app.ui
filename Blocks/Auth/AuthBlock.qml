@@ -250,7 +250,14 @@ Item {
                             textEchoMode: TextInput.Normal
                             editDefaultText: qsTr("PLACEHOLDER_LOGIN_INPUT")
                             focus: true
-                            onEnterPressed: authPage.startGenericAuth();
+                            onEnterPressed: {
+                                if (!passwordTextInput.textEditComponent.text) {
+                                    passwordTextInput.textEditComponent.focus = true;
+                                    return;
+                                }
+
+                                authPage.startGenericAuth();
+                            }
 
                             textEditComponent.onTextChanged: {
                                 if (authRegisterMoveUpPage.guestAuthEnabled)

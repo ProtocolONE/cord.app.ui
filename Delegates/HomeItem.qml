@@ -141,6 +141,7 @@ Delegates.FlowViewDelegate {
 
         anchors.fill: parent
         hoverEnabled: true
+        visible: !openAnim.running
 
         onClicked: {
             var buttonPlayObj = mouser.mapToItem(buttonPlay,mouseX,mouseY);

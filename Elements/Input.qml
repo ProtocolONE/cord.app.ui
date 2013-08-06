@@ -68,13 +68,34 @@ Rectangle {
     }
 
     onTabPressed: {
-        if (typeahead.numFilerItems > 0) {
-            textInputLogin.text = typeahead.completeText();
+        if (!textInputLogin.text || typeahead.numFilerItems <= 0) {
+            return;
         }
+
+        textInputLogin.text = typeahead.completeText();
     }
-    Keys.onDownPressed: typeahead.incrementCurrentIndex();
-    Keys.onUpPressed: typeahead.decrementCurrentIndex();
+
+    Keys.onDownPressed: {
+        if (!textInputLogin.text || typeahead.numFilerItems <= 0) {
+            return;
+        }
+
+        typeahead.incrementCurrentIndex();
+    }
+
+    Keys.onUpPressed: {
+        if (!textInputLogin.text || typeahead.numFilerItems <= 0) {
+            return;
+        }
+
+        typeahead.decrementCurrentIndex();
+    }
+
     Keys.onRightPressed: {
+        if (!textInputLogin.text) {
+            return;
+        }
+
         if (typeahead.numFilerItems > 0) {
             textInputLogin.text = typeahead.completeText();
             typeahead.numFilerItems = 0;
@@ -114,11 +135,16 @@ Rectangle {
     Text {
         id: autoCompleteText
 
-        anchors { left: parent.left; leftMargin: 8; right: clear.left; rightMargin: 8; verticalCenter: parent.verticalCenter}
+        property int typeTextCoord: textInputLogin.positionToRectangle(textInputLogin.text.length).x
+
+        anchors { left: parent.left; leftMargin: 8; verticalCenter: parent.verticalCenter }
+        width: textInputLogin.width
         font { family: fontFamily; pixelSize: fontSize }
+        elide: Text.ElideRight
         color: '#9a9a9a'
         text: typeahead.completeText();
-        visible: typeahead.numFilerItems > 0
+        visible: (typeahead.numFilerItems > 0) &&
+                 (typeTextCoord < (width - (textInputLogin.anchors.leftMargin + textInputLogin.anchors.rightMargin)))
     }
 
     TextInput {
@@ -149,7 +175,7 @@ Rectangle {
         Keys.onPressed: {
             failState = false;
 
-            if (event.key == Qt.Key_Return  || event.key == Qt.Key_Enter) {
+            if (event.key == Qt.Key_Return  || event.key == Qt.Key_Enter) {              
                 if (typeahead.numFilerItems > 0) {
                     text = typeahead.completeText();
                     typeahead.numFilerItems = 0;
@@ -380,8 +406,10 @@ Rectangle {
                 Text {
                     x: 5
                     y: 2
+                    width: parent.width - x
                     text: login
                     color: '#111111'
+                    elide: Text.ElideRight
                     font { family: 'Arial'; pixelSize: 14 }
                 }
 

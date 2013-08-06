@@ -127,6 +127,8 @@ Rectangle {
                 return;
             }
 
+            d._maintenanceEndPause = !!currentItem.maintenanceEndPause;
+
             if (!MaintenanceHelper.updatedService.hasOwnProperty(currentItem.serviceId)) {
                 d._maintenance = false;
                 return;
@@ -151,6 +153,7 @@ Rectangle {
         }
 
         property bool _maintenance: false
+        property bool _maintenanceEndPause: false
 
         property bool currentItemMaintenance: currentItem ? isServiceMaintenance(currentItem.serviceId) : false
         property bool ignoreMaintenance: false
@@ -299,7 +302,7 @@ Rectangle {
             }
         }
 
-        onProgressbarChange: {
+        onProgressbarChange: { // @DEPRECATED
             var item = Core.serviceItemByServiceId(serviceId);
             if (!item) {
                 console.log('Unknown service ' + serviceId)
@@ -334,7 +337,47 @@ Rectangle {
             }
         }
 
-        onProgressbarExtractionChange: {
+        onTotalProgressChanged: {
+            var item = Core.serviceItemByServiceId(serviceId);
+            if (!item) {
+                console.log('Unknown service ' + serviceId)
+                return;
+            }
+
+            item.progress = progress;
+        }
+
+        onDownloadProgressChanged: {
+            var item = Core.serviceItemByServiceId(serviceId);
+            if (!item) {
+                console.log('Unknown service ' + serviceId)
+                return;
+            }
+
+            var isInstalled = d.isServiceInstalled(serviceId);
+            GamesSwitchHelper.gamesDownloadData[serviceId] = {
+                totalWantedDone: totalWantedDone,
+                totalWanted: totalWanted,
+                directTotalDownload: directTotalDownload,
+                peerTotalDownload: peerTotalDownload,
+                payloadTotalDownload: payloadTotalDownload,
+                peerPayloadDownloadRate: peerPayloadDownloadRate,
+                payloadDownloadRate: payloadDownloadRate,
+                directPayloadDownloadRate: directPayloadDownloadRate,
+                playloadUploadRate: playloadUploadRate,
+                totalPayloadUpload: totalPayloadUpload
+            }
+
+            processWidget.refresh();
+
+            item.progress = progress;
+            item.statusText = (isInstalled ? qsTr("TEXT_PROGRESSBAR_UPDATING_NOW_STATE") :
+                                             qsTr("TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE"))
+                .arg(Math.round(totalWantedDone / 10000) / 100)
+                .arg(Math.round(totalWanted / 10000) / 100);
+        }
+
+        onProgressbarExtractionChange: {// @DEPRECATED
             var item = Core.serviceItemByServiceId(serviceId);
             if (!item) {
                 console.log('Unknown service ' + serviceId)
@@ -432,18 +475,73 @@ Rectangle {
                     }
 
 
-                    AnimatedImage {
-                        source: installPath + "images/hot.gif"
+                    Column {
                         anchors { top: parent.top; right: parent.right }
                         anchors { topMargin: 13; rightMargin: 30 }
 
-                        Elements.CursorMouseArea {
-                            anchors.fill: parent
-                            toolTip: qsTr('REWARDS_TOOLTIP')
-                            tooltipGlueCenter: true
-                            onClicked: mainAuthModule.openWebPage("http://www.gamenet.ru/hotsummer");
+                        AnimatedImage {
+                            source: installPath + "images/hot.gif"
+
+                            Elements.CursorMouseArea {
+                                anchors.fill: parent
+                                toolTip: qsTr('REWARDS_TOOLTIP')
+                                tooltipGlueCenter: true
+                                onClicked: mainAuthModule.openWebPage("http://www.gamenet.ru/hotsummer");
+                            }
+                        }
+
+                        Text {
+                            color: "#ffffff"
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: "Осталось"
+                            font.pixelSize: 16
+                            visible: timeLeft.visible
+                        }
+
+                        Text {
+                            id: timeLeft
+                            color: "#ffffff"
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            font.pixelSize: 14
+
+                            Timer {
+                                function pre(num) {
+                                    return num > 9 ? num : ("0" + num)
+                                }
+
+                                running: true
+                                interval: 1000
+                                repeat: true
+                                triggeredOnStart: true
+                                onTriggered: {
+                                    var now = +new Date(),
+                                        end = +new Date(2013, 7, 16, 0, 0, 0),
+                                        seconds = Math.max(0, ((end - now) / 1000) |0);
+
+                                    if (seconds === 0) {
+                                        timeLeft.visible = false;
+                                        stop();
+                                        return;
+                                    }
+
+                                    var days = (seconds / 86400) |0;
+                                    seconds -= days * 86400;
+
+                                    var hours = (seconds / 3600) |0;
+                                    seconds -= hours * 3600;
+
+                                    var minutes = (seconds / 60) |0
+                                    seconds -= minutes * 60;
+
+                                    timeLeft.text = (days > 0 ? (days + "д ") : '')
+                                            + pre(hours) + ":" + pre(minutes) + ":" + pre(seconds);
+
+                                }
+                            }
                         }
                     }
+
+
 
                     /*
                     //INFO Временно заменена на кнопку "Жара" (до 15 августа 2013)
@@ -470,8 +568,9 @@ Rectangle {
                         anchors { bottomMargin: 20; rightMargin: 30 }
                     }
 
+
                     Feature.Facts {
-                        visible: !d._maintenance
+                        visible: (!d._maintenance) && (!d._maintenanceEndPause)
                         anchors { bottom: parent.bottom; left: parent.left }
                         anchors { bottomMargin: 20; leftMargin: 30 }
                     }
