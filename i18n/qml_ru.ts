@@ -690,7 +690,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>FIRSTLICENSE_BROWSE_WINDOW_CAPTION</source>
-        <translation>Путь установки игры</translation>
+        <translation type="obsolete">Путь установки игры</translation>
     </message>
     <message>
         <source>FIRSTLICENSE_GAME_LICENSE_CAPTION</source>
@@ -762,6 +762,10 @@ Please try again later.</source>
     <message>
         <source>POPUP_READY_TO_START</source>
         <translation>Игра готова к запуску!</translation>
+    </message>
+    <message>
+        <source>PUBLIC_TEST_TOOLTIP</source>
+        <translation>Вы приняли участие в тестировании новых функций клиента GameNet. Нажмите, чтобы узнать подробности.</translation>
     </message>
 </context>
 <context>
@@ -1731,6 +1735,31 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>PublicTestWarning</name>
+    <message>
+        <source>PUBLIC_TEST_HELP_TEXT</source>
+        <translation>Вы принимаете участие в тестировании новых функций приложения GameNet. Если Вы столкнулись с ошибками в процессе загрузки или запуска игр, пожалуйста, сообщите об этом в нашу службу поддержки, уточнив, что Вы используете тестовую версию.
+Переключиться с тестовой версии на основную можно в настройках приложения GameNet в разделе &quot;Основные&quot; (пункт &quot;Принять участие в тестировании GameNet&quot;).
+Благодарим Вас за помощь в тестировании, Вы помогаете нам сделать GameNet еще лучше!</translation>
+    </message>
+    <message>
+        <source>PUBLIC_TEST_TITLE</source>
+        <translation>Внимание</translation>
+    </message>
+    <message>
+        <source>PUBLIC_TEST_SUPPORT_BUTTON</source>
+        <translation>Сообщить о проблеме</translation>
+    </message>
+    <message>
+        <source>PUBLIC_TEST_CHANGE_VERSION_BUTTON</source>
+        <translation>Прекратить тестирование GameNet</translation>
+    </message>
+    <message>
+        <source>PUBLIC_TEST_CLOSE_BUTTON</source>
+        <translation>Закрыть</translation>
+    </message>
+</context>
+<context>
     <name>Registration</name>
     <message>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
@@ -2622,11 +2651,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>CLOSE_APP_TOOLTIP_MESSAGE</source>
-        <translation>Подтверждение выхода</translation>
+        <translation type="obsolete">Подтверждение выхода</translation>
     </message>
     <message>
         <source>CLOSE_APP_TOOLTIP_MESSAGE_DESC</source>
-        <translation>Игра %1 будет закрыта вместе с приложением. Работа игры без приложения невозможна. Закрыть приложение и игру?</translation>
+        <translation type="obsolete">Игра %1 будет закрыта вместе с приложением. Работа игры без приложения невозможна. Закрыть приложение и игру?</translation>
     </message>
 </context>
 <context>

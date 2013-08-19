@@ -19,6 +19,7 @@ import "Pages" as Pages
 import "Proxy" as Proxy
 import "Features/Guide" as Guide
 import "Features/Ping" as Ping
+import "Features/PublicTest" as PublicTest
 
 import "Blocks/Features/Announcements" as Announcements
 import "Features/Maintenance" as Maintenance
@@ -534,6 +535,12 @@ Item {
             onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
         }
 */
+
+        PublicTest.PublicTestWarning {
+            onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX,mouseY);
+            onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
+        }
+
         Proxy.MouseClick {
         }
 

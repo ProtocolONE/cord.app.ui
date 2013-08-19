@@ -8,7 +8,7 @@ Item {
     height: 800
 
     // HACK
-    //Component.onCompleted: d.createOverlay("300003010000000000");
+    // Component.onCompleted: d.createOverlay("300003010000000000");
 
     Connections {
         target: mainWindow
@@ -34,7 +34,8 @@ Item {
 
             var component = null;
             var supportedGames = {
-                '300002010000000000': 'Games/Aika.qml',
+                // 26.08.2031 HACK Выключено из-за проблемы на XP
+                //'300002010000000000': 'Games/Aika.qml',
                 '300003010000000000': 'Games/BS.qml',
             }
 

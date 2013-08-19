@@ -6,6 +6,7 @@ import "../../../Elements" as Elements
 import ".." as OverlayBase
 
 import "../../../js/UserInfo.js" as UserInfo
+import "../../../Proxy/App.js" as App
 
 OverlayBase.OverlayBase {
     id: over
@@ -58,6 +59,10 @@ OverlayBase.OverlayBase {
         over.bsGameState = bsState;
         if (bsState != 'EnteredWorld') {
             over.closeShop();
+            over.errorOnLastShopOpen = true;
+        } else {
+            webShopView.reloadShop();
+            over.errorOnLastShopOpen = true;
         }
     }
 
@@ -144,6 +149,13 @@ OverlayBase.OverlayBase {
         if (arg === "1") {
             over.openShop();
         }
+    }
+
+
+    function clearCookie() {
+        WebViewHelper.setCookiesFromUrl('', 'http://www.gamenet.ru')
+        WebViewHelper.setCookiesFromUrl('', 'http://gamenet.ru')
+        WebViewHelper.setCookiesFromUrl('', 'https://gnlogin.ru')
     }
 
     onKeyPressed: {
@@ -266,18 +278,8 @@ OverlayBase.OverlayBase {
         WebView {
             id: webShopView
 
-            //                    function getUrlWithCookieAuth(url)
-            //                    {
-            //                        var _cookie = '5IXpWXRDnsrRTRTQE2iUmPeju0T3gpYhIqMfYlAx1XicWvaV5BIu8jrPuNCQYVhbl1agUTbaYYlVySbwGwrfulvEBRhzxGnkczncZ66htZN%2FKNeULSDaM6OsDOX7o7d8GVWbLqMXO%2BPWeh70ex7XMTBUoLb0vV6XjhRjxn3W7h6jiVVX96ZZbx0lNih1Oyb3oneGjOog3gob187Knd2%2BR%2FV4b8hNHnbzD2aE62J3hZgLByeN2nm%2BzyCj7zFhpxUtN11v8ule%2BCob6yFB2D%2FzPx%2FTu9T9SId8Bdwk6J0JxxKthnyGwxEeQ8DKcstdNXWul5xlGIE%2BBgMdGerN26UPYetiJRf96m2ReUsLI7JFVkBK0rtbr6r3biLfBCEzM5Kp3BsNwjffSmmt7eZvH1zV7suJJw';
-            //                        return _cookie ? 'http://gnlogin.sabirov.dev/?auth=' + _cookie + '&rp=' + encodeURIComponent(url) : url;
-            //                    }
-
-            function url() {
-                //return "http://mail.ru"
-                return UserInfo.getUrlWithCookieAuth("http://www.gamenet.ru/games/bs/helper");
-                //                        var q = getUrlWithCookieAuth("http://shop.beletskaya.dev/bs/?serverId=74");
-                //                        console.log('open url ', q);
-                //                        return q;
+            function getShopUrl() {
+                return UserInfo.getUrlWithCookieAuth("http://shop.gamenet.ru/bs");
             }
 
             function urlEncondingHack(url) {
@@ -285,15 +287,20 @@ OverlayBase.OverlayBase {
             }
 
             function reloadShop() {
-                webShopView.html = urlEncondingHack(url());
+                webShopView.html = urlEncondingHack(getShopUrl());
             }
 
-            html: urlEncondingHack(url())
+            Component.onCompleted: clearCookie();
+
+            html: ""
             anchors.centerIn: parent
-            preferredWidth: 1000
-            preferredHeight: 700
-            width: 1000
-            height: 700
+            preferredWidth: 1002
+            preferredHeight: 697
+            width: 1002
+            height: 697
+
+            scale: 1
+
             visible: over.isShopOpened
             opacity: over.isShopOpened ? 1 : 0
 
@@ -310,6 +317,10 @@ OverlayBase.OverlayBase {
                 function closeShopWindow() {
                     over.closeShop();
                 }
+
+                function openExternalWindow(url) {
+                    App.openExternalBrowser(url);
+                }
             }
 
             onLoadFailed: {
@@ -324,5 +335,6 @@ OverlayBase.OverlayBase {
                 acceptedButtons: Qt.RightButton
             }
         }
+
     }
 }

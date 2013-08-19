@@ -13,6 +13,9 @@ import "../Features/Maintenance/MaintenanceHelper.js" as MaintenanceHelper
 import "../Features/Facts" as Feature
 import "../Proxy/App.js" as App
 import "../Proxy/MouseClick.js" as MouseClick
+import "../js/Message.js" as AlertMessage
+
+import "../Features/PublicTest/index.js" as PublicTest
 
 Rectangle {
     id: root
@@ -474,77 +477,6 @@ Rectangle {
                         bottomMargin: 86
                     }
 
-
-                    Column {
-                        anchors { top: parent.top; right: parent.right }
-                        anchors { topMargin: 13; rightMargin: 30 }
-
-                        AnimatedImage {
-                            source: installPath + "images/hot.gif"
-
-                            Elements.CursorMouseArea {
-                                anchors.fill: parent
-                                toolTip: qsTr('REWARDS_TOOLTIP')
-                                tooltipGlueCenter: true
-                                onClicked: mainAuthModule.openWebPage("http://www.gamenet.ru/hotsummer");
-                            }
-                        }
-
-                        Text {
-                            color: "#ffffff"
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            text: "Осталось"
-                            font.pixelSize: 16
-                            visible: timeLeft.visible
-                        }
-
-                        Text {
-                            id: timeLeft
-                            color: "#ffffff"
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            font.pixelSize: 14
-
-                            Timer {
-                                function pre(num) {
-                                    return num > 9 ? num : ("0" + num)
-                                }
-
-                                running: true
-                                interval: 1000
-                                repeat: true
-                                triggeredOnStart: true
-                                onTriggered: {
-                                    var now = +new Date(),
-                                        end = +new Date(2013, 7, 16, 0, 0, 0),
-                                        seconds = Math.max(0, ((end - now) / 1000) |0);
-
-                                    if (seconds === 0) {
-                                        timeLeft.visible = false;
-                                        stop();
-                                        return;
-                                    }
-
-                                    var days = (seconds / 86400) |0;
-                                    seconds -= days * 86400;
-
-                                    var hours = (seconds / 3600) |0;
-                                    seconds -= hours * 3600;
-
-                                    var minutes = (seconds / 60) |0
-                                    seconds -= minutes * 60;
-
-                                    timeLeft.text = (days > 0 ? (days + "д ") : '')
-                                            + pre(hours) + ":" + pre(minutes) + ":" + pre(seconds);
-
-                                }
-                            }
-                        }
-                    }
-
-
-
-                    /*
-                    //INFO Временно заменена на кнопку "Жара" (до 15 августа 2013)
                     Elements.IconButton { //rewards
                         toolTip: qsTr('REWARDS_TOOLTIP')
                         text: qsTr('REWARDS_BUTTON')
@@ -554,13 +486,30 @@ Rectangle {
                         tooltipGlueCenter: true
                         onClicked: mainAuthModule.openWebPage("http://rewards.gamenet.ru/");
                     }
-*/
+
                     Blocks.NewsBlock {
                         id: newsBlock
 
                         anchors { top: parent.top; left: parent.left }
                         anchors { topMargin: 11; leftMargin: 30 }
                         filterGameId: currentItem ? currentItem.gameId : "671"
+                    }
+
+                    Image {
+                        visible: settingsViewModel.isPublicTestVersion
+
+                        source: installPath + "/images/warning.png"
+                        anchors { bottom: parent.bottom; right: parent.right }
+                        anchors { bottomMargin: 130; rightMargin: 30 }
+
+                        Elements.CursorMouseArea {
+                            id: warningButtonMouser
+
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            toolTip: qsTr("PUBLIC_TEST_TOOLTIP")
+                            onClicked: PublicTest.show();
+                        }
                     }
 
                     Blocks.SocialNet {

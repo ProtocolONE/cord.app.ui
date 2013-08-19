@@ -24,7 +24,7 @@ OverlayBase.OverlayBase {
 
     onCustomMessage: {
         // HACK ближе к лайву возможно убрать или частично убрать.
-        //console.log('Overlay custom message ', name, arg);
+        console.log('Overlay custom message ', name, arg);
 
         var handlers = {
             'AikaShowWindow': over.onAikaShowWindow,
@@ -48,6 +48,9 @@ OverlayBase.OverlayBase {
         width: 72
         height: 72
         visible: false
+        onVisibleChanged: console.log('Shop button visible', aikaShopButton.visible)
+
+        Component.onCompleted: console.log('On start shop button visible', aikaShopButton.visible)
 
         Image {
             source: installPath + "/images/GameOverlay/Aika/" + (aikaShopButton.opened ? "shopDown.png" : ( mouser.containsMouse ? "shopHover.png" : "shop.png" ))
