@@ -4,7 +4,7 @@ Qt.include('./Crypt.js');
 Qt.include('./restapi.js');
 
 //Replaced during CI build
-var authVersion = "1.0.24.beeea4039d4beede077626a67f2d78de4cac477f"
+var authVersion = "1.0.26.beeea4039d4beede077626a67f2d78de4cac477f"
     , _hwid
     , _mid;
 

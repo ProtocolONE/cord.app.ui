@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>SUBTITLE_MOBILE_ACTIVATION</source>
-        <translation>Введите номер вашего мобильного телефона&lt;br&gt;в международном формате, например: +7 900 123 45 67 </translation>
+        <translation>Введите номер вашего мобильного телефона&lt;br&gt;в международном формате, например: +7 900 123 45 67 &lt;br&gt;На указанный номер мы пришлём SMS с кодом активации.&lt;br&gt;Это бесплатно.</translation>
     </message>
     <message>
         <source>PLACEHOLDER_MOBILE_NUMBER_INPUT</source>
