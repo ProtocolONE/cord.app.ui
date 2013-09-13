@@ -66,7 +66,7 @@ Item {
     Connections {
         target: Core.gamesListModel
         onCurrentGameItemChanged: {
-            if (!!Core.currentGame()) {
+            if (!Core.currentGame()) {
                newsBlock.state = "AboutGameTab";
                return;
             }
