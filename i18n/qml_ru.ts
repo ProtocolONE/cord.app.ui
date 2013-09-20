@@ -1286,6 +1286,10 @@ Please try again later.</source>
         <source>Login</source>
         <translation>Логин</translation>
     </message>
+    <message>
+        <source>ENABLED_CAPSLOCK_TIPS</source>
+        <translation type="unfinished">Включен &quot;Caps Lock&quot;</translation>
+    </message>
 </context>
 <context>
     <name>LicenseBlock</name>

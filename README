@@ -1,0 +1,4 @@
+Ключи для запуска qGNA в QML Viewer
+
+-I "/var installPath=%QMLDIR%" -translation "%QMLDIR%\i18n\qml_ru.qm"
+где %QMLDIR% - полный путь к qml проекту.

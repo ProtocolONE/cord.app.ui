@@ -26,6 +26,7 @@ Rectangle {
     property string inputMask
     property int maximumLength: 32767
 
+    property bool showKeyboardLayout: false
     property string editDefaultText: qsTr("Login")
     property string editText: textInputLogin.text
     property int textEchoMode: TextInput.Normal
@@ -129,7 +130,7 @@ Rectangle {
 
     MouseArea {
         anchors.fill: parent
-        onClicked: input.focus = true
+        onClicked: input.editFocus = true
     }
 
     Text {
@@ -150,7 +151,12 @@ Rectangle {
     TextInput {
         id: textInputLogin
 
-        anchors { left: parent.left; leftMargin: 8; right: clear.left; rightMargin: 8; verticalCenter: parent.verticalCenter}
+        anchors {
+            left: parent.left;
+            leftMargin: 8; right: layoutHint.visible ? layoutHint.left : parent.right;
+            rightMargin: 8;
+            verticalCenter: parent.verticalCenter
+        }
         selectByMouse: true
         maximumLength: input.maximumLength
         inputMask: input.inputMask
@@ -158,7 +164,7 @@ Rectangle {
         color: failState ? "#E5392D" : textColor
         font { family: fontFamily; pixelSize: fontSize }
         focus: editFocus
-        onAccepted: { input.opacity = 0; input.searchEntered(text); clear.opacity = 0 }
+        onAccepted: { input.opacity = 0; input.searchEntered(text); }
         echoMode: textEchoMode
 
         onTextChanged: typeahead.filter = text;
@@ -199,26 +205,49 @@ Rectangle {
         }
     }
 
-    Image {
-        id: clear
+    Rectangle {
+        id: layoutHint
 
-        width: 12; height: 12
-        smooth: true
-        anchors { right: parent.right; rightMargin: 8; verticalCenter: parent.verticalCenter }
-        source: installPath + "images/delete.png"
-        opacity: 0
+        width: 24
+        height: 24
+        visible: showKeyboardLayout && textInputLogin.focus
+        anchors { right: parent.right; top: parent.top; topMargin: 2; rightMargin: 2 }
 
-        NumberAnimation { id: opacityUp; running: false; target: clear; property: "opacity"; from: 0.65; to: 1.0; duration: 175; }
-        NumberAnimation { id: opacityDown; running: false; target: clear; property: "opacity"; from: 1; to: 0.65; duration: 175; }
+        color: keybLayoutMouseArea.containsMouse ? '#2d8700' : '#6cab4c'
 
-        Elements.CursorMouseArea {
-            id: clearMouser
+        CursorMouseArea {
+            id: keybLayoutMouseArea
 
             anchors.fill: parent
-            hoverEnabled: true
-            onClicked: { textInputLogin.text = ''; input.focus = true; failState = false; }
-            onEntered: { if (input.state == "hasText") opacityUp.start(); }
-            onExited: { if (input.state == "hasText") opacityDown.start(); }
+            onClicked: keyboardHook.changeLayout();
+        }
+
+        Text {
+            anchors.centerIn: parent
+            text: keyboardHook.keyboardLayout
+            color: '#ffffff'
+            font { family: 'Arial'; pixelSize: 12; bold: true }
+        }
+    }
+
+
+    Item {
+        anchors { left: parent.right; top: parent.top; bottom: parent.bottom; leftMargin: 6 }
+        width: capsLockTips.width + 20
+        visible: keyboardHook.capsLockEnabled && showKeyboardLayout && textInputLogin.focus
+
+        Rectangle {
+            anchors.fill: parent
+            color: '#266f01'
+        }
+
+        Text {
+            id: capsLockTips
+
+            anchors.centerIn: parent
+
+            text: qsTr("ENABLED_CAPSLOCK_TIPS")
+            color: '#ffffff'
         }
     }
 
@@ -430,7 +459,6 @@ Rectangle {
     states: State {
         name: "hasText"; when: textInputLogin.text != ''
         PropertyChanges { target: placeholderText; opacity: 0 }
-        PropertyChanges { target: clear; opacity: 0.75 }
     }
 
     transitions: [

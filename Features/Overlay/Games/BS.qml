@@ -25,6 +25,13 @@ OverlayBase.OverlayBase {
 
     property bool errorOnLastShopOpen: false
 
+    property string silver;
+    property int money;
+    property int coupon;
+    property int bonus;
+    property int goldOnChar;
+    property int silverOnChar;
+
     function openShop() {
         blockInputTurnOffDelay.stop();
 
@@ -143,6 +150,30 @@ OverlayBase.OverlayBase {
             loadingCharTimer.start();
             return;
         }
+
+        if (packetType === 'NS_BagSilver') {
+            over.silver = packet.totalSilver;
+            over.silverOnChar = packet.silver;
+            over.goldOnChar = packet.gold;
+            console.log('Current total silver: ', packet.silver, ' Gold: ', packet.gold, ' Silver: ', packet.silver);
+        }
+
+        if (packetType === 'NS_BagYuanBao') {
+            over.money = packet.yuanBao;
+            console.log('Current money: ', packet.yuanBao);
+        }
+
+        if (packetType === 'NS_ExchangeVolume') {
+            over.coupon = packet.nCurExVolume;
+            console.log('Current coupon: ', packet.nCurExVolume);
+        }
+
+        if (packetType === 'NS_Mark') {
+            over.bonus = packet.nCurMark;
+            console.log('Current bonus: ', packet.nCurMark);
+        }
+
+
     }
 
     function onBSOpenMall(name, arg) {
@@ -166,7 +197,7 @@ OverlayBase.OverlayBase {
 
     onCustomMessage: {
         // HACK ближе к лайву возможно убрать или частично убрать.
-        //console.log('Overlay custom message ', name, arg);
+        // console.log('Overlay custom message ', name, arg);
 
         var handlers = {
             'BSCreateWindow': over.onBsWindowCreate,
@@ -320,6 +351,23 @@ OverlayBase.OverlayBase {
 
                 function openExternalWindow(url) {
                     App.openExternalBrowser(url);
+                }
+
+                function getMoney() {
+                    var result = {
+                        silverOnChar: over.silverOnChar,
+                        goldOnChar: over.goldOnChar,
+                        realMoney: over.money,
+                        coupon: over.coupon,
+                        bonus: over.bonus
+                    };
+
+                    console.log('BS current balance', JSON.stringify(result));
+                    return result;
+                }
+
+                function isShopOpened() {
+                    return webShopView.visible;
                 }
             }
 

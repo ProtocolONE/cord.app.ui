@@ -298,6 +298,7 @@ Item {
                                 height: 28
                                 textEchoMode: TextInput.Password
                                 editDefaultText: qsTr("PLACEHOLDER_PASSWORD_INPUT")
+                                showKeyboardLayout: true
                                 focus: true
                                 onEnterPressed: registrationPage.registerButtonClicked();
                                 textEditComponent.onTextChanged: {

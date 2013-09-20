@@ -9,7 +9,6 @@
 ****************************************************************************/
 
 import QtQuick 1.1
-import qGNA.Library 1.0
 import Tulip 1.0
 import "." as Current
 import "Elements" as Elements
@@ -32,15 +31,15 @@ import "js/Message.js" as AlertMessage
 
 import "js/support.js" as Support
 import "Proxy/App.js" as App
+import "Proxy/AppProxy.js" as AppProxy
 
 
 Item {
     id: mainWindowRectanglw
 
-    clip: true
     width: Core.clientWidth + 8
     height: Core.clientHeight + 8
-    color: "#00000000"
+    clip: true
 
     signal onWindowPressed(int x, int y);
     signal onWindowReleased(int x, int y);
@@ -64,12 +63,15 @@ Item {
                                         });
     }
 
+    Proxy.AppProxy {}
+
     Component.onCompleted: {
         var desktop = Desktop.screenWidth + 'x' + Desktop.screenHeight
             , url = Settings.value('qGNA/restApi', 'url', 'https://gnapi.com:8443/restapi');
 
         RestApi.Core.setup({lang: 'ru', url: url});
 
+        console.log('appProxy', App.mainWindow);
         console.log('Version ', App.fileVersion());
         console.log('Desktop ', desktop);
         console.log('RestApi ', url);

@@ -55,7 +55,7 @@ Window {
         }
     }
 
-    Proxy.MainWindow {
+    Proxy.MainWindowHelper {
         id: mainWindowProxy
 
         property bool isLeftClick: false

@@ -9,15 +9,26 @@
 ****************************************************************************/
 
 import QtQuick 1.1
-import qGNA.Library 1.0
 import Tulip 1.0
-import "../js/Core.js" as Core
+import "../Proxy" as Proxy
 import "../Elements" as Elements
 import "../Delegates" as Delegates
 import ".."
 
+import "../js/Core.js" as Core
+import "../Proxy/AppProxy.js" as AppProxy
+import "../Proxy/App.js" as App
+
 Rectangle {
     id: settingsPageId
+
+//    property alias settingsViewModel: loader.item
+//    property alias gameSettingsModel: loader.item
+
+//    Loader {
+//        id: loader
+//    }
+
 
  //HACK
 //    Item {

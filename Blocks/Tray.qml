@@ -24,7 +24,7 @@ Item {
     onMenuClick: window.hide();
 
     Component.onCompleted: {
-        var iconPath = installPath + 'images//icon.png';
+        var iconPath = installPath + 'images/tray.ico';
         iconPath = iconPath.replace('file:///', '');
 
         TrayWindow.install(iconPath);

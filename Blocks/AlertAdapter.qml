@@ -9,9 +9,8 @@
 ****************************************************************************/
 
 import QtQuick 1.1
-import qGNA.Library 1.0
-
 import "../Elements" as Elements
+import "../Proxy/AppProxy.js" as AppProxy
 
 Item {
     id: page
@@ -59,24 +58,26 @@ Item {
 
         var result = {};
 
-        result[Message.Ok] = qsTr("OK");
-        result[Message.Save] = qsTr("Save");
-        result[Message.SaveAll] = qsTr("SaveAll");
-        result[Message.Open] = qsTr("Open");
-        result[Message.Yes] = qsTr("Yes");
-        result[Message.YesToAll] = qsTr("YesToAll");
-        result[Message.No] = qsTr("No");
-        result[Message.NoToAll] = qsTr("NoToAll");
-        result[Message.Abort] = qsTr("Abort");
-        result[Message.Retry] = qsTr("Retry");
-        result[Message.Ignore] = qsTr("Ignore");
-        result[Message.Close] = qsTr("Close");
-        result[Message.Cancel] = qsTr("Cancel");
-        result[Message.Discard] = qsTr("Discard");
-        result[Message.Help] = qsTr("Help");
-        result[Message.Apply] = qsTr("Apply");
-        result[Message.Reset] = qsTr("Reset");
-        result[Message.RestoreDefaults] = qsTr("RestoreDefaults");
+
+
+        result[AppProxy.Message.Ok] = qsTr("OK");
+        result[AppProxy.Message.Save] = qsTr("Save");
+        result[AppProxy.Message.SaveAll] = qsTr("SaveAll");
+        result[AppProxy.Message.Open] = qsTr("Open");
+        result[AppProxy.Message.Yes] = qsTr("Yes");
+        result[AppProxy.Message.YesToAll] = qsTr("YesToAll");
+        result[AppProxy.Message.No] = qsTr("No");
+        result[AppProxy.Message.NoToAll] = qsTr("NoToAll");
+        result[AppProxy.Message.Abort] = qsTr("Abort");
+        result[AppProxy.Message.Retry] = qsTr("Retry");
+        result[AppProxy.Message.Ignore] = qsTr("Ignore");
+        result[AppProxy.Message.Close] = qsTr("Close");
+        result[AppProxy.Message.Cancel] = qsTr("Cancel");
+        result[AppProxy.Message.Discard] = qsTr("Discard");
+        result[AppProxy.Message.Help] = qsTr("Help");
+        result[AppProxy.Message.Apply] = qsTr("Apply");
+        result[AppProxy.Message.Reset] = qsTr("Reset");
+        result[AppProxy.Message.RestoreDefaults] = qsTr("RestoreDefaults");
 
         _buttonMesages = result;
     }
@@ -90,8 +91,8 @@ Item {
 
             focus: visible
 
-            Keys.onEnterPressed: enterClicked(Message.Ok);
-            Keys.onReturnPressed: enterClicked(Message.Ok);
+            Keys.onEnterPressed: enterClicked(AppProxy.Message.Ok);
+            Keys.onReturnPressed: enterClicked(AppProxy.Message.Ok);
         }
     }
 

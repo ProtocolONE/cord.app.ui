@@ -4,7 +4,7 @@ Qt.include('./Crypt.js');
 Qt.include('./restapi.js');
 
 //Replaced during CI build
-var authVersion = "1.0.26.beeea4039d4beede077626a67f2d78de4cac477f"
+var authVersion = "1.0.27.2315b3b88a2ed53b8e7f631aebcb1983ef4fccec"
     , _hwid
     , _mid;
 
@@ -184,7 +184,7 @@ ProviderGameNet.prototype.refreshCookie = function(userId, appKey, callback) {
 
 var ProviderVk = function(parent) {
     this.appId = 2452628;
-    this.redirectUrl = 'http://www.gamenet.ru/virality/auth';
+    this.redirectUrl = 'https://gnlogin.ru/social';
     this.titleApiUrl = 'gnlogin.ru';
     this.parentObject = parent;
     this.browser = null;
