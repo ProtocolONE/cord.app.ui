@@ -257,7 +257,7 @@ Blocks.MoveUpPage {
 
     Timer {
         running: true
-        interval: 3600
+        interval: 3600000
         repeat: true
         triggeredOnStart: false
         onTriggered: {
