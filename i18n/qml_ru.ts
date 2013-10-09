@@ -2467,6 +2467,10 @@ Please try again later.</source>
         <source>MENU_ITEM_QUIT</source>
         <translation>Выход</translation>
     </message>
+    <message>
+        <source>TRAY_TOOLTIP</source>
+        <translation>GameNet</translation>
+    </message>
 </context>
 <context>
     <name>UpdateManager</name>

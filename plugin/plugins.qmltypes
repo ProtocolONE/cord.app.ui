@@ -232,6 +232,7 @@ Module {
         }
         Method {
             name: "cookiesForUrl"
+            type: "string"
             Parameter { name: "url"; type: "string" }
         }
     }
@@ -289,6 +290,7 @@ Module {
         Property { name: "availableWidth"; type: "int"; isReadonly: true }
         Property { name: "availableHeight"; type: "int"; isReadonly: true }
         Property { name: "screenCount"; type: "int"; isReadonly: true }
+        Property { name: "primaryScreen"; type: "int"; isReadonly: true }
         Property { name: "primaryScreenAvailableGeometry"; type: "QRect"; isReadonly: true }
         Signal { name: "screenGeometryChanged" }
         Signal { name: "availableGeometryChanged" }
@@ -299,6 +301,12 @@ Module {
             name: "screenGeometry"
             type: "QRect"
             Parameter { name: "screen"; type: "int" }
+        }
+        Method {
+            name: "screenNumber"
+            type: "int"
+            Parameter { name: "xpos"; type: "int" }
+            Parameter { name: "ypos"; type: "int" }
         }
         Method {
             name: "availableGeometry"
@@ -340,6 +348,25 @@ Module {
         ]
         Method {
             name: "playSound"
+            Parameter { name: "url"; type: "string" }
+        }
+    }
+    Component {
+        name: "QPing"
+        prototype: "QObject"
+        exports: [
+            "Tulip/PingEx 1.0"
+        ]
+        exportMetaObjectRevisions: [
+            0
+        ]
+        Signal {
+            name: "success"
+            Parameter { name: "value"; type: "quint32" }
+        }
+        Signal { name: "failed" }
+        Method {
+            name: "start"
             Parameter { name: "url"; type: "string" }
         }
     }
@@ -386,6 +413,7 @@ Module {
         Signal { name: "flagsChanged" }
         Signal { name: "beforeClosed" }
         Method { name: "close" }
+        Method { name: "activate" }
     }
     Component {
         name: "SettingsAdapter"
@@ -434,6 +462,10 @@ Module {
         Method {
             name: "install"
             Parameter { name: "icon"; type: "string" }
+        }
+        Method {
+            name: "setToolTip"
+            Parameter { name: "toolTip"; type: "string" }
         }
         Method { name: "hide" }
     }

@@ -28,6 +28,7 @@ Item {
         iconPath = iconPath.replace('file:///', '');
 
         TrayWindow.install(iconPath);
+        TrayWindow.setToolTip(qsTr('TRAY_TOOLTIP'));
         TrayWindow.activate.connect(window.activateWindow);
         TrayWindow.activateWindow.connect(window.moveToTray);
     }
@@ -47,28 +48,17 @@ Item {
         }
 
         function moveToTray(mouseX, mouseY) {
-            var space = 15;
+            var space = 10
+                , screenGeometry = Desktop.screenGeometry(Desktop.screenNumber(mouseX, mouseY))
+                , xLimit = screenGeometry.x + screenGeometry.width
+                , yLimit = screenGeometry.y + screenGeometry.height;
 
             window._mouseX = mouseX;
             window._mouseY = mouseY;
 
-            var relativeX = mouseX;
-            var relativeY = mouseY;
+            window.x = (mouseX + window.width > xLimit) ? (xLimit - window.width - space) : mouseX
+            window.y = (mouseY + window.height > yLimit) ? (yLimit - window.height - space) : mouseY
 
-            var resultX = relativeX;
-            if (relativeX < 0)
-                resultX = space;
-            else if (relativeX > Desktop.primaryScreenAvailableGeometry.width - window.width)
-                resultX = Desktop.primaryScreenAvailableGeometry.width - window.width;
-
-            var resultY = relativeY;
-            if (relativeY < 0)
-                resultY = space;
-            else if (relativeY > Desktop.primaryScreenAvailableGeometry.height - window.height)
-                resultY = (Desktop.primaryScreenAvailableGeometry.height - window.height + space);
-
-            window.x = resultX;
-            window.y = resultY;
             window.visible = true;
         }
 
