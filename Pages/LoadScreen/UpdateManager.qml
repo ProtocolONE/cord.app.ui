@@ -36,6 +36,22 @@ Item {
         onTriggered: rootItem.statusChanged(qsTr("RETRY_CHECKING_UPDATE")) // Retry checking for updates...
     }
 
+    Timer {
+        id: retryTextTimer
+
+        interval: 60000
+        running: false
+        repeat: false
+        onTriggered: updateManager.startCheckUpdateRetry();
+    }
+
+    Timer {
+        interval: retryTextTimer.interval / 2
+        running: retryTextTimer.running
+        repeat: false
+        onTriggered: rootItem.statusChanged(qsTr("RETRY_CHECKING_UPDATE"));
+    }
+
     UpdateManagerViewModel {
         id: updateManager
 
@@ -86,6 +102,12 @@ Item {
         }
 
         onUpdateError: {
+            if (errorCode == UpdateInfoGetterResults.NotEnoughSpace) {
+                rootItem.statusChanged(qsTr("UPDATE_ERROR_NOT_ENOUGH_SPACE"), errorCode);
+                retryTextTimer.start();
+                return;
+            }
+
             rootItem.progressChanged(100);
             changeTextTimer.start();
 
@@ -95,12 +117,12 @@ Item {
             }
 
             switch(errorCode) {
-                case UpdateInfoGetterResults.NoError: console.log("[DEBUG][QML] Update no error"); break;
-                case UpdateInfoGetterResults.DownloadError: console.log("[DEBUG][QML] Update download error"); break;
-                case UpdateInfoGetterResults.ExtractError: console.log("[DEBUG][QML] Update extract error"); break;
-                case UpdateInfoGetterResults.XmlContentError: console.log("[DEBUG][QML] Update xml content error"); break;
-                case UpdateInfoGetterResults.BadArguments: console.log("[DEBUG][QML] Update bad arguments"); break;
-                case UpdateInfoGetterResults.CanNotDeleteOldUpdateFiles: console.log("[DEBUG][QML] Update CanNotDeleteOldUpdateFiles"); break;
+                case UpdateInfoGetterResults.NoError: console.log("Update no error"); break;
+                case UpdateInfoGetterResults.DownloadError: console.log("Update download error"); break;
+                case UpdateInfoGetterResults.ExtractError: console.log("Update extract error"); break;
+                case UpdateInfoGetterResults.XmlContentError: console.log("Update xml content error"); break;
+                case UpdateInfoGetterResults.BadArguments: console.log("Update bad arguments"); break;
+                case UpdateInfoGetterResults.CanNotDeleteOldUpdateFiles: console.log("Update CanNotDeleteOldUpdateFiles"); break;
             }
         }
     }
