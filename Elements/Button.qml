@@ -19,6 +19,7 @@ Rectangle {
     property alias buttonColorHover: root.hoverColor // @deprecated
     property alias fontFamily: label.font.family // @deprecated
     property alias buttonText: label.text // @deprecated
+    property alias textColor: label.color
 
     property alias font: label.font
     property alias text: label.text

@@ -45,13 +45,6 @@ Item {
         onTriggered: updateManager.startCheckUpdateRetry();
     }
 
-    Timer {
-        interval: retryTextTimer.interval / 2
-        running: retryTextTimer.running
-        repeat: false
-        onTriggered: rootItem.statusChanged(qsTr("RETRY_CHECKING_UPDATE"));
-    }
-
     UpdateManagerViewModel {
         id: updateManager
 

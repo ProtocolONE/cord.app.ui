@@ -767,6 +767,14 @@ Please try again later.</source>
         <source>PUBLIC_TEST_TOOLTIP</source>
         <translation>Вы приняли участие в тестировании новых функций клиента GameNet. Нажмите, чтобы узнать подробности.</translation>
     </message>
+    <message>
+        <source>REBORB_ZBT_INVITE_HELPER_TEXT</source>
+        <translation type="unfinished">Закрытое бета-тестирование</translation>
+    </message>
+    <message>
+        <source>REBORB_ZBT_INVITE_BUTTON_TEXT</source>
+        <translation type="unfinished">ПОДАТЬ ЗАЯВКУ</translation>
+    </message>
 </context>
 <context>
     <name>GameFailed</name>
@@ -946,6 +954,22 @@ Please try again later.</source>
     <message>
         <source>GAME_FJ_MINI_DESC</source>
         <translation>Симулятор фермы</translation>
+    </message>
+    <message>
+        <source>LOGO_REBORN</source>
+        <translation type="unfinished">Фентезийная игра</translation>
+    </message>
+    <message>
+        <source>GAME_REBORN_ABOUT_TEXT</source>
+        <translation type="unfinished">Reborn — это новая захватывающая игра в которой вас ожидают живописные локации, опасные подземелья, полномасштабные сражения между игроками, динамичные схватки c полчищами монстров, эпичными рейдовыми боссами и другие захватывающие приключения! Займите трон Бога Асгарда!</translation>
+    </message>
+    <message>
+        <source>GAME_REBORN_MINI_TOOLTIP</source>
+        <translation>Фентези мир, полный приключений.</translation>
+    </message>
+    <message>
+        <source>GAME_REBORN_MINI_DESC</source>
+        <translation type="unfinished">ФЕНТЕЗИЙНАЯ ИГРА</translation>
     </message>
 </context>
 <context>
@@ -2493,6 +2517,10 @@ Please try again later.</source>
     <message>
         <source>UPDATE_ERROR</source>
         <translation>Ошибка при загрузке обновлений...</translation>
+    </message>
+    <message>
+        <source>UPDATE_ERROR_NOT_ENOUGH_SPACE</source>
+        <translation type="unfinished">Недостаточно места на диске</translation>
     </message>
 </context>
 <context>

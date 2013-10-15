@@ -124,6 +124,52 @@ ListModel {
     }
 
     ListElement {
+        gameType: "browser" // Временно, что бы убрать игру из настроек
+        imageSource: "images/games/reborn_icon_small.png"
+        name: "Reborn"
+        imageSmall: "images/games/reborn_icon_small.png"
+        imageFooter: "images/games/reborn_logo.png"
+        imageBig: ""
+        imageLogoSmall: "images/games/reborn_logo_small.png"
+        imageLogoBig: ""
+        imageHorizontalSmall: "images/games/reborn_icon_horizontal_small.png"
+        size: "normal"
+
+        imageBack : "images/games/reborn_back.png"
+
+        serviceId: "300012010000000000"
+        gameId: "760"
+
+        forumUrl: ""
+        blogUrl: ""
+        guideUrl: ""
+
+        status: "Normal" // Error Started Paused Downloading
+        statusText: ""
+        progress: -1
+        allreadyDownloaded: false
+        gaName: "Reborn" // Never change please
+
+        maintenance: false
+        maintenanceInterval: 0
+        maintenanceProposal1: "300003010000000000"
+        maintenanceProposal2: "300011010000000000"
+        maintenanceEndPause: false
+
+        licenseUrl:  "http://www.reborngame.ru/"
+
+        itemState: "Normal";
+        animationPause: 0
+
+        hasOverlay: false
+
+        logoText: QT_TR_NOOP("LOGO_REBORN")
+        aboutGameText: QT_TR_NOOP("GAME_REBORN_ABOUT_TEXT")
+        miniToolTip: QT_TR_NOOP("GAME_REBORN_MINI_TOOLTIP")
+        shortDescription: QT_TR_NOOP("GAME_REBORN_MINI_DESC")
+    }
+
+    ListElement {
         gameType: "standalone"
         imageSource: "images/games/aika_icon_small.png"
         name: "Aika2"

@@ -170,7 +170,7 @@ Delegates.FlowViewDelegate {
     Row {
         id: rowButtons
 
-        visible: mouser.containsMouse
+        visible: mouser.containsMouse && model.serviceId != '300012010000000000'
         anchors { bottom: parent.bottom; bottomMargin: 5; horizontalCenter: parent.horizontalCenter }
 
         spacing: 4

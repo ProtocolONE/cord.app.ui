@@ -626,7 +626,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.111.f3f873640a2e15e4bae161e54d1cdbf60700be51",
+    version: "1.0.112.b4cb5def015937e2a4e76fe259f0bda408c34337",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',
@@ -833,6 +833,11 @@ User.saveNickname = function(nickname, successCallback, failedCallback) {
 // тестирование этого метода требует регистрацию новых пользователей - что не хочется
 User.saveTechNickname = function(techname, successCallback, failedCallback) {
     Core.execute('user.saveMainInfo', { techname : techname }, true, successCallback, failedCallback);
+};
+
+// тестирование этого метода требует получение актуальных промо ключей - что не хочется
+User.activatePromoKey = function(promoKey, successCallback, failedCallback) {
+    Core.execute('user.activatePromoKey', { key : promoKey }, true, successCallback, failedCallback);
 };
 var Virality = function() {
 };

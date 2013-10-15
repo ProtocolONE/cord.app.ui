@@ -506,27 +506,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="564"/>
+        <location filename="../Pages/Game.qml" line="541"/>
+        <source>REBORB_ZBT_INVITE_HELPER_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Game.qml" line="545"/>
+        <source>REBORB_ZBT_INVITE_BUTTON_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Game.qml" line="597"/>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="565"/>
+        <location filename="../Pages/Game.qml" line="598"/>
         <source>BUTTON_PLAY_ON_PAUSE_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="566"/>
+        <location filename="../Pages/Game.qml" line="599"/>
         <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="567"/>
+        <location filename="../Pages/Game.qml" line="600"/>
         <source>BUTTON_PLAY_ERROR_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="568"/>
+        <location filename="../Pages/Game.qml" line="601"/>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -625,102 +635,122 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../Models/GamesListModel.qml" line="166"/>
+        <source>LOGO_REBORN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../Models/GamesListModel.qml" line="167"/>
-        <source>LOGO_AIKA</source>
+        <source>GAME_REBORN_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Models/GamesListModel.qml" line="168"/>
+        <source>GAME_REBORN_MINI_TOOLTIP</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Models/GamesListModel.qml" line="169"/>
+        <source>GAME_REBORN_MINI_DESC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/GamesListModel.qml" line="213"/>
+        <source>LOGO_AIKA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/GamesListModel.qml" line="214"/>
         <source>GAME_AIKA_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="169"/>
+        <location filename="../Models/GamesListModel.qml" line="215"/>
         <source>GAME_AIKA_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="170"/>
+        <location filename="../Models/GamesListModel.qml" line="216"/>
         <source>GAME_AIKA_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="247"/>
+        <location filename="../Models/GamesListModel.qml" line="293"/>
         <source>LOGO_GA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="248"/>
+        <location filename="../Models/GamesListModel.qml" line="294"/>
         <source>GAME_GA_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="249"/>
+        <location filename="../Models/GamesListModel.qml" line="295"/>
         <source>GAME_GA_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="250"/>
+        <location filename="../Models/GamesListModel.qml" line="296"/>
         <source>GAME_GA_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="291"/>
+        <location filename="../Models/GamesListModel.qml" line="337"/>
         <source>LOGO_WI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="292"/>
+        <location filename="../Models/GamesListModel.qml" line="338"/>
         <source>GAME_WI_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="293"/>
+        <location filename="../Models/GamesListModel.qml" line="339"/>
         <source>GAME_WI_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="294"/>
+        <location filename="../Models/GamesListModel.qml" line="340"/>
         <source>GAME_WI_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="335"/>
+        <location filename="../Models/GamesListModel.qml" line="381"/>
         <source>LOGO_MW2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="336"/>
+        <location filename="../Models/GamesListModel.qml" line="382"/>
         <source>GAME_MW2_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="337"/>
+        <location filename="../Models/GamesListModel.qml" line="383"/>
         <source>GAME_MW2_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="338"/>
+        <location filename="../Models/GamesListModel.qml" line="384"/>
         <source>GAME_MW2_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="204"/>
+        <location filename="../Models/GamesListModel.qml" line="250"/>
         <source>LOGO_FJ</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="205"/>
+        <location filename="../Models/GamesListModel.qml" line="251"/>
         <source>GAME_FJ_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="206"/>
+        <location filename="../Models/GamesListModel.qml" line="252"/>
         <source>GAME_FJ_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="207"/>
+        <location filename="../Models/GamesListModel.qml" line="253"/>
         <source>GAME_FJ_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1832,22 +1862,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/LoadScreen/UpdateManager.qml" line="60"/>
+        <location filename="../Pages/LoadScreen/UpdateManager.qml" line="69"/>
         <source>LOAD_UPDATE_RETRY_WARNING</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/LoadScreen/UpdateManager.qml" line="82"/>
+        <location filename="../Pages/LoadScreen/UpdateManager.qml" line="91"/>
         <source>CHECK_UPDATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/LoadScreen/UpdateManager.qml" line="84"/>
+        <location filename="../Pages/LoadScreen/UpdateManager.qml" line="93"/>
         <source>LOAD_UPDATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/LoadScreen/UpdateManager.qml" line="94"/>
+        <location filename="../Pages/LoadScreen/UpdateManager.qml" line="100"/>
+        <source>UPDATE_ERROR_NOT_ENOUGH_SPACE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/LoadScreen/UpdateManager.qml" line="110"/>
         <source>UPDATE_ERROR</source>
         <translation type="unfinished"></translation>
     </message>

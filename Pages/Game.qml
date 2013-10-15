@@ -523,6 +523,39 @@ Rectangle {
                         anchors { bottom: parent.bottom; left: parent.left }
                         anchors { bottomMargin: 20; leftMargin: 30 }
                     }
+
+                    Rectangle {
+                        anchors { bottom: parent.bottom; left: parent.left }
+                        anchors { bottomMargin: 20; leftMargin: 30 }
+                        visible: root.currentItem ? root.currentItem.gameId == 760 : false
+
+                        width: 345
+                        height: 85
+                        color: "#ffff33"
+
+                        Text {
+                            font { family: 'Arial'; pixelSize: 16 }
+                            color: '#111103'
+
+                            anchors  { left: parent.left; top: parent.top; leftMargin: 25; topMargin: 9 }
+                            text: qsTr("REBORB_ZBT_INVITE_HELPER_TEXT")
+                        }
+
+                        Elements.Button {
+                            text: qsTr("REBORB_ZBT_INVITE_BUTTON_TEXT")
+                            color: '#00000000'
+                            border.color: "#111103"
+                            textColor: "#111103"
+
+                            anchors  {
+                                bottom: parent.bottom;
+                                bottomMargin: 14;
+                                horizontalCenter: parent.horizontalCenter;
+                            }
+
+                            onClicked: App.openExternalBrowser("http://www.reborngame.ru/");
+                        }
+                    }
                 }
 
                 Item {
@@ -557,7 +590,7 @@ Rectangle {
                     Elements.ButtonBig {
                         id: singleBigButton
 
-                        visible: !!currentItem && !d._maintenance
+                        visible: !!currentItem && !d._maintenance && (root.currentItem.gameId != 760)
 
                         anchors { right: parent.right; rightMargin: 30; verticalCenter: parent.verticalCenter }
 
