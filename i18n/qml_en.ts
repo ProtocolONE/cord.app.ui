@@ -1345,6 +1345,39 @@
     </message>
 </context>
 <context>
+    <name>PromoKey</name>
+    <message>
+        <location filename="../Blocks/PromoKey.qml" line="63"/>
+        <source>TITLE_PROMOKEY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/PromoKey.qml" line="67"/>
+        <source>SUBTITLE_PROMOKEY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/PromoKey.qml" line="82"/>
+        <source>SUBTITLE_PROMOKEY_ACTIVATION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/PromoKey.qml" line="99"/>
+        <source>PLACEHOLDER_PROMOKEY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/PromoKey.qml" line="150"/>
+        <source>BUTTON_ACTIVATE_KEY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/PromoKey.qml" line="156"/>
+        <source>BUTTON_CANCEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PublicTestWarning</name>
     <message>
         <location filename="../Features/PublicTest/PublicTestWarning.qml" line="22"/>
@@ -1877,12 +1910,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/LoadScreen/UpdateManager.qml" line="100"/>
+        <location filename="../Pages/LoadScreen/UpdateManager.qml" line="99"/>
         <source>UPDATE_ERROR_NOT_ENOUGH_SPACE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/LoadScreen/UpdateManager.qml" line="110"/>
+        <location filename="../Pages/LoadScreen/UpdateManager.qml" line="109"/>
         <source>UPDATE_ERROR</source>
         <translation type="unfinished"></translation>
     </message>

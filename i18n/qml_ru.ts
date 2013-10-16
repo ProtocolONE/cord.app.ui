@@ -769,11 +769,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>REBORB_ZBT_INVITE_HELPER_TEXT</source>
-        <translation type="unfinished">Закрытое бета-тестирование</translation>
+        <translation>Закрытое бета-тестирование</translation>
     </message>
     <message>
         <source>REBORB_ZBT_INVITE_BUTTON_TEXT</source>
-        <translation type="unfinished">ПОДАТЬ ЗАЯВКУ</translation>
+        <translation>ПОДАТЬ ЗАЯВКУ</translation>
     </message>
 </context>
 <context>
@@ -957,11 +957,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>LOGO_REBORN</source>
-        <translation type="unfinished">Фентезийная игра</translation>
+        <translation>Фентезийная игра</translation>
     </message>
     <message>
         <source>GAME_REBORN_ABOUT_TEXT</source>
-        <translation type="unfinished">Reborn — это новая захватывающая игра в которой вас ожидают живописные локации, опасные подземелья, полномасштабные сражения между игроками, динамичные схватки c полчищами монстров, эпичными рейдовыми боссами и другие захватывающие приключения! Займите трон Бога Асгарда!</translation>
+        <translation>Reborn — это новая захватывающая игра в которой вас ожидают живописные локации, опасные подземелья, полномасштабные сражения между игроками, динамичные схватки c полчищами монстров, эпичными рейдовыми боссами и другие захватывающие приключения! Займите трон Бога Асгарда!</translation>
     </message>
     <message>
         <source>GAME_REBORN_MINI_TOOLTIP</source>
@@ -969,7 +969,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_REBORN_MINI_DESC</source>
-        <translation type="unfinished">ФЕНТЕЗИЙНАЯ ИГРА</translation>
+        <translation>ФЕНТЕЗИЙНАЯ ИГРА</translation>
     </message>
 </context>
 <context>
@@ -1312,7 +1312,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>ENABLED_CAPSLOCK_TIPS</source>
-        <translation type="unfinished">Включен &quot;Caps Lock&quot;</translation>
+        <translation>Включен &quot;Caps Lock&quot;</translation>
     </message>
 </context>
 <context>
@@ -1760,6 +1760,45 @@ Please try again later.</source>
     <message>
         <source>DOWNLOAD_PEER_UPLOAD_TOTAL</source>
         <translation>Отправленно: %1</translation>
+    </message>
+</context>
+<context>
+    <name>PromoKey</name>
+    <message>
+        <source>TITLE_ACCOUNT_ACTIVATION</source>
+        <translation type="obsolete">Активация аккаунта</translation>
+    </message>
+    <message>
+        <source>TITLE_PROMOKEY</source>
+        <translation>Подтвердите доступ</translation>
+    </message>
+    <message>
+        <source>SUBTITLE_PROMOKEY</source>
+        <translation>Эта игра доступна только участникам закрытого бета-тестирования</translation>
+    </message>
+    <message>
+        <source>SUBTITLE_PROMOKEY_ACTIVATION</source>
+        <translation>Если вы уже получили приглашение и у вас есть промо-код, введите его в это поле:</translation>
+    </message>
+    <message>
+        <source>PLACEHOLDER_PROMOKEY</source>
+        <translation>Промо-код</translation>
+    </message>
+    <message>
+        <source>ACCOUNT_ACTIVATION_PHONE_NOT_FOUND</source>
+        <translation type="obsolete">Указанный номер не существует. Пожалуйста, введите новый номер телефона.</translation>
+    </message>
+    <message>
+        <source>BUTTON_GET_CODE</source>
+        <translation type="obsolete">Получить код</translation>
+    </message>
+    <message>
+        <source>BUTTON_CANCEL</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>BUTTON_ACTIVATE_KEY</source>
+        <translation>Активировать</translation>
     </message>
 </context>
 <context>
@@ -2520,7 +2559,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>UPDATE_ERROR_NOT_ENOUGH_SPACE</source>
-        <translation type="unfinished">Недостаточно места на диске</translation>
+        <translation>Недостаточно места на диске</translation>
     </message>
 </context>
 <context>

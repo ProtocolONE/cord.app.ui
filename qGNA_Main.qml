@@ -259,6 +259,15 @@ Item {
                 accountActivation.switchAnimation();
             }
 
+            onServiceFinished: {
+                if (state !== RestApi.Error.SERVICE_AUTHORIZATION_IMPOSSIBLE) {
+                    return;
+                }
+
+                promoKey.serviceId = service;
+                promoKey.switchAnimation();
+            }
+
             onAuthBeforeStartGameRequest: {
                 mainAuthModule.startAfterAuthGame = serviceId;
                 mainAuthModule.openAuthWithGuestTimer();
@@ -399,9 +408,19 @@ Item {
         Blocks.AccountActivation {
             id: accountActivation
 
-            visible: false
             property string serviceId;
+
+            visible: false
             onPhoneLinked: App.downloadButtonStart(accountActivation.serviceId);
+        }
+
+        Blocks.PromoKey {
+            id: promoKey
+
+            property string serviceId;
+
+            visible: false
+            onKeyActivated: App.downloadButtonStart(promoKey.serviceId);
         }
 
         Connections {
