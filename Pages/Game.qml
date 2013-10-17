@@ -534,7 +534,7 @@ Rectangle {
                         color: "#ffff33"
 
                         Text {
-                            font { family: 'Arial'; pixelSize: 16 }
+                            font { family: 'Arial'; pixelSize: 21 }
                             color: '#111103'
 
                             anchors  { left: parent.left; top: parent.top; leftMargin: 25; topMargin: 9 }
@@ -542,10 +542,14 @@ Rectangle {
                         }
 
                         Elements.Button {
+                            width: 146
+                            height: 25
+
                             text: qsTr("REBORB_ZBT_INVITE_BUTTON_TEXT")
                             color: '#00000000'
                             border.color: "#111103"
                             textColor: "#111103"
+                            font { pixelSize: 12; bold: true }
 
                             anchors  {
                                 bottom: parent.bottom;
