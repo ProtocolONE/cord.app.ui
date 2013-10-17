@@ -957,7 +957,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>LOGO_REBORN</source>
-        <translation>Фентезийная игра</translation>
+        <translation>Фэнтезийная игра</translation>
     </message>
     <message>
         <source>GAME_REBORN_ABOUT_TEXT</source>
@@ -965,11 +965,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_REBORN_MINI_TOOLTIP</source>
-        <translation>Фентези мир, полный приключений.</translation>
+        <translation>Фэнтезийный мир, полный приключений.</translation>
     </message>
     <message>
         <source>GAME_REBORN_MINI_DESC</source>
-        <translation>ФЕНТЕЗИЙНАЯ ИГРА</translation>
+        <translation type="unfinished">ФЭНТЕЗИЙНАЯ ИГРА</translation>
     </message>
 </context>
 <context>

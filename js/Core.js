@@ -25,6 +25,17 @@ var socialNetTable = {
         }
 
     ],
+    "300012010000000000":[ // Reborn
+        {
+            link: "https://www.facebook.com/pages/Reborn/397344480387678",
+            icon: "images/socialNet/fb.png"
+        },
+        {
+            link: "https://vk.com/reborngame",
+            icon: "images/socialNet/vk.png"
+        }
+
+    ],
     "300005010000000000":[//FireStorm
         {
             link: "http://vk.com/warinc",
