@@ -24,22 +24,6 @@ Item {
     Item {
         anchors { fill: parent; rightMargin: 5; topMargin: 19 }
 
-        Elements.CursorMouseArea {
-            id: mouser
-
-            anchors { top: parent.top; left: parent.left; bottom: parent.bottom}
-            width: textBodyId.paintedWidth + 10
-            hoverEnabled: true
-            onClicked: {
-                var currentitem = Core.currentGame();
-                if (currentitem) {
-                    GoogleAnalytics.trackEvent('/newsBlock/' + currentitem.gaName, 'Navigation', 'Open News');
-                }
-
-                mainAuthModule.openWebPage(newsUrl);
-            }
-        }
-
         Text {
             text: newsTextDate
 
@@ -60,6 +44,22 @@ Item {
             font { family: "Tahoma"; pixelSize: 16; underline: mouser.containsMouse }
             smooth: true
             elide: Text.ElideRight
+
+            Elements.CursorMouseArea {
+                id: mouser
+
+                anchors { top: parent.top; left: parent.left; bottom: parent.bottom}
+                width: textBodyId.paintedWidth + 10
+                hoverEnabled: true
+                onClicked: {
+                    var currentitem = Core.currentGame();
+                    if (currentitem) {
+                        GoogleAnalytics.trackEvent('/newsBlock/' + currentitem.gaName, 'Navigation', 'Open News');
+                    }
+
+                    mainAuthModule.openWebPage(newsUrl);
+                }
+            }
        }
     }
 }

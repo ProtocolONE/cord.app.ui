@@ -95,7 +95,6 @@ Blocks.MoveUpPage {
                                 textEchoMode: TextInput.Normal
                                 editDefaultText: qsTr("PLACEHOLDER_PROMOKEY")
                                 maximumLength: 36
-                                textEditComponent.text: page.phoneNumber
                                 focus: true
                                 onEnterPressed: {
                                     if (confirmButton.isEnabled) {

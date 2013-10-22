@@ -233,7 +233,9 @@ Item {
                     smooth: true
 
                     Elements.CursorMouseArea {
-                        anchors.fill: parent
+                        anchors { top: parent.top; left: parent.left; bottom: parent.bottom}
+                        width: parent.paintedWidth
+
                         hoverEnabled: true
                         onClicked: {
                             var currentGame = newsItem.model.get(0)

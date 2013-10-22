@@ -124,7 +124,7 @@ ListModel {
     }
 
     ListElement {
-        gameType: "browser" // Временно, что бы убрать игру из настроек
+        gameType: "standalone"
         imageSource: "images/games/reborn_icon_small.png"
         name: "Reborn"
         imageSmall: "images/games/reborn_icon_small.png"
@@ -140,7 +140,7 @@ ListModel {
         serviceId: "300012010000000000"
         gameId: "760"
 
-        forumUrl: ""
+        forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=405"
         blogUrl: ""
         guideUrl: ""
 

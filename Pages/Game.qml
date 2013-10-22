@@ -9,12 +9,11 @@ import "../js/Core.js" as Core
 import "../js/GoogleAnalytics.js" as GoogleAnalytics
 import "../js/PopupHelper.js" as PopupHelper
 import "../js/GamesSwitchHelper.js" as GamesSwitchHelper
-import "../Features/Maintenance/MaintenanceHelper.js" as MaintenanceHelper
+import "../Features/Maintenance/Maintenance.js" as MaintenanceHelper
 import "../Features/Facts" as Feature
 import "../Proxy/App.js" as App
 import "../Proxy/MouseClick.js" as MouseClick
 import "../js/Message.js" as AlertMessage
-
 import "../Features/PublicTest/index.js" as PublicTest
 
 Rectangle {
@@ -144,15 +143,9 @@ Rectangle {
             var item = Core.serviceItemByServiceId(serviceId);
 
             return item ? (item.maintenance &&
-                           item.status === 'Normal' &&
-                           (item.allreadyDownloaded ||
-                            1 == Settings.value("GameDownloader/" + serviceId + "/",
-                                                "isInstalled", 0)))
+                           (item.status === 'Normal' || item.status === 'DownloadFinished' || item.status === 'Starting') &&
+                           (item.allreadyDownloaded || Core.isServiceInstalled(serviceId)))
                         : false
-        }
-
-        function isServiceInstalled(serviceId) {
-            return (1 == Settings.value("GameDownloader/" + serviceId + "/", "isInstalled", 0));
         }
 
         property bool _maintenance: false
@@ -285,24 +278,32 @@ Rectangle {
             }
 
             item.progress = 100;
+            item.status = 'DownloadFinished';
             item.allreadyDownloaded = true;
-            item.status = "Normal";
-            item.statusText = qsTr("TEXT_PROGRESSBAR_DOWNLOADED_AND_READY_STATE")
+
             console.log("DOWNLOAD FINISHED");
 
             MaintenanceHelper.updatedService[service] = true;
             d.updateMaintenance();
 
             if (d._maintenance) {
+                MaintenanceHelper.showMaintenanceEnd[service] = 1;
+                item.statusText = '';
+                item.status = "Normal";
                 return;
             }
 
             var isPopUpCase = (App.isWindowVisible() && Core.currentGame() !== item); //QGNA-378
             if (isPopUpCase) {
+                item.status = "Normal";
+                item.statusText = qsTr("TEXT_PROGRESSBAR_DOWNLOADED_AND_READY_STATE")
                 showPopupGameInstalled(service);
-            } else {
-                App.executeService(service);
+                return;
             }
+
+            item.status = "Starting";
+            item.statusText = qsTr("TEXT_PROGRESSBAR_STARTING_STATE")
+            App.executeService(service);
         }
 
         onProgressbarChange: { // @DEPRECATED
@@ -312,7 +313,7 @@ Rectangle {
                 return;
             }
 
-            var isInstalled = d.isServiceInstalled(serviceId);
+            var isInstalled = Core.isServiceInstalled(serviceId);
 
             if (totalWanted > 0) {
                 GamesSwitchHelper.gamesDownloadData[serviceId] = {
@@ -357,7 +358,7 @@ Rectangle {
                 return;
             }
 
-            var isInstalled = d.isServiceInstalled(serviceId);
+            var isInstalled = Core.isServiceInstalled(serviceId);
             GamesSwitchHelper.gamesDownloadData[serviceId] = {
                 totalWantedDone: totalWantedDone,
                 totalWanted: totalWanted,
@@ -476,7 +477,7 @@ Rectangle {
                         topMargin: 86
                         bottomMargin: 86
                     }
-
+                    /*
                     Elements.IconButton { //rewards
                         toolTip: qsTr('REWARDS_TOOLTIP')
                         text: qsTr('REWARDS_BUTTON')
@@ -485,6 +486,16 @@ Rectangle {
                         anchors { topMargin: 13; rightMargin: 30 }
                         tooltipGlueCenter: true
                         onClicked: mainAuthModule.openWebPage("http://rewards.gamenet.ru/");
+                    }*/
+
+                    Elements.IconButton {
+                        toolTip: qsTr('PHOTO_COMPETITION_TOOLTIP')
+                        text: qsTr('PHOTO_COMPETITION_BUTTON')
+                        source: installPath + "images/menu/photoCompetition.png"
+                        anchors { top: parent.top; right: parent.right }
+                        anchors { topMargin: 13; rightMargin: 30 }
+                        tooltipGlueCenter: true
+                        onClicked: mainAuthModule.openWebPage("http://gamenet.ru/beauty");
                     }
 
                     Blocks.NewsBlock {
@@ -523,43 +534,6 @@ Rectangle {
                         anchors { bottom: parent.bottom; left: parent.left }
                         anchors { bottomMargin: 20; leftMargin: 30 }
                     }
-
-                    Rectangle {
-                        anchors { bottom: parent.bottom; left: parent.left }
-                        anchors { bottomMargin: 20; leftMargin: 30 }
-                        visible: root.currentItem ? root.currentItem.gameId == 760 : false
-
-                        width: 345
-                        height: 85
-                        color: "#ffff33"
-
-                        Text {
-                            font { family: 'Arial'; pixelSize: 21 }
-                            color: '#111103'
-
-                            anchors  { left: parent.left; top: parent.top; leftMargin: 25; topMargin: 9 }
-                            text: qsTr("REBORB_ZBT_INVITE_HELPER_TEXT")
-                        }
-
-                        Elements.Button {
-                            width: 146
-                            height: 25
-
-                            text: qsTr("REBORB_ZBT_INVITE_BUTTON_TEXT")
-                            color: '#00000000'
-                            border.color: "#111103"
-                            textColor: "#111103"
-                            font { pixelSize: 12; bold: true }
-
-                            anchors  {
-                                bottom: parent.bottom;
-                                bottomMargin: 14;
-                                horizontalCenter: parent.horizontalCenter;
-                            }
-
-                            onClicked: App.openExternalBrowser("http://www.reborngame.ru/");
-                        }
-                    }
                 }
 
                 Item {
@@ -594,7 +568,7 @@ Rectangle {
                     Elements.ButtonBig {
                         id: singleBigButton
 
-                        visible: !!currentItem && !d._maintenance && (root.currentItem.gameId != 760)
+                        visible: !!currentItem && !d._maintenance
 
                         anchors { right: parent.right; rightMargin: 30; verticalCenter: parent.verticalCenter }
 
@@ -611,7 +585,7 @@ Rectangle {
                         isPause: currentItem ? currentItem.status === "Paused" : false
                         allreadyDownloaded: currentItem ? currentItem.allreadyDownloaded : false
 
-                        isStarted: currentItem ? currentItem.status === "Started" : false
+                        isStarted: currentItem ? currentItem.status === "Started" || currentItem.status === "Starting" : false
                         progressPercent: currentItem ? currentItem.progress : -1
 
                         onButtonClicked: {

@@ -783,11 +783,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>REWARDS_TOOLTIP</source>
-        <translation>Нажмите, чтобы узнать подробности</translation>
+        <translation type="obsolete">Нажмите, чтобы узнать подробности</translation>
     </message>
     <message>
         <source>REWARDS_BUTTON</source>
-        <translation>НАГРАДЫ</translation>
+        <translation type="obsolete">НАГРАДЫ</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>
@@ -823,11 +823,27 @@ Please try again later.</source>
     </message>
     <message>
         <source>REBORB_ZBT_INVITE_HELPER_TEXT</source>
-        <translation>Закрытое бета-тестирование</translation>
+        <translation type="obsolete">Закрытое бета-тестирование</translation>
     </message>
     <message>
         <source>REBORB_ZBT_INVITE_BUTTON_TEXT</source>
-        <translation>ПОДАТЬ ЗАЯВКУ</translation>
+        <translation type="obsolete">ПОДАТЬ ЗАЯВКУ</translation>
+    </message>
+    <message>
+        <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
+        <translation>Подготовка к запуску игры</translation>
+    </message>
+    <message>
+        <source>POPUP_MAINTENANCE_END_AND_READY_TO_START</source>
+        <translation type="obsolete">Технические работы завершены</translation>
+    </message>
+    <message>
+        <source>PHOTO_COMPETITION_TOOLTIP</source>
+        <translation>Нажмите, чтобы узнать подробности</translation>
+    </message>
+    <message>
+        <source>PHOTO_COMPETITION_BUTTON</source>
+        <translation>Фото конкурс</translation>
     </message>
 </context>
 <context>
@@ -1015,7 +1031,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_REBORN_ABOUT_TEXT</source>
-        <translation>Reborn — это новая захватывающая игра в которой вас ожидают живописные локации, опасные подземелья, полномасштабные сражения между игроками, динамичные схватки c полчищами монстров, эпичными рейдовыми боссами и другие захватывающие приключения! Займите трон Бога Асгарда!</translation>
+        <translation>REBORN — это новая захватывающая игра, в которой вас ожидают живописные локации, опасные подземелья, полномасштабные сражения между игроками, динамичные схватки c полчищами монстров, эпичными рейдовыми боссами и другие захватывающие приключения! Займите трон Бога Асгарда!</translation>
     </message>
     <message>
         <source>GAME_REBORN_MINI_TOOLTIP</source>
@@ -1552,6 +1568,14 @@ Please try again later.</source>
         <source>MAINTENANCE_ADV_TITLE</source>
         <translation>Пока мы делаем игру еще лучше, попробуйте другие игры, в которые обычно играют пользователи %1</translation>
     </message>
+    <message>
+        <source>POPUP_PLAY</source>
+        <translation type="unfinished">Играть</translation>
+    </message>
+    <message>
+        <source>POPUP_MAINTENANCE_END_AND_READY_TO_START</source>
+        <translation type="unfinished">Технические работы завершены</translation>
+    </message>
 </context>
 <context>
     <name>NewsBlock</name>
@@ -1712,6 +1736,13 @@ Please try again later.</source>
     <message>
         <source>MONEY_TOOLTIP</source>
         <translation>GameNet монеты</translation>
+    </message>
+</context>
+<context>
+    <name>NotificationPage</name>
+    <message>
+        <source>CHECKBOX_NOTIFICATION_MAINTENANCE_END</source>
+        <translation type="unfinished">Оповещать об окончании технических работ</translation>
     </message>
 </context>
 <context>
@@ -2492,7 +2523,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>MENU_ITEM_NOTIFICATIONS</source>
-        <translation type="obsolete">Уведомления</translation>
+        <translation type="unfinished">Уведомления</translation>
     </message>
     <message>
         <source>MENU_GAMES_SECTION_TITLE</source>

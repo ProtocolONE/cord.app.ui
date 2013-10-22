@@ -28,7 +28,6 @@ import "js/UserInfo.js" as UserInfo
 import "js/Core.js" as Core
 import "js/GoogleAnalytics.js" as GoogleAnalytics
 import "js/Message.js" as AlertMessage
-
 import "js/support.js" as Support
 import "Proxy/App.js" as App
 import "Proxy/AppProxy.js" as AppProxy
@@ -260,7 +259,7 @@ Item {
             }
 
             onServiceFinished: {
-                if (state !== RestApi.Error.SERVICE_AUTHORIZATION_IMPOSSIBLE) {
+                if (serviceState !== RestApi.Error.SERVICE_AUTHORIZATION_IMPOSSIBLE) {
                     return;
                 }
 
@@ -421,6 +420,8 @@ Item {
 
             visible: false
             onKeyActivated: App.downloadButtonStart(promoKey.serviceId);
+            onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX,mouseY);
+            onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
         }
 
         Connections {

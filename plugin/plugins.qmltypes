@@ -88,7 +88,10 @@ Module {
                 "AnyStartQCS": 2728,
                 "FirstSuccessAuthInQCS": 2729,
                 "SuccessAuthInQCS": 2730,
-                "AnyStartQGna": 2731
+                "AnyStartQGna": 2731,
+                "ProblemAfterGameStart": 2748,
+                "NotLikeTheGame": 2749,
+                "ThettaInfo": 2750
             }
         }
         Enum {
@@ -151,7 +154,29 @@ Module {
         Method { name: "mid"; type: "string" }
     }
     Component {
-        name: "GGS::Overlay::QmlOverlay"
+        name: "GGS::WebView::NetworkAccessManagerInteractor"
+        prototype: "QObject"
+        exports: [
+            "Tulip/WebViewHelper 1.0"
+        ]
+        exportMetaObjectRevisions: [
+            0
+        ]
+        Method { name: "clearCookies" }
+        Method { name: "clearAllCookies" }
+        Method {
+            name: "setCookiesFromUrl"
+            Parameter { name: "cookies"; type: "string" }
+            Parameter { name: "url"; type: "string" }
+        }
+        Method {
+            name: "cookiesForUrl"
+            type: "string"
+            Parameter { name: "url"; type: "string" }
+        }
+    }
+    Component {
+        name: "GameNet::Overlay::QmlOverlay"
         defaultProperty: "data"
         prototype: "QDeclarativeItem"
         exports: [
@@ -212,28 +237,6 @@ Module {
             name: "sendMessage"
             Parameter { name: "name"; type: "string" }
             Parameter { name: "arg"; type: "string" }
-        }
-    }
-    Component {
-        name: "GGS::WebView::NetworkAccessManagerInteractor"
-        prototype: "QObject"
-        exports: [
-            "Tulip/WebViewHelper 1.0"
-        ]
-        exportMetaObjectRevisions: [
-            0
-        ]
-        Method { name: "clearCookies" }
-        Method { name: "clearAllCookies" }
-        Method {
-            name: "setCookiesFromUrl"
-            Parameter { name: "cookies"; type: "string" }
-            Parameter { name: "url"; type: "string" }
-        }
-        Method {
-            name: "cookiesForUrl"
-            type: "string"
-            Parameter { name: "url"; type: "string" }
         }
     }
     Component {

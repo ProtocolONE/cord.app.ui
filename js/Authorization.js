@@ -4,9 +4,9 @@ Qt.include('./Crypt.js');
 Qt.include('./restapi.js');
 
 //Replaced during CI build
-var authVersion = "1.0.31.427dca89cd611bb7939d8c5a9ba7015bc7521167"
-    , _gnLoginUrl = 'http://gnlogin.bondarenko.dev'
-    , _gnLoginTitleApiUrl = 'gnlogin.bondarenko.dev'
+var authVersion = "2.0.32.c83021ce5166a9e72ea23105f694e2f8d748db14"
+    , _gnLoginUrl = 'https://gnlogin.ru'
+    , _gnLoginTitleApiUrl = 'gnlogin.ru'
     , _hwid
     , _mid
     , _captcha;
@@ -21,6 +21,11 @@ Result.Error = 6;
 Result.CaptchaRequired = 7;
 Result.CodeRequired = 8;
 
+/**
+ * Setup package params - hwid, mid, gnLoginUrl and titleApiUrl.
+ *
+ * @param options
+ */
 function setup(options) {
     _hwid = options.hwid || '';
     _mid = options.mid || '';
@@ -51,9 +56,9 @@ function getCaptchaImageSource(login) {
 /**
  * Send unblock code to user.
  *
- * @param string login GameNet login
- * @param string method Should me `email` or `sms`
- * @param function callback
+ * @param {string} login GameNet login
+ * @param {string} method Should me `email` or `sms`
+ * @param {function} callback
  */
 function sendUnblockCode(login, method, callback) {
     var url = new Uri(_gnLoginUrl)
@@ -97,9 +102,9 @@ function unblock(login, code, callback) {
 /**
  * Register new gamenet user.
  *
- * @param string login
- * @param string password
- * @param function callback
+ * @param {string} login
+ * @param {string} password
+ * @param {function} callback
  */
 function register(login, password, callback) {
     var request = new Uri(_gnLoginUrl)
@@ -114,14 +119,14 @@ function register(login, password, callback) {
     http.request(request, function(response) {
         _private.jsonCredentialCallback(response, callback);
     });
-};
+}
 
 /**
  * Login in gamenet by login and password.
  *
- * @param string login
- * @param string password
- * @param function callback
+ * @param {string} login
+ * @param {string} password
+ * @param {function} callback
  */
 function loginByGameNet(login, password, callback) {
     var request = new Uri(_gnLoginUrl)
@@ -143,8 +148,8 @@ function loginByGameNet(login, password, callback) {
 /**
  * Login in gamenet by VK.
  *
- * @param QMLObject parent
- * @param function callback
+ * @param {QMLObject} parent
+ * @param {function} callback
  */
 function loginByVk(parent, callback) {
     var auth = new ProviderVk(parent);
@@ -154,8 +159,8 @@ function loginByVk(parent, callback) {
 /**
  * Link gamenet account with VK.
  *
- * @param QMLObject parent
- * @param function callback
+ * @param {QMLObject} parent
+ * @param {function} callback
  */
 function linkVkAccount(parent, callback) {
     var auth = new ProviderVk(parent);
@@ -172,6 +177,17 @@ function isSuccess(code) {
 }
 
 var _private = {
+    remapErrorCode: function(code) {
+        var map = {};
+        map[0] = Result.UnknownError;
+        map[Error.CAPTCHA_REQUIRED] = Result.CaptchaRequired;
+        map[Error.AUTHORIZATION_LIMIT_EXCEED] = Result.CodeRequired;
+        map[Error.SERVICE_ACCOUNT_BLOCKED] = Result.ServiceAccountBlocked;
+        map[Error.AUTHORIZATION_FAILED] = Result.WrongLoginOrPassword;
+        map[Error.INCORRECT_FORMAT_EMAIL] = Result.WrongLoginOrPassword;
+
+        return map[code] || map[0];
+    },
     jsonCredentialCallback: function(response, callback) {
         var credential;
 
@@ -195,17 +211,7 @@ var _private = {
         }
 
         if (credential.response.hasOwnProperty('error')) {
-            var code = credential.response.error.code
-                , map = {};
-
-            map[0] = Result.UnknownError;
-            map[Error.CAPTCHA_REQUIRED] = Result.CaptchaRequired;
-            map[Error.AUTHORIZATION_LIMIT_EXCEED] = Result.CodeRequired;
-            map[Error.SERVICE_ACCOUNT_BLOCKED] = Result.ServiceAccountBlocked;
-            map[Error.AUTHORIZATION_FAILED] = Result.WrongLoginOrPassword;
-            map[Error.INCORRECT_FORMAT_EMAIL] = Result.WrongLoginOrPassword;
-
-            callback(map.hasOwnProperty(code) ? map[code] : map[0], credential.response.error);
+            callback(_private.remapErrorCode(credential.response.error.code), credential.response.error);
             return;
         }
 
@@ -437,15 +443,7 @@ ProviderVk.prototype.linkTitleChanged = function(title, callback) {
     this.browser.link(code, self.redirectUrl + '?action=link', function(isSuccess, response) {
         if (response.hasOwnProperty('error')) {
             self.browser.destroy();
-
-            var map = {
-                 0: Result.UnknownError,
-               102: Result.ServiceAccountBlocked,
-               100: Result.WrongLoginOrPassword,
-               110: Result.WrongLoginOrPassword
-            };
-
-            callback(map[response.error.code] || map[0], response.error);
+            callback(_private.remapErrorCode(response.error.code), response.error);
             return;
         }
 

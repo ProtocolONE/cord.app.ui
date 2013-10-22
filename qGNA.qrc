@@ -90,8 +90,9 @@
 		<file>Features/Guide/Guide.qml</file>
 		<file>Features/Guide/Private/ImageButton.qml</file>
 		<file>Features/Guide/WellcomeGuide.qml</file>
+		<file>Features/Maintenance/Maintenance.js</file>
 		<file>Features/Maintenance/Maintenance.qml</file>
-		<file>Features/Maintenance/MaintenanceHelper.js</file>
+		<file>Features/Maintenance/PopUp/MaintenanceEnd.qml</file>
 		<file>Features/News/News.js</file>
 		<file>Features/News/News.qml</file>
 		<file>Features/Overlay/GameOverlay.qml</file>
@@ -121,6 +122,7 @@
 		<file>Pages/LoadScreen.qml</file>
 		<file>Pages/LoadScreen/UpdateManager.qml</file>
 		<file>Pages/SettingsPage.qml</file>
+		<file>Pages/SettingsPage/NotificationPage.qml</file>
 		<file>Pages/SettingsPage/SettingsDownloadPage.qml</file>
 		<file>Pages/SettingsPage/SettingsGeneralPage.qml</file>
 		<file>Proxy/App.js</file>
@@ -133,6 +135,8 @@
 		<file>Proxy/MouseClick.qml</file>
 		<file>Proxy/Player.qml</file>
 		<file>Proxy/Player/Wrapper.qml</file>
+		<file>Proxy/Settings.js</file>
+		<file>Proxy/Settings.qml</file>
 		<file>qGNA_Main.qml</file>
 	</qresource>
 </RCC>

@@ -1,12 +1,38 @@
 import QtQuick 1.1
 
-import "MaintenanceHelper.js" as Helper
-
+import "Maintenance.js" as Helper
 import "../../js/restapi.js" as RestApi
 import "../../js/Core.js" as Core
+import "../../js/GoogleAnalytics.js" as GoogleAnalytics
+import "../../js/PopupHelper.js" as PopupHelper
+import "PopUp" as PopUp
 
 Item {
     Component.onCompleted: maintCheck.start();
+
+
+    Component {
+        id: gameMaintenanceEndPopUp
+
+        PopUp.MaintenanceEnd {
+            id: popUp
+        }
+    }
+
+    function showPopupGameMaintenanceEnd(serviceId) {
+        var gameItem = Core.serviceItemByServiceId(serviceId)
+            , popUpOptions;
+
+        popUpOptions = {
+            gameItem: gameItem,
+            buttonCaption: qsTr('POPUP_PLAY'),
+            message: qsTr('POPUP_MAINTENANCE_END_AND_READY_TO_START')
+        };
+
+        PopupHelper.showPopup(gameMaintenanceEndPopUp, popUpOptions, 'gameMaintenanceEndShow' + serviceId);
+        GoogleAnalytics.trackEvent('/announcement/gameMaintenanceEndShow/' + gameItem.serviceId,
+                                   'Announcement', 'Show Announcement', gameItem.gaName);
+    }
 
     function update(schedule) {
         var currentTime = +new Date(),
@@ -37,6 +63,15 @@ Item {
             if (endTime < currentTime) {
                 item.maintenance = false;
                 item.maintenanceInterval = 0;
+
+                if (Helper.showMaintenanceEnd[index]) {
+                    delete Helper.showMaintenanceEnd[index];
+
+                    if (!mainWindow.visible && Helper.isShowEndPopup()) {
+                        showPopupGameMaintenanceEnd(index);
+                    }
+                }
+
                 continue;
             }
 

@@ -493,6 +493,12 @@ Item {
                 Marketing.send(Marketing.AnnouncementMissClicked,
                                announceItem.serviceId,
                                { type: "announcementSmall", id: announceItem.id });
+
+                if (announceItem.url) {
+                    announcements.announceActionClick(announceItem);
+                    return;
+                }
+
                 announcements.missClicked(announceItem.serviceId);
 
                 var gameItem = Core.serviceItemByServiceId(announceItem.serviceId);

@@ -39,6 +39,11 @@ Item {
 
     height: 183
 
+    MouseArea {
+        anchors.fill: parent
+        hoverEnabled: true
+    }
+
     Rectangle {
         anchors.fill: parent
         color: "#000000"

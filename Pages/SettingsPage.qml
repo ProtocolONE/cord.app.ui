@@ -65,6 +65,7 @@ Rectangle {
         switch (index){
         case 0: { settingsPageId.state = "GeneralPage"; break }
         case 1: { settingsPageId.state = "DownloadPage"; break }
+        case 2: { settingsPageId.state = "NotificationPage"; break }
         }
     }
 
@@ -169,7 +170,7 @@ Rectangle {
                     }
 
                     width: 228
-                    height: 70
+                    height: 70 + 35
                     currentIndex: 0
                     interactive: false
                     clip: true
@@ -188,6 +189,11 @@ Rectangle {
                         }
                         ListElement{
                             itemText: QT_TR_NOOP("MENU_ITEM_DOWNLOAD");
+                            itemState: "Normal"
+                            animationPause: 50
+                        }
+                        ListElement{
+                            itemText: QT_TR_NOOP("MENU_ITEM_NOTIFICATIONS");
                             itemState: "Normal"
                             animationPause: 100
                         }
@@ -481,6 +487,10 @@ Rectangle {
         State {
             name: "DownloadPage"
             PropertyChanges { target: pageLoader; source: "SettingsPage/SettingsDownloadPage.qml" }
+        },
+        State {
+            name: "NotificationPage"
+            PropertyChanges { target: pageLoader; source: "SettingsPage/NotificationPage.qml" }
         }
     ]
 }

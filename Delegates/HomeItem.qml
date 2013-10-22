@@ -180,7 +180,6 @@ Delegates.FlowViewDelegate {
 
             width: 64
             height: 28
-            visible: model.serviceId != '300012010000000000'
 
             Item {
                 anchors.fill: parent

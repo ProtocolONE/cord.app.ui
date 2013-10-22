@@ -1,4 +1,6 @@
 .pragma library
+Qt.include("../Proxy/Settings.js")
+
 var socialNetTable = {
     "300002010000000000":[//Aika
         {
@@ -167,5 +169,9 @@ function serviceItemByServiceId(serviceId) {
 
 function indexByServiceId(serviceId) {
     return serviceIdToGameItemIdex[serviceId];
+}
+
+function isServiceInstalled(serviceId) {
+    return isSettingsEnabled("GameDownloader/" + serviceId + "/", "isInstalled", false);
 }
 

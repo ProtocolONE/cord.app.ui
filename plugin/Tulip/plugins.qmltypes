@@ -90,7 +90,8 @@ Module {
                 "SuccessAuthInQCS": 2730,
                 "AnyStartQGna": 2731,
                 "ProblemAfterGameStart": 2748,
-                "NotLikeTheGame": 2749
+                "NotLikeTheGame": 2749,
+                "ThettaInfo": 2750
             }
         }
         Enum {
