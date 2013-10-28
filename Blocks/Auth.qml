@@ -52,6 +52,9 @@ Blocks.MoveUpPage {
         Authorization.setup({ mid: mid, hwid: encodeURIComponent(App.hwid())});
 
         console.log('Authorization use mid `' + mid + '`');
+
+        //Uncomment for qmlviewer
+        //authRegisterMoveUpPage.openMoveUpPage();
     }
 
     onLogoutDone: {
@@ -94,30 +97,6 @@ Blocks.MoveUpPage {
         authRegisterMoveUpPage.authDone(userId, appKey, cookie);
     }
 
-    function authByMainGna() {
-        var oldAuth = CredentialStorage.loadOldAuth();
-        if (oldAuth && oldAuth.login && oldAuth.hash) {
-            Marketing.send(Marketing.AuthByOldGnaInfo, "0", {});
-            var provider = new Authorization.ProviderGameNet();
-            provider.loginByHash(
-                        oldAuth.login,
-                        oldAuth.hash,
-                        function(error, response) {
-                            if (error === Authorization.Result.Success) {
-                                authRegisterMoveUpPage.authedAsGuest = false;
-                                CredentialStorage.save(response.userId, response.appKey, response.cookie, false);
-                                authRegisterMoveUpPage.authDoneCallback(response.userId,
-                                                                        response.appKey,
-                                                                        response.cookie);
-                            } else {
-                                autoLoginFailed();
-                            }
-                        });
-        } else {
-            autoLoginFailed();
-        }
-    }
-
     function startAutoLogin() {
         authRegisterMoveUpPage.isAuthed = false;
         authRegisterMoveUpPage.userId = '';
@@ -127,12 +106,7 @@ Blocks.MoveUpPage {
         if (!savedAuth || !savedAuth.userId || !savedAuth.appKey || !savedAuth.cookie) {
             var guest = CredentialStorage.loadGuest();
             if (!guest || !guest.userId || !guest.appKey || !guest.cookie) {
-                if (authRegisterMoveUpPage.guestAuthEnabled) {
-                    authByMainGna();
-                } else {
-                    autoLoginFailed();
-                }
-
+                autoLoginFailed();
                 return;
             }
 
@@ -162,21 +136,19 @@ Blocks.MoveUpPage {
             return;
         }
 
-        var provider = new Authorization.ProviderGameNet();
-        provider.refreshCookie(savedAuth.userId, savedAuth.appKey,
-                               function(error, response) {
-                                   if (error === Authorization.Result.Success) {
-                                       Settings.setValue("qml/auth/", "refreshDate", currentDate);
-                                       CredentialStorage.save(
-                                                   savedAuth.userId,
-                                                   savedAuth.appKey,
-                                                   response.cookie,
-                                                   authRegisterMoveUpPage.authedAsGuest);
-                                       authRegisterMoveUpPage.authDoneCallback(savedAuth.userId, savedAuth.appKey, response.cookie);
-                                   } else {
-                                       authRegisterMoveUpPage.authDoneCallback(savedAuth.userId, savedAuth.appKey, savedAuth.cookie);
-                                   }
-                               })
+        Authorization.refreshCookie(savedAuth.userId, savedAuth.appKey, function(error, response) {
+           if (error === Authorization.Result.Success) {
+               Settings.setValue("qml/auth/", "refreshDate", currentDate);
+               CredentialStorage.save(
+                           savedAuth.userId,
+                           savedAuth.appKey,
+                           response.cookie,
+                           authRegisterMoveUpPage.authedAsGuest);
+               authRegisterMoveUpPage.authDoneCallback(savedAuth.userId, savedAuth.appKey, response.cookie);
+           } else {
+               authRegisterMoveUpPage.authDoneCallback(savedAuth.userId, savedAuth.appKey, savedAuth.cookie);
+           }
+       })
     }
 
     function openLinkGuestOnStartGame() {
@@ -271,23 +243,21 @@ Blocks.MoveUpPage {
                 return;
             }
 
-            var provider = new Authorization.ProviderGameNet();
-            provider.refreshCookie(authRegisterMoveUpPage.userId, authRegisterMoveUpPage.appKey,
-                                   function(error, response) {
-                                       if (error === Authorization.Result.Success) {
-                                           CredentialStorage.save(
-                                                       authRegisterMoveUpPage.userId,
-                                                       authRegisterMoveUpPage.appKey,
-                                                       response.cookie,
-                                                       authRegisterMoveUpPage.authedAsGuest);
+            Authorization.refreshCookie(authRegisterMoveUpPage.userId, authRegisterMoveUpPage.appKey, function(error, response) {
+                if (error === Authorization.Result.Success) {
+                    CredentialStorage.save(
+                               authRegisterMoveUpPage.userId,
+                               authRegisterMoveUpPage.appKey,
+                               response.cookie,
+                               authRegisterMoveUpPage.authedAsGuest);
 
-                                           Settings.setValue("qml/auth/", "refreshDate", currentDate);
-                                           authRegisterMoveUpPage.authDoneCallback(
-                                                       authRegisterMoveUpPage.userId,
-                                                       authRegisterMoveUpPage.appKey,
-                                                       response.cookie);
-                                       }
-                                   })
+                   Settings.setValue("qml/auth/", "refreshDate", currentDate);
+                   authRegisterMoveUpPage.authDoneCallback(
+                               authRegisterMoveUpPage.userId,
+                               authRegisterMoveUpPage.appKey,
+                               response.cookie);
+                }
+            })
         }
     }
 
@@ -486,7 +456,7 @@ Blocks.MoveUpPage {
         FailBlock {
             id: failPage
 
-            property alias authRegisterMoveUpPage: authRegisterMoveUpPage
+            onBack: authRegisterMoveUpPage.state = authRegisterMoveUpPage.lastState;
 
             anchors { fill: parent }
             visible: authRegisterMoveUpPage.state === 'FailAuthPage' ||

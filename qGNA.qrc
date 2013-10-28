@@ -1,11 +1,16 @@
-﻿<RCC>
+<RCC>
 	<qresource prefix="/">
 		<file>Blocks/AccountActivation.qml</file>
 		<file>Blocks/AlertAdapter.qml</file>
 		<file>Blocks/Auth.qml</file>
+		<file>Blocks/Auth/Auth/Captcha.qml</file>
+		<file>Blocks/Auth/Auth/CodeForm.qml</file>
+		<file>Blocks/Auth/Auth/Footer.qml</file>
+		<file>Blocks/Auth/Auth/LoginForm.qml</file>
 		<file>Blocks/Auth/AuthBlock.qml</file>
 		<file>Blocks/Auth/FailBlock.qml</file>
 		<file>Blocks/Auth/Hub.qml</file>
+		<file>Blocks/Auth/LabelText.qml</file>
 		<file>Blocks/Auth/Registration.qml</file>
 		<file>Blocks/Auth/SingleWidget.qml</file>
 		<file>Blocks/EnterNickname.qml</file>
@@ -24,6 +29,7 @@
 		<file>Blocks/NewsBlock.qml</file>
 		<file>Blocks/NickNameView.qml</file>
 		<file>Blocks/ProgressWidget.qml</file>
+		<file>Blocks/PromoKey.qml</file>
 		<file>Blocks/RoatateNews.qml</file>
 		<file>Blocks/SelectMw2Server.qml</file>
 		<file>Blocks/SocialNet.qml</file>

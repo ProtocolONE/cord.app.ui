@@ -18,8 +18,9 @@ Item {
 
     property string errorMessage
 
-    focus: visible
+    signal back();
 
+    focus: visible
     Keys.onEnterPressed: d.trigger();
     Keys.onReturnPressed: d.trigger();
 
@@ -28,7 +29,7 @@ Item {
 
         function trigger() {
             GoogleAnalytics.trackEvent('/AuthFail', 'Auth', 'Confirm Ok');
-            authRegisterMoveUpPage.state = authRegisterMoveUpPage.lastState;
+            back();
         }
     }
 
@@ -56,8 +57,6 @@ Item {
             }
 
             Elements.Button {
-                id: forgotPasswordOKbutton
-
                 buttonText: qsTr("BUTTON_OK")
                 width: 68
                 focus: true

@@ -11,46 +11,51 @@
 import QtQuick 1.1
 import Tulip 1.0
 
+import "./Auth" as Auth
 import "../../Elements" as Elements
 import "../../js/Authorization.js" as Authorization
 import "../../js/GoogleAnalytics.js" as GoogleAnalytics
+import "../../js/restapi.js" as RestApi
 
 Item {
     id: authPage
 
     property int autoGuestLoginTimout: 10
+    property bool codeRequired: false
 
-    function authSuccess(userId, appKey, cookie, shouldSave, guest) {
-        authRegisterMoveUpPage.isInProgress = false;
-        authRegisterMoveUpPage.authedAsGuest = guest;
-        if (shouldSave || guest) {
-            CredentialStorage.save(userId, appKey, cookie, guest);
-        }
-
-        authRegisterMoveUpPage.switchAnimation();
-        authRegisterMoveUpPage.authDoneCallback(userId, appKey, cookie);
-    }
+    signal changeState(string state);
 
     function authCallback(error, response, shouldSave, guest) {
         authRegisterMoveUpPage.isInProgress = false;
         if (error === Authorization.Result.Success) {
-            authPage.authSuccess(response.userId,
-                                 response.appKey,
-                                 response.cookie,
-                                 shouldSave,
-                                 guest);
-
-            if (!rememberCheckBox.isChecked) {
-                loginTextInput.clear();
-                return;
-            }
-
-            var login = loginTextInput.editText,
-                currentValue = JSON.parse(Settings.value("qml/auth/", "authedLogins", "{}"));
-
-            currentValue[login] = +new Date();
-            Settings.setValue("qml/auth/" , "authedLogins", JSON.stringify(currentValue));
+            authPage.authSuccess(response.userId, response.appKey, response.cookie, shouldSave, guest);
         }
+    }
+
+    function authSuccess(userId, appKey, cookie, shouldSave, guest) {
+        if (shouldSave || guest) {
+            CredentialStorage.save(userId, appKey, cookie, guest);
+        }
+
+        loginForm.captchaRequired = false;
+        authRegisterMoveUpPage.isInProgress = false;
+        authRegisterMoveUpPage.authedAsGuest = guest;
+        authRegisterMoveUpPage.switchAnimation();
+        authRegisterMoveUpPage.authDoneCallback(userId, appKey, cookie);
+
+        if (loginForm.rememberChecked) {
+            saveAuthorizedLogins();
+        } else {
+            loginTextInput.clear();
+        }
+    }
+
+    function saveAuthorizedLogins() {
+        var login = loginForm.login,
+            currentValue = JSON.parse(Settings.value("qml/auth/", "authedLogins", "{}"));
+
+        currentValue[login] = +new Date();
+        Settings.setValue("qml/auth/" , "authedLogins", JSON.stringify(currentValue));
     }
 
     function startGuestAutoStart() {
@@ -58,8 +63,8 @@ Item {
             return;
 
         if (authRegisterMoveUpPage.guestAuthEnabled && authRegisterMoveUpPage.selectedGame) {
-            authPage.autoGuestLoginTimout = 10;
             authRegisterMoveUpPage.guestAuthTimerStarted = true;
+            authPage.autoGuestLoginTimout = 10;
             guestAutoStartTimer.start();
         }
     }
@@ -71,51 +76,51 @@ Item {
     }
 
     // Login/Password auth
-    function startGenericAuth() {
+    function startGenericAuth(login, password, captcha) {
         authRegisterMoveUpPage.isInProgress = true;
         stopGuestAutoStart();
 
-        var login = loginTextInput.editText,
-                password = passwordTextInput.editText;
+        if (captcha) {
+            Authorization.setCaptcha(captcha);
+        }
 
-        passwordTextInput.clear();
-        var auth = new Authorization.ProviderGameNet();
-        auth.login(login, password, function(error, response) {
-            authPage.authCallback(error, response, rememberCheckBox.isChecked, false);
+        Authorization.loginByGameNet(login, password, function(error, response) {
+            authPage.authCallback(error, response, loginForm.rememberChecked, false);
 
-            if (error !== Authorization.Result.Success) {
-                authRegisterMoveUpPage.state = "FailAuthPage";
-
-                if (error === Authorization.Result.ServiceAccountBlocked) {
-                    failPage.errorMessage = qsTr("AUTH_FAIL_ACCOUNT_BLOCKED");
-                    return;
-                }
-
-                if (error === Authorization.Result.WrongLoginOrPassword) {
-                    failPage.errorMessage = qsTr("AUTH_FAIL_MESSAGE_WRONG");
-                    return;
-                }
-
-                if (!response) {
-                    failPage.errorMessage = qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_ERROR");
-                    return;
-                }
-
-                switch(response.code) {
-                case 110: {
-                    failPage.errorMessage = qsTr("AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT");
-                    break;
-                }
-                case 100: {
-                    failPage.errorMessage = qsTr("AUTH_FAIL_MESSAGE_WRONG");
-                    break;
-                }
-                default: {
-                    failPage.errorMessage = qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_ERROR");
-                    break;
-                }
-                }
+            if (error === Authorization.Result.Success) {
+                return;
             }
+
+            if (error === Authorization.Result.CaptchaRequired) {
+                loginForm.captchaRequired = true;
+                return;
+            }
+
+            if (error === Authorization.Result.CodeRequired) {
+                loginForm.captchaRequired = false;
+                authPage.codeRequired = true;
+                return;
+            }
+
+            authRegisterMoveUpPage.state = "FailAuthPage";
+
+
+
+            var msg = {
+                0: qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_ERROR"),
+            };
+
+            msg[RestApi.Error.AUTHORIZATION_FAILED] = qsTr("AUTH_FAIL_MESSAGE_WRONG");
+            msg[RestApi.Error.INCORRECT_FORMAT_EMAIL] = qsTr("AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT");
+            msg[Authorization.Result.ServiceAccountBlocked] = qsTr("AUTH_FAIL_ACCOUNT_BLOCKED");
+            msg[Authorization.Result.WrongLoginOrPassword] = qsTr("AUTH_FAIL_MESSAGE_WRONG");
+
+            if (msg[error]) {
+                failPage.errorMessage = msg[error];
+                return;
+            }
+
+            failPage.errorMessage = response ? (msg[response.code] || msg[0]) : msg[0];
         });
     }
 
@@ -140,10 +145,11 @@ Item {
     }
 
     function startVkAuth() {
-        authRegisterMoveUpPage.isInProgress = true;
         stopGuestAutoStart();
-        var auth = new Authorization.ProviderVk(authPage);
-        auth.login(function(error, response) {
+
+        authRegisterMoveUpPage.isInProgress = true;
+
+        Authorization.loginByVk(authPage, function(error, response) {
             authPage.authCallback(error, response, true, false);
 
             if (error === Authorization.Result.Cancel) {
@@ -191,178 +197,84 @@ Item {
         }
     }
 
-    Grid {
+    Item {
         anchors { fill: parent; topMargin: 47 }
-        columns: 2
+        width: parent.width
+        height: openHeight
 
-        Item {
-            width: parent.width
-            height: openHeight
+        Elements.Button {
+            anchors { top: parent.top; right: parent.right; rightMargin: 62; topMargin: 30 }
+            analitics: ['/Auth', 'Auth', 'Vk Login']
+            text: qsTr("VK_LOGIN_BUTTON_TEXT")
 
-            Elements.Button {
-                anchors { top: parent.top; right: parent.right; rightMargin: 62; topMargin: 30 }
-                text: qsTr("VK_LOGIN_BUTTON_TEXT")
+            Image {
+                anchors.verticalCenter: parent.verticalCenter
+                source: installPath + "images/button_vk.png"
+            }
 
-                Image {
-                    anchors.verticalCenter: parent.verticalCenter
-                    source: installPath + "images/button_vk.png"
+            onClicked: authPage.startVkAuth();
+        }
+
+        Column {
+            anchors { fill: parent; topMargin: 30 }
+            spacing: 30
+
+            Row {
+                anchors { left: parent.left; leftMargin: 30 }
+                width: parent.width
+                visible: authPage.codeRequired
+
+                LabelText {
+                    text: qsTr("AUTH_LEFT_LABEL_CODE_REQUIRED")
                 }
 
-                onClicked: {
-                    GoogleAnalytics.trackEvent('/Auth', 'Auth', 'Vk Login');
-                    authPage.startVkAuth();
+                Auth.CodeForm {
+                    login: loginForm.login
+                    onCancel: {
+                        authPage.codeRequired = false
+                        authRegisterMoveUpPage.state = "AuthPage"
+                    }
+                    onShowProgress: isInProgress = show;
+                    onUnblocked: authPage.codeRequired = false
                 }
             }
 
-            Column {
-                anchors { fill: parent; topMargin: 30 }
-                spacing: 30
+            Row {
+                anchors { left: parent.left; leftMargin: 30 }
+                width: parent.width
+                visible: !authPage.codeRequired
 
-                Grid {
-                    columns: 3
-                    x: 30
-                    width: parent.width
-
-                    Item {
-                        width: 225 + 65
-                        height: 100
-
-                        Text {
-                            width: parent.width - 55
-                            font { family: 'Arial'; pixelSize: 14 }
-                            color: "#ffffff"
-                            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                            text: qsTr("REGISTRATION_LEFT_LABEL_TEXT")
-                        }
-                    }
-
-                    Column {
-                        width: parent.width
-                        spacing: 11
-
-
-                        Elements.Input {
-                            id: loginTextInput
-
-                            z: 1
-                            width: 208
-                            height: 28
-                            textEchoMode: TextInput.Normal
-                            editDefaultText: qsTr("PLACEHOLDER_LOGIN_INPUT")
-                            focus: true
-                            onEnterPressed: {
-                                if (!passwordTextInput.textEditComponent.text) {
-                                    passwordTextInput.textEditComponent.focus = true;
-                                    return;
-                                }
-
-                                authPage.startGenericAuth();
-                            }
-
-                            textEditComponent.onTextChanged: {
-                                if (authRegisterMoveUpPage.guestAuthEnabled)
-                                    authPage.stopGuestAutoStart();
-                            }
-
-                            onTabPressed: passwordTextInput.textEditComponent.focus = true;
-
-                            onVisibleChanged: {
-                                if (!visible) {
-                                    return;
-                                }
-
-                                var currentValue = Settings.value("qml/auth/", "authedLogins", "{}");
-                                setAutoCompleteSource(JSON.parse(currentValue));
-                            }
-
-                            function filterFunc(a, b) {
-                                return (a.toLowerCase().indexOf(b.toLowerCase()) == 0) &&
-                                        (b != '') && (a.toLowerCase() != b.toLowerCase());
-                            }
-                        }
-
-
-                        Elements.Input {
-                            id: passwordTextInput
-
-                            width: 208
-                            height: 28
-                            textEchoMode: TextInput.Password
-                            editDefaultText: qsTr("PLACEHOLDER_PASSWORD_INPUT")
-                            showKeyboardLayout: true
-                            focus: true
-                            onEnterPressed: authPage.startGenericAuth();
-
-                            textEditComponent.onTextChanged: {
-                                if (authRegisterMoveUpPage.guestAuthEnabled)
-                                    authPage.stopGuestAutoStart();
-                            }
-
-                            onTabPressed: loginTextInput.textEditComponent.focus = true;
-                        }
-
-                        Elements.CheckBox {
-                            id: rememberCheckBox
-                            Component.onCompleted: rememberCheckBox.setValue(true);
-                            buttonText: qsTr("CHECKBOX_REMEMBER_ME")
-                        }
-
-                        Item {
-                            height: 28 + 6
-                            width: 1
-
-                            Row {
-                                height: 28
-                                spacing: 5
-                                y: 6
-
-                                Elements.Button {
-                                    text: qsTr("AUTH_LOGIN_BUTTON")
-                                    onClicked: {
-                                        GoogleAnalytics.trackEvent('/Auth', 'Auth', 'General Login');
-                                        authPage.startGenericAuth();
-                                    }
-                                }
-
-                                Elements.Button {
-                                    text: qsTr("AUTH_CANCEL_BUTTON")
-                                    onClicked: {
-                                        GoogleAnalytics.trackEvent('/Auth', 'Auth', 'Auth Cancel');
-                                        authRegisterMoveUpPage.state = "AuthPage";
-                                    }
-                                }
-                            }
-                        }
-                    }
+                LabelText {
+                    text: qsTr("REGISTRATION_LEFT_LABEL_TEXT")
                 }
 
-                Row {
-                    width: parent.width
+                Auth.LoginForm {
+                    id: loginForm
 
-                    Rectangle {
-                        y: 5
-                        width: parent.width
-                        height: 1
-                        color: '#4c9926'
-                    }
-                }
-
-                Text {
-                    x: 225 + 65 + 30
-                    font { family: 'Arial'; pixelSize: 14; underline: true }
-                    color: "#ffffff"
-                    wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                    text: qsTr("REGISTER_NEW_USER_LINK")
-
-                    Elements.CursorMouseArea {
-                        anchors { fill: parent }
-                        onClicked: {
+                    function stopGuestAutoStart() {
+                        if (authRegisterMoveUpPage.guestAuthEnabled) {
                             authPage.stopGuestAutoStart();
-                            registrationPage.state = "Normal"
-                            authRegisterMoveUpPage.state = "RegistrationPage";
-                            GoogleAnalytics.trackEvent('/Auth', 'Auth', 'Switch To Registration');
                         }
                     }
+
+                    width: parent.width
+                    onLoginMe: authPage.startGenericAuth(login, password, captcha);
+                    onCancel: {
+                        loginForm.captchaRequired = false;
+                        authRegisterMoveUpPage.state = "AuthPage";
+                    }
+                    onLoginChanged: stopGuestAutoStart()
+                    onPasswordChanged: stopGuestAutoStart()
+                }
+            }
+
+            Auth.Footer {
+                width: parent.width
+                onClicked: {
+                    authPage.stopGuestAutoStart();
+                    registrationPage.state = "Normal"
+                    authRegisterMoveUpPage.state = "RegistrationPage";
+                    GoogleAnalytics.trackEvent('/Auth', 'Auth', 'Switch To Registration');
                 }
             }
         }

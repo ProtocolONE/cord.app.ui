@@ -9,6 +9,7 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+import "../js/GoogleAnalytics.js" as GoogleAnalytics
 
 Rectangle {
     id: root
@@ -21,6 +22,9 @@ Rectangle {
     property alias buttonText: label.text // @deprecated
     property alias textColor: label.color
 
+    property variant analitics;
+    property bool enabled: true
+
     property alias font: label.font
     property alias text: label.text
     property alias containsMouse: mouseArea.containsMouse
@@ -30,7 +34,8 @@ Rectangle {
 
     signal clicked();
 
-    color:  mouseArea.containsMouse ? root.hoverColor : "#00000000"
+    color: mouseArea.containsMouse ? root.hoverColor : "#00000000"
+    opacity: enabled ? 1 : 0.75
     border { width: 1; color: "#ffffff" }
     height: 28
     width: Math.max(70, container.width + label.width + 20)
@@ -57,9 +62,13 @@ Rectangle {
     CursorMouseArea {
         id: mouseArea
 
+        visible: root.enabled
         anchors.fill: parent
         hoverEnabled: true
         onClicked: {
+            if (analitics && analitics.length > 0) {
+                GoogleAnalytics.trackEvent.apply(null, analitics);
+            }
             root.clicked();
             buttonPressed();
         }

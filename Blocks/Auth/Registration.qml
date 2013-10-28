@@ -14,21 +14,21 @@ import Tulip 1.0
 import "../../Elements" as Elements
 import "../../js/Authorization.js" as Authorization
 import "../../js/GoogleAnalytics.js" as GoogleAnalytics
+import "../../js/restapi.js" as RestApi
 
 Item {
     id: registrationPage
 
     function startRegister() {
         authRegisterMoveUpPage.isInProgress = true;
-        var register = new Authorization.ProviderRegister(),
-                login = registerLoginTextInput.editText,
-                password = registerPasswordTextInput.editText;
+        var login = registerLoginTextInput.editText,
+            password = registerPasswordTextInput.editText;
+
         registerPasswordTextInput.clear();
-        register.register(login, password, function(error, response) {
+        Authorization.register(login, password, function(error, response) {
             if (error === Authorization.Result.Success) {
                 registerLoginTextInput.clear();
-                var auth = new Authorization.ProviderGameNet();
-                auth.login(login, password, function(error, response) {
+                Authorization.loginByGameNet(login, password, function(error, response) {
                     authPage.authCallback(error, response, true, false);
                     if (error !== Authorization.Result.Success) {
                         authRegisterMoveUpPage.state = "FailRegistrationPage";
@@ -37,20 +37,13 @@ Item {
                             return;
                         }
 
-                        switch(response.code) {
-                        case 110: {
-                            failPage.errorMessage = qsTr("AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT");
-                            break;
-                        }
-                        case 100: {
-                            failPage.errorMessage = qsTr("AUTH_FAIL_MESSAGE_WRONG");
-                            break;
-                        }
-                        default: {
-                            failPage.errorMessage = qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_ERROR");
-                            break;
-                        }
-                        }
+                        var map = {
+                            0: qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_ERROR"),
+                        };
+                        map[RestApi.Error.AUTHORIZATION_FAILED] = qsTr("AUTH_FAIL_MESSAGE_WRONG");
+                        map[RestApi.Error.INCORRECT_FORMAT_EMAIL] = qsTr("AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT");
+
+                        failPage.errorMessage = map[response.code] || map[0];
                     }
                 });
                 return;
@@ -67,11 +60,9 @@ Item {
                 registerPasswordTextInput.failState = true;
             }
 
-
             failPage.errorMessage =
-                    (response.message.login ? response.message.login + "<br/>" : "") +
-                    (response.message.password || "");
-
+                (response.message.login ? response.message.login + "<br/>" : "") +
+                (response.message.password || "");
         });
     }
 
@@ -147,8 +138,7 @@ Item {
         } else {
             GoogleAnalytics.trackEvent('/Registration/' + registrationPage.state, 'Auth', 'Guest Vk Confirm');
             authRegisterMoveUpPage.isInProgress = true;
-            var provider = new Authorization.ProviderVk(registerPageRightButton);
-            provider.link(function(error, message) {
+            Authorization.linkVkAccount(registerPageRightButton, function(error, message) {
                 authRegisterMoveUpPage.isInProgress = false;
 
                 if (error === Authorization.Result.Success) {
@@ -206,27 +196,13 @@ Item {
                     x: 30
                     width: parent.width
 
-                    Item {
-                        width: 225 + 65
-                        height: parent.height
+                    LabelText {
+                        color: (authRegisterMoveUpPage.state === "RegistrationPage"
+                                && authRegisterMoveUpPage.authedAsGuest) ? "#ffff66" : "#ffffff"
 
-                        Text {
-                            function registerHeaderColor() {
-                                if (authRegisterMoveUpPage.state === "RegistrationPage" &&
-                                        authRegisterMoveUpPage.authedAsGuest) {
-                                    return "#ffff66";
-                                }
-
-                                return  "#ffffff"
-                            }
-
-                            width: parent.width - 55
-                            font { family: 'Arial'; pixelSize: 14 }
-                            color: registerHeaderColor()
-                            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                            text: authRegisterMoveUpPage.authedAsGuest ? qsTr("AUTH_GUEST_REGISTER_MESSAGE") :
-                                                                         qsTr("AUTH_REGISTER_NORMAL_MESSAGE_DESC")
-                        }
+                        text: authRegisterMoveUpPage.authedAsGuest
+                              ? qsTr("AUTH_GUEST_REGISTER_MESSAGE")
+                              : qsTr("AUTH_REGISTER_NORMAL_MESSAGE_DESC")
                     }
 
                     Column {
@@ -346,7 +322,6 @@ Item {
                                 text: qsTr("AUTH_CANCEL_REGISTER_BUTTON")
                                 onClicked: registrationPage.bottomLeftButtonClicked()
                             }
-
                         }
                     }
                 }

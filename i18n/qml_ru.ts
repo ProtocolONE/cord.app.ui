@@ -562,31 +562,35 @@ Please try again later.</source>
     </message>
     <message>
         <source>PLACEHOLDER_LOGIN_INPUT</source>
-        <translation>Почта</translation>
+        <translation type="obsolete">Почта</translation>
     </message>
     <message>
         <source>PLACEHOLDER_PASSWORD_INPUT</source>
-        <translation>Пароль</translation>
+        <translation type="obsolete">Пароль</translation>
     </message>
     <message>
         <source>CHECKBOX_REMEMBER_ME</source>
-        <translation>Запомнить меня</translation>
+        <translation type="obsolete">Запомнить меня</translation>
     </message>
     <message>
         <source>AUTH_LOGIN_BUTTON</source>
-        <translation>Войти</translation>
+        <translation type="obsolete">Войти</translation>
     </message>
     <message>
         <source>AUTH_CANCEL_BUTTON</source>
-        <translation>Отмена</translation>
+        <translation type="obsolete">Отмена</translation>
     </message>
     <message>
         <source>REGISTER_NEW_USER_LINK</source>
-        <translation>Регистрация нового пользователя</translation>
+        <translation type="obsolete">Регистрация нового пользователя</translation>
     </message>
     <message>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED_HREF</source>
         <translation type="obsolete">&lt;a href=&quot;http://support.gamenet.ru&quot;&gt;&lt;font color=&apos;#d8e5d4&apos;&gt;службу поддержки&lt;/font&gt;&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>AUTH_LEFT_LABEL_CODE_REQUIRED</source>
+        <translation>Мы зафиксировали попытку подбора пароля к этой учётной записи.</translation>
     </message>
 </context>
 <context>
@@ -597,10 +601,53 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>Captcha</name>
+    <message>
+        <source>PLACEHOLDER_CAPTCHA</source>
+        <translation>Введите символы с картинки</translation>
+    </message>
+    <message>
+        <source>BUTTON_SHOW_ANOTHER_CAPTCHA</source>
+        <translation>Показать другую картинку</translation>
+    </message>
+</context>
+<context>
     <name>CheckListBox</name>
     <message>
         <source>Russian</source>
         <translation type="obsolete">Русский</translation>
+    </message>
+</context>
+<context>
+    <name>CodeForm</name>
+    <message>
+        <source>MESSAGE_CODE_SENDED</source>
+        <translation>Код отправлен</translation>
+    </message>
+    <message>
+        <source>TITLE_TEXT_ABOUT_ENTER_CODE</source>
+        <translation>Вы можете авторизоваться введя код подтверждения авторизации. Так мы сможем понять, что вы действительно владелец этой учётной записи
+</translation>
+    </message>
+    <message>
+        <source>BUTTON_SEND_BY_MAIL</source>
+        <translation>В письме</translation>
+    </message>
+    <message>
+        <source>BUTTON_SEND_BY_SMS</source>
+        <translation>В СМС</translation>
+    </message>
+    <message>
+        <source>PLACEHOLDER_ENTER_CODE</source>
+        <translation>Введите полученный код</translation>
+    </message>
+    <message>
+        <source>BUTTON_SEND</source>
+        <translation>Отправить код</translation>
+    </message>
+    <message>
+        <source>AUTH_CANCEL_BUTTON</source>
+        <translation>Отмена</translation>
     </message>
 </context>
 <context>
@@ -703,6 +750,13 @@ Please try again later.</source>
     <message>
         <source>FIRSTLICENSE_CREATE_SHORTCUTS</source>
         <translation>Создать ярлык на рабочем столе</translation>
+    </message>
+</context>
+<context>
+    <name>Footer</name>
+    <message>
+        <source>REGISTER_NEW_USER_LINK</source>
+        <translation>Регистрация нового пользователя</translation>
     </message>
 </context>
 <context>
@@ -969,7 +1023,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_REBORN_MINI_DESC</source>
-        <translation type="unfinished">ФЭНТЕЗИЙНАЯ ИГРА</translation>
+        <translation>ФЭНТЕЗИЙНАЯ ИГРА</translation>
     </message>
 </context>
 <context>
@@ -1447,6 +1501,29 @@ Please try again later.</source>
     <message>
         <source>TEXT_INITIALIZATION</source>
         <translation type="obsolete">Инициализация...</translation>
+    </message>
+</context>
+<context>
+    <name>LoginForm</name>
+    <message>
+        <source>PLACEHOLDER_LOGIN_INPUT</source>
+        <translation>Почта</translation>
+    </message>
+    <message>
+        <source>PLACEHOLDER_PASSWORD_INPUT</source>
+        <translation>Пароль</translation>
+    </message>
+    <message>
+        <source>CHECKBOX_REMEMBER_ME</source>
+        <translation>Запомнить меня</translation>
+    </message>
+    <message>
+        <source>AUTH_LOGIN_BUTTON</source>
+        <translation>Войти</translation>
+    </message>
+    <message>
+        <source>AUTH_CANCEL_BUTTON</source>
+        <translation>Отмена</translation>
     </message>
 </context>
 <context>

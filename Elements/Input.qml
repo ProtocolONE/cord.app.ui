@@ -26,9 +26,14 @@ Rectangle {
     property string inputMask
     property int maximumLength: 32767
 
+    property string text: textInputLogin.text
+    /** @depricated Use text instead of editText */
+    property string editText: textInputLogin.text
+
+
     property bool showKeyboardLayout: false
     property string editDefaultText: qsTr("Login")
-    property string editText: textInputLogin.text
+
     property int textEchoMode: TextInput.Normal
     property alias textEditComponent: textInputLogin
     property bool editFocus: false
