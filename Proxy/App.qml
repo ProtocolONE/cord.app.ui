@@ -153,4 +153,11 @@ QtObject {
         }
         mainWindow.updateFinishedSlot();
     }
+
+    function isPublicVersion() {
+        if (!AppProxy.mainWindow) {
+            return false;
+        }
+        return mainWindow.updateArea === 'live';
+    }
 }

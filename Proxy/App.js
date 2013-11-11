@@ -86,3 +86,10 @@ function downloadButtonStart(serviceId) {
         return proxyInst.downloadButtonStart(serviceId);
     }
 }
+
+function isPublicVersion() {
+    if (proxyInst) {
+        return proxyInst.isPublicVersion();
+    }
+    return false;
+}

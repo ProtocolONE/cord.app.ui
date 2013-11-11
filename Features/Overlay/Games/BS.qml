@@ -246,6 +246,12 @@ OverlayBase.OverlayBase {
         }
     }
 
+    onGameInit: {
+        if (!App.isPublicVersion()) {
+            over.sendMessage("BSEnableWebShop", "");
+        }
+    }
+
     Timer {
         id: blockInputTurnOffDelay
 
