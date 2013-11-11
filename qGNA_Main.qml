@@ -248,6 +248,14 @@ Item {
         Connections {
             target: mainWindow
 
+            onNavigate: {
+                if (page === 'SettingsPage') {
+                    GoogleAnalytics.trackEvent('/TaskList', 'Navigation', 'Switch To Settings');
+                    App.activateWindow();
+                    qGNA_main.openSettings();
+                }
+            }
+
             onSelectService: qGNA_main.selectService(serviceId);
 
             onCloseMainWindow: {
@@ -597,7 +605,7 @@ Item {
                 case 'Settings': {
                     GoogleAnalytics.trackEvent('/Tray', 'Navigation', 'Switch To Settings');
                     App.activateWindow();
-                    qGNA_main.openSettings()
+                    qGNA_main.openSettings();
                 }
                 break;
                 case 'Quit': {

@@ -9,7 +9,7 @@ if (!_proxyQml) {
 }
 
 function isAppSettingsEnabled(path, key, defaultValue) {
-    return (1 === _proxyQml.value(_defaultNamespace + path, key, defaultValue|0));
+    return (1 == _proxyQml.value(_defaultNamespace + path, key, defaultValue|0));
 }
 
 function appSettingsValue(path, key, defaultValue) {
@@ -30,5 +30,5 @@ function setSettingsValue(path, key, defaultValue)
 }
 
 function isSettingsEnabled(path, key, defaultValue) {
-    return (1 === _proxyQml.value(path, key, defaultValue|0));
+    return (1 == _proxyQml.value(path, key, defaultValue|0));
 }
