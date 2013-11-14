@@ -29,6 +29,7 @@ ListModel {
             fields.forEach(function(e) {
                 if (elem[e]) {
                     root.setProperty(i, e, qsTr(elem[e]));
+
                 }
             });
         }
@@ -63,7 +64,7 @@ ListModel {
 
         maintenance: false
         maintenanceInterval: 0
-        maintenanceProposal1: "300011010000000000"
+        maintenanceProposal1: "300012010000000000"
         maintenanceProposal2: "300003010000000000"
         maintenanceEndPause: false
 
@@ -108,7 +109,7 @@ ListModel {
         maintenance: false
         maintenanceInterval: 0
         maintenanceProposal1: "300002010000000000"
-        maintenanceProposal2: "300011010000000000"
+        maintenanceProposal2: "300012010000000000"
         maintenanceEndPause: false
 
         licenseUrl: "http://www.bs.ru/license"
@@ -152,8 +153,8 @@ ListModel {
 
         maintenance: false
         maintenanceInterval: 0
-        maintenanceProposal1: "300003010000000000"
-        maintenanceProposal2: "300011010000000000"
+        maintenanceProposal1: "300009010000000000"
+        maintenanceProposal2: "300003010000000000"
         maintenanceEndPause: false
 
         licenseUrl:  "http://www.reborngame.ru/"
@@ -199,7 +200,7 @@ ListModel {
         maintenance: false
         maintenanceInterval: 0
         maintenanceProposal1: "300003010000000000"
-        maintenanceProposal2: "300011010000000000"
+        maintenanceProposal2: "300012010000000000"
         maintenanceEndPause: false
 
         licenseUrl: "http://www.aika2.ru/license"
@@ -240,7 +241,7 @@ ListModel {
         maintenance: false
         maintenanceInterval: 0
         maintenanceProposal1: "300003010000000000"
-        maintenanceProposal2: "300009010000000000"
+        maintenanceProposal2: "300012010000000000"
         maintenanceEndPause: false
 
         itemState: "Normal";
@@ -281,7 +282,7 @@ ListModel {
         maintenance: false
         maintenanceInterval: 0
         maintenanceProposal1: "300003010000000000"
-        maintenanceProposal2: "300009010000000000"
+        maintenanceProposal2: "300012010000000000"
         maintenanceEndPause: false
 
         licenseUrl: "http://www.playga.ru/license"
@@ -324,7 +325,7 @@ ListModel {
 
         maintenance: false
         maintenanceInterval: 0
-        maintenanceProposal1: "300009010000000000"
+        maintenanceProposal1: "300012010000000000"
         maintenanceProposal2: "300002010000000000"
         maintenanceEndPause: false
 
@@ -369,7 +370,7 @@ ListModel {
         maintenance: false
         maintenanceInterval: 0
         maintenanceProposal1: "300003010000000000"
-        maintenanceProposal2: "300002010000000000"
+        maintenanceProposal2: "300012010000000000"
         maintenanceEndPause: false
 
         licenseUrl: "http://www.mw2.ru/license"
@@ -382,5 +383,49 @@ ListModel {
         aboutGameText: QT_TR_NOOP("GAME_MW2_ABOUT_TEXT")
         miniToolTip: QT_TR_NOOP("GAME_MW2_MINI_TOOLTIP")
         shortDescription: QT_TR_NOOP("GAME_MW2_MINI_DESC")
+    }
+
+    ListElement {
+        gameType: "standalone"
+        imageSource: ""
+        name: "Rage of Titans"
+        imageSmall: ""
+        imageFooter: "images/games/rot.png"
+        imageBig: ""
+        imageLogoSmall: "images/games/rot_logo_small.png"
+        imageLogoBig: ""
+        size: "normal"
+
+        imageBack : "images/games/rot_back.png"
+
+        serviceId: "300004010000000000"
+        gameId: "72"
+
+        forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=5"
+        blogUrl: ""
+        guideUrl: ""
+
+        status: "Normal" // Error Started Paused Downloading
+        statusText: ""
+        progress: -1
+        allreadyDownloaded: false
+        gaName: "RageOfTitans" // Never change please
+
+        maintenance: false
+        maintenanceInterval: 0
+        maintenanceProposal1: "300003010000000000"
+        maintenanceProposal2: "300012010000000000"
+        maintenanceEndPause: false
+
+        licenseUrl: "http://www.rot.ru/license"
+
+        itemState: "Normal"
+        animationPause: 150
+        hasOverlay: false
+
+        logoText: QT_TR_NOOP("LOGO_ROT")
+        aboutGameText: QT_TR_NOOP("GAME_ROT_ABOUT_TEXT")
+        miniToolTip: QT_TR_NOOP("GAME_ROT_MINI_TOOLTIP")
+        shortDescription: QT_TR_NOOP("GAME_ROT_MINI_DESC")
     }
 }

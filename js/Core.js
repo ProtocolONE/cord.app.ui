@@ -40,6 +40,10 @@ var socialNetTable = {
     ],
     "300005010000000000":[//FireStorm
         {
+            link: "http://www.youtube.com/channel/UC6AbThTxwl1VhaLBvnkdiJg",
+            icon: "images/socialNet/yt.png"
+        },
+        {
             link: "http://vk.com/warinc",
             icon: "images/socialNet/vk.png"
         }
@@ -73,6 +77,12 @@ var socialNetTable = {
             link: "http://vk.com/ca_ru",
             icon: "images/socialNet/vk.png"
         }
+    ],
+    "300004010000000000":[//Rot
+        {
+            link: "http://vk.com/rageoftitans",
+            icon: "images/socialNet/vk.png"
+        },
     ]
 }
 var runningService = {},

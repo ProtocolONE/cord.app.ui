@@ -11,7 +11,7 @@ Item {
     property string peerPayloadDownloadRate
     property string payloadDownloadRate
     property string directPayloadDownloadRate
-    property string playloadUploadRate
+    property string payloadUploadRate
     property string totalPayloadUpload
 
     width: 596
@@ -94,7 +94,7 @@ Item {
                     smooth: true
                     color: '#333333'
                     text: qsTr("DOWNLOAD_PEER_UPLOAD_SPEED").arg(qsTr('%1/seconds').
-                                                                arg(d.calcDimension(playloadUploadRate)));
+                                                                arg(d.calcDimension(payloadUploadRate)));
                 }
             }
 

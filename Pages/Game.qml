@@ -303,7 +303,10 @@ Rectangle {
 
             item.status = "Starting";
             item.statusText = qsTr("TEXT_PROGRESSBAR_STARTING_STATE")
-            App.executeService(service);
+            if (!App.executeService(service)) {
+                item.statusText = '';
+                item.status = "Normal";
+            }
         }
 
         onProgressbarChange: { // @DEPRECATED
@@ -325,7 +328,7 @@ Rectangle {
                     peerPayloadDownloadRate: peerPayloadDownloadRate,
                     payloadDownloadRate: payloadDownloadRate,
                     directPayloadDownloadRate: directPayloadDownloadRate,
-                    playloadUploadRate: playloadUploadRate,
+                    payloadUploadRate: payloadUploadRate,
                     totalPayloadUpload: totalPayloadUpload
                 }
 
@@ -368,7 +371,7 @@ Rectangle {
                 peerPayloadDownloadRate: peerPayloadDownloadRate,
                 payloadDownloadRate: payloadDownloadRate,
                 directPayloadDownloadRate: directPayloadDownloadRate,
-                playloadUploadRate: playloadUploadRate,
+                payloadUploadRate: payloadUploadRate,
                 totalPayloadUpload: totalPayloadUpload
             }
 
@@ -681,7 +684,7 @@ Rectangle {
                             peerPayloadDownloadRate = progressValue('peerPayloadDownloadRate')
                             payloadDownloadRate = progressValue('payloadDownloadRate')
                             directPayloadDownloadRate = progressValue('directPayloadDownloadRate')
-                            playloadUploadRate = progressValue('playloadUploadRate')
+                            payloadUploadRate = progressValue('payloadUploadRate')
                             totalPayloadUpload = progressValue('totalPayloadUpload')
                         }
 

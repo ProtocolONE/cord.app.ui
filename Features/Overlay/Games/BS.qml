@@ -230,7 +230,7 @@ OverlayBase.OverlayBase {
 
     onCustomMessage: {
         // HACK ближе к лайву возможно убрать или частично убрать.
-        console.log('Overlay custom message ', name, arg);
+        // console.log('Overlay custom message ', name, arg);
 
         var handlers = {
             'BSCreateWindow': over.onBsWindowCreate,

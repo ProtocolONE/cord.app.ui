@@ -643,7 +643,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>BUTTON_SEND</source>
-        <translation>Отправить код</translation>
+        <translation>Ввести код</translation>
     </message>
     <message>
         <source>AUTH_CANCEL_BUTTON</source>
@@ -923,7 +923,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>LOGO_ROT</source>
-        <translation type="obsolete">Хардкорная Dota</translation>
+        <translation>Арена командных боёв</translation>
     </message>
     <message>
         <source>GAME_CA_ABOUT_TEXT</source>
@@ -951,7 +951,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_ROT_ABOUT_TEXT</source>
-        <translation type="obsolete">RoT – хардкорная командная игра в стиле легендарной DotA! Десятки уникальных героев на выбор, сотни предметов, огромное количество тактических вариантов и стратегий победы! Стань лучшим из лучших!</translation>
+        <translation>Захватывающие командные бои, для победы в которых вам необходимо овладеть тактикой ведения битвы, применять все ваше мастерство и постоянно демонстрировать скорость реакции. На пути к достижению успеха в различных режимах игры вам поможет множество героев и многогранная система развития персонажа.</translation>
     </message>
     <message>
         <source>GAME_CA_MINI_TOOLTIP</source>
@@ -979,7 +979,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_ROT_MINI_TOOLTIP</source>
-        <translation type="obsolete">RoT — Многопользовательская 3D action MMO игра</translation>
+        <translation>Арена командных боёв (MOBA)</translation>
     </message>
     <message>
         <source>GAME_CA_MINI_DESC</source>
@@ -1007,7 +1007,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_ROT_MINI_DESC</source>
-        <translation type="obsolete">Хардкорная Dota</translation>
+        <translation>Арена командных боёв</translation>
     </message>
     <message>
         <source>LOGO_FJ</source>

@@ -763,6 +763,26 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../Models/GamesListModel.qml" line="425"/>
+        <source>LOGO_ROT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/GamesListModel.qml" line="426"/>
+        <source>GAME_ROT_ABOUT_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/GamesListModel.qml" line="427"/>
+        <source>GAME_ROT_MINI_TOOLTIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/GamesListModel.qml" line="428"/>
+        <source>GAME_ROT_MINI_DESC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../Models/GamesListModel.qml" line="250"/>
         <source>LOGO_FJ</source>
         <translation type="unfinished"></translation>
@@ -1941,22 +1961,22 @@
 <context>
     <name>TaskList</name>
     <message>
-        <location filename="../Features/TastList/TaskList.qml" line="8"/>
+        <location filename="../Features/TastList/TaskList.qml" line="64"/>
         <source>TASK_LIST_ALL_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/TastList/TaskList.qml" line="9"/>
+        <location filename="../Features/TastList/TaskList.qml" line="65"/>
         <source>TASK_LIST_MORE_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/TastList/TaskList.qml" line="44"/>
+        <location filename="../Features/TastList/TaskList.qml" line="43"/>
         <source>TASK_LIST_SETTING</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/TastList/TaskList.qml" line="45"/>
+        <location filename="../Features/TastList/TaskList.qml" line="44"/>
         <source>TASK_LIST_QUIT</source>
         <translation type="unfinished"></translation>
     </message>

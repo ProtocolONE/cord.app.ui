@@ -102,7 +102,8 @@ QtObject {
         if (!AppProxy.mainWindow) {
             return false;
         }
-        mainWindow.executeService(serviceId);
+
+        return mainWindow.executeService(serviceId);
     }
 
     function language() {
