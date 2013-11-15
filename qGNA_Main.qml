@@ -19,6 +19,7 @@ import "Proxy" as Proxy
 import "Features/Guide" as Guide
 import "Features/Ping" as Ping
 import "Features/PublicTest" as PublicTest
+import "Features/TastList" as TastList
 
 import "Blocks/Features/Announcements" as Announcements
 import "Features/Maintenance" as Maintenance
@@ -46,6 +47,8 @@ Item {
     signal onWindowOpen();
     signal onWindowPositionChanged(int x, int y);
     signal onWindowMinimize();
+
+    signal windowDestroy();
 
     function setMidToGoogleAnalytics() {
         var mid = Marketing.mid();
@@ -129,7 +132,10 @@ Item {
             id: closeAnimation;
 
             running: false;
-            onCompleted: onWindowClose()
+            onCompleted: {
+                windowDestroy();
+                onWindowClose();
+            }
             NumberAnimation { target: mainWindowRectanglw; property: "opacity"; from: 1; to: 0;  duration: 250 }
         }
 
@@ -751,6 +757,9 @@ Item {
     Elements.PopupWindow {}
 
     Tooltip.Tooltip {}
+
+    TastList.TaskList {
+    }
 
     Announcements.Announcements {
         id: announcementsFeature

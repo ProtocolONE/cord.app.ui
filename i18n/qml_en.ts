@@ -497,17 +497,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="197"/>
+        <location filename="../Pages/Game.qml" line="191"/>
         <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="305"/>
+        <location filename="../Pages/Game.qml" line="301"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="311"/>
+        <location filename="../Pages/Game.qml" line="307"/>
         <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
         <translation></translation>
     </message>
@@ -529,42 +529,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="498"/>
+        <location filename="../Pages/Game.qml" line="494"/>
         <source>PHOTO_COMPETITION_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="499"/>
+        <location filename="../Pages/Game.qml" line="495"/>
         <source>PHOTO_COMPETITION_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="527"/>
+        <location filename="../Pages/Game.qml" line="523"/>
         <source>PUBLIC_TEST_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="581"/>
+        <location filename="../Pages/Game.qml" line="577"/>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="582"/>
+        <location filename="../Pages/Game.qml" line="578"/>
         <source>BUTTON_PLAY_ON_PAUSE_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="583"/>
+        <location filename="../Pages/Game.qml" line="579"/>
         <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="584"/>
+        <location filename="../Pages/Game.qml" line="580"/>
         <source>BUTTON_PLAY_ERROR_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="585"/>
+        <location filename="../Pages/Game.qml" line="581"/>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1127,32 +1127,32 @@
 <context>
     <name>Maintenance</name>
     <message>
-        <location filename="../Blocks/GameSwitch/Maintenance.qml" line="61"/>
+        <location filename="../Blocks/GameSwitch/Maintenance.qml" line="66"/>
         <source>MAINTENANCE_FIRST_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GameSwitch/Maintenance.qml" line="70"/>
+        <location filename="../Blocks/GameSwitch/Maintenance.qml" line="75"/>
         <source>MAINTENANCE_TIME_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GameSwitch/Maintenance.qml" line="79"/>
+        <location filename="../Blocks/GameSwitch/Maintenance.qml" line="84"/>
         <source>STATUS_TEXT_MAINTENANCE_GREATE_HOUR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GameSwitch/Maintenance.qml" line="83"/>
+        <location filename="../Blocks/GameSwitch/Maintenance.qml" line="88"/>
         <source>STATUS_TEXT_MAINTENANCE_LESS_HOUR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GameSwitch/Maintenance.qml" line="100"/>
+        <location filename="../Blocks/GameSwitch/Maintenance.qml" line="105"/>
         <source>MAINTENANCE_SECOND_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GameSwitch/Maintenance.qml" line="109"/>
+        <location filename="../Blocks/GameSwitch/Maintenance.qml" line="114"/>
         <source>MAINTENANCE_ADV_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1935,6 +1935,29 @@
     <message>
         <location filename="../js/Support/Support.qml" line="36"/>
         <source>SUPPORT_HELP</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TaskList</name>
+    <message>
+        <location filename="../Features/TastList/TaskList.qml" line="8"/>
+        <source>TASK_LIST_ALL_GAMES</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Features/TastList/TaskList.qml" line="9"/>
+        <source>TASK_LIST_MORE_GAMES</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Features/TastList/TaskList.qml" line="44"/>
+        <source>TASK_LIST_SETTING</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Features/TastList/TaskList.qml" line="45"/>
+        <source>TASK_LIST_QUIT</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

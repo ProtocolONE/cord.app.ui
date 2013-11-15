@@ -32,6 +32,11 @@ OverlayBase.OverlayBase {
     property int goldOnChar;
     property int silverOnChar;
 
+    property string exchangeSilver;
+    property int exchangeGoldOnChar;
+    property int exchangeSilverOnChar;
+    property int exchangeMoney;
+
     function openShop() {
         blockInputTurnOffDelay.stop();
 
@@ -173,6 +178,34 @@ OverlayBase.OverlayBase {
             console.log('Current bonus: ', packet.nCurMark);
         }
 
+        if (packetType === 'NS_GetYBAccount') {
+            over.exchangeMoney = packet.yuanBao;
+            over.exchangeSilver = packet.totalSilver;
+            over.exchangeSilverOnChar = packet.silver;
+            over.exchangeGoldOnChar = packet.gold;
+            console.log('Current exchange total silver: ', over.exchangeSilver,
+                        ' Gold: ', over.exchangeGoldOnChar,
+                        ' Silver: ', over.exchangeSilverOnChar,
+                        ' Money: ', over.exchangeMoney);
+        }
+
+        if (packetType === 'NS_SynAccoutSilver') {
+            over.exchangeSilver = packet.totalSilver;
+            over.exchangeSilverOnChar = packet.silver;
+            over.exchangeGoldOnChar = packet.gold;
+            console.log('Current exchange total silver: ', over.exchangeSilver,
+                        ' Gold: ', over.exchangeGoldOnChar,
+                        ' Silver: ', over.exchangeSilverOnChar,
+                        ' Money: ', over.exchangeMoney);
+        }
+
+        if (packetType === 'NS_SynAccoutYB') {
+            over.exchangeMoney = packet.yuanBao;
+            console.log('Current exchange total silver: ', over.exchangeSilver,
+                        ' Gold: ', over.exchangeGoldOnChar,
+                        ' Silver: ', over.exchangeSilverOnChar,
+                        ' Money: ', over.exchangeMoney);
+        }
 
     }
 
@@ -197,7 +230,7 @@ OverlayBase.OverlayBase {
 
     onCustomMessage: {
         // HACK ближе к лайву возможно убрать или частично убрать.
-        // console.log('Overlay custom message ', name, arg);
+        console.log('Overlay custom message ', name, arg);
 
         var handlers = {
             'BSCreateWindow': over.onBsWindowCreate,
@@ -359,7 +392,11 @@ OverlayBase.OverlayBase {
                         goldOnChar: over.goldOnChar,
                         realMoney: over.money,
                         coupon: over.coupon,
-                        bonus: over.bonus
+                        bonus: over.bonus,
+                        exchangeMoney: over.exchangeMoney,
+                        exchangeSilver: over.exchangeSilver,
+                        exchangeSilverOnChar: over.exchangeSilverOnChar,
+                        exchangeGoldOnChar: over.exchangeGoldOnChar
                     };
 
                     console.log('BS current balance', JSON.stringify(result));

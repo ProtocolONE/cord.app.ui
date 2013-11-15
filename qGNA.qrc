@@ -102,6 +102,8 @@
 		<file>Features/Ping/Ping.qml</file>
 		<file>Features/PublicTest/index.js</file>
 		<file>Features/PublicTest/PublicTestWarning.qml</file>
+		<file>Features/TastList/TaskList.js</file>
+		<file>Features/TastList/TaskList.qml</file>
 		<file>js/Authorization.js</file>
 		<file>js/Authorization/Vk.qml</file>
 		<file>js/Core.js</file>

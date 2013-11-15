@@ -1041,6 +1041,22 @@ Please try again later.</source>
         <source>GAME_REBORN_MINI_DESC</source>
         <translation>ФЭНТЕЗИЙНАЯ ИГРА</translation>
     </message>
+    <message>
+        <source>TASK_LIST_ALL_GAMES</source>
+        <translation type="obsolete">Установленные</translation>
+    </message>
+    <message>
+        <source>TASK_LIST_MORE_GAMES</source>
+        <translation type="obsolete">Еще игры</translation>
+    </message>
+    <message>
+        <source>TASK_LIST_SETTING</source>
+        <translation type="obsolete">Настройки</translation>
+    </message>
+    <message>
+        <source>TASK_LIST_QUIT</source>
+        <translation type="obsolete">Выход</translation>
+    </message>
 </context>
 <context>
     <name>GamesSwitch</name>
@@ -2602,6 +2618,25 @@ Please try again later.</source>
     <message>
         <source>SUPPORT_HELP</source>
         <translation>Служба поддержки пользователей GameNet</translation>
+    </message>
+</context>
+<context>
+    <name>TaskList</name>
+    <message>
+        <source>TASK_LIST_ALL_GAMES</source>
+        <translation type="unfinished">Установленные</translation>
+    </message>
+    <message>
+        <source>TASK_LIST_MORE_GAMES</source>
+        <translation type="unfinished">Еще игры</translation>
+    </message>
+    <message>
+        <source>TASK_LIST_SETTING</source>
+        <translation type="unfinished">Настройки</translation>
+    </message>
+    <message>
+        <source>TASK_LIST_QUIT</source>
+        <translation type="unfinished">Выход</translation>
     </message>
 </context>
 <context>

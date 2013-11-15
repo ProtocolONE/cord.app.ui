@@ -448,6 +448,46 @@ Module {
         }
     }
     Component {
+        name: "TaskList"
+        prototype: "QObject"
+        exports: [
+            "Tulip/TaskList 1.0"
+        ]
+        exportMetaObjectRevisions: [
+            0
+        ]
+        Method {
+            name: "addCategory"
+            type: "int"
+            Parameter { name: "name"; type: "string" }
+        }
+        Method {
+            name: "removeCategory"
+            Parameter { name: "id"; type: "int" }
+        }
+        Method {
+            name: "addItem"
+            type: "int"
+            Parameter { name: "categoryId"; type: "int" }
+            Parameter { name: "icon"; type: "string" }
+            Parameter { name: "name"; type: "string" }
+            Parameter { name: "description"; type: "string" }
+            Parameter { name: "params"; type: "string" }
+            Parameter { name: "type"; type: "int" }
+        }
+        Method {
+            name: "removeItem"
+            Parameter { name: "id"; type: "int" }
+        }
+        Method {
+            name: "setGuid"
+            Parameter { name: "guid"; type: "string" }
+        }
+        Method { name: "removeAllTasks" }
+        Method { name: "removeAll" }
+        Method { name: "apply" }
+    }
+    Component {
         name: "TrayWindow"
         prototype: "QObject"
         exports: [
