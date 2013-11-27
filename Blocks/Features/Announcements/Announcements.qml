@@ -62,12 +62,6 @@ Item {
         }
     }
 
-    function isGameExecuted(serviceId) {
-        var succes = parseInt(Settings.value("gameExecutor/serviceInfo/" + serviceId + "/", "successCount", "0"), 10);
-        var fail = parseInt(Settings.value("gameExecutor/serviceInfo/" + serviceId + "/", "failedCount", "0"), 10);
-        return (succes + fail) > 0;
-    }
-
     function getShownDate(announceId) {
         return parseInt(Settings.value("qml/Announcements2/" + announceId + "/", "showDate", ""), 10);
     }
@@ -119,13 +113,6 @@ Item {
 
         if (isClosedProperly(announce.id)) {
             return false;
-        }
-
-        var playedServiceId = announce.playedServiceId;
-        if (playedServiceId) {
-            if (!isGameExecuted(playedServiceId)) {
-                return false;
-            }
         }
 
         return true;
@@ -215,13 +202,6 @@ Item {
 
             if (isClosedProperly(id)) {
                 continue;
-            }
-
-            var playedServiceId = announce.playedServiceId;
-            if (playedServiceId > 0) {
-                if (!isGameExecuted(playedServiceId)) {
-                    continue;
-                }
             }
 
             var lastShownDate = getShownDate(id);
