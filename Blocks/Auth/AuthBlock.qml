@@ -46,7 +46,7 @@ Item {
         if (loginForm.rememberChecked) {
             saveAuthorizedLogins();
         } else {
-            loginTextInput.clear();
+            loginForm.clearLogin();
         }
     }
 

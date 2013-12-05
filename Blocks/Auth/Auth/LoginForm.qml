@@ -34,6 +34,10 @@ Column {
         captchaObj.clear();
     }
 
+    function clearLogin() {
+        loginTextInput.clear();
+    }
+
     onCancel: clear();
     onLoginChanged: {
         if (login === '') {
