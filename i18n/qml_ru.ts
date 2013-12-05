@@ -783,11 +783,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>REWARDS_TOOLTIP</source>
-        <translation type="obsolete">Нажмите, чтобы узнать подробности</translation>
+        <translation>Нажмите, чтобы узнать подробности</translation>
     </message>
     <message>
         <source>REWARDS_BUTTON</source>
-        <translation type="obsolete">НАГРАДЫ</translation>
+        <translation>НАГРАДЫ</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>

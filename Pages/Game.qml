@@ -480,7 +480,7 @@ Rectangle {
                         topMargin: 86
                         bottomMargin: 86
                     }
-                    /*
+                   
                     Elements.IconButton { //rewards
                         toolTip: qsTr('REWARDS_TOOLTIP')
                         text: qsTr('REWARDS_BUTTON')
@@ -489,16 +489,6 @@ Rectangle {
                         anchors { topMargin: 13; rightMargin: 30 }
                         tooltipGlueCenter: true
                         onClicked: mainAuthModule.openWebPage("http://rewards.gamenet.ru/");
-                    }*/
-
-                    Elements.IconButton {
-                        toolTip: qsTr('PHOTO_COMPETITION_TOOLTIP')
-                        text: qsTr('PHOTO_COMPETITION_BUTTON')
-                        source: installPath + "images/menu/photoCompetition.png"
-                        anchors { top: parent.top; right: parent.right }
-                        anchors { topMargin: 13; rightMargin: 30 }
-                        tooltipGlueCenter: true
-                        onClicked: mainAuthModule.openWebPage("http://gamenet.ru/beauty");
                     }
 
                     Blocks.NewsBlock {
