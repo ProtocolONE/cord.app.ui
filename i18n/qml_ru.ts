@@ -2869,11 +2869,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>CLOSE_APP_TOOLTIP_MESSAGE</source>
-        <translation type="obsolete">Подтверждение выхода</translation>
+        <translation>Подтверждение выхода</translation>
     </message>
     <message>
         <source>CLOSE_APP_TOOLTIP_MESSAGE_DESC</source>
-        <translation type="obsolete">Игра %1 будет закрыта вместе с приложением. Работа игры без приложения невозможна. Закрыть приложение и игру?</translation>
+        <translation>Игра %1 будет закрыта вместе с приложением. Работа игры без приложения невозможна. Закрыть приложение и игру?</translation>
     </message>
 </context>
 <context>

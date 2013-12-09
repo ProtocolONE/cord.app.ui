@@ -619,20 +619,19 @@ Item {
                         break;
                     }
 
-                    //firstGame = Core.serviceItemByServiceId(services[0]);
+                    firstGame = Core.serviceItemByServiceId(services[0]);
 
-//                    AlertMessage.addAlertMessage(qsTr("CLOSE_APP_TOOLTIP_MESSAGE_DESC").arg(firstGame.name),
-//                                                 qsTr("CLOSE_APP_TOOLTIP_MESSAGE"),
-//                                                 AlertMessage.button.Ok | AlertMessage.button.Cancel,
-//                                                 function(button) {
-//                                                     if (button != AlertMessage.button.Ok) {
-//                                                         return;
-//                                                     }
+                    AlertMessage.addAlertMessage(qsTr("CLOSE_APP_TOOLTIP_MESSAGE_DESC").arg(firstGame.name),
+                                                 qsTr("CLOSE_APP_TOOLTIP_MESSAGE"),
+                                                 AlertMessage.button.Ok | AlertMessage.button.Cancel,
+                                                 function(button) {
+                                                     if (button != AlertMessage.button.Ok) {
+                                                         return;
+                                                     }
 
-//                                                    quitTrigger();
-//                                                 });
+                                                    quitTrigger();
+                                                 });
 
-                    quitTrigger();
 
                     break;
                 }
