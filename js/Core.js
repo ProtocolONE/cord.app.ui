@@ -1,6 +1,26 @@
 .pragma library
 Qt.include("../Proxy/Settings.js")
 
+var _signalBusComponent,
+    _signalBusInst;
+
+if (!_signalBusComponent) {
+    _signalBusComponent = Qt.createComponent('./Core.qml');
+    _signalBusInst = _signalBusComponent.createObject(null);
+}
+
+function signalBus() {
+    return _signalBusInst;
+}
+
+function needAuth() {
+    _signalBusInst.needAuth();
+}
+
+function showPurchaseOptions(itemOptions) {
+    _signalBusInst.openPurchaseOptions(itemOptions);
+}
+
 var socialNetTable = {
     "300002010000000000":[//Aika
         {

@@ -17,11 +17,14 @@ Rectangle {
     width: buttonText2.width + 30
     height: 28
     border { color: "#FFFFFF"; width: 1 }
-    color: mouseAreaId.containsMouse ? "#ff9800" : "#00000000"
+    color: mouseAreaId.containsMouse ? hoverColor : normalColor
 
     property string buttonText: "OK"
     property int fontSize: 16
     property string fontFamily: "Tahoma"
+
+    property color normalColor: "#00000000"
+    property color hoverColor: "#ff9800"
 
     property int buttonId: -1
     property int messageId

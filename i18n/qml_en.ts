@@ -353,6 +353,210 @@
     </message>
 </context>
 <context>
+    <name>CombatArmsItemsModel</name>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="38"/>
+        <source>CA_SHOP_ITEM_1790_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="40"/>
+        <source>CA_SHOP_ITEM_1790_DESCRIPTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="41"/>
+        <source>CA_SHOP_ITEM_1790_DESCRIPTION_SHORT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="45"/>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="69"/>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="117"/>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="141"/>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="166"/>
+        <source>CA_SHOP_1PCS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="50"/>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="74"/>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="122"/>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="146"/>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="171"/>
+        <source>CA_SHOP_7PCS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="55"/>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="79"/>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="127"/>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="151"/>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="176"/>
+        <source>CA_SHOP_15PCS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="62"/>
+        <source>CA_SHOP_ITEM_1735_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="64"/>
+        <source>CA_SHOP_ITEM_1735_DESCRIPTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="65"/>
+        <source>CA_SHOP_ITEM_1735_DESCRIPTION_SHORT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="86"/>
+        <source>CA_SHOP_ITEM_1631_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="88"/>
+        <source>CA_SHOP_ITEM_1631_DESCRIPTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="89"/>
+        <source>CA_SHOP_ITEM_1631_DESCRIPTION_SHORT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="93"/>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="190"/>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="215"/>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="241"/>
+        <source>CA_SHOP_1DAY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="98"/>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="195"/>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="220"/>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="246"/>
+        <source>CA_SHOP_7DAYS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="103"/>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="200"/>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="225"/>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="251"/>
+        <source>CA_SHOP_30DAYS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="110"/>
+        <source>CA_SHOP_ITEM_1339_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="112"/>
+        <source>CA_SHOP_ITEM_1339_DESCRIPTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="113"/>
+        <source>CA_SHOP_ITEM_1339_DESCRIPTION_SHORT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="134"/>
+        <source>CA_SHOP_ITEM_1004_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="136"/>
+        <source>CA_SHOP_ITEM_1004_DESCRIPTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="137"/>
+        <source>CA_SHOP_ITEM_1004_DESCRIPTION_SHORT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="159"/>
+        <source>CA_SHOP_ITEM_4125_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="161"/>
+        <source>CA_SHOP_ITEM_4125_DESCRIPTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="162"/>
+        <source>CA_SHOP_ITEM_4125_DESCRIPTION_SHORT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="183"/>
+        <source>CA_SHOP_ITEM_645_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="185"/>
+        <source>CA_SHOP_ITEM_645_DESCRIPTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="186"/>
+        <source>CA_SHOP_ITEM_645_DESCRIPTION_SHORT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="208"/>
+        <source>CA_SHOP_ITEM_784_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="210"/>
+        <source>CA_SHOP_ITEM_784_DESCRIPTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="211"/>
+        <source>CA_SHOP_ITEM_784_DESCRIPTION_SHORT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="234"/>
+        <source>CA_SHOP_ITEM_1533_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="236"/>
+        <source>CA_SHOP_ITEM_1533_DESCRIPTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="237"/>
+        <source>CA_SHOP_ITEM_1533_DESCRIPTION_SHORT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="258"/>
+        <source>CA_SHOP_ITEM_375_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="260"/>
+        <source>CA_SHOP_ITEM_375_DESCRIPTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/CombatArmsItemsModel.qml" line="261"/>
+        <source>CA_SHOP_ITEM_375_DESCRIPTION_SHORT</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>EnterNickname</name>
     <message>
         <location filename="../Blocks/EnterNickname.qml" line="122"/>
@@ -487,84 +691,84 @@
 <context>
     <name>Game</name>
     <message>
-        <location filename="../Pages/Game.qml" line="53"/>
+        <location filename="../Pages/Game.qml" line="54"/>
         <source>POPUP_PLAY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="54"/>
+        <location filename="../Pages/Game.qml" line="55"/>
         <source>POPUP_READY_TO_START</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="191"/>
+        <location filename="../Pages/Game.qml" line="192"/>
         <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="301"/>
+        <location filename="../Pages/Game.qml" line="300"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="307"/>
+        <location filename="../Pages/Game.qml" line="306"/>
         <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="340"/>
-        <location filename="../Pages/Game.qml" line="381"/>
+        <location filename="../Pages/Game.qml" line="341"/>
+        <location filename="../Pages/Game.qml" line="382"/>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="341"/>
-        <location filename="../Pages/Game.qml" line="382"/>
+        <location filename="../Pages/Game.qml" line="342"/>
+        <location filename="../Pages/Game.qml" line="383"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="396"/>
+        <location filename="../Pages/Game.qml" line="397"/>
         <source>TEXT_PROGRESSBAR_EXTRACTING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="485"/>
+        <location filename="../Pages/Game.qml" line="486"/>
         <source>REWARDS_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="486"/>
+        <location filename="../Pages/Game.qml" line="487"/>
         <source>REWARDS_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="514"/>
+        <location filename="../Pages/Game.qml" line="515"/>
         <source>PUBLIC_TEST_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="568"/>
+        <location filename="../Pages/Game.qml" line="585"/>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="569"/>
+        <location filename="../Pages/Game.qml" line="586"/>
         <source>BUTTON_PLAY_ON_PAUSE_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="570"/>
+        <location filename="../Pages/Game.qml" line="587"/>
         <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="571"/>
+        <location filename="../Pages/Game.qml" line="588"/>
         <source>BUTTON_PLAY_ERROR_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="572"/>
+        <location filename="../Pages/Game.qml" line="589"/>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1050,6 +1254,19 @@
     </message>
 </context>
 <context>
+    <name>ItemsView</name>
+    <message>
+        <location filename="../Features/Games/CombatArmsShop/ItemsView.qml" line="74"/>
+        <source>CA_SHOP_ITEMS_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Features/Games/CombatArmsShop/ItemsView.qml" line="322"/>
+        <source>CA_SHOP_ITEMS_BUY</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LicenseBlock</name>
     <message>
         <location filename="../Blocks/LicenseBlock.qml" line="51"/>
@@ -1496,6 +1713,44 @@
     <message>
         <location filename="../Features/PublicTest/PublicTestWarning.qml" line="84"/>
         <source>PUBLIC_TEST_CLOSE_BUTTON</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PurchaseDetails</name>
+    <message>
+        <location filename="../Features/Games/CombatArmsShop/PurchaseDetails.qml" line="81"/>
+        <source>CA_SHOP_DETAILS_ERROR_INSUFFICIENT_GN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Features/Games/CombatArmsShop/PurchaseDetails.qml" line="85"/>
+        <source>CA_SHOP_DETAILS_ERROR_UNKNOWN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Features/Games/CombatArmsShop/PurchaseDetails.qml" line="106"/>
+        <source>CA_SHOP_DETAILS_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Features/Games/CombatArmsShop/PurchaseDetails.qml" line="229"/>
+        <source>CA_SHOP_DETAILS_CONFIRM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Features/Games/CombatArmsShop/PurchaseDetails.qml" line="239"/>
+        <source>CA_SHOP_DETAILS_CANCEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Features/Games/CombatArmsShop/PurchaseDetails.qml" line="267"/>
+        <source>CA_SHOP_DETAILS_PURCHASE_SUCCESS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Features/Games/CombatArmsShop/PurchaseDetails.qml" line="274"/>
+        <source>CA_SHOP_DETAILS_CLOSE</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2071,12 +2326,12 @@
 <context>
     <name>qGNA_Main</name>
     <message>
-        <location filename="../qGNA_Main.qml" line="641"/>
+        <location filename="../qGNA_Main.qml" line="644"/>
         <source>CLOSE_APP_TOOLTIP_MESSAGE_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qGNA_Main.qml" line="642"/>
+        <location filename="../qGNA_Main.qml" line="645"/>
         <source>CLOSE_APP_TOOLTIP_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>

@@ -13,7 +13,7 @@
 
 import QtQuick 1.1
 import "Tooltip.js" as Js
-import "../../../Proxy/App.js" as App
+import "../../Proxy/App.js" as App
 
 Item {
     id: root

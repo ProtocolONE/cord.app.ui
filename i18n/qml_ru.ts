@@ -651,6 +651,187 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>CombatArmsItemsModel</name>
+    <message>
+        <source>CA_SHOP_ITEM_1790_TITLE</source>
+        <translation>Ящик снабжения MYST-N</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_1790_DESCRIPTION</source>
+        <translation>Ящик снабжения MYST-N служит для перевозки редких видов оружия. Этот ящик снабжения содержит одно редкое оружие с различным сроком службы. Так же, только из этого ящика можно получить эпическое оружие.
+
+
+Пожалуйста, выберите количество предметов:</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_1790_DESCRIPTION_SHORT</source>
+        <translation>Содержит редкое и эпическое оружие</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_1735_TITLE</source>
+        <translation>Набор продления оружия</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_1735_DESCRIPTION</source>
+        <translation>Этот предмет увеличивает оставшееся время использования вашего основного и вспомогательного оружия. ИО и GN оружие может быть продлено на различное время, включая 90 дней и постоянное!
+
+
+Пожалуйста, выберите количество предметов:</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_1735_DESCRIPTION_SHORT</source>
+        <translation>Продлевает срок действия оружия</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_1631_TITLE</source>
+        <translation>Бронежилет разведчика</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_1631_DESCRIPTION</source>
+        <translation>Легкий, пулеустойчивый и компактный. Жилет разведчика обеспечивает высокую скорость солдата, сохраняя защиту на уровне Легкого жилета. Общая защита -10% Скорость +15%
+
+
+Пожалуйста, выберите срок, на который хотите приобрести предмет:</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_1631_DESCRIPTION_SHORT</source>
+        <translation>+15% к скорости бега</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_1339_TITLE</source>
+        <translation>Черный электронный ключ</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_1339_DESCRIPTION</source>
+        <translation>Ключ для черного электронного сейфа.
+
+
+Пожалуйста, выберите количество предметов:</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_1339_DESCRIPTION_SHORT</source>
+        <translation>Для открытия черного сейфа</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_1004_TITLE</source>
+        <translation>Ящик снабжения ИО - Рискованный</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_1004_DESCRIPTION</source>
+        <translation>Этот рискованный ящик снабжения может потенциально содержать очень большое количество ИО (1,000 - 2,000,000 ИО).
+
+
+Пожалуйста, выберите количество предметов:</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_1004_DESCRIPTION_SHORT</source>
+        <translation>Шанс получить до 2 млн. ИО</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_4125_TITLE</source>
+        <translation>Ящик снабжения ИО - Экстрим</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_4125_DESCRIPTION</source>
+        <translation>Чрезвычайно рискованный ящик припасов с ИО, который может содержать 3,5 или даже 10 миллионов ИО.
+
+
+Пожалуйста, выберите количество предметов:</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_4125_DESCRIPTION_SHORT</source>
+        <translation>Шанс получить до 10 млн. ИО</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_645_TITLE</source>
+        <translation>M69HE Осколочная-NL</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_645_DESCRIPTION</source>
+        <translation>Мощная и разрушительная ручная граната. Наносит серьёзные повреждения врагам, оказавшимся в зоне взрыва.
+
+
+Пожалуйста, выберите срок, на который хотите приобрести предмет:</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_645_DESCRIPTION_SHORT</source>
+        <translation>Наносит серьезные повреждения</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_784_TITLE</source>
+        <translation>М67 Осколочная - связка</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_784_DESCRIPTION</source>
+        <translation>Компактный набор гранат с удобным доступом. Позволяет носить 2 осколочные гранаты М67 в одной ячейке.
+
+
+Пожалуйста, выберите срок, на который хотите приобрести предмет:</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_784_DESCRIPTION_SHORT</source>
+        <translation>2 гранаты в одной ячейке</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_1533_TITLE</source>
+        <translation>Бандана циклопа</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_1533_DESCRIPTION</source>
+        <translation>Бандана с изображение циклопа, предпочитаемая членами Боевого корпуса. Дает прибавку к скорости +7.
+
+
+Пожалуйста, выберите срок, на который хотите приобрести предмет:</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_1533_DESCRIPTION_SHORT</source>
+        <translation>+7% к скорости бега</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_375_TITLE</source>
+        <translation>Изменение имени игрока</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_375_DESCRIPTION</source>
+        <translation>Этот предмет позволяет изменить имя вашего персонажа.
+
+
+Пожалуйста, подтвердите покупку предмета, который хотите приобрести:</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_ITEM_375_DESCRIPTION_SHORT</source>
+        <translation>Позволяет изменить имя в игре</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_1DAY</source>
+        <translation>1 День</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_7DAYS</source>
+        <translation>7 дней</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_30DAYS</source>
+        <translation>30 дней</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_FOREVER</source>
+        <translation>Навсегда</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_1PCS</source>
+        <translation>1 шт.</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_7PCS</source>
+        <translation>7 шт.</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_15PCS</source>
+        <translation>15 шт.</translation>
+    </message>
+</context>
+<context>
     <name>EnterNickname</name>
     <message>
         <source>TITLE_SET_NICKNAME</source>
@@ -700,6 +881,17 @@ Please try again later.</source>
     <message>
         <source>BUTTON_CANCEL</source>
         <translation>Отмена</translation>
+    </message>
+</context>
+<context>
+    <name>ExpandCollapseButton</name>
+    <message>
+        <source>CA_SHOP_EXPAND</source>
+        <translation>Больше</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_COLLAPSE</source>
+        <translation>Меньше</translation>
     </message>
 </context>
 <context>
@@ -1406,6 +1598,20 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>ItemDelegate</name>
+    <message>
+        <source>CA_SHOP_ITEMS_BUY</source>
+        <translation>КУПИТЬ</translation>
+    </message>
+</context>
+<context>
+    <name>ItemsView</name>
+    <message>
+        <source>CA_SHOP_ITEMS_TITLE</source>
+        <translation>ТОП ПРЕДМЕТОВ</translation>
+    </message>
+</context>
+<context>
     <name>LicenseBlock</name>
     <message>
         <source>TITLE_EULA</source>
@@ -1952,6 +2158,41 @@ Please try again later.</source>
     <message>
         <source>PUBLIC_TEST_CLOSE_BUTTON</source>
         <translation>Закрыть</translation>
+    </message>
+</context>
+<context>
+    <name>PurchaseDetails</name>
+    <message>
+        <source>CA_SHOP_DETAILS_TITLE</source>
+        <translation>Подтверждение покупки</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_DETAILS_ERROR_INSUFFICIENT_GN</source>
+        <translation>У вас недостаточно GN-монет. &lt;a href=&quot;http://www.gamenet.ru/money&quot;&gt;Пополнить счет&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_DETAILS_ERROR_UNKNOWN</source>
+        <translation>Произошла ошибка в процессе покупки. Пожалуйста, попробуйте позже.</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_DETAILS_ERROR_NO_CHAR</source>
+        <translation type="unfinished">Мы не нашли вашего персонажа Combat Arms. Вы пока не можете покупать предметы.</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_DETAILS_CONFIRM</source>
+        <translation>Подтвердить покупку</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_DETAILS_CANCEL</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_DETAILS_CLOSE</source>
+        <translation>Закрыть</translation>
+    </message>
+    <message>
+        <source>CA_SHOP_DETAILS_PURCHASE_SUCCESS</source>
+        <translation>Вы успешно купили предмет %1, он добавлен в ваш игровой инвентарь.</translation>
     </message>
 </context>
 <context>

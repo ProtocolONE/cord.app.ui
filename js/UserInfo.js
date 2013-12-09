@@ -10,8 +10,8 @@
  ****************************************************************************/
 
 var _userId = undefined,
-    _appKey = undefined,
-    _cookie = undefined;
+        _appKey = undefined,
+        _cookie = undefined;
 
 function setCredential(userId, appKey, cookie) {
     _userId = userId;
@@ -33,6 +33,10 @@ function appKey() {
 
 function cookie() {
     return _cookie;
+}
+
+function isAuthorized() {
+    return _userId != undefined && _appKey != undefined;
 }
 
 function getUrlWithCookieAuth(url)

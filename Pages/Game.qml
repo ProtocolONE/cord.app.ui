@@ -12,9 +12,11 @@ import "../js/GamesSwitchHelper.js" as GamesSwitchHelper
 import "../Features/Maintenance/Maintenance.js" as MaintenanceHelper
 import "../Features/Facts" as Feature
 import "../Proxy/App.js" as App
+import "../js/UserInfo.js" as UserInfo
 import "../Proxy/MouseClick.js" as MouseClick
 import "../js/Message.js" as AlertMessage
 import "../Features/PublicTest/index.js" as PublicTest
+import "../Features/Games" as ExtraGameFeatures
 
 Rectangle {
     id: root
@@ -46,7 +48,7 @@ Rectangle {
 
     function showPopupGameInstalled(serviceId) {
         var gameItem = Core.serviceItemByServiceId(serviceId)
-            , popUpOptions;
+        , popUpOptions;
 
         popUpOptions = {
             gameItem: gameItem,
@@ -380,8 +382,8 @@ Rectangle {
             item.progress = progress;
             item.statusText = (isInstalled ? qsTr("TEXT_PROGRESSBAR_UPDATING_NOW_STATE") :
                                              qsTr("TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE"))
-                .arg(Math.round(totalWantedDone / 10000) / 100)
-                .arg(Math.round(totalWanted / 10000) / 100);
+            .arg(Math.round(totalWantedDone / 10000) / 100)
+            .arg(Math.round(totalWanted / 10000) / 100);
         }
 
         onProgressbarExtractionChange: {// @DEPRECATED
@@ -480,8 +482,10 @@ Rectangle {
                         topMargin: 86
                         bottomMargin: 86
                     }
-                   
+
                     Elements.IconButton { //rewards
+                        id: rewardsButton;
+
                         toolTip: qsTr('REWARDS_TOOLTIP')
                         text: qsTr('REWARDS_BUTTON')
                         source: installPath + "images/menu/Rewards.png"
@@ -499,12 +503,43 @@ Rectangle {
                         filterGameId: currentItem ? currentItem.gameId : "671"
                     }
 
+                    Blocks.SocialNet {
+                        id: socialBlock
+
+                        anchors { bottom: parent.bottom; right: parent.right }
+                        anchors { bottomMargin: 20; rightMargin: 30 }
+                    }
+
+
+                    Feature.Facts {
+                        id: factsBlock;
+
+                        visible: (!d._maintenance) && (!d._maintenanceEndPause)
+                        anchors { bottom: parent.bottom; left: parent.left }
+                        anchors { bottomMargin: 20; leftMargin: 30 }
+                    }
+
+
+                    ExtraGameFeatures.GameFeatureContainer {
+                        visible: mainAuthModule.isAuthed && !mainAuthModule.authedAsGuest
+                        currentGameId: currentItem ? currentItem.gameId : ""
+                        width: 150;
+                        anchors {
+                            top: rewardsButton.bottom;
+                            right: parent.right;
+                            bottom: socialBlock.top;
+                            topMargin: 3;
+                            bottomMargin: 13;
+                            rightMargin: 30;
+                        }
+                    }
+
                     Image {
                         visible: settingsViewModel.isPublicTestVersion
 
                         source: installPath + "/images/warning.png"
-                        anchors { bottom: parent.bottom; right: parent.right }
-                        anchors { bottomMargin: 130; rightMargin: 30 }
+                        anchors { bottom: factsBlock.top; left: factsBlock.left }
+                        anchors { bottomMargin: 10; leftMargin: 0 }
 
                         Elements.CursorMouseArea {
                             id: warningButtonMouser
@@ -516,17 +551,7 @@ Rectangle {
                         }
                     }
 
-                    Blocks.SocialNet {
-                        anchors { bottom: parent.bottom; right: parent.right }
-                        anchors { bottomMargin: 20; rightMargin: 30 }
-                    }
 
-
-                    Feature.Facts {
-                        visible: (!d._maintenance) && (!d._maintenanceEndPause)
-                        anchors { bottom: parent.bottom; left: parent.left }
-                        anchors { bottomMargin: 20; leftMargin: 30 }
-                    }
                 }
 
                 Item {
@@ -553,8 +578,8 @@ Rectangle {
                     Elements.ProgressBar {
                         width: parent.width
                         running: currentItem
-                                    ? (currentItem.status === "Downloading" && !currentItem.allreadyDownloaded)
-                                    : false
+                                 ? (currentItem.status === "Downloading" && !currentItem.allreadyDownloaded)
+                                 : false
 
                     }
 
@@ -680,7 +705,7 @@ Rectangle {
 
                         function progressValue(arg) {
                             if (!currentItem ||
-                                !GamesSwitchHelper.gamesDownloadData.hasOwnProperty(currentItem.serviceId)) {
+                                    !GamesSwitchHelper.gamesDownloadData.hasOwnProperty(currentItem.serviceId)) {
                                 return '0';
                             }
 

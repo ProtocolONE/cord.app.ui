@@ -1005,3 +1005,15 @@ Wall.getNews = function(successCallback, failedCallback) {
 Wall.getNewsXml = function(successCallback, failedCallback) {
     Core.execute('wall.getNews', { format: 'xml' }, false, successCallback, failedCallback);
 };
+
+var Billing = function() {
+};
+
+Billing.purchaseItem = function(game, item, itemCount, successCallback, failedCallback) {
+    Core.execute('Billing.purchaseItem', {
+		version: 2,
+        gameId: game,
+		itemId: item, 
+		count: itemCount
+	}, true, successCallback, failedCallback);
+};

@@ -32,7 +32,7 @@ import "js/Message.js" as AlertMessage
 import "js/support.js" as Support
 import "Proxy/App.js" as App
 import "Proxy/AppProxy.js" as AppProxy
-
+import "Features/Games/CombatArmsShop" as CombatArmsShop
 
 Item {
     id: mainWindowRectanglw
@@ -59,8 +59,8 @@ Item {
         RestApi.Marketing.getMidDetails(mid,
                                         function(response) {
                                             var midDescription = (response.agentId || "") +
-                                                '-' + (response.company || "") +
-                                                '-' + (response.urlId || "");
+                                                    '-' + (response.company || "") +
+                                                    '-' + (response.urlId || "");
                                             GoogleAnalytics.setMidDescription(midDescription);
                                         });
     }
@@ -69,7 +69,7 @@ Item {
 
     Component.onCompleted: {
         var desktop = Desktop.screenWidth + 'x' + Desktop.screenHeight
-            , url = Settings.value('qGNA/restApi', 'url', 'https://gnapi.com:8443/restapi');
+        , url = Settings.value('qGNA/restApi', 'url', 'https://gnapi.com:8443/restapi');
 
         RestApi.Core.setup({lang: 'ru', url: url});
 
@@ -246,6 +246,20 @@ Item {
         }
 
         Connections {
+            target: Core.signalBus()
+
+            onNeedAuth: {
+                mainAuthModule.logout();
+                mainAuthModule.openMoveUpPage()
+            }
+
+            onOpenPurchaseOptions: {
+                combatArmsPurchaseDetails.setPurchaseOptions(purchaseOptions);
+                combatArmsPurchaseDetails.openMoveUpPage();
+            }
+        }
+
+        Connections {
             target: mainWindow
 
             onNavigate: {
@@ -263,8 +277,7 @@ Item {
             }
 
             onNeedAuth: {
-                mainAuthModule.logout();
-                mainAuthModule.openMoveUpPage()
+                Core.needAuth();
             }
 
             onNeedPakkanenVerification: {
@@ -325,22 +338,22 @@ Item {
                     App.openExternalUrlWithAuth(url);
                     return;
                 }
-	
+
                 mainAuthModule.openLinkGuestOnOpenPage();
             }
 
             function refreshUserInfo() {
                 RestApi.User.getProfile(mainAuthModule.userId, function(response) {
-                                            if (!response || !response.userInfo || response.userInfo.length < 1) {
-                                                return;
-                                            }
+                    if (!response || !response.userInfo || response.userInfo.length < 1) {
+                        return;
+                    }
 
-                                            var info = response.userInfo[0].shortInfo;
-                                            var level = response.userInfo[0].experience.level;
-                                            userInfoBlock.setUserInfo(info);
-                                            userInfoBlock.setLevel(level);
-                                            mainAuthModule.updateGuestStatus(info.guest || "0");
-                                        }, function() {});
+                    var info = response.userInfo[0].shortInfo;
+                    var level = response.userInfo[0].experience.level;
+                    userInfoBlock.setUserInfo(info);
+                    userInfoBlock.setLevel(level);
+                    mainAuthModule.updateGuestStatus(info.guest || "0");
+                }, function() {});
             }
 
             function isGuestAuthEnabled() {
@@ -560,13 +573,17 @@ Item {
             onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
         }
 
+        CombatArmsShop.PurchaseDetails {
+            id: combatArmsPurchaseDetails;
+        }
+
         Guide.WellcomeGuide {
             id: guide
 
             onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX,mouseY);
             onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
         }
-/*
+        /*
         Ping.Ping {
             id: ping
 
@@ -632,7 +649,7 @@ Item {
                                                          return;
                                                      }
 
-                                                    quitTrigger();
+                                                     quitTrigger();
                                                  });
 
 

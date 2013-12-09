@@ -66,6 +66,9 @@
 		<file>Elements/Input.qml</file>
 		<file>Elements/LoginButton.qml</file>
 		<file>Elements/NewsItem.qml</file>
+		<file>Elements/Option.qml</file>
+		<file>Elements/OptionGroup.qml</file>
+		<file>Elements/OptionStyle.qml</file>
 		<file>Elements/Password.qml</file>
 		<file>Elements/PopupItemBase.qml</file>
 		<file>Elements/PopupWindow.qml</file>
@@ -86,6 +89,13 @@
 		<file>Elements/WorkInProgress.qml</file>
 		<file>Features/Facts/Facts.qml</file>
 		<file>Features/Facts/Helper.js</file>
+		<file>Features/Games/CombatArmsShop/ExpandCollapseButton.qml</file>
+		<file>Features/Games/CombatArmsShop/ItemsView.qml</file>
+		<file>Features/Games/CombatArmsShop/ItemsViewPrivate/ScrollButton.qml</file>
+		<file>Features/Games/CombatArmsShop/PurchaseDetails.qml</file>
+		<file>Features/Games/CombatArmsShop/PurchaseOption.qml</file>
+		<file>Features/Games/GameFeatureContainer.qml</file>
+		<file>Features/Guide/Guide.js</file>
 		<file>Features/Guide/Guide.qml</file>
 		<file>Features/Guide/Private/ImageButton.qml</file>
 		<file>Features/Guide/WellcomeGuide.qml</file>
@@ -106,6 +116,7 @@
 		<file>js/Authorization.js</file>
 		<file>js/Authorization/Vk.qml</file>
 		<file>js/Core.js</file>
+		<file>js/Core.qml</file>
 		<file>js/Crypt.js</file>
 		<file>js/DateHelper.js</file>
 		<file>js/GamesSwitchHelper.js</file>
@@ -116,6 +127,7 @@
 		<file>js/support.js</file>
 		<file>js/Support/Support.qml</file>
 		<file>js/UserInfo.js</file>
+		<file>Models/CombatArmsItemsModel.qml</file>
 		<file>Models/GamesListModel.qml</file>
 		<file>Models/NewsModel.qml</file>
 		<file>Pages/Game.qml</file>
