@@ -627,7 +627,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.114.fb07d55a607baad4120c6a482299e2a79077488f",
+    version: "1.0.121.518160cbfdef010e59f295e5f4794fdb6b58766e",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',
@@ -714,6 +714,17 @@ Core.prototype = {
     }
 }
 
+var Billing = function() {
+};
+
+Billing.purchaseItem = function(game, item, itemCount, successCallback, failedCallback) {
+	Core.execute('Billing.purchaseItem', {
+		version: 2,
+		gameId: game, 
+		itemId: item, 
+		count: itemCount
+	}, true, successCallback, failedCallback);
+};
 var Games = function() {
 };
 
@@ -870,22 +881,6 @@ Games.getMaintenance = function(successCallback, failedCallback) {
     Core.execute('games.getMaintenance', {}, false, successCallback, failedCallback);
 };
 
-Games.setSteamId = function(steamId, isRealSteam, successCallback, failedCallback) {
-    Core.execute('games.setSteamId', {steamId: steamId, isRealSteam: isRealSteam ? "1" : "0"}, true, successCallback, failedCallback);
-};
-
-Games.getCSWeaponsStat = function(successCallback, failedCallback) {
-    Core.execute('games.getCSWeaponsStat', {version: 2}, true, successCallback, failedCallback);
-};
-
-Games.getCSMapsStat = function(successCallback, failedCallback) {
-    Core.execute('games.getCSMapsStat', {}, true, successCallback, failedCallback);
-};
-
-Games.getCSCharStat = function(successCallback, failedCallback) {
-    Core.execute('games.getCSCharStat', {}, true, successCallback, failedCallback);
-};
-
 Games.getFacts = function(successCallback, failedCallback) {
     Core.execute('games.getFacts', {version: 2}, false, successCallback, failedCallback);
 };
@@ -901,6 +896,21 @@ Marketing.getMidDetails = function(mid, successCallback, failedCallback) {
         successCallback,
         failedCallback);
 };
+var Premium = function() {
+};
+
+Premium.getStatus = function(successCallback, failedCallback) {
+    Core.execute('premium.getStatus', {version: 1}, true, successCallback, failedCallback);
+};
+
+Premium.getGrid = function(successCallback, failedCallback) {
+    Core.execute('premium.getGrid', {version: 1}, true, successCallback, failedCallback);
+};
+
+Premium.purhase = function(gridId, successCallback, failedCallback) {
+    Core.execute('premium.purchase', {version: 1, gridId: gridId}, true, successCallback, failedCallback);
+};
+
 var Service = function() {
 };
 

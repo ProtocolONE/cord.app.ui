@@ -39,7 +39,6 @@ Blocks.MoveUpPage {
             onOpenLicenseBlock: {
                 page.openMoveUpPage();
                 licenseModel.setLicenseAccepted(false);
-                licenseAppectedCheckBox.state = "Normal";
                 channelTextArea.flicElement.contentY = 0;
             }
 
