@@ -12,6 +12,7 @@ import QtQuick 1.1
 
 import "../../Elements" as Elements
 import "../../js/GoogleAnalytics.js" as GoogleAnalytics
+import "../../Proxy/App.js" as App
 
 Item {
     id: failPage
@@ -53,7 +54,7 @@ Item {
                 wrapMode: Text.WordWrap
                 width: 500
                 font { family: "Arial"; pixelSize: 16 }
-                onLinkActivated: Qt.openUrlExternally(link);
+                onLinkActivated: App.openExternalUrl(link);
             }
 
             Elements.Button {
@@ -75,7 +76,7 @@ Item {
                 textFormat: Text.RichText
                 wrapMode: Text.WordWrap
                 font { family: "Arial"; pixelSize: 14 }
-                onLinkActivated: Qt.openUrlExternally(link);
+                onLinkActivated: App.openExternalUrl(link);
 
                 Elements.CursorShapeArea { anchors.fill: parent }
             }

@@ -389,7 +389,7 @@ OverlayBase.OverlayBase {
                 }
 
                 function openExternalWindow(url) {
-                    App.openExternalBrowser(url);
+                    App.openExternalUrlWithAuth(url);
                 }
 
                 function getMoney() {

@@ -15,6 +15,7 @@ import "../../Elements" as Elements
 import "../../js/Authorization.js" as Authorization
 import "../../js/GoogleAnalytics.js" as GoogleAnalytics
 import "../../js/restapi.js" as RestApi
+import "../../Proxy/App.js" as App
 
 Item {
     id: registrationPage
@@ -307,7 +308,7 @@ Item {
                             wrapMode: Text.WordWrap
                             color: "#b9d3b3"
                             smooth: true
-                            onLinkActivated: Qt.openUrlExternally(link);
+                            onLinkActivated: App.openExternalUrl(link);
                         }
 
                         Row {

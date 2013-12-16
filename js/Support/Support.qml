@@ -6,6 +6,7 @@ import "../restapi.js" as Api
 import "../UserInfo.js" as UserInfo
 import "../../Elements" as Elements
 import "../../Proxy" as Proxy
+import "../../Proxy/App.js" as App
 
 Window {
     id: window
@@ -101,7 +102,7 @@ Window {
 
                 onUrlChanged: {
                     delegate.visible = false;
-                    Qt.openUrlExternally(url)
+                    App.openExternalUrl(url)
                 }
             }
         }
@@ -113,7 +114,7 @@ Window {
                 && view.hasOwnProperty('linkClicked')) {
                 view.activateLinkClicked = true;
                 view.linkClicked.connect(function(url) {
-                    Qt.openUrlExternally(url);
+                    App.openExternalUrl(url);
                 });
             }
         }

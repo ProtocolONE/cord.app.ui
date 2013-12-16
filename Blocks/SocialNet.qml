@@ -10,6 +10,7 @@
 import QtQuick 1.1
 import "../js/Core.js" as Core
 import "../Elements" as Elements
+import "../Proxy/App.js" as App
 
 Item {
     property variant currentSocialTable: Core.getCurrentSocialTable()
@@ -89,7 +90,7 @@ Item {
 
                 anchors.fill: parent
                 hoverEnabled: true
-                onClicked: Qt.openUrlExternally(link)
+                onClicked: App.openExternalUrl(link);
             }
         }
     }

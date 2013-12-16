@@ -55,6 +55,7 @@ Blocks.MoveUpPage {
             wrapMode: Text.Wrap
             color: "#FFFFFF"
             smooth: true
+            textFormat: Text.RichText
             onLinkActivated: mainAuthModule.openWebPage(link);
         }
 

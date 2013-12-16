@@ -40,7 +40,7 @@ Item {
 
         property variant lastOpenExternalBrowserTime: 0
 
-        function openExteranlBorwser(url) {
+        function openExternalBrowser(url) {
             var now = (+ new Date()),
                 dif = now - d.lastOpenExternalBrowserTime;
 
@@ -119,7 +119,7 @@ Item {
 
                     GoogleAnalytics.trackEvent('/newsBlock/' + Core.currentGame().gaName,
                                                'Navigation', 'Blog');
-                    d.openExteranlBorwser(Core.currentGame().blogUrl);
+                    d.openExternalBrowser(Core.currentGame().blogUrl);
                 }
             }
 
@@ -130,7 +130,7 @@ Item {
                 onClicked: {
                     GoogleAnalytics.trackEvent('/newsBlock/' + Core.currentGame().gaName,
                                                'Navigation', 'Forum');
-                    d.openExteranlBorwser(Core.currentGame().forumUrl);
+                    d.openExternalBrowser(Core.currentGame().forumUrl);
                 }
             }
 

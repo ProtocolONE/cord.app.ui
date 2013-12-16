@@ -322,10 +322,10 @@ Item {
 
             function openWebPage(url) {
                 if (!mainAuthModule.isAuthed || !mainAuthModule.authedAsGuest) {
-                    App.openExternalBrowser(url);
+                    App.openExternalUrlWithAuth(url);
                     return;
                 }
-
+	
                 mainAuthModule.openLinkGuestOnOpenPage();
             }
 

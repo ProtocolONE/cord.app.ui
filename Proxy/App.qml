@@ -63,11 +63,18 @@ QtObject {
         return mainWindow.startingService();
     }
 
-    function openExternalBrowser(url) {
+    function openExternalUrlWithAuth(url) {
         if (!AppProxy.mainWindow) {
             return false;
         }
-        mainWindow.openExternalBrowser(url);
+        mainWindow.openExternalUrlWithAuth(url);
+    }
+
+    function openExternalUrl(url) {
+        if (!AppProxy.mainWindow) {
+            return false;
+        }
+        mainWindow.openExternalUrl(url);
     }
 
     function logout() {

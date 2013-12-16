@@ -4,6 +4,7 @@ import Tulip 1.0
 import "../Elements" as Elements
 import "." as Blocks
 import "../js/Core.js" as Core
+import "../Proxy/App.js" as App
 
 Blocks.MoveUpPage {
     id: page
@@ -66,7 +67,7 @@ Blocks.MoveUpPage {
                     id: gamenetLicenseHover
 
                     anchors.fill: parent
-                    onClicked: Qt.openUrlExternally("http://www.gamenet.ru/license");
+                    onClicked: App.openExternalUrl("http://www.gamenet.ru/license");
                 }
             }
         }
@@ -139,7 +140,7 @@ Blocks.MoveUpPage {
                     id: gamenetLicenseHover2
 
                     anchors.fill: parent
-                    onClicked: Qt.openUrlExternally("http://www.gamenet.ru/license");
+                    onClicked: App.openExternalUrl("http://www.gamenet.ru/license");
                 }
             }
 
@@ -161,7 +162,7 @@ Blocks.MoveUpPage {
 
                         var url = item.licenseUrl;
                         if (url) {
-                            Qt.openUrlExternally(url);
+                            App.openExternalUrl(url);
                         }
                     }
                 }

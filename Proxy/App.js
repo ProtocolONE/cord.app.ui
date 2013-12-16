@@ -10,7 +10,7 @@
 ****************************************************************************/
 
 var proxyComponent,
-    proxyInst;
+        proxyInst;
 
 if (!proxyComponent) {
     proxyComponent = Qt.createComponent('./App.qml');
@@ -63,10 +63,18 @@ function startingService() {
     return '0';
 }
 
-function openExternalBrowser(url) {
+function openExternalUrlWithAuth(url) {
     if (proxyInst) {
-        return proxyInst.openExternalBrowser(url);
+        return proxyInst.openExternalUrlWithAuth(url);
     }
+    Qt.openUrlExternally(url);
+}
+
+function openExternalUrl(url) {
+    if (proxyInst) {
+        return proxyInst.openExternalUrl(url);
+    }
+    Qt.openUrlExternally(url);
 }
 
 function logout() {

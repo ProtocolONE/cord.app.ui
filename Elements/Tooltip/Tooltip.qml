@@ -13,6 +13,7 @@
 
 import QtQuick 1.1
 import "Tooltip.js" as Js
+import "../../../Proxy/App.js" as App
 
 Item {
     id: root
@@ -159,7 +160,7 @@ Item {
             font { family: "Arial"; pixelSize: 14 }
             text: inner.text
             wrapMode: Text.WordWrap
-            onLinkActivated: Qt.openUrlExternally(link)
+            onLinkActivated: App.openExternalUrl(link);
             color: "#333333"
             lineHeight: 1.1
 
