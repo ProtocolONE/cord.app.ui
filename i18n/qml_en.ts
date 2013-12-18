@@ -183,34 +183,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="357"/>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="368"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="337"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="348"/>
         <source>REMINDER_NEVER_PLAYED_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="356"/>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="367"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="336"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="347"/>
         <source>REMINDER_NEVER_PLAYED_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="353"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="333"/>
         <source>REMINDER_NEVER_PLAYED_FRIST_TIME_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="352"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="332"/>
         <source>REMINDER_NEVER_PLAYED_FRIST_TIME_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="296"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="276"/>
         <source>REMINDER_PLAYED_LONGAGO_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="297"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="277"/>
         <source>REMINDER_PLAYED_LONGAGO_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -529,42 +529,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="495"/>
-        <source>PHOTO_COMPETITION_TOOLTIP</source>
+        <location filename="../Pages/Game.qml" line="485"/>
+        <source>REWARDS_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="496"/>
-        <source>PHOTO_COMPETITION_BUTTON</source>
+        <location filename="../Pages/Game.qml" line="486"/>
+        <source>REWARDS_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="524"/>
+        <location filename="../Pages/Game.qml" line="514"/>
         <source>PUBLIC_TEST_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="578"/>
+        <location filename="../Pages/Game.qml" line="568"/>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="579"/>
+        <location filename="../Pages/Game.qml" line="569"/>
         <source>BUTTON_PLAY_ON_PAUSE_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="580"/>
+        <location filename="../Pages/Game.qml" line="570"/>
         <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="581"/>
+        <location filename="../Pages/Game.qml" line="571"/>
         <source>BUTTON_PLAY_ERROR_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="582"/>
+        <location filename="../Pages/Game.qml" line="572"/>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -806,42 +806,42 @@
 <context>
     <name>Guide</name>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="280"/>
+        <location filename="../Features/Guide/Guide.qml" line="191"/>
         <source>BUTTON_PREV</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="290"/>
+        <location filename="../Features/Guide/Guide.qml" line="201"/>
         <source>BUTTON_NEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="299"/>
-        <source>TEXT_CURRENT_FROM_MAX</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Features/Guide/Guide.qml" line="310"/>
+        <location filename="../Features/Guide/Guide.qml" line="215"/>
         <source>BUTTON_DISABLE_SOUND</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="311"/>
+        <location filename="../Features/Guide/Guide.qml" line="216"/>
         <source>BUTTON_ENABLE_SOUND</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="345"/>
+        <location filename="../Features/Guide/Guide.qml" line="227"/>
+        <source>BUTTON_CLOSE_GUIDE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Features/Guide/Guide.qml" line="260"/>
         <source>GUIDE_WELLCOME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="357"/>
+        <location filename="../Features/Guide/Guide.qml" line="272"/>
         <source>GUIDE_BUTTON_OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="368"/>
+        <location filename="../Features/Guide/Guide.qml" line="282"/>
         <source>GUIDE_BUTTON_REFUSE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1052,47 +1052,47 @@
 <context>
     <name>LicenseBlock</name>
     <message>
-        <location filename="../Blocks/LicenseBlock.qml" line="52"/>
+        <location filename="../Blocks/LicenseBlock.qml" line="51"/>
         <source>TITLE_EULA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/LicenseBlock.qml" line="62"/>
+        <location filename="../Blocks/LicenseBlock.qml" line="61"/>
         <source>SUBTITLE_EULA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/LicenseBlock.qml" line="106"/>
+        <location filename="../Blocks/LicenseBlock.qml" line="105"/>
         <source>CHECKBOX_I_AGREE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/LicenseBlock.qml" line="116"/>
+        <location filename="../Blocks/LicenseBlock.qml" line="115"/>
         <source>LABEL_GAME_INSTALLATION_PATH_INPUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/LicenseBlock.qml" line="129"/>
+        <location filename="../Blocks/LicenseBlock.qml" line="128"/>
         <source>BUTTON_BROWSE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/LicenseBlock.qml" line="144"/>
+        <location filename="../Blocks/LicenseBlock.qml" line="143"/>
         <source>CHECKBOX_CREATE_SHORTCUT_ON_DESKTOP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/LicenseBlock.qml" line="158"/>
+        <location filename="../Blocks/LicenseBlock.qml" line="157"/>
         <source>CHECKBOX_CREATE_SHORTCUT_IN_START_MENU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/LicenseBlock.qml" line="166"/>
+        <location filename="../Blocks/LicenseBlock.qml" line="165"/>
         <source>BUTTON_NEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/LicenseBlock.qml" line="176"/>
+        <location filename="../Blocks/LicenseBlock.qml" line="175"/>
         <source>BUTTON_CANCEL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1119,27 +1119,27 @@
 <context>
     <name>LoginForm</name>
     <message>
-        <location filename="../Blocks/Auth/Auth/LoginForm.qml" line="52"/>
+        <location filename="../Blocks/Auth/Auth/LoginForm.qml" line="56"/>
         <source>PLACEHOLDER_LOGIN_INPUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Auth/LoginForm.qml" line="84"/>
+        <location filename="../Blocks/Auth/Auth/LoginForm.qml" line="88"/>
         <source>PLACEHOLDER_PASSWORD_INPUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Auth/LoginForm.qml" line="102"/>
+        <location filename="../Blocks/Auth/Auth/LoginForm.qml" line="106"/>
         <source>CHECKBOX_REMEMBER_ME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Auth/LoginForm.qml" line="114"/>
+        <location filename="../Blocks/Auth/Auth/LoginForm.qml" line="118"/>
         <source>AUTH_LOGIN_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Auth/Auth/LoginForm.qml" line="120"/>
+        <location filename="../Blocks/Auth/Auth/LoginForm.qml" line="124"/>
         <source>AUTH_CANCEL_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2069,57 +2069,14 @@
     </message>
 </context>
 <context>
-    <name>WellcomeGuide</name>
-    <message>
-        <location filename="../Features/Guide/WellcomeGuide.qml" line="68"/>
-        <source>GUIDE_2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Features/Guide/WellcomeGuide.qml" line="76"/>
-        <source>GUIDE_3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Features/Guide/WellcomeGuide.qml" line="84"/>
-        <source>GUIDE_4</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Features/Guide/WellcomeGuide.qml" line="95"/>
-        <source>GUIDE_5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Features/Guide/WellcomeGuide.qml" line="105"/>
-        <source>GUIDE_6</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Features/Guide/WellcomeGuide.qml" line="115"/>
-        <source>GUIDE_7</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Features/Guide/WellcomeGuide.qml" line="124"/>
-        <source>GUIDE_8</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Features/Guide/WellcomeGuide.qml" line="134"/>
-        <source>GUIDE_9</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>qGNA_Main</name>
     <message>
-        <location filename="../qGNA_Main.qml" line="627"/>
+        <location filename="../qGNA_Main.qml" line="641"/>
         <source>CLOSE_APP_TOOLTIP_MESSAGE_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qGNA_Main.qml" line="628"/>
+        <location filename="../qGNA_Main.qml" line="642"/>
         <source>CLOSE_APP_TOOLTIP_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>

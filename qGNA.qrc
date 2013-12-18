@@ -1,4 +1,4 @@
-<RCC>
+﻿<RCC>
 	<qresource prefix="/">
 		<file>Blocks/AccountActivation.qml</file>
 		<file>Blocks/AlertAdapter.qml</file>
@@ -86,7 +86,6 @@
 		<file>Elements/WorkInProgress.qml</file>
 		<file>Features/Facts/Facts.qml</file>
 		<file>Features/Facts/Helper.js</file>
-		<file>Features/Guide/Guide.js</file>
 		<file>Features/Guide/Guide.qml</file>
 		<file>Features/Guide/Private/ImageButton.qml</file>
 		<file>Features/Guide/WellcomeGuide.qml</file>

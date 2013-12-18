@@ -562,6 +562,9 @@ Item {
 
         Guide.WellcomeGuide {
             id: guide
+
+            onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX,mouseY);
+            onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
         }
 /*
         Ping.Ping {

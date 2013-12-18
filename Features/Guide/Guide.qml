@@ -15,26 +15,29 @@ import "Private" as Private
 import "../../Proxy" as Proxy
 import "../../Elements" as Elemetns
 
-import "Guide.js" as Guide
 import "../../js/Core.js" as Core
 import "../../js/GoogleAnalytics.js" as GoogleAnalytics
 
 Item {
     id: root
 
+    signal backgroundMousePressed(int mouseX, int mouseY);
+    signal backgroundMousePositionChanged(int mouseX, int mouseY);
+
     function show() {
         if (!inner.isAllowToShowHelp) {
             return;
         }
 
-        inner.maxIndex = Guide.storyLine.length;
-        inner.currentIndex = -1;
         if (inner.isWellcomeMustBeShown) {
             inner.isWellcomeMustBeShown = false;
             root.state = 'firstEnter';
+            inner.currentIndex = -1;
         } else {
             root.state = 'guideShow';
         }
+
+        inner.showNext();
 
         GoogleAnalytics.trackEvent('/', 'Guide', root.state);
     }
@@ -43,10 +46,7 @@ Item {
     implicitHeight: Core.clientHeight
     state: 'closed'
 
-    Component.onCompleted: {
-        Guide._qml = root;
-        inner.init();
-    }
+    Component.onCompleted: inner.init();
 
     QtObject {
         id: inner
@@ -55,24 +55,31 @@ Item {
         property bool isVisible: false
         property bool isAllowToShowHelp: false
         property bool isWellcomeMustBeShown: true
-        property bool isForward: true
         property int currentIndex: -1
-        property int maxIndex: 0
+        property int maxIndex: 8
+        property variant durations: {
+            1: 11000,
+            2: 8000,
+            3: 7000,
+            4: 7000,
+            5: 8000,
+            6: 11000,
+            7: 5000,
+            8: 4000
+        };
 
         function showNext() {
-            nextEntryTimer.stop();
-
-            if (inner.isVisible) {
-                hideGuide.start();
-            } else {
-                showGuide.start();
+            if (inner.currentIndex < inner.maxIndex) {
+                ++inner.currentIndex;
+                nextEntryTimer.next();
             }
-            inner.isVisible = !inner.isVisible;
         }
 
         function showPrev() {
-            inner.isForward = false;
-            showNext();
+            if (inner.currentIndex > 1) {
+                --inner.currentIndex;
+                nextEntryTimer.next();
+            }
         }
 
         function markAsRefuseHelp() {
@@ -94,77 +101,40 @@ Item {
 
         anchors.fill: parent
         hoverEnabled: true
-        onClicked: nextEntryTimer.stop()
+
+        onPressed: backgroundMousePressed(mouseX, mouseY);
+        onPositionChanged: {
+            if (pressedButtons & Qt.LeftButton === Qt.LeftButton) {
+                backgroundMousePositionChanged(mouseX, mouseY);
+            }
+        }
     }
 
     Timer {
         id: nextEntryTimer
 
-        onTriggered: inner.showNext();
-    }
-
-    SequentialAnimation {
-        id: hideGuide
-
-        alwaysRunToEnd: true
-
-        ParallelAnimation {
-            PropertyAnimation { target: attention; from: 0; to: 0.7; property: "opacity"; duration: 400 }
-            PropertyAnimation { target: attentionBorder; from: 1; to: 0; property: 'opacity'; duration: 400}
-            PropertyAnimation { targets: guidePage; from: 1; to: 0; property: 'opacity'; duration: 400 }
-        }
-
-        ScriptAction {
-            script: showGuide.start();
-        }
-    }
-
-    SequentialAnimation {
-        id: showGuide
-
-        alwaysRunToEnd: false
-
-        ScriptAction {
-            script: {
-                var newIndex = inner.currentIndex + (inner.isForward ? 1 : -1),
-                    options = (newIndex > -1 && newIndex < inner.maxIndex) ? Guide.storyLine[newIndex] : undefined;
-
-                inner.isForward = true;
-                if (!options) {
-                    inner.markAsShown();
-                    showGuide.stop();
-                    root.state = 'closed';
-                    return;
-                }
-
-                inner.currentIndex = newIndex;
-
-                attention.x = options.focusRect.x;
-                attention.y = options.focusRect.y;
-                attention.width = options.focusRect.width;
-                attention.height = options.focusRect.height;
-
-                textBackground.x = options.textRect.x;
-                textBackground.y = options.textRect.y;
-                textBackground.width = options.textRect.width;
-                textBackground.height = options.textRect.height;
-
-                sound.source = installPath + '/Sounds/Features/Guide/' + options.sound;
-
-                infoText.text = options.text;
-                nextEntryTimer.interval = options.duration;
-                Guide._drawLines(v1, v2, attention, textBackground, options.dock)
+        function next() {
+            if (!!inner.durations[inner.currentIndex]) {
+                nextEntryTimer.interval = inner.durations[inner.currentIndex];
+                nextEntryTimer.restart();
             }
         }
 
-        ParallelAnimation {
-            PropertyAnimation { target: attention; from: 0.7; to: 0; property: "opacity"; duration: 400 }
-            PropertyAnimation { target: attentionBorder; from: 0; to: 1; property: 'opacity'; duration: 400}
-            PropertyAnimation { targets: guidePage; from: 0; to: 1; property: 'opacity'; duration: 400 }
-        }
+        onTriggered: delayTimer.start();
+    }
 
-        ScriptAction {
-            script: nextEntryTimer.restart()
+    Timer {
+        id: delayTimer
+
+        interval: 250
+        onTriggered: {
+            if (inner.currentIndex == inner.maxIndex) {
+                inner.markAsShown();
+                root.state = 'closed';
+                return;
+            }
+
+            inner.showNext();
         }
     }
 
@@ -173,112 +143,52 @@ Item {
 
         anchors.fill: parent
 
-        Rectangle {
-            id: up
+        Image {
+            function imagePath(index) {
+                if (index < 0) {
+                    return '';
+                }
 
-            color: "#000000"
-            opacity: 0.7
-            anchors { top: parent.top; left: parent.left; right: parent.right; bottom: attention.top }
-        }
+                return installPath + 'images/Features/Guide/static/' + index + '.png';
+            }
 
-        Rectangle {
-            id: down
-
-            color: "#000000"
-            opacity: 0.7
-            anchors { top: attention.bottom; left: parent.left; right: parent.right; bottom: parent.bottom }
-        }
-
-        Rectangle {
-            id: left
-
-            color: "#000000"
-            opacity: 0.7
-            anchors { top: attention.top; left: parent.left; right: attention.left; bottom: attention.bottom }
-        }
-
-        Rectangle {
-            id: right
-
-            color: "#000000"
-            opacity: 0.7
-            anchors { top: attention.top; left: attention.right; right: parent.right; bottom: attention.bottom }
-        }
-
-        Rectangle {
-            id: attention
-
-            color: "#000000"
-            opacity: 0.7
-        }
-
-        Rectangle {
-            id: attentionBorder
-
-            anchors.fill: attention
-            color: "#00000000"
-            border.color: "#f0f0dc"
+            anchors.fill: parent
+            source: imagePath(inner.currentIndex);
         }
     }
 
     Proxy.Player {
         id: sound
 
+        function soundPath(index) {
+            if (index < 0) {
+                return '';
+            }
+
+            return installPath + '/Sounds/Features/Guide/' + index + '.wma';
+        }
+
         volume: inner.isSoundEnabled ? 1 : 0
+        source: soundPath(inner.currentIndex)
 
         Behavior on volume {
             NumberAnimation { duration: 300 }
         }
     }
 
-    Item {
-        id: guidePage
-
-        opacity: 0
-        anchors.fill: parent
-
-        Rectangle {
-            id: v1
-            color: "#f0f0dc"
-        }
-
-        Rectangle {
-            id: v2
-            color: "#f0f0dc"
-        }
-
-        Rectangle {
-            id: textBackground
-
-            color: "#f0f0dc"
-
-            Text {
-                id: infoText
-
-                anchors { fill: parent; margins: 10 }
-                horizontalAlignment: Text.AlignJustify
-                color: "#333333"
-                font.pixelSize: 18
-                wrapMode: Text.WordWrap
-            }
-        }
-    }
 
     Row {
         id: controlls
 
         opacity: 0
-        spacing: 30
-        anchors { left: parent.left; bottom: parent.bottom; leftMargin: 130; bottomMargin: 95 }
-
-        Row {
-            spacing: 5
+        spacing: 5
+        anchors { right: parent.right; top: parent.top; rightMargin: 255; topMargin: 192 }
 
             Private.ImageButton {
                 rotation: 180
                 source: installPath + 'images/Features/Guide/arrow.png'
                 toolTip: qsTr('BUTTON_PREV')
-                enabled: inner.currentIndex > 0
+                enabled: inner.currentIndex > 1
                 onClicked: {
                     inner.showPrev();
                     GoogleAnalytics.trackEvent('/', 'Guide', 'showPrev', inner.currentIndex.toString());
@@ -288,18 +198,12 @@ Item {
             Private.ImageButton {
                 source: installPath + 'images/Features/Guide/arrow.png'
                 toolTip: qsTr('BUTTON_NEXT')
+                enabled: inner.currentIndex < inner.maxIndex
                 onClicked: {
                     inner.showNext();
                     GoogleAnalytics.trackEvent('/', 'Guide', 'showNext', inner.currentIndex.toString());
                 }
             }
-        }
-
-        Text {
-            text: qsTr("TEXT_CURRENT_FROM_MAX").arg(inner.currentIndex + 1).arg(inner.maxIndex)
-            color: "#FFFFFF"
-            anchors.verticalCenter: parent.verticalCenter
-        }
 
         Private.ImageButton {
             source: inner.isSoundEnabled
@@ -315,20 +219,30 @@ Item {
                 GoogleAnalytics.trackEvent('/', 'Guide', 'sound', inner.isSoundEnabled.toString());
             }
         }
+
+        Private.ImageButton {
+            source: installPath + 'images/Features/Guide/close.png'
+
+            toolTip: qsTr('BUTTON_CLOSE_GUIDE')
+
+            onClicked: {
+                root.state = 'closed';
+                GoogleAnalytics.trackEvent('/', 'Guide', 'closet');
+            }
+        }
     }
 
-    Item {
+    Rectangle {
         id: wellcomePage
 
         property int closeInterval: 15000
 
-        opacity: 0
+        color: '#00000000'
         anchors.fill: parent
 
-        Rectangle {
+        Image {
             anchors.fill: parent
-            color: "#000000"
-            opacity: 0.7
+            source: installPath + 'images/Features/Guide/static/0.png';
         }
 
         Column {
@@ -357,7 +271,6 @@ Item {
                     buttonText: qsTr('GUIDE_BUTTON_OK')
                     buttonHighlightColor: "#413c37"
                     onButtonClicked: {
-                        progressAnim.stop();
                         inner.markAsShown();
                         root.show();
                         GoogleAnalytics.trackEvent('/', 'Guide', 'acceptGuide');
@@ -392,10 +305,6 @@ Item {
 
             running: root.state === 'firstEnter'
 
-            ScriptAction {
-                script: sound.source = installPath + '/Sounds/Features/Guide/1.wma'
-            }
-
             PropertyAnimation {
                 target: progress;
                 property: "width"
@@ -404,6 +313,7 @@ Item {
                 duration: wellcomePage.closeInterval
             }
         }
+
 
         Rectangle {
             color: "#c0bdb3"
@@ -426,74 +336,22 @@ Item {
     states: [
         State {
             name: "firstEnter"
-            PropertyChanges { target: background; opacity: 0.7 }
-            PropertyChanges { target: guidePage; opacity: 0 }
             PropertyChanges { target: controlls; opacity: 0 }
             PropertyChanges { target: wellcomePage; opacity: 1 }
-            PropertyChanges { target: attention; x: 0; y: 0; width: 0; height: 0}
             PropertyChanges { target: backMouser; visible: true }
         },
         State {
             name: "guideShow"
-            PropertyChanges { target: background; opacity: 0.7 }
-            PropertyChanges { target: guidePage; opacity: 0 }
             PropertyChanges { target: controlls; opacity: 1 }
             PropertyChanges { target: wellcomePage; opacity: 0 }
-            PropertyChanges { target: attention; x: 0; y: 0; width: 0; height: 0}
             PropertyChanges { target: backMouser; visible: true }
         },
         State {
             name: "closed"
             PropertyChanges { target: background; opacity: 0 }
             PropertyChanges { target: controlls; opacity: 0 }
-            PropertyChanges { target: guidePage; opacity: 0 }
             PropertyChanges { target: wellcomePage; opacity: 0 }
-            PropertyChanges { target: attention; x: 0; y: 0; width: 0; height: 0}
             PropertyChanges { target: backMouser; visible: false }
-        }
-    ]
-
-    transitions: [
-        Transition {
-            from: "*"
-            to: "closed"
-            SequentialAnimation {
-                PropertyAnimation { targets: [wellcomePage, guidePage, controlls]; property: "opacity"; duration: 250 }
-                PropertyAnimation { targets: [background]; property: "opacity"; duration: 250 }
-            }
-        },
-
-        Transition {
-            from: "closed"
-            to: "firstEnter"
-            SequentialAnimation {
-                PropertyAnimation { targets: [background, wellcomePage]; property: "opacity"; duration: 250 }
-                ScriptAction {
-                    script: progressAnim.start();
-                }
-            }
-        },
-
-        Transition {
-            from: "closed"
-            to: "guideShow"
-            SequentialAnimation {
-                PropertyAnimation { targets: [background, guidePage, controlls]; property: "opacity"; duration: 250 }
-                ScriptAction {
-                    script: inner.showNext()
-                }
-            }
-        },
-
-        Transition {
-            from: "firstEnter"
-            to: "guideShow"
-            SequentialAnimation {
-                PropertyAnimation { targets: [wellcomePage, background, controlls]; property: "opacity"; duration: 250 }
-                ScriptAction {
-                    script: inner.showNext()
-                }
-            }
         }
     ]
 }

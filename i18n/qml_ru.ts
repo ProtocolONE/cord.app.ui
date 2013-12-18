@@ -839,11 +839,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>PHOTO_COMPETITION_TOOLTIP</source>
-        <translation>Нажмите, чтобы узнать подробности</translation>
+        <translation type="obsolete">Нажмите, чтобы узнать подробности</translation>
     </message>
     <message>
         <source>PHOTO_COMPETITION_BUTTON</source>
-        <translation>Фото конкурс</translation>
+        <translation type="obsolete">Фото конкурс</translation>
     </message>
 </context>
 <context>
@@ -1244,7 +1244,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>TEXT_CURRENT_FROM_MAX</source>
-        <translation>%1 из %2</translation>
+        <translation type="obsolete">%1 из %2</translation>
     </message>
     <message>
         <source>BUTTON_DISABLE_SOUND</source>
@@ -1301,6 +1301,10 @@ Please try again later.</source>
     <message>
         <source>GUIDE_9</source>
         <translation>Мы желаем вам приятной игры</translation>
+    </message>
+    <message>
+        <source>BUTTON_CLOSE_GUIDE</source>
+        <translation>Закрыть</translation>
     </message>
 </context>
 <context>
@@ -2731,35 +2735,35 @@ Please try again later.</source>
     <name>WellcomeGuide</name>
     <message>
         <source>GUIDE_2</source>
-        <translation>Приложение GameNet будет загружать обновления для игры, информировать вас о новостях и акциях, обеспечит простую и безопасную авторизацию</translation>
+        <translation type="obsolete">Приложение GameNet будет загружать обновления для игры, информировать вас о новостях и акциях, обеспечит простую и безопасную авторизацию</translation>
     </message>
     <message>
         <source>GUIDE_3</source>
-        <translation>В приложении вы можете читать новости игры, перейти в блог или на форум</translation>
+        <translation type="obsolete">В приложении вы можете читать новости игры, перейти в блог или на форум</translation>
     </message>
     <message>
         <source>GUIDE_4</source>
-        <translation>На любой ваш вопрос готовы ответить наши агенты поддержки</translation>
+        <translation type="obsolete">На любой ваш вопрос готовы ответить наши агенты поддержки</translation>
     </message>
     <message>
         <source>GUIDE_5</source>
-        <translation>Игра запустится сразу после завершения загрузки и установки</translation>
+        <translation type="obsolete">Игра запустится сразу после завершения загрузки и установки</translation>
     </message>
     <message>
         <source>GUIDE_6</source>
-        <translation>В дальнейшем запустить игру можно будет нажав на кнопку «Играть»</translation>
+        <translation type="obsolete">В дальнейшем запустить игру можно будет нажав на кнопку «Играть»</translation>
     </message>
     <message>
         <source>GUIDE_7</source>
-        <translation>Здесь вы видите информацию о своем уровне и состоянии счета GameNet. Аватарку можно изменить в профиле на сайте</translation>
+        <translation type="obsolete">Здесь вы видите информацию о своем уровне и состоянии счета GameNet. Аватарку можно изменить в профиле на сайте</translation>
     </message>
     <message>
         <source>GUIDE_8</source>
-        <translation>Здесь вы можете зарегистрироваться или войти</translation>
+        <translation type="obsolete">Здесь вы можете зарегистрироваться или войти</translation>
     </message>
     <message>
         <source>GUIDE_9</source>
-        <translation>Мы желаем вам приятной игры</translation>
+        <translation type="obsolete">Мы желаем вам приятной игры</translation>
     </message>
 </context>
 <context>

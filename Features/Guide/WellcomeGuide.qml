@@ -14,13 +14,15 @@ import Tulip 1.0
 import "../../js/Core.js" as Core
 import "../../js/UserInfo.js" as UserInfo
 import "../../Proxy/App.js" as App
-import "Guide.js" as Guide
 
 Item {
     id: root
 
+    signal backgroundMousePressed(int mouseX, int mouseY);
+    signal backgroundMousePositionChanged(int mouseX, int mouseY);
+
     implicitWidth: Core.clientWidth
-    implicitHeight: Core.clientHeight
+    implicitHeight: Core.clientHeight    
 
     /*
     //Uncomment for debug
@@ -31,12 +33,7 @@ Item {
     */
 
     function start() {
-        var currentGame = Core.currentGame();
-        if (runTimer.running || !App.isAnyLicenseAccepted() || !currentGame) {
-            return;
-        }
-
-        if (currentGame.gameType !== 'standalone' || currentGame.gameId === 70) {
+        if (runTimer.running || !App.isAnyLicenseAccepted()) {
             return;
         }
 
@@ -53,90 +50,15 @@ Item {
     Guide {
         id: d
 
+        onBackgroundMousePressed: root.backgroundMousePressed(mouseX, mouseY)
+        onBackgroundMousePositionChanged: root.backgroundMousePositionChanged(mouseX, mouseY)
+
         function start() {
-            var item = Core.currentGame();
-            if (!item || !App.isWindowVisible() ) {
+            if (!App.isWindowVisible() ) {
                 return;
             }
 
-            var storyLine = [
-                {
-                    focusRect: {x: 261, y: 227, width: 0, height: 0},
-                    textRect: {x: 261, y: 227, width: 422, height: 109},
-                    dock: {x: 311, y: 227},
-                    duration: 11000,
-                    text: qsTr("GUIDE_2"),
-                    sound: "2.wma"
-                },
-                {
-                    focusRect: {x: 206, y: 87, width: 210, height: 80},
-                    textRect: {x: 370, y: 295, width: 420, height: 65},
-                    dock: {x: 520, y: 125},
-                    duration: 8000,
-                    text: qsTr("GUIDE_3"),
-                    sound: "3.wma"
-                },
-                {
-                    focusRect: {x: 410, y: 87, width: 73, height: 79},
-                    textRect: {x: 120, y: 295, width: 420, height: 65},
-                    dock: {x: 270, y: 125},
-                    duration: 7000,
-                    text: qsTr("GUIDE_4"),
-                    sound: "4.wma"
-                }
-            ];
-
-            if (item.status === "Downloading") {
-                storyLine.push({
-                   focusRect: {x: 129, y: 474, width: 460, height: 65},
-                   textRect: {x: 321, y: 227, width: 422, height: 66},
-                   dock: {x: 613, y: 500},
-                   duration: 7000,
-                   text: qsTr("GUIDE_5"), //installing game
-                   sound: "5.wma"
-                });
-            }
-
-            storyLine.push({
-               focusRect: {x: 737, y: 474, width: 170, height: 65},
-               textRect: {x: 321, y: 297, width: 422, height: 66},
-               dock: {x: 553, y: 505},
-               duration: 8000,
-               text: qsTr("GUIDE_6"), //exec after
-               sound: "6.wma"
-            });
-
-            if (UserInfo.userId()) {
-                storyLine.push({
-                   focusRect: {x: 668, y: 6, width: 238, height: 70},
-                   textRect: {x: 371, y: 217, width: 422, height: 89},
-                   dock: {x: 489, y: 40},
-                   duration: 11000,
-                   text: qsTr("GUIDE_7"),
-                   sound: "7.wma"
-                });
-            } else {
-                storyLine.push({
-                   focusRect: {x: 815, y: 39, width: 90, height: 35},
-                   textRect: {x: 130 + 191, y: 227, width: 422, height: 45},
-                   dock: {x: 130 + 550, y: 52},
-                   duration: 6000,
-                   text: qsTr("GUIDE_8"),
-                   sound: "8.wma"
-                });
-            }
-
-            storyLine.push({
-               focusRect: {x: 265, y: 231, width: 0, height: 0},
-               textRect: {x: 261, y: 227, width: 422, height: 45},
-               dock: {x: 311, y: 227},
-               duration: 6000,
-               text: qsTr("GUIDE_9"),
-               sound: "9.wma"
-            });
-
-            Guide.add(storyLine);
-            Guide.show();
+            d.show();
         }
     }
 }
