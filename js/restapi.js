@@ -627,7 +627,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.121.518160cbfdef010e59f295e5f4794fdb6b58766e",
+    version: "1.0.122.5e55a9588ff4696d5cb349c21d2bdd50fed306f7",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',
@@ -907,7 +907,7 @@ Premium.getGrid = function(successCallback, failedCallback) {
     Core.execute('premium.getGrid', {version: 1}, true, successCallback, failedCallback);
 };
 
-Premium.purhase = function(gridId, successCallback, failedCallback) {
+Premium.purchase = function(gridId, successCallback, failedCallback) {
     Core.execute('premium.purchase', {version: 1, gridId: gridId}, true, successCallback, failedCallback);
 };
 
@@ -1004,16 +1004,4 @@ Wall.getNews = function(successCallback, failedCallback) {
 
 Wall.getNewsXml = function(successCallback, failedCallback) {
     Core.execute('wall.getNews', { format: 'xml' }, false, successCallback, failedCallback);
-};
-
-var Billing = function() {
-};
-
-Billing.purchaseItem = function(game, item, itemCount, successCallback, failedCallback) {
-    Core.execute('Billing.purchaseItem', {
-		version: 2,
-        gameId: game,
-		itemId: item, 
-		count: itemCount
-	}, true, successCallback, failedCallback);
 };

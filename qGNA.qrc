@@ -90,8 +90,9 @@
 		<file>Features/Facts/Facts.qml</file>
 		<file>Features/Facts/Helper.js</file>
 		<file>Features/Games/CombatArmsShop/ExpandCollapseButton.qml</file>
+		<file>Features/Games/CombatArmsShop/ItemDelegate.qml</file>
 		<file>Features/Games/CombatArmsShop/ItemsView.qml</file>
-		<file>Features/Games/CombatArmsShop/ItemsViewPrivate/ScrollButton.qml</file>
+		<file>Features/Games/CombatArmsShop/Private/ScrollButton.qml</file>
 		<file>Features/Games/CombatArmsShop/PurchaseDetails.qml</file>
 		<file>Features/Games/CombatArmsShop/PurchaseOption.qml</file>
 		<file>Features/Games/GameFeatureContainer.qml</file>
