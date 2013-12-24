@@ -110,7 +110,7 @@ Blocks.MoveUpPage {
 
                     Image {
                         anchors.fill: parent
-                        source: installPath +  page.purchaseDetails.preview
+                        source: page.purchaseDetails ? (installPath + page.purchaseDetails.preview) : ""
                         fillMode: Image.PreserveAspectFit
                     }
                 }
@@ -125,7 +125,7 @@ Blocks.MoveUpPage {
                     Text {
                         width: 450
                         wrapMode: Text.WordWrap
-                        text: page.purchaseDetails.title
+                        text: page.purchaseDetails ? page.purchaseDetails.title : ""
                         color: "#FFFFFF"
                         font { family: "Arial"; pixelSize: 18 }
                     }
@@ -133,7 +133,7 @@ Blocks.MoveUpPage {
                     Text {
                         width: 450
                         wrapMode: Text.WordWrap
-                        text: page.purchaseDetails.description
+                        text: page.purchaseDetails ? page.purchaseDetails.description : ""
                         color: "#FFFFFF"
                         font { family: "Arial"; pixelSize: 16 }
                     }
@@ -151,7 +151,7 @@ Blocks.MoveUpPage {
                             interactive: false
                             anchors.fill: parent
                             spacing: 10
-                            model: page.purchaseDetails.options
+                            model: page.purchaseDetails ? page.purchaseDetails.options : undefined
 
                             delegate: PurchaseOption {
                                 property int optionId: model.optionId
@@ -226,7 +226,8 @@ Blocks.MoveUpPage {
 
                             width: 450
                             wrapMode: Text.WordWrap
-                            text: qsTr("CA_SHOP_DETAILS_PURCHASE_SUCCESS").arg(page.purchaseDetails.title)
+                            text: qsTr("CA_SHOP_DETAILS_PURCHASE_SUCCESS")
+                                        .arg(page.purchaseDetails ? page.purchaseDetails.title : "")
                             color: "#FFFFFF"
                             font { family: "Arial"; pixelSize: 18 }
                         }

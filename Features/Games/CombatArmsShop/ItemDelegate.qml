@@ -1,4 +1,5 @@
 import QtQuick 1.1
+import "../../../Elements" as Elements
 
 Item {
     id: container
@@ -28,14 +29,6 @@ Item {
                 smooth: true
                 source: installPath + model.preview
                 anchors.fill: parent
-            }
-
-            MouseArea {
-                id: itemArea
-
-                anchors.fill: parent
-                hoverEnabled: true
-                onClicked: view.currentIndex = index
             }
 
             Rectangle {
@@ -119,15 +112,19 @@ Item {
                         color: "#FFFFFF"
                         font { family: "Arial"; pixelSize: 14 }
                     }
-
-                    MouseArea {
-                        id: buyButtonArea
-
-                        anchors.fill: parent
-                        onClicked: container.buyClicked(model);
-                    }
                 }
             }
+
+            Elements.CursorMouseArea {
+                 id: itemArea
+
+                 anchors.fill: parent
+                 hoverEnabled: true
+                 onClicked: {
+                     view.currentIndex = index;
+                     buyClicked(model);
+                 }
+             }
         }
 
         Text {
@@ -143,6 +140,5 @@ Item {
         }
 
     }
-
 }
 

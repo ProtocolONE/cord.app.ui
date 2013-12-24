@@ -10,7 +10,7 @@
 import QtQuick 1.1
 import "../../../../Elements" as Elements
 
-MouseArea {
+Elements.CursorMouseArea {
     id: container
 
     hoverEnabled: true
@@ -50,7 +50,7 @@ MouseArea {
         id: buttonArrow
 
         anchors.centerIn: parent
-        source: container.enabled && container.containsMouse
+        source: container.hoverEnabled && container.containsMouse
                 ? (installPath + "images/Features/CombatArmsShop/left_hover.png")
                 : (installPath + "images/Features/CombatArmsShop/left.png")
     }

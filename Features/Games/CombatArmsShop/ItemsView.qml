@@ -165,13 +165,13 @@ Rectangle {
                 }
 
                 function updateScrollButtons() {
-                    scrollLeftButton.enabled = true;
-                    scrollRightButton.enabled = true;
+                    scrollLeftButton.hoverEnabled = true;
+                    scrollRightButton.hoverEnabled = true;
                     if (itemsListView.currentFirstItem == 0) {
-                        scrollLeftButton.enabled = false;
+                        scrollLeftButton.hoverEnabled = false;
                     }
                     if (itemsListView.currentFirstItem == (itemsListView.count - container.visibleItemsCount)) {
-                        scrollRightButton.enabled = false;
+                        scrollRightButton.hoverEnabled = false;
                     }
                 }
 
