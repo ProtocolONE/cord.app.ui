@@ -2192,7 +2192,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>CA_SHOP_DETAILS_PURCHASE_SUCCESS</source>
-        <translation>Вы успешно купили предмет %1, он добавлен в ваш игровой инвентарь.</translation>
+        <translation>Вы успешно купили предмет %1, он добавлен во входящие. Если у Вас запущена игра, поменяйте сервер для отображения покупки.</translation>
     </message>
 </context>
 <context>
