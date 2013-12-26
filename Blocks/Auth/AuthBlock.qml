@@ -20,74 +20,45 @@ import "../../js/restapi.js" as RestApi
 Item {
     id: authPage
 
-    property int autoGuestLoginTimout: 10
+    implicitHeight: 464
+    implicitWidth: 930
+
     property bool codeRequired: false
+    property bool isInProgress: false
 
-    signal changeState(string state);
+    signal cancel();
+    signal error(string message);
+    signal openRegistration();
+    signal authSuccess(string userId, string appKey, string cookie, bool shouldSave);
+    signal saveLogin(string login);
 
-    function authCallback(error, response, shouldSave, guest) {
-        authRegisterMoveUpPage.isInProgress = false;
+    function authCallback(error, response, shouldSave) {
+        authPage.isInProgress = false;
+
         if (error === Authorization.Result.Success) {
-            authPage.authSuccess(response.userId, response.appKey, response.cookie, shouldSave, guest);
+            loginForm.captchaRequired = false;
+            authPage.authSuccess(response.userId, response.appKey, response.cookie, shouldSave);
         }
-    }
-
-    function authSuccess(userId, appKey, cookie, shouldSave, guest) {
-        if (shouldSave || guest) {
-            CredentialStorage.save(userId, appKey, cookie, guest);
-        }
-
-        loginForm.captchaRequired = false;
-        authRegisterMoveUpPage.isInProgress = false;
-        authRegisterMoveUpPage.authedAsGuest = guest;
-        authRegisterMoveUpPage.switchAnimation();
-        authRegisterMoveUpPage.authDoneCallback(userId, appKey, cookie);
-
-        if (loginForm.rememberChecked) {
-            saveAuthorizedLogins();
-        } else {
-            loginForm.clearLogin();
-        }
-    }
-
-    function saveAuthorizedLogins() {
-        var login = loginForm.login,
-            currentValue = JSON.parse(Settings.value("qml/auth/", "authedLogins", "{}"));
-
-        currentValue[login] = +new Date();
-        Settings.setValue("qml/auth/" , "authedLogins", JSON.stringify(currentValue));
-    }
-
-    function startGuestAutoStart() {
-        if (authRegisterMoveUpPage.isAuthed)
-            return;
-
-        if (authRegisterMoveUpPage.guestAuthEnabled && authRegisterMoveUpPage.selectedGame) {
-            authRegisterMoveUpPage.guestAuthTimerStarted = true;
-            authPage.autoGuestLoginTimout = 10;
-            guestAutoStartTimer.start();
-        }
-    }
-
-    function stopGuestAutoStart() {
-        authRegisterMoveUpPage.guestAuthTimerStarted = false;
-        authPage.autoGuestLoginTimout = 10;
-        guestAutoStartTimer.stop();
     }
 
     // Login/Password auth
     function startGenericAuth(login, password, captcha) {
-        authRegisterMoveUpPage.isInProgress = true;
-        stopGuestAutoStart();
+        authPage.isInProgress = true;
 
         if (captcha) {
             Authorization.setCaptcha(captcha);
         }
 
         Authorization.loginByGameNet(login, password, function(error, response) {
-            authPage.authCallback(error, response, loginForm.rememberChecked, false);
+            authPage.authCallback(error, response, loginForm.rememberChecked);
 
             if (error === Authorization.Result.Success) {
+                if (loginForm.rememberChecked) {
+                    authPage.saveLogin(loginForm.login)
+                } else {
+                    loginForm.clearLogin();
+                }
+
                 return;
             }
 
@@ -102,10 +73,6 @@ Item {
                 return;
             }
 
-            authRegisterMoveUpPage.state = "FailAuthPage";
-
-
-
             var msg = {
                 0: qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_ERROR"),
             };
@@ -115,92 +82,40 @@ Item {
             msg[Authorization.Result.ServiceAccountBlocked] = qsTr("AUTH_FAIL_ACCOUNT_BLOCKED");
             msg[Authorization.Result.WrongLoginOrPassword] = qsTr("AUTH_FAIL_MESSAGE_WRONG");
 
+            var errorMessage;
             if (msg[error]) {
-                failPage.errorMessage = msg[error];
-                return;
+                errorMessage = msg[error];
+            } else {
+                errorMessage = response ? (msg[response.code] || msg[0]) : msg[0];
             }
 
-            failPage.errorMessage = response ? (msg[response.code] || msg[0]) : msg[0];
-        });
-    }
-
-    function startGuestAuth() {
-        authRegisterMoveUpPage.isInProgress = true;
-        stopGuestAutoStart();
-        Marketing.send(Marketing.GuestAccountRequest, "0", {});
-
-        var gameId,
-            auth = new Authorization.ProviderGuest();
-
-        if (selectedGame && selectedGame.serviceId)
-            gameId = selectedGame.serviceId;
-
-        auth.login(gameId, function(error, response) {
-            authPage.authCallback(error, response, true, true);
-            if (error !== Authorization.Result.Success) {
-                authRegisterMoveUpPage.state = "FailAuthPage";
-                failPage.errorMessage = qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_GUEST_ERROR");
-            }
+            authPage.error(errorMessage);
         });
     }
 
     function startVkAuth() {
-        stopGuestAutoStart();
-
-        authRegisterMoveUpPage.isInProgress = true;
+        authPage.isInProgress = true;
 
         Authorization.loginByVk(authPage, function(error, response) {
-            authPage.authCallback(error, response, true, false);
+            authPage.authCallback(error, response, true);
 
             if (error === Authorization.Result.Cancel) {
                 return;
             }
 
             if (error === Authorization.Result.ServiceAccountBlocked) {
-                authRegisterMoveUpPage.state = "FailAuthPage";
-                failPage.errorMessage = qsTr("AUTH_FAIL_ACCOUNT_BLOCKED");
+                authPage.error(qsTr("AUTH_FAIL_ACCOUNT_BLOCKED"));
                 return;
             }
 
             if (error !== Authorization.Result.Success) {
-                authRegisterMoveUpPage.state = "FailAuthPage";
-                failPage.errorMessage = qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR");
+                authPage.error(qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR"));
             }
         });
     }
 
-    function increaseGuestRecoveryCounter() {
-        var currentValue = Settings.value("qml/auth/", 'GuestRecoveryCount', '0');
-        currentValue = parseInt(currentValue, 10);
-        currentValue++;
-        Settings.setValue("qml/auth/", 'GuestRecoveryCount', currentValue.toString());
-    }
-
-    function guestRecoveryCounter() {
-        return Settings.value("qml/auth/", 'GuestRecoveryCount', '0');
-    }
-
-    Timer {
-        id: guestAutoStartTimer
-
-        interval: 1000
-        repeat: true
-        running: false
-        onTriggered: {
-            if (authPage.autoGuestLoginTimout > 0) {
-                authPage.autoGuestLoginTimout--;
-                return;
-            }
-
-            authPage.stopGuestAutoStart()
-            authPage.startGuestAuth();
-        }
-    }
-
     Item {
         anchors { fill: parent; topMargin: 47 }
-        width: parent.width
-        height: openHeight
 
         Elements.Button {
             anchors { top: parent.top; right: parent.right; rightMargin: 62; topMargin: 30 }
@@ -232,9 +147,9 @@ Item {
                     login: loginForm.login
                     onCancel: {
                         authPage.codeRequired = false
-                        authRegisterMoveUpPage.state = "AuthPage"
+                        authPage.cancel();
                     }
-                    onShowProgress: isInProgress = show;
+                    onShowProgress: authPage.isInProgress = show;
                     onUnblocked: authPage.codeRequired = false
                 }
             }
@@ -251,30 +166,20 @@ Item {
                 Auth.LoginForm {
                     id: loginForm
 
-                    function stopGuestAutoStart() {
-                        if (authRegisterMoveUpPage.guestAuthEnabled) {
-                            authPage.stopGuestAutoStart();
-                        }
-                    }
-
                     width: parent.width
                     onLoginMe: authPage.startGenericAuth(login, password, captcha);
                     onCancel: {
                         loginForm.captchaRequired = false;
-                        authRegisterMoveUpPage.state = "AuthPage";
+                        authPage.cancel();
                     }
-                    onLoginChanged: stopGuestAutoStart()
-                    onPasswordChanged: stopGuestAutoStart()
                 }
             }
 
             Auth.Footer {
                 width: parent.width
                 onClicked: {
-                    authPage.stopGuestAutoStart();
-                    registrationPage.state = "Normal"
-                    authRegisterMoveUpPage.state = "RegistrationPage";
                     GoogleAnalytics.trackEvent('/Auth', 'Auth', 'Switch To Registration');
+                    authPage.openRegistration();
                 }
             }
         }

@@ -52,6 +52,22 @@ Module {
             Parameter { name: "cookie"; type: "string" }
         }
         Method { name: "loadGuest"; type: "QVariantMap" }
+        Method {
+            name: "saveEx"
+            Parameter { name: "prefix"; type: "string" }
+            Parameter { name: "userId"; type: "string" }
+            Parameter { name: "appKey"; type: "string" }
+            Parameter { name: "cookie"; type: "string" }
+        }
+        Method {
+            name: "loadEx"
+            type: "QVariantMap"
+            Parameter { name: "prefix"; type: "string" }
+        }
+        Method {
+            name: "resetEx"
+            Parameter { name: "prefix"; type: "string" }
+        }
     }
     Component {
         name: "GGS::Core::Marketing"
@@ -91,7 +107,8 @@ Module {
                 "AnyStartQGna": 2731,
                 "ProblemAfterGameStart": 2748,
                 "NotLikeTheGame": 2749,
-                "ThettaInfo": 2750
+                "ThettaInfo": 2750,
+                "ThettaConnectFail": 2754
             }
         }
         Enum {
@@ -154,7 +171,29 @@ Module {
         Method { name: "mid"; type: "string" }
     }
     Component {
-        name: "GGS::Overlay::QmlOverlay"
+        name: "GGS::WebView::NetworkAccessManagerInteractor"
+        prototype: "QObject"
+        exports: [
+            "Tulip/WebViewHelper 1.0"
+        ]
+        exportMetaObjectRevisions: [
+            0
+        ]
+        Method { name: "clearCookies" }
+        Method { name: "clearAllCookies" }
+        Method {
+            name: "setCookiesFromUrl"
+            Parameter { name: "cookies"; type: "string" }
+            Parameter { name: "url"; type: "string" }
+        }
+        Method {
+            name: "cookiesForUrl"
+            type: "string"
+            Parameter { name: "url"; type: "string" }
+        }
+    }
+    Component {
+        name: "GameNet::Overlay::QmlOverlay"
         defaultProperty: "data"
         prototype: "QDeclarativeItem"
         exports: [
@@ -215,28 +254,6 @@ Module {
             name: "sendMessage"
             Parameter { name: "name"; type: "string" }
             Parameter { name: "arg"; type: "string" }
-        }
-    }
-    Component {
-        name: "GGS::WebView::NetworkAccessManagerInteractor"
-        prototype: "QObject"
-        exports: [
-            "Tulip/WebViewHelper 1.0"
-        ]
-        exportMetaObjectRevisions: [
-            0
-        ]
-        Method { name: "clearCookies" }
-        Method { name: "clearAllCookies" }
-        Method {
-            name: "setCookiesFromUrl"
-            Parameter { name: "cookies"; type: "string" }
-            Parameter { name: "url"; type: "string" }
-        }
-        Method {
-            name: "cookiesForUrl"
-            type: "string"
-            Parameter { name: "url"; type: "string" }
         }
     }
     Component {
@@ -473,11 +490,14 @@ Module {
             Parameter { name: "name"; type: "string" }
             Parameter { name: "description"; type: "string" }
             Parameter { name: "params"; type: "string" }
-            Parameter { name: "type"; type: "int" }
         }
         Method {
-            name: "removeItem"
-            Parameter { name: "id"; type: "int" }
+            name: "addTask"
+            type: "int"
+            Parameter { name: "icon"; type: "string" }
+            Parameter { name: "name"; type: "string" }
+            Parameter { name: "description"; type: "string" }
+            Parameter { name: "params"; type: "string" }
         }
         Method {
             name: "setGuid"

@@ -78,6 +78,9 @@ ListModel {
         aboutGameText: QT_TR_NOOP("GAME_CA_ABOUT_TEXT")
         miniToolTip: QT_TR_NOOP("GAME_CA_MINI_TOOLTIP")
         shortDescription: QT_TR_NOOP("GAME_CA_MINI_DESC")
+
+        secondStatus: "Normal"
+        secondAllowed: false
     }
 
     ListElement {
@@ -122,6 +125,9 @@ ListModel {
         aboutGameText: QT_TR_NOOP("GAME_BS_ABOUT_TEXT")
         miniToolTip: QT_TR_NOOP("GAME_BS_MINI_TOOLTIP")
         shortDescription: QT_TR_NOOP("GAME_BS_MINI_DESC")
+
+        secondStatus: "Normal"
+        secondAllowed: true
     }
 
     ListElement {
@@ -168,6 +174,9 @@ ListModel {
         aboutGameText: QT_TR_NOOP("GAME_REBORN_ABOUT_TEXT")
         miniToolTip: QT_TR_NOOP("GAME_REBORN_MINI_TOOLTIP")
         shortDescription: QT_TR_NOOP("GAME_REBORN_MINI_DESC")
+
+        secondStatus: "Normal"
+        secondAllowed: true
     }
 
     ListElement {
@@ -215,6 +224,9 @@ ListModel {
         aboutGameText: QT_TR_NOOP("GAME_AIKA_ABOUT_TEXT")
         miniToolTip: QT_TR_NOOP("GAME_AIKA_MINI_TOOLTIP")
         shortDescription: QT_TR_NOOP("GAME_AIKA_MINI_DESC")
+
+        secondStatus: "Normal"
+        secondAllowed: true
     }
 
     ListElement {
@@ -252,6 +264,9 @@ ListModel {
         aboutGameText: QT_TR_NOOP("GAME_FJ_ABOUT_TEXT")
         miniToolTip: QT_TR_NOOP("GAME_FJ_MINI_TOOLTIP")
         shortDescription: QT_TR_NOOP("GAME_FJ_MINI_DESC")
+
+        secondStatus: "Normal"
+        secondAllowed: false
     }
 
     ListElement {
@@ -295,6 +310,9 @@ ListModel {
         aboutGameText: QT_TR_NOOP("GAME_GA_ABOUT_TEXT")
         miniToolTip: QT_TR_NOOP("GAME_GA_MINI_TOOLTIP")
         shortDescription: QT_TR_NOOP("GAME_GA_MINI_DESC")
+
+        secondStatus: "Normal"
+        secondAllowed: false
     }
 
     ListElement {
@@ -339,6 +357,9 @@ ListModel {
         aboutGameText: QT_TR_NOOP("GAME_WI_ABOUT_TEXT")
         miniToolTip: QT_TR_NOOP("GAME_WI_MINI_TOOLTIP")
         shortDescription: QT_TR_NOOP("GAME_WI_MINI_DESC")
+
+        secondStatus: "Normal"
+        secondAllowed: false
     }
 
     ListElement {
@@ -383,6 +404,9 @@ ListModel {
         aboutGameText: QT_TR_NOOP("GAME_MW2_ABOUT_TEXT")
         miniToolTip: QT_TR_NOOP("GAME_MW2_MINI_TOOLTIP")
         shortDescription: QT_TR_NOOP("GAME_MW2_MINI_DESC")
+
+        secondStatus: "Normal"
+        secondAllowed: true
     }
 
     ListElement {
@@ -427,5 +451,8 @@ ListModel {
         aboutGameText: QT_TR_NOOP("GAME_ROT_ABOUT_TEXT")
         miniToolTip: QT_TR_NOOP("GAME_ROT_MINI_TOOLTIP")
         shortDescription: QT_TR_NOOP("GAME_ROT_MINI_DESC")
+
+        secondStatus: "Normal"
+        secondAllowed: false
     }
 }

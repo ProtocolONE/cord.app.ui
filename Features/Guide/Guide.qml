@@ -46,6 +46,13 @@ Item {
     implicitHeight: Core.clientHeight
     state: 'closed'
 
+    onStateChanged: {
+        if (state == 'closed')  {
+            sound.stop();
+            nextEntryTimer.stop();
+        }
+    }
+
     Component.onCompleted: inner.init();
 
     QtObject {

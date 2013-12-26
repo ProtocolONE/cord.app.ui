@@ -3,12 +3,14 @@ import "." as Blocks
 import "../Elements" as Elements
 import "../js/restapi.js" as RestApi
 import "../js/GoogleAnalytics.js" as GoogleAnalytics
+import "../Proxy/App.js" as App
+import "../js/UserInfo.js" as UserInfo
 
 Item {
     id: userInfoPage
 
     property bool isLoginButtonState: true
-    property string balance: "0"
+    property string balance: UserInfo.balance()
 
     property string nickname
     property string nametech
@@ -17,6 +19,9 @@ Item {
     property string avatarSmall
     property string level
     property bool guest: false
+
+    property bool isPremium: UserInfo.isPremium();
+    property int premiumDuration: UserInfo.premiumDuration();
 
     signal loginRequest();
     signal logoutRequest();
@@ -32,6 +37,7 @@ Item {
         avatarMedium = "";
         avatarSmall = "";
         guest = false;
+        UserInfo.resetUserInfo();
     }
 
     function setUserInfo(userInfo) {
@@ -41,14 +47,14 @@ Item {
         avatarMedium = userInfo.avatarMedium;
         avatarSmall = userInfo.avatarSmall;
         guest = (userInfo.guest == 1);
+        UserInfo.setUserInfo(userInfo);
     }
 
     function setLevel(_level) {
         level = _level;
     }
 
-    function switchToUserInfo()
-    {
+    function switchToUserInfo() {
         if (!isLoginButtonState)
             return;
 
@@ -59,8 +65,7 @@ Item {
         refreshBalance();
     }
 
-    function switchToLoginButton()
-    {
+    function switchToLoginButton() {
         if (isLoginButtonState)
             return;
 
@@ -70,17 +75,7 @@ Item {
     }
 
     function refreshBalance() {
-        RestApi.User.getBalance(function(response) {
-            if (response.error) {
-                console.debug(response.error.code)
-                return;
-            }
-
-            if (response && response.speedyInfo) {
-                userInfoPage.balance = response.speedyInfo.balance || "0";
-            }
-
-        }, function() {});
+        UserInfo.refreshBalance();
     }
 
     function getUserNickName() {
@@ -195,6 +190,8 @@ Item {
 
         isGuest: userInfoPage.guest
         isNickNameSaved: nickname != undefined && nickname.indexOf('@') == -1
+
+        isPremium: userInfoPage.isPremium
 
         onQuitClicked: {
             GoogleAnalytics.trackEvent('/NickNameView', 'Auth', 'Logout');

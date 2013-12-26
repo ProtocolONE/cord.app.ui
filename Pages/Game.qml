@@ -4,6 +4,7 @@ import Tulip 1.0
 import "../Elements" as Elements
 import "../Blocks" as Blocks
 import "../Blocks/GameSwitch" as GameSwitch
+import "../Blocks/SecondWindowGame" as SecondWindowGame
 
 import "../js/Core.js" as Core
 import "../js/GoogleAnalytics.js" as GoogleAnalytics
@@ -32,7 +33,6 @@ Rectangle {
     color: "black"
     Component.onCompleted: Core.activateGameByServiceId("300003010000000000")
     */
-
     property variant currentItem: Core.currentGame()
 
     signal gameSelection(variant item);
@@ -159,6 +159,8 @@ Rectangle {
         onCurrentItemMaintenanceChanged: updateMaintenance();
     }
 
+
+
     Timer {
         id: activateWindowTimer
 
@@ -180,6 +182,8 @@ Rectangle {
 
             gamesButtonClicked(item);
             item.status = "Downloading";
+
+            Core.updateProgress(item);
         }
 
         onServiceStarted: {
@@ -201,6 +205,8 @@ Rectangle {
             }
 
             announcementsFeature.gameStartedCallback(service);
+
+            Core.updateProgress(item);
         }
 
         onServiceFinished: {
@@ -221,6 +227,8 @@ Rectangle {
             }
 
             announcementsFeature.gameClosedCallback();
+
+            Core.updateProgress(item);
         }
 
         onDownloaderStarted: {
@@ -236,6 +244,8 @@ Rectangle {
             GamesSwitchHelper.gamesDownloadData[service] = {};
             downloadIcon.update();
             console.log("START DOWNLOAD");
+
+            Core.updateProgress(item);
         }
 
         onDownloaderStopped: {
@@ -247,6 +257,8 @@ Rectangle {
 
             item.status = "Paused";
             console.log("DOWNLOAD STOPPED");
+
+            Core.updateProgress(item);
         }
 
         onDownloaderStopping: {
@@ -258,6 +270,8 @@ Rectangle {
 
             item.status = "Paused";
             console.log("DOWNLOAD STOPPING");
+
+            Core.updateProgress(item);
         }
 
         onDownloaderFailed: {
@@ -270,6 +284,8 @@ Rectangle {
             item.status = "Error";
             item.statusText = "";
             console.log("DOWNLOAD FAILED");
+
+            Core.updateProgress(item);
         }
 
         onDownloaderFinished: {
@@ -309,6 +325,8 @@ Rectangle {
                 item.statusText = '';
                 item.status = "Normal";
             }
+
+            Core.updateProgress(item);
         }
 
         onProgressbarChange: { // @DEPRECATED
@@ -354,6 +372,8 @@ Rectangle {
             }
 
             item.progress = progress;
+
+            Core.updateProgress(item);
         }
 
         onDownloadProgressChanged: {
@@ -384,6 +404,8 @@ Rectangle {
                                              qsTr("TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE"))
             .arg(Math.round(totalWantedDone / 10000) / 100)
             .arg(Math.round(totalWanted / 10000) / 100);
+
+            Core.updateProgress(item);
         }
 
         onProgressbarExtractionChange: {// @DEPRECATED
@@ -408,6 +430,30 @@ Rectangle {
             }
 
             item.statusText = message;
+
+            Core.updateProgress(item);
+        }
+
+        onSecondServiceStarted: {
+            var item = Core.serviceItemByServiceId(service);
+            if (!item) {
+                console.log('Unknown service ' + service)
+                return;
+            }
+
+            item.secondStatus = "Started";
+            Core.secondServiceStarted(service);
+        }
+
+        onSecondServiceFinished: {
+            var item = Core.serviceItemByServiceId(service);
+            if (!item) {
+                console.log('Unknown service ' + service)
+                return;
+            }
+
+            item.secondStatus = "Normal"; //(Может и ошибку надо выставлять в случаи не успех)
+            Core.secondServiceFinished(service);
         }
     }
 
@@ -495,6 +541,42 @@ Rectangle {
                         onClicked: mainAuthModule.openWebPage("http://rewards.gamenet.ru/");
                     }
 
+                    SecondWindowGame.PremiumAccountLabel {
+                        id: premiumButton
+
+                        function getText() {
+                            if (!UserInfo.isPremium()) {
+                                return qsTr("ADVANCED_ACCOUNT_HINT");
+                            }
+
+                            var durationInDays = Math.floor(UserInfo.premiumDuration() / 86400);
+                            if (durationInDays > 0) {
+                                return qsTr("ADVANCED_ACCOUNT_HINT_IN_DAYS").arg(durationInDays);
+                            } else {
+                                return qsTr("ADVANCED_ACCOUNT_HINT_TODAY");
+                            }
+                        }
+
+                        function getVisible() {
+                            if (!root.currentItem) {
+                                return false;
+                            }
+
+                            if (!root.currentItem.secondAllowed) {
+                                return false;
+                            }
+
+                            return UserInfo.isAuthorized() && !UserInfo.isGuest();
+                        }
+
+                        visible: premiumButton.getVisible()
+                        anchors { right: parent.right; rightMargin: 30 }
+                        anchors { top: parent.top; topMargin: 100 }
+                        text: premiumButton.getText();
+                        onClicked: Core.openBuyGamenetPremiumPage();
+                        toolTip: qsTr("BUY_PREMIUM_BUTTON_TOOLTIP")
+                    }
+
                     Blocks.NewsBlock {
                         id: newsBlock
 
@@ -510,7 +592,6 @@ Rectangle {
                         anchors { bottomMargin: 20; rightMargin: 30 }
                     }
 
-
                     Feature.Facts {
                         id: factsBlock;
 
@@ -518,7 +599,6 @@ Rectangle {
                         anchors { bottom: parent.bottom; left: parent.left }
                         anchors { bottomMargin: 20; leftMargin: 30 }
                     }
-
 
                     ExtraGameFeatures.GameFeatureContainer {
                         visible: mainAuthModule.isAuthed && !mainAuthModule.authedAsGuest
@@ -550,7 +630,6 @@ Rectangle {
                             onClicked: PublicTest.show();
                         }
                     }
-
 
                 }
 
@@ -588,7 +667,11 @@ Rectangle {
 
                         visible: !!currentItem && !d._maintenance
 
-                        anchors { right: parent.right; rightMargin: 30; verticalCenter: parent.verticalCenter }
+                        anchors {
+                            right: parent.right
+                            rightMargin: 30 + secondAuthButton.buttonWidth + secondAuthButton.spacing
+                            verticalCenter: parent.verticalCenter
+                        }
 
                         buttonText: qsTr("BUTTON_PLAY_DEFAULT_STATE")
                         buttonPauseText: qsTr("BUTTON_PLAY_ON_PAUSE_STATE")
@@ -627,6 +710,48 @@ Rectangle {
                                                                'Game ' + root.currentItem.gaName, 'Play', 'Big Green');
                                 }
                             }
+                        }
+
+                        Blocks.SecondAuthButton {
+                            id: secondAuthButton
+
+                            function isPremiumAvailable() {
+                                if (!root.currentItem) {
+                                    return false;
+                                }
+
+                                if (!root.currentItem.secondAllowed) {
+                                    return false;
+                                }
+
+                                return UserInfo.isAuthorized() && UserInfo.isPremium();
+                            }
+
+                            function getIsRunning() {
+                                if (!root.currentItem) {
+                                    return false;
+                                }
+
+                                return root.currentItem.secondStatus === "Started"
+                            }
+
+                            anchors.fill: parent
+
+                            onAuthClick: secondAuthModule.openMoveUpPage();
+                            onLogoutClick: secondAuthModule.logout();
+                            onPlayClick: {
+                                mainWindow.executeSecondService(currentItem.serviceId,
+                                                                secondAuthModule.userId,
+                                                                secondAuthModule.appKey);
+                            }
+
+                            isAuthed: secondAuthModule.isAuthed
+                            nickName: secondAuthModule.nickname
+
+                            playEnabled: singleBigButton.isStarted
+                            visible: secondAuthButton.isPremiumAvailable()
+                            isRunning: secondAuthButton.getIsRunning()
+                            enabled: !Core.isAnySecondServiceRunning()
                         }
                     }
 
@@ -755,6 +880,23 @@ Rectangle {
                         GoogleAnalytics.trackEvent('/game/' + item.gaName,
                                                    'Game ' + item.gaName, 'Play', 'Maintenance');
                     }
+                }
+            }
+        }
+    }
+
+    Blocks.SecondAuth {
+        id: secondAuthModule
+
+        selectedGame: Core.currentGame()
+        anchors.fill: parent
+        Component.onCompleted: secondAuthModule.startAutoLogin()
+
+        Connections {
+            target: UserInfo.instance();
+            onIsPremiumChanged: {
+                if (!UserInfo.isPremium()) {
+                    secondAuthModule.logout();
                 }
             }
         }

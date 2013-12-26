@@ -27,6 +27,8 @@ Item {
     property bool isGuest: false
     property bool isNickNameSaved: false
 
+    property bool isPremium: false
+
     signal quitClicked();
     signal moneyClicked();
     signal confirmGuest();
@@ -70,8 +72,7 @@ Item {
     Image {
         width: 15
         height: 11
-        anchors { top: parent.top; topMargin: 5 }
-        anchors { right: parent.right; rightMargin: 1; }
+        anchors { top: parent.top; topMargin: 5; right: parent.right; rightMargin: 1; }
         fillMode: Image.PreserveAspectFit
         source: installPath + "images/exit.png"
         smooth: true
@@ -80,7 +81,7 @@ Item {
         Elements.CursorMouseArea {
             anchors.fill: parent
             hoverEnabled: true
-            toolTip:qsTr("LOGOUT_TOOLTIP")
+            toolTip: qsTr("LOGOUT_TOOLTIP")
             tooltipGlueCenter: true
             onClicked: quitClicked();
         }
@@ -108,7 +109,6 @@ Item {
             opacity: 1
             smooth: true
             fillMode: Image.PreserveAspectFit
-            onSourceChanged: console.log("source " + source);
 
             Rectangle {
                 id: levelBack
@@ -139,29 +139,23 @@ Item {
     }
 
     Row {
-        id: upRowWidget
-
         spacing: 8
         anchors { top: parent.top; left: parent.left; topMargin: 10; leftMargin: 68 }
 
         Image{
-            id: premiumImage
-
-            property bool premium: false
-
             anchors { top: parent.top; topMargin: 1; }
             width: 18
             visible: !isGuest && isNickNameSaved
             height: 14
-            source: premium ? installPath + "images/vip.png": installPath + "images/vip-no.png"
+            source:  installPath + (nickNameViewClass.isPremium ? "images/vip.png" : "images/vip-no.png")
             smooth : true
-            opacity: premium? 1 : 0.2
+            opacity: nickNameViewClass.isPremium ? 1 : 0.2
 
             Elements.CursorMouseArea {
                 anchors.fill: parent;
                 hoverEnabled: true
                 tooltipGlueCenter: true
-                toolTip: parent.premium? qsTr("PREMIUM_TOOLTIP"): qsTr("PREMIUM_NO_TOOLTIP")
+                toolTip: nickNameViewClass.isPremium ? qsTr("PREMIUM_TOOLTIP"): qsTr("PREMIUM_NO_TOOLTIP")
                 tooltipPosition: "W"
                 cursor: CursorArea.ArrowCursor
             }
@@ -213,8 +207,7 @@ Item {
 
                 text: downText
                 anchors { verticalCenter: parent.verticalCenter }
-                anchors { left: parent.left; leftMargin: 4; }
-                anchors { top: parent.top; topMargin: 2 }
+                anchors { left: parent.left; leftMargin: 4; top: parent.top; topMargin: 2 }
                 wrapMode: Text.NoWrap
                 style: Text.Normal
                 smooth: true
@@ -238,8 +231,7 @@ Item {
             Text {
                 color: "#fff"
                 text: qsTr("ACCOUNT_DEPOSIT")
-                anchors { top: parent.top; topMargin: 7 }
-                anchors { left: parent.left; leftMargin: 7; }
+                anchors { top: parent.top; topMargin: 7; left: parent.left; leftMargin: 7; }
                 wrapMode: Text.NoWrap
                 style: Text.Normal
                 smooth: true

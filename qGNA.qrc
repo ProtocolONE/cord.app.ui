@@ -31,6 +31,11 @@
 		<file>Blocks/ProgressWidget.qml</file>
 		<file>Blocks/PromoKey.qml</file>
 		<file>Blocks/RoatateNews.qml</file>
+		<file>Blocks/SecondAuth.qml</file>
+		<file>Blocks/SecondAuthButton.qml</file>
+		<file>Blocks/SecondWindowGame/BuyPage.qml</file>
+		<file>Blocks/SecondWindowGame/PremiumAccountLabel.qml</file>
+		<file>Blocks/SecondWindowGame/PurchaseOption.qml</file>
 		<file>Blocks/SelectMw2Server.qml</file>
 		<file>Blocks/SocialNet.qml</file>
 		<file>Blocks/Tray.qml</file>
@@ -112,6 +117,8 @@
 		<file>Features/Ping/Ping.qml</file>
 		<file>Features/PublicTest/index.js</file>
 		<file>Features/PublicTest/PublicTestWarning.qml</file>
+		<file>Features/TaskBar/TaskBarHelper.js</file>
+		<file>Features/TaskBar/TaskBarHelper.qml</file>
 		<file>Features/TastList/TaskList.js</file>
 		<file>Features/TastList/TaskList.qml</file>
 		<file>js/Authorization.js</file>
@@ -128,6 +135,7 @@
 		<file>js/support.js</file>
 		<file>js/Support/Support.qml</file>
 		<file>js/UserInfo.js</file>
+		<file>js/UserInfoPrivate.qml</file>
 		<file>Models/CombatArmsItemsModel.qml</file>
 		<file>Models/GamesListModel.qml</file>
 		<file>Models/NewsModel.qml</file>

@@ -12,9 +12,6 @@ import QtQuick 1.1
 import "../Elements" as Elements
 
 Rectangle {
-    // HACK
-    //property string installPath: "../"
-
     id: bigButtonRectangle
 
     property int progressPercent: -1
@@ -32,6 +29,7 @@ Rectangle {
     property string buttonErrorText
     property string buttonDownloadText
     property string buttonDownloadedText
+
 
     property Gradient buttonActiveGradient: Gradient {
         GradientStop { position: 1; color: "#177e00" }
@@ -60,7 +58,7 @@ Rectangle {
     signal buttonClicked();
 
     color: "#00000000"
-    width: 155
+    width: 123
     height: 55
     border { color: "#ffffff"; width: 1 }
 
@@ -69,7 +67,7 @@ Rectangle {
 
         anchors { fill: parent; topMargin: 1; leftMargin: 1 }
         gradient: isStarted ? buttonStartedGradient :
-                              (!startDownloading && bigButtonMouseArea.containsMouse)
+                              (!startDownloading && (bigButtonMouseArea.containsMouse))
                               ? buttonNormalGradient : buttonNormalReverseGradient;
         opacity: isStarted ? 0.8 : 1
         visible: progressPercent <= 0 || progressPercent >= 100 //!startDownloading || progressPercent >= 0 || progressPercent <= 100
@@ -106,4 +104,6 @@ Rectangle {
         hoverEnabled: true
         onClicked: buttonClicked();
     }
+
+
 }

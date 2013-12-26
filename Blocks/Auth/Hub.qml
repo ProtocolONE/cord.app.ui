@@ -13,47 +13,26 @@ import QtQuick 1.1
 Item {
     id: root
 
-    property int widgetCount: guestWidget.visible ? 4 : 3
-    property bool guestEnable
-    property int autoGuestLoginTimout
+    signal guestLogin();
+    signal genericAuth();
+    signal vkAuth();
+    signal register();
 
-    property alias guestDescText: guestWidget.descText
+    implicitHeight: 414
+    implicitWidth: 930
 
-    signal guestLogin
-    signal genericAuth
-    signal vkAuth
-    signal register
+    QtObject {
+        id: d
+
+        property int widgetCount: 3
+    }
 
     Row {
         width: parent.width
         height: parent.height
 
         SingleWidget {
-            id: guestWidget
-
-            width: parent.width / widgetCount
-            source: autoGuestLoginTimout > 0 && autoGuestLoginTimout < 10 ?
-                                               installPath + 'images/Auth/stopwatch-a.png' :
-                                               installPath + 'images/Auth/stopwatch.png'
-
-            headText: qsTr("GUEST_WIDGET_HEAD_LABEL")
-            buttonText: qsTr("PLAY_NOW_BUTTON")
-            countDown: autoGuestLoginTimout
-            visible: guestEnable
-            onClicked: root.guestLogin();
-        }
-
-        Rectangle {
-            width: 1
-            height: parent.height
-            color: '#579f33'
-            visible: guestWidget.visible
-        }
-
-        SingleWidget {
-            id: accountWidget
-
-            width: parent.width / widgetCount
+            width: parent.width / d.widgetCount
             source: installPath + 'images/Auth/account.png'
             headText: qsTr("ACCOUNT_WIDGET_HEAD_LABEL")
             descText: qsTr("ACCOUNT_WIDGET_HEAD_DESC")
@@ -68,9 +47,7 @@ Item {
         }
 
         SingleWidget {
-            id: vkWidget
-
-            width: parent.width / widgetCount
+            width: parent.width / d.widgetCount
             source: installPath + 'images/Auth/vk.png'
             headText: qsTr("AUTH_WIDGET_HEAD_LABEL")
             descText: qsTr("AUTH_WIDGET_HEAD_DESC")
@@ -85,9 +62,7 @@ Item {
         }
 
         SingleWidget {
-            id: newWidget
-
-            width: parent.width / widgetCount
+            width: parent.width / d.widgetCount
             source: installPath + 'images/Auth/new.png'
             headText: qsTr("NEW_WIDGET_HEAD_LABEL")
             descText: qsTr("NEW_WIDGET_HEAD_DESC")

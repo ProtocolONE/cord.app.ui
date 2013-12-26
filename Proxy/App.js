@@ -99,3 +99,10 @@ function isPublicVersion() {
     }
     return false;
 }
+
+function updateProgress(value, status) {
+    if (proxyInst) {
+        return proxyInst.updateProgress(value, status);
+    }
+    return false;
+}

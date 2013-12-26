@@ -170,4 +170,11 @@ QtObject {
         }
         return mainWindow.updateArea === 'live';
     }
+
+    function updateProgress(value, status) {
+       if (!AppProxy.mainWindow) {
+            return;
+        }
+        mainWindow.onProgressUpdated(value, status);
+    }
 }

@@ -502,11 +502,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>GUEST_WIDGET_HEAD_DESC</source>
-        <translation>Играй сейчас - регистрируйся потом, игра сохранится</translation>
+        <translation type="obsolete">Играй сейчас - регистрируйся потом, игра сохранится</translation>
     </message>
     <message>
         <source>GUEST_WIDGET_HEAD_DESC_NOT_GAME</source>
-        <translation>Вы можете войти&lt;br&gt;под гостевым аккаунтом</translation>
+        <translation type="obsolete">Вы можете войти&lt;br&gt;под гостевым аккаунтом</translation>
     </message>
     <message>
         <source>AUTH_GUEST_REGISTER_MESSAGE</source>
@@ -545,7 +545,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_GUEST_ERROR</source>
-        <translation>Не удалось войти в гостевой аккаунт. Попробуйте ещё раз позже.</translation>
+        <translation type="obsolete">Не удалось войти в гостевой аккаунт. Попробуйте ещё раз позже.</translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
@@ -594,10 +594,174 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>AuthBlock2</name>
+    <message>
+        <source>VK_LOGIN_BUTTON_TEXT</source>
+        <translation type="obsolete">Войти ВКонтакте</translation>
+    </message>
+    <message>
+        <source>AUTH_LEFT_LABEL_CODE_REQUIRED</source>
+        <translation type="obsolete">Мы зафиксировали попытку подбора пароля к этой учётной записи.</translation>
+    </message>
+    <message>
+        <source>REGISTRATION_LEFT_LABEL_TEXT</source>
+        <translation type="obsolete">Введите почту и пароль
+и нажмите войти или авторизуйтесь аккаунтом ВКонтакте</translation>
+    </message>
+</context>
+<context>
+    <name>AuthBlock3</name>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
+        <translation type="obsolete">GameNet недоступен. Попробуйте авторизоваться позже.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_WRONG</source>
+        <translation type="obsolete">Неправильный логин или пароль</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
+        <translation type="obsolete">Неправильный формат электронной почты. Проверьте правильность ввода.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_GUEST_ERROR</source>
+        <translation type="obsolete">Не удалось войти в гостевой аккаунт. Попробуйте ещё раз позже.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
+        <translation type="obsolete">Не удалось войти как пользователь Вконтакте. Попробуйте ещё раз позже.</translation>
+    </message>
+    <message>
+        <source>VK_LOGIN_BUTTON_TEXT</source>
+        <translation type="obsolete">Войти ВКонтакте</translation>
+    </message>
+    <message>
+        <source>AUTH_LEFT_LABEL_CODE_REQUIRED</source>
+        <translation type="obsolete">Мы зафиксировали попытку подбора пароля к этой учётной записи.</translation>
+    </message>
+    <message>
+        <source>REGISTRATION_LEFT_LABEL_TEXT</source>
+        <translation type="obsolete">Введите почту и пароль
+и нажмите войти или авторизуйтесь аккаунтом ВКонтакте</translation>
+    </message>
+</context>
+<context>
+    <name>AuthBlock_backup</name>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
+        <translation type="obsolete">GameNet недоступен. Попробуйте авторизоваться позже.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_WRONG</source>
+        <translation type="obsolete">Неправильный логин или пароль</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
+        <translation type="obsolete">Неправильный формат электронной почты. Проверьте правильность ввода.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_GUEST_ERROR</source>
+        <translation type="obsolete">Не удалось войти в гостевой аккаунт. Попробуйте ещё раз позже.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
+        <translation type="obsolete">Не удалось войти как пользователь Вконтакте. Попробуйте ещё раз позже.</translation>
+    </message>
+    <message>
+        <source>VK_LOGIN_BUTTON_TEXT</source>
+        <translation type="obsolete">Войти ВКонтакте</translation>
+    </message>
+    <message>
+        <source>AUTH_LEFT_LABEL_CODE_REQUIRED</source>
+        <translation type="obsolete">Мы зафиксировали попытку подбора пароля к этой учётной записи.</translation>
+    </message>
+    <message>
+        <source>REGISTRATION_LEFT_LABEL_TEXT</source>
+        <translation type="obsolete">Введите почту и пароль
+и нажмите войти или авторизуйтесь аккаунтом ВКонтакте</translation>
+    </message>
+</context>
+<context>
+    <name>ButtonBig</name>
+    <message>
+        <source>ADD_ACCOUNT_BUTTON_LABEL</source>
+        <translation type="obsolete">Добавить аккаунт</translation>
+    </message>
+</context>
+<context>
     <name>ButtonVk</name>
     <message>
         <source>Enter Vkontakte</source>
         <translation type="obsolete">Войти ВКонтакте</translation>
+    </message>
+</context>
+<context>
+    <name>BuyPage</name>
+    <message>
+        <source>ADWANCED_ACCOUNT_HINT</source>
+        <translation type="obsolete">РАСШИРЕННЫЙ АККАУНТ</translation>
+    </message>
+    <message>
+        <source>TITLE_PREMIUM_ACCOUNT_BUY</source>
+        <translation>Расширенный аккаунт</translation>
+    </message>
+    <message>
+        <source>TITLE_PREMIUM_ACCOUNT_INFO_TEXT</source>
+        <translation>Расширенный аккаунт GameNet - это возможность играть двумя аккаунтами одновременно в игры BS.ru, Aika 2, Magic World 2 и Reborn</translation>
+    </message>
+    <message>
+        <source>TITLE_PREMIUM_ACCOUNT_LEFT_TIME_LABEL</source>
+        <translation>Осталось дней: &lt;b&gt;%1&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>TITLE_PREMIUM_ACCOUNT_CONTINUE_ACCOUNT_LABEL</source>
+        <translation>Продлите действие расширенного аккаунта:</translation>
+    </message>
+    <message>
+        <source>TITLE_PREMIUM_ACCOUNT_DAYS_GM_MONEY</source>
+        <translation type="obsolete">%1 дней → &lt;b&gt;%2&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>ACCEPT_BUY_BUTTON_TEXT</source>
+        <translation>Подтвердить покупку</translation>
+    </message>
+    <message>
+        <source>CANCEL_BUY_BUTTON_TEXT</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>PREMIUM_SHOP_DETAILS_ERROR_UNKNOWN</source>
+        <translation>Произошла ошибка в процессе покупки. Пожалуйста, попробуйте позже.</translation>
+    </message>
+    <message>
+        <source>PREMIUM_SHOP_DETAILS_ERROR_INSUFFICIENT_GN</source>
+        <translation type="obsolete">У вас недостаточно GN-монет. &lt;a href=&quot;http://www.gamenet.ru/money&quot;&gt;Пополнить счет&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>PREMIUM_SHOP_DETAILS_CLOSE</source>
+        <translation>Закрыть</translation>
+    </message>
+    <message>
+        <source>PREMIUM_SHOP_DAYS_1</source>
+        <translation>%1 день</translation>
+    </message>
+    <message>
+        <source>PREMIUM_SHOP_DAYS_2_4</source>
+        <translation>%1 дня</translation>
+    </message>
+    <message>
+        <source>PREMIUM_SHOP_DAYS_OTHER</source>
+        <translation>%1 дней</translation>
+    </message>
+    <message>
+        <source>PREMIUM_SHOP_DETAILS_PURCHASE_SUCCESS</source>
+        <translation>Вы успешно купили и активировали расширенный аккаунт GameNet на %1.
+
+Чтобы запустить второе окно игры BS.ru, Aika 2, Magic World 2 и Reborn, нажмите на кнопку &quot;Играть&quot; и после выберите &quot;Играть расширенным аккаунтом&quot;</translation>
+    </message>
+    <message>
+        <source>TITLE_PREMIUM_ACCOUNT_LEFT_TIME_LABEL_TODAY</source>
+        <translation type="obsolete">Расширенный аккаунт истекает сегодня.</translation>
     </message>
 </context>
 <context>
@@ -1036,6 +1200,22 @@ Please try again later.</source>
     <message>
         <source>PHOTO_COMPETITION_BUTTON</source>
         <translation type="obsolete">Фото конкурс</translation>
+    </message>
+    <message>
+        <source>ADVANCED_ACCOUNT_HINT</source>
+        <translation>РАСШИРЕННЫЙ АККАУНТ</translation>
+    </message>
+    <message>
+        <source>ADVANCED_ACCOUNT_HINT_IN_DAYS</source>
+        <translation>Осталось %1 д.</translation>
+    </message>
+    <message>
+        <source>ADVANCED_ACCOUNT_HINT_TODAY</source>
+        <translation>Истекает сегодня</translation>
+    </message>
+    <message>
+        <source>BUY_PREMIUM_BUTTON_TOOLTIP</source>
+        <translation>Приобрести или продлить расширенный аккаунт</translation>
     </message>
 </context>
 <context>
@@ -1536,7 +1716,7 @@ Please try again later.</source>
     <name>Hub</name>
     <message>
         <source>GUEST_WIDGET_HEAD_LABEL</source>
-        <translation>Моментальный вход</translation>
+        <translation type="obsolete">Моментальный вход</translation>
     </message>
     <message>
         <source>GUEST_WIDGET_HEAD_DESC</source>
@@ -1544,7 +1724,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>PLAY_NOW_BUTTON</source>
-        <translation>Играть сейчас</translation>
+        <translation type="obsolete">Играть сейчас</translation>
     </message>
     <message>
         <source>ACCOUNT_WIDGET_HEAD_LABEL</source>
@@ -1796,11 +1976,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>POPUP_PLAY</source>
-        <translation type="unfinished">Играть</translation>
+        <translation>Играть</translation>
     </message>
     <message>
         <source>POPUP_MAINTENANCE_END_AND_READY_TO_START</source>
-        <translation type="unfinished">Технические работы завершены</translation>
+        <translation>Технические работы завершены</translation>
     </message>
 </context>
 <context>
@@ -1968,7 +2148,7 @@ Please try again later.</source>
     <name>NotificationPage</name>
     <message>
         <source>CHECKBOX_NOTIFICATION_MAINTENANCE_END</source>
-        <translation type="unfinished">Оповещать об окончании технических работ</translation>
+        <translation>Оповещать об окончании технических работ</translation>
     </message>
 </context>
 <context>
@@ -1991,6 +2171,13 @@ Please try again later.</source>
     <message>
         <source>MESSAGE_INTERNET_UNAVAILABLE</source>
         <translation>В настоящий момент сервисы GameNet недоступны. Вероятно по нашей вине, но, возможно, это ваше интернет-соединение. Пожалуйста, на всякий случай проверьте ваше соединение.</translation>
+    </message>
+</context>
+<context>
+    <name>PremiumAccountLabel</name>
+    <message>
+        <source>ADWANCED_ACCOUNT_HINT</source>
+        <translation>РАСШИРЕННЫЙ АККАУНТ</translation>
     </message>
 </context>
 <context>
@@ -2176,7 +2363,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>CA_SHOP_DETAILS_ERROR_NO_CHAR</source>
-        <translation type="unfinished">Мы не нашли вашего персонажа Combat Arms. Вы пока не можете покупать предметы.</translation>
+        <translation>Мы не нашли вашего персонажа Combat Arms. Вы пока не можете покупать предметы.</translation>
     </message>
     <message>
         <source>CA_SHOP_DETAILS_CONFIRM</source>
@@ -2375,6 +2562,44 @@ Please try again later.</source>
     <message>
         <source>DECEMBER</source>
         <translation>декабря</translation>
+    </message>
+</context>
+<context>
+    <name>SecondAuth</name>
+    <message>
+        <source>AUTH_GUEST_REGISTER_HEADER</source>
+        <translation>Завершение регистрации</translation>
+    </message>
+    <message>
+        <source>AUTH_NORMAL_REGISTER_HEADER</source>
+        <translation>Регистрация</translation>
+    </message>
+    <message>
+        <source>AUTH_LOGIN_TITLE</source>
+        <translation>Вход</translation>
+    </message>
+</context>
+<context>
+    <name>SecondAuthButton</name>
+    <message>
+        <source>ADD_ACCOUNT_BUTTON_LABEL</source>
+        <translation>Добавить аккаунт</translation>
+    </message>
+    <message>
+        <source>SECOND_GAME_UNABLE_PLAY_TOOLTIP</source>
+        <translation>Сначала запустите игру под основным аккаунтом</translation>
+    </message>
+    <message>
+        <source>SECOND_GAME_PLAY_TOOLTIP</source>
+        <translation>Запустить игру под дополнительным аккаунтом</translation>
+    </message>
+    <message>
+        <source>LOGOUT_TOOLTIP</source>
+        <translation type="obsolete">Выйти</translation>
+    </message>
+    <message>
+        <source>SECOND_GAME_LOGOUT_TOOLTIP</source>
+        <translation>Выйти</translation>
     </message>
 </context>
 <context>
@@ -2784,7 +3009,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>MENU_ITEM_NOTIFICATIONS</source>
-        <translation type="unfinished">Уведомления</translation>
+        <translation>Уведомления</translation>
     </message>
     <message>
         <source>MENU_GAMES_SECTION_TITLE</source>
@@ -2869,19 +3094,19 @@ Please try again later.</source>
     <name>TaskList</name>
     <message>
         <source>TASK_LIST_ALL_GAMES</source>
-        <translation type="unfinished">Установленные</translation>
+        <translation>Установленные</translation>
     </message>
     <message>
         <source>TASK_LIST_MORE_GAMES</source>
-        <translation type="unfinished">Еще игры</translation>
+        <translation>Еще игры</translation>
     </message>
     <message>
         <source>TASK_LIST_SETTING</source>
-        <translation type="unfinished">Настройки</translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <source>TASK_LIST_QUIT</source>
-        <translation type="unfinished">Выход</translation>
+        <translation>Выход</translation>
     </message>
 </context>
 <context>

@@ -20,8 +20,27 @@ import "../../Proxy/App.js" as App
 Item {
     id: registrationPage
 
+    property string userId
+    property string appKey
+    property string cookie
+    property bool isAuthed
+    property bool authedAsGuest: false
+
+    property bool isInProgress: false
+
+    signal cancel();
+    signal linkGuestCanceled();
+    signal logoutLinkGuestCanceled();
+
+    signal error(string message);
+
+    signal authSuccess(string userId, string appKey, string cookie);
+    signal linkGuestDone();
+    signal openVkAuth();
+    signal saveLogin(string login);
+
     function startRegister() {
-        authRegisterMoveUpPage.isInProgress = true;
+        registrationPage.isInProgress = true;
         var login = registerLoginTextInput.editText,
             password = registerPasswordTextInput.editText;
 
@@ -30,28 +49,33 @@ Item {
             if (error === Authorization.Result.Success) {
                 registerLoginTextInput.clear();
                 Authorization.loginByGameNet(login, password, function(error, response) {
-                    authPage.authCallback(error, response, true, false);
-                    if (error !== Authorization.Result.Success) {
-                        authRegisterMoveUpPage.state = "FailRegistrationPage";
+                    registrationPage.isInProgress = false;
+
+                    if (error === Authorization.Result.Success) {
+                        registrationPage.authSuccess(response.userId, response.appKey, response.cookie);
+                        registrationPage.saveLogin(login);
+                    } else {
+
+                        var errorMessage;
+
                         if (!response) {
-                            failPage.errorMessage = qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_ERROR");
-                            return;
+                            errorMessage = qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_ERROR");
+                        } else {
+                            var map = {
+                                0: qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_ERROR"),
+                            };
+                            map[RestApi.Error.AUTHORIZATION_FAILED] = qsTr("AUTH_FAIL_MESSAGE_WRONG");
+                            map[RestApi.Error.INCORRECT_FORMAT_EMAIL] = qsTr("AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT");
+                            errorMessage = map[response.code] || map[0];
                         }
 
-                        var map = {
-                            0: qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_ERROR"),
-                        };
-                        map[RestApi.Error.AUTHORIZATION_FAILED] = qsTr("AUTH_FAIL_MESSAGE_WRONG");
-                        map[RestApi.Error.INCORRECT_FORMAT_EMAIL] = qsTr("AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT");
-
-                        failPage.errorMessage = map[response.code] || map[0];
+                        registrationPage.error(errorMessage);
                     }
                 });
                 return;
             }
 
-            authRegisterMoveUpPage.isInProgress = false;
-            authRegisterMoveUpPage.state = "FailRegistrationPage";
+            registrationPage.isInProgress = false;
 
             if (response.message.login) {
                 registerLoginTextInput.failState = true;
@@ -61,110 +85,103 @@ Item {
                 registerPasswordTextInput.failState = true;
             }
 
-            failPage.errorMessage =
-                (response.message.login ? response.message.login + "<br/>" : "") +
-                (response.message.password || "");
+            registrationPage.error((response.message.login ? response.message.login + "<br/>" : "") +
+                                   (response.message.password || ""));
         });
     }
 
     function registerButtonClicked() {
-        if (registrationPage.state === "Normal" || !authRegisterMoveUpPage.isAuthed) {
+        if (registrationPage.state === "Normal" || !registrationPage.isAuthed) {
             GoogleAnalytics.trackEvent('/Registration/' + registrationPage.state, 'Auth', 'Registration');
             registrationPage.startRegister();
         } else {
             GoogleAnalytics.trackEvent('/Registration/' + registrationPage.state,
                                        'Auth', 'Registration Confirm Guest');
-            authRegisterMoveUpPage.isInProgress = true;
+            registrationPage.isInProgress = true;
 
             var provider = new Authorization.ProviderGuest(),
-                    login = registerLoginTextInput.editText,
-                    password = registerPasswordTextInput.editText;
+                login = registerLoginTextInput.editText,
+                password = registerPasswordTextInput.editText;
             registerPasswordTextInput.clear();
 
-            provider.confirm(authRegisterMoveUpPage.userId,
-                             authRegisterMoveUpPage.appKey,
+            provider.confirm(registrationPage.userId,
+                             registrationPage.appKey,
                              login,
                              password,
                              function(error, response) {
-                                 authRegisterMoveUpPage.isInProgress = false;
+                                 registrationPage.isInProgress = false;
                                  if (error !== Authorization.Result.Success) {
-                                     authRegisterMoveUpPage.state = "FailRegistrationPage";
-                                     if (!response || !response.message) {
-                                         failPage.errorMessage = qsTr("LINK_GUEST_UNKNOWN_ERROR");
-                                         return;
-                                     }
+                                     var errorMessage = (!response || !response.message)
+                                             ? qsTr("LINK_GUEST_UNKNOWN_ERROR")
+                                             : response.message;
 
-                                     failPage.errorMessage = response.message;
+                                     registrationPage.error(errorMessage);
                                      return;
                                  }
 
                                  Marketing.send(Marketing.GuestAccountConfirm, "0",
                                                 {
                                                     method: "Generic",
-                                                    recoveryCount: authPage.guestRecoveryCounter()
+                                                    recoveryCount: 0 // так как гостя отрубаем, не будем и считать
                                                 });
-                                 authPage.authSuccess(response.userId,
-                                                      response.appKey,
-                                                      response.cookie,
-                                                      true, false);
-                                 authRegisterMoveUpPage.linkGuestDone();
+
+                                 registrationPage.authSuccess(response.userId,
+                                                              response.appKey,
+                                                              response.cookie);
+
+                                 registrationPage.saveLogin(login);
+                                 registrationPage.linkGuestDone();
                                  return;
 
                              });
         }
     }
 
-    function bottomLeftButtonClicked() {
+    function cancelRegistrationClicked() {
         if (registrationPage.state === "ForceOnLogout") {
             GoogleAnalytics.trackEvent('/Registration/' + registrationPage.state, 'Auth', 'Guest Logout');
-            resetCredential();
-            logoutDone();
-            switchAnimation();
+            registrationPage.logoutLinkGuestCanceled();
         } else if (registrationPage.state === "ForceOnStartGame"
                    || registrationPage.state === "ForceOnOpenWeb"
                    || registrationPage.state === "ForceOnRequest") {
             GoogleAnalytics.trackEvent('/Registration/' + registrationPage.state, 'Auth', 'Guest Confirm Cancel');
-            authRegisterMoveUpPage.linkGuestCanceled();
-            authRegisterMoveUpPage.switchAnimation();
+            registrationPage.linkGuestCanceled();
         } else {
-            authRegisterMoveUpPage.state = "AuthPage";
             GoogleAnalytics.trackEvent('/Registration/' + registrationPage.state, 'Auth', 'Switch To Auth');
+            registrationPage.cancel();
         }
     }
 
-    function bottomRightButtonClicked() {
+    function vkButtonClicked() {
         if (registrationPage.state === "Normal") {
             GoogleAnalytics.trackEvent('/Registration/' + registrationPage.state, 'Auth', 'Vk Login');
-            authPage.startVkAuth();
+            registrationPage.openVkAuth();
         } else {
             GoogleAnalytics.trackEvent('/Registration/' + registrationPage.state, 'Auth', 'Guest Vk Confirm');
-            authRegisterMoveUpPage.isInProgress = true;
+            registrationPage.isInProgress = true;
             Authorization.linkVkAccount(registerPageRightButton, function(error, message) {
-                authRegisterMoveUpPage.isInProgress = false;
+                registrationPage.isInProgress = false;
 
                 if (error === Authorization.Result.Success) {
                     Marketing.send(Marketing.GuestAccountConfirm, "0",
                                    {
                                        method: "VK",
-                                       recoveryCount: authPage.guestRecoveryCounter()
+                                       recoveryCount: 0//authPage.guestRecoveryCounter()
                                    });
-                    authPage.authSuccess(authRegisterMoveUpPage.userId,
-                                         authRegisterMoveUpPage.appKey,
-                                         authRegisterMoveUpPage.cookie,
-                                         true, false);
-                    authRegisterMoveUpPage.linkGuestDone();
+
+                    registrationPage.authSuccess(registrationPage.userId,
+                                                 registrationPage.appKey,
+                                                 registrationPage.cookie);
+                    registrationPage.linkGuestDone();
                     return;
                 }
 
-                authRegisterMoveUpPage.state = "FailRegistrationPage";
-
-                failPage.errorMessage = message || qsTr("GUEST_VK_LINK_UNKNOWN_ERROR");
-                authRegisterMoveUpPage.linkGuestCanceled();
+                registrationPage.error(message || qsTr("GUEST_VK_LINK_UNKNOWN_ERROR"));
             });
         }
     }
 
-    state: "ForceOnLogout"
+    state: "Normal"
 
     Grid {
         anchors { fill: parent; topMargin: 47 }
@@ -183,10 +200,7 @@ Item {
                     source: installPath + "images/button_vk.png"
                 }
 
-                onClicked: {
-                    GoogleAnalytics.trackEvent('/Auth', 'Auth', 'Vk Login');
-                    authPage.startVkAuth();
-                }
+                onClicked: registrationPage.vkButtonClicked();
             }
 
             Column {
@@ -198,10 +212,8 @@ Item {
                     width: parent.width
 
                     LabelText {
-                        color: (authRegisterMoveUpPage.state === "RegistrationPage"
-                                && authRegisterMoveUpPage.authedAsGuest) ? "#ffff66" : "#ffffff"
-
-                        text: authRegisterMoveUpPage.authedAsGuest
+                        color: registrationPage.authedAsGuest ? "#ffff66" : "#ffffff"
+                        text: registrationPage.authedAsGuest
                               ? qsTr("AUTH_GUEST_REGISTER_MESSAGE")
                               : qsTr("AUTH_REGISTER_NORMAL_MESSAGE_DESC")
                     }
@@ -239,11 +251,6 @@ Item {
                                     registrationPage.registerButtonClicked();
                                 }
 
-                                textEditComponent.onTextChanged: {
-                                    if (authRegisterMoveUpPage.guestAutoStart)
-                                        authPage.stopGuestAutoStart();
-                                }
-
                                 onTabPressed: registerPasswordTextInput.textEditComponent.focus = true;
                             }
 
@@ -278,11 +285,6 @@ Item {
                                 showKeyboardLayout: true
                                 focus: true
                                 onEnterPressed: registrationPage.registerButtonClicked();
-                                textEditComponent.onTextChanged: {
-                                    if (authRegisterMoveUpPage.guestAutoStart)
-                                        authPage.stopGuestAutoStart();
-                                }
-
                                 onTabPressed: registerLoginTextInput.textEditComponent.focus = true;
                             }
 
@@ -321,7 +323,7 @@ Item {
 
                             Elements.Button {
                                 text: qsTr("AUTH_CANCEL_REGISTER_BUTTON")
-                                onClicked: registrationPage.bottomLeftButtonClicked()
+                                onClicked: registrationPage.cancelRegistrationClicked()
                             }
                         }
                     }

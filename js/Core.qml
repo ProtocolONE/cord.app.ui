@@ -10,6 +10,10 @@
 import QtQuick 1.1
 
 QtObject {
+    property bool isAnySecondServiceRunning
+
     signal needAuth();
     signal openPurchaseOptions(variant purchaseOptions);
+
+    signal openBuyGamenetPremiumPage();
 }

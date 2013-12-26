@@ -28,7 +28,6 @@ Blocks.MoveUpPage {
     property string cookie
     property bool authedAsGuest: false
     property bool guestAuthEnabled: false
-    property bool guestAuthTimerStarted: false
     property string lastState: ''
 
     onStateChanged: {
@@ -64,6 +63,12 @@ Blocks.MoveUpPage {
 
         guestAuthEnabled = true;
         authedAsGuest = false;
+    }
+
+    function openSecondaryAuthPage() {
+        state = 'GenericAuthPage';
+        isSecondaryAuth = true;
+        switchAnimation();
     }
 
     function logout() {
@@ -110,7 +115,6 @@ Blocks.MoveUpPage {
                 return;
             }
 
-            authPage.increaseGuestRecoveryCounter();
             authRegisterMoveUpPage.guestInfo = guest;
             authRegisterMoveUpPage.hasGuestInfo = true;
             savedAuth = guest;
@@ -176,7 +180,6 @@ Blocks.MoveUpPage {
         authRegisterMoveUpPage.state = "AuthPage";
         if (!authRegisterMoveUpPage.isOpen)
             authRegisterMoveUpPage.switchAnimation();
-        authPage.startGuestAutoStart();
     }
 
     function updateGuestStatus(guest) {
@@ -208,6 +211,12 @@ Blocks.MoveUpPage {
         }
     }
 
+    function saveAuthorizedLogins(login) {
+        var currentValue = JSON.parse(Settings.value("qml/auth/", "authedLogins", "{}"));
+        currentValue[login] = +new Date();
+        Settings.setValue("qml/auth/" , "authedLogins", JSON.stringify(currentValue));
+    }
+
     openHeight: 464
     state: "AuthPage"
     onFinishClosing: {
@@ -215,16 +224,6 @@ Blocks.MoveUpPage {
         if (authRegisterMoveUpPage.hasGuestInfo) {
             authRegisterMoveUpPage.state = "AuthPage";
         }
-    }
-
-    onVisibleChanged: {
-        if (!visible) {
-            return;
-        }
-
-        var guest = CredentialStorage.loadGuest();
-        hubWidget.guestEnable = (guest && guest.userId && guest.appKey && guest.cookie)
-                || authRegisterMoveUpPage.guestAuthEnabled;
     }
 
     Timer {
@@ -407,40 +406,20 @@ Blocks.MoveUpPage {
 
                 anchors { fill: parent; topMargin: 49 }
 
-                guestEnable: false
-                guestDescText: (!!authRegisterMoveUpPage.selectedGame) ? qsTr("GUEST_WIDGET_HEAD_DESC") :
-                                                                         qsTr("GUEST_WIDGET_HEAD_DESC_NOT_GAME")
-                autoGuestLoginTimout: authPage.autoGuestLoginTimout
-
-                onGuestLogin: {
-                    GoogleAnalytics.trackEvent('/Auth', 'Auth', 'Guest Login');
-                    authPage.startGuestAuth();
-                }
-
-                onGenericAuth: {
-                    authPage.stopGuestAutoStart();
-                    authRegisterMoveUpPage.state = "GenericAuthPage"
-                }
-
+                onGenericAuth: authRegisterMoveUpPage.state = "GenericAuthPage"
                 onVkAuth: {
                     GoogleAnalytics.trackEvent('/Auth', 'Auth', 'Vk Login');
                     authPage.startVkAuth();
-                    authPage.stopGuestAutoStart();
                 }
-                onRegister: {
-                    authRegisterMoveUpPage.state = "RegistrationPage";
-                    authPage.stopGuestAutoStart();
-                }
+
+                onRegister: authRegisterMoveUpPage.state = "RegistrationPage";
             }
 
             Elements.Button {
                 anchors { right: parent.right; top: parent.top; topMargin: 10; rightMargin: 30 }
                 text: qsTr("AUTH_CANCEL_BUTTON")
                 hoverColor: '#ff9900'
-                onClicked: {
-                    authPage.stopGuestAutoStart();
-                    authRegisterMoveUpPage.switchAnimation();
-                }
+                onClicked: authRegisterMoveUpPage.closeMoveUpPage();
             }
         }
 
@@ -450,7 +429,31 @@ Blocks.MoveUpPage {
             visible: authRegisterMoveUpPage.state === "GenericAuthPage"
             anchors { fill: parent; topMargin: 1 }
 
-            property alias authRegisterMoveUpPage: authRegisterMoveUpPage
+            onIsInProgressChanged: authRegisterMoveUpPage.isInProgress = authPage.isInProgress
+
+            onError: {
+                authRegisterMoveUpPage.state = "FailAuthPage";
+                failPage.errorMessage = message;
+            }
+
+            onOpenRegistration: {
+                registrationPage.state = "Normal"
+                authRegisterMoveUpPage.state = "RegistrationPage";
+            }
+
+            onCancel: authRegisterMoveUpPage.state = "AuthPage";
+
+            onAuthSuccess: {
+                if (shouldSave) {
+                    CredentialStorage.save(userId, appKey, cookie, false);
+                }
+
+                authRegisterMoveUpPage.authedAsGuest = false;
+                authRegisterMoveUpPage.switchAnimation();
+                authRegisterMoveUpPage.authDoneCallback(userId, appKey, cookie);
+            }
+
+            onSaveLogin: saveAuthorizedLogins(login);
         }
 
         FailBlock {
@@ -466,10 +469,45 @@ Blocks.MoveUpPage {
         Registration {
             id: registrationPage
 
+            userId: authRegisterMoveUpPage.userId
+            appKey: authRegisterMoveUpPage.appKey
+            cookie: authRegisterMoveUpPage.cookie
+            isAuthed: authRegisterMoveUpPage.isAuthed
+            authedAsGuest: authRegisterMoveUpPage.authedAsGuest
+
             anchors { fill: parent }
             visible: authRegisterMoveUpPage.state === "RegistrationPage"
 
-            property alias authRegisterMoveUpPage: authRegisterMoveUpPage
+            onIsInProgressChanged: authRegisterMoveUpPage.isInProgress = registrationPage.isInProgress
+            onError: {
+                authRegisterMoveUpPage.state = "FailRegistrationPage";
+                failPage.errorMessage = message;
+            }
+
+            onAuthSuccess: {
+                CredentialStorage.save(userId, appKey, cookie, false);
+
+                authRegisterMoveUpPage.authedAsGuest = false;
+                authRegisterMoveUpPage.switchAnimation();
+                authRegisterMoveUpPage.authDoneCallback(userId, appKey, cookie);
+            }
+
+            onOpenVkAuth: authPage.startVkAuth();
+
+            onLinkGuestDone: authRegisterMoveUpPage.linkGuestDone();
+            onSaveLogin: saveAuthorizedLogins(login);
+            onLogoutLinkGuestCanceled: {
+                authRegisterMoveUpPage.resetCredential();
+                authRegisterMoveUpPage.logoutDone();
+                authRegisterMoveUpPage.switchAnimation();
+            }
+
+            onLinkGuestCanceled: {
+                authRegisterMoveUpPage.linkGuestCanceled();
+                authRegisterMoveUpPage.switchAnimation();
+            }
+
+            onCancel: authRegisterMoveUpPage.state = "AuthPage";
         }
 
         MouseArea {

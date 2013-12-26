@@ -2,7 +2,7 @@
 Qt.include("../Proxy/Settings.js")
 
 var _signalBusComponent,
-    _signalBusInst;
+        _signalBusInst;
 
 if (!_signalBusComponent) {
     _signalBusComponent = Qt.createComponent('./Core.qml');
@@ -19,6 +19,10 @@ function needAuth() {
 
 function showPurchaseOptions(itemOptions) {
     _signalBusInst.openPurchaseOptions(itemOptions);
+}
+
+function openBuyGamenetPremiumPage() {
+    _signalBusInst.openBuyGamenetPremiumPage();
 }
 
 var socialNetTable = {
@@ -105,7 +109,9 @@ var socialNetTable = {
         },
     ]
 }
+
 var runningService = {},
+    runningSecondService = {},
     serviceIdToGameItemIdex = {},
     indexToGameItem = {},
     gameIdToGameItem = {},
@@ -113,7 +119,6 @@ var runningService = {},
     clientWidth = 930,
     clientHeight = 550,
     isClientLoaded = false;
-
 
 var gamesListModel = initModel();
 var _previousGame = gamesListModel.currentGameItem
@@ -123,6 +128,7 @@ var gamenetGameItem = {
     name: "GameNet",
     serviceId: "0"
 };
+
 function getCurrentSocialTable() {
     var current = currentGame();
     if (!current) {
@@ -203,5 +209,19 @@ function indexByServiceId(serviceId) {
 
 function isServiceInstalled(serviceId) {
     return isSettingsEnabled("GameDownloader/" + serviceId + "/", "isInstalled", false);
+}
+
+function isAnySecondServiceRunning() {
+    return _signalBusInst.isAnySecondServiceRunning;
+}
+
+function secondServiceStarted(service) {
+    runningSecondService[service] = 1;
+    _signalBusInst.isAnySecondServiceRunning = true;
+}
+
+function secondServiceFinished(service) {
+    delete runningSecondService[service];
+    _signalBusInst.isAnySecondServiceRunning = Object.keys(runningSecondService) > 0;
 }
 

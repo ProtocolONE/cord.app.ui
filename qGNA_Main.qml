@@ -20,6 +20,7 @@ import "Features/Guide" as Guide
 import "Features/Ping" as Ping
 import "Features/PublicTest" as PublicTest
 import "Features/TastList" as TastList
+import "Features/TaskBar" as TaskBar
 
 import "Blocks/Features/Announcements" as Announcements
 import "Features/Maintenance" as Maintenance
@@ -32,7 +33,7 @@ import "js/Message.js" as AlertMessage
 import "js/support.js" as Support
 import "Proxy/App.js" as App
 import "Proxy/AppProxy.js" as AppProxy
-import "Features/Games/CombatArmsShop" as CombatArmsShop
+import "Blocks/SecondWindowGame" as SecondWindowGame
 
 Item {
     id: mainWindowRectanglw
@@ -92,6 +93,8 @@ Item {
     }
 
     Maintenance.Maintenance {}
+
+    TaskBar.TaskBarHelper {}
 
     Item {
         id: qGNA_main
@@ -354,22 +357,17 @@ Item {
                     userInfoBlock.setLevel(level);
                     mainAuthModule.updateGuestStatus(info.guest || "0");
                 }, function() {});
-            }
 
-            function isGuestAuthEnabled() {
-                // TODO: так как информация стала полезна 2м фичам, мигрировать на общую.
-                return Settings.value("qml/Announcements/", "AnyGameStarted", -1) != 1;
+                UserInfo.refreshPremium();
             }
 
             selectedGame: Core.currentGame()
-            guestAuthEnabled: isGuestAuthEnabled()
             Component.onCompleted: mainAuthModule.startAutoLogin();
 
             onAuthDone: {
                 GoogleAnalytics.userId = userId;
                 RestApi.Core.setUserId(userId);
                 RestApi.Core.setAppKey(appKey);
-                guestAuthEnabled = false;
                 App.authSuccessSlot(userId, appKey, cookie);
                 UserInfo.setCredential(userId, appKey, cookie);
                 refreshUserInfo();
@@ -387,6 +385,7 @@ Item {
                 GoogleAnalytics.userId = null;
                 App.logout();
                 UserInfo.reset();
+                UserInfo.logoutDone();
                 userInfoBlock.switchToLoginButton();
                 userInfoBlock.resetUserInfo();
 
@@ -426,9 +425,14 @@ Item {
             }
         }
 
-        Blocks.SelectMw2Server {
-            visible: false
-            anchors.fill: parent
+
+        SecondWindowGame.BuyPage {
+            id: buyPage
+
+            Connections {
+                target: Core.signalBus()
+                onOpenBuyGamenetPremiumPage: buyPage.openMoveUpPage();
+            }
         }
 
         Blocks.AccountActivation {
