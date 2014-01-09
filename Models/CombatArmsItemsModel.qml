@@ -55,17 +55,17 @@ ListModel {
                 defaultItem: true;
                 optionId: 1790;
                 label: QT_TR_NOOP("CA_SHOP_1PCS")
-                price: 39;
+                price: 45;
             },
             ListElement {
                 optionId: 1791;
                 label: QT_TR_NOOP("CA_SHOP_7PCS")
-                price: 271;
+                price: 315;
             },
             ListElement {
                 optionId: 1792;
                 label: QT_TR_NOOP("CA_SHOP_15PCS")
-                price: 581;
+                price: 675;
             }
         ]
     }
@@ -80,17 +80,17 @@ ListModel {
                 defaultItem: true;
                 optionId: 1735;
                 label: QT_TR_NOOP("CA_SHOP_1PCS")
-                price: 52;
+                price: 60;
             },
             ListElement {
                 optionId: 1736;
                 label: QT_TR_NOOP("CA_SHOP_7PCS")
-                price: 361;
+                price: 420;
             },
             ListElement {
                 optionId: 1737;
                 label: QT_TR_NOOP("CA_SHOP_15PCS")
-                price: 774;
+                price: 900;
             }
         ]
     }
@@ -105,17 +105,17 @@ ListModel {
                 defaultItem: true;
                 optionId: 1631;
                 label: QT_TR_NOOP("CA_SHOP_1DAY")
-                price: 17;
+                price: 20;
             },
             ListElement {
                 optionId: 1632;
                 label: QT_TR_NOOP("CA_SHOP_7DAYS")
-                price: 103;
+                price: 120;
             },
             ListElement {
                 optionId: 1633;
                 label: QT_TR_NOOP("CA_SHOP_30DAYS")
-                price: 344;
+                price: 400;
             }
         ]
     }
@@ -130,17 +130,17 @@ ListModel {
                 defaultItem: true;
                 optionId: 1339;
                 label: QT_TR_NOOP("CA_SHOP_1PCS")
-                price: 26;
+                price: 30;
             },
             ListElement {
                 optionId: 1340;
                 label: QT_TR_NOOP("CA_SHOP_7PCS")
-                price: 181;
+                price: 210;
             },
             ListElement {
                 optionId: 1341;
                 label: QT_TR_NOOP("CA_SHOP_15PCS")
-                price: 387;
+                price: 450;
             }
         ]
     }
@@ -155,17 +155,17 @@ ListModel {
                 defaultItem: true;
                 optionId: 1004;
                 label: QT_TR_NOOP("CA_SHOP_1PCS")
-                price: 69;
+                price: 80;
             },
             ListElement {
                 optionId: 1005;
                 label: QT_TR_NOOP("CA_SHOP_7PCS")
-                price: 482;
+                price: 560;
             },
             ListElement {
                 optionId: 1006;
                 label: QT_TR_NOOP("CA_SHOP_15PCS")
-                price: 1032;
+                price: 1200;
             }
         ]
     }
@@ -206,17 +206,17 @@ ListModel {
                 defaultItem: true;
                 optionId: 645;
                 label: QT_TR_NOOP("CA_SHOP_1DAY")
-                price: 9;
+                price: 10;
             },
             ListElement {
                 optionId: 646;
                 label: QT_TR_NOOP("CA_SHOP_7DAYS")
-                price: 52;
+                price: 60;
             },
             ListElement {
                 optionId: 647;
                 label: QT_TR_NOOP("CA_SHOP_30DAYS")
-                price: 172;
+                price: 200;
             }
         ]
     }
@@ -232,17 +232,17 @@ ListModel {
                 defaultItem: true;
                 optionId: 784;
                 label: QT_TR_NOOP("CA_SHOP_1DAY")
-                price: 13;
+                price: 15;
             },
             ListElement {
                 optionId: 785;
                 label: QT_TR_NOOP("CA_SHOP_7DAYS")
-                price: 77;
+                price: 90;
             },
             ListElement {
                 optionId: 786;
                 label: QT_TR_NOOP("CA_SHOP_30DAYS")
-                price: 258;
+                price: 300;
             }
         ]
     }
@@ -259,17 +259,17 @@ ListModel {
                 defaultItem: true;
                 optionId: 1533;
                 label: QT_TR_NOOP("CA_SHOP_1DAY")
-                price: 17;
+                price: 20;
             },
             ListElement {
                 optionId: 1534;
                 label: QT_TR_NOOP("CA_SHOP_7DAYS")
-                price: 103;
+                price: 120;
             },
             ListElement {
                 optionId: 1535;
                 label: QT_TR_NOOP("CA_SHOP_30DAYS")
-                price: 344;
+                price: 400;
             }
         ]
     }
