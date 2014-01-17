@@ -4,7 +4,7 @@ Qt.include('./Crypt.js');
 Qt.include('./restapi.js');
 
 //Replaced during CI build
-var authVersion = "2.0.32.c83021ce5166a9e72ea23105f694e2f8d748db14"
+var authVersion = "2.0.34.c83021ce5166a9e72ea23105f694e2f8d748db14"
     , _gnLoginUrl = 'https://gnlogin.ru'
     , _gnLoginTitleApiUrl = 'gnlogin.ru'
     , _hwid
@@ -250,7 +250,7 @@ ProviderGuest.prototype.login = function(gameId, callback) {
 };
 
 ProviderGuest.prototype.confirm = function(userId, appKey, login, password, callback) {
-    var request = new Uri(_gnLoginUrl)
+    var request = new Uri(self.gnloginUri)
         .addQueryParam('guest', 'confirm')
         .addQueryParam('hwid', _hwid)
         .addQueryParam('userId', userId)

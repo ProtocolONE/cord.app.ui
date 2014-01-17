@@ -50,11 +50,5 @@ Window {
         }
 
         Component.onCompleted: window.clearCookies();
-
-        // Disable context menu hack
-        MouseArea {
-            anchors.fill: parent
-            acceptedButtons: Qt.RightButton
-        }
     }
 }

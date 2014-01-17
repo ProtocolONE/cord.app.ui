@@ -40,7 +40,9 @@ function updateProgress(gameItem) {
 
     totalProgress = count * 100;
 
-    if (isError) {
+    if (count == 0) {
+        overallStatus = "None";
+    } else if (isError) {
         overallStatus = "Error";
     } else if (pausedCount == count) {
         overallStatus = "Paused";

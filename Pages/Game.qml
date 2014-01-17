@@ -301,6 +301,8 @@ Rectangle {
 
             console.log("DOWNLOAD FINISHED");
 
+            Core.updateProgress(item);
+
             MaintenanceHelper.updatedService[service] = true;
             d.updateMaintenance();
 
@@ -326,7 +328,6 @@ Rectangle {
                 item.status = "Normal";
             }
 
-            Core.updateProgress(item);
         }
 
         onProgressbarChange: { // @DEPRECATED
