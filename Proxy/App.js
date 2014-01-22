@@ -111,11 +111,18 @@ function updateProgress(value, status) {
     return false;
 }
 
-function isSilentMode() {
+function isCapsLockEnabled() {
+    if (proxyInst) {
+        return proxyInst.isCapsLockEnabled();
+    }
+
+    return false;
+}
+
+function language() {
     if (proxyInst) {
         return proxyInst.isSilentMode();
     }
 
     return false;
 }
-

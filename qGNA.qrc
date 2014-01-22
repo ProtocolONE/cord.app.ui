@@ -42,6 +42,13 @@
 		<file>Blocks/Tray.qml</file>
 		<file>Blocks/TryLoader.qml</file>
 		<file>Blocks/UserInfo.qml</file>
+		<file>Controls/ErrorMessage.qml</file>
+		<file>Controls/ErrorMessageStyle.qml</file>
+		<file>Controls/Input.qml</file>
+		<file>Controls/InputStyle.qml</file>
+		<file>Controls/LoginInput.qml</file>
+		<file>Controls/PasswordInput.qml</file>
+		<file>Controls/TypeaheadBehaviour.qml</file>
 		<file>Delegates/FlowViewDelegate.qml</file>
 		<file>Delegates/GameIconDelegate.qml</file>
 		<file>Delegates/HomeItem.qml</file>
@@ -171,5 +178,6 @@
 		<file>Proxy/Settings.js</file>
 		<file>Proxy/Settings.qml</file>
 		<file>qGNA_Main.qml</file>
+		<file>Samples/InputSample.qml</file>
 	</qresource>
 </RCC>

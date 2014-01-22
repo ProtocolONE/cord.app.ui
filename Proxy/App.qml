@@ -70,7 +70,17 @@ QtObject {
         return mainWindow.executeService(serviceId);
     }
 
+    function isCapsLockEnabled() {
+        if (!AppProxy.mainWindow) {
+           return false;
+        }
+        return keyboardHook.capsLockEnabled;
+    }
+
     function language() {
+        if (!AppProxy.mainWindow) {
+            return 'en';
+        }
         return mainWindow.language;
     }
 
@@ -100,18 +110,5 @@ QtObject {
 
     function isPublicVersion() {
         return mainWindow.updateArea === 'live';
-    }
-
-    function updateProgress(value, status) {
-        mainWindow.onProgressUpdated(value, status);
-    }
-
-    function isSilentMode() {
-        // INFO этот хак ничерта не работает на биндинге...
-//       if (!AppProxy.mainWindow) {
-//            return false;
-//        }
-
-       return mainWindow.silent();
     }
 }
