@@ -707,7 +707,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>TITLE_PREMIUM_ACCOUNT_INFO_TEXT</source>
-        <translation>Расширенный аккаунт GameNet - это возможность играть двумя аккаунтами одновременно в игры BS.ru, Aika 2, Magic World 2 и Reborn</translation>
+        <translation>Расширенный аккаунт GameNet — это возможность играть двумя аккаунтами одновременно в игры BS.ru, Aika 2, Magic World 2 и Reborn. Мы постоянно добавлем в расширенный аккаунт другие приятные бонусы. &lt;a href=&quot;http://gamenet.ru/extra&quot;&gt;Подробности тут.&lt;/a&gt;</translation>
     </message>
     <message>
         <source>TITLE_PREMIUM_ACCOUNT_LEFT_TIME_LABEL</source>

@@ -169,6 +169,7 @@ Blocks.MoveUpPage {
                     wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                     color: "#e8ecef"
                     smooth: true
+                    onLinkActivated: App.openExternalUrlWithAuth(link);
                 }
 
                 Text {
