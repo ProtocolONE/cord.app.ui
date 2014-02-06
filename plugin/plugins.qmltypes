@@ -108,7 +108,8 @@ Module {
                 "ProblemAfterGameStart": 2748,
                 "NotLikeTheGame": 2749,
                 "ThettaInfo": 2750,
-                "ThettaConnectFail": 2754
+                "ThettaConnectFail": 2754,
+                "ThettaSendInfoFail": 2756
             }
         }
         Enum {
@@ -140,6 +141,29 @@ Module {
             Parameter { name: "target"; type: "GGS::Core::Marketing::InstallerSteps" }
             Parameter { name: "params"; type: "QVariantMap" }
         }
+    }
+    Component {
+        name: "GGS::Jabber"
+        defaultProperty: "data"
+        prototype: "QDeclarativeItem"
+        exports: [
+            "Tulip/Jabber 1.0"
+        ]
+        exportMetaObjectRevisions: [
+            0
+        ]
+        Property { name: "login"; type: "string" }
+        Property { name: "password"; type: "string" }
+        Property { name: "host"; type: "string" }
+        Property { name: "domain"; type: "string" }
+        Property { name: "debug"; type: "bool" }
+        Signal { name: "loginChanged" }
+        Signal { name: "passwordChanged" }
+        Signal { name: "hostChanged" }
+        Signal { name: "domainChanged" }
+        Signal { name: "debugChanged" }
+        Method { name: "auth" }
+        Method { name: "logout" }
     }
     Component {
         name: "GGS::MarketingAdapter"

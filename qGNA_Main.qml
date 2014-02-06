@@ -96,6 +96,15 @@ Item {
 
     TaskBar.TaskBarHelper {}
 
+    Jabber {
+        id: jabber
+
+        login: UserInfo.userId()
+        password: Qt.md5(UserInfo.appKey())
+        host: "qj.gamenet.ru"
+        domain: "qj.gamenet.ru"
+    }
+
     Item {
         id: qGNA_main
 
@@ -373,6 +382,8 @@ Item {
                 refreshUserInfo();
                 userInfoBlock.switchToUserInfo();
 
+                jabber.auth();
+
                 if (startAfterAuthGame) {
                     App.downloadButtonStart(mainAuthModule.startAfterAuthGame);
                     mainAuthModule.startAfterAuthGame = "";
@@ -388,6 +399,8 @@ Item {
                 UserInfo.logoutDone();
                 userInfoBlock.switchToLoginButton();
                 userInfoBlock.resetUserInfo();
+
+                jabber.logout();
 
                 if (qGNA_main.state == "SettingsPage") {
                     qGNA_main.lastState = "HomePage"
