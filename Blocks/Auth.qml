@@ -17,6 +17,8 @@ import "../Models" as Models
 import "Auth"
 import "../js/Authorization.js" as Authorization
 import "../js/GoogleAnalytics.js" as GoogleAnalytics
+import "../js/Core.js" as Core
+import "../Proxy/App.js" as AppProxy
 
 Blocks.MoveUpPage {
     id: authRegisterMoveUpPage
@@ -177,6 +179,24 @@ Blocks.MoveUpPage {
     }
 
     function openAuthWithGuestTimer() {
+        if (AppProxy.isSilentMode()) {
+            var serviceId = Core.currentGame() ? Core.currentGame().serviceId : "";
+            var auth = new Authorization.ProviderGuest();
+            auth.login(serviceId, function(code, response) {
+                if (!Authorization.isSuccess(code)) {
+                    authRegisterMoveUpPage.openMoveUpPage();
+                    return;
+                }
+
+                CredentialStorage.save(response.userId, response.appKey, response.cookie, true);
+
+                authRegisterMoveUpPage.authedAsGuest = true;
+                authRegisterMoveUpPage.authDoneCallback(response.userId, response.appKey, response.cookie);
+            });
+
+            return;
+        }
+
         authRegisterMoveUpPage.state = "AuthPage";
         if (!authRegisterMoveUpPage.isOpen)
             authRegisterMoveUpPage.switchAnimation();
@@ -496,11 +516,7 @@ Blocks.MoveUpPage {
 
             onLinkGuestDone: authRegisterMoveUpPage.linkGuestDone();
             onSaveLogin: saveAuthorizedLogins(login);
-            onLogoutLinkGuestCanceled: {
-                authRegisterMoveUpPage.resetCredential();
-                authRegisterMoveUpPage.logoutDone();
-                authRegisterMoveUpPage.switchAnimation();
-            }
+            onLogoutLinkGuestCanceled: authRegisterMoveUpPage.switchAnimation();
 
             onLinkGuestCanceled: {
                 authRegisterMoveUpPage.linkGuestCanceled();

@@ -106,3 +106,12 @@ function updateProgress(value, status) {
     }
     return false;
 }
+
+function isSilentMode() {
+    if (proxyInst) {
+        return proxyInst.isSilentMode();
+    }
+
+    return false;
+}
+

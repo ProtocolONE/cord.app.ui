@@ -177,4 +177,12 @@ QtObject {
         }
         mainWindow.onProgressUpdated(value, status);
     }
+
+    function isSilentMode() {
+       if (!AppProxy.mainWindow) {
+            return false;
+        }
+
+       return mainWindow.silent();
+    }
 }
