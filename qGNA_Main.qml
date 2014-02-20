@@ -269,6 +269,8 @@ Item {
                 combatArmsPurchaseDetails.setPurchaseOptions(purchaseOptions);
                 combatArmsPurchaseDetails.openMoveUpPage();
             }
+
+            onHideMainWindow: hideAnimation.start();
         }
 
         Connections {

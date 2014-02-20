@@ -16,4 +16,6 @@ QtObject {
     signal openPurchaseOptions(variant purchaseOptions);
 
     signal openBuyGamenetPremiumPage();
+
+    signal hideMainWindow();
 }

@@ -1217,6 +1217,14 @@ Please try again later.</source>
         <source>BUY_PREMIUM_BUTTON_TOOLTIP</source>
         <translation>Приобрести или продлить расширенный аккаунт</translation>
     </message>
+    <message>
+        <source>SILENT_DOWNLOADING_POPUP_BUTTON</source>
+        <translation>OK</translation>
+    </message>
+    <message>
+        <source>SILENT_DOWNLOADING_POPUP_TEXT</source>
+        <translation>Игра устанавливается</translation>
+    </message>
 </context>
 <context>
     <name>GameFailed</name>

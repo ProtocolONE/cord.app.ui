@@ -25,6 +25,10 @@ function openBuyGamenetPremiumPage() {
     _signalBusInst.openBuyGamenetPremiumPage();
 }
 
+function hideMainWindow() {
+    _signalBusInst.hideMainWindow();
+}
+
 var socialNetTable = {
     "300002010000000000":[//Aika
         {
@@ -224,4 +228,3 @@ function secondServiceFinished(service) {
     delete runningSecondService[service];
     _signalBusInst.isAnySecondServiceRunning = Object.keys(runningSecondService) > 0;
 }
-
