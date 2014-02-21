@@ -32,21 +32,6 @@ Item {
         }
     }
 
-    function getAnimationPause(serviceId) {
-        var delay  = {
-            "300003010000000000" : 0,
-            "300009010000000000" : 75,
-            "300002010000000000" : 150,
-            "300012010000000000" : 225,
-            "300007010000000000" : 300,
-            "300005010000000000" : 375,
-            "300006010000000000" : 450,
-            "300011010000000000" : 525,
-        }
-
-        return delay[serviceId] ? delay[serviceId] : 0;
-    }
-
     // В функции по текущей модели создаются элементы и заполняется контейнер.
     // Удаления элементов пока не предусмотренно, так как по факту коллекция в runtime
     // не меняется. При необходимости можно будет дописать.
@@ -61,18 +46,20 @@ Item {
         }
 
         var listItem, index;
+        var topRowList = [ "300012010000000000" , "300009010000000000" , "300007010000000000" ];
+        var bottomRowList = [ "300003010000000000", "300002010000000000" , "300005010000000000", "300011010000000000"];
 
-        var topRowList = [ "300003010000000000" , "300009010000000000" , "300012010000000000" ];
-        var bottomRowList = [ "300002010000000000", "300007010000000000" , "300005010000000000", "300006010000000000", "300011010000000000"];
 
-        topRowList.forEach(function(e) {
+        topRowList.forEach(function(e, index) {
+            var d1 = index * 100;
             listItem = delegate.createObject(topRow, {model: Core.serviceItemByServiceId(e)});
-            listItem.animationPause = getAnimationPause(e);
+            listItem.animationPause = d1;
         })
 
-        bottomRowList.forEach(function(e) {
+        bottomRowList.forEach(function(e, index) {
+            var d2 = 125 + index * 100;
             listItem = delegate.createObject(bottomRow, {model: Core.serviceItemByServiceId(e)});
-            listItem.animationPause = getAnimationPause(e);
+            listItem.animationPause = d2;
         })
 
         count = model.count;

@@ -139,8 +139,9 @@ ListModel {
         imageBig: ""
         imageLogoSmall: "images/games/reborn_logo_small.png"
         imageLogoBig: ""
+        imageHorizontal: "images/games/reborn_icon_horizontal.png"
         imageHorizontalSmall: "images/games/reborn_icon_horizontal_small.png"
-        size: "normal"
+        size: "doubleHorizontal"
 
         imageBack : "images/games/reborn_back.png"
 
@@ -360,53 +361,6 @@ ListModel {
 
         secondStatus: "Normal"
         secondAllowed: false
-    }
-
-    ListElement {
-        gameType: "standalone"
-        imageSource: "images/games/mw_icon_small.png"
-        name: "Magic World 2"
-        imageSmall: "images/games/mw_icon_small.png"
-        imageFooter: "images/games/MW2.png"
-        imageBig: ""
-        imageLogoSmall: "images/games/mw_logo_small.png"
-        imageLogoBig: ""
-        size: "normal"
-
-        imageBack : "images/games/mw_back.png"
-
-        serviceId: "300006010000000000"
-        gameId: "84"
-
-        forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=195"
-        blogUrl: "http://www.gamenet.ru/games/mw2/blog/"
-        guideUrl: "http://www.gamenet.ru/games/mw2/guides/"
-
-        status: "Normal" // Error Started Paused Downloading
-        statusText: ""
-        progress: -1
-        allreadyDownloaded: false
-        gaName: "MagicWorld2" // Never change please
-
-        maintenance: false
-        maintenanceInterval: 0
-        maintenanceProposal1: "300003010000000000"
-        maintenanceProposal2: "300012010000000000"
-        maintenanceEndPause: false
-
-        licenseUrl: "http://www.mw2.ru/license"
-
-        itemState: "Normal"
-        animationPause: 150
-        hasOverlay: false
-
-        logoText: QT_TR_NOOP("LOGO_MW2")
-        aboutGameText: QT_TR_NOOP("GAME_MW2_ABOUT_TEXT")
-        miniToolTip: QT_TR_NOOP("GAME_MW2_MINI_TOOLTIP")
-        shortDescription: QT_TR_NOOP("GAME_MW2_MINI_DESC")
-
-        secondStatus: "Normal"
-        secondAllowed: true
     }
 
     ListElement {

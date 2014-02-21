@@ -707,7 +707,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>TITLE_PREMIUM_ACCOUNT_INFO_TEXT</source>
-        <translation>Расширенный аккаунт GameNet — это возможность играть двумя аккаунтами одновременно в игры BS.ru, Aika 2, Magic World 2 и Reborn. Мы постоянно добавлем в расширенный аккаунт другие приятные бонусы. &lt;a href=&quot;http://gamenet.ru/extra&quot;&gt;Подробности тут.&lt;/a&gt;</translation>
+        <translation>Расширенный аккаунт GameNet — это возможность играть двумя аккаунтами одновременно в игры BS.ru, Aika 2, и Reborn. Мы постоянно добавлем в расширенный аккаунт другие приятные бонусы. &lt;a href=&quot;http://gamenet.ru/extra&quot;&gt;Подробности тут.&lt;/a&gt;</translation>
     </message>
     <message>
         <source>TITLE_PREMIUM_ACCOUNT_LEFT_TIME_LABEL</source>
@@ -757,7 +757,7 @@ Please try again later.</source>
         <source>PREMIUM_SHOP_DETAILS_PURCHASE_SUCCESS</source>
         <translation>Вы успешно купили и активировали расширенный аккаунт GameNet на %1.
 
-Чтобы запустить второе окно игры BS.ru, Aika 2, Magic World 2 и Reborn, нажмите на кнопку &quot;Играть&quot; и после выберите &quot;Играть расширенным аккаунтом&quot;</translation>
+Чтобы запустить второе окно игры BS.ru, Aika 2, и Reborn, нажмите на кнопку &quot;Играть&quot; и после выберите &quot;Играть расширенным аккаунтом&quot;</translation>
     </message>
     <message>
         <source>TITLE_PREMIUM_ACCOUNT_LEFT_TIME_LABEL_TODAY</source>
@@ -1291,7 +1291,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>LOGO_MW2</source>
-        <translation>Хардкорная MMORPG</translation>
+        <translation type="obsolete">Хардкорная MMORPG</translation>
     </message>
     <message>
         <source>LOGO_WI</source>
@@ -1319,7 +1319,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_MW2_ABOUT_TEXT</source>
-        <translation>Magic World 2 – это уникальная MMORPG, ориентированная на масштабные войны между фракциями! Создавайте гильдии, уничтожайте врагов, собирайте ресурсы, возводите замки и участвуйте в эпических сражениях за контроль над Миром Магии!</translation>
+        <translation type="obsolete">Magic World 2 – это уникальная MMORPG, ориентированная на масштабные войны между фракциями! Создавайте гильдии, уничтожайте врагов, собирайте ресурсы, возводите замки и участвуйте в эпических сражениях за контроль над Миром Магии!</translation>
     </message>
     <message>
         <source>GAME_WI_ABOUT_TEXT</source>
@@ -1347,7 +1347,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_MW2_MINI_TOOLTIP</source>
-        <translation>Суровый и таинственный мир, полный сражений между гильдиями.</translation>
+        <translation type="obsolete">Суровый и таинственный мир, полный сражений между гильдиями.</translation>
     </message>
     <message>
         <source>GAME_WI_MINI_TOOLTIP</source>
@@ -1375,7 +1375,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_MW2_MINI_DESC</source>
-        <translation>ХАРДКОРНАЯ MMORPG</translation>
+        <translation type="obsolete">ХАРДКОРНАЯ MMORPG</translation>
     </message>
     <message>
         <source>GAME_WI_MINI_DESC</source>

@@ -140,6 +140,7 @@ Rectangle {
             clip: true
             anchors.fill: parent
             contentHeight: listViewId.height + gameSettingsMenuBlock.height + menuBarContentColumn.spacing
+            interactive: false
 
             Column {
                 id: menuBarContentColumn
@@ -237,7 +238,7 @@ Rectangle {
                             id: gameSettingsListView
 
                             width: 228
-                            height: (32 + gameSettingsListView.spacing) * gameSettingsListView.count - gameSettingsListView.spacing
+                            height: (32 + gameSettingsListView.spacing) * (gameSettingsListView.count - 1) - gameSettingsListView.spacing
                             currentIndex: -1
                             interactive: false
                             clip: true
@@ -287,7 +288,8 @@ Rectangle {
 
             height: menuBar.height
             anchors { left : menuBar.right; top: menuBar.top; leftMargin: 5 }
-            visible: gameSettingsMenuBlock.visible && gameSettingsListView.count > 2
+            visible: false
+            //visible: gameSettingsMenuBlock.visible && gameSettingsListView.count > 2
             flickable: menuBarContent
         }
     }
