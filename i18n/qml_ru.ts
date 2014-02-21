@@ -1219,11 +1219,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>SILENT_DOWNLOADING_POPUP_BUTTON</source>
-        <translation>OK</translation>
+        <translation type="obsolete">OK</translation>
     </message>
     <message>
         <source>SILENT_DOWNLOADING_POPUP_TEXT</source>
-        <translation>Игра устанавливается</translation>
+        <translation type="obsolete">Игра устанавливается</translation>
     </message>
 </context>
 <context>
@@ -3082,6 +3082,17 @@ Please try again later.</source>
     <message>
         <source>ENABLE_OVERLAY_TITLE</source>
         <translation>Использовать оверлей</translation>
+    </message>
+</context>
+<context>
+    <name>SilentMode</name>
+    <message>
+        <source>SILENT_DOWNLOADING_POPUP_BUTTON</source>
+        <translation>OK</translation>
+    </message>
+    <message>
+        <source>SILENT_DOWNLOADING_POPUP_TEXT</source>
+        <translation>Игра устанавливается</translation>
     </message>
 </context>
 <context>

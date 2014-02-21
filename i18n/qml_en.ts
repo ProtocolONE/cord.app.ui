@@ -766,104 +766,94 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="72"/>
-        <source>SILENT_DOWNLOADING_POPUP_BUTTON</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Pages/Game.qml" line="73"/>
-        <source>SILENT_DOWNLOADING_POPUP_TEXT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Pages/Game.qml" line="220"/>
+        <location filename="../Pages/Game.qml" line="195"/>
         <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="346"/>
+        <location filename="../Pages/Game.qml" line="317"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="352"/>
+        <location filename="../Pages/Game.qml" line="323"/>
         <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="388"/>
-        <location filename="../Pages/Game.qml" line="431"/>
+        <location filename="../Pages/Game.qml" line="359"/>
+        <location filename="../Pages/Game.qml" line="402"/>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="389"/>
-        <location filename="../Pages/Game.qml" line="432"/>
+        <location filename="../Pages/Game.qml" line="360"/>
+        <location filename="../Pages/Game.qml" line="403"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="448"/>
+        <location filename="../Pages/Game.qml" line="419"/>
         <source>TEXT_PROGRESSBAR_EXTRACTING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="563"/>
+        <location filename="../Pages/Game.qml" line="534"/>
         <source>REWARDS_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="564"/>
+        <location filename="../Pages/Game.qml" line="535"/>
         <source>REWARDS_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="577"/>
+        <location filename="../Pages/Game.qml" line="548"/>
         <source>ADVANCED_ACCOUNT_HINT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="582"/>
+        <location filename="../Pages/Game.qml" line="553"/>
         <source>ADVANCED_ACCOUNT_HINT_IN_DAYS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="584"/>
+        <location filename="../Pages/Game.qml" line="555"/>
         <source>ADVANCED_ACCOUNT_HINT_TODAY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="605"/>
+        <location filename="../Pages/Game.qml" line="576"/>
         <source>BUY_PREMIUM_BUTTON_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="657"/>
+        <location filename="../Pages/Game.qml" line="628"/>
         <source>PUBLIC_TEST_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="704"/>
+        <location filename="../Pages/Game.qml" line="675"/>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="705"/>
+        <location filename="../Pages/Game.qml" line="676"/>
         <source>BUTTON_PLAY_ON_PAUSE_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="706"/>
+        <location filename="../Pages/Game.qml" line="677"/>
         <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="707"/>
+        <location filename="../Pages/Game.qml" line="678"/>
         <source>BUTTON_PLAY_ERROR_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="708"/>
+        <location filename="../Pages/Game.qml" line="679"/>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2340,6 +2330,19 @@
     </message>
 </context>
 <context>
+    <name>SilentMode</name>
+    <message>
+        <location filename="../Features/SilentMode/SilentMode.qml" line="35"/>
+        <source>SILENT_DOWNLOADING_POPUP_BUTTON</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Features/SilentMode/SilentMode.qml" line="36"/>
+        <source>SILENT_DOWNLOADING_POPUP_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SocialNet</name>
     <message>
         <location filename="../Blocks/SocialNet.qml" line="103"/>
@@ -2468,12 +2471,12 @@
 <context>
     <name>qGNA_Main</name>
     <message>
-        <location filename="../qGNA_Main.qml" line="665"/>
+        <location filename="../qGNA_Main.qml" line="670"/>
         <source>CLOSE_APP_TOOLTIP_MESSAGE_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qGNA_Main.qml" line="666"/>
+        <location filename="../qGNA_Main.qml" line="671"/>
         <source>CLOSE_APP_TOOLTIP_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>

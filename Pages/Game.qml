@@ -61,21 +61,6 @@ Rectangle {
                                    'Announcement', 'Show Announcement', gameItem.gaName);
     }
 
-
-    function showPopupGameDownloading(serviceId) {
-        var gameItem = Core.serviceItemByServiceId(serviceId)
-        , popUpOptions;
-
-        popUpOptions = {
-            gameItem: gameItem,
-            destroyInterval: 5000,
-            buttonCaption: qsTr("SILENT_DOWNLOADING_POPUP_BUTTON"),
-            message: qsTr("SILENT_DOWNLOADING_POPUP_TEXT")
-        };
-
-        PopupHelper.showPopup(gameDownloadingPopup, popUpOptions, 'gameDownloading' + serviceId);
-    }
-
     onCurrentItemChanged: {
         if (!currentItem) {
             return;
@@ -174,16 +159,6 @@ Rectangle {
         onCurrentItemMaintenanceChanged: updateMaintenance();
     }
 
-    Component {
-        id: gameDownloadingPopup
-
-        Elements.GameItemPopUp {
-            id: popUp
-
-            state: "Orange"
-        }
-    }
-
     Timer {
         id: activateWindowTimer
 
@@ -269,11 +244,6 @@ Rectangle {
             console.log("START DOWNLOAD");
 
             Core.updateProgress(item);
-            var isInstalled = Core.isServiceInstalled(service);
-            if (App.isSilentMode() && !isInstalled) {
-                root.showPopupGameDownloading(service);
-                Core.hideMainWindow();
-            }
         }
 
         onDownloaderStopped: {

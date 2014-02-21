@@ -117,6 +117,7 @@
 		<file>Features/Ping/Ping.qml</file>
 		<file>Features/PublicTest/index.js</file>
 		<file>Features/PublicTest/PublicTestWarning.qml</file>
+		<file>Features/SilentMode/SilentMode.qml</file>
 		<file>Features/TaskBar/TaskBarHelper.js</file>
 		<file>Features/TaskBar/TaskBarHelper.qml</file>
 		<file>Features/TastList/TaskList.js</file>

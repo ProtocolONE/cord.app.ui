@@ -58,6 +58,10 @@ Item {
                 return;
             }
 
+            if (App.isSilentMode()) {
+                return;
+            }
+
             d.show();
         }
     }

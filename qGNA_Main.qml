@@ -21,6 +21,7 @@ import "Features/Ping" as Ping
 import "Features/PublicTest" as PublicTest
 import "Features/TastList" as TastList
 import "Features/TaskBar" as TaskBar
+import "Features/SilentMode" as SilentMode
 
 import "Blocks/Features/Announcements" as Announcements
 import "Features/Maintenance" as Maintenance
@@ -618,6 +619,8 @@ Item {
 
         Proxy.MouseClick {
         }
+
+        SilentMode.SilentMode{}
 
         Blocks.Tray {
             isFullMenu: mainAuthModule.isAuthed // && !ping.mustBeShown
