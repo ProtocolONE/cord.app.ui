@@ -144,6 +144,7 @@ ListModel {
         size: "doubleHorizontal"
 
         imageBack : "images/games/reborn_back.png"
+        imageBackSilent : "images/games/reborn_back_silent.png"
 
         serviceId: "300012010000000000"
         gameId: "760"

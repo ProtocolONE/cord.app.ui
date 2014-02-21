@@ -73,8 +73,21 @@ Rectangle {
         downloadIcon.update();
         processWidget.refresh();
 
-        frontImage.source = Core.previousGame() ? installPath + Core.previousGame().imageBack : ""
-        backImage.source = currentItem ? installPath + currentItem.imageBack : ""
+
+        var front = Core.previousGame() ? installPath + Core.previousGame().imageBack : "";
+        var back = currentItem ? installPath + currentItem.imageBack : "";
+        if (App.isSilentMode()) {
+            if (Core.previousGame() && Core.previousGame().serviceId == "300012010000000000") {
+                front = installPath + Core.previousGame().imageBackSilent
+            }
+
+            if (currentItem && currentItem.serviceId == "300012010000000000") {
+                back = installPath + currentItem.imageBackSilent
+            }
+        }
+
+        frontImage.source = front;//Core.previousGame() ? installPath + Core.previousGame().imageBack : ""
+        backImage.source = back;//currentItem ? installPath + currentItem.imageBack : ""
 
         changeGameAnim.start();
     }
