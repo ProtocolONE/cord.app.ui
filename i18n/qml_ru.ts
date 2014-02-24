@@ -1107,6 +1107,14 @@ Please try again later.</source>
         <source>FIRSTLICENSE_CREATE_SHORTCUTS</source>
         <translation>Создать ярлык на рабочем столе</translation>
     </message>
+    <message>
+        <source>FIRSTLICENSE_ACCEPT_BUTTON_CAPTION_SILENT</source>
+        <translation>Установить игру</translation>
+    </message>
+    <message>
+        <source>FIRSTLICENSE_LICENSE_CAPTION_SILENT</source>
+        <translation>Нажимая &quot;Установить игру&quot;, Вы подтверждаете, что согласны с условиями</translation>
+    </message>
 </context>
 <context>
     <name>Footer</name>

@@ -179,9 +179,10 @@ QtObject {
     }
 
     function isSilentMode() {
-       if (!AppProxy.mainWindow) {
-            return false;
-        }
+        // INFO этот хак ничерта не работает на биндинге...
+//       if (!AppProxy.mainWindow) {
+//            return false;
+//        }
 
        return mainWindow.silent();
     }
