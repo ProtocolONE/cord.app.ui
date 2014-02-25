@@ -55,17 +55,17 @@ ListModel {
                 defaultItem: true;
                 optionId: 1790;
                 label: QT_TR_NOOP("CA_SHOP_1PCS")
-                price: 45;
+                price: 36;
             },
             ListElement {
                 optionId: 1791;
                 label: QT_TR_NOOP("CA_SHOP_7PCS")
-                price: 315;
+                price: 252;
             },
             ListElement {
                 optionId: 1792;
                 label: QT_TR_NOOP("CA_SHOP_15PCS")
-                price: 675;
+                price: 540;
             }
         ]
     }
@@ -130,17 +130,17 @@ ListModel {
                 defaultItem: true;
                 optionId: 1339;
                 label: QT_TR_NOOP("CA_SHOP_1PCS")
-                price: 30;
+                price: 24;
             },
             ListElement {
                 optionId: 1340;
                 label: QT_TR_NOOP("CA_SHOP_7PCS")
-                price: 210;
+                price: 168;
             },
             ListElement {
                 optionId: 1341;
                 label: QT_TR_NOOP("CA_SHOP_15PCS")
-                price: 450;
+                price: 360;
             }
         ]
     }
