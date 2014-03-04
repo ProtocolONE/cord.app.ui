@@ -135,6 +135,18 @@ Item {
             }
 
             Elements.IconButton {
+                visible: Core.currentGame() != undefined && Core.currentGame().ratingUrl
+                text: qsTr("TAB_RATING")
+                source: installPath + "images/menu/rating.png"
+                onClicked: {
+                    GoogleAnalytics.trackEvent('/newsBlock/' + Core.currentGame().gaName,
+                                               'Navigation', 'Rating');
+                    d.openExternalBrowser(Core.currentGame().ratingUrl);
+                }
+            }
+
+
+            Elements.IconButton {
                 visible: Core.currentGame() != undefined
                 text: qsTr('SUPPORT_ICON_BUTTON')
                 source: installPath + "images/menu/help.png"

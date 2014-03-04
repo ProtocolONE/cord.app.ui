@@ -1109,11 +1109,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>FIRSTLICENSE_ACCEPT_BUTTON_CAPTION_SILENT</source>
-        <translation>Установить игру</translation>
+        <translation type="obsolete">Установить игру</translation>
     </message>
     <message>
         <source>FIRSTLICENSE_LICENSE_CAPTION_SILENT</source>
-        <translation>Нажимая &quot;Установить игру&quot;, Вы подтверждаете, что согласны с условиями</translation>
+        <translation type="obsolete">Нажимая &quot;Установить игру&quot;, Вы подтверждаете, что согласны с условиями</translation>
     </message>
 </context>
 <context>
@@ -2084,6 +2084,10 @@ Please try again later.</source>
     <message>
         <source>MORE_ABOUT_GAME</source>
         <translation>Подробнее об игре</translation>
+    </message>
+    <message>
+        <source>TAB_RATING</source>
+        <translation>РЕЙТИНГ</translation>
     </message>
 </context>
 <context>

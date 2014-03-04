@@ -51,6 +51,7 @@ ListModel {
         serviceId: "300009010000000000"
         gameId: "92"
 
+        ratingUrl: "http://www.combatarms.ru/ratings/user/"
         forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=262"
         blogUrl: "http://www.gamenet.ru/games/ca/blog/"
         guideUrl: "http://www.gamenet.ru/games/ca/guides/"
@@ -99,6 +100,7 @@ ListModel {
         serviceId: "300003010000000000"
         gameId: "71"
 
+        ratingUrl: ""
         forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=4"
         blogUrl: "http://www.gamenet.ru/games/bs/blog/"
         guideUrl: "http://www.gamenet.ru/games/bs/guides/"
@@ -149,6 +151,7 @@ ListModel {
         serviceId: "300012010000000000"
         gameId: "760"
 
+        ratingUrl: ""
         forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=405"
         blogUrl: ""
         guideUrl: ""
@@ -198,6 +201,7 @@ ListModel {
         serviceId: "300002010000000000"
         gameId: "631"
 
+        ratingUrl: ""
         forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=3"
         blogUrl: "http://www.gamenet.ru/games/aika/blog/"
         guideUrl: "http://www.gamenet.ru/games/aika/guides/"
@@ -243,6 +247,7 @@ ListModel {
         serviceId: "300011010000000000"
         gameId: "759"
 
+        ratingUrl: ""
         forumUrl: ""
         blogUrl: ""
 
@@ -286,6 +291,7 @@ ListModel {
         serviceId: "300007010000000000"
         gameId: "83"
 
+        ratingUrl: ""
         forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=208"
         blogUrl: "http://www.gamenet.ru/games/ga/blog/"
         guideUrl: "http://www.gamenet.ru/games/ga/guides/"
@@ -334,6 +340,7 @@ ListModel {
         serviceId: "300005010000000000"
         gameId: "70"
 
+        ratingUrl: ""
         forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=6"
         blogUrl: ""
 
@@ -380,6 +387,7 @@ ListModel {
         serviceId: "300004010000000000"
         gameId: "72"
 
+        ratingUrl: ""
         forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=5"
         blogUrl: ""
         guideUrl: ""
