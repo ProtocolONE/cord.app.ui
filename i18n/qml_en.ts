@@ -284,6 +284,77 @@
     </message>
 </context>
 <context>
+    <name>AuthBody</name>
+    <message>
+        <location filename="../Pages/Auth/AuthBody.qml" line="77"/>
+        <source>AUTH_BODY_CAPTCHA_FAILED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/AuthBody.qml" line="93"/>
+        <location filename="../Pages/Auth/AuthBody.qml" line="111"/>
+        <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/AuthBody.qml" line="99"/>
+        <location filename="../Pages/Auth/AuthBody.qml" line="110"/>
+        <location filename="../Pages/Auth/AuthBody.qml" line="113"/>
+        <source>AUTH_FAIL_MESSAGE_WRONG</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/AuthBody.qml" line="107"/>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/AuthBody.qml" line="112"/>
+        <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/AuthBody.qml" line="141"/>
+        <source>AUTH_BODY_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/AuthBody.qml" line="160"/>
+        <source>AUTH_BODY_LOGIN_PLACEHOLDER</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/AuthBody.qml" line="189"/>
+        <source>AUTH_BODY_PASSWORD_PLACEHOLDER</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/AuthBody.qml" line="220"/>
+        <source>AUTH_BODY_REMEMBER_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/AuthBody.qml" line="233"/>
+        <source>AUTH_BODY_AMNESIA_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/AuthBody.qml" line="254"/>
+        <source>AUTH_BODY_LOGIN_BUTTON</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/AuthBody.qml" line="272"/>
+        <source>AUTH_BODY_REGISTER_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/AuthBody.qml" line="279"/>
+        <source>AUTH_BODY_REGISTER_BUTTON</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>BuyPage</name>
     <message>
         <location filename="../Blocks/SecondWindowGame/BuyPage.qml" line="57"/>
@@ -358,6 +429,44 @@
     <message>
         <location filename="../Blocks/Auth/Auth/Captcha.qml" line="59"/>
         <source>BUTTON_SHOW_ANOTHER_CAPTCHA</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CodeBody</name>
+    <message>
+        <location filename="../Pages/Auth/CodeBody.qml" line="80"/>
+        <source>CODE_BODY_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/CodeBody.qml" line="92"/>
+        <source>CODE_BODY_INFO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/CodeBody.qml" line="108"/>
+        <source>CODE_BODY_SEND_BY_MAIL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/CodeBody.qml" line="122"/>
+        <source>CODE_BODY_SEND_BY_SMS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/CodeBody.qml" line="148"/>
+        <source>CODE_BODY_CODE_INPUT_PLACEHOLDER</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/CodeBody.qml" line="161"/>
+        <source>CODE_BODY_CONFIRM_BUTTON</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/CodeBody.qml" line="173"/>
+        <source>CODE_BODY_CANCEL_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -752,6 +861,11 @@
         <source>REGISTER_NEW_USER_LINK</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../Pages/Auth/Footer.qml" line="38"/>
+        <source>AUTH_FOOTER_ALTERNATIVE_LOGIN</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Game</name>
@@ -766,99 +880,94 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="208"/>
+        <location filename="../Pages/Game.qml" line="197"/>
         <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="330"/>
+        <location filename="../Pages/Game.qml" line="319"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="336"/>
+        <location filename="../Pages/Game.qml" line="325"/>
         <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="372"/>
-        <location filename="../Pages/Game.qml" line="428"/>
+        <location filename="../Pages/Game.qml" line="361"/>
+        <location filename="../Pages/Game.qml" line="404"/>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="373"/>
-        <location filename="../Pages/Game.qml" line="429"/>
+        <location filename="../Pages/Game.qml" line="362"/>
+        <location filename="../Pages/Game.qml" line="405"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="399"/>
-        <source>TEXT_PROGRESSBAR_REHASH_NOW_STATE</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Pages/Game.qml" line="445"/>
+        <location filename="../Pages/Game.qml" line="421"/>
         <source>TEXT_PROGRESSBAR_EXTRACTING_NOW_STATE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="560"/>
+        <location filename="../Pages/Game.qml" line="536"/>
         <source>REWARDS_TOOLTIP</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="561"/>
+        <location filename="../Pages/Game.qml" line="537"/>
         <source>REWARDS_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="574"/>
+        <location filename="../Pages/Game.qml" line="550"/>
         <source>ADVANCED_ACCOUNT_HINT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="579"/>
+        <location filename="../Pages/Game.qml" line="555"/>
         <source>ADVANCED_ACCOUNT_HINT_IN_DAYS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="581"/>
+        <location filename="../Pages/Game.qml" line="557"/>
         <source>ADVANCED_ACCOUNT_HINT_TODAY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="602"/>
+        <location filename="../Pages/Game.qml" line="578"/>
         <source>BUY_PREMIUM_BUTTON_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="654"/>
+        <location filename="../Pages/Game.qml" line="630"/>
         <source>PUBLIC_TEST_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="720"/>
+        <location filename="../Pages/Game.qml" line="677"/>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="721"/>
+        <location filename="../Pages/Game.qml" line="678"/>
         <source>BUTTON_PLAY_ON_PAUSE_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="722"/>
+        <location filename="../Pages/Game.qml" line="679"/>
         <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="723"/>
+        <location filename="../Pages/Game.qml" line="680"/>
         <source>BUTTON_PLAY_ERROR_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="724"/>
+        <location filename="../Pages/Game.qml" line="681"/>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1080,42 +1189,42 @@
 <context>
     <name>Guide</name>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="196"/>
+        <location filename="../Features/Guide/Guide.qml" line="197"/>
         <source>BUTTON_PREV</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="206"/>
+        <location filename="../Features/Guide/Guide.qml" line="207"/>
         <source>BUTTON_NEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="220"/>
+        <location filename="../Features/Guide/Guide.qml" line="221"/>
         <source>BUTTON_DISABLE_SOUND</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="221"/>
+        <location filename="../Features/Guide/Guide.qml" line="222"/>
         <source>BUTTON_ENABLE_SOUND</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="232"/>
+        <location filename="../Features/Guide/Guide.qml" line="233"/>
         <source>BUTTON_CLOSE_GUIDE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="265"/>
+        <location filename="../Features/Guide/Guide.qml" line="266"/>
         <source>GUIDE_WELLCOME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="277"/>
+        <location filename="../Features/Guide/Guide.qml" line="278"/>
         <source>GUIDE_BUTTON_OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="287"/>
+        <location filename="../Features/Guide/Guide.qml" line="288"/>
         <source>GUIDE_BUTTON_REFUSE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1297,6 +1406,19 @@
     <message>
         <location filename="../Blocks/GameSwitch/ImageButton.qml" line="40"/>
         <source>MAINTENANCE_IMAGE_BUTTON_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Index</name>
+    <message>
+        <location filename="../Pages/Auth/Index.qml" line="52"/>
+        <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/Index.qml" line="56"/>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2011,6 +2133,70 @@
     </message>
 </context>
 <context>
+    <name>RegistrationBody</name>
+    <message>
+        <location filename="../Pages/Auth/RegistrationBody.qml" line="73"/>
+        <location filename="../Pages/Auth/RegistrationBody.qml" line="76"/>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/RegistrationBody.qml" line="78"/>
+        <source>AUTH_FAIL_MESSAGE_WRONG</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/RegistrationBody.qml" line="79"/>
+        <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/RegistrationBody.qml" line="97"/>
+        <source>REGISTER_BODY_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/RegistrationBody.qml" line="104"/>
+        <source>REGISTER_BODY_SUB_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/RegistrationBody.qml" line="115"/>
+        <source>REGISTER_BODY_LOGIN_PLACEHOLDER</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/RegistrationBody.qml" line="126"/>
+        <source>REGISTER_BODY_PASSWORD_PLACEHOLDER</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/RegistrationBody.qml" line="143"/>
+        <source>REGISTER_BODY_REGISTER_BUTTON</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/RegistrationBody.qml" line="162"/>
+        <source>REGISTER_BODY_AUTH_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/RegistrationBody.qml" line="168"/>
+        <source>REGISTER_BODY_AUTH_BUTTON</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/RegistrationBody.qml" line="192"/>
+        <source>REGISTER_BODY_LICENSE_PART1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/RegistrationBody.qml" line="198"/>
+        <source>REGISTER_BODY_LICENSE_PART2</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>RoatateNews</name>
     <message>
         <location filename="../Blocks/RoatateNews.qml" line="157"/>
@@ -2472,12 +2658,12 @@
 <context>
     <name>qGNA_Main</name>
     <message>
-        <location filename="../qGNA_Main.qml" line="747"/>
+        <location filename="../qGNA_Main.qml" line="652"/>
         <source>CLOSE_APP_TOOLTIP_MESSAGE_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qGNA_Main.qml" line="748"/>
+        <location filename="../qGNA_Main.qml" line="653"/>
         <source>CLOSE_APP_TOOLTIP_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>

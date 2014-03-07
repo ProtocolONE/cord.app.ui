@@ -1,4 +1,4 @@
-﻿/****************************************************************************
+/****************************************************************************
 ** This file is a part of Syncopate Limited GameNet Application or it parts.
 **
 ** Copyright (©) 2011 - 2013, Syncopate Limited and/or affiliates.
@@ -16,18 +16,23 @@ Rectangle {
     property alias text: errorText.text
 
     color: style.background
-    visible: message.length > 0
-
-    width: parent.width
-    height: 30
+    height: visible ? (errorText.height + 10) : 0
 
     Text {
         id: errorText
 
         wrapMode: Text.WordWrap
-        width: parent.width - 10
-        height: parent.height - 5
-        anchors.centerIn: parent
+
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: parent.top
+            topMargin: 5
+        }
+
+        font { pixelSize: 12; family: "Arial" }
+
         color: control.style.text
+        smooth: false
     }
 }

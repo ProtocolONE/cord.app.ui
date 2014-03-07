@@ -32,6 +32,7 @@ Item {
     property int premiumDuration: 0
 
     signal logoutDone();
+    signal authDone();
 
     function refreshPremium() {
         premiumDurationTimer.stop();
@@ -65,6 +66,21 @@ Item {
 
         }, function() {});
     }
+
+    function logout() {
+        root.userId = "";
+        root.appKey = "";
+        root.cookie = "";
+        root.logoutDone();
+    }
+
+    function auth(userId, appKey, cookie) {
+        root.userId = userId;
+        root.appKey = appKey;
+        root.cookie = cookie;
+        root.authDone();
+    }
+
 
     Timer {
         id: premiumDurationTimer

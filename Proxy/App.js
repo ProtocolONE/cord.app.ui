@@ -14,7 +14,13 @@ var proxyComponent,
 
 if (!proxyComponent) {
     proxyComponent = Qt.createComponent('./App.qml');
-    proxyInst = proxyComponent.createObject(null);
+
+    // if Component.Ready
+    if (proxyComponent.status == 1) {
+        proxyInst = proxyComponent.createObject(null);
+    } else {
+        console.log('Can\'t create App.qml');
+    }
 }
 
 function isWindowVisible() {
@@ -76,7 +82,7 @@ function openExternalUrl(url) {
         return proxyInst.openExternalUrl(url);
     }
 
-    Qt.openUrlExternally(url);
+    Qt.openUrlExternally(url)
 }
 
 function logout() {
@@ -116,7 +122,7 @@ function isCapsLockEnabled() {
         return proxyInst.isCapsLockEnabled();
     }
 
-    return false;
+    return true;
 }
 
 function language() {
@@ -125,4 +131,20 @@ function language() {
     }
 
     return false;
+}
+
+function windowPosition() {
+    if (proxyInst) {
+        return proxyInst.windowPosition();
+    }
+
+    return null;
+}
+
+function keyboardLayout() {
+    if (proxyInst) {
+        return proxyInst.keyboardLayout();
+    }
+
+    return "RU";
 }

@@ -26,32 +26,41 @@ Item {
     signal clicked(variant mouse)
     signal toggled(bool checked)
 
+    implicitHeight: 16
+    implicitWidth: height + 10*2 + controlText.width
+
     Row {
-        anchors.verticalCenter: parent.verticalCenter
-        spacing: 5
+        width: parent.width
+        height: parent.height
+        spacing: 10
 
-        Rectangle {
-            id: checkBox
+        Item {
+            height: parent.height
+            width: height
 
-            color: "#00FFFFFF"
-            width: 16
-            height: 16
-            border {
-                color: control.style.normal
-                width: 2
-            }
+            Rectangle {
+                id: checkBox
 
-            Behavior on border.color {
-                PropertyAnimation { duration: 250 }
-            }
+                anchors { fill: parent; margins: 1 }
+                color: checked ? control.style.normal : "#00FFFFFF"
+                border { width: 2; color: control.style.normal }
 
-            Image {
-                id: checkMark
+                Behavior on border.color {
+                    ColorAnimation { duration: 250 }
+                }
 
-                anchors.centerIn: parent
-                visible: control.checked
-                source: installPath + "images/Controls/CheckBox/Check.png"
-                fillMode: Image.PreserveAspectFit
+                Behavior on color {
+                    ColorAnimation { duration: 250 }
+                }
+
+                Image {
+                    id: checkMark
+
+                    anchors.centerIn: parent
+                    visible: control.checked
+                    source: installPath + "images/Controls/CheckBox/Check.png"
+                    fillMode: Image.PreserveAspectFit
+                }
             }
         }
 
@@ -63,6 +72,9 @@ Item {
                 family: "Arial"
                 pixelSize: 16
             }
+
+            anchors.baseline: parent.bottom
+            anchors.baselineOffset: -2
 
             Behavior on color {
                 PropertyAnimation { duration: 250 }
@@ -106,4 +118,5 @@ Item {
             }
         ]
     }
+
 }

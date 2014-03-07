@@ -2,11 +2,46 @@
 Qt.include("../Proxy/Settings.js")
 
 var _signalBusComponent,
-        _signalBusInst;
+    _signalBusInst,
+    _progressComponent,
+    _progress;
 
 if (!_signalBusComponent) {
     _signalBusComponent = Qt.createComponent('./Core.qml');
-    _signalBusInst = _signalBusComponent.createObject(null);
+    if (_signalBusComponent.status == 1) {
+        _signalBusInst = _signalBusComponent.createObject(null);
+    } else {
+        console.log('Can\'t create Core.qml');
+    }
+}
+
+if (!_progressComponent) {
+    _progressComponent = Qt.createComponent('./../Controls/GlobalProgress.qml');
+    if (_progressComponent.status == 1) {
+        _progress = _progressComponent.createObject(null);
+    } else {
+        console.log('Can\'t create GlobalProgress.qml');
+    }
+}
+
+function setProgressParent(item) {
+    _progress.parent = item;
+    _progress.width = item.width;
+    _progress.height = item.height;
+}
+
+function setGlobalProgressVisible(value, timeout) {
+    if (!_progress) {
+        return;
+    }
+
+    if (timeout && value) {
+        _progress.interval = timeout;
+    } else {
+        _progress.interval = 500;
+    }
+
+    _progress.visible = value;
 }
 
 function signalBus() {

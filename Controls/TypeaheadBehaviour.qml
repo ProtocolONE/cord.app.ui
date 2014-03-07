@@ -1,4 +1,4 @@
-﻿/****************************************************************************
+/****************************************************************************
 ** This file is a part of Syncopate Limited GameNet Application or it parts.
 **
 ** Copyright (©) 2011 - 2013, Syncopate Limited and/or affiliates.

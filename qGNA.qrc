@@ -42,12 +42,28 @@
 		<file>Blocks/Tray.qml</file>
 		<file>Blocks/TryLoader.qml</file>
 		<file>Blocks/UserInfo.qml</file>
+		<file>Controls/Button.qml</file>
+		<file>Controls/ButtonBehavior.qml</file>
+		<file>Controls/ButtonStyleColors.qml</file>
+		<file>Controls/ButtonStyleImages.qml</file>
+		<file>Controls/CheckBox.qml</file>
+		<file>Controls/CursorMouseArea.qml</file>
+		<file>Controls/ErrorContainer.qml</file>
 		<file>Controls/ErrorMessage.qml</file>
 		<file>Controls/ErrorMessageStyle.qml</file>
+		<file>Controls/GlobalProgress.qml</file>
+		<file>Controls/GoogleAnalyticsEvent.qml</file>
+		<file>Controls/ImageButton.qml</file>
 		<file>Controls/Input.qml</file>
-		<file>Controls/InputStyle.qml</file>
-		<file>Controls/LoginInput.qml</file>
-		<file>Controls/PasswordInput.qml</file>
+		<file>Controls/InputBehaviour.qml</file>
+		<file>Controls/InputStyleColors.qml</file>
+		<file>Controls/ParallaxLayer.qml</file>
+		<file>Controls/ParallaxView.qml</file>
+		<file>Controls/RadioButton.qml</file>
+		<file>Controls/Switcher.js</file>
+		<file>Controls/Switcher.qml</file>
+		<file>Controls/TextButton.qml</file>
+		<file>Controls/TopErrorContainer.qml</file>
 		<file>Controls/TypeaheadBehaviour.qml</file>
 		<file>Delegates/FlowViewDelegate.qml</file>
 		<file>Delegates/GameIconDelegate.qml</file>
@@ -157,6 +173,21 @@
 		<file>Models/CombatArmsItemsModel.qml</file>
 		<file>Models/GamesListModel.qml</file>
 		<file>Models/NewsModel.qml</file>
+		<file>Pages/Auth/AnimatedBackground/Index.qml</file>
+		<file>Pages/Auth/AnimatedBackground/LightningBackground.qml</file>
+		<file>Pages/Auth/AnimatedBackground/ParallaxBottomImage.qml</file>
+		<file>Pages/Auth/AnimatedBackground/Sun.qml</file>
+		<file>Pages/Auth/AnimatedBackground/VkDoggy.qml</file>
+		<file>Pages/Auth/AuthBody.qml</file>
+		<file>Pages/Auth/CaptchaInput.qml</file>
+		<file>Pages/Auth/CodeBody.qml</file>
+		<file>Pages/Auth/Footer.qml</file>
+		<file>Pages/Auth/Header.qml</file>
+		<file>Pages/Auth/Index.qml</file>
+		<file>Pages/Auth/LoginInput.qml</file>
+		<file>Pages/Auth/MessageBody.qml</file>
+		<file>Pages/Auth/PasswordInput.qml</file>
+		<file>Pages/Auth/RegistrationBody.qml</file>
 		<file>Pages/Game.qml</file>
 		<file>Pages/Home.qml</file>
 		<file>Pages/LoadScreen.qml</file>
@@ -178,6 +209,9 @@
 		<file>Proxy/Settings.js</file>
 		<file>Proxy/Settings.qml</file>
 		<file>qGNA_Main.qml</file>
+		<file>Samples/ButtonSample.qml</file>
+		<file>Samples/ErrorContainerSample.qml</file>
 		<file>Samples/InputSample.qml</file>
+		<file>TestParalax.qml</file>
 	</qresource>
 </RCC>

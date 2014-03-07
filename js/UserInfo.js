@@ -109,6 +109,10 @@ function balance() {
     return _userInfoInstance.balance;
 }
 
+function authDone(userId, appKey, cookie) {
+    _userInfoInstance.auth(userId, appKey, cookie);
+}
+
 function logoutDone() {
     _userInfoInstance.logoutDone();
 }

@@ -16,7 +16,7 @@ TextInput {
     id: inputBehavior
 
     property int fontSize: 16
-    property string language: App.language()
+    property string language: App.keyboardLayout()
     property bool capsLock: App.isCapsLockEnabled()
     property bool error: false
 
@@ -24,7 +24,7 @@ TextInput {
     signal focusLost()
 
     font { family: "Arial"; pixelSize: inputBehavior.fontSize }
-
+    selectByMouse: true
     onFocusChanged: {
         if (!focus) {
             inputBehavior.focusLost();

@@ -30,6 +30,8 @@ MouseArea {
         cursor: CursorArea.PointingHandCursor
 
         anchors.fill: parent
+
+        // UNDONE этот биндигн сильно мешает - хочется пример когда он нужен или убрать
         visible: mouser.containsMouse
     }
 }

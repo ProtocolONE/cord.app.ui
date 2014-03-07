@@ -690,6 +690,61 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>AuthBody</name>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
+        <translation>Неправильный формат электронной почты. Проверьте правильность ввода.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_WRONG</source>
+        <translation>Неправильный логин или пароль</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
+        <translation>GameNet недоступен. Попробуйте авторизоваться позже.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
+        <translation>Ваш аккаунт заблокирован. Для получения более подробной информации обратитесь в службу поддержки http://support.gamenet.ru</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_TITLE</source>
+        <translation>Вход в аккаунт</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_LOGIN_PLACEHOLDER</source>
+        <translation>Логин</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_PASSWORD_PLACEHOLDER</source>
+        <translation>Пароль</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_REMEMBER_TEXT</source>
+        <translation>Запомнить меня</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_AMNESIA_TEXT</source>
+        <translation>Забыли пароль?</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_LOGIN_BUTTON</source>
+        <translation>Войти</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_REGISTER_TEXT</source>
+        <translation>Нет аккаунта?</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_REGISTER_BUTTON</source>
+        <translation>Зарегистрируйся</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_CAPTCHA_FAILED</source>
+        <translation>Неверно введен проверочный код</translation>
+    </message>
+</context>
+<context>
     <name>ButtonBig</name>
     <message>
         <source>ADD_ACCOUNT_BUTTON_LABEL</source>
@@ -788,6 +843,41 @@ Please try again later.</source>
     <message>
         <source>Russian</source>
         <translation type="obsolete">Русский</translation>
+    </message>
+</context>
+<context>
+    <name>CodeBody</name>
+    <message>
+        <source>MESSAGE_CODE_SENDED</source>
+        <translation type="obsolete">Код отправлен</translation>
+    </message>
+    <message>
+        <source>CODE_BODY_TITLE</source>
+        <translation>Мы зафиксировали попытку подбора пароля</translation>
+    </message>
+    <message>
+        <source>CODE_BODY_INFO</source>
+        <translation>Чтобы подтвердить, что ты являешься владельцем этой учетной записи, введи код, полученный при помощи письма или СМС</translation>
+    </message>
+    <message>
+        <source>CODE_BODY_SEND_BY_MAIL</source>
+        <translation>отправить код ПИСЬМОМ</translation>
+    </message>
+    <message>
+        <source>CODE_BODY_SEND_BY_SMS</source>
+        <translation>отправить код по СМС</translation>
+    </message>
+    <message>
+        <source>CODE_BODY_CODE_INPUT_PLACEHOLDER</source>
+        <translation>Введи полученынй код</translation>
+    </message>
+    <message>
+        <source>CODE_BODY_CONFIRM_BUTTON</source>
+        <translation>Подтвердить код</translation>
+    </message>
+    <message>
+        <source>CODE_BODY_CANCEL_BUTTON</source>
+        <translation>Отмена</translation>
     </message>
 </context>
 <context>
@@ -1129,6 +1219,10 @@ Please try again later.</source>
     <message>
         <source>REGISTER_NEW_USER_LINK</source>
         <translation>Регистрация нового пользователя</translation>
+    </message>
+    <message>
+        <source>AUTH_FOOTER_ALTERNATIVE_LOGIN</source>
+        <translation>Войти с помощью</translation>
     </message>
 </context>
 <context>
@@ -1792,6 +1886,17 @@ Please try again later.</source>
     <message>
         <source>MAINTENANCE_IMAGE_BUTTON_TEXT</source>
         <translation>%1 → Играть!</translation>
+    </message>
+</context>
+<context>
+    <name>Index</name>
+    <message>
+        <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
+        <translation type="unfinished">Учётная запись заблокирована. Если вы считаете, что так не должно быть, обратитесь в &lt;a href=&quot;http://support.gamenet.ru&quot;&gt;&lt;font color=&apos;#d8e5d4&apos;&gt;службу поддержки&lt;/font&gt;&lt;/a&gt;.  </translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
+        <translation type="unfinished">Не удалось войти как пользователь Вконтакте. Попробуйте ещё раз позже.</translation>
     </message>
 </context>
 <context>
@@ -2561,6 +2666,57 @@ Please try again later.</source>
     <message>
         <source>AUTH_GUEST_REQUEST_CONFIGRM_REGISTER_MESSAGE</source>
         <translation>Для использования всех функций GameNet вам необходимо зарегистрироваться, весь прогресс под гостевой учётной записью в играх будет сохранён.</translation>
+    </message>
+</context>
+<context>
+    <name>RegistrationBody</name>
+    <message>
+        <source>REGISTER_BODY_TITLE</source>
+        <translation>Начни играть с регистрации в GameNet</translation>
+    </message>
+    <message>
+        <source>REGISTER_BODY_SUB_TITLE</source>
+        <translation>Это просто и займет мало времени, но откроет новые возможности</translation>
+    </message>
+    <message>
+        <source>REGISTER_BODY_LOGIN_PLACEHOLDER</source>
+        <translation>Твоя почти (будет скрыта)</translation>
+    </message>
+    <message>
+        <source>REGISTER_BODY_PASSWORD_PLACEHOLDER</source>
+        <translation>Придумай пароль от 6 символов</translation>
+    </message>
+    <message>
+        <source>REGISTER_BODY_AUTH_TEXT</source>
+        <translation>Уже зарегистрирован?</translation>
+    </message>
+    <message>
+        <source>REGISTER_BODY_AUTH_BUTTON</source>
+        <translation>Войти в аккаунт</translation>
+    </message>
+    <message>
+        <source>REGISTER_BODY_LICENSE_PART1</source>
+        <translation>Фактом регистрации вы соглашаетесь с условиями</translation>
+    </message>
+    <message>
+        <source>REGISTER_BODY_LICENSE_PART2</source>
+        <translation>пользовательского соглашения</translation>
+    </message>
+    <message>
+        <source>REGISTER_BODY_REGISTER_BUTTON</source>
+        <translation>Зарегистрироваться</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
+        <translation>GameNet недоступен. Попробуйте авторизоваться позже.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_WRONG</source>
+        <translation>Неправильный логин или пароль</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
+        <translation>Неправильный формат электронной почты. Проверьте правильность ввода.</translation>
     </message>
 </context>
 <context>

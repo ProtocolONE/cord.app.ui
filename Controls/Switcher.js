@@ -1,0 +1,2 @@
+var previousItem,
+    currentItem;

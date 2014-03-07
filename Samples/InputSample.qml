@@ -11,6 +11,7 @@ import QtQuick 1.1
 import Tulip 1.0
 
 import "../Controls" as Controls
+import "../Pages/Auth"
 
 Rectangle {
     id: root
@@ -22,28 +23,77 @@ Rectangle {
     Column {
         x: 200
         y: 30
-        spacing: 40
+        spacing: 10
 
-        Controls.LoginInput {
+        LoginInput {
             width: 350
             height: 40
             z: 300
+
+        }
+
+        Controls.ErrorContainer {
+            width: 350
+            z: 201
+
+            Controls.Input {
+                id: q
+
+                width: parent.width
+                height: 26
+
+                icon: installPath + "Samples/images/mail.png"
+                showLanguage: true
+
+                typeahead: Controls.TypeaheadBehaviour {
+                    dictionary: ["nikita.gorbunov@syncopate.ruaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                        "nikolay.bondarenko@syncopate.ru",
+                        "nikita.kravchuk@syncopate.ru",
+                        "nikita.gorbunov@syncopate.ru",
+                                            "nikolay.bondarenko@syncopate.ru",
+                                            "nikita.kravchuk@syncopate.ru",
+                        "nikita.gorbunov@syncopate.ru",
+                                            "nikolay.bondarenko@syncopate.ru",
+                                            "nikita.kravchuk@syncopate.ru",
+                        "nikita.gorbunov@syncopate.ru",
+                                            "nikolay.bondarenko@syncopate.ru",
+                                            "nikita.kravchuk@syncopate.ru"
+                    ]
+                }
+            }
+
+            //errorMessage: q.text
+            //error: q.text.length > 0
         }
 
         Controls.Input {
-            width: 350
-            height: 40
-            z: 200
+            id: q1
+
+            width: parent.width
+            height: 48
+
+            z: 200//q1.activeFocus ? 200 : 0
 
             icon: installPath + "Samples/images/mail.png"
             showLanguage: true
 
             typeahead: Controls.TypeaheadBehaviour {
-                dictionary: ["nikita.gorbunov@syncopate.ru",
+                dictionary: ["nikita.gorbunov@syncopate.ruaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
                     "nikolay.bondarenko@syncopate.ru",
-                    "nikita.kravchuk@syncopate.ru"]
+                    "nikita.kravchuk@syncopate.ru",
+                    "nikita.gorbunov@syncopate.ru",
+                                        "nikolay.bondarenko@syncopate.ru",
+                                        "nikita.kravchuk@syncopate.ru",
+                    "nikita.gorbunov@syncopate.ru",
+                                        "nikolay.bondarenko@syncopate.ru",
+                                        "nikita.kravchuk@syncopate.ru",
+                    "nikita.gorbunov@syncopate.ru",
+                                        "nikolay.bondarenko@syncopate.ru",
+                                        "nikita.kravchuk@syncopate.ru"
+                ]
             }
         }
+
 
         //  Пример использования пользовательсокй функции сравнения
         /*Controls.Input {
@@ -68,10 +118,16 @@ Rectangle {
             }
         */
 
-        Controls.PasswordInput {
+        PasswordInput {
             width: 350
-            height: 40
+            //height: 40
             z: 100
         }
+
+        Controls.Input {
+            width: 350
+            height: 40
+        }
+
     }
 }

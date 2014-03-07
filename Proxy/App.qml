@@ -71,16 +71,14 @@ QtObject {
     }
 
     function isCapsLockEnabled() {
-        if (!AppProxy.mainWindow) {
-           return false;
-        }
         return keyboardHook.capsLockEnabled;
     }
 
+    function keyboardLayout() {
+        return keyboardHook.keyboardLayout;
+    }
+
     function language() {
-        if (!AppProxy.mainWindow) {
-            return 'en';
-        }
         return mainWindow.language;
     }
 
@@ -110,5 +108,9 @@ QtObject {
 
     function isPublicVersion() {
         return mainWindow.updateArea === 'live';
+    }
+
+    function windowPosition() {
+        return mainWindow.pos;
     }
 }

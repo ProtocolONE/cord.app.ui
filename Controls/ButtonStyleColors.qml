@@ -10,7 +10,7 @@
 import QtQuick 1.1
 
 QtObject {
-    property color normal: "#ED3754"
-    property color hover: "#FF0033"
-    property color disabled: "#ED3754"
+    property color normal: "#FF4F02"
+    property color hover: "#FF7902"
+    property color disabled: "#FF4F02"
 }

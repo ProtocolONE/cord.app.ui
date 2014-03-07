@@ -71,8 +71,8 @@ Rectangle {
         }
 
         Controls.CheckBox {
-            width: 300
-            height: 40
+            //width: 300
+            height: 16
 
             text: "Check box"
             toolTip: "CheckBox button tooltip"
