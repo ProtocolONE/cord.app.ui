@@ -63,13 +63,7 @@ Item {
             property bool internaMouseOver: false
             property bool isMouseOver: internaMouseOver && mouseArea.containsMouse
 
-            onIsMouseOverChanged: {
-                if (isMouseOver) {
-                    iconHovered = true;
-                } else {
-                    iconHovered = false;
-                }
-            }
+            onIsMouseOverChanged: iconHovered = isMouseOver;
 
             function isOver(x, y) {
                 var internalPos = mapToItem(controlIcon, x, y);
@@ -223,7 +217,7 @@ Item {
                     }
 
                     if (event.key >= Qt.Key_Space && event.key <= Qt.Key_AsciiTilde) {
-                        if (text.length>= root.maximumLength) {
+                        if (text.length >= root.maximumLength) {
                             QMultimedia.playSound(installPath + "Sounds/Controls/error.wav");
                             return;
                         }
@@ -375,7 +369,7 @@ Item {
             anchors { fill: parent; margins: 2 }
 
             function decrementCurrentIndex() {
-                var newIndex = -1;
+                var newIndex;
 
                 if (suggestionsView.count == 0) {
                     return;

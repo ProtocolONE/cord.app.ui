@@ -51,7 +51,8 @@ Controls.ErrorContainer {
                 showLanguage: false
                 icon: installPath + "images/Auth/captcha.png"
 
-                placeholder: "Код с картинки справа"
+                //placeholder: "Код с картинки справа"
+                placeholder: qsTr("CAPTCHA_INPUT_PLACEHOLDER")
             }
 
             Item {
@@ -82,7 +83,8 @@ Controls.ErrorContainer {
                         width: parent.height
                         height: parent.height
 
-                        toolTip: "Refresh"
+                        //toolTip: "Refresh"
+                        toolTip: qsTr("CAPTCHA_INPUT_REFRESH_BUTTON_TOOLTIP")
 
                         style: Controls.ButtonStyleColors {
                             normal: "#1BBC9B"

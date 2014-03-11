@@ -1,5 +1,7 @@
 ﻿<RCC>
 	<qresource prefix="/">
+		<file>appw/WidgetBase.qml</file>
+		<file>appw/WidgetManager.js</file>
 		<file>Blocks/AccountActivation.qml</file>
 		<file>Blocks/AlertAdapter.qml</file>
 		<file>Blocks/Auth.qml</file>
@@ -65,14 +67,18 @@
 		<file>Controls/InputStyleColors.qml</file>
 		<file>Controls/ParallaxLayer.qml</file>
 		<file>Controls/ParallaxView.qml</file>
+		<file>Controls/ProgressBar.qml</file>
+		<file>Controls/ProgressBarStyleColors.qml</file>
 		<file>Controls/RadioButton.qml</file>
 		<file>Controls/ScrollBar.qml</file>
 		<file>Controls/Switcher.js</file>
 		<file>Controls/Switcher.qml</file>
+		<file>Controls/test/WidgetBase.qml</file>
 		<file>Controls/TextButton.qml</file>
 		<file>Controls/TopErrorContainer.qml</file>
 		<file>Controls/TypeaheadBehaviour.qml</file>
 		<file>Controls/VerticalSplit.qml</file>
+		<file>Controls/qmldir</file>
 		<file>Delegates/FlowViewDelegate.qml</file>
 		<file>Delegates/GameIconDelegate.qml</file>
 		<file>Delegates/HomeItem.qml</file>
@@ -221,6 +227,7 @@
 		<file>Samples/ErrorContainerSample.qml</file>
 		<file>Samples/GameMenuSample.qml</file>
 		<file>Samples/InputSample.qml</file>
+		<file>Samples/ProgressBarSample.qml</file>
 		<file>TestMenuModel.qml</file>
 		<file>TestParalax.qml</file>
 		<file>VerticalFlickable.qml</file>

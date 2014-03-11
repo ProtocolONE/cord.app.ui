@@ -68,13 +68,8 @@ Item {
             id: controlText
 
             color: control.style.normal
-            font {
-                family: "Arial"
-                pixelSize: 16
-            }
-
-            anchors.baseline: parent.bottom
-            anchors.baselineOffset: -2
+            font { family: "Arial"; pixelSize: 16 }
+            anchors { baseline: parent.bottom; baselineOffset: -2 }
 
             Behavior on color {
                 PropertyAnimation { duration: 250 }

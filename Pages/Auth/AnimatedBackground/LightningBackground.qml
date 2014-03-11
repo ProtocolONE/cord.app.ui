@@ -26,10 +26,11 @@ Rectangle {
 
         PropertyAnimation {
             alwaysRunToEnd: true
-            from: 0.99;
-            to: 0;
+            from: 0.99
+            to: 0
             properties: "opacity"
-            easing.type: Easing.InBounce; duration: 500
+            easing.type: Easing.InBounce
+            duration: 500
             target: root
         }
     }
