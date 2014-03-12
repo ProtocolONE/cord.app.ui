@@ -91,6 +91,11 @@ Item {
 
         setMidToGoogleAnalytics();
         AlertMessage.setAdapter(alertAdapter);
+
+        var installDate = Settings.value('qGNA', 'installDate', 0);
+        if (!installDate) {
+            Settings.setValue('qGNA', 'installDate', Math.floor((+ new Date()) / 1000));
+        }
     }
 
     Maintenance.Maintenance {}
@@ -233,7 +238,6 @@ Item {
 
                 serviceId = App.startingService() || "0";
                 qGNA_main.selectService(serviceId);
-
 
                 if (!App.isAnyLicenseAccepted()) {
                     var item = Core.serviceItemByServiceId(serviceId);
@@ -441,7 +445,6 @@ Item {
             }
         }
 
-
         SecondWindowGame.BuyPage {
             id: buyPage
 
@@ -620,7 +623,41 @@ Item {
         Proxy.MouseClick {
         }
 
-        SilentMode.SilentMode{}
+        SilentMode.SilentMode {
+            onPlayClicked: {
+                qGNA_main.selectService(serviceId);
+
+                var item = Core.serviceItemByServiceId(serviceId);
+                if (App.isAnyLicenseAccepted() || !item || item.gameType != "standalone") {
+                    App.activateWindow();
+                    return;
+                }
+
+                firstLicense.closeMoveUpPage();
+                var path = App.getExpectedInstallPath(serviceId);
+                App.setServiceInstallPath(serviceId, path, true);
+                App.acceptFirstLicense(serviceId);
+                App.downloadButtonStart(serviceId);
+            }
+
+            onMissClicked: {
+                qGNA_main.selectService(serviceId);
+                var item = Core.serviceItemByServiceId(serviceId);
+                if (App.isAnyLicenseAccepted() || !item || item.gameType != "standalone") {
+                    App.activateWindow();
+                    return;
+                }
+
+                // HACK переписать компоненты всплывания
+                firstLicense.setOpenHeight(132);
+                firstLicense.withPath = true;
+                firstLicense.serviceId = serviceId;
+                firstLicense.pathInput = App.getExpectedInstallPath(serviceId);
+                firstLicense.openMoveUpPage();
+
+                App.activateWindow();
+            }
+        }
 
         Blocks.Tray {
             isFullMenu: mainAuthModule.isAuthed // && !ping.mustBeShown

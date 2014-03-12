@@ -22,16 +22,10 @@ QtObject {
     }
 
     function anyLicenseAccepted() {
-        if (!AppProxy.mainWindow) {
-            return false;
-        }
         return mainWindow.anyLicenseAccepted();
     }
 
     function acceptFirstLicense(serviceId) {
-        if (!AppProxy.mainWindow) {
-            return false;
-        }
         mainWindow.acceptFirstLicense(serviceId);
     }
 

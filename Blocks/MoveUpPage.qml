@@ -21,6 +21,12 @@ Item {
     signal backgroundMousePressed(int mouseX, int mouseY);
     signal backgroundMousePositionChanged(int mouseX, int mouseY);
 
+    // UNDONE Текущая логика открытия через анимации не позволяет уже открытому окну поменять высоту адекватно
+    // необходимо поменять на стейты и транзишены.
+    function setOpenHeight(value) {
+        mainContainer.height = value;
+    }
+
     function switchAnimation() {
         if (openBlockAnimation.running || closeBlockAnimation.running)
             return;

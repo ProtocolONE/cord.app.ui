@@ -168,7 +168,7 @@ ListModel {
         maintenanceProposal2: "300003010000000000"
         maintenanceEndPause: false
 
-        licenseUrl:  "http://www.reborngame.ru/"
+        licenseUrl:  "http://www.reborngame.ru/license"
 
         itemState: "Normal";
         animationPause: 0

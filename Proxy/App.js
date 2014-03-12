@@ -73,6 +73,8 @@ function openExternalUrl(url) {
     if (proxyInst) {
         return proxyInst.openExternalUrl(url);
     }
+
+    Qt.openUrlExternally(url);
 }
 
 function logout() {

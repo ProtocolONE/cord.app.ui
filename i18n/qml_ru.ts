@@ -3106,6 +3106,23 @@ Please try again later.</source>
         <source>SILENT_DOWNLOADING_POPUP_TEXT</source>
         <translation>Игра устанавливается</translation>
     </message>
+    <message>
+        <source>FIRSTLICENSE_LICENSE_CAPTION</source>
+        <translation type="obsolete">Нажимая &quot;Я согласен&quot;, Вы подтверждаете, что согласны с условиями</translation>
+    </message>
+    <message>
+        <source>FIRSTLICENSE_GAMENET_LICENSE_CAPTION</source>
+        <translation type="obsolete">Лицензионного соглашения GameNet</translation>
+    </message>
+    <message>
+        <source>SILENT_REMIND_POPUP_BUTTON</source>
+        <translation>Играть</translation>
+    </message>
+    <message>
+        <source>SILENT_REMIND_POPUP_MESSAGE</source>
+        <translatorcomment>Нажимая &quot;Играть&quot;, Вы подтверждаете, что согласн с условиями &lt;a href=&quot;http://www.gamenet.ru/license&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Лицензионного соглашения GameNet&lt;/font&gt;&lt;/a&gt; и &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Игры&lt;/font&gt;&lt;/a&gt;</translatorcomment>
+        <translation>Нажимая &quot;Играть&quot;, Вы подтверждаете, что согласн с условиями &lt;a href=&quot;http://www.gamenet.ru/license&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Лицензионного соглашения GameNet&lt;/font&gt;&lt;/a&gt; и &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Игры&lt;/font&gt;&lt;/a&gt;</translation>
+    </message>
 </context>
 <context>
     <name>SocialNet</name>
