@@ -45,8 +45,9 @@ Item {
         }
 
         function shouldShowArtPopup() {
-            var tmp = d.getRandomInt(0, 1000);
-            return tmp < 500;
+            return true;
+//            var tmp = d.getRandomInt(0, 1000);
+//            return tmp < 500;
         }
 
         function remind() {
