@@ -16,6 +16,8 @@ import "../js/restapi.js" as RestApi
 import "../js/support.js" as SupportHelper
 import "../js/DateHelper.js" as DateHelper
 import "../js/Core.js" as Core
+import "../Proxy/App.js" as AppProxy
+
 import "../Models" as Models
 
 Item {
@@ -150,7 +152,10 @@ Item {
                 visible: Core.currentGame() != undefined
                 text: qsTr('SUPPORT_ICON_BUTTON')
                 source: installPath + "images/menu/help.png"
-                onClicked: SupportHelper.show(newsBlock, Core.currentGame() ? Core.currentGame().gaName : '');
+                onClicked: {
+                    AppProxy.openExternalUrl("http://support.gamenet.ru");
+                    //SupportHelper.show(newsBlock, Core.currentGame() ? Core.currentGame().gaName : '');
+                }
             }
 
             Elements.IconButton {

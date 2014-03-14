@@ -13,6 +13,7 @@ import "../../Elements" as Elements
 import "../../Blocks" as Blocks
 import "../../js/Core.js" as Core
 import "../../js/support.js" as SupportHelper
+import "../../Proxy/App.js" as AppProxy
 
 import "index.js" as Js
 
@@ -68,7 +69,8 @@ Blocks.MoveUpPage {
                  buttonText: qsTr("PUBLIC_TEST_SUPPORT_BUTTON")
                  onClicked: {
                      root.closeMoveUpPage();
-                     SupportHelper.show(root, Core.currentGame() ? Core.currentGame().gaName : '');
+                     AppProxy.openExternalUrl("http://support.gamenet.ru");
+                     //SupportHelper.show(root, Core.currentGame() ? Core.currentGame().gaName : '');
                  }
              }
 

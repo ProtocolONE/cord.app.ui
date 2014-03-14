@@ -4,6 +4,7 @@ import Tulip 1.0
 import "../Elements" as Elements
 import "../Blocks" as Blocks
 import "../js/support.js" as Support
+import "../Proxy/App.js" as AppProxy
 
 Blocks.MoveUpPage {
     id: page
@@ -85,7 +86,8 @@ Blocks.MoveUpPage {
                     Elements.Button2 {
                         buttonText: qsTr("GAME_FAILED_BUTTON_SUPPORT")
                         onClicked: {
-                            Support.show(page, page.currentItem.name);
+                            //Support.show(page, page.currentItem.name);
+                            AppProxy.openExternalUrl("http://support.gamenet.ru");
                             page.closeMoveUpPage();
                             Marketing.send(Marketing.ProblemAfterGameStart, page.currentItem.serviceId, { action: "support" } );
                         }
