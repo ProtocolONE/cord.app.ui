@@ -1551,6 +1551,30 @@ Please try again later.</source>
         <source>TASK_LIST_QUIT</source>
         <translation type="obsolete">Выход</translation>
     </message>
+    <message>
+        <source>GAME_MENU_NEWS_TEXT</source>
+        <translation>Новости</translation>
+    </message>
+    <message>
+        <source>GAME_MENU_ABOUT_GAME_TEXT</source>
+        <translation>Об игре</translation>
+    </message>
+    <message>
+        <source>GAME_MENU_BLOG_TEXT</source>
+        <translation>Блог</translation>
+    </message>
+    <message>
+        <source>GAME_MENU_GUIDES_TEXT</source>
+        <translation>Гайды</translation>
+    </message>
+    <message>
+        <source>GAME_MENU_FORUM_TEXT</source>
+        <translation>Форум</translation>
+    </message>
+    <message>
+        <source>GAME_MENU_GAME_SETTINGS_TEXT</source>
+        <translation>Настройки игры</translation>
+    </message>
 </context>
 <context>
     <name>GamesSwitch</name>
@@ -1810,6 +1834,18 @@ Please try again later.</source>
     <message>
         <source>ALL_GAMES</source>
         <translation>Все игры</translation>
+    </message>
+    <message>
+        <source>HEADER_BUTTON_MY_GAMES</source>
+        <translation>Мои игры</translation>
+    </message>
+    <message>
+        <source>HEADER_BUTTON_ALL_GAMES</source>
+        <translation>Все игры</translation>
+    </message>
+    <message>
+        <source>HEADER_BUTTON_SUPPORT</source>
+        <translation>Поддержка</translation>
     </message>
 </context>
 <context>

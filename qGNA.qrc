@@ -42,6 +42,11 @@
 		<file>Blocks/Tray.qml</file>
 		<file>Blocks/TryLoader.qml</file>
 		<file>Blocks/UserInfo.qml</file>
+		<file>Blocks2/GameMenu.qml</file>
+		<file>Blocks2/GameMenu/GameMenuItem.qml</file>
+		<file>Blocks2/Header.qml</file>
+		<file>Blocks2/Header/HeaderButton.qml</file>
+		<file>Blocks2/Header/HeaderControlButton.qml</file>
 		<file>Controls/Button.qml</file>
 		<file>Controls/ButtonBehavior.qml</file>
 		<file>Controls/ButtonStyleColors.qml</file>
@@ -53,6 +58,7 @@
 		<file>Controls/ErrorMessageStyle.qml</file>
 		<file>Controls/GlobalProgress.qml</file>
 		<file>Controls/GoogleAnalyticsEvent.qml</file>
+		<file>Controls/HorizontalSplit.qml</file>
 		<file>Controls/ImageButton.qml</file>
 		<file>Controls/Input.qml</file>
 		<file>Controls/InputBehaviour.qml</file>
@@ -60,11 +66,13 @@
 		<file>Controls/ParallaxLayer.qml</file>
 		<file>Controls/ParallaxView.qml</file>
 		<file>Controls/RadioButton.qml</file>
+		<file>Controls/ScrollBar.qml</file>
 		<file>Controls/Switcher.js</file>
 		<file>Controls/Switcher.qml</file>
 		<file>Controls/TextButton.qml</file>
 		<file>Controls/TopErrorContainer.qml</file>
 		<file>Controls/TypeaheadBehaviour.qml</file>
+		<file>Controls/VerticalSplit.qml</file>
 		<file>Delegates/FlowViewDelegate.qml</file>
 		<file>Delegates/GameIconDelegate.qml</file>
 		<file>Delegates/HomeItem.qml</file>
@@ -211,7 +219,10 @@
 		<file>qGNA_Main.qml</file>
 		<file>Samples/ButtonSample.qml</file>
 		<file>Samples/ErrorContainerSample.qml</file>
+		<file>Samples/GameMenuSample.qml</file>
 		<file>Samples/InputSample.qml</file>
+		<file>TestMenuModel.qml</file>
 		<file>TestParalax.qml</file>
+		<file>VerticalFlickable.qml</file>
 	</qresource>
 </RCC>

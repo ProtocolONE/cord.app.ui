@@ -185,7 +185,7 @@ function initModel() {
     var component = Qt.createComponent('../Models/GamesListModel.qml');
 
     if (component.status != 1) {
-        console.log('FATAL: error loading model');
+        console.log('FATAL: error loading model:', component.errorString());
         return null;
     }
 

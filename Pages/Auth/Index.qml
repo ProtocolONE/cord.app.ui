@@ -77,8 +77,6 @@ Rectangle {
         }
 
         function autoLogin() {
-
-
             var savedAuth = CredentialStorage.load();
             if (!savedAuth || !savedAuth.userId || !savedAuth.appKey || !savedAuth.cookie) {
                 var guest = CredentialStorage.loadGuest();

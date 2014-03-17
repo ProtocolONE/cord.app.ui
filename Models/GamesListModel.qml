@@ -15,6 +15,77 @@ ListModel {
 
     property variant currentGameItem
 
+    function appendMenuItem(menu, option) {
+        var defaultObject = {
+            icon: '',
+            text: '',
+            page: '',
+            link: false,
+            url: '',
+        };
+
+        var item = {};
+        ['icon', 'text', 'page', 'link', 'url'].forEach(function(e) {
+            item[e] = option[e] || defaultObject[e];
+        });
+
+        menu.append(item);
+    }
+
+    function fillMenu(element) {
+        root.appendMenuItem(element.menu,
+                            {
+                                icon: "images/Blocks2/GameMenu/News.png",
+                                text: qsTr("GAME_MENU_NEWS_TEXT"),
+                                page: "News",
+                            });
+
+        root.appendMenuItem(element.menu,
+                            {
+                                icon: "images/Blocks2/GameMenu/About.png",
+                                text: qsTr("GAME_MENU_ABOUT_GAME_TEXT"),
+                                page: "AboutGame",
+                            });
+
+        if (element.blogUrl) {
+            root.appendMenuItem(element.menu,
+                                {
+                                    link: true,
+                                    icon: "images/Blocks2/GameMenu/Blog.png",
+                                    text: qsTr("GAME_MENU_BLOG_TEXT"),
+                                    url: element.blogUrl
+                                });
+        }
+
+
+        if (element.guideUrl) {
+            root.appendMenuItem(element.menu,
+                                {
+                                    link: true,
+                                    icon: "images/Blocks2/GameMenu/Guides.png",
+                                    text: qsTr("GAME_MENU_GUIDES_TEXT"),
+                                    url: element.guideUrl
+                                });
+        }
+
+        if (element.forumUrl) {
+            root.appendMenuItem(element.menu,
+                                {
+                                    link: true,
+                                    icon: "images/Blocks2/GameMenu/Forum.png",
+                                    text: qsTr("GAME_MENU_FORUM_TEXT"),
+                                    url: element.forumUrl
+                                });
+        }
+
+        root.appendMenuItem(element.menu,
+                            {
+                                icon: "images/Blocks2/GameMenu/Settings.png",
+                                text: qsTr("GAME_MENU_GAME_SETTINGS_TEXT"),
+                                page: "GameSettings",
+                            });
+    }
+
     //В версии 4.х есть баг с локализацией элементов ListElemnt. Один из вариантов решения такой проблемы является
     //http://qt-project.org/wiki/Qt_Quick_Carousel#70b4903abcb62ace84264ad0443ae759
     //Однако вариант Игоря Бугаева, который написан ниже - быстрее и удобнее поддерживать. Более того
@@ -32,6 +103,8 @@ ListModel {
 
                 }
             });
+
+            root.fillMenu(elem);
         }
     }
 
@@ -84,6 +157,8 @@ ListModel {
 
         secondStatus: "Normal"
         secondAllowed: false
+        menu: []
+        currentMenuIndex: 1
     }
 
     ListElement {
@@ -134,6 +209,9 @@ ListModel {
 
         secondStatus: "Normal"
         secondAllowed: true
+
+        menu: []
+        currentMenuIndex: 1
     }
 
     ListElement {
@@ -188,6 +266,8 @@ ListModel {
 
         secondStatus: "Normal"
         secondAllowed: true
+        menu: []
+        currentMenuIndex: 1
     }
 
     ListElement {
@@ -241,6 +321,8 @@ ListModel {
 
         secondStatus: "Normal"
         secondAllowed: true
+        menu: []
+        currentMenuIndex: 1
     }
 
     ListElement {
@@ -282,6 +364,8 @@ ListModel {
 
         secondStatus: "Normal"
         secondAllowed: false
+        menu: []
+        currentMenuIndex: 1
     }
 
     ListElement {
@@ -329,6 +413,8 @@ ListModel {
 
         secondStatus: "Normal"
         secondAllowed: false
+        menu: []
+        currentMenuIndex: 1
     }
 
     ListElement {
@@ -379,6 +465,57 @@ ListModel {
 
         secondStatus: "Normal"
         secondAllowed: false
+        menu: []
+        currentMenuIndex: 1
+    }
+
+    ListElement {
+        gameType: "standalone"
+        imageSource: "images/games/mw_icon_small.png"
+        name: "Magic World 2"
+        imageSmall: "images/games/mw_icon_small.png"
+        imageFooter: "images/games/MW2.png"
+        imageBig: ""
+        imageLogoSmall: "images/games/mw_logo_small.png"
+        imageLogoBig: ""
+        size: "normal"
+
+        imageBack : "images/games/mw_back.png"
+
+        serviceId: "300006010000000000"
+        gameId: "84"
+
+        forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=195"
+        blogUrl: "http://www.gamenet.ru/games/mw2/blog/"
+        guideUrl: "http://www.gamenet.ru/games/mw2/guides/"
+
+        status: "Normal" // Error Started Paused Downloading
+        statusText: ""
+        progress: -1
+        allreadyDownloaded: false
+        gaName: "MagicWorld2" // Never change please
+
+        maintenance: false
+        maintenanceInterval: 0
+        maintenanceProposal1: "300003010000000000"
+        maintenanceProposal2: "300012010000000000"
+        maintenanceEndPause: false
+
+        licenseUrl: "http://www.mw2.ru/license"
+
+        itemState: "Normal"
+        animationPause: 150
+        hasOverlay: false
+
+        logoText: QT_TR_NOOP("LOGO_MW2")
+        aboutGameText: QT_TR_NOOP("GAME_MW2_ABOUT_TEXT")
+        miniToolTip: QT_TR_NOOP("GAME_MW2_MINI_TOOLTIP")
+        shortDescription: QT_TR_NOOP("GAME_MW2_MINI_DESC")
+
+        secondStatus: "Normal"
+        secondAllowed: true
+        menu: []
+        currentMenuIndex: 1
     }
 
     ListElement {
@@ -429,5 +566,7 @@ ListModel {
 
         secondStatus: "Normal"
         secondAllowed: false
+        menu: []
+        currentMenuIndex: 1
     }
 }
