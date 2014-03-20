@@ -173,44 +173,54 @@
 <context>
     <name>Announcements</name>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="42"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="46"/>
         <source>ANNOUNCE_GAME_INSTALLED_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="43"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="47"/>
         <source>ANNOUNCE_GAME_INSTALLED_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="337"/>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="348"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="341"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="352"/>
         <source>REMINDER_NEVER_PLAYED_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="336"/>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="347"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="509"/>
+        <source>SILENT_REMIND_POPUP_BUTTON</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="510"/>
+        <source>SILENT_REMIND_POPUP_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="340"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="351"/>
         <source>REMINDER_NEVER_PLAYED_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="333"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="337"/>
         <source>REMINDER_NEVER_PLAYED_FRIST_TIME_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="332"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="336"/>
         <source>REMINDER_NEVER_PLAYED_FRIST_TIME_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="276"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="280"/>
         <source>REMINDER_PLAYED_LONGAGO_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="277"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="281"/>
         <source>REMINDER_PLAYED_LONGAGO_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -861,27 +871,27 @@
 <context>
     <name>GameFailed</name>
     <message>
-        <location filename="../Blocks/GameFailed.qml" line="28"/>
+        <location filename="../Blocks/GameFailed.qml" line="29"/>
         <source>GAME_FAILED_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GameFailed.qml" line="54"/>
+        <location filename="../Blocks/GameFailed.qml" line="55"/>
         <source>GAME_FAILED_HELP_TEXT1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GameFailed.qml" line="69"/>
+        <location filename="../Blocks/GameFailed.qml" line="70"/>
         <source>GAME_FAILED_HELP_TEXT2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GameFailed.qml" line="86"/>
+        <location filename="../Blocks/GameFailed.qml" line="87"/>
         <source>GAME_FAILED_BUTTON_SUPPORT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/GameFailed.qml" line="95"/>
+        <location filename="../Blocks/GameFailed.qml" line="97"/>
         <source>GAME_FAILED_BUTTON_CLOSE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -912,162 +922,162 @@
 <context>
     <name>GamesListModel</name>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="78"/>
+        <location filename="../Models/GamesListModel.qml" line="80"/>
         <source>LOGO_CA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="79"/>
+        <location filename="../Models/GamesListModel.qml" line="81"/>
         <source>GAME_CA_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="80"/>
+        <location filename="../Models/GamesListModel.qml" line="82"/>
         <source>GAME_CA_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="81"/>
+        <location filename="../Models/GamesListModel.qml" line="83"/>
         <source>GAME_CA_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="126"/>
+        <location filename="../Models/GamesListModel.qml" line="130"/>
         <source>LOGO_BS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="127"/>
+        <location filename="../Models/GamesListModel.qml" line="131"/>
         <source>GAME_BS_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="128"/>
+        <location filename="../Models/GamesListModel.qml" line="132"/>
         <source>GAME_BS_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="129"/>
+        <location filename="../Models/GamesListModel.qml" line="133"/>
         <source>GAME_BS_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="178"/>
+        <location filename="../Models/GamesListModel.qml" line="184"/>
         <source>LOGO_REBORN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="179"/>
+        <location filename="../Models/GamesListModel.qml" line="185"/>
         <source>GAME_REBORN_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="180"/>
+        <location filename="../Models/GamesListModel.qml" line="186"/>
         <source>GAME_REBORN_MINI_TOOLTIP</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="181"/>
+        <location filename="../Models/GamesListModel.qml" line="187"/>
         <source>GAME_REBORN_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="229"/>
+        <location filename="../Models/GamesListModel.qml" line="237"/>
         <source>LOGO_AIKA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="230"/>
+        <location filename="../Models/GamesListModel.qml" line="238"/>
         <source>GAME_AIKA_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="231"/>
+        <location filename="../Models/GamesListModel.qml" line="239"/>
         <source>GAME_AIKA_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="232"/>
+        <location filename="../Models/GamesListModel.qml" line="240"/>
         <source>GAME_AIKA_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="317"/>
+        <location filename="../Models/GamesListModel.qml" line="325"/>
         <source>LOGO_GA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="318"/>
+        <location filename="../Models/GamesListModel.qml" line="326"/>
         <source>GAME_GA_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="319"/>
+        <location filename="../Models/GamesListModel.qml" line="327"/>
         <source>GAME_GA_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="320"/>
+        <location filename="../Models/GamesListModel.qml" line="328"/>
         <source>GAME_GA_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="365"/>
+        <location filename="../Models/GamesListModel.qml" line="375"/>
         <source>LOGO_WI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="366"/>
+        <location filename="../Models/GamesListModel.qml" line="376"/>
         <source>GAME_WI_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="367"/>
+        <location filename="../Models/GamesListModel.qml" line="377"/>
         <source>GAME_WI_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="368"/>
+        <location filename="../Models/GamesListModel.qml" line="378"/>
         <source>GAME_WI_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="413"/>
+        <location filename="../Models/GamesListModel.qml" line="425"/>
         <source>LOGO_ROT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="414"/>
+        <location filename="../Models/GamesListModel.qml" line="426"/>
         <source>GAME_ROT_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="415"/>
+        <location filename="../Models/GamesListModel.qml" line="427"/>
         <source>GAME_ROT_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="416"/>
+        <location filename="../Models/GamesListModel.qml" line="428"/>
         <source>GAME_ROT_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="270"/>
+        <location filename="../Models/GamesListModel.qml" line="278"/>
         <source>LOGO_FJ</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="271"/>
+        <location filename="../Models/GamesListModel.qml" line="279"/>
         <source>GAME_FJ_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="272"/>
+        <location filename="../Models/GamesListModel.qml" line="280"/>
         <source>GAME_FJ_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="273"/>
+        <location filename="../Models/GamesListModel.qml" line="281"/>
         <source>GAME_FJ_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1465,107 +1475,107 @@
 <context>
     <name>NewsBlock</name>
     <message>
-        <location filename="../Blocks/NewsBlock.qml" line="33"/>
+        <location filename="../Blocks/NewsBlock.qml" line="35"/>
         <source>JANUARY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NewsBlock.qml" line="33"/>
+        <location filename="../Blocks/NewsBlock.qml" line="35"/>
         <source>FEBRUARY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NewsBlock.qml" line="33"/>
+        <location filename="../Blocks/NewsBlock.qml" line="35"/>
         <source>MARCH</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NewsBlock.qml" line="33"/>
+        <location filename="../Blocks/NewsBlock.qml" line="35"/>
         <source>APRIL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NewsBlock.qml" line="33"/>
+        <location filename="../Blocks/NewsBlock.qml" line="35"/>
         <source>MAY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NewsBlock.qml" line="34"/>
+        <location filename="../Blocks/NewsBlock.qml" line="36"/>
         <source>JUNE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NewsBlock.qml" line="34"/>
+        <location filename="../Blocks/NewsBlock.qml" line="36"/>
         <source>JULY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NewsBlock.qml" line="34"/>
+        <location filename="../Blocks/NewsBlock.qml" line="36"/>
         <source>AUGUST</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NewsBlock.qml" line="34"/>
+        <location filename="../Blocks/NewsBlock.qml" line="36"/>
         <source>SEPTEMBER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NewsBlock.qml" line="34"/>
+        <location filename="../Blocks/NewsBlock.qml" line="36"/>
         <source>OCTOBER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NewsBlock.qml" line="35"/>
+        <location filename="../Blocks/NewsBlock.qml" line="37"/>
         <source>NOVEMBER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NewsBlock.qml" line="35"/>
+        <location filename="../Blocks/NewsBlock.qml" line="37"/>
         <source>DECEMBER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NewsBlock.qml" line="89"/>
+        <location filename="../Blocks/NewsBlock.qml" line="91"/>
         <source>TAB_NEWS_ABOUT_GAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NewsBlock.qml" line="102"/>
+        <location filename="../Blocks/NewsBlock.qml" line="104"/>
         <source>TAB_NEWS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NewsBlock.qml" line="116"/>
+        <location filename="../Blocks/NewsBlock.qml" line="118"/>
         <source>TAB_BLOG</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NewsBlock.qml" line="128"/>
+        <location filename="../Blocks/NewsBlock.qml" line="130"/>
         <source>TAB_FORUM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NewsBlock.qml" line="139"/>
+        <location filename="../Blocks/NewsBlock.qml" line="141"/>
         <source>TAB_RATING</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NewsBlock.qml" line="151"/>
+        <location filename="../Blocks/NewsBlock.qml" line="153"/>
         <source>SUPPORT_ICON_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NewsBlock.qml" line="157"/>
+        <location filename="../Blocks/NewsBlock.qml" line="162"/>
         <source>MENU_ITEM_SETTINGS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NewsBlock.qml" line="193"/>
+        <location filename="../Blocks/NewsBlock.qml" line="198"/>
         <source>MORE_ABOUT_GAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/NewsBlock.qml" line="241"/>
+        <location filename="../Blocks/NewsBlock.qml" line="246"/>
         <source>ALL_NEWS</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1762,27 +1772,27 @@
 <context>
     <name>PublicTestWarning</name>
     <message>
-        <location filename="../Features/PublicTest/PublicTestWarning.qml" line="22"/>
+        <location filename="../Features/PublicTest/PublicTestWarning.qml" line="23"/>
         <source>PUBLIC_TEST_HELP_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/PublicTest/PublicTestWarning.qml" line="23"/>
+        <location filename="../Features/PublicTest/PublicTestWarning.qml" line="24"/>
         <source>PUBLIC_TEST_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/PublicTest/PublicTestWarning.qml" line="68"/>
+        <location filename="../Features/PublicTest/PublicTestWarning.qml" line="69"/>
         <source>PUBLIC_TEST_SUPPORT_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/PublicTest/PublicTestWarning.qml" line="76"/>
+        <location filename="../Features/PublicTest/PublicTestWarning.qml" line="78"/>
         <source>PUBLIC_TEST_CHANGE_VERSION_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/PublicTest/PublicTestWarning.qml" line="84"/>
+        <location filename="../Features/PublicTest/PublicTestWarning.qml" line="86"/>
         <source>PUBLIC_TEST_CLOSE_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2317,22 +2327,12 @@
 <context>
     <name>SilentMode</name>
     <message>
-        <location filename="../Features/SilentMode/SilentMode.qml" line="72"/>
-        <source>SILENT_REMIND_POPUP_BUTTON</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Features/SilentMode/SilentMode.qml" line="73"/>
-        <source>SILENT_REMIND_POPUP_MESSAGE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Features/SilentMode/SilentMode.qml" line="141"/>
+        <location filename="../Features/SilentMode/SilentMode.qml" line="30"/>
         <source>SILENT_DOWNLOADING_POPUP_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/SilentMode/SilentMode.qml" line="142"/>
+        <location filename="../Features/SilentMode/SilentMode.qml" line="31"/>
         <source>SILENT_DOWNLOADING_POPUP_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2466,12 +2466,12 @@
 <context>
     <name>qGNA_Main</name>
     <message>
-        <location filename="../qGNA_Main.qml" line="683"/>
+        <location filename="../qGNA_Main.qml" line="718"/>
         <source>CLOSE_APP_TOOLTIP_MESSAGE_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qGNA_Main.qml" line="684"/>
+        <location filename="../qGNA_Main.qml" line="719"/>
         <source>CLOSE_APP_TOOLTIP_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>

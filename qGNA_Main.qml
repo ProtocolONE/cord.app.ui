@@ -95,7 +95,12 @@ Item {
         var installDate = Settings.value('qGNA', 'installDate', 0);
         if (!installDate) {
             Settings.setValue('qGNA', 'installDate', Math.floor((+ new Date()) / 1000));
+            var startingServiceId = App.startingService() || "0";
+            if (!!startingServiceId && startingServiceId != "0") {
+                Settings.setValue('qGNA', 'installWithService', startingServiceId);
+            }
         }
+
     }
 
     Maintenance.Maintenance {}
@@ -237,6 +242,12 @@ Item {
                 qGNA_main.lastState = "HomePage";
 
                 serviceId = App.startingService() || "0";
+                if (serviceId == "0") {
+                    if (!App.isAnyLicenseAccepted()) {
+                        serviceId = Settings.value("qGNA", "installWithService", "0");
+                    }
+                }
+
                 qGNA_main.selectService(serviceId);
 
                 if (!App.isAnyLicenseAccepted()) {
@@ -624,39 +635,6 @@ Item {
         }
 
         SilentMode.SilentMode {
-            onPlayClicked: {
-                qGNA_main.selectService(serviceId);
-
-                var item = Core.serviceItemByServiceId(serviceId);
-                if (App.isAnyLicenseAccepted() || !item || item.gameType != "standalone") {
-                    App.activateWindow();
-                    return;
-                }
-
-                firstLicense.closeMoveUpPage();
-                var path = App.getExpectedInstallPath(serviceId);
-                App.setServiceInstallPath(serviceId, path, true);
-                App.acceptFirstLicense(serviceId);
-                App.downloadButtonStart(serviceId);
-            }
-
-            onMissClicked: {
-                qGNA_main.selectService(serviceId);
-                var item = Core.serviceItemByServiceId(serviceId);
-                if (App.isAnyLicenseAccepted() || !item || item.gameType != "standalone") {
-                    App.activateWindow();
-                    return;
-                }
-
-                // HACK переписать компоненты всплывания
-                firstLicense.setOpenHeight(132);
-                firstLicense.withPath = true;
-                firstLicense.serviceId = serviceId;
-                firstLicense.pathInput = App.getExpectedInstallPath(serviceId);
-                firstLicense.openMoveUpPage();
-
-                App.activateWindow();
-            }
         }
 
         Blocks.Tray {
@@ -871,6 +849,40 @@ Item {
         onMissClicked: {
             qGNA_main.selectService(serviceId);
             mainWindow.activateWindow();
+        }
+
+        onGameAcceptLicenseClicked: {
+            qGNA_main.selectService(serviceId);
+
+            var item = Core.serviceItemByServiceId(serviceId);
+            if (App.isAnyLicenseAccepted() || !item || item.gameType != "standalone") {
+                App.activateWindow();
+                return;
+            }
+
+            firstLicense.closeMoveUpPage();
+            var path = App.getExpectedInstallPath(serviceId);
+            App.setServiceInstallPath(serviceId, path, true);
+            App.acceptFirstLicense(serviceId);
+            App.downloadButtonStart(serviceId);
+        }
+
+        onGameMissLicenseClicked: {
+            qGNA_main.selectService(serviceId);
+            var item = Core.serviceItemByServiceId(serviceId);
+            if (App.isAnyLicenseAccepted() || !item || item.gameType != "standalone") {
+                App.activateWindow();
+                return;
+            }
+
+            // HACK переписать компоненты всплывания
+            firstLicense.setOpenHeight(132);
+            firstLicense.withPath = true;
+            firstLicense.serviceId = serviceId;
+            firstLicense.pathInput = App.getExpectedInstallPath(serviceId);
+            firstLicense.openMoveUpPage();
+
+            App.activateWindow();
         }
 
         onOpenUrlRequest: mainAuthModule.openWebPage(url);

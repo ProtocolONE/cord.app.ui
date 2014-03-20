@@ -46,6 +46,8 @@ ListModel {
         imageHorizontal: "images/games/ca_icon_horisontal.png"
         imageLogoSmall: "images/games/ca_logo_small.png"
         imageLogoBig: "images/games/ca_logo_big.png"
+        imagePopupArt: "images/games/Popup/CombatArmsPopupArt.png"
+
         size: "doubleHorizontal"
         imageBack : "images/games/ca_back.png"
         serviceId: "300009010000000000"
@@ -95,6 +97,8 @@ ListModel {
         imageHorizontalSmall: "images/games/bs_icon_horizontal_small.png"
         imageLogoSmall: "images/games/bs_logo_small.png"
         imageLogoBig: ""
+        imagePopupArt: "images/games/Popup/BSPopupArt.png"
+
         size: "doubleHorizontal"
         imageBack : "images/games/bs_back.png"
         serviceId: "300003010000000000"
@@ -143,6 +147,8 @@ ListModel {
         imageLogoBig: ""
         imageHorizontal: "images/games/reborn_icon_horizontal.png"
         imageHorizontalSmall: "images/games/reborn_icon_horizontal_small.png"
+        imagePopupArt: "images/games/Popup/RebornPopupArt.png"
+
         size: "doubleHorizontal"
 
         imageBack : "images/games/reborn_back.png"
@@ -194,6 +200,8 @@ ListModel {
         imageLogoSmall: "images/games/aika_logo_small.png"
         imageLogoBig: ""
         imageHorizontalSmall: "images/games/aika_icon_horizontal_small.png"
+        imagePopupArt: "images/games/Popup/AikaPopupArt.png"
+
         size: "normal"
 
         imageBack : "images/games/aika_back.png"
@@ -333,6 +341,8 @@ ListModel {
         imageHorizontalSmall: "images/games/wi_icon_horizontal_small.png"
         imageLogoSmall: "images/games/wi_logo_small.png"
         imageLogoBig: ""
+        imagePopupArt: "images/games/Popup/FireStormPopupArt.png"
+
         size: "normal"
 
         imageBack : "images/games/wi_back.png"
@@ -380,6 +390,8 @@ ListModel {
         imageBig: ""
         imageLogoSmall: "images/games/rot_logo_small.png"
         imageLogoBig: ""
+        imagePopupArt: "images/games/Popup/RotPopupArt.png"
+
         size: "normal"
 
         imageBack : "images/games/rot_back.png"

@@ -16,6 +16,7 @@
 		<file>Blocks/EnterNickname.qml</file>
 		<file>Blocks/Features/Announcements/Announcements.qml</file>
 		<file>Blocks/Features/Announcements/AnnouncementsHelper.js</file>
+		<file>Blocks/Features/Announcements/ArtPopup.qml</file>
 		<file>Blocks/FirstLicense.qml</file>
 		<file>Blocks/GameFailed.qml</file>
 		<file>Blocks/GameIsBoring.qml</file>
@@ -117,8 +118,6 @@
 		<file>Features/Ping/Ping.qml</file>
 		<file>Features/PublicTest/index.js</file>
 		<file>Features/PublicTest/PublicTestWarning.qml</file>
-		<file>Features/SilentMode/ArtPopup.qml</file>
-		<file>Features/SilentMode/GreenPopup.qml</file>
 		<file>Features/SilentMode/SilentMode.qml</file>
 		<file>Features/TaskBar/TaskBarHelper.js</file>
 		<file>Features/TaskBar/TaskBarHelper.qml</file>

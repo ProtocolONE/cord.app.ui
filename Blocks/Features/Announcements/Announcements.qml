@@ -6,6 +6,7 @@ import "../../../js/PopupHelper.js" as PopupHelper
 import "../../../js/restapi.js" as RestApi
 import "../../../js/Core.js" as Core
 import "../../../js/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../Proxy/App.js" as AppProxy
 
 import "../../../Elements" as Elements
 
@@ -22,6 +23,9 @@ Item {
     signal openUrlRequest(string url);
     signal missClicked(string serviceId);
     signal internalGameStarted(string serviceId);
+
+    signal gameAcceptLicenseClicked(string serviceId);
+    signal gameMissLicenseClicked(string serviceId);
 
     Component.onCompleted: _lastShownPopupDate = + (new Date());
 
@@ -103,7 +107,6 @@ Item {
         GoogleAnalytics.trackEvent('/announcement/small/' + announceItem.id,
                                    'Announcement', 'Show Announcement', gameItem.gaName);
     }
-
 
     function isAnnounceValid(announce) {
         var shownDate = getShownDate(announce.id);
@@ -249,7 +252,8 @@ Item {
                                   gameItem: gameItem,
                                   serviceId: serviceId,
                                   buttonCaption: buttonText,
-                                  message: message
+                                  message: message,
+                                  messageFontSize: 16
                               }, 'remindNeverExecute' + serviceId);
 
         GoogleAnalytics.trackEvent('/announcement/reminderNeverExecute/' + serviceId,
@@ -401,6 +405,8 @@ Item {
             return;
         }
 
+        d.noLicenseRemind();
+
         checkAndShowDyingAnnouncements();
 
         var now = +(new Date());
@@ -434,6 +440,105 @@ Item {
         }
 
         setClosedProperly(announceItem.id, true);
+    }
+
+    QtObject {
+        id: d
+
+        function setNoLicenseRemindShown() {
+            var today = Qt.formatDate(new Date(), "yyyy-MM-dd");
+            Settings.setValue("qml/features/SilentMode", "showDate", today);
+        }
+
+        function isNoLicenseRemindShownToday() {
+            var today = Qt.formatDate(new Date(), "yyyy-MM-dd");
+            var showDate = Settings.value("qml/features/SilentMode", "showDate", 0);
+            return (today == showDate);
+        }
+
+        function shouldNoLicenseRemind() {
+            var installDate = Settings.value('qGNA', 'installDate', 0);
+            if (!installDate) {
+                return false;
+            }
+
+            var duration = Math.floor((+ new Date()) / 1000) - installDate;
+            return duration > 86400;
+        }
+
+        function noLicenseRemind() {
+            if (AppProxy.isAnyLicenseAccepted()) {
+                return;
+            }
+
+            if (!d.shouldNoLicenseRemind()) {
+                return;
+            }
+
+            if (d.isNoLicenseRemindShownToday()) {
+                return;
+            }
+
+            if (AppProxy.isWindowVisible()) {
+                return;
+            }
+
+            d.setNoLicenseRemindShown();
+
+            var installDate = Settings.value('qGNA', 'installDate', 0),
+                currentDate = Math.floor((+ new Date()) / 1000);
+
+            var serviceId = Settings.value("qGNA", "installWithService", "0");
+            if (serviceId == "0") {
+                serviceId = "300012010000000000"
+            }
+
+            var gameItem = Core.serviceItemByServiceId(serviceId),
+                popUpOptions;
+
+            if (gameItem.gameType != "standalone") {
+                return;
+            }
+
+            var page = ('/silenceMode/reminder/art/%1').arg(serviceId)
+
+            popUpOptions = {
+                gameItem: gameItem,
+                page: page,
+                buttonCaption: qsTr("SILENT_REMIND_POPUP_BUTTON"),
+                message: qsTr("SILENT_REMIND_POPUP_MESSAGE").arg(gameItem.licenseUrl),
+            };
+
+            PopupHelper.showPopup(artNoLicenseRemind, popUpOptions, 'silentModeRemider' + serviceId);
+        }
+    }
+
+    Component {
+        id: artNoLicenseRemind
+
+        ArtPopup {
+            id: popUp
+
+            property string page
+
+            onPlayClicked: {
+                announcements.gameAcceptLicenseClicked(popUp.gameItem.serviceId);
+                GoogleAnalytics.trackEvent(popUp.page, 'Announcement', 'Action on Announcement', gameItem.gaName);
+            }
+
+            onAnywhereClicked: {
+                announcements.gameMissLicenseClicked(popUp.gameItem.serviceId);
+                GoogleAnalytics.trackEvent(popUp.page, 'Announcement', 'Miss Click On Announcement', gameItem.gaName);
+            }
+
+            onCloseButtonClicked: {
+                GoogleAnalytics.trackEvent(popUp.page, 'Announcement', 'Close Announcement', gameItem.gaName);
+            }
+
+            Component.onCompleted: {
+                GoogleAnalytics.trackEvent(page, 'Announcement', 'Show Announcement', gameItem.gaName);
+            }
+        }
     }
 
     Component {

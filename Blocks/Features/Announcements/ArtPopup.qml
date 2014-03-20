@@ -1,8 +1,8 @@
 import QtQuick 1.1
 import Tulip 1.0
-import "../../Elements" as Elements
+import "../../../Elements" as Elements
 
-import "../../Proxy/App.js" as App
+import "../../../Proxy/App.js" as App
 
 Elements.PopupItemBase {
     id: popUp
@@ -12,6 +12,7 @@ Elements.PopupItemBase {
 
     property alias message: messageText.text
     property alias buttonCaption: buttonText.text
+    property alias messageFontSize : messageText.font.pixelSize
     property variant gameItem
 
     width: 210
@@ -25,8 +26,10 @@ Elements.PopupItemBase {
             anchors { fill: parent; margins: 1 }
 
             Image {
+                id: background
+
                 anchors.horizontalCenter: parent.horizontalCenter
-                source: installPath + "images/Features/SilentMode/ArtPopupLogo.png"
+                source: installPath + gameItem.imagePopupArt
             }
 
             Image {
@@ -34,7 +37,7 @@ Elements.PopupItemBase {
 
                 anchors { right: parent.right; top: parent.top; rightMargin: 9; topMargin: 9 }
                 visible: containsMouse || closeButtonImageMouser.containsMouse || buttonPlayMouser.containsMouse
-                source: installPath + "images/closeButton.png"
+                source: installPath + "images/CloseGrayBackground.png"
                 opacity: 0.5
 
                 NumberAnimation {
@@ -102,19 +105,32 @@ Elements.PopupItemBase {
                 anchors {
                     left: parent.left
                     right: parent.right
-                    top: parent.top
-                    topMargin: 173
+                    bottom: parent.bottom
+                    bottomMargin: 43
                 }
 
-                height: 79
+                height: messageText.height + 20
+
+                Rectangle {
+                    anchors.fill: parent
+                    color: "#000000"
+                    opacity: 0.6
+                }
 
                 Text {
                     id: messageText
 
                     textFormat: Text.RichText
                     wrapMode: Text.WordWrap
-                    anchors.fill: parent
-                    anchors.margins: 5
+                    anchors {
+                        top: parent.top
+                        left: parent.left
+                        right: parent.right
+                        topMargin: 10
+                        leftMargin: 5
+                        rightMargin: 5
+                    }
+
                     horizontalAlignment: Text.AlignHCenter
                     color: "#FFFFFF"
                     onLinkActivated: App.openExternalUrl(link)

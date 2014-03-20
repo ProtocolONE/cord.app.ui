@@ -174,6 +174,14 @@
         <source>REMINDER_PLAYED_LONGAGO_MESSAGE</source>
         <translation>Вы давно не заходили в игру</translation>
     </message>
+    <message>
+        <source>SILENT_REMIND_POPUP_BUTTON</source>
+        <translation>Играть</translation>
+    </message>
+    <message>
+        <source>SILENT_REMIND_POPUP_MESSAGE</source>
+        <translation>Нажимая &quot;Играть&quot;, Вы подтверждаете, что согласн с условиями &lt;a href=&quot;http://www.gamenet.ru/license&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Лицензионного соглашения GameNet&lt;/font&gt;&lt;/a&gt; и &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Игры&lt;/font&gt;&lt;/a&gt;</translation>
+    </message>
 </context>
 <context>
     <name>Auth</name>
@@ -3116,12 +3124,12 @@ Please try again later.</source>
     </message>
     <message>
         <source>SILENT_REMIND_POPUP_BUTTON</source>
-        <translation>Играть</translation>
+        <translation type="obsolete">Играть</translation>
     </message>
     <message>
         <source>SILENT_REMIND_POPUP_MESSAGE</source>
         <translatorcomment>Нажимая &quot;Играть&quot;, Вы подтверждаете, что согласн с условиями &lt;a href=&quot;http://www.gamenet.ru/license&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Лицензионного соглашения GameNet&lt;/font&gt;&lt;/a&gt; и &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Игры&lt;/font&gt;&lt;/a&gt;</translatorcomment>
-        <translation>Нажимая &quot;Играть&quot;, Вы подтверждаете, что согласн с условиями &lt;a href=&quot;http://www.gamenet.ru/license&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Лицензионного соглашения GameNet&lt;/font&gt;&lt;/a&gt; и &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Игры&lt;/font&gt;&lt;/a&gt;</translation>
+        <translation type="obsolete">Нажимая &quot;Играть&quot;, Вы подтверждаете, что согласн с условиями &lt;a href=&quot;http://www.gamenet.ru/license&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Лицензионного соглашения GameNet&lt;/font&gt;&lt;/a&gt; и &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Игры&lt;/font&gt;&lt;/a&gt;</translation>
     </message>
 </context>
 <context>
