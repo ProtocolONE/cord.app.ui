@@ -2,7 +2,7 @@
 Qt.include("../Proxy/Settings.js")
 
 var _signalBusComponent,
-        _signalBusInst;
+    _signalBusInst;
 
 if (!_signalBusComponent) {
     _signalBusComponent = Qt.createComponent('./Core.qml');
@@ -227,4 +227,12 @@ function secondServiceStarted(service) {
 function secondServiceFinished(service) {
     delete runningSecondService[service];
     _signalBusInst.isAnySecondServiceRunning = Object.keys(runningSecondService) > 0;
+}
+
+function installDate() {
+    return settingsValue('qGNA', 'installDate', 0);
+}
+
+function setInstallDate() {
+    setSettingsValue('qGNA', 'installDate', Math.floor((+ new Date()) / 1000));
 }

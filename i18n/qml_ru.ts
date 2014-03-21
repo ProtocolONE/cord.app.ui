@@ -156,15 +156,15 @@
     </message>
     <message>
         <source>REMINDER_NEVER_PLAYED_MESSAGE</source>
-        <translation>Вы ни разу не играли в игру</translation>
+        <translation>Игра установлена и вы ни разу не пробовали играть</translation>
     </message>
     <message>
         <source>REMINDER_NEVER_PLAYED_FRIST_TIME_BUTTON</source>
-        <translation>Играть</translation>
+        <translation type="obsolete">Играть</translation>
     </message>
     <message>
         <source>REMINDER_NEVER_PLAYED_FRIST_TIME_MESSAGE</source>
-        <translation>Вы ни разу не играли в игру</translation>
+        <translation type="obsolete">Вы ни разу не играли в игру</translation>
     </message>
     <message>
         <source>REMINDER_PLAYED_LONGAGO_BUTTON</source>

@@ -183,44 +183,36 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="341"/>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="352"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="335"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="347"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="397"/>
         <source>REMINDER_NEVER_PLAYED_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="509"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="506"/>
         <source>SILENT_REMIND_POPUP_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="510"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="507"/>
         <source>SILENT_REMIND_POPUP_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="340"/>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="351"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="334"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="346"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="396"/>
         <source>REMINDER_NEVER_PLAYED_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="337"/>
-        <source>REMINDER_NEVER_PLAYED_FRIST_TIME_BUTTON</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="336"/>
-        <source>REMINDER_NEVER_PLAYED_FRIST_TIME_MESSAGE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="280"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="275"/>
         <source>REMINDER_PLAYED_LONGAGO_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="281"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="276"/>
         <source>REMINDER_PLAYED_LONGAGO_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2466,12 +2458,12 @@
 <context>
     <name>qGNA_Main</name>
     <message>
-        <location filename="../qGNA_Main.qml" line="718"/>
+        <location filename="../qGNA_Main.qml" line="685"/>
         <source>CLOSE_APP_TOOLTIP_MESSAGE_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qGNA_Main.qml" line="719"/>
+        <location filename="../qGNA_Main.qml" line="686"/>
         <source>CLOSE_APP_TOOLTIP_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>

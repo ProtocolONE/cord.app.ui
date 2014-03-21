@@ -92,9 +92,9 @@ Item {
         setMidToGoogleAnalytics();
         AlertMessage.setAdapter(alertAdapter);
 
-        var installDate = Settings.value('qGNA', 'installDate', 0);
+        var installDate = Core.installDate();
         if (!installDate) {
-            Settings.setValue('qGNA', 'installDate', Math.floor((+ new Date()) / 1000));
+            Core.setInstallDate();
             var startingServiceId = App.startingService() || "0";
             if (!!startingServiceId && startingServiceId != "0") {
                 Settings.setValue('qGNA', 'installWithService', startingServiceId);

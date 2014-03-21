@@ -243,10 +243,9 @@ Item {
     function showReminderNeverExecute(serviceId, message, buttonText) {
         var now = +(new Date());
         Settings.setValue("qml/Announcements2/reminderNeverExecute/" + serviceId + "/", "showDate", now);
-        Marketing.send(Marketing.AnnouncementShown, serviceId, { type: "reminderNeverExecute" });
 
         var gameItem = Core.serviceItemByServiceId(serviceId);
-        PopupHelper.showPopup(remindAboutGamePopUp,
+        PopupHelper.showPopup(neverExecuteRemind,
                               {
                                   popupType: "reminderNeverExecute",
                                   gameItem: gameItem,
@@ -255,10 +254,6 @@ Item {
                                   message: message,
                                   messageFontSize: 16
                               }, 'remindNeverExecute' + serviceId);
-
-        GoogleAnalytics.trackEvent('/announcement/reminderNeverExecute/' + serviceId,
-                                   'Announcement', 'Show Announcement', gameItem.gaName);
-
     }
 
     function showReminderLongTimeExecute(serviceId) {
@@ -289,9 +284,10 @@ Item {
         // TODO: в будущем может стоит бегать по коллекции сервисов
         var services = ["300009010000000000",
                         "300003010000000000",
-                        "300006010000000000",
-                        "300005010000000000",
-                        "300002010000000000"];
+                        "300004010000000000",
+                        "300002010000000000",
+                        "300012010000000000",
+                        "300005010000000000"];
 
         var now = +(new Date());
 
@@ -327,31 +323,28 @@ Item {
                     }
                 }
             } else {
+
                 // игру не запускали - игра ни разу не запускалась
                 var reminderNeverExecuteShowDate = getReminderNeverExecuteShowDate(serviceId);
+
                 if (!reminderNeverExecuteShowDate) {
+                    // 1. всплываем на следующий день
                     if (elapsedDays >= 1) {
-                        if (!isAuthed) {
-                            showReminderNeverExecute(serviceId,
-                                                     qsTr("REMINDER_NEVER_PLAYED_FRIST_TIME_MESSAGE"),
-                                                     qsTr("REMINDER_NEVER_PLAYED_FRIST_TIME_BUTTON"));
-                        } else {
-                            showReminderNeverExecute(serviceId,
-                                                     qsTr("REMINDER_NEVER_PLAYED_MESSAGE"),
-                                                     qsTr("REMINDER_NEVER_PLAYED_BUTTON"));
-                        }
+                        showReminderNeverExecute(serviceId,
+                                                 qsTr("REMINDER_NEVER_PLAYED_MESSAGE"),
+                                                 qsTr("REMINDER_NEVER_PLAYED_BUTTON"));
                         return;
                     }
                 } else {
-                    var timeBetweenLastShownAndInstallDate = reminderNeverExecuteShowDate - installDate;
-                    var showNeverExecutenWeeks = getWeeks(timeBetweenLastShownAndInstallDate);
-                    if (elapsedWeeks > showNeverExecutenWeeks) {
-                        if (elapsedWeeks === 1 || ((elapsedWeeks - showNeverExecutenWeeks) >= 2)) {
+                    // 2. в пятницу, суб, воскресенье
+                    // 3. 7 дней с последнего показа
+                    var timeBetweenLastShownAndNow = now - reminderNeverExecuteShowDate;
+                    var dayOfWeek = (new Date()).getDay();
+                    if ((getDays(timeBetweenLastShownAndNow) > 7)
+                        || (getDays(timeBetweenLastShownAndNow) >= 1 && (dayOfWeek == 0 || dayOfWeek == 5 || dayOfWeek == 6)) ) {
                             showReminderNeverExecute(serviceId,
                                                      qsTr("REMINDER_NEVER_PLAYED_MESSAGE"),
                                                      qsTr("REMINDER_NEVER_PLAYED_BUTTON"));
-                            return;
-                        }
                     }
                 }
             }
@@ -457,7 +450,7 @@ Item {
         }
 
         function shouldNoLicenseRemind() {
-            var installDate = Settings.value('qGNA', 'installDate', 0);
+            var installDate = Core.installDate();
             if (!installDate) {
                 return false;
             }
@@ -485,7 +478,7 @@ Item {
 
             d.setNoLicenseRemindShown();
 
-            var installDate = Settings.value('qGNA', 'installDate', 0),
+            var installDate = Core.installDate(),
                 currentDate = Math.floor((+ new Date()) / 1000);
 
             var serviceId = Settings.value("qGNA", "installWithService", "0");
@@ -611,9 +604,9 @@ Item {
     }
 
     Component {
-        id: remindAboutGamePopUp
+        id: neverExecuteRemind
 
-        Elements.GameItemPopUp {
+        ArtPopup {
             id: remindGameItemPopup
 
             property variant serviceId: ""
@@ -637,7 +630,6 @@ Item {
                 }
             }
 
-            state: "Green"
             onAnywhereClicked: {
                 Marketing.send(Marketing.AnnouncementMissClicked, serviceId, { type: popupType });
                 announcements.missClicked(serviceId);
@@ -658,6 +650,16 @@ Item {
             onPlayClicked: {
                 remindGameItemPopup.sendAnnouncementActionClicked();
                 announcements.gamePlayClicked(serviceId);
+            }
+
+            Component.onCompleted: {
+                GoogleAnalytics.trackEvent(
+                            '/announcement/'+ popupType +'/' + serviceId,
+                            'Announcement',
+                            'Show Announcement',
+                            remindGameItemPopup.gameItem.gaName);
+                Marketing.send(Marketing.AnnouncementShown, serviceId, { type: popupType });
+
             }
         }
     }
