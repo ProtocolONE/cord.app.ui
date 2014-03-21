@@ -236,3 +236,11 @@ function installDate() {
 function setInstallDate() {
     setSettingsValue('qGNA', 'installDate', Math.floor((+ new Date()) / 1000));
 }
+
+function gameInstallDate(serviceId) {
+    return settingsValue("GameDownloader/" + serviceId + "/", "installDate", "");
+}
+
+function gameLastExecutionTime(serviceId) {
+    return settingsValue("gameExecutor/serviceInfo/" + serviceId + "/", "lastExecutionTime", "");
+}

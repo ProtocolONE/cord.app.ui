@@ -38,13 +38,14 @@ Item {
 
         var gameItem = Core.serviceItemByServiceId(serviceId);
 
-        PopupHelper.showPopup(remindAboutGamePopUp,
+        PopupHelper.showPopup(artPopupComponent,
                               {
                                   popupType: "installedGame",
                                   serviceId: serviceId,
                                   gameItem: gameItem,
                                   message: qsTr("ANNOUNCE_GAME_INSTALLED_MESSAGE"),
                                   buttonCaption: qsTr("ANNOUNCE_GAME_INSTALLED_BUTTON"),
+                                  messageFontSize: 16
                               }, 'gameInstalledAnnounce' + serviceId);
 
         GoogleAnalytics.trackEvent('/announcement/installedGame/' + serviceId,
@@ -245,7 +246,7 @@ Item {
         Settings.setValue("qml/Announcements2/reminderNeverExecute/" + serviceId + "/", "showDate", now);
 
         var gameItem = Core.serviceItemByServiceId(serviceId);
-        PopupHelper.showPopup(neverExecuteRemind,
+        PopupHelper.showPopup(artPopupComponent,
                               {
                                   popupType: "reminderNeverExecute",
                                   gameItem: gameItem,
@@ -267,7 +268,7 @@ Item {
         Marketing.send(Marketing.AnnouncementShown, serviceId, { type: "reminderExecuteLongAgo" });
 
         var gameItem = Core.serviceItemByServiceId(serviceId);
-        PopupHelper.showPopup(remindAboutGamePopUp,
+        PopupHelper.showPopup(artPopupComponent,
                               {
                                   popupType: "reminderExecuteLongAgo",
                                   gameItem: gameItem,
@@ -293,7 +294,7 @@ Item {
 
         for (var i = 0; i < services.length; ++i) {
             var serviceId = services[i];
-            var installDate = +(Settings.value("GameDownloader/" + serviceId + "/", "installDate", ""));
+            var installDate = +(Core.gameInstallDate(serviceId));
             if (!installDate) {
                 continue;
             }
@@ -302,7 +303,7 @@ Item {
             var elapsedDays = getDays(timeFromInstall);
             var elapsedWeeks = getWeeks(timeFromInstall);
 
-            var lastExecuteDate = +(Settings.value("gameExecutor/serviceInfo/" + serviceId + "/", "lastExecutionTime", ""));
+            var lastExecuteDate = +(Core.gameLastExecutionTime(serviceId));
             if (lastExecuteDate) {
                 // игру запускали давно
                 var reminderExecuteLongAgoShowDate = getReminderExecuteLongAgoShowDate(serviceId);
@@ -604,7 +605,7 @@ Item {
     }
 
     Component {
-        id: neverExecuteRemind
+        id: artPopupComponent
 
         ArtPopup {
             id: remindGameItemPopup
