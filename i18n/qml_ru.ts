@@ -1819,19 +1819,19 @@ Please try again later.</source>
     <name>LicenseBlock</name>
     <message>
         <source>TITLE_EULA</source>
-        <translation>Лицензионное соглашение и настройки установки</translation>
+        <translation type="obsolete">Лицензионное соглашение и настройки установки</translation>
     </message>
     <message>
         <source>SUBTITLE_EULA</source>
-        <translation>Необходимо принять условия лицензионного соглашения</translation>
+        <translation type="obsolete">Необходимо принять условия лицензионного соглашения</translation>
     </message>
     <message>
         <source>CHECKBOX_I_AGREE</source>
-        <translation>Нажимая &quot;Продолжить&quot;, Вы подтверждаете, что согласны с условиями лицензионного соглашения</translation>
+        <translation>Нажимая &quot;Установить&quot;, Вы подтверждаете, что согласны с условиями &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#CCCCCC&quot;&gt;лицензионного соглашения игры&lt;/font&gt;&lt;/a&gt;</translation>
     </message>
     <message>
         <source>LABEL_GAME_INSTALLATION_PATH_INPUT</source>
-        <translation>Выберите путь установки игры</translation>
+        <translation>Игра будет установленна в папку</translation>
     </message>
     <message>
         <source>BUTTON_BROWSE</source>
@@ -1847,7 +1847,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>BUTTON_NEXT</source>
-        <translation>Продолжить</translation>
+        <translation>Установить</translation>
     </message>
     <message>
         <source>BUTTON_CANCEL</source>

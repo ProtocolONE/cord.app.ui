@@ -18,6 +18,11 @@ Blocks.MoveUpPage {
 
     openHeight: page.withPath ? d.gameOpenHeight : d.homeOpenHeight
 
+//    Component.onCompleted: {
+//        page.withPath = true;
+//        page.openMoveUpPage()
+//    }
+
     QtObject {
         id: d
 

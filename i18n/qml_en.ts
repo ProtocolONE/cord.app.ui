@@ -173,46 +173,44 @@
 <context>
     <name>Announcements</name>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="46"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="69"/>
         <source>ANNOUNCE_GAME_INSTALLED_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="47"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="70"/>
         <source>ANNOUNCE_GAME_INSTALLED_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="335"/>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="347"/>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="397"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="359"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="371"/>
         <source>REMINDER_NEVER_PLAYED_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="506"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="525"/>
         <source>SILENT_REMIND_POPUP_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="507"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="526"/>
         <source>SILENT_REMIND_POPUP_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="334"/>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="346"/>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="396"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="358"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="370"/>
         <source>REMINDER_NEVER_PLAYED_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="275"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="299"/>
         <source>REMINDER_PLAYED_LONGAGO_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="276"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="300"/>
         <source>REMINDER_PLAYED_LONGAGO_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -710,39 +708,39 @@
 <context>
     <name>FirstLicense</name>
     <message>
-        <location filename="../Blocks/FirstLicense.qml" line="57"/>
-        <location filename="../Blocks/FirstLicense.qml" line="130"/>
+        <location filename="../Blocks/FirstLicense.qml" line="62"/>
+        <location filename="../Blocks/FirstLicense.qml" line="135"/>
         <source>FIRSTLICENSE_LICENSE_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/FirstLicense.qml" line="64"/>
-        <location filename="../Blocks/FirstLicense.qml" line="137"/>
+        <location filename="../Blocks/FirstLicense.qml" line="69"/>
+        <location filename="../Blocks/FirstLicense.qml" line="142"/>
         <source>FIRSTLICENSE_GAMENET_LICENSE_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/FirstLicense.qml" line="83"/>
+        <location filename="../Blocks/FirstLicense.qml" line="88"/>
         <source>FIRSTLICENSE_GAMEPATH_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/FirstLicense.qml" line="100"/>
+        <location filename="../Blocks/FirstLicense.qml" line="105"/>
         <source>BUTTON_BROWSE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/FirstLicense.qml" line="116"/>
+        <location filename="../Blocks/FirstLicense.qml" line="121"/>
         <source>FIRSTLICENSE_CREATE_SHORTCUTS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/FirstLicense.qml" line="151"/>
+        <location filename="../Blocks/FirstLicense.qml" line="156"/>
         <source>FIRSTLICENSE_GAME_LICENSE_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/FirstLicense.qml" line="184"/>
+        <location filename="../Blocks/FirstLicense.qml" line="189"/>
         <source>FIRSTLICENSE_ACCEPT_BUTTON_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1329,42 +1327,32 @@
 <context>
     <name>LicenseBlock</name>
     <message>
-        <location filename="../Blocks/LicenseBlock.qml" line="51"/>
-        <source>TITLE_EULA</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/LicenseBlock.qml" line="61"/>
-        <source>SUBTITLE_EULA</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/LicenseBlock.qml" line="105"/>
+        <location filename="../Blocks/LicenseBlock.qml" line="125"/>
         <source>CHECKBOX_I_AGREE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/LicenseBlock.qml" line="115"/>
+        <location filename="../Blocks/LicenseBlock.qml" line="90"/>
         <source>LABEL_GAME_INSTALLATION_PATH_INPUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/LicenseBlock.qml" line="128"/>
+        <location filename="../Blocks/LicenseBlock.qml" line="103"/>
         <source>BUTTON_BROWSE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/LicenseBlock.qml" line="143"/>
+        <location filename="../Blocks/LicenseBlock.qml" line="112"/>
         <source>CHECKBOX_CREATE_SHORTCUT_ON_DESKTOP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/LicenseBlock.qml" line="157"/>
+        <location filename="../Blocks/LicenseBlock.qml" line="119"/>
         <source>CHECKBOX_CREATE_SHORTCUT_IN_START_MENU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/LicenseBlock.qml" line="165"/>
+        <location filename="../Blocks/LicenseBlock.qml" line="148"/>
         <source>BUTTON_NEXT</source>
         <translation type="unfinished"></translation>
     </message>

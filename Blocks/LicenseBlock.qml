@@ -11,13 +11,31 @@
 import QtQuick 1.1
 import "../Elements" as Elements
 import "." as Blocks
+import "../Proxy/App.js" as AppProxy
+import "../js/Core.js" as Core
 
 Blocks.MoveUpPage {
     id: page
 
     signal canceled();
 
-    openHeight: 550
+    openHeight: 160
+
+    QtObject {
+        id: d
+
+        property string licenseUrl: ""
+
+        property Gradient hoverGradient: Gradient {
+            GradientStop { position: 1; color: "#227700" }
+            GradientStop { position: 0; color: "#227700" }
+        }
+
+        property Gradient normalGradient: Gradient {
+            GradientStop { position: 1; color: "#177e00" }
+            GradientStop { position: 0; color: "#32b003" }
+        }
+    }
 
     Rectangle {
         color: "#353945"
@@ -29,82 +47,39 @@ Blocks.MoveUpPage {
             id: licenseModel
             property string license: ""
             property string pathToInstall: ""
-            Component.onCompleted: openMoveUpPage()
 
+            signal openLicenseBlock();
+            signal closeLicenseBlock();
+
+            Component.onCompleted: {
+                licenseModel.openLicenseBlock();
+            }
+
+            function serviceId() {
+                return "300003010000000000";
+            }
+
+            function setLicenseAccepted() {
+            }
         }
         */
 
         Connections {
             target: licenseModel
             onOpenLicenseBlock: {
+                var gameItem = Core.serviceItemByServiceId(licenseModel.serviceId());
+                d.licenseUrl = gameItem.licenseUrl;
+
                 page.openMoveUpPage();
                 licenseModel.setLicenseAccepted(false);
-                channelTextArea.flicElement.contentY = 0;
             }
 
             onCloseLicenseBlock: page.closeMoveUpPage();
         }
 
-        Text {
-            width: 230
-            font { family: "Arial"; pixelSize: 18 }
-            text: qsTr("TITLE_EULA")
-            anchors { left: parent.left; top: parent.top; leftMargin: 41; topMargin: 35 }
-            wrapMode: Text.WordWrap
-            color: "#FFFFFF"
-            smooth: true
-        }
-
-        Text {
-            width: 230
-            font { family: "Arial"; pixelSize: 14 }
-            text: qsTr("SUBTITLE_EULA")
-            anchors { left: parent.left; top: parent.top; leftMargin: 41; topMargin: 121 }
-            wrapMode: Text.WordWrap
-            color: "#ffff66"
-            smooth: true
-        }
-
         Column {
-            anchors { left: parent.left; top: parent.top; leftMargin: 276; topMargin: 37 }
+            anchors { left: parent.left; top: parent.top; leftMargin: 42; topMargin: 10 }
             spacing: 20
-
-            Column {
-                Rectangle {
-                    width: 610
-                    height: 290
-
-                    border { color: "#909299"; width: 1 }
-                    color: "#00000000"
-
-                    Elements.ScrollBar {
-                        id: scrollableChannelTextAreaElement
-                        height: parent.height
-                        anchors { right: parent.right; top: parent.top}
-                        flickable: channelTextArea.flicElement
-                    }
-
-                    Elements.TextArea {
-                        id: channelTextArea
-
-                        anchors.fill: parent
-                        anchors {
-                            leftMargin: 5;
-                            topMargin: 5;
-                            bottomMargin: 5;
-                            rightMargin: 5 + scrollableChannelTextAreaElement.width
-                        }
-
-                        textElement.text: licenseModel.license
-                    }
-                }
-
-                Text {
-                    color: "#fff"
-                    font { family: "Arial"; pixelSize: 12 }
-                    text: qsTr("CHECKBOX_I_AGREE")
-                }
-            }
 
             Column {
                 spacing: 8
@@ -119,7 +94,7 @@ Blocks.MoveUpPage {
                     spacing: 8
 
                     Elements.FileInput {
-                        width: 407
+                        width: 273
                         textElement { text: licenseModel.pathToInstall; readOnly: true }
                         onEditTextChanged: licenseModel.setPathToInstall(text);
                     }
@@ -130,53 +105,74 @@ Blocks.MoveUpPage {
                     }
                 }
 
-                Row {
-                    Elements.CheckBox {
-                        state: licenseModel.shurtCutInDesktop ? "Active" : "Normal"
-                        onChecked: licenseModel.setShurtCutInDesktop(isChecked);
-                        onUnchecked: licenseModel.setShurtCutInDesktop(isChecked);
-                    }
-
-                    Text {
-                        color: "#fff"
-                        font { family: "Arial"; pixelSize: 16 }
-                        text: qsTr("CHECKBOX_CREATE_SHORTCUT_ON_DESKTOP")
-                    }
+                Elements.CheckBox {
+                    state: licenseModel.shurtCutInDesktop ? "Active" : "Normal"
+                    onChecked: licenseModel.setShurtCutInDesktop(isChecked);
+                    onUnchecked: licenseModel.setShurtCutInDesktop(isChecked);
+                    buttonText: qsTr("CHECKBOX_CREATE_SHORTCUT_ON_DESKTOP")
                 }
 
-                Row {
-                    Elements.CheckBox {
-                        state: licenseModel.shurtCutInStart ? "Active" : "Normal"
-                        onChecked: licenseModel.setShurtCutInStart(isChecked);
-                        onUnchecked: licenseModel.setShurtCutInStart(isChecked);
-                    }
-
-                    Text {
-                        color: "#fff"
-                        font { family: "Arial"; pixelSize: 16 }
-                        text: qsTr("CHECKBOX_CREATE_SHORTCUT_IN_START_MENU")
-                    }
+                Elements.CheckBox {
+                    state: licenseModel.shurtCutInStart ? "Active" : "Normal"
+                    onChecked: licenseModel.setShurtCutInStart(isChecked);
+                    onUnchecked: licenseModel.setShurtCutInStart(isChecked);
+                    buttonText: qsTr("CHECKBOX_CREATE_SHORTCUT_IN_START_MENU")
                 }
 
-                Row {
-                    spacing: 10
+                Text {
+                    color: "#CCCCCC"
+                    font { family: "Arial"; pixelSize: 11 }
+                    text: qsTr("CHECKBOX_I_AGREE").arg(d.licenseUrl)
+                    textFormat: Text.RichText
+                    onLinkActivated: AppProxy.openExternalUrl(link);
+                }
+            }
+        }
 
-                    Elements.Button4 {
-                        buttonText: qsTr("BUTTON_NEXT")
-                        onButtonClicked: {
-                            licenseModel.setLicenseAccepted(true);
-                            licenseModel.okPressed();
-                        }
-                        buttonColor: "#227700"
-                        isEnabled: true
+        Column {
+            anchors { right: parent.right; top: parent.top; rightMargin: 33; topMargin: 16 }
+            spacing: 10
+            width: 222
+
+            Rectangle {
+                border { width: 1; color: "#FFFFFF" }
+                gradient: buttonMouser.containsMouse ? d.hoverGradient : d.normalGradient
+                width: 222
+                height: 54
+
+                Text {
+                    anchors.centerIn: parent
+                    color : "#FFFFFF"
+                    font { pixelSize: 28; family: "Segoe UI" }
+                    textFormat: Text.RichText
+                    text: qsTr("BUTTON_NEXT")
+                }
+
+                Elements.CursorMouseArea {
+                    id: buttonMouser
+
+                    anchors.fill: parent
+                    onClicked: {
+                        licenseModel.setLicenseAccepted(true);
+                        licenseModel.okPressed();
                     }
+                }
+            }
 
-                    Elements.Button3 {
-                        buttonText: qsTr("BUTTON_CANCEL")
-                        onButtonClicked: {
-                            canceled();
-                            page.closeMoveUpPage();
-                        }
+            Text {
+                anchors.horizontalCenter: parent.horizontalCenter
+                color : cancelMouser.containsMouse ? "#FFFFFF" : "#CCCCCC"
+                font { pixelSize: 16; family: "Arial"; underline: true }
+                textFormat: Text.RichText
+                text: qsTr("BUTTON_CANCEL")
+
+                Elements.CursorMouseArea {
+                    id: cancelMouser
+
+                    anchors.fill: parent
+                    onClicked: {
+                        canceled();
+                        page.closeMoveUpPage();
                     }
                 }
             }
