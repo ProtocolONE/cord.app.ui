@@ -59,18 +59,10 @@ QtObject {
     }
 
     function openExternalUrlWithAuth(url) {
-        if (!AppProxy.mainWindow) {
-            Qt.openUrlExternally(url);
-            return;
-        }
         mainWindow.openExternalUrlWithAuth(url);
     }
 
     function openExternalUrl(url) {
-        if (!AppProxy.mainWindow) {
-            Qt.openUrlExternally(url);
-            return;
-        }
         mainWindow.openExternalUrl(url);
     }
 

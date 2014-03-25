@@ -128,6 +128,8 @@ Item {
                        { type: "announcementBig", id: announceItem.id });
         bigAnnounceWindow.imageUrl = announceItem.image;
         bigAnnounceWindow.announceItem = announceItem;
+        bigAnnounceWindow.buttonMessage = announceItem.textOnButton;
+        bigAnnounceWindow.buttonStyle = announceItem.buttonColor;
         bigAnnounceWindow.visible = true
 
         var gameItem = Core.serviceItemByServiceId(announceItem.serviceId);
@@ -342,10 +344,10 @@ Item {
                     var timeBetweenLastShownAndNow = now - reminderNeverExecuteShowDate;
                     var dayOfWeek = (new Date()).getDay();
                     if ((getDays(timeBetweenLastShownAndNow) > 7)
-                        || (getDays(timeBetweenLastShownAndNow) >= 1 && (dayOfWeek == 0 || dayOfWeek == 5 || dayOfWeek == 6)) ) {
-                            showReminderNeverExecute(serviceId,
-                                                     qsTr("REMINDER_NEVER_PLAYED_MESSAGE"),
-                                                     qsTr("REMINDER_NEVER_PLAYED_BUTTON"));
+                            || (getDays(timeBetweenLastShownAndNow) >= 1 && (dayOfWeek == 0 || dayOfWeek == 5 || dayOfWeek == 6)) ) {
+                        showReminderNeverExecute(serviceId,
+                                                 qsTr("REMINDER_NEVER_PLAYED_MESSAGE"),
+                                                 qsTr("REMINDER_NEVER_PLAYED_BUTTON"));
                     }
                 }
             }
@@ -402,7 +404,6 @@ Item {
         d.noLicenseRemind();
 
         checkAndShowDyingAnnouncements();
-
         var now = +(new Date());
         if ((now - _lastShownPopupDate) > normalPopupInerval) {
             showNextAnnouncement();
@@ -588,7 +589,7 @@ Item {
 
             onPlayClicked: {
                 announcePopUp.sendAnnouncementActionClicked();
-                announcements.announceActionClick(announceItem);                
+                announcements.announceActionClick(announceItem);
             }
 
             onCloseButtonClicked: {
@@ -692,6 +693,28 @@ Item {
 
         property string imageUrl: ""
         property variant announceItem
+        property int buttonStyle: 1
+        property alias buttonMessage: windowAnnounceButtonText.text
+
+        property Gradient hoverGradientStyle1: Gradient {
+            GradientStop { position: 0; color: "#257f02" }
+            GradientStop { position: 1; color: "#257f02" }
+        }
+
+        property Gradient normalGradientStyle1: Gradient {
+            GradientStop { position: 0; color: "#4ab120" }
+            GradientStop { position: 1; color: "#257f02" }
+        }
+
+        property Gradient hoverGradientStyle2: Gradient {
+            GradientStop { position: 0; color: "#e5761c" }
+            GradientStop { position: 1; color: "#e5761c" }
+        }
+
+        property Gradient normalGradientStyle2: Gradient {
+            GradientStop { position: 0; color: "#f29b55" }
+            GradientStop { position: 1; color: "#e5761c" }
+        }
 
         width: 900
         height: 500
@@ -744,21 +767,6 @@ Item {
             Image {
                 anchors.fill: parent
                 source: bigAnnounceWindow.imageUrl
-
-                Elements.CursorMouseArea {
-                    hoverEnabled: true
-                    anchors.fill: parent
-
-                    onClicked: {
-                        bigAnnounceWindow.sendAnnouncementActionClicked();
-                        bigAnnounceWindow.visible = false
-                        announcements.announceActionClick(bigAnnounceWindow.announceItem);
-
-                        var gameItem = Core.serviceItemByServiceId(bigAnnounceWindow.announceItem.serviceId);
-                        GoogleAnalytics.trackEvent('/announcement/big/' + bigAnnounceWindow.announceItem.id,
-                                                   'Announcement', 'Action on Announcement', gameItem.gaName);
-                    }
-                }
             }
 
             Elements.CursorMouseArea {
@@ -775,11 +783,99 @@ Item {
                 id: closeButtonImage
 
                 anchors { right: parent.right; top: parent.top; rightMargin: 9; topMargin: 9 }
-                source: installPath + "images/closeButton.png"
+                source: installPath + "images/CloseGrayBackground.png"
                 opacity: closeButtonImageMouser.containsMouse ? 0.9 : 0.5
 
                 Behavior on opacity {
                     NumberAnimation { duration: 225 }
+                }
+            }
+
+            Image {
+                anchors {
+                    top: parent.top
+                    topMargin: 2
+                    left: parent.left
+                    leftMargin: 2
+                }
+
+                source: installPath + "images/GameNetLogoGrayBackground.png"
+
+                Elements.CursorMouseArea {
+                    anchors.fill: parent
+                    onClicked: AppProxy.openExternalUrl("http://gamenet.ru")
+                }
+            }
+
+            Item {
+                width: parent.width
+                height: 107
+                anchors.bottom: parent.bottom
+
+                Rectangle {
+                    anchors.fill: parent
+                    color: "#000000"
+                    opacity: 0.5
+                }
+
+                Rectangle {
+                    anchors.centerIn: parent
+                    width: Math.max(40 + windowAnnounceButtonText.width, 300)
+                    height: 64
+                    color: "#FFFFFF"
+
+                    Rectangle {
+                        id: windowAnnounceButton
+
+                        property Gradient hover: bigAnnounceWindow.buttonStyle == 1
+                                                 ? bigAnnounceWindow.hoverGradientStyle1
+                                                 : bigAnnounceWindow.hoverGradientStyle2
+
+                        property Gradient normal: bigAnnounceWindow.buttonStyle == 1
+                                                 ? bigAnnounceWindow.normalGradientStyle1
+                                                 : bigAnnounceWindow.normalGradientStyle2
+
+                        anchors { fill: parent; margins: 2 }
+                        gradient: windowAnnounceButtonMouser.containsMouse ? windowAnnounceButton.hover : windowAnnounceButton.normal
+
+                        Text {
+                            id: windowAnnounceButtonText
+
+                            anchors.centerIn: parent
+                            color: "#ffffff"
+                            font { family: "Arial"; pixelSize: 28}
+                        }
+
+                        Elements.CursorMouseArea {
+                            id: windowAnnounceButtonMouser
+
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            onClicked: {
+                                bigAnnounceWindow.sendAnnouncementActionClicked();
+                                bigAnnounceWindow.visible = false
+                                announcements.announceActionClick(bigAnnounceWindow.announceItem);
+
+                                var gameItem = Core.serviceItemByServiceId(bigAnnounceWindow.announceItem.serviceId);
+                                GoogleAnalytics.trackEvent('/announcement/big/' + bigAnnounceWindow.announceItem.id,
+                                                           'Announcement', 'Action on Announcement', gameItem.gaName);
+                            }
+                        }
+                    }
+                }
+            }
+
+            Rectangle {
+                anchors {
+                    fill: parent
+                    rightMargin: 1
+                    bottomMargin: 1
+                }
+
+                color: "#00000000"
+                border {
+                    width: 1
+                    color: "#1e1b1b"
                 }
             }
         }

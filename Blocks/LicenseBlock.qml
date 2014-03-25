@@ -171,7 +171,7 @@ Blocks.MoveUpPage {
 
                     anchors.fill: parent
                     onClicked: {
-                        canceled();
+                        page.canceled();
                         page.closeMoveUpPage();
                     }
                 }
