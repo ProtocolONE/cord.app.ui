@@ -782,7 +782,7 @@ Item {
             Image {
                 id: closeButtonImage
 
-                anchors { right: parent.right; top: parent.top; rightMargin: 9; topMargin: 9 }
+                anchors { right: parent.right; top: parent.top; rightMargin: 2; topMargin: 2 }
                 source: installPath + "images/CloseGrayBackground.png"
                 opacity: closeButtonImageMouser.containsMouse ? 0.9 : 0.5
 

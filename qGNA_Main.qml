@@ -110,10 +110,26 @@ Item {
     Jabber {
         id: jabber
 
+        property int failCount: 0
+
         login: UserInfo.userId()
         password: Qt.md5(UserInfo.appKey())
         host: "qj.gamenet.ru"
         domain: "qj.gamenet.ru"
+
+        onError: {
+            jabber.failCount += 1;
+            GoogleAnalytics.trackEvent('/jabber/0.1/', 'Error', 'Code ' + code, "Try count" + jabber.failCount);
+        }
+
+        onConnected: {
+            jabber.failCount = 0;
+        }
+
+        Connections {
+            target: UserInfo.instance()
+            onLogoutDone: jabber.failCount = 0;
+        }
     }
 
     Item {
