@@ -623,9 +623,9 @@ Item {
             onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
         }
 
-        CombatArmsShop.PurchaseDetails {
-            id: combatArmsPurchaseDetails;
-        }
+//        CombatArmsShop.PurchaseDetails {
+//            id: combatArmsPurchaseDetails;
+//        }
 
         Guide.WellcomeGuide {
             id: guide

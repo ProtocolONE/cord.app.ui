@@ -16,10 +16,10 @@ Item {
 
     property string currentGameId
 
-    CombatArmsShop.ItemsView {
-        id: combatArmsItemsView
+//    CombatArmsShop.ItemsView {
+//        id: combatArmsItemsView
 
-        visible: currentGameId == "92"
-        anchors.right: parent.right
-    }
+//        visible: currentGameId == "92"
+//        anchors.right: parent.right
+//    }
 }
