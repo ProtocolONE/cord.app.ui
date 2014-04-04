@@ -89,6 +89,7 @@
 		<file>Elements/TextH2.qml</file>
 		<file>Elements/TextH3.qml</file>
 		<file>Elements/TextH4.qml</file>
+		<file>Elements/TinyScrollbar.qml</file>
 		<file>Elements/Tooltip/Tooltip.js</file>
 		<file>Elements/Tooltip/Tooltip.qml</file>
 		<file>Elements/WheelArea.qml</file>
@@ -109,11 +110,17 @@
 		<file>Features/Maintenance/Maintenance.js</file>
 		<file>Features/Maintenance/Maintenance.qml</file>
 		<file>Features/Maintenance/PopUp/MaintenanceEnd.qml</file>
+		<file>Features/Money/Money.js</file>
+		<file>Features/Money/Money.qml</file>
+		<file>Features/Money/MoneyWindow.qml</file>
+		<file>Features/Money/TabItem.qml</file>
+		<file>Features/Money/WebViewItem.qml</file>
 		<file>Features/News/News.js</file>
 		<file>Features/News/News.qml</file>
 		<file>Features/Overlay/GameOverlay.qml</file>
 		<file>Features/Overlay/Games/Aika.qml</file>
 		<file>Features/Overlay/Games/BS.qml</file>
+		<file>Features/Overlay/Games/Reborn.qml</file>
 		<file>Features/Overlay/OverlayBase.qml</file>
 		<file>Features/Ping/Ping.qml</file>
 		<file>Features/PublicTest/index.js</file>

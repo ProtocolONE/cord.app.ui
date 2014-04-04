@@ -1,10 +1,9 @@
 .pragma library
 
-Qt.include('./Crypt.js');
 Qt.include('./restapi.js');
 
 //Replaced during CI build
-var authVersion = "2.0.35.90fdfbf4d1a4b7d6a239ddd5aa045debb8d2cdfa"
+var authVersion = "2.0.36.4f9fa71211c6b2c9dedc8858174a14c0f0f514fc"
     , _gnLoginUrl = 'https://gnlogin.ru'
     , _gnLoginTitleApiUrl = 'gnlogin.ru'
     , _hwid
@@ -131,8 +130,9 @@ function register(login, password, callback) {
 function loginByGameNet(login, password, callback) {
     var request = new Uri(_gnLoginUrl)
         .addQueryParam('login', login)
-        .addQueryParam('passhash', Sha1.hash(password))
+        .addQueryParam('passhash', password)
         .addQueryParam('hwid', _hwid)
+        .addQueryParam('new', 1)
         .addQueryParam('json', 1);
 
     if (_captcha) {

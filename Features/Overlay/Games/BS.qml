@@ -389,6 +389,11 @@ OverlayBase.OverlayBase {
                 }
 
                 function openExternalWindow(url) {
+                    if (url == "http://gamenet.ru/money/") {
+                        over.showMoney();
+                        return;
+                    }
+
                     App.openExternalUrlWithAuth(url);
                 }
 
@@ -427,5 +432,8 @@ OverlayBase.OverlayBase {
             }
         }
 
+
+
     }
 }
+

@@ -10,7 +10,6 @@
 
 import QtQuick 1.1
 import Tulip 1.0
-import "." as Current
 import "Elements" as Elements
 import "Blocks" as Blocks
 import "Models" as Models
@@ -35,6 +34,8 @@ import "js/support.js" as Support
 import "Proxy/App.js" as App
 import "Proxy/AppProxy.js" as AppProxy
 import "Blocks/SecondWindowGame" as SecondWindowGame
+import "Features/Games/CombatArmsShop" as CombatArmsShop
+import "Features/Money/Money.js" as Money
 
 Item {
     id: mainWindowRectanglw
@@ -313,6 +314,14 @@ Item {
                     GoogleAnalytics.trackEvent('/TaskList', 'Navigation', 'Switch To Settings');
                     App.activateWindow();
                     qGNA_main.openSettings();
+                }
+
+                if (page == 'gogamenetmoney') {
+                    RestApi.Billing.isInGameRefillAvailable(function(response) {
+                        if (!Money.isOverlayEnable || !response.enabled) {
+                            mainAuthModule.openWebPage("http://www.gamenet.ru/money");
+                        }
+                    });
                 }
             }
 
@@ -730,6 +739,7 @@ Item {
                 anchors.fill: parent
                 hoverEnabled: true
                 onClicked: hideAnimation.start();
+                //onContainsMouseChanged: {};
             }
         }
 

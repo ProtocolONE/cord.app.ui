@@ -1,5 +1,6 @@
 import QtQuick 1.1
 import Tulip 1.0
+import "../../Features/Money/Money.js" as Money
 
 Item {
     id: root
@@ -34,9 +35,10 @@ Item {
 
             var component = null;
             var supportedGames = {
-                // 26.08.2031 HACK Выключено из-за проблемы на XP
+                // 26.08.2013 HACK Выключено из-за проблемы на XP
                 //'300002010000000000': 'Games/Aika.qml',
                 '300003010000000000': 'Games/BS.qml',
+                '300012010000000000': 'Games/Reborn.qml',
             }
 
             if (!supportedGames.hasOwnProperty(service)) {
@@ -54,11 +56,13 @@ Item {
                                                                  });
                     overlayInstance.init();
                     overlayInstance.forceActiveFocus();
+                    Money.isOverlayEnable = true;
 
                     var serviceFinishCallback = function(serviceId) {
                         if (service == serviceId) {
                             mainWindow.serviceFinished.disconnect(serviceFinishCallback);
                             overlayInstance.destroy();
+                            Money.isOverlayEnable = false;
                         }
                     }
 
@@ -66,9 +70,11 @@ Item {
 
                     overlayInstance.beforeClosed.connect(function() {
                         overlayInstance.destroy();
+                        Money.isOverlayEnable = false;
                     });
                 } else if (component.status === Component.Error) {
                     console.log("Error loading Overlay component:", component.errorString());
+                    Money.isOverlayEnable = false;
                 }
             }
 

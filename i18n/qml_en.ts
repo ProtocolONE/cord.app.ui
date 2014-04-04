@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="en_US">
+<TS version="2.1" language="en_US">
 <context>
     <name>AccountActivation</name>
     <message>
@@ -173,44 +173,44 @@
 <context>
     <name>Announcements</name>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="69"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="46"/>
         <source>ANNOUNCE_GAME_INSTALLED_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="70"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="47"/>
         <source>ANNOUNCE_GAME_INSTALLED_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="359"/>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="371"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="338"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="350"/>
         <source>REMINDER_NEVER_PLAYED_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="525"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="503"/>
         <source>SILENT_REMIND_POPUP_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="526"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="504"/>
         <source>SILENT_REMIND_POPUP_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="358"/>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="370"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="337"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="349"/>
         <source>REMINDER_NEVER_PLAYED_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="299"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="278"/>
         <source>REMINDER_PLAYED_LONGAGO_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="300"/>
+        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="279"/>
         <source>REMINDER_PLAYED_LONGAGO_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1357,7 +1357,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/LicenseBlock.qml" line="175"/>
+        <location filename="../Blocks/LicenseBlock.qml" line="167"/>
         <source>BUTTON_CANCEL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1449,6 +1449,14 @@
     <message>
         <location filename="../Features/Maintenance/Maintenance.qml" line="29"/>
         <source>POPUP_MAINTENANCE_END_AND_READY_TO_START</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MoneyWindow</name>
+    <message>
+        <location filename="../Features/Money/MoneyWindow.qml" line="33"/>
+        <source>MONEY_TULIP</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2446,12 +2454,12 @@
 <context>
     <name>qGNA_Main</name>
     <message>
-        <location filename="../qGNA_Main.qml" line="685"/>
+        <location filename="../qGNA_Main.qml" line="708"/>
         <source>CLOSE_APP_TOOLTIP_MESSAGE_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qGNA_Main.qml" line="686"/>
+        <location filename="../qGNA_Main.qml" line="709"/>
         <source>CLOSE_APP_TOOLTIP_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>

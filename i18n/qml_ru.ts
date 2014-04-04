@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="ru_RU">
+<TS version="2.1" language="ru_RU">
 <context>
     <name>AccountActivation</name>
     <message>
@@ -2005,6 +2005,13 @@ Please try again later.</source>
     <message>
         <source>POPUP_MAINTENANCE_END_AND_READY_TO_START</source>
         <translation>Технические работы завершены</translation>
+    </message>
+</context>
+<context>
+    <name>MoneyWindow</name>
+    <message>
+        <source>MONEY_TULIP</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

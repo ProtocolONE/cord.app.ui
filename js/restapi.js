@@ -564,6 +564,7 @@ var Core = function(options) {
     this._lang = (options && options.lang) ? options.lang : 'ru';
     this._auth = (options && options.auth) ? options.auth : false;
     this._url =  (options && options.url) ? options.url : "https://gnapi.com:8443/restapi";
+    // this._url =  (options && options.url) ? options.url : "http://api.gamenet.dev/restapi";
 
     this.__defineSetter__('lang', function(value) {
         this._lang = value;
@@ -627,7 +628,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.123.5e55a9588ff4696d5cb349c21d2bdd50fed306f7",
+    version: "@VERSION",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',
@@ -718,14 +719,19 @@ var Billing = function() {
 };
 
 Billing.purchaseItem = function(game, item, itemCount, successCallback, failedCallback) {
-	Core.execute('Billing.purchaseItem', {
-		version: 2,
-		gameId: game, 
-		itemId: item, 
-		count: itemCount
-	}, true, successCallback, failedCallback);
+    Core.execute('Billing.purchaseItem', {
+        version: 2,
+        gameId: game,
+        itemId: item,
+        count: itemCount
+    }, true, successCallback, failedCallback);
 };
-var Games = function() {
+
+Billing.isInGameRefillAvailable = function(successCallback, failedCallback) {
+    Core.execute('Billing.isInGameRefillAvailable', {
+        version: 1
+    }, true, successCallback, failedCallback);
+};var Games = function() {
 };
 
 Core.instance = undefined;

@@ -31,16 +31,17 @@ Rectangle {
     property real cHeight: flickable.contentHeight
     property real cContentY: 0
     property bool acceptToScroll: false
+    property alias baseRect: baseRect
 
     property int wheelTo
 
-    clip: true;
+    clip: true
 
     NumberAnimation {
         id: downScrollAnimation
         target: flickable;
         property: "contentY";
-        duration: (cHeight - cContentY) * 3;
+        duration: (cHeight - cContentY) * 3 < 0 ? 0 : (cHeight - cContentY) * 3;
         from: cContentY;
         to: flickable.contentHeight - parent.height;
         easing.type: Easing.Linear
@@ -62,7 +63,7 @@ Rectangle {
         id: downFastScrollAnimation
         target: flickable;
         property: "contentY";
-        duration: (cHeight - cContentY);
+        duration: (cHeight - cContentY) < 0 ? 0 : (cHeight - cContentY);
         from: cContentY;
         to: flickable.contentHeight - parent.height;
         easing.type: Easing.Linear
@@ -97,6 +98,8 @@ Rectangle {
     }
 
     Rectangle {
+        id: baseRect
+
         anchors.fill: parent
         color: "white"
         opacity: 0.2

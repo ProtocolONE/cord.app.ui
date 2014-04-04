@@ -14,7 +14,7 @@ Window {
     width: popupColumn.width
     height: 800
     deleteOnClose: false
-    visible: true
+    visible: popupColumn.children.length > 0
     topMost: true
 
     Item {
