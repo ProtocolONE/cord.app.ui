@@ -1,0 +1,418 @@
+
+// This file describes the plugin-supplied types contained in the library.
+// It is used for QML tooling purposes only.
+//
+// This file was auto-generated with the command 'E:\Qt\Qt5.2.1\5.2.1\msvc2010\bin\qml1plugindump -v -path ./plugin/Tulip'.
+
+Module {
+    Component {
+        name: "App"
+        prototype: "QObject"
+        exports: ["Tulip/App 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method { name: "arguments"; type: "QStringList" }
+        Method { name: "hwid"; type: "string" }
+    }
+    Component {
+        name: "GGS::Auth::RegistryCredentialStorage"
+        prototype: "QObject"
+        exports: ["Tulip/CredentialStorage 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method {
+            name: "save"
+            Parameter { name: "userId"; type: "string" }
+            Parameter { name: "appKey"; type: "string" }
+            Parameter { name: "cookie"; type: "string" }
+            Parameter { name: "guest"; type: "bool" }
+        }
+        Method {
+            name: "save"
+            Parameter { name: "userId"; type: "string" }
+            Parameter { name: "appKey"; type: "string" }
+            Parameter { name: "cookie"; type: "string" }
+        }
+        Method { name: "load"; type: "QVariantMap" }
+        Method { name: "reset" }
+        Method {
+            name: "setCredentialPath"
+            Parameter { name: "path"; type: "string" }
+        }
+        Method { name: "loadOldAuth"; type: "QVariantMap" }
+        Method {
+            name: "saveGuest"
+            Parameter { name: "userId"; type: "string" }
+            Parameter { name: "appKey"; type: "string" }
+            Parameter { name: "cookie"; type: "string" }
+        }
+        Method { name: "loadGuest"; type: "QVariantMap" }
+        Method {
+            name: "saveEx"
+            Parameter { name: "prefix"; type: "string" }
+            Parameter { name: "userId"; type: "string" }
+            Parameter { name: "appKey"; type: "string" }
+            Parameter { name: "cookie"; type: "string" }
+        }
+        Method {
+            name: "loadEx"
+            type: "QVariantMap"
+            Parameter { name: "prefix"; type: "string" }
+        }
+        Method {
+            name: "resetEx"
+            Parameter { name: "prefix"; type: "string" }
+        }
+    }
+    Component {
+        name: "GGS::Core::Marketing"
+        prototype: "QObject"
+        Enum {
+            name: "MarketingTarget"
+            values: {
+                "FirstRunGna": 2596,
+                "StartDownloadService": 37,
+                "FinishDownloadService": 38,
+                "FinishInstallService": 39,
+                "FirstRunService": 40,
+                "SuccessAuthInGN": 2633,
+                "AnyStartGna": 2640,
+                "TooLongInstallTime": 2650,
+                "ErrorDuringInstall": 2651,
+                "CloseService": 2660,
+                "SendDownloadServiceInfo": 2661,
+                "StartService": 2662,
+                "ClickOnMainButton": 2663,
+                "NewGameServerShowed": 2694,
+                "ClickNewGameServerPlay": 2695,
+                "InstalledWasNotRunShowed": 2696,
+                "ClickInstalledWasNotRunPlay": 2697,
+                "AfterGameAdvertisingAction": 2701,
+                "AuthByOldGnaInfo": 2720,
+                "GuestAccountRequest": 2721,
+                "GuestAccountConfirm": 2722,
+                "AnnouncementShown": 2723,
+                "AnnouncementClosedClicked": 2726,
+                "AnnouncementMissClicked": 2725,
+                "AnnouncementActionClicked": 2724,
+                "FirstRunQCS": 2727,
+                "AnyStartQCS": 2728,
+                "FirstSuccessAuthInQCS": 2729,
+                "SuccessAuthInQCS": 2730,
+                "AnyStartQGna": 2731,
+                "ProblemAfterGameStart": 2748,
+                "NotLikeTheGame": 2749,
+                "ThettaInfo": 2750,
+                "ThettaConnectFail": 2754,
+                "ThettaSendInfoFail": 2756
+            }
+        }
+        Enum {
+            name: "InstallerStep"
+            values: {
+                "InstallAcceptLicense": 2608
+            }
+        }
+    }
+    Component {
+        name: "GGS::Jabber"
+        defaultProperty: "data"
+        prototype: "QDeclarativeItem"
+        exports: ["Tulip/Jabber 1.0"]
+        exportMetaObjectRevisions: [0]
+        Property { name: "login"; type: "string" }
+        Property { name: "password"; type: "string" }
+        Property { name: "host"; type: "string" }
+        Property { name: "domain"; type: "string" }
+        Property { name: "debug"; type: "bool" }
+        Method { name: "auth" }
+        Method { name: "logout" }
+    }
+    Component {
+        name: "GGS::MarketingAdapter"
+        prototype: "GGS::Core::Marketing"
+        exports: ["Tulip/Marketing 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method {
+            name: "send"
+            Parameter { name: "target"; type: "int" }
+            Parameter { name: "serviceId"; type: "string" }
+            Parameter { name: "params"; type: "QVariantMap" }
+        }
+        Method {
+            name: "sendOnceByService"
+            Parameter { name: "target"; type: "GGS::Core::Marketing::MarketingTargets" }
+            Parameter { name: "serviceId"; type: "string" }
+            Parameter { name: "params"; type: "QVariantMap" }
+        }
+        Method {
+            name: "sendOnce"
+            Parameter { name: "target"; type: "GGS::Core::Marketing::MarketingTargets" }
+            Parameter { name: "serviceId"; type: "string" }
+            Parameter { name: "params"; type: "QVariantMap" }
+        }
+        Method { name: "mid"; type: "string" }
+    }
+    Component {
+        name: "GGS::WebView::NetworkAccessManagerInteractor"
+        prototype: "QObject"
+        exports: ["Tulip/WebViewHelper 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method { name: "clearCookies" }
+        Method { name: "clearAllCookies" }
+        Method {
+            name: "setCookiesFromUrl"
+            Parameter { name: "cookies"; type: "string" }
+            Parameter { name: "url"; type: "string" }
+        }
+        Method {
+            name: "cookiesForUrl"
+            type: "string"
+            Parameter { name: "url"; type: "string" }
+        }
+    }
+    Component {
+        name: "GameNet::Overlay::QmlOverlay"
+        defaultProperty: "data"
+        prototype: "QDeclarativeItem"
+        exports: ["Tulip/Overlay 1.0"]
+        exportMetaObjectRevisions: [0]
+        Enum {
+            name: "InputType"
+            values: {
+                "None": 0,
+                "Mouse": 1,
+                "Keyboard": 2,
+                "MouseAndKeyboard": 3
+            }
+        }
+        Property { name: "x"; type: "int" }
+        Property { name: "y"; type: "int" }
+        Property { name: "height"; type: "int" }
+        Property { name: "width"; type: "int" }
+        Property { name: "visible"; type: "bool" }
+        Property { name: "flags"; type: "int" }
+        Property { name: "windowState"; type: "Qt::WindowState" }
+        Property { name: "inputCapture"; type: "InputType" }
+        Property { name: "inputBlock"; type: "InputType" }
+        Property { name: "drawFps"; type: "bool" }
+        Method { name: "init" }
+        Method { name: "repaint" }
+        Method {
+            name: "sendMessage"
+            Parameter { name: "name"; type: "string" }
+            Parameter { name: "arg"; type: "string" }
+        }
+    }
+    Component {
+        name: "GoogleAnalytics"
+        prototype: "QObject"
+        exports: ["Tulip/GoogleAnalyticsHelper 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method { name: "systemLanguage"; type: "string" }
+        Method { name: "systemVersion"; type: "string" }
+    }
+    Component {
+        name: "QCursorArea"
+        defaultProperty: "data"
+        prototype: "QDeclarativeItem"
+        exports: ["Tulip/CursorArea 1.0"]
+        exportMetaObjectRevisions: [0]
+        Enum {
+            name: "Cursor"
+            values: {
+                "DefaultCursor": 0,
+                "ArrowCursor": 1,
+                "SizeHorCursor": 2,
+                "SizeVerCursor": 3,
+                "SizeAllCursor": 4,
+                "SplitHCursor": 5,
+                "SplitVCursor": 6,
+                "WaitCursor": 7,
+                "PointingHandCursor": 8,
+                "SizeFDiagCursor": 9,
+                "IBeamCursor": 10
+            }
+        }
+        Property { name: "cursor"; type: "Cursor" }
+    }
+    Component {
+        name: "QDesktopItem"
+        prototype: "QObject"
+        exports: ["Tulip/Desktop 1.0"]
+        exportMetaObjectRevisions: [0]
+        Property { name: "screenWidth"; type: "int"; isReadonly: true }
+        Property { name: "screenHeight"; type: "int"; isReadonly: true }
+        Property { name: "availableWidth"; type: "int"; isReadonly: true }
+        Property { name: "availableHeight"; type: "int"; isReadonly: true }
+        Property { name: "screenCount"; type: "int"; isReadonly: true }
+        Property { name: "primaryScreen"; type: "int"; isReadonly: true }
+        Property { name: "primaryScreenAvailableGeometry"; type: "QRect"; isReadonly: true }
+        Method { name: "anythingChanged" }
+        Method {
+            name: "screenGeometry"
+            type: "QRect"
+            Parameter { name: "screen"; type: "int" }
+        }
+        Method {
+            name: "screenNumber"
+            type: "int"
+            Parameter { name: "xpos"; type: "int" }
+            Parameter { name: "ypos"; type: "int" }
+        }
+        Method {
+            name: "availableGeometry"
+            type: "QRect"
+            Parameter { name: "screen"; type: "int" }
+        }
+    }
+    Component {
+        name: "QFileDialogAdapter"
+        prototype: "QObject"
+        exports: ["Tulip/QFileDialog 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method {
+            name: "getOpenFileName"
+            type: "string"
+            Parameter { name: "caption"; type: "string" }
+            Parameter { name: "dir"; type: "string" }
+            Parameter { name: "filter"; type: "string" }
+        }
+        Method {
+            name: "getExistingDirectory"
+            type: "string"
+            Parameter { name: "caption"; type: "string" }
+            Parameter { name: "dir"; type: "string" }
+        }
+    }
+    Component {
+        name: "QMultimedia"
+        prototype: "QObject"
+        exports: ["Tulip/QMultimedia 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method {
+            name: "playSound"
+            Parameter { name: "url"; type: "string" }
+        }
+    }
+    Component {
+        name: "QPing"
+        prototype: "QObject"
+        exports: ["Tulip/PingEx 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method {
+            name: "start"
+            Parameter { name: "url"; type: "string" }
+        }
+    }
+    Component {
+        name: "QWindowItem"
+        defaultProperty: "data"
+        prototype: "QDeclarativeItem"
+        exports: ["Tulip/Window 1.0"]
+        exportMetaObjectRevisions: [0]
+        Property { name: "x"; type: "int" }
+        Property { name: "y"; type: "int" }
+        Property { name: "height"; type: "int" }
+        Property { name: "width"; type: "int" }
+        Property { name: "minimumHeight"; type: "int" }
+        Property { name: "maximumHeight"; type: "int" }
+        Property { name: "minimumWidth"; type: "int" }
+        Property { name: "maximumWidth"; type: "int" }
+        Property { name: "visible"; type: "bool" }
+        Property { name: "windowDecoration"; type: "bool" }
+        Property { name: "modality"; type: "Qt::WindowModality" }
+        Property { name: "deleteOnClose"; type: "bool" }
+        Property { name: "windowState"; type: "Qt::WindowState" }
+        Property { name: "title"; type: "string" }
+        Property { name: "topMost"; type: "bool" }
+        Property { name: "flags"; type: "int" }
+        Method { name: "close" }
+        Method { name: "activate" }
+    }
+    Component {
+        name: "SettingsAdapter"
+        prototype: "QObject"
+        exports: ["Tulip/Settings 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method {
+            name: "setValue"
+            Parameter { name: "group"; type: "string" }
+            Parameter { name: "key"; type: "string" }
+            Parameter { name: "value"; type: "QVariant" }
+        }
+        Method {
+            name: "value"
+            type: "QVariant"
+            Parameter { name: "group"; type: "string" }
+            Parameter { name: "key"; type: "string" }
+            Parameter { name: "defaultValue"; type: "QVariant" }
+        }
+        Method {
+            name: "value"
+            type: "QVariant"
+            Parameter { name: "group"; type: "string" }
+            Parameter { name: "key"; type: "string" }
+        }
+    }
+    Component {
+        name: "TaskList"
+        prototype: "QObject"
+        exports: ["Tulip/TaskList 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method {
+            name: "addCategory"
+            type: "int"
+            Parameter { name: "name"; type: "string" }
+        }
+        Method {
+            name: "removeCategory"
+            Parameter { name: "id"; type: "int" }
+        }
+        Method {
+            name: "addItem"
+            type: "int"
+            Parameter { name: "categoryId"; type: "int" }
+            Parameter { name: "icon"; type: "string" }
+            Parameter { name: "name"; type: "string" }
+            Parameter { name: "description"; type: "string" }
+            Parameter { name: "params"; type: "string" }
+        }
+        Method {
+            name: "addTask"
+            type: "int"
+            Parameter { name: "icon"; type: "string" }
+            Parameter { name: "name"; type: "string" }
+            Parameter { name: "description"; type: "string" }
+            Parameter { name: "params"; type: "string" }
+        }
+        Method {
+            name: "setGuid"
+            Parameter { name: "guid"; type: "string" }
+        }
+        Method { name: "removeAllTasks" }
+        Method { name: "removeAll" }
+        Method { name: "apply" }
+    }
+    Component {
+        name: "TrayWindow"
+        prototype: "QObject"
+        exports: ["Tulip/TrayWindow 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method {
+            name: "install"
+            Parameter { name: "icon"; type: "string" }
+        }
+        Method {
+            name: "setToolTip"
+            Parameter { name: "toolTip"; type: "string" }
+        }
+        Method { name: "hide" }
+    }
+    Component {
+        name: "WheelArea"
+        defaultProperty: "data"
+        prototype: "QDeclarativeItem"
+        exports: ["Tulip/WheelArea 1.0"]
+        exportMetaObjectRevisions: [0]
+    }
+    Component { name: "QEasingCurve"; prototype: "QDeclarativeEasingValueType" }
+}
