@@ -175,14 +175,13 @@ Item {
             return installPath + '/Sounds/Features/Guide/' + index + '.wma';
         }
 
-        volume: inner.isSoundEnabled ? 1 : 0
+        volume: inner.isSoundEnabled ? 100 : 0
         source: soundPath(inner.currentIndex)
 
         Behavior on volume {
             NumberAnimation { duration: 300 }
         }
     }
-
 
     Row {
         id: controlls
