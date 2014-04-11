@@ -3,7 +3,7 @@
 Qt.include('./restapi.js');
 
 //Replaced during CI build
-var authVersion = "2.0.36.4f9fa71211c6b2c9dedc8858174a14c0f0f514fc"
+var authVersion = "2.0.37.6713d091e97ad106e33c67cb8e358eb7a4e4a261"
     , _gnLoginUrl = 'https://gnlogin.ru'
     , _gnLoginTitleApiUrl = 'gnlogin.ru'
     , _hwid
@@ -325,7 +325,7 @@ ProviderVk.prototype.link = function(callback) {
             return;
         }
 
-        self.browser.webView.loadFailed.connect(function() { self.loadFailed(callback); });
+        self.browser.webView.loadFailedFixed.connect(function() { self.loadFailed(callback); });
         self.browser.webView.titleChanged.connect(function(title) { self.linkTitleChanged(title, callback); });
         self.browser.webView.urlChanged.connect(function(url) { self.urlChanged(url, callback); });
         self.browser.webView.url = self.getUrl('action=link');
@@ -352,7 +352,7 @@ ProviderVk.prototype.login = function(callback) {
             return;
         }
 
-        self.browser.webView.loadFailed.connect(function() { self.loadFailed(callback); });
+        self.browser.webView.loadFailedFixed.connect(function() { self.loadFailed(callback); });
         self.browser.webView.titleChanged.connect(function(title) { self.loginTitleChanged(title, callback); });
         self.browser.webView.urlChanged.connect(function(url) { self.urlChanged(url, callback); });
         self.browser.webView.url = self.getUrl('qGNA=1');
