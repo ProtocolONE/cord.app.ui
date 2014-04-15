@@ -97,7 +97,7 @@ Item {
             text: qsTr("TEXT_VERSION").arg(updateManger.item ? updateManger.item.fileVersion : "Debug")
             anchors { right: parent.right; rightMargin: 32;  }
             anchors { baseline: startingGameNetText.baseline; }
-            font { family: "Segoe UI"; pixelSize: 11; weight: Font.DemiBold; }
+            font { family: "Segoe UI"; pixelSize: 11; }
             opacity: 0.5
             smooth: true
         }

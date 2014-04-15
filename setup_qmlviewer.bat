@@ -21,7 +21,7 @@
 @xcopy /Y /I /R /E "%QGNACOMMONDIR%\GGS\Overlay\%OverlayArea%\bin\QmlOverlayX86.dll" .\plugin\Tulip\
 @xcopy /Y /I /R /E "%QGNACOMMONDIR%\GGS\QmlExtension\%QmlExtensionArea%\bin\QmlExtensionX86.dll" .\plugin\Tulip\
 
-%QTDIR%\bin\qml1plugindump -v -path ./plugin/Tulip > ./plugin/Tulip/plugins.qmltypes
+%QTDIR%\bin\qml1plugindump -path ./plugin/Tulip > ./plugin/Tulip/plugins.qmltypes
 
 @echo Done.
 

@@ -627,7 +627,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.127.3d82f8046596c90a0c60f4d3d163291dd39fa9ac",
+    version: "1.0.128.aafe3b40e72af569e2e3a224d4cf8eb0d7e22dfa",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',
@@ -866,7 +866,7 @@ Billing.purchaseItem = function(game, item, itemCount, successCallback, failedCa
 };
 
 Billing.isInGameRefillAvailable = function(successCallback, failedCallback) {
-    Core.execute('Billing.isInGameRefillAvailable', {
+    Core.execute('billing.isInGameRefillAvailable', {
         version: 1
     }, true, successCallback, failedCallback);
 };var Games = function() {

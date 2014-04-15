@@ -60,6 +60,7 @@ Item {
             window.y = (mouseY + window.height > yLimit) ? (yLimit - window.height - space) : mouseY
 
             window.visible = true;
+            window.activate();
         }
 
         function hide() {
@@ -87,7 +88,6 @@ Item {
         Rectangle {
             width:  window.width - 1
             height: window.height - 1
-
 
             color: '#06335a'
 
