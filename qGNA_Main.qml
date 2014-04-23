@@ -112,19 +112,39 @@ Item {
         id: jabber
 
         property int failCount: 0
+        property string failDate: ""
 
         login: UserInfo.userId()
         password: Qt.md5(UserInfo.appKey())
+
         host: "qj.gamenet.ru"
         domain: "qj.gamenet.ru"
 
         onError: {
+            var today = Qt.formatDateTime(new Date(), "dd.MM.yyyy");
+
+            if (jabber.failDate != today) {
+                jabber.failCount = 0;
+                jabber.failDate = today;
+            }
+
             jabber.failCount += 1;
-            GoogleAnalytics.trackEvent('/jabber/0.1/', 'Error', 'Code ' + code, "Try count" + jabber.failCount);
+
+            if (jabber.failCount <= 14) {
+                console.log('Jabber error sended Code: ', code, 'Count: ', jabber.failCount, ' Today: ', jabber.failDate);
+            }
+
+            if ((jabber.failCount === 1) // 10 секунд - бывает.
+                || (jabber.failCount === 4) // 40 секунд лучше бы столько клиенту не ждать.
+                || (jabber.failCount === 14)) // 340 секунд - это уже недопустимо.
+            {
+                GoogleAnalytics.trackEvent('/jabber/0.2/', 'Error', 'Code ' + code, "Try count" + jabber.failCount);
+            }
         }
 
         onConnected: {
             jabber.failCount = 0;
+            console.log('Jabber connected.');
         }
 
         Connections {
