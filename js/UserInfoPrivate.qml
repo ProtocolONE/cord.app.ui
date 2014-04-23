@@ -9,6 +9,7 @@
 ****************************************************************************/
 import QtQuick 1.1
 import "./restapi.js" as RestApi
+import "./Core.js" as Core
 
 Item {
     id: root
@@ -33,13 +34,14 @@ Item {
     signal logoutDone();
 
     function refreshPremium() {
-        premiumDirationTimer.stop();
+        premiumDurationTimer.stop();
         RestApi.Premium.getStatus(function(response) {
-            var duration = response ? (response.duration | 0) : 0
+            var duration = response ? (response.duration | 0) : 0;
             if (duration > 0) {
                 root.isPremium = true;
                 root.premiumDuration = duration;
-                premiumDirationTimer.start();
+                premiumExpiredTimer.stop();
+                premiumDurationTimer.start();
             } else {
                 root.isPremium = false;
                 root.premiumDuration = 0;
@@ -65,7 +67,7 @@ Item {
     }
 
     Timer {
-        id: premiumDirationTimer
+        id: premiumDurationTimer
 
         interval: 60000
         triggeredOnStart: false
@@ -73,12 +75,24 @@ Item {
         onTriggered: {
             var duration = root.premiumDuration - 60;
             if (duration <= 0) {
+                if(root.premiumDuration > 0) {
+                    premiumExpiredTimer.start();
+                }
                 root.premiumDuration = 0;
                 root.isPremium = false;
                 root.refreshPremium();
             } else {
                 root.premiumDuration = duration;
             }
+        }
+    }
+
+    Timer {
+        id: premiumExpiredTimer
+
+        interval: 3600000
+        onTriggered: {
+            Core.premiumExpired();
         }
     }
 }

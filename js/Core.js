@@ -25,6 +25,10 @@ function openBuyGamenetPremiumPage() {
     _signalBusInst.openBuyGamenetPremiumPage();
 }
 
+function premiumExpired() {
+   _signalBusInst.premiumExpired();
+}
+
 function hideMainWindow() {
     _signalBusInst.hideMainWindow();
 }

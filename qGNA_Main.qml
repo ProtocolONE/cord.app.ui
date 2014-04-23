@@ -35,7 +35,7 @@ import "Proxy/App.js" as App
 import "Proxy/AppProxy.js" as AppProxy
 import "Blocks/SecondWindowGame" as SecondWindowGame
 import "Features/Games/CombatArmsShop" as CombatArmsShop
-import "Features/Money/Money.js" as Money
+import "Features/Premium" as Premium
 
 Item {
     id: mainWindowRectanglw
@@ -486,7 +486,23 @@ Item {
 
             Connections {
                 target: Core.signalBus()
-                onOpenBuyGamenetPremiumPage: buyPage.openMoveUpPage();
+                onOpenBuyGamenetPremiumPage: {
+                    mainWindow.activateWindow();
+                    buyPage.openMoveUpPage();
+                }
+
+            }
+        }
+
+        Premium.PremiumNotifier {
+            id: premiumNotifier
+
+            Connections {
+                target: Core.signalBus()
+                onPremiumExpired: {
+                    premiumNotifier.showPremiumExpiredPopup();
+                    mainWindow.terminateSecondService();
+                }
             }
         }
 
@@ -632,9 +648,9 @@ Item {
             onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
         }
 
-//        CombatArmsShop.PurchaseDetails {
-//            id: combatArmsPurchaseDetails;
-//        }
+        //        CombatArmsShop.PurchaseDetails {
+        //            id: combatArmsPurchaseDetails;
+        //        }
 
         Guide.WellcomeGuide {
             id: guide

@@ -2216,6 +2216,17 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>PremiumNotifier</name>
+    <message>
+        <source>PREMIUM_EXPIRED_BUTTON_CAPTION</source>
+        <translation>Продлить</translation>
+    </message>
+    <message>
+        <source>PREMIUM_EXPIRED_MESSAGE</source>
+        <translation>Действие расширенного аккаунта закончилось.</translation>
+    </message>
+</context>
+<context>
     <name>ProgressWidget</name>
     <message>
         <source>DOWNLOAD_COMPLETE %1 FROM %2 (%3%)</source>
