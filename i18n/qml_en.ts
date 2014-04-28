@@ -433,6 +433,19 @@
     </message>
 </context>
 <context>
+    <name>CaptchaInput</name>
+    <message>
+        <location filename="../Pages/Auth/CaptchaInput.qml" line="55"/>
+        <source>CAPTCHA_INPUT_PLACEHOLDER</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/Auth/CaptchaInput.qml" line="87"/>
+        <source>CAPTCHA_INPUT_REFRESH_BUTTON_TOOLTIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CodeBody</name>
     <message>
         <location filename="../Pages/Auth/CodeBody.qml" line="80"/>
@@ -1024,6 +1037,14 @@
     </message>
 </context>
 <context>
+    <name>GameLoadSample</name>
+    <message>
+        <location filename="../Samples/GameLoadSample.qml" line="12"/>
+        <source>GAMELOAD_STARTING_GAME_NAME_HEADER</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>GamesListModel</name>
     <message>
         <location filename="../Models/GamesListModel.qml" line="150"/>
@@ -1602,6 +1623,69 @@
     </message>
 </context>
 <context>
+    <name>Main</name>
+    <message>
+        <location filename="../Blocks2/Premium/Main.qml" line="86"/>
+        <source>PREMIUM_ACCOUNT_HEADER_TEXT_BLOCK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks2/Premium/Main.qml" line="115"/>
+        <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks2/Premium/Main.qml" line="145"/>
+        <source>ONE_DAY_PREMIUM_TRADIO_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks2/Premium/Main.qml" line="150"/>
+        <source>WEEK_PREMIUM_TRADIO_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks2/Premium/Main.qml" line="155"/>
+        <source>MONTH_PREMIUM_TRADIO_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks2/Premium/Main.qml" line="160"/>
+        <source>3_MONTH_PREMIUM_TRADIO_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks2/Premium/Main.qml" line="203"/>
+        <source>NOT_ENOUGH_MONEY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks2/Premium/Main.qml" line="233"/>
+        <source>ADD_MONEY_BUTTON_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks2/Premium/Main.qml" line="253"/>
+        <source>MONEY_TOTAL %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks2/Premium/Main.qml" line="278"/>
+        <source>ACCEPT_BUY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks2/GameLoad/Main.qml" line="150"/>
+        <source>PAUSE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks2/GameLoad/Main.qml" line="164"/>
+        <source>SHOW_STATISTICS</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Maintenance</name>
     <message>
         <location filename="../Blocks/GameSwitch/Maintenance.qml" line="66"/>
@@ -1815,6 +1899,14 @@
     </message>
 </context>
 <context>
+    <name>PayItem</name>
+    <message>
+        <location filename="../Blocks2/Premium/PayItem.qml" line="31"/>
+        <source>ONE_DAY_PREMIUM_TRADIO_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Ping</name>
     <message>
         <location filename="../Features/Ping/Ping.qml" line="160"/>
@@ -1860,21 +1952,28 @@
         <location filename="../Blocks/ProgressWidget.qml" line="85"/>
         <location filename="../Blocks/ProgressWidget.qml" line="96"/>
         <location filename="../Blocks/ProgressWidget.qml" line="134"/>
+        <location filename="../Blocks2/GameLoad/ProgressWidget.qml" line="70"/>
+        <location filename="../Blocks2/GameLoad/ProgressWidget.qml" line="92"/>
+        <location filename="../Blocks2/GameLoad/ProgressWidget.qml" line="107"/>
+        <location filename="../Blocks2/GameLoad/ProgressWidget.qml" line="121"/>
         <source>%1/seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Blocks/ProgressWidget.qml" line="25"/>
+        <location filename="../Blocks2/GameLoad/ProgressWidget.qml" line="29"/>
         <source>%1 KB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Blocks/ProgressWidget.qml" line="29"/>
+        <location filename="../Blocks2/GameLoad/ProgressWidget.qml" line="33"/>
         <source>%1 MB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Blocks/ProgressWidget.qml" line="32"/>
+        <location filename="../Blocks2/GameLoad/ProgressWidget.qml" line="36"/>
         <source>%1 GB</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1885,47 +1984,66 @@
     </message>
     <message>
         <location filename="../Blocks/ProgressWidget.qml" line="74"/>
+        <location filename="../Blocks2/GameLoad/ProgressWidget.qml" line="91"/>
         <source>DOWNLOAD_PEER_DOWNLOAD_SPEED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Blocks/ProgressWidget.qml" line="85"/>
+        <location filename="../Blocks2/GameLoad/ProgressWidget.qml" line="106"/>
         <source>DOWNLOAD_PEER_DIRECT_SPEED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Blocks/ProgressWidget.qml" line="96"/>
+        <location filename="../Blocks2/GameLoad/ProgressWidget.qml" line="120"/>
         <source>DOWNLOAD_PEER_UPLOAD_SPEED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Blocks/ProgressWidget.qml" line="111"/>
+        <location filename="../Blocks2/GameLoad/ProgressWidget.qml" line="48"/>
         <source>DOWNLOAD_COMPLETE_FROM_TO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Blocks/ProgressWidget.qml" line="125"/>
+        <location filename="../Blocks2/GameLoad/ProgressWidget.qml" line="60"/>
         <source>DOWNLOAD_COMPLETE_TOTAL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Blocks/ProgressWidget.qml" line="134"/>
+        <location filename="../Blocks2/GameLoad/ProgressWidget.qml" line="69"/>
         <source>DOWNLOAD_SPEED_TOTAL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Blocks/ProgressWidget.qml" line="149"/>
+        <location filename="../Blocks2/GameLoad/ProgressWidget.qml" line="84"/>
         <source>DOWNLOAD_PEER_DOWNLOAD_TOTAL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Blocks/ProgressWidget.qml" line="158"/>
+        <location filename="../Blocks2/GameLoad/ProgressWidget.qml" line="98"/>
         <source>DOWNLOAD_PEER_DIRECT_TOTAL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Blocks/ProgressWidget.qml" line="167"/>
+        <location filename="../Blocks2/GameLoad/ProgressWidget.qml" line="113"/>
         <source>DOWNLOAD_PEER_UPLOAD_TOTAL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks2/GameLoad/ProgressWidget.qml" line="20"/>
+        <source>DOWNLOAD_STATUS_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Blocks2/GameLoad/ProgressWidget.qml" line="49"/>
+        <source>DOWNLOAD_COMPLETE_FROM_TO_PERCENT</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

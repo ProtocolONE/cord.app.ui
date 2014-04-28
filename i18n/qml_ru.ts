@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ru_RU">
+<TS version="2.0" language="ru_RU">
 <context>
     <name>AccountActivation</name>
     <message>
@@ -839,6 +839,17 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>CaptchaInput</name>
+    <message>
+        <source>CAPTCHA_INPUT_PLACEHOLDER</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CAPTCHA_INPUT_REFRESH_BUTTON_TOOLTIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CheckListBox</name>
     <message>
         <source>Russian</source>
@@ -1380,6 +1391,64 @@ Please try again later.</source>
     <message>
         <source>GAME_FAILED_BUTTON_CLOSE</source>
         <translation>Закрыть окно</translation>
+    </message>
+</context>
+<context>
+    <name>GameLoad</name>
+    <message>
+        <source>PAUSE</source>
+        <translation type="obsolete">Пауза</translation>
+    </message>
+    <message>
+        <source>SHOW_STATISTICS</source>
+        <translation type="obsolete">Показать статистику</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_COMPLETED_TEXT</source>
+        <translation type="obsolete">Завершено</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_COMPLETED_TOTAL_TEXT</source>
+        <translation type="obsolete">Загружено</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_COMPLETED_TOTAL_SPEED_TEXT</source>
+        <translation type="obsolete">Скорость загрузки данных</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_DOWNLOAD_TOTAL</source>
+        <translation type="obsolete">Пиринговая загрузка:</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_DOWNLOAD_SPEED</source>
+        <translation type="obsolete">Скорость пиринговой загрузки:</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_PAYLOAD_TOTAL</source>
+        <translation type="obsolete">Прямая загрузка:</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_PAYLOAD_SPEED</source>
+        <translation type="obsolete">Скорость прямой загрузки:</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_UPLOAD_TOTAL</source>
+        <translation type="obsolete">Отправленно:</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_UPLOAD_SPEED</source>
+        <translation type="obsolete">Скорость отправки:</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_STATUS_TEXT</source>
+        <translation type="obsolete">Идет загрузка игры: %1 из %2 </translation>
+    </message>
+</context>
+<context>
+    <name>GameLoadSample</name>
+    <message>
+        <source>GAMELOAD_STARTING_GAME_NAME_HEADER</source>
+        <translation type="unfinished">Запуск BS.ru Demonion</translation>
     </message>
 </context>
 <context>
@@ -2118,6 +2187,61 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>Main</name>
+    <message>
+        <source>PREMIUM_ACCOUNT_HEADER_TEXT_BLOCK</source>
+        <translation type="unfinished">Расширенный аккаунт</translation>
+    </message>
+    <message>
+        <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
+        <translation type="unfinished">Расширенный аккаунт GameNet - возможность играть двумя аккаунтами одновременно в игры BS.ru, Aika 2 и Reborn. Мы постоянно добавляем в расширенный аккаунт новые приятные бонусы. &lt;a href=&quot;bonus&quot;&gt;Подробности здесь.&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>ONE_DAY_PREMIUM_TRADIO_TEXT</source>
+        <translation type="unfinished">1 день</translation>
+    </message>
+    <message>
+        <source>WEEK_PREMIUM_TRADIO_TEXT</source>
+        <translation type="unfinished">7 дней</translation>
+    </message>
+    <message>
+        <source>MONTH_PREMIUM_TRADIO_TEXT</source>
+        <translation type="unfinished">30 дней</translation>
+    </message>
+    <message>
+        <source>3_MONTH_PREMIUM_TRADIO_TEXT</source>
+        <translation type="unfinished">90 дней</translation>
+    </message>
+    <message>
+        <source>MONEY_TOTAL %1</source>
+        <translation type="unfinished">Итоговая стоимость: &lt;font color=#f77960&gt;%1&lt;/font&gt; GN</translation>
+    </message>
+    <message>
+        <source>ACCEPT_BUY</source>
+        <translation type="unfinished">Подтвердите покупку</translation>
+    </message>
+    <message>
+        <source>NOT_ENOUGH_MONEY</source>
+        <translation type="unfinished">На счету недостаточно GN-монет</translation>
+    </message>
+    <message>
+        <source>ADD_MONEY_BUTTON_TEXT</source>
+        <translation type="unfinished">Пополнить счет</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_STATUS_TEXT</source>
+        <translation type="obsolete">Идет загрузка игры: %1 из %2 </translation>
+    </message>
+    <message>
+        <source>PAUSE</source>
+        <translation type="unfinished">Пауза</translation>
+    </message>
+    <message>
+        <source>SHOW_STATISTICS</source>
+        <translation type="unfinished">Показать статистику</translation>
+    </message>
+</context>
+<context>
     <name>Maintenance</name>
     <message>
         <source>MAINTENANCE_FIRST_TITLE</source>
@@ -2339,6 +2463,13 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>PayItem</name>
+    <message>
+        <source>ONE_DAY_PREMIUM_TRADIO_TEXT</source>
+        <translation type="unfinished">1 день</translation>
+    </message>
+</context>
+<context>
     <name>Ping</name>
     <message>
         <source>HEADER_TITLE</source>
@@ -2351,6 +2482,33 @@ Please try again later.</source>
     <message>
         <source>MESSAGE_INTERNET_UNAVAILABLE</source>
         <translation>В настоящий момент сервисы GameNet недоступны. Вероятно по нашей вине, но, возможно, это ваше интернет-соединение. Пожалуйста, на всякий случай проверьте ваше соединение.</translation>
+    </message>
+</context>
+<context>
+    <name>Premium</name>
+    <message>
+        <source>PREMIUM_ACCOUNT_HEADER_TEXT_BLOCK</source>
+        <translation>Расширенный аккаунт</translation>
+    </message>
+    <message>
+        <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
+        <translation type="obsolete">Расширенный аккаунт GameNet - возможность играть двумя аккаунтами одновременно в игры BS.ru, Aika 2 и Reborn. Мы постоянно добавляем в расширенный аккаунт новые приятные бонусы. &lt;a href=&quot;bonus&quot;&gt;Подробности здесь.&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>ONE_DAY_PREMIUM_TRADIO_TEXT</source>
+        <translation type="obsolete">1 день</translation>
+    </message>
+    <message>
+        <source>WEEK_PREMIUM_TRADIO_TEXT</source>
+        <translation type="obsolete">7 дней</translation>
+    </message>
+    <message>
+        <source>MONTH_PREMIUM_TRADIO_TEXT</source>
+        <translation type="obsolete">30 дней</translation>
+    </message>
+    <message>
+        <source>3_MONTH_PREMIUM_TRADIO_TEXT</source>
+        <translation type="obsolete">90 дней</translation>
     </message>
 </context>
 <context>
@@ -2439,39 +2597,67 @@ Please try again later.</source>
     </message>
     <message>
         <source>DOWNLOAD_PEER_DOWNLOAD_SPEED</source>
-        <translation>Скорость пиринговой загрузки: %1</translation>
+        <translation type="unfinished">Скорость пиринговой загрузки:</translation>
     </message>
     <message>
         <source>DOWNLOAD_PEER_DIRECT_SPEED</source>
-        <translation>Скорость прямой загрузки: %1</translation>
+        <translation type="unfinished">Скорость прямой загрузки:</translation>
     </message>
     <message>
         <source>DOWNLOAD_PEER_UPLOAD_SPEED</source>
-        <translation>Скорость отправки: %1</translation>
+        <translation type="unfinished">Скорость отправки:</translation>
     </message>
     <message>
         <source>DOWNLOAD_COMPLETE_FROM_TO</source>
-        <translation>Завершено: %1 из %2 (%3%)</translation>
+        <translation type="unfinished">Завершено:</translation>
     </message>
     <message>
         <source>DOWNLOAD_COMPLETE_TOTAL</source>
-        <translation>Загружено: %1</translation>
+        <translation type="unfinished">Загружено:</translation>
     </message>
     <message>
         <source>DOWNLOAD_SPEED_TOTAL</source>
-        <translation>Скорость загрузки данных %1</translation>
+        <translation type="unfinished">Скорость загрузки данных</translation>
     </message>
     <message>
         <source>DOWNLOAD_PEER_DOWNLOAD_TOTAL</source>
-        <translation>Пиринговая загрузка: %1</translation>
+        <translation type="unfinished">Пиринговая загрузка:</translation>
     </message>
     <message>
         <source>DOWNLOAD_PEER_DIRECT_TOTAL</source>
-        <translation>Прямая загрузка: %1</translation>
+        <translation type="unfinished">Прямая загрузка:</translation>
     </message>
     <message>
         <source>DOWNLOAD_PEER_UPLOAD_TOTAL</source>
-        <translation>Отправленно: %1</translation>
+        <translation type="unfinished">Отправленно:</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_COMPLETED_TEXT</source>
+        <translation type="obsolete">Завершено</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_COMPLETED_TOTAL_TEXT</source>
+        <translation type="obsolete">Загружено</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_COMPLETED_TOTAL_SPEED_TEXT</source>
+        <translation type="obsolete">Скорость загрузки данных</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_PAYLOAD_TOTAL</source>
+        <translation type="obsolete">Прямая загрузка:</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_PEER_PAYLOAD_SPEED</source>
+        <translation type="obsolete">Скорость прямой загрузки:</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_COMPLETE_FROM_TO_PERCENT</source>
+        <translation type="unfinished">%1 из %2 (%3%)</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_STATUS_TEXT</source>
+        <translation type="unfinished">Идет загрузка игры: %1 из %2... </translation>
     </message>
 </context>
 <context>

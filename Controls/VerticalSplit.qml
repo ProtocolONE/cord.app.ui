@@ -10,19 +10,21 @@
 import QtQuick 1.1
 
 Item {
+    property variant style: SplitterStyleColors {}
+
     implicitWidth: 2
     implicitHeight: 100
 
     Rectangle {
         width: 1
         height: parent.height
-        color: "#171c2c"
+        color: style.main
     }
 
     Rectangle {
         x: 1
         width: 1
         height: parent.height
-        color: "#162e43"
+        color: style.shadow
     }
 }

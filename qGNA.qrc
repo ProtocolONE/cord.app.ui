@@ -1,7 +1,5 @@
 ﻿<RCC>
 	<qresource prefix="/">
-		<file>appw/WidgetBase.qml</file>
-		<file>appw/WidgetManager.js</file>
 		<file>Blocks/AccountActivation.qml</file>
 		<file>Blocks/AlertAdapter.qml</file>
 		<file>Blocks/Auth.qml</file>
@@ -44,11 +42,19 @@
 		<file>Blocks/Tray.qml</file>
 		<file>Blocks/TryLoader.qml</file>
 		<file>Blocks/UserInfo.qml</file>
+		<file>Blocks2/GameLoad/HorizontalSplitterStyleColors.qml</file>
+		<file>Blocks2/GameLoad/Main.qml</file>
+		<file>Blocks2/GameLoad/ProgressWidget.qml</file>
+		<file>Blocks2/GameLoad/StatInfoElementBig.qml</file>
+		<file>Blocks2/GameLoad/StatInfoElementSmall.qml</file>
+		<file>Blocks2/GameLoad/TextButtonStyle.qml</file>
 		<file>Blocks2/GameMenu.qml</file>
 		<file>Blocks2/GameMenu/GameMenuItem.qml</file>
 		<file>Blocks2/Header.qml</file>
 		<file>Blocks2/Header/HeaderButton.qml</file>
 		<file>Blocks2/Header/HeaderControlButton.qml</file>
+		<file>Blocks2/Premium/Main.qml</file>
+		<file>Blocks2/Premium/PayItem.qml</file>
 		<file>Controls/Button.qml</file>
 		<file>Controls/ButtonBehavior.qml</file>
 		<file>Controls/ButtonStyleColors.qml</file>
@@ -71,14 +77,13 @@
 		<file>Controls/ProgressBarStyleColors.qml</file>
 		<file>Controls/RadioButton.qml</file>
 		<file>Controls/ScrollBar.qml</file>
+		<file>Controls/SplitterStyleColors.qml</file>
 		<file>Controls/Switcher.js</file>
 		<file>Controls/Switcher.qml</file>
-		<file>Controls/test/WidgetBase.qml</file>
 		<file>Controls/TextButton.qml</file>
 		<file>Controls/TopErrorContainer.qml</file>
 		<file>Controls/TypeaheadBehaviour.qml</file>
 		<file>Controls/VerticalSplit.qml</file>
-		<file>Controls/qmldir</file>
 		<file>Delegates/FlowViewDelegate.qml</file>
 		<file>Delegates/GameIconDelegate.qml</file>
 		<file>Delegates/HomeItem.qml</file>
@@ -225,11 +230,12 @@
 		<file>qGNA_Main.qml</file>
 		<file>Samples/ButtonSample.qml</file>
 		<file>Samples/ErrorContainerSample.qml</file>
+		<file>Samples/GameLoadSample.qml</file>
 		<file>Samples/GameMenuSample.qml</file>
 		<file>Samples/InputSample.qml</file>
+		<file>Samples/PremiumSample.qml</file>
 		<file>Samples/ProgressBarSample.qml</file>
 		<file>TestMenuModel.qml</file>
 		<file>TestParalax.qml</file>
-		<file>VerticalFlickable.qml</file>
 	</qresource>
 </RCC>

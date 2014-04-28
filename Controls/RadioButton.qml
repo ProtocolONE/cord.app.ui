@@ -15,8 +15,12 @@ Item {
     property ButtonStyleColors style: ButtonStyleColors {}
 
     property alias text: controlText.text
+    property alias controlText: controlText
+
     property alias fontSize: controlText.font.pixelSize
     property bool checked: false
+    property alias containsMouse: buttonBehavior.containsMouse
+    property alias spacing: row.spacing
 
     property alias toolTip: buttonBehavior.toolTip
     property alias tooltipPosition: buttonBehavior.tooltipPosition
@@ -26,6 +30,8 @@ Item {
     signal toggled(bool isChecked)
 
     Row {
+        id: row
+
         anchors.verticalCenter: parent.verticalCenter
         spacing: 5
 
@@ -75,7 +81,6 @@ Item {
         anchors.fill: parent
         onClicked: {
             control.clicked(mouse);
-            control.checked = !control.checked;
             control.toggled(control.checked);
         }
     }
