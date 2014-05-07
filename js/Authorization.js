@@ -3,7 +3,7 @@
 Qt.include('./restapi.js');
 
 //Replaced during CI build
-var authVersion = "2.0.37.6713d091e97ad106e33c67cb8e358eb7a4e4a261"
+var authVersion = "2.0.39.ac313be24ea64659b590784c28ff62c5b8522ed2"
     , _gnLoginUrl = 'https://gnlogin.ru'
     , _gnLoginTitleApiUrl = 'gnlogin.ru'
     , _hwid
@@ -192,6 +192,7 @@ var _private = {
         var credential;
 
         if (response.status !== 200) {
+            console.log('Auth error. Response status: ', response.status);
             callback(Result.UnknownError);
             return;
         }
@@ -201,16 +202,19 @@ var _private = {
         try {
             credential = JSON.parse(response.body);
         } catch (e) {
+            console.log('Auth error. Json parse failed. Bad response: ', response.body);
             callback(Result.UnknownError);
             return;
         }
 
         if (!credential.hasOwnProperty('response')) {
+            console.log('Auth error. Response is empty. Bad response: ', response.body);
             callback(Result.UnknownError, credential);
             return;
         }
 
         if (credential.response.hasOwnProperty('error')) {
+            console.log('Auth error. Response has error. Bad response: ', response.body);
             callback(_private.remapErrorCode(credential.response.error.code), credential.response.error);
             return;
         }
