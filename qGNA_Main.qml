@@ -775,7 +775,6 @@ Item {
                 anchors.fill: parent
                 hoverEnabled: true
                 onClicked: hideAnimation.start();
-                //onContainsMouseChanged: {};
             }
         }
 
