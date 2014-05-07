@@ -32,6 +32,9 @@ Item {
     property bool iconHovered: false
     property alias iconCursor: iconMouseCursor.cursor
 
+    property alias inputMask: inputBehavior.inputMask
+    property alias validator: inputBehavior.validator
+
     signal iconClicked()
 
     onFocusChanged: {
@@ -268,6 +271,7 @@ Item {
                     Image {
                         id: languageImage
 
+                        source: ""
                         anchors.centerIn: parent
                     }
 

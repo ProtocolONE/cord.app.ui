@@ -184,6 +184,33 @@
     </message>
 </context>
 <context>
+    <name>ApplicationSettings</name>
+    <message>
+        <source>APPLICATION_SETTINGS_TITLE</source>
+        <translation>Настройки приложения GameNet</translation>
+    </message>
+    <message>
+        <source>GENERAL_TAB</source>
+        <translation>Основные</translation>
+    </message>
+    <message>
+        <source>DOWNLOADS_TAB</source>
+        <translation>Загрузка</translation>
+    </message>
+    <message>
+        <source>NOTIFICATIONS_TAB</source>
+        <translation>Уведомления</translation>
+    </message>
+    <message>
+        <source>RESTORE_SETTINGS</source>
+        <translation>Загрузить настройки по умолчанию</translation>
+    </message>
+    <message>
+        <source>OK_BUTTON_LABEL</source>
+        <translation>Ок</translation>
+    </message>
+</context>
+<context>
     <name>Auth</name>
     <message>
         <source>Login</source>
@@ -1105,6 +1132,61 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>DownloadSettings</name>
+    <message>
+        <source>DOWNLOAD_LIMIT</source>
+        <translation>Ограничение скорости загрузки</translation>
+    </message>
+    <message>
+        <source>UPLOAD_LIMIT</source>
+        <translation>Ограничение скорости отдачи</translation>
+    </message>
+    <message>
+        <source>SPEED_UNLIMITED</source>
+        <translation>Неограниченно</translation>
+    </message>
+    <message>
+        <source>SPEED_50</source>
+        <translation>50 КБайт/с</translation>
+    </message>
+    <message>
+        <source>SPEED_200</source>
+        <translation>200 КБайт/с</translation>
+    </message>
+    <message>
+        <source>SPEED_500</source>
+        <translation>500 КБайт/с</translation>
+    </message>
+    <message>
+        <source>SPEED_1000</source>
+        <translation>1000 КБайт/с</translation>
+    </message>
+    <message>
+        <source>SPEED_2000</source>
+        <translation>2000 КБайт/с</translation>
+    </message>
+    <message>
+        <source>SPEED_5000</source>
+        <translation>5000 КБайт/с</translation>
+    </message>
+    <message>
+        <source>INCOMING_PORT</source>
+        <translation>Порт для входящих соединений</translation>
+    </message>
+    <message>
+        <source>PORT_AUTO</source>
+        <translation>Авто</translation>
+    </message>
+    <message>
+        <source>CONNECTION_COUNT</source>
+        <translation>Количество одновременных соединений</translation>
+    </message>
+    <message>
+        <source>PARTICIPATE_SEEDING</source>
+        <translation>Участвовать в раздаче игр</translation>
+    </message>
+</context>
+<context>
     <name>EnterNickname</name>
     <message>
         <source>TITLE_SET_NICKNAME</source>
@@ -1375,6 +1457,25 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>GameGeneralSettings</name>
+    <message>
+        <source>BUTTON_CREATE_DESKTOP_SHORTCUT</source>
+        <translation>Ярлык на рабочем столе</translation>
+    </message>
+    <message>
+        <source>BUTTON_CREATE_START_MENU_SHORTCUT</source>
+        <translation>Ярлык в меню пуск</translation>
+    </message>
+    <message>
+        <source>GAME_INSTALL_PATH</source>
+        <translation>Путь установки игры</translation>
+    </message>
+    <message>
+        <source>DISTRIB_INSTALL_PATH</source>
+        <translation>Путь установки дистрибутивов</translation>
+    </message>
+</context>
+<context>
     <name>GameIsBoring</name>
     <message>
         <source>GAME_BORING_TITLE</source>
@@ -1456,6 +1557,40 @@ Please try again later.</source>
     <message>
         <source>OPEN_WEB_SHOP_BUTTON</source>
         <translation type="obsolete">Открыть оверлей</translation>
+    </message>
+</context>
+<context>
+    <name>GameOverlaySettings</name>
+    <message>
+        <source>USE_OVERLAY</source>
+        <translation>Использовать оверлей</translation>
+    </message>
+</context>
+<context>
+    <name>GameSettings</name>
+    <message>
+        <source>GAME_SETTINGS_TITLE</source>
+        <translation>Настройки игры %1</translation>
+    </message>
+    <message>
+        <source>FOLDERS_TAB</source>
+        <translation>Папки</translation>
+    </message>
+    <message>
+        <source>OVERLAY_TAB</source>
+        <translation>Оверлей</translation>
+    </message>
+    <message>
+        <source>CONTROLS_TAB</source>
+        <translation>Управление</translation>
+    </message>
+    <message>
+        <source>RESTORE_CLIENT</source>
+        <translation>Восстановить клиент</translation>
+    </message>
+    <message>
+        <source>OK_BUTTON_LABEL</source>
+        <translation type="obsolete">Ок</translation>
     </message>
 </context>
 <context>
@@ -1643,6 +1778,40 @@ Please try again later.</source>
     <message>
         <source>GAME_MENU_GAME_SETTINGS_TEXT</source>
         <translation>Настройки игры</translation>
+    </message>
+</context>
+<context>
+    <name>GamesOverlaySettings</name>
+    <message>
+        <source>USE_OVERLAY</source>
+        <translation type="obsolete">Использовать оверлей</translation>
+    </message>
+</context>
+<context>
+    <name>GamesSettings</name>
+    <message>
+        <source>GAME_SETTINGS_TITLE</source>
+        <translation type="obsolete">Настройки игры %1</translation>
+    </message>
+    <message>
+        <source>RESTORE_CLIENT</source>
+        <translation type="obsolete">Восстановить клиент</translation>
+    </message>
+    <message>
+        <source>FOLDERS_TAB</source>
+        <translation type="obsolete">Папки</translation>
+    </message>
+    <message>
+        <source>OVERLAY_TAB</source>
+        <translation type="obsolete">Оверлей</translation>
+    </message>
+    <message>
+        <source>CONTROLS_TAB</source>
+        <translation type="obsolete">Управление</translation>
+    </message>
+    <message>
+        <source>OK_BUTTON_LABEL</source>
+        <translation type="obsolete">Ок</translation>
     </message>
 </context>
 <context>
@@ -2488,7 +2657,7 @@ Please try again later.</source>
     <name>Premium</name>
     <message>
         <source>PREMIUM_ACCOUNT_HEADER_TEXT_BLOCK</source>
-        <translation>Расширенный аккаунт</translation>
+        <translation type="obsolete">Расширенный аккаунт</translation>
     </message>
     <message>
         <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
