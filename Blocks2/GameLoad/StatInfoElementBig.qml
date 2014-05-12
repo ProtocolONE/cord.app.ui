@@ -1,3 +1,12 @@
+/****************************************************************************
+** This file is a part of Syncopate Limited GameNet Application or it parts.
+**
+** Copyright (©) 2011 - 2014, Syncopate Limited and/or affiliates.
+** All rights reserved.
+**
+** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
+** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+****************************************************************************/
 import QtQuick 1.1
 
 Rectangle {
@@ -12,8 +21,9 @@ Rectangle {
         id: infoTextElement
 
         anchors {
-            centerIn: parent
-            verticalCenterOffset: -9
+            horizontalCenter: parent.horizontalCenter
+            top: parent.top
+            topMargin: 9
         }
 
         font {
@@ -28,8 +38,9 @@ Rectangle {
         id: detailedTextElement
 
         anchors {
-            centerIn: parent
-            verticalCenterOffset: 9
+            horizontalCenter: parent.horizontalCenter
+            bottom: parent.bottom
+            bottomMargin: 8
         }
 
         font {

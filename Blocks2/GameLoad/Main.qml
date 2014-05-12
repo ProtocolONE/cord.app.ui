@@ -31,29 +31,30 @@ Rectangle {
     signal close();
     signal pause();
 
-    width: 630
-    height: state == "Normal" ? 360 : 502
+    implicitWidth: 630
 
     color: '#f0f5f8'
-    state: "Normal"
+
+    onVisibleChanged: stateGroup.state = 'Normal';
 
     Column {
-        x: 20
-        width: parent.width - x
-        height: parent.height
+        anchors {
+            fill: parent
+            margins: 20
+        }
 
         Item {
             id: headBlock
 
             width: parent.width
-            height: 55
+            height: 35
 
             Image {
                 source: installPath + '/images/close.png'
                 anchors {
                     right: parent.right
                     top: parent.top
-                    margins: 10
+                    margins: -5
                 }
 
                 MouseArea {
@@ -69,14 +70,14 @@ Rectangle {
                     bottom: parent.bottom
                 }
 
-                style: HorizontalSplitterStyleColors {}
+                style: SplitterStyleColors {}
             }
 
             Text {
                 id: headText
 
                 anchors {
-                    verticalCenter: parent.verticalCenter
+                    top: parent.top
                     left: parent.left
                 }
 
@@ -103,7 +104,7 @@ Rectangle {
                 anchors {
                     left: parent.left
                     top: parent.top
-                    topMargin: 20
+                    topMargin: 15
                 }
 
                 smooth: true
@@ -124,28 +125,25 @@ Rectangle {
                     topMargin: 40
                 }
 
-                Rectangle {
+                Controls.ProgressBar {
                     anchors {
                         fill: parent
                         margins: 6
                     }
-
-                    color: '#0d5144'
-
-                    Rectangle {
-                        height: parent.height
-                        width: root.progress > 0 ? (root.progress / 100)  * parent.width : 0
-                        visible: root.progress > 0
-
-                        color: '#32cfb2'
+                    style: Controls.ProgressBarStyleColors {
+                        background: "#0d5144"
+                        line: '#32cfb2'
                     }
+
+                    progress: root.progress
                 }
 
                 Controls.TextButton {
                     anchors {
                         left: parent.right
                         leftMargin: 7
-                        verticalCenter: parent.verticalCenter
+                        top: parent.top
+                        topMargin: 3
                     }
 
                     text: qsTr("PAUSE")
@@ -156,6 +154,8 @@ Rectangle {
             }
 
             Controls.TextButton {
+                id: showStatButton
+
                 anchors {
                     left: parent.left
                     top: parent.top
@@ -165,8 +165,7 @@ Rectangle {
                 text: qsTr("SHOW_STATISTICS")
                 fontSize: 14
                 style: TextButtonStyle {}
-                visible: root.state == "Normal"
-                onClicked: root.state = "Detailed"
+                onClicked: stateGroup.state = "Detailed"
             }
 
             ProgressWidget {
@@ -177,8 +176,6 @@ Rectangle {
                     top: parent.top
                     topMargin: 83
                 }
-
-                visible: root.state == 'Detailed'
             }
 
 
@@ -189,7 +186,7 @@ Rectangle {
                     bottom: parent.bottom
                 }
 
-                style: HorizontalSplitterStyleColors {}
+                style: SplitterStyleColors {}
             }
 
             Item {
@@ -207,22 +204,30 @@ Rectangle {
                 }
             }
         }
-    }
 
+        StateGroup {
+            id: stateGroup
 
+            state: 'Normal'
 
-    StateGroup {
-        states: [
-            State {
-                name: "Normal"
-                when: root.state == "Normal" || root.visible == false
-                PropertyChanges { target: centerBlock; height: 115 }
-            },
-            State {
-                name: "Detailed"
-                when: root.state == "Detailed"
-                PropertyChanges { target: centerBlock; height: 255 }
-            }
-        ]
+            states: [
+                State {
+                    name: "Normal"
+                    when: stateGroup.state == "Normal" || root.visible == false
+                    PropertyChanges { target: centerBlock; height: 115 }
+                    PropertyChanges { target: root; implicitHeight: 360 }
+                    PropertyChanges { target: progressWidget; visible: false }
+                    PropertyChanges { target: showStatButton; visible: true }
+                },
+                State {
+                    name: "Detailed"
+                    when: stateGroup.state == "Detailed"
+                    PropertyChanges { target: centerBlock; height: 255 }
+                    PropertyChanges { target: root; implicitHeight: 502 }
+                    PropertyChanges { target: progressWidget; visible: true }
+                    PropertyChanges { target: showStatButton; visible: false }
+                }
+            ]
+        }
     }
 }

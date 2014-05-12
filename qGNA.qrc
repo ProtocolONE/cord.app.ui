@@ -42,14 +42,20 @@
 		<file>Blocks/Tray.qml</file>
 		<file>Blocks/TryLoader.qml</file>
 		<file>Blocks/UserInfo.qml</file>
-		<file>Blocks2/GameLoad/HorizontalSplitterStyleColors.qml</file>
+		<file>Blocks2/ApplicationSettings/DownloadSettings.qml</file>
+		<file>Blocks2/ApplicationSettings/GeneralSettings.qml</file>
+		<file>Blocks2/ApplicationSettings/NotificationSettings.qml</file>
 		<file>Blocks2/GameLoad/Main.qml</file>
 		<file>Blocks2/GameLoad/ProgressWidget.qml</file>
+		<file>Blocks2/GameLoad/SplitterStyleColors.qml</file>
 		<file>Blocks2/GameLoad/StatInfoElementBig.qml</file>
 		<file>Blocks2/GameLoad/StatInfoElementSmall.qml</file>
 		<file>Blocks2/GameLoad/TextButtonStyle.qml</file>
 		<file>Blocks2/GameMenu.qml</file>
 		<file>Blocks2/GameMenu/GameMenuItem.qml</file>
+		<file>Blocks2/GameSettings/GameControlSettings.qml</file>
+		<file>Blocks2/GameSettings/GameGeneralSettings.qml</file>
+		<file>Blocks2/GameSettings/GameOverlaySettings.qml</file>
 		<file>Blocks2/Header.qml</file>
 		<file>Blocks2/Header/HeaderButton.qml</file>
 		<file>Blocks2/Header/HeaderControlButton.qml</file>
@@ -60,6 +66,7 @@
 		<file>Controls/ButtonStyleColors.qml</file>
 		<file>Controls/ButtonStyleImages.qml</file>
 		<file>Controls/CheckBox.qml</file>
+		<file>Controls/ComboBox.qml</file>
 		<file>Controls/CursorMouseArea.qml</file>
 		<file>Controls/ErrorContainer.qml</file>
 		<file>Controls/ErrorMessage.qml</file>
@@ -73,6 +80,7 @@
 		<file>Controls/InputStyleColors.qml</file>
 		<file>Controls/ParallaxLayer.qml</file>
 		<file>Controls/ParallaxView.qml</file>
+		<file>Controls/PathInput.qml</file>
 		<file>Controls/ProgressBar.qml</file>
 		<file>Controls/ProgressBarStyleColors.qml</file>
 		<file>Controls/RadioButton.qml</file>
@@ -192,6 +200,7 @@
 		<file>Models/CombatArmsItemsModel.qml</file>
 		<file>Models/GamesListModel.qml</file>
 		<file>Models/NewsModel.qml</file>
+		<file>Pages/ApplicationSettings.qml</file>
 		<file>Pages/Auth/AnimatedBackground/Index.qml</file>
 		<file>Pages/Auth/AnimatedBackground/LightningBackground.qml</file>
 		<file>Pages/Auth/AnimatedBackground/ParallaxBottomImage.qml</file>
@@ -208,6 +217,7 @@
 		<file>Pages/Auth/PasswordInput.qml</file>
 		<file>Pages/Auth/RegistrationBody.qml</file>
 		<file>Pages/Game.qml</file>
+		<file>Pages/GameSettings.qml</file>
 		<file>Pages/Home.qml</file>
 		<file>Pages/LoadScreen.qml</file>
 		<file>Pages/LoadScreen/UpdateManager.qml</file>
@@ -228,11 +238,15 @@
 		<file>Proxy/Settings.js</file>
 		<file>Proxy/Settings.qml</file>
 		<file>qGNA_Main.qml</file>
+		<file>Samples/ApplicationSettingsSample.qml</file>
 		<file>Samples/ButtonSample.qml</file>
+		<file>Samples/ComboBoxSample.qml</file>
 		<file>Samples/ErrorContainerSample.qml</file>
 		<file>Samples/GameLoadSample.qml</file>
 		<file>Samples/GameMenuSample.qml</file>
+		<file>Samples/GameSettingsSample.qml</file>
 		<file>Samples/InputSample.qml</file>
+		<file>Samples/PathInputSample.qml</file>
 		<file>Samples/PremiumSample.qml</file>
 		<file>Samples/ProgressBarSample.qml</file>
 		<file>TestMenuModel.qml</file>
