@@ -3,7 +3,7 @@ import Tulip 1.0
 import "../../Features/Money/Money.js" as Js
 import "../../Features/Money" as Money
 import "../../js/UserInfo.js" as UserInfo
-
+import "Overlay.js" as OverlayJs
 
 Overlay {
     id: over
@@ -36,6 +36,14 @@ Overlay {
 
     onShowMoney: mainWindow.navigate("gogamenetmoney");
 
+    Component.onCompleted: OverlayJs.setBlockFunc(function(block) {
+        over.inputBlock = block;
+    });
+
+    function setBlockInput(name, value) {
+        OverlayJs.setBlockInput(name, value);
+    }
+
     Money.Money {
         id: browserRoot
 
@@ -45,7 +53,9 @@ Overlay {
         height: 697
         z: 1
 
-        onVisibleChanged: over.inputBlock = visible ? Overlay.MouseAndKeyboard : Overlay.None;
+        onVisibleChanged: {
+            over.setBlockInput('money', (visible ? Overlay.MouseAndKeyboard : Overlay.None));
+        }
 
         onClose: visible = false;
         onUpdateBalance: over.sendMessage("custom.accountFunding", {amount: balance});

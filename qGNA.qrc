@@ -121,6 +121,7 @@
 		<file>Features/Overlay/Games/Aika.qml</file>
 		<file>Features/Overlay/Games/BS.qml</file>
 		<file>Features/Overlay/Games/Reborn.qml</file>
+		<file>Features/Overlay/Overlay.js</file>
 		<file>Features/Overlay/OverlayBase.qml</file>
 		<file>Features/Ping/Ping.qml</file>
 		<file>Features/Premium/PremiumNotifier.qml</file>

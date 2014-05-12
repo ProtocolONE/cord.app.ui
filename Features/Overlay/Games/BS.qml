@@ -46,7 +46,7 @@ OverlayBase.OverlayBase {
         }
 
         over.isShopOpened = true;
-        over.inputBlock = Overlay.MouseAndKeyboard;
+        over.setBlockInput('BS', Overlay.MouseAndKeyboard);
     }
 
     function closeShop() {
@@ -160,22 +160,18 @@ OverlayBase.OverlayBase {
             over.silver = packet.totalSilver;
             over.silverOnChar = packet.silver;
             over.goldOnChar = packet.gold;
-            console.log('Current total silver: ', packet.silver, ' Gold: ', packet.gold, ' Silver: ', packet.silver);
         }
 
         if (packetType === 'NS_BagYuanBao') {
             over.money = packet.yuanBao;
-            console.log('Current money: ', packet.yuanBao);
         }
 
         if (packetType === 'NS_ExchangeVolume') {
             over.coupon = packet.nCurExVolume;
-            console.log('Current coupon: ', packet.nCurExVolume);
         }
 
         if (packetType === 'NS_Mark') {
             over.bonus = packet.nCurMark;
-            console.log('Current bonus: ', packet.nCurMark);
         }
 
         if (packetType === 'NS_GetYBAccount') {
@@ -183,28 +179,16 @@ OverlayBase.OverlayBase {
             over.exchangeSilver = packet.totalSilver;
             over.exchangeSilverOnChar = packet.silver;
             over.exchangeGoldOnChar = packet.gold;
-            console.log('Current exchange total silver: ', over.exchangeSilver,
-                        ' Gold: ', over.exchangeGoldOnChar,
-                        ' Silver: ', over.exchangeSilverOnChar,
-                        ' Money: ', over.exchangeMoney);
         }
 
         if (packetType === 'NS_SynAccoutSilver') {
             over.exchangeSilver = packet.totalSilver;
             over.exchangeSilverOnChar = packet.silver;
             over.exchangeGoldOnChar = packet.gold;
-            console.log('Current exchange total silver: ', over.exchangeSilver,
-                        ' Gold: ', over.exchangeGoldOnChar,
-                        ' Silver: ', over.exchangeSilverOnChar,
-                        ' Money: ', over.exchangeMoney);
         }
 
         if (packetType === 'NS_SynAccoutYB') {
             over.exchangeMoney = packet.yuanBao;
-            console.log('Current exchange total silver: ', over.exchangeSilver,
-                        ' Gold: ', over.exchangeGoldOnChar,
-                        ' Silver: ', over.exchangeSilverOnChar,
-                        ' Money: ', over.exchangeMoney);
         }
 
     }
@@ -252,13 +236,15 @@ OverlayBase.OverlayBase {
         }
     }
 
+    Component.onDestruction: over.setBlockInput('BS', Overlay.None);
+
     Timer {
         id: blockInputTurnOffDelay
 
         interval: 500
         running: false
         repeat: false
-        onTriggered: over.inputBlock = Overlay.None;
+        onTriggered: over.setBlockInput('BS', Overlay.None);
     }
 
     Rectangle {
@@ -410,7 +396,6 @@ OverlayBase.OverlayBase {
                         exchangeGoldOnChar: over.exchangeGoldOnChar
                     };
 
-                    console.log('BS current balance', JSON.stringify(result));
                     return result;
                 }
 

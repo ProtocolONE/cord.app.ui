@@ -179,7 +179,7 @@ ListModel {
         itemState: "Normal";
         animationPause: 0
 
-        hasOverlay: true
+        hasOverlay: false
 
         logoText: QT_TR_NOOP("LOGO_REBORN")
         aboutGameText: QT_TR_NOOP("GAME_REBORN_ABOUT_TEXT")

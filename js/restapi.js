@@ -627,7 +627,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.128.aafe3b40e72af569e2e3a224d4cf8eb0d7e22dfa",
+    version: "1.0.132.32335a70374b0be6298bd925a2583d9753bd5ec4",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',
@@ -888,6 +888,14 @@ Games.getMaintenance = function(successCallback, failedCallback) {
 
 Games.getFacts = function(successCallback, failedCallback) {
     Core.execute('games.getFacts', {version: 2}, false, successCallback, failedCallback);
+};
+
+Games.getAdvertising = function(game, successCallback, failedCallback) {
+    Core.execute('games.getAdvertising', {
+		gameId: game,
+		version: 2
+	},
+	false, successCallback, failedCallback);
 };
 var Marketing = function() {
 };
