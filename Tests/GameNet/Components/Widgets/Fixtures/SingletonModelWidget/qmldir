@@ -1,0 +1,5 @@
+module Tests.GameNet.Components.Widgets.Fixtures.SingletonModelWidget
+PluginContainer 1.0 PluginContainer.qml 
+WidgetModel 1.0 WidgetModel.qml
+ViewOne 1.0 View/ViewOne.qml 
+ViewTwo 1.0 View/ViewTwo.qml 

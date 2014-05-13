@@ -1,0 +1,4 @@
+module Tests.GameNet.Components.Widgets.Fixtures.DualViewWidget
+PluginContainer 1.0 PluginContainer.qml 
+ViewOne 1.0 View/ViewOne.qml 
+ViewTwo 1.0 View/ViewTwo.qml 

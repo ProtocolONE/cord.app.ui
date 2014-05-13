@@ -1,0 +1,6 @@
+module GameNet.Components.Widgets  
+PluginContainer 1.0 PluginContainer.qml 
+WidgetContainer 1.0 WidgetContainer.qml 
+WidgetManager 1.0 WidgetManager.qml 
+WidgetModel 1.0 WidgetModel.qml 
+WidgetView 1.0 WidgetView.qml 

@@ -1,0 +1,3 @@
+module Tests.GameNet.Components.Widgets.Fixtures.SimpleWidget
+PluginContainer 1.0 PluginContainer.qml 
+BasicView 1.0 View/BasicView.qml 
