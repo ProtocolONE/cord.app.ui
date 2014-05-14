@@ -14,6 +14,7 @@ Item {
     id: root
 
     property bool enabled: true
+    property alias readOnly: inputBehavior.readOnly
     property alias path: inputBehavior.text
     property int fontSize: 16
     property variant style: InputStyleColors {}
@@ -24,6 +25,12 @@ Item {
         if (focus) {
             inputBehavior.focus = true;
         }
+    }
+
+    QtObject {
+        id: d
+
+        property bool iconHovered: false
     }
 
     Rectangle {
@@ -73,20 +80,19 @@ Item {
         Rectangle {
             id: browseButton
 
-            property bool internaMouseOver: false
-            property bool isMouseOver: internaMouseOver && mouseArea.containsMouse
-
-            onIsMouseOverChanged: root.iconHovered = isMouseOver;
+            property bool internalMouseOver: false
+            property bool isMouseOver: internalMouseOver && mouseArea.containsMouse
 
             function isOver(x, y) {
-                var internalPos = mapToItem(browseButton, x, y);
+                var internalPos = mouseArea.mapToItem(browseButton, x, y);
+
                 if (0 < internalPos.x && internalPos.x < browseButton.width
                     && 0 < internalPos.y && internalPos.y < browseButton.height) {
-                    internaMouseOver = true;
+                    internalMouseOver = true;
                     return;
                 }
 
-                internaMouseOver =  false;
+                internalMouseOver =  false;
             }
 
             width: parent.height
@@ -102,7 +108,8 @@ Item {
                 id: browsebuttonImage
 
                 anchors.centerIn: parent
-                source: installPath + "images/Controls/PathInput/browse_n.png"
+                source: browseButton.isMouseOver ? installPath + "images/Controls/PathInput/browse_a.png"
+                                    : installPath + "images/Controls/PathInput/browse_n.png"
             }
 
             MouseArea {
@@ -135,7 +142,6 @@ Item {
             State {
                 name: ""
                 PropertyChanges { target: controlBorder; border.color: style.normal }
-                PropertyChanges {target: browsebuttonImage; source: installPath + "images/Controls/PathInput/browse_n.png"}
                 PropertyChanges { target: inputBehavior; color: style.normal }
             },
             State {
@@ -143,15 +149,12 @@ Item {
                 when: inputBehavior.activeFocus
                 PropertyChanges { target: controlBorder; border.color: style.active }
                 PropertyChanges { target: inputBehavior; color: style.active }
-                PropertyChanges {target: browsebuttonImage; source: installPath + "images/Controls/PathInput/browse_a.png"}
             },
             State {
                 name: "Hover"
                 when: mouseArea.containsMouse
                 PropertyChanges { target: controlBorder; border.color: style.active }
                 PropertyChanges { target: inputBehavior; color: style.active }
-                PropertyChanges {target: browsebuttonImage; source: installPath + "images/Controls/PathInput/browse_a.png"}
-
             },
             State {
                 name: "Disabled"
@@ -164,21 +167,18 @@ Item {
                 name: "ErrorNormal"
                 when: inputBehavior.error
                 PropertyChanges { target: controlBorder; border.color: style.error }
-                PropertyChanges {target: browsebuttonImage; source: installPath + "images/Controls/PathInput/browse_n.png"}
                 PropertyChanges { target: inputBehavior; color: style.error }
             },
             State {
                 name: "ErrorActive"
                 when: inputBehavior.activeFocus && inputBehavior.error
                 PropertyChanges { target: controlBorder; border.color: style.hover }
-                PropertyChanges {target: browsebuttonImage; source: installPath + "images/Controls/PathInput/browse_a.png"}
                 PropertyChanges { target: inputBehavior; color: style.hover }
             },
             State {
                 name: "ErrorHover"
                 when: mouseArea.containsMouse && inputBehavior.error
                 PropertyChanges { target: controlBorder; border.color: style.hover }
-                PropertyChanges {target: browsebuttonImage; source: installPath + "images/Controls/PathInput/browse_a.png"}
                 PropertyChanges { target: inputBehavior; color: style.error }
             }
         ]
