@@ -10,25 +10,23 @@
 
 import QtQuick 1.1
 import "../../Controls" as Controls
-import "../../js/Translate.js" as TranslateJs
 
 Rectangle {
     id: settingsPageRoot
 
-    //  HACK: раскомментировать для тестирования
-    Item {
-        id: settingsViewModel
+//  HACK: раскомментировать для тестирования
+//    Item {
+//        id: settingsViewModel
 
-        property int downloadSpeed: 0
-        property int uploadSpeed: 1000
-        property int incomingPort: 3456
-        property int numConnections: 10
-        property bool seedEnabled: true
-    }
+//        property int downloadSpeed: 0
+//        property int uploadSpeed: 1000
+//        property int incomingPort: 3456
+//        property int numConnections: 10
+//        property bool seedEnabled: true
+//    }
 
     Column {
         x: 30
-        y: 0
         spacing: 20
 
         Row {
@@ -52,8 +50,8 @@ Rectangle {
 
                 Controls.ComboBox {
                     id: downloadBandwidthLimit
-                    y: 20
 
+                    y: 20
                     width: parent.width
                     height: 40
                     Component.onCompleted: {

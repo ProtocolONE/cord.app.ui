@@ -20,10 +20,6 @@ Rectangle {
     signal accepted()
     signal restoreClient()
 
-    Component.onCompleted: {
-        pageSwitcher.switchTo(generalSettingsPage);
-    }
-
     Column {
         Rectangle {
             id: headerRect
@@ -167,6 +163,7 @@ Rectangle {
         }
     }
 
+    state: "GeneralPage"
     states: [
         State {
             name: "GeneralPage"

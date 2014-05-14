@@ -21,7 +21,7 @@ Item {
 
         Controls.CheckBox {
 
-            text: "Оповещать об окончании технических работ"
+            text: qsTr("CHECKBOX_NOTIFICATION_MAINTENANCE_END")
             checked: Maintenance.isShowEndPopup()
             style: Controls.ButtonStyleColors {
                 normal: "#1ABC9C"

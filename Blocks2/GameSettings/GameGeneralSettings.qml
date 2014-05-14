@@ -41,6 +41,7 @@ Item {
                 y: 22
                 width: parent.width
                 height: 48
+                readOnly: true
             }
         }
 
@@ -65,6 +66,7 @@ Item {
                 y: 22
                 width: parent.width
                 height: 48
+                readOnly: true
             }
         }
 

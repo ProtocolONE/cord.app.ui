@@ -16,17 +16,20 @@ Item {
     id: root
 
     //  HACK: раскомментировать для тестирования
-    Item {
-        id: settingsViewModel
+    //    Item {
+    //        id: settingsViewModel
 
-        property int autoStart: 0
-        property bool isPublicTestVersion: true
+    //        property int autoStart: 0
+    //        property bool isPublicTestVersion: true
 
-        function setAutoStart(autorunType) {
-            console.log("settingsViewModel::setAutoStart " + autorunType);
-            autoStart = autorunType;
-        }
-    }
+    //        function setAutoStart(autorunType) {
+    //            settingsViewModel.autoStart = autorunType;
+    //        }
+
+    //        function switchClientVersion() {
+    //            settingsViewModel.isPublicTestVersion != settingsViewModel.isPublicTestVersion;
+    //        }
+    //    }
 
     QtObject {
         id: d
@@ -66,7 +69,7 @@ Item {
 
             width: 300
             fontSize: 15
-            text: "Автозапуск GameNet"
+            text: qsTr("CHECKOX_AUTORUN")
             style: Controls.ButtonStyleColors {
                 normal: "#1ABC9C"
                 hover: "#019074"
@@ -91,7 +94,7 @@ Item {
             fontSize: 15
             enabled: settingsViewModel.autoStart > 0
             checked: settingsViewModel.autoStart === 2
-            text: "Запускать приложение свернутым"
+            text: qsTr("CHECKOX_RUN_MINIMIZED")
             style: Controls.ButtonStyleColors {
                 normal: "#1ABC9C"
                 hover: "#019074"
@@ -118,7 +121,7 @@ Item {
                 width: 300
                 fontSize: 15
                 checked: settingsViewModel.isPublicTestVersion
-                text: "Принять участие в тестировании клиента GameNet"
+                text: qsTr("CHECKOX_PARTICIPATE_TESTING")
                 style: Controls.ButtonStyleColors {
                     normal: "#1ABC9C"
                     hover: "#019074"
@@ -132,7 +135,7 @@ Item {
                 width: 490
                 height: 55
                 wrapMode: Text.WordWrap
-                text: "Поставьте отметку, чтобы участвовать в тестировании новых функций клиента GameNet. Вы можете столкнуться с различными ошибками и недочетами. Если во время использования тестового клиента вы нашли ошибку, пожалуйста, сообщите о ней в нашу службу поддержки."
+                text: qsTr("TEST_VERSION_TOOLTIP")
                 color: "#66758F"
                 font { family: "Arial"; pixelSize: 12 }
             }

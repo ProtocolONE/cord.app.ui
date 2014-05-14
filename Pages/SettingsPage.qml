@@ -19,6 +19,8 @@ import "../js/Core.js" as Core
 import "../Proxy/AppProxy.js" as AppProxy
 import "../Proxy/App.js" as App
 
+// HACK: DEPRECATED - удалить файл, как только будет адекватно рабочая версия формы редактирования настроек
+
 Rectangle {
     id: settingsPageId
 
@@ -31,31 +33,31 @@ Rectangle {
 
 
  //HACK
-//    Item {
-//        id: mainWindow
-//        property string emptyString: ""
-//        signal torrentListenPortChanged();
-//    }
+    Item {
+        id: mainWindow
+        property string emptyString: ""
+        signal torrentListenPortChanged();
+    }
 
-//    Item {
-//        id: gameSettingsModel
+    Item {
+        id: gameSettingsModel
 
-//        property string installPath: "value"
-//        property string downloadPath: "value"
-//        property bool hasDownloadPath: true
-//        function switchGame(serviceId) {}
-//    }
+        property string installPath: "value"
+        property string downloadPath: "value"
+        property bool hasDownloadPath: true
+        function switchGame(serviceId) {}
+    }
 
-//    Item {
-//        id: settingsViewModel
-//        property string downloadSpeed: "50"
-//        property string uploadSpeed: "50"
-//        property string numConnections: "50"
-//        property string incomingPort: "50"
-//        function setNumConnections(q){}
-//        function setIncomingPort(q){}
-//    }
-//    property string installPath: "../"
+    Item {
+        id: settingsViewModel
+        property string downloadSpeed: "50"
+        property string uploadSpeed: "50"
+        property string numConnections: "50"
+        property string incomingPort: "50"
+        function setNumConnections(q){}
+        function setIncomingPort(q){}
+    }
+    property string installPath: "../"
 
     property int globalAnimationSpeed: 200
 

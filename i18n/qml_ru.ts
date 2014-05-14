@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="ru_RU">
+<TS version="2.1" language="ru_RU">
 <context>
     <name>AccountActivation</name>
     <message>
@@ -1989,6 +1989,25 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>GeneralSettings</name>
+    <message>
+        <source>CHECKOX_AUTORUN</source>
+        <translation>Автозапуск GameNet</translation>
+    </message>
+    <message>
+        <source>CHECKOX_RUN_MINIMIZED</source>
+        <translation>Запускать приложение свернутым</translation>
+    </message>
+    <message>
+        <source>CHECKOX_PARTICIPATE_TESTING</source>
+        <translation>Принять участие в тестировании клиента GameNet</translation>
+    </message>
+    <message>
+        <source>TEST_VERSION_TOOLTIP</source>
+        <translation>Поставьте отметку, чтобы участвовать в тестировании новых функций клиента GameNet. Вы можете столкнуться с различными ошибками и недочетами. Если во время использования тестового клиента вы нашли ошибку, пожалуйста, сообщите о ней в нашу службу поддержки.</translation>
+    </message>
+</context>
+<context>
     <name>Guide</name>
     <message>
         <source>BUTTON_PREV</source>
@@ -2619,6 +2638,13 @@ Please try again later.</source>
 </context>
 <context>
     <name>NotificationPage</name>
+    <message>
+        <source>CHECKBOX_NOTIFICATION_MAINTENANCE_END</source>
+        <translation>Оповещать об окончании технических работ</translation>
+    </message>
+</context>
+<context>
+    <name>NotificationSettings</name>
     <message>
         <source>CHECKBOX_NOTIFICATION_MAINTENANCE_END</source>
         <translation>Оповещать об окончании технических работ</translation>
