@@ -1,7 +1,7 @@
 /****************************************************************************
 ** This file is a part of Syncopate Limited GameNet Application or it parts.
 **
-** Copyright (©) 2011 - 2012, Syncopate Limited and/or affiliates.
+** Copyright (©) 2011 - 2013, Syncopate Limited and/or affiliates.
 ** All rights reserved.
 **
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
@@ -9,28 +9,30 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+import GameNet.Components.Widgets 1.0
+import "../../../../js/Core.js" as CoreJs
+import "FactsView.js" as FactsView
 
-import "Helper.js" as Js
-import "../../js/restapi.js" as RestApi
-import "../../js/Core.js" as Core
+WidgetView {
+    id: root
 
-Item {
-    property variant currentItem: Core.currentGame()
+    property variant currentItem: CoreJs.currentGame()
     property int index
 
     function filter() {
-        if (!currentItem) {
+        var allFacts = model.getAllFacts();
+        if (!root.currentItem) {
             return;
         }
 
-        Js.gameFacts = Js.allFacts.filter(function(e) {
+        FactsView.filteredFacts = allFacts.filter(function(e) {
             return e.gameId == currentItem.gameId;
         });
 
-        index = -1;
+        root.index = -1;
         switchAnim.complete();
 
-        if (Js.gameFacts.length > 0) {
+        if (FactsView.filteredFacts.length > 0) {
             switchAnim.start();
         } else {
             switchToEmptyAnim.start();
@@ -39,10 +41,10 @@ Item {
 
     function formatNumber(num) {
         var str = num.toString()
-            , count = str.length % 3
-            , total = (str.length / 3)|0
-            , result = str.substr(0, count)
-            , i = 0;
+        , count = str.length % 3
+        , total = (str.length / 3)|0
+        , result = str.substr(0, count)
+        , i = 0;
 
         while(i < total) {
             result += " " + str.substr(count + 3 * i++, 3);
@@ -52,39 +54,52 @@ Item {
     }
 
     function refreshText() {
-        index = (index + 1) % Js.gameFacts.length;
-        value.text = formatNumber(Js.gameFacts[index].value);
-        text.text = Js.gameFacts[index].text;
+        root.index = (root.index + 1) % FactsView.filteredFacts.length;
+        value.text = formatNumber(FactsView.filteredFacts[root.index].value);
+        text.text = FactsView.filteredFacts[root.index].text;
     }
 
-    implicitWidth: 450
-    implicitHeight: 30
-
+    anchors.fill: parent
+    clip: true
     onCurrentItemChanged: filter()
+
+    Connections {
+        target: model
+        onFactsChanged: filter();
+    }
+
+    Rectangle {
+        anchors.fill: parent
+
+        opacity: 0.3
+        color: "#092135"
+    }
 
     Row {
         id: textRow
 
-        spacing: 4
-        opacity: 0
-        anchors.fill: parent
+        spacing: 10
+        anchors {
+            leftMargin: 10
+            fill: parent
+        }
 
         Text {
             id: value
 
             anchors.verticalCenter: textRow.verticalCenter
             opacity: 0.8
-            color: "#FFFFFF"
-            font.pixelSize: 30;
+            color: "#ff6555"
+            font { family: "Arial"; pixelSize: 30 }
         }
 
         Text {
             id: text
 
-            anchors { verticalCenter: textRow.verticalCenter; verticalCenterOffset: 6 }
+            anchors.verticalCenter: textRow.verticalCenter
             opacity: 0.8
-            color: "#FFFFFF"
-            font.pixelSize: 16;
+            color: "#fafafa"
+            font { family: "Arial"; pixelSize: 18 }
         }
     }
 
@@ -97,7 +112,7 @@ Item {
         NumberAnimation { target: textRow; property: "opacity"; to: 1; duration: 250 }
         ScriptAction {
             script: {
-                if (Js.gameFacts.length > 1) {
+                if (FactsView.filteredFacts.length > 1) {
                     showNextFact.restart()
                 }
             }
@@ -117,22 +132,5 @@ Item {
 
         ScriptAction { script: showNextFact.stop() }
         NumberAnimation { target: textRow; property: "opacity"; to: 0; duration: 250 }
-    }
-
-    Timer {
-        interval: 900000 //each 30 minutes
-        running: true
-        repeat: true
-        triggeredOnStart: true
-        onTriggered: {
-            RestApi.Games.getFacts(function(response) {
-                if (!response.hasOwnProperty('facts')) {
-                    return;
-                }
-
-                Js.allFacts = response.facts;
-                filter();
-            });
-        }
     }
 }

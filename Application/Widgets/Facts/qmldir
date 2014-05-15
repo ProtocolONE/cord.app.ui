@@ -1,0 +1,4 @@
+module Application.Widgets.Facts
+PluginContainer 1.0 PluginContainer.qml 
+FactsView 1.0 View/FactsView.qml
+FactsModel 1.0 FactsModel.qml 
