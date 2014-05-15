@@ -1,7 +1,7 @@
 import QtQuick 1.1
 import Tulip 1.0
 
-import "../Controls" as Controls
+import GameNet.Controls 1.0
 
 Rectangle {
     id: root
@@ -30,7 +30,7 @@ Rectangle {
             color: "green"
         }
 
-        Controls.TopErrorContainer {
+        TopErrorContainer {
             id: error1
 
             width: 300
@@ -42,13 +42,13 @@ Rectangle {
                 color: "red"
             }
 
-            style: Controls.ErrorMessageStyle {
+            style: ErrorMessageStyle {
                 text: "#FF2E44"
                 background: "blue"
             }
         }
 
-        Controls.ErrorContainer {
+        ErrorContainer {
             id: error2
 
             width: 300
@@ -60,7 +60,7 @@ Rectangle {
                 color: "red"
             }
 
-            style: Controls.ErrorMessageStyle {
+            style: ErrorMessageStyle {
                 text: "#FF2E44"
                 background: "blue"
             }

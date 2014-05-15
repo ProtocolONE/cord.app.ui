@@ -9,17 +9,16 @@
 ****************************************************************************/
 import QtQuick 1.1
 import Tulip 1.0
+import GameNet.Controls 1.0
 
-import "../../Controls" as Controls
-
-Controls.Button {
+Button {
     property alias icon: icon.source
     property alias text: captionText.text
 
     width: content.width + 40
     height: parent.height
 
-    style: Controls.ButtonStyleColors {
+    style: ButtonStyleColors {
         normal: "#092135"
         hover: "#243148"
     }

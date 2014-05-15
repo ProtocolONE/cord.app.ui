@@ -1,5 +1,6 @@
 import QtQuick 1.1
 import Tulip 1.0
+import GameNet.Controls 1.0
 
 import "../../js/Core.js" as Core
 import "../../js/Authorization.js" as Authorization
@@ -7,7 +8,7 @@ import "../../js/UserInfo.js" as UserInfo
 
 import "../../Proxy/App.js" as AppProxy
 
-import "../../Controls" as Controls
+
 import "AnimatedBackground" as AnimatedBackground
 
 Rectangle {
@@ -182,7 +183,7 @@ Rectangle {
             bottom: footer.top
         }
 
-        Controls.Switcher {
+        Switcher {
             id: centralSwitcher
 
             anchors.fill: parent
@@ -288,12 +289,12 @@ Rectangle {
         onOpenVkAuth: d.startVkAuth();
     }
 
-    Controls.Button {
+    Button {
         width: 32
         height: 146
         anchors { verticalCenter: parent.verticalCenter; right: parent.right }
 
-        style: Controls.ButtonStyleColors {
+        style: ButtonStyleColors {
             normal: "#ffae02"
             hover: "#ffcc02"
         }

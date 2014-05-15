@@ -8,7 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 import QtQuick 1.1
-import "../../Controls" as Controls
+import GameNet.Controls 1.0
 
 Rectangle {
     id: root
@@ -63,14 +63,14 @@ Rectangle {
                 }
             }
 
-            Controls.HorizontalSplit {
+            HorizontalSplit {
                 anchors {
                     left: parent.left
                     right: parent.right
                     bottom: parent.bottom
                 }
 
-                style: SplitterStyleColors {}
+                style: SplitterStyleColorsPrivate {}
             }
 
             Text {
@@ -125,12 +125,12 @@ Rectangle {
                     topMargin: 40
                 }
 
-                Controls.ProgressBar {
+                ProgressBar {
                     anchors {
                         fill: parent
                         margins: 6
                     }
-                    style: Controls.ProgressBarStyleColors {
+                    style: ProgressBarStyleColors {
                         background: "#0d5144"
                         line: '#32cfb2'
                     }
@@ -138,7 +138,7 @@ Rectangle {
                     progress: root.progress
                 }
 
-                Controls.TextButton {
+                TextButton {
                     anchors {
                         left: parent.right
                         leftMargin: 7
@@ -153,7 +153,7 @@ Rectangle {
                 }
             }
 
-            Controls.TextButton {
+            TextButton {
                 id: showStatButton
 
                 anchors {
@@ -179,14 +179,14 @@ Rectangle {
             }
 
 
-            Controls.HorizontalSplit {
+            HorizontalSplit {
                 anchors {
                     left: parent.left
                     right: parent.right
                     bottom: parent.bottom
                 }
 
-                style: SplitterStyleColors {}
+                style: SplitterStyleColorsPrivate {}
             }
 
             Item {

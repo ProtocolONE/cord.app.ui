@@ -448,37 +448,37 @@
 <context>
     <name>CodeBody</name>
     <message>
-        <location filename="../Pages/Auth/CodeBody.qml" line="80"/>
+        <location filename="../Pages/Auth/CodeBody.qml" line="81"/>
         <source>CODE_BODY_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Auth/CodeBody.qml" line="92"/>
+        <location filename="../Pages/Auth/CodeBody.qml" line="93"/>
         <source>CODE_BODY_INFO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Auth/CodeBody.qml" line="108"/>
+        <location filename="../Pages/Auth/CodeBody.qml" line="109"/>
         <source>CODE_BODY_SEND_BY_MAIL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Auth/CodeBody.qml" line="121"/>
+        <location filename="../Pages/Auth/CodeBody.qml" line="122"/>
         <source>CODE_BODY_SEND_BY_SMS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Auth/CodeBody.qml" line="146"/>
+        <location filename="../Pages/Auth/CodeBody.qml" line="147"/>
         <source>CODE_BODY_CODE_INPUT_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Auth/CodeBody.qml" line="159"/>
+        <location filename="../Pages/Auth/CodeBody.qml" line="160"/>
         <source>CODE_BODY_CONFIRM_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Auth/CodeBody.qml" line="171"/>
+        <location filename="../Pages/Auth/CodeBody.qml" line="172"/>
         <source>CODE_BODY_CANCEL_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1045,6 +1045,42 @@
     </message>
 </context>
 <context>
+    <name>GameOverlaySettings</name>
+    <message>
+        <location filename="../Application/Blocks/GameSettings/GameOverlaySettings.qml" line="22"/>
+        <source>USE_OVERLAY</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GameSettings</name>
+    <message>
+        <location filename="../Pages/GameSettings.qml" line="32"/>
+        <source>GAME_SETTINGS_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/GameSettings.qml" line="60"/>
+        <source>FOLDERS_TAB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/GameSettings.qml" line="71"/>
+        <source>OVERLAY_TAB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/GameSettings.qml" line="82"/>
+        <source>CONTROLS_TAB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Pages/GameSettings.qml" line="105"/>
+        <source>RESTORE_CLIENT</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>GamesListModel</name>
     <message>
         <location filename="../Models/GamesListModel.qml" line="150"/>
@@ -1254,6 +1290,29 @@
     <message>
         <location filename="../Models/GamesListModel.qml" line="348"/>
         <source>GAME_FJ_MINI_DESC</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GeneralSettings</name>
+    <message>
+        <location filename="../Application/Blocks/ApplicationSettings/GeneralSettings.qml" line="73"/>
+        <source>CHECKOX_AUTORUN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/ApplicationSettings/GeneralSettings.qml" line="98"/>
+        <source>CHECKOX_RUN_MINIMIZED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/ApplicationSettings/GeneralSettings.qml" line="125"/>
+        <source>CHECKOX_PARTICIPATE_TESTING</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/ApplicationSettings/GeneralSettings.qml" line="139"/>
+        <source>TEST_VERSION_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1498,12 +1557,12 @@
 <context>
     <name>Index</name>
     <message>
-        <location filename="../Pages/Auth/Index.qml" line="54"/>
+        <location filename="../Pages/Auth/Index.qml" line="55"/>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Auth/Index.qml" line="58"/>
+        <location filename="../Pages/Auth/Index.qml" line="59"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1625,52 +1684,62 @@
 <context>
     <name>Main</name>
     <message>
-        <location filename="../Blocks2/Premium/Main.qml" line="86"/>
+        <location filename="../Application/Blocks/GameLoad/Main.qml" line="149"/>
+        <source>PAUSE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/GameLoad/Main.qml" line="165"/>
+        <source>SHOW_STATISTICS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Premium/Main.qml" line="87"/>
         <source>PREMIUM_ACCOUNT_HEADER_TEXT_BLOCK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks2/Premium/Main.qml" line="115"/>
+        <location filename="../Application/Blocks/Premium/Main.qml" line="116"/>
         <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks2/Premium/Main.qml" line="145"/>
+        <location filename="../Application/Blocks/Premium/Main.qml" line="146"/>
         <source>ONE_DAY_PREMIUM_TRADIO_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks2/Premium/Main.qml" line="150"/>
+        <location filename="../Application/Blocks/Premium/Main.qml" line="151"/>
         <source>WEEK_PREMIUM_TRADIO_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks2/Premium/Main.qml" line="155"/>
+        <location filename="../Application/Blocks/Premium/Main.qml" line="156"/>
         <source>MONTH_PREMIUM_TRADIO_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks2/Premium/Main.qml" line="160"/>
+        <location filename="../Application/Blocks/Premium/Main.qml" line="161"/>
         <source>3_MONTH_PREMIUM_TRADIO_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks2/Premium/Main.qml" line="203"/>
+        <location filename="../Application/Blocks/Premium/Main.qml" line="204"/>
         <source>NOT_ENOUGH_MONEY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks2/Premium/Main.qml" line="233"/>
+        <location filename="../Application/Blocks/Premium/Main.qml" line="234"/>
         <source>ADD_MONEY_BUTTON_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks2/Premium/Main.qml" line="253"/>
+        <location filename="../Application/Blocks/Premium/Main.qml" line="254"/>
         <source>MONEY_TOTAL %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks2/Premium/Main.qml" line="278"/>
+        <location filename="../Application/Blocks/Premium/Main.qml" line="279"/>
         <source>ACCEPT_BUY</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1891,10 +1960,10 @@
     </message>
 </context>
 <context>
-    <name>Password</name>
+    <name>NotificationSettings</name>
     <message>
-        <location filename="../Elements/Password.qml" line="45"/>
-        <source>password</source>
+        <location filename="../Application/Blocks/ApplicationSettings/NotificationSettings.qml" line="25"/>
+        <source>CHECKBOX_NOTIFICATION_MAINTENANCE_END</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2480,34 +2549,6 @@
     <message>
         <location filename="../Blocks/SecondAuthButton.qml" line="100"/>
         <source>SECOND_GAME_LOGOUT_TOOLTIP</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SelectMw2Server</name>
-    <message>
-        <location filename="../Blocks/SelectMw2Server.qml" line="48"/>
-        <source>TITLE_CHOOSE_MW2_SERVER</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/SelectMw2Server.qml" line="89"/>
-        <source>LABEL_SERVER_NAME</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/SelectMw2Server.qml" line="95"/>
-        <source>LABEL_SERVER_STATUS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/SelectMw2Server.qml" line="101"/>
-        <source>LABEL_CHARS_ON_SERVER</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/SelectMw2Server.qml" line="172"/>
-        <source>BUTTON_PLAY</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

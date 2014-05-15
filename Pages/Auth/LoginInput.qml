@@ -8,7 +8,8 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 import QtQuick 1.1
-import "../../Controls"
+import GameNet.Controls 1.0
+import "../../Proxy/App.js" as App
 
 ErrorContainer {
     id: root
@@ -40,6 +41,8 @@ ErrorContainer {
         icon: installPath + "Images/Controls/LoginInput/login.png"
         width: parent.width
         height: 48
+        language: App.keyboardLayout()
+        capsLock: App.isCapsLockEnabled()
 
         typeahead: TypeaheadBehaviour {
             dictionary: ["nikita.gorbunov@syncopate.ruaaaaaaaaaaaaaaaaaaaaaaaaaaaa",

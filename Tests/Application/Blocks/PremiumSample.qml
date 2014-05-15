@@ -1,5 +1,5 @@
 import QtQuick 1.1
-import "../Blocks2/Premium" as Premium
+import Application.Blocks.Premium 1.0 as Premium
 
 Rectangle {
     width: 630

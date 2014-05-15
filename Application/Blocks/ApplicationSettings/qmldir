@@ -1,0 +1,4 @@
+﻿module Application.Blocks.ApplicationSettings
+DownloadSettings 1.0 DownloadSettings.qml
+GeneralSettings 1.0 GeneralSettings.qml
+NotificationSettings 1.0 NotificationSettings.qml

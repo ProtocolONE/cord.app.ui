@@ -1,5 +1,5 @@
 import QtQuick 1.1
-import "../../Controls" as Controls
+import GameNet.Controls 1.0
 
 Item {
     id: root
@@ -47,7 +47,7 @@ Item {
             height: 48
             spacing: 30
 
-            Controls.Button {
+            Button {
                 width: 200
                 height: parent.height
                 text: "Кнопка"

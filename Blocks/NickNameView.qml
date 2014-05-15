@@ -10,7 +10,7 @@
 
 import QtQuick 1.1
 import Tulip 1.0
-import "../Delegates" as Delegates
+import Application.Blocks 1.0 as Blocks
 import "../Elements" as Elements
 
 Item {

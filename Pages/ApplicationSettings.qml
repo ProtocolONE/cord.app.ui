@@ -11,8 +11,8 @@ import QtQuick 1.1
 ****************************************************************************/
 
 import QtQuick 1.1
-import "../Controls" as Controls
-import "../Blocks2/ApplicationSettings" as SettingsBlocks
+import GameNet.Controls 1.0
+import Application.Blocks.ApplicationSettings 1.0 as SettingsBlocks
 
 Rectangle {
     id: root
@@ -55,33 +55,33 @@ Rectangle {
                 Column {
                     spacing: 12
 
-                    Controls.TextButton {
+                    TextButton {
                         text: qsTr("GENERAL_TAB")
                         width: 160
                         height: 20
-                        style: Controls.ButtonStyleColors {
+                        style: ButtonStyleColors {
                             normal: "#3498BD"
                             hover: "#3670DC"
                         }
                         onClicked: root.state = "GeneralPage";
                     }
 
-                    Controls.TextButton {
+                    TextButton {
                         text: qsTr("DOWNLOADS_TAB")
                         width: 160
                         height: 20
-                        style: Controls.ButtonStyleColors {
+                        style: ButtonStyleColors {
                             normal: "#3498BD"
                             hover: "#3670DC"
                         }
                         onClicked: root.state = "DownloadsPage";
                     }
 
-                    Controls.TextButton {
+                    TextButton {
                         text: qsTr("NOTIFICATIONS_TAB")
                         width: 160
                         height: 20
-                        style: Controls.ButtonStyleColors {
+                        style: ButtonStyleColors {
                             normal: "#3498BD"
                             hover: "#3670DC"
                         }
@@ -90,7 +90,7 @@ Rectangle {
 
                 }
 
-                Controls.TextButton {
+                TextButton {
                     width: 150
                     height: 30
                     anchors {
@@ -102,7 +102,7 @@ Rectangle {
                     }
                     wrapMode: Text.WordWrap
                     text: qsTr("RESTORE_SETTINGS")
-                    style: Controls.ButtonStyleColors {
+                    style: ButtonStyleColors {
                         normal: "#1ADC9C"
                         hover: "#019074"
                     }
@@ -110,10 +110,10 @@ Rectangle {
 
             }
 
-            Controls.VerticalSplit {
+            VerticalSplit {
                 x: 219
                 height: 422
-                style: Controls.SplitterStyleColors {
+                style: SplitterStyleColors {
                     main: "#CCCCCC"
                     shadow: "#FFFFFF"
                 }
@@ -125,7 +125,7 @@ Rectangle {
                 width: 529
                 height: 422
 
-                Controls.Switcher {
+                Switcher {
                     id: pageSwitcher
 
                     SettingsBlocks.GeneralSettings {
@@ -148,7 +148,7 @@ Rectangle {
                     }
                 }
 
-                Controls.Button {
+                Button {
                     width: 200
                     height: 48
                     text: qsTr("OK_BUTTON_LABEL")

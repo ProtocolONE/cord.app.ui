@@ -9,8 +9,9 @@
 ****************************************************************************/
 
 import QtQuick 1.1
-import "../../Controls" as Controls
-import "../../Proxy/App.js" as App
+import GameNet.Controls 1.0
+
+import "../../../Proxy/App.js" as App
 
 Item {
     id: root
@@ -43,7 +44,7 @@ Item {
         x: 30
         spacing: 20
 
-        Controls.ComboBox {
+        ComboBox {
             id: installationPath
 
             z: 100
@@ -64,13 +65,13 @@ Item {
             }
         }
 
-        Controls.CheckBox {
+        CheckBox {
             id: autoRun
 
             width: 300
             fontSize: 15
             text: qsTr("CHECKOX_AUTORUN")
-            style: Controls.ButtonStyleColors {
+            style: ButtonStyleColors {
                 normal: "#1ABC9C"
                 hover: "#019074"
             }
@@ -87,7 +88,7 @@ Item {
                 }
             }
         }
-        Controls.CheckBox {
+        CheckBox {
             id: runMinimized
 
             width: 300
@@ -95,7 +96,7 @@ Item {
             enabled: settingsViewModel.autoStart > 0
             checked: settingsViewModel.autoStart === 2
             text: qsTr("CHECKOX_RUN_MINIMIZED")
-            style: Controls.ButtonStyleColors {
+            style: ButtonStyleColors {
                 normal: "#1ABC9C"
                 hover: "#019074"
             }
@@ -115,14 +116,14 @@ Item {
             height: 100
             width: 520
 
-            Controls.CheckBox {
+            CheckBox {
                 id: participateTesting
 
                 width: 300
                 fontSize: 15
                 checked: settingsViewModel.isPublicTestVersion
                 text: qsTr("CHECKOX_PARTICIPATE_TESTING")
-                style: Controls.ButtonStyleColors {
+                style: ButtonStyleColors {
                     normal: "#1ABC9C"
                     hover: "#019074"
                 }

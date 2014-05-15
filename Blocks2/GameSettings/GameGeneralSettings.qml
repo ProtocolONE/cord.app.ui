@@ -9,7 +9,7 @@
 ****************************************************************************/
 
 import QtQuick 1.1
-import "../../Controls" as Controls
+import GameNet.Controls 1.0
 
 Item {
     id: root
@@ -35,7 +35,7 @@ Item {
                 color: '#5c6d7d'
             }
 
-            Controls.PathInput {
+            PathInput {
                 id: installationPath
 
                 y: 22
@@ -60,7 +60,7 @@ Item {
                 color: '#5c6d7d'
             }
 
-            Controls.PathInput {
+            PathInput {
                 id: distribPath
 
                 y: 22
@@ -73,10 +73,10 @@ Item {
         Row {
             spacing: 9
 
-            Controls.Button {
+            Button {
                 width: 180
                 height: 24
-                style: Controls.ButtonStyleColors {
+                style: ButtonStyleColors {
                     normal: "#3498DB"
                     hover: "#3670DC"
                 }
@@ -86,10 +86,10 @@ Item {
                 onClicked: gameSettingsModel.createShortcutOnDesktop();
             }
 
-            Controls.Button {
+            Button {
                 width: 180
                 height: 24
-                style: Controls.ButtonStyleColors {
+                style: ButtonStyleColors {
                     normal: "#3498DB"
                     hover: "#3670DC"
                 }

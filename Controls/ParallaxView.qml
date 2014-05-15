@@ -1,9 +1,11 @@
 import QtQuick 1.1
 import Tulip 1.0
-import "../Proxy/App.js" as AppJs
 
 Item {
     id: root
+
+    property int mouseX: 0
+    property int mouseY: 0
 
     property bool invertX: true
     property bool invertY: true
@@ -44,16 +46,9 @@ Item {
         }
 
         function mousePosition() {
-            var mouse = MouseCursor.mousePos();
-
-            var window = AppJs.windowPosition();
-            if (!window) {
-                window = MouseCursor.debugOnlyWindowPos();
-            }
-
             return {
-                x: mouse.x - window.x,
-                y: mouse.y - window.y
+                x: root.mouseX,
+                y: root.mouseY
             };
         }
 

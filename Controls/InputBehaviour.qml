@@ -10,14 +10,12 @@
 import QtQuick 1.1
 import Tulip 1.0
 
-import "../Proxy/App.js" as App
-
 TextInput {
     id: inputBehavior
 
     property int fontSize: 16
-    property string language: App.keyboardLayout()
-    property bool capsLock: App.isCapsLockEnabled()
+    property string language: ''
+    property bool capsLock: false
     property bool error: false
 
     signal keyPressed(variant keyEvent)

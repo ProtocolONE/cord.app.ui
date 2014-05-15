@@ -22,6 +22,9 @@ Item {
     property bool showLanguage: true
     property variant typeahead: TypeaheadBehaviour {}
 
+    property alias language: inputBehavior.language
+    property alias capsLock: inputBehavior.capsLock
+
     property int fontSize: 16
     property variant style: InputStyleColors {}
 

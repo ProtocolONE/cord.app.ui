@@ -1,5 +1,5 @@
 import QtQuick 1.1
-import "../../Controls" as Control
+import GameNet.Controls 1.0 as Control
 
 Item {
     id: root

@@ -1,7 +1,7 @@
 import QtQuick 1.1
 import Tulip 1.0
-
-import "../Blocks2" as Blocks2
+import Application.Blocks 1.0 as Blocks
+import Application.Blocks.GameMenu 1.0 as GameMenu
 
 Rectangle {
     id: root
@@ -80,7 +80,7 @@ Rectangle {
         root.fillMenu();
     }
 
-    Blocks2.GameMenu {
+    GameMenu.GameMenu {
         id: gameMenu
 
         anchors.fill: parent

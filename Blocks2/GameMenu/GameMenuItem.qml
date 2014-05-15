@@ -1,8 +1,6 @@
 import QtQuick 1.1
 import Tulip 1.0
-
-import "../../Controls" as Controls
-import "../../Blocks2" as Blocks2
+import GameNet.Controls 1.0
 
 Item {
     id: root
@@ -13,12 +11,12 @@ Item {
 
     property bool current: false
 
-    property variant style: Controls.ButtonStyleColors {
+    property variant style: ButtonStyleColors {
         normal: "#092135"
         hover: "#243148"
     }
 
-    property variant selectedStyle: Controls.ButtonStyleColors {
+    property variant selectedStyle: ButtonStyleColors {
         normal: "#071828"
         hover: "#243148"
     }
@@ -28,7 +26,7 @@ Item {
 
     signal clicked();
 
-    Controls.Button {
+    Button {
         width: parent.width
         height: 35
         style: root.current ? root.selectedStyle : root.style
@@ -94,7 +92,7 @@ Item {
         }
     }
 
-    Controls.HorizontalSplit {
+    HorizontalSplit {
         width: parent.width
         anchors.bottom: parent.bottom
     }

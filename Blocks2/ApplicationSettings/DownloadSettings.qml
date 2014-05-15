@@ -9,7 +9,7 @@
 ****************************************************************************/
 
 import QtQuick 1.1
-import "../../Controls" as Controls
+import GameNet.Controls 1.0
 
 Rectangle {
     id: settingsPageRoot
@@ -48,7 +48,7 @@ Rectangle {
                     color: '#5c6d7d'
                 }
 
-                Controls.ComboBox {
+                ComboBox {
                     id: downloadBandwidthLimit
 
                     y: 20
@@ -86,7 +86,7 @@ Rectangle {
                     color: '#5c6d7d'
                 }
 
-                Controls.ComboBox {
+                ComboBox {
                     id: uploadBandwidthLimit
 
                     y: 20
@@ -135,7 +135,7 @@ Rectangle {
                     y: 20
                     spacing: 20
 
-                    Controls.Input {
+                    Input {
                         id: incomingPort
 
                         width: 140
@@ -146,11 +146,11 @@ Rectangle {
                         validator: IntValidator { bottom: 0; top: 65535 }
                     }
 
-                    Controls.Button {
+                    Button {
                         width: 140
                         height: 40
                         text: qsTr("PORT_AUTO")
-                        style: Controls.ButtonStyleColors {
+                        style: ButtonStyleColors {
                             normal: "#3498BD"
                             hover: "#3670DC"
                         }
@@ -176,7 +176,7 @@ Rectangle {
                     color: '#5c6d7d'
                 }
 
-                Controls.Input {
+                Input {
                     y: 20
                     width: parent.width
                     height: 40
@@ -188,10 +188,10 @@ Rectangle {
             }
         }
 
-        Controls.CheckBox {
+        CheckBox {
             text: qsTr("PARTICIPATE_SEEDING")
             checked: settingsViewModel.seedEnabled
-            style: Controls.ButtonStyleColors {
+            style: ButtonStyleColors {
                 normal: "#1ABC9C"
                 hover: "#019074"
             }

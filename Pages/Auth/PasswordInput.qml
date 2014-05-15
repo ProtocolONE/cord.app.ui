@@ -9,10 +9,11 @@
 ****************************************************************************/
 import QtQuick 1.1
 import Tulip 1.0
+import GameNet.Controls 1.0 as Controls
 
-import "../../Controls"
+import "../../Proxy/App.js" as App
 
-ErrorContainer {
+Controls.ErrorContainer {
     id: root
 
     default property alias someName: root.data
@@ -23,7 +24,7 @@ ErrorContainer {
 
     error: control.error
 
-    style: ErrorMessageStyle {
+    style: Controls.ErrorMessageStyle {
         text: "#FF2E44"
         background: "#00000000"
     }
@@ -34,12 +35,14 @@ ErrorContainer {
         }
     }
 
-    Input {
+    Controls.Input {
         id: control
 
         property bool passwordVisible: false
 
         iconCursor: CursorArea.PointingHandCursor
+        language: App.keyboardLayout()
+        capsLock: App.isCapsLockEnabled()
 
         onIconClicked: {
             passwordVisible = true;

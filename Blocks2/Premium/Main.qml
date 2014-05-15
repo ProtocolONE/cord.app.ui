@@ -8,8 +8,9 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 import QtQuick 1.1
-import "../../Controls" as Controls
-import "../../js/UserInfo.js" as UserInfo
+import GameNet.Controls 1.0
+
+import "../../../js/UserInfo.js" as UserInfo
 
 Rectangle {
     id: root
@@ -55,14 +56,14 @@ Rectangle {
             }
         }
 
-        Controls.HorizontalSplit {
+        HorizontalSplit {
             anchors {
                 left: parent.left
                 right: parent.right
                 bottom: parent.bottom
             }
 
-            style: Controls.SplitterStyleColors {
+            style: SplitterStyleColors {
                 main: '#ececec'
                 shadow: '#ffffff'
             }
@@ -214,7 +215,7 @@ Rectangle {
                     }
                 }
 
-                Controls.Button {
+                Button {
                     width: 180
                     height: 36
                     anchors {
@@ -223,7 +224,7 @@ Rectangle {
                         margins: 20
                     }
 
-                    style: Controls.ButtonStyleColors {
+                    style: ButtonStyleColors {
                         normal: "#3598dc"
                         hover: "#4b90c0"
                         disabled: "#FF4F02"
@@ -236,14 +237,14 @@ Rectangle {
             }
         }
 
-        Controls.HorizontalSplit {
+        HorizontalSplit {
             anchors {
                 left: parent.left
                 right: parent.right
                 bottom: parent.bottom
             }
 
-            style: Controls.SplitterStyleColors {
+            style: SplitterStyleColors {
                 main: '#ececec'
                 shadow: '#ffffff'
             }
@@ -266,7 +267,7 @@ Rectangle {
 
     }
 
-    Controls.Button {
+    Button {
         width: 200
         height: 46
         anchors {

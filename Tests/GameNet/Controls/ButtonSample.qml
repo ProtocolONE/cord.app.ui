@@ -9,9 +9,9 @@
 ****************************************************************************/
 import QtQuick 1.1
 import Tulip 1.0
+import GameNet.Controls 1.0
 
-import "../Controls" as Controls
-import "../Elements/Tooltip" as Tooltip
+import "../../../Elements/Tooltip" as Tooltip
 
 Rectangle {
     id: root
@@ -25,7 +25,7 @@ Rectangle {
         y: 30
         spacing: 40
 
-        Controls.Button {
+        Button {
             width: 200
             height: 50
 
@@ -33,7 +33,7 @@ Rectangle {
             toolTip: "Simple button tooltip"
         }
 
-        Controls.Button {
+        Button {
             enabled: false
 
             width: 200
@@ -42,54 +42,54 @@ Rectangle {
             toolTip: "Disabled button"
         }
 
-        Controls.TextButton {
+        TextButton {
             width: 350
             height: 40
             text: "Text button"
             toolTip: "Text button tooltip"
-            style: Controls.ButtonStyleColors {
+            style: ButtonStyleColors {
                 normal: "#3498db"
                 hover: "#3670DC"
                 disabled: "#3498db"
             }
         }
 
-        Controls.ImageButton {
+        ImageButton {
             width: 40
             height: 40
 
             toolTip: "Iconed button"
 
-            style: Controls.ButtonStyleColors {
+            style: ButtonStyleColors {
                 normal: "#1ABC9C"
                 hover: "#019074"
                 disabled: "#1ABC9C"
             }
-            styleImages: Controls.ButtonStyleImages {
+            styleImages: ButtonStyleImages {
                 normal: installPath + "Samples/images/mail.png"
             }
         }
 
-        Controls.CheckBox {
+        CheckBox {
             //width: 300
             height: 16
 
             text: "Check box"
             toolTip: "CheckBox button tooltip"
-            style: Controls.ButtonStyleColors {
+            style: ButtonStyleColors {
                 normal: "#1ADC9C"
                 hover: "#019074"
                 disabled: "#1ADC9C"
             }
         }
 
-        Controls.RadioButton {
+        RadioButton {
             width: 300
             height: 40
 
             text: "Radio button"
             toolTip: "RadioButton button tooltip"
-            style: Controls.ButtonStyleColors {
+            style: ButtonStyleColors {
                 normal: "#1ADC9C"
                 hover: "#019074"
                 disabled: "#1ADC9C"

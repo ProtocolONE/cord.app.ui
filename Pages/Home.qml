@@ -9,7 +9,8 @@
 ****************************************************************************/
 
 import QtQuick 1.1
-import "../Models" as Models
+import "../Application/Models" as Models
+import Application.Blocks 1.0 as ApplicationBlocks
 import "../Elements" as Elements
 import "../Delegates" as Delegates
 import "../Blocks" as Blocks

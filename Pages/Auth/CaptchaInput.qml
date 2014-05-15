@@ -10,10 +10,10 @@
 
 import QtQuick 1.1
 import Tulip 1.0
-import "../../Controls" as Controls
+import GameNet.Controls 1.0
 import "../../js/Authorization.js" as Authorization
 
-Controls.ErrorContainer {
+ErrorContainer {
     id: root
 
     default property alias data: root.data
@@ -42,7 +42,7 @@ Controls.ErrorContainer {
             anchors.fill: parent
             spacing: 20
 
-            Controls.Input {
+            Input {
                 id: captchaInput
 
                 height: 48
@@ -79,20 +79,20 @@ Controls.ErrorContainer {
                         }
                     }
 
-                    Controls.ImageButton {
+                    ImageButton {
                         width: parent.height
                         height: parent.height
 
                         //toolTip: "Refresh"
                         toolTip: qsTr("CAPTCHA_INPUT_REFRESH_BUTTON_TOOLTIP")
 
-                        style: Controls.ButtonStyleColors {
+                        style: ButtonStyleColors {
                             normal: "#1BBC9B"
                             hover: "#019074"
                             disabled: "#1ABC9C"
                         }
 
-                        styleImages: Controls.ButtonStyleImages {
+                        styleImages: ButtonStyleImages {
                             normal: installPath + "images/Auth/refresh.png"
                         }
 

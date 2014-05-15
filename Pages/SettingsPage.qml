@@ -10,9 +10,9 @@
 
 import QtQuick 1.1
 import Tulip 1.0
+import Application.Blocks 1.0 as Blocks
 import "../Proxy" as Proxy
 import "../Elements" as Elements
-import "../Delegates" as Delegates
 import ".."
 
 import "../js/Core.js" as Core

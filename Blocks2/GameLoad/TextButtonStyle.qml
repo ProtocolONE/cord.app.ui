@@ -8,9 +8,9 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 import QtQuick 1.1
-import "../../Controls" as Controls
+import GameNet.Controls 1.0
 
-Controls.ButtonStyleColors {
+ButtonStyleColors {
     normal: "#32cfb2"
     hover: "#60e2ca"
     disabled: "#FF4F02"

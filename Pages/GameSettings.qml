@@ -9,9 +9,10 @@
 ****************************************************************************/
 
 import QtQuick 1.1
-import "../Controls" as Controls
+import GameNet.Controls 1.0
+
 import "../js/Core.js" as Core
-import "../Blocks2/GameSettings" as SettingsBlocks
+import Application.Blocks.GameSettings 1.0 as SettingsBlocks
 
 Rectangle {
     id: root
@@ -55,33 +56,33 @@ Rectangle {
                 Column {
                     spacing: 12
 
-                    Controls.TextButton {
+                    TextButton {
                         text: qsTr("FOLDERS_TAB")
                         width: 160
                         height: 20
-                        style: Controls.ButtonStyleColors {
+                        style: ButtonStyleColors {
                             normal: "#3498BD"
                             hover: "#3670DC"
                         }
                         onClicked: root.state = "GeneralPage";
                     }
 
-                    Controls.TextButton {
+                    TextButton {
                         text: qsTr("OVERLAY_TAB")
                         width: 160
                         height: 20
-                        style: Controls.ButtonStyleColors {
+                        style: ButtonStyleColors {
                             normal: "#3498BD"
                             hover: "#3670DC"
                         }
                         onClicked: root.state = "OverlayPage";
                     }
 
-                    Controls.TextButton {
+                    TextButton {
                         text: qsTr("CONTROLS_TAB")
                         width: 160
                         height: 20
-                        style: Controls.ButtonStyleColors {
+                        style: ButtonStyleColors {
                             normal: "#3498BD"
                             hover: "#3670DC"
                         }
@@ -90,7 +91,7 @@ Rectangle {
 
                 }
 
-                Controls.TextButton {
+                TextButton {
                     width: 150
                     height: 15
                     anchors {
@@ -102,17 +103,17 @@ Rectangle {
                     }
                     wrapMode: Text.WordWrap
                     text: qsTr("RESTORE_CLIENT")
-                    style: Controls.ButtonStyleColors {
+                    style: ButtonStyleColors {
                         normal: "#1ADC9C"
                         hover: "#019074"
                     }
                 }
             }
 
-            Controls.VerticalSplit {
+            VerticalSplit {
                 x: 219
                 height: 422
-                style: Controls.SplitterStyleColors {
+                style: SplitterStyleColors {
                     main: "#CCCCCC"
                     shadow: "#FFFFFF"
                 }
@@ -123,7 +124,7 @@ Rectangle {
                 width: 529
                 height: 424
 
-                Controls.Switcher {
+                Switcher {
                     id: pageSwitcher
 
                     SettingsBlocks.GameGeneralSettings {
@@ -146,7 +147,7 @@ Rectangle {
                     }
                 }
 
-                Controls.Button {
+                Button {
                     width: 200
                     height: 48
                     text: "Ok"

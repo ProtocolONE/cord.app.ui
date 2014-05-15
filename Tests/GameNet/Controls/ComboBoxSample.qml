@@ -1,5 +1,5 @@
 import QtQuick 1.1
-import "../Controls"
+import GameNet.Controls 1.0
 
 Rectangle {
     width: 600

@@ -2654,7 +2654,7 @@ Please try again later.</source>
     <name>Password</name>
     <message>
         <source>password</source>
-        <translation>пароль</translation>
+        <translation type="vanished">пароль</translation>
     </message>
 </context>
 <context>
@@ -3229,23 +3229,23 @@ Please try again later.</source>
     <name>SelectMw2Server</name>
     <message>
         <source>LABEL_SERVER_NAME</source>
-        <translation>Сервер</translation>
+        <translation type="vanished">Сервер</translation>
     </message>
     <message>
         <source>LABEL_SERVER_STATUS</source>
-        <translation>Статус</translation>
+        <translation type="vanished">Статус</translation>
     </message>
     <message>
         <source>LABEL_CHARS_ON_SERVER</source>
-        <translation>Персонажей</translation>
+        <translation type="vanished">Персонажей</translation>
     </message>
     <message>
         <source>TITLE_CHOOSE_MW2_SERVER</source>
-        <translation>Выберите сервер</translation>
+        <translation type="vanished">Выберите сервер</translation>
     </message>
     <message>
         <source>BUTTON_PLAY</source>
-        <translation>Играть</translation>
+        <translation type="vanished">Играть</translation>
     </message>
 </context>
 <context>

@@ -10,7 +10,7 @@
 
 import QtQuick 1.1
 import Tulip 1.0
-import "../../Controls" as Controls
+import GameNet.Controls 1.0
 import "../../js/Authorization.js" as Authorization
 import "../../js/restapi.js" as RestApi
 import "../../js/Core.js" as Core
@@ -169,7 +169,7 @@ Item {
             onTextChanged: d.captchaRequired = false;
             z: 1
 
-            typeahead: Controls.TypeaheadBehaviour {
+            typeahead: TypeaheadBehaviour {
                 id: loginSuggestion
 
                 function sortFunction(a, b) {
@@ -216,7 +216,7 @@ Item {
             height: 16
             spacing: 20
 
-            Controls.CheckBox {
+            CheckBox {
                 id: rememberAuth
 
                 height: parent.height
@@ -224,20 +224,20 @@ Item {
                 text: qsTr("AUTH_BODY_REMEMBER_TEXT")
                 //toolTip: qsTr("AUTH_BODY_REMEMBER_TOOLTIP")
                 fontSize: 14
-                style: Controls.ButtonStyleColors {
+                style: ButtonStyleColors {
                     normal: "#1ADC9C"
                     hover: "#019074"
                     disabled: "#1ADC9C"
                 }
             }
 
-            Controls.TextButton {
+            TextButton {
                 anchors { baseline: parent.bottom; baselineOffset: -2 }
                 height: parent.height
                 text: qsTr("AUTH_BODY_AMNESIA_TEXT")
 
                 fontSize: 14
-                style: Controls.ButtonStyleColors {
+                style: ButtonStyleColors {
                     normal: "#3498db"
                     hover: "#3670DC"
                     disabled: "#3498db"
@@ -252,7 +252,7 @@ Item {
             height: 48
             spacing: 30
 
-            Controls.Button {
+            Button {
                 width: 200
                 height: parent.height
                 text: qsTr("AUTH_BODY_LOGIN_BUTTON")
@@ -277,11 +277,11 @@ Item {
                     font { family: "Arial"; pixelSize: 12 }
                 }
 
-                Controls.TextButton {
+                TextButton {
                     anchors { baseline: parent.bottom; baselineOffset: -21 }
                     height: parent.height
                     text: qsTr("AUTH_BODY_REGISTER_BUTTON")
-                    style: Controls.ButtonStyleColors {
+                    style: ButtonStyleColors {
                         normal: "#3498db"
                         hover: "#3670DC"
                         disabled: "#3498db"

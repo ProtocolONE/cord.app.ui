@@ -1,0 +1,5 @@
+module Application.Blocks
+FlowView 1.0 FlowView.qml
+GameIcon 1.0 GameIcon.qml
+HomeItem 1.0 HomeItem.qml
+SettingsMenu 1.0 SettingsMenu.qml

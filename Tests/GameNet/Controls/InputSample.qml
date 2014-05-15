@@ -9,9 +9,9 @@
 ****************************************************************************/
 import QtQuick 1.1
 import Tulip 1.0
+import GameNet.Controls 1.0
 
-import "../Controls" as Controls
-import "../Pages/Auth"
+import "../../../Pages/Auth"
 
 Rectangle {
     id: root
@@ -32,11 +32,11 @@ Rectangle {
 
         }
 
-        Controls.ErrorContainer {
+        ErrorContainer {
             width: 350
             z: 201
 
-            Controls.Input {
+            Input {
                 id: q
 
                 width: parent.width
@@ -45,7 +45,7 @@ Rectangle {
                 icon: installPath + "Samples/images/mail.png"
                 showLanguage: true
 
-                typeahead: Controls.TypeaheadBehaviour {
+                typeahead: TypeaheadBehaviour {
                     dictionary: ["nikita.gorbunov@syncopate.ruaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
                         "nikolay.bondarenko@syncopate.ru",
                         "nikita.kravchuk@syncopate.ru",
@@ -66,7 +66,7 @@ Rectangle {
             //error: q.text.length > 0
         }
 
-        Controls.Input {
+        Input {
             id: q1
 
             width: parent.width
@@ -77,7 +77,7 @@ Rectangle {
             icon: installPath + "Samples/images/mail.png"
             showLanguage: true
 
-            typeahead: Controls.TypeaheadBehaviour {
+            typeahead: TypeaheadBehaviour {
                 dictionary: ["nikita.gorbunov@syncopate.ruaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
                     "nikolay.bondarenko@syncopate.ru",
                     "nikita.kravchuk@syncopate.ru",
@@ -96,13 +96,13 @@ Rectangle {
 
 
         //  Пример использования пользовательсокй функции сравнения
-        /*Controls.Input {
+        /*Input {
                 width: 350
                 height: 40
 
                 showCapslock: false
                 showLanguage: true
-                typeahead: Controls.TypeaheadBehaviour {
+                typeahead: TypeaheadBehaviour {
                 dictionary: {"nikita.gorbunov@syncopate.ru": 1,
                        "nikolay.bondarenko@syncopate.ru": 2,
                         "nikita.kravchuk@syncopate.ru": 3}
@@ -124,7 +124,7 @@ Rectangle {
             z: 100
         }
 
-        Controls.Input {
+        Input {
             width: 350
             height: 40
         }

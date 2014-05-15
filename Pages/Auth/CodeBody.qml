@@ -9,7 +9,8 @@
 ****************************************************************************/
 
 import QtQuick 1.1
-import "../../Controls" as Controls
+import GameNet.Controls 1.0
+
 import "../../js/Authorization.js" as Authorization
 import "../../js/Core.js" as Core
 
@@ -94,7 +95,7 @@ Item {
             }
         }
 
-        Controls.TopErrorContainer {
+        TopErrorContainer {
             id: requestError
 
             Row {
@@ -102,12 +103,12 @@ Item {
                 height: 48
                 spacing: 20
 
-                Controls.Button {
+                Button {
                     height: parent.height
                     width: 240
                     text: qsTr("CODE_BODY_SEND_BY_MAIL")
 
-                    style: Controls.ButtonStyleColors {
+                    style: ButtonStyleColors {
                         normal: "#1ABC9C"
                         hover: "#019074"
                     }
@@ -115,12 +116,12 @@ Item {
                     onClicked: d.getCode('email');
                 }
 
-                Controls.Button {
+                Button {
                     height: parent.height
                     width: 240
                     text: qsTr("CODE_BODY_SEND_BY_SMS")
 
-                    style: Controls.ButtonStyleColors {
+                    style: ButtonStyleColors {
                         normal: "#1ABC9C"
                         hover: "#019074"
                     }
@@ -132,13 +133,13 @@ Item {
             width: parent.width
         }
 
-        Controls.ErrorContainer {
+        ErrorContainer {
             id: codeError
 
             width: parent.width
             visible: root.codeSended
 
-            Controls.Input {
+            Input {
                 id: codeInput
 
                 width: parent.width
@@ -153,7 +154,7 @@ Item {
             height: 48
             spacing: 30
 
-            Controls.Button {
+            Button {
                 width: 200
                 height: parent.height
                 text: qsTr("CODE_BODY_CONFIRM_BUTTON")
@@ -167,11 +168,11 @@ Item {
                 height: parent.height
             }
 
-            Controls.TextButton {
+            TextButton {
                 text: qsTr("CODE_BODY_CANCEL_BUTTON")
 
                 anchors.verticalCenter: parent.verticalCenter
-                style: Controls.ButtonStyleColors {
+                style: ButtonStyleColors {
                     normal: "#3498db"
                     hover: "#3670DC"
                     disabled: "#3498db"

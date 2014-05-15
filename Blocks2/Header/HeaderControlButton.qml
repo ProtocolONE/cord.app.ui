@@ -9,10 +9,9 @@
 ****************************************************************************/
 import QtQuick 1.1
 import Tulip 1.0
+import GameNet.Controls 1.0
 
-import "../../Controls" as Controls
-
-Controls.Button {
+Button {
     id: root
 
     property alias source: icon.source
@@ -21,7 +20,7 @@ Controls.Button {
     height: 14
     opacity: root.containsMouse ? 1 : 0.2
 
-    style: Controls.ButtonStyleColors {
+    style: ButtonStyleColors {
         normal: "#00000000"
         hover: "#00000000"
         disabled: "#00000000"

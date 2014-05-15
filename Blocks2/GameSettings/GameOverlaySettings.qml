@@ -9,7 +9,7 @@
 ****************************************************************************/
 
 import QtQuick 1.1
-import "../../Controls" as Controls
+import GameNet.Controls 1.0
 
 Item {
     id: root
@@ -18,9 +18,9 @@ Item {
         x: 30
         spacing: 20
 
-        Controls.CheckBox {
+        CheckBox {
             text: qsTr("USE_OVERLAY")
-            style: Controls.ButtonStyleColors {
+            style: ButtonStyleColors {
                 normal: "#1ABC9C"
                 hover: "#019074"
             }

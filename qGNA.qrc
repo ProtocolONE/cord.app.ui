@@ -1,5 +1,31 @@
 ﻿<RCC>
 	<qresource prefix="/">
+		<file>Application/Blocks/ApplicationSettings/DownloadSettings.qml</file>
+		<file>Application/Blocks/ApplicationSettings/GeneralSettings.qml</file>
+		<file>Application/Blocks/ApplicationSettings/NotificationSettings.qml</file>
+		<file>Application/Blocks/FlowView.qml</file>
+		<file>Application/Blocks/GameIcon.qml</file>
+		<file>Application/Blocks/GameLoad/Main.qml</file>
+		<file>Application/Blocks/GameLoad/ProgressWidget.qml</file>
+		<file>Application/Blocks/GameLoad/SplitterStyleColorsPrivate.qml</file>
+		<file>Application/Blocks/GameLoad/StatInfoElementBig.qml</file>
+		<file>Application/Blocks/GameLoad/StatInfoElementSmall.qml</file>
+		<file>Application/Blocks/GameLoad/TextButtonStyle.qml</file>
+		<file>Application/Blocks/GameMenu.qml</file>
+		<file>Application/Blocks/GameMenu/GameMenuItem.qml</file>
+		<file>Application/Blocks/GameSettings/GameControlSettings.qml</file>
+		<file>Application/Blocks/GameSettings/GameGeneralSettings.qml</file>
+		<file>Application/Blocks/GameSettings/GameOverlaySettings.qml</file>
+		<file>Application/Blocks/Header.qml</file>
+		<file>Application/Blocks/Header/HeaderButton.qml</file>
+		<file>Application/Blocks/Header/HeaderControlButton.qml</file>
+		<file>Application/Blocks/HomeItem.qml</file>
+		<file>Application/Blocks/Premium/Main.qml</file>
+		<file>Application/Blocks/Premium/PayItem.qml</file>
+		<file>Application/Blocks/SettingsMenu.qml</file>
+		<file>Application/Models/CombatArmsItemsModel.qml</file>
+		<file>Application/Models/GamesListModel.qml</file>
+		<file>Application/Models/NewsModel.qml</file>
 		<file>Blocks/AccountActivation.qml</file>
 		<file>Blocks/AlertAdapter.qml</file>
 		<file>Blocks/Auth.qml</file>
@@ -37,7 +63,6 @@
 		<file>Blocks/SecondWindowGame/BuyPage.qml</file>
 		<file>Blocks/SecondWindowGame/PremiumAccountLabel.qml</file>
 		<file>Blocks/SecondWindowGame/PurchaseOption.qml</file>
-		<file>Blocks/SelectMw2Server.qml</file>
 		<file>Blocks/SocialNet.qml</file>
 		<file>Blocks/Tray.qml</file>
 		<file>Blocks/TryLoader.qml</file>
@@ -107,11 +132,9 @@
 		<file>Elements/Button4.qml</file>
 		<file>Elements/Button5.qml</file>
 		<file>Elements/ButtonBig.qml</file>
-		<file>Elements/ButtonCancel.qml</file>
 		<file>Elements/ButtonVk.qml</file>
 		<file>Elements/CheckBox.qml</file>
 		<file>Elements/CheckListBox.qml</file>
-		<file>Elements/ContextMenu.qml</file>
 		<file>Elements/CursorMouseArea.qml</file>
 		<file>Elements/CursorShapeArea.qml</file>
 		<file>Elements/FileInput.qml</file>
@@ -125,14 +148,11 @@
 		<file>Elements/Option.qml</file>
 		<file>Elements/OptionGroup.qml</file>
 		<file>Elements/OptionStyle.qml</file>
-		<file>Elements/Password.qml</file>
 		<file>Elements/PopupItemBase.qml</file>
 		<file>Elements/PopupWindow.qml</file>
 		<file>Elements/ProgressBar.qml</file>
 		<file>Elements/Scrollable.qml</file>
 		<file>Elements/ScrollBar.qml</file>
-		<file>Elements/Shadow.qml</file>
-		<file>Elements/TextArea.qml</file>
 		<file>Elements/TextClick.qml</file>
 		<file>Elements/TextEditArea.qml</file>
 		<file>Elements/TextH1.qml</file>

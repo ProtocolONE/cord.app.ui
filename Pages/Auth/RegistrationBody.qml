@@ -10,7 +10,7 @@
 
 import QtQuick 1.1
 import Tulip 1.0
-import "../../Controls" as Controls
+import GameNet.Controls 1.0
 import "../../js/Authorization.js" as Authorization
 import "../../js/Core.js" as Core
 import "../../Proxy/App.js" as App
@@ -138,7 +138,7 @@ Item {
             height: 48
             spacing: 30
 
-            Controls.Button {
+            Button {
                 width: 200
                 height: parent.height
                 text: qsTr("REGISTER_BODY_REGISTER_BUTTON")
@@ -163,11 +163,11 @@ Item {
                     text: qsTr("REGISTER_BODY_AUTH_TEXT")
                 }
 
-                Controls.TextButton {
+                TextButton {
                     anchors { baseline: parent.bottom; baselineOffset: -21 }
                     height: parent.height
                     text: qsTr("REGISTER_BODY_AUTH_BUTTON")
-                    style: Controls.ButtonStyleColors {
+                    style: ButtonStyleColors {
                         normal: "#3498db"
                         hover: "#3670DC"
                         disabled: "#3498db"
@@ -193,12 +193,12 @@ Item {
             text: qsTr("REGISTER_BODY_LICENSE_PART1")
         }
 
-        Controls.TextButton {
+        TextButton {
             anchors { baseline: parent.bottom; baselineOffset: -20 }
             fontSize: 12
             text: qsTr("REGISTER_BODY_LICENSE_PART2")
 
-            style: Controls.ButtonStyleColors {
+            style: ButtonStyleColors {
                 normal: "#3498db"
                 hover: "#3670DC"
                 disabled: "#3498db"

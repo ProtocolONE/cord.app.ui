@@ -8,7 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 import QtQuick 1.1
-import "../Blocks2/GameLoad" as GameLoad
+import Application.Blocks.GameLoad 1.0 as GameLoad
 
 Rectangle {
     width: 800
@@ -20,7 +20,7 @@ Rectangle {
         onClicked: gameLoadMain.visible = true;
     }
 
-    GameLoad.Main {
+    GameLoad.GameLoad {
         id: gameLoadMain
 
         anchors.centerIn: parent

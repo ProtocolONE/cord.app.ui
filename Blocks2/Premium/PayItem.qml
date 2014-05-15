@@ -8,7 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 import QtQuick 1.1
-import "../../Controls" as Controls
+import GameNet.Controls 1.0
 
 Rectangle {
     id: root
@@ -23,14 +23,14 @@ Rectangle {
     height: 30
     color: radioButton.containsMouse ? '#ffffff' : '#00000000'
 
-    Controls.RadioButton {
+    RadioButton {
         id: radioButton
 
         anchors.fill: parent
 
         text: qsTr("ONE_DAY_PREMIUM_TRADIO_TEXT")
         checked: root.checkedIndex == index
-        style: Controls.ButtonStyleColors {
+        style: ButtonStyleColors {
             normal: "#000000"
             hover: "#019074"
             disabled: "#1ADC9C"

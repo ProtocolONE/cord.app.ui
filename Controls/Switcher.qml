@@ -1,5 +1,5 @@
 import QtQuick 1.1
-import "Switcher.js" as Js
+import "./Switcher.js" as Js
 
 Item {
     default property alias child: stash.data

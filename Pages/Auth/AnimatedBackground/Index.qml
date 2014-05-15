@@ -1,7 +1,7 @@
 import QtQuick 1.1
 import Tulip 1.0
+import GameNet.Controls 1.0
 
-import "../../../Controls" as Controls
 import "../../../Proxy/App.js" as AppJs
 
 Item {
@@ -70,8 +70,27 @@ Item {
         anchors.fill: parent
     }
 
-    Controls.ParallaxView {
-        anchors.fill: parent;
+    ParallaxView {
+        id: parallax
+
+        anchors.fill: parent
+
+        Timer {
+            interval: 33
+            running: true
+            repeat: true
+            onTriggered: {
+                var mouse = MouseCursor.mousePos();
+
+                var window = AppJs.windowPosition();
+                if (!window) {
+                    window = MouseCursor.debugOnlyWindowPos();
+                }
+
+                parallax.mouseX = mouse.x - window.x;
+                parallax.mouseY = mouse.y - window.y;
+            }
+        }
 
         ParallaxBottomImage {
             depthX: 0.15
@@ -85,7 +104,7 @@ Item {
             source: installPath + "images/Auth/back_frame_02.png"
         }
 
-        Controls.ParallaxLayer {
+        ParallaxLayer {
             depthX: 0.05
             depthY: 0.01
 
@@ -108,7 +127,7 @@ Item {
             source: installPath + "images/Auth/back_frame_03.png"
         }
 
-        Controls.ParallaxLayer {
+        ParallaxLayer {
             depthX: 0.02
             depthY: 0.01
 

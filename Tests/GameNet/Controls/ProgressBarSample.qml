@@ -9,8 +9,8 @@
 ****************************************************************************/
 import QtQuick 1.1
 import Tulip 1.0
+import GameNet.Controls 1.0
 
-import "../Controls" as Controls
 
 Rectangle {
     id: root
@@ -24,10 +24,10 @@ Rectangle {
         y: 30
         spacing: 10
 
-        Controls.ProgressBar {
+        ProgressBar {
             id: progressBar
 
-            style: Controls.ProgressBarStyleColors {
+            style: ProgressBarStyleColors {
                 background: "#8089328F"
                 line: "#73448347"
             }
