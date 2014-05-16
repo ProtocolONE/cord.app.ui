@@ -2463,6 +2463,38 @@ Please try again later.</source>
         <source>POPUP_MAINTENANCE_END_AND_READY_TO_START</source>
         <translation>Технические работы завершены</translation>
     </message>
+    <message>
+        <source>MAINTENANCE_LABEL</source>
+        <translation>Технические работы</translation>
+    </message>
+    <message>
+        <source>MAINTENANCE_LABEL_END</source>
+        <translation>Завершение через</translation>
+    </message>
+    <message>
+        <source>1</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>49</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>21</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>HOUR_MAINTENANCE_LABEL</source>
+        <translation>ч</translation>
+    </message>
+    <message>
+        <source>MINUTE_MAINTENANCE_LABEL</source>
+        <translation>мин.</translation>
+    </message>
+    <message>
+        <source>SECONDS_MAINTENANCE_LABEL</source>
+        <translation>с</translation>
+    </message>
 </context>
 <context>
     <name>MoneyWindow</name>

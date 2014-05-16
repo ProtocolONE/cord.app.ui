@@ -17,6 +17,7 @@ Item {
     property alias tooltipGlueCenter: buttonBehavior.tooltipGlueCenter
     property ButtonStyleColors style: ButtonStyleColors {}
     property ButtonStyleImages styleImages: ButtonStyleImages {}
+    property alias containsMouse: buttonBehavior.containsMouse
 
     signal entered()
     signal exited()

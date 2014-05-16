@@ -19,4 +19,7 @@ QtObject {
     signal premiumExpired();
 
     signal hideMainWindow();
+
+    signal gameMaintenanceStart(string index);
+    signal gameMaintenanceEnd(string index);
 }

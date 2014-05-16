@@ -1,0 +1,4 @@
+module Application.Widgets.GameAdBanner
+PluginContainer 1.0 PluginContainer.qml 
+GameAdBannerView 1.0 View/GameAdBannerView.qml
+GameAdBannerModel 1.0 GameAdBannerModel.qml 

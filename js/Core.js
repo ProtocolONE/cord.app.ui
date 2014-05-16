@@ -68,6 +68,14 @@ function hideMainWindow() {
     _signalBusInst.hideMainWindow();
 }
 
+function gameMaintenanceStart(index) {
+   _signalBusInst.gameMaintenanceStart(index);
+}
+
+function gameMaintenanceEnd(index) {
+   _signalBusInst.gameMaintenanceEnd(index);
+}
+
 var socialNetTable = {
     "300002010000000000":[//Aika
         {

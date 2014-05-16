@@ -1367,17 +1367,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks2/Header.qml" line="55"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="54"/>
         <source>HEADER_BUTTON_MY_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks2/Header.qml" line="61"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="60"/>
         <source>HEADER_BUTTON_ALL_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks2/Header.qml" line="67"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="66"/>
         <source>HEADER_BUTTON_SUPPORT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1794,6 +1794,46 @@
     <message>
         <location filename="../Features/Maintenance/Maintenance.qml" line="29"/>
         <source>POPUP_MAINTENANCE_END_AND_READY_TO_START</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="38"/>
+        <source>MAINTENANCE_LABEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="59"/>
+        <source>MAINTENANCE_LABEL_END</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="70"/>
+        <source>1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="71"/>
+        <source>HOUR_MAINTENANCE_LABEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="76"/>
+        <source>MINUTE_MAINTENANCE_LABEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="81"/>
+        <source>SECONDS_MAINTENANCE_LABEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="75"/>
+        <source>49</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="80"/>
+        <source>21</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
