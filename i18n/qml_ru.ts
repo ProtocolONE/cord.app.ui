@@ -1132,6 +1132,13 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>ContactItem</name>
+    <message>
+        <source>CONTACT_NEW_MESSAGE</source>
+        <translation>Новое сообщение</translation>
+    </message>
+</context>
+<context>
     <name>DownloadSettings</name>
     <message>
         <source>DOWNLOAD_LIMIT</source>
@@ -2008,6 +2015,17 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>Group</name>
+    <message>
+        <source>Without group</source>
+        <translation type="obsolete">БЕЗ ШРУППЫ</translation>
+    </message>
+    <message>
+        <source>WITHOUT_GROUP_NAME</source>
+        <translation>Без группы</translation>
+    </message>
+</context>
+<context>
     <name>Guide</name>
     <message>
         <source>BUTTON_PREV</source>
@@ -2494,6 +2512,32 @@ Please try again later.</source>
     <message>
         <source>SECONDS_MAINTENANCE_LABEL</source>
         <translation>с</translation>
+    </message>
+</context>
+<context>
+    <name>Message</name>
+    <message>
+        <source>MESSAGE_STATE_COMPOSING</source>
+        <translation>Печатает</translation>
+    </message>
+    <message>
+        <source>MESSAGE_STATE_PAUSED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MESSAGE_STATE_INACTIVE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MessageInput</name>
+    <message>
+        <source>MESSENGER_SEND_BUTTON</source>
+        <translation>Отправить</translation>
+    </message>
+    <message>
+        <source>MESSENGER_SEND_BUTTON_MESSAGE</source>
+        <translation>Или Enter</translation>
     </message>
 </context>
 <context>

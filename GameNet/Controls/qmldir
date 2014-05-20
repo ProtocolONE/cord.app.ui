@@ -29,3 +29,4 @@ TextButton 1.0 TextButton.qml
 TopErrorContainer 1.0 TopErrorContainer.qml
 TypeaheadBehaviour 1.0 TypeaheadBehaviour.qml
 VerticalSplit 1.0 VerticalSplit.qml
+ExtendedListModel 1.0 ExtendedListModel.qml

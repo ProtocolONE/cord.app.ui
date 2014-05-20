@@ -731,6 +731,90 @@
     </message>
 </context>
 <context>
+    <name>ContactItem</name>
+    <message>
+        <location filename="../Application/Blocks/_Messenger/ContactItem.qml" line="76"/>
+        <location filename="../Application/Widgets/Messenger/View/ContactItem.qml" line="73"/>
+        <source>CONTACT_NEW_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DownloadSettings</name>
+    <message>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="43"/>
+        <source>DOWNLOAD_LIMIT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="58"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="97"/>
+        <source>SPEED_UNLIMITED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="59"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="98"/>
+        <source>SPEED_50</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="60"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="99"/>
+        <source>SPEED_200</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="61"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="100"/>
+        <source>SPEED_500</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="62"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="101"/>
+        <source>SPEED_1000</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="63"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="102"/>
+        <source>SPEED_2000</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="64"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="103"/>
+        <source>SPEED_5000</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="81"/>
+        <source>UPLOAD_LIMIT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="126"/>
+        <source>INCOMING_PORT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="152"/>
+        <source>PORT_AUTO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="171"/>
+        <source>CONNECTION_COUNT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="192"/>
+        <source>PARTICIPATE_SEEDING</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>EnterNickname</name>
     <message>
         <location filename="../Blocks/EnterNickname.qml" line="122"/>
@@ -1317,6 +1401,14 @@
     </message>
 </context>
 <context>
+    <name>Group</name>
+    <message>
+        <location filename="../Application/Widgets/Messenger/Models/Group.js" line="38"/>
+        <source>WITHOUT_GROUP_NAME</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Guide</name>
     <message>
         <location filename="../Features/Guide/Guide.qml" line="197"/>
@@ -1834,6 +1926,37 @@
     <message>
         <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="80"/>
         <source>21</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Message</name>
+    <message>
+        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="78"/>
+        <source>MESSAGE_STATE_COMPOSING</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="82"/>
+        <source>MESSAGE_STATE_PAUSED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="86"/>
+        <source>MESSAGE_STATE_INACTIVE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MessageInput</name>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/MessageInput.qml" line="146"/>
+        <source>MESSENGER_SEND_BUTTON</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/MessageInput.qml" line="160"/>
+        <source>MESSENGER_SEND_BUTTON_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

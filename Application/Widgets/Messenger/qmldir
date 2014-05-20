@@ -1,0 +1,6 @@
+module Application.Widgets.Messenger
+PluginContainer 1.0 PluginContainer.qml 
+Model 1.0 Model.qml
+Contacts 1.0 View/Contacts.qml
+Chat 1.0 View/Chat.qml
+

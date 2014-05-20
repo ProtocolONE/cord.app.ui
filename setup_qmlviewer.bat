@@ -1,6 +1,6 @@
 @rem /////////////////////////////////////////
-@rem 
-@set QTDIR=E:\Qt\4.8.5_src
+
+@rem @set QTDIR=E:\Qt\Qt5.2.1\5.2.1\msvc2010
 
 @set CoreArea=trunk
 @set SettingsArea=trunk
@@ -25,6 +25,7 @@
 @xcopy /Y /I /R /E "%QGNACOMMONDIR%\GGS\Overlay\%OverlayArea%\bin\QmlOverlayX86.dll" .\plugin\Tulip\
 @xcopy /Y /I /R /E "%QGNACOMMONDIR%\GGS\QmlExtension\%QmlExtensionArea%\bin\QmlExtensionX86.dll" .\plugin\Tulip\
 
-
+%QTDIR%\bin\qml1plugindump -path ./plugin/Tulip > ./plugin/Tulip/plugins.qmltypes
+%QTDIR%\bin\qml1plugindump -path ./plugin/QXmpp > ./plugin/QXmpp/plugins.qmltypes
 @echo Done.
 
