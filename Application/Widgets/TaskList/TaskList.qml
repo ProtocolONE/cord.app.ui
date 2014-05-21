@@ -10,8 +10,8 @@
 
 import Tulip 1.0
 import QtQuick 1.1
-import "../../js/Core.js" as Core
-import "TaskList.js" as Helper
+import "../../../js/Core.js" as Core
+import "TaskList.js" as TaskListJs
 
 Item {
 
@@ -30,8 +30,8 @@ Item {
                 continue;
             }
 
-            var categoryId = (Core.isServiceInstalled(elem.serviceId) || !!Helper.installedServices[elem.serviceId]) ?
-                                Helper.installedCategory : Helper.notInstalledCategory;
+            var categoryId = (Core.isServiceInstalled(elem.serviceId) || !!TaskListJs.installedServices[elem.serviceId]) ?
+                                TaskListJs.installedCategory : TaskListJs.notInstalledCategory;
 
             TaskList.addItem(categoryId,
                              installDir + "images/icons/" + elem.serviceId + ".ico",
@@ -55,14 +55,14 @@ Item {
                 return;
             }
 
-            Helper.installedServices[service] = 1;
+            TaskListJs.installedServices[service] = 1;
             applyTaskList();
         }
     }
 
     Component.onCompleted: {
-        Helper.installedCategory = TaskList.addCategory(qsTr("TASK_LIST_ALL_GAMES"));
-        Helper.notInstalledCategory = TaskList.addCategory(qsTr("TASK_LIST_MORE_GAMES"));
+        TaskListJs.installedCategory = TaskList.addCategory(qsTr("TASK_LIST_ALL_GAMES"));
+        TaskListJs.notInstalledCategory = TaskList.addCategory(qsTr("TASK_LIST_MORE_GAMES"));
 
         TaskList.setGuid("{F29F85E0-4FF9-1068-AB91-08002B27B3D9}");
 

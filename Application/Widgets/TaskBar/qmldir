@@ -1,0 +1,3 @@
+module Application.Widgets.TaskBar
+PluginContainer 1.0 PluginContainer.qml 
+TaskBar 1.0 TaskBar.qml
