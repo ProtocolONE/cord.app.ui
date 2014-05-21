@@ -733,9 +733,16 @@
 <context>
     <name>ContactItem</name>
     <message>
-        <location filename="../Application/Blocks/_Messenger/ContactItem.qml" line="76"/>
-        <location filename="../Application/Widgets/Messenger/View/ContactItem.qml" line="73"/>
+        <location filename="../Application/Widgets/Messenger/View/ContactItem.qml" line="106"/>
         <source>CONTACT_NEW_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Contacts</name>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Contacts.qml" line="113"/>
+        <source>MESSENGER_SEARCH_FRIEND_PLACE_HOLDER</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1403,7 +1410,7 @@
 <context>
     <name>Group</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Group.js" line="38"/>
+        <location filename="../Application/Widgets/Messenger/Models/Group.js" line="49"/>
         <source>WITHOUT_GROUP_NAME</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1889,7 +1896,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="38"/>
+        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="39"/>
         <source>MAINTENANCE_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1899,50 +1906,35 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="70"/>
-        <source>1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="71"/>
+        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="81"/>
         <source>HOUR_MAINTENANCE_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="76"/>
+        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="86"/>
         <source>MINUTE_MAINTENANCE_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="81"/>
+        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="91"/>
         <source>SECONDS_MAINTENANCE_LABEL</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="75"/>
-        <source>49</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="80"/>
-        <source>21</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Message</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="78"/>
+        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="89"/>
         <source>MESSAGE_STATE_COMPOSING</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="82"/>
+        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="93"/>
         <source>MESSAGE_STATE_PAUSED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="86"/>
+        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="97"/>
         <source>MESSAGE_STATE_INACTIVE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1950,12 +1942,12 @@
 <context>
     <name>MessageInput</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/MessageInput.qml" line="146"/>
+        <location filename="../Application/Widgets/Messenger/View/MessageInput.qml" line="221"/>
         <source>MESSENGER_SEND_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/MessageInput.qml" line="160"/>
+        <location filename="../Application/Widgets/Messenger/View/MessageInput.qml" line="230"/>
         <source>MESSENGER_SEND_BUTTON_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>

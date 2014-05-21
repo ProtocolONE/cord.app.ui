@@ -52,6 +52,10 @@ Item {
                 id: nicknameText
 
                 color: "#243148"
+                font {
+                    family: "Arial"
+                    pixelSize: 14
+                }
             }
 
             Text {
@@ -60,6 +64,10 @@ Item {
                 visible: !root.isStatusMessage
                 color: "#A4B0BA"
                 anchors.right: parent.right
+                font {
+                    family: "Arial"
+                    pixelSize: 12
+                }
             }
         }
 
@@ -83,7 +91,11 @@ Item {
                 textFormat: TextEdit.PlainText
 
                 color: root.isStatusMessage ? "#A4B0BA" : "#5B6F81"
-                font.italic: root.isStatusMessage
+                font {
+                    family: "Arial"
+                    pixelSize: 12
+                    italic: root.isStatusMessage
+                }
             }
         }
     }

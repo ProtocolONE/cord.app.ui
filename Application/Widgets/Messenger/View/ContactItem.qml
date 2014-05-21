@@ -28,7 +28,7 @@ Rectangle {
     implicitWidth: 78
     implicitHeight: 53
 
-    color: root.isUnreadMessages ? "#189A19" : (root.isCurrent ? "#253149" :"#FAFAFA")
+    color: root.isUnreadMessages ? "#189A19" : (root.isCurrent ? "#243148" :"#FAFAFA")
 
     QtObject {
         id: d
@@ -46,9 +46,19 @@ Rectangle {
         }
     }
 
-    Item {
+    Rectangle {
+        height: 1
         width: parent.width
-        height: 51
+        color: root.isUnreadMessages ? "#30DE79" : (isCurrent ? "#243148" : "#FFFFFF")
+        anchors.top: parent.top
+    }
+
+    Item {
+        anchors {
+            fill: parent
+            topMargin: 1
+            bottomMargin: 1
+        }
 
         Row {
             anchors.fill: parent
@@ -84,7 +94,12 @@ Rectangle {
                                ? "#FAFAFA"
                                : "#243148"
 
-                        font.pixelSize: 12
+                        font {
+                            family: "Arial"
+                            pixelSize: 14
+                            bold: root.isUnreadMessages
+                        }
+
                         width: parent.width
                         elide: Text.ElideRight
                     }
@@ -100,7 +115,10 @@ Rectangle {
                         visible: root.isUnreadMessages && !root.isCurrent
                         text: qsTr("CONTACT_NEW_MESSAGE")
                         color: "#FFCC00"
-                        font.pixelSize: 10
+                        font {
+                            family: "Arial"
+                            pixelSize: 12
+                        }
                     }
 
                     Text {
@@ -113,7 +131,10 @@ Rectangle {
 
                         visible: !newMessageStatus.visible
                         color: "#5B6F81"
-                        font.pixelSize: 10
+                        font {
+                            family: "Arial"
+                            pixelSize: 12
+                        }
                     }
                 }
 
@@ -133,8 +154,10 @@ Rectangle {
         }
     }
 
-    HorizontalSplit {
+    Rectangle {
+        height: 1
         width: parent.width
+        color: root.isUnreadMessages ? "#108211" : (isCurrent ? "#243148" : "#E5E5E5")
         anchors.bottom: parent.bottom
     }
 

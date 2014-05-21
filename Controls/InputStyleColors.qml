@@ -1,4 +1,4 @@
-﻿/****************************************************************************
+/****************************************************************************
 ** This file is a part of Syncopate Limited GameNet Application or it parts.
 **
 ** Copyright (©) 2011 - 2013, Syncopate Limited and/or affiliates.
@@ -15,4 +15,5 @@ QtObject {
     property color active: "#3498DB"
     property color disabled: "#66758F"
     property color error: "#FF6555"
+    property color placeholder: "#d6d6d6"
 }

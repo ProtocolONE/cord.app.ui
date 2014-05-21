@@ -9,21 +9,39 @@
 ****************************************************************************/
 import QtQuick 1.1
 import Tulip 1.0
+import Application.Controls 1.0
 
-ListView {
+Item {
     id: root
+
+    property alias model: view.model
 
     clip: true
 
     implicitWidth: 228
     implicitHeight: 400
 
-    delegate: Group {
-        width: root.width
+    ListView {
+        id: view
 
-        groupName: model.name
-        groupId: model.groupId
-        users: model.users
-        opened: model.opened
+        anchors.fill: parent
+        boundsBehavior: Flickable.StopAtBounds
+        delegate: Group {
+            width: root.width
+
+            groupName: model.name
+            groupId: model.groupId
+            users: model.users
+            opened: model.opened
+        }
     }
+
+    ScrollBar {
+        flickable: view
+        anchors.right: parent.right
+        height: parent.height
+        scrollbarWidth: 5
+    }
+
 }
+

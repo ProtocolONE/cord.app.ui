@@ -19,8 +19,9 @@ import "../Models/Messenger.js" as MessengerJs
 WidgetView {
     id: root
 
-    implicitWidth: 590
-    implicitHeight: 600
+    implicitWidth: parent.width
+    implicitHeight: parent.height
+
     visible: MessengerJs.userSelected()
 
     Rectangle {
@@ -47,10 +48,13 @@ WidgetView {
                 height: parent.height
 
                 Text {
-                    color: "#FFFFFF"
-                    anchors.verticalCenter: parent.verticalCenter
-                    font.pixelSize: 14
                     text: MessengerJs.selectedUserNickname();
+                    color: "#FAFAFA"
+                    anchors.verticalCenter: parent.verticalCenter
+                    font {
+                        pixelSize: 18
+                        family: "Arial"
+                    }
                 }
             }
         }
@@ -59,14 +63,15 @@ WidgetView {
             anchors {
                 top: parent.top
                 right: parent.right
+                rightMargin: 1
             }
 
             width: 32
             height: 32
             styleImages: ButtonStyleImages {
-                normal: installPath + "/images/close.png"
-                hover: installPath + "/images/close.png"
-                disabled: installPath + "/images/close.png"
+                normal: installPath + "/images/Application/Widgets/Messenger/close_chat.png"
+                hover: installPath + "/images/Application/Widgets/Messenger/close_chat.png"
+                disabled: installPath + "/images/Application/Widgets/Messenger/close_chat.png"
             }
 
             style: ButtonStyleColors {
@@ -77,6 +82,15 @@ WidgetView {
 
             onClicked: MessengerJs.closeChat();
         }
+
+        Rectangle {
+            width: 1
+            height: parent.height
+            color: "#162E43"
+            anchors {
+                right: parent.right
+            }
+        }
     }
 
     Rectangle {
@@ -86,6 +100,7 @@ WidgetView {
             topMargin: 52
             bottomMargin: 78
         }
+
         clip: true
 
         ListView {
@@ -95,10 +110,12 @@ WidgetView {
             boundsBehavior: Flickable.StopAtBounds
             interactive: true
 
-            anchors.fill: parent
+            anchors {
+                fill: parent
+                rightMargin: 1
+            }
 
             model: MessengerJs.selectedUserMessages()
-            spacing: 5
             onCountChanged: messageList.positionViewAtEnd();
 
             delegate: MessageItem {
@@ -112,8 +129,18 @@ WidgetView {
 
         ScrollBar {
             flickable: messageList
-            anchors.right: parent.right
+            anchors {
+                right: parent.right
+                rightMargin: 1
+            }
             height: parent.height
+        }
+
+        Rectangle {
+            width: 1
+            height: parent.height
+            color: "#FFFFFF"
+            anchors.right: parent.right
         }
     }
 
@@ -122,4 +149,5 @@ WidgetView {
         height: 78
         anchors.bottom: parent.bottom
     }
+
 }

@@ -1139,6 +1139,13 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>Contacts</name>
+    <message>
+        <source>MESSENGER_SEARCH_FRIEND_PLACE_HOLDER</source>
+        <translation>Новое сообщение</translation>
+    </message>
+</context>
+<context>
     <name>DownloadSettings</name>
     <message>
         <source>DOWNLOAD_LIMIT</source>
@@ -2483,50 +2490,38 @@ Please try again later.</source>
     </message>
     <message>
         <source>MAINTENANCE_LABEL</source>
-        <translation>Технические работы</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>MAINTENANCE_LABEL_END</source>
-        <translation>Завершение через</translation>
-    </message>
-    <message>
-        <source>1</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>49</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>21</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>HOUR_MAINTENANCE_LABEL</source>
-        <translation>ч</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>MINUTE_MAINTENANCE_LABEL</source>
-        <translation>мин.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>SECONDS_MAINTENANCE_LABEL</source>
-        <translation>с</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Message</name>
     <message>
         <source>MESSAGE_STATE_COMPOSING</source>
-        <translation>Печатает</translation>
+        <translation>Набирает сообщение...</translation>
     </message>
     <message>
         <source>MESSAGE_STATE_PAUSED</source>
-        <translation type="unfinished"></translation>
+        <translation>Прекратил набор сообщения</translation>
     </message>
     <message>
         <source>MESSAGE_STATE_INACTIVE</source>
-        <translation type="unfinished"></translation>
+        <translation>Отошел</translation>
     </message>
 </context>
 <context>

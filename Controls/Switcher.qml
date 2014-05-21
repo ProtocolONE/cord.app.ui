@@ -18,8 +18,6 @@ Item {
         Js.previousItem = Js.currentItem;
         Js.previousItem.parent = topLayer;
 
-        bottomLayer.opacity = 0;
-
         Js.currentItem = nextItem;
         Js.currentItem.parent = bottomLayer;
 
@@ -53,13 +51,6 @@ Item {
                 target: topLayer
                 property: "opacity"
                 to: 0
-                duration: 200
-            }
-
-            PropertyAnimation {
-                target: bottomLayer
-                property: "opacity"
-                to: 1
                 duration: 300
             }
         }

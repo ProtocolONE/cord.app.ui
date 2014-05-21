@@ -13,21 +13,19 @@ import GameNet.Controls 1.0
 import "../../../Application/Widgets/Messenger/Models/Messenger.js" as MessengerJs
 
 Rectangle {
-    width: 1000 + 200
+    width: 1000
     height: 800
     color: '#EEEEEE'
 
-
     Component.onCompleted: {
-        var user = "400001000001634860";
+        var user = "400001000129602790";
         var server = "j.gamenet.dev"
-        var password = "4c2f65777d38eb07d32d111061005dcd5a119150"
+        var password = 'cbd12cfdbd30486a50e75073fcaee4f3';//Qt.md5('4c2f65777d38eb07d32d111061005dcd5a119150'); //"eb00b085998bb967ef7c2cb15d4475d6"
 
         var bareJid = user + "@" + server;
 
         MessengerJs.connect(user, password);
     }
-
 
     WidgetManager {
         id: manager
@@ -40,37 +38,10 @@ Rectangle {
 
     Row {
         anchors.fill: parent
-        layoutDirection: Qt.RightToLeft
 
-        Column {
-            width: 228
+        Item {
             height: parent.height
-
-            Rectangle {
-                width: parent.width
-                height: 90
-                color: "#243148"
-            }
-
-            HorizontalSplit {
-                width: parent.width
-            }
-
-            WidgetContainer {
-                height: parent.height - 92
-                width: 228
-                widget: 'Messenger'
-                view: 'Contacts'
-            }
-        }
-
-        VerticalSplit {
-            height: parent.height
-
-            style: SplitterStyleColors {
-                main: "#FFFFFF"
-                shadow: "#E5E5E5"
-            }
+            width: 180
         }
 
         WidgetContainer {
@@ -80,36 +51,22 @@ Rectangle {
             view: 'Chat'
         }
 
-        VerticalSplit {
-            height: parent.height
-
-            style: SplitterStyleColors {
-                main: "#FFFFFF"
-                shadow: "#E5E5E5"
-            }
-        }
         Column {
-            width: 228
+            width: 230
             height: parent.height
 
             Rectangle {
                 width: parent.width
-                height: 90
+                height: 91
                 color: "#243148"
             }
 
-            HorizontalSplit {
-                width: parent.width
-            }
-
             WidgetContainer {
-                height: parent.height - 92
-                width: 228
+                height: parent.height - 91
+                width: 230
                 widget: 'Messenger'
                 view: 'Contacts'
             }
         }
     }
-
-
 }

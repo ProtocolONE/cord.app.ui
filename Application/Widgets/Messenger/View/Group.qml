@@ -58,6 +58,12 @@ Item {
         anchors.fill: parent
 
         Rectangle {
+            height: 1
+            width: parent.width
+            color: "#FFFFFF"
+        }
+
+        Rectangle {
             id: groupTitle
 
             width: parent.width
@@ -72,9 +78,13 @@ Item {
                 }
 
                 text: root.groupName + " ( " + root.users.count + " ) "
-                font.capitalization: Font.AllUppercase
+                font {
+                    family: "Arial"
+                    pixelSize: 12
+                    capitalization: Font.AllUppercase
+                }
 
-                color: "#8099AD"
+                color: "#8297a9"
             }
 
             Row {
@@ -107,6 +117,10 @@ Item {
                         anchors.centerIn: parent
                         text: d.unreadUsersCount
                         color: "#FAFAFA"
+                        font {
+                            family: "Arial"
+                            pixelSize: 12
+                        }
                     }
                 }
             }
@@ -119,15 +133,17 @@ Item {
             }
         }
 
-        HorizontalSplit {
+        Rectangle {
+            height: 1
             width: parent.width
+            color: "#E5E5E5"
         }
 
         ListView {
             id: groupUserList
 
             width: parent.width
-            height: groupUserList.count * 53 + 1
+            height: groupUserList.count > 0 ? (groupUserList.count * 53) : 1
             clip: true
             interactive: false
             boundsBehavior: Flickable.StopAtBounds

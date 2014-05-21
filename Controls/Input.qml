@@ -172,7 +172,7 @@ Item {
                     right: parent.right
                     verticalCenter: parent.verticalCenter
                 }
-                color: "#d6d6d6"
+                color: root.style.placeholder
                 elide: Text.ElideRight
                 font { family: "Arial"; pixelSize: root.fontSize }
 

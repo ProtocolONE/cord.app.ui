@@ -16,118 +16,174 @@ import Gamenet.Controls 1.0
 import "../Models/Messenger.js" as MessengerJs
 
 WidgetView {
-    implicitWidth: 228
-    implicitHeight: parent.height - 100
+    implicitWidth: parent.width
+    implicitHeight: parent.height
 
-    Column {
-        anchors.fill: parent
+    Rectangle {
+        anchors {
+            fill: parent
+            leftMargin: 1
+        }
 
-        Rectangle {
-            id: searchContactItem
+        color: "#FFFFFF"
 
-            width: parent.width
-            height: 52
-            color: "#FAFAFA"
+        Column {
+            anchors.fill: parent
 
-            Input {
-                id: searchContactInput
+            Rectangle {
+                id: searchContactItem
 
-                property bool isSearching: false
+                width: parent.width
+                height: 53
+                color: "#FAFAFA"
 
-                function sortFunction(a, b) {
-                    if (a.value > b.value) {
-                        return 1;
-                    }
-
-                    return -1;
+                Rectangle {
+                    height: 1
+                    width: parent.width
+                    color: "#FFFFFF"
+                    anchors.top: parent.top
                 }
 
-                function filterFunction(pattern, testedValue) {
-                    if (pattern === "" || testedValue === "") {
-                        return false;
+                Row {
+                    anchors {
+                        fill: parent
+                        margins: 10
+                        topMargin: 11
+                        bottomMargin: 11
                     }
-                    if (pattern.length > testedValue.length) {
-                        return false;
-                    }
-                    if (testedValue.substring(0, pattern.length) === pattern) {
-                        return true;
-                    }
-                }
 
-                function updateFilter() {
-                    var res = []
-                    , item;
-                    searchContactModel.clear();
+                    spacing: 10
 
-                    MessengerJs.eachUser(function(user) {
-                        if (!filterFunction(searchContactInput.text, user.nickname)) {
-                            return;
+                    Button {
+                        width: 32
+                        height: 32
+
+                        style: ButtonStyleColors {
+                            normal: "#1ABC9C"
+                            hover: "#019074"
                         }
 
-                        item = {
-                            jid: user.jid,
-                            value: user.nickname
-                        };
+                        Image {
+                            anchors.centerIn: parent
 
-                        res.push(item);
-                    });
+                            source: installPath + "images/Application/Widgets/Messenger/add_friend.png"
+                        }
+                    }
 
-                    res.sort(searchContactInput.sortFunction);
+                    Input {
+                        id: searchContactInput
 
-                    res.forEach(function(e) {
-                        searchContactModel.append({
-                                                      jid: e.jid
-                                                  });
-                    });
-                }
+                        property bool isSearching: false
 
-                anchors {
-                    fill: parent
-                    margins: 10
-                }
+                        function sortFunction(a, b) {
+                            if (a.value > b.value) {
+                                return 1;
+                            }
 
-                icon: installPath + "/images/Application/Widgets/Messenger/chat_search.png"
+                            return -1;
+                        }
 
-                showCapslock: false
-                showLanguage: false
-                style: InputStyleColors {
-                    // UNDONE нарыть цвета
-                }
+                        function filterFunction(pattern, testedValue) {
+                            if (pattern === "" || testedValue === "") {
+                                return false;
+                            }
+                            if (pattern.length > testedValue.length) {
+                                return false;
+                            }
+                            if (testedValue.substring(0, pattern.length) === pattern) {
+                                return true;
+                            }
+                        }
 
-                onTextChanged: {
-                    searchContactInput.isSearching = (searchContactInput.text.length > 0);
-                    if (searchContactInput.isSearching) {
-                        searchContactInput.updateFilter();
+                        function updateFilter() {
+                            var res = []
+                            , item;
+                            searchContactModel.clear();
+
+                            MessengerJs.eachUser(function(user) {
+                                if (!filterFunction(searchContactInput.text, user.nickname)) {
+                                    return;
+                                }
+
+                                item = {
+                                    jid: user.jid,
+                                    value: user.nickname
+                                };
+
+                                res.push(item);
+                            });
+
+                            res.sort(searchContactInput.sortFunction);
+
+                            res.forEach(function(e) {
+                                searchContactModel.append({
+                                                              jid: e.jid
+                                                          });
+                            });
+                        }
+
+                        height: parent.height
+                        width: parent.width - 42
+
+                        icon: installPath + "/images/Application/Widgets/Messenger/chat_search.png"
+
+                        placeholder: qsTr("MESSENGER_SEARCH_FRIEND_PLACE_HOLDER")
+                        fontSize: 14
+                        showCapslock: false
+                        showLanguage: false
+                        style: InputStyleColors {
+                            normal: "#e5e5e5"
+                            active: "#3498db"
+                            hover: "#3498db"
+                            placeholder: "#a4b0ba"
+                        }
+
+                        onTextChanged: {
+                            searchContactInput.isSearching = (searchContactInput.text.length > 0);
+                            if (searchContactInput.isSearching) {
+                                searchContactInput.updateFilter();
+                            }
+                        }
                     }
                 }
+
+                Rectangle {
+                    height: 1
+                    width: parent.width
+                    color: "#E5E5E5"
+                    anchors.bottom: parent.bottom
+                }
+
+                ListModel {
+                    id: searchContactModel
+                }
             }
 
-            ListModel {
-                id: searchContactModel
+            Item {
+                width: parent.width
+                height: parent.height - searchContactItem.height - 2
+
+                ContactList {
+                    anchors.fill: parent
+                    visible: !searchContactInput.isSearching
+                    model: MessengerJs.groupsModel()
+                }
+
+                SearchContactList {
+                    visible: searchContactInput.isSearching
+                    anchors.fill: parent
+                    model: searchContactModel
+                    onUserClicked: searchContactInput.text = "";
+                }
             }
         }
 
-        HorizontalSplit {
-            width: parent.width
-        }
+    }
 
-        Item {
-            width: parent.width
-            height: parent.height - searchContactItem.height - 2
-
-            ContactList {
-                anchors.fill: parent
-                visible: !searchContactInput.isSearching
-                model: MessengerJs.groupsModel()
-            }
-
-            SearchContactList {
-                visible: searchContactInput.isSearching
-                anchors.fill: parent
-                model: searchContactModel
-                onUserClicked: searchContactInput.text = "";
-            }
-        }
+    Rectangle {
+        width: 1
+        height: parent.height
+        color: "#e5e5e5"
     }
 }
 

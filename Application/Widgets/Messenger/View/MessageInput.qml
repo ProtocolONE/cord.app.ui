@@ -122,6 +122,13 @@ Rectangle {
                             selectByMouse: true
                             wrapMode: TextEdit.Wrap
 
+                            font {
+                                pixelSize: 12
+                                family: "Arial"
+                            }
+
+                            color: "#a4b0ba"
+
                             onCursorRectangleChanged: inputFlick.ensureVisible(cursorRectangle);
 
                             Keys.onReturnPressed: {
