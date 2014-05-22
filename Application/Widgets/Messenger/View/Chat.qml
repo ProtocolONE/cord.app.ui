@@ -37,8 +37,9 @@ WidgetView {
                 height: parent.height
 
                 Image {
-                    // HACK
-                    source: "http://images.gamenet.ru/pics/user/avatar/small/empty2.jpg"
+                    source: MessengerJs.userAvatar(MessengerJs.selectedUser())
+                    width: 32
+                    height: 32
                     anchors.centerIn: parent
                 }
             }
@@ -121,6 +122,7 @@ WidgetView {
             delegate: MessageItem {
                 width: root.width
                 nickname: MessengerJs.getNickname(model)
+                avatar: MessengerJs.userAvatar(model)
                 date: Qt.formatDateTime(new Date(model.date), "hh:mm")
                 body: model.text
                 isStatusMessage: model.isStatusMessage

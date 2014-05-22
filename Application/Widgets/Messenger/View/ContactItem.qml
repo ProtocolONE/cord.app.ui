@@ -28,7 +28,9 @@ Rectangle {
     implicitWidth: 78
     implicitHeight: 53
 
-    color: root.isUnreadMessages ? "#189A19" : (root.isCurrent ? "#243148" :"#FAFAFA")
+    color: root.isUnreadMessages
+           ? "#189A19"
+           : (root.isCurrent ? "#243148" :"#FAFAFA")
 
     QtObject {
         id: d
@@ -49,7 +51,9 @@ Rectangle {
     Rectangle {
         height: 1
         width: parent.width
-        color: root.isUnreadMessages ? "#30DE79" : (isCurrent ? "#243148" : "#FFFFFF")
+        color: root.isUnreadMessages
+               ? "#30DE79"
+               : (isCurrent ? "#243148" : "#FFFFFF")
         anchors.top: parent.top
     }
 
@@ -70,6 +74,8 @@ Rectangle {
                 Image {
                     id: avatarImage
 
+                    width: 32
+                    height: 32
                     anchors.centerIn: parent
                 }
             }
@@ -157,7 +163,9 @@ Rectangle {
     Rectangle {
         height: 1
         width: parent.width
-        color: root.isUnreadMessages ? "#108211" : (isCurrent ? "#243148" : "#E5E5E5")
+        color: root.isUnreadMessages
+               ? "#108211"
+               : (isCurrent ? "#243148" : "#E5E5E5")
         anchors.bottom: parent.bottom
     }
 

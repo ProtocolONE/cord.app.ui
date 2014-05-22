@@ -61,6 +61,10 @@ function getUser(jid) {
     return _modelInstance.getUser(jid);
 }
 
+function authedUser() {
+    return _modelInstance.authedUser();
+}
+
 function selectUser(user, group) {
     _modelInstance.selectUser(user, group);
 }
@@ -154,5 +158,9 @@ function selectedUserMessages() {
 
 function eachUser(callback) {
     users().forEach(callback);
+}
+
+function userAvatar(item) {
+    return _modelInstance.userAvatar(item);
 }
 

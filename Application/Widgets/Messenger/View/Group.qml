@@ -151,8 +151,7 @@ Item {
                 width: groupUserList.width
                 nickname: MessengerJs.getNickname(model)
 
-                // HACK
-                avatar: "http://images.gamenet.ru/pics/user/avatar/small/empty2.jpg"
+                avatar: MessengerJs.userAvatar(model)
 
                 isCurrent: MessengerJs.isSelectedUser(model) && MessengerJs.isSelectedGroup(root)
                 isUnreadMessages: !isCurrent && MessengerJs.hasUnreadMessages(model);

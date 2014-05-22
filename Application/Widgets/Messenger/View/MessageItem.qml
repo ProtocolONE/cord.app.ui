@@ -16,6 +16,7 @@ Item {
     property alias nickname: nicknameText.text
     property alias date: dateText.text
     property alias body: messageBody.text
+    property alias avatar: avatarImage.source
 
     property bool isStatusMessage: false
 
@@ -34,8 +35,10 @@ Item {
         }
 
         Image {
-            // HACK
-            source: "http://images.gamenet.ru/pics/user/avatar/small/empty2.jpg"
+            id: avatarImage
+
+            width: 32
+            height: 32
         }
 
         Item { // message header

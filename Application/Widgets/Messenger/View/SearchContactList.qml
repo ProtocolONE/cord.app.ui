@@ -34,7 +34,7 @@ Item {
             width: root.width
             height: 53
             nickname: MessengerJs.getNickname(model)
-            avatar: "http://images.gamenet.ru/pics/user/avatar/small/empty2.jpg"
+            avatar: MessengerJs.userAvatar(model)
             onClicked: {
                 root.userClicked(model.jid);
                 MessengerJs.selectUser(model);

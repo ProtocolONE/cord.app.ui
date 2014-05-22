@@ -18,6 +18,10 @@ function User(item, model) {
         message;
 
     this.__defineGetter__("jid", function() {
+        if (!_item) {
+            return "";
+        }
+
         return _item.jid;
     });
 
@@ -94,6 +98,14 @@ function User(item, model) {
         _model.setPropertyById(self.jid, 'inputMessage', val);
     });
 
+    this.__defineGetter__("avatar", function() {
+        return _item.avatar;
+    });
+
+    this.__defineSetter__("avatar", function(val) {
+        _model.setPropertyById(self.jid, 'avatar', val);
+    });
+
     this.isValid = function() {
         return !!_item && !!_model;
     }
@@ -154,7 +166,8 @@ function createRawUser(jid, nickname) {
         messages: [],
         statusMessage: "",
         presenceState: "",
-        inputMessage: ""
+        inputMessage: "",
+        avatar: ""
     };
 
     return result;

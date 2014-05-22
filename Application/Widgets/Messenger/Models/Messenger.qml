@@ -23,8 +23,6 @@ Item {
     property string previousJid
     property string selectedJid
     property string selectedGroupId
-
-    // HACK как то подругому бы надо
     property string authedJid: ""
 
     signal selectedUserChanged();
@@ -142,6 +140,20 @@ Item {
         return new UserJs.User(usersModel.getById(root.previousJid), usersModel);
     }
 
+    function authedUser() {
+        return user;
+    }
+
+    function userAvatar(item) {
+        var defaultAvatar = (installPath + "/images/gameFailIcon.png");
+        var data = getUser(item.jid);
+        if (!data.isValid()) {
+            return defaultAvatar;
+        }
+
+        return data.avatar || defaultAvatar;
+    }
+
     QtObject {
         id: d
 
@@ -181,6 +193,8 @@ Item {
             } else {
                 usersModel.append(UserJs.createRawUser(user, nickname || user));
             }
+
+            xmppClient.vcardManager.requestVCard(user);
 
             groups.forEach(function(group) {
                 groupsMap[group] = 1;
@@ -279,6 +293,22 @@ Item {
         idProperty: "jid"
     }
 
+    QtObject {
+        id: user
+
+        property string nickname: ""
+        property string jid: ""
+        property string userId: ""
+        property int state: QXmppMessage.Active
+        property string presenceState: ""
+        property string statusMessage: ""
+        property string avatar: ""
+
+        function isValid() {
+            return true;
+        }
+    }
+
     QXmppClient {
         id: xmppClient
 
@@ -353,25 +383,14 @@ Item {
         target: xmppClient.vcardManager
 
         onVCardReceived: {
-            if (vcard.from === user.jid && !!vcard.nickName) {
-                user.nickname = vcard.nickName;
+            var item = root.getUser(UserJs.jidWithoutResource(vcard.from));
+            if (vcard.from === user.jid) { // INFO пока что берем никнейм из ростера
+                item.nickname = vcard.nickName;
+            }
+
+            if (vcard.extra) {
+                item.avatar = vcard.extra.PHOTOURL;
             }
         }
     }
-
-    QtObject {
-        id: user
-
-        property string nickname: ""
-        property string jid: ""
-        property string userId: ""
-        property int state: QXmppMessage.Active
-        property string presenceState: ""
-        property string statusMessage: ""
-
-        function isValid() {
-            return true;
-        }
-    }
-
 }
