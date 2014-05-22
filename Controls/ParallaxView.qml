@@ -18,6 +18,8 @@ Item {
 
     property int refreshTimeout: 33
 
+    signal beforeUpdate();
+
     implicitWidth: 100
     implicitHeight: 100
 
@@ -88,6 +90,7 @@ Item {
         running: true
         repeat: true
         onTriggered: {
+            beforeUpdate();
             d.update();
         }
     }
