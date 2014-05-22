@@ -106,6 +106,10 @@ function User(item, model) {
         _model.setPropertyById(self.jid, 'avatar', val);
     });
 
+    this.__defineGetter__("isGamenet", function() {
+        return _item.isGamenet;
+    });
+
     this.isValid = function() {
         return !!_item && !!_model;
     }
@@ -167,7 +171,26 @@ function createRawUser(jid, nickname) {
         statusMessage: "",
         presenceState: "",
         inputMessage: "",
-        avatar: ""
+        avatar: "",
+        isGamenet: false
+    };
+
+    return result;
+}
+
+function createGamenetUser() {
+    var result = {
+        userId: "",
+        jid: "GameNet",
+        nickname: "GameNet",
+        unreadMessageCount: 0,
+        state: 0,
+        messages: [],
+        statusMessage: "",
+        presenceState: "",
+        inputMessage: "",
+        avatar: "",
+        isGamenet: true
     };
 
     return result;

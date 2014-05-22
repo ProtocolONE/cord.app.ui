@@ -38,6 +38,10 @@ function Group(item, model) {
         _model.setPropertyById(self.groupId, 'opened', val);
     });
 
+    this.__defineGetter__("isGamenet", function() {
+        return _item.isGamenet;
+    });
+
     this.appendUser = function(jid) {
         _item.users.append({jid: jid});
     }
@@ -48,7 +52,20 @@ function createRawGroup(group) {
         groupId: group,
         name: (group === '!') ? qsTr('WITHOUT_GROUP_NAME') : group,
         users: [],
-        opened: false
+        opened: false,
+        isGamenet: false
+    };
+
+    return result;
+}
+
+function createGamenetGroup(group) {
+    var result = {
+        groupId: '___GameNet___',
+        name: 'GameNetGroup',
+        users: [],
+        opened: true,
+        isGamenet: true
     };
 
     return result;

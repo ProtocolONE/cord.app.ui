@@ -99,7 +99,7 @@ WidgetView {
         anchors {
             fill: parent
             topMargin: 52
-            bottomMargin: 78
+            bottomMargin: MessengerJs.isSelectedGamenet() ? 0 : 78
         }
 
         clip: true
@@ -147,6 +147,7 @@ WidgetView {
     }
 
     MessageInput {
+        visible: !MessengerJs.isSelectedGamenet()
         width: parent.width
         height: 78
         anchors.bottom: parent.bottom

@@ -38,9 +38,7 @@ Rectangle {
             }
         }
 
-        onActiveStatusChanged: {
-            MessengerJs.sendInputStatus(MessengerJs.selectedUser(), d.activeStatus);
-        }
+        onActiveStatusChanged: MessengerJs.sendInputStatus(MessengerJs.selectedUser(), d.activeStatus);
     }
 
     Connections {

@@ -18,9 +18,11 @@ Rectangle {
     property alias nickname : nicknameText.text
     property alias avatar: avatarImage.source
     property alias status: statusText.text
+    property alias isPresenceVisile: presenceIcon.visible
 
     property bool isCurrent: false
     property bool isUnreadMessages: false
+
     property string presenceStatus: ""
 
     signal clicked()
@@ -145,6 +147,8 @@ Rectangle {
                 }
 
                 Rectangle {
+                    id: presenceIcon
+
                     width: 7
                     height: 7
                     radius: 7

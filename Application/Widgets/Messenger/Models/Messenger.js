@@ -9,8 +9,6 @@
 ****************************************************************************/
 .pragma library
 
-var visibleItems = {};
-
 var _modelComponent,
     _modelInstance;
 
@@ -30,19 +28,8 @@ function instance() {
     return _modelInstance;
 }
 
-// HACK для отладки
-var connectGuard = false;
 function connect(user, password) {
-    if (connectGuard) {
-        console.log('Connect gruard: already connected.');
-        return;
-    }
-
-    var server = "j.gamenet.dev"
-    var bareJid = user + "@" + server;
-
-    connectGuard = true;
-    _modelInstance.connect(bareJid, password);
+    _modelInstance.connect(user, password);
 }
 
 function groups() {
@@ -162,5 +149,18 @@ function eachUser(callback) {
 
 function userAvatar(item) {
     return _modelInstance.userAvatar(item);
+}
+
+function isSelectedGamenet() {
+    return _modelInstance.isSelectedGamenet();
+}
+
+function isGamenetUser(item) {
+    var user = getUser(item.jid);
+    if (!user.isValid()) {
+        return false;
+    }
+
+    return user.isGamenet;
 }
 

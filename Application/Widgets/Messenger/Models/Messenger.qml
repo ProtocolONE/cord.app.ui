@@ -145,7 +145,7 @@ Item {
     }
 
     function userAvatar(item) {
-        var defaultAvatar = (installPath + "/images/gameFailIcon.png");
+        var defaultAvatar = (installPath + "/images/Application/Widgets/Messenger/defaultAvatar.png");
         var data = getUser(item.jid);
         if (!data.isValid()) {
             return defaultAvatar;
@@ -154,8 +154,35 @@ Item {
         return data.avatar || defaultAvatar;
     }
 
+    function isSelectedGamenet() {
+        var item = root.selectedUser();
+        if (!item.isValid()) {
+            return false;
+        }
+
+        return item.isGamenet;
+    }
+
+    Component.onCompleted: {
+        d.appendGamenetUser();
+    }
+
     QtObject {
         id: d
+
+        property int defaultAvatarIndex: 0
+
+        function appendGamenetUser() {
+            var gamenetUser = UserJs.createGamenetUser(),
+                gamenetGroup = GroupJs.createGamenetGroup(),
+                group;
+
+            usersModel.append(gamenetUser);
+            groupsModel.append(gamenetGroup);
+
+            group = new GroupJs.Group(groupsModel.getById(gamenetGroup.groupId), groupsModel);
+            group.appendUser(gamenetUser.jid);
+        }
 
         function rosterRecieved() {
             var rosterUsers = xmppClient.rosterManager.getRosterBareJids()
@@ -174,11 +201,18 @@ Item {
             });
         }
 
+        function getDefaultAvatar() {
+            d.defaultAvatarIndex = (d.defaultAvatarIndex + 1) % 12;
+            var name = "defaultAvatar_" + (d.defaultAvatarIndex + 1) + ".png";
+            return installPath + "/images/Application/Widgets/Messenger/" + name;
+        }
+
         function appendUser(user) {
             var nickname
             , groups
             , item
-            , groupsMap = {};
+            , groupsMap = {}
+            , rawUser;
 
             nickname = xmppClient.rosterManager.getNickname(user);
             groups = xmppClient.rosterManager.getGroups(user);
@@ -187,14 +221,16 @@ Item {
                     : groups;
 
             if (usersModel.contains(user)) {
+                // UNDONE Если никнейм из берем из vcard то убрать
                 item = new UserJs.User(usersModel.getById(user), usersModel);
-                item.nickname = nickname || user;
+                //item.nickname = nickname || user;
                 // UNDONE set other properties
             } else {
-                usersModel.append(UserJs.createRawUser(user, nickname || user));
+                rawUser = UserJs.createRawUser(user, nickname || user);
+                rawUser.avatar = d.getDefaultAvatar();
+                usersModel.append(rawUser);
+                xmppClient.vcardManager.requestVCard(user);
             }
-
-            xmppClient.vcardManager.requestVCard(user);
 
             groups.forEach(function(group) {
                 groupsMap[group] = 1;
@@ -236,7 +272,8 @@ Item {
         }
 
         function appendUserToGroup(groupId, user) {
-            // UNDONE нет сортировки пользоватей внутри группы
+            // UNDONE нет сортировки пользоватей внутри группы и групп
+            // При сортировке не забыть про псевдо группу "Gamenet" и "!"
             var group;
 
             if (!groupsModel.contains(groupId)) {
@@ -302,7 +339,7 @@ Item {
         property int state: QXmppMessage.Active
         property string presenceState: ""
         property string statusMessage: ""
-        property string avatar: ""
+        property string avatar: installPath + "/images/Application/Widgets/Messenger/defaultAvatar.png";
 
         function isValid() {
             return true;
@@ -332,6 +369,7 @@ Item {
         }
 
         onMessageReceived: {
+            //console.log('------ !!!', JSON.stringify(message));
             var bareJid = UserJs.jidWithoutResource(message.from)
             if (message.type === QXmppMessage.Chat) {
                 d.appendMessage(bareJid, message.state, message.body)
@@ -383,13 +421,15 @@ Item {
         target: xmppClient.vcardManager
 
         onVCardReceived: {
+            //console.log('---------- ', JSON.stringify(vcard), vcard.nickName)
             var item = root.getUser(UserJs.jidWithoutResource(vcard.from));
-            if (vcard.from === user.jid) { // INFO пока что берем никнейм из ростера
-                item.nickname = vcard.nickName;
+            //if (vcard.from === user.jid)
+            { // INFO пока что берем никнейм из ростера
+                item.nickname = vcard.nickName || "";
             }
 
             if (vcard.extra) {
-                item.avatar = vcard.extra.PHOTOURL;
+                item.avatar = vcard.extra.PHOTOURL || "";
             }
         }
     }

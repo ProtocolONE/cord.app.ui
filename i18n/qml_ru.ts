@@ -1142,7 +1142,7 @@ Please try again later.</source>
     <name>Contacts</name>
     <message>
         <source>MESSENGER_SEARCH_FRIEND_PLACE_HOLDER</source>
-        <translation>Новое сообщение</translation>
+        <translation>Поиск друга</translation>
     </message>
 </context>
 <context>

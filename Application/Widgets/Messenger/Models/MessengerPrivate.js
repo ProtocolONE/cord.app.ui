@@ -12,11 +12,6 @@
 var groupToUser = {}
     , userToGroup = {};
 
-function dumpMaps() {
-//    console.log('Group to User :\n', JSON.stringify(groupToUser, null, 2));
-//    console.log('User to Group :\n', JSON.stringify(userToGroup, null, 2));
-}
-
 function appendUserToGroup(group, user) {
     if (!groupToUser.hasOwnProperty(group)) {
         groupToUser[group] = {};
@@ -28,13 +23,11 @@ function appendUserToGroup(group, user) {
 
     groupToUser[group][user] = 1;
     userToGroup[user][group] = 1;
-    dumpMaps();
 }
 
 function removeUserFromGroup(group, user) {
     delete groupToUser[group][user];
     delete userToGroup[user][group];
-    dumpMaps();
 }
 
 function isUserInGroup(group, user) {

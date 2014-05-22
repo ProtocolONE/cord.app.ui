@@ -33,6 +33,7 @@ Item {
             groupId: model.groupId
             users: model.users
             opened: model.opened
+            isGamenet: model.isGamenet
         }
     }
 

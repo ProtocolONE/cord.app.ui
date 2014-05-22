@@ -733,7 +733,7 @@
 <context>
     <name>ContactItem</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/ContactItem.qml" line="106"/>
+        <location filename="../Application/Widgets/Messenger/View/ContactItem.qml" line="116"/>
         <source>CONTACT_NEW_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -741,7 +741,7 @@
 <context>
     <name>Contacts</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Contacts.qml" line="113"/>
+        <location filename="../Application/Widgets/Messenger/View/Contacts.qml" line="130"/>
         <source>MESSENGER_SEARCH_FRIEND_PLACE_HOLDER</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2927,22 +2927,22 @@
 <context>
     <name>TaskList</name>
     <message>
-        <location filename="../Features/TastList/TaskList.qml" line="64"/>
+        <location filename="../Application/Widgets/TaskList/TaskList.qml" line="64"/>
         <source>TASK_LIST_ALL_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/TastList/TaskList.qml" line="65"/>
+        <location filename="../Application/Widgets/TaskList/TaskList.qml" line="65"/>
         <source>TASK_LIST_MORE_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/TastList/TaskList.qml" line="43"/>
+        <location filename="../Application/Widgets/TaskList/TaskList.qml" line="43"/>
         <source>TASK_LIST_SETTING</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/TastList/TaskList.qml" line="44"/>
+        <location filename="../Application/Widgets/TaskList/TaskList.qml" line="44"/>
         <source>TASK_LIST_QUIT</source>
         <translation type="unfinished"></translation>
     </message>

@@ -10,7 +10,7 @@
 .pragma library
 
 var MessageState = function() {};
-MessageState.None = 0;   ///< The message does not contain any chat state information.
+MessageState.None = 0;       ///< The message does not contain any chat state information.
 MessageState.Active = 1;     ///< User is actively participating in the chat session.
 MessageState.Inactive = 2;   ///< User has not been actively participating in the chat session.
 MessageState.Gone = 3;       ///< User has effectively ended their participation in the chat session.
