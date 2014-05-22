@@ -677,6 +677,21 @@ Rectangle {
                     Elements.ButtonBig {
                         id: singleBigButton
 
+                        function testStarted() {
+                            if (!root.currentItem) {
+                                return false;
+                            }
+
+                            var currentMainRunning = Core.currentRunningMainService();
+                            var currentSecondRunning = Core.currentRunningSecondService();
+                            if (currentMainRunning ||
+                                    currentSecondRunning && currentSecondRunning != root.currentItem.serviceId) {
+                                return true;
+                            }
+
+                            return false;
+                        }
+
                         visible: !!currentItem && !d._maintenance
 
                         anchors {
@@ -698,7 +713,7 @@ Rectangle {
                         isPause: currentItem ? currentItem.status === "Paused" : false
                         allreadyDownloaded: currentItem ? currentItem.allreadyDownloaded : false
 
-                        isStarted: currentItem ? currentItem.status === "Started" || currentItem.status === "Starting" : false
+                        isStarted: testStarted()
                         progressPercent: currentItem ? currentItem.progress : -1
 
                         onButtonClicked: {
@@ -744,7 +759,7 @@ Rectangle {
                                     return false;
                                 }
 
-                                return root.currentItem.secondStatus === "Started"
+                                return !!Core.currentRunningSecondService();
                             }
 
                             anchors.fill: parent
@@ -762,7 +777,7 @@ Rectangle {
 
                             playEnabled: singleBigButton.isStarted
                             visible: secondAuthButton.isPremiumAvailable()
-                            isRunning: secondAuthButton.getIsRunning()
+                            isRunning: getIsRunning()
                             enabled: !Core.isAnySecondServiceRunning()
                         }
                     }

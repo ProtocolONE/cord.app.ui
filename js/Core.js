@@ -2,7 +2,7 @@
 Qt.include("../Proxy/Settings.js")
 
 var _signalBusComponent,
-    _signalBusInst;
+        _signalBusInst;
 
 if (!_signalBusComponent) {
     _signalBusComponent = Qt.createComponent('./Core.qml');
@@ -26,7 +26,7 @@ function openBuyGamenetPremiumPage() {
 }
 
 function premiumExpired() {
-   _signalBusInst.premiumExpired();
+    _signalBusInst.premiumExpired();
 }
 
 function hideMainWindow() {
@@ -119,14 +119,14 @@ var socialNetTable = {
 }
 
 var runningService = {},
-    runningSecondService = {},
-    serviceIdToGameItemIdex = {},
-    indexToGameItem = {},
-    gameIdToGameItem = {},
-    count = 0,
-    clientWidth = 930,
-    clientHeight = 550,
-    isClientLoaded = false;
+runningSecondService = {},
+serviceIdToGameItemIdex = {},
+indexToGameItem = {},
+gameIdToGameItem = {},
+count = 0,
+        clientWidth = 930,
+        clientHeight = 550,
+        isClientLoaded = false;
 
 var gamesListModel = initModel();
 var _previousGame = gamesListModel.currentGameItem
@@ -217,6 +217,28 @@ function indexByServiceId(serviceId) {
 
 function isServiceInstalled(serviceId) {
     return isSettingsEnabled("GameDownloader/" + serviceId + "/", "isInstalled", false);
+}
+
+function currentRunningMainService() {
+    var serviceItem;
+    for (var i = 0; i < gamesListModel.count; i++) {
+        serviceItem = gamesListModel.get(i);
+
+        if (serviceItem.status === "Started" || serviceItem.status === "Starting") {
+            return serviceItem.serviceId;
+        }
+    }
+}
+
+function currentRunningSecondService() {
+    var serviceItem;
+    for (var i = 0; i < gamesListModel.count; i++) {
+        serviceItem = gamesListModel.get(i);
+
+        if (serviceItem.secondStatus === "Started" || serviceItem.secondStatus === "Starting") {
+            return serviceItem.serviceId;
+        }
+    }
 }
 
 function isAnySecondServiceRunning() {
