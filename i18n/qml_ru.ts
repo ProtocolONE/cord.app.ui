@@ -2708,6 +2708,21 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>NicknameEdit</name>
+    <message>
+        <source>SET_NICKNAME</source>
+        <translation>Установить никнейм</translation>
+    </message>
+    <message>
+        <source>YOUR_NICKNAME</source>
+        <translation>Твой никнейм</translation>
+    </message>
+    <message>
+        <source>ENTER_NICKNAME</source>
+        <translation>Введи свой никнейм</translation>
+    </message>
+</context>
+<context>
     <name>NotificationPage</name>
     <message>
         <source>CHECKBOX_NOTIFICATION_MAINTENANCE_END</source>
@@ -3910,6 +3925,29 @@ Please try again later.</source>
     <message>
         <source>DEFAULT_NICKNAME</source>
         <translation>Никнейм не выбран</translation>
+    </message>
+</context>
+<context>
+    <name>UserProfileView</name>
+    <message>
+        <source>ADD_MONEY</source>
+        <translation>Пополнить счет</translation>
+    </message>
+    <message>
+        <source>EXTENDED_ACCOUNT</source>
+        <translation>Расширенный аккаунт</translation>
+    </message>
+    <message>
+        <source>GAMENET_BALANCE</source>
+        <translation>У тебя %1 GN-монет</translation>
+    </message>
+    <message>
+        <source>YOUR_AVATAR</source>
+        <translation>Твой аватар</translation>
+    </message>
+    <message>
+        <source>YOUR_GAMENET_LEVEL</source>
+        <translation>Твой уровень</translation>
     </message>
 </context>
 <context>

@@ -1,0 +1,4 @@
+module Application.Widgets.UserProfile
+PluginContainer 1.0 PluginContainer.qml 
+UserProfileView 1.0 View/UserProfileView.qml
+UserProfileModel 1.0 UserProfileModel.qml 
