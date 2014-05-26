@@ -75,98 +75,191 @@
 <context>
     <name>AlertAdapter</name>
     <message>
-        <location filename="../Blocks/AlertAdapter.qml" line="64"/>
+        <location filename="../Blocks/AlertAdapter.qml" line="61"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AlertAdapter.qml" line="65"/>
+        <location filename="../Blocks/AlertAdapter.qml" line="62"/>
         <source>SaveAll</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AlertAdapter.qml" line="66"/>
+        <location filename="../Blocks/AlertAdapter.qml" line="63"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AlertAdapter.qml" line="67"/>
+        <location filename="../Blocks/AlertAdapter.qml" line="64"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AlertAdapter.qml" line="68"/>
+        <location filename="../Blocks/AlertAdapter.qml" line="65"/>
         <source>YesToAll</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AlertAdapter.qml" line="69"/>
+        <location filename="../Blocks/AlertAdapter.qml" line="66"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AlertAdapter.qml" line="70"/>
+        <location filename="../Blocks/AlertAdapter.qml" line="67"/>
         <source>NoToAll</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AlertAdapter.qml" line="71"/>
+        <location filename="../Blocks/AlertAdapter.qml" line="68"/>
         <source>Abort</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AlertAdapter.qml" line="72"/>
+        <location filename="../Blocks/AlertAdapter.qml" line="69"/>
         <source>Retry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AlertAdapter.qml" line="73"/>
+        <location filename="../Blocks/AlertAdapter.qml" line="70"/>
         <source>Ignore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AlertAdapter.qml" line="74"/>
+        <location filename="../Blocks/AlertAdapter.qml" line="71"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AlertAdapter.qml" line="75"/>
+        <location filename="../Blocks/AlertAdapter.qml" line="72"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AlertAdapter.qml" line="76"/>
+        <location filename="../Blocks/AlertAdapter.qml" line="73"/>
         <source>Discard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AlertAdapter.qml" line="77"/>
+        <location filename="../Blocks/AlertAdapter.qml" line="74"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AlertAdapter.qml" line="78"/>
+        <location filename="../Blocks/AlertAdapter.qml" line="75"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AlertAdapter.qml" line="79"/>
+        <location filename="../Blocks/AlertAdapter.qml" line="76"/>
         <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AlertAdapter.qml" line="80"/>
+        <location filename="../Blocks/AlertAdapter.qml" line="77"/>
         <source>RestoreDefaults</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AlertAdapter.qml" line="63"/>
+        <location filename="../Blocks/AlertAdapter.qml" line="60"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AlertAdapter.qml" line="111"/>
+        <location filename="../Blocks/AlertAdapter.qml" line="108"/>
         <source>Default Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AlertAdapterModel</name>
+    <message>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="31"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="32"/>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="33"/>
+        <source>SaveAll</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="34"/>
+        <source>Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="35"/>
+        <source>Yes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="36"/>
+        <source>YesToAll</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="37"/>
+        <source>No</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="38"/>
+        <source>NoToAll</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="39"/>
+        <source>Abort</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="40"/>
+        <source>Retry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="41"/>
+        <source>Ignore</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="42"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="43"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="44"/>
+        <source>Discard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="45"/>
+        <source>Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="46"/>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="47"/>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="48"/>
+        <source>RestoreDefaults</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1892,46 +1985,46 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="39"/>
+        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="48"/>
         <source>MAINTENANCE_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="59"/>
+        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="68"/>
         <source>MAINTENANCE_LABEL_END</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="81"/>
+        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="90"/>
         <source>HOUR_MAINTENANCE_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="86"/>
+        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="95"/>
         <source>MINUTE_MAINTENANCE_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="91"/>
+        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="100"/>
         <source>SECONDS_MAINTENANCE_LABEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Maintenance/View/Maintenance.qml" line="119"/>
+        <source>MAINTENANCE_PROPOSAL_GAME_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Message</name>
+    <name>MaintenanceModel</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="89"/>
-        <source>MESSAGE_STATE_COMPOSING</source>
+        <location filename="../Application/Widgets/Maintenance/MaintenanceModel.qml" line="28"/>
+        <source>POPUP_PLAY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="93"/>
-        <source>MESSAGE_STATE_PAUSED</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="97"/>
-        <source>MESSAGE_STATE_INACTIVE</source>
+        <location filename="../Application/Widgets/Maintenance/MaintenanceModel.qml" line="29"/>
+        <source>POPUP_MAINTENANCE_END_AND_READY_TO_START</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2159,6 +2252,14 @@
     <message>
         <location filename="../Features/Ping/Ping.qml" line="177"/>
         <source>MESSAGE_INTERNET_UNAVAILABLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PopupModel</name>
+    <message>
+        <location filename="../Application/Core/Popup/PopupModel.qml" line="172"/>
+        <source>POPUP_HELP_HINT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

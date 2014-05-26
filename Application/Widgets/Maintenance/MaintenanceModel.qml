@@ -13,8 +13,27 @@ import GameNet.Components.Widgets 1.0
 import "../../../js/restapi.js" as RestApi
 import "../../../js/Core.js" as Core
 import "MaintenanceModel.js" as MaintenanceModel
+import "../../../js/PopupHelper.js" as PopupHelper
+import "../../../js/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetModel {
+    id: root
+
+    function showPopupGameMaintenanceEnd(serviceId) {
+        var gameItem = Core.serviceItemByServiceId(serviceId)
+            , popUpOptions;
+
+        popUpOptions = {
+            gameItem: gameItem,
+            buttonCaption: qsTr('POPUP_PLAY'),
+            message: qsTr('POPUP_MAINTENANCE_END_AND_READY_TO_START')
+        };
+
+        PopupHelper.showPopup(gameMaintenanceEndPopUp, popUpOptions, 'gameMaintenanceEndShow' + serviceId);
+        GoogleAnalytics.trackEvent('/announcement/gameMaintenanceEndShow/' + gameItem.serviceId,
+                                   'Announcement', 'Show Announcement', gameItem.gaName);
+    }
+
     function update(schedule) {
         var currentTime = +new Date(),
             startTime,
@@ -26,7 +45,6 @@ WidgetModel {
             nearestInterval = 2294967296;
 
         MaintenanceModel.schedule = {};
-        console.log('schedule', JSON.stringify(schedule));
 
         for (index in schedule) {
             multiplier = schedule[index].hasOwnProperty('id') ? 1000 : 1;
@@ -50,6 +68,14 @@ WidgetModel {
 
                 item.maintenance = false;
                 item.maintenanceInterval = 0;
+
+                if (MaintenanceModel.showMaintenanceEnd[index]) {
+                    delete MaintenanceModel.showMaintenanceEnd[index];
+
+                    if (!mainWindow.visible && MaintenanceModel.isShowEndPopup()) {
+                        root.showPopupGameMaintenanceEnd(index);
+                    }
+                }
 
                 continue;
             }

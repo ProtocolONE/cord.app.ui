@@ -20,6 +20,6 @@ QtObject {
 
     signal hideMainWindow();
 
-    signal gameMaintenanceStart(string index);
-    signal gameMaintenanceEnd(string index);
+    signal gameMaintenanceStart(string serviceId);
+    signal gameMaintenanceEnd(string serviceId);
 }

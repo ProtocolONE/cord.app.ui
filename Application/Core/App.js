@@ -33,40 +33,6 @@ function openExternalUrl(url) {
     console.log("!!! IMPLEMENT ME: App.js::openExternalUrl(" + url + ")");
 }
 
-function getExpectedInstallPath(serviceId) {
-    console.log("!!! IMPLEMENT ME: App.js::getExpectedInstallPath(" + serviceId + ")");
-    return "C:\\Games\\" + serviceId;
-}
-
-function browseDirectory(serviceId, name, defaultDir) {
-    console.log("!!! IMPLEMENT ME: App.js::browseDirectory(" + serviceId + ", " + name + ", " + defaultDir+ ")");
-}
-
-function openEditNicknameDialog() {
-    console.log("!!! IMPLEMENT ME: App.js::openEditNicknameDialog()");
-}
-
-function replenishAccount() {
-    console.log("!!! IMPLEMENT ME: App.js::replenishAccount()");
-}
-
-function purchasePremium(money) {
-    console.log("!!! IMPLEMENT ME: App.js::purchasePremium(" + money + ")");
-}
-
-function openPremiumDetails() {
-    console.log("!!! IMPLEMENT ME: App.js::openPremiumDetails()");
-}
-
-function updateProgress(progress, status) {
-    console.log("!!! IMPLEMENT ME: App.js::updateProgress(progress, status)");
-}
-
-function isWindowVisible() {
-    console.log("!!! IMPLEMENT ME: App.js::isWindowVisible()");
-    return true;
-}
-
-function installService(serviceId, installParams) {
-    console.log("!!! IMPLEMENT ME: App.js::installService(" + serviceId + ", " + JSON.stringify(installParams) + ")");
+function activateGame(serviceId) {
+    console.log("!!! IMPLEMENT ME: App.js::activateGame()");
 }

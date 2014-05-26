@@ -14,6 +14,8 @@ import "WidgetManager.js" as WidgetManager
 Item {
     id: root
 
+    signal viewReady();
+
     property string widget: ''
     property variant view
 
@@ -21,7 +23,23 @@ Item {
 
     onViewChanged: d.updateView()
     onWidgetChanged: d.updateView()
-    Component.onDestruction: d.clear()
+    Component.onDestruction: root.clear()
+
+    function clear() {
+        if (d.viewObj) {
+            d.viewObj.clear();
+            d.viewObj.destroy();
+        }
+    }
+
+    function force(widgetName, widgetView) {
+         if (widgetName == widget && view == widgetView ) {
+               d.updateView();
+         } else {
+             view = widgetView;
+             widget = widgetName;
+        }
+    }
 
     Connections {
         target: WidgetManager._internal.getPrivateWrapper()
@@ -33,19 +51,12 @@ Item {
 
         property variant viewObj
 
-        function clear() {
-            if (d.viewObj) {
-                d.viewObj.clear();
-                d.viewObj.destroy();
-            }
-        }
-
         function updateView() {
             if (!WidgetManager.isReady()) {
                 return;
             }
 
-            d.clear();
+            root.clear();
             if (root.widget === '') {
                 return;
             }
@@ -53,6 +64,8 @@ Item {
             d.viewObj = (root.view !== '')
                 ? WidgetManager.createNamedView(root.widget, root.view, root)
                 : WidgetManager.createView(root.widget, root);
+
+            root.viewReady();
         }
     }
 }

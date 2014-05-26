@@ -13,83 +13,135 @@ import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
 import "../../../../js/Core.js" as CoreJs
+import "../../../../Application/Core/App.js" as App
 
 WidgetView {
     id: root
 
     property int interval: CoreJs.currentGame().maintenanceInterval
 
-    width: 160
-    height: 130
+    width: 590
+    height: 150
 
     Rectangle {
-        anchors { fill: parent; leftMargin: 1; topMargin: 1 }
-
+        anchors.fill: parent
         color: '#082135'
-
-        border { color: '#e53b24'; width: 2 }
     }
-
-    Text {
-        anchors {
-            baseline: parent.top;
-            baselineOffset: 25;
-            horizontalCenter: parent.horizontalCenter
-        }
-        text: qsTr("MAINTENANCE_LABEL")
-        color: '#fff9ea'
-        font { pixelSize: 14 }
-    }
-
-    Rectangle {
-        anchors {
-            baseline: parent.top
-            baselineOffset: 38
-            left: parent.left
-            right: parent.right
-            margins: 8
-        }
-
-        color: '#162f43'
-        height: 1
-    }
-
-    Text {
-        anchors { baseline: parent.top; baselineOffset: 75; horizontalCenter: parent.horizontalCenter }
-        text: qsTr("MAINTENANCE_LABEL_END")
-        color: '#8ba1b6'
-        font { pixelSize: 14 }
-    }
-
 
     Row {
-        id: row
+        anchors { fill: parent; margins: 10 }
+        spacing: 10
 
-        anchors { baseline: parent.bottom; baselineOffset: -50; horizontalCenter: parent.horizontalCenter }
-        spacing: 7
+        Item {
+            width: 160
+            height: 130
 
-        function format(value) {
-            if (value < 10) {
-                return '0' + value;
+            Rectangle {
+                anchors { fill: parent  }
+
+                color: '#082135'
+
+                border { color: '#e53b24'; width: 2 }
             }
 
-            return value;
+            Text {
+                anchors {
+                    baseline: parent.top;
+                    baselineOffset: 25;
+                    horizontalCenter: parent.horizontalCenter
+                }
+                text: qsTr("MAINTENANCE_LABEL")
+                color: '#fff9ea'
+                font { pixelSize: 14 }
+            }
+
+            Rectangle {
+                anchors {
+                    baseline: parent.top
+                    baselineOffset: 38
+                    left: parent.left
+                    right: parent.right
+                    margins: 8
+                }
+
+                color: '#162f43'
+                height: 1
+            }
+
+            Text {
+                anchors { baseline: parent.top; baselineOffset: 75; horizontalCenter: parent.horizontalCenter }
+                text: qsTr("MAINTENANCE_LABEL_END")
+                color: '#8ba1b6'
+                font { pixelSize: 14 }
+            }
+
+
+            Row {
+                id: row
+
+                anchors { baseline: parent.bottom; baselineOffset: -50; horizontalCenter: parent.horizontalCenter }
+                spacing: 7
+
+                function format(value) {
+                    if (value < 10) {
+                        return '0' + value;
+                    }
+
+                    return value;
+                }
+
+                TimeTextLabel {
+                    firstText: Math.floor(root.interval / 3600);
+                    secondText: qsTr("HOUR_MAINTENANCE_LABEL")
+                }
+
+                TimeTextLabel {
+                    firstText: row.format(Math.floor((root.interval % 3600) / 60));
+                    secondText: qsTr("MINUTE_MAINTENANCE_LABEL")
+                }
+
+                TimeTextLabel {
+                    firstText: row.format(root.interval % 60)
+                    secondText: qsTr("SECONDS_MAINTENANCE_LABEL")
+                }
+
+            }
         }
 
-        TimeTextLabel {
-            firstText: ~~(root.interval / 3600);
-            secondText: qsTr("HOUR_MAINTENANCE_LABEL")
-        }
+        Column {
+            y: -4
+            width: 590 - 160 - 20
+            height: parent.height
+            spacing: 10
 
-        TimeTextLabel {
-            firstText: row.format(~~((root.interval % 3600) / 60));
-            secondText: qsTr("MINUTE_MAINTENANCE_LABEL")
-        }
+            Text {
+                width: parent.width - 30
+                height: 35
 
-        TimeTextLabel {
-            firstText: row.format(root.interval % 60)
-            secondText: qsTr("SECONDS_MAINTENANCE_LABEL")
-        }
+                text: qsTr("MAINTENANCE_PROPOSAL_GAME_TEXT").arg(CoreJs.currentGame().name)
+                color: '#8ea4b9'
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                font { family: 'Arial'; pixelSize: 16 }
+            }
 
+            Row {
+                width: parent.width
+                height: 90
+
+                spacing: 10
+
+                GameItem {
+                    gameItem: CoreJs.serviceItemByServiceId(CoreJs.currentGame().maintenanceProposal1)
+
+                    onActivate: App.activateGame(gameItem.serviceId);
+                }
+
+                GameItem {
+                    gameItem: CoreJs.serviceItemByServiceId(CoreJs.currentGame().maintenanceProposal2)
+
+                    onActivate: App.activateGame(gameItem.serviceId);
+                }
+            }
+        }
     }
 }

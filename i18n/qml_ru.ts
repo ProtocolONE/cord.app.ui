@@ -141,6 +141,81 @@
     </message>
 </context>
 <context>
+    <name>AlertAdapterModel</name>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished">OK</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Сохранить</translation>
+    </message>
+    <message>
+        <source>SaveAll</source>
+        <translation type="unfinished">Сохранить все</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation type="unfinished">Открыть</translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation type="unfinished">Да</translation>
+    </message>
+    <message>
+        <source>YesToAll</source>
+        <translation type="unfinished">Да для всех</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation type="unfinished">Нет</translation>
+    </message>
+    <message>
+        <source>NoToAll</source>
+        <translation type="unfinished">Нет для всех</translation>
+    </message>
+    <message>
+        <source>Abort</source>
+        <translation type="unfinished">Отменить</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation type="unfinished">Повторить</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation type="unfinished">Игнорировать</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Закрыть</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Отмена</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation type="unfinished">Отклонить</translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation type="unfinished">Помощь</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished">Применить</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished">Сбросить</translation>
+    </message>
+    <message>
+        <source>RestoreDefaults</source>
+        <translation type="unfinished">Сбросить по умолчанию</translation>
+    </message>
+</context>
+<context>
     <name>Announcements</name>
     <message>
         <source>ANNOUNCE_GAME_INSTALLED_MESSAGE</source>
@@ -2525,22 +2600,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>HOUR_MAINTENANCE_LABEL</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>MINUTE_MAINTENANCE_LABEL</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>SECONDS_MAINTENANCE_LABEL</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Message</name>
-    <message>
-        <source>MESSAGE_STATE_COMPOSING</source>
-        <translation>Набирает сообщение...</translation>
+        <translation>ч</translation>
     </message>
     <message>
         <source>MESSAGE_STATE_PAUSED</source>
@@ -2560,6 +2620,21 @@ Please try again later.</source>
     <message>
         <source>MESSENGER_SEND_BUTTON_MESSAGE</source>
         <translation>Или Enter</translation>
+    </message>
+    <message>
+        <source>MAINTENANCE_PROPOSAL_GAME_TEXT</source>
+        <translation type="unfinished">Пока мы делаем игру лучше, попробуй другие игры, в которые играют пользователи %1</translation>
+    </message>
+</context>
+<context>
+    <name>MaintenanceModel</name>
+    <message>
+        <source>POPUP_PLAY</source>
+        <translation type="unfinished">Играть</translation>
+    </message>
+    <message>
+        <source>POPUP_MAINTENANCE_END_AND_READY_TO_START</source>
+        <translation type="unfinished">Технические работы завершены</translation>
     </message>
 </context>
 <context>
@@ -2793,7 +2868,14 @@ Please try again later.</source>
     </message>
 </context>
 <context>
-    <name>PremiumAccountLabel</name>
+    <name>PopupModel</name>
+    <message>
+        <source>POPUP_HELP_HINT_TEXT</source>
+        <translation type="unfinished">Кликая в любое место в синей зоне или на крестик, ты можешь свернуть окно и продолжить читать любые новости и изучать информацию об играх</translation>
+    </message>
+</context>
+<context>
+    <name>Premium</name>
     <message>
         <source>ADWANCED_ACCOUNT_HINT</source>
         <translation>РАСШИРЕННЫЙ АККАУНТ</translation>

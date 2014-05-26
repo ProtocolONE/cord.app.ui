@@ -68,12 +68,12 @@ function hideMainWindow() {
     _signalBusInst.hideMainWindow();
 }
 
-function gameMaintenanceStart(index) {
-   _signalBusInst.gameMaintenanceStart(index);
+function gameMaintenanceStart(serviceId) {
+   _signalBusInst.gameMaintenanceStart(serviceId);
 }
 
-function gameMaintenanceEnd(index) {
-   _signalBusInst.gameMaintenanceEnd(index);
+function gameMaintenanceEnd(serviceId) {
+   _signalBusInst.gameMaintenanceEnd(serviceId);
 }
 
 var socialNetTable = {

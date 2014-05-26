@@ -9,23 +9,10 @@
 ****************************************************************************/
 
 import QtQuick 1.1
-import "WidgetManager.js" as WidgetManager
+import GameNet.Components.Widgets 1.0
+import "../../../../../../js/restapi.js" as RestApi
+import "../../../../.././../js/Core.js" as Core
 
-Item {
-    id: root
+WidgetModel {
 
-    signal close();
-
-    property string __modelReference
-    property variant model: WidgetManager._internal.getModelByReference(__modelReference)
-
-    function clear() {
-        var shouldDeleteModel = root.model
-                && __modelReference !== ''
-                && (root.__modelReference.indexOf('id_persist') === -1);
-
-        if (shouldDeleteModel) {
-            root.model.destroy();
-        }
-    }
 }

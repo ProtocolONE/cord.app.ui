@@ -98,13 +98,12 @@ Rectangle {
         signal currentGameChanged(string service);
     }
 
-
     Connections {
         target: mainWindow
 
         onDownloaderFinished: {
             var game = Core.currentGame();
-            if (game.maintenance) {
+            if (service == game.serviceId && game.maintenance) {
                 mainContainer.model.clear();
                 mainContainer.model.insert(0, {widgetName: 'Maintenance'});
             }
@@ -116,7 +115,10 @@ Rectangle {
 
         onGameMaintenanceEnd: {
             console.log('onGameMaintenanceEnd', index);
-            mainContainer.model.remove(0);
+            var game = Core.currentGame();
+            if (index === game.serviceId) {
+                mainContainer.model.remove(0);
+            }
         }
     }
 }

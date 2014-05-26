@@ -1,0 +1,4 @@
+module Application.Widgets.AlertAdapter
+PluginContainer 1.0 PluginContainer.qml 
+AlertAdapterView 1.0 View/AlertAdapterView.qml
+AlertAdapterModel 1.0 AlertAdapterModel.qml 

@@ -1,24 +1,11 @@
 ﻿<RCC>
 	<qresource prefix="/">
+		<file>Application/Blocks/AllGames/GameItem.qml</file>
+		<file>Application/Blocks/AllGames/Main.qml</file>
 		<file>Application/Blocks/ApplicationSettings/DownloadSettings.qml</file>
 		<file>Application/Blocks/ApplicationSettings/GeneralSettings.qml</file>
 		<file>Application/Blocks/ApplicationSettings/NotificationSettings.qml</file>
 		<file>Application/Blocks/ApplicationSettings/qmldir</file>
-		<file>Application/Blocks/Auth/AnimatedBackground/Index.qml</file>
-		<file>Application/Blocks/Auth/AnimatedBackground/LightningBackground.qml</file>
-		<file>Application/Blocks/Auth/AnimatedBackground/ParallaxBottomImage.qml</file>
-		<file>Application/Blocks/Auth/AnimatedBackground/Sun.qml</file>
-		<file>Application/Blocks/Auth/AnimatedBackground/VkDoggy.qml</file>
-		<file>Application/Blocks/Auth/AuthBody.qml</file>
-		<file>Application/Blocks/Auth/CaptchaInput.qml</file>
-		<file>Application/Blocks/Auth/CodeBody.qml</file>
-		<file>Application/Blocks/Auth/Footer.qml</file>
-		<file>Application/Blocks/Auth/Header.qml</file>
-		<file>Application/Blocks/Auth/Index.qml</file>
-		<file>Application/Blocks/Auth/LoginInput.qml</file>
-		<file>Application/Blocks/Auth/MessageBody.qml</file>
-		<file>Application/Blocks/Auth/PasswordInput.qml</file>
-		<file>Application/Blocks/Auth/RegistrationBody.qml</file>
 		<file>Application/Blocks/FlowView.qml</file>
 		<file>Application/Blocks/GameIcon.qml</file>
 		<file>Application/Blocks/GameLoad/Main.qml</file>
@@ -40,21 +27,29 @@
 		<file>Application/Blocks/Header/HeaderControlButton.qml</file>
 		<file>Application/Blocks/Header/qmldir</file>
 		<file>Application/Blocks/HomeItem.qml</file>
+		<file>Application/Blocks/Premium/Main.qml</file>
+		<file>Application/Blocks/Premium/PayItem.qml</file>
+		<file>Application/Blocks/Premium/qmldir</file>
 		<file>Application/Blocks/qmldir</file>
 		<file>Application/Blocks/SettingsMenu.qml</file>
-		<file>Application/Blocks/SplashScreen.qml</file>
 		<file>Application/Controls/qmldir</file>
 		<file>Application/Controls/ScrollBar.qml</file>
 		<file>Application/Core/App.js</file>
-		<file>Application/Core/App.qml</file>
-		<file>Application/Layers/BaseLayer.qml</file>
-		<file>Application/Layers/ChatLayer.qml</file>
-		<file>Application/Layers/PopupLayer.qml</file>
-		<file>Application/Layers/qmldir</file>
-		<file>Application/Layers/TooltipLayer.qml</file>
+		<file>Application/Core/MessageBox.js</file>
+		<file>Application/Core/MessageBox/MessageBoxModel.qml</file>
+		<file>Application/Core/Popup.js</file>
+		<file>Application/Core/Popup/PopupModel.qml</file>
 		<file>Application/Models/CombatArmsItemsModel.qml</file>
 		<file>Application/Models/GamesListModel.qml</file>
 		<file>Application/Models/NewsModel.qml</file>
+		<file>Application/Widgets/AlertAdapter/AlertAdapterModel.js</file>
+		<file>Application/Widgets/AlertAdapter/AlertAdapterModel.qml</file>
+		<file>Application/Widgets/AlertAdapter/PluginContainer.qml</file>
+		<file>Application/Widgets/AlertAdapter/qmldir</file>
+		<file>Application/Widgets/AlertAdapter/View/AlertAdapter.js</file>
+		<file>Application/Widgets/AlertAdapter/View/AlertAdapter.qml</file>
+		<file>Application/Widgets/AlertAdapter/View/NegativeButton.qml</file>
+		<file>Application/Widgets/AlertAdapter/View/PositiveButton.qml</file>
 		<file>Application/Widgets/Facts/FactsModel.js</file>
 		<file>Application/Widgets/Facts/FactsModel.qml</file>
 		<file>Application/Widgets/Facts/PluginContainer.qml</file>
@@ -65,22 +60,13 @@
 		<file>Application/Widgets/GameAdBanner/GameAdBannerModel.qml</file>
 		<file>Application/Widgets/GameAdBanner/PluginContainer.qml</file>
 		<file>Application/Widgets/GameAdBanner/qmldir</file>
-		<file>Application/Widgets/GameAdBanner/View/BannerItem.qml</file>
 		<file>Application/Widgets/GameAdBanner/View/GameAdBannerView.js</file>
 		<file>Application/Widgets/GameAdBanner/View/GameAdBannerView.qml</file>
-		<file>Application/Widgets/GameInfo/GameInfoModel.js</file>
-		<file>Application/Widgets/GameInfo/GameInfoModel.qml</file>
-		<file>Application/Widgets/GameInfo/PluginContainer.qml</file>
-		<file>Application/Widgets/GameInfo/qmldir</file>
-		<file>Application/Widgets/GameInfo/View/GameInfoView.qml</file>
-		<file>Application/Widgets/GameInstall/GameInstallModel.qml</file>
-		<file>Application/Widgets/GameInstall/PluginContainer.qml</file>
-		<file>Application/Widgets/GameInstall/qmldir</file>
-		<file>Application/Widgets/GameInstall/View/GameInstallView.qml</file>
 		<file>Application/Widgets/Maintenance/MaintenanceModel.js</file>
 		<file>Application/Widgets/Maintenance/MaintenanceModel.qml</file>
 		<file>Application/Widgets/Maintenance/PluginContainer.qml</file>
 		<file>Application/Widgets/Maintenance/qmldir</file>
+		<file>Application/Widgets/Maintenance/View/GameItem.qml</file>
 		<file>Application/Widgets/Maintenance/View/Maintenance.qml</file>
 		<file>Application/Widgets/Maintenance/View/TimeTextLabel.qml</file>
 		<file>Application/Widgets/Messenger/Model.qml</file>
@@ -332,6 +318,7 @@
 		<file>GameNet/Controls/TypeaheadBehaviour.qml</file>
 		<file>GameNet/Controls/VerticalSplit.qml</file>
 		<file>js/Authorization.js</file>
+		<file>js/Authorization/qmldir</file>
 		<file>js/Authorization/Vk.qml</file>
 		<file>js/Core.js</file>
 		<file>js/Core.qml</file>
@@ -372,7 +359,6 @@
 		<file>Pages/SettingsPage/NotificationPage.qml</file>
 		<file>Pages/SettingsPage/SettingsDownloadPage.qml</file>
 		<file>Pages/SettingsPage/SettingsGeneralPage.qml</file>
-		<file>plugin/QXmpp/qmldir</file>
 		<file>plugin/Tulip/qmldir</file>
 		<file>Proxy/App.js</file>
 		<file>Proxy/App.qml</file>
@@ -394,15 +380,20 @@
 		<file>TestBugChild2.qml</file>
 		<file>TestMenuModel.qml</file>
 		<file>TestParalax.qml</file>
-		<file>TestQxmpp.qml</file>
+		<file>Tests/Application/Blocks/AllGames.qml</file>
 		<file>Tests/Application/Blocks/ApplicationSettingsSample.qml</file>
 		<file>Tests/Application/Blocks/GameLoadSample.qml</file>
 		<file>Tests/Application/Blocks/GameMenuSample.qml</file>
 		<file>Tests/Application/Blocks/GameSettingsSample.qml</file>
+		<file>Tests/Application/Blocks/PremiumSample.qml</file>
+		<file>Tests/Application/Core/AlertAdapterTestCase.qml</file>
+		<file>Tests/Application/Core/Fixtures/Popup/Sample/PluginContainer.qml</file>
+		<file>Tests/Application/Core/Fixtures/Popup/Sample/qmldir</file>
+		<file>Tests/Application/Core/Fixtures/Popup/Sample/SomeWidgetModel.qml</file>
+		<file>Tests/Application/Core/Fixtures/Popup/Sample/View/SomeWidget.qml</file>
+		<file>Tests/Application/Core/PopupTestCase.qml</file>
 		<file>Tests/Application/Widgets/FactsSample.qml</file>
 		<file>Tests/Application/Widgets/GameAdBannerSample.qml</file>
-		<file>Tests/Application/Widgets/GameInfoSample.qml</file>
-		<file>Tests/Application/Widgets/GameInstallSample.qml</file>
 		<file>Tests/Application/Widgets/Maintenance/Maintenance.qml</file>
 		<file>Tests/Application/Widgets/Maintenance/MaintenanceAfterDownload.qml</file>
 		<file>Tests/Application/Widgets/MessengerSample.qml</file>

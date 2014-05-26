@@ -9,23 +9,34 @@
 ****************************************************************************/
 
 import QtQuick 1.1
-import "WidgetManager.js" as WidgetManager
+import GameNet.Components.Widgets 1.0
+import GameNet.Controls 1.0
 
-Item {
+WidgetView {
     id: root
 
-    signal close();
+    width: 630
+    height: 360
 
-    property string __modelReference
-    property variant model: WidgetManager._internal.getModelByReference(__modelReference)
+    Rectangle {
+        anchors { fill: parent }
 
-    function clear() {
-        var shouldDeleteModel = root.model
-                && __modelReference !== ''
-                && (root.__modelReference.indexOf('id_persist') === -1);
+        color: '#00000000'
+    }
 
-        if (shouldDeleteModel) {
-            root.model.destroy();
+    Text {
+        anchors.centerIn: parent
+        text: 'BLAASDASDFASFASFASFASf'
+        color: '#111111'
+    }
+
+    Component.onCompleted: console.log('Constructor ', root)
+    Component.onDestruction:  console.log('Destructor ', root)
+
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            root.close();
         }
     }
 }

@@ -93,13 +93,21 @@ Rectangle {
         target: Core.signalBus()
 
         onGameMaintenanceStart: {
-            console.log('onGameMaintenanceStart', index);
-            mainContainer.model.insert(0, {widgetName: 'Maintenance'});
+            console.log('onGameMaintenanceStart', serviceId);
+            mainContainer.model.append({widgetName: 'Maintenance', serviceId: serviceId });
         }
 
         onGameMaintenanceEnd: {
-            console.log('onGameMaintenanceEnd', index);
-            mainContainer.model.remove(0);
+            console.log('onGameMaintenanceEnd', serviceId);
+            for (var i = 0; i < mainContainer.model.count; ++i) {
+                var obj = mainContainer.model.get(i);
+                if (obj.serviceId == serviceId) {
+                    mainContainer.model.remove(i);
+                    return;
+                }
+
+                console.log(obj, obj.serviceId);
+            }
         }
     }
 }
