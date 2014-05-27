@@ -15,6 +15,20 @@ Elements.PopupItemBase {
     property alias messageFontSize : messageText.font.pixelSize
     property variant gameItem
 
+    //  INFO: костыль для решения тикета QGNA-702 - Тестирование новых всплывашек
+    //  удалить свойство после окончания работ
+    property int additionalParam: 0
+
+    function getArtSource() {
+        if (gameItem.serviceId == "300009010000000000") {
+            if (additionalParam == 0) {
+                return "images/games/Popup/CombatArmsPopupArt.png";
+            }
+            return ("images/games/Popup/QGNA702/CombatArms%1.jpg").arg(additionalParam);
+        }
+        return gameItem.imagePopupArt;
+    }
+
     width: 210
     height: 297
 
@@ -29,7 +43,10 @@ Elements.PopupItemBase {
                 id: background
 
                 anchors.horizontalCenter: parent.horizontalCenter
-                source: installPath + gameItem.imagePopupArt
+                //  INFO: костыль для решения тикета QGNA-702 - Тестирование новых всплывашек
+                //  вернуть код после окончания работ
+                //  source: installPath + gameItem.imagePopupArt
+                source: installPath + popUp.getArtSource();
             }
 
             Image {

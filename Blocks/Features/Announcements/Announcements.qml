@@ -495,14 +495,22 @@ Item {
                 return;
             }
 
-            var page = ('/silenceMode/reminder/art/%1').arg(serviceId)
-
+            var page = ('/silenceMode/reminder/art/%1').arg(serviceId);
             popUpOptions = {
                 gameItem: gameItem,
                 page: page,
                 buttonCaption: qsTr("SILENT_REMIND_POPUP_BUTTON"),
                 message: qsTr("SILENT_REMIND_POPUP_MESSAGE").arg(gameItem.licenseUrl),
+
             };
+
+            //  INFO: костыль для решения тикета QGNA-702 - Тестирование новых всплывашек
+            //  После окончания работ по выбору всплывашки - удалить код
+            var alternativeIndex = (Math.floor(Math.random() * 100)) % 4;
+            if (serviceId == "300009010000000000") {
+                popUpOptions.page = ('/silenceMode/reminder/art/%1/%2').arg(serviceId).arg(alternativeIndex);
+                popUpOptions.additionalParam = alternativeIndex;
+            }
 
             PopupHelper.showPopup(artNoLicenseRemind, popUpOptions, 'silentModeRemider' + serviceId);
         }
@@ -531,7 +539,7 @@ Item {
             }
 
             Component.onCompleted: {
-                GoogleAnalytics.trackEvent(page, 'Announcement', 'Show Announcement', gameItem.gaName);
+                GoogleAnalytics.trackEvent(popUp.page, 'Announcement', 'Show Announcement', gameItem.gaName);
             }
         }
     }

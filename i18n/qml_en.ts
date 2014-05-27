@@ -833,27 +833,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="688"/>
+        <location filename="../Pages/Game.qml" line="703"/>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="689"/>
+        <location filename="../Pages/Game.qml" line="704"/>
         <source>BUTTON_PLAY_ON_PAUSE_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="690"/>
+        <location filename="../Pages/Game.qml" line="705"/>
         <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="691"/>
+        <location filename="../Pages/Game.qml" line="706"/>
         <source>BUTTON_PLAY_ERROR_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Pages/Game.qml" line="692"/>
+        <location filename="../Pages/Game.qml" line="707"/>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1075,42 +1075,42 @@
 <context>
     <name>Guide</name>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="197"/>
+        <location filename="../Features/Guide/Guide.qml" line="196"/>
         <source>BUTTON_PREV</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="207"/>
+        <location filename="../Features/Guide/Guide.qml" line="206"/>
         <source>BUTTON_NEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="221"/>
+        <location filename="../Features/Guide/Guide.qml" line="220"/>
         <source>BUTTON_DISABLE_SOUND</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="222"/>
+        <location filename="../Features/Guide/Guide.qml" line="221"/>
         <source>BUTTON_ENABLE_SOUND</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="233"/>
+        <location filename="../Features/Guide/Guide.qml" line="232"/>
         <source>BUTTON_CLOSE_GUIDE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="266"/>
+        <location filename="../Features/Guide/Guide.qml" line="265"/>
         <source>GUIDE_WELLCOME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="278"/>
+        <location filename="../Features/Guide/Guide.qml" line="277"/>
         <source>GUIDE_BUTTON_OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Guide/Guide.qml" line="288"/>
+        <location filename="../Features/Guide/Guide.qml" line="287"/>
         <source>GUIDE_BUTTON_REFUSE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1645,6 +1645,19 @@
     <message>
         <location filename="../Blocks/SecondWindowGame/PremiumAccountLabel.qml" line="7"/>
         <source>ADWANCED_ACCOUNT_HINT</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PremiumNotifier</name>
+    <message>
+        <location filename="../Features/Premium/PremiumNotifier.qml" line="24"/>
+        <source>PREMIUM_EXPIRED_BUTTON_CAPTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Features/Premium/PremiumNotifier.qml" line="25"/>
+        <source>PREMIUM_EXPIRED_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2454,12 +2467,12 @@
 <context>
     <name>qGNA_Main</name>
     <message>
-        <location filename="../qGNA_Main.qml" line="708"/>
+        <location filename="../qGNA_Main.qml" line="748"/>
         <source>CLOSE_APP_TOOLTIP_MESSAGE_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qGNA_Main.qml" line="709"/>
+        <location filename="../qGNA_Main.qml" line="749"/>
         <source>CLOSE_APP_TOOLTIP_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
