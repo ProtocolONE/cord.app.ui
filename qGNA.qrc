@@ -20,10 +20,11 @@
 		<file>Application/Blocks/Header/HeaderButton.qml</file>
 		<file>Application/Blocks/Header/HeaderControlButton.qml</file>
 		<file>Application/Blocks/HomeItem.qml</file>
-		<file>Application/Blocks/Premium/Main.qml</file>
-		<file>Application/Blocks/Premium/PayItem.qml</file>
 		<file>Application/Blocks/SettingsMenu.qml</file>
+		<file>Application/Blocks/SplashScreen.qml</file>
 		<file>Application/Controls/ScrollBar.qml</file>
+		<file>Application/Core/App.js</file>
+		<file>Application/Core/App.qml</file>
 		<file>Application/Models/CombatArmsItemsModel.qml</file>
 		<file>Application/Models/GamesListModel.qml</file>
 		<file>Application/Models/NewsModel.qml</file>
@@ -32,11 +33,50 @@
 		<file>Application/Widgets/Facts/PluginContainer.qml</file>
 		<file>Application/Widgets/Facts/View/FactsView.js</file>
 		<file>Application/Widgets/Facts/View/FactsView.qml</file>
+		<file>Application/Widgets/GameAdBanner/GameAdBannerModel.js</file>
+		<file>Application/Widgets/GameAdBanner/GameAdBannerModel.qml</file>
+		<file>Application/Widgets/GameAdBanner/PluginContainer.qml</file>
+		<file>Application/Widgets/GameAdBanner/View/BannerItem.qml</file>
+		<file>Application/Widgets/GameAdBanner/View/GameAdBannerView.js</file>
+		<file>Application/Widgets/GameAdBanner/View/GameAdBannerView.qml</file>
+		<file>Application/Widgets/GameInstall/GameInstallModel.qml</file>
+		<file>Application/Widgets/GameInstall/PluginContainer.qml</file>
+		<file>Application/Widgets/GameInstall/View/GameInstallView.qml</file>
 		<file>Application/Widgets/Maintenance/MaintenanceModel.js</file>
 		<file>Application/Widgets/Maintenance/MaintenanceModel.qml</file>
 		<file>Application/Widgets/Maintenance/PluginContainer.qml</file>
 		<file>Application/Widgets/Maintenance/View/Maintenance.qml</file>
 		<file>Application/Widgets/Maintenance/View/TimeTextLabel.qml</file>
+		<file>Application/Widgets/Messenger/Model.qml</file>
+		<file>Application/Widgets/Messenger/Models/Group.js</file>
+		<file>Application/Widgets/Messenger/Models/Message.js</file>
+		<file>Application/Widgets/Messenger/Models/Messenger.js</file>
+		<file>Application/Widgets/Messenger/Models/Messenger.qml</file>
+		<file>Application/Widgets/Messenger/Models/MessengerPrivate.js</file>
+		<file>Application/Widgets/Messenger/Models/User.js</file>
+		<file>Application/Widgets/Messenger/PluginContainer.qml</file>
+		<file>Application/Widgets/Messenger/View/Chat.qml</file>
+		<file>Application/Widgets/Messenger/View/ContactItem.qml</file>
+		<file>Application/Widgets/Messenger/View/ContactList.qml</file>
+		<file>Application/Widgets/Messenger/View/Contacts.qml</file>
+		<file>Application/Widgets/Messenger/View/Group.qml</file>
+		<file>Application/Widgets/Messenger/View/MessageInput.qml</file>
+		<file>Application/Widgets/Messenger/View/MessageItem.qml</file>
+		<file>Application/Widgets/Messenger/View/SearchContactList.qml</file>
+		<file>Application/Widgets/PremiumShop/PluginContainer.qml</file>
+		<file>Application/Widgets/PremiumShop/PremiumShopModel.qml</file>
+		<file>Application/Widgets/PremiumShop/View/PayItem.qml</file>
+		<file>Application/Widgets/PremiumShop/View/PremiumShopView.qml</file>
+		<file>Application/Widgets/TaskBar/PluginContainer.qml</file>
+		<file>Application/Widgets/TaskBar/TaskBar.js</file>
+		<file>Application/Widgets/TaskBar/TaskBar.qml</file>
+		<file>Application/Widgets/TaskList/PluginContainer.qml</file>
+		<file>Application/Widgets/TaskList/TaskList.js</file>
+		<file>Application/Widgets/TaskList/TaskList.qml</file>
+		<file>Application/Widgets/UserProfile/PluginContainer.qml</file>
+		<file>Application/Widgets/UserProfile/UserProfileModel.qml</file>
+		<file>Application/Widgets/UserProfile/View/NicknameEdit.qml</file>
+		<file>Application/Widgets/UserProfile/View/UserProfileView.qml</file>
 		<file>Blocks/AccountActivation.qml</file>
 		<file>Blocks/AlertAdapter.qml</file>
 		<file>Blocks/Auth.qml</file>
@@ -207,10 +247,6 @@
 		<file>Features/PublicTest/index.js</file>
 		<file>Features/PublicTest/PublicTestWarning.qml</file>
 		<file>Features/SilentMode/SilentMode.qml</file>
-		<file>Features/TaskBar/TaskBarHelper.js</file>
-		<file>Features/TaskBar/TaskBarHelper.qml</file>
-		<file>Features/TastList/TaskList.js</file>
-		<file>Features/TastList/TaskList.qml</file>
 		<file>GameNet/Components/Widgets/PluginContainer.qml</file>
 		<file>GameNet/Components/Widgets/WidgetContainer.qml</file>
 		<file>GameNet/Components/Widgets/WidgetManager.js</file>
@@ -228,6 +264,8 @@
 		<file>GameNet/Controls/ErrorContainer.qml</file>
 		<file>GameNet/Controls/ErrorMessage.qml</file>
 		<file>GameNet/Controls/ErrorMessageStyle.qml</file>
+		<file>GameNet/Controls/ExtendedListModel.js</file>
+		<file>GameNet/Controls/ExtendedListModel.qml</file>
 		<file>GameNet/Controls/GlobalProgress.qml</file>
 		<file>GameNet/Controls/GoogleAnalyticsEvent.qml</file>
 		<file>GameNet/Controls/HorizontalSplit.qml</file>
@@ -304,27 +342,20 @@
 		<file>Proxy/Settings.js</file>
 		<file>Proxy/Settings.qml</file>
 		<file>qGNA_Main.qml</file>
-		<file>Samples/ApplicationSettingsSample.qml</file>
-		<file>Samples/ButtonSample.qml</file>
-		<file>Samples/ComboBoxSample.qml</file>
-		<file>Samples/ErrorContainerSample.qml</file>
-		<file>Samples/GameLoadSample.qml</file>
-		<file>Samples/GameMenuSample.qml</file>
-		<file>Samples/GameSettingsSample.qml</file>
-		<file>Samples/InputSample.qml</file>
-		<file>Samples/PathInputSample.qml</file>
-		<file>Samples/PremiumSample.qml</file>
-		<file>Samples/ProgressBarSample.qml</file>
-		<file>TestMenuModel.qml</file>
-		<file>TestParalax.qml</file>
+		<file>TestQxmpp.qml</file>
 		<file>Tests/Application/Blocks/ApplicationSettingsSample.qml</file>
 		<file>Tests/Application/Blocks/GameLoadSample.qml</file>
 		<file>Tests/Application/Blocks/GameMenuSample.qml</file>
 		<file>Tests/Application/Blocks/GameSettingsSample.qml</file>
 		<file>Tests/Application/Blocks/PremiumSample.qml</file>
 		<file>Tests/Application/Widgets/FactsSample.qml</file>
+		<file>Tests/Application/Widgets/GameAdBannerSample.qml</file>
+		<file>Tests/Application/Widgets/GameInstallSample.qml</file>
 		<file>Tests/Application/Widgets/Maintenance/Maintenance.qml</file>
 		<file>Tests/Application/Widgets/Maintenance/MaintenanceAfterDownload.qml</file>
+		<file>Tests/Application/Widgets/MessengerSample.qml</file>
+		<file>Tests/Application/Widgets/PremiumShopSample.qml</file>
+		<file>Tests/Application/Widgets/UserProfileSample.qml</file>
 		<file>Tests/GameNet/Components/Widgets/Fixtures/DualViewWidget/PluginContainer.qml</file>
 		<file>Tests/GameNet/Components/Widgets/Fixtures/DualViewWidget/View/ViewOne.qml</file>
 		<file>Tests/GameNet/Components/Widgets/Fixtures/DualViewWidget/View/ViewTwo.qml</file>

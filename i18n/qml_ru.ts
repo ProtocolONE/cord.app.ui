@@ -1490,6 +1490,33 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>GameInstallView</name>
+    <message>
+        <source>INSTALL_VIEW_TITLE</source>
+        <translation>Запуск %1</translation>
+    </message>
+    <message>
+        <source>DESTINATION_FOLDER_CAPTION</source>
+        <translation>Выбери путь установки игры</translation>
+    </message>
+    <message>
+        <source>CREATE_DESKTOP_SHORTCUT</source>
+        <translation>Создать ярлык на рабочем столе</translation>
+    </message>
+    <message>
+        <source>CREATE_STARTMENU_SHORTCUT</source>
+        <translation>Создать ярлык в меню Пуск</translation>
+    </message>
+    <message>
+        <source>LICENSE_TIP</source>
+        <translation>Нажимая &quot;Продолжить установку&quot;, ты соглашаешься с &lt;a href=&apos;http://&apos;&gt;&lt;font style=&apos;text-decoration: none;&apos; color=&apos;#1ABC9C&apos;&gt;условиями лицензионного соглашения&lt;/font&gt;&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>INSTALL_BUTTON_CAPTION</source>
+        <translation>Продолжить установку</translation>
+    </message>
+</context>
+<context>
     <name>GameIsBoring</name>
     <message>
         <source>GAME_BORING_TITLE</source>
@@ -2403,43 +2430,43 @@ Please try again later.</source>
     <name>Main</name>
     <message>
         <source>PREMIUM_ACCOUNT_HEADER_TEXT_BLOCK</source>
-        <translation type="unfinished">Расширенный аккаунт</translation>
+        <translation type="obsolete">Расширенный аккаунт</translation>
     </message>
     <message>
         <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
-        <translation type="unfinished">Расширенный аккаунт GameNet - возможность играть двумя аккаунтами одновременно в игры BS.ru, Aika 2 и Reborn. Мы постоянно добавляем в расширенный аккаунт новые приятные бонусы. &lt;a href=&quot;bonus&quot;&gt;Подробности здесь.&lt;/a&gt;</translation>
+        <translation type="obsolete">Расширенный аккаунт GameNet - возможность играть двумя аккаунтами одновременно в игры BS.ru, Aika 2 и Reborn. Мы постоянно добавляем в расширенный аккаунт новые приятные бонусы. &lt;a href=&quot;bonus&quot;&gt;Подробности здесь.&lt;/a&gt;</translation>
     </message>
     <message>
         <source>ONE_DAY_PREMIUM_TRADIO_TEXT</source>
-        <translation type="unfinished">1 день</translation>
+        <translation type="obsolete">1 день</translation>
     </message>
     <message>
         <source>WEEK_PREMIUM_TRADIO_TEXT</source>
-        <translation type="unfinished">7 дней</translation>
+        <translation type="obsolete">7 дней</translation>
     </message>
     <message>
         <source>MONTH_PREMIUM_TRADIO_TEXT</source>
-        <translation type="unfinished">30 дней</translation>
+        <translation type="obsolete">30 дней</translation>
     </message>
     <message>
         <source>3_MONTH_PREMIUM_TRADIO_TEXT</source>
-        <translation type="unfinished">90 дней</translation>
+        <translation type="obsolete">90 дней</translation>
     </message>
     <message>
         <source>MONEY_TOTAL %1</source>
-        <translation type="unfinished">Итоговая стоимость: &lt;font color=#f77960&gt;%1&lt;/font&gt; GN</translation>
+        <translation type="obsolete">Итоговая стоимость: &lt;font color=#f77960&gt;%1&lt;/font&gt; GN</translation>
     </message>
     <message>
         <source>ACCEPT_BUY</source>
-        <translation type="unfinished">Подтвердите покупку</translation>
+        <translation type="obsolete">Подтвердите покупку</translation>
     </message>
     <message>
         <source>NOT_ENOUGH_MONEY</source>
-        <translation type="unfinished">На счету недостаточно GN-монет</translation>
+        <translation type="obsolete">На счету недостаточно GN-монет</translation>
     </message>
     <message>
         <source>ADD_MONEY_BUTTON_TEXT</source>
-        <translation type="unfinished">Пополнить счет</translation>
+        <translation type="obsolete">Пополнить счет</translation>
     </message>
     <message>
         <source>DOWNLOAD_STATUS_TEXT</source>
@@ -2766,33 +2793,6 @@ Please try again later.</source>
     </message>
 </context>
 <context>
-    <name>Premium</name>
-    <message>
-        <source>PREMIUM_ACCOUNT_HEADER_TEXT_BLOCK</source>
-        <translation type="obsolete">Расширенный аккаунт</translation>
-    </message>
-    <message>
-        <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
-        <translation type="obsolete">Расширенный аккаунт GameNet - возможность играть двумя аккаунтами одновременно в игры BS.ru, Aika 2 и Reborn. Мы постоянно добавляем в расширенный аккаунт новые приятные бонусы. &lt;a href=&quot;bonus&quot;&gt;Подробности здесь.&lt;/a&gt;</translation>
-    </message>
-    <message>
-        <source>ONE_DAY_PREMIUM_TRADIO_TEXT</source>
-        <translation type="obsolete">1 день</translation>
-    </message>
-    <message>
-        <source>WEEK_PREMIUM_TRADIO_TEXT</source>
-        <translation type="obsolete">7 дней</translation>
-    </message>
-    <message>
-        <source>MONTH_PREMIUM_TRADIO_TEXT</source>
-        <translation type="obsolete">30 дней</translation>
-    </message>
-    <message>
-        <source>3_MONTH_PREMIUM_TRADIO_TEXT</source>
-        <translation type="obsolete">90 дней</translation>
-    </message>
-</context>
-<context>
     <name>PremiumAccountLabel</name>
     <message>
         <source>ADWANCED_ACCOUNT_HINT</source>
@@ -2808,6 +2808,52 @@ Please try again later.</source>
     <message>
         <source>PREMIUM_EXPIRED_MESSAGE</source>
         <translation>Действие расширенного аккаунта закончилось.</translation>
+    </message>
+</context>
+<context>
+    <name>PremiumShopModel</name>
+    <message>
+        <source>ONE_DAY_PREMIUM_TRADIO_TEXT</source>
+        <translation type="unfinished">1 день</translation>
+    </message>
+    <message>
+        <source>WEEK_PREMIUM_TRADIO_TEXT</source>
+        <translation type="unfinished">7 дней</translation>
+    </message>
+    <message>
+        <source>MONTH_PREMIUM_TRADIO_TEXT</source>
+        <translation type="unfinished">30 дней</translation>
+    </message>
+    <message>
+        <source>3_MONTH_PREMIUM_TRADIO_TEXT</source>
+        <translation type="unfinished">90 дней</translation>
+    </message>
+</context>
+<context>
+    <name>PremiumShopView</name>
+    <message>
+        <source>PREMIUM_ACCOUNT_HEADER_TEXT_BLOCK</source>
+        <translation type="unfinished">Расширенный аккаунт</translation>
+    </message>
+    <message>
+        <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
+        <translation type="unfinished">Расширенный аккаунт GameNet - возможность играть двумя аккаунтами одновременно в игры BS.ru, Aika 2 и Reborn. Мы постоянно добавляем в расширенный аккаунт новые приятные бонусы. &lt;a href=&quot;bonus&quot;&gt;Подробности здесь.&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>NOT_ENOUGH_MONEY</source>
+        <translation type="unfinished">На счету недостаточно GN-монет</translation>
+    </message>
+    <message>
+        <source>ADD_MONEY_BUTTON_TEXT</source>
+        <translation type="unfinished">Пополнить счет</translation>
+    </message>
+    <message>
+        <source>MONEY_TOTAL %1</source>
+        <translation type="unfinished">Итоговая стоимость: &lt;font color=#f77960&gt;%1&lt;/font&gt; GN</translation>
+    </message>
+    <message>
+        <source>ACCEPT_BUY</source>
+        <translation type="unfinished">Подтвердите покупку</translation>
     </message>
 </context>
 <context>

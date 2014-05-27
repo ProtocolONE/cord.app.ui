@@ -733,7 +733,7 @@
 <context>
     <name>ContactItem</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/ContactItem.qml" line="116"/>
+        <location filename="../Application/Widgets/Messenger/View/ContactItem.qml" line="124"/>
         <source>CONTACT_NEW_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1105,6 +1105,62 @@
     </message>
 </context>
 <context>
+    <name>GameGeneralSettings</name>
+    <message>
+        <location filename="../Application/Blocks/GameSettings/GameGeneralSettings.qml" line="30"/>
+        <source>GAME_INSTALL_PATH</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/GameSettings/GameGeneralSettings.qml" line="55"/>
+        <source>DISTRIB_INSTALL_PATH</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/GameSettings/GameGeneralSettings.qml" line="85"/>
+        <source>BUTTON_CREATE_DESKTOP_SHORTCUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/GameSettings/GameGeneralSettings.qml" line="98"/>
+        <source>BUTTON_CREATE_START_MENU_SHORTCUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GameInstallView</name>
+    <message>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="50"/>
+        <source>INSTALL_VIEW_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="79"/>
+        <source>DESTINATION_FOLDER_CAPTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="111"/>
+        <source>CREATE_DESKTOP_SHORTCUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="128"/>
+        <source>CREATE_STARTMENU_SHORTCUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="146"/>
+        <source>LICENSE_TIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="171"/>
+        <source>INSTALL_BUTTON_CAPTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>GameIsBoring</name>
     <message>
         <location filename="../Blocks/GameIsBoring.qml" line="45"/>
@@ -1410,7 +1466,7 @@
 <context>
     <name>Group</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Group.js" line="49"/>
+        <location filename="../Application/Widgets/Messenger/Models/Group.js" line="53"/>
         <source>WITHOUT_GROUP_NAME</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1792,66 +1848,6 @@
         <source>SHOW_STATISTICS</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../Application/Blocks/Premium/Main.qml" line="87"/>
-        <source>PREMIUM_ACCOUNT_HEADER_TEXT_BLOCK</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/Premium/Main.qml" line="116"/>
-        <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/Premium/Main.qml" line="146"/>
-        <source>ONE_DAY_PREMIUM_TRADIO_TEXT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/Premium/Main.qml" line="151"/>
-        <source>WEEK_PREMIUM_TRADIO_TEXT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/Premium/Main.qml" line="156"/>
-        <source>MONTH_PREMIUM_TRADIO_TEXT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/Premium/Main.qml" line="161"/>
-        <source>3_MONTH_PREMIUM_TRADIO_TEXT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/Premium/Main.qml" line="204"/>
-        <source>NOT_ENOUGH_MONEY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/Premium/Main.qml" line="234"/>
-        <source>ADD_MONEY_BUTTON_TEXT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/Premium/Main.qml" line="254"/>
-        <source>MONEY_TOTAL %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/Premium/Main.qml" line="279"/>
-        <source>ACCEPT_BUY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks2/GameLoad/Main.qml" line="150"/>
-        <source>PAUSE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks2/GameLoad/Main.qml" line="164"/>
-        <source>SHOW_STATISTICS</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>Maintenance</name>
@@ -1942,12 +1938,12 @@
 <context>
     <name>MessageInput</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/MessageInput.qml" line="221"/>
+        <location filename="../Application/Widgets/Messenger/View/MessageInput.qml" line="219"/>
         <source>MESSENGER_SEND_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/MessageInput.qml" line="230"/>
+        <location filename="../Application/Widgets/Messenger/View/MessageInput.qml" line="228"/>
         <source>MESSENGER_SEND_BUTTON_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2107,6 +2103,24 @@
     </message>
 </context>
 <context>
+    <name>NicknameEdit</name>
+    <message>
+        <location filename="../Application/Widgets/UserProfile/View/NicknameEdit.qml" line="57"/>
+        <source>ENTER_NICKNAME</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/UserProfile/View/NicknameEdit.qml" line="58"/>
+        <source>SET_NICKNAME</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/UserProfile/View/NicknameEdit.qml" line="64"/>
+        <source>YOUR_NICKNAME</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>NotificationPage</name>
     <message>
         <location filename="../Pages/SettingsPage/NotificationPage.qml" line="32"/>
@@ -2125,7 +2139,7 @@
 <context>
     <name>PayItem</name>
     <message>
-        <location filename="../Blocks2/Premium/PayItem.qml" line="31"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PayItem.qml" line="31"/>
         <source>ONE_DAY_PREMIUM_TRADIO_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2166,6 +2180,62 @@
     <message>
         <location filename="../Features/Premium/PremiumNotifier.qml" line="25"/>
         <source>PREMIUM_EXPIRED_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PremiumShopModel</name>
+    <message>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="19"/>
+        <source>ONE_DAY_PREMIUM_TRADIO_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="24"/>
+        <source>WEEK_PREMIUM_TRADIO_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="29"/>
+        <source>MONTH_PREMIUM_TRADIO_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="34"/>
+        <source>3_MONTH_PREMIUM_TRADIO_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PremiumShopView</name>
+    <message>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="91"/>
+        <source>PREMIUM_ACCOUNT_HEADER_TEXT_BLOCK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="120"/>
+        <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="188"/>
+        <source>NOT_ENOUGH_MONEY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="218"/>
+        <source>ADD_MONEY_BUTTON_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="238"/>
+        <source>MONEY_TOTAL %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="263"/>
+        <source>ACCEPT_BUY</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3023,6 +3093,34 @@
     <message>
         <location filename="../Blocks/UserInfo.qml" line="223"/>
         <source>BUTTON_SHOW_LOG_IN_FORM</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UserProfileView</name>
+    <message>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="49"/>
+        <source>YOUR_AVATAR</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="68"/>
+        <source>EXTENDED_ACCOUNT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="90"/>
+        <source>YOUR_GAMENET_LEVEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="116"/>
+        <source>GAMENET_BALANCE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="122"/>
+        <source>ADD_MONEY</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

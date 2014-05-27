@@ -9,18 +9,10 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+import GameNet.Components.Widgets 1.0
 
-/**
- * WidgetManagerPrivate
- *
- * Used as local, feature based signal bus object.
- */
-Item {
+WidgetModel {
     id: root
 
-    signal widgetsReady()
 
-    function emitReady() {
-        widgetsReady()
-    }
 }

@@ -109,7 +109,7 @@ function WidgetManager() {
             widget = _widgets[namespace];
 
             if (widget.useSingletonModel()) {
-                widget.model = _private.createObject(widget.getNamespace(), widget.getModelName());
+                widget.model = createObject(widget.getNamespace(), widget.getModelName());
                 widget.modelReference = getTempId('id_persist');
 
                 this.addModelReference(widget.modelReference, widget.model);
@@ -137,7 +137,7 @@ function WidgetManager() {
      * Look at test folder for more examples and documentation.
      */
     this.registerWidget = function(namespace) {
-        var pluginContainer = _private.createObject(namespace, 'PluginContainer')
+        var pluginContainer = createObject(namespace, 'PluginContainer')
             , widget = new Widget(namespace, pluginContainer);
 
         _widgets[namespace] = widget;
@@ -158,27 +158,28 @@ function WidgetManager() {
         var widget = this.getWidgetByName(widgetName)
             , namespace = widget.getNamespace()
             , view = widget.getView(viewName)
+            , viewNamespace = namespace + '.View'
             , modelReference
             , modelName = widget.getModelName()
             , model;
 
         if (!widget.useModel()) {
-            return _private.createObject(namespace, view, parentObj);
+            return createObject(viewNamespace, view, parentObj);
         }
 
         if (!widget.useSingletonModel()) {
-            model = _private.createObject(namespace, modelName);
+            model = createObject(namespace, modelName);
             modelReference = getTempId('id');
             this.addModelReference(modelReference, model);
 
-            return _private.createViewObject(namespace, view, modelReference, parentObj);
+            return createViewObject(viewNamespace, view, modelReference, parentObj);
         }
 
         if (!widget.hasModelInstance()) {
             throw new Error('Error: Widget `' + widget.getName() + '` has empty model instance');
         }
 
-        return _private.createViewObject(namespace, view, widget.modelReference, parentObj);
+        return createViewObject(viewNamespace, view, widget.modelReference, parentObj);
     }
 
     this.getModelByReference = function(reference) {
@@ -206,6 +207,28 @@ function WidgetManager() {
             + (+new Date())
             + '_'
             + Math.random();
+    }
+
+    function getObjectPath(namespace, object) {
+        return "../../../" + namespace.replace(/\./g, '/') + "/" + object + ".qml";
+    }
+
+    function createObject(namespace, object, parentObj) {
+        var comp = Qt.createComponent(getObjectPath(namespace, object));
+        if (comp.status !== 1) {
+            throw new Error(comp.errorString());
+        }
+
+        return comp.createObject(parentObj || this._private);
+    }
+
+    function createViewObject(namespace, object, modelReference, parentObj) {
+        var comp = Qt.createComponent(getObjectPath(namespace, object));
+        if (comp.status !== 1) {
+            throw new Error(comp.errorString());
+        }
+
+        return comp.createObject(parentObj || this._private, {__modelReference: modelReference});
     }
 }
 

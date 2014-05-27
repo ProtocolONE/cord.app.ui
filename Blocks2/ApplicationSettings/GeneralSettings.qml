@@ -36,7 +36,7 @@ Item {
         id: d
 
         function getLanguageIndex() {
-            return installationPath.findValue(App.language());
+            return applicationLanguage.findValue(App.language());
         }
     }
 
@@ -45,7 +45,7 @@ Item {
         spacing: 20
 
         ComboBox {
-            id: installationPath
+            id: applicationLanguage
 
             z: 100
             width: 500
