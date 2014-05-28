@@ -1,0 +1,4 @@
+module Application.Widgets.GameInfo
+PluginContainer 1.0 PluginContainer.qml 
+GameInfoView 1.0 View/GameInfoView.qml
+GameInfoModel 1.0 GameInfoModel.qml 

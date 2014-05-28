@@ -39,6 +39,10 @@
 		<file>Application/Widgets/GameAdBanner/View/BannerItem.qml</file>
 		<file>Application/Widgets/GameAdBanner/View/GameAdBannerView.js</file>
 		<file>Application/Widgets/GameAdBanner/View/GameAdBannerView.qml</file>
+		<file>Application/Widgets/GameInfo/GameInfoModel.js</file>
+		<file>Application/Widgets/GameInfo/GameInfoModel.qml</file>
+		<file>Application/Widgets/GameInfo/PluginContainer.qml</file>
+		<file>Application/Widgets/GameInfo/View/GameInfoView.qml</file>
 		<file>Application/Widgets/GameInstall/GameInstallModel.qml</file>
 		<file>Application/Widgets/GameInstall/PluginContainer.qml</file>
 		<file>Application/Widgets/GameInstall/View/GameInstallView.qml</file>
@@ -347,9 +351,9 @@
 		<file>Tests/Application/Blocks/GameLoadSample.qml</file>
 		<file>Tests/Application/Blocks/GameMenuSample.qml</file>
 		<file>Tests/Application/Blocks/GameSettingsSample.qml</file>
-		<file>Tests/Application/Blocks/PremiumSample.qml</file>
 		<file>Tests/Application/Widgets/FactsSample.qml</file>
 		<file>Tests/Application/Widgets/GameAdBannerSample.qml</file>
+		<file>Tests/Application/Widgets/GameInfoSample.qml</file>
 		<file>Tests/Application/Widgets/GameInstallSample.qml</file>
 		<file>Tests/Application/Widgets/Maintenance/Maintenance.qml</file>
 		<file>Tests/Application/Widgets/Maintenance/MaintenanceAfterDownload.qml</file>
