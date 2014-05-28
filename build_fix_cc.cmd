@@ -33,7 +33,8 @@ echo "%~0.exe" %TargetQrcName%
 "%~0.exe" %TargetPath%
 del "%~0.exe"
 
-exit
+goto end
+
 */
 
 using System;
@@ -82,7 +83,7 @@ namespace Build_Fix_CreateComponent_Qrc_Bug
             foreach (var filename in filenames)
             {
                 string qrcPath = Path.GetDirectoryName(filename)
-                    .Replace(targetDirectory, "qrc::/")
+                    .Replace(targetDirectory, "qrc:")
                     .Replace("\\", "/");
 
                 string content = File.ReadAllText(filename);
@@ -93,6 +94,13 @@ namespace Build_Fix_CreateComponent_Qrc_Bug
                     File.WriteAllText(filename, res);  
                 }
             }
+
+            Console.WriteLine("Preprocess finished.");
         }
     }
 }
+
+
+/*
+:end
+*/

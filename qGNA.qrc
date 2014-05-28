@@ -3,52 +3,84 @@
 		<file>Application/Blocks/ApplicationSettings/DownloadSettings.qml</file>
 		<file>Application/Blocks/ApplicationSettings/GeneralSettings.qml</file>
 		<file>Application/Blocks/ApplicationSettings/NotificationSettings.qml</file>
+		<file>Application/Blocks/ApplicationSettings/qmldir</file>
+		<file>Application/Blocks/Auth/AnimatedBackground/Index.qml</file>
+		<file>Application/Blocks/Auth/AnimatedBackground/LightningBackground.qml</file>
+		<file>Application/Blocks/Auth/AnimatedBackground/ParallaxBottomImage.qml</file>
+		<file>Application/Blocks/Auth/AnimatedBackground/Sun.qml</file>
+		<file>Application/Blocks/Auth/AnimatedBackground/VkDoggy.qml</file>
+		<file>Application/Blocks/Auth/AuthBody.qml</file>
+		<file>Application/Blocks/Auth/CaptchaInput.qml</file>
+		<file>Application/Blocks/Auth/CodeBody.qml</file>
+		<file>Application/Blocks/Auth/Footer.qml</file>
+		<file>Application/Blocks/Auth/Header.qml</file>
+		<file>Application/Blocks/Auth/Index.qml</file>
+		<file>Application/Blocks/Auth/LoginInput.qml</file>
+		<file>Application/Blocks/Auth/MessageBody.qml</file>
+		<file>Application/Blocks/Auth/PasswordInput.qml</file>
+		<file>Application/Blocks/Auth/RegistrationBody.qml</file>
 		<file>Application/Blocks/FlowView.qml</file>
 		<file>Application/Blocks/GameIcon.qml</file>
 		<file>Application/Blocks/GameLoad/Main.qml</file>
 		<file>Application/Blocks/GameLoad/ProgressWidget.qml</file>
+		<file>Application/Blocks/GameLoad/qmldir</file>
 		<file>Application/Blocks/GameLoad/SplitterStyleColorsPrivate.qml</file>
 		<file>Application/Blocks/GameLoad/StatInfoElementBig.qml</file>
 		<file>Application/Blocks/GameLoad/StatInfoElementSmall.qml</file>
 		<file>Application/Blocks/GameLoad/TextButtonStyle.qml</file>
 		<file>Application/Blocks/GameMenu/GameMenu.qml</file>
 		<file>Application/Blocks/GameMenu/GameMenuItem.qml</file>
+		<file>Application/Blocks/GameMenu/qmldir</file>
 		<file>Application/Blocks/GameSettings/GameControlSettings.qml</file>
 		<file>Application/Blocks/GameSettings/GameGeneralSettings.qml</file>
 		<file>Application/Blocks/GameSettings/GameOverlaySettings.qml</file>
+		<file>Application/Blocks/GameSettings/qmldir</file>
 		<file>Application/Blocks/Header/Header.qml</file>
 		<file>Application/Blocks/Header/HeaderButton.qml</file>
 		<file>Application/Blocks/Header/HeaderControlButton.qml</file>
+		<file>Application/Blocks/Header/qmldir</file>
 		<file>Application/Blocks/HomeItem.qml</file>
+		<file>Application/Blocks/qmldir</file>
 		<file>Application/Blocks/SettingsMenu.qml</file>
 		<file>Application/Blocks/SplashScreen.qml</file>
+		<file>Application/Controls/qmldir</file>
 		<file>Application/Controls/ScrollBar.qml</file>
 		<file>Application/Core/App.js</file>
 		<file>Application/Core/App.qml</file>
+		<file>Application/Layers/BaseLayer.qml</file>
+		<file>Application/Layers/ChatLayer.qml</file>
+		<file>Application/Layers/PopupLayer.qml</file>
+		<file>Application/Layers/qmldir</file>
+		<file>Application/Layers/TooltipLayer.qml</file>
 		<file>Application/Models/CombatArmsItemsModel.qml</file>
 		<file>Application/Models/GamesListModel.qml</file>
 		<file>Application/Models/NewsModel.qml</file>
 		<file>Application/Widgets/Facts/FactsModel.js</file>
 		<file>Application/Widgets/Facts/FactsModel.qml</file>
 		<file>Application/Widgets/Facts/PluginContainer.qml</file>
+		<file>Application/Widgets/Facts/qmldir</file>
 		<file>Application/Widgets/Facts/View/FactsView.js</file>
 		<file>Application/Widgets/Facts/View/FactsView.qml</file>
 		<file>Application/Widgets/GameAdBanner/GameAdBannerModel.js</file>
 		<file>Application/Widgets/GameAdBanner/GameAdBannerModel.qml</file>
 		<file>Application/Widgets/GameAdBanner/PluginContainer.qml</file>
+		<file>Application/Widgets/GameAdBanner/qmldir</file>
 		<file>Application/Widgets/GameAdBanner/View/BannerItem.qml</file>
 		<file>Application/Widgets/GameAdBanner/View/GameAdBannerView.js</file>
 		<file>Application/Widgets/GameAdBanner/View/GameAdBannerView.qml</file>
 		<file>Application/Widgets/GameInfo/GameInfoModel.js</file>
 		<file>Application/Widgets/GameInfo/GameInfoModel.qml</file>
 		<file>Application/Widgets/GameInfo/PluginContainer.qml</file>
+		<file>Application/Widgets/GameInfo/qmldir</file>
 		<file>Application/Widgets/GameInfo/View/GameInfoView.qml</file>
 		<file>Application/Widgets/GameInstall/GameInstallModel.qml</file>
 		<file>Application/Widgets/GameInstall/PluginContainer.qml</file>
+		<file>Application/Widgets/GameInstall/qmldir</file>
 		<file>Application/Widgets/GameInstall/View/GameInstallView.qml</file>
 		<file>Application/Widgets/Maintenance/MaintenanceModel.js</file>
 		<file>Application/Widgets/Maintenance/MaintenanceModel.qml</file>
 		<file>Application/Widgets/Maintenance/PluginContainer.qml</file>
+		<file>Application/Widgets/Maintenance/qmldir</file>
 		<file>Application/Widgets/Maintenance/View/Maintenance.qml</file>
 		<file>Application/Widgets/Maintenance/View/TimeTextLabel.qml</file>
 		<file>Application/Widgets/Messenger/Model.qml</file>
@@ -59,6 +91,7 @@
 		<file>Application/Widgets/Messenger/Models/MessengerPrivate.js</file>
 		<file>Application/Widgets/Messenger/Models/User.js</file>
 		<file>Application/Widgets/Messenger/PluginContainer.qml</file>
+		<file>Application/Widgets/Messenger/qmldir</file>
 		<file>Application/Widgets/Messenger/View/Chat.qml</file>
 		<file>Application/Widgets/Messenger/View/ContactItem.qml</file>
 		<file>Application/Widgets/Messenger/View/ContactList.qml</file>
@@ -69,15 +102,19 @@
 		<file>Application/Widgets/Messenger/View/SearchContactList.qml</file>
 		<file>Application/Widgets/PremiumShop/PluginContainer.qml</file>
 		<file>Application/Widgets/PremiumShop/PremiumShopModel.qml</file>
+		<file>Application/Widgets/PremiumShop/qmldir</file>
 		<file>Application/Widgets/PremiumShop/View/PayItem.qml</file>
 		<file>Application/Widgets/PremiumShop/View/PremiumShopView.qml</file>
 		<file>Application/Widgets/TaskBar/PluginContainer.qml</file>
+		<file>Application/Widgets/TaskBar/qmldir</file>
 		<file>Application/Widgets/TaskBar/TaskBar.js</file>
 		<file>Application/Widgets/TaskBar/TaskBar.qml</file>
 		<file>Application/Widgets/TaskList/PluginContainer.qml</file>
+		<file>Application/Widgets/TaskList/qmldir</file>
 		<file>Application/Widgets/TaskList/TaskList.js</file>
 		<file>Application/Widgets/TaskList/TaskList.qml</file>
 		<file>Application/Widgets/UserProfile/PluginContainer.qml</file>
+		<file>Application/Widgets/UserProfile/qmldir</file>
 		<file>Application/Widgets/UserProfile/UserProfileModel.qml</file>
 		<file>Application/Widgets/UserProfile/View/NicknameEdit.qml</file>
 		<file>Application/Widgets/UserProfile/View/UserProfileView.qml</file>
@@ -252,6 +289,7 @@
 		<file>Features/PublicTest/PublicTestWarning.qml</file>
 		<file>Features/SilentMode/SilentMode.qml</file>
 		<file>GameNet/Components/Widgets/PluginContainer.qml</file>
+		<file>GameNet/Components/Widgets/qmldir</file>
 		<file>GameNet/Components/Widgets/WidgetContainer.qml</file>
 		<file>GameNet/Components/Widgets/WidgetManager.js</file>
 		<file>GameNet/Components/Widgets/WidgetManager.qml</file>
@@ -277,11 +315,14 @@
 		<file>GameNet/Controls/Input.qml</file>
 		<file>GameNet/Controls/InputBehaviour.qml</file>
 		<file>GameNet/Controls/InputStyleColors.qml</file>
+		<file>GameNet/Controls/PageSwitcher.js</file>
+		<file>GameNet/Controls/PageSwitcher.qml</file>
 		<file>GameNet/Controls/ParallaxLayer.qml</file>
 		<file>GameNet/Controls/ParallaxView.qml</file>
 		<file>GameNet/Controls/PathInput.qml</file>
 		<file>GameNet/Controls/ProgressBar.qml</file>
 		<file>GameNet/Controls/ProgressBarStyleColors.qml</file>
+		<file>GameNet/Controls/qmldir</file>
 		<file>GameNet/Controls/RadioButton.qml</file>
 		<file>GameNet/Controls/SplitterStyleColors.qml</file>
 		<file>GameNet/Controls/Switcher.js</file>
@@ -305,9 +346,7 @@
 		<file>js/Support/Support.qml</file>
 		<file>js/UserInfo.js</file>
 		<file>js/UserInfoPrivate.qml</file>
-		<file>Models/CombatArmsItemsModel.qml</file>
-		<file>Models/GamesListModel.qml</file>
-		<file>Models/NewsModel.qml</file>
+		<file>Main.qml</file>
 		<file>Pages/ApplicationSettings.qml</file>
 		<file>Pages/Auth/AnimatedBackground/Index.qml</file>
 		<file>Pages/Auth/AnimatedBackground/LightningBackground.qml</file>
@@ -333,6 +372,8 @@
 		<file>Pages/SettingsPage/NotificationPage.qml</file>
 		<file>Pages/SettingsPage/SettingsDownloadPage.qml</file>
 		<file>Pages/SettingsPage/SettingsGeneralPage.qml</file>
+		<file>plugin/QXmpp/qmldir</file>
+		<file>plugin/Tulip/qmldir</file>
 		<file>Proxy/App.js</file>
 		<file>Proxy/App.qml</file>
 		<file>Proxy/AppProxy.js</file>
@@ -346,6 +387,13 @@
 		<file>Proxy/Settings.js</file>
 		<file>Proxy/Settings.qml</file>
 		<file>qGNA_Main.qml</file>
+		<file>TestBug.js</file>
+		<file>TestBug.qml</file>
+		<file>TestBugChild1.js</file>
+		<file>TestBugChild1.qml</file>
+		<file>TestBugChild2.qml</file>
+		<file>TestMenuModel.qml</file>
+		<file>TestParalax.qml</file>
 		<file>TestQxmpp.qml</file>
 		<file>Tests/Application/Blocks/ApplicationSettingsSample.qml</file>
 		<file>Tests/Application/Blocks/GameLoadSample.qml</file>
@@ -361,15 +409,19 @@
 		<file>Tests/Application/Widgets/PremiumShopSample.qml</file>
 		<file>Tests/Application/Widgets/UserProfileSample.qml</file>
 		<file>Tests/GameNet/Components/Widgets/Fixtures/DualViewWidget/PluginContainer.qml</file>
+		<file>Tests/GameNet/Components/Widgets/Fixtures/DualViewWidget/qmldir</file>
 		<file>Tests/GameNet/Components/Widgets/Fixtures/DualViewWidget/View/ViewOne.qml</file>
 		<file>Tests/GameNet/Components/Widgets/Fixtures/DualViewWidget/View/ViewTwo.qml</file>
 		<file>Tests/GameNet/Components/Widgets/Fixtures/SeparateModelWidget/PluginContainer.qml</file>
+		<file>Tests/GameNet/Components/Widgets/Fixtures/SeparateModelWidget/qmldir</file>
 		<file>Tests/GameNet/Components/Widgets/Fixtures/SeparateModelWidget/View/ViewOne.qml</file>
 		<file>Tests/GameNet/Components/Widgets/Fixtures/SeparateModelWidget/View/ViewTwo.qml</file>
 		<file>Tests/GameNet/Components/Widgets/Fixtures/SeparateModelWidget/WidgetModel.qml</file>
 		<file>Tests/GameNet/Components/Widgets/Fixtures/SimpleWidget/PluginContainer.qml</file>
+		<file>Tests/GameNet/Components/Widgets/Fixtures/SimpleWidget/qmldir</file>
 		<file>Tests/GameNet/Components/Widgets/Fixtures/SimpleWidget/View/BasicView.qml</file>
 		<file>Tests/GameNet/Components/Widgets/Fixtures/SingletonModelWidget/PluginContainer.qml</file>
+		<file>Tests/GameNet/Components/Widgets/Fixtures/SingletonModelWidget/qmldir</file>
 		<file>Tests/GameNet/Components/Widgets/Fixtures/SingletonModelWidget/View/ViewOne.qml</file>
 		<file>Tests/GameNet/Components/Widgets/Fixtures/SingletonModelWidget/View/ViewTwo.qml</file>
 		<file>Tests/GameNet/Components/Widgets/Fixtures/SingletonModelWidget/WidgetModel.qml</file>
@@ -379,7 +431,10 @@
 		<file>Tests/GameNet/Controls/ComboBoxSample.qml</file>
 		<file>Tests/GameNet/Controls/ErrorContainerSample.qml</file>
 		<file>Tests/GameNet/Controls/InputSample.qml</file>
+		<file>Tests/GameNet/Controls/PageSwitcher/Sample1.qml</file>
+		<file>Tests/GameNet/Controls/PageSwitcher/Sample2.qml</file>
 		<file>Tests/GameNet/Controls/PathInputSample.qml</file>
 		<file>Tests/GameNet/Controls/ProgressBarSample.qml</file>
+		<file>VerticalFlickable.qml</file>
 	</qresource>
 </RCC>

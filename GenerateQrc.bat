@@ -16,7 +16,8 @@ echo "%~0.exe" %TargetQrcName%
 "%~0.exe" %TargetQrcName%
 del "%~0.exe"
 
-exit
+goto end
+
 */
 
 using System;
@@ -41,7 +42,7 @@ namespace Test_QrcGenerator
                 result =
                 "<RCC>\r\n\t<qresource prefix=\"/\">\r\n\t\t"
                 + Directory.GetFiles(targetDirectory, "*.*", SearchOption.AllDirectories)
-                    .Where(f => f.EndsWith(".qml") || f.EndsWith(".js"))
+                    .Where(f => f.EndsWith(".qml") || f.EndsWith(".js") || f.EndsWith("qmldir"))
                     .Select(p => p.Remove(0, targetDirectory.Length).Replace('\\', '/'))
                     .OrderBy(q => q)
 										.Where(p2 => !p2.Contains("Test.qml"))
@@ -55,6 +56,11 @@ namespace Test_QrcGenerator
             }
 
             File.WriteAllText(targetFile, result, Encoding.UTF8);
+            Console.WriteLine("Qrc generation finished.");
         }
     }
 }
+
+/*
+:end
+*/

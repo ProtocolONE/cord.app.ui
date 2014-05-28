@@ -11,7 +11,7 @@ import QtQuick 1.1
 import Tulip 1.0
 
 import GameNet.Components.Widgets 1.0
-import Gamenet.Controls 1.0
+import GameNet.Controls 1.0
 
 import "../Models/Messenger.js" as MessengerJs
 

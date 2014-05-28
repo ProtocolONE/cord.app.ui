@@ -10,7 +10,7 @@
 import QtQuick 1.1
 import Tulip 1.0
 import QXmpp 1.0
-import Gamenet.Controls 1.0
+import GameNet.Controls 1.0
 
 import "MessengerPrivate.js" as MessengerPrivateJs
 import "User.js" as UserJs
@@ -87,7 +87,7 @@ Item {
     }
 
     function getUser(jid) {
-        if (jid === root.authedJid)
+        if (root.authedJid && jid === root.authedJid)
             return user;
 
         return new UserJs.User(usersModel.getById(jid), usersModel);
@@ -340,6 +340,7 @@ Item {
         property string presenceState: ""
         property string statusMessage: ""
         property string avatar: installPath + "/images/Application/Widgets/Messenger/defaultAvatar.png";
+        property int unreadMessageCount: 0
 
         function isValid() {
             return true;

@@ -2,7 +2,11 @@ import QtQuick 1.1
 import "./Switcher.js" as Js
 
 Item {
+    id: root
+
     default property alias child: stash.data
+
+    signal switchFinished();
 
     function switchTo(nextItem) {
         nextItem.visible = 1;
@@ -10,6 +14,7 @@ Item {
         if (!Js.currentItem) {
             Js.currentItem = nextItem;
             Js.currentItem.parent = bottomLayer;
+            root.switchFinished();
             return;
         }
 
@@ -21,7 +26,7 @@ Item {
         Js.currentItem = nextItem;
         Js.currentItem.parent = bottomLayer;
 
-        switchAnimation.start();
+        switchAnimation.restart();
     }
 
     Item {
@@ -46,21 +51,54 @@ Item {
     SequentialAnimation {
         id: switchAnimation
 
-        ParallelAnimation {
-            PropertyAnimation {
-                target: topLayer
-                property: "opacity"
-                to: 0
-                duration: 300
-            }
+        PropertyAnimation {
+            target: topLayer
+            property: "opacity"
+            easing.type: Easing.OutQuart
+            to: 0
+            duration: 1000
         }
 
         ScriptAction {
             script: {
                 Js.previousItem.parent = stash;
+                Js.previousItem.opacity = 0;
                 Js.previousItem.visible = false;
                 Js.previousItem = null;
+                root.switchFinished();
+
+                showNext.start();
             }
         }
     }
+
+    // INFO Используется для обхода ошибки рендера. Если код из таймера выполнить в анимации, то до следующего repaint
+    // на сцене будут артефакты.
+     // Альтернативынй варинт что-то отрисовать  ненадолго
+    Timer {
+        id: showNext
+
+        interval: 1
+        running: false
+        repeat: false
+        onTriggered: {
+//            Js.previousItem.parent = stash;
+//            Js.previousItem.opacity = 0;
+//            Js.previousItem.visible = false;
+//            Js.previousItem = null;
+//            root.switchFinished();
+
+            hack.visible = true;
+            hack.visible = false;
+        }
+    }
+
+    Rectangle {
+        id: hack
+
+        color: "#00000000"
+        visible: false;
+        anchors.fill: parent
+    }
+
 }

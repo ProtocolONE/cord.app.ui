@@ -22,7 +22,6 @@ PathInput 1.0 PathInput.qml
 ProgressBar 1.0 ProgressBar.qml
 ProgressBarStyleColors 1.0 ProgressBarStyleColors.qml
 RadioButton 1.0 RadioButton.qml
-ScrollBar 1.0 ScrollBar.qml
 SplitterStyleColors 1.0 SplitterStyleColors.qml
 Switcher 1.0 Switcher.qml
 TextButton 1.0 TextButton.qml
@@ -30,3 +29,4 @@ TopErrorContainer 1.0 TopErrorContainer.qml
 TypeaheadBehaviour 1.0 TypeaheadBehaviour.qml
 VerticalSplit 1.0 VerticalSplit.qml
 ExtendedListModel 1.0 ExtendedListModel.qml
+PageSwitcher 1.0 PageSwitcher.qml

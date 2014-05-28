@@ -1,6 +1,6 @@
 set BUILD_PATH=.\..\!build
 if "%1" neq "" (
-   set BUILD_PATH=%1 
+   set BUILD_PATH=%1
 )
 
 if exist %BUILD_PATH% (
@@ -8,11 +8,13 @@ if exist %BUILD_PATH% (
 )
 mkdir %BUILD_PATH%
 
-START /wait GenerateQrc.bat
+for /f %%i in ("%0") do set CUR_PATH=%%~dpi
 
-xcopy *.* %BUILD_PATH% /S /E /H /EXCLUDE:build_exclude.txt
+call %CUR_PATH%GenerateQrc.bat
+
+xcopy %CUR_PATH%*.* %BUILD_PATH% /S /E /H /R /Y /EXCLUDE:%CUR_PATH%build_exclude.txt
             
-START /wait build_fix_cc.cmd %BUILD_PATH%
+call %CUR_PATH%build_fix_cc.cmd %BUILD_PATH%
                                   
 %QTDIR%\bin\rcc.exe -compress 3 -threshold 4 -binary  "%BUILD_PATH%\qGNA.qrc" -o "%BUILD_PATH%\qGNA.tmp"
 %QTDIR%\bin\ert e "%BUILD_PATH%\qGNA.tmp" "%BUILD_PATH%\qGNA.rcc"
@@ -21,9 +23,13 @@ del /F /Q "%BUILD_PATH%\qGNA.tmp"
 set DST_PATH=.\
 
 if "%2" neq "" (
-    set DST_PATH=%2   
+    set DST_PATH=%2
 )
 
-xcopy /I /Q "%BUILD_PATH%\qGNA.rcc" "%DST_PATH%"
+if not exist %DST_PATH% (
+    mkdir %DST_PATH%
+)
+
+xcopy /I /Q /R /Y "%BUILD_PATH%\qGNA.rcc" "%DST_PATH%"
 
 rmdir /S /Q %BUILD_PATH%
