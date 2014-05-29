@@ -12,15 +12,24 @@ import Tulip 1.0
 import GameNet.Controls 1.0
 
 Button {
+    id: root
+
     property alias icon: icon.source
     property alias text: captionText.text
 
-    width: content.width + 40
+    width: content.width + 42
     height: parent.height
 
     style: ButtonStyleColors {
         normal: "#092135"
         hover: "#243148"
+    }
+
+    Rectangle {
+        anchors.left: parent.left
+        width: 1
+        height: parent.height
+        color: root.containsMouse ? "#243148" : "#162E43"
     }
 
     Item {
@@ -60,5 +69,12 @@ Button {
                 }
             }
         }
+    }
+
+    Rectangle {
+        anchors.right: parent.right
+        width: 1
+        height: parent.height
+        color: root.containsMouse ? "#243148" : "#171C2C"
     }
 }

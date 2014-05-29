@@ -62,7 +62,6 @@ Item {
         ScriptAction {
             script: {
                 Js.previousItem.parent = stash;
-                Js.previousItem.opacity = 0;
                 Js.previousItem.visible = false;
                 Js.previousItem = null;
                 root.switchFinished();

@@ -4,6 +4,10 @@ import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 import Application.Blocks 1.0 as Blocks
 
+// HACL
+import "./js/UserInfo.js" as UserInfo
+import "./js/Core.js" as CoreJs
+
 Rectangle {
     id: root
 
@@ -19,6 +23,10 @@ Rectangle {
     height: 600
     color: "#092135"
 
+    Component.onCompleted: {
+        CoreJs.activateGame(CoreJs.serviceItemByGameId("92"))
+    }
+
     MouseArea {
         anchors.fill: parent
         onPressed: dragWindowPressed(mouseX,mouseY);
@@ -30,6 +38,7 @@ Rectangle {
         id: manager
 
         Component.onCompleted: {
+            manager.registerWidget('Application.Widgets.UserProfile');
             manager.registerWidget('Application.Widgets.Messenger');
             manager.init();
         }
@@ -42,23 +51,36 @@ Rectangle {
         sourceComponent: splashCompomemnt
     }
 
+    Timer {
+        interval: 5000
+        running: true
+        repeat: false
+        onTriggered: switcher.sourceComponent = authComponent;
+    }
+
+    Connections {
+        target: UserInfo.instance()
+        onAuthDone: {
+            console.log('----------------- ')
+            //switcher.sourceComponent = mainComponent;
+            timerSwitchToMain.start()
+        }
+    }
+
+    Timer {
+        id: timerSwitchToMain
+
+        interval: 10
+        running: false
+        repeat: false
+        onTriggered: switcher.sourceComponent = mainComponent;
+    }
+
     Component {
         id: splashCompomemnt
 
         Blocks.SplashScreen {
-            Component.onDestruction:  {
-                console.log('--------- splash destroyed')
-            }
-
             anchors.fill: parent
-
-            Button {
-                width: 10
-                height: 10
-                onClicked: {
-                    switcher.sourceComponent = authComponent;
-                }
-            }
         }
     }
 
@@ -93,7 +115,9 @@ Rectangle {
             TooltipLayer {
                 anchors.fill: parent
             }
+
         }
+
     }
 
 }

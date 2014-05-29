@@ -15,15 +15,15 @@ Item {
         view: 'Chat'
     }
 
-    WidgetContainer {
-        anchors {
-            right: parent.right
-            bottom: parent.bottom
-        }
+//    WidgetContainer {
+//        anchors {
+//            right: parent.right
+//            bottom: parent.bottom
+//        }
 
-        height: 467
-        width: 230
-        widget: 'Messenger'
-        view: 'Contacts'
-    }
+//        height: 467
+//        width: 230
+//        widget: 'Messenger'
+//        view: 'Contacts'
+//    }
 }
