@@ -60,12 +60,31 @@ Rectangle {
         model: ListModel {}
         delegate:  WidgetContainer {
             widget: model.widgetName
+            view: model.widgetView
         }
     }
 
+    ListView {
+        id: mainContainer2
+
+        anchors {
+            left: parent.left
+            top: parent.top
+            margins: 10
+            topMargin: 170
+        }
+
+        model: ListModel {}
+        delegate:  WidgetContainer {
+            widget: model.widgetName
+            view: model.widgetView
+        }
+    }
+
+
     Row {
         x: 10
-        y: 200
+        y: 300
         spacing: 20
 
         Button {
@@ -94,7 +113,8 @@ Rectangle {
 
         onGameMaintenanceStart: {
             console.log('onGameMaintenanceStart', serviceId);
-            mainContainer.model.append({widgetName: 'Maintenance', serviceId: serviceId });
+            mainContainer.model.append({widgetName: 'Maintenance', widgetView: 'MaintenanceView', serviceId: serviceId });
+            mainContainer2.model.append({widgetName: 'Maintenance', widgetView: 'MaintenanceLightView', serviceId: serviceId });
         }
 
         onGameMaintenanceEnd: {
@@ -103,6 +123,7 @@ Rectangle {
                 var obj = mainContainer.model.get(i);
                 if (obj.serviceId == serviceId) {
                     mainContainer.model.remove(i);
+                    mainContainer2.model.remove(i);
                     return;
                 }
 

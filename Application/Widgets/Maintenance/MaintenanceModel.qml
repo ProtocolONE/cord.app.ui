@@ -15,9 +15,18 @@ import "../../../js/Core.js" as Core
 import "MaintenanceModel.js" as MaintenanceModel
 import "../../../js/PopupHelper.js" as PopupHelper
 import "../../../js/GoogleAnalytics.js" as GoogleAnalytics
+import "View" as View
 
 WidgetModel {
     id: root
+
+    Component {
+        id: gameMaintenanceEndPopUp
+
+        View.MaintenanceEnd {
+            id: popUp
+        }
+    }
 
     function showPopupGameMaintenanceEnd(serviceId) {
         var gameItem = Core.serviceItemByServiceId(serviceId)

@@ -1,4 +1,5 @@
 module Application.Widgets.Maintenance
 PluginContainer 1.0 PluginContainer.qml 
-MaintenanceView 1.0 View/Maintenance.qml
+MaintenanceView 1.0 View/MaintenanceView.qml
+MaintenanceLightView 1.0 View/MaintenanceLightView.qml
 MaintenanceModel 1.0 MaintenanceModel.qml 

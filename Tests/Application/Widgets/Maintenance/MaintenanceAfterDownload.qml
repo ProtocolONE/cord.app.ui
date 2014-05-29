@@ -63,9 +63,26 @@ Rectangle {
         }
     }
 
+    ListView {
+        id: mainContainer2
+
+        anchors {
+            left: parent.left
+            top: parent.top
+            margins: 10
+            topMargin: 170
+        }
+
+        model: ListModel {}
+        delegate:  WidgetContainer {
+            widget: model.widgetName
+            view: model.widgetView
+        }
+    }
+
     Row {
         x: 10
-        y: 200
+        y: 300
         spacing: 20
 
         Button {
@@ -106,6 +123,9 @@ Rectangle {
             if (service == game.serviceId && game.maintenance) {
                 mainContainer.model.clear();
                 mainContainer.model.insert(0, {widgetName: 'Maintenance'});
+
+                mainContainer2.model.clear();
+                mainContainer2.model.insert(0, {widgetName: 'Maintenance', widgetView: 'MaintenanceLightView'});
             }
         }
     }
@@ -114,10 +134,11 @@ Rectangle {
         target: Core.signalBus()
 
         onGameMaintenanceEnd: {
-            console.log('onGameMaintenanceEnd', index);
+            console.log('onGameMaintenanceEnd', serviceId);
             var game = Core.currentGame();
-            if (index === game.serviceId) {
+            if (serviceId === game.serviceId) {
                 mainContainer.model.remove(0);
+                mainContainer2.model.remove(0);
             }
         }
     }

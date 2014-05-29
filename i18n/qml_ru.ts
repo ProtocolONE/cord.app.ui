@@ -2584,23 +2584,111 @@ Please try again later.</source>
     </message>
     <message>
         <source>POPUP_PLAY</source>
-        <translation>Играть</translation>
+        <translation type="vanished">Играть</translation>
     </message>
     <message>
         <source>POPUP_MAINTENANCE_END_AND_READY_TO_START</source>
-        <translation>Технические работы завершены</translation>
+        <translation type="vanished">Технические работы завершены</translation>
     </message>
     <message>
         <source>MAINTENANCE_LABEL</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Технические работы</translation>
     </message>
     <message>
         <source>MAINTENANCE_LABEL_END</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Завершение через</translation>
     </message>
     <message>
         <source>HOUR_MAINTENANCE_LABEL</source>
-        <translation>ч</translation>
+        <translation type="obsolete">ч</translation>
+    </message>
+    <message>
+        <source>MINUTE_MAINTENANCE_LABEL</source>
+        <translation type="obsolete">мин.</translation>
+    </message>
+    <message>
+        <source>SECONDS_MAINTENANCE_LABEL</source>
+        <translation type="obsolete">с</translation>
+    </message>
+    <message>
+        <source>MAINTENANCE_PROPOSAL_GAME_TEXT</source>
+        <translation type="obsolete">Пока мы делаем игру лучше, попробуй другие игры, в которые играют пользователи %1</translation>
+    </message>
+</context>
+<context>
+    <name>MaintenanceLightView</name>
+    <message>
+        <source>MAINTENANCE_LABEL</source>
+        <translation type="obsolete">Технические работы</translation>
+    </message>
+    <message>
+        <source>MAINTENANCE_LABEL_END</source>
+        <translation type="obsolete">Завершение через</translation>
+    </message>
+    <message>
+        <source>HOUR_MAINTENANCE_LABEL</source>
+        <translation type="unfinished">ч</translation>
+    </message>
+    <message>
+        <source>MINUTE_MAINTENANCE_LABEL</source>
+        <translation type="unfinished">мин.</translation>
+    </message>
+    <message>
+        <source>SECONDS_MAINTENANCE_LABEL</source>
+        <translation type="unfinished">с</translation>
+    </message>
+    <message>
+        <source>MAINTENANCE_LIGHT_LABEL</source>
+        <translation type="unfinished">Технические работы окончатся через</translation>
+    </message>
+    <message>
+        <source>MAINTENANCE_LIGHT_PROSOSAL_START_TEXT</source>
+        <translation type="unfinished">Не теряй времени! Попробуй %1</translation>
+    </message>
+</context>
+<context>
+    <name>MaintenanceModel</name>
+    <message>
+        <source>POPUP_PLAY</source>
+        <translation type="unfinished">Играть</translation>
+    </message>
+    <message>
+        <source>POPUP_MAINTENANCE_END_AND_READY_TO_START</source>
+        <translation type="unfinished">Технические работы завершены</translation>
+    </message>
+</context>
+<context>
+    <name>MaintenanceView</name>
+    <message>
+        <source>MAINTENANCE_LABEL</source>
+        <translation type="unfinished">Технические работы</translation>
+    </message>
+    <message>
+        <source>MAINTENANCE_LABEL_END</source>
+        <translation type="unfinished">Завершение через</translation>
+    </message>
+    <message>
+        <source>HOUR_MAINTENANCE_LABEL</source>
+        <translation type="unfinished">ч</translation>
+    </message>
+    <message>
+        <source>MINUTE_MAINTENANCE_LABEL</source>
+        <translation type="unfinished">мин.</translation>
+    </message>
+    <message>
+        <source>SECONDS_MAINTENANCE_LABEL</source>
+        <translation type="unfinished">с</translation>
+    </message>
+    <message>
+        <source>MAINTENANCE_PROPOSAL_GAME_TEXT</source>
+        <translation type="unfinished">Пока мы делаем игру лучше, попробуй другие игры, в которые играют пользователи %1</translation>
+    </message>
+</context>
+<context>
+    <name>Message</name>
+    <message>
+        <source>MESSAGE_STATE_COMPOSING</source>
+        <translation>Набирает сообщение...</translation>
     </message>
     <message>
         <source>MESSAGE_STATE_PAUSED</source>

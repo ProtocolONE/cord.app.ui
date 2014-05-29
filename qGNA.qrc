@@ -35,10 +35,16 @@
 		<file>Application/Controls/qmldir</file>
 		<file>Application/Controls/ScrollBar.qml</file>
 		<file>Application/Core/App.js</file>
+		<file>Application/Core/App.qml</file>
 		<file>Application/Core/MessageBox.js</file>
 		<file>Application/Core/MessageBox/MessageBoxModel.qml</file>
 		<file>Application/Core/Popup.js</file>
 		<file>Application/Core/Popup/PopupModel.qml</file>
+		<file>Application/Layers/BaseLayer.qml</file>
+		<file>Application/Layers/ChatLayer.qml</file>
+		<file>Application/Layers/PopupLayer.qml</file>
+		<file>Application/Layers/qmldir</file>
+		<file>Application/Layers/TooltipLayer.qml</file>
 		<file>Application/Models/CombatArmsItemsModel.qml</file>
 		<file>Application/Models/GamesListModel.qml</file>
 		<file>Application/Models/NewsModel.qml</file>
@@ -47,7 +53,7 @@
 		<file>Application/Widgets/AlertAdapter/PluginContainer.qml</file>
 		<file>Application/Widgets/AlertAdapter/qmldir</file>
 		<file>Application/Widgets/AlertAdapter/View/AlertAdapter.js</file>
-		<file>Application/Widgets/AlertAdapter/View/AlertAdapter.qml</file>
+		<file>Application/Widgets/AlertAdapter/View/AlertAdapterView.qml</file>
 		<file>Application/Widgets/AlertAdapter/View/NegativeButton.qml</file>
 		<file>Application/Widgets/AlertAdapter/View/PositiveButton.qml</file>
 		<file>Application/Widgets/Facts/FactsModel.js</file>
@@ -67,7 +73,9 @@
 		<file>Application/Widgets/Maintenance/PluginContainer.qml</file>
 		<file>Application/Widgets/Maintenance/qmldir</file>
 		<file>Application/Widgets/Maintenance/View/GameItem.qml</file>
-		<file>Application/Widgets/Maintenance/View/Maintenance.qml</file>
+		<file>Application/Widgets/Maintenance/View/MaintenanceEnd.qml</file>
+		<file>Application/Widgets/Maintenance/View/MaintenanceLightView.qml</file>
+		<file>Application/Widgets/Maintenance/View/MaintenanceView.qml</file>
 		<file>Application/Widgets/Maintenance/View/TimeTextLabel.qml</file>
 		<file>Application/Widgets/Messenger/Model.qml</file>
 		<file>Application/Widgets/Messenger/Models/Group.js</file>
@@ -253,9 +261,6 @@
 		<file>Features/Guide/Guide.qml</file>
 		<file>Features/Guide/Private/ImageButton.qml</file>
 		<file>Features/Guide/WellcomeGuide.qml</file>
-		<file>Features/Maintenance/Maintenance.js</file>
-		<file>Features/Maintenance/Maintenance.qml</file>
-		<file>Features/Maintenance/PopUp/MaintenanceEnd.qml</file>
 		<file>Features/Money/Money.js</file>
 		<file>Features/Money/Money.qml</file>
 		<file>Features/Money/MoneyWindow.qml</file>
@@ -373,19 +378,14 @@
 		<file>Proxy/Settings.js</file>
 		<file>Proxy/Settings.qml</file>
 		<file>qGNA_Main.qml</file>
-		<file>TestBug.js</file>
-		<file>TestBug.qml</file>
-		<file>TestBugChild1.js</file>
-		<file>TestBugChild1.qml</file>
-		<file>TestBugChild2.qml</file>
 		<file>TestMenuModel.qml</file>
 		<file>TestParalax.qml</file>
+		<file>TestQxmpp.qml</file>
 		<file>Tests/Application/Blocks/AllGames.qml</file>
 		<file>Tests/Application/Blocks/ApplicationSettingsSample.qml</file>
 		<file>Tests/Application/Blocks/GameLoadSample.qml</file>
 		<file>Tests/Application/Blocks/GameMenuSample.qml</file>
 		<file>Tests/Application/Blocks/GameSettingsSample.qml</file>
-		<file>Tests/Application/Blocks/PremiumSample.qml</file>
 		<file>Tests/Application/Core/AlertAdapterTestCase.qml</file>
 		<file>Tests/Application/Core/Fixtures/Popup/Sample/PluginContainer.qml</file>
 		<file>Tests/Application/Core/Fixtures/Popup/Sample/qmldir</file>
@@ -426,6 +426,5 @@
 		<file>Tests/GameNet/Controls/PageSwitcher/Sample2.qml</file>
 		<file>Tests/GameNet/Controls/PathInputSample.qml</file>
 		<file>Tests/GameNet/Controls/ProgressBarSample.qml</file>
-		<file>VerticalFlickable.qml</file>
 	</qresource>
 </RCC>
