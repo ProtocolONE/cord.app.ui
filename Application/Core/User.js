@@ -10,7 +10,7 @@
 ****************************************************************************/
 
 var _userComponent,
-    _userComponentInstance;
+        _userComponentInstance;
 
 if (!_userComponent) {
     _userComponent = Qt.createComponent('./User.qml');
@@ -71,4 +71,16 @@ function getAvatarSmall() {
 
 function isGuest() {
     return _userComponentInstance.guest;
+}
+
+function refreshUserInfo() {
+    _userComponentInstance.refreshUserInfo();
+}
+
+function refreshPremium() {
+    _userComponentInstance.refreshPremium();
+}
+
+function refreshBalance() {
+    _userComponentInstance.refreshBalance();
 }

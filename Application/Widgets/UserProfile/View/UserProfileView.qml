@@ -36,6 +36,7 @@ WidgetView {
                 Image {
                     id: avatarImage
 
+                    asynchronous: true
                     anchors.fill: parent
                     source: model.avatarMedium != undefined ? model.avatarMedium : installPath + "Assets/Images/avatar.png"
                 }

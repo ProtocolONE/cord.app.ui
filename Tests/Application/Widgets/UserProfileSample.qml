@@ -18,9 +18,6 @@ Rectangle {
     height: 800
     color: '#EEEEEE'
 
-    Bootstrap {
-    }
-
     WidgetManager {
         id: manager
 
@@ -39,6 +36,4 @@ Rectangle {
         height: 92
         widget: 'UserProfile'
     }
-
-    //Tooltip {}
 }
