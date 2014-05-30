@@ -8,7 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 import QtQuick 1.1
-import "./restapi.js" as RestApi
+import "../Application/Core/restapi.js" as RestApi
 import "./Core.js" as Core
 
 Item {

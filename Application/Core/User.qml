@@ -100,6 +100,11 @@ WidgetModel {
             root.userId = userId;
             root.appKey = appKey;
             root.cookie = cookie;
+
+            RestApiJs.Core.setUserId(userId);
+            RestApiJs.Core.setAppKey(appKey);
+            //  UNDONE: надо решить как скармиливать параметры в рест апи,
+            //  чтоб в этом месте они уже гарантированно там были
             refreshUserInfo();
        }
     }

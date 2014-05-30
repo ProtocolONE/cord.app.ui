@@ -17,7 +17,7 @@ if (!_userComponent) {
     if (_userComponent.status == 1) {
         _userComponentInstance = _userComponent.createObject(null);
     } else {
-        console.log('Can\'t create component Core/User.qml');
+        console.log('Can\'t create component Core/User.qml, reason: ' + _userComponent.errorString());
     }
 }
 

@@ -3,6 +3,7 @@ import Application.Layers 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 import Application.Blocks 1.0 as Blocks
+import Application 1.0
 
 // HACL
 import "./js/UserInfo.js" as UserInfo
@@ -23,8 +24,7 @@ Rectangle {
     height: 600
     color: "#092135"
 
-    Component.onCompleted: {
-        CoreJs.activateGame(CoreJs.serviceItemByGameId("92"))
+    Bootstrap {
     }
 
     MouseArea {

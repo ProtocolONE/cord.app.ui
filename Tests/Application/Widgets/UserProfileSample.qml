@@ -10,13 +10,16 @@
 import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
-import "../../../Application/Bootstrap.js" as Bootstrap
+import Application 1.0
 import "../../../Application/Core/App.js" as App
 
 Rectangle {
     width: 1000
     height: 800
     color: '#EEEEEE'
+
+    Bootstrap {
+    }
 
     WidgetManager {
         id: manager

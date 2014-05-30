@@ -1,5 +1,6 @@
 import QtQuick 1.1
 import Tulip 1.0
+
 import "Core/App.js" as AppJs
 import "Core/GoogleAnalytics.js" as GoogleAnalyticsJs
 import "Core/User.js" as UserJs
@@ -23,8 +24,6 @@ Item {
     }
 
     Component.onCompleted: {
-        console.log("Bootstrap - complete");
-
         var url = Settings.value('qGNA/restApi', 'url', 'https://gnapi.com:8443/restapi');
 
         RestApiJs.Core.setup({lang: 'ru', url: url});
@@ -49,8 +48,6 @@ Item {
     Connections {
         target: AppJs.signalBus();
         onAuthDone: {
-            RestApiJs.Core.setUserId(userId);
-            RestApiJs.Core.setAppKey(appKey);
         }
     }
 }

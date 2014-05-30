@@ -17,7 +17,7 @@ if (!_signalBusComponent) {
     if (_signalBusComponent.status == 1) {
         _signalBusInstance = _signalBusComponent.createObject(null);
     } else {
-        console.log('Can\'t create component Core/App.qml');
+        console.log('Can\'t create component Core/App.qml, reason: ' + _signalBusComponent.errorString());
     }
 }
 

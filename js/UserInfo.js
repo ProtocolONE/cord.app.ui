@@ -14,7 +14,11 @@ var _userInfoInstance,
 
 if (!_userInfoComponent) {
     _userInfoComponent = Qt.createComponent('./UserInfoPrivate.qml');
-    _userInfoInstance = _userInfoComponent.createObject(null);
+    if (_userInfoComponent.status == 1) {
+        _userInfoInstance = _userInfoComponent.createObject(null);
+    } else {
+        console.log('Can\'t create component UserInfoPrivate.qml, reason: ' + _userInfoComponent.errorString());
+    }
 }
 
 function setCredential(userId, appKey, cookie) {
