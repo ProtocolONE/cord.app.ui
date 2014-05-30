@@ -10,9 +10,8 @@
 import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
+import "../../../Application/Bootstrap.js" as Bootstrap
 import "../../../Application/Core/App.js" as App
-
-import "../../../Elements/Tooltip" as Tooltip
 
 Rectangle {
     width: 1000
@@ -25,7 +24,8 @@ Rectangle {
         Component.onCompleted: {
             manager.registerWidget('Application.Widgets.UserProfile');
             manager.init();
-            App.authDone("400001000092302250", "86c558d41c1ae4eafc88b529e12650b884d674f5", "");
+
+            App.authDone("400001000092302250", "86c558d41c1ae4eafc88b529e12650b884d674f5");
         }
     }
 
@@ -37,5 +37,5 @@ Rectangle {
         widget: 'UserProfile'
     }
 
-    Tooltip.Tooltip {}
+    //Tooltip {}
 }

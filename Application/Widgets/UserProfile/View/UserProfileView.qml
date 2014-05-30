@@ -11,10 +11,7 @@
 import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
-import "../../../../js/Core.js" as CoreJs
 import "../../../Core/App.js" as AppJs
-//  INFO:
-import "../../../../Elements" as Elements
 
 WidgetView {
     id: root
@@ -43,7 +40,7 @@ WidgetView {
                     source: model.avatarMedium != undefined ? model.avatarMedium : installPath + "images/avatar.png"
                 }
 
-                Elements.CursorMouseArea {
+                CursorMouseArea {
                     anchors.fill: parent
                     hoverEnabled: true
                     toolTip: qsTr("YOUR_AVATAR")
@@ -62,7 +59,7 @@ WidgetView {
                         source: installPath + "Assets/Images/Application/Widgets/UserProfile/premium.png"
                     }
 
-                    Elements.CursorMouseArea {
+                    CursorMouseArea {
                         anchors.fill: parent
                         hoverEnabled: true
                         toolTip: qsTr("EXTENDED_ACCOUNT")
@@ -84,7 +81,7 @@ WidgetView {
                         font { family: "Arial"; pixelSize: 14 }
                     }
 
-                    Elements.CursorMouseArea {
+                    CursorMouseArea {
                         anchors.fill: parent
                         hoverEnabled: true
                         toolTip: qsTr("YOUR_GAMENET_LEVEL")

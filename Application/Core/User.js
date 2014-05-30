@@ -14,38 +14,58 @@ var _userComponent,
 
 if (!_userComponent) {
     _userComponent = Qt.createComponent('./User.qml');
-    if (_userComponentInstance.status == 1) {
+    if (_userComponent.status == 1) {
         _userComponentInstance = _userComponent.createObject(null);
     } else {
         console.log('Can\'t create component Core/User.qml');
     }
 }
 
+function userId() {
+    return  _userComponentInstance.userId;
+}
+
+function appKey() {
+    return  _userComponentInstance.appKey;
+}
+
+function cookie() {
+    return  _userComponentInstance.cookie;
+}
+
+function isPremium() {
+    return  _userComponentInstance.isPremium;
+}
+
+function getPremiumDuration() {
+    return _userComponentInstance.premiumDuration;
+}
+
 function getBalance() {
     return _userComponentInstance.balance;
 }
 
-function nickname() {
+function getNickname() {
     return _userComponentInstance.nickname;
 }
 
-function nametech() {
+function getTechName() {
     return _userComponentInstance.nametech;
 }
 
-function level() {
+function getLevel() {
     return _userComponentInstance.level;
 }
 
-function avatarLarge() {
+function getAvatarLarge() {
     return _userComponentInstance.avatarLarge;
 }
 
-function avatarMedium() {
+function getAvatarMedium() {
     return _userComponentInstance.avatarMedium;
 }
 
-function avatarSmall() {
+function getAvatarSmall() {
     return _userComponentInstance.avatarSmall;
 }
 

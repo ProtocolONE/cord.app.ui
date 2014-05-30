@@ -2743,6 +2743,17 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>NickNameEditModel</name>
+    <message>
+        <source>VALIDATE_NICK_NAME_DEFAULT_ERROR</source>
+        <translation type="vanished">GameNet недоступен, невозможно проверить никнейм. Проверьте подключение к интернет или попробуйте ещё раз позже.</translation>
+    </message>
+    <message>
+        <source>VALIDATE_TECH_NAME_DEFAULT_ERROR</source>
+        <translation type="vanished">GameNet недоступен, невозможно проверить ссылку.</translation>
+    </message>
+</context>
+<context>
     <name>NickNameView</name>
     <message>
         <source>Money</source>
@@ -2822,6 +2833,17 @@ Please try again later.</source>
     <message>
         <source>ENTER_NICKNAME</source>
         <translation>Введи свой никнейм</translation>
+    </message>
+</context>
+<context>
+    <name>NicknameEditModel</name>
+    <message>
+        <source>VALIDATE_NICK_NAME_DEFAULT_ERROR</source>
+        <translation type="unfinished">GameNet недоступен, невозможно проверить никнейм. Проверьте подключение к интернет или попробуйте ещё раз позже.</translation>
+    </message>
+    <message>
+        <source>VALIDATE_TECH_NAME_DEFAULT_ERROR</source>
+        <translation type="unfinished">GameNet недоступен, невозможно проверить ссылку.</translation>
     </message>
 </context>
 <context>

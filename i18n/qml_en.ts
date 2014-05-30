@@ -2214,6 +2214,27 @@
     </message>
 </context>
 <context>
+    <name>NicknameEditModel</name>
+    <message>
+        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="63"/>
+        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="75"/>
+        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="106"/>
+        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="118"/>
+        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="130"/>
+        <source>VALIDATE_NICK_NAME_DEFAULT_ERROR</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="89"/>
+        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="98"/>
+        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="137"/>
+        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="149"/>
+        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="161"/>
+        <source>VALIDATE_TECH_NAME_DEFAULT_ERROR</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>NotificationPage</name>
     <message>
         <location filename="../Pages/SettingsPage/NotificationPage.qml" line="32"/>
@@ -2310,32 +2331,32 @@
 <context>
     <name>PremiumShopView</name>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="91"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="69"/>
         <source>PREMIUM_ACCOUNT_HEADER_TEXT_BLOCK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="120"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="94"/>
         <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="188"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="162"/>
         <source>NOT_ENOUGH_MONEY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="218"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="192"/>
         <source>ADD_MONEY_BUTTON_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="238"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="212"/>
         <source>MONEY_TOTAL %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="263"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="236"/>
         <source>ACCEPT_BUY</source>
         <translation type="unfinished"></translation>
     </message>

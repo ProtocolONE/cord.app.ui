@@ -9,7 +9,7 @@
 ****************************************************************************/
 import QtQuick 1.1
 
-import "../js/GoogleAnalytics.js" as GoogleAnalytics
+import "../../Application/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 Item {
     id: behavior

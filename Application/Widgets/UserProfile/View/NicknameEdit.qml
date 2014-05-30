@@ -12,8 +12,6 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
-import "../../../../Elements" as Elements
-
 Item {
     id: root
 
@@ -40,7 +38,7 @@ Item {
         source: installPath + "Assets/Images/Application/Widgets/UserProfile/nickname_mask.png"
     }
 
-    Elements.CursorMouseArea {
+    CursorMouseArea {
         id: cursorArea
 
         anchors.fill: parent
