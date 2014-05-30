@@ -73,6 +73,8 @@ Rectangle {
                 name: "InProgress"
                 when: control.inProgress
                 PropertyChanges { target: inProgressIcon; visible: true }
+                PropertyChanges { target: buttonText; visible: false }
+                PropertyChanges { target: root; enabled: false }
             }
         ]
     }

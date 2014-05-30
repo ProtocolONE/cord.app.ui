@@ -1,0 +1,4 @@
+module Application.Widgets.NicknameEdit
+PluginContainer 1.0 PluginContainer.qml 
+NicknameEditView 1.0 View/NicknameEditView.qml
+NicknameEditModel 1.0 NicknameEditModel.qml 

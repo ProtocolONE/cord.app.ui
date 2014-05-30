@@ -2935,6 +2935,33 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>NicknameEditView</name>
+    <message>
+        <source>CREATE_NICKNAME_TITLE</source>
+        <translation>Придумай себе никнейм</translation>
+    </message>
+    <message>
+        <source>NO_NICKNAME_TIP</source>
+        <translation>Без этого никнейма нельзя пользоваться социальными сервисами GameNet.&lt;br&gt;Этот шаг является обязательным для окончания регистрации.</translation>
+    </message>
+    <message>
+        <source>YOUR_NICKNAME_PLACEHOLDER</source>
+        <translation>Твой никнейм (не более 16 символов)</translation>
+    </message>
+    <message>
+        <source>PROFILE_LINK_PLACEHOLDER</source>
+        <translation>ссылка на твой профиль</translation>
+    </message>
+    <message>
+        <source>SAVE_BUTTON_CAPTION</source>
+        <translation>Сохранить</translation>
+    </message>
+    <message>
+        <source>NICKNAME_OK</source>
+        <translation>Ок!</translation>
+    </message>
+</context>
+<context>
     <name>NotificationPage</name>
     <message>
         <source>CHECKBOX_NOTIFICATION_MAINTENANCE_END</source>
@@ -3180,42 +3207,49 @@ Please try again later.</source>
     </message>
 </context>
 <context>
-    <name>PromoKey</name>
+    <name>PromoCodeView</name>
     <message>
-        <source>TITLE_ACCOUNT_ACTIVATION</source>
-        <translation type="obsolete">Активация аккаунта</translation>
+        <source>PROMO_CODE_TITLE</source>
+        <translation>Активация промо-кода</translation>
     </message>
     <message>
+        <source>PROMO_CODE_PLACEHOLDER</source>
+        <translation>Введи промо-код</translation>
+    </message>
+    <message>
+        <source>ACIVATE_BUTTON_CAPTION</source>
+        <translation>Активировать</translation>
+    </message>
+    <message>
+        <source>UNKNOWN_PROMO_VALIDATION_ERROR</source>
+        <translation>Возникла ошибка в процессе активации промо-кода. Попробуйте позже.</translation>
+    </message>
+</context>
+<context>
+    <name>PromoKey</name>
+    <message>
         <source>TITLE_PROMOKEY</source>
-        <translation>Подтвердите доступ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>SUBTITLE_PROMOKEY</source>
-        <translation>Эта игра доступна только участникам закрытого бета-тестирования</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>SUBTITLE_PROMOKEY_ACTIVATION</source>
-        <translation>Если вы уже получили приглашение и у вас есть промо-код, введите его в это поле:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PLACEHOLDER_PROMOKEY</source>
-        <translation>Промо-код</translation>
-    </message>
-    <message>
-        <source>ACCOUNT_ACTIVATION_PHONE_NOT_FOUND</source>
-        <translation type="obsolete">Указанный номер не существует. Пожалуйста, введите новый номер телефона.</translation>
-    </message>
-    <message>
-        <source>BUTTON_GET_CODE</source>
-        <translation type="obsolete">Получить код</translation>
-    </message>
-    <message>
-        <source>BUTTON_CANCEL</source>
-        <translation>Отмена</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>BUTTON_ACTIVATE_KEY</source>
-        <translation>Активировать</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BUTTON_CANCEL</source>
+        <translation type="unfinished">Отмена</translation>
     </message>
 </context>
 <context>

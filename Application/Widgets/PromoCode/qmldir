@@ -1,0 +1,3 @@
+module Application.Widgets.PromoCode
+PluginContainer 1.0 PluginContainer.qml 
+PromoCodeView 1.0 View/PromoCodeView.qml

@@ -1,2 +1,3 @@
 module Application.Controls
 ScrollBar 1.0 ScrollBar.qml
+InputWithError 1.0 InputWithError.qml

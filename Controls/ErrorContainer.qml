@@ -15,8 +15,7 @@ Item {
 
     default property alias data: stash.data
 
-    property bool error: false;
-
+    property bool error: false
     property alias errorMessage: errorContainer.text
     property alias style: errorContainer.style
 

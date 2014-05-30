@@ -14,6 +14,7 @@ Item {
     id: root
 
     property bool enabled: true
+    property alias readOnly: inputBehavior.readOnly
     property alias text: inputBehavior.text
     property alias placeholder: placeholderText.text
     property alias maximumLength: inputBehavior.maximumLength
@@ -74,7 +75,7 @@ Item {
             function isOver(x, y) {
                 var internalPos = mapToItem(controlIcon, x, y);
                 if (0 < internalPos.x && internalPos.x < controlIcon.width
-                    && 0 < internalPos.y && internalPos.y < controlIcon.height) {
+                        && 0 < internalPos.y && internalPos.y < controlIcon.height) {
                     internaMouseOver = true;
                     return;
                 }
@@ -491,7 +492,7 @@ Item {
                 name: "Hover"
                 when: mouseArea.containsMouse
                 PropertyChanges { target: controlBorder; border.color: style.active }
-
+                PropertyChanges { target: inputBehavior; color: style.active }
             },
             State {
                 name: "Disabled"
