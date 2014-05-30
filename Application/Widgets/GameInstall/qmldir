@@ -1,4 +1,3 @@
 module Application.Widgets.GameInstall
 PluginContainer 1.0 PluginContainer.qml 
 GameInstallView 1.0 View/GameInstallView.qml
-GameInstallModel 1.0 GameInstallModel.qml 

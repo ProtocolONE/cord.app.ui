@@ -14,5 +14,4 @@ import GameNet.Components.Widgets 1.0
 PluginContainer {
     name: "GameInstall"
     view: "GameInstallView"
-    model: "GameInstallModel"
 }
