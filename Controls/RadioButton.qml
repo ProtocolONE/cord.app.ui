@@ -43,8 +43,8 @@ Item {
                 id: checkBox
 
                 source: checked ?
-                            installPath + "images/Controls/RadioButton/normal_checked.png" :
-                            installPath + "images/Controls/RadioButton/normal_unchecked.png"
+                            installPath + "Assets/Images/GameNet/Controls/RadioButton/normal_checked.png" :
+                            installPath + "Assets/Images/GameNet/Controls/RadioButton/normal_unchecked.png"
                 anchors.centerIn: parent
                 fillMode: Image.PreserveAspectFit
             }
@@ -54,7 +54,7 @@ Item {
 
                 anchors.centerIn: parent
                 visible: control.checked
-                source: installPath + "images/Controls/CheckBox/Check.png"
+                source: installPath + "Assets/Images/GameNet/Controls/CheckBox/Check.png"
                 fillMode: Image.PreserveAspectFit
             }
         }
@@ -92,8 +92,8 @@ Item {
                 PropertyChanges {
                     target: checkBox
                     source: checked ?
-                                installPath + "images/Controls/RadioButton/normal_checked.png" :
-                                installPath + "images/Controls/RadioButton/normal_unchecked.png"
+                                installPath + "Assets/Images/GameNet/Controls/RadioButton/normal_checked.png" :
+                                installPath + "Assets/Images/GameNet/Controls/RadioButton/normal_unchecked.png"
                 }
                 PropertyChanges { target: controlText; color: control.style.normal}
             },
@@ -103,8 +103,8 @@ Item {
                 PropertyChanges {
                     target: checkBox
                     source: checked ?
-                                installPath + "images/Controls/RadioButton/hover_checked.png" :
-                                installPath + "images/Controls/RadioButton/hover_unchecked.png"
+                                installPath + "Assets/Images/GameNet/Controls/RadioButton/hover_checked.png" :
+                                installPath + "Assets/Images/GameNet/Controls/RadioButton/hover_unchecked.png"
                 }
                 PropertyChanges { target: controlText; color: control.style.hover; font.underline: true}
             },
@@ -114,8 +114,8 @@ Item {
                 PropertyChanges {
                     target: checkBox
                     source: checked ?
-                                installPath + "images/Controls/RadioButton/normal_checked.png" :
-                                installPath + "images/Controls/RadioButton/normal_unchecked.png"
+                                installPath + "Assets/Images/GameNet/Controls/RadioButton/normal_checked.png" :
+                                installPath + "Assets/Images/GameNet/Controls/RadioButton/normal_unchecked.png"
                     opacity: 0.2
                 }
                 PropertyChanges { target: controlText; color: control.style.disabled; opacity: 0.2}

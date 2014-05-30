@@ -135,9 +135,9 @@ WidgetView {
                 disabled: "#1ABC9C"
             }
             styleImages: ButtonStyleImages {
-                normal: installPath + "images/Application/Widgets/GameAdBanner/arrow_left.png"
-                hover: installPath + "images/Application/Widgets/GameAdBanner/arrow_left.png"
-                disabled: installPath + "images/Application/Widgets/GameAdBanner/arrow_left.png"
+                normal: installPath + "Assets/Images/Application/Widgets/GameAdBanner/arrow_left.png"
+                hover: installPath + "Assets/Images/Application/Widgets/GameAdBanner/arrow_left.png"
+                disabled: installPath + "Assets/Images/Application/Widgets/GameAdBanner/arrow_left.png"
             }
             onClicked: {
                 showNextTimer.stop();
@@ -169,9 +169,9 @@ WidgetView {
                 disabled: "#1ABC9C"
             }
             styleImages: ButtonStyleImages {
-                normal: installPath + "images/Application/Widgets/GameAdBanner/arrow_right.png"
-                hover: installPath + "images/Application/Widgets/GameAdBanner/arrow_right.png"
-                disabled: installPath + "images/Application/Widgets/GameAdBanner/arrow_rigth.png"
+                normal: installPath + "Assets/Images/Application/Widgets/GameAdBanner/arrow_right.png"
+                hover: installPath + "Assets/Images/Application/Widgets/GameAdBanner/arrow_right.png"
+                disabled: installPath + "Assets/Images/Application/Widgets/GameAdBanner/arrow_rigth.png"
             }
             onClicked: {
                 showNextTimer.stop();

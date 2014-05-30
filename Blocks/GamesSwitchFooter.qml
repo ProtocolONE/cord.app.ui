@@ -41,7 +41,7 @@ Rectangle {
     Image {
         anchors.fill: parent;
         fillMode: Image.Tile
-        source: installPath + "images/backClone.png"
+        source: installPath + "Assets/Images/backClone.png"
     }
 
     ListView {
@@ -105,7 +105,7 @@ Rectangle {
                 Image {
                     anchors.fill: parent;
                     fillMode: Image.Tile
-                    source: installPath + "images/backHoverClone.png"
+                    source: installPath + "Assets/Images/backHoverClone.png"
                 }
             }
 

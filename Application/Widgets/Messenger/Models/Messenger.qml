@@ -145,7 +145,7 @@ Item {
     }
 
     function userAvatar(item) {
-        var defaultAvatar = (installPath + "/images/Application/Widgets/Messenger/defaultAvatar.png");
+        var defaultAvatar = (installPath + "/Assets/Images/Application/Widgets/Messenger/defaultAvatar.png");
         var data = getUser(item.jid);
         if (!data.isValid()) {
             return defaultAvatar;
@@ -204,7 +204,7 @@ Item {
         function getDefaultAvatar() {
             d.defaultAvatarIndex = (d.defaultAvatarIndex + 1) % 12;
             var name = "defaultAvatar_" + (d.defaultAvatarIndex + 1) + ".png";
-            return installPath + "/images/Application/Widgets/Messenger/" + name;
+            return installPath + "/Assets/Images/Application/Widgets/Messenger/" + name;
         }
 
         function appendUser(user) {
@@ -339,7 +339,7 @@ Item {
         property int state: QXmppMessage.Active
         property string presenceState: ""
         property string statusMessage: ""
-        property string avatar: installPath + "/images/Application/Widgets/Messenger/defaultAvatar.png";
+        property string avatar: installPath + "/Assets/Images/Application/Widgets/Messenger/defaultAvatar.png";
         property int unreadMessageCount: 0
 
         function isValid() {

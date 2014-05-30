@@ -118,7 +118,7 @@ Rectangle {
 
         Image {
             id: upArrowId
-            source: installPath + "images/upArrowWhite.png"
+            source: installPath + "Assets/Images/upArrowWhite.png"
             anchors.top: parent.top
             anchors.topMargin: 7
             anchors.horizontalCenter: parent.horizontalCenter
@@ -151,7 +151,7 @@ Rectangle {
         opacity: 0.5
 
         Image {
-            source: installPath + "images/downArrowWhite.png"
+            source: installPath + "Assets/Images/downArrowWhite.png"
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 7
             anchors.horizontalCenter: parent.horizontalCenter

@@ -182,7 +182,7 @@ Item {
                     id: showListButtonImage
 
                     anchors.centerIn: parent
-                    source: installPath + "images/Controls/ComboBox/down_n.png"
+                    source: installPath + "Assets/Images/GameNet/Controls/ComboBox/down_n.png"
                 }
             }
         }
@@ -324,21 +324,21 @@ Item {
                 name: ""
                 PropertyChanges { target: controlBorder; border.color: style.normal }
                 PropertyChanges { target: placeholderText; color: root.style.normal }
-                PropertyChanges { target: showListButtonImage; source: installPath + "images/Controls/ComboBox/down_n.png" }
+                PropertyChanges { target: showListButtonImage; source: installPath + "Assets/Images/GameNet/Controls/ComboBox/down_n.png" }
             },
             State {
                 name: "Active"
                 when: inputBehavior.activeFocus || listContainer.controlVisible
                 PropertyChanges { target: controlBorder; border.color: style.active }
                 PropertyChanges { target: placeholderText; color: root.style.active }
-                PropertyChanges { target: showListButtonImage; source: installPath + "images/Controls/ComboBox/down_a.png" }
+                PropertyChanges { target: showListButtonImage; source: installPath + "Assets/Images/GameNet/Controls/ComboBox/down_a.png" }
             },
             State {
                 name: "Hover"
                 when: mouseArea.containsMouse || listContainer.controlVisible
                 PropertyChanges { target: controlBorder; border.color: style.active }
                 PropertyChanges { target: placeholderText; color: root.style.active }
-                PropertyChanges { target: showListButtonImage; source: installPath + "images/Controls/ComboBox/down_a.png" }
+                PropertyChanges { target: showListButtonImage; source: installPath + "Assets/Images/GameNet/Controls/ComboBox/down_a.png" }
 
             },
             State {

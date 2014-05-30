@@ -35,7 +35,7 @@ Elements.Option {
         Image {
             width: 15
             anchors.verticalCenter: parent.verticalCenter
-            source: installPath + "images/arrow.png"
+            source: installPath + "Assets/Images/arrow.png"
             rotation: 180
             fillMode: Image.PreserveAspectFit
         }
@@ -50,7 +50,7 @@ Elements.Option {
         Image {
             anchors.verticalCenter: parent.verticalCenter
             fillMode: Image.PreserveAspectFit
-            source: container.checked ? (installPath + "images/gn_43382A.png") : (installPath + "images/gn_FFFFFF.png")
+            source: container.checked ? (installPath + "Assets/Images/gn_43382A.png") : (installPath + "Assets/Images/gn_FFFFFF.png")
             smooth: true
         }
     }

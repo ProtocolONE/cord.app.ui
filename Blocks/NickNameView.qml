@@ -74,7 +74,7 @@ Item {
         height: 11
         anchors { top: parent.top; topMargin: 5; right: parent.right; rightMargin: 1; }
         fillMode: Image.PreserveAspectFit
-        source: installPath + "images/exit.png"
+        source: installPath + "Assets/Images/exit.png"
         smooth: true
         opacity: 0.5
 
@@ -147,7 +147,7 @@ Item {
             width: 18
             visible: !isGuest && isNickNameSaved
             height: 14
-            source:  installPath + (nickNameViewClass.isPremium ? "images/vip.png" : "images/vip-no.png")
+            source:  installPath + (nickNameViewClass.isPremium ? "Assets/Images/vip.png" : "Assets/Images/vip-no.png")
             smooth : true
             opacity: nickNameViewClass.isPremium ? 1 : 0.2
 
@@ -198,7 +198,7 @@ Item {
                 anchors { right: parent.right; rightMargin: 5; }
                 fillMode: Image.PreserveAspectFit
                 anchors { top: parent.top; topMargin: 8 }
-                source: installPath + "images/coins.png"
+                source: installPath + "Assets/Images/coins.png"
                 smooth: true
             }
 

@@ -27,7 +27,7 @@ Item {
         id: back
 
         anchors { left: parent.left; top: parent.top }
-        source : installPath + "images/news.png"
+        source : installPath + "Assets/Images/news.png"
     }
 
     Rectangle {
@@ -100,7 +100,7 @@ Item {
 
                 Image {
                     anchors { right: parent.right; rightMargin: 30; bottom: parent.bottom }
-                    source: installPath + "images/controlarrow.png"
+                    source: installPath + "Assets/Images/controlarrow.png"
                     opacity: mouserUp.containsMouse ? 1: 0.5
                     rotation: 180
                 }
@@ -129,7 +129,7 @@ Item {
 
                 Image {
                     anchors { right: parent.right; rightMargin: 30; top: parent.top }
-                    source: installPath + "images/controlarrow.png"
+                    source: installPath + "Assets/Images/controlarrow.png"
                     opacity: mouserDown.containsMouse ? 1: 0.5
                 }
 

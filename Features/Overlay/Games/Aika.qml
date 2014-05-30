@@ -53,7 +53,7 @@ OverlayBase.OverlayBase {
         Component.onCompleted: console.log('On start shop button visible', aikaShopButton.visible)
 
         Image {
-            source: installPath + "/images/GameOverlay/Aika/" + (aikaShopButton.opened ? "shopDown.png" : ( mouser.containsMouse ? "shopHover.png" : "shop.png" ))
+            source: installPath + "/Assets/Images/GameOverlay/Aika/" + (aikaShopButton.opened ? "shopDown.png" : ( mouser.containsMouse ? "shopHover.png" : "shop.png" ))
         }
 
         MouseArea {

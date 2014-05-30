@@ -35,14 +35,14 @@ ListModel {
     function fillMenu(element) {
         root.appendMenuItem(element.menu,
                             {
-                                icon: "images/Blocks2/GameMenu/News.png",
+                                icon: "Assets/Images/Application/Blocks/GameMenu/News.png",
                                 text: qsTr("GAME_MENU_NEWS_TEXT"),
                                 page: "News",
                             });
 
         root.appendMenuItem(element.menu,
                             {
-                                icon: "images/Blocks2/GameMenu/About.png",
+                                icon: "Assets/Images/Application/Blocks/GameMenu/About.png",
                                 text: qsTr("GAME_MENU_ABOUT_GAME_TEXT"),
                                 page: "AboutGame",
                             });
@@ -51,7 +51,7 @@ ListModel {
             root.appendMenuItem(element.menu,
                                 {
                                     link: true,
-                                    icon: "images/Blocks2/GameMenu/Blog.png",
+                                    icon: "Assets/Images/Application/Blocks/GameMenu/Blog.png",
                                     text: qsTr("GAME_MENU_BLOG_TEXT"),
                                     url: element.blogUrl
                                 });
@@ -62,7 +62,7 @@ ListModel {
             root.appendMenuItem(element.menu,
                                 {
                                     link: true,
-                                    icon: "images/Blocks2/GameMenu/Guides.png",
+                                    icon: "Assets/Images/Application/Blocks/GameMenu/Guides.png",
                                     text: qsTr("GAME_MENU_GUIDES_TEXT"),
                                     url: element.guideUrl
                                 });
@@ -72,7 +72,7 @@ ListModel {
             root.appendMenuItem(element.menu,
                                 {
                                     link: true,
-                                    icon: "images/Blocks2/GameMenu/Forum.png",
+                                    icon: "Assets/Images/Application/Blocks/GameMenu/Forum.png",
                                     text: qsTr("GAME_MENU_FORUM_TEXT"),
                                     url: element.forumUrl
                                 });
@@ -80,7 +80,7 @@ ListModel {
 
         root.appendMenuItem(element.menu,
                             {
-                                icon: "images/Blocks2/GameMenu/Settings.png",
+                                icon: "Assets/Images/Application/Blocks/GameMenu/Settings.png",
                                 text: qsTr("GAME_MENU_GAME_SETTINGS_TEXT"),
                                 page: "GameSettings",
                             });
@@ -110,19 +110,19 @@ ListModel {
 
     ListElement {
         gameType: "standalone"
-        imageSource: "images/games/ca_icon_small.png"
+        imageSource: "Assets/Images/games/ca_icon_small.png"
         name: "Combat Arms"
-        imageSmall: "images/games/ca_icon_small.png"
-        imageFooter: "images/games/Combat-Arms.png"
-        imageBig: "images/games/ca_icon_big.png"
-        imageHorizontalSmall: "images/games/ca_icon_horizontal_small.png"
-        imageHorizontal: "images/games/ca_icon_horisontal.png"
-        imageLogoSmall: "images/games/ca_logo_small.png"
-        imageLogoBig: "images/games/ca_logo_big.png"
-        imagePopupArt: "images/games/Popup/CombatArmsPopupArt.jpg"
+        imageSmall: "Assets/Images/games/ca_icon_small.png"
+        imageFooter: "Assets/Images/games/Combat-Arms.png"
+        imageBig: "Assets/Images/games/ca_icon_big.png"
+        imageHorizontalSmall: "Assets/Images/games/ca_icon_horizontal_small.png"
+        imageHorizontal: "Assets/Images/games/ca_icon_horisontal.png"
+        imageLogoSmall: "Assets/Images/games/ca_logo_small.png"
+        imageLogoBig: "Assets/Images/games/ca_logo_big.png"
+        imagePopupArt: "Assets/Images/games/Popup/CombatArmsPopupArt.png"
 
         size: "doubleHorizontal"
-        imageBack : "images/games/ca_back.png"
+        imageBack : "Assets/Images/games/ca_back.png"
         serviceId: "300009010000000000"
         gameId: "92"
 
@@ -163,19 +163,19 @@ ListModel {
 
     ListElement {
         gameType: "standalone"
-        imageSource: "images/games/bs_icon_small.png"
+        imageSource: "Assets/Images/games/bs_icon_small.png"
         name: "BS.ru Demonion"
-        imageSmall: "images/games/bs_icon_small.png"
-        imageFooter: "images/games/BS.png"
-        imageBig: "images/games/bs_icon_big.png"
-        imageHorizontal: "images/games/bs_icon_horizontal.png"
-        imageHorizontalSmall: "images/games/bs_icon_horizontal_small.png"
-        imageLogoSmall: "images/games/bs_logo_small.png"
+        imageSmall: "Assets/Images/games/bs_icon_small.png"
+        imageFooter: "Assets/Images/games/BS.png"
+        imageBig: "Assets/Images/games/bs_icon_big.png"
+        imageHorizontal: "Assets/Images/games/bs_icon_horizontal.png"
+        imageHorizontalSmall: "Assets/Images/games/bs_icon_horizontal_small.png"
+        imageLogoSmall: "Assets/Images/games/bs_logo_small.png"
         imageLogoBig: ""
-        imagePopupArt: "images/games/Popup/BSPopupArt.png"
+        imagePopupArt: "Assets/Images/games/Popup/BSPopupArt.png"
 
         size: "doubleHorizontal"
-        imageBack : "images/games/bs_back.png"
+        imageBack : "Assets/Images/games/bs_back.png"
         serviceId: "300003010000000000"
         gameId: "71"
 
@@ -216,21 +216,21 @@ ListModel {
 
     ListElement {
         gameType: "standalone"
-        imageSource: "images/games/reborn_icon_small.png"
+        imageSource: "Assets/Images/games/reborn_icon_small.png"
         name: "Reborn"
-        imageSmall: "images/games/reborn_icon_small.png"
-        imageFooter: "images/games/reborn_logo.png"
+        imageSmall: "Assets/Images/games/reborn_icon_small.png"
+        imageFooter: "Assets/Images/games/reborn_logo.png"
         imageBig: ""
-        imageLogoSmall: "images/games/reborn_logo_small.png"
+        imageLogoSmall: "Assets/Images/games/reborn_logo_small.png"
         imageLogoBig: ""
-        imageHorizontal: "images/games/reborn_icon_horizontal.png"
-        imageHorizontalSmall: "images/games/reborn_icon_horizontal_small.png"
-        imagePopupArt: "images/games/Popup/RebornPopupArt.png"
+        imageHorizontal: "Assets/Images/games/reborn_icon_horizontal.png"
+        imageHorizontalSmall: "Assets/Images/games/reborn_icon_horizontal_small.png"
+        imagePopupArt: "Assets/Images/games/Popup/RebornPopupArt.png"
 
         size: "doubleHorizontal"
 
-        imageBack : "images/games/reborn_back.png"
-        imageBackSilent : "images/games/reborn_back_silent.png"
+        imageBack : "Assets/Images/games/reborn_back.png"
+        imageBackSilent : "Assets/Images/games/reborn_back_silent.png"
 
         serviceId: "300012010000000000"
         gameId: "760"
@@ -272,19 +272,19 @@ ListModel {
 
     ListElement {
         gameType: "standalone"
-        imageSource: "images/games/aika_icon_small.png"
+        imageSource: "Assets/Images/games/aika_icon_small.png"
         name: "Aika2"
-        imageSmall: "images/games/aika_icon_small.png"
-        imageFooter: "images/games/AIKA-2.png"
+        imageSmall: "Assets/Images/games/aika_icon_small.png"
+        imageFooter: "Assets/Images/games/AIKA-2.png"
         imageBig: ""
-        imageLogoSmall: "images/games/aika_logo_small.png"
+        imageLogoSmall: "Assets/Images/games/aika_logo_small.png"
         imageLogoBig: ""
-        imageHorizontalSmall: "images/games/aika_icon_horizontal_small.png"
-        imagePopupArt: "images/games/Popup/AikaPopupArt.png"
+        imageHorizontalSmall: "Assets/Images/games/aika_icon_horizontal_small.png"
+        imagePopupArt: "Assets/Images/games/Popup/AikaPopupArt.png"
 
         size: "normal"
 
-        imageBack : "images/games/aika_back.png"
+        imageBack : "Assets/Images/games/aika_back.png"
 
         serviceId: "300002010000000000"
         gameId: "631"
@@ -328,10 +328,10 @@ ListModel {
     ListElement {
         gameType: "browser"
         name: "Ферма Джейн"
-        imageFooter: "images/games/Farm-Jane.png"
-        imageSmall: "images/games/fj_icon_small.png"
-        imageBack : "images/games/fj_back.png"
-        imageHorizontalSmall: "images/games/fj_horizontal_small.png"
+        imageFooter: "Assets/Images/games/Farm-Jane.png"
+        imageSmall: "Assets/Images/games/fj_icon_small.png"
+        imageBack : "Assets/Images/games/fj_back.png"
+        imageHorizontalSmall: "Assets/Images/games/fj_horizontal_small.png"
 
         size: "normal"
         serviceId: "300011010000000000"
@@ -370,16 +370,16 @@ ListModel {
 
     ListElement {
         gameType: "browser"
-        imageSource: "images/games/ga_icon_small.png"
+        imageSource: "Assets/Images/games/ga_icon_small.png"
         name: "Golden Age"
-        imageSmall: "images/games/ga_icon_small.png"
-        imageFooter: "images/games/Golden-Age.png"
+        imageSmall: "Assets/Images/games/ga_icon_small.png"
+        imageFooter: "Assets/Images/games/Golden-Age.png"
         imageBig: ""
-        imageLogoSmall: "images/games/ga_logo_small.png"
+        imageLogoSmall: "Assets/Images/games/ga_logo_small.png"
         imageLogoBig: ""
         size: "normal"
 
-        imageBack : "images/games/ga_back.png"
+        imageBack : "Assets/Images/games/ga_back.png"
         serviceId: "300007010000000000"
         gameId: "83"
 
@@ -419,19 +419,19 @@ ListModel {
 
     ListElement {
         gameType: "standalone"
-        imageSource: "images/games/wi_icon_small.png"
+        imageSource: "Assets/Images/games/wi_icon_small.png"
         name: "FireStorm"
-        imageSmall: "images/games/wi_icon_small.png"
-        imageFooter: "images/games/Fire-Storm.png"
+        imageSmall: "Assets/Images/games/wi_icon_small.png"
+        imageFooter: "Assets/Images/games/Fire-Storm.png"
         imageBig: ""
-        imageHorizontalSmall: "images/games/wi_icon_horizontal_small.png"
-        imageLogoSmall: "images/games/wi_logo_small.png"
+        imageHorizontalSmall: "Assets/Images/games/wi_icon_horizontal_small.png"
+        imageLogoSmall: "Assets/Images/games/wi_logo_small.png"
         imageLogoBig: ""
-        imagePopupArt: "images/games/Popup/FireStormPopupArt.png"
+        imagePopupArt: "Assets/Images/games/Popup/FireStormPopupArt.png"
 
         size: "normal"
 
-        imageBack : "images/games/wi_back.png"
+        imageBack : "Assets/Images/games/wi_back.png"
 
         serviceId: "300005010000000000"
         gameId: "70"
@@ -523,15 +523,15 @@ ListModel {
         imageSource: ""
         name: "Rage of Titans"
         imageSmall: ""
-        imageFooter: "images/games/rot.png"
+        imageFooter: "Assets/Images/games/rot.png"
         imageBig: ""
-        imageLogoSmall: "images/games/rot_logo_small.png"
+        imageLogoSmall: "Assets/Images/games/rot_logo_small.png"
         imageLogoBig: ""
-        imagePopupArt: "images/games/Popup/RotPopupArt.png"
+        imagePopupArt: "Assets/Images/games/Popup/RotPopupArt.png"
 
         size: "normal"
 
-        imageBack : "images/games/rot_back.png"
+        imageBack : "Assets/Images/games/rot_back.png"
 
         serviceId: "300004010000000000"
         gameId: "72"

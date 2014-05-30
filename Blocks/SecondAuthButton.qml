@@ -100,7 +100,7 @@ Item {
                 toolTip: qsTr("SECOND_GAME_LOGOUT_TOOLTIP")
 
                 Image {
-                    source: installPath + 'images/exit.png'
+                    source: installPath + 'Assets/Images/exit.png'
                     anchors.centerIn: parent
                 }
             }
@@ -121,7 +121,7 @@ Item {
         }
 
         Image {
-            source: installPath + 'images/blocks/SecondWindowGame/arrow.png'
+            source: installPath + 'Assets/Images/blocks/SecondWindowGame/arrow.png'
             anchors.centerIn: parent
         }
     }

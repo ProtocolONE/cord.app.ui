@@ -48,7 +48,7 @@ Item {
         id: lightImage
 
         anchors { left: parent.left; leftMargin: -lightImage.width; }
-        source: installPath + "images/Controls/ProgressBar/gradient.png"
+        source: installPath + "Assets/Images/GameNet/Controls/ProgressBar/gradient.png"
         height: root.height
     }
 

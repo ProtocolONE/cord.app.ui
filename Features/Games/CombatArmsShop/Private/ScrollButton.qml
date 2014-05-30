@@ -51,7 +51,7 @@ Elements.CursorMouseArea {
 
         anchors.centerIn: parent
         source: container.hoverEnabled && container.containsMouse
-                ? (installPath + "images/Features/CombatArmsShop/left_hover.png")
-                : (installPath + "images/Features/CombatArmsShop/left.png")
+                ? (installPath + "Assets/Images/Features/CombatArmsShop/left_hover.png")
+                : (installPath + "Assets/Images/Features/CombatArmsShop/left.png")
     }
 }

@@ -25,12 +25,12 @@ Item {
         }
 
         Image {
-            source: installPath + "images/Auth/sun_02_yellow.png"
+            source: installPath + "Assets/Images/Auth/sun_02_yellow.png"
             anchors.centerIn: parent
         }
 
         Image {
-            source: installPath + "images/Auth/sun_02_white.png"
+            source: installPath + "Assets/Images/Auth/sun_02_white.png"
             anchors.centerIn: parent
             opacity: sun.isRain ? 1 : 0
 
@@ -45,7 +45,7 @@ Item {
         height: 112
 
         Image {
-            source: installPath + "images/Auth/rays_01.png"
+            source: installPath + "Assets/Images/Auth/rays_01.png"
             anchors.centerIn: parent
             opacity: sun.isRain ? 0 : 1
 
@@ -64,7 +64,7 @@ Item {
     Image {
         id: lightningImage
 
-        source: installPath + "images/Auth/lightning_01.png"
+        source: installPath + "Assets/Images/Auth/lightning_01.png"
         anchors {
             top: parent.top
             topMargin: 70
@@ -88,20 +88,20 @@ Item {
             PropertyAnimation {
                 alwaysRunToEnd: true
                 target: lightningImage
-                to: installPath + "images/Auth/lightning_03.png"
+                to: installPath + "Assets/Images/Auth/lightning_03.png"
                 properties: "source"; easing.type: Easing.InBounce; duration: 200
             }
 
             PropertyAnimation {
                 alwaysRunToEnd: true
                 target: lightningImage
-                to: installPath + "images/Auth/lightning_02.png"
+                to: installPath + "Assets/Images/Auth/lightning_02.png"
                 properties: "source"; easing.type: Easing.InBounce; duration: 100
             }
             PropertyAnimation {
                 alwaysRunToEnd: true
                 target: lightningImage
-                to: installPath + "images/Auth/lightning_01.png"
+                to: installPath + "Assets/Images/Auth/lightning_01.png"
                 properties: "source"; easing.type: Easing.InBounce; duration: 100
             }
 
@@ -117,7 +117,7 @@ Item {
     Image {
         id: cloud1
 
-        source: installPath + "images/Auth/cloud_01.png"
+        source: installPath + "Assets/Images/Auth/cloud_01.png"
         anchors {
             top: parent.top
             topMargin: 25
@@ -131,7 +131,7 @@ Item {
     Image {
         id: cloud2
 
-        source: installPath + "images/Auth/cloud_02.png"
+        source: installPath + "Assets/Images/Auth/cloud_02.png"
         anchors {
             top: parent.top
             topMargin: 55
@@ -145,7 +145,7 @@ Item {
     Image {
         id: cloud3
 
-        source: installPath + "images/Auth/cloud_03.png"
+        source: installPath + "Assets/Images/Auth/cloud_03.png"
         anchors {
             top: parent.top
             topMargin: 10
@@ -170,7 +170,7 @@ Item {
 
         width: 180
         height: 1
-        source: installPath + "images/Auth/rain_01.png"
+        source: installPath + "Assets/Images/Auth/rain_01.png"
         lifeSpan: 1000
         count: -1
         angle: 90

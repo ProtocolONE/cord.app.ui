@@ -10,7 +10,7 @@ Item {
             verticalCenter: parent.verticalCenter
         }
 
-        source: installPath + "images/Auth/GamenetLogo.png"
+        source: installPath + "Assets/Images/Auth/GamenetLogo.png"
     }
 
     Rectangle {

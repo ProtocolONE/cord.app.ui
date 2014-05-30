@@ -63,7 +63,7 @@ Controls.ErrorContainer {
                     PropertyChanges {
                         target: control
                         iconBackground: "#1ABC9C"
-                        icon: installPath + "images/GameNet/Controls/PasswordInput/openpass.png"
+                        icon: installPath + "Assets/Images/GameNet/Controls/PasswordInput/openpass.png"
                     }
                 },
                 State {
@@ -72,7 +72,7 @@ Controls.ErrorContainer {
                     PropertyChanges {
                         target: control
                         iconBackground: "#019074"
-                        icon: installPath + "images/GameNet/Controls/PasswordInput/openpass.png"
+                        icon: installPath + "Assets/Images/GameNet/Controls/PasswordInput/openpass.png"
                     }
                 },
                 State {
@@ -81,7 +81,7 @@ Controls.ErrorContainer {
                     PropertyChanges {
                         target: control
                         iconBackground: "#FFFFFF"
-                        icon: installPath + "images/GameNet/Controls/PasswordInput/lock.png"
+                        icon: installPath + "Assets/Images/GameNet/Controls/PasswordInput/lock.png"
                     }
                 }
             ]

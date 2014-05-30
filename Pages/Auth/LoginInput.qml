@@ -38,7 +38,7 @@ ErrorContainer {
     Input {
         id: input
 
-        icon: installPath + "Images/Controls/LoginInput/login.png"
+        icon: installPath + "Assets/Images/GameNet/Controls/LoginInput/login.png"
         width: parent.width
         height: 48
         language: App.keyboardLayout()

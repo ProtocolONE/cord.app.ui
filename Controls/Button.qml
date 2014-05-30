@@ -50,7 +50,7 @@ Rectangle {
         visible: false
         anchors.centerIn: parent
         playing: visible
-        source: visible ? installPath + "images/Controls/Button/wait.gif" : ""
+        source: visible ? installPath + "Assets/Images/GameNet/Controls/Button/wait.gif" : ""
     }
 
     StateGroup {

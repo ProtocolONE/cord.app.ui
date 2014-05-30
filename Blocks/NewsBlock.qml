@@ -89,7 +89,7 @@ Item {
                 id: aboutGameTab
 
                 text: qsTr("TAB_NEWS_ABOUT_GAME")
-                source: aboutGameTab.isActive ?  installPath + "images/menu/info_active.png" : installPath + "images/menu/info.png"
+                source: aboutGameTab.isActive ?  installPath + "Assets/Images/menu/info_active.png" : installPath + "Assets/Images/menu/info.png"
                 onClicked: {
                     GoogleAnalytics.trackEvent('/newsBlock/' + Core.currentGame().gaName,
                                                'Navigation', 'About Game');
@@ -102,7 +102,7 @@ Item {
 
                 visible: Core.currentGame() != undefined
                 text: qsTr("TAB_NEWS")
-                source: newsTab.isActive ? installPath + "images/menu/news_active.png" : installPath + "images/menu/news.png"
+                source: newsTab.isActive ? installPath + "Assets/Images/menu/news_active.png" : installPath + "Assets/Images/menu/news.png"
                 onClicked: {
                     newsBlock.state = "NewsTab"
 
@@ -116,7 +116,7 @@ Item {
             Elements.IconButton {
                 visible: Core.currentGame() != undefined  && Core.currentGame().blogUrl
                 text: qsTr("TAB_BLOG")
-                source: installPath + "images/menu/blog.png"
+                source: installPath + "Assets/Images/menu/blog.png"
                 onClicked: {
 
                     GoogleAnalytics.trackEvent('/newsBlock/' + Core.currentGame().gaName,
@@ -128,7 +128,7 @@ Item {
             Elements.IconButton {
                 visible: Core.currentGame() != undefined  && Core.currentGame().forumUrl
                 text: qsTr("TAB_FORUM")
-                source: installPath + "images/menu/forum.png"
+                source: installPath + "Assets/Images/menu/forum.png"
                 onClicked: {
                     GoogleAnalytics.trackEvent('/newsBlock/' + Core.currentGame().gaName,
                                                'Navigation', 'Forum');
@@ -139,7 +139,7 @@ Item {
             Elements.IconButton {
                 visible: Core.currentGame() != undefined && Core.currentGame().ratingUrl
                 text: qsTr("TAB_RATING")
-                source: installPath + "images/menu/rating.png"
+                source: installPath + "Assets/Images/menu/rating.png"
                 onClicked: {
                     GoogleAnalytics.trackEvent('/newsBlock/' + Core.currentGame().gaName,
                                                'Navigation', 'Rating');
@@ -151,7 +151,7 @@ Item {
             Elements.IconButton {
                 visible: Core.currentGame() != undefined
                 text: qsTr('SUPPORT_ICON_BUTTON')
-                source: installPath + "images/menu/help.png"
+                source: installPath + "Assets/Images/menu/help.png"
                 onClicked: {
                     AppProxy.openExternalUrl("http://support.gamenet.ru");
                     //SupportHelper.show(newsBlock, Core.currentGame() ? Core.currentGame().gaName : '');
@@ -160,7 +160,7 @@ Item {
 
             Elements.IconButton {
                 text: qsTr('MENU_ITEM_SETTINGS')
-                source: installPath + "images/menu/settings.png"
+                source: installPath + "Assets/Images/menu/settings.png"
                 onClicked: qGNA_main.openSettings(Core.currentGame());
                 visible: Core.currentGame() != undefined  && Core.currentGame().gameType != "browser"
             }

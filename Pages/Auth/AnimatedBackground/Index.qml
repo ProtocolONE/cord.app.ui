@@ -95,13 +95,13 @@ Item {
         ParallaxBottomImage {
             depthX: 0.15
             depthY: 0.01
-            source: installPath + "images/Auth/back_frame_01.png"
+            source: installPath + "Assets/Images/Auth/back_frame_01.png"
         }
 
         ParallaxBottomImage {
             depthX: 0.3
             depthY: 0.03
-            source: installPath + "images/Auth/back_frame_02.png"
+            source: installPath + "Assets/Images/Auth/back_frame_02.png"
         }
 
         ParallaxLayer {
@@ -124,7 +124,7 @@ Item {
         ParallaxBottomImage {
             depthX: 0.4
             depthY: 0.06
-            source: installPath + "images/Auth/back_frame_03.png"
+            source: installPath + "Assets/Images/Auth/back_frame_03.png"
         }
 
         ParallaxLayer {
@@ -145,7 +145,7 @@ Item {
     }
 
     Image {
-        source: installPath + "images/Auth/like_01.png"
+        source: installPath + "Assets/Images/Auth/like_01.png"
 
         rotation: root.goodSignActive ? 90 : 0
         transformOrigin: Item.Bottom

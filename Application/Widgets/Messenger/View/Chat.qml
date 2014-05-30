@@ -70,9 +70,9 @@ WidgetView {
             width: 32
             height: 32
             styleImages: ButtonStyleImages {
-                normal: installPath + "/images/Application/Widgets/Messenger/close_chat.png"
-                hover: installPath + "/images/Application/Widgets/Messenger/close_chat.png"
-                disabled: installPath + "/images/Application/Widgets/Messenger/close_chat.png"
+                normal: installPath + "/Assets/Images/Application/Widgets/Messenger/close_chat.png"
+                hover: installPath + "/Assets/Images/Application/Widgets/Messenger/close_chat.png"
+                disabled: installPath + "/Assets/Images/Application/Widgets/Messenger/close_chat.png"
             }
 
             style: ButtonStyleColors {

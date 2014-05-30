@@ -224,7 +224,7 @@ Item {
 
                     if (event.key >= Qt.Key_Space && event.key <= Qt.Key_AsciiTilde) {
                         if (text.length >= root.maximumLength) {
-                            QMultimedia.playSound(installPath + "Sounds/Controls/error.wav");
+                            QMultimedia.playSound(installPath + "Assets/Sounds/GameNet/Controls/error.wav");
                             return;
                         }
                     }
@@ -284,7 +284,7 @@ Item {
                             when: inputBehavior.language == "RU"
                             PropertyChanges {
                                 target: languageImage
-                                source: installPath + "images/Controls/Input/keyboard_ru.png"
+                                source: installPath + "Assets/Images/GameNet/Controls/Input/keyboard_ru.png"
                                 visible: true
                             }
                             PropertyChanges {
@@ -297,7 +297,7 @@ Item {
                             when: inputBehavior.language == "EN"
                             PropertyChanges {
                                 target: languageImage
-                                source: installPath + "images/Controls/Input/keyboard_en.png"
+                                source: installPath + "Assets/Images/GameNet/Controls/Input/keyboard_en.png"
                                 visible: true
                             }
                             PropertyChanges {
@@ -331,7 +331,7 @@ Item {
 
                     Image {
                         anchors.centerIn: parent
-                        source: installPath + "images/Controls/Input/capslock.png"
+                        source: installPath + "Assets/Images/GameNet/Controls/Input/capslock.png"
                     }
                 }
             }

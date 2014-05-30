@@ -134,7 +134,7 @@ WidgetView {
                 right: 10
                 bottom: 10
             }
-            source: installPath + "images/Application/Widgets/AlertAdapter/shadow.png";
+            source: installPath + "Assets/Images/Application/Widgets/AlertAdapter/shadow.png";
             smooth: true
         }
 
@@ -199,7 +199,7 @@ WidgetView {
                 leftMargin: 20
             }
 
-            source: installPath + '/images/Application/Widgets/AlertAdapter/info.png'
+            source: installPath + '/Assets/Images/Application/Widgets/AlertAdapter/info.png'
         }
 
         Row {

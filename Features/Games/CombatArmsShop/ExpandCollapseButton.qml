@@ -34,7 +34,7 @@ Rectangle {
             rightMargin: 10
             verticalCenter: buttonLabel.verticalCenter
         }
-        source: installPath + "images/arrow.png"
+        source: installPath + "Assets/Images/arrow.png"
         rotation: isExpanded ? 180: 0
         fillMode: Image.PreserveAspectFit
     }
@@ -59,7 +59,7 @@ Rectangle {
             leftMargin: 10
             verticalCenter: buttonLabel.verticalCenter
         }
-        source: installPath + "images/arrow.png"
+        source: installPath + "Assets/Images/arrow.png"
         rotation: isExpanded ? 0 : 180
         fillMode: Image.PreserveAspectFit
     }

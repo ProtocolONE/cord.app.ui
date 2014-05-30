@@ -33,7 +33,7 @@ Item {
 
         SingleWidget {
             width: parent.width / d.widgetCount
-            source: installPath + 'images/Auth/account.png'
+            source: installPath + 'Assets/Images/Auth/account.png'
             headText: qsTr("ACCOUNT_WIDGET_HEAD_LABEL")
             descText: qsTr("ACCOUNT_WIDGET_HEAD_DESC")
             buttonText: qsTr("AUTH_LOGIN_BUTTON")
@@ -48,7 +48,7 @@ Item {
 
         SingleWidget {
             width: parent.width / d.widgetCount
-            source: installPath + 'images/Auth/vk.png'
+            source: installPath + 'Assets/Images/Auth/vk.png'
             headText: qsTr("AUTH_WIDGET_HEAD_LABEL")
             descText: qsTr("AUTH_WIDGET_HEAD_DESC")
             buttonText: qsTr("AUTH_LOGIN_BUTTON")
@@ -63,7 +63,7 @@ Item {
 
         SingleWidget {
             width: parent.width / d.widgetCount
-            source: installPath + 'images/Auth/new.png'
+            source: installPath + 'Assets/Images/Auth/new.png'
             headText: qsTr("NEW_WIDGET_HEAD_LABEL")
             descText: qsTr("NEW_WIDGET_HEAD_DESC")
             buttonText: qsTr("REGISTRATION_BUTTON")

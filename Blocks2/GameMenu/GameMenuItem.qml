@@ -69,7 +69,7 @@ Item {
 
                 Image {
                     anchors.centerIn: parent
-                    source: installPath + "images/Blocks2/GameMenu/ExternalLink.png"
+                    source: installPath + "Assets/Images/Application/Blocks/GameMenu/ExternalLink.png"
                 }
             }
         }

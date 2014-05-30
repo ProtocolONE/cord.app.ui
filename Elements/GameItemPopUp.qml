@@ -30,7 +30,7 @@ Elements.PopupItemBase {
 
             anchors { right: parent.right; top: parent.top; rightMargin: 9; topMargin: 9 }
             visible: containsMouse || closeButtonImageMouser.containsMouse || puttonPlayMouser.containsMouse
-            source: installPath + "images/closeButton.png"
+            source: installPath + "Assets/Images/closeButton.png"
             opacity: 0.5
 
             NumberAnimation {

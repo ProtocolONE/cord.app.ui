@@ -37,7 +37,7 @@ WidgetView {
                     id: avatarImage
 
                     anchors.fill: parent
-                    source: model.avatarMedium != undefined ? model.avatarMedium : installPath + "images/avatar.png"
+                    source: model.avatarMedium != undefined ? model.avatarMedium : installPath + "Assets/Images/avatar.png"
                 }
 
                 CursorMouseArea {

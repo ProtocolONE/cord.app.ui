@@ -47,7 +47,7 @@ ListModel {
 
     ListElement {
         title: QT_TR_NOOP("CA_SHOP_ITEM_1790_TITLE")
-        preview: "images/Features/CombatArmsShop/Item_1790.png";
+        preview: "Assets/Images/Features/CombatArmsShop/Item_1790.png";
         description: QT_TR_NOOP("CA_SHOP_ITEM_1790_DESCRIPTION");
         shortDescription: QT_TR_NOOP("CA_SHOP_ITEM_1790_DESCRIPTION_SHORT");
         options: [
@@ -72,7 +72,7 @@ ListModel {
 
     ListElement {
         title: QT_TR_NOOP("CA_SHOP_ITEM_1735_TITLE")
-        preview: "images/Features/CombatArmsShop/Item_1735.png";
+        preview: "Assets/Images/Features/CombatArmsShop/Item_1735.png";
         description: QT_TR_NOOP("CA_SHOP_ITEM_1735_DESCRIPTION")
         shortDescription: QT_TR_NOOP("CA_SHOP_ITEM_1735_DESCRIPTION_SHORT")
         options: [
@@ -97,7 +97,7 @@ ListModel {
 
     ListElement {
         title: QT_TR_NOOP("CA_SHOP_ITEM_1631_TITLE")
-        preview: "images/Features/CombatArmsShop/Item_1631.png";
+        preview: "Assets/Images/Features/CombatArmsShop/Item_1631.png";
         description: QT_TR_NOOP("CA_SHOP_ITEM_1631_DESCRIPTION")
         shortDescription: QT_TR_NOOP("CA_SHOP_ITEM_1631_DESCRIPTION_SHORT")
         options: [
@@ -122,7 +122,7 @@ ListModel {
 
     ListElement {
         title: QT_TR_NOOP("CA_SHOP_ITEM_1339_TITLE")
-        preview: "images/Features/CombatArmsShop/Item_1339.png";
+        preview: "Assets/Images/Features/CombatArmsShop/Item_1339.png";
         description: QT_TR_NOOP("CA_SHOP_ITEM_1339_DESCRIPTION")
         shortDescription: QT_TR_NOOP("CA_SHOP_ITEM_1339_DESCRIPTION_SHORT")
         options: [
@@ -147,7 +147,7 @@ ListModel {
 
     ListElement {
         title: QT_TR_NOOP("CA_SHOP_ITEM_1004_TITLE")
-        preview: "images/Features/CombatArmsShop/Item_1004.png";
+        preview: "Assets/Images/Features/CombatArmsShop/Item_1004.png";
         description: QT_TR_NOOP("CA_SHOP_ITEM_1004_DESCRIPTION")
         shortDescription: QT_TR_NOOP("CA_SHOP_ITEM_1004_DESCRIPTION_SHORT")
         options: [
@@ -173,7 +173,7 @@ ListModel {
 
     ListElement {
         title: QT_TR_NOOP("CA_SHOP_ITEM_4125_TITLE")
-        preview: "images/Features/CombatArmsShop/Item_4125.png";
+        preview: "Assets/Images/Features/CombatArmsShop/Item_4125.png";
         description: QT_TR_NOOP("CA_SHOP_ITEM_4125_DESCRIPTION")
         shortDescription: QT_TR_NOOP("CA_SHOP_ITEM_4125_DESCRIPTION_SHORT")
         options: [
@@ -198,7 +198,7 @@ ListModel {
 
     ListElement {
         title: QT_TR_NOOP("CA_SHOP_ITEM_645_TITLE")
-        preview: "images/Features/CombatArmsShop/Item_645.png";
+        preview: "Assets/Images/Features/CombatArmsShop/Item_645.png";
         description: QT_TR_NOOP("CA_SHOP_ITEM_645_DESCRIPTION")
         shortDescription: QT_TR_NOOP("CA_SHOP_ITEM_645_DESCRIPTION_SHORT")
         options: [
@@ -224,7 +224,7 @@ ListModel {
 
     ListElement {
         title: QT_TR_NOOP("CA_SHOP_ITEM_784_TITLE")
-        preview: "images/Features/CombatArmsShop/Item_784.png";
+        preview: "Assets/Images/Features/CombatArmsShop/Item_784.png";
         description: QT_TR_NOOP("CA_SHOP_ITEM_784_DESCRIPTION")
         shortDescription: QT_TR_NOOP("CA_SHOP_ITEM_784_DESCRIPTION_SHORT")
         options: [
@@ -251,7 +251,7 @@ ListModel {
 
     ListElement {
         title: QT_TR_NOOP("CA_SHOP_ITEM_1533_TITLE")
-        preview: "images/Features/CombatArmsShop/Item_1533.png";
+        preview: "Assets/Images/Features/CombatArmsShop/Item_1533.png";
         description: QT_TR_NOOP("CA_SHOP_ITEM_1533_DESCRIPTION")
         shortDescription: QT_TR_NOOP("CA_SHOP_ITEM_1533_DESCRIPTION_SHORT")
         options: [
@@ -276,7 +276,7 @@ ListModel {
 
     ListElement {
         title: QT_TR_NOOP("CA_SHOP_ITEM_375_TITLE")
-        preview: "images/Features/CombatArmsShop/Item_375.png";
+        preview: "Assets/Images/Features/CombatArmsShop/Item_375.png";
         description: QT_TR_NOOP("CA_SHOP_ITEM_375_DESCRIPTION")
         shortDescription: QT_TR_NOOP("CA_SHOP_ITEM_375_DESCRIPTION_SHORT")
         options: [

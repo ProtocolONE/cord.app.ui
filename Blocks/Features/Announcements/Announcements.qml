@@ -783,7 +783,7 @@ Item {
                 id: closeButtonImage
 
                 anchors { right: parent.right; top: parent.top; rightMargin: 2; topMargin: 2 }
-                source: installPath + "images/CloseGrayBackground.png"
+                source: installPath + "Assets/Images/CloseGrayBackground.png"
                 opacity: closeButtonImageMouser.containsMouse ? 0.9 : 0.5
 
                 Behavior on opacity {
@@ -799,7 +799,7 @@ Item {
                     leftMargin: 2
                 }
 
-                source: installPath + "images/GameNetLogoGrayBackground.png"
+                source: installPath + "Assets/Images/GameNetLogoGrayBackground.png"
 
                 Elements.CursorMouseArea {
                     anchors.fill: parent

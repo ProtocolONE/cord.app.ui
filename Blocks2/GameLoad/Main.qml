@@ -50,7 +50,7 @@ Rectangle {
             height: 35
 
             Image {
-                source: installPath + '/images/close.png'
+                source: installPath + '/Assets/Images/close.png'
                 anchors {
                     right: parent.right
                     top: parent.top

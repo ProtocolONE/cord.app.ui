@@ -13,6 +13,6 @@ QtObject {
     property color normalColor: "#43382A"
     property color hoverColor: "#43382A"
     property color selectedColor: "#FDC809"
-    property string checkedIcon: installPath + "images/Elements/Option/Checked.png"
-    property string uncheckedIcon: installPath + "images/Elements/Option/Unchecked.png"
+    property string checkedIcon: installPath + "Assets/Images/Elements/Option/Checked.png"
+    property string uncheckedIcon: installPath + "Assets/Images/Elements/Option/Unchecked.png"
 }

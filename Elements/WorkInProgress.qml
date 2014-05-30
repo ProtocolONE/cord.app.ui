@@ -82,7 +82,7 @@ Item {
         AnimatedImage {
             anchors.centerIn: parent
             playing: main.visible
-            source: main.visible ? (installPath + "images/wait_animation.gif") : "";
+            source: main.visible ? (installPath + "Assets/Images/wait_animation.gif") : "";
         }
     }
 }

@@ -66,7 +66,7 @@ WidgetView {
                         Image {
                             anchors.centerIn: parent
 
-                            source: installPath + "images/Application/Widgets/Messenger/add_friend.png"
+                            source: installPath + "Assets/Images/Application/Widgets/Messenger/add_friend.png"
                         }
                     }
 
@@ -125,7 +125,7 @@ WidgetView {
                         height: parent.height
                         width: parent.width - 42
 
-                        icon: installPath + "/images/Application/Widgets/Messenger/chat_search.png"
+                        icon: installPath + "/Assets/Images/Application/Widgets/Messenger/chat_search.png"
 
                         placeholder: qsTr("MESSENGER_SEARCH_FRIEND_PLACE_HOLDER")
                         fontSize: 14

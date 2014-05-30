@@ -43,7 +43,7 @@ Item {
 
         Image {
             anchors.centerIn: parent
-            source: installPath + '/images/test/main_07.png'
+            source: installPath + '/Assets/Images/test/main_07.png'
         }
     }
 

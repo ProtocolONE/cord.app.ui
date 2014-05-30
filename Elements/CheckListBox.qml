@@ -90,7 +90,7 @@ Item {
         }
 
         Image {
-            source: installPath + "images/downArrow.png"
+            source: installPath + "Assets/Images/downArrow.png"
             anchors { right: parent.right; top: parent.top; verticalCenterOffset: 1 }
             anchors { rightMargin: 5; topMargin: 12 }
             visible: checkBoxType

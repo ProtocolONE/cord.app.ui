@@ -108,8 +108,8 @@ Item {
                 id: browsebuttonImage
 
                 anchors.centerIn: parent
-                source: browseButton.isMouseOver ? installPath + "images/Controls/PathInput/browse_a.png"
-                                    : installPath + "images/Controls/PathInput/browse_n.png"
+                source: browseButton.isMouseOver ? installPath + "Assets/Images/GameNet/Controls/PathInput/browse_a.png"
+                                    : installPath + "Assets/Images/GameNet/Controls/PathInput/browse_n.png"
             }
 
             MouseArea {

@@ -23,10 +23,10 @@ Item {
 
             anchors { left: parent.left; top: parent.top }
             source: (rootTabRect.currentItem == tabIndex) ?
-                        installPath + '/images/Features/Money/activetab_left.png' :
+                        installPath + '/Assets/Images/Features/Money/activetab_left.png' :
                         (textMa.containsMouse || tabMa.containsMouse) ?
-                            installPath + '/images/Features/Money/nonactivetab_hover_left.png' :
-                            installPath + '/images/Features/Money/nonactivetab_left.png'
+                            installPath + '/Assets/Images/Features/Money/nonactivetab_hover_left.png' :
+                            installPath + '/Assets/Images/Features/Money/nonactivetab_left.png'
         }
 
         Rectangle {
@@ -53,10 +53,10 @@ Item {
 
             anchors { right: parent.right; top: parent.top }
             source: (rootTabRect.currentItem == tabIndex) ?
-                        installPath + '/images/Features/Money/activetab_right.png' :
+                        installPath + '/Assets/Images/Features/Money/activetab_right.png' :
                         (textMa.containsMouse || tabMa.containsMouse) ?
-                            installPath + '/images/Features/Money/nonactivetab_hover_right.png' :
-                            installPath + '/images/Features/Money/nonactivetab_right.png'
+                            installPath + '/Assets/Images/Features/Money/nonactivetab_hover_right.png' :
+                            installPath + '/Assets/Images/Features/Money/nonactivetab_right.png'
         }
     }
 
@@ -70,8 +70,8 @@ Item {
 
         visible: rootTabRect.width > 60 && (rootTabRect.progress) > 0.0 && (rootTabRect.progress < 1.0)
 
-        source: (rootTabRect.currentItem == tabIndex) ? installPath + '/images/Features/Money/preloader_active_tab.GIF' :
-                                                     installPath + '/images/Features/Money/preloader_back_tab.GIF'
+        source: (rootTabRect.currentItem == tabIndex) ? installPath + '/Assets/Images/Features/Money/preloader_active_tab.GIF' :
+                                                     installPath + '/Assets/Images/Features/Money/preloader_back_tab.GIF'
     }
 
     Text {
@@ -119,8 +119,8 @@ Item {
         Image {
             id: closeImage
 
-            source: tabMa.containsMouse ? installPath + 'images/Features/Money/closetab_hover.png' :
-                                          installPath + 'images/Features/Money/closetab.png'
+            source: tabMa.containsMouse ? installPath + 'Assets/Images/Features/Money/closetab_hover.png' :
+                                          installPath + 'Assets/Images/Features/Money/closetab.png'
             visible: rootTabRect.width > 60 || (rootTabRect.currentItem == tabIndex && rootTabRect.width > 30)
         }
 

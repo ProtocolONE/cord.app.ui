@@ -52,7 +52,7 @@ Item {
             height: 48
 
             currentIndex: (d.getLanguageIndex() >= 0) ? d.getLanguageIndex() : 0
-            icon: installPath + "images/Pages/ApplicationSettings/language.png"
+            icon: installPath + "Assets/Images/Pages/ApplicationSettings/language.png"
             model: ListModel {
                 ListElement {
                     value: "ru"

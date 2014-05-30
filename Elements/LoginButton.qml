@@ -37,7 +37,7 @@ Item {
             height: 18
             anchors { top: parent.top; left: parent.left; topMargin: 4; leftMargin: 6 }
             fillMode: Image.PreserveAspectFit
-            source: installPath + "images/key.png"
+            source: installPath + "Assets/Images/key.png"
         }
 
         Text {

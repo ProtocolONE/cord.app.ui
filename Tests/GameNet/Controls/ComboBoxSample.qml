@@ -26,7 +26,7 @@ Rectangle {
         y: 100
         z: 100
 
-        icon: installPath + "images/Pages/ApplicationSettings/language.png"
+        icon: installPath + "Assets/Images/Pages/ApplicationSettings/language.png"
         model: ListModel {
             ListElement {
                 value: "ru"

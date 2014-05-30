@@ -559,7 +559,7 @@ Rectangle {
 
                         toolTip: qsTr('REWARDS_TOOLTIP')
                         text: qsTr('REWARDS_BUTTON')
-                        source: installPath + "images/menu/Rewards.png"
+                        source: installPath + "Assets/Images/menu/Rewards.png"
                         anchors { top: parent.top; right: parent.right }
                         anchors { topMargin: 13; rightMargin: 30 }
                         tooltipGlueCenter: true
@@ -642,7 +642,7 @@ Rectangle {
                     Image {
                         visible: settingsViewModel.isPublicTestVersion
 
-                        source: installPath + "/images/warning.png"
+                        source: installPath + "/Assets/Images/warning.png"
                         anchors { bottom: factsBlock.top; left: factsBlock.left }
                         anchors { bottomMargin: 10; leftMargin: 0 }
 
@@ -823,7 +823,7 @@ Rectangle {
                         opacity: 1
                         width: 10
                         height: 10
-                        source: installPath + 'images/downloadInfo.png'
+                        source: installPath + 'Assets/Images/downloadInfo.png'
                         anchors { left: parent.left; bottom: parent.bottom; leftMargin: 17; bottomMargin: 4 }
                         onClicked: {
                             processWidget.visible = true;

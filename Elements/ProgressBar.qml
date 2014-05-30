@@ -66,7 +66,7 @@ Item {
             y: 1
             anchors.left: parent.left
             anchors.leftMargin: -250
-            source: installPath + "images/progression.png"
+            source: installPath + "Assets/Images/progression.png"
             width: 250
         }
 

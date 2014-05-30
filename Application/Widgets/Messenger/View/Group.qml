@@ -111,8 +111,8 @@ Item {
                             anchors.verticalCenter: parent.verticalCenter
                             source: installPath +
                                     (root.opened
-                                     ? "/images/Application/Widgets/Messenger/chat_arrow_up.png"
-                                     : "/images/Application/Widgets/Messenger/chat_arrow_down.png")
+                                     ? "/Assets/Images/Application/Widgets/Messenger/chat_arrow_up.png"
+                                     : "/Assets/Images/Application/Widgets/Messenger/chat_arrow_down.png")
                         }
 
                         Rectangle {

@@ -260,7 +260,7 @@ Blocks.MoveUpPage {
             y: 20
             visible: false
             playing: visible
-            source: installPath + "images/catrun.gif"
+            source: installPath + "Assets/Images/catrun.gif"
             onCurrentFrameChanged: {
                 if (currentFrame == frameCount - 1) {
                     visible = false;

@@ -133,7 +133,7 @@ Delegates.FlowViewDelegate {
         fillMode: Image.Tile
         width: gameIcon.width
         height: gameIcon.height
-        source: installPath + "images/hoverClone.png"
+        source: installPath + "Assets/Images/hoverClone.png"
     }
 
     Elements.CursorMouseArea {

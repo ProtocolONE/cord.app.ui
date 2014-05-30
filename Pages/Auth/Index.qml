@@ -341,7 +341,7 @@ Rectangle {
 
                 Image {
                     anchors.centerIn: parent
-                    source: installPath + "images/Auth/support.png"
+                    source: installPath + "Assets/Images/Auth/support.png"
                 }
             }
 

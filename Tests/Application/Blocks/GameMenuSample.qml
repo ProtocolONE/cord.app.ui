@@ -32,21 +32,21 @@ Rectangle {
 
         root.appendMenuItem(menuModel,
                             {
-                                icon: "images/Blocks2/GameMenu/News.png",
+                                icon: "Assets/Images/Application/Blocks/GameMenu/News.png",
                                 text: "Новости",
                                 page: "News",
                             });
 
         root.appendMenuItem(menuModel,
                             {
-                                icon: "images/Blocks2/GameMenu/About.png",
+                                icon: "Assets/Images/Application/Blocks/GameMenu/About.png",
                                 text: "Об игре",
                                 page: "AboutGame",
                             });
 
         root.appendMenuItem(menuModel,
                             {
-                                icon: "images/Blocks2/GameMenu/Forum.png",
+                                icon: "Assets/Images/Application/Blocks/GameMenu/Forum.png",
                                 text: "Форум",
                                 link: true,
                                 url: "https://forum.gamenet.ru/forumdisplay.php?f=4"
@@ -54,7 +54,7 @@ Rectangle {
 
         root.appendMenuItem(menuModel,
                             {
-                                icon: "images/Blocks2/GameMenu/Guides.png",
+                                icon: "Assets/Images/Application/Blocks/GameMenu/Guides.png",
                                 text: "Гайды",
                                 link: true,
                                 url: "http://www.gamenet.ru/games/bs/guides/"
@@ -62,7 +62,7 @@ Rectangle {
 
         root.appendMenuItem(menuModel,
                             {
-                                icon: "images/Blocks2/GameMenu/Blog.png",
+                                icon: "Assets/Images/Application/Blocks/GameMenu/Blog.png",
                                 text: "Блог",
                                 link: true,
                                 url: "http://www.gamenet.ru/games/bs/blog/"
@@ -70,7 +70,7 @@ Rectangle {
 
         root.appendMenuItem(menuModel,
                             {
-                                icon: "images/Blocks2/GameMenu/Settings.png",
+                                icon: "Assets/Images/Application/Blocks/GameMenu/Settings.png",
                                 text: "Настройки игры",
                                 page: "GameSettings",
                             });

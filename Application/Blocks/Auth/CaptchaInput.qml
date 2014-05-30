@@ -49,7 +49,7 @@ ErrorContainer {
                 width: 240
                 showCapslock: false
                 showLanguage: false
-                icon: installPath + "images/Auth/captcha.png"
+                icon: installPath + "Assets/Images/Auth/captcha.png"
 
                 //placeholder: "Код с картинки справа"
                 placeholder: qsTr("CAPTCHA_INPUT_PLACEHOLDER")
@@ -93,7 +93,7 @@ ErrorContainer {
                         }
 
                         styleImages: ButtonStyleImages {
-                            normal: installPath + "images/Auth/refresh.png"
+                            normal: installPath + "Assets/Images/Auth/refresh.png"
                         }
 
                         onClicked: root.refresh();

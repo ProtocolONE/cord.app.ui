@@ -42,7 +42,7 @@ Item {
     }
 
     Image {
-        source: installPath +  "images/backImage.png"
+        source: installPath +  "Assets/Images/backImage.png"
         anchors.top: parent.top
     }
 
@@ -51,7 +51,7 @@ Item {
 
         x: 25
         y: 30
-        source: installPath + "images/logo.png"
+        source: installPath + "Assets/Images/logo.png"
     }
 
     Image {
@@ -60,7 +60,7 @@ Item {
         x: 90
         y: 40
         smooth: true
-        source: installPath + "images/gamenet.png"
+        source: installPath + "Assets/Images/gamenet.png"
     }
 
     Elements.ProgressBar {

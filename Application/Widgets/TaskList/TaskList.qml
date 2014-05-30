@@ -34,7 +34,7 @@ Item {
                                 TaskListJs.installedCategory : TaskListJs.notInstalledCategory;
 
             TaskList.addItem(categoryId,
-                             installDir + "images/icons/" + elem.serviceId + ".ico",
+                             installDir + "Assets/Images/icons/" + elem.serviceId + ".ico",
                              elem.name,
                              "",
                              "-startservice " + elem.serviceId);

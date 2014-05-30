@@ -20,7 +20,7 @@ Blocks.MoveUpPage {
         height: 550
 
         Image {
-            source: installPath  + "images/backImage.png"
+            source: installPath  + "Assets/Images/backImage.png"
             anchors.centerIn: parent
         }
 
@@ -39,7 +39,7 @@ Blocks.MoveUpPage {
 
             Image {
                 anchors.horizontalCenter: parent.horizontalCenter
-                source: installPath + "images/gameFailIcon.png"
+                source: installPath + "Assets/Images/gameFailIcon.png"
             }
         }
 

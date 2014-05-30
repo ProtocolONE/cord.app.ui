@@ -143,14 +143,14 @@ Item {
     Image {
         anchors { left: firstContainer.right; top: firstContainer.top; leftMargin: 20; topMargin: -35}
 
-        source: installPath + '/images/Popup/close.png'
+        source: installPath + '/Assets/Images/Popup/close.png'
     }
 
     Image {
         id: helpImage
 
         anchors { left: firstContainer.right; top: firstContainer.top; leftMargin: -5; topMargin: -75}
-        source: installPath + '/images/Popup/popupInfoHelpText.png'
+        source: installPath + '/Assets/Images/Popup/popupInfoHelpText.png'
 
         SequentialAnimation {
             id: showHelp

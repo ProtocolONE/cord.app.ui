@@ -156,7 +156,7 @@ Item {
                     return '';
                 }
 
-                return installPath + 'images/Features/Guide/static/' + index + '.png';
+                return installPath + 'Assets/Images/Features/Guide/static/' + index + '.png';
             }
 
             anchors.fill: parent
@@ -172,7 +172,7 @@ Item {
                 return '';
             }
 
-            return installPath + '/Sounds/Features/Guide/' + index + '.wma';
+            return installPath + 'Assets/Sounds/Features/Guide/' + index + '.wma';
         }
 
         volume: inner.isSoundEnabled ? 100 : 0
@@ -192,7 +192,7 @@ Item {
 
             Private.ImageButton {
                 rotation: 180
-                source: installPath + 'images/Features/Guide/arrow.png'
+                source: installPath + 'Assets/Images/Features/Guide/arrow.png'
                 toolTip: qsTr('BUTTON_PREV')
                 enabled: inner.currentIndex > 1
                 onClicked: {
@@ -202,7 +202,7 @@ Item {
             }
 
             Private.ImageButton {
-                source: installPath + 'images/Features/Guide/arrow.png'
+                source: installPath + 'Assets/Images/Features/Guide/arrow.png'
                 toolTip: qsTr('BUTTON_NEXT')
                 enabled: inner.currentIndex < inner.maxIndex
                 onClicked: {
@@ -213,8 +213,8 @@ Item {
 
         Private.ImageButton {
             source: inner.isSoundEnabled
-                ? installPath + 'images/Features/Guide/soundOff.png'
-                : installPath + 'images/Features/Guide/soundOn.png'
+                ? installPath + 'Assets/Images/Features/Guide/soundOff.png'
+                : installPath + 'Assets/Images/Features/Guide/soundOn.png'
 
             toolTip: inner.isSoundEnabled
                 ? qsTr('BUTTON_DISABLE_SOUND')
@@ -227,7 +227,7 @@ Item {
         }
 
         Private.ImageButton {
-            source: installPath + 'images/Features/Guide/close.png'
+            source: installPath + 'Assets/Images/Features/Guide/close.png'
 
             toolTip: qsTr('BUTTON_CLOSE_GUIDE')
 
@@ -248,7 +248,7 @@ Item {
 
         Image {
             anchors.fill: parent
-            source: installPath + 'images/Features/Guide/static/0.png';
+            source: installPath + 'Assets/Images/Features/Guide/static/0.png';
         }
 
         Column {
@@ -256,7 +256,7 @@ Item {
             anchors { horizontalCenter: parent.horizontalCenter; top: parent.top; topMargin: 110 }
 
             Image {
-                source: installPath + 'images/Features/Guide/logo.png'
+                source: installPath + 'Assets/Images/Features/Guide/logo.png'
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 

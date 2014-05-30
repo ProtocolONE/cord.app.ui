@@ -142,14 +142,14 @@ OverlayBase.OverlayBase {
             visible: over.showLoadingCharWindow && !over.loadingCharTooLong
             anchors { centerIn: parent }
             playing: true
-            source: installPath + "/images/GameOverlay/BS/charactersLoading.gif"
+            source: installPath + "/Assets/Images/GameOverlay/BS/charactersLoading.gif"
         }
 
         AnimatedImage {
             visible: over.showLoadingCharWindow && over.loadingCharTooLong
             anchors { centerIn: parent }
             playing: true
-            source: installPath + "/images/GameOverlay/BS/charactersLoadingFail.gif"
+            source: installPath + "/Assets/Images/GameOverlay/BS/charactersLoadingFail.gif"
         }
 
         Image {
@@ -158,7 +158,7 @@ OverlayBase.OverlayBase {
                      && over.charInfoLoaded
                      && over.charCount == 0
             anchors.centerIn: parent
-            source: installPath + "/images/GameOverlay/BS/event_only.png"
+            source: installPath + "/Assets/Images/GameOverlay/BS/event_only.png"
         }
 
         Image {
@@ -178,7 +178,7 @@ OverlayBase.OverlayBase {
                 topMargin: 25
             }
 
-            source: installPath + "/images/GameOverlay/BS/no_char.png"
+            source: installPath + "/Assets/Images/GameOverlay/BS/no_char.png"
 
             Behavior on opacity {
                 NumberAnimation { duration: 1000 }

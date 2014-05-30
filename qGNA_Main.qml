@@ -227,7 +227,7 @@ Item {
         }
 
         Image {
-            source: installPath + "images/backImage.png"
+            source: installPath + "Assets/Images/backImage.png"
             anchors.top: parent.top
         }
 
@@ -763,7 +763,7 @@ Item {
 
             z: 10000
             anchors { top: parent.top; right: parent.right; rightMargin: 9; topMargin: 12 }
-            source: installPath + "images/closeButton.png"
+            source: installPath + "Assets/Images/closeButton.png"
             opacity: closeButtomMouse.containsMouse ? 0.9 : 0.5
 
             Behavior on opacity {

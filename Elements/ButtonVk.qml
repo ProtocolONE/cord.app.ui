@@ -29,7 +29,7 @@ Rectangle {
         width: 22
         height: 22
         anchors { left: parent.left; leftMargin: 3; top: parent.top; topMargin: 3 }
-        source: installPath + "images/button_vk.png"
+        source: installPath + "Assets/Images/button_vk.png"
         fillMode: Image.PreserveAspectFit
     }
 

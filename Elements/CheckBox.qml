@@ -58,7 +58,7 @@ Item {
             id: checkedImageId
 
             anchors.centerIn: parent
-            source: installPath + "images/checkImage.png"
+            source: installPath + "Assets/Images/checkImage.png"
         }
     }
 

@@ -26,7 +26,7 @@ Rectangle {
         anchors.centerIn: parent
 
         headerText: qsTr("GAMELOAD_STARTING_GAME_NAME_HEADER")
-        bannerImageUrl: installPath + '/images/games/bs_icon_horizontal.png'
+        bannerImageUrl: installPath + '/Assets/Images/games/bs_icon_horizontal.png'
 
         totalWantedDone: '73316'
         totalWanted: '345345'

@@ -88,7 +88,7 @@ Item {
                         }
 
                         fillMode: Image.PreserveAspectFit
-                        source: installPath + "images/gn_43382A.png"
+                        source: installPath + "Assets/Images/gn_43382A.png"
                         smooth: true
                     }
                 }

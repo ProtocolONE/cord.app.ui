@@ -37,7 +37,7 @@ Elements.PopupItemBase {
 
                 anchors { right: parent.right; top: parent.top; rightMargin: 9; topMargin: 9 }
                 visible: containsMouse || closeButtonImageMouser.containsMouse || buttonPlayMouser.containsMouse
-                source: installPath + "images/CloseGrayBackground.png"
+                source: installPath + "Assets/Images/CloseGrayBackground.png"
                 opacity: 0.5
 
                 NumberAnimation {

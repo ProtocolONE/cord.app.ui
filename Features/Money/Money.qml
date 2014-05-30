@@ -111,8 +111,8 @@ Rectangle {
 
                 Image {
                     anchors.centerIn: parent
-                    source: browserCloseMa.containsMouse ? installPath + 'images/Features/Money/closeapp_hover.png' :
-                                                           installPath + 'images/Features/Money/closeapp.png'
+                    source: browserCloseMa.containsMouse ? installPath + 'Assets/Images/Features/Money/closeapp_hover.png' :
+                                                           installPath + 'Assets/Images/Features/Money/closeapp.png'
 
                     MouseArea {
                         id: browserCloseMa
@@ -141,8 +141,8 @@ Rectangle {
                     topMargin: 14
                 }
 
-                source: refreshMa.containsMouse ? installPath + '/images/Features/Money/refresh.png' :
-                                                  installPath + '/images/Features/Money/refresh_hover.png'
+                source: refreshMa.containsMouse ? installPath + '/Assets/Images/Features/Money/refresh.png' :
+                                                  installPath + '/Assets/Images/Features/Money/refresh_hover.png'
 
                 MouseArea {
                     id: refreshMa
@@ -189,7 +189,7 @@ Rectangle {
                     }
 
                     anchors { left: parent.left; top: parent.top; margins: 7 }
-                    source: isHttps(rootRect.children[rootRect.currentItem]) ? installPath + 'images/Features/Money/https.png' : ''
+                    source: isHttps(rootRect.children[rootRect.currentItem]) ? installPath + 'Assets/Images/Features/Money/https.png' : ''
                 }
             }
 

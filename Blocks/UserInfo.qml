@@ -186,7 +186,7 @@ Item {
         upText: getUserNickName()
         downText: userInfoPage.balance
         level: userInfoPage.level
-        avatarSource: avatarMedium != undefined ? avatarMedium : installPath + "images/avatar.png"
+        avatarSource: avatarMedium != undefined ? avatarMedium : installPath + "Assets/Images/avatar.png"
 
         isGuest: userInfoPage.guest
         isNickNameSaved: nickname != undefined && nickname.indexOf('@') == -1

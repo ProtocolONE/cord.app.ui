@@ -16,7 +16,7 @@ Elements.CursorMouseArea {
         Image {
             id: premiumIcon
 
-            source: installPath + 'images/blocks/SecondWindowGame/premium.png'
+            source: installPath + 'Assets/Images/blocks/SecondWindowGame/premium.png'
         }
 
         Text {

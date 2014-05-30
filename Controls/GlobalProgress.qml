@@ -32,7 +32,7 @@ Item {
         AnimatedImage {
             anchors.centerIn: parent
             playing: back.visible
-            source: installPath + "images/wait_animation.gif"
+            source: installPath + "Assets/Images/wait_animation.gif"
         }
     }
 

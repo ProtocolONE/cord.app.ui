@@ -145,7 +145,7 @@ Item {
                 width: parent.width
                 height: 48
                 placeholder: qsTr("CODE_BODY_CODE_INPUT_PLACEHOLDER")
-                icon: installPath + "images/Controls/PasswordInput/lock.png"
+                icon: installPath + "Assets/Images/GameNet/Controls/PasswordInput/lock.png"
             }
         }
 

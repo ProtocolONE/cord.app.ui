@@ -197,7 +197,7 @@ Item {
 
                 Image {
                     anchors.verticalCenter: parent.verticalCenter
-                    source: installPath + "images/button_vk.png"
+                    source: installPath + "Assets/Images/button_vk.png"
                 }
 
                 onClicked: registrationPage.vkButtonClicked();

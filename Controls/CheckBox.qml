@@ -58,7 +58,7 @@ Item {
 
                     anchors.centerIn: parent
                     visible: control.checked
-                    source: installPath + "images/Controls/CheckBox/Check.png"
+                    source: installPath + "Assets/Images/GameNet/Controls/CheckBox/Check.png"
                     fillMode: Image.PreserveAspectFit
                 }
             }
