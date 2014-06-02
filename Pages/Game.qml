@@ -682,6 +682,10 @@ Rectangle {
                                 return false;
                             }
 
+                            if (root.currentItem.gameType == "browser") {
+                                return false;
+                            }
+
                             var currentMainRunning = Core.currentRunningMainService();
                             var currentSecondRunning = Core.currentRunningSecondService();
                             if (currentMainRunning ||
