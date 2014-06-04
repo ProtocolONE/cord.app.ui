@@ -11,7 +11,8 @@
 import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
-import "../../../js/Authorization.js" as Authorization
+
+import "../../../Application/Core/Authorization.js" as Authorization
 
 ErrorContainer {
     id: root

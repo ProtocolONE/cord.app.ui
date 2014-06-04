@@ -6,6 +6,22 @@
 		<file>Application/Blocks/ApplicationSettings/GeneralSettings.qml</file>
 		<file>Application/Blocks/ApplicationSettings/NotificationSettings.qml</file>
 		<file>Application/Blocks/ApplicationSettings/qmldir</file>
+		<file>Application/Blocks/AppScreen.qml</file>
+		<file>Application/Blocks/Auth/AnimatedBackground/Index.qml</file>
+		<file>Application/Blocks/Auth/AnimatedBackground/LightningBackground.qml</file>
+		<file>Application/Blocks/Auth/AnimatedBackground/ParallaxBottomImage.qml</file>
+		<file>Application/Blocks/Auth/AnimatedBackground/Sun.qml</file>
+		<file>Application/Blocks/Auth/AnimatedBackground/VkDoggy.qml</file>
+		<file>Application/Blocks/Auth/AuthBody.qml</file>
+		<file>Application/Blocks/Auth/CaptchaInput.qml</file>
+		<file>Application/Blocks/Auth/CodeBody.qml</file>
+		<file>Application/Blocks/Auth/Footer.qml</file>
+		<file>Application/Blocks/Auth/Header.qml</file>
+		<file>Application/Blocks/Auth/Index.qml</file>
+		<file>Application/Blocks/Auth/LoginInput.qml</file>
+		<file>Application/Blocks/Auth/MessageBody.qml</file>
+		<file>Application/Blocks/Auth/PasswordInput.qml</file>
+		<file>Application/Blocks/Auth/RegistrationBody.qml</file>
 		<file>Application/Blocks/FlowView.qml</file>
 		<file>Application/Blocks/GameIcon.qml</file>
 		<file>Application/Blocks/GameLoad/Main.qml</file>
@@ -40,10 +56,15 @@
 		<file>Application/Controls/ScrollBar.qml</file>
 		<file>Application/Core/App.js</file>
 		<file>Application/Core/App.qml</file>
+		<file>Application/Core/Authorization.js</file>
+		<file>Application/Core/Authorization/Vk.qml</file>
+		<file>Application/Core/GoogleAnalytics.js</file>
 		<file>Application/Core/MessageBox.js</file>
 		<file>Application/Core/MessageBox/MessageBoxModel.qml</file>
 		<file>Application/Core/Modules/Host.js</file>
 		<file>Application/Core/Modules/Host.qml</file>
+		<file>Application/Core/Modules/Settings.js</file>
+		<file>Application/Core/Modules/Settings.qml</file>
 		<file>Application/Core/Modules/SignalBus.js</file>
 		<file>Application/Core/Modules/SignalBus.qml</file>
 		<file>Application/Core/Popup.js</file>
@@ -330,9 +351,6 @@
 		<file>GameNet/Controls/TryLoader.qml</file>
 		<file>GameNet/Controls/TypeaheadBehaviour.qml</file>
 		<file>GameNet/Controls/VerticalSplit.qml</file>
-		<file>js/Authorization.js</file>
-		<file>js/Authorization/qmldir</file>
-		<file>js/Authorization/Vk.qml</file>
 		<file>js/Core.js</file>
 		<file>js/Core.qml</file>
 		<file>js/DateHelper.js</file>
@@ -356,8 +374,6 @@
 		<file>Proxy/MouseClick.qml</file>
 		<file>Proxy/Player.qml</file>
 		<file>Proxy/Player/Wrapper.qml</file>
-		<file>Proxy/Settings.js</file>
-		<file>Proxy/Settings.qml</file>
 		<file>qGNA_Main.qml</file>
 		<file>Tests/Application/Blocks/AllGames.qml</file>
 		<file>Tests/Application/Blocks/ApplicationSettingsSample.qml</file>

@@ -20,6 +20,7 @@ var clientWidth = 930,
  */
 Qt.include('./Modules/SignalBus.js');
 Qt.include('./Modules/Host.js');
+Qt.include('./Modules/Settings.js');
 
 /**
  * Application specific functions

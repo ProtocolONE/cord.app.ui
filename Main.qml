@@ -1,8 +1,6 @@
 import QtQuick 1.1
-import Application.Layers 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
-import Application.Blocks 1.0 as Blocks
 import Application 1.0
 
 import "./Application/Core/App.js" as App
@@ -17,10 +15,7 @@ Rectangle {
     signal dragWindowPressed(int x, int y);
     signal dragWindowReleased(int x, int y);
     signal dragWindowPositionChanged(int x, int y);
-
     signal windowClose();
-
-    property bool progressTmp: false
 
     state: "Loading"
     color: "#092135"
@@ -28,9 +23,35 @@ Rectangle {
     width: App.clientWidth
     height: App.clientHeight
 
+    MouseArea {
+        anchors.fill: parent
+        onPressed: dragWindowPressed(mouseX,mouseY);
+        onReleased: dragWindowReleased(mouseX,mouseY);
+        onPositionChanged: dragWindowPositionChanged(mouseX,mouseY);
+    }
+
     Bootstrap {
         Component.onCompleted: {
             CoreJs.activateGame(CoreJs.serviceItemByGameId("92"))
+        }
+    }
+
+    WidgetManager {
+        id: manager
+
+        Component.onCompleted: {
+            manager.registerWidget('Application.Widgets.AlertAdapter');
+            manager.registerWidget('Application.Widgets.Facts');
+            manager.registerWidget('Application.Widgets.GameAdBanner');
+            manager.registerWidget('Application.Widgets.GameInfo');
+            manager.registerWidget('Application.Widgets.GameInstall');
+            manager.registerWidget('Application.Widgets.Maintenance');
+            manager.registerWidget('Application.Widgets.Messenger');
+            manager.registerWidget('Application.Widgets.PremiumShop');
+            manager.registerWidget('Application.Widgets.TaskBar');
+            manager.registerWidget('Application.Widgets.TaskList');
+            manager.registerWidget('Application.Widgets.UserProfile');
+            manager.init();
         }
     }
 
@@ -84,35 +105,10 @@ Rectangle {
         onAuthDone: {
             console.log('----------------- ')
             //switcher.sourceComponent = mainComponent;
-            timerSwitchToMain.start()
+            //timerSwitchToMain.start()
         }
     }
 
-    MouseArea {
-        anchors.fill: parent
-        onPressed: dragWindowPressed(mouseX,mouseY);
-        onReleased: dragWindowReleased(mouseX,mouseY);
-        onPositionChanged: dragWindowPositionChanged(mouseX,mouseY);
-    }
-
-    WidgetManager {
-        id: manager
-
-        Component.onCompleted: {
-            manager.registerWidget('Application.Widgets.AlertAdapter');
-            manager.registerWidget('Application.Widgets.Facts');
-            manager.registerWidget('Application.Widgets.GameAdBanner');
-            manager.registerWidget('Application.Widgets.GameInfo');
-            manager.registerWidget('Application.Widgets.GameInstall');
-            manager.registerWidget('Application.Widgets.Maintenance');
-            manager.registerWidget('Application.Widgets.Messenger');
-            manager.registerWidget('Application.Widgets.PremiumShop');
-            manager.registerWidget('Application.Widgets.TaskBar');
-            manager.registerWidget('Application.Widgets.TaskList');
-            manager.registerWidget('Application.Widgets.UserProfile');
-            manager.init();
-        }
-    }
 
     PageSwitcher {
         id: switcher
@@ -120,60 +116,18 @@ Rectangle {
         anchors.fill: parent
     }
 
-    Component {
-        id: splashCompomemnt
-
-        Blocks.SplashScreen {
-            anchors.fill: parent
-        }
-    }
-
-    Component {
-        id: authComponent
-
-        Blocks.AuthIndex {
-            anchors.fill: parent
-        }
-    }
-
-    Component {
-        id: mainComponent
-
-        Item {
-            id: main
-
-            anchors.fill: parent
-
-            BaseLayer {
-                anchors.fill: parent
-            }
-
-            ChatLayer {
-                anchors.fill: parent
-            }
-
-            PopupLayer {
-                anchors.fill: parent
-            }
-
-            TooltipLayer {
-                anchors.fill: parent
-            }
-        }
-    }
-
     states: [
         State {
             name: 'Loading'
-            PropertyChanges {target: switcher; sourceComponent: splashCompomemnt}
+            PropertyChanges { target: switcher; source: "../../Application/Blocks/SplashScreen.qml" }
         },
         State {
             name: 'Authorization'
-            PropertyChanges {target: switcher; sourceComponent: authComponent}
+            PropertyChanges { target: switcher; source: "../../Application/Blocks/Auth/Index.qml" }
         },
         State {
             name: 'Application'
-            PropertyChanges {target: switcher; sourceComponent: mainComponent}
+            PropertyChanges { target: switcher; source: "../../Application/Blocks/AppScreen.qml" }
         }
     ]
 }

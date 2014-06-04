@@ -11,9 +11,12 @@
 import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
-import "../../../js/Authorization.js" as Authorization
-import "../../../js/Core.js" as Core
+
+import "../../../Application/Core/Authorization.js" as Authorization
 import "../../../Application/Core/App.js" as App
+
+import "../../../js/Core.js" as Core
+
 
 Item {
     id: root

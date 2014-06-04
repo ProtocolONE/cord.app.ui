@@ -2,8 +2,9 @@ import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
 
+import "../../../Application/Core/Authorization.js" as Authorization
+
 import "../../../js/Core.js" as Core
-import "../../../js/Authorization.js" as Authorization
 import "../../../js/UserInfo.js" as UserInfo
 
 import "../../../Application/Core/App.js" as AppProxy

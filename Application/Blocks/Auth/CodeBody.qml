@@ -11,7 +11,7 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
 
-import "../../../js/Authorization.js" as Authorization
+import "../../../Application/Core/Authorization.js" as Authorization
 import "../../../js/Core.js" as Core
 
 Item {
