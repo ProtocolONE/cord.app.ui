@@ -10,11 +10,14 @@
 
 import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
-import "../../../js/restapi.js" as RestApi
+
+import "../../Core/restapi.js" as RestApi
+import "../../Core/GoogleAnalytics.js" as GoogleAnalytics
+
 import "../../../js/Core.js" as Core
 import "MaintenanceModel.js" as MaintenanceModel
 import "../../../js/PopupHelper.js" as PopupHelper
-import "../../../js/GoogleAnalytics.js" as GoogleAnalytics
+
 import "View" as View
 
 WidgetModel {

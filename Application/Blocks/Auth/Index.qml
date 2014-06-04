@@ -6,8 +6,7 @@ import "../../../js/Core.js" as Core
 import "../../../js/Authorization.js" as Authorization
 import "../../../js/UserInfo.js" as UserInfo
 
-import "../../../Proxy/App.js" as AppProxy
-
+import "../../../Application/Core/App.js" as AppProxy
 
 import "AnimatedBackground" as AnimatedBackground
 
@@ -152,7 +151,7 @@ Rectangle {
             })
         }
     }
-    AnimatedBackground.Index {
+    /*AnimatedBackground.Index {
         id: background
 
         function registerInfoValid() {
@@ -163,7 +162,7 @@ Rectangle {
         anchors.fill: parent
         isDoggyVisible: footer.vkButtonContainsMouse
         goodSignActive: background.registerInfoValid();
-    }
+    }*/
 
     Header {
         id: header

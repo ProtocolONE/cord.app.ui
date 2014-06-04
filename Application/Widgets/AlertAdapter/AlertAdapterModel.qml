@@ -11,10 +11,12 @@
 import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0 as Controls
-import "../../../js/restapi.js" as RestApi
+
+import "../../Core/Popup.js" as Popup
+import "../../Core/MessageBox.js" as MessageBox
+import "../../Core/restapi.js" as RestApi
+
 import "../../../js/Core.js" as Core
-import "../../../Application/Core/Popup.js" as Popup
-import "../../../Application/Core/MessageBox.js" as MessageBox
 
 WidgetModel {
     id: root
@@ -57,6 +59,7 @@ WidgetModel {
     Connections {
         target: messageBox
 
+        ignoreUnknownSignals: true
         onEmitMessage: {
             var id = messageId;
 

@@ -9,7 +9,7 @@
 ****************************************************************************/
 import QtQuick 1.1
 import GameNet.Controls 1.0
-import "../../../Proxy/App.js" as App
+import "../../../Application/Core/App.js" as App
 
 ErrorContainer {
     id: root

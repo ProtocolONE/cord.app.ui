@@ -1,5 +1,5 @@
 import QtQuick 1.1
-import "Tooltip/Tooltip.js" as Tooltip
+import "../GameNet/Controls/Tooltip.js" as Tooltip
 
 MouseArea {
     id: mouser

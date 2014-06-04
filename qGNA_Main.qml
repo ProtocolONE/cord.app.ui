@@ -18,21 +18,16 @@ import "Proxy" as Proxy
 import "Features/Guide" as Guide
 import "Features/Ping" as Ping
 import "Features/PublicTest" as PublicTest
-import "Features/TastList" as TastList
-import "Features/TaskBar" as TaskBar
 import "Features/SilentMode" as SilentMode
 
 import "Blocks/Features/Announcements" as Announcements
 import "Features/Maintenance" as Maintenance
-import "Elements/Tooltip" as Tooltip
 import "js/restapi.js" as RestApi
 import "js/UserInfo.js" as UserInfo
 import "js/Core.js" as Core
 import "js/GoogleAnalytics.js" as GoogleAnalytics
 import "js/Message.js" as AlertMessage
-import "js/support.js" as Support
-import "Proxy/App.js" as App
-import "Proxy/AppProxy.js" as AppProxy
+import "Application/Core/Modules/Host.js" as App
 import "Blocks/SecondWindowGame" as SecondWindowGame
 import "Features/Games/CombatArmsShop" as CombatArmsShop
 import "Features/Premium" as Premium
@@ -68,8 +63,6 @@ Item {
                                         });
     }
 
-    Proxy.AppProxy {}
-
     Component.onCompleted: {
         var desktop = Desktop.screenWidth + 'x' + Desktop.screenHeight
         , url = Settings.value('qGNA/restApi', 'url', 'https://gnapi.com:8443/restapi');
@@ -102,55 +95,6 @@ Item {
             }
         }
 
-    }
-
-    Maintenance.Maintenance {}
-
-    TaskBar.TaskBarHelper {}
-
-    Jabber {
-        id: jabber
-
-        property int failCount: 0
-        property string failDate: ""
-
-        login: UserInfo.userId()
-        password: Qt.md5(UserInfo.appKey())
-
-        host: "qj.gamenet.ru"
-        domain: "qj.gamenet.ru"
-
-        onError: {
-            var today = Qt.formatDateTime(new Date(), "dd.MM.yyyy");
-
-            if (jabber.failDate != today) {
-                jabber.failCount = 0;
-                jabber.failDate = today;
-            }
-
-            jabber.failCount += 1;
-
-            if (jabber.failCount <= 14) {
-                console.log('Jabber error sended Code: ', code, 'Count: ', jabber.failCount, ' Today: ', jabber.failDate);
-            }
-
-            if ((jabber.failCount === 1) // 10 секунд - бывает.
-                || (jabber.failCount === 4) // 40 секунд лучше бы столько клиенту не ждать.
-                || (jabber.failCount === 14)) // 340 секунд - это уже недопустимо.
-            {
-                GoogleAnalytics.trackEvent('/jabber/0.2/', 'Error', 'Code ' + code, "Try count" + jabber.failCount);
-            }
-        }
-
-        onConnected: {
-            jabber.failCount = 0;
-            console.log('Jabber connected.');
-        }
-
-        Connections {
-            target: UserInfo.instance()
-            onLogoutDone: jabber.failCount = 0;
-        }
     }
 
     Item {
@@ -262,52 +206,6 @@ Item {
             visible: qGNA_main.state === "SettingsPage"
             width: Core.clientWidth
             height: Core.clientHeight
-        }
-
-        Pages.LoadScreen {
-            z: 2
-            anchors.fill: parent
-            focus: true
-
-            onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX, mouseY);
-            onBackgroundMousePressed: onWindowPressed(mouseX, mouseY);
-            onUpdateFinished: {
-                var serviceId, item;
-
-                // ping.start();
-
-                qGNA_main.lastState = "HomePage";
-
-                serviceId = App.startingService() || "0";
-                if (serviceId == "0") {
-                    if (!App.isAnyLicenseAccepted()) {
-                        serviceId = Settings.value("qGNA", "installWithService", "0");
-                    }
-                }
-
-                qGNA_main.selectService(serviceId);
-
-                if (!App.isAnyLicenseAccepted()) {
-                    var item = Core.serviceItemByServiceId(serviceId);
-
-                    firstLicense.withPath = (serviceId != "0" && serviceId != "300007010000000000" && !!item)
-                    firstLicense.serviceId = serviceId;
-
-                    if (serviceId != "0" && item) {
-                        firstLicense.pathInput = App.getExpectedInstallPath(serviceId);
-                    } else {
-                        qGNA_main.state = "HomePage";
-                    }
-
-                    firstLicense.openMoveUpPage();
-                    return;
-                }
-
-                qGNA_main.state = "HomePage";
-
-                //INFO App.initFinished also called from c++ slot MainWindow::acceptFirstLicense()
-                App.initFinished();
-            }
         }
 
         Connections {
@@ -881,11 +779,6 @@ Item {
     }
 
     Elements.PopupWindow {}
-
-    Tooltip.Tooltip {}
-
-    TastList.TaskList {
-    }
 
     Announcements.Announcements {
         id: announcementsFeature

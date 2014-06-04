@@ -9,30 +9,49 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-var _signalBusComponent,
-    _signalBusInstance;
+/**
+ * App.js is an facade object for c++ host application proxy, qml signalbus object.
+ */
+var clientWidth = 930,
+    clientHeight = 550;
 
-if (!_signalBusComponent) {
-    _signalBusComponent = Qt.createComponent('./App.qml');
-    if (_signalBusComponent.status == 1) {
-        _signalBusInstance = _signalBusComponent.createObject(null);
-    } else {
-        console.log('Can\'t create component Core/App.qml, reason: ' + _signalBusComponent.errorString());
-    }
-}
+/**
+ * Import modules
+ */
+Qt.include('./Modules/SignalBus.js');
+Qt.include('./Modules/Host.js');
 
-function signalBus() {
-    return _signalBusInstance;
-}
-
-function authDone(userId, appKey, cookie) {
-    _signalBusInstance.authDone(userId, appKey, cookie);
-}
-
-function openExternalUrl(url) {
-    console.log("!!! IMPLEMENT ME: App.js::openExternalUrl(" + url + ")");
-}
-
+/**
+ * Application specific functions
+ */
 function activateGame(serviceId) {
     console.log("!!! IMPLEMENT ME: App.js::activateGame()");
+}
+
+function browseDirectory(serviceId, name, defaultDir) {
+    console.log("!!! IMPLEMENT ME: App.js::browseDirectory(" + serviceId + ", " + name + ", " + defaultDir+ ")");
+}
+
+function openEditNicknameDialog() {
+    console.log("!!! IMPLEMENT ME: App.js::openEditNicknameDialog()");
+}
+
+function replenishAccount() {
+    console.log("!!! IMPLEMENT ME: App.js::replenishAccount()");
+}
+
+function purchasePremium(money) {
+    console.log("!!! IMPLEMENT ME: App.js::purchasePremium(" + money + ")");
+}
+
+function openPremiumDetails() {
+    console.log("!!! IMPLEMENT ME: App.js::openPremiumDetails()");
+}
+
+function updateProgress(progress, status) {
+    console.log("!!! IMPLEMENT ME: App.js::updateProgress(progress, status)");
+}
+
+function installService(serviceId, installParams) {
+    console.log("!!! IMPLEMENT ME: App.js::installService(" + serviceId + ", " + JSON.stringify(installParams) + ")");
 }

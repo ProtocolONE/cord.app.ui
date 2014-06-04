@@ -70,7 +70,6 @@ Blocks.MoveUpPage {
                  onClicked: {
                      root.closeMoveUpPage();
                      AppProxy.openExternalUrl("http://support.gamenet.ru");
-                     //SupportHelper.show(root, Core.currentGame() ? Core.currentGame().gaName : '');
                  }
              }
 

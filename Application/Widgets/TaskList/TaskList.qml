@@ -48,6 +48,7 @@ Item {
     Connections {
         target: mainWindow
 
+        ignoreUnknownSignals: true
         onDownloaderFinished: {
             var item = Core.serviceItemByServiceId(service);
             if (!item) {

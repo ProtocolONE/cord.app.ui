@@ -13,7 +13,6 @@ import Tulip 1.0
 import "../Elements" as Elements
 import "../js/GoogleAnalytics.js" as GoogleAnalytics
 import "../js/restapi.js" as RestApi
-import "../js/support.js" as SupportHelper
 import "../js/DateHelper.js" as DateHelper
 import "../js/Core.js" as Core
 import "../Proxy/App.js" as AppProxy
@@ -154,7 +153,6 @@ Item {
                 source: installPath + "Assets/Images/menu/help.png"
                 onClicked: {
                     AppProxy.openExternalUrl("http://support.gamenet.ru");
-                    //SupportHelper.show(newsBlock, Core.currentGame() ? Core.currentGame().gaName : '');
                 }
             }
 

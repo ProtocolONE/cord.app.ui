@@ -10,8 +10,10 @@
 
 import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
-import "../../../js/restapi.js" as RestApiJs
+
 import "GameAdBannerModel.js" as GameAdBannerModel
+import "../../Core/restapi.js" as RestApiJs
+
 
 WidgetModel {
     id: root

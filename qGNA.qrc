@@ -32,12 +32,20 @@
 		<file>Application/Blocks/Premium/qmldir</file>
 		<file>Application/Blocks/qmldir</file>
 		<file>Application/Blocks/SettingsMenu.qml</file>
+		<file>Application/Blocks/SplashScreen.qml</file>
+		<file>Application/Blocks/SplashScreen/Background.qml</file>
+		<file>Application/Blocks/SplashScreen/UpdateManager.qml</file>
+		<file>Application/Bootstrap.qml</file>
 		<file>Application/Controls/qmldir</file>
 		<file>Application/Controls/ScrollBar.qml</file>
 		<file>Application/Core/App.js</file>
 		<file>Application/Core/App.qml</file>
 		<file>Application/Core/MessageBox.js</file>
 		<file>Application/Core/MessageBox/MessageBoxModel.qml</file>
+		<file>Application/Core/Modules/Host.js</file>
+		<file>Application/Core/Modules/Host.qml</file>
+		<file>Application/Core/Modules/SignalBus.js</file>
+		<file>Application/Core/Modules/SignalBus.qml</file>
 		<file>Application/Core/Popup.js</file>
 		<file>Application/Core/Popup/PopupModel.qml</file>
 		<file>Application/Layers/BaseLayer.qml</file>
@@ -48,6 +56,7 @@
 		<file>Application/Models/CombatArmsItemsModel.qml</file>
 		<file>Application/Models/GamesListModel.qml</file>
 		<file>Application/Models/NewsModel.qml</file>
+		<file>Application/qmldir</file>
 		<file>Application/Widgets/AlertAdapter/AlertAdapterModel.js</file>
 		<file>Application/Widgets/AlertAdapter/AlertAdapterModel.qml</file>
 		<file>Application/Widgets/AlertAdapter/PluginContainer.qml</file>
@@ -113,7 +122,6 @@
 		<file>Application/Widgets/UserProfile/View/NicknameEdit.qml</file>
 		<file>Application/Widgets/UserProfile/View/UserProfileView.qml</file>
 		<file>Blocks/AccountActivation.qml</file>
-		<file>Blocks/AlertAdapter.qml</file>
 		<file>Blocks/Auth.qml</file>
 		<file>Blocks/Auth/Auth/Captcha.qml</file>
 		<file>Blocks/Auth/Auth/CodeForm.qml</file>
@@ -151,7 +159,6 @@
 		<file>Blocks/SecondWindowGame/PurchaseOption.qml</file>
 		<file>Blocks/SocialNet.qml</file>
 		<file>Blocks/Tray.qml</file>
-		<file>Blocks/TryLoader.qml</file>
 		<file>Blocks/UserInfo.qml</file>
 		<file>Blocks2/ApplicationSettings/DownloadSettings.qml</file>
 		<file>Blocks2/ApplicationSettings/GeneralSettings.qml</file>
@@ -320,6 +327,7 @@
 		<file>GameNet/Controls/Switcher.qml</file>
 		<file>GameNet/Controls/TextButton.qml</file>
 		<file>GameNet/Controls/TopErrorContainer.qml</file>
+		<file>GameNet/Controls/TryLoader.qml</file>
 		<file>GameNet/Controls/TypeaheadBehaviour.qml</file>
 		<file>GameNet/Controls/VerticalSplit.qml</file>
 		<file>js/Authorization.js</file>
@@ -327,50 +335,23 @@
 		<file>js/Authorization/Vk.qml</file>
 		<file>js/Core.js</file>
 		<file>js/Core.qml</file>
-		<file>js/Crypt.js</file>
 		<file>js/DateHelper.js</file>
 		<file>js/GamesSwitchHelper.js</file>
 		<file>js/GoogleAnalytics.js</file>
 		<file>js/Message.js</file>
 		<file>js/PopupHelper.js</file>
-		<file>js/restapi.js</file>
-		<file>js/support.js</file>
-		<file>js/Support/Support.qml</file>
 		<file>js/UserInfo.js</file>
 		<file>js/UserInfoPrivate.qml</file>
 		<file>Main.qml</file>
 		<file>Pages/ApplicationSettings.qml</file>
-		<file>Pages/Auth/AnimatedBackground/Index.qml</file>
-		<file>Pages/Auth/AnimatedBackground/LightningBackground.qml</file>
-		<file>Pages/Auth/AnimatedBackground/ParallaxBottomImage.qml</file>
-		<file>Pages/Auth/AnimatedBackground/Sun.qml</file>
-		<file>Pages/Auth/AnimatedBackground/VkDoggy.qml</file>
-		<file>Pages/Auth/AuthBody.qml</file>
-		<file>Pages/Auth/CaptchaInput.qml</file>
-		<file>Pages/Auth/CodeBody.qml</file>
-		<file>Pages/Auth/Footer.qml</file>
-		<file>Pages/Auth/Header.qml</file>
-		<file>Pages/Auth/Index.qml</file>
-		<file>Pages/Auth/LoginInput.qml</file>
-		<file>Pages/Auth/MessageBody.qml</file>
-		<file>Pages/Auth/PasswordInput.qml</file>
-		<file>Pages/Auth/RegistrationBody.qml</file>
 		<file>Pages/Game.qml</file>
 		<file>Pages/GameSettings.qml</file>
 		<file>Pages/Home.qml</file>
-		<file>Pages/LoadScreen.qml</file>
-		<file>Pages/LoadScreen/UpdateManager.qml</file>
 		<file>Pages/SettingsPage.qml</file>
 		<file>Pages/SettingsPage/NotificationPage.qml</file>
 		<file>Pages/SettingsPage/SettingsDownloadPage.qml</file>
 		<file>Pages/SettingsPage/SettingsGeneralPage.qml</file>
 		<file>plugin/Tulip/qmldir</file>
-		<file>Proxy/App.js</file>
-		<file>Proxy/App.qml</file>
-		<file>Proxy/AppProxy.js</file>
-		<file>Proxy/AppProxy.qml</file>
-		<file>Proxy/Loaders/MainApp.qml</file>
-		<file>Proxy/MainWindowHelper.qml</file>
 		<file>Proxy/MouseClick.js</file>
 		<file>Proxy/MouseClick.qml</file>
 		<file>Proxy/Player.qml</file>
@@ -378,9 +359,6 @@
 		<file>Proxy/Settings.js</file>
 		<file>Proxy/Settings.qml</file>
 		<file>qGNA_Main.qml</file>
-		<file>TestMenuModel.qml</file>
-		<file>TestParalax.qml</file>
-		<file>TestQxmpp.qml</file>
 		<file>Tests/Application/Blocks/AllGames.qml</file>
 		<file>Tests/Application/Blocks/ApplicationSettingsSample.qml</file>
 		<file>Tests/Application/Blocks/GameLoadSample.qml</file>

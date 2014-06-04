@@ -13,7 +13,7 @@ import Tulip 1.0
 import GameNet.Controls 1.0
 import "../../../js/Authorization.js" as Authorization
 import "../../../js/Core.js" as Core
-import "../../../Proxy/App.js" as App
+import "../../../Application/Core/App.js" as App
 
 Item {
     id: root

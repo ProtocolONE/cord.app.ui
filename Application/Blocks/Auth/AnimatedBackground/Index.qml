@@ -104,7 +104,7 @@ Item {
             source: installPath + "Assets/Images/Auth/back_frame_02.png"
         }
 
-        /*
+
         ParallaxLayer {
             depthX: 0.05
             depthY: 0.01
@@ -121,7 +121,7 @@ Item {
                 }
             }
         }
-        */
+
 
         ParallaxBottomImage {
             depthX: 0.4

@@ -9,18 +9,15 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-var proxyComponent,
-        proxyInst;
+var proxyInst = createObject('./Host.qml');
 
-if (!proxyComponent) {
-    proxyComponent = Qt.createComponent('./App.qml');
-
-    // if Component.Ready
-    if (proxyComponent.status == 1) {
-        proxyInst = proxyComponent.createObject(null);
-    } else {
-        console.log('Can\'t create App.qml');
+function createObject(path) {
+    var component = Qt.createComponent(path);
+    if (component.status != 1) {
+        throw new Error('Can\'t create component ' + path + ', reason: ' + component.errorString());
     }
+
+    return component.createObject(null);
 }
 
 function isWindowVisible() {

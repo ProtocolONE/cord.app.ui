@@ -15,7 +15,7 @@ import "../../../js/Authorization.js" as Authorization
 import "../../../js/restapi.js" as RestApi
 import "../../../js/Core.js" as Core
 
-import "../../../Proxy/App.js" as AppProxy
+import "../../../Application/Core/App.js" as AppProxy
 
 Item {
     id: root

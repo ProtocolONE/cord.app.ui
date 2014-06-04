@@ -30,3 +30,4 @@ TypeaheadBehaviour 1.0 TypeaheadBehaviour.qml
 VerticalSplit 1.0 VerticalSplit.qml
 ExtendedListModel 1.0 ExtendedListModel.qml
 PageSwitcher 1.0 PageSwitcher.qml
+TryLoader 1.0 TryLoader.qml

@@ -9,10 +9,12 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+
+import "../../../Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../Core/App.js" as App
+
 import "../../../../Elements" as Elements
-import "../../../../js/GoogleAnalytics.js" as GoogleAnalytics
 import "../../../../js/Core.js" as Core
-import "../../../../Proxy/App.js" as App
 
 Elements.GameItemPopUp {
     id: popUp

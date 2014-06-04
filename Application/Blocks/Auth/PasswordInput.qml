@@ -11,7 +11,7 @@ import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0 as Controls
 
-import "../../../Proxy/App.js" as App
+import "../../../Application/Core/App.js" as App
 
 Controls.ErrorContainer {
     id: root

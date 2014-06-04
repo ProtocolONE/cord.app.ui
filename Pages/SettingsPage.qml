@@ -16,7 +16,6 @@ import "../Elements" as Elements
 import ".."
 
 import "../js/Core.js" as Core
-import "../Proxy/AppProxy.js" as AppProxy
 import "../Proxy/App.js" as App
 
 // HACK: DEPRECATED - удалить файл, как только будет адекватно рабочая версия формы редактирования настроек

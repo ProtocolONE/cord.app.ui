@@ -12,6 +12,8 @@ import Tulip 1.0
 import QXmpp 1.0
 import GameNet.Controls 1.0
 
+import "../../../Core/GoogleAnalytics.js" as GoogleAnalytics
+
 import "MessengerPrivate.js" as MessengerPrivateJs
 import "User.js" as UserJs
 import "Message.js" as MessageJs
@@ -350,6 +352,9 @@ Item {
     QXmppClient {
         id: xmppClient
 
+        property int failCount: 0
+        property string failDate: ""
+
 //                logger: QXmppLogger {
 //                    loggingType: QXmppLogger.FileLogging
 //                    logFilePath: "D:\XmppClient.log"
@@ -360,6 +365,8 @@ Item {
             //root.isConnected = true;
             console.log("Connected to server ");
             //root.connected();
+
+            xmppClient.failCount = 0;
             xmppClient.vcardManager.requestVCard(user.jid);
             user.nickname = user.jid;
         }
@@ -378,17 +385,43 @@ Item {
 
         }
 
-        //        onError: {
-        ////            if (error == XmppClient.SocketError) {
-        ////                console.log("Error due to TCP socket.");
-        ////            } else if (error == XmppClient.KeepAliveError) {
-        ////                console.log("Error due to no response to a keep alive.");
-        ////            } else if (error == XmppClient.XmppStreamError) {
-        ////                console.log("Error due to XML stream.");
-        ////            }
-        //        }
+        onError: {
+            //if (error == XmppClient.SocketError) {
+            //  console.log("Error due to TCP socket.");
+            //} else if (error == XmppClient.KeepAliveError) {
+            //  console.log("Error due to no response to a keep alive.");
+            //} else if (error == XmppClient.XmppStreamError) {
+            //  console.log("Error due to XML stream.");
+            //}
+            var today = Qt.formatDateTime(new Date(), "dd.MM.yyyy");
+
+            if (xmppClient.failDate != today) {
+                xmppClient.failCount = 0;
+                xmppClient.failDate = today;
+            }
+
+            xmppClient.failCount += 1;
+
+            if (xmppClient.failCount <= 14) {
+                console.log('Jabber error sended Code: ', code, 'Count: ', xmppClient.failCount, ' Today: ', xmppClient.failDate);
+            }
+
+            var shoudlTrackConnectionFail = (xmppClient.failCount === 1) // 10 секунд - бывает.
+                || (xmppClient.failCount === 4) // 40 секунд лучше бы столько клиенту не ждать.
+                || (xmppClient.failCount === 14); // 340 секунд - это уже недопустимо.
+
+            if (shoudlTrackConnectionFail) {
+                GoogleAnalytics.trackEvent('/jabber/0.2/', 'Error', 'Code ' + code, "Try count" + xmppClient.failCount);
+            }
+        }
 
         onPresenceReceived: d.updatePresence(presence);
+
+        //UNDONE Fix next lineconnection
+//        Connections {
+//            target: UserInfo.instance()
+//            onLogoutDone: xmppClient.failCount = 0;
+//        }
     }
 
     Connections {
