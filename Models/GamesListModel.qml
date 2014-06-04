@@ -46,7 +46,7 @@ ListModel {
         imageHorizontal: "images/games/ca_icon_horisontal.png"
         imageLogoSmall: "images/games/ca_logo_small.png"
         imageLogoBig: "images/games/ca_logo_big.png"
-        imagePopupArt: "images/games/Popup/CombatArmsPopupArt.png"
+        imagePopupArt: "images/games/Popup/CombatArmsPopupArt.jpg"
 
         size: "doubleHorizontal"
         imageBack : "images/games/ca_back.png"
