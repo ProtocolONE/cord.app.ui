@@ -375,6 +375,8 @@
 		<file>Proxy/Player.qml</file>
 		<file>Proxy/Player/Wrapper.qml</file>
 		<file>qGNA_Main.qml</file>
+		<file>TestMenuModel.qml</file>
+		<file>TestParalax.qml</file>
 		<file>Tests/Application/Blocks/AllGames.qml</file>
 		<file>Tests/Application/Blocks/ApplicationSettingsSample.qml</file>
 		<file>Tests/Application/Blocks/GameLoadSample.qml</file>

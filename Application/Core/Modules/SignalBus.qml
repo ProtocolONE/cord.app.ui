@@ -15,4 +15,5 @@ QtObject {
     signal setGlobalState(string name);
     signal backgroundMousePressed(int mouseX, int mouseY);
     signal backgroundMousePositionChanged(int mouseX, int mouseY);
+    signal progressChanged(variant gameItem);
 }

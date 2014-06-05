@@ -4,7 +4,9 @@ import Application.Blocks.Header 1.0
 import Application.Blocks.GameMenu 1.0
 import GameNet.Components.Widgets 1.0
 
-import "../../js/Core.js" as CoreJs
+import "../../Application/Blocks/AllGames" as AllGames
+
+import "../../Application/Core/App.js" as App
 
 Rectangle {
     id: root
@@ -15,7 +17,7 @@ Rectangle {
     // HACK
     color: "#092135"
     Component.onCompleted: {
-        CoreJs.activateGame(CoreJs.serviceItemByGameId("92"))
+        App.activateGame(CoreJs.serviceItemByGameId("92"))
     }
 
     WidgetManager {
@@ -136,7 +138,7 @@ Rectangle {
                 id: gameMenu
 
                 anchors.fill: parent
-                model: CoreJs.currentGame().menu
+                model: App.currentGame().menu
 
                 onUrlClicked: {
                     console.log('Open Url', url)

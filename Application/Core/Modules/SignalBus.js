@@ -35,3 +35,7 @@ function backgroundMousePressed(mouseX, mouseY) {
 function backgroundMousePositionChanged(mouseX, mouseY) {
     _signalBusInstance.backgroundMousePositionChanged(mouseX, mouseY);
 }
+
+function updateProgress(gameItem) {
+    _signalBusInstance.progressChanged(gameItem);
+}

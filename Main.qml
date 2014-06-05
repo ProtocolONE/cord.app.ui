@@ -7,7 +7,6 @@ import "./Application/Core/App.js" as App
 
 // HACL
 import "./js/UserInfo.js" as UserInfo
-import "./js/Core.js" as CoreJs
 
 Rectangle {
     id: root
@@ -20,8 +19,8 @@ Rectangle {
     state: "Loading"
     color: "#092135"
 
-    width: App.clientWidth
-    height: App.clientHeight
+    Bootstrap {
+    }
 
     MouseArea {
         anchors.fill: parent
@@ -129,5 +128,33 @@ Rectangle {
             name: 'Application'
             PropertyChanges { target: switcher; source: "../../Application/Blocks/AppScreen.qml" }
         }
-    ]
+    }
+
+    Component {
+        id: mainComponent
+
+        Item {
+            id: main
+
+            anchors.fill: parent
+
+            BaseLayer {
+                anchors.fill: parent
+            }
+
+            ChatLayer {
+                anchors.fill: parent
+            }
+
+            PopupLayer {
+                anchors.fill: parent
+            }
+
+            TooltipLayer {
+                anchors.fill: parent
+            }
+        }
+
+    }
+
 }

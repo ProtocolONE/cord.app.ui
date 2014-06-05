@@ -282,6 +282,8 @@ ListModel {
         imageHorizontalSmall: "Assets/Images/games/aika_icon_horizontal_small.png"
         imagePopupArt: "Assets/Images/games/Popup/AikaPopupArt.png"
 
+        imageDefault: "Assets/Images/games/Default/aika2.png"
+
         size: "normal"
 
         imageBack : "Assets/Images/games/aika_back.png"

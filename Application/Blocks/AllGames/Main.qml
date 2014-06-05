@@ -1,5 +1,9 @@
 import QtQuick 1.1
-import "../../../js/Core.js" as Core
+import GameNet.Controls 1.0 as Controls
+import Application.Controls 1.0
+
+import "../../Core/App.js" as App
+import "./AllGames.js" as AllGamesJs
 
 Item {
     id: root
@@ -13,16 +17,16 @@ Item {
 //        width: 750
 //        height: 750
 
-//        //cellWidth: 190
-//        //cellHeight: 190
+    Item {
+        anchors { fill: parent }
+        clip: true
 
 //        orientation: ListView.Horizontal
 //        spacing: 9
 
-//        model: ListModel {}
-//        delegate: ListView {
-//            width: 750
-//            height: 180
+            anchors { fill: parent; margins: 10 }
+            contentWidth: width
+            boundsBehavior: Flickable.StopAtBounds
 
 //            model: ListModel {}
 //            orientation: ListView.Vertical
@@ -33,8 +37,18 @@ Item {
 //        }
 //    }
 
-    Column {
-        id: rowView
+    ScrollBar {
+        flickable: flickable
+        anchors {
+            right: parent.right
+            rightMargin: 2
+        }
+        height: parent.height
+        scrollbarWidth: 5
+    }
+
+    Component {
+        id: rowComponent
 
         anchors.centerIn: parent
 
@@ -74,8 +88,9 @@ Item {
         var lineWidth = 0,
             lastObj;
 
-        for (var i = 0; i < Core.gamesListModel.count; ++i) {
-            var item = Core.gamesListModel.get(i);
+        for (var i = 0; i < App.gamesListModel.count; ++i) {
+            model.push(App.gamesListModel.get(i));
+        }
 
 //            if (i % 2 == 0) {
 //                if (lastObj) {
@@ -94,31 +109,12 @@ Item {
 //            for (var j = 0; j < lastObj.model.count; ++j) {
 //                var lineItem = lastObj.model.get(j);
 
-//                //console.log('lineItem', lastObj.contentWidth);
-//            }
-
-            lastObj.model.append(item);
-
-
-
-
-
-            //if (lineWidth < rowView.width - item.width) {
-
-
-/*
-            if (i % 2 == 0) {
-                var obj = listViewComponent.createObject(rowView);
-                obj.model.append(item);
-
-                root.lastObj = obj;
-            } else {
-                root.lastObj.model.append(item);
-            }
-            */
-        }
-    }
-
+            var itemInstance = itemComponent.createObject(lastRow, {
+                                                           source: installPath + item.imageDefault,
+                                                           serviceItem: item,
+                                                           pauseAnimation: (countItems++) * 100,
+                                                           imageWidth: size
+                                                          });
 
 
 //    GridView {

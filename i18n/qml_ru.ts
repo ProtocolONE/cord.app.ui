@@ -65,79 +65,79 @@
     <name>AlertAdapter</name>
     <message>
         <source>Save</source>
-        <translation>Сохранить</translation>
+        <translation type="vanished">Сохранить</translation>
     </message>
     <message>
         <source>SaveAll</source>
-        <translation>Сохранить все</translation>
+        <translation type="vanished">Сохранить все</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation>Открыть</translation>
+        <translation type="vanished">Открыть</translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation>Да</translation>
+        <translation type="vanished">Да</translation>
     </message>
     <message>
         <source>YesToAll</source>
-        <translation>Да для всех</translation>
+        <translation type="vanished">Да для всех</translation>
     </message>
     <message>
         <source>No</source>
-        <translation>Нет</translation>
+        <translation type="vanished">Нет</translation>
     </message>
     <message>
         <source>NoToAll</source>
-        <translation>Нет для всех</translation>
+        <translation type="vanished">Нет для всех</translation>
     </message>
     <message>
         <source>Abort</source>
-        <translation>Отменить</translation>
+        <translation type="vanished">Отменить</translation>
     </message>
     <message>
         <source>Retry</source>
-        <translation>Повторить</translation>
+        <translation type="vanished">Повторить</translation>
     </message>
     <message>
         <source>Ignore</source>
-        <translation>Игнорировать</translation>
+        <translation type="vanished">Игнорировать</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Закрыть</translation>
+        <translation type="vanished">Закрыть</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Отмена</translation>
+        <translation type="vanished">Отмена</translation>
     </message>
     <message>
         <source>Discard</source>
-        <translation>Отклонить</translation>
+        <translation type="vanished">Отклонить</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation>Помощь</translation>
+        <translation type="vanished">Помощь</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation>Применить</translation>
+        <translation type="vanished">Применить</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation>Сбросить</translation>
+        <translation type="vanished">Сбросить</translation>
     </message>
     <message>
         <source>RestoreDefaults</source>
-        <translation>Сбросить по умолчанию</translation>
+        <translation type="vanished">Сбросить по умолчанию</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="vanished">OK</translation>
     </message>
     <message>
         <source>Default Text</source>
-        <translation>Текст по умолчанию</translation>
+        <translation type="vanished">Текст по умолчанию</translation>
     </message>
 </context>
 <context>
@@ -2400,11 +2400,11 @@ Please try again later.</source>
     <message>
         <source>TEXT_VERSION</source>
         <translatorcomment>%1 - номер версии приложения</translatorcomment>
-        <translation>Версия %1</translation>
+        <translation type="vanished">Версия %1</translation>
     </message>
     <message>
         <source>TEXT_STARTING_APPLICATION</source>
-        <translation>Запуск GameNet</translation>
+        <translation type="vanished">Запуск GameNet</translation>
     </message>
     <message>
         <source>TECHNICAL_PROBLEM_INFO</source>
@@ -2416,7 +2416,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>TEXT_INITIALIZATION</source>
-        <translation>Инициализация...</translation>
+        <translation type="vanished">Инициализация...</translation>
     </message>
     <message>
         <source>TEXT_RETRY_UPDATE_CHECK</source>
@@ -4059,10 +4059,25 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>SplashScreen</name>
+    <message>
+        <source>TEXT_INITIALIZATION</source>
+        <translation type="unfinished">Инициализация...</translation>
+    </message>
+    <message>
+        <source>TEXT_STARTING_APPLICATION</source>
+        <translation type="unfinished">Запуск GameNet</translation>
+    </message>
+    <message>
+        <source>TEXT_VERSION</source>
+        <translation type="unfinished">Версия %1</translation>
+    </message>
+</context>
+<context>
     <name>Support</name>
     <message>
         <source>SUPPORT_HELP</source>
-        <translation>Служба поддержки пользователей GameNet</translation>
+        <translation type="vanished">Служба поддержки пользователей GameNet</translation>
     </message>
 </context>
 <context>
