@@ -15,7 +15,6 @@ OverlayBase.OverlayBase {
     property bool worldInitializing: false
     property string bsGameState: "None"
 
-    property bool isShopOpened: false
     property bool charInfoLoaded: false
     property bool showLoadingCharWindow: over.bsGameState == "CharSelect" && !over.charInfoLoaded
     property bool loadingCharTooLong: false
@@ -23,59 +22,8 @@ OverlayBase.OverlayBase {
     property bool isDemonion: false
     property int charCount: -1
 
-    property bool errorOnLastShopOpen: false
-
-    property string silver;
-    property int money;
-    property int coupon;
-    property int bonus;
-    property int goldOnChar;
-    property int silverOnChar;
-
-    property string exchangeSilver;
-    property int exchangeGoldOnChar;
-    property int exchangeSilverOnChar;
-    property int exchangeMoney;
-
-    function openShop() {
-        blockInputTurnOffDelay.stop();
-
-        if (over.errorOnLastShopOpen) {
-            over.errorOnLastShopOpen = false;
-            webShopView.reloadShop();
-        }
-
-        over.isShopOpened = true;
-        over.setBlockInput('BS', Overlay.MouseAndKeyboard);
-    }
-
-    function closeShop() {
-        if (!over.isShopOpened) {
-            return;
-        }
-
-        over.isShopOpened = false;
-        over.sendMessage("BSCloseShop", "");
-        blockInputTurnOffDelay.restart();
-    }
-
-    function switchShop() {
-        if (over.isShopOpened) {
-            over.closeShop();
-        } else {
-            over.openShop();
-        }
-    }
-
     function setBsGameState(bsState) {
         over.bsGameState = bsState;
-        if (bsState != 'EnteredWorld') {
-            over.closeShop();
-            over.errorOnLastShopOpen = true;
-        } else {
-            webShopView.reloadShop();
-            over.errorOnLastShopOpen = true;
-        }
     }
 
     function onBsWindowCreate(name, arg) {
@@ -155,61 +103,6 @@ OverlayBase.OverlayBase {
             loadingCharTimer.start();
             return;
         }
-
-        if (packetType === 'NS_BagSilver') {
-            over.silver = packet.totalSilver;
-            over.silverOnChar = packet.silver;
-            over.goldOnChar = packet.gold;
-        }
-
-        if (packetType === 'NS_BagYuanBao') {
-            over.money = packet.yuanBao;
-        }
-
-        if (packetType === 'NS_ExchangeVolume') {
-            over.coupon = packet.nCurExVolume;
-        }
-
-        if (packetType === 'NS_Mark') {
-            over.bonus = packet.nCurMark;
-        }
-
-        if (packetType === 'NS_GetYBAccount') {
-            over.exchangeMoney = packet.yuanBao;
-            over.exchangeSilver = packet.totalSilver;
-            over.exchangeSilverOnChar = packet.silver;
-            over.exchangeGoldOnChar = packet.gold;
-        }
-
-        if (packetType === 'NS_SynAccoutSilver') {
-            over.exchangeSilver = packet.totalSilver;
-            over.exchangeSilverOnChar = packet.silver;
-            over.exchangeGoldOnChar = packet.gold;
-        }
-
-        if (packetType === 'NS_SynAccoutYB') {
-            over.exchangeMoney = packet.yuanBao;
-        }
-
-    }
-
-    function onBSOpenMall(name, arg) {
-        if (arg === "1") {
-            over.openShop();
-        }
-    }
-
-
-    function clearCookie() {
-        WebViewHelper.setCookiesFromUrl('', 'http://www.gamenet.ru')
-        WebViewHelper.setCookiesFromUrl('', 'http://gamenet.ru')
-        WebViewHelper.setCookiesFromUrl('', 'https://gnlogin.ru')
-    }
-
-    onKeyPressed: {
-        if (key == Qt.Key_Escape && over.isShopOpened) {
-            over.closeShop();
-        }
     }
 
     onCustomMessage: {
@@ -219,8 +112,7 @@ OverlayBase.OverlayBase {
         var handlers = {
             'BSCreateWindow': over.onBsWindowCreate,
             'BSDestroyWindow': over.onBsWindowDestroy,
-            'BSNetworkPacket': over.onBSNetworkPacket,
-            'BSOpenMall': over.onBSOpenMall,
+            'BSNetworkPacket': over.onBSNetworkPacket
         }
 
         if (handlers.hasOwnProperty(name)) {
@@ -230,22 +122,7 @@ OverlayBase.OverlayBase {
         }
     }
 
-    onGameInit: {
-        if (!App.isPublicVersion()) {
-            over.sendMessage("BSEnableWebShop", "");
-        }
-    }
-
     Component.onDestruction: over.setBlockInput('BS', Overlay.None);
-
-    Timer {
-        id: blockInputTurnOffDelay
-
-        interval: 500
-        running: false
-        repeat: false
-        onTriggered: over.setBlockInput('BS', Overlay.None);
-    }
 
     Rectangle {
         anchors.fill: parent
@@ -330,95 +207,6 @@ OverlayBase.OverlayBase {
                 }
             }
         }
-
-        WebView {
-            id: webShopView
-
-            function getShopUrl() {
-                return UserInfo.getUrlWithCookieAuth("http://shop.gamenet.ru/bs");
-            }
-
-            function urlEncondingHack(url) {
-                return "<html><head><script type='text/javascript'>window.location='" + url + "';</script></head><body></body></html>";
-            }
-
-            function reloadShop() {
-                webShopView.html = urlEncondingHack(getShopUrl());
-            }
-
-            Component.onCompleted: clearCookie();
-
-            html: ""
-            anchors.centerIn: parent
-            preferredWidth: 1002
-            preferredHeight: 697
-            width: 1002
-            height: 697
-
-            scale: 1
-
-            visible: over.isShopOpened
-            opacity: over.isShopOpened ? 1 : 0
-
-            settings {
-                pluginsEnabled: false
-                autoLoadImages: true
-                javaEnabled: false
-                javascriptEnabled: true
-            }
-
-            javaScriptWindowObjects: QtObject {
-                WebView.windowObjectName: "overlay"
-
-                function closeShopWindow() {
-                    over.closeShop();
-                }
-
-                function openExternalWindow(url) {
-                    if (url == "http://gamenet.ru/money/") {
-                        over.showMoney();
-                        return;
-                    }
-
-                    App.openExternalUrlWithAuth(url);
-                }
-
-                function getMoney() {
-                    var result = {
-                        silverOnChar: over.silverOnChar,
-                        goldOnChar: over.goldOnChar,
-                        realMoney: over.money,
-                        coupon: over.coupon,
-                        bonus: over.bonus,
-                        exchangeMoney: over.exchangeMoney,
-                        exchangeSilver: over.exchangeSilver,
-                        exchangeSilverOnChar: over.exchangeSilverOnChar,
-                        exchangeGoldOnChar: over.exchangeGoldOnChar
-                    };
-
-                    return result;
-                }
-
-                function isShopOpened() {
-                    return webShopView.visible;
-                }
-            }
-
-            onLoadFailed: {
-                console.log('Webview Load failed ');
-                over.closeShop();
-                over.errorOnLastShopOpen = true;
-            }
-
-            // Disable context menu hack
-            MouseArea {
-                anchors.fill: parent
-                acceptedButtons: Qt.RightButton
-            }
-        }
-
-
-
     }
 }
 
