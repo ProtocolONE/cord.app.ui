@@ -13,10 +13,10 @@ import GameNet.Components.Widgets 1.0
 
 import "../../Core/restapi.js" as RestApi
 import "../../Core/GoogleAnalytics.js" as GoogleAnalytics
-
-import "../../../js/Core.js" as Core
-import "MaintenanceModel.js" as MaintenanceModel
 import "../../../js/PopupHelper.js" as PopupHelper
+import "../../../Application/Core/App.js" as App
+
+import "MaintenanceModel.js" as MaintenanceModel
 
 import "View" as View
 
@@ -32,7 +32,7 @@ WidgetModel {
     }
 
     function showPopupGameMaintenanceEnd(serviceId) {
-        var gameItem = Core.serviceItemByServiceId(serviceId)
+        var gameItem = App.serviceItemByServiceId(serviceId)
             , popUpOptions;
 
         popUpOptions = {
@@ -62,7 +62,7 @@ WidgetModel {
             multiplier = schedule[index].hasOwnProperty('id') ? 1000 : 1;
             endTime = schedule[index].endTime * multiplier;
 
-            item = Core.serviceItemByServiceId(index);
+            item = App.serviceItemByServiceId(index);
             if (!item) {
                 continue;
             }
@@ -75,7 +75,7 @@ WidgetModel {
 
             if (endTime < currentTime) {
                 if (item.maintenance) {
-                    Core.gameMaintenanceEnd(index);
+                    App.gameMaintenanceEnd(index);
                 }
 
                 item.maintenance = false;
@@ -99,10 +99,10 @@ WidgetModel {
 
             var maintenance = currentTime >= startTime && currentTime < endTime;
             if (item.maintenance && !maintenance) {
-                Core.gameMaintenanceEnd(index);
+                App.gameMaintenanceEnd(index);
             }
             if (!item.maintenance && maintenance) {
-                Core.gameMaintenanceStart(index);
+                App.gameMaintenanceStart(index);
             }
 
             item.maintenance = maintenance;

@@ -7,7 +7,6 @@ import "./Application/Core/App.js" as App
 
 // HACL
 import "./js/UserInfo.js" as UserInfo
-import "./js/Core.js" as CoreJs
 
 Rectangle {
     id: root
@@ -32,7 +31,7 @@ Rectangle {
 
     Bootstrap {
         Component.onCompleted: {
-            CoreJs.activateGame(CoreJs.serviceItemByGameId("92"))
+            App.activateGame(App.serviceItemByGameId("92"))
         }
     }
 
