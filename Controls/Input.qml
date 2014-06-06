@@ -40,10 +40,13 @@ Item {
     property alias validator: inputBehavior.validator
 
     signal iconClicked()
+    signal enterPressed()
+    signal tabPressed()
+    signal backTabPressed()
 
     onFocusChanged: {
         if (focus) {
-            inputBehavior.focus = true
+            inputBehavior.focus = true;
         }
     }
 
@@ -190,6 +193,14 @@ Item {
                     verticalCenter: parent.verticalCenter
                 }
 
+                Keys.onTabPressed: {
+                    root.tabPressed();
+                }
+
+                Keys.onBacktabPressed: {
+                    root.backTabPressed();
+                }
+
                 Keys.onPressed: {
                     if (event.key == Qt.Key_Up) {
                         suggestionsContainer.decrementCurrentIndex();
@@ -210,6 +221,7 @@ Item {
 
                     if (event.key == Qt.Key_Enter || event.key == Qt.Key_Return) {
                         suggestionsContainer.selectCurrent();
+                        root.enterPressed();
                         return;
                     }
 

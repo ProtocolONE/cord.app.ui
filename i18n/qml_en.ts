@@ -2,73 +2,55 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="en_US">
 <context>
-    <name>AccountActivation</name>
+    <name>AccountActivationView</name>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="79"/>
-        <location filename="../Blocks/AccountActivation.qml" line="106"/>
-        <location filename="../Blocks/AccountActivation.qml" line="264"/>
-        <source>TITLE_ACCOUNT_ACTIVATION</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/AccountActivation.qml" line="111"/>
-        <source>SUBTITLE_VK_AND_MOBILE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/AccountActivation.qml" line="113"/>
-        <source>SUBTITLE_MOBILE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/AccountActivation.qml" line="114"/>
-        <source>SUBTITLE_VK</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/AccountActivation.qml" line="131"/>
-        <source>SUBTITLE_MOBILE_ACTIVATION</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/AccountActivation.qml" line="158"/>
-        <source>PLACEHOLDER_MOBILE_NUMBER_INPUT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/AccountActivation.qml" line="216"/>
-        <source>BUTTON_GET_CODE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/AccountActivation.qml" line="177"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="54"/>
         <source>ACCOUNT_ACTIVATION_PHONE_NOT_FOUND</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="243"/>
-        <source>SUBTITLE_VK_ACTIVATION</source>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="83"/>
+        <source>ACCOUNT_ACTIVATION_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="271"/>
-        <source>TEXT_CODE_IS_SENT</source>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="111"/>
+        <source>ACCOUNT_ACTIVATION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="281"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="137"/>
+        <source>ACCOUNT_ACTIVATION_TIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="168"/>
+        <source>FIRST_STEP_TIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="180"/>
+        <source>PLACEHOLDER_PHONE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="204"/>
+        <source>BUTTON_GET_CODE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="245"/>
+        <source>SECOND_STEP_TIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="260"/>
         <source>PLACEHOLDER_ACTIVATION_CODE_INPUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/AccountActivation.qml" line="313"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="292"/>
         <source>BUTTON_CODE_CONFIRM</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/AccountActivation.qml" line="223"/>
-        <location filename="../Blocks/AccountActivation.qml" line="319"/>
-        <source>BUTTON_CANCEL</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2138,59 +2120,6 @@
     <message>
         <location filename="../Application/Widgets/UserProfile/View/NicknameEdit.qml" line="62"/>
         <source>YOUR_NICKNAME</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>NicknameEditModel</name>
-    <message>
-        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="68"/>
-        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="85"/>
-        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="145"/>
-        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="157"/>
-        <source>VALIDATE_NICK_NAME_DEFAULT_ERROR</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="107"/>
-        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="124"/>
-        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="178"/>
-        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="190"/>
-        <source>VALIDATE_TECH_NAME_DEFAULT_ERROR</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>NicknameEditView</name>
-    <message>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="71"/>
-        <source>CREATE_NICKNAME_TITLE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="100"/>
-        <source>NO_NICKNAME_TIP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="123"/>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="140"/>
-        <source>NICKNAME_OK</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="162"/>
-        <source>YOUR_NICKNAME_PLACEHOLDER</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="204"/>
-        <source>PROFILE_LINK_PLACEHOLDER</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="234"/>
-        <source>SAVE_BUTTON_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

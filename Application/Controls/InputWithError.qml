@@ -23,9 +23,13 @@ ErrorContainer {
     property alias text: input.text
     property alias readOnly: input.readOnly
     property alias error: input.error
+    property alias validator: input.validator
 
     signal validate(string value)
     signal textChanged()
+    signal enterPressed()
+    signal tabPressed()
+    signal backTabPressed()
 
     implicitWidth: parent.width
     error: input.error
@@ -52,6 +56,15 @@ ErrorContainer {
         onTextChanged: {
             root.textChanged();
             validateTimer.restart();
+        }
+        onEnterPressed: {
+            root.enterPressed();
+        }
+        onTabPressed: {
+            root.tabPressed();
+        }
+        onBackTabPressed: {
+            root.backTabPressed();
         }
     }
 

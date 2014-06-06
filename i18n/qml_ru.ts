@@ -2,63 +2,46 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ru_RU">
 <context>
-    <name>AccountActivation</name>
+    <name>AccountActivationView</name>
+    <message>
+        <source>ACCOUNT_ACTIVATION_PHONE_NOT_FOUND</source>
+        <translation>Указанный номер не существует. Пожалуйста, введи новый номер телефона.</translation>
+    </message>
     <message>
         <source>ACCOUNT_ACTIVATION</source>
-        <translation type="obsolete">Активация аккаунта</translation>
+        <translation>Активация аккаунта GameNet</translation>
     </message>
     <message>
-        <source>SUBTITLE_VK_AND_MOBILE</source>
-        <translation>Для того чтобы начать игру вам необходимо привязать ваш аккаунт вконтакте или номер вашего мобильного телефона</translation>
+        <source>ACCOUNT_ACTIVATION_TIP</source>
+        <translation>Чтобы начать играть, тебе необходимо привязать номер твоего мобильного телефона к аккаунту GameNet. &lt;font color=&quot;#FF4F02&quot;&gt;Это бесплатно.&lt;/font&gt;</translation>
     </message>
     <message>
-        <source>SUBTITLE_MOBILE</source>
-        <translation>Для того чтобы начать игру вам необходимо привязать номер вашего мобильного телефона</translation>
+        <source>FIRST_STEP_TIP</source>
+        <translation>&lt;b&gt;Шаг 1.&lt;/b&gt; Введи в поле номер твоего телефона в международном формате.&lt;br&gt;Пример: &lt;font color=&quot;#FF4F02&quot;&gt;+7 900 123 45 67&lt;/font&gt;&lt;br&gt;На указанный номер мы пришлем SMS с кодом активации.</translation>
     </message>
     <message>
-        <source>SUBTITLE_VK</source>
-        <translation>Для того чтобы начать игру вам необходимо привязать ваш аккаунт вконтакте</translation>
-    </message>
-    <message>
-        <source>TITLE_ACCOUNT_ACTIVATION</source>
-        <translation>Активация аккаунта</translation>
-    </message>
-    <message>
-        <source>SUBTITLE_MOBILE_ACTIVATION</source>
-        <translation>Введите номер вашего мобильного телефона&lt;br&gt;в международном формате, например: +7 900 123 45 67 &lt;br&gt;На указанный номер мы пришлём SMS с кодом активации.&lt;br&gt;Это бесплатно.</translation>
-    </message>
-    <message>
-        <source>PLACEHOLDER_MOBILE_NUMBER_INPUT</source>
-        <translation>Ваш номер</translation>
+        <source>PLACEHOLDER_PHONE</source>
+        <translation>Номер твоего мобильного телефона</translation>
     </message>
     <message>
         <source>BUTTON_GET_CODE</source>
         <translation>Получить код</translation>
     </message>
     <message>
+        <source>SECOND_STEP_TIP</source>
+        <translation>&lt;b&gt;Шаг 2.&lt;/b&gt; Введи в поле полученный код активации</translation>
+    </message>
+    <message>
         <source>PLACEHOLDER_ACTIVATION_CODE_INPUT</source>
-        <translation>Полученный в sms код</translation>
+        <translation>Код активации</translation>
     </message>
     <message>
         <source>BUTTON_CODE_CONFIRM</source>
-        <translation>Подтвердить</translation>
+        <translation>Активировать аккаунт</translation>
     </message>
     <message>
-        <source>BUTTON_CANCEL</source>
-        <translation>Отмена</translation>
-    </message>
-    <message>
-        <source>TEXT_CODE_IS_SENT</source>
-        <translatorcomment>%1 - введенный пользователем номер телефона</translatorcomment>
-        <translation>На номер %1 выслан код, после получения введите его в поле ниже</translation>
-    </message>
-    <message>
-        <source>SUBTITLE_VK_ACTIVATION</source>
-        <translation>Привязать аккаунт с помощью Вконтакте</translation>
-    </message>
-    <message>
-        <source>ACCOUNT_ACTIVATION_PHONE_NOT_FOUND</source>
-        <translation>Указанный номер не существует. Пожалуйста, введите новый номер телефона.</translation>
+        <source>ACCOUNT_ACTIVATION_ERROR</source>
+        <translation>Указан неверный код активации. Пожалуйста, введи новый код активации.</translation>
     </message>
 </context>
 <context>
@@ -2927,11 +2910,11 @@ Please try again later.</source>
     <name>NicknameEditModel</name>
     <message>
         <source>VALIDATE_NICK_NAME_DEFAULT_ERROR</source>
-        <translation type="unfinished">GameNet недоступен, невозможно проверить никнейм. Проверьте подключение к интернет или попробуйте ещё раз позже.</translation>
+        <translation type="obsolete">GameNet недоступен, невозможно проверить никнейм. Проверьте подключение к интернет или попробуйте ещё раз позже.</translation>
     </message>
     <message>
         <source>VALIDATE_TECH_NAME_DEFAULT_ERROR</source>
-        <translation type="unfinished">GameNet недоступен, невозможно проверить ссылку.</translation>
+        <translation type="obsolete">GameNet недоступен, невозможно проверить ссылку.</translation>
     </message>
 </context>
 <context>

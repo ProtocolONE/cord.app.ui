@@ -1,0 +1,3 @@
+module Application.Widgets.AccountActivation
+PluginContainer 1.0 PluginContainer.qml 
+AccountActivationView 1.0 View/AccountActivationView.qml
