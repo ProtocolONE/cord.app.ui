@@ -15,6 +15,7 @@
 var indexToGameItem = {},
     gameIdToGameItem = {},
     serviceIdToGameItemIdex = {},
+    authAccepted = false,
     count = 0,
     clientWidth = 930,
     clientHeight = 550;
@@ -142,3 +143,20 @@ function installService(serviceId, installParams) {
 function isServiceInstalled(serviceId) {
     return isSettingsEnabled("GameDownloader/" + serviceId + "/", "isInstalled", false);
 }
+
+function installDate() {
+    return settingsValue('qGNA', 'installDate', 0);
+}
+
+function setInstallDate() {
+    setSettingsValue('qGNA', 'installDate', Math.floor((+ new Date()) / 1000));
+}
+
+function gameInstallDate(serviceId) {
+    return settingsValue("GameDownloader/" + serviceId + "/", "installDate", "");
+}
+
+function gameLastExecutionTime(serviceId) {
+    return settingsValue("gameExecutor/serviceInfo/" + serviceId + "/", "lastExecutionTime", "");
+}
+

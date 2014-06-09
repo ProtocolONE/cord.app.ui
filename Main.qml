@@ -1,12 +1,24 @@
+/****************************************************************************
+** This file is a part of Syncopate Limited GameNet Application or it parts.
+**
+** Copyright (©) 2011 - 2012, Syncopate Limited and/or affiliates.
+** All rights reserved.
+**
+** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
+** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+****************************************************************************/
+
 import QtQuick 1.1
+import Tulip 1.0
+
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
-import Application 1.0
 
-import "./Application/Core/App.js" as App
+import Application.Blocks 1.0
 
-// HACL
-import "./js/UserInfo.js" as UserInfo
+import "Application"
+import "Application/Core/App.js" as App
+import "Application/Core/User.js" as User
 
 Rectangle {
     id: root
@@ -16,7 +28,6 @@ Rectangle {
     signal dragWindowPositionChanged(int x, int y);
     signal windowClose();
 
-    state: "Loading"
     color: "#092135"
 
     width: App.clientWidth
@@ -27,12 +38,6 @@ Rectangle {
         onPressed: dragWindowPressed(mouseX,mouseY);
         onReleased: dragWindowReleased(mouseX,mouseY);
         onPositionChanged: dragWindowPositionChanged(mouseX,mouseY);
-    }
-
-    Bootstrap {
-        Component.onCompleted: {
-            App.activateGame(App.serviceItemByGameId("92"))
-        }
     }
 
     WidgetManager {
@@ -50,18 +55,34 @@ Rectangle {
             manager.registerWidget('Application.Widgets.TaskBar');
             manager.registerWidget('Application.Widgets.TaskList');
             manager.registerWidget('Application.Widgets.UserProfile');
+            manager.registerWidget('Application.Widgets.AutoRefreshCookie');
             manager.init();
+        }
+    }
+
+    Bootstrap {
+        Component.onCompleted: {
+            App.setGlobalState('Loading');
         }
     }
 
     Connections {
         target: App.signalBus()
 
-        onSetGlobalState: root.state = name;
-        onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX, mouseY);
-        onBackgroundMousePressed: onWindowPressed(mouseX, mouseY);
+        onSetGlobalState: {
+            console.log('onSetGlobalState', name);
+            root.state = name;
+
+            switcher.source = (name == 'Loading') ? "../../Application/Blocks/SplashScreen.qml" :
+                              (name == 'Authorization') ? "../../Application/Blocks/Auth/Index.qml" :
+                              (name == 'ServiceLoading') ? "../../Application/Blocks/ServiceLoading/Index.qml" :
+                              (name == 'Application') ? "../../Application/Blocks/AppScreen.qml": ''
+
+        }
+        onBackgroundMousePositionChanged: dragWindowPositionChanged(mouseX, mouseY);
+        onBackgroundMousePressed: dragWindowPressed(mouseX, mouseY);
         onUpdateFinished: {
-/*
+            /*
             var serviceId = App.startingService() || "0"
                 , item;
 
@@ -95,19 +116,8 @@ Rectangle {
             App.initFinished();
 */
             App.setGlobalState('Authorization')
-
         }
     }
-
-    Connections {
-        target: UserInfo.instance()
-        onAuthDone: {
-            console.log('----------------- ')
-            //switcher.sourceComponent = mainComponent;
-            //timerSwitchToMain.start()
-        }
-    }
-
 
     PageSwitcher {
         id: switcher
@@ -115,18 +125,24 @@ Rectangle {
         anchors.fill: parent
     }
 
-    states: [
-        State {
-            name: 'Loading'
-            PropertyChanges { target: switcher; source: "../../Application/Blocks/SplashScreen.qml" }
-        },
-        State {
-            name: 'Authorization'
-            PropertyChanges { target: switcher; source: "../../Application/Blocks/Auth/Index.qml" }
-        },
-        State {
-            name: 'Application'
-            PropertyChanges { target: switcher; source: "../../Application/Blocks/AppScreen.qml" }
-        }
-    ]
+//    TODO это не работает, разобратся
+//
+//    states: [
+//        State {
+//            name: 'Loading'
+//            PropertyChanges { target: switcher; source: "../../Application/Blocks/SplashScreen.qml" }
+//        },
+//        State {
+//            name: 'Authorization'
+//            PropertyChanges { target: switcher; source: "../../Application/Blocks/Auth/Index.qml" }
+//        },
+//        State {
+//            name: 'ServiceLoading'
+//            PropertyChanges { target: switcher; source: "../../Application/Blocks/ServiceLoading/Index.qml" }
+//        },
+//        State {
+//            name: 'Application'
+//            PropertyChanges { target: switcher; source: "../../Application/Blocks/AppScreen.qml" }
+//        }
+//    ]
 }

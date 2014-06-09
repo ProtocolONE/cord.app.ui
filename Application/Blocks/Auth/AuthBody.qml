@@ -16,9 +16,6 @@ import "../../../Application/Core/Authorization.js" as Authorization
 import "../../../Application/Core/restapi.js" as RestApi
 import "../../../Application/Core/App.js" as AppProxy
 
-import "../../../js/Core.js" as Core
-
-
 Item {
     id: root
 
@@ -33,6 +30,12 @@ Item {
     implicitHeight: 473
     implicitWidth: 500
 
+    Connections {
+        target: AppProxy.signalBus()
+
+        onSetGlobalProgressVisible: d.inProgress = value;
+    }
+
     QtObject {
         id: d
 
@@ -43,13 +46,19 @@ Item {
         property alias captcha: captchInput.text
         property alias remember: rememberAuth.checked
 
+        property bool inProgress: false
+
         function authSuccess(response) {
             d.captchaRequired = false;
             root.authDone(response.userId, response.appKey, response.cookie, d.remember);
         }
 
         function genericAuth() {
-            Core.setGlobalProgressVisible(true);
+            if (d.inProgress || !AppProxy.authAccepted) {
+                return;
+            }
+
+            AppProxy.setGlobalProgressVisible(true);
 
             var password = d.password;
             d.password = "";
@@ -66,7 +75,7 @@ Item {
             }
 
             Authorization.loginByGameNet(d.login, password, function(error, response) {
-                Core.setGlobalProgressVisible(false);
+                AppProxy.setGlobalProgressVisible(false);
 
                 if (Authorization.isSuccess(error)) {
                     d.authSuccess(response);
@@ -156,16 +165,16 @@ Item {
 
             function nextBackTabItem() {
                 if (d.captchaRequired) {
-                    captchInput.focus = true;
+                    captchInput.forceActiveFocus();
                 } else {
-                    passwordInput.focus = true;
+                    passwordInput.forceActiveFocus();
                 }
             }
 
             width: parent.width
             placeholder: qsTr("AUTH_BODY_LOGIN_PLACEHOLDER")
 
-            Keys.onTabPressed: passwordInput.focus = true;
+            Keys.onTabPressed: passwordInput.forceActiveFocus();
             Keys.onBacktabPressed: nextBackTabItem();
 
             onTextChanged: d.captchaRequired = false;
@@ -185,9 +194,9 @@ Item {
 
             function nextTabItem() {
                 if (d.captchaRequired) {
-                    captchInput.focus = true;
+                    captchInput.forceActiveFocus();
                 } else {
-                    loginInput.focus = true;
+                    loginInput.forceActiveFocus();
                 }
             }
 
@@ -195,7 +204,7 @@ Item {
             placeholder: qsTr("AUTH_BODY_PASSWORD_PLACEHOLDER")
 
             Keys.onTabPressed: nextTabItem();
-            Keys.onBacktabPressed: loginInput.focus = true;
+            Keys.onBacktabPressed: loginInput.forceActiveFocus();
             Keys.onEnterPressed: d.genericAuth();
             Keys.onReturnPressed: d.genericAuth();
         }
@@ -224,6 +233,7 @@ Item {
                 height: parent.height
                 checked: true
                 text: qsTr("AUTH_BODY_REMEMBER_TEXT")
+                enabled: !d.inProgress
                 //toolTip: qsTr("AUTH_BODY_REMEMBER_TOOLTIP")
                 fontSize: 14
                 style: ButtonStyleColors {
@@ -258,6 +268,7 @@ Item {
                 width: 200
                 height: parent.height
                 text: qsTr("AUTH_BODY_LOGIN_BUTTON")
+                inProgress: d.inProgress
                 onClicked: d.genericAuth();
             }
 
@@ -289,7 +300,7 @@ Item {
                         disabled: "#3498db"
                     }
 
-                    onClicked: root.switchToRegistration();
+                    onClicked: if (!d.inProgress) root.switchToRegistration();
                     fontSize: 12
                 }
             }

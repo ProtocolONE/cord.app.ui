@@ -39,3 +39,15 @@ function backgroundMousePositionChanged(mouseX, mouseY) {
 function updateProgress(gameItem) {
     _signalBusInstance.progressChanged(gameItem);
 }
+
+function logoutRequest() {
+     _signalBusInstance.logoutRequest();
+}
+
+function logoutDone() {
+    _signalBusInstance.logoutDone();
+}
+
+function setGlobalProgressVisible(value) {
+    _signalBusInstance.setGlobalProgressVisible(value);
+}

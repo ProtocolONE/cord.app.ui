@@ -15,9 +15,6 @@ import GameNet.Controls 1.0
 import "../../../Application/Core/Authorization.js" as Authorization
 import "../../../Application/Core/App.js" as App
 
-import "../../../js/Core.js" as Core
-
-
 Item {
     id: root
 
@@ -31,17 +28,30 @@ Item {
     implicitHeight: 473
     implicitWidth: 500
 
+    Connections {
+        target: App.signalBus()
+
+        onSetGlobalProgressVisible: d.inProgress = value;
+    }
+
     QtObject {
         id: d
 
         property alias login: loginInput.text
         property alias password: passwordInput.text
 
+        property bool inProgress: false
+
         function register() {
             var login = d.login,
                 password = d.password;
+
+            if (d.inProgress || !App.authAccepted) {
+                return;
+            }
+
             d.password = "";
-            Core.setGlobalProgressVisible(true);
+            App.setGlobalProgressVisible(true);
 
             Authorization.register(login, password, function(error, response) {
                 if (Authorization.isSuccess(error)) {
@@ -49,7 +59,7 @@ Item {
                     return;
                 }
 
-                Core.setGlobalProgressVisible(false);
+                App.setGlobalProgressVisible(false);
                 if (response.message.login) {
                     loginInput.errorMessage = response.message.login;
                     loginInput.error = true;
@@ -64,7 +74,7 @@ Item {
 
         function auth(login, password) {
             Authorization.loginByGameNet(login, password, function(error, response) {
-                Core.setGlobalProgressVisible(false);
+                App.setGlobalProgressVisible(false);
 
                 if (Authorization.isSuccess(error)) {
                     root.authDone(response.userId, response.appKey, response.cookie);
@@ -144,6 +154,7 @@ Item {
             Button {
                 width: 200
                 height: parent.height
+                inProgress: d.inProgress
                 text: qsTr("REGISTER_BODY_REGISTER_BUTTON")
                 onClicked: d.register();
             }
@@ -177,7 +188,7 @@ Item {
                     }
 
                     fontSize: 12
-                    onClicked: root.switchToLogin();
+                    onClicked: if (!d.inProgress) root.switchToLogin();
                 }
             }
         }

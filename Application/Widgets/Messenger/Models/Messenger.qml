@@ -18,6 +18,7 @@ import "MessengerPrivate.js" as MessengerPrivateJs
 import "User.js" as UserJs
 import "Message.js" as MessageJs
 import "Group.js" as GroupJs
+import "../../../Core/App.js" as App
 
 Item {
     id: root
@@ -416,12 +417,11 @@ Item {
         }
 
         onPresenceReceived: d.updatePresence(presence);
+    }
 
-        //UNDONE Fix next lineconnection
-//        Connections {
-//            target: UserInfo.instance()
-//            onLogoutDone: xmppClient.failCount = 0;
-//        }
+    Connections {
+        target: App.signalBus()
+        onLogoutDone: xmppClient.failCount = 0;
     }
 
     Connections {

@@ -1,13 +1,20 @@
+/****************************************************************************
+** This file is a part of Syncopate Limited GameNet Application or it parts.
+**
+** Copyright (©) 2011 - 2012, Syncopate Limited and/or affiliates.
+** All rights reserved.
+**
+** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
+** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+****************************************************************************/
+
 import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
 
 import "../../../Application/Core/Authorization.js" as Authorization
-
-import "../../../js/Core.js" as Core
-import "../../../js/UserInfo.js" as UserInfo
-
-import "../../../Application/Core/App.js" as AppProxy
+import "../../../Application/Core/User.js" as User
+import "../../../Application/Core/App.js" as AppJs
 
 import "AnimatedBackground" as AnimatedBackground
 
@@ -20,10 +27,11 @@ Rectangle {
     color: "#FAFAFA"
 
     Component.onCompleted: {
-        var mid = Marketing.mid();
-        // UNDONE получение хвида попытатьяс вынести в воркер
-        //Authorization.setup({ mid: mid, hwid: encodeURIComponent(App.hwid())});
-//        console.log('Authorization use mid `' + mid + '`');
+        if (Settings.value("qml/auth/", "authDone", 0) == 0) {
+            authContainer.state = "registration";
+            return;
+        }
+
         d.autoLogin();
     }
 
@@ -37,13 +45,13 @@ Rectangle {
         }
 
         function startVkAuth() {
-            Core.setGlobalProgressVisible(true);
+            AppJs.setGlobalProgressVisible(true);
 
             Authorization.loginByVk(root, function(error, response) {
-                Core.setGlobalProgressVisible(false);
+                AppJs.setGlobalProgressVisible(false);
 
                 if (Authorization.isSuccess(error)) {
-                    UserInfo.authDone(userId, appKey, cookie);
+                    AppJs.authDone(userId, appKey, cookie);
                     return;
                 }
 
@@ -96,7 +104,7 @@ Rectangle {
             var currentDate = Math.floor(+new Date() / 1000);
 
             if (lastRefresh != -1 && (currentDate - lastRefresh < 432000)) {
-                UserInfo.authDone(savedAuth.userId, savedAuth.appKey, savedAuth.cookie);
+                AppJs.authDone(savedAuth.userId, savedAuth.appKey, savedAuth.cookie);
                 return;
             }
 
@@ -108,50 +116,14 @@ Rectangle {
                                savedAuth.appKey,
                                response.cookie,
                                false);
-                   UserInfo.authDone(savedAuth.userId, savedAuth.appKey, response.cookie);
+                   AppJs.authDone(savedAuth.userId, savedAuth.appKey, response.cookie);
                } else {
-                   UserInfo.authDone(savedAuth.userId, savedAuth.appKey, savedAuth.cookie);
+                   AppJs.authDone(savedAuth.userId, savedAuth.appKey, savedAuth.cookie);
                }
            })
-
-            // UNDONE autorefresh cookie
         }
     }
 
-
-    Timer {
-        running: true
-        interval: 3600000
-        repeat: true
-        triggeredOnStart: false
-        onTriggered: {
-            if (!UserInfo.isAuthorized())
-                return;
-
-            var lastRefresh = Settings.value("qml/auth/", "refreshDate", -1);
-            var currentDate = Math.floor(+new Date() / 1000);
-
-            if (lastRefresh != -1 && (currentDate - lastRefresh < 432000)) {
-                return;
-            }
-
-            Authorization.refreshCookie(UserInfo.userId(), UserInfo.appKey(), function(error, response) {
-                if (Authorization.isSuccess(error)) {
-                    CredentialStorage.save(
-                               UserInfo.userId(),
-                               UserInfo.appKey(),
-                               response.cookie,
-                               UserInfo.isGuest());
-
-                   Settings.setValue("qml/auth/", "refreshDate", currentDate);
-//                   authRegisterMoveUpPage.authDoneCallback(
-//                               authRegisterMoveUpPage.userId,
-//                               authRegisterMoveUpPage.appKey,
-//                               response.cookie);
-                }
-            })
-        }
-    }
     /*AnimatedBackground.Index {
         id: background
 
@@ -200,7 +172,7 @@ Rectangle {
                 onError: d.showError(message);
 
                 onAuthDone: {
-                    UserInfo.authDone(userId, appKey, cookie);
+                    AppJs.authDone(userId, appKey, cookie);
 
                     if (remember) {
                         CredentialStorage.save(userId, appKey, cookie, false);
@@ -223,7 +195,7 @@ Rectangle {
                 }
 
                 onAuthDone: {
-                    UserInfo.authDone(userId, appKey, cookie);
+                    AppJs.authDone(userId, appKey, cookie);
 
                     CredentialStorage.save(userId, appKey, cookie, false);
                     d.saveAuthorizedLogins(registration.login);
@@ -300,7 +272,7 @@ Rectangle {
         }
 
         onClicked: {
-            AppProxy.openExternalUrl("http://support.gamenet.ru");
+            AppJs.openExternalUrl("http://support.gamenet.ru");
         }
 
         Column {
@@ -344,7 +316,6 @@ Rectangle {
                     source: installPath + "Assets/Images/Auth/support.png"
                 }
             }
-
         }
     }
 }

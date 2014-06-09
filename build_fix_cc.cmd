@@ -5,11 +5,12 @@
 @rem ¬ этом файле 2 варианта препроцессинга и они практически идентичны. ƒл€ того, чтобы работал первый
 @rem случай нужно прописать в с++ части проекта в importPath хак с qrc импортом (":/") - в этом случае начинают
 @rem работать импорты модулей в qml файлах, однако дл€ создани€ qml из js через Qt.createComponent требуетс€
-@rem использовать аобсолютные пути внутри qrc файлов. Ётот препроцессинг это и делает.
+@rem использовать аобсолютные пути внутри qrc файлов. ¬ этом случае есть ограничени€ на то, что все виды 
+@rem использовани€ Loader тоже требуют подстановки хака с qrc. ѕоэтому пр€мо сейчас используетс€ второй вариант.
 
 @rem ¬торой вариант напротив синтаксический "сахар" с модул€ми замен€ет на ручное подключение папки, игнориру€
 @rem модули и qmldir. Ёто не требует замены дл€ Qt.createComponent, однако вызывает сложности с разрешением версий
-@rem в модул€х, потому, что при простом иморте это не работает.  
+@rem в модул€х, потому, что при простом иморте это не работает. Ётот препроцессинг это и делает.  
 @rem ==============================================================================================================
 */
 
@@ -72,14 +73,14 @@ namespace Build_Fix_CreateComponent_Qrc_Bug
                     .Aggregate((s, s1) => s + "../");
                 
                 string content = File.ReadAllText(filename);
-                string res = Regex.Replace(content, @"import ((\w+(?=\.))([\w\.]+)) \d+\.\d+", match => "import \"" + qrcPath + match.Groups[1].ToString().Replace(".", "/") + "\"");
+                string res = Regex.Replace(content, @"import ((?!qGNA)(\w+(?=\.))([\w\.]+)) \d+\.\d+", match => "import \"" + qrcPath + match.Groups[1].ToString().Replace(".", "/") + "\"");
 
                 if (res != content)
                 {
                     File.WriteAllText(filename, res);  
                 }
             }
-
+/*
             foreach (var filename in filenames)
             {
                 string qrcPath = Path.GetDirectoryName(filename)
@@ -88,13 +89,13 @@ namespace Build_Fix_CreateComponent_Qrc_Bug
 
                 string content = File.ReadAllText(filename);
                 string res = Regex.Replace(content, "Qt.createComponent\\((.+?)\\)", "Qt.createComponent('" +qrcPath + "/' + $1)");
-                
+
                 if (res != content)
                 {
                     File.WriteAllText(filename, res);  
                 }
             }
-
+*/
             Console.WriteLine("Preprocess finished.");
         }
     }

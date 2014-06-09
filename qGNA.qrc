@@ -47,11 +47,13 @@
 		<file>Application/Blocks/Premium/PayItem.qml</file>
 		<file>Application/Blocks/Premium/qmldir</file>
 		<file>Application/Blocks/qmldir</file>
+		<file>Application/Blocks/ServiceLoading/Index.qml</file>
 		<file>Application/Blocks/SettingsMenu.qml</file>
 		<file>Application/Blocks/SplashScreen.qml</file>
 		<file>Application/Blocks/SplashScreen/Background.qml</file>
 		<file>Application/Blocks/SplashScreen/UpdateManager.qml</file>
 		<file>Application/Bootstrap.qml</file>
+		<file>Application/Controls/InputWithError.qml</file>
 		<file>Application/Controls/qmldir</file>
 		<file>Application/Controls/ScrollBar.qml</file>
 		<file>Application/Core/App.js</file>
@@ -86,6 +88,12 @@
 		<file>Application/Widgets/AlertAdapter/View/AlertAdapterView.qml</file>
 		<file>Application/Widgets/AlertAdapter/View/NegativeButton.qml</file>
 		<file>Application/Widgets/AlertAdapter/View/PositiveButton.qml</file>
+		<file>Application/Widgets/AutoRefreshCookie/AutoRefreshCookie.qml</file>
+		<file>Application/Widgets/AutoRefreshCookie/PluginContainer.qml</file>
+		<file>Application/Widgets/AutoRefreshCookie/qmldir</file>
+		<file>Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml</file>
+		<file>Application/Widgets/DownloadManagerConnector/PluginContainer.qml</file>
+		<file>Application/Widgets/DownloadManagerConnector/qmldir</file>
 		<file>Application/Widgets/Facts/FactsModel.js</file>
 		<file>Application/Widgets/Facts/FactsModel.qml</file>
 		<file>Application/Widgets/Facts/PluginContainer.qml</file>
@@ -124,11 +132,19 @@
 		<file>Application/Widgets/Messenger/View/MessageInput.qml</file>
 		<file>Application/Widgets/Messenger/View/MessageItem.qml</file>
 		<file>Application/Widgets/Messenger/View/SearchContactList.qml</file>
+		<file>Application/Widgets/NicknameEdit/NicknameEditModel.qml</file>
+		<file>Application/Widgets/NicknameEdit/PluginContainer.qml</file>
+		<file>Application/Widgets/NicknameEdit/qmldir</file>
+		<file>Application/Widgets/NicknameEdit/View/InputWithError.qml</file>
+		<file>Application/Widgets/NicknameEdit/View/NicknameEditView.qml</file>
 		<file>Application/Widgets/PremiumShop/PluginContainer.qml</file>
 		<file>Application/Widgets/PremiumShop/PremiumShopModel.qml</file>
 		<file>Application/Widgets/PremiumShop/qmldir</file>
 		<file>Application/Widgets/PremiumShop/View/PayItem.qml</file>
 		<file>Application/Widgets/PremiumShop/View/PremiumShopView.qml</file>
+		<file>Application/Widgets/PromoCode/PluginContainer.qml</file>
+		<file>Application/Widgets/PromoCode/qmldir</file>
+		<file>Application/Widgets/PromoCode/View/PromoCodeView.qml</file>
 		<file>Application/Widgets/TaskBar/PluginContainer.qml</file>
 		<file>Application/Widgets/TaskBar/qmldir</file>
 		<file>Application/Widgets/TaskBar/TaskBar.js</file>
@@ -393,7 +409,9 @@
 		<file>Tests/Application/Widgets/Maintenance/Maintenance.qml</file>
 		<file>Tests/Application/Widgets/Maintenance/MaintenanceAfterDownload.qml</file>
 		<file>Tests/Application/Widgets/MessengerSample.qml</file>
+		<file>Tests/Application/Widgets/NicknameEditSample.qml</file>
 		<file>Tests/Application/Widgets/PremiumShopSample.qml</file>
+		<file>Tests/Application/Widgets/PromoCodeSample.qml</file>
 		<file>Tests/Application/Widgets/UserProfileSample.qml</file>
 		<file>Tests/GameNet/Components/Widgets/Fixtures/DualViewWidget/PluginContainer.qml</file>
 		<file>Tests/GameNet/Components/Widgets/Fixtures/DualViewWidget/qmldir</file>

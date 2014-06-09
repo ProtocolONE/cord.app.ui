@@ -6,7 +6,7 @@ import GameNet.Components.Widgets 1.0
 
 import "../../Application/Blocks/AllGames" as AllGames
 
-import "../../Application/Core/App.js" as App
+import "../../Application/Core/App.js" as AppJs
 
 Rectangle {
     id: root
@@ -17,19 +17,8 @@ Rectangle {
     // HACK
     color: "#092135"
     Component.onCompleted: {
-        App.activateGame(CoreJs.serviceItemByGameId("92"))
+        AppJs.activateGame(AppJs.serviceItemByGameId("92"))
     }
-
-    WidgetManager {
-        id: manager
-
-        Component.onCompleted: {
-            manager.registerWidget('Application.Widgets.UserProfile');
-            manager.registerWidget('Application.Widgets.Messenger');
-            manager.init();
-        }
-    }
-
 
     Rectangle {
         id: cont
@@ -138,7 +127,7 @@ Rectangle {
                 id: gameMenu
 
                 anchors.fill: parent
-                model: App.currentGame().menu
+                model: AppJs.currentGame().menu
 
                 onUrlClicked: {
                     console.log('Open Url', url)
@@ -251,6 +240,4 @@ Rectangle {
             PropertyChanges { target: contactList; parent: layer2Col2}
         }
     ]
-
-
 }

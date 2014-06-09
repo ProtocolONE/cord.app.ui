@@ -10,7 +10,6 @@
 import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
-import Application 1.0
 import "../../../Application/Core/App.js" as App
 
 Rectangle {
