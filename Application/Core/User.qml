@@ -16,6 +16,8 @@ import "restapi.js" as RestApiJs
 WidgetModel {
     id: root
 
+    property int premiumExpiredNotificationTimeout: 3600000
+
     property string userId
     property string appKey
     property string cookie
@@ -133,9 +135,9 @@ WidgetModel {
     Timer {
         id: premiumExpiredTimer
 
-        interval: 3600000
+        interval: premiumExpiredNotificationTimeout
         onTriggered: {
-            AppJs.signalBus().premiumExpired();
+            AppJs.premiumExpired();
         }
     }
 

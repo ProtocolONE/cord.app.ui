@@ -130,6 +130,12 @@ function language() {
     return false;
 }
 
+function switchClientVersion() {
+    if (proxyInst) {
+        return proxyInst.switchClientVersion();
+    }
+}
+
 function windowPosition() {
     if (proxyInst) {
         return proxyInst.windowPosition();

@@ -1,0 +1,3 @@
+module Application.Widgets.Overlay
+PluginContainer 1.0 PluginContainer.qml 
+OverlayModel 1.0 OverlayModel.qml

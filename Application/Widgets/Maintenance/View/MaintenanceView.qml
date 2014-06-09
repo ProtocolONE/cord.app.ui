@@ -12,12 +12,12 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
-import "../../../../Application/Core/App.js" as App
+import "../../../../Application/Core/App.js" as AppJs
 
 WidgetView {
     id: root
 
-    property int interval: App.currentGame().maintenanceInterval
+    property int interval: AppJs.currentGame().maintenanceInterval
 
     width: 590
     height: 150
@@ -117,7 +117,7 @@ WidgetView {
                 width: parent.width - 30
                 height: 35
 
-                text: qsTr("MAINTENANCE_PROPOSAL_GAME_TEXT").arg(App.currentGame().name)
+                text: qsTr("MAINTENANCE_PROPOSAL_GAME_TEXT").arg(AppJs.currentGame().name)
                 color: '#8ea4b9'
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 font { family: 'Arial'; pixelSize: 16 }
@@ -130,15 +130,15 @@ WidgetView {
                 spacing: 10
 
                 GameItem {
-                    gameItem: App.serviceItemByServiceId(App.currentGame().maintenanceProposal1)
+                    gameItem: AppJs.serviceItemByServiceId(AppJs.currentGame().maintenanceProposal1)
 
-                    onActivate: App.activateGame(gameItem.serviceId);
+                    onActivate: AppJs.activateGame(gameItem.serviceId);
                 }
 
                 GameItem {
-                    gameItem: App.serviceItemByServiceId(App.currentGame().maintenanceProposal2)
+                    gameItem: AppJs.serviceItemByServiceId(AppJs.currentGame().maintenanceProposal2)
 
-                    onActivate: App.activateGame(gameItem.serviceId);
+                    onActivate: AppJs.activateGame(gameItem.serviceId);
                 }
             }
         }

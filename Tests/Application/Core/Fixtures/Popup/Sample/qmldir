@@ -1,4 +1,4 @@
 module Tests.Application.Core.Fixtures.Popup.Sample
 PluginContainer 1.0 PluginContainer.qml 
-SomeWidget 1.0 View/SomeWidget.qml
+SomeWidgetView 1.0 View/SomeWidgetView.qml
 SomeWidgetModel 1.0 SomeWidgetModel.qml 

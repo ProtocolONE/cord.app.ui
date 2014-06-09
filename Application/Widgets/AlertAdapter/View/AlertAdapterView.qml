@@ -12,8 +12,8 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0 as Controls
 
-import "../../../Core/MessageBox.js" as MessageBox
-import "../../../Core/App.js" as App
+import "../../../../Application/Core/App.js" as AppJs
+import "../../../../Application/Core/MessageBox.js" as MessageBox
 import "./AlertAdapter.js" as AlertAdapter
 
 
@@ -189,7 +189,7 @@ WidgetView {
             color: "#fafafa"
             smooth: true
             textFormat: Text.RichText
-            onLinkActivated: App.openExternalUrl(link)
+            onLinkActivated: AppJs.openExternalUrl(link)
         }
 
         Image {

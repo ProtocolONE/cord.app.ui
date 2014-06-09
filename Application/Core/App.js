@@ -26,6 +26,7 @@ var indexToGameItem = {},
 Qt.include('./Modules/SignalBus.js');
 Qt.include('./Modules/Host.js');
 Qt.include('./Modules/Settings.js');
+Qt.include('./Modules/Overlay.js');
 
 var gamesListModel = initModel(),
     _previousGame = gamesListModel.currentGameItem,
@@ -60,7 +61,6 @@ function initModel() {
 
     return list;
 }
-
 
 function activateGame(item) {
     _previousGame = gamesListModel.currentGameItem;
@@ -108,7 +108,6 @@ function indexByServiceId(serviceId) {
 /**
  * Application specific functions
  */
-
 function browseDirectory(serviceId, name, defaultDir) {
     console.log("!!! IMPLEMENT ME: App.js::browseDirectory(" + serviceId + ", " + name + ", " + defaultDir+ ")");
 }
@@ -170,4 +169,3 @@ function secondServiceFinished(service) {
     delete runningSecondService[service];
     _signalBusInst.isAnySecondServiceRunning = Object.keys(runningSecondService) > 0;
 }
-

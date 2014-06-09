@@ -1,0 +1,3 @@
+module Application.Widgets.PublicTest
+PluginContainer 1.0 PluginContainer.qml 
+PublicTestView 1.0 View/PublicTestView.qml

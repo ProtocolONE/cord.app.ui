@@ -109,7 +109,11 @@ QtObject {
         return mainWindow.updateArea === 'live';
     }
 
-    function updateProgressEx(value, status) {
+    function switchClientVersion() {
+        settingsViewModel.switchClientVersion();
+    }
+
+    function updateProgress(value, status) {
         mainWindow.onProgressUpdated(value, status);
     }
 

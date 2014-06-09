@@ -21,14 +21,8 @@ if (!_userComponent) {
     }
 }
 
-function setCredential(userId, appKey, cookie) {
-    _userComponentInstance.userId = userId;
-    _userComponentInstance.appKey = appKey;
-    _userComponentInstance.cookie = cookie;
-};
-
-function reset() {
-    setCredential('', '', '');
+function getInstance() {
+    return _userComponentInstance;
 }
 
 function userId() {
@@ -94,3 +88,10 @@ function refreshPremium() {
 function refreshBalance() {
     _userComponentInstance.refreshBalance();
 }
+
+function getUrlWithCookieAuth(url) {
+    return _userComponentInstance.cookie
+            ? 'https://gnlogin.ru/?auth=' + _userComponentInstance.cookie + '&rp=' + encodeURIComponent(url)
+            : url;
+}
+

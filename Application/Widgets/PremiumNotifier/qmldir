@@ -1,0 +1,3 @@
+module Application.Widgets.PremiumNotifier
+PluginContainer 1.0 PluginContainer.qml 
+PremiumNotifierModel 1.0 PremiumNotifierModel.qml

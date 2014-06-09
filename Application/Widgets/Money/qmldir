@@ -1,0 +1,4 @@
+module Application.Widgets.Money
+PluginContainer 1.0 PluginContainer.qml 
+MoneyView 1.0 View/MoneyView.qml
+MoneyModel 1.0 MoneyModel.qml 

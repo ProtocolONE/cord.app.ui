@@ -59,92 +59,92 @@
 <context>
     <name>AlertAdapterModel</name>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="32"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="31"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="33"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="32"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="34"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="33"/>
         <source>SaveAll</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="35"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="34"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="36"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="35"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="37"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="36"/>
         <source>YesToAll</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="38"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="37"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="39"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="38"/>
         <source>NoToAll</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="40"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="39"/>
         <source>Abort</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="41"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="40"/>
         <source>Retry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="42"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="41"/>
         <source>Ignore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="43"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="42"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="44"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="43"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="45"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="44"/>
         <source>Discard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="46"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="45"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="47"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="46"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="48"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="47"/>
         <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="49"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="48"/>
         <source>RestoreDefaults</source>
         <translation type="unfinished"></translation>
     </message>
@@ -728,22 +728,17 @@
 <context>
     <name>DownloadManagerConnector</name>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="48"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="60"/>
         <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="159"/>
-        <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="187"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="173"/>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="188"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="174"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1201,6 +1196,14 @@
     <message>
         <location filename="../Application/Blocks/GameSettings/GameOverlaySettings.qml" line="22"/>
         <source>USE_OVERLAY</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GamePopup</name>
+    <message>
+        <location filename="../Application/Blocks/GamePopup.qml" line="10"/>
+        <source>PLAY_NOW</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2187,9 +2190,9 @@
     </message>
 </context>
 <context>
-    <name>Popup</name>
+    <name>PopupModel</name>
     <message>
-        <location filename="../Application/Core/Popup.qml" line="172"/>
+        <location filename="../Application/Core/Popup/PopupModel.qml" line="172"/>
         <source>POPUP_HELP_HINT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2203,14 +2206,14 @@
     </message>
 </context>
 <context>
-    <name>PremiumNotifier</name>
+    <name>PremiumNotifierModel</name>
     <message>
-        <location filename="../Features/Premium/PremiumNotifier.qml" line="24"/>
+        <location filename="../Application/Widgets/PremiumNotifier/PremiumNotifierModel.qml" line="30"/>
         <source>PREMIUM_EXPIRED_BUTTON_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/Premium/PremiumNotifier.qml" line="25"/>
+        <location filename="../Application/Widgets/PremiumNotifier/PremiumNotifierModel.qml" line="31"/>
         <source>PREMIUM_EXPIRED_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2431,30 +2434,30 @@
     </message>
 </context>
 <context>
-    <name>PublicTestWarning</name>
+    <name>PublicTestView</name>
     <message>
-        <location filename="../Features/PublicTest/PublicTestWarning.qml" line="23"/>
-        <source>PUBLIC_TEST_HELP_TEXT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Features/PublicTest/PublicTestWarning.qml" line="24"/>
+        <location filename="../Application/Widgets/PublicTest/View/PublicTestView.qml" line="46"/>
         <source>PUBLIC_TEST_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/PublicTest/PublicTestWarning.qml" line="69"/>
-        <source>PUBLIC_TEST_SUPPORT_BUTTON</source>
+        <location filename="../Application/Widgets/PublicTest/View/PublicTestView.qml" line="66"/>
+        <source>PUBLIC_TEST_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/PublicTest/PublicTestWarning.qml" line="77"/>
-        <source>PUBLIC_TEST_CHANGE_VERSION_BUTTON</source>
+        <location filename="../Application/Widgets/PublicTest/View/PublicTestView.qml" line="94"/>
+        <source>BUTTON_NOTIFY_SUPPORT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/PublicTest/PublicTestWarning.qml" line="85"/>
-        <source>PUBLIC_TEST_CLOSE_BUTTON</source>
+        <location filename="../Application/Widgets/PublicTest/View/PublicTestView.qml" line="103"/>
+        <source>BUTTON_STOP_TESTING</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PublicTest/View/PublicTestView.qml" line="113"/>
+        <source>BUTTON_CLOSE</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2979,14 +2982,14 @@
     </message>
 </context>
 <context>
-    <name>SilentMode</name>
+    <name>SilentModeModel</name>
     <message>
-        <location filename="../Features/SilentMode/SilentMode.qml" line="30"/>
+        <location filename="../Application/Widgets/SilentMode/SilentModeModel.qml" line="35"/>
         <source>SILENT_DOWNLOADING_POPUP_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Features/SilentMode/SilentMode.qml" line="31"/>
+        <location filename="../Application/Widgets/SilentMode/SilentModeModel.qml" line="36"/>
         <source>SILENT_DOWNLOADING_POPUP_TEXT</source>
         <translation type="unfinished"></translation>
     </message>

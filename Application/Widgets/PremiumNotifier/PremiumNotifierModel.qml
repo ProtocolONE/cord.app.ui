@@ -8,36 +8,51 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 import QtQuick 1.1
+import Tulip 1.0
+import Application.Blocks 1.0
+import GameNet.Components.Widgets 1.0
+import GameNet.Controls 1.0
 
-import "../../js/PopupHelper.js" as PopupHelper
-import "../../Elements" as Elements
-import "../../js/Core.js" as Core
-import "../../js/GoogleAnalytics.js" as GoogleAnalytics
+import "../../Core/App.js" as AppJs
+import "../../Core/TrayPopup.js" as TrayPopupJs
+import "../../Core/GoogleAnalytics.js" as GoogleAnalytics
 
 Item {
     id: premiumNotifier
 
-    function showPremiumExpiredPopup() {
-        var gameItem = Core.serviceItemByServiceId(0);
-        var popUpOptions = {
-            gameItem: gameItem,
-            buttonCaption: qsTr("PREMIUM_EXPIRED_BUTTON_CAPTION"), // "Продлить",
-            message: qsTr("PREMIUM_EXPIRED_MESSAGE")    //"Действие расширенного аккаунта закончилось."
-        };
+    QtObject {
+        id: d
 
-        PopupHelper.showPopup(premiumExpiredPopup, popUpOptions, 'premiumExpiredNotification');
+        function showPremiumExpiredPopup() {
+            var gameItem = AppJs.serviceItemByServiceId(0);
+            var popUpOptions = {
+                gameItem: gameItem,
+                buttonCaption: qsTr("PREMIUM_EXPIRED_BUTTON_CAPTION"), // "Продлить",
+                message: qsTr("PREMIUM_EXPIRED_MESSAGE")    //"Действие расширенного аккаунта закончилось."
+            };
+
+            TrayPopupJs.showPopup(premiumExpiredPopup, popUpOptions, 'premiumExpiredNotification');
+        }
+    }
+
+    Connections {
+        target: AppJs.signalBus()
+
+        onPremiumExpired: {
+            d.showPremiumExpiredPopup();
+        }
     }
 
     Component {
         id: premiumExpiredPopup
 
-        Elements.GameItemPopUp {
+        GamePopup {
             id: popUp
 
             state: "Green"
 
             onPlayClicked: {
-                Core.openBuyGamenetPremiumPage();
+                AppJs.prolongPremium();
                 GoogleAnalytics.trackEvent('/announcement/premiumExpired', 'Announcement', 'Action on Announcement');
             }
             onAnywhereClicked: {

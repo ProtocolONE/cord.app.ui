@@ -1699,6 +1699,13 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>GamePopup</name>
+    <message>
+        <source>PLAY_NOW</source>
+        <translation>Играть</translation>
+    </message>
+</context>
+<context>
     <name>GameSettings</name>
     <message>
         <source>GAME_SETTINGS_TITLE</source>
@@ -3035,7 +3042,7 @@ Please try again later.</source>
     </message>
 </context>
 <context>
-    <name>PremiumNotifier</name>
+    <name>PremiumNotifierModel</name>
     <message>
         <source>PREMIUM_EXPIRED_BUTTON_CAPTION</source>
         <translation>Продлить</translation>
@@ -3269,28 +3276,43 @@ Please try again later.</source>
     </message>
 </context>
 <context>
-    <name>PublicTestWarning</name>
-    <message>
-        <source>PUBLIC_TEST_HELP_TEXT</source>
-        <translation>Вы принимаете участие в тестировании новых функций приложения GameNet. Если Вы столкнулись с ошибками в процессе загрузки или запуска игр, пожалуйста, сообщите об этом в нашу службу поддержки, уточнив, что Вы используете тестовую версию.
-Переключиться с тестовой версии на основную можно в настройках приложения GameNet в разделе &quot;Основные&quot; (пункт &quot;Принять участие в тестировании GameNet&quot;).
-Благодарим Вас за помощь в тестировании, Вы помогаете нам сделать GameNet еще лучше!</translation>
-    </message>
+    <name>PublicTestView</name>
     <message>
         <source>PUBLIC_TEST_TITLE</source>
         <translation>Внимание</translation>
     </message>
     <message>
-        <source>PUBLIC_TEST_SUPPORT_BUTTON</source>
+        <source>PUBLIC_TEST_TEXT</source>
+        <translation>Вы принимаете участие в тестировании новых функций приложения GameNet. Если Вы столкнулись с ошибками в процессе загрузки или запуска игр, пожалуйста, сообщите об этом в нашу службу поддержки, уточнив, что Вы используете тестовую версию.
+Переключиться с тестовой версии на основную можно в настройках приложения GameNet в разделе &quot;Основные&quot; (пункт &quot;Принять участие в тестировании GameNet&quot;).
+Благодарим Вас за помощь в тестировании, Вы помогаете нам сделать GameNet еще лучше!</translation>
+    </message>
+    <message>
+        <source>BUTTON_NOTIFY_SUPPORT</source>
         <translation>Сообщить о проблеме</translation>
     </message>
     <message>
-        <source>PUBLIC_TEST_CHANGE_VERSION_BUTTON</source>
+        <source>BUTTON_STOP_TESTING</source>
         <translation>Прекратить тестирование GameNet</translation>
     </message>
     <message>
-        <source>PUBLIC_TEST_CLOSE_BUTTON</source>
+        <source>BUTTON_CLOSE</source>
         <translation>Закрыть</translation>
+    </message>
+</context>
+<context>
+    <name>PublicTestWarning</name>
+    <message>
+        <source>PUBLIC_TEST_TITLE</source>
+        <translation type="obsolete">Внимание</translation>
+    </message>
+    <message>
+        <source>PUBLIC_TEST_CHANGE_VERSION_BUTTON</source>
+        <translation type="obsolete">Прекратить тестирование GameNet</translation>
+    </message>
+    <message>
+        <source>PUBLIC_TEST_CLOSE_BUTTON</source>
+        <translation type="obsolete">Закрыть</translation>
     </message>
 </context>
 <context>
@@ -4077,11 +4099,11 @@ Please try again later.</source>
     <name>SilentMode</name>
     <message>
         <source>SILENT_DOWNLOADING_POPUP_BUTTON</source>
-        <translation>OK</translation>
+        <translation type="vanished">OK</translation>
     </message>
     <message>
         <source>SILENT_DOWNLOADING_POPUP_TEXT</source>
-        <translation>Игра устанавливается</translation>
+        <translation type="vanished">Игра устанавливается</translation>
     </message>
     <message>
         <source>FIRSTLICENSE_LICENSE_CAPTION</source>
@@ -4099,6 +4121,17 @@ Please try again later.</source>
         <source>SILENT_REMIND_POPUP_MESSAGE</source>
         <translatorcomment>Нажимая &quot;Играть&quot;, Вы подтверждаете, что согласн с условиями &lt;a href=&quot;http://www.gamenet.ru/license&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Лицензионного соглашения GameNet&lt;/font&gt;&lt;/a&gt; и &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Игры&lt;/font&gt;&lt;/a&gt;</translatorcomment>
         <translation type="obsolete">Нажимая &quot;Играть&quot;, Вы подтверждаете, что согласн с условиями &lt;a href=&quot;http://www.gamenet.ru/license&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Лицензионного соглашения GameNet&lt;/font&gt;&lt;/a&gt; и &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Игры&lt;/font&gt;&lt;/a&gt;</translation>
+    </message>
+</context>
+<context>
+    <name>SilentModeModel</name>
+    <message>
+        <source>SILENT_DOWNLOADING_POPUP_BUTTON</source>
+        <translation type="unfinished">OK</translation>
+    </message>
+    <message>
+        <source>SILENT_DOWNLOADING_POPUP_TEXT</source>
+        <translation type="unfinished">Игра устанавливается</translation>
     </message>
 </context>
 <context>

@@ -1,6 +1,7 @@
 import QtQuick 1.1
 import QtWebKit 1.0
-import "../../Elements" as Elements
+import GameNet.Controls 1.0
+import Tulip 1.0
 
 Item {
     id: componentRoot
@@ -20,7 +21,7 @@ Item {
 
     onProgressChanged: if (tabInstance) tabInstance.progress = progress;
 
-    Elements.TinyScrollbar {
+    OldTinyScrollbar {
         id: scrollBar
 
         height: componentRoot.height
@@ -31,7 +32,7 @@ Item {
         z: 1
     }
 
-    Elements.ScrollBar {
+    OldScrollBar {
         id: scrollBarView
 
         height: componentRoot.height

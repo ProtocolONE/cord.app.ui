@@ -14,7 +14,7 @@ import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 import Tests.Application.Core.Fixtures.Popup.Sample 1.0
 import "../../../Application/Core/Popup.js" as Popup
-import "../../../Application/Core/App.js" as App
+import "../../../Application/Core/App.js" as AppJs
 
 
 Item {
@@ -30,7 +30,7 @@ Item {
             manager.registerWidget('Tests.Application.Core.Fixtures.Popup.Sample');
             manager.init();
 
-            App.activateGame(App.serviceItemByGameId("92"));
+            AppJs.activateGame(AppJs.serviceItemByGameId("92"));
         }
     }
 

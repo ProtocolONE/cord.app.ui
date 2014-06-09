@@ -11,14 +11,13 @@
 import QtQuick 1.1
 
 import GameNet.Components.Widgets 1.0
-
-import "../../../Core/App.js" as App
+import "../../../../Application/Core/App.js" as AppJs
 import "FactsView.js" as FactsView
 
 WidgetView {
     id: root
 
-    property variant currentItem: App.currentGame()
+    property variant currentItem: AppJs.currentGame()
     property int index
 
     function filter() {

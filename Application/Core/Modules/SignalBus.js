@@ -46,38 +46,38 @@ function updateProgress(gameItem) {
     _signalBusInstance.progressChanged(gameItem);
 }
 
-function logoutRequest() {
-     _signalBusInstance.logoutRequest();
+function serviceInstalled(gameItem) {
+    _signalBusInstance.serviceInstalled(gameItem);
 }
 
-function logoutDone() {
-    _signalBusInstance.logoutDone();
+function serviceStarted(gameItem) {
+    _signalBusInstance.serviceStarted(gameItem);
 }
 
-function setGlobalProgressVisible(value) {
-    _signalBusInstance.setGlobalProgressVisible(value);
+function serviceFinished(gameItem) {
+    _signalBusInstance.serviceFinished(gameItem);
 }
 
-function gameMaintenanceStart(serviceId) {
-   _signalBusInstance.gameMaintenanceStart(serviceId);
+function downloaderStarted(gameItem) {
+    _signalBusInstance.downloaderStarted(gameItem);
 }
 
-function gameMaintenanceEnd(serviceId) {
-   _signalBusInstance.gameMaintenanceEnd(serviceId);
+function navigate(link) {
+     _signalBusInstance.navigate(link);
 }
 
-function showPurchaseOptions(itemOptions) {
-    _signalBusInstance.openPurchaseOptions(itemOptions);
-}
-
-function openBuyGamenetPremiumPage() {
-    _signalBusInstance.openBuyGamenetPremiumPage();
+function publicTestIconClicked() {
+    _signalBusInstance.publicTestIconClicked();
 }
 
 function premiumExpired() {
-   _signalBusInstance.premiumExpired();
+    _signalBusInstance.premiumExpired();
 }
 
-function hideMainWindow() {
-    _signalBusInstance.hideMainWindow();
+function prolongPremium() {
+    _signalBusInstance.prolongPremium();
+}
+
+function balanceChanged(amount) {
+     _signalBusInstance.balanceChanged(amount);
 }
