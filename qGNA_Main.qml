@@ -48,55 +48,6 @@ Item {
 
     signal windowDestroy();
 
-    function setMidToGoogleAnalytics() {
-        var mid = Marketing.mid();
-        if (!mid) {
-            return;
-        }
-
-        RestApi.Marketing.getMidDetails(mid,
-                                        function(response) {
-                                            var midDescription = (response.agentId || "") +
-                                                    '-' + (response.company || "") +
-                                                    '-' + (response.urlId || "");
-                                            GoogleAnalytics.setMidDescription(midDescription);
-                                        });
-    }
-
-    Component.onCompleted: {
-        var desktop = Desktop.screenWidth + 'x' + Desktop.screenHeight
-        , url = Settings.value('qGNA/restApi', 'url', 'https://gnapi.com:8443/restapi');
-
-        RestApi.Core.setup({lang: 'ru', url: url});
-
-        console.log('appProxy', App.mainWindow);
-        console.log('Version ', App.fileVersion());
-        console.log('Desktop ', desktop);
-        console.log('RestApi ', url);
-
-        GoogleAnalytics.init({
-                                 saveSettings: Settings.setValue,
-                                 loadSettings: Settings.value,
-                                 desktop: desktop,
-                                 systemVersion: GoogleAnalyticsHelper.systemVersion(),
-                                 globalLocale: GoogleAnalyticsHelper.systemLanguage(),
-                                 applicationVersion: App.fileVersion()
-                             });
-
-        setMidToGoogleAnalytics();
-        AlertMessage.setAdapter(alertAdapter);
-
-        var installDate = Core.installDate();
-        if (!installDate) {
-            Core.setInstallDate();
-            var startingServiceId = App.startingService() || "0";
-            if (!!startingServiceId && startingServiceId != "0") {
-                Settings.setValue('qGNA', 'installWithService', startingServiceId);
-            }
-        }
-
-    }
-
     Item {
         id: qGNA_main
 

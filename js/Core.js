@@ -214,19 +214,3 @@ function secondServiceFinished(service) {
     delete runningSecondService[service];
     _signalBusInst.isAnySecondServiceRunning = Object.keys(runningSecondService) > 0;
 }
-
-function installDate() {
-    return settingsValue('qGNA', 'installDate', 0);
-}
-
-function setInstallDate() {
-    setSettingsValue('qGNA', 'installDate', Math.floor((+ new Date()) / 1000));
-}
-
-function gameInstallDate(serviceId) {
-    return settingsValue("GameDownloader/" + serviceId + "/", "installDate", "");
-}
-
-function gameLastExecutionTime(serviceId) {
-    return settingsValue("gameExecutor/serviceInfo/" + serviceId + "/", "lastExecutionTime", "");
-}

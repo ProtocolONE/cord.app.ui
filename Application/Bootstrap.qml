@@ -11,14 +11,11 @@
 import QtQuick 1.1
 import Tulip 1.0
 
-import "Core/App.js" as AppJs
+import "Core/App.js" as App
 import "Core/GoogleAnalytics.js" as GoogleAnalytics
 import "Core/restapi.js" as RestApi
-import "Core/Authorization.js" as Authorization
 
 Item {
-    id: root
-
     visible: false
     Component.onCompleted: init()
 
@@ -28,16 +25,7 @@ Item {
             defaultApiUrl: 'https://gnapi.com:8443/restapi'
         };
 
-        App.hwidChanged.connect(function(result) {
-            var mid = Marketing.mid();
-            console.log('Authorization use mid `' + mid + '`');
-            Authorization.setup({ mid: mid, hwid: encodeURIComponent(result)});
-            AppJs.authAccepted = true;
-        })
-
-        App.hwid(true);
-
-        console.log('GameNet Application version ' + AppJs.fileVersion() + ' starting up');
+        console.log('GameNet Application version ' + App.fileVersion() + ' starting up');
         console.log('Desktop', options.desktop);
 
         initRestApi(options);
@@ -60,7 +48,7 @@ Item {
             desktop: options.desktop,
             systemVersion: GoogleAnalyticsHelper.systemVersion(),
             globalLocale: GoogleAnalyticsHelper.systemLanguage(),
-            applicationVersion: AppJs.fileVersion()
+            applicationVersion: App.fileVersion()
         };
 
         GoogleAnalytics.init(gaSettings);
@@ -80,43 +68,20 @@ Item {
     }
 
     function updateInstallDate() {
-        var installDate = AppJs.installDate();
+        var installDate = App.installDate();
         if (!installDate) {
-            AppJs.setInstallDate();
-            var startingServiceId = AppJs.startingService() || "0";
+            App.setInstallDate();
+            var startingServiceId = App.startingService() || "0";
             if (!!startingServiceId && startingServiceId != "0") {
                 Settings.setValue('qGNA', 'installWithService', startingServiceId);
             }
         }
     }
 
-    function resetCredential() {
-        CredentialStorage.reset();
-    }
-
-    function setAuthInfo() {
-        Settings.setValue("qml/auth/", "authDone", 1);
-    }
-
     Connections {
-        target: AppJs.signalBus();
+        target: App.signalBus();
 
         ignoreUnknownSignals: true
-        // ### TODO по хорошему это не должно быть тут
 
-        onLogoutRequest: {
-            AppJs.logout();
-            root.resetCredential();
-            AppJs.logoutDone();
-        }
-
-        onLogoutDone: {
-            AppJs.setGlobalState('Authorization');
-        }
-
-        onAuthDone: {
-            root.setAuthInfo();
-            AppJs.setGlobalState('ServiceLoading');
-        }
     }
 }
