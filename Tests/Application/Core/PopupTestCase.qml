@@ -14,7 +14,7 @@ import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 import Tests.Application.Core.Fixtures.Popup.Sample 1.0
 import "../../../Application/Core/Popup.js" as Popup
-import "../../../js/Core.js" as Core
+import "../../../Application/Core/App.js" as App
 
 
 Item {
@@ -30,7 +30,7 @@ Item {
             manager.registerWidget('Tests.Application.Core.Fixtures.Popup.Sample');
             manager.init();
 
-            Core.activateGame(Core.serviceItemByGameId("92"));
+            App.activateGame(App.serviceItemByGameId("92"));
         }
     }
 
@@ -90,7 +90,7 @@ Item {
 
             text: "SomeWidget"
 
-            onClicked: Popup.show("SomeWidget");
+            onClicked: Popup.show("Sample");
         }
 
         Button {
@@ -99,7 +99,7 @@ Item {
 
             text: "SomeWidget (priority 1)"
 
-            onClicked: Popup.show("SomeWidget", undefined, 1);
+            onClicked: Popup.show("Sample", undefined, 1);
         }
     }
 }

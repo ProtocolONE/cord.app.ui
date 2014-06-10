@@ -62,7 +62,7 @@
 		<file>Application/Core/Authorization/Vk.qml</file>
 		<file>Application/Core/GoogleAnalytics.js</file>
 		<file>Application/Core/MessageBox.js</file>
-		<file>Application/Core/MessageBox/MessageBoxModel.qml</file>
+		<file>Application/Core/MessageBox.qml</file>
 		<file>Application/Core/Modules/Host.js</file>
 		<file>Application/Core/Modules/Host.qml</file>
 		<file>Application/Core/Modules/Settings.js</file>
@@ -70,7 +70,10 @@
 		<file>Application/Core/Modules/SignalBus.js</file>
 		<file>Application/Core/Modules/SignalBus.qml</file>
 		<file>Application/Core/Popup.js</file>
-		<file>Application/Core/Popup/PopupModel.qml</file>
+		<file>Application/Core/Popup.qml</file>
+		<file>Application/Core/restapi.js</file>
+		<file>Application/Core/User.js</file>
+		<file>Application/Core/User.qml</file>
 		<file>Application/Layers/BaseLayer.qml</file>
 		<file>Application/Layers/ChatLayer.qml</file>
 		<file>Application/Layers/PopupLayer.qml</file>
@@ -80,6 +83,10 @@
 		<file>Application/Models/GamesListModel.qml</file>
 		<file>Application/Models/NewsModel.qml</file>
 		<file>Application/qmldir</file>
+		<file>Application/Widgets/AccountActivation/PluginContainer.qml</file>
+		<file>Application/Widgets/AccountActivation/qmldir</file>
+		<file>Application/Widgets/AccountActivation/View/AccountActivationView.qml</file>
+		<file>Application/Widgets/AccountActivation/View/PhoneInput.qml</file>
 		<file>Application/Widgets/AlertAdapter/AlertAdapterModel.js</file>
 		<file>Application/Widgets/AlertAdapter/AlertAdapterModel.qml</file>
 		<file>Application/Widgets/AlertAdapter/PluginContainer.qml</file>
@@ -158,7 +165,6 @@
 		<file>Application/Widgets/UserProfile/UserProfileModel.qml</file>
 		<file>Application/Widgets/UserProfile/View/NicknameEdit.qml</file>
 		<file>Application/Widgets/UserProfile/View/UserProfileView.qml</file>
-		<file>Blocks/AccountActivation.qml</file>
 		<file>Blocks/Auth.qml</file>
 		<file>Blocks/Auth/Auth/Captcha.qml</file>
 		<file>Blocks/Auth/Auth/CodeForm.qml</file>
@@ -294,14 +300,6 @@
 		<file>Elements/Tooltip/Tooltip.qml</file>
 		<file>Elements/WheelArea.qml</file>
 		<file>Elements/WorkInProgress.qml</file>
-		<file>Features/Games/CombatArmsShop/ExpandCollapseButton.qml</file>
-		<file>Features/Games/CombatArmsShop/ItemDelegate.qml</file>
-		<file>Features/Games/CombatArmsShop/ItemsView.qml</file>
-		<file>Features/Games/CombatArmsShop/Private/ScrollButton.qml</file>
-		<file>Features/Games/CombatArmsShop/PurchaseDetails.qml</file>
-		<file>Features/Games/CombatArmsShop/PurchaseOption.qml</file>
-		<file>Features/Games/GameFeatureContainer.qml</file>
-		<file>Features/Guide/Guide.js</file>
 		<file>Features/Guide/Guide.qml</file>
 		<file>Features/Guide/Private/ImageButton.qml</file>
 		<file>Features/Guide/WellcomeGuide.qml</file>
@@ -318,7 +316,6 @@
 		<file>Features/Overlay/Games/Reborn.qml</file>
 		<file>Features/Overlay/Overlay.js</file>
 		<file>Features/Overlay/OverlayBase.qml</file>
-		<file>Features/Ping/Ping.qml</file>
 		<file>Features/Premium/PremiumNotifier.qml</file>
 		<file>Features/PublicTest/index.js</file>
 		<file>Features/PublicTest/PublicTestWarning.qml</file>
@@ -391,8 +388,6 @@
 		<file>Proxy/Player.qml</file>
 		<file>Proxy/Player/Wrapper.qml</file>
 		<file>qGNA_Main.qml</file>
-		<file>TestMenuModel.qml</file>
-		<file>TestParalax.qml</file>
 		<file>Tests/Application/Blocks/AllGames.qml</file>
 		<file>Tests/Application/Blocks/ApplicationSettingsSample.qml</file>
 		<file>Tests/Application/Blocks/GameLoadSample.qml</file>
@@ -404,6 +399,7 @@
 		<file>Tests/Application/Core/Fixtures/Popup/Sample/SomeWidgetModel.qml</file>
 		<file>Tests/Application/Core/Fixtures/Popup/Sample/View/SomeWidget.qml</file>
 		<file>Tests/Application/Core/PopupTestCase.qml</file>
+		<file>Tests/Application/Widgets/AccountActivationSample.qml</file>
 		<file>Tests/Application/Widgets/FactsSample.qml</file>
 		<file>Tests/Application/Widgets/GameAdBannerSample.qml</file>
 		<file>Tests/Application/Widgets/Maintenance/Maintenance.qml</file>

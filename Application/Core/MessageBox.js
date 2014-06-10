@@ -38,11 +38,11 @@ var _model,
     };
 
 function init(layer) {
-    var component = Qt.createComponent('./MessageBox/MessageBoxModel.qml');
+    var component = Qt.createComponent('./MessageBox.qml');
 
     _layer = component.createObject(layer);
     if (!_layer) {
-        throw new Error('FATAL: error creating MessageBox/MessageBoxModel.qml - ' + component.errorString());
+        throw new Error('FATAL: error creating MessageBox.qml - ' + component.errorString());
     }
 
     _layer.close.connect(function() {

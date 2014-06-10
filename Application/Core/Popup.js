@@ -14,11 +14,11 @@ var _tultipObj,
     _queue = [];
 
 function init(layer) {
-    var component = Qt.createComponent('./Popup/PopupModel.qml');
+    var component = Qt.createComponent('./Popup.qml');
 
     _tultipObj = component.createObject(layer);
     if (!_tultipObj) {
-        throw new Error('FATAL: error creating Popup/PopupModel.qml - ' + component.errorString());
+        throw new Error('FATAL: error creating Popup.qml - ' + component.errorString());
     }
 
     _tultipObj.close.connect(function() {

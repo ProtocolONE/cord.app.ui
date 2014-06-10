@@ -10,8 +10,7 @@
 
 import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
-import "../../../../../../js/restapi.js" as RestApi
-import "../../../../.././../js/Core.js" as Core
+import "../../../../../../Application/Core/restapi.js" as RestApi
 
 WidgetModel {
 
