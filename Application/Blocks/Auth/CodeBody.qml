@@ -12,7 +12,7 @@ import QtQuick 1.1
 import GameNet.Controls 1.0
 
 import "../../../Application/Core/Authorization.js" as Authorization
-import "../../../js/Core.js" as Core
+import "../../../Application/Core/App.js" as App
 
 Item {
     id: root
@@ -32,9 +32,9 @@ Item {
         id: d
 
         function getCode(method) {
-            Core.setGlobalProgressVisible(true);
+            App.setGlobalProgressVisible(true);
             Authorization.sendUnblockCode(root.login, method, function(result, response) {
-                Core.setGlobalProgressVisible(false);
+                App.setGlobalProgressVisible(false);
 
                 if (Authorization.isSuccess(result)) {
                     requestError.error = false;
@@ -47,9 +47,9 @@ Item {
         }
 
         function unblock() {
-            Core.setGlobalProgressVisible(true);
+            App.setGlobalProgressVisible(true);
             Authorization.unblock(root.login, codeInput.text, function(result, response) {
-                Core.setGlobalProgressVisible(false);
+                App.setGlobalProgressVisible(false);
 
                 if (Authorization.isSuccess(result)) {
                     root.success();

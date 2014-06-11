@@ -127,6 +127,7 @@ Rectangle {
     }
 
 //    TODO это не работает, разобратся
+//    <Unknown File>: QML StateGroup: Can't apply a state change as part of a state definition.
 //
 //    states: [
 //        State {
