@@ -11,7 +11,8 @@
 import QtQuick 1.1
 import Tulip 1.0
 
-import "Core/App.js" as App
+import "Core/App.js" as AppJs
+import "Core/User.js" as User
 import "Core/GoogleAnalytics.js" as GoogleAnalytics
 import "Core/restapi.js" as RestApi
 
@@ -78,10 +79,34 @@ Item {
         }
     }
 
+    function resetCredential() {
+        CredentialStorage.reset();
+    }
+
+    function setAuthInfo(userId, appKey, cookie) {
+        Settings.setValue("qml/auth/", "authDone", 1);
+        AppJs.authSuccessSlot(userId, appKey, cookie);
+        User.setCredential(userId, appKey, cookie);
+    }
+
     Connections {
         target: App.signalBus();
 
         ignoreUnknownSignals: true
 
+        onLogoutRequest: {
+            AppJs.logout();
+            root.resetCredential();
+            AppJs.logoutDone();
+        }
+
+        onLogoutDone: {
+            AppJs.setGlobalState('Authorization');
+        }
+
+        onAuthDone: {
+            root.setAuthInfo(userId, appKey, cookie);
+            AppJs.setGlobalState('ServiceLoading');
+        }
     }
 }

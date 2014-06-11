@@ -56,6 +56,7 @@ Rectangle {
             manager.registerWidget('Application.Widgets.TaskList');
             manager.registerWidget('Application.Widgets.UserProfile');
             manager.registerWidget('Application.Widgets.AutoRefreshCookie');
+            manager.registerWidget('Application.Widgets.DownloadManagerConnector');
             manager.init();
         }
     }

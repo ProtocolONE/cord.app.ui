@@ -15,10 +15,10 @@
 var indexToGameItem = {},
     gameIdToGameItem = {},
     serviceIdToGameItemIdex = {},
-    authAccepted = false,
+    authAccepted = true, // tmp
     count = 0,
-    clientWidth = 930,
-    clientHeight = 550;
+    clientWidth = 1000,
+    clientHeight = 600;
 
 /**
  * Import modules
@@ -108,9 +108,6 @@ function indexByServiceId(serviceId) {
 /**
  * Application specific functions
  */
-function activateGame(serviceId) {
-    console.log("!!! IMPLEMENT ME: App.js::activateGame()");
-}
 
 function browseDirectory(serviceId, name, defaultDir) {
     console.log("!!! IMPLEMENT ME: App.js::browseDirectory(" + serviceId + ", " + name + ", " + defaultDir+ ")");

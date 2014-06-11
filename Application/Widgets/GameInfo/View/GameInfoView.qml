@@ -11,12 +11,12 @@
 import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 
-import "../../../../js/Core.js" as CoreJs
+import "../../../Core/App.js" as App
 
 WidgetView {
     id: root
 
-    property variant currentItem: CoreJs.currentGame()
+    property variant currentItem: App.currentGame()
     
     function update() {
         if (currentItem) {

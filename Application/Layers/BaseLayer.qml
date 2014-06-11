@@ -106,11 +106,17 @@ Rectangle {
 
             onParentChanged: console.log(gameBlock, parent)
 
-            Text {
-                color: "#FFFFFF"
-                font.pixelSize: 40
-                text: "GameInfo"
+            WidgetContainer {
+                width: 590
+                height: 100
+                widget: 'GameInstall'
             }
+
+//            Text {
+//                color: "#FFFFFF"
+//                font.pixelSize: 40
+//                text: "GameInfo"
+//            }
 
         }
 

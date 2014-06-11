@@ -21,6 +21,16 @@ if (!_userComponent) {
     }
 }
 
+function setCredential(userId, appKey, cookie) {
+    _userComponentInstance.userId = userId;
+    _userComponentInstance.appKey = appKey;
+    _userComponentInstance.cookie = cookie;
+};
+
+function reset() {
+    setCredential('', '', '');
+}
+
 function userId() {
     return  _userComponentInstance.userId;
 }
