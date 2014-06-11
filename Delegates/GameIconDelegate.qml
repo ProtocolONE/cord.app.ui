@@ -9,9 +9,8 @@
 ****************************************************************************/
 
 import QtQuick 1.1
-import "../Elements" as Elements
-import "../Delegates" as Delegates
-import "../js/Core.js" as Core
+
+import "../../Elements" as Elements
 
 Delegates.FlowViewDelegate {
     id: gameIconDelegate

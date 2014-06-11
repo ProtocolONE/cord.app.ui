@@ -9,17 +9,16 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
-import "../../../Core/App.js" as AppJs
 
-//  INFO: после переноса необходимо заменить на правильное получение GameItem
-import "../../../../js/Core.js" as OLD_CoreJs
+import "../../../Core/App.js" as App
 
 WidgetView {
     id: root
 
-    property variant currentGameItem: OLD_CoreJs.currentGame()
+    property variant currentGameItem: App.currentGame()
     property alias createDesktopShortcut: desktopShortcut.checked
     property alias createStartMenuShortcut: startMenuShortcut.checked
 
@@ -85,10 +84,10 @@ WidgetView {
                 y: 22
                 width: root.width - 40
                 height: 48
-                path: AppJs.getExpectedInstallPath(currentGameItem.serviceId);
+                path: App.getExpectedInstallPath(currentGameItem.serviceId);
                 readOnly: true
                 onBrowseClicked: {
-                    var result = AppJs.browseDirectory(currentGameItem.serviceId,
+                    var result = App.browseDirectory(currentGameItem.serviceId,
                                                                    currentGameItem.name,
                                                                    installationPath.path);
                     if (result) {
@@ -149,7 +148,7 @@ WidgetView {
                     pixelSize: 12
                 }
                 color: '#5c6d7d'
-                onLinkActivated: AppJs.openExternalUrl(currentGameItem.licenseUrl)
+                onLinkActivated: App.openExternalUrl(currentGameItem.licenseUrl)
             }
         }
 
@@ -169,7 +168,7 @@ WidgetView {
                 leftMargin: 20
             }
             text: qsTr("INSTALL_BUTTON_CAPTION")
-            onClicked: AppJs.installService(currentGameItem.serviceId, {
+            onClicked: App.installService(currentGameItem.serviceId, {
                                                 createDesktopShortCut: desktopShortcut.checked,
                                                 createStartMenuShortCut: startMenuShortcut.checked
                                             });

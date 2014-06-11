@@ -6,15 +6,6 @@ var _signalBusComponent,
     _progressComponent,
     _progress;
 
-if (!_signalBusComponent) {
-    _signalBusComponent = Qt.createComponent('./Core.qml');
-    if (_signalBusComponent.status == 1) {
-        _signalBusInst = _signalBusComponent.createObject(null);
-    } else {
-        console.log('Can\'t create Core.qml');
-    }
-}
-
 if (!_progressComponent) {
     _progressComponent = Qt.createComponent('./../Controls/GlobalProgress.qml');
     if (_progressComponent.status == 1) {
@@ -42,39 +33,6 @@ function setGlobalProgressVisible(value, timeout) {
     }
 
     _progress.visible = value;
-}
-
-function signalBus() {
-    return _signalBusInst;
-}
-
-function needAuth() {
-    _signalBusInst.needAuth();
-}
-
-function showPurchaseOptions(itemOptions) {
-    _signalBusInst.openPurchaseOptions(itemOptions);
-}
-
-
-function openBuyGamenetPremiumPage() {
-    _signalBusInst.openBuyGamenetPremiumPage();
-}
-
-function premiumExpired() {
-    _signalBusInst.premiumExpired();
-}
-
-function hideMainWindow() {
-    _signalBusInst.hideMainWindow();
-}
-
-function gameMaintenanceStart(serviceId) {
-   _signalBusInst.gameMaintenanceStart(serviceId);
-}
-
-function gameMaintenanceEnd(serviceId) {
-   _signalBusInst.gameMaintenanceEnd(serviceId);
 }
 
 var socialNetTable = {
@@ -162,10 +120,6 @@ var socialNetTable = {
     ]
 }
 
-var runningService = {},
-    runningSecondService = {},
-    isClientLoaded = false;
-
 function getCurrentSocialTable() {
     var current = currentGame();
     if (!current) {
@@ -173,44 +127,4 @@ function getCurrentSocialTable() {
     }
 
     return socialNetTable[current.serviceId];
-}
-
-function isServiceInstalled(serviceId) {
-    return isSettingsEnabled("GameDownloader/" + serviceId + "/", "isInstalled", false);
-}
-
-function currentRunningMainService() {
-    var serviceItem;
-    for (var i = 0; i < gamesListModel.count; i++) {
-        serviceItem = gamesListModel.get(i);
-
-        if (serviceItem.status === "Started" || serviceItem.status === "Starting") {
-            return serviceItem.serviceId;
-        }
-    }
-}
-
-function currentRunningSecondService() {
-    var serviceItem;
-    for (var i = 0; i < gamesListModel.count; i++) {
-        serviceItem = gamesListModel.get(i);
-
-        if (serviceItem.secondStatus === "Started" || serviceItem.secondStatus === "Starting") {
-            return serviceItem.serviceId;
-        }
-    }
-}
-
-function isAnySecondServiceRunning() {
-    return _signalBusInst.isAnySecondServiceRunning;
-}
-
-function secondServiceStarted(service) {
-    runningSecondService[service] = 1;
-    _signalBusInst.isAnySecondServiceRunning = true;
-}
-
-function secondServiceFinished(service) {
-    delete runningSecondService[service];
-    _signalBusInst.isAnySecondServiceRunning = Object.keys(runningSecondService) > 0;
 }

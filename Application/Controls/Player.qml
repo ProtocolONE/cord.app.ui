@@ -9,7 +9,7 @@
 ****************************************************************************/
 
 import QtQuick 1.1
-import "../Blocks"
+import GameNet.Controls 1.0
 
 Item {
     property string source;

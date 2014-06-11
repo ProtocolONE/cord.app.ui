@@ -14,7 +14,7 @@ import GameNet.Controls 1.0
 
 import "../../../Application/Core/Authorization.js" as Authorization
 import "../../../Application/Core/User.js" as User
-import "../../../Application/Core/App.js" as AppJs
+import "../../../Application/Core/App.js" as App
 
 import "AnimatedBackground" as AnimatedBackground
 
@@ -45,13 +45,13 @@ Rectangle {
         }
 
         function startVkAuth() {
-            AppJs.setGlobalProgressVisible(true);
+            App.setGlobalProgressVisible(true);
 
             Authorization.loginByVk(root, function(error, response) {
-                AppJs.setGlobalProgressVisible(false);
+                App.setGlobalProgressVisible(false);
 
                 if (Authorization.isSuccess(error)) {
-                    AppJs.authDone(userId, appKey, cookie);
+                    App.authDone(userId, appKey, cookie);
                     return;
                 }
 
@@ -104,7 +104,7 @@ Rectangle {
             var currentDate = Math.floor(+new Date() / 1000);
 
             if (lastRefresh != -1 && (currentDate - lastRefresh < 432000)) {
-                AppJs.authDone(savedAuth.userId, savedAuth.appKey, savedAuth.cookie);
+                App.authDone(savedAuth.userId, savedAuth.appKey, savedAuth.cookie);
                 return;
             }
 
@@ -116,9 +116,9 @@ Rectangle {
                                savedAuth.appKey,
                                response.cookie,
                                false);
-                   AppJs.authDone(savedAuth.userId, savedAuth.appKey, response.cookie);
+                   App.authDone(savedAuth.userId, savedAuth.appKey, response.cookie);
                } else {
-                   AppJs.authDone(savedAuth.userId, savedAuth.appKey, savedAuth.cookie);
+                   App.authDone(savedAuth.userId, savedAuth.appKey, savedAuth.cookie);
                }
            })
         }
@@ -172,7 +172,7 @@ Rectangle {
                 onError: d.showError(message);
 
                 onAuthDone: {
-                    AppJs.authDone(userId, appKey, cookie);
+                    App.authDone(userId, appKey, cookie);
 
                     if (remember) {
                         CredentialStorage.save(userId, appKey, cookie, false);
@@ -195,7 +195,7 @@ Rectangle {
                 }
 
                 onAuthDone: {
-                    AppJs.authDone(userId, appKey, cookie);
+                    App.authDone(userId, appKey, cookie);
 
                     CredentialStorage.save(userId, appKey, cookie, false);
                     d.saveAuthorizedLogins(registration.login);
@@ -272,7 +272,7 @@ Rectangle {
         }
 
         onClicked: {
-            AppJs.openExternalUrl("http://support.gamenet.ru");
+            App.openExternalUrl("http://support.gamenet.ru");
         }
 
         Column {

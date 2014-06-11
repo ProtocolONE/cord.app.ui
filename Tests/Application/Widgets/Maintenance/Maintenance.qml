@@ -11,8 +11,8 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
-import "../../../../js/Core.js" as Core
-import "../../../../js/restapi.js" as RestApi
+import "../../../../Application/Core/App.js" as App
+import "../../../../Application/Core/restapi.js" as RestApi
 
 Rectangle {
     width: 800
@@ -36,7 +36,7 @@ Rectangle {
                      }});
         };
 
-        Core.activateGameByServiceId("300012010000000000");
+        App.activateGameByServiceId("300012010000000000");
     }
 
     WidgetManager {
@@ -93,7 +93,7 @@ Rectangle {
 
             text: "Activate 92 (CA)"
             onClicked: {
-                Core.activateGameByServiceId("300009010000000000");
+                App.activateGameByServiceId("300009010000000000");
             }
         }
 
@@ -103,13 +103,13 @@ Rectangle {
 
             text: "Activate Reborn"
             onClicked: {
-                Core.activateGameByServiceId("300012010000000000");
+                App.activateGameByServiceId("300012010000000000");
             }
         }
     }
 
     Connections {
-        target: Core.signalBus()
+        target: App.signalBus()
 
         onGameMaintenanceStart: {
             console.log('onGameMaintenanceStart', serviceId);

@@ -10,12 +10,14 @@
 
 import QtQuick 1.1
 import Tulip 1.0
+
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 import Tests.Application.Core.Fixtures.Popup.Sample 1.0
+
 import "../../../Application/Core/Popup.js" as Popup
 import "../../../Application/Core/MessageBox.js" as MessageBox
-import "../../../js/Core.js" as Core
+import "../../../Application/Core/App.js" as App
 
 Item {
     width: 1000
@@ -32,7 +34,7 @@ Item {
 
             manager.init();
 
-            Core.activateGame(Core.serviceItemByGameId("92"));
+            App.activateGame(App.serviceItemByGameId("92"));
         }
     }
 
@@ -63,7 +65,7 @@ Item {
 
     // Initialization
     Component.onCompleted: {
-        Core.activateGame(Core.serviceItemByGameId("92"));
+        App.activateGame(App.serviceItemByGameId("92"));
 
         Settings.setValue("qml/core/popup/", "isHelpShowed", 0);
         Popup.init(popupLayer);

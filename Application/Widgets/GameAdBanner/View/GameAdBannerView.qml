@@ -9,17 +9,18 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
-import "../../../../js/Core.js" as CoreJs
-import "../../../Core/App.js" as AppJs
+
+import "../../../Core/App.js" as App
 import "GameAdBannerView.js" as GameAdBannerView
 
 WidgetView {
     id: root
 
     property int rotationTimeout: 5000
-    property variant currentGameItem: CoreJs.currentGame()
+    property variant currentGameItem: App.currentGame()
     property int index
     property bool hasAds: GameAdBannerView.filtered.length > 0
 
@@ -115,7 +116,7 @@ WidgetView {
 
         hoverEnabled: true
         anchors.fill: parent
-        onClicked: AppJs.openExternalUrl(GameAdBannerView.filtered[root.index].link);
+        onClicked: App.openExternalUrl(GameAdBannerView.filtered[root.index].link);
 
         //  HACK: работает только когда MouseArea (и соответственно контролы) лежат друг в друге
         ImageButton {

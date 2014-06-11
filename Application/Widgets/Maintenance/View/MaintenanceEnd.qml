@@ -14,7 +14,6 @@ import "../../../Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../../../Core/App.js" as App
 
 import "../../../../Elements" as Elements
-import "../../../../js/Core.js" as Core
 
 Elements.GameItemPopUp {
     id: popUp
@@ -39,7 +38,7 @@ Elements.GameItemPopUp {
     onPlayClicked: {
         gaEvent('Action on Announcement');
         App.activateWindow();
-        Core.activateGame(gameItem);
+        App.activateGame(gameItem);
         App.executeService(gameItem.serviceId);
     }
 }

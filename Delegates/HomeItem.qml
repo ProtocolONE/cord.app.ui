@@ -9,13 +9,11 @@
 ****************************************************************************/
 
 import QtQuick 1.1
-import "../Delegates" as Delegates
-import "../Elements" as Elements
 
-import "../js/Core.js" as Core
-import "../Proxy/App.js" as App
+import "../Core/App.js" as App
+import "../../Elements" as Elements
 
-Delegates.FlowViewDelegate {
+FlowView {
     id: root
 
     signal mouseClicked(variant item, bool force);

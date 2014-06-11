@@ -129,10 +129,6 @@ function openPremiumDetails() {
     console.log("!!! IMPLEMENT ME: App.js::openPremiumDetails()");
 }
 
-function updateProgress(progress, status) {
-    console.log("!!! IMPLEMENT ME: App.js::updateProgress(progress, status)");
-}
-
 function installService(serviceId, installParams) {
     console.log("!!! IMPLEMENT ME: App.js::installService(" + serviceId + ", " + JSON.stringify(installParams) + ")");
 }
@@ -155,5 +151,23 @@ function gameInstallDate(serviceId) {
 
 function gameLastExecutionTime(serviceId) {
     return settingsValue("gameExecutor/serviceInfo/" + serviceId + "/", "lastExecutionTime", "");
+}
+
+var runningService = {},
+    runningSecondService = {},
+    isClientLoaded = false;
+
+function isAnySecondServiceRunning() {
+    return _signalBusInst.isAnySecondServiceRunning;
+}
+
+function secondServiceStarted(service) {
+    runningSecondService[service] = 1;
+    _signalBusInst.isAnySecondServiceRunning = true;
+}
+
+function secondServiceFinished(service) {
+    delete runningSecondService[service];
+    _signalBusInst.isAnySecondServiceRunning = Object.keys(runningSecondService) > 0;
 }
 

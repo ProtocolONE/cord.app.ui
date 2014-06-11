@@ -10,13 +10,28 @@
 import QtQuick 1.1
 
 QtObject {
+    property bool isAnySecondServiceRunning
+
     signal updateFinished();
+
     signal authDone(string userId, string appKey, string cookie)
+    signal needAuth();
     signal logoutDone();
     signal logoutRequest();
+
     signal setGlobalState(string name);
+    signal setGlobalProgressVisible(bool value);
+
     signal backgroundMousePressed(int mouseX, int mouseY);
     signal backgroundMousePositionChanged(int mouseX, int mouseY);
     signal progressChanged(variant gameItem);
-    signal setGlobalProgressVisible(bool value);
+
+    signal gameMaintenanceStart(string serviceId);
+    signal gameMaintenanceEnd(string serviceId);
+
+    signal openPurchaseOptions(variant purchaseOptions);
+    signal openBuyGamenetPremiumPage();
+    signal premiumExpired();
+
+    signal hideMainWindow();
 }

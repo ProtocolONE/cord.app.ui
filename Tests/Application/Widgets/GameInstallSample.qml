@@ -11,7 +11,7 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
-import "../../../js/Core.js" as CoreJs
+import "../../../Application/Core/App.js" as App
 
 Rectangle {
     width: 1000
@@ -24,7 +24,7 @@ Rectangle {
         Component.onCompleted: {
             manager.registerWidget('Application.Widgets.GameInstall');
             manager.init();
-            CoreJs.activateGame(CoreJs.serviceItemByGameId("92"));
+            App.activateGame(App.serviceItemByGameId("92"));
         }
     }
 

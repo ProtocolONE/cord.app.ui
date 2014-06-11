@@ -20,6 +20,12 @@ function authDone(userId, appKey, cookie) {
     _signalBusInstance.authDone(userId, appKey, cookie);
 }
 
+
+//@deprecated
+function needAuth() {
+    _signalBusInstance.needAuth();
+}
+
 function setGlobalState(stateName) {
     _signalBusInstance.setGlobalState(stateName);
 }
@@ -50,4 +56,28 @@ function logoutDone() {
 
 function setGlobalProgressVisible(value) {
     _signalBusInstance.setGlobalProgressVisible(value);
+}
+
+function gameMaintenanceStart(serviceId) {
+   _signalBusInstance.gameMaintenanceStart(serviceId);
+}
+
+function gameMaintenanceEnd(serviceId) {
+   _signalBusInstance.gameMaintenanceEnd(serviceId);
+}
+
+function showPurchaseOptions(itemOptions) {
+    _signalBusInstance.openPurchaseOptions(itemOptions);
+}
+
+function openBuyGamenetPremiumPage() {
+    _signalBusInstance.openBuyGamenetPremiumPage();
+}
+
+function premiumExpired() {
+   _signalBusInstance.premiumExpired();
+}
+
+function hideMainWindow() {
+    _signalBusInstance.hideMainWindow();
 }

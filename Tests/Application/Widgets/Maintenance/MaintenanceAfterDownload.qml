@@ -11,8 +11,8 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
-import "../../../../js/Core.js" as Core
-import "../../../../js/restapi.js" as RestApi
+import "../../../../Application/Core/App.js" as App
+import "../../../../Application/Core/restapi.js" as RestApi
 
 Rectangle {
     width: 800
@@ -36,7 +36,7 @@ Rectangle {
                      }});
         };
 
-        Core.activateGameByServiceId("300012010000000000");
+        App.activateGameByServiceId("300012010000000000");
     }
 
     WidgetManager {
@@ -91,7 +91,7 @@ Rectangle {
 
             text: "Start 92 (CA)"
             onClicked: {
-                Core.activateGameByServiceId("300009010000000000");
+                App.activateGameByServiceId("300009010000000000");
                 mainWindow.downloaderFinished("300009010000000000");
             }
         }
@@ -102,7 +102,7 @@ Rectangle {
 
             text: "Start Reborn"
             onClicked: {
-                Core.activateGameByServiceId("300012010000000000");
+                App.activateGameByServiceId("300012010000000000");
                 mainWindow.downloaderFinished("300012010000000000");
             }
         }
@@ -119,7 +119,7 @@ Rectangle {
         target: mainWindow
 
         onDownloaderFinished: {
-            var game = Core.currentGame();
+            var game = App.currentGame();
             if (service == game.serviceId && game.maintenance) {
                 mainContainer.model.clear();
                 mainContainer.model.insert(0, {widgetName: 'Maintenance'});
@@ -131,11 +131,11 @@ Rectangle {
     }
 
     Connections {
-        target: Core.signalBus()
+        target: App.signalBus()
 
         onGameMaintenanceEnd: {
             console.log('onGameMaintenanceEnd', serviceId);
-            var game = Core.currentGame();
+            var game = App.currentGame();
             if (serviceId === game.serviceId) {
                 mainContainer.model.remove(0);
                 mainContainer2.model.remove(0);

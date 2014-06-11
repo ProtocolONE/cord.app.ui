@@ -109,6 +109,10 @@ QtObject {
         return mainWindow.updateArea === 'live';
     }
 
+    function updateProgressEx(value, status) {
+        mainWindow.onProgressUpdated(value, status);
+    }
+
     function windowPosition() {
         return mainWindow.pos;
     }

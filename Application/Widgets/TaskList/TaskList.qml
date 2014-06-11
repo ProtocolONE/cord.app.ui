@@ -10,7 +10,8 @@
 
 import Tulip 1.0
 import QtQuick 1.1
-import "../../../js/Core.js" as Core
+
+import "../../Core/App.js" as App
 import "TaskList.js" as TaskListJs
 
 Item {
@@ -19,7 +20,7 @@ Item {
         var elem
             , i
             , installDir = installPath.replace("file:///", "")
-            , model = Core.gamesListModel;
+            , model = App.gamesListModel;
 
         TaskList.removeAll();
 
@@ -30,7 +31,7 @@ Item {
                 continue;
             }
 
-            var categoryId = (Core.isServiceInstalled(elem.serviceId) || !!TaskListJs.installedServices[elem.serviceId]) ?
+            var categoryId = (App.isServiceInstalled(elem.serviceId) || !!TaskListJs.installedServices[elem.serviceId]) ?
                                 TaskListJs.installedCategory : TaskListJs.notInstalledCategory;
 
             TaskList.addItem(categoryId,
@@ -50,7 +51,7 @@ Item {
 
         ignoreUnknownSignals: true
         onDownloaderFinished: {
-            var item = Core.serviceItemByServiceId(service);
+            var item = App.serviceItemByServiceId(service);
             if (!item) {
                 console.log('Unknown service ' + service)
                 return;

@@ -9,16 +9,16 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
-import "../../../../js/Core.js" as CoreJs
-import "../../../../Application/Core/App.js" as App
+import "../../../Core/App.js" as App
 
 WidgetView {
     id: root
 
-    property int interval: CoreJs.currentGame().maintenanceInterval
+    property int interval: App.currentGame().maintenanceInterval
 
     width: 560
     height: 90
@@ -105,7 +105,7 @@ WidgetView {
 
             color: '#253149'
 
-            property variant gameItem: CoreJs.serviceItemByServiceId(CoreJs.currentGame().maintenanceProposal1)
+            property variant gameItem: App.serviceItemByServiceId(App.currentGame().maintenanceProposal1)
 
             Row {
                 anchors { fill: parent; margins: 10 }

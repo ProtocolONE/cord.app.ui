@@ -1,18 +1,17 @@
 import QtQuick 1.1
 
-import "../../../js/Core.js" as Core
 import "../../Core/App.js" as App
-import "TaskBar.js" as TaskBarJs
+import "TaskBar.js" as TaskBar
 
 Item {
     id: root
 
     Connections {
-        target: Core.signalBus()
+        target: App.signalBus()
 
         onProgressChanged: {
-            TaskBarJs.updateProgress(gameItem);
-            App.updateProgress(TaskBarJs.getOverallProgress(), TaskBarJs.getOverallStatus());
+            TaskBar.updateProgress(gameItem);
+            App.updateProgressEx(TaskBar.getOverallProgress(), TaskBar.getOverallStatus());
         }
     }
 }

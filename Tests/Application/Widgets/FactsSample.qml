@@ -11,7 +11,7 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
-import "../../../js/Core.js" as CoreJs
+import "../../../Application/Core/App.js" as App
 
 Rectangle {
     width: 800
@@ -24,7 +24,7 @@ Rectangle {
         Component.onCompleted: {
             manager.registerWidget('Application.Widgets.Facts');
             manager.init();
-            CoreJs.activateGame(CoreJs.serviceItemByGameId("92"));
+            App.activateGame(App.serviceItemByGameId("92"));
         }
     }
 
@@ -45,7 +45,7 @@ Rectangle {
 
             text: "Activate 92 (CA)"
             onClicked: {
-                CoreJs.activateGame(CoreJs.serviceItemByGameId("92"));
+                App.activateGame(App.serviceItemByGameId("92"));
             }
         }
 
@@ -55,7 +55,7 @@ Rectangle {
 
             text: "Activate 71 (BS)"
             onClicked: {
-                CoreJs.activateGame(CoreJs.serviceItemByGameId("71"));
+                App.activateGame(App.serviceItemByGameId("71"));
             }
         }
     }

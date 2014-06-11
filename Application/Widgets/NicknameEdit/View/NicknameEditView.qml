@@ -11,10 +11,6 @@
 import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
-import "../../../Core/App.js" as AppJs
-
-//  INFO: после переноса необходимо заменить на правильное получение GameItem
-import "../../../../js/Core.js" as OLD_CoreJs
 
 WidgetView {
     id: root

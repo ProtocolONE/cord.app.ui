@@ -145,3 +145,9 @@ function keyboardLayout() {
 
     return "RU";
 }
+
+function updateProgressEx(value, status) {
+    if (proxyInst) {
+        proxyInst.updateProgressEx(value, status);
+    }
+}

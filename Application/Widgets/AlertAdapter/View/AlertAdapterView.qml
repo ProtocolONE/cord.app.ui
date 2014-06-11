@@ -12,10 +12,10 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0 as Controls
 
-import "../../../../js/Core.js" as Core
-import "../../../../Application/Core/MessageBox.js" as MessageBox
+import "../../../Core/MessageBox.js" as MessageBox
+import "../../../Core/App.js" as App
 import "./AlertAdapter.js" as AlertAdapter
-import "../../../../Proxy/App.js" as App
+
 
 WidgetView {
     id: alertModule
