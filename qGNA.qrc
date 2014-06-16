@@ -1,6 +1,7 @@
 ﻿<RCC>
 	<qresource prefix="/">
 		<file>Application/Blocks/AllGames/GameItem.qml</file>
+		<file>Application/Blocks/AllGames/GameItemTitle.qml</file>
 		<file>Application/Blocks/AllGames/Main.qml</file>
 		<file>Application/Blocks/ApplicationSettings/DownloadSettings.qml</file>
 		<file>Application/Blocks/ApplicationSettings/GeneralSettings.qml</file>
@@ -22,6 +23,7 @@
 		<file>Application/Blocks/Auth/MessageBody.qml</file>
 		<file>Application/Blocks/Auth/PasswordInput.qml</file>
 		<file>Application/Blocks/Auth/RegistrationBody.qml</file>
+		<file>Application/Blocks/DownloadStatus.qml</file>
 		<file>Application/Blocks/FlowView.qml</file>
 		<file>Application/Blocks/GameIcon.qml</file>
 		<file>Application/Blocks/GameLoad/Main.qml</file>

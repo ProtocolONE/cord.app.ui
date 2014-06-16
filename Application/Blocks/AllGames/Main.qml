@@ -3,13 +3,17 @@ import GameNet.Controls 1.0 as Controls
 import Application.Controls 1.0
 
 import "../../Core/App.js" as App
-import "./AllGames.js" as AllGamesJs
+import "AllGames.js" as AllGamesJs
 
 Item {
     id: root
-
-    width: 1000
-    height: 900
+    onVisibleChanged: {
+        if (visible) {
+            AllGamesJs.items.forEach(function(e){
+                e.show();
+            });
+            return;
+        }
 
 //    ListView {
 //        id: listView
@@ -85,52 +89,50 @@ Item {
     }
 
     Component.onCompleted: {
-        var lineWidth = 0,
-            lastObj;
+        var countItems = 0,
+            lineWidth = 0,
+            currentRowIndex = 0,
+            lastObj,
+            lastRow = rowComponent.createObject(rowView),
+            model = [],
+            i = 0;
 
-        for (var i = 0; i < App.gamesListModel.count; ++i) {
+        for (i = 0; i < App.gamesListModel.count; ++i) {
             model.push(App.gamesListModel.get(i));
         }
 
-//            if (i % 2 == 0) {
-//                if (lastObj) {
-//                    console.log(lastObj.cWidth);
-//                }
+        AllGamesJs.items = [];
 
-//                lastObj = undefined;
-//            }
+        model.filter(function(item) {
+            return item.enabled;
+        }).sort(function(a, b){
+            if (a.priority == b.priority) {
+                return 0;
+            }
 
-            //if (lastObj.aliasContentWidth )
+            return a.priority < b.priority ? -1 : 1;
+        }).forEach(function(item){
+            var size = (item.formFactor == 2) ? 245 : 495
+                , animationPause
+                , itemProperties;
 
-            if (!lastObj) {
-                lastObj = listViewComponent.createObject(rowView);
+            if ((lineWidth + size) > rowView.width) {
+                lastRow = rowComponent.createObject(rowView);
+                lineWidth = 0;
+                currentRowIndex++;
             }
 
 //            for (var j = 0; j < lastObj.model.count; ++j) {
 //                var lineItem = lastObj.model.get(j);
 
-            var itemInstance = itemComponent.createObject(lastRow, {
-                                                           source: installPath + item.imageDefault,
-                                                           serviceItem: item,
-                                                           pauseAnimation: (countItems++) * 100,
-                                                           imageWidth: size
-                                                          });
+            animationPause = currentRowIndex * 75 + 100 * countItems++;
+            itemProperties = {
+                source: installPath + item.imageDefault,
+                serviceItem: item,
+                pauseAnimation: animationPause
+            };
 
-
-//    GridView {
-//        width: 750
-//        height: 750
-
-//        //cellHeight: 200
-//        //cellWidth: 200
-
-//        anchors.centerIn: parent
-//        //spacing: 9
-
-//        model: Core.gamesListModel
-
-//        delegate: GameItem {
-//            width: index % 2 == 0 ? 180 : 495
-//        }
-//    }
+            AllGamesJs.items.push(itemComponent.createObject(lastRow, itemProperties));
+        });
+    }
 }

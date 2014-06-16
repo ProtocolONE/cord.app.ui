@@ -1,213 +1,242 @@
+/****************************************************************************
+** This file is a part of Syncopate Limited GameNet Application or it parts.
+**
+** Copyright (©) 2011 - 2012, Syncopate Limited and/or affiliates.
+** All rights reserved.
+**
+** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
+** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+****************************************************************************/
 import QtQuick 1.1
+
 import GameNet.Controls 1.0
+import Application.Blocks 1.0
+
 import "../../../Application/Core/App.js" as App
 
 Rectangle {
     width: 245
     height: 180
 
+    property alias source: image.source
     property variant serviceItem
     property int pauseAnimation
-    property alias source: image.source
-    property alias imageWidth: image.width
 
-    function show() {
-        showAnimation.restart();
-    }
-
-    width: image.width
-    height: image.height
-    visible: false
-
-    SequentialAnimation {
-        id: showAnimation
-
-        PauseAnimation { duration: root.pauseAnimation }
-        PropertyAnimation { target: root; property: "visible"; to: true }
-
-        NumberAnimation {
-            target: root;
-            property: "scale";
-            easing {
-                type: Easing.OutBack
-            }
-            from: 0; to: 1;
-            duration: 400
+    property variant formFactorSizes: {
+        1: {
+            width: 240,
+            height: 180
+        },
+        2: {
+            width: 495,
+            height: 180
         }
     }
+
+    property bool selected: mouseArea.containsMouse || startButton.containsMouse
+
+    function show() {
+        showAnimation.restart()
+    }
+
+    width: formFactorSizes[serviceItem.formFactor].width
+    height: formFactorSizes[serviceItem.formFactor].height
 
     Connections {
         target: App.signalBus()
 
         onProgressChanged: {
             if (serviceItem.serviceId != gameItem.serviceId) {
-                return;
+                return
             }
 
-            if (gameItem.status == 'Downloading') {
-                stateGroup.state = gameItem.status;
-                return;
-            }
-
-            stateGroup.state = 'Normal';
+            stateGroup.state = (gameItem.status === 'Downloading') ? 'Downloading' : 'Normal'
         }
     }
 
-    Rectangle {
-        id: backgroundRect
-
-        anchors { fill: parent; margins: -5 }
-        color: '#ff6555'
-        visible: mouseArea.containsMouse || startButton.containsMouse
-    }
-
     Item {
-        width: root.imageWidth
-        height: root.height
+        id: container
+
+        visible: false
+        opacity: 0
+        anchors { verticalCenter: parent.verticalCenter; horizontalCenter: parent.horizontalCenter }
+
+        SequentialAnimation {
+            id: showAnimation
+
+            PauseAnimation { duration: root.pauseAnimation }
+            PropertyAnimation { target: container; property: "visible"; to: true}
+
+            ParallelAnimation {
+                NumberAnimation {
+                    target: container
+                    easing.type: Easing.OutBack
+                    property: "width"
+                    from: root.width * 0.50
+                    to: root.width
+                    duration: 500
+                }
+
+                NumberAnimation {
+                    target: container
+                    easing.type: Easing.OutBack
+                    property: "height"
+                    from: root.height * 0.50
+                    to: root.height
+                    duration: 500
+                }
+
+                NumberAnimation {
+                    target: container
+                    easing.type: Easing.InOutQuad
+                    property: "opacity"
+                    from: 0.1
+                    to: 1
+                    duration: 500
+                }
+
+                SequentialAnimation {
+                    PauseAnimation { duration: 350 }
+                    PropertyAnimation {
+                        target: informationContent
+                        property: "opacity"
+                        from: 0
+                        to: 1
+                        duration: 250
+                    }
+                }
+            }
+
+            PropertyAnimation { target: mouseArea; property: "visible"; to: true}
+        }
 
         Rectangle {
-            anchors.fill: parent
+            //Image Border
             color: '#ff6555'
-        }
+            anchors { fill: parent; margins: -5 }
+            opacity: root.selected ? 1 : 0
 
-        Image {
-            id: image
-
-            width: root.imageWidth
-            height: 180
-
-            opacity: 0
-            asynchronous: true
-
-            SequentialAnimation {
-                id: imageShow
-
-                NumberAnimation { target: image; property: "opacity"; from: 0; to: 1; duration: 150 }
+            Behavior on opacity {
+                PropertyAnimation { duration: 250 }
             }
-
-            onStatusChanged: {
-                if (status == Image.Ready);
-                    imageShow.start();
-            }
-        }
-    }
-
-    MouseArea {
-        id: mouseArea
-
-        anchors.fill: parent
-        hoverEnabled: true
-
-        onClicked: App.activateGame(serviceItem.serviceId);
-    }
-
-    Item {
-        anchors.fill: parent
-
-        Rectangle {
-            anchors {
-                left: parent.left
-                bottom: parent.bottom
-            }
-
-            width: stateGroup.state == 'Downloading' ? 245 : backgroundRect.visible ? parent.width : hightlightItem.width
-            height: stateGroup.state == 'Downloading' ? 90 : backgroundRect.visible ? parent.height : hightlightItem.height
-
-            color: '#092135'
-            opacity: 0.8
         }
 
         Item {
-            id: hightlightItem
+            anchors.fill: parent
 
-            width: 245
-            height: stateGroup.state == 'Downloading' ? 90 : 50
+            Rectangle {
+                anchors.fill: parent
+                color: '#092135'
+            }
 
-            anchors {
-                left: parent.left
-                bottom: parent.bottom
+            Image {
+                id: image
+
+                anchors.fill: parent
+                opacity: status == Image.Ready ? 1 : 0
+                asynchronous: true
+                smooth: true
+
+                Behavior on opacity {
+                    NumberAnimation { duration: 150 }
+                }
+            }
+        }
+
+        CursorMouseArea {
+            id: mouseArea
+
+            anchors.fill: parent
+            hoverEnabled: true
+            visible: false
+
+            onClicked: App.activateGame(serviceItem.serviceId)
+        }
+
+        Item {
+            id: informationContent
+
+            opacity: 0
+            anchors.fill: parent
+
+            Rectangle {
+                anchors.fill: parent
+                color: '#092135'
+                opacity: root.selected ? 0.8 : 0
+
+                Behavior on opacity {
+                    PropertyAnimation { duration: 200 }
+                }
             }
 
             Item {
-                anchors { fill: parent; margins: 8 }
+                id: hightlightItem
 
-                Column {
+                width: 240
+                height: 50
+                anchors { left: parent.left; bottom: parent.bottom}
+
+                Rectangle {
                     anchors.fill: parent
-                    spacing: 2
+                    color: '#092135'
+                    opacity: !root.selected ? 0.8 : 0
 
-                    Text {
-                        font { family: 'Arial'; pixelSize: 18 }
-                        color: '#eff0f0'
-                        text: serviceItem.name
-                    }
-
-                    Text {
-                        font { family: 'Arial'; pixelSize: 12 }
-                        color: '#eff0f0'
-                        text: serviceItem.shortDescription
+                    Behavior on opacity {
+                        PropertyAnimation { duration: 200 }
                     }
                 }
 
-                Item {
-                    id: downloadStatus
+                Column {
+                    anchors { fill: parent; margins: 8 }
+                    spacing: 10
 
-                    anchors {
-                        left: parent.left
-                        right: parent.right
-                        bottom: parent.bottom
-                        bottomMargin: 0
+                    GameItemTitle {
+                        serviceItem: root.serviceItem
                     }
 
-                    height: 36
+                    DownloadStatus {
+                        id: downloadStatus
 
-                    ProgressBar {
-                        id: progressBar
-
-                        anchors {
-                            bottom: parent.bottom
-                            bottomMargin: 31 - 8
-                            left: parent.left
-                            right: parent.right
-                        }
-
-                        height: 4
-                        progress: serviceItem.progress
-
-                        style: ProgressBarStyleColors {
-                            background: "#0d5043"
-                            line: "#35cfb1"
-                        }
-                    }
-
-
-                    Text {
-                        id: statusText
-
-                        anchors {
-                            bottom: parent.bottom
-                        }
-
-                        font { family: 'Arial'; pixelSize: 12 }
-                        color: '#eff0f0'
-                        text: serviceItem.statusText
+                        anchors { left: parent.left; right: parent.right}
+                        serviceItem: root.serviceItem
                     }
                 }
             }
         }
+
+        Button {
+            id: startButton
+
+            width: 160
+            height: 36
+            anchors.centerIn: parent
+            opacity: root.selected ? 1 : 0
+            text: qsTr("START_GAME_BUTTON")
+            onClicked: App.downloadButtonStart(serviceItem.serviceId)
+
+            Behavior on opacity {
+                PropertyAnimation { duration: 200 }
+            }
+        }
     }
 
-    Button {
-        id: startButton
+    StateGroup {
+        id: stateGroup
 
-        anchors.centerIn: parent
-
-        width: 160
-        height: 36
-
-        text: qsTr("START_GAME_BUTTON")
-
-        opacity: (backgroundRect.visible && stateGroup.state != 'Downloading') ? 1 : 0
-
-        onClicked: App.downloadButtonStart(serviceItem.serviceId);
+        state: "Normal"
+        states: [
+            State {
+                name: "Normal"
+                PropertyChanges { target: downloadStatus; visible: false }
+                PropertyChanges { target: startButton; visible: true }
+                PropertyChanges { target: hightlightItem; height: 50 }
+            },
+            State {
+                name: "Downloading"
+                PropertyChanges { target: downloadStatus; visible: true }
+                PropertyChanges { target: startButton; visible: false }
+                PropertyChanges { target: hightlightItem; height: 90 }
+            }
+        ]
     }
 }
