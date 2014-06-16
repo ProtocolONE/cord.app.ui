@@ -3044,27 +3044,34 @@
 <context>
     <name>Tray</name>
     <message>
-        <location filename="../Blocks/Tray.qml" line="31"/>
         <source>TRAY_TOOLTIP</source>
-        <translation>GameNet</translation>
+        <translation type="vanished">GameNet</translation>
+    </message>
+</context>
+<context>
+    <name>TrayMenu</name>
+    <message>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="33"/>
+        <source>TRAY_TOOLTIP</source>
+        <translation type="unfinished">GameNet</translation>
     </message>
     <message>
-        <location filename="../Blocks/Tray.qml" line="168"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="170"/>
         <source>MENU_ITEM_PROFILE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Tray.qml" line="174"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="176"/>
         <source>MENU_ITEM_MONEY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Tray.qml" line="180"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="182"/>
         <source>MENU_ITEM_SETTINGS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Tray.qml" line="186"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="188"/>
         <source>MENU_ITEM_QUIT</source>
         <translation type="unfinished"></translation>
     </message>

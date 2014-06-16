@@ -54,6 +54,10 @@
 		<file>Application/Blocks/SplashScreen/UpdateManager.qml</file>
 		<file>Application/Bootstrap.qml</file>
 		<file>Application/Controls/InputWithError.qml</file>
+		<file>Application/Controls/MouseClick.js</file>
+		<file>Application/Controls/MouseClick.qml</file>
+		<file>Application/Controls/Player.qml</file>
+		<file>Application/Controls/Player/Wrapper.qml</file>
 		<file>Application/Controls/qmldir</file>
 		<file>Application/Controls/ScrollBar.qml</file>
 		<file>Application/Core/App.js</file>
@@ -160,6 +164,9 @@
 		<file>Application/Widgets/TaskList/qmldir</file>
 		<file>Application/Widgets/TaskList/TaskList.js</file>
 		<file>Application/Widgets/TaskList/TaskList.qml</file>
+		<file>Application/Widgets/TrayMenu/PluginContainer.qml</file>
+		<file>Application/Widgets/TrayMenu/qmldir</file>
+		<file>Application/Widgets/TrayMenu/TrayMenu.qml</file>
 		<file>Application/Widgets/UserProfile/PluginContainer.qml</file>
 		<file>Application/Widgets/UserProfile/qmldir</file>
 		<file>Application/Widgets/UserProfile/UserProfileModel.qml</file>
@@ -201,7 +208,6 @@
 		<file>Blocks/SecondWindowGame/PremiumAccountLabel.qml</file>
 		<file>Blocks/SecondWindowGame/PurchaseOption.qml</file>
 		<file>Blocks/SocialNet.qml</file>
-		<file>Blocks/Tray.qml</file>
 		<file>Blocks/UserInfo.qml</file>
 		<file>Blocks2/ApplicationSettings/DownloadSettings.qml</file>
 		<file>Blocks2/ApplicationSettings/GeneralSettings.qml</file>
@@ -365,7 +371,6 @@
 		<file>GameNet/Controls/TypeaheadBehaviour.qml</file>
 		<file>GameNet/Controls/VerticalSplit.qml</file>
 		<file>js/Core.js</file>
-		<file>js/Core.qml</file>
 		<file>js/DateHelper.js</file>
 		<file>js/GamesSwitchHelper.js</file>
 		<file>js/GoogleAnalytics.js</file>
@@ -382,11 +387,9 @@
 		<file>Pages/SettingsPage/NotificationPage.qml</file>
 		<file>Pages/SettingsPage/SettingsDownloadPage.qml</file>
 		<file>Pages/SettingsPage/SettingsGeneralPage.qml</file>
+		<file>plugin/qmldir</file>
+		<file>plugin/QXmpp/qmldir</file>
 		<file>plugin/Tulip/qmldir</file>
-		<file>Proxy/MouseClick.js</file>
-		<file>Proxy/MouseClick.qml</file>
-		<file>Proxy/Player.qml</file>
-		<file>Proxy/Player/Wrapper.qml</file>
 		<file>qGNA_Main.qml</file>
 		<file>Tests/Application/Blocks/AllGames.qml</file>
 		<file>Tests/Application/Blocks/ApplicationSettingsSample.qml</file>
@@ -408,6 +411,7 @@
 		<file>Tests/Application/Widgets/NicknameEditSample.qml</file>
 		<file>Tests/Application/Widgets/PremiumShopSample.qml</file>
 		<file>Tests/Application/Widgets/PromoCodeSample.qml</file>
+		<file>Tests/Application/Widgets/TrayMenuSample.qml</file>
 		<file>Tests/Application/Widgets/UserProfileSample.qml</file>
 		<file>Tests/GameNet/Components/Widgets/Fixtures/DualViewWidget/PluginContainer.qml</file>
 		<file>Tests/GameNet/Components/Widgets/Fixtures/DualViewWidget/qmldir</file>

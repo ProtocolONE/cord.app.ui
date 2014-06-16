@@ -4150,7 +4150,7 @@ Please try again later.</source>
     </message>
 </context>
 <context>
-    <name>Tray</name>
+    <name>TrayMenu</name>
     <message>
         <source>Money</source>
         <translation type="obsolete">Баланс</translation>

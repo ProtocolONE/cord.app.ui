@@ -54,6 +54,7 @@ Rectangle {
             manager.registerWidget('Application.Widgets.PremiumShop');
             manager.registerWidget('Application.Widgets.TaskBar');
             manager.registerWidget('Application.Widgets.TaskList');
+            manager.registerWidget('Application.Widgets.TrayMenu');
             manager.registerWidget('Application.Widgets.UserProfile');
             manager.registerWidget('Application.Widgets.AutoRefreshCookie');
             manager.registerWidget('Application.Widgets.DownloadManagerConnector');

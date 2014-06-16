@@ -10,8 +10,8 @@
 
 import QtQuick 1.1
 import Tulip 1.0
-import "../Proxy/App.js" as App
-import "../js/Core.js" as Core
+
+import "../../Core/App.js" as App
 
 Item {
     id: root
@@ -24,7 +24,9 @@ Item {
     onMenuClick: window.hide();
 
     Component.onCompleted: {
-        var iconPath = installPath + 'Assets/Images/tray.ico';
+        console.log("TrayMenu::onCompleted()");
+
+        var iconPath = installPath + 'Assets/Images/Application/Widgets/TrayMenu/tray.ico';
         iconPath = iconPath.replace('file:///', '');
 
         TrayWindow.install(iconPath);
@@ -132,7 +134,7 @@ Item {
                         visible: menuView.fullMenuAvailable(name)
 
                         Image {
-                            source: installPath + 'Assets/Images/Blocks/Tray/hover.png'
+                            source: installPath + 'Assets/Images/Application/Widgets/TrayMenu/hover.png'
                             visible: mouseArea.containsMouse
                         }
 
@@ -140,7 +142,7 @@ Item {
                             anchors { verticalCenter: parent.verticalCenter }
                             x: 5
 
-                            source: icon ? installPath + 'Assets/Images/Blocks/Tray/' + icon : ''
+                            source: icon ? installPath + 'Assets/Images/Application/Widgets/TrayMenu/' + icon : ''
                             visible: !!icon
                         }
 
