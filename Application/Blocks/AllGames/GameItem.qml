@@ -39,6 +39,14 @@ Rectangle {
         showAnimation.restart()
     }
 
+    function hide() {
+        root.visible = false;
+        container.visible = false;
+        container.opacity = 0;
+        informationContent.opacity = 0;
+        mouseArea.visible = false;
+    }
+
     width: formFactorSizes[serviceItem.formFactor].width
     height: formFactorSizes[serviceItem.formFactor].height
 
@@ -65,6 +73,7 @@ Rectangle {
             id: showAnimation
 
             PauseAnimation { duration: root.pauseAnimation }
+            PropertyAnimation { target: root; property: "visible"; to: true}
             PropertyAnimation { target: container; property: "visible"; to: true}
 
             ParallelAnimation {

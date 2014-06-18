@@ -28,7 +28,7 @@ Rectangle {
         Timer {
             id: progressTimer
 
-            interval: 35
+            interval: 15
             repeat: true
 
             onTriggered: {

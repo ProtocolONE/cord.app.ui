@@ -15,8 +15,10 @@ Item {
             return;
         }
 
-//    ListView {
-//        id: listView
+        AllGamesJs.items.forEach(function(e){
+            e.hide();
+        });
+    }
 
 //        width: 750
 //        height: 750
