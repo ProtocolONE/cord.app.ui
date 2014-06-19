@@ -13,12 +13,14 @@
 
 import QtQuick 1.1
 import "Tooltip.js" as Js
-import "../../Proxy/App.js" as App
+
 
 Item {
     id: root
 
     property int maxTextLen: 24
+
+    signal linkActivated(string link);
 
     visible: opacity > 0
     opacity: 0
@@ -160,7 +162,7 @@ Item {
             font { family: "Arial"; pixelSize: 14 }
             text: inner.text
             wrapMode: Text.WordWrap
-            onLinkActivated: App.openExternalUrl(link);
+            onLinkActivated: root.linkActivated((link))
             color: "#333333"
             lineHeight: 1.1
 

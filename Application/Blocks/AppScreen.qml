@@ -11,12 +11,4 @@ Item {
     ChatLayer {
         anchors.fill: parent
     }
-
-    PopupLayer {
-        anchors.fill: parent
-    }
-
-    TooltipLayer {
-        anchors.fill: parent
-    }
 }

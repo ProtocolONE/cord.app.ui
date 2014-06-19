@@ -12,6 +12,9 @@ import QtQuick 1.1
 import qGNA.Library 1.0
 
 QtObject {
+    function browseDirectory(serviceId, name, defaultDir) {
+        return gameSettingsModel.browseDirectory(serviceId, name, defaultDir);
+    }
 
     function isWindowVisible() {
         return mainWindow.isWindowVisible();

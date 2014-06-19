@@ -4,3 +4,4 @@ BaseLayer 1.0 BaseLayer.qml
 ChatLayer 1.0 ChatLayer.qml
 PopupLayer 1.0 PopupLayer.qml
 TooltipLayer 1.0 TooltipLayer.qml
+MessageBoxLayer 1.0 MessageBoxLayer.qml

@@ -13,7 +13,7 @@ import GameNet.Components.Widgets 1.0
 
 import "../../Core/restapi.js" as RestApi
 import "../../Core/GoogleAnalytics.js" as GoogleAnalytics
-import "../../../js/PopupHelper.js" as PopupHelper
+import "../../Core/TrayPopup.js" as PopupHelper
 import "../../../Application/Core/App.js" as App
 
 import "MaintenanceModel.js" as MaintenanceModel
@@ -28,6 +28,24 @@ WidgetModel {
 
         View.MaintenanceEnd {
             id: popUp
+        }
+    }
+
+    Connections {
+        target: mainWindow
+
+        ignoreUnknownSignals: true
+
+        onDownloaderFinished: {
+            var item = App.serviceItemByServiceId(service);
+            if (!item) {
+                console.log('Unknown service ' + service)
+                return;
+            }
+
+            if (item.maintenance) {
+                 MaintenanceModel.showMaintenanceEnd[service] = 1;
+            }
         }
     }
 
@@ -98,13 +116,6 @@ WidgetModel {
             };
 
             var maintenance = currentTime >= startTime && currentTime < endTime;
-            if (item.maintenance && !maintenance) {
-                App.gameMaintenanceEnd(index);
-            }
-            if (!item.maintenance && maintenance) {
-                App.gameMaintenanceStart(index);
-            }
-
             item.maintenance = maintenance;
             item.maintenanceInterval = Math.round((endTime - currentTime) / 1000);
 

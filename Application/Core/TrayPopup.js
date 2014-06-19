@@ -5,8 +5,6 @@ var popupWindow,
     maxPopupItem = 3,
     shownObject = {};
 
-init();
-
 function init() {
     var component = Qt.createComponent('./TrayPopup.qml');
     if (component.status != 1) {

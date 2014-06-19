@@ -157,3 +157,9 @@ function updateProgressEx(value, status) {
         proxyInst.updateProgressEx(value, status);
     }
 }
+
+function browseDirectory(serviceId, name, defaultDir) {
+    if (proxyInst) {
+        proxyInst.browseDirectory(serviceId, name, defaultDir);
+    }
+}

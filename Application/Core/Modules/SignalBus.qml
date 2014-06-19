@@ -32,6 +32,8 @@ QtObject {
     signal navigate(string link);
     signal publicTestIconClicked();
     signal premiumExpired();
-    signal prolongPremium();
-    signal balanceChanged(int amount);
+
+    signal hideMainWindow();
+
+    signal navigate(string page);
 }

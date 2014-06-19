@@ -108,6 +108,77 @@ ListModel {
         }
     }
 
+        gameType: "standalone"
+        imageSource: "Assets/Images/games/reborn_icon_small.png"
+        name: "Reborn"
+        imageSmall: "Assets/Images/games/reborn_icon_small.png"
+        imageFooter: "Assets/Images/games/reborn_logo.png"
+        imageBig: ""
+        imageLogoSmall: "Assets/Images/games/reborn_logo_small.png"
+        imageLogoBig: ""
+        imageHorizontal: "Assets/Images/games/reborn_icon_horizontal.png"
+        imageHorizontalSmall: "Assets/Images/games/reborn_icon_horizontal_small.png"
+        imagePopupArt: "Assets/Images/games/Popup/RebornPopupArt.png"
+
+        imageDefault: "Assets/Images/games/Default/reborn.png"
+
+        size: "doubleHorizontal"
+
+        formFactor: 1
+        priority: 0
+
+        imageBack : "Assets/Images/games/reborn_back.png"
+        imageBackSilent : "Assets/Images/games/reborn_back_silent.png"
+
+        serviceId: "300012010000000000"
+        gameId: "760"
+
+        ratingUrl: ""
+        forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=405"
+        blogUrl: ""
+        guideUrl: ""
+
+        status: "Normal" // Error Started Paused Downloading
+        statusText: ""
+        progress: -1
+        allreadyDownloaded: false
+        gaName: "Reborn" // Never change please
+
+        maintenance: false
+        maintenanceInterval: 0
+        maintenanceProposal1: "300009010000000000"
+        maintenanceProposal2: "300003010000000000"
+        maintenanceEndPause: false
+
+        licenseUrl:  "http://www.reborngame.ru/license"
+
+        itemState: "Normal";
+        animationPause: 0
+
+        hasOverlay: false
+
+        logoText: QT_TR_NOOP("LOGO_REBORN")
+        aboutGameText: QT_TR_NOOP("GAME_REBORN_ABOUT_TEXT")
+        miniToolTip: QT_TR_NOOP("GAME_REBORN_MINI_TOOLTIP")
+        shortDescription: QT_TR_NOOP("GAME_REBORN_MINI_DESC")
+
+        secondStatus: "Normal"
+        secondAllowed: true
+        menu: []
+        currentMenuIndex: 1
+
+        socialNet: [
+            ListElement {
+                link: "https://www.facebook.com/pages/Reborn/397344480387678"
+                icon: "Assets/Images/socialNet/fb.png"
+            },
+            ListElement {
+                link: "https://vk.com/reborngame"
+                icon: "Assets/Images/socialNet/vk.png"
+            }
+        ]
+    }
+
     ListElement {
         gameType: "standalone"
         imageSource: "Assets/Images/games/ca_icon_small.png"
@@ -159,6 +230,25 @@ ListModel {
         secondAllowed: false
         menu: []
         currentMenuIndex: 1
+
+        socialNet: [
+            ListElement {
+                link: "http://www.youtube.com/user/CombatArmsRussia"
+                icon: "Assets/Images/socialNet/yt.png"
+            },
+            ListElement {
+                link: "https://www.facebook.com/pages/Combat-Arms-RU/465773090177989"
+                icon: "Assets/Images/socialNet/fb.png"
+            },
+            ListElement {
+                link: "http://www.odnoklassniki.ru/group/52003182084281"
+                icon: "Assets/Images/socialNet/ok.png"
+            },
+            ListElement {
+                link: "http://vk.com/ca_ru"
+                icon: "Assets/Images/socialNet/vk.png"
+            }
+        ]
     }
 
     ListElement {
@@ -212,6 +302,21 @@ ListModel {
 
         menu: []
         currentMenuIndex: 1
+
+        socialNet: [
+            ListElement {
+                link: "http://www.youtube.com/bloodandsoulru"
+                icon: "Assets/Images/socialNet/yt.png"
+            },
+            ListElement {
+                link: "http://www.facebook.com/pages/Blood-Soul/201464389893835"
+                icon: "Assets/Images/socialNet/fb.png"
+            },
+            ListElement {
+                link: "http://vk.com/bloodandsoul"
+                icon: "Assets/Images/socialNet/vk.png"
+            }
+        ]
     }
 
     ListElement {
@@ -268,6 +373,9 @@ ListModel {
         secondAllowed: true
         menu: []
         currentMenuIndex: 1
+
+        socialNet: [
+        ]
     }
 
     ListElement {
@@ -325,6 +433,17 @@ ListModel {
         secondAllowed: true
         menu: []
         currentMenuIndex: 1
+
+        socialNet: [
+            ListElement {
+                link: "http://www.youtube.com/user/GamenetAika"
+                icon: "Assets/Images/socialNet/yt.png"
+            },
+            ListElement {
+                link: "http://vk.com/aikaonlineru"
+                icon: "Assets/Images/socialNet/vk.png"
+            }
+        ]
     }
 
     ListElement {
@@ -417,6 +536,13 @@ ListModel {
         secondAllowed: false
         menu: []
         currentMenuIndex: 1
+
+        socialNet: [
+            ListElement {
+                link: "https://vk.com/golden_age_game"
+                icon: "Assets/Images/socialNet/vk.png"
+            }
+        ]
     }
 
     ListElement {
@@ -469,6 +595,17 @@ ListModel {
         secondAllowed: false
         menu: []
         currentMenuIndex: 1
+
+        socialNet: [
+            ListElement {
+                link: "http://www.youtube.com/channel/UC6AbThTxwl1VhaLBvnkdiJg"
+                icon: "Assets/Images/socialNet/yt.png"
+            },
+            ListElement {
+                link: "http://vk.com/warinc"
+                icon: "Assets/Images/socialNet/vk.png"
+            }
+        ]
     }
 
     ListElement {
@@ -570,5 +707,12 @@ ListModel {
         secondAllowed: false
         menu: []
         currentMenuIndex: 1
+
+        socialNet: [
+            ListElement {
+                link: "http://vk.com/rageoftitans"
+                icon: "Assets/Images/socialNet/vk.png"
+            }
+        ]
     }
 }

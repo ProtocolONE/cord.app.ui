@@ -100,7 +100,7 @@ WidgetView {
         Rectangle {
             id: proposalRect
 
-            width: 590 - 160 - 20
+            width: 390
             height: parent.height
 
             color: '#253149'
@@ -124,7 +124,10 @@ WidgetView {
 
                     CursorMouseArea {
                         anchors { fill: parent }
-                        onClicked: App.activateGame(proposalRect.gameItem.serviceId);
+                        onClicked: {
+                            App.navigate('mygame');
+                            App.activateGameByServiceId(proposalRect.gameItem.serviceId)
+                        }
                     }
 
                     Text {
@@ -149,11 +152,7 @@ WidgetView {
                         font { family: 'Arial'; pixelSize: 18 }
                     }
                 }
-
-
-
             }
-
         }
     }
 }

@@ -9,13 +9,12 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+import Application.Blocks 1.0
 
 import "../../../Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../../../Core/App.js" as App
 
-import "../../../../Elements" as Elements
-
-Elements.GameItemPopUp {
+GamePopup {
     id: popUp
 
     function gaEvent(name) {

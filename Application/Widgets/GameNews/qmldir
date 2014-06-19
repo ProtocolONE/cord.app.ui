@@ -1,0 +1,3 @@
+module Application.Widgets.GameNews
+PluginContainer 1.0 PluginContainer.qml 
+GameNewsView 1.0 View/GameNewsView.qml

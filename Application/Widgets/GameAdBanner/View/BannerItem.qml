@@ -28,6 +28,7 @@ Item {
         width: parent.width
         height: textBackground.height
         anchors.bottom: parent.bottom
+        visible: contentText.text
 
         Rectangle {
             id: textBackground

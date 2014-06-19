@@ -22,8 +22,8 @@ WidgetView {
     property alias createDesktopShortcut: desktopShortcut.checked
     property alias createStartMenuShortcut: startMenuShortcut.checked
 
-    width: parent.width
-    height: parent.height
+    width: 630
+    height: 375
     clip: true
 
     Rectangle {
@@ -168,10 +168,18 @@ WidgetView {
                 leftMargin: 20
             }
             text: qsTr("INSTALL_BUTTON_CAPTION")
-            onClicked: App.installService(currentGameItem.serviceId, {
+            onClicked: {
+                licenseModel.setLicenseAccepted(true);
+                licenseModel.setShurtCutInDesktop(desktopShortcut.checked);
+                licenseModel.setShurtCutInStart(startMenuShortcut.checked);
+                licenseModel.okPressed();
+
+                App.installService(currentGameItem.serviceId, {
                                                 createDesktopShortCut: desktopShortcut.checked,
                                                 createStartMenuShortCut: startMenuShortcut.checked
                                             });
+                root.close();
+            }
         }
     }
 }

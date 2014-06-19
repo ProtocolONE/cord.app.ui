@@ -12,7 +12,8 @@ import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
-import "../Popup.js" as Popup
+import "./Popup.js" as Popup
+import "./App.js" as App
 
 Item {
     id: root
@@ -28,7 +29,9 @@ Item {
         root.state = "close";
     }
 
-    function activateWidget(widgetName, widgetView) {      
+    function activateWidget(widgetName, widgetView) {
+        App.activateWindow();
+
         d.widgetName = widgetName;
         d.widgetView = widgetView;
 

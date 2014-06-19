@@ -132,13 +132,19 @@ WidgetView {
                 GameItem {
                     gameItem: AppJs.serviceItemByServiceId(AppJs.currentGame().maintenanceProposal1)
 
-                    onActivate: AppJs.activateGame(gameItem.serviceId);
+                    onActivate: {
+                        App.navigate('mygame');
+                        App.activateGameByServiceId(serviceItem.serviceId)
+                    }
                 }
 
                 GameItem {
                     gameItem: AppJs.serviceItemByServiceId(AppJs.currentGame().maintenanceProposal2)
 
-                    onActivate: AppJs.activateGame(gameItem.serviceId);
+                    onActivate: {
+                        App.navigate('mygame');
+                        App.activateGameByServiceId(serviceItem.serviceId)
+                    }
                 }
             }
         }

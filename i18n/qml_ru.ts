@@ -1211,11 +1211,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
-        <translation type="unfinished">Обновление игры: %1 из %2 МБ...</translation>
+        <translation type="unfinished">Обновление: %1 из %2 МБ</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
-        <translation type="unfinished">Загрузка игры: %1 из %2 МБ...</translation>
+        <translation type="unfinished">Загрузка: %1 из %2 МБ</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
@@ -1564,6 +1564,52 @@ Please try again later.</source>
     <message>
         <source>DISTRIB_INSTALL_PATH</source>
         <translation>Путь установки дистрибутивов</translation>
+    </message>
+</context>
+<context>
+    <name>GameInstallBlock</name>
+    <message>
+        <source>BUTTON_PLAY_NOT_INSTALLED</source>
+        <translation type="unfinished">Начать игру</translation>
+    </message>
+    <message>
+        <source>BUTTON_PLAY_DEFAULT_STATE</source>
+        <translation type="unfinished">Играть</translation>
+    </message>
+    <message>
+        <source>BUTTON_PLAY_ON_PAUSE_STATE</source>
+        <translation type="unfinished">Играть</translation>
+    </message>
+    <message>
+        <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
+        <translation type="unfinished">Пауза</translation>
+    </message>
+    <message>
+        <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
+        <translation type="unfinished">Играть</translation>
+    </message>
+</context>
+<context>
+    <name>GameInstallBlockView</name>
+    <message>
+        <source>BUTTON_PLAY_DEFAULT_STATE</source>
+        <translation type="obsolete">Играть</translation>
+    </message>
+    <message>
+        <source>BUTTON_PLAY_ON_PAUSE_STATE</source>
+        <translation type="obsolete">Играть</translation>
+    </message>
+    <message>
+        <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
+        <translation type="obsolete">Пауза</translation>
+    </message>
+    <message>
+        <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
+        <translation type="obsolete">Играть</translation>
+    </message>
+    <message>
+        <source>BUTTON_PLAY_NOT_INSTALLED</source>
+        <translation type="obsolete">Начать игру</translation>
     </message>
 </context>
 <context>
@@ -2746,13 +2792,6 @@ Please try again later.</source>
     <message>
         <source>POPUP_MAINTENANCE_END_AND_READY_TO_START</source>
         <translation type="unfinished">Технические работы завершены</translation>
-    </message>
-</context>
-<context>
-    <name>MoneyWindow</name>
-    <message>
-        <source>MONEY_TULIP</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4138,7 +4177,7 @@ Please try again later.</source>
     <name>SocialNet</name>
     <message>
         <source>SOCIAL_NET_TEXT</source>
-        <translation>Играешь сам - поделись с друзьями</translation>
+        <translation type="vanished">Играешь сам - поделись с друзьями</translation>
     </message>
 </context>
 <context>

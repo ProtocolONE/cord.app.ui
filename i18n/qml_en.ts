@@ -59,92 +59,92 @@
 <context>
     <name>AlertAdapterModel</name>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="31"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="32"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="32"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="33"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="33"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="34"/>
         <source>SaveAll</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="34"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="35"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="35"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="36"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="36"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="37"/>
         <source>YesToAll</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="37"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="38"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="38"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="39"/>
         <source>NoToAll</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="39"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="40"/>
         <source>Abort</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="40"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="41"/>
         <source>Retry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="41"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="42"/>
         <source>Ignore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="42"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="43"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="43"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="44"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="44"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="45"/>
         <source>Discard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="45"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="46"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="46"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="47"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="47"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="48"/>
         <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="48"/>
+        <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="49"/>
         <source>RestoreDefaults</source>
         <translation type="unfinished"></translation>
     </message>
@@ -728,17 +728,22 @@
 <context>
     <name>DownloadManagerConnector</name>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="60"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="42"/>
         <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="173"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="158"/>
+        <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="186"/>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="174"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="187"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1112,6 +1117,34 @@
     </message>
 </context>
 <context>
+    <name>GameInstallBlock</name>
+    <message>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="94"/>
+        <source>BUTTON_PLAY_NOT_INSTALLED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="95"/>
+        <source>BUTTON_PLAY_DEFAULT_STATE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="96"/>
+        <source>BUTTON_PLAY_ON_PAUSE_STATE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="97"/>
+        <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="98"/>
+        <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>GameInstallView</name>
     <message>
         <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="49"/>
@@ -1178,7 +1211,7 @@
 <context>
     <name>GameItem</name>
     <message>
-        <location filename="../Application/Blocks/AllGames/GameItem.qml" line="216"/>
+        <location filename="../Application/Blocks/AllGames/GameItem.qml" line="225"/>
         <source>START_GAME_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1202,7 +1235,7 @@
 <context>
     <name>GamePopup</name>
     <message>
-        <location filename="../Application/Blocks/GamePopup.qml" line="10"/>
+        <location filename="../Application/Blocks/GamePopup.qml" line="9"/>
         <source>PLAY_NOW</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1238,42 +1271,42 @@
 <context>
     <name>GamesListModel</name>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="223"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="234"/>
         <source>LOGO_CA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="224"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="235"/>
         <source>GAME_CA_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="225"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="236"/>
         <source>GAME_CA_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="226"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="237"/>
         <source>GAME_CA_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="282"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="312"/>
         <source>LOGO_BS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="283"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="313"/>
         <source>GAME_BS_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="284"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="314"/>
         <source>GAME_BS_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="285"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="315"/>
         <source>GAME_BS_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1298,87 +1331,87 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="396"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="444"/>
         <source>LOGO_AIKA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="397"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="445"/>
         <source>GAME_AIKA_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="398"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="446"/>
         <source>GAME_AIKA_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="399"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="447"/>
         <source>GAME_AIKA_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="447"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="506"/>
         <source>LOGO_GA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="448"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="507"/>
         <source>GAME_GA_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="449"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="508"/>
         <source>GAME_GA_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="450"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="509"/>
         <source>GAME_GA_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="501"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="567"/>
         <source>LOGO_WI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="502"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="568"/>
         <source>GAME_WI_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="503"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="569"/>
         <source>GAME_WI_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="504"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="570"/>
         <source>GAME_WI_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="555"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="632"/>
         <source>LOGO_ROT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="556"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="633"/>
         <source>GAME_ROT_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="557"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="634"/>
         <source>GAME_ROT_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="558"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="635"/>
         <source>GAME_ROT_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="334"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="379"/>
         <source>LOGO_FJ</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1413,17 +1446,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="335"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="380"/>
         <source>GAME_FJ_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="336"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="381"/>
         <source>GAME_FJ_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="337"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="382"/>
         <source>GAME_FJ_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1858,7 +1891,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="136"/>
+        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="139"/>
         <source>MAINTENANCE_LIGHT_PROSOSAL_START_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1866,12 +1899,12 @@
 <context>
     <name>MaintenanceModel</name>
     <message>
-        <location filename="../Application/Widgets/Maintenance/MaintenanceModel.qml" line="40"/>
+        <location filename="../Application/Widgets/Maintenance/MaintenanceModel.qml" line="59"/>
         <source>POPUP_PLAY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/MaintenanceModel.qml" line="41"/>
+        <location filename="../Application/Widgets/Maintenance/MaintenanceModel.qml" line="60"/>
         <source>POPUP_MAINTENANCE_END_AND_READY_TO_START</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1937,14 +1970,6 @@
     <message>
         <location filename="../Application/Widgets/Messenger/View/MessageInput.qml" line="228"/>
         <source>MESSENGER_SEND_BUTTON_MESSAGE</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MoneyWindow</name>
-    <message>
-        <location filename="../Features/Money/MoneyWindow.qml" line="33"/>
-        <source>MONEY_TULIP</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2190,9 +2215,9 @@
     </message>
 </context>
 <context>
-    <name>PopupModel</name>
+    <name>Popup</name>
     <message>
-        <location filename="../Application/Core/Popup/PopupModel.qml" line="172"/>
+        <location filename="../Application/Core/Popup.qml" line="172"/>
         <source>POPUP_HELP_HINT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2991,14 +3016,6 @@
     <message>
         <location filename="../Application/Widgets/SilentMode/SilentModeModel.qml" line="36"/>
         <source>SILENT_DOWNLOADING_POPUP_TEXT</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SocialNet</name>
-    <message>
-        <location filename="../Blocks/SocialNet.qml" line="103"/>
-        <source>SOCIAL_NET_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

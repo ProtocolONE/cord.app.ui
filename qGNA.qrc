@@ -26,6 +26,7 @@
 		<file>Application/Blocks/DownloadStatus.qml</file>
 		<file>Application/Blocks/FlowView.qml</file>
 		<file>Application/Blocks/GameIcon.qml</file>
+		<file>Application/Blocks/GameInstallBlock.qml</file>
 		<file>Application/Blocks/GameLoad/Main.qml</file>
 		<file>Application/Blocks/GameLoad/ProgressWidget.qml</file>
 		<file>Application/Blocks/GameLoad/qmldir</file>
@@ -51,6 +52,7 @@
 		<file>Application/Blocks/qmldir</file>
 		<file>Application/Blocks/ServiceLoading/Index.qml</file>
 		<file>Application/Blocks/SettingsMenu.qml</file>
+		<file>Application/Blocks/SocialNet.qml</file>
 		<file>Application/Blocks/SplashScreen.qml</file>
 		<file>Application/Blocks/SplashScreen/Background.qml</file>
 		<file>Application/Blocks/SplashScreen/UpdateManager.qml</file>
@@ -82,9 +84,7 @@
 		<file>Application/Core/User.qml</file>
 		<file>Application/Layers/BaseLayer.qml</file>
 		<file>Application/Layers/ChatLayer.qml</file>
-		<file>Application/Layers/PopupLayer.qml</file>
 		<file>Application/Layers/qmldir</file>
-		<file>Application/Layers/TooltipLayer.qml</file>
 		<file>Application/Models/CombatArmsItemsModel.qml</file>
 		<file>Application/Models/GamesListModel.qml</file>
 		<file>Application/Models/NewsModel.qml</file>
@@ -119,6 +119,19 @@
 		<file>Application/Widgets/GameAdBanner/qmldir</file>
 		<file>Application/Widgets/GameAdBanner/View/GameAdBannerView.js</file>
 		<file>Application/Widgets/GameAdBanner/View/GameAdBannerView.qml</file>
+		<file>Application/Widgets/GameInfo/GameInfoModel.js</file>
+		<file>Application/Widgets/GameInfo/GameInfoModel.qml</file>
+		<file>Application/Widgets/GameInfo/PluginContainer.qml</file>
+		<file>Application/Widgets/GameInfo/qmldir</file>
+		<file>Application/Widgets/GameInfo/View/GameInfoView.qml</file>
+		<file>Application/Widgets/GameInstall/GameInstallModel.qml</file>
+		<file>Application/Widgets/GameInstall/PluginContainer.qml</file>
+		<file>Application/Widgets/GameInstall/qmldir</file>
+		<file>Application/Widgets/GameInstall/View/GameInstallView.qml</file>
+		<file>Application/Widgets/GameNews/GameNewsModel.qml</file>
+		<file>Application/Widgets/GameNews/PluginContainer.qml</file>
+		<file>Application/Widgets/GameNews/qmldir</file>
+		<file>Application/Widgets/GameNews/View/GameNewsView.qml</file>
 		<file>Application/Widgets/Maintenance/MaintenanceModel.js</file>
 		<file>Application/Widgets/Maintenance/MaintenanceModel.qml</file>
 		<file>Application/Widgets/Maintenance/PluginContainer.qml</file>
@@ -209,7 +222,6 @@
 		<file>Blocks/SecondWindowGame/BuyPage.qml</file>
 		<file>Blocks/SecondWindowGame/PremiumAccountLabel.qml</file>
 		<file>Blocks/SecondWindowGame/PurchaseOption.qml</file>
-		<file>Blocks/SocialNet.qml</file>
 		<file>Blocks/UserInfo.qml</file>
 		<file>Blocks2/ApplicationSettings/DownloadSettings.qml</file>
 		<file>Blocks2/ApplicationSettings/GeneralSettings.qml</file>
@@ -393,6 +405,8 @@
 		<file>plugin/QXmpp/qmldir</file>
 		<file>plugin/Tulip/qmldir</file>
 		<file>qGNA_Main.qml</file>
+		<file>TestMenuModel.qml</file>
+		<file>TestParalax.qml</file>
 		<file>Tests/Application/Blocks/AllGames.qml</file>
 		<file>Tests/Application/Blocks/ApplicationSettingsSample.qml</file>
 		<file>Tests/Application/Blocks/GameLoadSample.qml</file>

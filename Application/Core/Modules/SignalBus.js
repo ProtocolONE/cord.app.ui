@@ -81,3 +81,7 @@ function prolongPremium() {
 function balanceChanged(amount) {
      _signalBusInstance.balanceChanged(amount);
 }
+
+function navigate(name) {
+    _signalBusInstance.navigate(name);
+}

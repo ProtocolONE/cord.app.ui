@@ -1,12 +1,14 @@
 import QtQuick 1.1
-import GameNet.Controls 1.0 as Controls
+import GameNet.Controls 1.0
+import Application.Controls 1.0
+import Application.Blocks 1.0
 import Application.Blocks.Header 1.0
 import Application.Blocks.GameMenu 1.0
 import GameNet.Components.Widgets 1.0
 
 import "../../Application/Blocks/AllGames" as AllGames
 
-import "../../Application/Core/App.js" as AppJs
+import "../../Application/Core/App.js" as App
 
 Rectangle {
     id: root
@@ -14,17 +16,31 @@ Rectangle {
     implicitWidth: 1000
     implicitHeight: 600
 
-    // HACK
     color: "#092135"
+
+    // HACK
     Component.onCompleted: {
-        AppJs.activateGame(AppJs.serviceItemByGameId("92"))
+        App.activateGame(App.serviceItemByGameId("92"))
     }
 
-    Rectangle {
+    Connections {
+        target: App.signalBus()
+
+        onNavigate: {
+            if (page == "mygame") {
+                root.state = "SelectedGame";
+            }
+
+            if (page == "allgame") {
+                root.state = "AllGames";
+            }
+        }
+    }
+
+    Item {
         id: cont
 
         anchors.fill: parent
-        color: "brown"
 
         Item {
             id: layer1headerContair
@@ -82,86 +98,172 @@ Rectangle {
 
             anchors.fill: parent
 
-            onSwitchTo:  {
-                console.log('!!!', page)
-                if (page == "mygame") {
-                    root.state = "SelectedGame";
-                }
-
-                if (page == "allgame") {
-                    root.state = "AllGames";
-                }
-            }
-        }
-
-
-        Rectangle {
-            id: gameBlock
-
-            objectName: "gameBlock"
-
-            width: parent.width
-            height: 136
-            color : "green"
-
-            onParentChanged: console.log(gameBlock, parent)
-
-            WidgetContainer {
-                width: 590
-                height: 100
-                widget: 'GameInstall'
-            }
-
-//            Text {
-//                color: "#FFFFFF"
-//                font.pixelSize: 40
-//                text: "GameInfo"
-//            }
-
+            onSwitchTo: App.navigate(page);
         }
 
         Item {
-            id: gameMenuItem
+            id: gameBlock
 
-            //width: parent.width
-            //height: parent.height - gameBlock.height
             width: 180
-            height: 400
-            clip: true
+            height: root.implicitHeight - header.implicitHeight
 
-            GameMenu {
-                id: gameMenu
+            Column {
+                width: 180
+                height: parent.height
+                spacing: 1
 
-                anchors.fill: parent
-                model: AppJs.currentGame().menu
+                Rectangle {
+                    objectName: "gameBlock"
 
-                onUrlClicked: {
-                    console.log('Open Url', url)
-                    //AppProxy.openExternalUrl(url)
+                    width: parent.width
+                    height: gameInstallBlock.height + 1
+
+                    GameInstallBlock {
+                        id: gameInstallBlock
+
+                        anchors {
+                            left: parent.left
+                            top: parent.top
+                        }
+                    }
+
+                    Rectangle {
+                        anchors.bottom: parent.bottom
+                        width: parent.width
+                        height: 1
+                        color: '#242537'
+                    }
                 }
 
-                onPageClicked: {
-                    //Core.currentGame().currentMenuIndex = gameMenu.currentIndex;
-                    console.log('Open Page ', page)
+                Item {
+                    id: gameMenuItem
+
+                    width: 180
+                    height: 400
+                    clip: true
+
+                    GameMenu {
+                        id: gameMenu
+
+                        anchors.fill: parent
+                        model: App.currentGame().menu
+
+                        onUrlClicked: App.openExternalUrl(url);
+                        onPageClicked: console.log('Open Page ', page)
+                    }
                 }
             }
 
+            Rectangle {
+                anchors {
+                    top: parent.top
+                    right: parent.right
+                    bottom: parent.bottom
+                }
+
+                width: 1
+                color: '#133042'
+            }
+
+            Rectangle {
+                anchors {
+                    top: parent.top
+                    right: parent.right
+                    bottom: parent.bottom
+                    rightMargin: 1
+                }
+
+                width: 1
+                color: '#191a2f'
+            }
+
+            SocialNet {
+                anchors {
+                    left: parent.left
+                    bottom: parent.bottom
+                    margins: 10
+                }
+            }
         }
 
-        Rectangle {
+        // TODO ниже верстку вынести куда то
+        Item {
             id: centerBlock
 
             width: 590
-            height: 600-42
-            color: "pink"
+            height: 600 - header.implicitHeight
 
-            Text {
-                color: "#FFFFFF"
-                font.pixelSize: 40
-                text: "Central Block"
+            Item {
+                id: aboutGame
+
+                anchors { fill: parent }
+                clip: true
+
+                Flickable {
+                    id: flickable
+
+                    anchors { fill: parent }
+                    contentWidth: width
+                    boundsBehavior: Flickable.StopAtBounds
+
+                    Column {
+                        width: parent.width
+
+                        onHeightChanged: flickable.contentHeight = height;
+
+                        Rectangle {
+                            id: maintenanceRect
+
+                            width: parent.width
+                            height: 112
+                            color: '#082135'
+                            visible: App.currentGame().maintenance && App.currentGame().allreadyDownloaded
+
+                            WidgetContainer {
+                                anchors.centerIn: parent
+
+                                width: viewInstance.width
+                                height: viewInstance.height
+
+                                widget: 'Maintenance'
+                                view: 'MaintenanceLightView'
+                            }
+                        }
+
+                        WidgetContainer {
+                            width: parent.width
+                            height: 194
+
+                            widget: 'GameAdBanner'
+                        }
+
+                        WidgetContainer {
+                            width: parent.width
+                            height: 40
+
+                            widget: 'Facts'
+                        }
+
+                        WidgetContainer {
+                            width: parent.width
+                            height: viewInstance.height
+
+                            widget: 'GameNews'
+                        }
+                    }
+                }
+            }
+
+            ScrollBar {
+                flickable: flickable
+                anchors {
+                    right: parent.right
+                    rightMargin: 2
+                }
+                height: parent.height
+                scrollbarWidth: 5
             }
         }
-
 
         WidgetContainer {
             id: userProfile
@@ -170,7 +272,6 @@ Rectangle {
             height: 92
             widget: 'UserProfile'
         }
-
 
         Rectangle {
             id: fakeChat
@@ -226,7 +327,6 @@ Rectangle {
             PropertyChanges { target: header; parent: layer1headerContair}
 
             PropertyChanges { target: gameBlock; parent: layer1Col1}
-            PropertyChanges { target: gameMenuItem; parent: layer1Col1}
 
             PropertyChanges { target: centerBlock; parent: layer1Col2}
 

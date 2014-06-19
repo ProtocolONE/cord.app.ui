@@ -27,6 +27,7 @@ Column {
             background: "#0d5043"
             line: "#35cfb1"
         }
+        animated: true
         anchors { left: parent.left; right: parent.right}
         progress: serviceItem ? serviceItem.progress : 75
     }

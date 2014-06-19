@@ -159,7 +159,10 @@ Rectangle {
             hoverEnabled: true
             visible: false
 
-            onClicked: App.activateGame(serviceItem.serviceId)
+            onClicked: {
+                App.navigate('mygame');
+                App.activateGameByServiceId(serviceItem.serviceId)
+            }
         }
 
         Item {

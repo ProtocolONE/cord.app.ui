@@ -58,13 +58,8 @@ Rectangle {
             manager.registerWidget('Application.Widgets.UserProfile');
             manager.registerWidget('Application.Widgets.AutoRefreshCookie');
             manager.registerWidget('Application.Widgets.DownloadManagerConnector');
+            manager.registerWidget('Application.Widgets.GameNews');
             manager.init();
-        }
-    }
-
-    Bootstrap {
-        Component.onCompleted: {
-            App.setGlobalState('Loading');
         }
     }
 
@@ -126,6 +121,15 @@ Rectangle {
 
         anchors.fill: parent
     }
+
+    Bootstrap {
+        anchors.fill: parent
+
+        Component.onCompleted: {
+            App.setGlobalState('Loading');
+        }
+    }
+
 
 //    TODO это не работает, разобратся
 //    <Unknown File>: QML StateGroup: Can't apply a state change as part of a state definition.

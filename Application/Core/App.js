@@ -108,10 +108,6 @@ function indexByServiceId(serviceId) {
 /**
  * Application specific functions
  */
-function browseDirectory(serviceId, name, defaultDir) {
-    console.log("!!! IMPLEMENT ME: App.js::browseDirectory(" + serviceId + ", " + name + ", " + defaultDir+ ")");
-}
-
 function openEditNicknameDialog() {
     console.log("!!! IMPLEMENT ME: App.js::openEditNicknameDialog()");
 }
@@ -129,7 +125,7 @@ function openPremiumDetails() {
 }
 
 function installService(serviceId, installParams) {
-    console.log("!!! IMPLEMENT ME: App.js::installService(" + serviceId + ", " + JSON.stringify(installParams) + ")");
+    downloadButtonStart(serviceId);
 }
 
 function isServiceInstalled(serviceId) {

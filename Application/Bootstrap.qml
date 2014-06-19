@@ -11,13 +11,20 @@
 import QtQuick 1.1
 import Tulip 1.0
 
+import GameNet.Controls 1.0
+
 import "Core/App.js" as AppJs
 import "Core/User.js" as User
 import "Core/GoogleAnalytics.js" as GoogleAnalytics
 import "Core/restapi.js" as RestApi
 
+import "Core/Popup.js" as Popup
+import "Core/MessageBox.js" as MessageBox
+import "Core/TrayPopup.js" as TrayPopup
+
 Item {
-    visible: false
+    id: root
+
     Component.onCompleted: init()
 
     function init() {
@@ -31,8 +38,15 @@ Item {
 
         initRestApi(options);
         initGoogleAnalytics(options);
+        initAdditionalLayers(options);
 
         updateInstallDate();
+    }
+
+    function initAdditionalLayers(options) {
+        Popup.init(popupLayer);
+        MessageBox.init(messageLayer);
+        TrayPopup.init();
     }
 
     function initRestApi(options) {
@@ -87,6 +101,22 @@ Item {
         Settings.setValue("qml/auth/", "authDone", 1);
         AppJs.authSuccessSlot(userId, appKey, cookie);
         User.setCredential(userId, appKey, cookie);
+    }
+
+    Item {
+        id: popupLayer
+
+        anchors.fill: parent
+    }
+
+    Item {
+        id: messageLayer
+
+        anchors.fill: parent
+    }
+
+    Tooltip {
+        onLinkActivated: AppJs.openExternalUrl(link);
     }
 
     Connections {

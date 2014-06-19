@@ -42,7 +42,7 @@ Item {
         property int _mouseY
 
         function activateWindow() {
-            if (!Core.isClientLoaded) {
+            if (!App.isClientLoaded) {
                 return;
             }
 
