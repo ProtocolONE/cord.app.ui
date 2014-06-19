@@ -9,7 +9,7 @@
 ****************************************************************************/
 
 import QtQuick 1.1
-import "TrayPopup.js" as TrayPopup
+import "../Core/TrayPopup.js" as TrayPopup
 
 Item {
     id: popupItem

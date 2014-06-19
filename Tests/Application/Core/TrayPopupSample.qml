@@ -10,12 +10,12 @@
 
 import QtQuick 1.1
 import Tulip 1.0
+import Application.Blocks 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
 import "../../../Application/Core/App.js" as AppJs
-import "../../../Application/Core/TrayPopup"
-import "../../../Application/Core/TrayPopup/TrayPopupHelper.js" as TrayPopupHelperJs
+import "../../../Application/Core/TrayPopup.js" as TrayPopup
 
 Item {
     width: 1000
@@ -46,7 +46,7 @@ Item {
                 message: "Зарубись прям тут!"
             };
 
-            TrayPopupHelperJs.showPopup(gameDownloadingPopup, popUpOptions, 'gameDownloading' + gameItem.serviceId);
+            TrayPopup.showPopup(gameDownloadingPopup, popUpOptions, 'gameDownloading' + gameItem.serviceId);
         }
     }
 
@@ -59,6 +59,4 @@ Item {
             state: "Orange"
         }
     }
-
-    TrayPopupWindow {}
 }
