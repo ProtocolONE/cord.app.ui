@@ -12,10 +12,22 @@ import QtQuick 1.1
 import Application.Controls 1.0
 import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
-import "../../../Core/restapi.js" as RestApiJs
+
+import "../../../Core/App.js" as App
+import "../../../Core/restapi.js" as RestApi
+import "../../../Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetView {
     id: root
+
+    Component.onCompleted: sendGoogleStat('show');
+
+    function sendGoogleStat(action) {
+        var game = App.currentGame();
+        if (game) {
+            GoogleAnalytics.trackEvent('/game/' + game.gaName, 'PromoKey', action);
+        }
+    }
 
     width: 630
     height: allContent.height + 40
@@ -97,7 +109,7 @@ WidgetView {
             onClicked: {
                 activateButton.inProgress = true;
 
-                RestApiJs.User.activatePromoKey(
+                RestApi.User.activatePromoKey(
                     promoCode.text,
                     function(response) {
                         activateButton.inProgress = false;
