@@ -1,0 +1,3 @@
+module Application.Widgets.GameIsBoring
+PluginContainer 1.0 PluginContainer.qml 
+GameIsBoringView 1.0 View/GameIsBoringView.qml

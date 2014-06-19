@@ -1,0 +1,3 @@
+module Application.Widgets.GameFailed
+PluginContainer 1.0 PluginContainer.qml 
+GameFailedView 1.0 View/GameFailedView.qml

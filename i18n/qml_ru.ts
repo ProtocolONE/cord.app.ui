@@ -1204,6 +1204,25 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>DownloadManagerConnector</name>
+    <message>
+        <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
+        <translation type="unfinished">Игра запущена</translation>
+    </message>
+    <message>
+        <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
+        <translation type="unfinished">Обновление игры: %1 из %2 МБ...</translation>
+    </message>
+    <message>
+        <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
+        <translation type="unfinished">Загрузка игры: %1 из %2 МБ...</translation>
+    </message>
+    <message>
+        <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
+        <translation type="unfinished">Подготовка к запуску игры</translation>
+    </message>
+</context>
+<context>
     <name>DownloadSettings</name>
     <message>
         <source>DOWNLOAD_LIMIT</source>
@@ -1314,11 +1333,11 @@ Please try again later.</source>
     <name>ExpandCollapseButton</name>
     <message>
         <source>CA_SHOP_EXPAND</source>
-        <translation>Больше</translation>
+        <translation type="vanished">Больше</translation>
     </message>
     <message>
         <source>CA_SHOP_COLLAPSE</source>
-        <translation>Меньше</translation>
+        <translation type="vanished">Меньше</translation>
     </message>
 </context>
 <context>
@@ -1506,17 +1525,17 @@ Please try again later.</source>
     </message>
 </context>
 <context>
-    <name>GameFailed</name>
+    <name>GameFailedView</name>
     <message>
         <source>GAME_FAILED_TITLE</source>
         <translation>Что-то пошло не так?</translation>
     </message>
     <message>
-        <source>GAME_FAILED_HELP_TEXT1</source>
+        <source>GAME_FAILED_TIP</source>
         <translation>Кажется, при запуске &lt;b&gt;%1&lt;/b&gt;  что-то пошло не так, как задумано. </translation>
     </message>
     <message>
-        <source>GAME_FAILED_HELP_TEXT2</source>
+        <source>GAME_FAILED_DESCRIPTION</source>
         <translation>В нашей службе поддержки работают самые внимательные и доброжелательные сотрудники. Они уже готовы ответить на любой ваш вопрос.</translation>
     </message>
     <message>
@@ -1575,22 +1594,36 @@ Please try again later.</source>
     </message>
 </context>
 <context>
-    <name>GameIsBoring</name>
+    <name>GameIsBoringButton</name>
+    <message>
+        <source>PROPOSAL_BUTTON_TEXT</source>
+        <translation>%1 → Играть!</translation>
+    </message>
+</context>
+<context>
+    <name>GameIsBoringView</name>
     <message>
         <source>GAME_BORING_TITLE</source>
-        <translation>Вам не понравилась игра?</translation>
+        <translation>Тебе не понравилась игра?</translation>
     </message>
     <message>
-        <source>GAME_BORING_HELP_TEXT1</source>
-        <translation>Нам очень жаль, что вам не понравилась игра &lt;b&gt;%1&lt;/b&gt;. Приносим свои извинения. Попробуйте другие наши игры.</translation>
+        <source>GAME_BORING_TIP</source>
+        <translation>Нам очень жаль, что тебе не понравилась игра &lt;b&gt;%1&lt;/b&gt;. Приносим свои извинения. Попробуй другие наши игры.</translation>
     </message>
     <message>
-        <source>GAME_BORING_HELP_TEXT2</source>
-        <translation>В них играют миллионы людей. Вам обязательно понравится!</translation>
+        <source>GAME_BORING_TIP_2</source>
+        <translation>В них играют миллионы людей. Тебе обязательно понравится!</translation>
     </message>
     <message>
         <source>GAME_FAILED_BUTTON_CLOSE</source>
         <translation>Закрыть окно</translation>
+    </message>
+</context>
+<context>
+    <name>GameItem</name>
+    <message>
+        <source>START_GAME_BUTTON</source>
+        <translation type="unfinished">Начать игру</translation>
     </message>
 </context>
 <context>
@@ -2288,7 +2321,7 @@ Please try again later.</source>
     <name>ImageButton</name>
     <message>
         <source>MAINTENANCE_IMAGE_BUTTON_TEXT</source>
-        <translation>%1 → Играть!</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2317,14 +2350,14 @@ Please try again later.</source>
     <name>ItemDelegate</name>
     <message>
         <source>CA_SHOP_ITEMS_BUY</source>
-        <translation>КУПИТЬ</translation>
+        <translation type="vanished">КУПИТЬ</translation>
     </message>
 </context>
 <context>
     <name>ItemsView</name>
     <message>
         <source>CA_SHOP_ITEMS_TITLE</source>
-        <translation>ТОП ПРЕДМЕТОВ</translation>
+        <translation type="vanished">ТОП ПРЕДМЕТОВ</translation>
     </message>
 </context>
 <context>
@@ -2910,11 +2943,11 @@ Please try again later.</source>
     <name>NicknameEditModel</name>
     <message>
         <source>VALIDATE_NICK_NAME_DEFAULT_ERROR</source>
-        <translation type="obsolete">GameNet недоступен, невозможно проверить никнейм. Проверьте подключение к интернет или попробуйте ещё раз позже.</translation>
+        <translation type="unfinished">GameNet недоступен, невозможно проверить никнейм. Проверьте подключение к интернет или попробуйте ещё раз позже.</translation>
     </message>
     <message>
         <source>VALIDATE_TECH_NAME_DEFAULT_ERROR</source>
-        <translation type="obsolete">GameNet недоступен, невозможно проверить ссылку.</translation>
+        <translation type="unfinished">GameNet недоступен, невозможно проверить ссылку.</translation>
     </message>
 </context>
 <context>
@@ -2976,19 +3009,19 @@ Please try again later.</source>
     <name>Ping</name>
     <message>
         <source>HEADER_TITLE</source>
-        <translation>Устанавливается соединение с GameNet</translation>
+        <translation type="vanished">Устанавливается соединение с GameNet</translation>
     </message>
     <message>
         <source>MESSAGE_GAMENET_UNAVAILABLE</source>
-        <translation>В настоящий момент сервисы GameNet недоступны. Мы работаем над скорейшим устранением этой проблемы.</translation>
+        <translation type="vanished">В настоящий момент сервисы GameNet недоступны. Мы работаем над скорейшим устранением этой проблемы.</translation>
     </message>
     <message>
         <source>MESSAGE_INTERNET_UNAVAILABLE</source>
-        <translation>В настоящий момент сервисы GameNet недоступны. Вероятно по нашей вине, но, возможно, это ваше интернет-соединение. Пожалуйста, на всякий случай проверьте ваше соединение.</translation>
+        <translation type="vanished">В настоящий момент сервисы GameNet недоступны. Вероятно по нашей вине, но, возможно, это ваше интернет-соединение. Пожалуйста, на всякий случай проверьте ваше соединение.</translation>
     </message>
 </context>
 <context>
-    <name>PopupModel</name>
+    <name>Popup</name>
     <message>
         <source>POPUP_HELP_HINT_TEXT</source>
         <translation type="unfinished">Кликая в любое место в синей зоне или на крестик, ты можешь свернуть окно и продолжить читать любые новости и изучать информацию об играх</translation>
@@ -3264,35 +3297,35 @@ Please try again later.</source>
     <name>PurchaseDetails</name>
     <message>
         <source>CA_SHOP_DETAILS_TITLE</source>
-        <translation>Подтверждение покупки</translation>
+        <translation type="vanished">Подтверждение покупки</translation>
     </message>
     <message>
         <source>CA_SHOP_DETAILS_ERROR_INSUFFICIENT_GN</source>
-        <translation>У вас недостаточно GN-монет. &lt;a href=&quot;http://www.gamenet.ru/money&quot;&gt;Пополнить счет&lt;/a&gt;</translation>
+        <translation type="vanished">У вас недостаточно GN-монет. &lt;a href=&quot;http://www.gamenet.ru/money&quot;&gt;Пополнить счет&lt;/a&gt;</translation>
     </message>
     <message>
         <source>CA_SHOP_DETAILS_ERROR_UNKNOWN</source>
-        <translation>Произошла ошибка в процессе покупки. Пожалуйста, попробуйте позже.</translation>
+        <translation type="vanished">Произошла ошибка в процессе покупки. Пожалуйста, попробуйте позже.</translation>
     </message>
     <message>
         <source>CA_SHOP_DETAILS_ERROR_NO_CHAR</source>
-        <translation>Мы не нашли вашего персонажа Combat Arms. Вы пока не можете покупать предметы.</translation>
+        <translation type="vanished">Мы не нашли вашего персонажа Combat Arms. Вы пока не можете покупать предметы.</translation>
     </message>
     <message>
         <source>CA_SHOP_DETAILS_CONFIRM</source>
-        <translation>Подтвердить покупку</translation>
+        <translation type="vanished">Подтвердить покупку</translation>
     </message>
     <message>
         <source>CA_SHOP_DETAILS_CANCEL</source>
-        <translation>Отмена</translation>
+        <translation type="vanished">Отмена</translation>
     </message>
     <message>
         <source>CA_SHOP_DETAILS_CLOSE</source>
-        <translation>Закрыть</translation>
+        <translation type="vanished">Закрыть</translation>
     </message>
     <message>
         <source>CA_SHOP_DETAILS_PURCHASE_SUCCESS</source>
-        <translation>Вы успешно купили предмет %1, он добавлен во входящие. Если у Вас запущена игра, поменяйте сервер для отображения покупки.</translation>
+        <translation type="vanished">Вы успешно купили предмет %1, он добавлен во входящие. Если у Вас запущена игра, поменяйте сервер для отображения покупки.</translation>
     </message>
 </context>
 <context>
