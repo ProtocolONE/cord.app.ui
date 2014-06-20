@@ -15,7 +15,7 @@
 var indexToGameItem = {},
     gameIdToGameItem = {},
     serviceIdToGameItemIdex = {},
-    authAccepted = true, // tmp
+    authAccepted = false,
     count = 0,
     clientWidth = 1000,
     clientHeight = 600;

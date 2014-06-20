@@ -33,7 +33,16 @@ Item {
             defaultApiUrl: 'https://gnapi.com:8443/restapi'
         };
 
-        console.log('GameNet Application version ' + App.fileVersion() + ' starting up');
+        Host.hwidChanged.connect(function(result) {
+            var mid = Marketing.mid();
+            console.log('Authorization use mid `' + mid + '`');
+            Authorization.setup({ mid: mid, hwid: encodeURIComponent(result)});
+            AppJs.authAccepted = true;
+        })
+
+        Host.hwid(true);
+
+        console.log('GameNet Application version ' + AppJs.fileVersion() + ' starting up');
         console.log('Desktop', options.desktop);
 
         initRestApi(options);

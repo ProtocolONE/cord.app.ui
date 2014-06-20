@@ -206,16 +206,9 @@
 		<file>Blocks/GameFailed.qml</file>
 		<file>Blocks/GameIsBoring.qml</file>
 		<file>Blocks/GamesSwitchFooter.qml</file>
-		<file>Blocks/GamesSwitchFooter/FooterButton.qml</file>
-		<file>Blocks/GameSwitch/ImageButton.qml</file>
-		<file>Blocks/GameSwitch/Maintenance.qml</file>
-		<file>Blocks/Header.qml</file>
 		<file>Blocks/LicenseBlock.qml</file>
 		<file>Blocks/MoveUpPage.qml</file>
 		<file>Blocks/NewsBlock.qml</file>
-		<file>Blocks/NickNameView.qml</file>
-		<file>Blocks/ProgressWidget.qml</file>
-		<file>Blocks/PromoKey.qml</file>
 		<file>Blocks/RoatateNews.qml</file>
 		<file>Blocks/SecondAuth.qml</file>
 		<file>Blocks/SecondAuthButton.qml</file>
@@ -330,16 +323,6 @@
 		<file>Features/Money/WebViewItem.qml</file>
 		<file>Features/News/News.js</file>
 		<file>Features/News/News.qml</file>
-		<file>Features/Overlay/GameOverlay.qml</file>
-		<file>Features/Overlay/Games/Aika.qml</file>
-		<file>Features/Overlay/Games/BS.qml</file>
-		<file>Features/Overlay/Games/Reborn.qml</file>
-		<file>Features/Overlay/Overlay.js</file>
-		<file>Features/Overlay/OverlayBase.qml</file>
-		<file>Features/Premium/PremiumNotifier.qml</file>
-		<file>Features/PublicTest/index.js</file>
-		<file>Features/PublicTest/PublicTestWarning.qml</file>
-		<file>Features/SilentMode/SilentMode.qml</file>
 		<file>GameNet/Components/Widgets/PluginContainer.qml</file>
 		<file>GameNet/Components/Widgets/qmldir</file>
 		<file>GameNet/Components/Widgets/WidgetContainer.qml</file>
@@ -386,12 +369,6 @@
 		<file>GameNet/Controls/VerticalSplit.qml</file>
 		<file>js/Core.js</file>
 		<file>js/DateHelper.js</file>
-		<file>js/GamesSwitchHelper.js</file>
-		<file>js/GoogleAnalytics.js</file>
-		<file>js/Message.js</file>
-		<file>js/PopupHelper.js</file>
-		<file>js/UserInfo.js</file>
-		<file>js/UserInfoPrivate.qml</file>
 		<file>Main.qml</file>
 		<file>Pages/ApplicationSettings.qml</file>
 		<file>Pages/Game.qml</file>
