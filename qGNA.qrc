@@ -119,6 +119,9 @@
 		<file>Application/Widgets/GameAdBanner/qmldir</file>
 		<file>Application/Widgets/GameAdBanner/View/GameAdBannerView.js</file>
 		<file>Application/Widgets/GameAdBanner/View/GameAdBannerView.qml</file>
+		<file>Application/Widgets/GameFailed/PluginContainer.qml</file>
+		<file>Application/Widgets/GameFailed/qmldir</file>
+		<file>Application/Widgets/GameFailed/View/GameFailedView.qml</file>
 		<file>Application/Widgets/GameInfo/GameInfoModel.js</file>
 		<file>Application/Widgets/GameInfo/GameInfoModel.qml</file>
 		<file>Application/Widgets/GameInfo/PluginContainer.qml</file>
@@ -128,6 +131,10 @@
 		<file>Application/Widgets/GameInstall/PluginContainer.qml</file>
 		<file>Application/Widgets/GameInstall/qmldir</file>
 		<file>Application/Widgets/GameInstall/View/GameInstallView.qml</file>
+		<file>Application/Widgets/GameIsBoring/PluginContainer.qml</file>
+		<file>Application/Widgets/GameIsBoring/qmldir</file>
+		<file>Application/Widgets/GameIsBoring/View/GameIsBoringButton.qml</file>
+		<file>Application/Widgets/GameIsBoring/View/GameIsBoringView.qml</file>
 		<file>Application/Widgets/GameNews/GameNewsModel.qml</file>
 		<file>Application/Widgets/GameNews/PluginContainer.qml</file>
 		<file>Application/Widgets/GameNews/qmldir</file>
@@ -203,8 +210,6 @@
 		<file>Blocks/Features/Announcements/AnnouncementsHelper.js</file>
 		<file>Blocks/Features/Announcements/ArtPopup.qml</file>
 		<file>Blocks/FirstLicense.qml</file>
-		<file>Blocks/GameFailed.qml</file>
-		<file>Blocks/GameIsBoring.qml</file>
 		<file>Blocks/GamesSwitchFooter.qml</file>
 		<file>Blocks/LicenseBlock.qml</file>
 		<file>Blocks/MoveUpPage.qml</file>
@@ -398,6 +403,10 @@
 		<file>Tests/Application/Widgets/AccountActivationSample.qml</file>
 		<file>Tests/Application/Widgets/FactsSample.qml</file>
 		<file>Tests/Application/Widgets/GameAdBannerSample.qml</file>
+		<file>Tests/Application/Widgets/GameFailedSample.qml</file>
+		<file>Tests/Application/Widgets/GameInfoSample.qml</file>
+		<file>Tests/Application/Widgets/GameInstallSample.qml</file>
+		<file>Tests/Application/Widgets/GameIsBoringSample.qml</file>
 		<file>Tests/Application/Widgets/Maintenance/Maintenance.qml</file>
 		<file>Tests/Application/Widgets/Maintenance/MaintenanceAfterDownload.qml</file>
 		<file>Tests/Application/Widgets/MessengerSample.qml</file>
