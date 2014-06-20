@@ -372,8 +372,6 @@
 		<file>GameNet/Controls/TryLoader.qml</file>
 		<file>GameNet/Controls/TypeaheadBehaviour.qml</file>
 		<file>GameNet/Controls/VerticalSplit.qml</file>
-		<file>js/Core.js</file>
-		<file>js/DateHelper.js</file>
 		<file>Main.qml</file>
 		<file>Pages/ApplicationSettings.qml</file>
 		<file>Pages/Game.qml</file>
@@ -387,8 +385,6 @@
 		<file>plugin/QXmpp/qmldir</file>
 		<file>plugin/Tulip/qmldir</file>
 		<file>qGNA_Main.qml</file>
-		<file>TestMenuModel.qml</file>
-		<file>TestParalax.qml</file>
 		<file>Tests/Application/Blocks/AllGames.qml</file>
 		<file>Tests/Application/Blocks/ApplicationSettingsSample.qml</file>
 		<file>Tests/Application/Blocks/GameLoadSample.qml</file>

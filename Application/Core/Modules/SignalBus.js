@@ -82,6 +82,38 @@ function balanceChanged(amount) {
      _signalBusInstance.balanceChanged(amount);
 }
 
+function logoutRequest() {
+     _signalBusInstance.logoutRequest();
+}
+
+function logoutDone() {
+    _signalBusInstance.logoutDone();
+}
+
+function setGlobalProgressVisible(value, timeout) {
+    _signalBusInstance.setGlobalProgressVisible(value, timeout);
+}
+
+function gameMaintenanceStart(serviceId) {
+   _signalBusInstance.gameMaintenanceStart(serviceId);
+}
+
+function gameMaintenanceEnd(serviceId) {
+   _signalBusInstance.gameMaintenanceEnd(serviceId);
+}
+
+function showPurchaseOptions(itemOptions) {
+    _signalBusInstance.openPurchaseOptions(itemOptions);
+}
+
+function openBuyGamenetPremiumPage() {
+    _signalBusInstance.openBuyGamenetPremiumPage();
+}
+
+function hideMainWindow() {
+    _signalBusInstance.hideMainWindow();
+}
+
 function navigate(name) {
     _signalBusInstance.navigate(name);
 }

@@ -128,6 +128,12 @@ Item {
         onLinkActivated: AppJs.openExternalUrl(link);
     }
 
+    GlobalProgress {
+        id: globalProgressLock
+
+        anchors.fill: parent
+    }
+
     Connections {
         target: App.signalBus();
 
@@ -146,6 +152,11 @@ Item {
         onAuthDone: {
             root.setAuthInfo(userId, appKey, cookie);
             AppJs.setGlobalState('ServiceLoading');
+        }
+
+        onSetGlobalProgressVisible: {
+            globalProgressLock.interval = (timeout && value) ? timeout : 500;
+            globalProgressLock.visible = value;
         }
     }
 }

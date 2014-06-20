@@ -20,7 +20,7 @@ QtObject {
     signal logoutRequest();
 
     signal setGlobalState(string name);
-    signal setGlobalProgressVisible(bool value);
+    signal setGlobalProgressVisible(bool value, int timeout);
 
     signal backgroundMousePressed(int mouseX, int mouseY);
     signal backgroundMousePositionChanged(int mouseX, int mouseY);
