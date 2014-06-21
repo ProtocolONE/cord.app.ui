@@ -113,3 +113,15 @@ function openBuyGamenetPremiumPage() {
 function hideMainWindow() {
     _signalBusInstance.hideMainWindow();
 }
+
+function navigate(name) {
+    _signalBusInstance.navigate(name);
+}
+
+function openGameSettings() {
+    _signalBusInstance.openGameSettings();
+}
+
+function openApplicationSettings() {
+    _signalBusInstance.openApplicationSettings();
+}

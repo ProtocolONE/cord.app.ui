@@ -11,7 +11,7 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
 
-import "../../../Features/Maintenance/Maintenance.js" as Maintenance
+import "../../Core/App.js" as App
 
 Item {
     id: root
@@ -21,9 +21,8 @@ Item {
         spacing: 20
 
         CheckBox {
-
             text: qsTr("CHECKBOX_NOTIFICATION_MAINTENANCE_END")
-            checked: Maintenance.isShowEndPopup()
+            checked: App.isAppSettingsEnabled('notifications', 'maintenanceEndPopup', true)
             style: ButtonStyleColors {
                 normal: "#1ABC9C"
                 hover: "#019074"

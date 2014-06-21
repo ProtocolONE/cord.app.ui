@@ -31,9 +31,9 @@ QtObject {
     signal downloaderStarted(variant gameItem);
     signal navigate(string link, string from);
     signal publicTestIconClicked();
-    signal premiumExpired();
+    signal prolongPremium();
+    signal balanceChanged(int amount);
 
-    signal hideMainWindow();
-
-    signal navigate(string page);
+    signal openApplicationSettings();
+    signal openGameSettings();
 }

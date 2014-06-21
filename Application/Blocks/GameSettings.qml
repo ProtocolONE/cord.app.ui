@@ -9,19 +9,27 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+import Tulip 1.0
 import GameNet.Controls 1.0
+import Application.Blocks.GameSettings 1.0
 
-import "../js/Core.js" as Core
-import Application.Blocks.GameSettings 1.0 as SettingsBlocks
+import "../Core/App.js" as App
 
 Rectangle {
     id: root
 
-    property string gameId: "92"
+    property variant currentGame: App.currentGame()
     signal accepted()
-    signal restoreClient()
+
+    CursorMouseArea {
+        cursor: CursorArea.DefaultCursor
+        anchors.fill: parent
+    }
 
     Column {
+        width: parent.width
+        height: parent.height
+
         Rectangle {
             id: headerRect
 
@@ -29,7 +37,7 @@ Rectangle {
             height: 93
 
             Text {
-                text: qsTr("GAME_SETTINGS_TITLE").arg(qsTr(Core.serviceItemByGameId(gameId).name));
+                text: qsTr("GAME_SETTINGS_TITLE").arg(qsTr(!!root.currentGame ? root.currentGame.name : ""));
                 anchors {
                     verticalCenter: parent.verticalCenter
                     left: parent.left
@@ -70,11 +78,12 @@ Rectangle {
                     TextButton {
                         text: qsTr("OVERLAY_TAB")
                         width: 160
-                        height: 20
+                        height: (root.currentGame && root.currentGame.hasOverlay) ? 20 : 0
                         style: ButtonStyleColors {
                             normal: "#3498BD"
                             hover: "#3670DC"
                         }
+                        visible: root.currentGame && root.currentGame.hasOverlay
                         onClicked: root.state = "OverlayPage";
                     }
 
@@ -107,6 +116,7 @@ Rectangle {
                         normal: "#1ADC9C"
                         hover: "#019074"
                     }
+                    onClicked: gameSettingsModel.restoreClient();
                 }
             }
 
@@ -127,23 +137,24 @@ Rectangle {
                 Switcher {
                     id: pageSwitcher
 
-                    SettingsBlocks.GameGeneralSettings {
+                    anchors.fill: parent
+
+                    GameGeneralSettings {
                         id: generalSettingsPage
 
-                        width: 529
-                        height: 422
+                        anchors.fill: parent
                     }
-                    SettingsBlocks.GameOverlaySettings {
+
+                    GameOverlaySettings {
                         id: overlaySettingsPage
 
-                        width: 529
-                        height: 422
+                        anchors.fill: parent
                     }
-                    SettingsBlocks.GameControlSettings {
+
+                    GameControlSettings {
                         id: controlSettingsPage
 
-                        width: 529
-                        height: 422
+                        anchors.fill: parent
                     }
                 }
 
@@ -156,7 +167,11 @@ Rectangle {
                         leftMargin: 30
                         bottom: parent.bottom
                     }
-                    onClicked: root.accepted();
+                    onClicked: {
+                        root.accepted();
+                        //  UNDONE: проверить работоспособность сохранения
+                        gameSettingsModel.submitSettings();
+                    }
                 }
             }
         }

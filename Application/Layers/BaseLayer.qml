@@ -29,7 +29,9 @@ Rectangle {
         target: App.signalBus()
 
         onNavigate: {
-            if (page == "mygame") {
+            console.log("onNavigate: " + link);
+
+            if (link == "mygame") {
                 root.state = "SelectedGame";
             }
 
@@ -151,7 +153,16 @@ Rectangle {
                         model: App.currentGame().menu
 
                         onUrlClicked: App.openExternalUrl(url);
-                        onPageClicked: console.log('Open Page ', page)
+                        onPageClicked: {
+                            console.log('Open Page ', page);
+                            if (page == 'GameSettings') {
+                                if(root.state != "SelectedGame") {
+                                    return;
+                                }
+
+                                App.openGameSettings();
+                            }
+                        }
                     }
                 }
             }
@@ -317,7 +328,6 @@ Rectangle {
             view: 'Contacts'
         }
     }
-
 
     state: "SelectedGame"
 

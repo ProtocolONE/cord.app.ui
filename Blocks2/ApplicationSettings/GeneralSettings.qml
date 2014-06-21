@@ -11,7 +11,7 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
 
-import "../../../Proxy/App.js" as App
+import "../../Core/App.js" as App
 
 Item {
     id: root
@@ -52,7 +52,7 @@ Item {
             height: 48
 
             currentIndex: (d.getLanguageIndex() >= 0) ? d.getLanguageIndex() : 0
-            icon: installPath + "Assets/Images/Pages/ApplicationSettings/language.png"
+            icon: installPath + "Assets/Images/Application/Blocks/ApplicationSettings/language.png"
             model: ListModel {
                 ListElement {
                     value: "ru"

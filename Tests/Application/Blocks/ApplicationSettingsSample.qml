@@ -1,6 +1,8 @@
 import QtQuick 1.1
 import Tulip 1.0
 
+import Application.Blocks 1.0
+
 import "../../../Pages" as Pages
 import "../../../Blocks2" as Blocks2
 
@@ -23,7 +25,7 @@ Rectangle {
 //        onClicked: mainWindow.leftMouseClick(mouse.x, mouse.y);
 //    }
 
-    Pages.ApplicationSettings {
+    ApplicationSettings {
         id: gameSettings
 
         width: parent.width

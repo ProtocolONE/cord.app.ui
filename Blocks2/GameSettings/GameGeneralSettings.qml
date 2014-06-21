@@ -11,10 +11,12 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
 
+import "../../Core/App.js" as App
+
 Item {
     id: root
 
-    property string gameId: ""
+    property variant currentGame: App.currentGame()
 
     Column {
         x: 30

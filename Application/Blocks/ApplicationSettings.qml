@@ -1,9 +1,7 @@
-import QtQuick 1.1
-
 /****************************************************************************
 ** This file is a part of Syncopate Limited GameNet Application or it parts.
 **
-** Copyright (©) 2011 - 2012, Syncopate Limited and/or affiliates.
+** Copyright (©) 2011 - 2013, Syncopate Limited and/or affiliates.
 ** All rights reserved.
 **
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
@@ -11,16 +9,24 @@ import QtQuick 1.1
 ****************************************************************************/
 
 import QtQuick 1.1
+import Tulip 1.0
 import GameNet.Controls 1.0
-import Application.Blocks.ApplicationSettings 1.0 as SettingsBlocks
+import Application.Blocks.ApplicationSettings 1.0
 
 Rectangle {
     id: root
 
     signal accepted()
-    signal restoreClient()
+
+    CursorMouseArea {
+        cursor: CursorArea.DefaultCursor
+        anchors.fill: parent
+    }
 
     Column {
+        width: parent.width
+        height: parent.height
+
         Rectangle {
             id: headerRect
 
@@ -107,7 +113,6 @@ Rectangle {
                         hover: "#019074"
                     }
                 }
-
             }
 
             VerticalSplit {
@@ -128,23 +133,22 @@ Rectangle {
                 Switcher {
                     id: pageSwitcher
 
-                    SettingsBlocks.GeneralSettings {
+                    anchors.fill: parent
+
+                    GeneralSettings {
                         id: generalSettingsPage
 
-                        width: 529
-                        height: 422
+                        anchors.fill: parent
                     }
-                    SettingsBlocks.DownloadSettings {
+                    DownloadSettings {
                         id: downloadSettingsPage
 
-                        width: 529
-                        height: 422
+                        anchors.fill: parent
                     }
-                    SettingsBlocks.NotificationSettings {
+                    NotificationSettings {
                         id: notificationSettingsPage
 
-                        width: 529
-                        height: 422
+                        anchors.fill: parent
                     }
                 }
 

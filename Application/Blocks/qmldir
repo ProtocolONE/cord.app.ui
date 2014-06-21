@@ -11,3 +11,5 @@ ServiceLoading 1.0 ServiceLoading/Index.qml
 DownloadStatus 1.0 DownloadStatus.qml
 SocialNet 1.0 SocialNet.qml
 GameInstallBlock 1.0 GameInstallBlock.qml
+ApplicationSettings 1.0 ApplicationSettings.qml
+GameSettings 1.0 GameSettings.qml

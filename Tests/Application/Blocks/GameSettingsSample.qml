@@ -1,8 +1,7 @@
 import QtQuick 1.1
 import Tulip 1.0
 
-import "../../../Pages" as Pages
-import Application.Blocks 1.0 as Blocks
+import Application.Blocks 1.0
 
 Rectangle {
     id: sampleRoot
@@ -11,7 +10,7 @@ Rectangle {
     width: 1000
     height: 600
 
-    Pages.GameSettings {
+    GameSettings {
         id: gameSettings
 
         width: parent.width

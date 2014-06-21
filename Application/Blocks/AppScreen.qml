@@ -11,4 +11,8 @@ Item {
     ChatLayer {
         anchors.fill: parent
     }
+
+    SettingsLayer {
+        anchors.fill: parent
+    }
 }
