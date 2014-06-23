@@ -53,7 +53,7 @@ Rectangle {
         target: mainWindow
 
         onNavigate: {
-            if (page == 'gogamenetmoney' && Money.isOverlayEnable && !App.isPublicVersion()) {
+            if (page == 'gogamenetmoney' && Money.isOverlayEnable) {
                 if (root.visible) {
                     root.close();
                 }

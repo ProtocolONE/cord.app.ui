@@ -339,8 +339,7 @@ Item {
                 if (page == 'gogamenetmoney') {
                     RestApi.Billing.isInGameRefillAvailable(function(response) {
                         if (!Money.isOverlayEnable ||
-                            !response.enabled ||
-                            App.isPublicVersion()) {
+                            !response.enabled) {
                             mainAuthModule.openWebPage("http://www.gamenet.ru/money");
                         }
                     });
