@@ -9,8 +9,8 @@
 ****************************************************************************/
 import QtQuick 1.1
 
-import "../js/restapi.js" as RestApi
-import "../Features/News/News.js" as News
+import "../Core/restapi.js" as RestApi
+import "../../Features/News/News.js" as News
 
 Item {
     id: newsItem

@@ -13,7 +13,7 @@ import Tulip 1.0
 
 import GameNet.Controls 1.0
 
-import "Core/App.js" as AppJs
+import "Core/App.js" as App
 import "Core/User.js" as User
 import "Core/GoogleAnalytics.js" as GoogleAnalytics
 import "Core/restapi.js" as RestApi
@@ -37,12 +37,12 @@ Item {
             var mid = Marketing.mid();
             console.log('Authorization use mid `' + mid + '`');
             Authorization.setup({ mid: mid, hwid: encodeURIComponent(result)});
-            AppJs.authAccepted = true;
+            App.authAccepted = true;
         })
 
         Host.hwid(true);
 
-        console.log('GameNet Application version ' + AppJs.fileVersion() + ' starting up');
+        console.log('GameNet Application version ' + App.fileVersion() + ' starting up');
         console.log('Desktop', options.desktop);
 
         initRestApi(options);
@@ -108,7 +108,7 @@ Item {
 
     function setAuthInfo(userId, appKey, cookie) {
         Settings.setValue("qml/auth/", "authDone", 1);
-        AppJs.authSuccessSlot(userId, appKey, cookie);
+        App.authSuccessSlot(userId, appKey, cookie);
         User.setCredential(userId, appKey, cookie);
     }
 
@@ -125,7 +125,7 @@ Item {
     }
 
     Tooltip {
-        onLinkActivated: AppJs.openExternalUrl(link);
+        onLinkActivated: App.openExternalUrl(link);
     }
 
     GlobalProgress {
@@ -140,18 +140,18 @@ Item {
         ignoreUnknownSignals: true
 
         onLogoutRequest: {
-            AppJs.logout();
+            App.logout();
             root.resetCredential();
-            AppJs.logoutDone();
+            App.logoutDone();
         }
 
         onLogoutDone: {
-            AppJs.setGlobalState('Authorization');
+            App.setGlobalState('Authorization');
         }
 
         onAuthDone: {
             root.setAuthInfo(userId, appKey, cookie);
-            AppJs.setGlobalState('ServiceLoading');
+            App.setGlobalState('ServiceLoading');
         }
 
         onSetGlobalProgressVisible: {

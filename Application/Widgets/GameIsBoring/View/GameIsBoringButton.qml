@@ -53,7 +53,12 @@ ImageButton {
             return;
         }
 
-        App.downloadButtonStart(root.gameItem.serviceId);
-        Marketing.send(Marketing.NotLikeTheGame, root.gameItem.serviceId, { serviceId: root.gameItem.serviceId });
+        Marketing.send(Marketing.NotLikeTheGame, App.currentGame().serviceId,
+                       { serviceId: App.currentGame().serviceId });
+
+        var startServiceId = root.gameItem.serviceId;
+        App.navigate('mygame');
+        App.activateGameByServiceId(startServiceId);
+        App.downloadButtonStart(startServiceId);
     }
 }

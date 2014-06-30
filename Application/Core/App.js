@@ -54,12 +54,35 @@ function initModel() {
     count = list.count;
     for (i = 0; i < count; ++i) {
         item = list.get(i);
+        item.widgets = (item.widgetList) && (item.widgetList.count > 0) ? item.widgetList.get(0) : {}
         indexToGameItem[i] = item;
         gameIdToGameItem[item.gameId] = item;
         serviceIdToGameItemIdex[item.serviceId] = i;
     }
 
     return list;
+}
+
+function currentRunningMainService() {
+    var serviceItem;
+    for (var i = 0; i < gamesListModel.count; i++) {
+        serviceItem = gamesListModel.get(i);
+
+        if (serviceItem.status === "Started" || serviceItem.status === "Starting") {
+            return serviceItem.serviceId;
+        }
+    }
+}
+
+function currentRunningSecondService() {
+    var serviceItem;
+    for (var i = 0; i < gamesListModel.count; i++) {
+        serviceItem = gamesListModel.get(i);
+
+        if (serviceItem.secondStatus === "Started" || serviceItem.secondStatus === "Starting") {
+            return serviceItem.serviceId;
+        }
+    }
 }
 
 function activateGame(item) {
@@ -149,8 +172,7 @@ function gameLastExecutionTime(serviceId) {
 }
 
 var runningService = {},
-    runningSecondService = {},
-    isClientLoaded = false;
+    runningSecondService = {};
 
 function isAnySecondServiceRunning() {
     return _signalBusInst.isAnySecondServiceRunning;

@@ -62,8 +62,8 @@ function downloaderStarted(gameItem) {
     _signalBusInstance.downloaderStarted(gameItem);
 }
 
-function navigate(link) {
-     _signalBusInstance.navigate(link);
+function navigate(link, from) {
+     _signalBusInstance.navigate(link, from);
 }
 
 function publicTestIconClicked() {
@@ -112,8 +112,4 @@ function openBuyGamenetPremiumPage() {
 
 function hideMainWindow() {
     _signalBusInstance.hideMainWindow();
-}
-
-function navigate(name) {
-    _signalBusInstance.navigate(name);
 }

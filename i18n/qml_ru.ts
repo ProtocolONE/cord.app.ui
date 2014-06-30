@@ -1211,15 +1211,27 @@ Please try again later.</source>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
-        <translation type="unfinished">Обновление: %1 из %2 МБ</translation>
+        <translation type="unfinished">Обновление игры: %1 из %2 МБ</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
-        <translation type="unfinished">Загрузка: %1 из %2 МБ</translation>
+        <translation type="unfinished">Загрузка игры: %1 из %2 МБ</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
-        <translation type="unfinished">Подготовка к запуску игры</translation>
+        <translation type="unfinished">Игра запускается</translation>
+    </message>
+    <message>
+        <source>POPUP_PLAY</source>
+        <translation type="unfinished">Играть</translation>
+    </message>
+    <message>
+        <source>POPUP_READY_TO_START</source>
+        <translation type="unfinished">Игра готова к запуску!</translation>
+    </message>
+    <message>
+        <source>TEXT_PROGRESSBAR_DOWNLOADED_AND_READY_STATE</source>
+        <translation type="unfinished">Игра готова к запуску</translation>
     </message>
 </context>
 <context>
@@ -1525,6 +1537,13 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>GameExecutingView</name>
+    <message>
+        <source>GAME_EXECUTING_HEADER</source>
+        <translation type="unfinished">Игра %1 запускается...</translation>
+    </message>
+</context>
+<context>
     <name>GameFailedView</name>
     <message>
         <source>GAME_FAILED_TITLE</source>
@@ -1578,7 +1597,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>BUTTON_PLAY_ON_PAUSE_STATE</source>
-        <translation type="unfinished">Играть</translation>
+        <translation type="obsolete">Играть</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
@@ -1587,6 +1606,10 @@ Please try again later.</source>
     <message>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished">Играть</translation>
+    </message>
+    <message>
+        <source>BUTTON_PLAY_ON_DETAILS_STATE</source>
+        <translation type="unfinished">Подробнее</translation>
     </message>
 </context>
 <context>
@@ -1724,10 +1747,40 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>GameLoadModel</name>
+    <message>
+        <source>GAMELOAD_STARTING_GAME_NAME_HEADER</source>
+        <translation type="obsolete">Запуск BS.ru Demonion</translation>
+    </message>
+</context>
+<context>
     <name>GameLoadSample</name>
     <message>
         <source>GAMELOAD_STARTING_GAME_NAME_HEADER</source>
         <translation type="unfinished">Запуск BS.ru Demonion</translation>
+    </message>
+</context>
+<context>
+    <name>GameLoadView</name>
+    <message>
+        <source>PAUSE</source>
+        <translation type="obsolete">Пауза</translation>
+    </message>
+    <message>
+        <source>SHOW_STATISTICS</source>
+        <translation type="unfinished">Показать статистику</translation>
+    </message>
+    <message>
+        <source>GAME_LOAD_PAUSE</source>
+        <translation type="unfinished">Пауза</translation>
+    </message>
+    <message>
+        <source>GAME_LOAD_CONTINUE</source>
+        <translation type="unfinished">Продолжить</translation>
+    </message>
+    <message>
+        <source>GAME_LOAD_VIEW_HEADER_TEXT</source>
+        <translation type="unfinished">Загрузка %1</translation>
     </message>
 </context>
 <context>
@@ -2286,7 +2339,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>ALL_GAMES</source>
-        <translation>Все игры</translation>
+        <translation type="vanished">Все игры</translation>
     </message>
     <message>
         <source>HEADER_BUTTON_MY_GAMES</source>
@@ -2368,13 +2421,6 @@ Please try again later.</source>
     <message>
         <source>REGISTRATION_BUTTON</source>
         <translation>Регистрация</translation>
-    </message>
-</context>
-<context>
-    <name>ImageButton</name>
-    <message>
-        <source>MAINTENANCE_IMAGE_BUTTON_TEXT</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2629,27 +2675,27 @@ Please try again later.</source>
     <name>Maintenance</name>
     <message>
         <source>MAINTENANCE_FIRST_TITLE</source>
-        <translation>Технические работы</translation>
+        <translation type="vanished">Технические работы</translation>
     </message>
     <message>
         <source>MAINTENANCE_TIME_TITLE</source>
-        <translation>Завершение через:</translation>
+        <translation type="vanished">Завершение через:</translation>
     </message>
     <message>
         <source>STATUS_TEXT_MAINTENANCE_GREATE_HOUR</source>
-        <translation>%1 ч %2 мин %3 сек</translation>
+        <translation type="vanished">%1 ч %2 мин %3 сек</translation>
     </message>
     <message>
         <source>STATUS_TEXT_MAINTENANCE_LESS_HOUR</source>
-        <translation>%2 мин %3 сек</translation>
+        <translation type="vanished">%2 мин %3 сек</translation>
     </message>
     <message>
         <source>MAINTENANCE_SECOND_TITLE</source>
-        <translation>Чем заняться?</translation>
+        <translation type="vanished">Чем заняться?</translation>
     </message>
     <message>
         <source>MAINTENANCE_ADV_TITLE</source>
-        <translation>Пока мы делаем игру еще лучше, попробуйте другие игры, в которые обычно играют пользователи %1</translation>
+        <translation type="vanished">Пока мы делаем игру еще лучше, попробуйте другие игры, в которые обычно играют пользователи %1</translation>
     </message>
     <message>
         <source>POPUP_PLAY</source>
@@ -2943,31 +2989,31 @@ Please try again later.</source>
     </message>
     <message>
         <source>ACCOUNT_DEPOSIT</source>
-        <translation>ПОПОЛНИТЬ СЧЁТ</translation>
+        <translation type="vanished">ПОПОЛНИТЬ СЧЁТ</translation>
     </message>
     <message>
         <source>LOGOUT_TOOLTIP</source>
-        <translation>Выйти</translation>
+        <translation type="vanished">Выйти</translation>
     </message>
     <message>
         <source>LEVEL_AVATAR_TOOLTIP</source>
-        <translation>Ваш аватар и уровень</translation>
+        <translation type="vanished">Ваш аватар и уровень</translation>
     </message>
     <message>
         <source>PREMIUM_TOOLTIP</source>
-        <translation>Расширенный аккаунт</translation>
+        <translation type="vanished">Расширенный аккаунт</translation>
     </message>
     <message>
         <source>PREMIUM_NO_TOOLTIP</source>
-        <translation>Обычный аккаунт</translation>
+        <translation type="vanished">Обычный аккаунт</translation>
     </message>
     <message>
         <source>NICKNAME_TOOLTIP</source>
-        <translation>Никнейм</translation>
+        <translation type="vanished">Никнейм</translation>
     </message>
     <message>
         <source>MONEY_TOOLTIP</source>
-        <translation>GameNet монеты</translation>
+        <translation type="vanished">GameNet монеты</translation>
     </message>
 </context>
 <context>
@@ -3193,7 +3239,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>DOWNLOAD_INFO_CAPTION</source>
-        <translation>Сведения о подключении</translation>
+        <translation type="vanished">Сведения о подключении</translation>
     </message>
     <message>
         <source>DOWNLOAD_PEER_DIRECT_TOTAL %1</source>
@@ -3290,28 +3336,8 @@ Please try again later.</source>
 <context>
     <name>PromoKey</name>
     <message>
-        <source>TITLE_PROMOKEY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>SUBTITLE_PROMOKEY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>SUBTITLE_PROMOKEY_ACTIVATION</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>PLACEHOLDER_PROMOKEY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>BUTTON_ACTIVATE_KEY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>BUTTON_CANCEL</source>
-        <translation type="unfinished">Отмена</translation>
+        <translation type="obsolete">Отмена</translation>
     </message>
 </context>
 <context>

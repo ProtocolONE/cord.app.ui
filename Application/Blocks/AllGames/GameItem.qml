@@ -58,7 +58,8 @@ Rectangle {
                 return
             }
 
-            stateGroup.state = (gameItem.status === 'Downloading') ? 'Downloading' : 'Normal'
+            stateGroup.state = (gameItem.status === 'Downloading' || gameItem.status === 'Starting') ?
+                        'Downloading' : 'Normal'
         }
     }
 
@@ -120,7 +121,6 @@ Rectangle {
         }
 
         Rectangle {
-            //Image Border
             color: '#ff6555'
             anchors { fill: parent; margins: -5 }
             opacity: root.selected ? 1 : 0
@@ -160,8 +160,8 @@ Rectangle {
             visible: false
 
             onClicked: {
-                App.navigate('mygame');
-                App.activateGameByServiceId(serviceItem.serviceId)
+                App.navigate('mygame', 'GameItem');
+                App.activateGameByServiceId(serviceItem.serviceId);
             }
         }
 

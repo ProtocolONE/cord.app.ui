@@ -11,7 +11,7 @@
 import QtQuick 1.1
 import Tulip 1.0
 
-import "../../Core/App.js" as App
+import "../../../Application/Core/App.js" as App
 
 Item {
     id: root
@@ -42,10 +42,6 @@ Item {
         property int _mouseY
 
         function activateWindow() {
-            if (!App.isClientLoaded) {
-                return;
-            }
-
             App.activateWindow();
         }
 

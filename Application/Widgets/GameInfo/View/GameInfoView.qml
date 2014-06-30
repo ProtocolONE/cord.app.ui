@@ -16,6 +16,9 @@ import "../../../Core/App.js" as App
 WidgetView {
     id: root
 
+    width: 590
+    height: 100
+
     property variant currentItem: App.currentGame()
     
     function update() {

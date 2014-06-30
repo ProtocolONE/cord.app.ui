@@ -52,6 +52,7 @@
 		<file>Application/Blocks/qmldir</file>
 		<file>Application/Blocks/ServiceLoading/Index.qml</file>
 		<file>Application/Blocks/SettingsMenu.qml</file>
+		<file>Application/Blocks/ShakeAnimation.qml</file>
 		<file>Application/Blocks/SocialNet.qml</file>
 		<file>Application/Blocks/SplashScreen.qml</file>
 		<file>Application/Blocks/SplashScreen/Background.qml</file>
@@ -119,6 +120,10 @@
 		<file>Application/Widgets/GameAdBanner/qmldir</file>
 		<file>Application/Widgets/GameAdBanner/View/GameAdBannerView.js</file>
 		<file>Application/Widgets/GameAdBanner/View/GameAdBannerView.qml</file>
+		<file>Application/Widgets/GameExecuting/PluginContainer.qml</file>
+		<file>Application/Widgets/GameExecuting/qmldir</file>
+		<file>Application/Widgets/GameExecuting/View/GameExecutingView.qml</file>
+		<file>Application/Widgets/GameExecuting/View/SplitterStyleColorsPrivate.qml</file>
 		<file>Application/Widgets/GameFailed/PluginContainer.qml</file>
 		<file>Application/Widgets/GameFailed/qmldir</file>
 		<file>Application/Widgets/GameFailed/View/GameFailedView.qml</file>
@@ -135,6 +140,15 @@
 		<file>Application/Widgets/GameIsBoring/qmldir</file>
 		<file>Application/Widgets/GameIsBoring/View/GameIsBoringButton.qml</file>
 		<file>Application/Widgets/GameIsBoring/View/GameIsBoringView.qml</file>
+		<file>Application/Widgets/GameLoad/GameLoadModel.qml</file>
+		<file>Application/Widgets/GameLoad/PluginContainer.qml</file>
+		<file>Application/Widgets/GameLoad/qmldir</file>
+		<file>Application/Widgets/GameLoad/View/GameLoadView.qml</file>
+		<file>Application/Widgets/GameLoad/View/ProgressWidget.qml</file>
+		<file>Application/Widgets/GameLoad/View/SplitterStyleColorsPrivate.qml</file>
+		<file>Application/Widgets/GameLoad/View/StatInfoElementBig.qml</file>
+		<file>Application/Widgets/GameLoad/View/StatInfoElementSmall.qml</file>
+		<file>Application/Widgets/GameLoad/View/TextButtonStyle.qml</file>
 		<file>Application/Widgets/GameNews/GameNewsModel.qml</file>
 		<file>Application/Widgets/GameNews/PluginContainer.qml</file>
 		<file>Application/Widgets/GameNews/qmldir</file>
@@ -385,6 +399,8 @@
 		<file>plugin/QXmpp/qmldir</file>
 		<file>plugin/Tulip/qmldir</file>
 		<file>qGNA_Main.qml</file>
+		<file>TestMenuModel.qml</file>
+		<file>TestParalax.qml</file>
 		<file>Tests/Application/Blocks/AllGames.qml</file>
 		<file>Tests/Application/Blocks/ApplicationSettingsSample.qml</file>
 		<file>Tests/Application/Blocks/GameLoadSample.qml</file>
@@ -399,6 +415,7 @@
 		<file>Tests/Application/Widgets/AccountActivationSample.qml</file>
 		<file>Tests/Application/Widgets/FactsSample.qml</file>
 		<file>Tests/Application/Widgets/GameAdBannerSample.qml</file>
+		<file>Tests/Application/Widgets/GameExecutingSample.qml</file>
 		<file>Tests/Application/Widgets/GameFailedSample.qml</file>
 		<file>Tests/Application/Widgets/GameInfoSample.qml</file>
 		<file>Tests/Application/Widgets/GameInstallSample.qml</file>

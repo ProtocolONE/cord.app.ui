@@ -1,0 +1,4 @@
+module Application.Widgets.GameLoad
+PluginContainer 1.0 PluginContainer.qml 
+GameLoadView 1.0 View/GameLoadView.qml
+GameLoadModel 1.0 GameLoadModel.qml

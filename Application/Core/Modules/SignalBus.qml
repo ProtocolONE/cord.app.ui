@@ -29,7 +29,7 @@ QtObject {
     signal serviceStarted(variant gameItem);
     signal serviceFinished(variant gameItem);
     signal downloaderStarted(variant gameItem);
-    signal navigate(string link);
+    signal navigate(string link, string from);
     signal publicTestIconClicked();
     signal premiumExpired();
 

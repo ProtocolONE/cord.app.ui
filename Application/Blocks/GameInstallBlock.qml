@@ -9,6 +9,7 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 import Application.Blocks 1.0
@@ -23,7 +24,7 @@ Item {
     property variant gameItem: App.currentGame()
 
     width: 180
-    height: button.isStartDownloading ? 136 : 100
+    height: button.isStartDownloading || button.isStarting ? 136 : 100
 
     Behavior on height {
         NumberAnimation { id: heightAnimation; duration: 250 }
@@ -35,10 +36,20 @@ Item {
         onOpenLicenseBlock: {
             // TODO подумать куда это вынести
             var gameItem = App.serviceItemByServiceId(licenseModel.serviceId());
-            App.navigate("mygame");
             App.activateGame(gameItem);
             Popup.show('GameInstall');
             licenseModel.setLicenseAccepted(false);
+        }
+    }
+
+    Connections {
+        target: App.signalBus()
+        onNavigate: {
+            if (link == 'mygame' && from == 'GameItem' &&
+                    !App.isAppSettingsEnabled("qml/installBlock/", "shakeAnimationShown", false)) {
+                App.setAppSettingsValue("qml/installBlock/", "shakeAnimationShown", true);
+                shakeAnimationTimer.start();
+            }
         }
     }
 
@@ -82,27 +93,49 @@ Item {
             Button {
                 id: button
 
-                width: 160
-                height: 35
+                function testStarted() {
+                    if (!root.gameItem) {
+                        return false;
+                    }
+
+                    if (root.gameItem.gameType == "browser") {
+                        return false;
+                    }
+
+                    var currentMainRunning = App.currentRunningMainService();
+                    var currentSecondRunning = App.currentRunningSecondService();
+                    if (currentMainRunning ||
+                            currentSecondRunning && currentSecondRunning != root.gameItem.serviceId) {
+                        return true;
+                    }
+
+                    return false;
+                }
 
                 property bool isInstalled: App.isServiceInstalled(root.gameItem.serviceId)
                 property bool isStartDownloading: root.gameItem.status === "Downloading"
+                property bool isStarting: root.gameItem.status === "Starting"
                 property bool isError: root.gameItem.status === "Error"
                 property bool isPause: root.gameItem.status === "Paused"
+                property bool isDetailed: root.gameItem.status === "Paused"
                 property bool allreadyDownloaded: root.gameItem.allreadyDownloaded
 
                 property string buttonNotInstalledText: qsTr("BUTTON_PLAY_NOT_INSTALLED")
                 property string buttonText: qsTr("BUTTON_PLAY_DEFAULT_STATE")
-                property string buttonPauseText: qsTr("BUTTON_PLAY_ON_PAUSE_STATE")
+                property string buttonDetailsText: qsTr("BUTTON_PLAY_ON_DETAILS_STATE")
                 property string buttonDownloadText: qsTr("BUTTON_PLAY_DOWNLOADING_NOW_STATE")
                 property string buttonDownloadedText: qsTr("BUTTON_PLAY_DOWNLOADED_AND_READY_STATE")
 
-                text: isPause ? buttonPauseText
-                              : allreadyDownloaded ? buttonDownloadedText
-                                                   : isError ? buttonErrorText
-                                                             : isStartDownloading ? buttonDownloadText
-                                                                                  : isInstalled ?
-                                                                                    buttonText : buttonNotInstalledText
+                width: 160
+                height: 35
+
+                enabled: !testStarted()
+
+                text: allreadyDownloaded ? buttonDownloadedText
+                                         : isStartDownloading ? buttonDetailsText
+                                                              : isInstalled ?
+                                                                    buttonText : buttonNotInstalledText
+
                 style: ButtonStyleColors {
                     property bool isDefaultColor: root.gameItem.status === "Normal" && !button.isInstalled
 
@@ -110,18 +143,13 @@ Item {
                     hover: isDefaultColor ? "#ff7902" : "#5e89ee"
                 }
 
+
                 onClicked: {
                     var status = root.gameItem.status,
-                        serviceId = root.gameItem.serviceId;
+                            serviceId = root.gameItem.serviceId;
 
                     if (button.isStartDownloading) {
-                        App.downloadButtonPause(serviceId);
-
-                        // LETS THINK - 'Big Green' это action старой кнопки, подумать нужно ли менять на новое
-                        if (root.gameItem) {
-                            GoogleAnalytics.trackEvent('/game/' + root.gameItem.gaName,
-                                                       'Game ' + root.gameItem.gaName, 'Pause', 'Big Green');
-                        }
+                        Popup.show('GameLoad');
                     } else {
                         App.downloadButtonStart(serviceId);
                         if (root.gameItem) {
@@ -129,6 +157,23 @@ Item {
                                                        'Game ' + root.gameItem.gaName, 'Play', 'Big Green');
                         }
                     }
+                }
+
+                ShakeAnimation {
+                    id: shakeAnimation
+
+                    target: button
+                    property: "x"
+                    from: 0
+                    shakeValue: 2
+                    shakeTime: 120
+                }
+
+                Timer {
+                    id: shakeAnimationTimer
+
+                    interval: 1500
+                    onTriggered: shakeAnimation.start();
                 }
             }
         }
@@ -141,7 +186,8 @@ Item {
             serviceItem: root.gameItem
             textColor: '#597082'
             spacing: 6
-            opacity: button.isStartDownloading && !heightAnimation.running ? 1 : 0 // TODO добавить анимацию прозрачности
+            opacity: (button.isStartDownloading || button.isStarting) && !heightAnimation.running ?
+                         1 : 0 // TODO добавить анимацию прозрачности
         }
     }
 }

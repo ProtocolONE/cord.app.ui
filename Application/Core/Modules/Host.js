@@ -95,6 +95,7 @@ function authSuccessSlot(userId, appKey, cookie) {
 }
 
 function downloadButtonStart(serviceId) {
+    console.log('downloadButtonStart', serviceId);
     if (proxyInst) {
         return proxyInst.downloadButtonStart(serviceId);
     }
@@ -160,6 +161,6 @@ function updateProgressEx(value, status) {
 
 function browseDirectory(serviceId, name, defaultDir) {
     if (proxyInst) {
-        proxyInst.browseDirectory(serviceId, name, defaultDir);
+        return proxyInst.browseDirectory(serviceId, name, defaultDir);
     }
 }

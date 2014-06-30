@@ -87,9 +87,10 @@ WidgetView {
                 path: App.getExpectedInstallPath(currentGameItem.serviceId);
                 readOnly: true
                 onBrowseClicked: {
-                    var result = App.browseDirectory(currentGameItem.serviceId,
-                                                                   currentGameItem.name,
+                    var result = App.browseDirectory(root.currentGameItem.serviceId,
+                                                                   root.currentGameItem.name,
                                                                    installationPath.path);
+
                     if (result) {
                         installationPath.path = result;
                     }
@@ -173,6 +174,12 @@ WidgetView {
                 licenseModel.setShurtCutInDesktop(desktopShortcut.checked);
                 licenseModel.setShurtCutInStart(startMenuShortcut.checked);
                 licenseModel.okPressed();
+
+                if (root.currentGameItem.gameType != 'browser') {
+                    App.setServiceInstallPath(root.currentGameItem.serviceId,
+                                              installationPath.path,
+                                              desktopShortcut.checked);
+                }
 
                 App.installService(currentGameItem.serviceId, {
                                                 createDesktopShortCut: desktopShortcut.checked,

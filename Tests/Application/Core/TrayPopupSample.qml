@@ -25,6 +25,7 @@ Item {
         id: manager
 
         Component.onCompleted: {
+            TrayPopup.init();
             AppJs.activateGame(AppJs.serviceItemByGameId("92"));
             showPopupTimer.start();
         }

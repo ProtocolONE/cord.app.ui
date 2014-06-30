@@ -177,6 +177,14 @@ ListModel {
                 icon: "Assets/Images/socialNet/vk.png"
             }
         ]
+
+        widgetList: ListElement {
+           gameDownloading: 'GameAdBanner'
+           gameStarting: 'GameAdBanner'
+           gameFailedFinish: 'GameFailed'
+           gameBoredFinish: 'GameIsBoring'
+           gameSuccessFinish: ''
+        }
     }
 
     ListElement {
@@ -249,6 +257,14 @@ ListModel {
                 icon: "Assets/Images/socialNet/vk.png"
             }
         ]
+
+        widgetList: ListElement {
+           gameDownloading: 'GameAdBanner'
+           gameStarting: 'GameAdBanner'
+           gameFailedFinish: 'GameFailed'
+           gameBoredFinish: 'GameIsBoring'
+           gameSuccessFinish: ''
+        }
     }
 
     ListElement {
@@ -317,6 +333,14 @@ ListModel {
                 icon: "Assets/Images/socialNet/vk.png"
             }
         ]
+
+        widgetList: ListElement {
+           gameDownloading: 'GameAdBanner'
+           gameStarting: 'GameAdBanner'
+           gameFailedFinish: 'GameFailed'
+           gameBoredFinish: 'GameIsBoring'
+           gameSuccessFinish: ''
+        }
     }
 
     ListElement {
@@ -376,6 +400,14 @@ ListModel {
 
         socialNet: [
         ]
+
+        widgetList: ListElement {
+           gameDownloading: 'GameAdBanner'
+           gameStarting: 'GameAdBanner'
+           gameFailedFinish: 'GameFailed'
+           gameBoredFinish: 'GameIsBoring'
+           gameSuccessFinish: ''
+        }
     }
 
     ListElement {
@@ -434,7 +466,7 @@ ListModel {
         menu: []
         currentMenuIndex: 1
 
-        socialNet: [
+        widgetList: [
             ListElement {
                 link: "http://www.youtube.com/user/GamenetAika"
                 icon: "Assets/Images/socialNet/yt.png"
@@ -444,6 +476,14 @@ ListModel {
                 icon: "Assets/Images/socialNet/vk.png"
             }
         ]
+
+        widgets: ListElement {
+           gameDownloading: 'GameAdBanner'
+           gameStarting: 'GameAdBanner'
+           gameFailedFinish: 'GameFailed'
+           gameBoredFinish: 'GameIsBoring'
+           gameSuccessFinish: ''
+        }
     }
 
     ListElement {
@@ -543,6 +583,14 @@ ListModel {
                 icon: "Assets/Images/socialNet/vk.png"
             }
         ]
+
+        widgetList: ListElement {
+           gameDownloading: 'GameAdBanner'
+           gameStarting: 'GameAdBanner'
+           gameFailedFinish: 'GameFailed'
+           gameBoredFinish: 'GameIsBoring'
+           gameSuccessFinish: ''
+        }
     }
 
     ListElement {
@@ -606,6 +654,14 @@ ListModel {
                 icon: "Assets/Images/socialNet/vk.png"
             }
         ]
+
+        widgetList: ListElement {
+           gameDownloading: 'GameAdBanner'
+           gameStarting: 'GameAdBanner'
+           gameFailedFinish: 'GameFailed'
+           gameBoredFinish: 'GameIsBoring'
+           gameSuccessFinish: ''
+        }
     }
 
     ListElement {
@@ -714,5 +770,13 @@ ListModel {
                 icon: "Assets/Images/socialNet/vk.png"
             }
         ]
+
+        widgetList: ListElement {
+           gameDownloading: 'GameAdBanner'
+           gameStarting: 'GameAdBanner'
+           gameFailedFinish: 'GameFailed'
+           gameBoredFinish: 'GameIsBoring'
+           gameSuccessFinish: ''
+        }
     }
 }

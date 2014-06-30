@@ -9,6 +9,7 @@ import GameNet.Components.Widgets 1.0
 import "../../Application/Blocks/AllGames" as AllGames
 
 import "../../Application/Core/App.js" as App
+import "../../Application/Core/TrayPopup.js" as TrayPopup
 
 Rectangle {
     id: root
@@ -21,6 +22,7 @@ Rectangle {
     // HACK
     Component.onCompleted: {
         App.activateGame(App.serviceItemByGameId("92"))
+        TrayPopup.init(); // TODO вынести отсюда?
     }
 
     Connections {

@@ -1,0 +1,3 @@
+module Application.Widgets.GameExecuting
+PluginContainer 1.0 PluginContainer.qml 
+GameExecutingView 1.0 View/GameExecutingView.qml

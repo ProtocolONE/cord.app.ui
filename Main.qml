@@ -20,6 +20,7 @@ import "Application"
 import "Application/Core/App.js" as App
 import "Application/Core/User.js" as User
 
+import "Application/Core/restapi.js" as RestApi // @@DEBUG
 Rectangle {
     id: root
 
@@ -59,7 +60,29 @@ Rectangle {
             manager.registerWidget('Application.Widgets.AutoRefreshCookie');
             manager.registerWidget('Application.Widgets.DownloadManagerConnector');
             manager.registerWidget('Application.Widgets.GameNews');
+            manager.registerWidget('Application.Widgets.GameLoad');
+            manager.registerWidget('Application.Widgets.GameExecuting');
+            manager.registerWidget('Application.Widgets.GameFailed');
+            manager.registerWidget('Application.Widgets.GameIsBoring');
+            manager.registerWidget('Application.Widgets.PromoCode');
+            manager.registerWidget('Application.Widgets.NicknameEdit');
+            manager.registerWidget('Application.Widgets.AccountActivation');
             manager.init();
+//            RestApi.Games.getMaintenance = function(callback) {
+//                callback({"schedule" :
+//                             {"300012010000000000":
+//                                 {"id":"300012010000000000",
+//                                     "startTime": (+new Date() - 1) / 1000,
+//                                     "endTime": (+new Date() + 28000) / 1000
+//                              },
+
+//                             "300009010000000000":
+//                                 {"id":"300009010000000000",
+//                                     "startTime": (+new Date() - 1) / 1000,
+//                                     "endTime": (+new Date() + 28000) / 1000
+//                              }
+//                         }});
+//            };
         }
     }
 
@@ -109,9 +132,9 @@ Rectangle {
 
             qGNA_main.state = "HomePage";
 
+*/
             //INFO App.initFinished also called from c++ slot MainWindow::acceptFirstLicense()
             App.initFinished();
-*/
             App.setGlobalState('Authorization')
         }
     }
@@ -129,7 +152,6 @@ Rectangle {
             App.setGlobalState('Loading');
         }
     }
-
 
 //    TODO это не работает, разобратся
 //    <Unknown File>: QML StateGroup: Can't apply a state change as part of a state definition.

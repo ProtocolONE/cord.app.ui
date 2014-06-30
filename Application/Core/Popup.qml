@@ -115,8 +115,10 @@ Item {
         anchors.centerIn: parent
         color: '#f0f5f8'
 
-        MouseArea {
+        CursorMouseArea {
             anchors.fill: parent
+            hoverEnabled: true
+            cursor: CursorArea.ArrowCursor
         }
     }
 

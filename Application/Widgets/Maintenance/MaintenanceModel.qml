@@ -92,10 +92,6 @@ WidgetModel {
             item.maintenanceEndPause = (currentTime >= startTime) && (currentTime < (endTime + (1800 * multiplier)));
 
             if (endTime < currentTime) {
-                if (item.maintenance) {
-                    App.gameMaintenanceEnd(index);
-                }
-
                 item.maintenance = false;
                 item.maintenanceInterval = 0;
 
