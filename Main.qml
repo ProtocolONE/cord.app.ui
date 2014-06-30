@@ -30,9 +30,30 @@ Rectangle {
     signal windowClose();
 
     color: "#092135"
+    opacity: 0
 
     width: App.clientWidth
     height: App.clientHeight
+
+    ParallelAnimation {
+        id: hideAnimation
+
+        running: false
+        onCompleted: {
+            App.hide();
+            root.opacity = 1;
+        }
+        NumberAnimation { target: root; property: "opacity"; from: 1; to: 0;  duration: 250 }
+    }
+
+    ParallelAnimation {
+        id: openAnimation
+
+        running: true
+        onCompleted: App.isClientLoaded = true;
+
+        NumberAnimation { target: root; property: "opacity"; from: 0; to: 1;  duration: 750 }
+    }
 
     MouseArea {
         anchors.fill: parent
@@ -68,26 +89,13 @@ Rectangle {
             manager.registerWidget('Application.Widgets.NicknameEdit');
             manager.registerWidget('Application.Widgets.AccountActivation');
             manager.init();
-//            RestApi.Games.getMaintenance = function(callback) {
-//                callback({"schedule" :
-//                             {"300012010000000000":
-//                                 {"id":"300012010000000000",
-//                                     "startTime": (+new Date() - 1) / 1000,
-//                                     "endTime": (+new Date() + 28000) / 1000
-//                              },
-
-//                             "300009010000000000":
-//                                 {"id":"300009010000000000",
-//                                     "startTime": (+new Date() - 1) / 1000,
-//                                     "endTime": (+new Date() + 28000) / 1000
-//                              }
-//                         }});
-//            };
         }
     }
 
     Connections {
         target: App.signalBus()
+
+        onHideMainWindow: hideAnimation.start();
 
         onSetGlobalState: {
             console.log('onSetGlobalState', name);
@@ -102,6 +110,7 @@ Rectangle {
         onBackgroundMousePositionChanged: dragWindowPositionChanged(mouseX, mouseY);
         onBackgroundMousePressed: dragWindowPressed(mouseX, mouseY);
         onUpdateFinished: {
+
             /*
             var serviceId = App.startingService() || "0"
                 , item;
@@ -149,6 +158,7 @@ Rectangle {
         anchors.fill: parent
 
         Component.onCompleted: {
+            openAnimation.start();
             App.setGlobalState('Loading');
         }
     }

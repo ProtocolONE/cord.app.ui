@@ -22,6 +22,9 @@ Item {
     property variant style: InputStyleColors {}
     property string icon
 
+    property alias listBlock: listBlock
+    property alias listContainer: listContainer
+
     function append(value, text, icon) {
         root.model.append({"value": value, "text": text, "icon": icon})
     }
@@ -80,20 +83,6 @@ Item {
         }
 
         root.model.setProperty(index, "text", text);
-    }
-
-    Connections {
-        target: mainWindow
-        onLeftMouseClick: {
-            var posInItem;
-
-            posInItem = listBlock.mapFromItem(mainWindow, x, y);
-
-            if (posInItem.x < 0 || posInItem.x > listBlock.width ||
-                    posInItem.y < 0 || posInItem.x > listBlock.height) {
-                listContainer.controlVisible = false;
-            }
-        }
     }
 
     Rectangle {

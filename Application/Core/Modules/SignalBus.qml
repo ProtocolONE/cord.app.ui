@@ -25,6 +25,12 @@ QtObject {
     signal backgroundMousePressed(int mouseX, int mouseY);
     signal backgroundMousePositionChanged(int mouseX, int mouseY);
     signal progressChanged(variant gameItem);
+
+    signal openPurchaseOptions(variant purchaseOptions);
+    signal openBuyGamenetPremiumPage();
+    signal premiumExpired();
+
+    signal hideMainWindow();
     signal serviceInstalled(variant gameItem);
     signal serviceStarted(variant gameItem);
     signal serviceFinished(variant gameItem);
@@ -33,7 +39,11 @@ QtObject {
     signal publicTestIconClicked();
     signal prolongPremium();
     signal balanceChanged(int amount);
+    signal needPakkanenVerification();
+    signal selectService(string serviceId);
 
     signal openApplicationSettings();
     signal openGameSettings();
+
+    signal leftMouseClick(variant rootItem, int x, int y);
 }

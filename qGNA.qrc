@@ -3,6 +3,7 @@
 		<file>Application/Blocks/AllGames/GameItem.qml</file>
 		<file>Application/Blocks/AllGames/GameItemTitle.qml</file>
 		<file>Application/Blocks/AllGames/Main.qml</file>
+		<file>Application/Blocks/ApplicationSettings.qml</file>
 		<file>Application/Blocks/ApplicationSettings/DownloadSettings.qml</file>
 		<file>Application/Blocks/ApplicationSettings/GeneralSettings.qml</file>
 		<file>Application/Blocks/ApplicationSettings/NotificationSettings.qml</file>
@@ -37,6 +38,8 @@
 		<file>Application/Blocks/GameMenu/GameMenu.qml</file>
 		<file>Application/Blocks/GameMenu/GameMenuItem.qml</file>
 		<file>Application/Blocks/GameMenu/qmldir</file>
+		<file>Application/Blocks/GamePopup.qml</file>
+		<file>Application/Blocks/GameSettings.qml</file>
 		<file>Application/Blocks/GameSettings/GameControlSettings.qml</file>
 		<file>Application/Blocks/GameSettings/GameGeneralSettings.qml</file>
 		<file>Application/Blocks/GameSettings/GameOverlaySettings.qml</file>
@@ -58,6 +61,7 @@
 		<file>Application/Blocks/SplashScreen/Background.qml</file>
 		<file>Application/Blocks/SplashScreen/UpdateManager.qml</file>
 		<file>Application/Bootstrap.qml</file>
+		<file>Application/Controls/ComboBox.qml</file>
 		<file>Application/Controls/InputWithError.qml</file>
 		<file>Application/Controls/MouseClick.js</file>
 		<file>Application/Controls/MouseClick.qml</file>
@@ -86,6 +90,7 @@
 		<file>Application/Layers/BaseLayer.qml</file>
 		<file>Application/Layers/ChatLayer.qml</file>
 		<file>Application/Layers/qmldir</file>
+		<file>Application/Layers/SettingsLayer.qml</file>
 		<file>Application/Models/CombatArmsItemsModel.qml</file>
 		<file>Application/Models/GamesListModel.qml</file>
 		<file>Application/Models/NewsModel.qml</file>
@@ -120,6 +125,7 @@
 		<file>Application/Widgets/GameAdBanner/qmldir</file>
 		<file>Application/Widgets/GameAdBanner/View/GameAdBannerView.js</file>
 		<file>Application/Widgets/GameAdBanner/View/GameAdBannerView.qml</file>
+		<file>Application/Widgets/GameExecuting/GameExecutingModel.qml</file>
 		<file>Application/Widgets/GameExecuting/PluginContainer.qml</file>
 		<file>Application/Widgets/GameExecuting/qmldir</file>
 		<file>Application/Widgets/GameExecuting/View/GameExecutingView.qml</file>
@@ -387,9 +393,7 @@
 		<file>GameNet/Controls/TypeaheadBehaviour.qml</file>
 		<file>GameNet/Controls/VerticalSplit.qml</file>
 		<file>Main.qml</file>
-		<file>Pages/ApplicationSettings.qml</file>
 		<file>Pages/Game.qml</file>
-		<file>Pages/GameSettings.qml</file>
 		<file>Pages/Home.qml</file>
 		<file>Pages/SettingsPage.qml</file>
 		<file>Pages/SettingsPage/NotificationPage.qml</file>

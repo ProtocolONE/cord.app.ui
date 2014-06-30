@@ -15,5 +15,5 @@ PluginContainer {
     name: "GameAdBanner"
     view: "GameAdBannerView"
     model: "GameAdBannerModel"
-    singletonModel: false
+    singletonModel: false // TODO разобратся, при true видим баннер только один раз
 }

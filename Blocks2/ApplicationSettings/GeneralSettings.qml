@@ -9,6 +9,7 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+import Application.Controls 1.0 as AppControls
 import GameNet.Controls 1.0
 
 import "../../Core/App.js" as App
@@ -44,7 +45,7 @@ Item {
         x: 30
         spacing: 20
 
-        ComboBox {
+        AppControls.ComboBox {
             id: applicationLanguage
 
             z: 100

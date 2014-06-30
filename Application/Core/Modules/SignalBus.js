@@ -94,14 +94,6 @@ function setGlobalProgressVisible(value, timeout) {
     _signalBusInstance.setGlobalProgressVisible(value, timeout);
 }
 
-function gameMaintenanceStart(serviceId) {
-   _signalBusInstance.gameMaintenanceStart(serviceId);
-}
-
-function gameMaintenanceEnd(serviceId) {
-   _signalBusInstance.gameMaintenanceEnd(serviceId);
-}
-
 function showPurchaseOptions(itemOptions) {
     _signalBusInstance.openPurchaseOptions(itemOptions);
 }
@@ -124,4 +116,16 @@ function openGameSettings() {
 
 function openApplicationSettings() {
     _signalBusInstance.openApplicationSettings();
+}
+
+function leftMouseClick(root, x, y) {
+    _signalBusInstance.leftMouseClick(root, x, y);
+}
+
+function needPakkanenVerification() {
+    _signalBusInstance.needPakkanenVerification();
+}
+
+function selectService(serviceId) {
+    _signalBusInstance.selectService(serviceId);
 }

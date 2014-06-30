@@ -95,7 +95,6 @@ function authSuccessSlot(userId, appKey, cookie) {
 }
 
 function downloadButtonStart(serviceId) {
-    console.log('downloadButtonStart', serviceId);
     if (proxyInst) {
         return proxyInst.downloadButtonStart(serviceId);
     }

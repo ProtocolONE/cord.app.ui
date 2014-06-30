@@ -10,6 +10,7 @@
 
 import QtQuick 1.1
 import GameNet.Controls 1.0
+import Application.Controls 1.0 as AppControls
 
 Rectangle {
     id: settingsPageRoot
@@ -48,7 +49,7 @@ Rectangle {
                     color: '#5c6d7d'
                 }
 
-                ComboBox {
+                AppControls.ComboBox {
                     id: downloadBandwidthLimit
 
                     y: 20

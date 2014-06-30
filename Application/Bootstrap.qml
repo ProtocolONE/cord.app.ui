@@ -25,6 +25,8 @@ import "Core/TrayPopup.js" as TrayPopup
 Item {
     id: root
 
+    anchors.fill: parent
+
     Component.onCompleted: init()
 
     function init() {
@@ -50,6 +52,20 @@ Item {
         initAdditionalLayers(options);
 
         updateInstallDate();
+
+        if (mainWindow) {
+            mainWindow.leftMouseClick.connect(function(x,y) {
+                App.leftMouseClick(root, x, y);
+            });
+
+            mainWindow.selectService.connect(function(serviceId) {
+                App.selectService(serviceId);
+            });
+
+            mainWindow.needPakkanenVerification.connect(function() {
+                App.needPakkanenVerification();
+            });
+        }
     }
 
     function initAdditionalLayers(options) {

@@ -44,6 +44,16 @@ Item {
                 width: parent.width
                 height: 48
                 readOnly: true
+                path: App.getExpectedInstallPath(root.currentGame.serviceId);
+                onBrowseClicked: {
+                    var result = App.browseDirectory(root.currentGame.serviceId,
+                                                                   root.currentGame.name,
+                                                                   installationPath.path);
+
+                    if (result) {
+                        installationPath.path = result;
+                    }
+                }
             }
         }
 

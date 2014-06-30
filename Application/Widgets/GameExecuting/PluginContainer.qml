@@ -14,4 +14,6 @@ import GameNet.Components.Widgets 1.0
 PluginContainer {
     name: "GameExecuting"
     view: "GameExecutingView"
+    model: "GameExecutingModel"
+    singletonModel: true
 }
