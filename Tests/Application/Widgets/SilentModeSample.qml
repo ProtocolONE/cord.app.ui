@@ -14,6 +14,7 @@ import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
 import "../../../Application/Core/App.js" as AppJs
+import "../../../Application/Core/TrayPopup.js" as TrayPopup
 
 Item {
     width: 1000
@@ -25,6 +26,8 @@ Item {
         Component.onCompleted: {
             manager.registerWidget('Application.Widgets.SilentMode');
             manager.init();
+
+            TrayPopup.init();
 
             AppJs.activateGame(AppJs.serviceItemByGameId("92"));
 

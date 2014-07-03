@@ -16,13 +16,19 @@ import "../../Core/App.js" as App
 Item {
     id: root
 
+    function save() {
+        App.setAppSettingsValue('notifications', 'maintenanceEndPopup', notificationEnabled.checked);
+    }
+
     Column {
         x: 30
         spacing: 20
 
         CheckBox {
+            id: notificationEnabled
+
             text: qsTr("CHECKBOX_NOTIFICATION_MAINTENANCE_END")
-            checked: App.isAppSettingsEnabled('notifications', 'maintenanceEndPopup', true)
+            checked: App.isAppSettingsEnabled('notifications', 'maintenanceEndPopup', true);
             style: ButtonStyleColors {
                 normal: "#1ABC9C"
                 hover: "#019074"

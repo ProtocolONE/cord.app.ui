@@ -9,7 +9,7 @@
 ****************************************************************************/
 
 import QtQuick 1.1
-import Application.Controls 1.0 as AppControls
+import Application.Controls 1.0 as ApplicationControls
 import GameNet.Controls 1.0
 
 import "../../Core/App.js" as App
@@ -33,6 +33,10 @@ Item {
     //        }
     //    }
 
+    function save() {
+        App.saveLanguage(applicationLanguage.getValue(applicationLanguage.currentIndex));
+    }
+
     QtObject {
         id: d
 
@@ -45,7 +49,7 @@ Item {
         x: 30
         spacing: 20
 
-        AppControls.ComboBox {
+        ApplicationControls.ComboBox {
             id: applicationLanguage
 
             z: 100
@@ -122,13 +126,21 @@ Item {
 
                 width: 300
                 fontSize: 15
-                checked: settingsViewModel.isPublicTestVersion
+                checked: settingsViewModel.isPublicTestVersion //App.isPublicVersion()
                 text: qsTr("CHECKOX_PARTICIPATE_TESTING")
                 style: ButtonStyleColors {
                     normal: "#1ABC9C"
                     hover: "#019074"
                 }
                 onToggled: settingsViewModel.switchClientVersion();
+
+                Connections {
+                    target: settingsViewModel
+
+                    onIsPublicTestVersionChanged: {
+                        participateTesting.checked = settingsViewModel.isPublicTestVersion;
+                    }
+                }
             }
 
             Text {

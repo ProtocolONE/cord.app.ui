@@ -13,6 +13,8 @@ import Tulip 1.0
 import GameNet.Controls 1.0
 import Application.Blocks.ApplicationSettings 1.0
 
+import "../Core/App.js" as App
+
 Rectangle {
     id: root
 
@@ -112,6 +114,11 @@ Rectangle {
                         normal: "#1ADC9C"
                         hover: "#019074"
                     }
+                    onClicked: {
+                        console.log("Restore settings clicked!!");
+                        settingsViewModel.setDefaultSettings();
+                        App.selectLanguage("ru");
+                    }
                 }
             }
 
@@ -161,7 +168,14 @@ Rectangle {
                         leftMargin: 30
                         bottom: parent.bottom
                     }
-                    onClicked: root.accepted();
+                    onClicked: {
+                        console.log("Save settings button clicked!");
+                        generalSettingsPage.save();
+                        downloadSettingsPage.save();
+                        notificationSettingsPage.save();
+
+                        root.accepted();
+                    }
                 }
             }
         }

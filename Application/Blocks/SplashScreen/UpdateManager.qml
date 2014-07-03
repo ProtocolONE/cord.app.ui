@@ -73,16 +73,16 @@ Item {
         onAllCompleted: {
             changeTextTimer.stop();
 
+            console.log("[DEBUG][QML] Update complete with state " + updateState);
+
             if (isNeedRestart) {
                 mainWindow.restartApplication()
                 return;
             } else {
                 mainWindow.startBackgroundCheckUpdate();
+                mainWindow.updateFinishedSlot();
                 rootItem.finished();
             }
-
-            mainWindow.updateFinishedSlot();
-            console.log("[DEBUG][QML] Update complete with state " + updateState);
         }
 
         onUpdateStateChanged: {

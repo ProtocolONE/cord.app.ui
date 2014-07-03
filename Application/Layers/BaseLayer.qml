@@ -22,7 +22,6 @@ Rectangle {
     // HACK
     Component.onCompleted: {
         App.activateGame(App.serviceItemByGameId("92"))
-        TrayPopup.init(); // TODO вынести отсюда?
     }
 
     Connections {

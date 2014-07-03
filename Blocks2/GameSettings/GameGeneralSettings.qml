@@ -9,6 +9,7 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+import Tulip 1.0
 import GameNet.Controls 1.0
 
 import "../../Core/App.js" as App
@@ -16,7 +17,11 @@ import "../../Core/App.js" as App
 Item {
     id: root
 
-    property variant currentGame: App.currentGame()
+    property variant currentItem: App.currentGame()
+
+    function save() {
+
+    }
 
     Column {
         x: 30
@@ -44,22 +49,16 @@ Item {
                 width: parent.width
                 height: 48
                 readOnly: true
-                path: App.getExpectedInstallPath(root.currentGame.serviceId);
-                onBrowseClicked: {
-                    var result = App.browseDirectory(root.currentGame.serviceId,
-                                                                   root.currentGame.name,
-                                                                   installationPath.path);
-
-                    if (result) {
-                        installationPath.path = result;
-                    }
-                }
+                path: gameSettingsModel.installPath
+                onBrowseClicked: gameSettingsModel.browseInstallPath();
             }
         }
 
         Item {
+            //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            visible: !!gameSettingsModel.hasDownloadPath
             width: 500
-            height: 68
+            height: gameSettingsModel.hasDownloadPath ? 68 : 0
 
             Text {
                 width: parent.width
@@ -79,6 +78,8 @@ Item {
                 width: parent.width
                 height: 48
                 readOnly: true
+                path: gameSettingsModel.downloadPath
+                onBrowseClicked: gameSettingsModel.browseDownloadPath();
             }
         }
 

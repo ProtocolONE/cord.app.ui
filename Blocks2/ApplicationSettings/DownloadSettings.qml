@@ -26,6 +26,14 @@ Rectangle {
 //        property bool seedEnabled: true
 //    }
 
+    function save() {
+        settingsViewModel.downloadSpeed = downloadBandwidthLimit.getValue(downloadBandwidthLimit.currentIndex);
+        settingsViewModel.uploadSpeed = uploadBandwidthLimit.getValue(uploadBandwidthLimit.currentIndex);
+        settingsViewModel.incomingPort = incomingPort.text;
+        settingsViewModel.numConnections = connectionsLimit.text
+        settingsViewModel.seedEnabled = participateSeeding.checked;
+    }
+
     Column {
         x: 30
         spacing: 20
@@ -64,7 +72,8 @@ Rectangle {
                         append(2000, qsTr("SPEED_2000"));
                         append(5000, qsTr("SPEED_5000"));
 
-                        var index = downloadBandwidthLimit.findValue(settingsViewModel.downloadSpeed);
+                        var index = downloadBandwidthLimit.findValue(parseInt(settingsViewModel.downloadSpeed));
+
                         if (index >= 0) {
                             downloadBandwidthLimit.currentIndex = index;
                         }
@@ -103,7 +112,8 @@ Rectangle {
                         append(2000, qsTr("SPEED_2000"));
                         append(5000, qsTr("SPEED_5000"));
 
-                        var index = uploadBandwidthLimit.findValue(settingsViewModel.uploadSpeed);
+                        var index = uploadBandwidthLimit.findValue(parseInt(settingsViewModel.uploadSpeed));
+
                         if (index >= 0) {
                             uploadBandwidthLimit.currentIndex = index;
                         }
@@ -178,6 +188,8 @@ Rectangle {
                 }
 
                 Input {
+                    id: connectionsLimit
+
                     y: 20
                     width: parent.width
                     height: 40
@@ -190,11 +202,19 @@ Rectangle {
         }
 
         CheckBox {
+            id: participateSeeding
+
             text: qsTr("PARTICIPATE_SEEDING")
             checked: settingsViewModel.seedEnabled
             style: ButtonStyleColors {
                 normal: "#1ABC9C"
                 hover: "#019074"
+            }
+            //  DEBUG ONLY
+            onToggled: {
+                console.log("!!!!TOGGLED!!!!");
+                console.log("participateSeeding.checked == " + participateSeeding.checked);
+                console.log("settingsViewModel.seedEnabled == " + settingsViewModel.seedEnabled);
             }
         }
     }

@@ -21,6 +21,15 @@ Rectangle {
     property variant currentGame: App.currentGame()
     signal accepted()
 
+    onCurrentGameChanged: {
+        // UNDONE: Вообще надо бы перенести куда то в другое место
+        if (!currentGame) {
+            return;
+        }
+
+        gameSettingsModel.switchGame(currentGame.serviceId);
+    }
+
     CursorMouseArea {
         cursor: CursorArea.DefaultCursor
         anchors.fill: parent
@@ -168,9 +177,12 @@ Rectangle {
                         bottom: parent.bottom
                     }
                     onClicked: {
-                        root.accepted();
-                        //  UNDONE: проверить работоспособность сохранения
+                        generalSettingsPage.save();
+                        overlaySettingsPage.save();
+                        controlSettingsPage.save();
+
                         gameSettingsModel.submitSettings();
+                        root.accepted();
                     }
                 }
             }
