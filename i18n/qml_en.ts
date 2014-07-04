@@ -242,32 +242,32 @@
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="37"/>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="39"/>
         <source>APPLICATION_SETTINGS_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="65"/>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="67"/>
         <source>GENERAL_TAB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="76"/>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="78"/>
         <source>DOWNLOADS_TAB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="87"/>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="89"/>
         <source>NOTIFICATIONS_TAB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="110"/>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="112"/>
         <source>RESTORE_SETTINGS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="158"/>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="165"/>
         <source>OK_BUTTON_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -839,74 +839,74 @@
 <context>
     <name>DownloadSettings</name>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="44"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="52"/>
         <source>DOWNLOAD_LIMIT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="59"/>
-        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="98"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="67"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="107"/>
         <source>SPEED_UNLIMITED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="60"/>
-        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="99"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="68"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="108"/>
         <source>SPEED_50</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="61"/>
-        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="100"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="69"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="109"/>
         <source>SPEED_200</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="62"/>
-        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="101"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="70"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="110"/>
         <source>SPEED_500</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="63"/>
-        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="102"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="71"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="111"/>
         <source>SPEED_1000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="64"/>
-        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="103"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="72"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="112"/>
         <source>SPEED_2000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="65"/>
-        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="104"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="73"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="113"/>
         <source>SPEED_5000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="82"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="91"/>
         <source>UPLOAD_LIMIT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="127"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="137"/>
         <source>INCOMING_PORT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="153"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="163"/>
         <source>PORT_AUTO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="172"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="182"/>
         <source>CONNECTION_COUNT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="193"/>
+        <location filename="../Application/Blocks/ApplicationSettings/DownloadSettings.qml" line="207"/>
         <source>PARTICIPATE_SEEDING</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1232,22 +1232,22 @@
 <context>
     <name>GameGeneralSettings</name>
     <message>
-        <location filename="../Application/Blocks/GameSettings/GameGeneralSettings.qml" line="32"/>
+        <location filename="../Application/Blocks/GameSettings/GameGeneralSettings.qml" line="37"/>
         <source>GAME_INSTALL_PATH</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings/GameGeneralSettings.qml" line="67"/>
+        <location filename="../Application/Blocks/GameSettings/GameGeneralSettings.qml" line="77"/>
         <source>DISTRIB_INSTALL_PATH</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings/GameGeneralSettings.qml" line="97"/>
+        <location filename="../Application/Blocks/GameSettings/GameGeneralSettings.qml" line="109"/>
         <source>BUTTON_CREATE_DESKTOP_SHORTCUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings/GameGeneralSettings.qml" line="110"/>
+        <location filename="../Application/Blocks/GameSettings/GameGeneralSettings.qml" line="122"/>
         <source>BUTTON_CREATE_START_MENU_SHORTCUT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1293,22 +1293,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="113"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="111"/>
         <source>CREATE_DESKTOP_SHORTCUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="130"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="128"/>
         <source>CREATE_STARTMENU_SHORTCUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="148"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="146"/>
         <source>LICENSE_TIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="193"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="171"/>
         <source>INSTALL_BUTTON_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1386,7 +1386,7 @@
 <context>
     <name>GameOverlaySettings</name>
     <message>
-        <location filename="../Application/Blocks/GameSettings/GameOverlaySettings.qml" line="22"/>
+        <location filename="../Application/Blocks/GameSettings/GameOverlaySettings.qml" line="48"/>
         <source>USE_OVERLAY</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1402,27 +1402,27 @@
 <context>
     <name>GameSettings</name>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="40"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="49"/>
         <source>GAME_SETTINGS_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="68"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="77"/>
         <source>FOLDERS_TAB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="79"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="88"/>
         <source>OVERLAY_TAB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="91"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="100"/>
         <source>CONTROLS_TAB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="114"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="123"/>
         <source>RESTORE_CLIENT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1623,22 +1623,22 @@
 <context>
     <name>GeneralSettings</name>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/GeneralSettings.qml" line="74"/>
+        <location filename="../Application/Blocks/ApplicationSettings/GeneralSettings.qml" line="78"/>
         <source>CHECKOX_AUTORUN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/GeneralSettings.qml" line="99"/>
+        <location filename="../Application/Blocks/ApplicationSettings/GeneralSettings.qml" line="103"/>
         <source>CHECKOX_RUN_MINIMIZED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/GeneralSettings.qml" line="126"/>
+        <location filename="../Application/Blocks/ApplicationSettings/GeneralSettings.qml" line="130"/>
         <source>CHECKOX_PARTICIPATE_TESTING</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/GeneralSettings.qml" line="140"/>
+        <location filename="../Application/Blocks/ApplicationSettings/GeneralSettings.qml" line="152"/>
         <source>TEST_VERSION_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2187,7 +2187,7 @@
 <context>
     <name>NotificationSettings</name>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/NotificationSettings.qml" line="24"/>
+        <location filename="../Application/Blocks/ApplicationSettings/NotificationSettings.qml" line="30"/>
         <source>CHECKBOX_NOTIFICATION_MAINTENANCE_END</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3031,27 +3031,37 @@
 <context>
     <name>TrayMenu</name>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="33"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="63"/>
+        <source>CLOSE_APP_TOOLTIP_MESSAGE_DESC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="62"/>
+        <source>CLOSE_APP_TOOLTIP_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="94"/>
         <source>TRAY_TOOLTIP</source>
         <translation type="unfinished">GameNet</translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="166"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="240"/>
         <source>MENU_ITEM_PROFILE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="172"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="246"/>
         <source>MENU_ITEM_MONEY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="178"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="252"/>
         <source>MENU_ITEM_SETTINGS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="184"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="258"/>
         <source>MENU_ITEM_QUIT</source>
         <translation type="unfinished"></translation>
     </message>

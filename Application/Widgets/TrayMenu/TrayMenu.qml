@@ -12,20 +12,76 @@ import QtQuick 1.1
 import Tulip 1.0
 
 import "../../../Application/Core/App.js" as App
+import "../../../Application/Core/User.js" as User
+import "../../../Application/Core/MessageBox.js" as MessageBox
+import "../../../Application/Core/GoogleAnalytics.js" as GoogleAnalytics
+
+//  UNDONE: на момент 04.07.2014 не ясно как прятать ненужные пункты меню в трее если приложение
+//  находится в состояни Loading, Authorization
+//  Возможные варианты решения - ввести в App.js методы позволяющие получить текущее глобальное состояние
+//  приложения, по типу getGlobalState()
 
 Item {
     id: root
 
     property bool isFullMenu: true
 
-    signal menuClick(string name)
     signal activate()
 
-    onMenuClick: window.hide();
+    function menuClick(name) {
+        switch(name) {
+            case 'Profile': {
+                GoogleAnalytics.trackEvent('/Tray', 'Open External Link', 'User Profile');
+
+                var userId = User.getTechName() == undefined ? User.userId() : User.getTechName();
+                App.openExternalUrl("http://www.gamenet.ru/users/" + userId);
+                break;
+            }
+            case 'Balance': {
+                GoogleAnalytics.trackEvent('/Tray', 'Open External Link', 'Money');
+
+                App.openExternalUrlWithAuth("http://www.gamenet.ru/money")
+                break;
+            }
+            case 'Settings': {
+                GoogleAnalytics.trackEvent('/Tray', 'Navigation', 'Switch To Settings');
+                App.activateWindow();
+                App.openApplicationSettings();
+            }
+            break;
+            case 'Quit': {
+                var services = Object.keys(App.runningService).filter(function(e) {
+                    var obj = App.serviceItemByServiceId(e);
+                    return obj.gameType != 'browser';
+                }), firstGame;
+
+                if (!services || services.length === 0) {
+                    quitTrigger();
+                    break;
+                }
+
+                firstGame = App.serviceItemByServiceId(services[0]);
+
+                MessageBox.show(qsTr("CLOSE_APP_TOOLTIP_MESSAGE"),
+                                qsTr("CLOSE_APP_TOOLTIP_MESSAGE_DESC").arg(firstGame.name),
+                                MessageBox.button.Ok | MessageBox.button.Cancel, function(result) {
+                                    if (button != MessageBox.button.Ok) {
+                                        return;
+                                    }
+
+                                    quitTrigger();
+                                });
+                break;
+            }
+        }
+    }
+
+    function quitTrigger() {
+        GoogleAnalytics.trackEvent('/Tray', 'Application', 'Quit');
+        App.exitApplication();
+    }
 
     Component.onCompleted: {
-        console.log("TrayMenu::onCompleted()");
-
         var iconPath = installPath + 'Assets/Images/Application/Widgets/TrayMenu/tray.ico';
         iconPath = iconPath.replace('file:///', '');
 
@@ -47,9 +103,9 @@ Item {
 
         function moveToTray(mouseX, mouseY) {
             var space = 10
-                , screenGeometry = Desktop.screenGeometry(Desktop.screenNumber(mouseX, mouseY))
-                , xLimit = screenGeometry.x + screenGeometry.width
-                , yLimit = screenGeometry.y + screenGeometry.height;
+            , screenGeometry = Desktop.screenGeometry(Desktop.screenNumber(mouseX, mouseY))
+            , xLimit = screenGeometry.x + screenGeometry.width
+            , yLimit = screenGeometry.y + screenGeometry.height;
 
             window._mouseX = mouseX;
             window._mouseY = mouseY;
@@ -155,7 +211,10 @@ Item {
 
                             hoverEnabled: true
                             anchors { fill: parent }
-                            onClicked: root.menuClick(name);
+                            onClicked: {
+                                root.menuClick(name);
+                                window.hide();
+                            }
                         }
                     }
 

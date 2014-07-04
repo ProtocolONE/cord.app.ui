@@ -106,8 +106,8 @@ function hideMainWindow() {
     _signalBusInstance.hideMainWindow();
 }
 
-function navigate(name) {
-    _signalBusInstance.navigate(name);
+function exitApplication() {
+     _signalBusInstance.exitApplication();
 }
 
 function openGameSettings() {

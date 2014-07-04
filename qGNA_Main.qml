@@ -548,65 +548,6 @@ Item {
         SilentMode.SilentMode {
         }
 
-        Blocks.Tray {
-            isFullMenu: mainAuthModule.isAuthed // && !ping.mustBeShown
-
-            function quitTrigger() {
-                GoogleAnalytics.trackEvent('/Tray', 'Application', 'Quit');
-                closeAnimation.start();
-            }
-
-            onMenuClick: {
-                switch(name) {
-                case 'Profile': {
-                    GoogleAnalytics.trackEvent('/Tray', 'Open External Link', 'User Profile');
-                    mainAuthModule.openWebPage("http://www.gamenet.ru/users/" +
-                                               userInfoBlock.nametech == undefined ?  mainAuthModule.userId
-                                                                                   : userInfoBlock.nametech)
-                    break;
-                }
-                case 'Balance': {
-                    GoogleAnalytics.trackEvent('/Tray', 'Open External Link', 'Money');
-                    mainAuthModule.openWebPage("http://www.gamenet.ru/money")
-                    break;
-                }
-                case 'Settings': {
-                    GoogleAnalytics.trackEvent('/Tray', 'Navigation', 'Switch To Settings');
-                    App.activateWindow();
-                    qGNA_main.openSettings();
-                }
-                break;
-                case 'Quit': {
-                    var services = Object.keys(Core.runningService).filter(function(e) {
-                        var obj = Core.serviceItemByServiceId(e);
-                        return obj.gameType != 'browser';
-                    }), firstGame;
-
-                    if (!services || services.length === 0) {
-                        quitTrigger();
-                        break;
-                    }
-
-                    firstGame = Core.serviceItemByServiceId(services[0]);
-
-                    AlertMessage.addAlertMessage(qsTr("CLOSE_APP_TOOLTIP_MESSAGE_DESC").arg(firstGame.name),
-                                                 qsTr("CLOSE_APP_TOOLTIP_MESSAGE"),
-                                                 AlertMessage.button.Ok | AlertMessage.button.Cancel,
-                                                 function(button) {
-                                                     if (button != AlertMessage.button.Ok) {
-                                                         return;
-                                                     }
-
-                                                     quitTrigger();
-                                                 });
-
-
-                    break;
-                }
-                }
-            }
-        }
-
         Image {
             id: closeButtonImage
 

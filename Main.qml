@@ -123,6 +123,18 @@ Rectangle {
                 App.initFinished();
                 switcher.allreadyInitApp = true;
             }
+
+            qGNA_main.state = "HomePage";
+
+*/
+            //INFO App.initFinished also called from c++ slot MainWindow::acceptFirstLicense()
+            App.initFinished();
+            App.setGlobalState('Authorization');
+        }
+
+        onExitApplication: {
+            //  UNDONE: Игорь обещался сделать все здесь про завершение приложения
+            console.log("IMPLEMENT ME: Application exit.");
         }
     }
 

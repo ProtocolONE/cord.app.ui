@@ -31,6 +31,7 @@ QtObject {
     signal premiumExpired();
 
     signal hideMainWindow();
+    signal exitApplication();
     signal serviceInstalled(variant gameItem);
     signal serviceStarted(variant gameItem);
     signal serviceFinished(variant gameItem);

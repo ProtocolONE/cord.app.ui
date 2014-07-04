@@ -4372,6 +4372,14 @@ Please try again later.</source>
         <source>TRAY_TOOLTIP</source>
         <translation>GameNet</translation>
     </message>
+    <message>
+        <source>CLOSE_APP_TOOLTIP_MESSAGE</source>
+        <translation>Подтверждение выхода</translation>
+    </message>
+    <message>
+        <source>CLOSE_APP_TOOLTIP_MESSAGE_DESC</source>
+        <translation>Игра %1 будет закрыта вместе с приложением. Работа игры без приложения невозможна. Закрыть приложение и игру?</translation>
+    </message>
 </context>
 <context>
     <name>UpdateManager</name>
@@ -4586,12 +4594,12 @@ Please try again later.</source>
         <translation type="obsolete">Игра %1 будет закрыта вместе с приложением. Работа игры без приложения невозможна. Закрыть приложение и игру?</translation>
     </message>
     <message>
-        <source>CLOSE_APP_TOOLTIP_MESSAGE</source>
-        <translation>Подтверждение выхода</translation>
+        <source>CLOSE_APP_TOOLTIP_MESSAGE_DESC</source>
+        <translation type="unfinished">Игра %1 будет закрыта вместе с приложением. Работа игры без приложения невозможна. Закрыть приложение и игру?</translation>
     </message>
     <message>
-        <source>CLOSE_APP_TOOLTIP_MESSAGE_DESC</source>
-        <translation>Игра %1 будет закрыта вместе с приложением. Работа игры без приложения невозможна. Закрыть приложение и игру?</translation>
+        <source>CLOSE_APP_TOOLTIP_MESSAGE</source>
+        <translation type="unfinished">Подтверждение выхода</translation>
     </message>
 </context>
 <context>
