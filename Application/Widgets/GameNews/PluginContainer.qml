@@ -13,5 +13,10 @@ import GameNet.Components.Widgets 1.0
 
 PluginContainer {
     name: "GameNews"
-    view: "GameNewsView"
+    model: "GameNewsModel"
+    view: [
+        {name: 'NewsSingleGame', source: 'NewsSingleGame', byDefault: true},
+        {name: 'NewsMyGames', source: 'NewsMyGames'}
+    ]
+    singletonModel: true
 }

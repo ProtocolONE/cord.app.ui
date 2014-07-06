@@ -85,6 +85,7 @@
 		<file>Application/Core/Modules/Settings.qml</file>
 		<file>Application/Core/Modules/SignalBus.js</file>
 		<file>Application/Core/Modules/SignalBus.qml</file>
+		<file>Application/Core/moment.js</file>
 		<file>Application/Core/Popup.js</file>
 		<file>Application/Core/Popup.qml</file>
 		<file>Application/Core/restapi.js</file>
@@ -166,7 +167,10 @@
 		<file>Application/Widgets/GameNews/GameNewsModel.qml</file>
 		<file>Application/Widgets/GameNews/PluginContainer.qml</file>
 		<file>Application/Widgets/GameNews/qmldir</file>
-		<file>Application/Widgets/GameNews/View/GameNewsView.qml</file>
+		<file>Application/Widgets/GameNews/View/BaseView.qml</file>
+		<file>Application/Widgets/GameNews/View/NewsDelegate.qml</file>
+		<file>Application/Widgets/GameNews/View/NewsMyGames.qml</file>
+		<file>Application/Widgets/GameNews/View/NewsSingleGame.qml</file>
 		<file>Application/Widgets/Maintenance/MaintenanceModel.js</file>
 		<file>Application/Widgets/Maintenance/MaintenanceModel.qml</file>
 		<file>Application/Widgets/Maintenance/PluginContainer.qml</file>

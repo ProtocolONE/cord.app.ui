@@ -10,9 +10,36 @@
 
 import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
+import "../../Core/restapi.js" as RestApi
+import "../../Core/App.js" as App
 
 WidgetModel {
-    id: root
+    id: rootModel
 
+    property string newsXml
 
+    function reloadNews() {
+        RestApi.Wall.getNewsXml(function(news) {
+            if (news) {
+                rootModel.newsXml = news;
+            }
+
+        }, function(){});
+    }
+
+    Component.onCompleted: refreshNewsTimer.start()
+
+    Timer {
+        id: refreshNewsTimer
+
+        //INFO from 15 to 60 minutes
+        interval: 900000 + Math.floor(Math.random() * 2700000)
+        running: false
+        repeat: true
+        triggeredOnStart: true
+        onTriggered: {
+            console.log('Reloading news block');
+            rootModel.reloadNews();
+        }
+    }
 }

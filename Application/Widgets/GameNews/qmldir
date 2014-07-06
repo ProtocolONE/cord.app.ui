@@ -1,3 +1,4 @@
 module Application.Widgets.GameNews
 PluginContainer 1.0 PluginContainer.qml 
-GameNewsView 1.0 View/GameNewsView.qml
+NewsSingleView.qml 1.0 View/NewsSingleView.qml
+NewsMyGames.qml 1.0 View/NewsMyGames.qml
