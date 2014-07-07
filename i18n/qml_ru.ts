@@ -245,35 +245,31 @@
     <name>AnnouncementsModel</name>
     <message>
         <source>ANNOUNCE_GAME_INSTALLED_MESSAGE</source>
-        <translation type="unfinished">Игра установлена</translation>
+        <translation type="obsolete">Игра установлена</translation>
     </message>
     <message>
         <source>ANNOUNCE_GAME_INSTALLED_BUTTON</source>
-        <translation type="unfinished">Играть</translation>
+        <translation type="obsolete">Играть</translation>
     </message>
     <message>
         <source>REMINDER_PLAYED_LONGAGO_BUTTON</source>
-        <translation type="unfinished">Играть</translation>
+        <translation type="obsolete">Играть</translation>
     </message>
     <message>
         <source>REMINDER_PLAYED_LONGAGO_MESSAGE</source>
-        <translation type="unfinished">Вы давно не заходили в игру</translation>
+        <translation type="obsolete">Вы давно не заходили в игру</translation>
     </message>
     <message>
         <source>REMINDER_NEVER_PLAYED_MESSAGE</source>
-        <translation type="unfinished">Игра установлена и вы ни разу не пробовали играть</translation>
+        <translation type="obsolete">Игра установлена и вы ни разу не пробовали играть</translation>
     </message>
     <message>
         <source>REMINDER_NEVER_PLAYED_BUTTON</source>
-        <translation type="unfinished">Играть</translation>
+        <translation type="obsolete">Играть</translation>
     </message>
     <message>
         <source>SILENT_REMIND_POPUP_BUTTON</source>
-        <translation type="unfinished">Играть</translation>
-    </message>
-    <message>
-        <source>SILENT_REMIND_POPUP_MESSAGE</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Играть</translation>
     </message>
 </context>
 <context>
@@ -962,11 +958,11 @@ Please try again later.</source>
     <name>CaptchaInput</name>
     <message>
         <source>CAPTCHA_INPUT_PLACEHOLDER</source>
-        <translation type="unfinished"></translation>
+        <translation>Cимволы с картинки</translation>
     </message>
     <message>
         <source>CAPTCHA_INPUT_REFRESH_BUTTON_TOOLTIP</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать другую картинку</translation>
     </message>
 </context>
 <context>
@@ -1446,11 +1442,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>FIRST_LICENSE_TITLE</source>
-        <translation type="unfinished">Лицензионное соглашение и настройки установки %1</translation>
+        <translation type="obsolete">Лицензионное соглашение и настройки установки %1</translation>
     </message>
     <message>
         <source>FIRST_LICENSE_SETTINGS_TAB</source>
-        <translation type="unfinished">Настройки установки</translation>
+        <translation type="obsolete">Настройки установки</translation>
     </message>
     <message>
         <source>CHECKBOX_I_AGREE</source>
@@ -1466,19 +1462,19 @@ Please try again later.</source>
     </message>
     <message>
         <source>FIRST_LICENSE_LICENSE_TAB</source>
-        <translation type="unfinished">Лицензионное соглашение</translation>
+        <translation type="obsolete">Лицензионное соглашение</translation>
     </message>
     <message>
         <source>FIRST_LICENSE_CHECKBOX_I_AGREE</source>
-        <translation type="unfinished">Нажимая &quot;Продолжить&quot;, Вы подтверждаете, что согласны с условиями &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#2ab99d&quot;&gt;лицензионного соглашения игры&lt;/font&gt;&lt;/a&gt;</translation>
+        <translation type="obsolete">Нажимая &quot;Продолжить&quot;, Вы подтверждаете, что согласны с условиями &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#2ab99d&quot;&gt;лицензионного соглашения игры&lt;/font&gt;&lt;/a&gt;</translation>
     </message>
     <message>
         <source>FIRST_LICENSE_GAME_INSTALL_PATH</source>
-        <translation type="unfinished">Выберите путь установки игры</translation>
+        <translation type="obsolete">Выберите путь установки игры</translation>
     </message>
     <message>
         <source>FIRST_LICENSE_BUTTON_CREATE_DESKTOP_SHORTCUT</source>
-        <translation type="unfinished">Создать ярлык на рабочем столе</translation>
+        <translation type="obsolete">Создать ярлык на рабочем столе</translation>
     </message>
     <message>
         <source>FIRST_LICENSE_BUTTON_CREATE_START_MENU_SHORTCUT</source>
@@ -1486,11 +1482,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>FIRST_LICENSE_CONTINUE_INSTALL</source>
-        <translation type="unfinished">Продолжить установку</translation>
+        <translation type="obsolete">Продолжить установку</translation>
     </message>
     <message>
         <source>FIRST_LICENSE_CANCEL_BUTTON</source>
-        <translation type="unfinished">Отмена</translation>
+        <translation type="obsolete">Отмена</translation>
     </message>
 </context>
 <context>

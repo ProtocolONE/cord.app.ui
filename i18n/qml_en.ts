@@ -386,27 +386,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="235"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="236"/>
         <source>AUTH_BODY_REMEMBER_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="249"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="250"/>
         <source>AUTH_BODY_AMNESIA_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="270"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="271"/>
         <source>AUTH_BODY_LOGIN_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="289"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="290"/>
         <source>AUTH_BODY_REGISTER_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="296"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="297"/>
         <source>AUTH_BODY_REGISTER_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
@@ -497,7 +497,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/CaptchaInput.qml" line="87"/>
+        <location filename="../Application/Blocks/Auth/CaptchaInput.qml" line="89"/>
         <source>CAPTCHA_INPUT_REFRESH_BUTTON_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3046,22 +3046,22 @@
         <translation type="unfinished">GameNet</translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="240"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="166"/>
         <source>MENU_ITEM_PROFILE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="246"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="172"/>
         <source>MENU_ITEM_MONEY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="252"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="178"/>
         <source>MENU_ITEM_SETTINGS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="258"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="184"/>
         <source>MENU_ITEM_QUIT</source>
         <translation type="unfinished"></translation>
     </message>
