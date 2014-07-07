@@ -65,4 +65,5 @@ packages/
 !build/
 !obj/
 
+*.qm
 test.qml
