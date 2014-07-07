@@ -98,11 +98,13 @@ Item {
         color: '#071928'
     }
 
-    MouseArea {
+    CursorMouseArea {
         id: outerMouser
 
         visible: false
         anchors.fill: parent
+        hoverEnabled: true
+        cursor: CursorArea.ArrowCursor
         onClicked: {
             d.widgetName = '';
             hideWidgetAnimation.start();
@@ -113,13 +115,7 @@ Item {
         id: substrate
 
         anchors.centerIn: parent
-        color: '#f0f5f8'
-
-        CursorMouseArea {
-            anchors.fill: parent
-            hoverEnabled: true
-            cursor: CursorArea.ArrowCursor
-        }
+        color: '#f0f5f8'    
     }
 
     WidgetContainer {
@@ -146,6 +142,10 @@ Item {
         anchors { left: firstContainer.right; top: firstContainer.top; leftMargin: 20; topMargin: -35}
 
         source: installPath + '/Assets/Images/Popup/close.png'
+
+        CursorMouseArea {
+            anchors.fill: parent
+        }
     }
 
     Image {
