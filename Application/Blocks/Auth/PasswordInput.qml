@@ -22,6 +22,9 @@ Controls.ErrorContainer {
     property alias text: control.text
     property alias error: control.error
 
+    signal tabPressed()
+    signal backTabPressed()
+
     error: control.error
 
     style: Controls.ErrorMessageStyle {
@@ -54,6 +57,9 @@ Controls.ErrorContainer {
         height: 48
         width: parent.width
         maximumLength: 32
+
+        onTabPressed: root.tabPressed();
+        onBackTabPressed: root.backTabPressed();
 
         StateGroup {
             states: [

@@ -23,8 +23,9 @@ ErrorContainer {
     property alias source: captchaImage.source
     property alias error: captchaInput.error
 
-
     signal refresh();
+    signal tabPressed()
+    signal backTabPressed()
 
     implicitWidth: parent.width
     error: root.error
@@ -52,8 +53,9 @@ ErrorContainer {
                 showLanguage: false
                 icon: installPath + "Assets/Images/Auth/captcha.png"
 
-                //placeholder: "Код с картинки справа"
                 placeholder: qsTr("CAPTCHA_INPUT_PLACEHOLDER")
+                onTabPressed: root.tabPressed();
+                onBackTabPressed: root.backTabPressed();
             }
 
             Item {
@@ -84,7 +86,6 @@ ErrorContainer {
                         width: parent.height
                         height: parent.height
 
-                        //toolTip: "Refresh"
                         toolTip: qsTr("CAPTCHA_INPUT_REFRESH_BUTTON_TOOLTIP")
 
                         style: ButtonStyleColors {
@@ -101,9 +102,7 @@ ErrorContainer {
                     }
                 }
             }
-
         }
-
     }
 }
 

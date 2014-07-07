@@ -129,8 +129,8 @@ Item {
             placeholder: qsTr("REGISTER_BODY_LOGIN_PLACEHOLDER")
             z: 1
 
-            Keys.onTabPressed: passwordInput.focus = true;
-            Keys.onBacktabPressed: passwordInput.focus = true;
+            onTabPressed: passwordInput.forceActiveFocus();
+            onBackTabPressed: passwordInput.forceActiveFocus();
         }
 
         PasswordInput {
@@ -139,8 +139,8 @@ Item {
             width: parent.width
             placeholder: qsTr("REGISTER_BODY_PASSWORD_PLACEHOLDER")
 
-            Keys.onTabPressed: loginInput.focus = true;
-            Keys.onBacktabPressed: loginInput.focus = true;
+            onTabPressed: loginInput.forceActiveFocus();
+            onBackTabPressed: loginInput.forceActiveFocus();
 
             Keys.onReturnPressed: d.register();
             Keys.onEnterPressed: d.register();

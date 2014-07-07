@@ -174,8 +174,8 @@ Item {
             width: parent.width
             placeholder: qsTr("AUTH_BODY_LOGIN_PLACEHOLDER")
 
-            Keys.onTabPressed: passwordInput.forceActiveFocus();
-            Keys.onBacktabPressed: nextBackTabItem();
+            onTabPressed: passwordInput.forceActiveFocus();
+            onBackTabPressed: loginInput.nextBackTabItem();
 
             onTextChanged: d.captchaRequired = false;
             z: 1
@@ -203,8 +203,9 @@ Item {
             width: parent.width
             placeholder: qsTr("AUTH_BODY_PASSWORD_PLACEHOLDER")
 
-            Keys.onTabPressed: nextTabItem();
-            Keys.onBacktabPressed: loginInput.forceActiveFocus();
+            onTabPressed: passwordInput.nextTabItem();
+            onBackTabPressed: loginInput.forceActiveFocus();
+
             Keys.onEnterPressed: d.genericAuth();
             Keys.onReturnPressed: d.genericAuth();
         }
@@ -214,8 +215,8 @@ Item {
 
             visible: d.captchaRequired
 
-            Keys.onTabPressed: loginInput.focus = true;
-            Keys.onBacktabPressed: passwordInput.focus = true;
+            onTabPressed: loginInput.forceActiveFocus();
+            onBackTabPressed: passwordInput.forceActiveFocus();
             Keys.onEnterPressed: d.genericAuth();
             Keys.onReturnPressed: d.genericAuth();
 

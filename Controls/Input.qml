@@ -193,13 +193,8 @@ Item {
                     verticalCenter: parent.verticalCenter
                 }
 
-                Keys.onTabPressed: {
-                    root.tabPressed();
-                }
-
-                Keys.onBacktabPressed: {
-                    root.backTabPressed();
-                }
+                Keys.onTabPressed: root.tabPressed();
+                Keys.onBacktabPressed: root.backTabPressed();
 
                 Keys.onPressed: {
                     if (event.key == Qt.Key_Up) {

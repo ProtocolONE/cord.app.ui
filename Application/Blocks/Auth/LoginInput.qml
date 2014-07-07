@@ -21,6 +21,9 @@ ErrorContainer {
     property alias error: input.error
     property alias typeahead: input.typeahead
 
+    signal tabPressed()
+    signal backTabPressed()
+
     implicitWidth: parent.width
     error: input.error
 
@@ -44,20 +47,11 @@ ErrorContainer {
         language: App.keyboardLayout()
         capsLock: App.isCapsLockEnabled()
 
+        onTabPressed: root.tabPressed();
+        onBackTabPressed: root.backTabPressed();
+
         typeahead: TypeaheadBehaviour {
-            dictionary: ["nikita.gorbunov@syncopate.ruaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                "nikolay.bondarenko@syncopate.ru",
-                "nikita.kravchuk@syncopate.ru",
-                "nikita.gorbunov@syncopate.ru",
-                                    "nikolay.bondarenko@syncopate.ru",
-                                    "nikita.kravchuk@syncopate.ru",
-                "nikita.gorbunov@syncopate.ru",
-                                    "nikolay.bondarenko@syncopate.ru",
-                                    "nikita.kravchuk@syncopate.ru",
-                "nikita.gorbunov@syncopate.ru",
-                                    "nikolay.bondarenko@syncopate.ru",
-                                    "nikita.kravchuk@syncopate.ru"
-            ]
+            dictionary: []
         }
     }
 
