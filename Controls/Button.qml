@@ -57,7 +57,10 @@ Rectangle {
         states: [
             State {
                 name: ""
+                when: !control.inProgress
                 PropertyChanges { target: control; color: control.style.normal}
+                PropertyChanges { target: buttonText; visible: true }
+                PropertyChanges { target: root; enabled: true }
             },
             State {
                 name: "Hover"
