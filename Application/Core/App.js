@@ -136,7 +136,7 @@ function openEditNicknameDialog() {
 }
 
 function replenishAccount() {
-    console.log("!!! IMPLEMENT ME: App.js::replenishAccount()");
+    openExternalUrlWithAuth("http://www.gamenet.ru/money");
 }
 
 function purchasePremium(money) {

@@ -116,7 +116,7 @@ WidgetView {
 
         hoverEnabled: true
         anchors.fill: parent
-        onClicked: App.openExternalUrl(GameAdBannerView.filtered[root.index].link);
+        onClicked: App.openExternalUrlWithAuth(GameAdBannerView.filtered[root.index].link);
 
         //  HACK: работает только когда MouseArea (и соответственно контролы) лежат друг в друге
         ImageButton {

@@ -151,7 +151,7 @@ Rectangle {
                         anchors.fill: parent
                         model: App.currentGame().menu
 
-                        onUrlClicked: App.openExternalUrl(url);
+                        onUrlClicked: App.openExternalUrlWithAuth(url);
                         onPageClicked: {
                             console.log('Open Page ', page);
                             if (page == 'GameSettings') {
