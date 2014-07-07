@@ -25,6 +25,7 @@
 		<file>Application/Blocks/Auth/MessageBody.qml</file>
 		<file>Application/Blocks/Auth/PasswordInput.qml</file>
 		<file>Application/Blocks/Auth/RegistrationBody.qml</file>
+		<file>Application/Blocks/Auth/ServiceLoading.qml</file>
 		<file>Application/Blocks/DownloadStatus.qml</file>
 		<file>Application/Blocks/FirstLicense.qml</file>
 		<file>Application/Blocks/FlowView.qml</file>
@@ -55,7 +56,6 @@
 		<file>Application/Blocks/Premium/PayItem.qml</file>
 		<file>Application/Blocks/Premium/qmldir</file>
 		<file>Application/Blocks/qmldir</file>
-		<file>Application/Blocks/ServiceLoading/Index.qml</file>
 		<file>Application/Blocks/SettingsMenu.qml</file>
 		<file>Application/Blocks/ShakeAnimation.qml</file>
 		<file>Application/Blocks/SocialNet.qml</file>

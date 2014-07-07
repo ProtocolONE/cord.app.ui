@@ -3,10 +3,13 @@ import GameNet.Controls 1.0
 import "../../Core/App.js" as App
 
 Rectangle {
+    id: root
 
-    color: 'white'
+    signal finished();
 
-    Component.onCompleted:  progressTimer.start();
+    color: "#FAFAFA"
+
+    onVisibleChanged: if (visible) progressTimer.start();
 
     Text {
         anchors {
@@ -33,7 +36,7 @@ Rectangle {
 
             onTriggered: {
                 if (++progressBar.progress > 100) {
-                    App.setGlobalState('Application')
+                    root.finished();
                     progressTimer.stop();
                 }
             }

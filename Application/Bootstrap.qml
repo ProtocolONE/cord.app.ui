@@ -167,7 +167,7 @@ Item {
 
         onAuthDone: {
             root.setAuthInfo(userId, appKey, cookie);
-            App.setGlobalState('ServiceLoading');
+            App.setGlobalState('Application');
         }
 
         onSetGlobalProgressVisible: {

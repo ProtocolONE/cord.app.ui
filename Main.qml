@@ -110,7 +110,6 @@ Rectangle {
 
             switcher.source = (name == 'Loading') ? "../../Application/Blocks/SplashScreen.qml" :
                               (name == 'Authorization') ? "../../Application/Blocks/Auth/Index.qml" :
-                              (name == 'ServiceLoading') ? "../../Application/Blocks/ServiceLoading/Index.qml" :
                               (name == 'Application') ? "../../Application/Blocks/AppScreen.qml": ''
 
         }
@@ -166,10 +165,6 @@ Rectangle {
 //        State {
 //            name: 'Authorization'
 //            PropertyChanges { target: switcher; source: "../../Application/Blocks/Auth/Index.qml" }
-//        },
-//        State {
-//            name: 'ServiceLoading'
-//            PropertyChanges { target: switcher; source: "../../Application/Blocks/ServiceLoading/Index.qml" }
 //        },
 //        State {
 //            name: 'Application'

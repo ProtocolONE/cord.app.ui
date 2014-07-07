@@ -53,7 +53,7 @@ Rectangle {
                 App.setGlobalProgressVisible(false);
 
                 if (Authorization.isSuccess(error)) {
-                    App.authDone(userId, appKey, cookie);
+                    d.startLoadingServices()(userId, appKey, cookie);
                     return;
                 }
 
@@ -85,6 +85,14 @@ Rectangle {
             currentValue[login] = +new Date();
             Settings.setValue("qml/auth/" , "authedLogins", JSON.stringify(currentValue));
             auth.loginSuggestion = currentValue;
+        }
+
+        function startLoadingServices(userId, appKey, cookie) {
+            serviceLoading.userId = userId;
+            serviceLoading.appKey = appKey;
+            serviceLoading.cookie = cookie;
+
+            authContainer.state = "serviceLoading";
         }
 
         function autoLogin() {
@@ -131,7 +139,7 @@ Rectangle {
             var currentDate = Math.floor(+new Date() / 1000);
 
             if (lastRefresh != -1 && (currentDate - lastRefresh < 432000)) {
-                App.authDone(savedAuth.userId, savedAuth.appKey, savedAuth.cookie);
+                d.startLoadingServices(savedAuth.userId, savedAuth.appKey, savedAuth.cookie);
                 return;
             }
 
@@ -143,9 +151,9 @@ Rectangle {
                                savedAuth.appKey,
                                response.cookie,
                                false);
-                   App.authDone(savedAuth.userId, savedAuth.appKey, response.cookie);
+                   d.startLoadingServices(savedAuth.userId, savedAuth.appKey, response.cookie);
                } else {
-                   App.authDone(savedAuth.userId, savedAuth.appKey, savedAuth.cookie);
+                   d.startLoadingServices(savedAuth.userId, savedAuth.appKey, savedAuth.cookie);
                }
            })
         }
@@ -168,6 +176,7 @@ Rectangle {
         id: header
 
         anchors { left: parent.left; right: parent.right }
+        visible: authContainer.state !== 'serviceLoading'
     }
 
     Item {
@@ -187,6 +196,18 @@ Rectangle {
 
             anchors.fill: parent
 
+            ServiceLoading {
+                id: serviceLoading
+
+                property string userId
+                property string appKey
+                property string cookie
+
+                anchors.fill: parent
+
+                onFinished: App.authDone(userId, appKey, cookie);
+            }
+
             AuthBody {
                 id: auth
 
@@ -199,7 +220,7 @@ Rectangle {
                 onError: d.showError(message);
 
                 onAuthDone: {
-                    App.authDone(userId, appKey, cookie);
+                    d.startLoadingServices(userId, appKey, cookie);
 
                     if (remember) {
                         CredentialStorage.save(userId, appKey, cookie, false);
@@ -222,7 +243,7 @@ Rectangle {
                 }
 
                 onAuthDone: {
-                    App.authDone(userId, appKey, cookie);
+                    d.startLoadingServices(userId, appKey, cookie);
 
                     CredentialStorage.save(userId, appKey, cookie, false);
                     d.saveAuthorizedLogins(registration.login);
@@ -277,6 +298,13 @@ Rectangle {
                 StateChangeScript {
                     script: centralSwitcher.switchTo(messageBody);
                 }
+            },
+            State {
+                name: "serviceLoading"
+
+                StateChangeScript {
+                    script: centralSwitcher.switchTo(serviceLoading);
+                }
             }
         ]
     }
@@ -286,6 +314,7 @@ Rectangle {
 
         anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
         onOpenVkAuth: d.startVkAuth();
+        visible: authContainer.state !== 'serviceLoading'
     }
 
     Button {
@@ -318,6 +347,7 @@ Rectangle {
         width: 32
         height: 146
         anchors { verticalCenter: parent.verticalCenter; right: parent.right }
+        visible: authContainer.state !== 'serviceLoading'
 
         style: ButtonStyleColors {
             normal: "#ffae02"
