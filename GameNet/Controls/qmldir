@@ -32,3 +32,4 @@ ExtendedListModel 1.0 ExtendedListModel.qml
 PageSwitcher 1.0 PageSwitcher.qml
 TryLoader 1.0 TryLoader.qml
 Tooltip 1.0 Tooltip.qml
+WebImage 1.0 WebImage.qml

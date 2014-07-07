@@ -399,6 +399,7 @@
 		<file>GameNet/Controls/TryLoader.qml</file>
 		<file>GameNet/Controls/TypeaheadBehaviour.qml</file>
 		<file>GameNet/Controls/VerticalSplit.qml</file>
+		<file>GameNet/Controls/WebImage.qml</file>
 		<file>Main.qml</file>
 		<file>Pages/Game.qml</file>
 		<file>Pages/Home.qml</file>
@@ -466,5 +467,6 @@
 		<file>Tests/GameNet/Controls/PageSwitcher/Sample2.qml</file>
 		<file>Tests/GameNet/Controls/PathInputSample.qml</file>
 		<file>Tests/GameNet/Controls/ProgressBarSample.qml</file>
+		<file>Tests/GameNet/Controls/WebImageSample.qml</file>
 	</qresource>
 </RCC>
