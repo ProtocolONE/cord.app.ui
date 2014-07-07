@@ -109,49 +109,21 @@ Rectangle {
         }
         onBackgroundMousePositionChanged: dragWindowPositionChanged(mouseX, mouseY);
         onBackgroundMousePressed: dragWindowPressed(mouseX, mouseY);
-        onUpdateFinished: {
-
-            /*
-            var serviceId = App.startingService() || "0"
-                , item;
-
-            if (serviceId == "0") {
-                if (!App.isAnyLicenseAccepted()) {
-                    serviceId = Settings.value("qGNA", "installWithService", "0");
-                }
-            }
-
-            qGNA_main.selectService(serviceId);
-
-            if (!App.isAnyLicenseAccepted()) {
-                var item = Core.serviceItemByServiceId(serviceId);
-
-                firstLicense.withPath = (serviceId != "0" && serviceId != "300007010000000000" && !!item)
-                firstLicense.serviceId = serviceId;
-
-                if (serviceId != "0" && item) {
-                    firstLicense.pathInput = App.getExpectedInstallPath(serviceId);
-                } else {
-                    qGNA_main.state = "HomePage";
-                }
-
-                firstLicense.openMoveUpPage();
-                return;
-            }
-
-            qGNA_main.state = "HomePage";
-
-*/
-            //INFO App.initFinished also called from c++ slot MainWindow::acceptFirstLicense()
-            App.initFinished();
-            App.setGlobalState('Authorization')
-        }
     }
 
     PageSwitcher {
         id: switcher
 
+        property bool allreadyInitApp: false
+
         anchors.fill: parent
+
+        onSwitchFinished: {
+            if (root.state == 'Application' && !switcher.allreadyInitApp) {
+                App.initFinished();
+                switcher.allreadyInitApp = true;
+            }
+        }
     }
 
     Bootstrap {

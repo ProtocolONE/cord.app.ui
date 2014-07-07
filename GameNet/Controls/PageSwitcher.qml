@@ -4,6 +4,8 @@ import "./PageSwitcher.js" as PageSwitcherJs
 Item {
     id: root
 
+    signal switchFinished();
+
     property string source: ""
     property Component sourceComponent
 
@@ -70,6 +72,7 @@ Item {
         }
 
         function switchFinished() {
+            root.switchFinished();
             if (d.currentLayer == 2) {
                 first.source = "";
                 first.sourceComponent = null;
