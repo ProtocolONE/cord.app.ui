@@ -15,6 +15,7 @@ import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
 import Application.Blocks 1.0
+import Application.Controls 1.0 as AppControls
 
 import "Application"
 import "Application/Core/App.js" as App
@@ -36,9 +37,15 @@ Rectangle {
     height: App.clientHeight
 
     ParallelAnimation {
+        id: exitAnimation;
+
+        onCompleted: root.windowClose();
+        NumberAnimation { target: root; property: "opacity"; from: 1; to: 0;  duration: 250 }
+    }
+
+    ParallelAnimation {
         id: hideAnimation
 
-        running: false
         onCompleted: {
             App.hide();
             root.opacity = 1;
@@ -109,6 +116,8 @@ Rectangle {
         }
         onBackgroundMousePositionChanged: dragWindowPositionChanged(mouseX, mouseY);
         onBackgroundMousePressed: dragWindowPressed(mouseX, mouseY);
+        onUpdateFinished: App.setGlobalState("Authorization")
+        onExitApplication: exitAnimation.start()
     }
 
     PageSwitcher {
@@ -131,11 +140,6 @@ Rectangle {
             App.initFinished();
             App.setGlobalState('Authorization');
         }
-
-        onExitApplication: {
-            //  UNDONE: Игорь обещался сделать все здесь про завершение приложения
-            console.log("IMPLEMENT ME: Application exit.");
-        }
     }
 
     Bootstrap {
@@ -145,6 +149,10 @@ Rectangle {
             openAnimation.start();
             App.setGlobalState('Loading');
         }
+    }
+
+    AppControls.HiddenAppCloseButton {
+        anchors { left: parent.left; top: parent.top }
     }
 
 //    TODO это не работает, разобратся

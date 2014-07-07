@@ -10,19 +10,15 @@
 
 import QtQuick 1.1
 
-Item {
-    property alias text: textItem.text;
-    property alias color: textItem.color;
+import "../Core/App.js" as App
+import "../Core/GoogleAnalytics.js" as GoogleAnalytics
 
-    implicitWidth: 290
-    implicitHeight: 100
+MouseArea {
+    width: 20
+    height: 20
 
-    Text {
-        id: textItem
-
-        width: 235
-        font { family: 'Arial'; pixelSize: 14 }
-        color: "#ffffff"
-        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+    onDoubleClicked: {
+        GoogleAnalytics.trackEvent('/Tray', 'Application', 'Quit', 'TopLeft');
+        App.exitApplication();
     }
 }

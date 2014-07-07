@@ -65,5 +65,8 @@ packages/
 !build/
 !obj/
 
+#QtCtreator Qml
+*.qmlproject.user
+*.qmlproject.user.*
 *.qm
 test.qml

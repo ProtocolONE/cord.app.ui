@@ -3,3 +3,4 @@ ScrollBar 1.0 ScrollBar.qml
 InputWithError 1.0 InputWithError.qml
 TrayPopupBase 1.0 TrayPopupBase.qml
 ComboBox 1.0 ComboBox.qml
+HiddenAppCloseButton 1.0 HiddenAppCloseButton.qml

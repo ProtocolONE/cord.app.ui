@@ -64,6 +64,7 @@
 		<file>Application/Blocks/SplashScreen/UpdateManager.qml</file>
 		<file>Application/Bootstrap.qml</file>
 		<file>Application/Controls/ComboBox.qml</file>
+		<file>Application/Controls/HiddenAppCloseButton.qml</file>
 		<file>Application/Controls/InputWithError.qml</file>
 		<file>Application/Controls/MouseClick.js</file>
 		<file>Application/Controls/MouseClick.qml</file>
