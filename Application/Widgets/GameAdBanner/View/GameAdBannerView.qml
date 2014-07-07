@@ -50,6 +50,7 @@ WidgetView {
 
     function switchAnimation() {
         showNextTimer.stop();
+        contentSwitcher.opacity = 1;
         contentSwitcher.switchToNext();
         if (GameAdBannerView.filtered.length > 1) {
             showNextTimer.restart()

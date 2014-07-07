@@ -3,19 +3,12 @@ import QtQuick 1.1
 Image {
     property alias background: back.color;
 
-    onSourceChanged: back.opacity = 1
-    onStatusChanged: {
-        if (status === Image.Ready) {
-            back.opacity = 0;
-        }
-    }
-
     Rectangle {
         id: back
 
         anchors.fill: parent
         color: "#000000"
-        opacity: 1
+        opacity: parent.status == Image.Ready ? 0 : 1
         visible: opacity > 0
 
         Behavior on opacity {

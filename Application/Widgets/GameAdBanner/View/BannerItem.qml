@@ -9,6 +9,7 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+import GameNet.Controls 1.0
 
 Item {
     id: root
@@ -18,7 +19,7 @@ Item {
         contentText.text = label;
     }
 
-    Image {
+    WebImage {
         id: contentImage
 
         anchors.fill: parent
