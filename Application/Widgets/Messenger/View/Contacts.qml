@@ -83,25 +83,15 @@ WidgetView {
                             return -1;
                         }
 
-                        function filterFunction(pattern, testedValue) {
-                            if (pattern === "" || testedValue === "") {
-                                return false;
-                            }
-                            if (pattern.length > testedValue.length) {
-                                return false;
-                            }
-                            if (testedValue.substring(0, pattern.length) === pattern) {
-                                return true;
-                            }
-                        }
-
                         function updateFilter() {
                             var res = []
-                            , item;
+                                , item
+                                , filterText = searchContactInput.text.toLowerCase();
+
                             searchContactModel.clear();
 
                             MessengerJs.eachUser(function(user) {
-                                if (!filterFunction(searchContactInput.text, user.nickname)) {
+                                if (0 !== user.nickname.toLowerCase().indexOf(filterText)) {
                                     return;
                                 }
 
@@ -116,9 +106,7 @@ WidgetView {
                             res.sort(searchContactInput.sortFunction);
 
                             res.forEach(function(e) {
-                                searchContactModel.append({
-                                                              jid: e.jid
-                                                          });
+                                searchContactModel.append({jid: e.jid});
                             });
                         }
 
