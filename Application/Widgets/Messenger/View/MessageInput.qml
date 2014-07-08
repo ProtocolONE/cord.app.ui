@@ -125,7 +125,7 @@ Rectangle {
                                 family: "Arial"
                             }
 
-                            color: "#a4b0ba"
+                            color: "#252932"
 
                             onCursorRectangleChanged: inputFlick.ensureVisible(cursorRectangle);
 
