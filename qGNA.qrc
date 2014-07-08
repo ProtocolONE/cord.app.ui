@@ -95,9 +95,7 @@
 		<file>Application/Layers/ChatLayer.qml</file>
 		<file>Application/Layers/qmldir</file>
 		<file>Application/Layers/SettingsLayer.qml</file>
-		<file>Application/Models/CombatArmsItemsModel.qml</file>
 		<file>Application/Models/GamesListModel.qml</file>
-		<file>Application/Models/NewsModel.qml</file>
 		<file>Application/qmldir</file>
 		<file>Application/Widgets/AccountActivation/PluginContainer.qml</file>
 		<file>Application/Widgets/AccountActivation/qmldir</file>

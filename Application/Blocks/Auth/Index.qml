@@ -106,27 +106,8 @@ Rectangle {
             if (!savedAuth || !savedAuth.userId || !savedAuth.appKey || !savedAuth.cookie) {
                 var guest = CredentialStorage.loadGuest();
                 if (!guest || !guest.userId || !guest.appKey || !guest.cookie) {
-                    if (App.isSilentMode()) {
-                        var auth = new Authorization.ProviderGuest(),
-                            startingServiceId = App.startingService() || "0";
-
-                        if (startingServiceId == "0") {
-                            startingServiceId = Settings.value('qGNA', 'installWithService', "0");
-                        }
-
-                        auth.login(startingServiceId, function(code, response) {
-                            if (!Authorization.isSuccess(code)) {
-                                // TODO ? Auth failed
-                                return;
-                            }
-
-                            CredentialStorage.saveGuest(response.userId, response.appKey, response.cookie, true);
-                            App.authDone(response.userId, response.appKey, response.cookie);
-                        });
-
-                        return;
-                    }
-
+                    //autoLoginFailed();
+                    authContainer.state = "auth";
                     return;
                 }
 
@@ -269,7 +250,7 @@ Rectangle {
             }
         }
 
-        state: "auth"
+        state: ""
         states: [
             State {
                 name: "auth"
