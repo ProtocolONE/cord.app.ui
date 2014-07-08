@@ -13,6 +13,8 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
+import Application.Controls 1.0
+
 import "../../../Core/App.js" as App
 
 WidgetView {
@@ -162,6 +164,26 @@ WidgetView {
         }
 
         Button {
+            id: installButton
+
+            ShakeAnimation {
+                id: shakeAnimation
+
+                target: installButton
+                property: "x"
+                from: 0
+                shakeValue: 2
+                shakeTime: 120
+            }
+
+            Timer {
+                id: shakeAnimationTimer
+
+                interval: 5000
+                running: root.visible
+                onTriggered: shakeAnimation.start();
+            }
+
             width: 200
             height: 48
             anchors {

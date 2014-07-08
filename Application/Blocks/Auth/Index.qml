@@ -16,6 +16,8 @@ import "../../../Application/Core/Authorization.js" as Authorization
 import "../../../Application/Core/User.js" as User
 import "../../../Application/Core/App.js" as App
 
+import "./AuthHelper.js" as AuthHelper
+
 import "AnimatedBackground" as AnimatedBackground
 
 Rectangle {
@@ -86,17 +88,42 @@ Rectangle {
         }
 
         function autoLogin() {
+            if (AuthHelper.autoLoginDone) {
+                return;
+            }
+
+            AuthHelper.autoLoginDone = true;
+
             var savedAuth = CredentialStorage.load();
             if (!savedAuth || !savedAuth.userId || !savedAuth.appKey || !savedAuth.cookie) {
                 var guest = CredentialStorage.loadGuest();
                 if (!guest || !guest.userId || !guest.appKey || !guest.cookie) {
-                    //autoLoginFailed();
+                    if (App.isSilentMode()) {
+                        var auth = new Authorization.ProviderGuest(),
+                            startingServiceId = App.startingService() || "0";
+
+                        if (startingServiceId == "0") {
+                            startingServiceId = Settings.value('qGNA', 'installWithService', "0");
+                        }
+
+                        auth.login(startingServiceId, function(code, response) {
+                            if (!Authorization.isSuccess(code)) {
+                                // TODO ? Auth failed
+                                return;
+                            }
+
+                            CredentialStorage.saveGuest(response.userId, response.appKey, response.cookie, true);
+                            App.authDone(response.userId, response.appKey, response.cookie);
+                        });
+
+                        return;
+                    }
 
                     return;
                 }
 
                 savedAuth = guest;
-                CredentialStorage.save(guest.userId, guest.appKey, guest.cookie, true);
+                CredentialStorage.saveGuest(guest.userId, guest.appKey, guest.cookie, true);
                 savedAuth.guest = true;
             }
 
@@ -259,6 +286,32 @@ Rectangle {
 
         anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
         onOpenVkAuth: d.startVkAuth();
+    }
+
+    Button {
+        function loadGuest() {
+            var guest = CredentialStorage.loadGuest();
+            console.log(guest.userId, guest.appKey, guest.cookie);
+
+            if (!guest || !guest.userId || !guest.appKey || !guest.cookie) {
+                return;
+            }
+
+            App.authDone(guest.userId, guest.appKey, guest.cookie);
+        }
+
+        width: 160
+        height: 25
+
+        anchors {
+            bottom: parent.bottom
+            bottomMargin: 20
+            right: parent.right
+            rightMargin: 320
+        }
+
+        text: qsTr("LOGIN_BY_GUEST_BUTTON_TEXT")
+        onClicked: loadGuest();
     }
 
     Button {

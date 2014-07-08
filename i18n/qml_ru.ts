@@ -242,6 +242,41 @@
     </message>
 </context>
 <context>
+    <name>AnnouncementsModel</name>
+    <message>
+        <source>ANNOUNCE_GAME_INSTALLED_MESSAGE</source>
+        <translation type="unfinished">Игра установлена</translation>
+    </message>
+    <message>
+        <source>ANNOUNCE_GAME_INSTALLED_BUTTON</source>
+        <translation type="unfinished">Играть</translation>
+    </message>
+    <message>
+        <source>REMINDER_PLAYED_LONGAGO_BUTTON</source>
+        <translation type="unfinished">Играть</translation>
+    </message>
+    <message>
+        <source>REMINDER_PLAYED_LONGAGO_MESSAGE</source>
+        <translation type="unfinished">Вы давно не заходили в игру</translation>
+    </message>
+    <message>
+        <source>REMINDER_NEVER_PLAYED_MESSAGE</source>
+        <translation type="unfinished">Игра установлена и вы ни разу не пробовали играть</translation>
+    </message>
+    <message>
+        <source>REMINDER_NEVER_PLAYED_BUTTON</source>
+        <translation type="unfinished">Играть</translation>
+    </message>
+    <message>
+        <source>SILENT_REMIND_POPUP_BUTTON</source>
+        <translation type="unfinished">Играть</translation>
+    </message>
+    <message>
+        <source>SILENT_REMIND_POPUP_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ApplicationSettings</name>
     <message>
         <source>APPLICATION_SETTINGS_TITLE</source>
@@ -1231,7 +1266,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_DOWNLOADED_AND_READY_STATE</source>
-        <translation type="unfinished">Игра готова к запуску</translation>
+        <translation type="obsolete">Игра готова к запуску</translation>
     </message>
 </context>
 <context>
@@ -1408,6 +1443,38 @@ Please try again later.</source>
     <message>
         <source>FIRSTLICENSE_LICENSE_CAPTION_SILENT</source>
         <translation type="obsolete">Нажимая &quot;Установить игру&quot;, Вы подтверждаете, что согласны с условиями</translation>
+    </message>
+    <message>
+        <source>FIRST_LICENSE_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FIRST_LICENSE_SETTINGS_TAB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FIRST_LICENSE_LICENSE_TAB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FIRST_LICENSE_CHECKBOX_I_AGREE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FIRST_LICENSE_GAME_INSTALL_PATH</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FIRST_LICENSE_BUTTON_CREATE_DESKTOP_SHORTCUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FIRST_LICENSE_CONTINUE_INSTALL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FIRST_LICENSE_CANCEL_BUTTON</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2432,6 +2499,10 @@ Please try again later.</source>
     <message>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
         <translation type="unfinished">Не удалось войти как пользователь Вконтакте. Попробуйте ещё раз позже.</translation>
+    </message>
+    <message>
+        <source>LOGIN_BY_GUEST_BUTTON_TEXT</source>
+        <translation type="unfinished">Войти как гость</translation>
     </message>
 </context>
 <context>

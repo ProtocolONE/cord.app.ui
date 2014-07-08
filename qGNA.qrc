@@ -15,6 +15,7 @@
 		<file>Application/Blocks/Auth/AnimatedBackground/Sun.qml</file>
 		<file>Application/Blocks/Auth/AnimatedBackground/VkDoggy.qml</file>
 		<file>Application/Blocks/Auth/AuthBody.qml</file>
+		<file>Application/Blocks/Auth/AuthHelper.js</file>
 		<file>Application/Blocks/Auth/CaptchaInput.qml</file>
 		<file>Application/Blocks/Auth/CodeBody.qml</file>
 		<file>Application/Blocks/Auth/Footer.qml</file>
@@ -25,6 +26,7 @@
 		<file>Application/Blocks/Auth/PasswordInput.qml</file>
 		<file>Application/Blocks/Auth/RegistrationBody.qml</file>
 		<file>Application/Blocks/DownloadStatus.qml</file>
+		<file>Application/Blocks/FirstLicense.qml</file>
 		<file>Application/Blocks/FlowView.qml</file>
 		<file>Application/Blocks/GameIcon.qml</file>
 		<file>Application/Blocks/GameInstallBlock.qml</file>
@@ -107,6 +109,11 @@
 		<file>Application/Widgets/AlertAdapter/View/AlertAdapterView.qml</file>
 		<file>Application/Widgets/AlertAdapter/View/NegativeButton.qml</file>
 		<file>Application/Widgets/AlertAdapter/View/PositiveButton.qml</file>
+		<file>Application/Widgets/Announcements/AnnouncementsHelper.js</file>
+		<file>Application/Widgets/Announcements/AnnouncementsModel.qml</file>
+		<file>Application/Widgets/Announcements/ArtPopup.qml</file>
+		<file>Application/Widgets/Announcements/PluginContainer.qml</file>
+		<file>Application/Widgets/Announcements/qmldir</file>
 		<file>Application/Widgets/AutoRefreshCookie/AutoRefreshCookie.qml</file>
 		<file>Application/Widgets/AutoRefreshCookie/PluginContainer.qml</file>
 		<file>Application/Widgets/AutoRefreshCookie/qmldir</file>
