@@ -83,11 +83,6 @@ Item {
                     color: '#f5755a'
                     text: commentCount
                 }
-
-                CursorMouseArea {
-                    anchors.fill: parent
-                    onClicked: root.openNews(gameShortName, eventId);
-                }
             }
 
             Column {

@@ -14,8 +14,19 @@ import GameNet.Components.Widgets 1.0
 Item {
     id: root
 
+    signal finished();
+
     property alias listView: listView
     property bool isSingleMode: false
+
+    property int createdItemCount: 0
+
+    onCreatedItemCountChanged: {
+        if (root.createdItemCount == listView.count)  {
+            root.createdItemCount = 0;
+            root.finished();
+        }
+    }
 
     width: 590
     height: listView.count * 148
@@ -32,10 +43,13 @@ Item {
         model: ListModel {}
         interactive: false
         spacing: 10
+        cacheBuffer: 0
 
         delegate: NewsDelegate {
             height: index != 0 ? 138 : 128
             width: root.width - 20
+
+            Component.onCompleted: root.createdItemCount++;
         }
     }
 }

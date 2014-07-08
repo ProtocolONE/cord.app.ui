@@ -160,8 +160,8 @@ Rectangle {
             visible: false
 
             onClicked: {
-                App.navigate('mygame', 'GameItem');
                 App.activateGameByServiceId(serviceItem.serviceId);
+                App.navigate('mygame', 'GameItem');
             }
         }
 

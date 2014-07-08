@@ -10,6 +10,9 @@ WidgetView {
 
     property string filterGameId: App.currentGame() ? App.currentGame().gameId : '-1'
 
+    onVisibleChanged: if (!visible) baseView.opacity = 0;
+    onFilterGameIdChanged: baseView.opacity = 0;
+
     width: baseView.width
     height: baseView.height
 
@@ -39,5 +42,9 @@ WidgetView {
         id: baseView
 
         isSingleMode: true
+
+        onFinished: opacity = 1;
+
+        Behavior on opacity { NumberAnimation { duration: 150 } }
     }
 }
