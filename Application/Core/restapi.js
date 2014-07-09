@@ -897,6 +897,14 @@ Games.getAdvertising = function(game, successCallback, failedCallback) {
 	},
 	false, successCallback, failedCallback);
 };
+
+Games.getGallery = function(game, successCallback, failedCallback) {
+    Core.execute('games.getGallery', {
+        gameId: game,
+        version: 1
+    },
+    false, successCallback, failedCallback);
+};
 var Marketing = function() {
 };
 

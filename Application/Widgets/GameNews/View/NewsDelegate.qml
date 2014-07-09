@@ -30,9 +30,7 @@ Item {
     CursorMouseArea {
         anchors {
             fill: parent
-            topMargin: 10
-            leftMargin: 10
-            rightMargin: 10
+            margins: 10
         }
         onClicked: delegate.openNews(gameShortName, eventId);
     }
