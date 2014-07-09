@@ -27,7 +27,6 @@
 		<file>Application/Blocks/Auth/RegistrationBody.qml</file>
 		<file>Application/Blocks/Auth/ServiceLoading.qml</file>
 		<file>Application/Blocks/DownloadStatus.qml</file>
-		<file>Application/Blocks/FirstLicense.qml</file>
 		<file>Application/Blocks/FlowView.qml</file>
 		<file>Application/Blocks/GameIcon.qml</file>
 		<file>Application/Blocks/GameInstallBlock.qml</file>
@@ -109,9 +108,10 @@
 		<file>Application/Widgets/AlertAdapter/View/AlertAdapterView.qml</file>
 		<file>Application/Widgets/AlertAdapter/View/NegativeButton.qml</file>
 		<file>Application/Widgets/AlertAdapter/View/PositiveButton.qml</file>
-		<file>Application/Widgets/Announcements/AnnouncementsHelper.js</file>
+		<file>Application/Widgets/Announcements/AnnouncementsModel.js</file>
 		<file>Application/Widgets/Announcements/AnnouncementsModel.qml</file>
 		<file>Application/Widgets/Announcements/ArtPopup.qml</file>
+		<file>Application/Widgets/Announcements/BigAnnounceWindow.qml</file>
 		<file>Application/Widgets/Announcements/PluginContainer.qml</file>
 		<file>Application/Widgets/Announcements/qmldir</file>
 		<file>Application/Widgets/AutoRefreshCookie/AutoRefreshCookie.qml</file>
@@ -237,10 +237,6 @@
 		<file>Application/Widgets/UserProfile/UserProfileModel.qml</file>
 		<file>Application/Widgets/UserProfile/View/NicknameEdit.qml</file>
 		<file>Application/Widgets/UserProfile/View/UserProfileView.qml</file>
-		<file>Blocks/Features/Announcements/Announcements.qml</file>
-		<file>Blocks/Features/Announcements/AnnouncementsHelper.js</file>
-		<file>Blocks/Features/Announcements/ArtPopup.qml</file>
-		<file>Blocks/Game.qml</file>
 		<file>GameNet/Components/Widgets/PluginContainer.qml</file>
 		<file>GameNet/Components/Widgets/qmldir</file>
 		<file>GameNet/Components/Widgets/WidgetContainer.qml</file>
@@ -302,6 +298,7 @@
 		<file>Tests/Application/Core/Fixtures/Popup/Sample/View/SomeWidget.qml</file>
 		<file>Tests/Application/Core/PopupTestCase.qml</file>
 		<file>Tests/Application/Widgets/AccountActivationSample.qml</file>
+		<file>Tests/Application/Widgets/AnnoucementsSample.qml</file>
 		<file>Tests/Application/Widgets/FactsSample.qml</file>
 		<file>Tests/Application/Widgets/GameAdBannerSample.qml</file>
 		<file>Tests/Application/Widgets/GameExecutingSample.qml</file>

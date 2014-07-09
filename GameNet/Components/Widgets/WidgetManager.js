@@ -263,3 +263,7 @@ function init() {
 function isReady() {
     return _internal.isReady();
 }
+
+function getWidgetByName(name) {
+    return _internal.getWidgetByName(name);
+}

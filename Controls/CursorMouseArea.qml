@@ -10,7 +10,7 @@
 import QtQuick 1.1
 import Tulip 1.0
 
-import "../../GameNet/Controls/Tooltip.js" as Tooltip
+import "./Tooltip.js" as Tooltip
 
 MouseArea {
     id: mouser

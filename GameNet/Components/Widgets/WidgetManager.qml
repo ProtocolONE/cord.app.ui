@@ -24,6 +24,10 @@ Item {
         return WidgetManager.registerWidget(name);
     }
 
+    function getWidgetByName(name) {
+        return WidgetManager.getWidgetByName(name);
+    }
+
     function init() {
         WidgetManager.init();
     }

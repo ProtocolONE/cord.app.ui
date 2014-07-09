@@ -31,6 +31,7 @@ WidgetModel {
         target: App.signalBus()
 
         onSelectService: {
+            //TODO Вероятно эта логика должна быть вынесена в какое-то другое место. Более "высокое".
             App.activateGameByServiceId(serviceId);
             App.navigate("mygame");
         }
@@ -64,6 +65,7 @@ WidgetModel {
         }
 
         target: mainWindow
+        ignoreUnknownSignals: true
 
         onServiceStarted: {
             var item = App.serviceItemByServiceId(service);

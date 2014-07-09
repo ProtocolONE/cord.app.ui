@@ -489,53 +489,22 @@ ListModel {
     ListElement {
         enabled: true
 
-        size: "normal"
-        serviceId: "300011010000000000"
-        gameId: "759"
-
-        ratingUrl: ""
-        forumUrl: ""
-        blogUrl: ""
-
-        status: "Normal" // Error Started Paused Downloading
-        statusText: ""
-        progress: -1
-        allreadyDownloaded: false
-        gaName: "FermaJane" // Never change please
-
-        maintenance: false
-        maintenanceInterval: 0
-        maintenanceProposal1: "300003010000000000"
-        maintenanceProposal2: "300012010000000000"
-        maintenanceEndPause: false
-
-        itemState: "Normal";
-        animationPause: 0
-        hasOverlay: false
-
-        logoText: QT_TR_NOOP("LOGO_FJ")
-        aboutGameText: QT_TR_NOOP("GAME_FJ_ABOUT_TEXT")
-        miniToolTip: QT_TR_NOOP("GAME_FJ_MINI_TOOLTIP")
-        shortDescription: QT_TR_NOOP("GAME_FJ_MINI_DESC")
-
-        secondStatus: "Normal"
-        secondAllowed: false
-        menu: []
-        currentMenuIndex: 1
-    }
-
-    ListElement {
-        gameType: "browser"
-        imageSource: "Assets/Images/games/ga_icon_small.png"
         name: "Golden Age"
+        gameType: "browser"
+
+        imageSource: "Assets/Images/games/ga_icon_small.png"
         imageSmall: "Assets/Images/games/ga_icon_small.png"
         imageFooter: "Assets/Images/games/Golden-Age.png"
         imageBig: ""
         imageLogoSmall: "Assets/Images/games/ga_logo_small.png"
         imageLogoBig: ""
+
         size: "normal"
 
-        imageDefault: "Assets/Images/games/Default/farm.png" // TMP debug
+        imageDefault: "Assets/Images/games/ga_icon_small.png"
+        formFactor: 1
+        priority: 5
+
 
         imageBack : "Assets/Images/games/ga_back.png"
         serviceId: "300007010000000000"
@@ -618,6 +587,10 @@ ListModel {
 
         size: "normal"
         formFactor: 2
+
+        imageDefault: "Assets/Images/games/wi_icon_small.png"
+        formFactor: 1
+        priority: 6
 
         imageBack : "Assets/Images/games/wi_back.png"
 
@@ -740,6 +713,10 @@ ListModel {
 
         size: "normal"
         formFactor: 1
+
+        imageDefault: "Assets/Images/games/rot_logo_small.png"
+        formFactor: 1
+        priority: 7
 
         imageBack : "Assets/Images/games/rot_back.png"
 

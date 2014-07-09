@@ -1,4 +1,4 @@
-/****************************************************************************
+﻿/****************************************************************************
 ** This file is a part of Syncopate Limited GameNet Application or it parts.
 **
 ** Copyright (©) 2011 - 2013, Syncopate Limited and/or affiliates.
@@ -9,12 +9,11 @@
 ****************************************************************************/
 
 import QtQuick 1.1
-import "WidgetManager.js" as WidgetManager
+import GameNet.Components.Widgets 1.0
 
-Item {
-    property string name
-    property string version: '1.0'
-    property bool singletonModel: false
-    property string model
-    property variant view
+PluginContainer {
+    name: "Announcements"
+    view: ""
+    model: "AnnouncementsModel"
+    singletonModel: true
 }

@@ -228,12 +228,6 @@ Item {
                 mainAuthModule.startAfterLinkServiceId = serviceId;
                 mainAuthModule.openLinkGuestOnStartGame();
             }
-
-            onServiceInstalled: {
-                if (!App.isWindowVisible()) {
-                    announcementsFeature.showGameInstalledAnnounce(serviceId);
-                }
-            }
         }
 
         Blocks.UserInfo {
@@ -501,51 +495,9 @@ Item {
             }
         }
 
-        Blocks.GameFailed {
-            id: gameFailedPage
-
-            onOpenUrl: mainAuthModule.openWebPage(url);
-            onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX,mouseY);
-            onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
-        }
-
-        Blocks.GameIsBoring {
-            id: gameBoringPage
-
-            onLaunchGame: mainWindow.downloadButtonStart(serviceId);
-            onStartClosing: qGNA_main.state = "HomePage";
-            onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX,mouseY);
-            onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
-        }
-
-        //        CombatArmsShop.PurchaseDetails {
-        //            id: combatArmsPurchaseDetails;
-        //        }
-
-        Guide.WellcomeGuide {
-            id: guide
-
-            onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX,mouseY);
-            onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
-        }
-        /*
-        Ping.Ping {
-            id: ping
-
-            onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX,mouseY);
-            onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
-        }
-*/
-
         PublicTest.PublicTestWarning {
             onBackgroundMousePositionChanged: onWindowPositionChanged(mouseX,mouseY);
             onBackgroundMousePressed: onWindowPressed(mouseX,mouseY);
-        }
-
-        Proxy.MouseClick {
-        }
-
-        SilentMode.SilentMode {
         }
 
         Image {
@@ -655,90 +607,4 @@ Item {
             }
         ]
     }
-
-    Item {
-        anchors { left: parent.left; top: parent.top }
-        width: 20
-        height: 20
-
-        MouseArea {
-            anchors.fill: parent
-            onDoubleClicked: {
-                GoogleAnalytics.trackEvent('/Tray', 'Application', 'Quit', 'TopLeft');
-                closeAnimation.start();
-            }
-        }
-    }
-
-    Elements.PopupWindow {}
-
-    Announcements.Announcements {
-        id: announcementsFeature
-
-        isAuthed: mainAuthModule.isAuthed
-        onGamePlayClicked: {
-            if (!serviceId || serviceId == 0) {
-                console.log('bad service id ' + serviceId);
-                return;
-            }
-
-            var item = Core.serviceItemByServiceId(serviceId);
-            if (!item) {
-                console.log('bad service id ' + serviceId);
-                return;
-            }
-
-            gamePage.gamesButtonClicked(item);
-            App.activateWindow();
-            App.downloadButtonStart(serviceId);
-        }
-
-        onMissClicked: {
-            qGNA_main.selectService(serviceId);
-            mainWindow.activateWindow();
-        }
-
-        onGameAcceptLicenseClicked: {
-            qGNA_main.selectService(serviceId);
-
-            var item = Core.serviceItemByServiceId(serviceId);
-            if (App.isAnyLicenseAccepted() || !item || item.gameType != "standalone") {
-                App.activateWindow();
-                return;
-            }
-
-            firstLicense.closeMoveUpPage();
-            var path = App.getExpectedInstallPath(serviceId);
-            App.setServiceInstallPath(serviceId, path, true);
-            App.acceptFirstLicense(serviceId);
-            App.downloadButtonStart(serviceId);
-        }
-
-        onGameMissLicenseClicked: {
-            qGNA_main.selectService(serviceId);
-            var item = Core.serviceItemByServiceId(serviceId);
-            if (App.isAnyLicenseAccepted() || !item || item.gameType != "standalone") {
-                App.activateWindow();
-                return;
-            }
-
-            // HACK переписать компоненты всплывания
-            firstLicense.setOpenHeight(132);
-            firstLicense.withPath = true;
-            firstLicense.serviceId = serviceId;
-            firstLicense.pathInput = App.getExpectedInstallPath(serviceId);
-            firstLicense.openMoveUpPage();
-
-            App.activateWindow();
-        }
-
-        onOpenUrlRequest: mainAuthModule.openWebPage(url);
-    }
-
-    Blocks.TryLoader {
-        source: "Features/Overlay/GameOverlay.qml"
-        onFailed: console.log('Can not load overlay');
-        onSuccessed: console.log('Overlay ready');
-    }
 }
-

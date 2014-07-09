@@ -151,8 +151,8 @@ function installDate() {
     return settingsValue('qGNA', 'installDate', 0);
 }
 
-function setInstallDate() {
-    setSettingsValue('qGNA', 'installDate', Math.floor((+ new Date()) / 1000));
+function setInstallDate(date) {
+    setSettingsValue('qGNA', 'installDate', date || Math.floor((+ new Date()) / 1000));
 }
 
 function gameInstallDate(serviceId) {
@@ -178,4 +178,8 @@ function secondServiceStarted(service) {
 function secondServiceFinished(service) {
     delete runningSecondService[service];
     _signalBusInst.isAnySecondServiceRunning = Object.keys(runningSecondService) > 0;
+}
+
+function getRegisteredServices() {
+    return Object.keys(serviceIdToGameItemIdex);
 }
