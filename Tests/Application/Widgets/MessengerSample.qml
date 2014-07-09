@@ -10,6 +10,8 @@
 import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
+
+import "../../../Application/Core/App.js" as App
 import "../../../Application/Widgets/Messenger/Models/Messenger.js" as MessengerJs
 
 Rectangle {
@@ -17,22 +19,28 @@ Rectangle {
     height: 800
     color: '#EEEEEE'
 
-    Component.onCompleted: {
+    Row {
+        spacing: 10
+        Button {
+            width: 100
+            height: 30
+            text: 'Login'
+            onClicked: App.authDone('400001000000073060', '75517c5137f42a35f10cc984d8307209dd63b432');
+        }
 
-        var server = "qj.gamenet.ru"
+        Button {
+            width: 100
+            height: 30
+            text: 'Logout'
+            onClicked: App.logoutDone();
+        }
 
-//        var user = "400001000129602790";
-//        var password = 'cbd12cfdbd30486a50e75073fcaee4f3';//Qt.md5('4c2f65777d38eb07d32d111061005dcd5a119150'); //"eb00b085998bb967ef7c2cb15d4475d6"
-
-        var user = "400001000000073060"
-        var password = Qt.md5('75517c5137f42a35f10cc984d8307209dd63b432')
-
-//        var user = "400001000000065690"
-//        var password = Qt.md5('cd34fe488b93d254243fa2754e86df8ffbe382b9')
-
-        var bareJid = user + "@" + server;
-
-        MessengerJs.connect(bareJid, password);
+        Button {
+            width: 100
+            height: 30
+            text: 'Disconnect'
+            onClicked: MessengerJs.disconnect();
+        }
     }
 
     WidgetManager {

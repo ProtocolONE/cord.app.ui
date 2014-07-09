@@ -28,6 +28,9 @@ Item {
     property string selectedGroupId
     property string authedJid: ""
 
+    property bool connecting: false
+    property bool connected: false
+
     signal selectedUserChanged();
 
     function init() {
@@ -83,10 +86,25 @@ Item {
     }
 
     function connect(jid, password) {
-        root.authedJid = jid;
         user.jid = jid;
         user.userId = UserJs.jidToUser(jid);
+
+        root.connecting = true;
+        root.authedJid = jid;
+
         xmppClient.connectToServer(jid, password)
+    }
+
+    function disconnect() {
+        if (!root.connected && !root.connecting) {
+            return;
+        }
+
+        groupsModel.clear();
+        usersModel.clear();
+        MessengerPrivateJs.reset();
+
+        xmppClient.disconnectFromServer();
     }
 
     function getUser(jid) {
@@ -166,16 +184,16 @@ Item {
         return item.isGamenet;
     }
 
-    Component.onCompleted: {
-        d.appendGamenetUser();
-    }
-
     QtObject {
         id: d
 
         property int defaultAvatarIndex: 0
 
         function appendGamenetUser() {
+            if (usersModel.contains(UserJs.getGamenetUserJid())) {
+                return;
+            }
+
             var gamenetUser = UserJs.createGamenetUser(),
                 gamenetGroup = GroupJs.createGamenetGroup(),
                 group;
@@ -363,9 +381,12 @@ Item {
 //                }
 
         onConnected: {
-            //root.isConnected = true;
             console.log("Connected to server ");
-            //root.connected();
+
+            d.appendGamenetUser();
+
+            root.connected = true;
+            root.connecting = false;
 
             xmppClient.failCount = 0;
             xmppClient.vcardManager.requestVCard(user.jid);
@@ -374,7 +395,8 @@ Item {
 
         onDisconnected: {
             console.log("Disconnected from server j.");
-            //root.disconnected();
+            root.connected = false;
+            root.connecting = false;
         }
 
         onMessageReceived: {

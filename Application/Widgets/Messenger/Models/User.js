@@ -178,10 +178,14 @@ function createRawUser(jid, nickname) {
     return result;
 }
 
+function getGamenetUserJid() {
+    return "GameNet";
+}
+
 function createGamenetUser() {
     var result = {
         userId: "",
-        jid: "GameNet",
+        jid: getGamenetUserJid(),
         nickname: "GameNet",
         unreadMessageCount: 0,
         state: 0,

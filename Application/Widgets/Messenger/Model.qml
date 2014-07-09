@@ -19,12 +19,15 @@ WidgetModel {
         target: App.signalBus();
         onAuthDone: {
             var server = "qj.gamenet.ru"
-            var user = userId;
-            var password = Qt.md5(appKey)
-
-            var bareJid = user + "@" + server;
+                , user = userId
+                , password = Qt.md5(appKey)
+                , bareJid = user + "@" + server;
 
             MessengerJs.connect(bareJid, password);
+        }
+
+        onLogoutDone: {
+            MessengerJs.disconnect();
         }
     }
 }

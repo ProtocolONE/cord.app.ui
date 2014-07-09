@@ -32,6 +32,10 @@ function connect(user, password) {
     _modelInstance.connect(user, password);
 }
 
+function disconnect() {
+    _modelInstance.disconnect();
+}
+
 function groups() {
     return dataModel.groups;
 }
@@ -162,5 +166,9 @@ function isGamenetUser(item) {
     }
 
     return user.isGamenet;
+}
+
+function isConnecting() {
+    return _modelInstance.connecting;
 }
 

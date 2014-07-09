@@ -12,6 +12,11 @@
 var groupToUser = {}
     , userToGroup = {};
 
+function reset() {
+    groupToUser = {};
+    userToGroup = {};
+}
+
 function appendUserToGroup(group, user) {
     if (!groupToUser.hasOwnProperty(group)) {
         groupToUser[group] = {};

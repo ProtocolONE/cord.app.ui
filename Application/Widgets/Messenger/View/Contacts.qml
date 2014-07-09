@@ -25,7 +25,7 @@ WidgetView {
             leftMargin: 1
         }
 
-        color: "#FFFFFF"
+        color: "#EEEEEE"
 
         Column {
             anchors.fill: parent
@@ -166,6 +166,11 @@ WidgetView {
             }
         }
 
+        AnimatedImage {
+            anchors.centerIn: parent
+            visible: MessengerJs.isConnecting()
+            source: installPath + "Assets/Images/Application/Widgets/Messenger/wait.gif"
+        }
     }
 
     Rectangle {
