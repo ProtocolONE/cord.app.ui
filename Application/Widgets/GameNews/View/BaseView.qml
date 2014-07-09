@@ -40,15 +40,13 @@ Item {
         id: listView
 
         anchors.fill: parent
+        anchors.topMargin: 10
         model: ListModel {}
         interactive: false
         spacing: 10
         cacheBuffer: 0
 
         delegate: NewsDelegate {
-            height: index != 0 ? 138 : 128
-            width: root.width - 20
-
             Component.onCompleted: root.createdItemCount++;
         }
     }

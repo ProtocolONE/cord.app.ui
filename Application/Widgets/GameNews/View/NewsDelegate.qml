@@ -16,32 +16,31 @@ import "../../../Core/moment.js" as Moment
 
 Item {
     id: delegate
+    clip: true
+
+    implicitWidth: 590
+    implicitHeight: index == 0 ? 130 : 139
+
+    property bool shouldShowDelimited: index != 0
 
     function openNews(gameShortName, eventId) {
         App.openExternalUrlWithAuth("http://www.gamenet.ru/games/" + gameShortName + "/post/" + eventId);
     }
 
     CursorMouseArea {
-        anchors {
-            fill: parent
-            margins: 10
-        }
-        onClicked: delegate.openNews(gameShortName, eventId);
+        anchors { fill: parent; leftMargin: 10; rightMargin: 10; topMargin: shouldShowDelimited ? 9 : 0}
+        onClicked: openNews(gameShortName, eventId);
     }
 
     Column {
-        anchors {
-            fill: parent
-            margins: 10
-        }
-
+        anchors { fill: parent; leftMargin: 10; rightMargin: 10 }
         spacing: 8
 
         Rectangle {
             height: 1
             width: parent.width + 10
             color: '#e1e5e8'
-            visible: index != 0
+            visible: shouldShowDelimited
         }
 
         Row {
@@ -86,14 +85,12 @@ Item {
             }
 
             Column {
-                width: delegate.width - 140
-                height: parent.height
-                spacing: 6
+                anchors.top: parent.top
+                anchors.topMargin: 2
 
-                Item {
-                    width: 1
-                    height: -4
-                }
+                height: 128
+                width: 430
+                spacing: 6
 
                 Row {
                     height: 12
@@ -123,8 +120,6 @@ Item {
                         font { family: 'Arial'; pixelSize: 12 }
                     }
                 }
-
-
 
                 Text {
                     height: 23
