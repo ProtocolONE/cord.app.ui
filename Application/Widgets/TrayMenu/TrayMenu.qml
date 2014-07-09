@@ -34,7 +34,8 @@ Item {
                 GoogleAnalytics.trackEvent('/Tray', 'Open External Link', 'User Profile');
 
                 var userId = User.getTechName() == undefined ? User.userId() : User.getTechName();
-                App.openExternalUrl("http://www.gamenet.ru/users/" + userId);
+
+                App.openExternalUrlWithAuth("http://www.gamenet.ru/users/" + userId);
                 break;
             }
             case 'Balance': {
