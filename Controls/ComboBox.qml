@@ -8,7 +8,6 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 import QtQuick 1.1
-import Tulip 1.0
 
 Item {
     id: root
@@ -34,7 +33,7 @@ Item {
 
         for (i = 0; i < model.count; i++) {
             item = model.get(i);
-            if (item.value && item.value === value) {
+            if (item.value != undefined && item.value === value) {
                 return i;
             }
         }
@@ -62,7 +61,7 @@ Item {
 
         for (i = 0; i < model.count; i++) {
             item = model.get(i);
-            if (item.text && item.text === text) {
+            if (item.text != undefined && item.text === text) {
                 return i;
             }
         }
@@ -176,20 +175,14 @@ Item {
             }
         }
 
-        MouseArea {
+        CursorMouseArea {
             id: mouseArea
 
+            cursor: CursorArea.PointingHandCursor
             hoverEnabled: true
             anchors.fill: parent
             acceptedButtons: Qt.LeftButton
             onClicked: listContainer.controlVisible = !listContainer.controlVisible;
-        }
-        CursorArea {
-            id: iconMouseCursor
-
-            cursor: CursorArea.PointingHandCursor
-            anchors.fill: parent
-            visible: mouseArea.containsMouse
         }
     }
 
