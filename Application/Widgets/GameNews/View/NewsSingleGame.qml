@@ -10,7 +10,6 @@ WidgetView {
 
     property string filterGameId: App.currentGame() ? App.currentGame().gameId : '-1'
 
-    onVisibleChanged: if (!visible) baseView.opacity = 0;
     onFilterGameIdChanged: baseView.opacity = 0;
 
     width: baseView.width

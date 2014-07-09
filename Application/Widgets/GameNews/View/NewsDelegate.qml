@@ -28,8 +28,13 @@ Item {
     }
 
     CursorMouseArea {
-        anchors { fill: parent; leftMargin: 10; rightMargin: 10; topMargin: shouldShowDelimited ? 9 : 0}
-        onClicked: openNews(gameShortName, eventId);
+        anchors {
+            fill: parent
+            topMargin: 10
+            leftMargin: 10
+            rightMargin: 10
+        }
+        onClicked: delegate.openNews(gameShortName, eventId);
     }
 
     Column {

@@ -16,19 +16,23 @@ import "../../../Application/Core/App.js" as App
 Rectangle {
     width: 800
     height: 800
-    color: '#EEEEEE'
+    color: '#cccccc'
 
     WidgetManager {
         id: manager
 
         Component.onCompleted: {
             manager.registerWidget('Application.Widgets.GameInfo');
+            manager.registerWidget('Application.Widgets.Facts');
             manager.init();
             App.activateGame(App.serviceItemByGameId("92"));
         }
     }
 
     WidgetContainer {
+        x: 50
+        y: 50
+
         width: 590
         height: 100
         widget: 'GameInfo'
@@ -36,7 +40,7 @@ Rectangle {
 
     Row {
         x: 10
-        y: 200
+        y: 600
         spacing: 20
 
         Button {

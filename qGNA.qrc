@@ -144,6 +144,7 @@
 		<file>Application/Widgets/GameInfo/GameInfoModel.qml</file>
 		<file>Application/Widgets/GameInfo/PluginContainer.qml</file>
 		<file>Application/Widgets/GameInfo/qmldir</file>
+		<file>Application/Widgets/GameInfo/View/GameInfoDelegate.qml</file>
 		<file>Application/Widgets/GameInfo/View/GameInfoView.qml</file>
 		<file>Application/Widgets/GameInstall/GameInstallModel.qml</file>
 		<file>Application/Widgets/GameInstall/PluginContainer.qml</file>

@@ -22,6 +22,7 @@ Rectangle {
     // HACK
     Component.onCompleted: {
         App.activateGame(App.serviceItemByGameId("92"))
+        App.navigate("mygame");
     }
 
     Connections {
@@ -32,6 +33,12 @@ Rectangle {
 
             if (link == "mygame") {
                 root.state = "SelectedGame";
+
+                if (!App.isServiceInstalled(App.currentGame().serviceId)) {
+                    gameMenu.pageClicked('AboutGame');
+                } else {
+                    gameMenu.pageClicked('News');
+                }
             }
 
             if (page == "allgame") {
@@ -161,6 +168,14 @@ Rectangle {
 
                                 App.openGameSettings();
                             }
+
+                            if (page == 'AboutGame') {
+                                root.state = 'AboutGame';
+                            }
+
+                            if (page == 'News') {
+                                root.state = 'SelectedGame';
+                            }
                         }
                     }
                 }
@@ -198,7 +213,63 @@ Rectangle {
             }
         }
 
-        // TODO ниже верстку вынести куда то
+        Item {
+            id: aboutGame
+
+            width: 590
+            height: 600 - header.implicitHeight
+
+            Item {
+                anchors { fill: parent }
+                clip: true
+
+                Flickable {
+                    id: aboutGameFlickable
+
+                    anchors { fill: parent }
+                    contentWidth: width
+                    boundsBehavior: Flickable.StopAtBounds
+
+                    Column {
+                        width: parent.width
+
+                        onHeightChanged: aboutGameFlickable.contentHeight = height;
+
+                        WidgetContainer {
+                            width: viewInstance.width
+                            height: viewInstance.height
+
+                            widget: 'GameInfo'
+                        }
+
+                        Rectangle {
+                            height: 1
+                            width: parent.width
+                            color: '#e1e5e8'
+                        }
+
+                        WidgetContainer {
+                            width: parent.width
+                            height: viewInstance.height
+
+                            widget: 'GameNews'
+                        }
+                    }
+                }
+            }
+
+            ScrollBar {
+                flickable: aboutGameFlickable
+                anchors {
+                    right: parent.right
+                    rightMargin: 2
+                }
+                height: parent.height
+                scrollbarWidth: 5
+            }
+        }
+
+        // TODO ниже верстку вынести куда то?
         Item {
             id: centerBlock
 
@@ -206,8 +277,6 @@ Rectangle {
             height: 600 - header.implicitHeight
 
             Item {
-                id: aboutGame
-
                 anchors { fill: parent }
                 clip: true
 
@@ -352,6 +421,18 @@ Rectangle {
             PropertyChanges { target: header; parent: layer1headerContair}
 
             PropertyChanges { target: fakeAllGames; parent: layer2Col1}
+
+            PropertyChanges { target: userProfile; parent: layer2Col2}
+            PropertyChanges { target: contactList; parent: layer2Col2}
+        }
+        ,
+        State {
+            name: "AboutGame"
+
+            PropertyChanges { target: header; parent: layer1headerContair}
+
+            PropertyChanges { target: gameBlock; parent: layer1Col1}
+            PropertyChanges { target: aboutGame; parent: layer1Col2}
 
             PropertyChanges { target: userProfile; parent: layer2Col2}
             PropertyChanges { target: contactList; parent: layer2Col2}

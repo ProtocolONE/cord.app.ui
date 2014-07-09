@@ -11,43 +11,51 @@
 import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 
-import "../../Core/restapi.js" as RestApiJs
+import "../../Core/restapi.js" as RestApi
 import "GameInfoModel.js" as GameInfoModel
+import "../../Core/App.js" as App
 
 WidgetModel {
     id: root
 
     signal infoChanged();
 
-    function getInfo(gameId) {
-        if (GameInfoModel.allInfo.hasOwnProperty(gameId)) {
-            return GameInfoModel.allInfo[gameId];
-        }
-    }
+    property variant dataSource
+    property variant gameItem: App.currentGame()
 
-    //  DEBUG
-    Component.onCompleted: {
-        GameInfoModel.allInfo["92"] = "Combat Arms - онлайн-шутер с самым большим выбором оружия и экипировки; Combat Arms - онлайн-шутер с самым большим выбором оружия и экипировки; Combat Arms - онлайн-шутер с самым большим выбором оружия и экипировки";
-        GameInfoModel.allInfo["71"] = "BS.ru Demonion - это увлекательная онлайн игра, которая заслужила доверие, которая заслужила доверие, которая заслужила доверие, которая заслужила доверие, которая заслужила доверие, которая заслужила доверие, которая заслужила доверие, которая заслужила доверие, которая заслужила доверие ...";
-    }
-    //  END DEBUG
+    onGameItemChanged: timer.restart();
 
     Timer {
+        id: timer
+
         interval: 900000 //each 30 minutes
         running: true
         repeat: true
         triggeredOnStart: true
         onTriggered: {
-//            RestApiJs.Games.getInfos(function(response) {
-//                if (!response.hasOwnProperty('infos')) {
-//                    return;
-//                }
+            RestApi.Games.getGallery(root.gameItem.gameId, function(response) {
+                if (!response || !response.hasOwnProperty('gallery')) {
+                    return;
+                }
 
-//                for (var i = 0; i < response.infos.length; i++) {
-//                    GameInfoModel.allInfo[response.infos[i].gameId] = response.infos[i].text;
-//                }
-//                root.infoChanged();
-//            });
+                var shownCategory;
+
+                Object.keys(response.gallery).forEach(function(e) {
+                    var item = response.gallery[e].category;
+                    if (item.name == "Скриншоты") {
+                        shownCategory = item.id;
+                    }
+                });
+
+                var data = response.gallery.filter(function(e) {
+                    return e.category.id == shownCategory;
+                });
+
+                root.dataSource = data[0].media;
+
+            }, function() {
+                console.log('failed callback')
+            });
         }
     }
 }
