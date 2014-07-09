@@ -296,6 +296,7 @@
 		<file>Tests/Application/Widgets/GameInfoSample.qml</file>
 		<file>Tests/Application/Widgets/GameInstallSample.qml</file>
 		<file>Tests/Application/Widgets/GameIsBoringSample.qml</file>
+		<file>Tests/Application/Widgets/GameNewsSample.qml</file>
 		<file>Tests/Application/Widgets/Maintenance/Maintenance.qml</file>
 		<file>Tests/Application/Widgets/Maintenance/MaintenanceAfterDownload.qml</file>
 		<file>Tests/Application/Widgets/MessengerSample.qml</file>

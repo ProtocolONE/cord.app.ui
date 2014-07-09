@@ -395,215 +395,6 @@
     </message>
 </context>
 <context>
-    <name>CombatArmsItemsModel</name>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="49"/>
-        <source>CA_SHOP_ITEM_1790_TITLE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="51"/>
-        <source>CA_SHOP_ITEM_1790_DESCRIPTION</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="52"/>
-        <source>CA_SHOP_ITEM_1790_DESCRIPTION_SHORT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="57"/>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="82"/>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="132"/>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="157"/>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="183"/>
-        <source>CA_SHOP_1PCS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="62"/>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="87"/>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="137"/>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="162"/>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="188"/>
-        <source>CA_SHOP_7PCS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="67"/>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="92"/>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="142"/>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="167"/>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="193"/>
-        <source>CA_SHOP_15PCS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="74"/>
-        <source>CA_SHOP_ITEM_1735_TITLE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="76"/>
-        <source>CA_SHOP_ITEM_1735_DESCRIPTION</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="77"/>
-        <source>CA_SHOP_ITEM_1735_DESCRIPTION_SHORT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="99"/>
-        <source>CA_SHOP_ITEM_1631_TITLE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="101"/>
-        <source>CA_SHOP_ITEM_1631_DESCRIPTION</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="102"/>
-        <source>CA_SHOP_ITEM_1631_DESCRIPTION_SHORT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="107"/>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="208"/>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="234"/>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="261"/>
-        <source>CA_SHOP_1DAY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="112"/>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="213"/>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="239"/>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="266"/>
-        <source>CA_SHOP_7DAYS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="117"/>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="218"/>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="244"/>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="271"/>
-        <source>CA_SHOP_30DAYS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="124"/>
-        <source>CA_SHOP_ITEM_1339_TITLE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="126"/>
-        <source>CA_SHOP_ITEM_1339_DESCRIPTION</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="127"/>
-        <source>CA_SHOP_ITEM_1339_DESCRIPTION_SHORT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="149"/>
-        <source>CA_SHOP_ITEM_1004_TITLE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="151"/>
-        <source>CA_SHOP_ITEM_1004_DESCRIPTION</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="152"/>
-        <source>CA_SHOP_ITEM_1004_DESCRIPTION_SHORT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="175"/>
-        <source>CA_SHOP_ITEM_4125_TITLE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="177"/>
-        <source>CA_SHOP_ITEM_4125_DESCRIPTION</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="178"/>
-        <source>CA_SHOP_ITEM_4125_DESCRIPTION_SHORT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="200"/>
-        <source>CA_SHOP_ITEM_645_TITLE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="202"/>
-        <source>CA_SHOP_ITEM_645_DESCRIPTION</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="203"/>
-        <source>CA_SHOP_ITEM_645_DESCRIPTION_SHORT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="226"/>
-        <source>CA_SHOP_ITEM_784_TITLE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="228"/>
-        <source>CA_SHOP_ITEM_784_DESCRIPTION</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="229"/>
-        <source>CA_SHOP_ITEM_784_DESCRIPTION_SHORT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="253"/>
-        <source>CA_SHOP_ITEM_1533_TITLE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="255"/>
-        <source>CA_SHOP_ITEM_1533_DESCRIPTION</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="256"/>
-        <source>CA_SHOP_ITEM_1533_DESCRIPTION_SHORT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="278"/>
-        <source>CA_SHOP_ITEM_375_TITLE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="280"/>
-        <source>CA_SHOP_ITEM_375_DESCRIPTION</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="281"/>
-        <source>CA_SHOP_ITEM_375_DESCRIPTION_SHORT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/CombatArmsItemsModel.qml" line="286"/>
-        <source>CA_SHOP_FOREVER</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>ContactItem</name>
     <message>
         <location filename="../Application/Widgets/Messenger/View/ContactItem.qml" line="124"/>
@@ -614,7 +405,7 @@
 <context>
     <name>Contacts</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Contacts.qml" line="130"/>
+        <location filename="../Application/Widgets/Messenger/View/Contacts.qml" line="118"/>
         <source>MESSENGER_SEARCH_FRIEND_PLACE_HOLDER</source>
         <translation type="unfinished"></translation>
     </message>
@@ -983,22 +774,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="111"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="113"/>
         <source>CREATE_DESKTOP_SHORTCUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="128"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="130"/>
         <source>CREATE_STARTMENU_SHORTCUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="146"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="148"/>
         <source>LICENSE_TIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="171"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="193"/>
         <source>INSTALL_BUTTON_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1344,12 +1135,12 @@
 <context>
     <name>Header</name>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="56"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="66"/>
         <source>HEADER_BUTTON_MY_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="66"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="56"/>
         <source>HEADER_BUTTON_ALL_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1385,7 +1176,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/Index.qml" line="302"/>
+        <location filename="../Application/Blocks/Auth/Index.qml" line="356"/>
         <source>LOGIN_BY_GUEST_BUTTON_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1598,7 +1389,7 @@
 <context>
     <name>Popup</name>
     <message>
-        <location filename="../Application/Core/Popup.qml" line="174"/>
+        <location filename="../Application/Core/Popup.qml" line="175"/>
         <source>POPUP_HELP_HINT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1969,37 +1760,37 @@
 <context>
     <name>TrayMenu</name>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="63"/>
-        <source>CLOSE_APP_TOOLTIP_MESSAGE_DESC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="62"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="66"/>
         <source>CLOSE_APP_TOOLTIP_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="94"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="67"/>
+        <source>CLOSE_APP_TOOLTIP_MESSAGE_DESC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="90"/>
         <source>TRAY_TOOLTIP</source>
         <translation type="unfinished">GameNet</translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="166"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="226"/>
         <source>MENU_ITEM_PROFILE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="172"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="232"/>
         <source>MENU_ITEM_MONEY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="178"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="238"/>
         <source>MENU_ITEM_SETTINGS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="184"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="244"/>
         <source>MENU_ITEM_QUIT</source>
         <translation type="unfinished"></translation>
     </message>

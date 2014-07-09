@@ -1047,181 +1047,181 @@ Please try again later.</source>
     <name>CombatArmsItemsModel</name>
     <message>
         <source>CA_SHOP_ITEM_1790_TITLE</source>
-        <translation>Ящик снабжения MYST-N</translation>
+        <translation type="vanished">Ящик снабжения MYST-N</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1790_DESCRIPTION</source>
-        <translation>Ящик снабжения MYST-N служит для перевозки редких видов оружия. Этот ящик снабжения содержит одно редкое оружие с различным сроком службы. Так же, только из этого ящика можно получить эпическое оружие.
+        <translation type="vanished">Ящик снабжения MYST-N служит для перевозки редких видов оружия. Этот ящик снабжения содержит одно редкое оружие с различным сроком службы. Так же, только из этого ящика можно получить эпическое оружие.
 
 
 Пожалуйста, выберите количество предметов:</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1790_DESCRIPTION_SHORT</source>
-        <translation>Содержит редкое и эпическое оружие</translation>
+        <translation type="vanished">Содержит редкое и эпическое оружие</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1735_TITLE</source>
-        <translation>Набор продления оружия</translation>
+        <translation type="vanished">Набор продления оружия</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1735_DESCRIPTION</source>
-        <translation>Этот предмет увеличивает оставшееся время использования вашего основного и вспомогательного оружия. ИО и GN оружие может быть продлено на различное время, включая 90 дней и постоянное!
+        <translation type="vanished">Этот предмет увеличивает оставшееся время использования вашего основного и вспомогательного оружия. ИО и GN оружие может быть продлено на различное время, включая 90 дней и постоянное!
 
 
 Пожалуйста, выберите количество предметов:</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1735_DESCRIPTION_SHORT</source>
-        <translation>Продлевает срок действия оружия</translation>
+        <translation type="vanished">Продлевает срок действия оружия</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1631_TITLE</source>
-        <translation>Бронежилет разведчика</translation>
+        <translation type="vanished">Бронежилет разведчика</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1631_DESCRIPTION</source>
-        <translation>Легкий, пулеустойчивый и компактный. Жилет разведчика обеспечивает высокую скорость солдата, сохраняя защиту на уровне Легкого жилета. Общая защита -10% Скорость +15%
+        <translation type="vanished">Легкий, пулеустойчивый и компактный. Жилет разведчика обеспечивает высокую скорость солдата, сохраняя защиту на уровне Легкого жилета. Общая защита -10% Скорость +15%
 
 
 Пожалуйста, выберите срок, на который хотите приобрести предмет:</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1631_DESCRIPTION_SHORT</source>
-        <translation>+15% к скорости бега</translation>
+        <translation type="vanished">+15% к скорости бега</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1339_TITLE</source>
-        <translation>Черный электронный ключ</translation>
+        <translation type="vanished">Черный электронный ключ</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1339_DESCRIPTION</source>
-        <translation>Ключ для черного электронного сейфа.
+        <translation type="vanished">Ключ для черного электронного сейфа.
 
 
 Пожалуйста, выберите количество предметов:</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1339_DESCRIPTION_SHORT</source>
-        <translation>Для открытия черного сейфа</translation>
+        <translation type="vanished">Для открытия черного сейфа</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1004_TITLE</source>
-        <translation>Ящик снабжения ИО - Рискованный</translation>
+        <translation type="vanished">Ящик снабжения ИО - Рискованный</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1004_DESCRIPTION</source>
-        <translation>Этот рискованный ящик снабжения может потенциально содержать очень большое количество ИО (1,000 - 2,000,000 ИО).
+        <translation type="vanished">Этот рискованный ящик снабжения может потенциально содержать очень большое количество ИО (1,000 - 2,000,000 ИО).
 
 
 Пожалуйста, выберите количество предметов:</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1004_DESCRIPTION_SHORT</source>
-        <translation>Шанс получить до 2 млн. ИО</translation>
+        <translation type="vanished">Шанс получить до 2 млн. ИО</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_4125_TITLE</source>
-        <translation>Ящик снабжения ИО - Экстрим</translation>
+        <translation type="vanished">Ящик снабжения ИО - Экстрим</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_4125_DESCRIPTION</source>
-        <translation>Чрезвычайно рискованный ящик припасов с ИО, который может содержать 3,5 или даже 10 миллионов ИО.
+        <translation type="vanished">Чрезвычайно рискованный ящик припасов с ИО, который может содержать 3,5 или даже 10 миллионов ИО.
 
 
 Пожалуйста, выберите количество предметов:</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_4125_DESCRIPTION_SHORT</source>
-        <translation>Шанс получить до 10 млн. ИО</translation>
+        <translation type="vanished">Шанс получить до 10 млн. ИО</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_645_TITLE</source>
-        <translation>M69HE Осколочная-NL</translation>
+        <translation type="vanished">M69HE Осколочная-NL</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_645_DESCRIPTION</source>
-        <translation>Мощная и разрушительная ручная граната. Наносит серьёзные повреждения врагам, оказавшимся в зоне взрыва.
+        <translation type="vanished">Мощная и разрушительная ручная граната. Наносит серьёзные повреждения врагам, оказавшимся в зоне взрыва.
 
 
 Пожалуйста, выберите срок, на который хотите приобрести предмет:</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_645_DESCRIPTION_SHORT</source>
-        <translation>Наносит серьезные повреждения</translation>
+        <translation type="vanished">Наносит серьезные повреждения</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_784_TITLE</source>
-        <translation>М67 Осколочная - связка</translation>
+        <translation type="vanished">М67 Осколочная - связка</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_784_DESCRIPTION</source>
-        <translation>Компактный набор гранат с удобным доступом. Позволяет носить 2 осколочные гранаты М67 в одной ячейке.
+        <translation type="vanished">Компактный набор гранат с удобным доступом. Позволяет носить 2 осколочные гранаты М67 в одной ячейке.
 
 
 Пожалуйста, выберите срок, на который хотите приобрести предмет:</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_784_DESCRIPTION_SHORT</source>
-        <translation>2 гранаты в одной ячейке</translation>
+        <translation type="vanished">2 гранаты в одной ячейке</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1533_TITLE</source>
-        <translation>Бандана циклопа</translation>
+        <translation type="vanished">Бандана циклопа</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1533_DESCRIPTION</source>
-        <translation>Бандана с изображение циклопа, предпочитаемая членами Боевого корпуса. Дает прибавку к скорости +7.
+        <translation type="vanished">Бандана с изображение циклопа, предпочитаемая членами Боевого корпуса. Дает прибавку к скорости +7.
 
 
 Пожалуйста, выберите срок, на который хотите приобрести предмет:</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1533_DESCRIPTION_SHORT</source>
-        <translation>+7% к скорости бега</translation>
+        <translation type="vanished">+7% к скорости бега</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_375_TITLE</source>
-        <translation>Изменение имени игрока</translation>
+        <translation type="vanished">Изменение имени игрока</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_375_DESCRIPTION</source>
-        <translation>Этот предмет позволяет изменить имя вашего персонажа.
+        <translation type="vanished">Этот предмет позволяет изменить имя вашего персонажа.
 
 
 Пожалуйста, подтвердите покупку предмета, который хотите приобрести:</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_375_DESCRIPTION_SHORT</source>
-        <translation>Позволяет изменить имя в игре</translation>
+        <translation type="vanished">Позволяет изменить имя в игре</translation>
     </message>
     <message>
         <source>CA_SHOP_1DAY</source>
-        <translation>1 День</translation>
+        <translation type="vanished">1 День</translation>
     </message>
     <message>
         <source>CA_SHOP_7DAYS</source>
-        <translation>7 дней</translation>
+        <translation type="vanished">7 дней</translation>
     </message>
     <message>
         <source>CA_SHOP_30DAYS</source>
-        <translation>30 дней</translation>
+        <translation type="vanished">30 дней</translation>
     </message>
     <message>
         <source>CA_SHOP_FOREVER</source>
-        <translation>Навсегда</translation>
+        <translation type="vanished">Навсегда</translation>
     </message>
     <message>
         <source>CA_SHOP_1PCS</source>
-        <translation>1 шт.</translation>
+        <translation type="vanished">1 шт.</translation>
     </message>
     <message>
         <source>CA_SHOP_7PCS</source>
-        <translation>7 шт.</translation>
+        <translation type="vanished">7 шт.</translation>
     </message>
     <message>
         <source>CA_SHOP_15PCS</source>
-        <translation>15 шт.</translation>
+        <translation type="vanished">15 шт.</translation>
     </message>
 </context>
 <context>

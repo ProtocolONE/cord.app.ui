@@ -29,7 +29,7 @@ Rectangle {
     color: "#FAFAFA"
 
     Component.onCompleted: {
-        if (Settings.value("qml/auth/", "authDone", 0) == 0) {
+        if (Settings.value("qml/auth/", "authDone", 0) == 0 && !App.isSilentMode()) {
             authContainer.state = "registration";
             return;
         }
@@ -97,6 +97,7 @@ Rectangle {
 
         function autoLogin() {
             if (AuthHelper.autoLoginDone) {
+                authContainer.state = "auth";
                 return;
             }
 
@@ -105,14 +106,36 @@ Rectangle {
             var savedAuth = CredentialStorage.load();
             if (!savedAuth || !savedAuth.userId || !savedAuth.appKey || !savedAuth.cookie) {
                 var guest = CredentialStorage.loadGuest();
+
                 if (!guest || !guest.userId || !guest.appKey || !guest.cookie) {
-                    //autoLoginFailed();
                     authContainer.state = "auth";
+
+                    if (App.isSilentMode()) {
+                        var auth = new Authorization.ProviderGuest(),
+                            startingServiceId = App.startingService() || "0";
+
+                        if (startingServiceId == "0") {
+                            startingServiceId = Settings.value('qGNA', 'installWithService', "0");
+                        }
+
+                        auth.login(startingServiceId, function(code, response) {
+                            if (!Authorization.isSuccess(code)) {
+                                // TODO ? Auth failed
+                                return;
+                            }
+
+                            CredentialStorage.saveGuest(response.userId, response.appKey, response.cookie, true);
+                            d.startLoadingServices(response.userId, response.appKey, response.cookie);
+                        });
+
+                        return;
+                    }
+
                     return;
                 }
 
                 savedAuth = guest;
-                CredentialStorage.saveGuest(guest.userId, guest.appKey, guest.cookie, true);
+                CredentialStorage.save(guest.userId, guest.appKey, guest.cookie, true);
                 savedAuth.guest = true;
             }
 
@@ -301,17 +324,28 @@ Rectangle {
     Button {
         function loadGuest() {
             var guest = CredentialStorage.loadGuest();
-            console.log(guest.userId, guest.appKey, guest.cookie);
 
             if (!guest || !guest.userId || !guest.appKey || !guest.cookie) {
                 return;
             }
 
-            App.authDone(guest.userId, guest.appKey, guest.cookie);
+            d.startLoadingServices(guest.userId, guest.appKey, guest.cookie);
+        }
+
+        function isGuestExists() {
+            var guest = CredentialStorage.loadGuest();
+
+            if (!guest || !guest.userId || !guest.appKey || !guest.cookie) {
+                return false;
+            }
+
+            return true;
         }
 
         width: 160
         height: 25
+
+        visible: isGuestExists() && authContainer.state == "auth";
 
         anchors {
             bottom: parent.bottom
