@@ -487,12 +487,7 @@ ListModel {
     }
 
     ListElement {
-        gameType: "browser"
-        name: "Ферма Джейн"
-        imageFooter: "Assets/Images/games/Farm-Jane.png"
-        imageSmall: "Assets/Images/games/fj_icon_small.png"
-        imageBack : "Assets/Images/games/fj_back.png"
-        imageHorizontalSmall: "Assets/Images/games/fj_horizontal_small.png"
+        enabled: true
 
         size: "normal"
         serviceId: "300011010000000000"
@@ -540,6 +535,8 @@ ListModel {
         imageLogoBig: ""
         size: "normal"
 
+        imageDefault: "Assets/Images/games/Default/farm.png" // TMP debug
+
         imageBack : "Assets/Images/games/ga_back.png"
         serviceId: "300007010000000000"
         gameId: "83"
@@ -548,6 +545,8 @@ ListModel {
         forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=208"
         blogUrl: "http://www.gamenet.ru/games/ga/blog/"
         guideUrl: "http://www.gamenet.ru/games/ga/guides/"
+
+        formFactor: 1
 
         status: "Normal" // Error Started Paused Downloading
         statusText: ""
@@ -591,9 +590,19 @@ ListModel {
            gameBoredFinish: 'GameIsBoring'
            gameSuccessFinish: ''
         }
+
+        widgets: ListElement {
+           gameDownloading: 'GameAdBanner'
+           gameStarting: 'GameAdBanner'
+           gameFailedFinish: 'GameFailed'
+           gameBoredFinish: 'GameIsBoring'
+           gameSuccessFinish: ''
+        }
     }
 
     ListElement {
+        enabled: true
+
         gameType: "standalone"
         imageSource: "Assets/Images/games/wi_icon_small.png"
         name: "FireStorm"
@@ -605,7 +614,10 @@ ListModel {
         imageLogoBig: ""
         imagePopupArt: "Assets/Images/games/Popup/FireStormPopupArt.png"
 
+        imageDefault: "Assets/Images/games/Default/farm.png" // TMP debug
+
         size: "normal"
+        formFactor: 2
 
         imageBack : "Assets/Images/games/wi_back.png"
 
@@ -662,18 +674,18 @@ ListModel {
            gameBoredFinish: 'GameIsBoring'
            gameSuccessFinish: ''
         }
+
+        widgets: ListElement {
+           gameDownloading: 'GameAdBanner'
+           gameStarting: 'GameAdBanner'
+           gameFailedFinish: 'GameFailed'
+           gameBoredFinish: 'GameIsBoring'
+           gameSuccessFinish: ''
+        }
     }
 
     ListElement {
-        gameType: "standalone"
-        imageSource: "images/games/mw_icon_small.png"
-        name: "Magic World 2"
-        imageSmall: "images/games/mw_icon_small.png"
-        imageFooter: "images/games/MW2.png"
-        imageBig: ""
-        imageLogoSmall: "images/games/mw_logo_small.png"
-        imageLogoBig: ""
-        size: "normal"
+        enabled: true
 
         imageBack : "images/games/mw_back.png"
 
@@ -724,7 +736,10 @@ ListModel {
         imageLogoBig: ""
         imagePopupArt: "Assets/Images/games/Popup/RotPopupArt.png"
 
+        imageDefault: "Assets/Images/games/Default/farm.png" // TMP debug
+
         size: "normal"
+        formFactor: 1
 
         imageBack : "Assets/Images/games/rot_back.png"
 
@@ -772,6 +787,14 @@ ListModel {
         ]
 
         widgetList: ListElement {
+           gameDownloading: 'GameAdBanner'
+           gameStarting: 'GameAdBanner'
+           gameFailedFinish: 'GameFailed'
+           gameBoredFinish: 'GameIsBoring'
+           gameSuccessFinish: ''
+        }
+
+        widgets: ListElement {
            gameDownloading: 'GameAdBanner'
            gameStarting: 'GameAdBanner'
            gameFailedFinish: 'GameFailed'
