@@ -45,10 +45,19 @@ Item {
         }
     }
 
-    Item {
+    MouseArea {
         id: control
 
+        hoverEnabled: true
+        acceptedButtons: Qt.NoButton
+
         anchors { fill: parent; margins: 2 }
+
+        onContainsMouseChanged: {
+            if (!containsMouse) {
+                inputBehavior.focus = false;
+            }
+        }
 
         Item {
             anchors {
@@ -80,20 +89,7 @@ Item {
         Rectangle {
             id: browseButton
 
-            property bool internalMouseOver: false
-            property bool isMouseOver: internalMouseOver && mouseArea.containsMouse
-
-            function isOver(x, y) {
-                var internalPos = mouseArea.mapToItem(browseButton, x, y);
-
-                if (0 < internalPos.x && internalPos.x < browseButton.width
-                    && 0 < internalPos.y && internalPos.y < browseButton.height) {
-                    internalMouseOver = true;
-                    return;
-                }
-
-                internalMouseOver =  false;
-            }
+            property bool isMouseOver: btnCursorArea.containsMouse
 
             width: parent.height
             height: parent.height
@@ -108,33 +104,20 @@ Item {
                 id: browsebuttonImage
 
                 anchors.centerIn: parent
-                source: browseButton.isMouseOver ? installPath + "Assets/Images/GameNet/Controls/PathInput/browse_a.png"
-                                    : installPath + "Assets/Images/GameNet/Controls/PathInput/browse_n.png"
+                source: browseButton.isMouseOver
+                        ? installPath + "Assets/Images/GameNet/Controls/PathInput/browse_a.png"
+                        : installPath + "Assets/Images/GameNet/Controls/PathInput/browse_n.png"
             }
 
-            MouseArea {
+            CursorMouseArea {
+                id: btnCursorArea
+
+                cursor: CursorArea.PointingHandCursor
                 anchors.fill: parent
                 onClicked: root.browseClicked();
-            }
-
-            CursorArea {
-                id: iconMouseCursor
-
-                cursor: CursorArea.ArrowCursor
-                anchors.fill: parent
-                visible: mouseArea.containsMouse
+                visible: true
             }
         }
-    }
-
-    MouseArea {
-        id: mouseArea
-
-        hoverEnabled: true
-        anchors.fill: parent
-        acceptedButtons: Qt.NoButton
-        onClicked: inputBehavior.focus = true;
-        onPositionChanged: browseButton.isOver(mouse.x, mouse.y);
     }
 
     StateGroup {
@@ -152,7 +135,7 @@ Item {
             },
             State {
                 name: "Hover"
-                when: mouseArea.containsMouse
+                when: control.containsMouse
                 PropertyChanges { target: controlBorder; border.color: style.active }
                 PropertyChanges { target: inputBehavior; color: style.active }
             },

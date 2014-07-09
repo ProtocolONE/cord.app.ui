@@ -140,11 +140,12 @@ Item {
 
     Image {
         anchors { left: firstContainer.right; top: firstContainer.top; leftMargin: 20; topMargin: -35}
-
         source: installPath + '/Assets/Images/Popup/close.png'
 
         CursorMouseArea {
             anchors.fill: parent
+            hoverEnabled: true
+            acceptedButtons: Qt.NoButton
         }
     }
 
