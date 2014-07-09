@@ -24,6 +24,12 @@ WidgetView {
 
     visible: MessengerJs.userSelected()
 
+    MouseArea {
+        anchors.fill: parent
+        hoverEnabled: true
+        acceptedButtons: Qt.NoButton
+    }
+
     Rectangle {
         width: parent.width
         height: 52
