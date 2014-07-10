@@ -28,7 +28,7 @@ Item {
             id: notificationEnabled
 
             text: qsTr("CHECKBOX_NOTIFICATION_MAINTENANCE_END")
-            checked: App.isAppSettingsEnabled('notifications', 'maintenanceEndPopup', true);
+            checked: App.appSettingsValue('notifications', 'maintenanceEndPopup', true);
             style: ButtonStyleColors {
                 normal: "#1ABC9C"
                 hover: "#019074"

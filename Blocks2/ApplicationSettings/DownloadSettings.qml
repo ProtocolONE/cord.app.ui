@@ -15,16 +15,16 @@ import Application.Controls 1.0 as AppControls
 Rectangle {
     id: settingsPageRoot
 
-//  HACK: раскомментировать для тестирования
-//    Item {
-//        id: settingsViewModel
+    //  HACK: раскомментировать для тестирования
+    //    Item {
+    //        id: settingsViewModel
 
-//        property int downloadSpeed: 0
-//        property int uploadSpeed: 1000
-//        property int incomingPort: 3456
-//        property int numConnections: 10
-//        property bool seedEnabled: true
-//    }
+    //        property int downloadSpeed: 0
+    //        property int uploadSpeed: 1000
+    //        property int incomingPort: 3456
+    //        property int numConnections: 10
+    //        property bool seedEnabled: true
+    //    }
 
     function save() {
         settingsViewModel.downloadSpeed = downloadBandwidthLimit.getValue(downloadBandwidthLimit.currentIndex);
@@ -32,6 +32,28 @@ Rectangle {
         settingsViewModel.incomingPort = incomingPort.text;
         settingsViewModel.numConnections = connectionsLimit.text
         settingsViewModel.seedEnabled = participateSeeding.checked;
+    }
+
+    QtObject {
+        id: d
+
+        property string downloadSpeed: settingsViewModel.downloadSpeed
+        property string uploadSpeed: settingsViewModel.uploadSpeed
+
+        onDownloadSpeedChanged: {
+            var index = downloadBandwidthLimit.findValue(parseInt(d.downloadSpeed));
+
+            if (index >= 0) {
+                downloadBandwidthLimit.currentIndex = index;
+            }
+        }
+        onUploadSpeedChanged: {
+            var index = uploadBandwidthLimit.findValue(parseInt(d.uploadSpeed));
+
+            if (index >= 0) {
+                uploadBandwidthLimit.currentIndex = index;
+            }
+        }
     }
 
     Column {
@@ -78,6 +100,9 @@ Rectangle {
                             downloadBandwidthLimit.currentIndex = index;
                         }
                     }
+                    onCurrentIndexChanged: {
+                        settingsViewModel.downloadSpeed = downloadBandwidthLimit.getValue(downloadBandwidthLimit.currentIndex);
+                    }
                 }
             }
 
@@ -117,7 +142,9 @@ Rectangle {
                         if (index >= 0) {
                             uploadBandwidthLimit.currentIndex = index;
                         }
-
+                    }
+                    onCurrentIndexChanged: {
+                        settingsViewModel.uploadSpeed = uploadBandwidthLimit.getValue(uploadBandwidthLimit.currentIndex);
                     }
                 }
             }
@@ -209,12 +236,6 @@ Rectangle {
             style: ButtonStyleColors {
                 normal: "#1ABC9C"
                 hover: "#019074"
-            }
-            //  DEBUG ONLY
-            onToggled: {
-                console.log("!!!!TOGGLED!!!!");
-                console.log("participateSeeding.checked == " + participateSeeding.checked);
-                console.log("settingsViewModel.seedEnabled == " + settingsViewModel.seedEnabled);
             }
         }
     }

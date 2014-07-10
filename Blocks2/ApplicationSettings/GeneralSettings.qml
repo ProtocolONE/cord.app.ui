@@ -49,6 +49,7 @@ Item {
         x: 30
         spacing: 20
 
+
         ApplicationControls.ComboBox {
             id: applicationLanguage
 
@@ -80,6 +81,7 @@ Item {
                 normal: "#1ABC9C"
                 hover: "#019074"
             }
+            checked: settingsViewModel.autoStart > 0
             onToggled: {
                 if (checked) {
                     if (runMinimized.checked) {
@@ -98,7 +100,7 @@ Item {
 
             width: 300
             fontSize: 15
-            enabled: settingsViewModel.autoStart > 0
+            enabled: autoRun.checked
             checked: settingsViewModel.autoStart === 2
             text: qsTr("CHECKOX_RUN_MINIMIZED")
             style: ButtonStyleColors {
@@ -126,7 +128,7 @@ Item {
 
                 width: 300
                 fontSize: 15
-                checked: settingsViewModel.isPublicTestVersion //App.isPublicVersion()
+                checked: settingsViewModel.isPublicTestVersion
                 text: qsTr("CHECKOX_PARTICIPATE_TESTING")
                 style: ButtonStyleColors {
                     normal: "#1ABC9C"

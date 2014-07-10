@@ -64,34 +64,47 @@ Rectangle {
                     spacing: 12
 
                     TextButton {
+                        checkable: true
+                        checked: (root.state === "GeneralPage")
                         text: qsTr("GENERAL_TAB")
                         width: 160
                         height: 20
                         style: ButtonStyleColors {
                             normal: "#3498BD"
                             hover: "#3670DC"
+                            active: "#000000"
                         }
+                        onCheckedChanged: {
+                            console.log();
+                        }
+
                         onClicked: root.state = "GeneralPage";
                     }
 
                     TextButton {
+                        checkable: true
+                        checked: (root.state === "DownloadsPage")
                         text: qsTr("DOWNLOADS_TAB")
                         width: 160
                         height: 20
                         style: ButtonStyleColors {
                             normal: "#3498BD"
                             hover: "#3670DC"
+                            active: "#000000"
                         }
                         onClicked: root.state = "DownloadsPage";
                     }
 
                     TextButton {
+                        checkable: true
+                        checked: (root.state === "NotificationsPage")
                         text: qsTr("NOTIFICATIONS_TAB")
                         width: 160
                         height: 20
                         style: ButtonStyleColors {
                             normal: "#3498BD"
                             hover: "#3670DC"
+                            active: "#000000"
                         }
                         onClicked: root.state = "NotificationsPage";
                     }

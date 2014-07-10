@@ -12,6 +12,8 @@ import QtQuick 1.1
 Text {
     id: control
 
+    property bool checkable: false
+    property bool checked: false
     property alias fontSize: control.font.pixelSize
     property alias toolTip: buttonBehavior.toolTip
     property alias tooltipPosition: buttonBehavior.tooltipPosition
@@ -59,7 +61,13 @@ Text {
                 name: "Disabled"
                 when: !control.enabled
                 PropertyChanges { target: control; color: control.style.disabled; opacity: 0.2}
+            },
+            State {
+                name: "Selected"
+                when: control.checked
+                PropertyChanges { target: control; color: control.style.active; }
             }
+
         ]
     }
 }
