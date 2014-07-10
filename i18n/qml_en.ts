@@ -795,27 +795,27 @@
 <context>
     <name>GameSettings</name>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="49"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="50"/>
         <source>GAME_SETTINGS_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="77"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="78"/>
         <source>FOLDERS_TAB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="88"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="89"/>
         <source>OVERLAY_TAB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="100"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="101"/>
         <source>CONTROLS_TAB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="123"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="124"/>
         <source>RESTORE_CLIENT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1047,17 +1047,17 @@
 <context>
     <name>Header</name>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="66"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="67"/>
         <source>HEADER_BUTTON_MY_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="56"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="57"/>
         <source>HEADER_BUTTON_ALL_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="76"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="77"/>
         <source>HEADER_BUTTON_SUPPORT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1517,6 +1517,14 @@
         <location filename="../Application/Widgets/PromoCode/View/PromoCodeView.qml" line="126"/>
         <location filename="../Application/Widgets/PromoCode/View/PromoCodeView.qml" line="132"/>
         <source>UNKNOWN_PROMO_VALIDATION_ERROR</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PublicTestButton</name>
+    <message>
+        <location filename="../Application/Blocks/Header/PublicTestButton.qml" line="19"/>
+        <source>PUBLIC_TEST_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

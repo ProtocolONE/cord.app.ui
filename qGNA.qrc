@@ -49,6 +49,7 @@
 		<file>Application/Blocks/Header/Header.qml</file>
 		<file>Application/Blocks/Header/HeaderButton.qml</file>
 		<file>Application/Blocks/Header/HeaderControlButton.qml</file>
+		<file>Application/Blocks/Header/PublicTestButton.qml</file>
 		<file>Application/Blocks/Header/qmldir</file>
 		<file>Application/Blocks/HomeItem.qml</file>
 		<file>Application/Blocks/Premium/Main.qml</file>

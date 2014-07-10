@@ -3448,6 +3448,13 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>PublicTestButton</name>
+    <message>
+        <source>PUBLIC_TEST_TOOLTIP</source>
+        <translation>Вы приняли участие в тестировании новых функций клиента GameNet. Нажмите, чтобы узнать подробности.</translation>
+    </message>
+</context>
+<context>
     <name>PublicTestView</name>
     <message>
         <source>PUBLIC_TEST_TITLE</source>

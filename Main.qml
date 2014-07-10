@@ -95,8 +95,7 @@ Rectangle {
             manager.registerWidget('Application.Widgets.PromoCode');
             manager.registerWidget('Application.Widgets.NicknameEdit');
             manager.registerWidget('Application.Widgets.AccountActivation');
-            manager.registerWidget('Application.Widgets.Announcements');
-
+            manager.registerWidget('Application.Widgets.PublicTest');
             manager.init();
         }
     }
