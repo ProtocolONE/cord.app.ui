@@ -22,15 +22,10 @@ Rectangle {
 
     color: "#092135"
 
-    Component.onCompleted: {
-        if (App.startingService() != '0') {
-            App.activateGame(App.serviceItemByServiceId(App.startingService()));
-            App.navigate("mygame");
-            return;
-        }
-
-        App.navigate("allgame");
-    }
+    // HACK
+    //    Component.onCompleted: {
+    //        App.activateGame(App.serviceItemByGameId("92"))
+    //    }
 
     Connections {
         target: App.signalBus()
