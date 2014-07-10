@@ -128,7 +128,7 @@ Item {
 
                 width: 300
                 fontSize: 15
-                checked: settingsViewModel.isPublicTestVersion
+                checked: App.isPublicTestVersion();
                 text: qsTr("CHECKOX_PARTICIPATE_TESTING")
                 style: ButtonStyleColors {
                     normal: "#1ABC9C"

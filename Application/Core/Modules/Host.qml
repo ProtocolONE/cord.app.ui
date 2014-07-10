@@ -112,6 +112,10 @@ QtObject {
         return mainWindow.updateArea === 'live';
     }
 
+    function isPublicTestVersion() {
+        return mainWindow.updateArea === 'pts';
+    }
+
     function switchClientVersion() {
         settingsViewModel.switchClientVersion();
     }

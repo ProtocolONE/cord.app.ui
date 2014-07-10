@@ -65,7 +65,7 @@ Rectangle {
 
                     TextButton {
                         checkable: true
-                        checked: (root.state === "GeneralPage")
+                        checked: root.state === "GeneralPage"
                         text: qsTr("GENERAL_TAB")
                         width: 160
                         height: 20
@@ -74,16 +74,12 @@ Rectangle {
                             hover: "#3670DC"
                             active: "#000000"
                         }
-                        onCheckedChanged: {
-                            console.log();
-                        }
-
                         onClicked: root.state = "GeneralPage";
                     }
 
                     TextButton {
                         checkable: true
-                        checked: (root.state === "DownloadsPage")
+                        checked: root.state === "DownloadsPage"
                         text: qsTr("DOWNLOADS_TAB")
                         width: 160
                         height: 20
@@ -97,7 +93,7 @@ Rectangle {
 
                     TextButton {
                         checkable: true
-                        checked: (root.state === "NotificationsPage")
+                        checked: root.state === "NotificationsPage"
                         text: qsTr("NOTIFICATIONS_TAB")
                         width: 160
                         height: 20
@@ -128,7 +124,6 @@ Rectangle {
                         hover: "#019074"
                     }
                     onClicked: {
-                        console.log("Restore settings clicked!!");
                         settingsViewModel.setDefaultSettings();
                         App.selectLanguage("ru");
                     }
@@ -182,7 +177,6 @@ Rectangle {
                         bottom: parent.bottom
                     }
                     onClicked: {
-                        console.log("Save settings button clicked!");
                         generalSettingsPage.save();
                         downloadSettingsPage.save();
                         notificationSettingsPage.save();

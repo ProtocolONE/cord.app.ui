@@ -130,6 +130,13 @@ function language() {
     return false;
 }
 
+function isPublicTestVersion() {
+    if (proxyInst) {
+        return proxyInst.isPublicTestVersion();
+    }
+    return false;
+}
+
 function switchClientVersion() {
     if (proxyInst) {
         return proxyInst.switchClientVersion();

@@ -12,12 +12,24 @@ import QtQuick 1.1
 import GameNet.Controls 1.0
 
 import "../../Core/App.js" as App
+import "../../Core/GoogleAnalytics.js" as GoogleAnalytics
 
 Item {
     id: root
 
     function save() {
         App.setAppSettingsValue('notifications', 'maintenanceEndPopup', notificationEnabled.checked);
+    }
+
+    function gaEvent(name) {
+        var gameItem = App.currentGame();
+
+        if (!gameItem) {
+            return;
+        }
+
+        GoogleAnalytics.trackEvent('/announcement/gameMaintenanceEndShow/' + gameItem.serviceId,
+                                   'Announcement', name, gameItem.gaName);
     }
 
     Column {
@@ -28,10 +40,17 @@ Item {
             id: notificationEnabled
 
             text: qsTr("CHECKBOX_NOTIFICATION_MAINTENANCE_END")
-            checked: App.appSettingsValue('notifications', 'maintenanceEndPopup', true);
+            checked: App.isAppSettingsEnabled('notifications', 'maintenanceEndPopup', true);
             style: ButtonStyleColors {
                 normal: "#1ABC9C"
                 hover: "#019074"
+            }
+            onToggled: {
+                if (checked) {
+                    root.gaEvent("ChangeSettings", 1);
+                } else {
+                    root.gaEvent("ChangeSettings", 0);
+                }
             }
         }
     }
