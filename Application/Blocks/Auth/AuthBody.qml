@@ -30,12 +30,6 @@ Item {
     implicitHeight: 473
     implicitWidth: 500
 
-    Connections {
-        target: AppProxy.signalBus()
-
-        onSetGlobalProgressVisible: d.inProgress = value;
-    }
-
     QtObject {
         id: d
 
@@ -59,6 +53,7 @@ Item {
             }
 
             AppProxy.setGlobalProgressVisible(true);
+            d.inProgress = true;
 
             var password = d.password;
             d.password = "";
@@ -76,6 +71,8 @@ Item {
 
             Authorization.loginByGameNet(d.login, password, function(error, response) {
                 AppProxy.setGlobalProgressVisible(false);
+                d.inProgress = false;
+
 
                 if (Authorization.isSuccess(error)) {
                     d.authSuccess(response);

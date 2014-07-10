@@ -12,6 +12,7 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 import "../../../Core/App.js" as AppJs
+import "../../../Core/Popup.js" as Popup
 
 WidgetView {
     id: root
@@ -58,15 +59,30 @@ WidgetView {
                     Image {
                         anchors.centerIn: parent
                         source: installPath + "Assets/Images/Application/Widgets/UserProfile/premium.png"
+                        // HACK поменять на нормальные иконки
+                        opacity: model.isPremium ? 1 : 0.3
                     }
 
                     CursorMouseArea {
+
+                        function getText() {
+                            var durationInDays = Math.floor(model.premiumDuration / 86400);
+                            if (durationInDays > 0) {
+                                return qsTr("ADVANCED_ACCOUNT_HINT_IN_DAYS").arg(durationInDays);
+                            } else {
+                                return qsTr("ADVANCED_ACCOUNT_HINT_TODAY");
+                            }
+                        }
+
                         anchors.fill: parent
                         hoverEnabled: true
-                        toolTip: qsTr("EXTENDED_ACCOUNT")
+                        toolTip: model.isPremium ? (qsTr("PREMIUM_TOOLTIP") + ". " + getText())
+                                                 : qsTr("PREMIUM_NO_TOOLTIP")
                         tooltipGlueCenter: true
+                        onClicked: Popup.show('PremiumShop', 'PremiumShopView')
                     }
                 }
+
                 Rectangle {
                     width: 24
                     height: 24

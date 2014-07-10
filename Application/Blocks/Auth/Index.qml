@@ -40,6 +40,8 @@ Rectangle {
     QtObject {
         id: d
 
+        property bool vkAuthInProgress: false
+
         function showError(message) {
             messageBody.backState = authContainer.state;
             messageBody.message = message;
@@ -48,9 +50,11 @@ Rectangle {
 
         function startVkAuth() {
             App.setGlobalProgressVisible(true);
+            d.vkAuthInProgress = true;
 
             Authorization.loginByVk(root, function(error, response) {
                 App.setGlobalProgressVisible(false);
+                d.vkAuthInProgress = false;
 
                 if (Authorization.isSuccess(error)) {
                     d.startLoadingServices(userId, appKey, cookie);
@@ -318,8 +322,9 @@ Rectangle {
         id: footer
 
         anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
+        anchors { leftMargin: 250; rightMargin: 250 }
         onOpenVkAuth: d.startVkAuth();
-        visible: authContainer.state !== 'serviceLoading'
+        vkButtonInProgress: d.vkAuthInProgress
     }
 
     Button {

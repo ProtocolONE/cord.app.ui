@@ -36,6 +36,11 @@ WidgetModel {
 
     property bool guest: false
 
+    property string secondNickname
+    property string secondUserId
+    property string secondAppKey
+    property string secondCookie
+
     function refreshUserInfo() {
         RestApiJs.User.getProfile(root.userId, function(response) {
             if (!response || !response.userInfo || response.userInfo.length < 1) {
@@ -96,8 +101,28 @@ WidgetModel {
         root.guest = (userInfo.guest == 1);
     }
 
+    function reset() {
+        root.userId = "";
+        root.appKey = "";
+        root.cookie = "";
+        root.isPremium = false;
+        root.premiumDuration = 0;
+        root.balance = 0;
+        root.nickname = "";
+        root.nametech = "";
+        root.level = "";
+        root.avatarLarge = "";
+        root.avatarMedium = "";
+        root.avatarSmall = "";
+    }
+
     Connections {
         target: AppJs.signalBus();
+
+        onLogoutRequest: {
+            root.reset();
+        }
+
         onAuthDone: {
             root.userId = userId;
             root.appKey = appKey;
@@ -109,12 +134,28 @@ WidgetModel {
             //  чтоб в этом месте они уже гарантированно там были
             refreshUserInfo();
        }
+
+       onSecondAuthDone: {
+           root.secondUserId = userId;
+           root.secondAppKey = appKey;
+           root.secondCookie = cookie;
+
+           RestApiJs.User.getProfile(root.secondUserId, function(response) {
+               if (!response || !response.userInfo || response.userInfo.length < 1) {
+                   return;
+               }
+
+               var info = response.userInfo[0].shortInfo;
+               root.secondNickname = info.nickname;
+           }, function() {});
+       }
     }
 
     Timer {
         id: premiumDurationTimer
 
         interval: 60000
+
         triggeredOnStart: false
         repeat: true
         onTriggered: {
@@ -136,9 +177,7 @@ WidgetModel {
         id: premiumExpiredTimer
 
         interval: premiumExpiredNotificationTimeout
-        onTriggered: {
-            AppJs.premiumExpired();
-        }
+        onTriggered: AppJs.premiumExpired();
     }
 
     Timer {
@@ -158,5 +197,4 @@ WidgetModel {
             }
         }
     }
-
 }

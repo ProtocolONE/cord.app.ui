@@ -20,6 +20,9 @@ function authDone(userId, appKey, cookie) {
     _signalBusInstance.authDone(userId, appKey, cookie);
 }
 
+function secondAuthDone(userId, appKey, cookie) {
+    _signalBusInstance.secondAuthDone(userId, appKey, cookie);
+}
 
 //@deprecated
 function needAuth() {
@@ -88,6 +91,10 @@ function logoutRequest() {
 
 function logoutDone() {
     _signalBusInstance.logoutDone();
+}
+
+function logoutSecondRequest() {
+     _signalBusInstance.logoutSecondRequest();
 }
 
 function setGlobalProgressVisible(value, timeout) {

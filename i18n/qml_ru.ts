@@ -245,35 +245,31 @@
     <name>AnnouncementsModel</name>
     <message>
         <source>ANNOUNCE_GAME_INSTALLED_MESSAGE</source>
-        <translation type="unfinished">Игра установлена</translation>
+        <translation type="obsolete">Игра установлена</translation>
     </message>
     <message>
         <source>ANNOUNCE_GAME_INSTALLED_BUTTON</source>
-        <translation type="unfinished">Играть</translation>
+        <translation type="obsolete">Играть</translation>
     </message>
     <message>
         <source>REMINDER_PLAYED_LONGAGO_BUTTON</source>
-        <translation type="unfinished">Играть</translation>
+        <translation type="obsolete">Играть</translation>
     </message>
     <message>
         <source>REMINDER_PLAYED_LONGAGO_MESSAGE</source>
-        <translation type="unfinished">Вы давно не заходили в игру</translation>
+        <translation type="obsolete">Вы давно не заходили в игру</translation>
     </message>
     <message>
         <source>REMINDER_NEVER_PLAYED_MESSAGE</source>
-        <translation type="unfinished">Игра установлена и вы ни разу не пробовали играть</translation>
+        <translation type="obsolete">Игра установлена и вы ни разу не пробовали играть</translation>
     </message>
     <message>
         <source>REMINDER_NEVER_PLAYED_BUTTON</source>
-        <translation type="unfinished">Играть</translation>
+        <translation type="obsolete">Играть</translation>
     </message>
     <message>
         <source>SILENT_REMIND_POPUP_BUTTON</source>
-        <translation type="unfinished">Играть</translation>
-    </message>
-    <message>
-        <source>SILENT_REMIND_POPUP_MESSAGE</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Играть</translation>
     </message>
 </context>
 <context>
@@ -1446,11 +1442,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>FIRST_LICENSE_TITLE</source>
-        <translation type="unfinished">Лицензионное соглашение и настройки установки %1</translation>
+        <translation type="obsolete">Лицензионное соглашение и настройки установки %1</translation>
     </message>
     <message>
         <source>FIRST_LICENSE_SETTINGS_TAB</source>
-        <translation type="unfinished">Настройки установки</translation>
+        <translation type="obsolete">Настройки установки</translation>
     </message>
     <message>
         <source>CHECKBOX_I_AGREE</source>
@@ -1466,19 +1462,19 @@ Please try again later.</source>
     </message>
     <message>
         <source>FIRST_LICENSE_LICENSE_TAB</source>
-        <translation type="unfinished">Лицензионное соглашение</translation>
+        <translation type="obsolete">Лицензионное соглашение</translation>
     </message>
     <message>
         <source>FIRST_LICENSE_CHECKBOX_I_AGREE</source>
-        <translation type="unfinished">Нажимая &quot;Продолжить&quot;, Вы подтверждаете, что согласны с условиями &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#2ab99d&quot;&gt;лицензионного соглашения игры&lt;/font&gt;&lt;/a&gt;</translation>
+        <translation type="obsolete">Нажимая &quot;Продолжить&quot;, Вы подтверждаете, что согласны с условиями &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#2ab99d&quot;&gt;лицензионного соглашения игры&lt;/font&gt;&lt;/a&gt;</translation>
     </message>
     <message>
         <source>FIRST_LICENSE_GAME_INSTALL_PATH</source>
-        <translation type="unfinished">Выберите путь установки игры</translation>
+        <translation type="obsolete">Выберите путь установки игры</translation>
     </message>
     <message>
         <source>FIRST_LICENSE_BUTTON_CREATE_DESKTOP_SHORTCUT</source>
-        <translation type="unfinished">Создать ярлык на рабочем столе</translation>
+        <translation type="obsolete">Создать ярлык на рабочем столе</translation>
     </message>
     <message>
         <source>FIRST_LICENSE_BUTTON_CREATE_START_MENU_SHORTCUT</source>
@@ -1486,11 +1482,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>FIRST_LICENSE_CONTINUE_INSTALL</source>
-        <translation type="unfinished">Продолжить установку</translation>
+        <translation type="obsolete">Продолжить установку</translation>
     </message>
     <message>
         <source>FIRST_LICENSE_CANCEL_BUTTON</source>
-        <translation type="unfinished">Отмена</translation>
+        <translation type="obsolete">Отмена</translation>
     </message>
 </context>
 <context>
@@ -3228,46 +3224,70 @@ Please try again later.</source>
     <name>PremiumShopModel</name>
     <message>
         <source>ONE_DAY_PREMIUM_TRADIO_TEXT</source>
-        <translation type="unfinished">1 день</translation>
+        <translation type="obsolete">1 день</translation>
     </message>
     <message>
         <source>WEEK_PREMIUM_TRADIO_TEXT</source>
-        <translation type="unfinished">7 дней</translation>
+        <translation type="obsolete">7 дней</translation>
     </message>
     <message>
         <source>MONTH_PREMIUM_TRADIO_TEXT</source>
-        <translation type="unfinished">30 дней</translation>
+        <translation type="obsolete">30 дней</translation>
     </message>
     <message>
         <source>3_MONTH_PREMIUM_TRADIO_TEXT</source>
-        <translation type="unfinished">90 дней</translation>
+        <translation type="obsolete">90 дней</translation>
+    </message>
+    <message>
+        <source>PREMIUM_SHOP_DAYS_OTHER</source>
+        <translation>%1 дней</translation>
+    </message>
+    <message>
+        <source>PREMIUM_SHOP_DAYS_1</source>
+        <translation>%1 день</translation>
+    </message>
+    <message>
+        <source>PREMIUM_SHOP_DAYS_2_4</source>
+        <translation>%1 дня</translation>
+    </message>
+    <message>
+        <source>PREMIUM_SHOP_DETAILS_ERROR_UNKNOWN</source>
+        <translation>Произошла ошибка в процессе покупки. Пожалуйста, попробуйте позже.</translation>
     </message>
 </context>
 <context>
     <name>PremiumShopView</name>
     <message>
         <source>PREMIUM_ACCOUNT_HEADER_TEXT_BLOCK</source>
-        <translation type="unfinished">Расширенный аккаунт</translation>
+        <translation>Расширенный аккаунт</translation>
     </message>
     <message>
         <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
-        <translation type="unfinished">Расширенный аккаунт GameNet - возможность играть двумя аккаунтами одновременно в игры BS.ru, Aika 2 и Reborn. Мы постоянно добавляем в расширенный аккаунт новые приятные бонусы. &lt;a href=&quot;bonus&quot;&gt;Подробности здесь.&lt;/a&gt;</translation>
+        <translation>Расширенный аккаунт GameNet - возможность играть двумя аккаунтами одновременно в игры BS.ru, Aika 2 и Reborn. Мы постоянно добавляем в расширенный аккаунт новые приятные бонусы. &lt;a href=&quot;bonus&quot;&gt;Подробности здесь.&lt;/a&gt;</translation>
     </message>
     <message>
         <source>NOT_ENOUGH_MONEY</source>
-        <translation type="unfinished">На счету недостаточно GN-монет</translation>
+        <translation>На счету недостаточно GN-монет</translation>
     </message>
     <message>
         <source>ADD_MONEY_BUTTON_TEXT</source>
-        <translation type="unfinished">Пополнить счет</translation>
+        <translation>Пополнить счет</translation>
     </message>
     <message>
         <source>MONEY_TOTAL %1</source>
-        <translation type="unfinished">Итоговая стоимость: &lt;font color=#f77960&gt;%1&lt;/font&gt; GN</translation>
+        <translation>Итоговая стоимость: &lt;font color=#f77960&gt;%1&lt;/font&gt; GN</translation>
     </message>
     <message>
         <source>ACCEPT_BUY</source>
-        <translation type="unfinished">Подтвердите покупку</translation>
+        <translation>Подтвердите покупку</translation>
+    </message>
+    <message>
+        <source>TITLE_PREMIUM_ACCOUNT_LEFT_TIME_LABEL</source>
+        <translation>Осталось дней: &lt;b&gt;%1&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>TITLE_PREMIUM_ACCOUNT_CONTINUE_ACCOUNT_LABEL</source>
+        <translation>Продлите действие расширенного аккаунта:</translation>
     </message>
 </context>
 <context>
@@ -3645,7 +3665,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>REGISTER_BODY_LOGIN_PLACEHOLDER</source>
-        <translation type="unfinished">Твоя почта (будет скрыта)</translation>
+        <translation>Твоя почта (будет скрыта)</translation>
     </message>
     <message>
         <source>REGISTER_BODY_PASSWORD_PLACEHOLDER</source>
@@ -3733,6 +3753,28 @@ Please try again later.</source>
     <message>
         <source>DECEMBER</source>
         <translation type="vanished">декабря</translation>
+    </message>
+</context>
+<context>
+    <name>SecondAccountAuthView</name>
+    <message>
+        <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
+        <translation type="unfinished">Не удалось войти как пользователь Вконтакте. Попробуйте ещё раз позже.</translation>
+    </message>
+</context>
+<context>
+    <name>SecondAccountView</name>
+    <message>
+        <source>SECOND_GAME_BLOCK_PREMIUM_TITLE</source>
+        <translation>Расширенный аккаунт</translation>
+    </message>
+    <message>
+        <source>SECOND_GAME_BLOCK_PREMIUM_PLAY</source>
+        <translation>Начать игру</translation>
     </message>
 </context>
 <context>
@@ -4431,7 +4473,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>EXTENDED_ACCOUNT</source>
-        <translation>Расширенный аккаунт</translation>
+        <translation type="vanished">Расширенный аккаунт</translation>
     </message>
     <message>
         <source>GAMENET_BALANCE</source>
@@ -4444,6 +4486,22 @@ Please try again later.</source>
     <message>
         <source>YOUR_GAMENET_LEVEL</source>
         <translation>Твой уровень</translation>
+    </message>
+    <message>
+        <source>PREMIUM_TOOLTIP</source>
+        <translation>Расширенный аккаунт</translation>
+    </message>
+    <message>
+        <source>PREMIUM_NO_TOOLTIP</source>
+        <translation>Обычный аккаунт</translation>
+    </message>
+    <message>
+        <source>ADVANCED_ACCOUNT_HINT_IN_DAYS</source>
+        <translation>Осталось %1 д.</translation>
+    </message>
+    <message>
+        <source>ADVANCED_ACCOUNT_HINT_TODAY</source>
+        <translation>Истекает сегодня</translation>
     </message>
 </context>
 <context>

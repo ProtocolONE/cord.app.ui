@@ -163,3 +163,16 @@ function browseDirectory(serviceId, name, defaultDir) {
         return proxyInst.browseDirectory(serviceId, name, defaultDir);
     }
 }
+
+function executeSecondService(serviceId, userId, appKey) {
+    if (proxyInst) {
+        proxyInst.executeSecondService(serviceId, userId, appKey);
+    }
+}
+
+function terminateSecondService() {
+    if (proxyInst) {
+        proxyInst.terminateSecondService();
+    }
+}
+

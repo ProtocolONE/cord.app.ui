@@ -10,6 +10,9 @@ import "../../Application/Blocks/AllGames" as AllGames
 
 import "../../Application/Core/App.js" as App
 import "../../Application/Core/TrayPopup.js" as TrayPopup
+import "../../Application/Core/User.js" as User
+
+import "../../Application/Core/Popup.js" as Popup
 
 Rectangle {
     id: root
@@ -111,7 +114,6 @@ Rectangle {
             id: header
 
             anchors.fill: parent
-
             onSwitchTo: App.navigate(page);
         }
 
@@ -127,17 +129,42 @@ Rectangle {
                 spacing: 1
 
                 Rectangle {
-                    objectName: "gameBlock"
-
+                    color: '#082135'
                     width: parent.width
-                    height: gameInstallBlock.height + 1
+                    height: gameControlBlock.height + 1
 
-                    GameInstallBlock {
-                        id: gameInstallBlock
+                    Column {
+                        id: gameControlBlock
 
-                        anchors {
-                            left: parent.left
-                            top: parent.top
+                        width: parent.width
+                        height: gameInstallBlock.height + (secondAuthView.visible ? secondAuthView.height : 0)
+
+                        GameInstallBlock {
+                            id: gameInstallBlock
+                        }
+
+                        WidgetContainer {
+                            id: secondAuthView
+
+                            widget: "SecondAccountAuth"
+                            view: "SecondAccountView"
+
+                            width: parent.width
+                            height: User.isAuthorized() && User.isPremium()
+                                    ? ((!User.isSecondAuthorized() ? 34 : 0) + (User.isSecondAuthorized() ? 88 : 0))
+                                    : 0
+
+                            opacity: User.isAuthorized() && User.isPremium() ? 1 : 0
+                            visible: opacity > 0
+
+                            Behavior on opacity {
+                                NumberAnimation { duration: 250 }
+                            }
+
+                            Behavior on height {
+                                NumberAnimation { duration: 250 }
+                            }
+
                         }
                     }
 

@@ -5,97 +5,95 @@ Item {
     id: root
 
     property alias vkButtonContainsMouse: vkButton.containsMouse
+    property alias vkButtonInProgress: vkButton.inProgress
 
     signal openVkAuth();
 
     implicitHeight: 65
 
-    Item {
-        anchors { fill: parent; leftMargin: 250; rightMargin: 250 }
+    Rectangle {
+        height: 1
+        color: "#ECECEC"
+        anchors { left: parent.left; right: parent.right; top: parent.top }
+    }
 
-        Rectangle {
-            height: 1
-            color: "#ECECEC"
-            anchors { left: parent.left; right: parent.right; top: parent.top }
+    Rectangle {
+        height: 1
+        color: "#FFFFFF"
+        anchors { left: parent.left; right: parent.right; top: parent.top; topMargin: 1 }
+    }
+
+    Row {
+        spacing: 10
+        anchors { fill: parent; topMargin: 21 }
+
+        Item {
+            width: 116
+            height: 24
+
+            Text {
+                anchors.verticalCenter: parent.verticalCenter
+                text: qsTr("AUTH_FOOTER_ALTERNATIVE_LOGIN")
+                color: "#66758F"
+                font { pixelSize: 12; family: "Arial" }
+            }
         }
 
-        Rectangle {
-            height: 1
-            color: "#FFFFFF"
-            anchors { left: parent.left; right: parent.right; top: parent.top; topMargin: 1 }
-        }
+        Control.Button {
+            id: vkButton
 
-        Row {
-            spacing: 10
-            anchors { fill: parent; topMargin: 21 }
+            width: height + vkCaption.width + 21
+            height: 24
 
-            Item {
-                width: 116
-                height: 24
-
-                Text {
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: qsTr("AUTH_FOOTER_ALTERNATIVE_LOGIN")
-                    color: "#66758F"
-                    font { pixelSize: 12; family: "Arial" }
-                }
+            style: Control.ButtonStyleColors {
+                normal: "#4D739E"
+                hover: "#3378c7"
             }
 
-            Control.Button {
-                id: vkButton
+            onClicked: root.openVkAuth();
 
-                width: height + vkCaption.width + 21
-                height: 24
+            Row {
+                anchors.fill: parent
 
-                style: Control.ButtonStyleColors {
-                    normal: "#4D739E"
-                    hover: "#3378c7"
+                Item {
+                    width: 24
+                    height: 24
+
+                    // UNDONE вероятно лучше картинку
+                    Text {
+                        anchors.centerIn: parent
+                        text: "B"
+                        color: "#FFFFFF"
+                        font { pixelSize: 14; family: "Arial" }
+                    }
                 }
 
-                onClicked: root.openVkAuth();
+                Rectangle {
+                    width: 1
+                    height: 24
+                    color: "#5F81A8"
+                }
 
-                Row {
-                    anchors.fill: parent
+                Item {
+                    width: vkCaption.width + 20
+                    height: 24
 
-                    Item {
-                        width: 24
-                        height: 24
+                    Text {
+                        id: vkCaption
+                        text: "ВКонтакте"
+                        color: "#FFFFFF"
 
-                        // UNDONE вероятно лучше картинку
-                        Text {
-                            anchors.centerIn: parent
-                            text: "B"
-                            color: "#FFFFFF"
-                            font { pixelSize: 14; family: "Arial" }
-                        }
-                    }
+                        font { pixelSize: 14; family: "Arial" }
+                        anchors {
+                            verticalCenter: parent.verticalCenter
+                            left: parent.left
+                            leftMargin: 10
 
-                    Rectangle {
-                        width: 1
-                        height: 24
-                        color: "#5F81A8"
-                    }
-
-                    Item {
-                        width: vkCaption.width + 20
-                        height: 24
-
-                        Text {
-                            id: vkCaption
-                            text: "ВКонтакте"
-                            color: "#FFFFFF"
-
-                            font { pixelSize: 14; family: "Arial" }
-                            anchors {
-                                verticalCenter: parent.verticalCenter
-                                left: parent.left
-                                leftMargin: 10
-
-                            }
                         }
                     }
                 }
             }
         }
     }
+
 }

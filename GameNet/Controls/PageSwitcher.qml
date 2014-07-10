@@ -1,13 +1,13 @@
-import QtQuick 1.0
+import QtQuick 1.1
 import "./PageSwitcher.js" as PageSwitcherJs
 
 Item {
     id: root
 
-    signal switchFinished();
-
     property string source: ""
     property Component sourceComponent
+
+    signal switchFinished()
 
     onSourceChanged: {
         d.switchToPage(source);

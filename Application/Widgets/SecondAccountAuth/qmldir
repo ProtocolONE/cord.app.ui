@@ -1,0 +1,4 @@
+module Application.Widgets.SecondAccountAuth
+PluginContainer 1.0 PluginContainer.qml 
+SecondAccountAuthView 1.0 View/SecondAccountAuthView.qml
+SecondAccountView 1.0 View/SecondAccountView.qml

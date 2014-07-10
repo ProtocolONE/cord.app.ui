@@ -125,6 +125,15 @@ QtObject {
     }
 
     function isSilentMode() {
-       return mainWindow.silent();
+        return mainWindow.silent();
     }
+
+    function executeSecondService(serviceId, userId, appKey) {
+        mainWindow.executeSecondService(serviceId, userId, appKey);
+    }
+
+    function terminateSecondService() {
+        mainWindow.terminateSecondService();
+    }
+
 }

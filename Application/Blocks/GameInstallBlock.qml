@@ -24,7 +24,7 @@ Item {
     property variant gameItem: App.currentGame()
 
     width: 180
-    height: button.isStartDownloading || button.isStarting ? 136 : 100
+    height: button.isStartDownloading || button.isStarting ? 137 : 101
 
     Behavior on height {
         NumberAnimation { id: heightAnimation; duration: 250 }

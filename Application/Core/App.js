@@ -139,14 +139,6 @@ function replenishAccount() {
     openExternalUrlWithAuth("http://www.gamenet.ru/money");
 }
 
-function purchasePremium(money) {
-    console.log("!!! IMPLEMENT ME: App.js::purchasePremium(" + money + ")");
-}
-
-function openPremiumDetails() {
-    console.log("!!! IMPLEMENT ME: App.js::openPremiumDetails()");
-}
-
 function installService(serviceId, installParams) {
     downloadButtonStart(serviceId);
 }

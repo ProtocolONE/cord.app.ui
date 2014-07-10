@@ -37,6 +37,10 @@ function cookie() {
     return  _userComponentInstance.cookie;
 }
 
+function isAuthorized() {
+    return !!userId() && !!appKey() && !!cookie();
+}
+
 function isPremium() {
     return  _userComponentInstance.isPremium;
 }
@@ -95,3 +99,33 @@ function getUrlWithCookieAuth(url) {
             : url;
 }
 
+function setSecondCredential(userId, appKey, cookie) {
+    _userComponentInstance.secondUserId = userId;
+    _userComponentInstance.secondAppKey = appKey;
+    _userComponentInstance.secondCookie = cookie;
+};
+
+function resetSecond() {
+    setSecondCredential('', '', '');
+    _userComponentInstance.secondNickname = "";
+}
+
+function secondUserId() {
+    return  _userComponentInstance.secondUserId;
+}
+
+function secondAppKey() {
+    return  _userComponentInstance.secondAppKey;
+}
+
+function secondCookie() {
+    return  _userComponentInstance.secondCookie;
+}
+
+function getSecondNickname() {
+    return _userComponentInstance.secondNickname;
+}
+
+function isSecondAuthorized() {
+    return !!secondUserId() && !!secondAppKey() && !!secondCookie();
+}

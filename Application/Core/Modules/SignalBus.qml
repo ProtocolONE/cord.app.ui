@@ -14,10 +14,14 @@ QtObject {
 
     signal updateFinished();
 
-    signal authDone(string userId, string appKey, string cookie)
+    signal authDone(string userId, string appKey, string cookie);
+    signal secondAuthDone(string userId, string appKey, string cookie);
+
     signal needAuth();
     signal logoutDone();
     signal logoutRequest();
+
+    signal logoutSecondRequest();
 
     signal setGlobalState(string name);
     signal setGlobalProgressVisible(bool value, int timeout);
