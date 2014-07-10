@@ -14,6 +14,7 @@ import GameNet.Controls 1.0
 import Application.Blocks.GameSettings 1.0
 
 import "../Core/App.js" as App
+import "../Core/Popup.js" as Popup
 
 Rectangle {
     id: root
@@ -125,7 +126,11 @@ Rectangle {
                         normal: "#1ADC9C"
                         hover: "#019074"
                     }
-                    onClicked: gameSettingsModel.restoreClient();
+                    onClicked: {
+                        gameSettingsModel.restoreClient();
+                        App.navigate("mygame");
+                        Popup.show('GameLoad');
+                    }
                 }
             }
 
