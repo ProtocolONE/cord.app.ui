@@ -69,4 +69,5 @@ packages/
 *.qmlproject.user
 *.qmlproject.user.*
 *.qm
+*.rcc
 test.qml
