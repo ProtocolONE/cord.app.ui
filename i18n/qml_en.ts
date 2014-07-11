@@ -150,47 +150,37 @@
     </message>
 </context>
 <context>
-    <name>Announcements</name>
+    <name>AnnouncementsModel</name>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="46"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="56"/>
         <source>ANNOUNCE_GAME_INSTALLED_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="47"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="57"/>
         <source>ANNOUNCE_GAME_INSTALLED_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="338"/>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="350"/>
-        <source>REMINDER_NEVER_PLAYED_BUTTON</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="503"/>
-        <source>SILENT_REMIND_POPUP_BUTTON</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="504"/>
-        <source>SILENT_REMIND_POPUP_MESSAGE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="337"/>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="349"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="306"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="319"/>
         <source>REMINDER_NEVER_PLAYED_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="278"/>
-        <source>REMINDER_PLAYED_LONGAGO_BUTTON</source>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="307"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="320"/>
+        <source>REMINDER_NEVER_PLAYED_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Blocks/Features/Announcements/Announcements.qml" line="279"/>
-        <source>REMINDER_PLAYED_LONGAGO_MESSAGE</source>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="537"/>
+        <source>SILENT_REMIND_POPUP_BUTTON</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="538"/>
+        <source>SILENT_REMIND_POPUP_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -207,22 +197,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="87"/>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="83"/>
         <source>DOWNLOADS_TAB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="101"/>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="97"/>
         <source>NOTIFICATIONS_TAB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="125"/>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="121"/>
         <source>RESTORE_SETTINGS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="178"/>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="173"/>
         <source>OK_BUTTON_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -230,70 +220,70 @@
 <context>
     <name>AuthBody</name>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="85"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="83"/>
         <source>AUTH_BODY_CAPTCHA_FAILED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="105"/>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="123"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="103"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="121"/>
         <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="111"/>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="122"/>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="125"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="109"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="120"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="123"/>
         <source>AUTH_FAIL_MESSAGE_WRONG</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="119"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="117"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="124"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="122"/>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="153"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="152"/>
         <source>AUTH_BODY_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="172"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="171"/>
         <source>AUTH_BODY_LOGIN_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="201"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="200"/>
         <source>AUTH_BODY_PASSWORD_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="233"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="232"/>
         <source>AUTH_BODY_REMEMBER_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="247"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="246"/>
         <source>AUTH_BODY_AMNESIA_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="268"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="267"/>
         <source>AUTH_BODY_LOGIN_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="287"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="286"/>
         <source>AUTH_BODY_REGISTER_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="294"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="293"/>
         <source>AUTH_BODY_REGISTER_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
@@ -478,111 +468,6 @@
     <message>
         <location filename="../Application/Blocks/Auth/Footer.qml" line="36"/>
         <source>AUTH_FOOTER_ALTERNATIVE_LOGIN</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Game</name>
-    <message>
-        <location filename="../Blocks/Game.qml" line="55"/>
-        <source>POPUP_PLAY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Game.qml" line="56"/>
-        <source>POPUP_READY_TO_START</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Game.qml" line="208"/>
-        <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Game.qml" line="330"/>
-        <source>TEXT_PROGRESSBAR_DOWNLOADED_AND_READY_STATE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Game.qml" line="336"/>
-        <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Game.qml" line="372"/>
-        <location filename="../Blocks/Game.qml" line="415"/>
-        <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Game.qml" line="373"/>
-        <location filename="../Blocks/Game.qml" line="416"/>
-        <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Game.qml" line="432"/>
-        <source>TEXT_PROGRESSBAR_EXTRACTING_NOW_STATE</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Game.qml" line="547"/>
-        <source>REWARDS_TOOLTIP</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Game.qml" line="548"/>
-        <source>REWARDS_BUTTON</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Game.qml" line="561"/>
-        <source>ADVANCED_ACCOUNT_HINT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Game.qml" line="566"/>
-        <source>ADVANCED_ACCOUNT_HINT_IN_DAYS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Game.qml" line="568"/>
-        <source>ADVANCED_ACCOUNT_HINT_TODAY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Game.qml" line="589"/>
-        <source>BUY_PREMIUM_BUTTON_TOOLTIP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Game.qml" line="641"/>
-        <source>PUBLIC_TEST_TOOLTIP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Game.qml" line="688"/>
-        <source>BUTTON_PLAY_DEFAULT_STATE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Game.qml" line="689"/>
-        <source>BUTTON_PLAY_ON_PAUSE_STATE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Game.qml" line="690"/>
-        <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Game.qml" line="691"/>
-        <source>BUTTON_PLAY_ERROR_STATE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Blocks/Game.qml" line="692"/>
-        <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -903,62 +788,62 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="550"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="552"/>
         <source>LOGO_GA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="551"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="553"/>
         <source>GAME_GA_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="552"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="554"/>
         <source>GAME_GA_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="553"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="555"/>
         <source>GAME_GA_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="630"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="633"/>
         <source>LOGO_WI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="631"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="634"/>
         <source>GAME_WI_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="632"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="635"/>
         <source>GAME_WI_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="633"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="636"/>
         <source>GAME_WI_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="714"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="718"/>
         <source>LOGO_ROT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="715"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="719"/>
         <source>GAME_ROT_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="716"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="720"/>
         <source>GAME_ROT_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="717"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="721"/>
         <source>GAME_ROT_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1078,12 +963,12 @@
 <context>
     <name>Index</name>
     <message>
-        <location filename="../Application/Blocks/Auth/Index.qml" line="67"/>
+        <location filename="../Application/Blocks/Auth/Index.qml" line="65"/>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/Index.qml" line="71"/>
+        <location filename="../Application/Blocks/Auth/Index.qml" line="69"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1285,7 +1170,7 @@
 <context>
     <name>NotificationSettings</name>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/NotificationSettings.qml" line="30"/>
+        <location filename="../Application/Blocks/ApplicationSettings/NotificationSettings.qml" line="42"/>
         <source>CHECKBOX_NOTIFICATION_MAINTENANCE_END</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1575,47 +1460,47 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="108"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="110"/>
         <source>REGISTER_BODY_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="115"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="117"/>
         <source>REGISTER_BODY_SUB_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="126"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="128"/>
         <source>REGISTER_BODY_LOGIN_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="137"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="139"/>
         <source>REGISTER_BODY_PASSWORD_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="155"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="157"/>
         <source>REGISTER_BODY_REGISTER_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="174"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="176"/>
         <source>REGISTER_BODY_AUTH_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="180"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="182"/>
         <source>REGISTER_BODY_AUTH_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="204"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="206"/>
         <source>REGISTER_BODY_LICENSE_PART1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="210"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="212"/>
         <source>REGISTER_BODY_LICENSE_PART2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1635,6 +1520,11 @@
 </context>
 <context>
     <name>SecondAccountView</name>
+    <message>
+        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="73"/>
+        <source>PREMIUM_ADD_ACCOUNT</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="116"/>
         <source>SECOND_GAME_BLOCK_PREMIUM_TITLE</source>

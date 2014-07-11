@@ -2002,15 +2002,15 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_CA_MINI_DESC</source>
-        <translation>ДИНАМИЧНЫЙ ШУТЕР</translation>
+        <translation>Динамичный шутер</translation>
     </message>
     <message>
         <source>GAME_BS_MINI_DESC</source>
-        <translation>РОМАНТИЧЕСКАЯ ОНЛАЙН ИГРА</translation>
+        <translation>Романтическая онлайн игра</translation>
     </message>
     <message>
         <source>GAME_GA_MINI_DESC</source>
-        <translation>БРАУЗЕРНАЯ СТРАТЕГИЯ</translation>
+        <translation>Браузерная стратегия</translation>
     </message>
     <message>
         <source>GAME_MW2_MINI_DESC</source>
@@ -2018,11 +2018,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_WI_MINI_DESC</source>
-        <translation>ТАКТИЧЕСКИЙ ШУТЕР</translation>
+        <translation>Тактический шутер</translation>
     </message>
     <message>
         <source>GAME_AIKA_MINI_DESC</source>
-        <translation>МАСШТАБНАЯ MMORPG</translation>
+        <translation>Масштабная MMORPG</translation>
     </message>
     <message>
         <source>GAME_ROT_MINI_DESC</source>
@@ -2058,7 +2058,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_REBORN_MINI_DESC</source>
-        <translation>ФЭНТЕЗИЙНАЯ ИГРА</translation>
+        <translation>Фэнтезийная игра</translation>
     </message>
     <message>
         <source>TASK_LIST_ALL_GAMES</source>
