@@ -24,6 +24,7 @@
 		<file>Application/Blocks/Auth/LoginInput.qml</file>
 		<file>Application/Blocks/Auth/MessageBody.qml</file>
 		<file>Application/Blocks/Auth/PasswordInput.qml</file>
+		<file>Application/Blocks/Auth/qmldir</file>
 		<file>Application/Blocks/Auth/RegistrationBody.qml</file>
 		<file>Application/Blocks/Auth/ServiceLoading.qml</file>
 		<file>Application/Blocks/DownloadStatus.qml</file>
@@ -216,6 +217,17 @@
 		<file>Application/Widgets/PromoCode/PluginContainer.qml</file>
 		<file>Application/Widgets/PromoCode/qmldir</file>
 		<file>Application/Widgets/PromoCode/View/PromoCodeView.qml</file>
+		<file>Application/Widgets/PublicTest/PluginContainer.qml</file>
+		<file>Application/Widgets/PublicTest/qmldir</file>
+		<file>Application/Widgets/PublicTest/View/PublicTestView.qml</file>
+		<file>Application/Widgets/SecondAccountAuth/PluginContainer.qml</file>
+		<file>Application/Widgets/SecondAccountAuth/qmldir</file>
+		<file>Application/Widgets/SecondAccountAuth/SecondAccountAuthModel.qml</file>
+		<file>Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml</file>
+		<file>Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml</file>
+		<file>Application/Widgets/SilentMode/PluginContainer.qml</file>
+		<file>Application/Widgets/SilentMode/qmldir</file>
+		<file>Application/Widgets/SilentMode/SilentModeModel.qml</file>
 		<file>Application/Widgets/TaskBar/PluginContainer.qml</file>
 		<file>Application/Widgets/TaskBar/qmldir</file>
 		<file>Application/Widgets/TaskBar/TaskBar.js</file>
@@ -308,6 +320,9 @@
 		<file>Tests/Application/Widgets/NicknameEditSample.qml</file>
 		<file>Tests/Application/Widgets/PremiumShopSample.qml</file>
 		<file>Tests/Application/Widgets/PromoCodeSample.qml</file>
+		<file>Tests/Application/Widgets/PublicTestSample.qml</file>
+		<file>Tests/Application/Widgets/SecondAccountAuthSample.qml</file>
+		<file>Tests/Application/Widgets/SilentModeSample.qml</file>
 		<file>Tests/Application/Widgets/TrayMenuSample.qml</file>
 		<file>Tests/Application/Widgets/UserProfileSample.qml</file>
 		<file>Tests/GameNet/Components/Widgets/Fixtures/DualViewWidget/PluginContainer.qml</file>

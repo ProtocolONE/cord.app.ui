@@ -202,19 +202,19 @@
     <name>Announcements</name>
     <message>
         <source>ANNOUNCE_GAME_INSTALLED_MESSAGE</source>
-        <translation>Игра установлена</translation>
+        <translation type="vanished">Игра установлена</translation>
     </message>
     <message>
         <source>ANNOUNCE_GAME_INSTALLED_BUTTON</source>
-        <translation>Играть</translation>
+        <translation type="vanished">Играть</translation>
     </message>
     <message>
         <source>REMINDER_NEVER_PLAYED_BUTTON</source>
-        <translation>Играть</translation>
+        <translation type="vanished">Играть</translation>
     </message>
     <message>
         <source>REMINDER_NEVER_PLAYED_MESSAGE</source>
-        <translation>Игра установлена и вы ни разу не пробовали играть</translation>
+        <translation type="vanished">Игра установлена и вы ни разу не пробовали играть</translation>
     </message>
     <message>
         <source>REMINDER_NEVER_PLAYED_FRIST_TIME_BUTTON</source>
@@ -226,30 +226,30 @@
     </message>
     <message>
         <source>REMINDER_PLAYED_LONGAGO_BUTTON</source>
-        <translation>Играть</translation>
+        <translation type="vanished">Играть</translation>
     </message>
     <message>
         <source>REMINDER_PLAYED_LONGAGO_MESSAGE</source>
-        <translation>Вы давно не заходили в игру</translation>
+        <translation type="vanished">Вы давно не заходили в игру</translation>
     </message>
     <message>
         <source>SILENT_REMIND_POPUP_BUTTON</source>
-        <translation>Играть</translation>
+        <translation type="vanished">Играть</translation>
     </message>
     <message>
         <source>SILENT_REMIND_POPUP_MESSAGE</source>
-        <translation>Нажимая &quot;Играть&quot;, Вы подтверждаете, что согласны с условиями &lt;a href=&quot;http://www.gamenet.ru/license&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Лицензионного соглашения GameNet&lt;/font&gt;&lt;/a&gt; и &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Игры&lt;/font&gt;&lt;/a&gt;</translation>
+        <translation type="vanished">Нажимая &quot;Играть&quot;, Вы подтверждаете, что согласны с условиями &lt;a href=&quot;http://www.gamenet.ru/license&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Лицензионного соглашения GameNet&lt;/font&gt;&lt;/a&gt; и &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Игры&lt;/font&gt;&lt;/a&gt;</translation>
     </message>
 </context>
 <context>
     <name>AnnouncementsModel</name>
     <message>
         <source>ANNOUNCE_GAME_INSTALLED_MESSAGE</source>
-        <translation type="obsolete">Игра установлена</translation>
+        <translation type="unfinished">Игра установлена</translation>
     </message>
     <message>
         <source>ANNOUNCE_GAME_INSTALLED_BUTTON</source>
-        <translation type="obsolete">Играть</translation>
+        <translation type="unfinished">Играть</translation>
     </message>
     <message>
         <source>REMINDER_PLAYED_LONGAGO_BUTTON</source>
@@ -261,15 +261,19 @@
     </message>
     <message>
         <source>REMINDER_NEVER_PLAYED_MESSAGE</source>
-        <translation type="obsolete">Игра установлена и вы ни разу не пробовали играть</translation>
+        <translation type="unfinished">Игра установлена и вы ни разу не пробовали играть</translation>
     </message>
     <message>
         <source>REMINDER_NEVER_PLAYED_BUTTON</source>
-        <translation type="obsolete">Играть</translation>
+        <translation type="unfinished">Играть</translation>
     </message>
     <message>
         <source>SILENT_REMIND_POPUP_BUTTON</source>
-        <translation type="obsolete">Играть</translation>
+        <translation type="unfinished">Играть</translation>
+    </message>
+    <message>
+        <source>SILENT_REMIND_POPUP_MESSAGE</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1504,63 +1508,63 @@ Please try again later.</source>
     <name>Game</name>
     <message>
         <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
-        <translation>Игра запущена</translation>
+        <translation type="vanished">Игра запущена</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_DOWNLOADED_AND_READY_STATE</source>
-        <translation>Игра готова к запуску</translation>
+        <translation type="vanished">Игра готова к запуску</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
-        <translation>Обновление игры: %1 из %2 МБ...</translation>
+        <translation type="vanished">Обновление игры: %1 из %2 МБ...</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
-        <translation>Загрузка игры: %1 из %2 МБ...</translation>
+        <translation type="vanished">Загрузка игры: %1 из %2 МБ...</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_EXTRACTING_NOW_STATE</source>
-        <translation>Извлечение игры: %1 из %2</translation>
+        <translation type="vanished">Извлечение игры: %1 из %2</translation>
     </message>
     <message>
         <source>REWARDS_TOOLTIP</source>
-        <translation>Нажмите, чтобы узнать подробности</translation>
+        <translation type="vanished">Нажмите, чтобы узнать подробности</translation>
     </message>
     <message>
         <source>REWARDS_BUTTON</source>
-        <translation>НАГРАДЫ</translation>
+        <translation type="vanished">НАГРАДЫ</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>
-        <translation>Играть</translation>
+        <translation type="vanished">Играть</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_ON_PAUSE_STATE</source>
-        <translation>Играть</translation>
+        <translation type="vanished">Играть</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
-        <translation>Пауза</translation>
+        <translation type="vanished">Пауза</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_ERROR_STATE</source>
-        <translation>Ошибка</translation>
+        <translation type="vanished">Ошибка</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
-        <translation>Играть</translation>
+        <translation type="vanished">Играть</translation>
     </message>
     <message>
         <source>POPUP_PLAY</source>
-        <translation>Играть</translation>
+        <translation type="vanished">Играть</translation>
     </message>
     <message>
         <source>POPUP_READY_TO_START</source>
-        <translation>Игра готова к запуску!</translation>
+        <translation type="vanished">Игра готова к запуску!</translation>
     </message>
     <message>
         <source>PUBLIC_TEST_TOOLTIP</source>
-        <translation>Вы приняли участие в тестировании новых функций клиента GameNet. Нажмите, чтобы узнать подробности.</translation>
+        <translation type="vanished">Вы приняли участие в тестировании новых функций клиента GameNet. Нажмите, чтобы узнать подробности.</translation>
     </message>
     <message>
         <source>REBORB_ZBT_INVITE_HELPER_TEXT</source>
@@ -1572,7 +1576,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
-        <translation>Подготовка к запуску игры</translation>
+        <translation type="vanished">Подготовка к запуску игры</translation>
     </message>
     <message>
         <source>POPUP_MAINTENANCE_END_AND_READY_TO_START</source>
@@ -1588,19 +1592,19 @@ Please try again later.</source>
     </message>
     <message>
         <source>ADVANCED_ACCOUNT_HINT</source>
-        <translation>РАСШИРЕННЫЙ АККАУНТ</translation>
+        <translation type="vanished">РАСШИРЕННЫЙ АККАУНТ</translation>
     </message>
     <message>
         <source>ADVANCED_ACCOUNT_HINT_IN_DAYS</source>
-        <translation>Осталось %1 д.</translation>
+        <translation type="vanished">Осталось %1 д.</translation>
     </message>
     <message>
         <source>ADVANCED_ACCOUNT_HINT_TODAY</source>
-        <translation>Истекает сегодня</translation>
+        <translation type="vanished">Истекает сегодня</translation>
     </message>
     <message>
         <source>BUY_PREMIUM_BUTTON_TOOLTIP</source>
-        <translation>Приобрести или продлить расширенный аккаунт</translation>
+        <translation type="vanished">Приобрести или продлить расширенный аккаунт</translation>
     </message>
     <message>
         <source>SILENT_DOWNLOADING_POPUP_BUTTON</source>
@@ -3782,6 +3786,10 @@ Please try again later.</source>
     <message>
         <source>SECOND_GAME_BLOCK_PREMIUM_PLAY</source>
         <translation>Начать игру</translation>
+    </message>
+    <message>
+        <source>PREMIUM_ADD_ACCOUNT</source>
+        <translation>Добавить аккаунт</translation>
     </message>
 </context>
 <context>

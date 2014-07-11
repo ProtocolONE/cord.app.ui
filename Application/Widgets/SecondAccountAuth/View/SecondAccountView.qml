@@ -70,7 +70,7 @@ WidgetView {
                     hover: "#019074"
                 }
 
-                text: "PREMIUM_ADD_ACCOUNT"
+                text: qsTr("PREMIUM_ADD_ACCOUNT")
                 onClicked: Popup.show('SecondAccountAuth', 'SecondAccountAuthView')
             }
 
