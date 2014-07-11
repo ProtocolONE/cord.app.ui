@@ -29,7 +29,11 @@ WidgetModel {
             if (!response.hasOwnProperty('banners')) {
                 return;
             }
-            GameAdBannerModel.allAds[gameId] = response.banners;
+
+            GameAdBannerModel.allAds[gameId] = response.banners.filter(function(e) {
+                return e.imageQgna !== "";
+            });
+
             root.adsChanged();
         });
     }

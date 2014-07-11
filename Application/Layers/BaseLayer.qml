@@ -341,9 +341,6 @@ Rectangle {
                         }
 
                         WidgetContainer {
-                            width: parent.width
-                            height: 194
-
                             widget: 'GameAdBanner'
                         }
 

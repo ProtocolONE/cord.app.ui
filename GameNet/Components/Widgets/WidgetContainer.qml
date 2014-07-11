@@ -25,6 +25,9 @@ Item {
     onWidgetChanged: d.updateView()
     Component.onDestruction: root.clear()
 
+    implicitWidth: childrenRect.width
+    implicitHeight: childrenRect.height
+
     function clear() {
         if (d.viewObj) {
             d.viewObj.clear();

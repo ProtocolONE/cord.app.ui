@@ -19,6 +19,9 @@ import "GameAdBannerView.js" as GameAdBannerView
 WidgetView {
     id: root
 
+    width: 590
+    height: 150
+
     property int rotationTimeout: 5000
     property variant currentGameItem: App.currentGame()
     property int index
@@ -57,8 +60,6 @@ WidgetView {
         }
     }
 
-    width: parent.width
-    height: parent.height
     clip: true
     onCurrentGameItemChanged: {
         if (currentGameItem) {
@@ -85,8 +86,7 @@ WidgetView {
         function switchToNext() {
             //  INFO: на всякий случай - если не задали поля для баннеров
             var textLabel = GameAdBannerView.filtered[root.index].description || "";
-            var imageSource = GameAdBannerView.filtered[root.index].imageQgna
-                                    || GameAdBannerView.filtered[root.index].image || "";
+            var imageSource = GameAdBannerView.filtered[root.index].imageQgna;
 
             if (currentItem === content1) {
                 content2.setContent(imageSource, textLabel);
