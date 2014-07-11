@@ -148,9 +148,9 @@ WidgetView {
                         }
 
                         styleImages: ButtonStyleImages {
-                            normal: installPath + "/Assets/Images/Application/Blocks/Header/logout.png"
-                            hover: installPath + "/Assets/Images/Application/Blocks/Header/logout.png"
-                            disabled: installPath + "/Assets/Images/Application/Blocks/Header/logout.png"
+                            normal: installPath + "/Assets/Images/Application/Widgets/SecondAccountAuth/logout.png"
+                            hover: installPath + "/Assets/Images/Application/Widgets/SecondAccountAuth/logout.png"
+                            disabled: installPath + "/Assets/Images/Application/Widgets/SecondAccountAuth/logout.png"
                         }
                     }
                 }

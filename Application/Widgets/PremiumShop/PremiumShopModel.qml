@@ -34,16 +34,6 @@ WidgetModel {
                                  });
     }
 
-
-    Timer {
-        id: hack
-
-        running: false
-        interval: 5000
-        repeat: false
-        onTriggered: d.purchaseComplete();
-    }
-
     function refreshModel() {
         var i;
 

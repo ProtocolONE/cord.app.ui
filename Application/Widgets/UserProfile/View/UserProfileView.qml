@@ -58,9 +58,8 @@ WidgetView {
 
                     Image {
                         anchors.centerIn: parent
-                        source: installPath + "Assets/Images/Application/Widgets/UserProfile/premium.png"
-                        // HACK поменять на нормальные иконки
-                        opacity: model.isPremium ? 1 : 0.3
+                        source: installPath + "Assets/Images/Application/Widgets/UserProfile/" +
+                                (model.isPremium ? "premium_active.png" : "premium.png")
                     }
 
                     CursorMouseArea {
