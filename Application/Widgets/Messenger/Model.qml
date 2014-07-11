@@ -29,5 +29,8 @@ WidgetModel {
         onLogoutDone: {
             MessengerJs.disconnect();
         }
+        onNavigate: {
+            MessengerJs.closeChat();
+        }
     }
 }
