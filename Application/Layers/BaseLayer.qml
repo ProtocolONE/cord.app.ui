@@ -12,7 +12,9 @@ import "../../Application/Core/App.js" as App
 import "../../Application/Core/TrayPopup.js" as TrayPopup
 import "../../Application/Core/User.js" as User
 
+import "../../Application/Core/User.js" as User
 import "../../Application/Core/Popup.js" as Popup
+
 
 Rectangle {
     id: root
@@ -188,7 +190,8 @@ Rectangle {
                         onPageClicked: {
                             console.log('Open Page ', page);
                             if (page == 'GameSettings') {
-                                if(root.state != "SelectedGame") {
+                                if ( !(root.state == "SelectedGame" || root.state == "AboutGame") ) {
+                                    console.log('Fail to open game settings from ', root.state);
                                     return;
                                 }
 
