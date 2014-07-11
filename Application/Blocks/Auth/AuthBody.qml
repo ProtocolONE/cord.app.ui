@@ -52,7 +52,6 @@ Item {
                 return;
             }
 
-            AppProxy.setGlobalProgressVisible(true);
             d.inProgress = true;
 
             var password = d.password;
@@ -70,7 +69,6 @@ Item {
             }
 
             Authorization.loginByGameNet(d.login, password, function(error, response) {
-                AppProxy.setGlobalProgressVisible(false);
                 d.inProgress = false;
 
 
@@ -139,6 +137,7 @@ Item {
             captchInput.source = Authorization.getCaptchaImageSource(d.login);
         }
 
+        onInProgressChanged: AppProxy.setGlobalProgressVisible(d.inProgress);
     }
 
     Column {

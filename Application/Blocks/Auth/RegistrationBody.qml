@@ -94,6 +94,8 @@ Item {
                 root.error(errorMessage);
             });
         }
+
+        onInProgressChanged: AppProxy.setGlobalProgressVisible(d.inProgress);
     }
 
     Column {

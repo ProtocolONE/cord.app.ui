@@ -49,11 +49,9 @@ Rectangle {
         }
 
         function startVkAuth() {
-            App.setGlobalProgressVisible(true);
             d.vkAuthInProgress = true;
 
             Authorization.loginByVk(root, function(error, response) {
-                App.setGlobalProgressVisible(false);
                 d.vkAuthInProgress = false;
 
                 if (Authorization.isSuccess(error)) {
@@ -166,6 +164,8 @@ Rectangle {
                }
            })
         }
+
+        onVkAuthInProgressChanged: App.setGlobalProgressVisible(d.vkAuthInProgress);
     }
 
     /*AnimatedBackground.Index {
