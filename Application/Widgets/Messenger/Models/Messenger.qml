@@ -32,6 +32,7 @@ Item {
     property bool connected: false
 
     signal selectedUserChanged();
+    signal messageReceived(string from, string body);
 
     function init() {
         return {
@@ -86,6 +87,11 @@ Item {
     }
 
     function connect(jid, password) {
+        if (root.connecting || root.connected) {
+            console.log('Warning! Ask connecting to already connected jabber');
+            return;
+        }
+
         user.jid = jid;
         user.userId = UserJs.jidToUser(jid);
 
@@ -173,6 +179,15 @@ Item {
         }
 
         return data.avatar || defaultAvatar;
+    }
+
+    function userNickname(item) {
+        var data = getUser(item.jid);
+        if (!data.isValid()) {
+            return '';
+        }
+
+        return data.nickname || '';
     }
 
     function isSelectedGamenet() {
@@ -401,11 +416,16 @@ Item {
 
         onMessageReceived: {
             //console.log('------ !!!', JSON.stringify(message));
-            var bareJid = UserJs.jidWithoutResource(message.from)
-            if (message.type === QXmppMessage.Chat) {
-                d.appendMessage(bareJid, message.state, message.body)
+            if (message.type !== QXmppMessage.Chat) {
+                return;
             }
 
+            var bareJid = UserJs.jidWithoutResource(message.from)
+            d.appendMessage(bareJid, message.state, message.body)
+
+            if (message.body) {
+                root.messageReceived(bareJid, message.body);
+            }
         }
 
         onError: {

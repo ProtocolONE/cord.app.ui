@@ -1,6 +1,7 @@
 .pragma library
 
 var popupWindow,
+    popupInstance,
     popupCount = 0,
     maxPopupItem = 3,
     shownObject = {};
@@ -11,7 +12,7 @@ function init() {
         throw new Error('Can\'t create component ' + path + ', reason: ' + component.errorString());
     }
 
-    var popupInstance = component.createObject(null);
+    popupInstance = component.createObject(null);
     if (popupInstance) {
         popupWindow = popupInstance.getPopupContentParent();
     }

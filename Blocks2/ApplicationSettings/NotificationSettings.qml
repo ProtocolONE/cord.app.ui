@@ -19,6 +19,11 @@ Item {
 
     function save() {
         App.setAppSettingsValue('notifications', 'maintenanceEndPopup', notificationEnabled.checked);
+        App.setAppSettingsValue('notifications', 'messengerReceivedMessage', receivedMsgEnabled.checked);
+
+        //HACK Костыль. На текущий момент не вижу более верного решения уведомить всё остальное приложение об
+        //изменении этой настройки. Скажите, если есть другие идеи.
+        App.settingsChange('notifications', 'messengerReceivedMessage', receivedMsgEnabled.checked);
     }
 
     function gaEvent(name) {
@@ -51,6 +56,17 @@ Item {
                 } else {
                     root.gaEvent("ChangeSettings", 0);
                 }
+            }
+        }
+
+        CheckBox {
+            id: receivedMsgEnabled
+
+            text: qsTr("CHECKBOX_NOTIFICATION_MESSANGER_RECEIVED_MESSAGE")
+            checked: App.isAppSettingsEnabled('notifications', 'messengerReceivedMessage', true);
+            style: ButtonStyleColors {
+                normal: "#1ABC9C"
+                hover: "#019074"
             }
         }
     }

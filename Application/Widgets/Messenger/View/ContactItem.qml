@@ -79,6 +79,8 @@ Rectangle {
                     width: 32
                     height: 32
                     anchors.centerIn: parent
+                    cache: true
+                    asynchronous: true
                 }
             }
 

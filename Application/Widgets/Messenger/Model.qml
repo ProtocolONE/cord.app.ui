@@ -9,6 +9,9 @@
 ****************************************************************************/
 import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
+
+import "./Addons" as Addons
+
 import "./Models/Messenger.js" as MessengerJs
 import "../../Core/App.js" as App
 
@@ -26,11 +29,23 @@ WidgetModel {
             MessengerJs.connect(bareJid, password);
         }
 
-        onLogoutDone: {
-            MessengerJs.disconnect();
+        onLogoutDone: MessengerJs.disconnect();
+        onNavigate: MessengerJs.closeChat();
+        onSettingsChange: {
+            if (key === 'messengerReceivedMessage') {
+                receivedMessageAddon.enabled = value;
+            }
         }
-        onNavigate: {
-            MessengerJs.closeChat();
+
+    }
+
+    Addons.Popups {
+        id: receivedMessageAddon
+
+        Component.onCompleted: {
+            enabled = App.isAppSettingsEnabled('notifications', 'messengerReceivedMessage', true);
         }
+
+        enabled: false
     }
 }

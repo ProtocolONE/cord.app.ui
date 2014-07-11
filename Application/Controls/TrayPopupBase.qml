@@ -16,6 +16,7 @@ Item {
 
     property alias containsMouse: mouseArea.containsMouse
     property bool isShown: false
+    property bool keepIfActive: false
     property int destroyInterval: 0
 
     signal anywhereClicked()
@@ -81,7 +82,7 @@ Item {
     }
 
     Timer {
-        running: destroyInterval > 0 && isShown
+        running: destroyInterval > 0 && isShown && (keepIfActive && !containsMouse)
         interval: destroyInterval
         onTriggered: shadowDestroy();
     }

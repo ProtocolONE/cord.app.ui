@@ -51,4 +51,5 @@ QtObject {
     signal openGameSettings();
 
     signal leftMouseClick(variant rootItem, int x, int y);
+    signal settingsChange(string path, string key, string value);
 }

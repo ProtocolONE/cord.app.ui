@@ -3169,6 +3169,10 @@ Please try again later.</source>
         <source>CHECKBOX_NOTIFICATION_MAINTENANCE_END</source>
         <translation>Оповещать об окончании технических работ</translation>
     </message>
+    <message>
+        <source>CHECKBOX_NOTIFICATION_MESSANGER_RECEIVED_MESSAGE</source>
+        <translation>Показывать уведомление, когда мне приходит сообщение</translation>
+    </message>
 </context>
 <context>
     <name>Password</name>

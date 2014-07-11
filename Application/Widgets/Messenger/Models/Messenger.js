@@ -21,8 +21,7 @@ if (!_modelComponent) {
     }
 }
 
-var dataModel;
-dataModel = _modelInstance.init();
+var dataModel = _modelInstance.init();
 
 function instance() {
     return _modelInstance;
@@ -153,6 +152,10 @@ function eachUser(callback) {
 
 function userAvatar(item) {
     return _modelInstance.userAvatar(item);
+}
+
+function userNickname(item) {
+    return _modelInstance.userNickname(item);
 }
 
 function isSelectedGamenet() {

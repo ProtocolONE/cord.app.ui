@@ -342,7 +342,7 @@
 <context>
     <name>ContactItem</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/ContactItem.qml" line="124"/>
+        <location filename="../Application/Widgets/Messenger/View/ContactItem.qml" line="126"/>
         <source>CONTACT_NEW_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -561,32 +561,32 @@
 <context>
     <name>GameInstallView</name>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="51"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="52"/>
         <source>INSTALL_VIEW_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="80"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="81"/>
         <source>DESTINATION_FOLDER_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="111"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="114"/>
         <source>CREATE_DESKTOP_SHORTCUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="128"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="131"/>
         <source>CREATE_STARTMENU_SHORTCUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="146"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="149"/>
         <source>LICENSE_TIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="171"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="194"/>
         <source>INSTALL_BUTTON_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
@@ -963,17 +963,17 @@
 <context>
     <name>Index</name>
     <message>
-        <location filename="../Application/Blocks/Auth/Index.qml" line="65"/>
+        <location filename="../Application/Blocks/Auth/Index.qml" line="67"/>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/Index.qml" line="69"/>
+        <location filename="../Application/Blocks/Auth/Index.qml" line="71"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/Index.qml" line="356"/>
+        <location filename="../Application/Blocks/Auth/Index.qml" line="364"/>
         <source>LOGIN_BY_GUEST_BUTTON_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1170,8 +1170,13 @@
 <context>
     <name>NotificationSettings</name>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/NotificationSettings.qml" line="42"/>
+        <location filename="../Application/Blocks/ApplicationSettings/NotificationSettings.qml" line="48"/>
         <source>CHECKBOX_NOTIFICATION_MAINTENANCE_END</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/ApplicationSettings/NotificationSettings.qml" line="66"/>
+        <source>CHECKBOX_NOTIFICATION_MESSANGER_RECEIVED_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

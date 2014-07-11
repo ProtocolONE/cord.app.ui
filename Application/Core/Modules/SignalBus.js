@@ -136,3 +136,7 @@ function needPakkanenVerification() {
 function selectService(serviceId) {
     _signalBusInstance.selectService(serviceId);
 }
+
+function settingsChange(path, key, value) {
+    _signalBusInstance.settingsChange(path, key, value);
+}

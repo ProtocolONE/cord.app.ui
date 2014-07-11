@@ -12,6 +12,7 @@ import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
 import "../../../Application/Core/App.js" as App
+import "../../../Application/Core/TrayPopup.js" as TrayPopup
 import "../../../Application/Widgets/Messenger/Models/Messenger.js" as MessengerJs
 
 Rectangle {
@@ -19,13 +20,16 @@ Rectangle {
     height: 800
     color: '#EEEEEE'
 
+    Component.onCompleted: TrayPopup.init();
+
     Row {
         spacing: 10
         Button {
             width: 100
             height: 30
             text: 'Login'
-            onClicked: App.authDone('400001000000073060', '75517c5137f42a35f10cc984d8307209dd63b432');
+            onClicked: App.authDone('400001000000065690', 'cd34fe488b93d254243fa2754e86df8ffbe382b9'); //300+ friends
+            //onClicked: App.authDone('400001000000000110', '599c0b9b5400a056b005cf12573ebe9e58cc29fe'); //800+ friends
         }
 
         Button {
