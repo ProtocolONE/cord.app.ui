@@ -13,6 +13,7 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
+import Application.Blocks 1.0
 import Application.Controls 1.0
 
 import "../../../Core/App.js" as App

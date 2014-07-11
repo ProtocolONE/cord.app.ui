@@ -196,6 +196,18 @@
 		<file>Application/Widgets/Messenger/View/MessageInput.qml</file>
 		<file>Application/Widgets/Messenger/View/MessageItem.qml</file>
 		<file>Application/Widgets/Messenger/View/SearchContactList.qml</file>
+		<file>Application/Widgets/Money/PluginContainer.qml</file>
+		<file>Application/Widgets/Money/qmldir</file>
+		<file>Application/Widgets/Money/View/Money.js</file>
+		<file>Application/Widgets/Money/View/MoneyView.qml</file>
+		<file>Application/Widgets/Money/View/OldScrollBar.qml</file>
+		<file>Application/Widgets/Money/View/OldTinyScrollbar.qml</file>
+		<file>Application/Widgets/Money/View/TabItem.qml</file>
+		<file>Application/Widgets/Money/View/WebViewItem.qml</file>
+		<file>Application/Widgets/MyGamesMenu/MyGamesMenuModel.qml</file>
+		<file>Application/Widgets/MyGamesMenu/PluginContainer.qml</file>
+		<file>Application/Widgets/MyGamesMenu/qmldir</file>
+		<file>Application/Widgets/MyGamesMenu/View/MyGamesMenuView.qml</file>
 		<file>Application/Widgets/NicknameEdit/NicknameEditModel.qml</file>
 		<file>Application/Widgets/NicknameEdit/PluginContainer.qml</file>
 		<file>Application/Widgets/NicknameEdit/qmldir</file>

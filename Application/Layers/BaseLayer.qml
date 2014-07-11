@@ -19,10 +19,14 @@ Rectangle {
 
     color: "#092135"
 
-    // HACK
     Component.onCompleted: {
-        App.activateGame(App.serviceItemByGameId("92"))
-        App.navigate("mygame");
+        if (App.startingService() != '0') {
+            App.activateGame(App.serviceItemByServiceId(App.startingService()));
+            App.navigate("mygame");
+            return;
+        }
+
+        App.navigate("allgame");
     }
 
     Connections {
@@ -396,8 +400,6 @@ Rectangle {
             view: 'Contacts'
         }
     }
-
-    state: "SelectedGame"
 
     states: [
 

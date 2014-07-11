@@ -53,7 +53,7 @@ Rectangle {
                 App.setGlobalProgressVisible(false);
 
                 if (Authorization.isSuccess(error)) {
-                    d.startLoadingServices()(userId, appKey, cookie);
+                    d.startLoadingServices(userId, appKey, cookie);
                     return;
                 }
 
@@ -118,13 +118,14 @@ Rectangle {
                             startingServiceId = Settings.value('qGNA', 'installWithService', "0");
                         }
 
-                        auth.login(startingServiceId, function(code, response) {
+                        auth.login(App.serviceItemByServiceId(startingServiceId).gameId, function(code, response) {
                             if (!Authorization.isSuccess(code)) {
                                 // TODO ? Auth failed
                                 return;
                             }
 
                             CredentialStorage.saveGuest(response.userId, response.appKey, response.cookie, true);
+                            CredentialStorage.save(response.userId, response.appKey, response.cookie, true);
                             d.startLoadingServices(response.userId, response.appKey, response.cookie);
                         });
 
