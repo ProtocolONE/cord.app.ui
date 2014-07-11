@@ -505,7 +505,6 @@ ListModel {
         formFactor: 1
         priority: 5
 
-
         imageBack : "Assets/Images/games/ga_back.png"
         serviceId: "300007010000000000"
         gameId: "83"
@@ -514,8 +513,6 @@ ListModel {
         forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=208"
         blogUrl: "http://www.gamenet.ru/games/ga/blog/"
         guideUrl: "http://www.gamenet.ru/games/ga/guides/"
-
-        formFactor: 1
 
         status: "Normal" // Error Started Paused Downloading
         statusText: ""
@@ -583,10 +580,7 @@ ListModel {
         imageLogoBig: ""
         imagePopupArt: "Assets/Images/games/Popup/FireStormPopupArt.png"
 
-        imageDefault: "Assets/Images/games/Default/farm.png" // TMP debug
-
         size: "normal"
-        formFactor: 2
 
         imageDefault: "Assets/Images/games/wi_icon_small.png"
         formFactor: 1
@@ -709,10 +703,7 @@ ListModel {
         imageLogoBig: ""
         imagePopupArt: "Assets/Images/games/Popup/RotPopupArt.png"
 
-        imageDefault: "Assets/Images/games/Default/farm.png" // TMP debug
-
         size: "normal"
-        formFactor: 1
 
         imageDefault: "Assets/Images/games/rot_logo_small.png"
         formFactor: 1
