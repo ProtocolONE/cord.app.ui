@@ -21,6 +21,7 @@ import "Core/restapi.js" as RestApi
 import "Core/Popup.js" as Popup
 import "Core/MessageBox.js" as MessageBox
 import "Core/TrayPopup.js" as TrayPopup
+import "../GameNet/Controls/Tooltip.js" as Tooltip
 
 Item {
     id: root
@@ -72,6 +73,7 @@ Item {
         Popup.init(popupLayer);
         MessageBox.init(messageLayer);
         TrayPopup.init();
+        Tooltip.init(tooltipLayer);
     }
 
     function initRestApi(options) {
@@ -140,8 +142,10 @@ Item {
         anchors.fill: parent
     }
 
-    Tooltip {
-        onLinkActivated: App.openExternalUrl(link);
+    Item {
+        id: tooltipLayer
+
+        anchors.fill: parent
     }
 
     GlobalProgress {

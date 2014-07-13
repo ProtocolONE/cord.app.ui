@@ -1,3 +1,4 @@
+.pragma library
 /****************************************************************************
 ** This file is a part of Syncopate Limited GameNet Application or it parts.
 **
@@ -6,32 +7,20 @@
 **
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-**
-** @author: Nikolay Bondarenko <nikolay.bondarenko@syncopate.ru>
-** @since: 2.0
 ****************************************************************************/
 
-.pragma library
+var _tooltipObject = null;
 
-var ToolTip = function() {
-    this.holder = null;
-}
+function init(layer) {
+    var component = Qt.createComponent('./Tooltip.qml');
 
-ToolTip.prototype.setup = function(holder) {
-    var validObject = (typeof holder === 'object')
-        && holder.hasOwnProperty('entered')
-        && holder.hasOwnProperty('exited')
-        && holder.hasOwnProperty('item');
-
-    if (!validObject) {
-        console.log('FATAL: Invalid tooltip holder object ' + holder);
-        return;
+    _tooltipObject = component.createObject(layer);
+    if (!_tooltipObject) {
+        throw new Error('FATAL: error creating Tooltip.qml - ' + component.errorString());
     }
-
-    this.holder = holder;
 }
 
-ToolTip.prototype.isItemValid = function(item) {
+ function isItemValid(item) {
     return (typeof item === 'object')
             && item.toString().indexOf('QML') !== -1
             && item.hasOwnProperty('entered')
@@ -42,60 +31,39 @@ ToolTip.prototype.isItemValid = function(item) {
             && typeof item.toolTip === 'string';
 }
 
-ToolTip.prototype.track = function(item) {
-    var self = this;
-
-    if (!this.isItemValid(item)) {
+function track(item) {
+    if (!isItemValid(item)) {
         console.log('FATAL: Invalid tooltip item object ' + item);
         return;
     }
 
     item.entered.connect(function() {
-        if (self.holder) {
-            self.holder.entered(item);
+        if (_tooltipObject) {
+            _tooltipObject.entered(item);
         }
     });
 
     item.exited.connect(function() {
-        if (self.holder) {
-            self.holder.exited(item);
+        if (_tooltipObject) {
+            _tooltipObject.exited(item);
         }
     });
 }
 
-ToolTip.prototype.release = function(item) {
+function release(item) {
     if (!this.isItemValid(item)) {
         console.log('FATAL: Could not release tooltip item object ' + item);
         return;
     }
 
-    if (this.holder) {
-        this.holder.release(item);
+    if (_tooltipObject) {
+        _tooltipObject.release(item);
     }
-}
-
-ToolTip.prototype.releaseAll = function() {
-    if (this.holder) {
-        this.holder.releaseAll();
-    }
-}
-
-if (!ToolTip._instance) {
-    ToolTip._instance = new ToolTip();
-}
-
-function track(item) {
-    ToolTip._instance.track(item);
-}
-
-function release(item) {
-    ToolTip._instance.release(item);
 }
 
 function releaseAll() {
-    ToolTip._instance.releaseAll();
+    if (_tooltipObject) {
+        _tooltipObject.releaseAll();
+    }
 }
 
-function setup(item) {
-    ToolTip._instance.setup(item);
-}
