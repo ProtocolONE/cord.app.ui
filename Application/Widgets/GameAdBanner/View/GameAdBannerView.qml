@@ -19,9 +19,6 @@ import "GameAdBannerView.js" as GameAdBannerView
 WidgetView {
     id: root
 
-    width: 590
-    height: 150
-
     property int rotationTimeout: 5000
     property variant currentGameItem: App.currentGame()
     property int index
@@ -60,6 +57,8 @@ WidgetView {
         }
     }
 
+    width: 590
+    height: 150
     clip: true
     onCurrentGameItemChanged: {
         if (currentGameItem) {

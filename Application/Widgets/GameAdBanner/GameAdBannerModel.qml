@@ -31,7 +31,7 @@ WidgetModel {
             }
 
             GameAdBannerModel.allAds[gameId] = response.banners.filter(function(e) {
-                return e.imageQgna !== "";
+                return e.hasOwnProperty('imageQgna') && e.imageQgna !== "";
             });
 
             root.adsChanged();
