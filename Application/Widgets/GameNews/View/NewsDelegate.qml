@@ -16,12 +16,21 @@ import "../../../Core/moment.js" as Moment
 
 Item {
     id: delegate
-    clip: true
 
+    property bool shouldShowDelimited: index != 0
+    property string announcementText: announcement
+    property string previewImage
+
+    clip: true
     implicitWidth: 590
     implicitHeight: index == 0 ? 130 : 139
 
-    property bool shouldShowDelimited: index != 0
+    onAnnouncementTextChanged: {
+        var imageMatch = /<\!--p=(.+?)-->/.exec(announcementText);
+        if (imageMatch) {
+            previewImage = imageMatch[1];
+        }
+    }
 
     function openNews(gameShortName, eventId) {
         App.openExternalUrlWithAuth("http://www.gamenet.ru/games/" + gameShortName + "/post/" + eventId);
@@ -53,11 +62,14 @@ Item {
             spacing: 10
 
             Image {
+                id: newsImage
+
+                visible: previewImage !== ''
                 height: 130
                 width: 160
-                source: App.serviceItemByGameId(gameId) &&
-                        App.serviceItemByGameId(gameId).imageSmall ?
-                            installPath + App.serviceItemByGameId(gameId).imageSmall : ''
+                source: previewImage
+                cache: false
+                asynchronous: true
 
                 Image {
                     anchors {
@@ -93,7 +105,7 @@ Item {
                 anchors.topMargin: 2
 
                 height: 128
-                width: 430
+                width: newsImage.visible ? 430 : 600
                 spacing: 6
 
                 Row {
@@ -141,6 +153,7 @@ Item {
                     wrapMode: Text.WordWrap
                     elide: Text.ElideRight
                     maximumLineCount: 4
+                    textFormat: Text.RichText
                     clip: true
                     color: '#5e7182'
                     font { family: 'Arial'; pixelSize: 14 }
