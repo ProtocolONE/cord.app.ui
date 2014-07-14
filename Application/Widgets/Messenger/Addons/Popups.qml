@@ -34,7 +34,7 @@ Item {
             data = {
                 jid: from,
                 avatar: MessengerJs.userAvatar(user),
-                nickname: MessengerJs.userNickname(user),
+                nickname: MessengerJs.getNickname(user),
                 messageText: body,
             };
 

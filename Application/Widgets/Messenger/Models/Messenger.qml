@@ -181,15 +181,6 @@ Item {
         return data.avatar || defaultAvatar;
     }
 
-    function userNickname(item) {
-        var data = getUser(item.jid);
-        if (!data.isValid()) {
-            return '';
-        }
-
-        return data.nickname || '';
-    }
-
     function isSelectedGamenet() {
         var item = root.selectedUser();
         if (!item.isValid()) {

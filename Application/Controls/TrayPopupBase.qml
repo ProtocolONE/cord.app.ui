@@ -82,7 +82,7 @@ Item {
     }
 
     Timer {
-        running: destroyInterval > 0 && isShown && (keepIfActive && !containsMouse)
+        running: destroyInterval > 0 && isShown && (keepIfActive ? !containsMouse : true)
         interval: destroyInterval
         onTriggered: shadowDestroy();
     }

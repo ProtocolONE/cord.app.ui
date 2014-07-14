@@ -84,7 +84,8 @@ function getNickname(item) {
         throw new Error('Error getNickname. Object has not property jid.' + JSON.stringify(item))
     }
 
-    return getUser(item.jid).nickname;
+    var user = getUser(item.jid);
+    return user ? user.nickname : '';
 }
 
 function closeChat() {
@@ -152,10 +153,6 @@ function eachUser(callback) {
 
 function userAvatar(item) {
     return _modelInstance.userAvatar(item);
-}
-
-function userNickname(item) {
-    return _modelInstance.userNickname(item);
 }
 
 function isSelectedGamenet() {
