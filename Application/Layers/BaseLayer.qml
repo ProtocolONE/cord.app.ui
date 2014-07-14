@@ -19,6 +19,9 @@ import "../../Application/Core/Popup.js" as Popup
 Rectangle {
     id: root
 
+    property variant currentGame: App.currentGame()
+    property bool hasCurrentGame: !!currentGame
+
     implicitWidth: 1000
     implicitHeight: 600
 
@@ -38,10 +41,12 @@ Rectangle {
             if (link == "mygame") {
                 root.state = "SelectedGame";
 
-                if (!App.isServiceInstalled(App.currentGame().serviceId)) {
-                    gameMenu.pageClicked('AboutGame');
-                } else {
-                    gameMenu.pageClicked('News');
+                if (root.hasCurrentGame) {
+                    if (!App.isServiceInstalled(root.currentGame.serviceId)) {
+                        gameMenu.pageClicked('AboutGame');
+                    } else {
+                        gameMenu.pageClicked('News');
+                    }
                 }
             }
 
@@ -143,15 +148,20 @@ Rectangle {
                         WidgetContainer {
                             id: secondAuthView
 
+                            property bool secondAuthEnabled: User.isAuthorized()
+                                    && User.isPremium()
+                                    && root.hasCurrentGame
+                                    && root.currentGame.secondAllowed
+
                             widget: "SecondAccountAuth"
                             view: "SecondAccountView"
 
                             width: parent.width
-                            height: User.isAuthorized() && User.isPremium()
+                            height: secondAuthEnabled
                                     ? ((!User.isSecondAuthorized() ? 34 : 0) + (User.isSecondAuthorized() ? 88 : 0))
                                     : 0
 
-                            opacity: User.isAuthorized() && User.isPremium() ? 1 : 0
+                            opacity: secondAuthEnabled ? 1 : 0
                             visible: opacity > 0
 
                             Behavior on opacity {
@@ -161,7 +171,6 @@ Rectangle {
                             Behavior on height {
                                 NumberAnimation { duration: 250 }
                             }
-
                         }
                     }
 
@@ -184,7 +193,7 @@ Rectangle {
                         id: gameMenu
 
                         anchors.fill: parent
-                        model: App.currentGame() ? App.currentGame().menu : undefined
+                        model: root.hasCurrentGame ? root.currentGame.menu : undefined
 
                         onUrlClicked: App.openExternalUrlWithAuth(url);
                         onPageClicked: {
@@ -327,9 +336,9 @@ Rectangle {
                             width: parent.width
                             height: 112
                             color: '#082135'
-                            visible: !!App.currentGame() &&
-                                     App.currentGame().maintenance &&
-                                     App.currentGame().allreadyDownloaded
+                            visible: root.hasCurrentGame
+                                     && root.currentGame.maintenance
+                                     && root.currentGame.allreadyDownloaded
 
                             WidgetContainer {
                                 anchors.centerIn: parent
