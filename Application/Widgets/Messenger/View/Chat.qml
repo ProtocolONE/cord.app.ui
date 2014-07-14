@@ -27,7 +27,6 @@ WidgetView {
     MouseArea {
         anchors.fill: parent
         hoverEnabled: true
-        acceptedButtons: Qt.NoButton
     }
 
     Rectangle {
@@ -158,5 +157,4 @@ WidgetView {
         height: 78
         anchors.bottom: parent.bottom
     }
-
 }
