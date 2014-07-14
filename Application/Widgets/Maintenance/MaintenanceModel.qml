@@ -32,8 +32,7 @@ WidgetModel {
     }
 
     Connections {
-        target: mainWindow
-
+        target: App.mainWindowInstance()
         ignoreUnknownSignals: true
 
         onDownloaderFinished: {

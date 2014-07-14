@@ -147,13 +147,14 @@ Item {
                 }
 
                 Text {
-                    text: announcement
+                    property string clearText: announcementText.replace(/<\!--(.+?)-->/, '')
+
+                    text: clearText
                     height: 86
                     width: parent.width - 35
                     wrapMode: Text.WordWrap
                     elide: Text.ElideRight
                     maximumLineCount: 4
-                    textFormat: Text.RichText
                     clip: true
                     color: '#5e7182'
                     font { family: 'Arial'; pixelSize: 14 }

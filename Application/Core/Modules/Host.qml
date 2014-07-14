@@ -140,7 +140,15 @@ QtObject {
         mainWindow.terminateSecondService();
     }
 
-    function restartApplication(sameArgs) {
-        mainWindow.restartApplication(sameArgs || false);
+    function mainWindowInstance() {
+        return mainWindow;
+    }
+
+    function messageBoxInstance() {
+         return messageBox;
+    }
+
+    function enterNickNameViewModelInstance() {
+        return enterNickNameViewModel;
     }
 }

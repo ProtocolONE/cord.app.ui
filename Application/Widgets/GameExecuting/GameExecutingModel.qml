@@ -23,7 +23,8 @@ WidgetModel {
     id: root
 
     Connections {
-        target: enterNickNameViewModel
+        target: App.enterNickNameViewModelInstance()
+        ignoreUnknownSignals: true
         onStartCheck: Popup.show('NicknameEdit');
     }
 
@@ -64,7 +65,7 @@ WidgetModel {
             return [5, 6, 102, 125, 601, 603].indexOf(serviceState) != -1;
         }
 
-        target: mainWindow
+        target: App.mainWindowInstance()
         ignoreUnknownSignals: true
 
         onServiceStarted: {

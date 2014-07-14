@@ -183,11 +183,26 @@ function terminateSecondService() {
     }
 }
 
-function restartApplication(sameArgs) {
+function mainWindowInstance() {
     if (proxyInst) {
-        proxyInst.restartApplication(sameArgs);
+        return proxyInst.mainWindowInstance();
     }
+
+    return null;
 }
 
+function messageBoxInstance() {
+    if (proxyInst) {
+        return proxyInst.messageBoxInstance();
+    }
 
+    return null;
+}
 
+function enterNickNameViewModelInstance() {
+    if (proxyInst) {
+        return proxyInst.enterNickNameViewModelInstance();
+    }
+
+    return null;
+}
