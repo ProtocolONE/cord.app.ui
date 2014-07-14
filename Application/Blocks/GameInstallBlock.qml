@@ -78,7 +78,7 @@ Item {
                 }
 
                 color: '#ffffff'
-                text: root.gameItem ? root.gameItem.name : ''
+                text: root.gameItem ? root.gameItem.name : ""
             }
 
             Text {
@@ -88,7 +88,7 @@ Item {
                 }
 
                 color: '#597082'
-                text: root.gameItem ? root.gameItem.shortDescription : ''
+                text: root.gameItem ? root.gameItem.shortDescription : ""
             }
 
             Button {
@@ -158,9 +158,9 @@ Item {
                 text: button.getText()
 
                 style: ButtonStyleColors {
-                    property bool isDefaultColor: !!root.gameItem &&
-                                                  root.gameItem.status === "Normal" &&
-                                                  !button.isInstalled
+                    property bool isDefaultColor: root.gameItem
+                                                  ? (root.gameItem.status === "Normal" && !button.isInstalled)
+                                                    : false
 
                     normal: button.enabled ? isDefaultColor ? "#ff4f02" : "#567dd8" : disabled
                     hover: button.enabled ? isDefaultColor ? "#ff7902" : "#5e89ee" : disabled

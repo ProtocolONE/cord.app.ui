@@ -23,8 +23,9 @@ WidgetModel {
         repeat: true
         triggeredOnStart: false
         onTriggered: {
-            if (!User.isAuthorized())
+            if (!User.isAuthorized()) {
                 return;
+            }
 
             var lastRefresh = Settings.value("qml/auth/", "refreshDate", -1);
             var currentDate = Math.floor(+new Date() / 1000);

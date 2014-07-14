@@ -95,7 +95,7 @@ Rectangle {
                             normal: "#3498BD"
                             hover: "#3670DC"
                         }
-                        visible: !!root.currentGame && root.currentGame.hasOverlay
+                        visible: root.currentGame ? root.currentGame.hasOverlay : false
                         onClicked: root.state = "OverlayPage";
                     }
 

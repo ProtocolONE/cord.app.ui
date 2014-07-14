@@ -17,7 +17,8 @@ import "../../../../Application/Core/App.js" as AppJs
 WidgetView {
     id: root
 
-    property int interval: App.currentGame() ? App.currentGame().maintenanceInterval : 0
+    property variant gameItem: App.currentGame()
+    property int interval: root.gameItem ? root.gameItem.maintenanceInterval : 0
 
     width: 590
     height: 150
@@ -117,7 +118,7 @@ WidgetView {
                 width: parent.width - 30
                 height: 35
 
-                text: qsTr("MAINTENANCE_PROPOSAL_GAME_TEXT").arg(App.currentGame() ? App.currentGame().name : '')
+                text: qsTr("MAINTENANCE_PROPOSAL_GAME_TEXT").arg(root.gameItem ? App.currentGame().name : "")
                 color: '#8ea4b9'
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 font { family: 'Arial'; pixelSize: 16 }
@@ -130,8 +131,8 @@ WidgetView {
                 spacing: 10
 
                 GameItem {
-                    gameItem: App.serviceItemByServiceId(App.currentGame() ?
-                                                         App.currentGame().maintenanceProposal1 : '')
+                    gameItem: root.gameItem ? App.serviceItemByServiceId(App.currentGame().maintenanceProposal1) : null
+
                     onActivate: {
                         App.navigate('mygame');
                         App.activateGameByServiceId(serviceItem.serviceId)
@@ -139,8 +140,7 @@ WidgetView {
                 }
 
                 GameItem {
-                    gameItem: App.serviceItemByServiceId(App.currentGame() ?
-                                                         App.currentGame().maintenanceProposal2 : '')
+                    gameItem: root.gameItem ? App.serviceItemByServiceId(App.currentGame().maintenanceProposal2) : null
 
                     onActivate: {
                         App.navigate('mygame');

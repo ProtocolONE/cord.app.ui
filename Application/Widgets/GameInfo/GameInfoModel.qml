@@ -37,6 +37,8 @@ WidgetModel {
                 return;
             }
 
+            console.log("GameInfoModel timer triggered!");
+
             RestApi.Games.getGallery(root.gameItem.gameId, function(response) {
                 if (!response || !response.hasOwnProperty('gallery')) {
                     return;

@@ -10,7 +10,7 @@ Image {
     width: 195
     height: 90
 
-    source: !!gameItem && gameItem.imageHorizontalSmall ? installPath + gameItem.imageHorizontalSmall : ''
+    source: root.gameItem ? (installPath + root.gameItem.imageHorizontalSmall) : ""
 
     Rectangle {
         anchors {
@@ -31,7 +31,7 @@ Image {
             margins: 7
         }
 
-        text: gameItem.name
+        text: root.gameItem ? root.gameItem.name : ""
         color: '#ffffff'
         font { family: 'Arial'; pixelSize: 14 }
     }

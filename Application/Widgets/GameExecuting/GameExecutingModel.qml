@@ -42,7 +42,7 @@ WidgetModel {
         }
 
         onServiceFinished: {  // ввод промо кода
-            if (serviceState !== RestApi.Error.SERVICE_AUTHORIZATION_IMPOSSIBLE) {
+            if (gameItem.serviceState !== RestApi.Error.SERVICE_AUTHORIZATION_IMPOSSIBLE) {
                 return;
             }
 

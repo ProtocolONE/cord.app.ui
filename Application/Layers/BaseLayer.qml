@@ -193,7 +193,7 @@ Rectangle {
                         id: gameMenu
 
                         anchors.fill: parent
-                        model: root.hasCurrentGame ? root.currentGame.menu : undefined
+                        model: App.currentGame() ? App.currentGame().menu : null
 
                         onUrlClicked: App.openExternalUrlWithAuth(url);
                         onPageClicked: {
@@ -336,9 +336,7 @@ Rectangle {
                             width: parent.width
                             height: 112
                             color: '#082135'
-                            visible: root.hasCurrentGame
-                                     && root.currentGame.maintenance
-                                     && root.currentGame.allreadyDownloaded
+                            visible: App.currentGame() ? (App.currentGame().maintenance && App.currentGame().allreadyDownloaded) : false
 
                             WidgetContainer {
                                 anchors.centerIn: parent

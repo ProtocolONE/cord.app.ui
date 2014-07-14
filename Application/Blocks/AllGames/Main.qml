@@ -10,13 +10,17 @@ Item {
     onVisibleChanged: {
         if (visible) {
             AllGamesJs.items.forEach(function(e){
-                e.show();
+                if (e) {
+                    e.show();
+                }
             });
             return;
         }
 
         AllGamesJs.items.forEach(function(e){
-            e.hide();
+            if (e) {
+                e.hide();
+            }
         });
     }
 
@@ -92,12 +96,12 @@ Item {
 
     Component.onCompleted: {
         var countItems = 0,
-            lineWidth = 0,
-            currentRowIndex = 0,
-            lastObj,
-            lastRow = rowComponent.createObject(rowView),
-            model = [],
-            i = 0;
+                lineWidth = 0,
+                currentRowIndex = 0,
+                lastObj,
+                lastRow = rowComponent.createObject(rowView),
+                model = [],
+                i = 0;
 
         for (i = 0; i < App.gamesListModel.count; ++i) {
             model.push(App.gamesListModel.get(i));
@@ -115,8 +119,8 @@ Item {
             return a.priority < b.priority ? -1 : 1;
         }).forEach(function(item){
             var size = (item.formFactor == 2) ? 245 : 495
-                , animationPause
-                , itemProperties;
+            , animationPause
+            , itemProperties;
 
             if ((lineWidth + size) > rowView.width) {
                 lastRow = rowComponent.createObject(rowView);

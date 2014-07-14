@@ -1,7 +1,7 @@
 /****************************************************************************
 ** This file is a part of Syncopate Limited GameNet Application or it parts.
 **
-** Copyright (©) 2011 - 2012, Syncopate Limited and/or affiliates.
+** Copyright (Â©) 2011 - 2012, Syncopate Limited and/or affiliates.
 ** All rights reserved.
 **
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
@@ -13,6 +13,8 @@ import "../Core/App.js" as App
 
 Item {
     id: root
+	
+	property variant gameItem: App.currentGame()
 
     width: 300
     height: 24
@@ -38,7 +40,7 @@ Item {
         spacing: 5
         orientation: ListView.Horizontal
         layoutDirection: Qt.LeftToRight
-        model: App.currentGame() ? App.currentGame().socialNet : undefined
+        model: gameItem ? gameItem.socialNet : null
 
         delegate: Image {
             opacity: mouser.containsMouse ? 1 : 0.8
