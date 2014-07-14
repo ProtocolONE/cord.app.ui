@@ -55,7 +55,8 @@ Item {
             Image {
                 height: 130
                 width: 160
-                source: App.serviceItemByGameId(gameId) ?
+                source: App.serviceItemByGameId(gameId) &&
+                        App.serviceItemByGameId(gameId).imageSmall ?
                             installPath + App.serviceItemByGameId(gameId).imageSmall : ''
 
                 Image {

@@ -38,7 +38,7 @@ Item {
         spacing: 5
         orientation: ListView.Horizontal
         layoutDirection: Qt.LeftToRight
-        model: App.currentGame().socialNet
+        model: App.currentGame() ? App.currentGame().socialNet : undefined
 
         delegate: Image {
             opacity: mouser.containsMouse ? 1 : 0.8

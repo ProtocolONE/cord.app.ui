@@ -18,7 +18,7 @@ import "../../../Core/App.js" as App
 WidgetView {
     id: root
 
-    property int interval: App.currentGame().maintenanceInterval
+    property int interval: App.currentGame() ? App.currentGame().maintenanceInterval : 0
 
     width: 560
     height: 90
@@ -105,7 +105,8 @@ WidgetView {
 
             color: '#253149'
 
-            property variant gameItem: App.serviceItemByServiceId(App.currentGame().maintenanceProposal1)
+            property variant gameItem: App.serviceItemByServiceId(App.currentGame() ?
+                                                                  App.currentGame().maintenanceProposal1 : '')
 
             Row {
                 anchors { fill: parent; margins: 10 }
@@ -115,7 +116,8 @@ WidgetView {
                     width: 70
                     height: 70
 
-                    source: installPath + proposalRect.gameItem.imageSmall
+                    source: proposalRect.gameItem && proposalRect.gameItem.imageSmall ?
+                                installPath + proposalRect.gameItem.imageSmall : ''
                 }
 
                 Item {
@@ -136,7 +138,8 @@ WidgetView {
                         }
 
                         width: parent.width
-                        text: qsTr("MAINTENANCE_LIGHT_PROSOSAL_START_TEXT").arg(proposalRect.gameItem.miniToolTip)
+                        text: qsTr("MAINTENANCE_LIGHT_PROSOSAL_START_TEXT").arg(proposalRect.gameItem ?
+                                                                                proposalRect.gameItem.miniToolTip : '')
                         color: '#8fa1b7'
                         font { family: 'Arial'; pixelSize: 14 }
                         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
@@ -147,7 +150,7 @@ WidgetView {
                             bottom: parent.bottom
                         }
 
-                        text: proposalRect.gameItem.name
+                        text: proposalRect.gameItem ? proposalRect.gameItem.name : ''
                         color: '#ffffff'
                         font { family: 'Arial'; pixelSize: 18 }
                     }

@@ -77,7 +77,7 @@ Item {
                 }
 
                 color: '#ffffff'
-                text: root.gameItem ? root.gameItem.name : ""
+                text: root.gameItem ? root.gameItem.name : ''
             }
 
             Text {
@@ -87,7 +87,7 @@ Item {
                 }
 
                 color: '#597082'
-                text: root.gameItem ? root.gameItem.shortDescription : ""
+                text: root.gameItem ? root.gameItem.shortDescription : ''
             }
 
             Button {
@@ -112,10 +112,13 @@ Item {
                     return false;
                 }
 
-                function getText() {
-                    if (isError) {
-                        return buttonErrorText;
-                    }
+                property bool isInstalled: root.gameItem ? App.isServiceInstalled(root.gameItem.serviceId) : false
+                property bool isStartDownloading: root.gameItem ? root.gameItem.status === "Downloading" : false
+                property bool isStarting: root.gameItem ? root.gameItem.status === "Starting" : false
+                property bool isError: root.gameItem ? root.gameItem.status === "Error" : false
+                property bool isPause: root.gameItem ? root.gameItem.status === "Paused" : false
+                property bool isDetailed: root.gameItem ? root.gameItem.status === "Paused" : false
+                property bool allreadyDownloaded: root.gameItem ? root.gameItem.allreadyDownloaded : false
 
                     if (allreadyDownloaded) {
                         return buttonDownloadedText;
@@ -154,16 +157,18 @@ Item {
                 text: button.getText()
 
                 style: ButtonStyleColors {
-                    property bool isDefaultColor: root.gameItem ? (root.gameItem.status === "Normal" && !button.isInstalled) : false
+                    property bool isDefaultColor: !!root.gameItem &&
+                                                  root.gameItem.status === "Normal" &&
+                                                  !button.isInstalled
 
-                    normal: button.isError ? "#cc0000" : (isDefaultColor ? "#ff4f02" : "#567dd8")
-                    hover: button.isError ? "#ee0000" : (isDefaultColor ? "#ff7902" : "#5e89ee")
+                    normal: button.enabled ? isDefaultColor ? "#ff4f02" : "#567dd8" : disabled
+                    hover: button.enabled ? isDefaultColor ? "#ff7902" : "#5e89ee" : disabled
+                    disabled: '#949494'
                 }
 
 
                 onClicked: {
-                    if (button.isError) {
-                        Popup.show('GameDownloadError');
+                    if (!root.gameItem) {
                         return;
                     }
 

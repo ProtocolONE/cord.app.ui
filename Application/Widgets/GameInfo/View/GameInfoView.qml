@@ -304,7 +304,8 @@ WidgetView {
                 lineHeight: 20
                 maximumLineCount: 4
                 textFormat: Text.PlainText
-                text: App.currentGame().aboutGameText.replace("<br/>", "\n").replace("<br>", "\n")
+                text: App.currentGame() ?
+                          App.currentGame().aboutGameText.replace("<br/>", "\n").replace("<br>", "\n") : ''
             }
         }
     }

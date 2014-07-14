@@ -24,7 +24,6 @@
 		<file>Application/Blocks/Auth/LoginInput.qml</file>
 		<file>Application/Blocks/Auth/MessageBody.qml</file>
 		<file>Application/Blocks/Auth/PasswordInput.qml</file>
-		<file>Application/Blocks/Auth/qmldir</file>
 		<file>Application/Blocks/Auth/RegistrationBody.qml</file>
 		<file>Application/Blocks/Auth/ServiceLoading.qml</file>
 		<file>Application/Blocks/DownloadStatus.qml</file>
@@ -354,6 +353,7 @@
 		<file>Tests/GameNet/Controls/PageSwitcher/Sample2.qml</file>
 		<file>Tests/GameNet/Controls/PathInputSample.qml</file>
 		<file>Tests/GameNet/Controls/ProgressBarSample.qml</file>
+		<file>Tests/GameNet/Controls/TooltipSample.qml</file>
 		<file>Tests/GameNet/Controls/WebImageSample.qml</file>
 	</qresource>
 </RCC>

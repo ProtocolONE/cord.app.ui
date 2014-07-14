@@ -33,6 +33,10 @@ WidgetModel {
         repeat: true
         triggeredOnStart: true
         onTriggered: {
+            if (!root.gameItem) {
+                return;
+            }
+
             RestApi.Games.getGallery(root.gameItem.gameId, function(response) {
                 if (!response || !response.hasOwnProperty('gallery')) {
                     return;
