@@ -56,7 +56,7 @@ Item {
             property: "opacity"
             easing.type: Easing.OutQuart
             to: 0
-            duration: 1000
+            duration: 250
         }
 
         ScriptAction {

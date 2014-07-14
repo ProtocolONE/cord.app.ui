@@ -31,7 +31,8 @@ Item {
     }
 
     Connections {
-        target: licenseModel
+        target: App.licenseModelInstance()
+        ignoreUnknownSignals: true
 
         onOpenLicenseBlock: {
             // TODO подумать куда это вынести

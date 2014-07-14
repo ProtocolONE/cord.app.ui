@@ -33,6 +33,8 @@ Item {
     //        }
     //    }
 
+    property variant settingsViewModelInstance: App.settingsViewModelInstance() || {}
+
     function save() {
         App.saveLanguage(applicationLanguage.getValue(applicationLanguage.currentIndex));
     }
@@ -81,7 +83,7 @@ Item {
                 normal: "#1ABC9C"
                 hover: "#019074"
             }
-            checked: settingsViewModel.autoStart > 0
+            checked: settingsViewModelInstance.autoStart > 0
             onToggled: {
                 if (checked) {
                     if (runMinimized.checked) {
@@ -101,7 +103,7 @@ Item {
             width: 300
             fontSize: 15
             enabled: autoRun.checked
-            checked: settingsViewModel.autoStart === 2
+            checked: settingsViewModelInstance.autoStart === 2
             text: qsTr("CHECKOX_RUN_MINIMIZED")
             style: ButtonStyleColors {
                 normal: "#1ABC9C"
@@ -110,11 +112,11 @@ Item {
             onToggled: {
                 if (checked) {
                     if (autoRun.checked) {
-                            settingsViewModel.setAutoStart(2);
+                        settingsViewModelInstance.setAutoStart(2);
                     }
                 } else {
                     if (autoRun.checked) {
-                        settingsViewModel.setAutoStart(1);
+                        settingsViewModelInstance.setAutoStart(1);
                     }
                 }
             }
@@ -137,7 +139,8 @@ Item {
                 onToggled: settingsViewModel.switchClientVersion();
 
                 Connections {
-                    target: settingsViewModel
+                    target: App.settingsViewModelInstance()
+                    ignoreUnknownSignals: true
 
                     onIsPublicTestVersionChanged: {
                         participateTesting.checked = settingsViewModel.isPublicTestVersion;

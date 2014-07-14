@@ -18,6 +18,7 @@ Item {
     id: root
 
     property variant currentItem: App.currentGame()
+    property variant gameSettingsModelInstance: App.gameSettingsModelInstance() || {}
 
     function save() {
 
@@ -49,16 +50,27 @@ Item {
                 width: parent.width
                 height: 48
                 readOnly: true
-                path: gameSettingsModel.installPath
-                onBrowseClicked: gameSettingsModel.browseInstallPath();
+                path: gameSettingsModelInstance.installPath || ""
+                onBrowseClicked: gameSettingsModelInstance.browseInstallPath();
+		// INFO: правильнее будет при возможности переделать на
+                //path: App.getExpectedInstallPath(root.currentGame.serviceId);
+                //onBrowseClicked: {
+                //    var result = App.browseDirectory(root.currentGame.serviceId,
+                //                                                   root.currentGame.name,
+                //                                                   installationPath.path);
+                //
+                //    if (result) {
+                //        installationPath.path = result;
+                //    }
+                //}
             }
         }
 
         Item {
             //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            visible: !!gameSettingsModel.hasDownloadPath
+            visible: !!gameSettingsModelInstance.hasDownloadPath
             width: 500
-            height: gameSettingsModel.hasDownloadPath ? 68 : 0
+            height: gameSettingsModelInstance.hasDownloadPath ? 68 : 0
 
             Text {
                 width: parent.width
@@ -78,8 +90,8 @@ Item {
                 width: parent.width
                 height: 48
                 readOnly: true
-                path: gameSettingsModel.downloadPath
-                onBrowseClicked: gameSettingsModel.browseDownloadPath();
+                path: gameSettingsModelInstance.downloadPath || ""
+                onBrowseClicked: gameSettingsModelInstance.browseDownloadPath();
             }
         }
 

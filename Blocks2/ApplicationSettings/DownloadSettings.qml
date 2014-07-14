@@ -12,6 +12,8 @@ import QtQuick 1.1
 import GameNet.Controls 1.0
 import Application.Controls 1.0 as AppControls
 
+import "../../Core/App.js" as App
+
 Rectangle {
     id: settingsPageRoot
 
@@ -26,19 +28,25 @@ Rectangle {
     //        property bool seedEnabled: true
     //    }
 
+    property variant settingsViewModelInstance: App.settingsViewModelInstance() || {}
+
     function save() {
-        settingsViewModel.downloadSpeed = downloadBandwidthLimit.getValue(downloadBandwidthLimit.currentIndex);
-        settingsViewModel.uploadSpeed = uploadBandwidthLimit.getValue(uploadBandwidthLimit.currentIndex);
-        settingsViewModel.incomingPort = incomingPort.text;
-        settingsViewModel.numConnections = connectionsLimit.text
-        settingsViewModel.seedEnabled = participateSeeding.checked;
+        if (!settingsViewModelInstance) {
+            return;
+        }
+
+        settingsViewModelInstance.downloadSpeed = downloadBandwidthLimit.getValue(downloadBandwidthLimit.currentIndex);
+        settingsViewModelInstance.uploadSpeed = uploadBandwidthLimit.getValue(uploadBandwidthLimit.currentIndex);
+        settingsViewModelInstance.incomingPort = incomingPort.text;
+        settingsViewModelInstance.numConnections = connectionsLimit.text
+        settingsViewModelInstance.seedEnabled = participateSeeding.checked;
     }
 
     QtObject {
         id: d
 
-        property string downloadSpeed: settingsViewModel.downloadSpeed
-        property string uploadSpeed: settingsViewModel.uploadSpeed
+        property string downloadSpeed: settingsViewModelInstance.downloadSpeed || ""
+        property string uploadSpeed: settingsViewModelInstance.uploadSpeed || ""
 
         onDownloadSpeedChanged: {
             var index = downloadBandwidthLimit.findValue(parseInt(d.downloadSpeed));
@@ -94,7 +102,7 @@ Rectangle {
                         append(2000, qsTr("SPEED_2000"));
                         append(5000, qsTr("SPEED_5000"));
 
-                        var index = downloadBandwidthLimit.findValue(parseInt(settingsViewModel.downloadSpeed));
+                        var index = downloadBandwidthLimit.findValue(parseInt(settingsViewModelInstance.downloadSpeed));
 
                         if (index >= 0) {
                             downloadBandwidthLimit.currentIndex = index;
@@ -137,7 +145,7 @@ Rectangle {
                         append(2000, qsTr("SPEED_2000"));
                         append(5000, qsTr("SPEED_5000"));
 
-                        var index = uploadBandwidthLimit.findValue(parseInt(settingsViewModel.uploadSpeed));
+                        var index = uploadBandwidthLimit.findValue(parseInt(settingsViewModelInstance.uploadSpeed));
 
                         if (index >= 0) {
                             uploadBandwidthLimit.currentIndex = index;
@@ -178,7 +186,7 @@ Rectangle {
 
                         width: 140
                         height: 40
-                        text: "" + settingsViewModel.incomingPort
+                        text: "" + settingsViewModelInstance.incomingPort
                         showCapslock: false
                         showLanguage: false
                         validator: IntValidator { bottom: 0; top: 65535 }
@@ -220,7 +228,7 @@ Rectangle {
                     y: 20
                     width: parent.width
                     height: 40
-                    text: "" + settingsViewModel.numConnections
+                    text: "" + settingsViewModelInstance.numConnections
                     showCapslock: false
                     showLanguage: false
                     validator: IntValidator { bottom: 1; top: 65535 }
@@ -232,7 +240,7 @@ Rectangle {
             id: participateSeeding
 
             text: qsTr("PARTICIPATE_SEEDING")
-            checked: settingsViewModel.seedEnabled
+            checked: settingsViewModelInstance.seedEnabled || false
             style: ButtonStyleColors {
                 normal: "#1ABC9C"
                 hover: "#019074"

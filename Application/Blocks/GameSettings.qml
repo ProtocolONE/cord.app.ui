@@ -20,6 +20,8 @@ Rectangle {
     id: root
 
     property variant currentGame: App.currentGame()
+    property variant gameSettingsModelInstance: App.gameSettingsModelInstance() || {}
+
     signal accepted()
 
     onCurrentGameChanged: {
@@ -28,7 +30,7 @@ Rectangle {
             return;
         }
 
-        gameSettingsModel.switchGame(currentGame.serviceId);
+        gameSettingsModelInstance.switchGame(currentGame.serviceId);
     }
 
     CursorMouseArea {

@@ -206,3 +206,27 @@ function enterNickNameViewModelInstance() {
 
     return null;
 }
+
+function settingsViewModelInstance() {
+    if (proxyInst) {
+        return proxyInst.settingsViewModelInstance();
+    }
+
+    return null;
+}
+
+function licenseModelInstance() {
+    if (proxyInst) {
+        return proxyInst.licenseModelInstance();
+    }
+
+    return null;
+}
+
+function gameSettingsModelInstance() {
+    if (proxyInst) {
+        return proxyInst.gameSettingsModelInstance();
+    }
+
+    return null;
+}

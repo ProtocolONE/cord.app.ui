@@ -151,4 +151,16 @@ QtObject {
     function enterNickNameViewModelInstance() {
         return enterNickNameViewModel;
     }
+
+    function settingsViewModelInstance() {
+        return settingsViewModel;
+    }
+
+    function licenseModelInstance() {
+        return licenseModel;
+    }
+
+    function gameSettingsModelInstance() {
+        return gameSettingsModel;
+    }
 }
