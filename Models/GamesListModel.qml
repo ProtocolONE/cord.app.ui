@@ -78,12 +78,14 @@ ListModel {
                                 });
         }
 
-        root.appendMenuItem(element.menu,
+        if (element.gameType === "standalone") {
+            root.appendMenuItem(element.menu,
                             {
                                 icon: "Assets/Images/Application/Blocks/GameMenu/Settings.png",
                                 text: qsTr("GAME_MENU_GAME_SETTINGS_TEXT"),
                                 page: "GameSettings",
                             });
+        }
     }
 
     //В версии 4.х есть баг с локализацией элементов ListElemnt. Один из вариантов решения такой проблемы является
