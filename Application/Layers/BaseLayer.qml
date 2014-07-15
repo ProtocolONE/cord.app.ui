@@ -268,9 +268,18 @@ Rectangle {
                     contentWidth: width
                     boundsBehavior: Flickable.StopAtBounds
 
+                    Connections {
+                        target: gameMenu
+                        onPageClicked: aboutGameFlickable.contentY = 0;
+                    }
+
+                    Connections {
+                        target: App.signalBus()
+                        onNavigate: aboutGameFlickable.contentY = 0;
+                    }
+
                     Column {
                         width: parent.width
-
                         onHeightChanged: aboutGameFlickable.contentHeight = height;
 
                         WidgetContainer {
@@ -324,6 +333,16 @@ Rectangle {
                     anchors { fill: parent }
                     contentWidth: width
                     boundsBehavior: Flickable.StopAtBounds
+
+                    Connections {
+                        target: gameMenu
+                        onPageClicked: flickable.contentY = 0;
+                    }
+
+                    Connections {
+                        target: App.signalBus()
+                        onNavigate: flickable.contentY = 0;
+                    }
 
                     Column {
                         width: parent.width
