@@ -11,8 +11,10 @@
 import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
-import "../../../Core/App.js" as AppJs
+
+import "../../../Core/App.js" as App
 import "../../../Core/Popup.js" as Popup
+import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetView {
     id: root
@@ -78,7 +80,13 @@ WidgetView {
                         toolTip: model.isPremium ? (qsTr("PREMIUM_TOOLTIP") + ". " + getText())
                                                  : qsTr("PREMIUM_NO_TOOLTIP")
                         tooltipGlueCenter: true
-                        onClicked: Popup.show('PremiumShop', 'PremiumShopView')
+                        onClicked: {
+                            Popup.show('PremiumShop', 'PremiumShopView')
+
+                            GoogleAnalytics.trackEvent('/PremiumShop/',
+                                                       'Premium',
+                                                       'show');
+                        }
                     }
                 }
 
@@ -115,7 +123,7 @@ WidgetView {
                 height: 18
 
                 nickname: model.nickname
-                onNicknameClicked: AppJs.openEditNicknameDialog();
+                onNicknameClicked: App.openEditNicknameDialog();
             }
 
             Row {
@@ -150,7 +158,7 @@ WidgetView {
                     hover: "#305ec8"
                 }
 
-                onClicked: AppJs.replenishAccount()
+                onClicked: App.replenishAccount()
             }
         }
     }

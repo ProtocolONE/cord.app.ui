@@ -13,11 +13,11 @@ import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 import Application.Blocks 1.0
 
-import "../../../Application/Core/App.js" as App
-import "../../../Application/Core/Popup.js" as Popup
-import "../../../Application/Core/restapi.js" as RestApi
-import "../../../Application/Core/TrayPopup.js" as TrayPopup
-import "../../../Application/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../Core/App.js" as App
+import "../../Core/Popup.js" as Popup
+import "../../Core/restapi.js" as RestApi
+import "../../Core/TrayPopup.js" as TrayPopup
+import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetModel {
     id: root

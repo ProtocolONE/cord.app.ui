@@ -13,6 +13,7 @@ import Application.Controls 1.0 as ApplicationControls
 import GameNet.Controls 1.0
 
 import "../../Core/App.js" as App
+import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 Item {
     id: root
@@ -44,6 +45,12 @@ Item {
 
         function getLanguageIndex() {
             return applicationLanguage.findValue(App.language());
+        }
+
+        function sendAutoRunGA(autorunType) {
+            GoogleAnalytics.trackEvent('/ApplicationSettings',
+                                   'Settings',
+                                   'Autorun changed to: ' + autorunType);
         }
     }
 
@@ -95,6 +102,8 @@ Item {
                     runMinimized.checked = false;
                     settingsViewModel.setAutoStart(0);
                 }
+
+                sendAutoRunGA(settingsViewModelInstance.autoStart);
             }
         }
         CheckBox {
@@ -119,6 +128,8 @@ Item {
                         settingsViewModelInstance.setAutoStart(1);
                     }
                 }
+
+                sendAutoRunGA(settingsViewModelInstance.autoStart);
             }
         }
         Item {
@@ -136,7 +147,13 @@ Item {
                     normal: "#1ABC9C"
                     hover: "#019074"
                 }
-                onToggled: settingsViewModel.switchClientVersion();
+                onToggled: {
+                    settingsViewModel.switchClientVersion();
+
+                    GoogleAnalytics.trackEvent('/ApplicationSettings',
+                                           'Settings',
+                                           'Switch client version');
+                }
 
                 Connections {
                     target: App.settingsViewModelInstance()

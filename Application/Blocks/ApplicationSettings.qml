@@ -14,6 +14,7 @@ import GameNet.Controls 1.0
 import Application.Blocks.ApplicationSettings 1.0
 
 import "../Core/App.js" as App
+import "../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 Rectangle {
     id: root
@@ -74,6 +75,12 @@ Rectangle {
                             hover: "#3670DC"
                             active: "#000000"
                         }
+                        analytics: GoogleAnalyticsEvent {
+                            page: '/ApplicationSettings'
+                            category: 'Navigation'
+                            action: 'Switch to GeneralPage'
+                        }
+
                         onClicked: root.state = "GeneralPage";
                     }
 
@@ -88,6 +95,12 @@ Rectangle {
                             hover: "#3670DC"
                             active: "#000000"
                         }
+                        analytics: GoogleAnalyticsEvent {
+                            page: '/ApplicationSettings'
+                            category: 'Navigation'
+                            action: 'Switch to DownloadsPage'
+                        }
+
                         onClicked: root.state = "DownloadsPage";
                     }
 
@@ -102,9 +115,14 @@ Rectangle {
                             hover: "#3670DC"
                             active: "#000000"
                         }
+                        analytics: GoogleAnalyticsEvent {
+                            page: '/ApplicationSettings'
+                            category: 'Navigation'
+                            action: 'Switch to NotificationPage'
+                        }
+
                         onClicked: root.state = "NotificationsPage";
                     }
-
                 }
 
                 TextButton {
@@ -123,6 +141,12 @@ Rectangle {
                         normal: "#1ADC9C"
                         hover: "#019074"
                     }
+                    analytics: GoogleAnalyticsEvent {
+                        page: '/ApplicationSettings'
+                        category: 'Settings'
+                        action: 'Restore default settings'
+                    }
+
                     onClicked: {
                         settingsViewModel.setDefaultSettings();
                         App.selectLanguage("ru");

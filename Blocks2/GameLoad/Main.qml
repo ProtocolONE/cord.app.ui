@@ -10,9 +10,13 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
 
+import "../../Core/App.js" as App
+import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+
 Rectangle {
     id: root
 
+    property variant gameItem: App.currentGame()
     property alias headerText: headText.text
     property alias bannerImageUrl: bannerImage.source
     property int progress: 15
@@ -149,7 +153,13 @@ Rectangle {
                     text: qsTr("PAUSE")
                     fontSize: 14
                     style: TextButtonStyle {}
-                    onClicked: root.pause();
+                    onClicked: {
+                        root.pause();
+
+                        GoogleAnalytics.trackEvent('/GameLoad',
+                                                   'Game ' + root.gameItem.gaName,
+                                                   'Pause');
+                    }
                 }
             }
 
@@ -165,7 +175,13 @@ Rectangle {
                 text: qsTr("SHOW_STATISTICS")
                 fontSize: 14
                 style: TextButtonStyle {}
-                onClicked: stateGroup.state = "Detailed"
+                onClicked: {
+                    stateGroup.state = "Detailed";
+
+                    GoogleAnalytics.trackEvent('/GameLoad',
+                                               'Game ' + root.gameItem.gaName,
+                                               'Download details opened');
+                }
             }
 
             ProgressWidget {

@@ -12,6 +12,8 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
+import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+
 Item {
     id: root
 
@@ -45,7 +47,13 @@ Item {
         hoverEnabled: true
         tooltipGlueCenter: false
         tooltipPosition: "N"
-        onClicked: root.nicknameClicked()
+        onClicked: {
+            root.nicknameClicked()
+
+            GoogleAnalytics.trackEvent('/UserProfile/',
+                                       'Profile',
+                                       'nickname clicked');
+        }
     }
 
     StateGroup {

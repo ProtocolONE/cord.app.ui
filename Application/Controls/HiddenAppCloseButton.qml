@@ -11,7 +11,7 @@
 import QtQuick 1.1
 
 import "../Core/App.js" as App
-import "../Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 MouseArea {
     width: 20

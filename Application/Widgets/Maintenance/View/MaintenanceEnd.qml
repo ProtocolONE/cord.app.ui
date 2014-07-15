@@ -11,7 +11,7 @@
 import QtQuick 1.1
 import Application.Blocks 1.0
 
-import "../../../Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../../../Core/App.js" as App
 
 GamePopup {

@@ -15,7 +15,7 @@ import GameNet.Controls 1.0
 
 import "../../Core/App.js" as AppJs
 import "../../Core/TrayPopup.js" as TrayPopupJs
-import "../../Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 Item {
     id: premiumNotifier

@@ -14,10 +14,9 @@ import GameNet.Controls 1.0
 Item {
     id: root
 
-    function setContent(imageSource, label) {
-        contentImage.source = imageSource;
-        contentText.text = label;
-    }
+    property alias source: contentImage.source
+    property alias text: contentText.text
+    property string bannerId
 
     WebImage {
         id: contentImage

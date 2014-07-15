@@ -213,6 +213,13 @@ WidgetView {
                     height: 48
                     enabled: phone.text.length > 0
                     text: qsTr("BUTTON_GET_CODE")
+
+                    analytics: GoogleAnalyticsEvent {
+                        page: "/AccountActivation/"
+                        category: "Auth"
+                        action: "Request phone code"
+                    }
+
                     onClicked: d.requestActivationCode();
                 }
 
@@ -303,6 +310,13 @@ WidgetView {
                     height: 48
                     enabled: code.text.length > 0
                     text: qsTr("BUTTON_CODE_CONFIRM")
+
+                    analytics: GoogleAnalyticsEvent {
+                        page: "/AccountActivation/"
+                        category: "Auth"
+                        action: "Validate phone code"
+                    }
+
                     onClicked: d.validateActivationCode();
                 }
 

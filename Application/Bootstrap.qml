@@ -15,7 +15,7 @@ import GameNet.Controls 1.0
 
 import "Core/App.js" as App
 import "Core/User.js" as User
-import "Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "Core/restapi.js" as RestApi
 
 import "Core/Popup.js" as Popup

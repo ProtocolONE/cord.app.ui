@@ -15,7 +15,7 @@ import GameNet.Controls 1.0
 import Application.Blocks 1.0
 
 import "../../Core/App.js" as App
-import "../../Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 Window {
     id: bigAnnounceWindow

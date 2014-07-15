@@ -9,12 +9,14 @@
 ****************************************************************************/
 import QtQuick 1.1
 import GameNet.Controls 1.0
+
 import "../Core/App.js" as App
+import "../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 Item {
     id: root
-	
-	property variant gameItem: App.currentGame()
+
+    property variant gameItem: App.currentGame()
 
     width: 300
     height: 24
@@ -55,7 +57,13 @@ Item {
 
                 anchors.fill: parent
                 hoverEnabled: true
-                onClicked: App.openExternalUrl(link);
+                onClicked: {
+                    App.openExternalUrl(link);
+
+                    GoogleAnalytics.trackEvent('/SoicialNet',
+                                               'Navigation',
+                                               'Open link ' + link);
+                }
             }
         }
     }

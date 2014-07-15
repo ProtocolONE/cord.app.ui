@@ -15,17 +15,18 @@ import GameNet.Components.Widgets 1.0
 
 import "../../../Core/App.js" as App
 import "../../../Core/restapi.js" as RestApi
-import "../../../Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetView {
     id: root
 
+    property variant gameItem: App.currentGame()
+
     Component.onCompleted: sendGoogleStat('show');
 
     function sendGoogleStat(action) {
-        var game = App.currentGame();
-        if (game) {
-            GoogleAnalytics.trackEvent('/game/' + game.gaName, 'PromoKey', action);
+        if (root.gameItem) {
+            GoogleAnalytics.trackEvent('/game/' + root.gameItem.gaName, 'PromoKey', action);
         }
     }
 
@@ -109,6 +110,10 @@ WidgetView {
             onClicked: {
                 activateButton.inProgress = true;
 
+                GoogleAnalytics.trackEvent('/PromoCode',
+                                           'PromoKey',
+                                           'Activate');
+
                 RestApi.User.activatePromoKey(
                     promoCode.text,
                     function(response) {
@@ -122,10 +127,13 @@ WidgetView {
                         if (response.error) {
                             promoCode.errorMessage = response.error.message;
                             promoCode.error = true;
+
+
                         } else {
                             promoCode.errorMessage = qsTr("UNKNOWN_PROMO_VALIDATION_ERROR");
                             promoCode.error = true;
                         }
+
                     },
                     function(httpError) {
                         activateButton.inProgress = false;

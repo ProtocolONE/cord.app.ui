@@ -9,12 +9,12 @@
 ****************************************************************************/
 import QtQuick 1.1
 
-import "../../Application/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../Core/GoogleAnalytics.js" as GoogleAnalytics
 
 Item {
     id: behavior
 
-    property variant analitics: GoogleAnalyticsEvent{}
+    property variant analytics: GoogleAnalyticsEvent{}
 
     property alias cursor: mouseArea.cursor
     property alias enabled: mouseArea.enabled
@@ -60,11 +60,11 @@ Item {
                 if (behavior.checkable) {
                     behavior.checked = !behavior.checked;
                 }
-                if (analitics && analitics.isValid()) {
-                    GoogleAnalytics.trackEvent(analitics.page,
-                                               analitics.category,
-                                               analitics.action,
-                                               analitics.label);
+                if (behavior.analytics && behavior.analytics.isValid()) {
+                    GoogleAnalytics.trackEvent(behavior.analytics.page,
+                                               behavior.analytics.category,
+                                               behavior.analytics.action,
+                                               behavior.analytics.label);
                 }
                 behavior.clicked(mouse);
             }

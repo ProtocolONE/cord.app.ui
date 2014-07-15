@@ -71,7 +71,6 @@
 		<file>Application/Core/App.qml</file>
 		<file>Application/Core/Authorization.js</file>
 		<file>Application/Core/Authorization/Vk.qml</file>
-		<file>Application/Core/GoogleAnalytics.js</file>
 		<file>Application/Core/MessageBox.js</file>
 		<file>Application/Core/MessageBox.qml</file>
 		<file>Application/Core/Modules/Host.js</file>
@@ -284,6 +283,7 @@
 		<file>GameNet/Controls/TypeaheadBehaviour.qml</file>
 		<file>GameNet/Controls/VerticalSplit.qml</file>
 		<file>GameNet/Controls/WebImage.qml</file>
+		<file>GameNet/Core/GoogleAnalytics.js</file>
 		<file>Main.qml</file>
 		<file>plugin/QXmpp/qmldir</file>
 		<file>plugin/Tulip/qmldir</file>

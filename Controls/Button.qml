@@ -12,6 +12,7 @@ import QtQuick 1.1
 Rectangle {
     id: control
 
+    property alias analytics: buttonBehavior.analytics
     property alias enabled: buttonBehavior.enabled
     property alias text: buttonText.text
     property alias fontSize: buttonText.font.pixelSize

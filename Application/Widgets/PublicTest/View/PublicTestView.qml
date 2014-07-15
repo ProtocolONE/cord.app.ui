@@ -12,7 +12,9 @@ import QtQuick 1.1
 import Application.Controls 1.0
 import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
-import "../../../Core/App.js" as AppJs
+
+import "../../../Core/App.js" as App
+import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetView {
     id: root
@@ -92,7 +94,13 @@ WidgetView {
                 width: 190
                 height: 48
                 text: qsTr("BUTTON_NOTIFY_SUPPORT")
-                onClicked: AppJs.openExternalUrl("http://support.gamenet.ru");
+                analytics: GoogleAnalyticsEvent {
+                    page: '/PublicTest'
+                    category: 'Public Test'
+                    action: 'support'
+                }
+
+                onClicked: App.openExternalUrl("http://support.gamenet.ru");
             }
 
             Button {
@@ -101,7 +109,13 @@ WidgetView {
                 width: 300
                 height: 48
                 text: qsTr("BUTTON_STOP_TESTING")
-                onClicked: AppJs.switchClientVersion();
+                analytics: GoogleAnalyticsEvent {
+                    page: '/PublicTest'
+                    category: 'Public Test'
+                    action: 'switch version'
+                }
+
+                onClicked: App.switchClientVersion();
             }
 
             Button {
@@ -109,8 +123,13 @@ WidgetView {
 
                 width: 100
                 height: 48
-
                 text: qsTr("BUTTON_CLOSE")
+                analytics: GoogleAnalyticsEvent {
+                    page: '/PublicTest'
+                    category: 'Public Test'
+                    action: 'close'
+                }
+
                 onClicked: root.close();
             }
         }

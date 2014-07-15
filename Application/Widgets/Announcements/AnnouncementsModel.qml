@@ -17,7 +17,7 @@ import Application.Blocks 1.0
 import "../../Core/TrayPopup.js" as PopupHelper
 import "../../Core/restapi.js" as RestApi
 import "../../Core/App.js" as App
-import "../../Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 import "./AnnouncementsModel.js" as AnnouncementsHelper
 

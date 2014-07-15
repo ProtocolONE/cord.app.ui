@@ -15,6 +15,7 @@ import GameNet.Controls 1.0
 
 import "../../../Core/App.js" as App
 import "GameAdBannerView.js" as GameAdBannerView
+import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetView {
     id: root
@@ -86,13 +87,18 @@ WidgetView {
             //  INFO: на всякий случай - если не задали поля для баннеров
             var textLabel = GameAdBannerView.filtered[root.index].description || "";
             var imageSource = GameAdBannerView.filtered[root.index].imageQgna;
+            var bannerId = GameAdBannerView.filtered[root.index].id;
 
             if (currentItem === content1) {
-                content2.setContent(imageSource, textLabel);
+                content2.source = imageSource;
+                content2.text = textLabel;
+                content2.bannerId = bannerId;
                 switchTo(content2);
                 currentItem = content2;
             } else {
-                content1.setContent(imageSource, textLabel);
+                content1.source = imageSource;
+                content1.text = textLabel;
+                content1.bannerId = bannerId;
                 switchTo(content1);
                 currentItem = content1;
             }
@@ -116,7 +122,14 @@ WidgetView {
 
         hoverEnabled: true
         anchors.fill: parent
-        onClicked: App.openExternalUrlWithAuth(GameAdBannerView.filtered[root.index].link);
+        onClicked: {
+            App.openExternalUrlWithAuth(GameAdBannerView.filtered[root.index].link);
+
+            GoogleAnalytics.trackEvent("/game/" + currentGameItem.gaName,
+                                       "Game " + currentGameItem.gaName,
+                                       "Game advertisement clicked",
+                                       contentSwitcher.currentItem.bannerId);
+        }
 
         //  HACK: работает только когда MouseArea (и соответственно контролы) лежат друг в друге
         ImageButton {

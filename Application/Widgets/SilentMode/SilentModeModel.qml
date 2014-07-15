@@ -16,6 +16,7 @@ import GameNet.Controls 1.0
 
 import "../../Core/App.js" as App
 import "../../Core/TrayPopup.js" as TrayPopup
+import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetModel {
     id: root
@@ -47,6 +48,13 @@ WidgetModel {
             id: popUp
 
             state: "Orange"
+
+            onPlayClicked: {
+                GoogleAnalytics.trackEvent('/announcement/silentmode', 'Announcement', 'Play');
+            }
+            onCloseButtonClicked: {
+                GoogleAnalytics.trackEvent('/announcement/silentmode', 'Announcement', 'Close');
+            }
         }
     }
 

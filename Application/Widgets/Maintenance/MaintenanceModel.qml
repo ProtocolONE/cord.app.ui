@@ -12,9 +12,9 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 
 import "../../Core/restapi.js" as RestApi
-import "../../Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../../Core/TrayPopup.js" as PopupHelper
-import "../../../Application/Core/App.js" as App
+import "../../Core/App.js" as App
 
 import "MaintenanceModel.js" as MaintenanceModel
 

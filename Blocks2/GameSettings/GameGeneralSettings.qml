@@ -13,6 +13,7 @@ import Tulip 1.0
 import GameNet.Controls 1.0
 
 import "../../Core/App.js" as App
+import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 Item {
     id: root
@@ -52,7 +53,7 @@ Item {
                 readOnly: true
                 path: gameSettingsModelInstance.installPath || ""
                 onBrowseClicked: gameSettingsModelInstance.browseInstallPath();
-		// INFO: правильнее будет при возможности переделать на
+                // INFO: правильнее будет при возможности переделать на
                 //path: App.getExpectedInstallPath(root.currentGame.serviceId);
                 //onBrowseClicked: {
                 //    var result = App.browseDirectory(root.currentGame.serviceId,
@@ -67,7 +68,6 @@ Item {
         }
 
         Item {
-            //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             visible: !!gameSettingsModelInstance.hasDownloadPath
             width: 500
             height: gameSettingsModelInstance.hasDownloadPath ? 68 : 0
@@ -108,7 +108,14 @@ Item {
 
                 fontSize: 14
                 text: qsTr("BUTTON_CREATE_DESKTOP_SHORTCUT")
-                onClicked: gameSettingsModel.createShortcutOnDesktop();
+                onClicked: {
+                    gameSettingsModel.createShortcutOnDesktop();
+
+                    GoogleAnalytics.trackEvent('/GameSettings',
+                                               'Settings',
+                                               'Create desktop shortcut',
+                                               'Game: ' + currentItem.gaName);
+                }
             }
 
             Button {
@@ -121,7 +128,14 @@ Item {
 
                 fontSize: 14
                 text: qsTr("BUTTON_CREATE_START_MENU_SHORTCUT")
-                onClicked: gameSettingsModel.createShortcutInMainMenu();
+                onClicked: {
+                    gameSettingsModel.createShortcutInMainMenu();
+
+                    GoogleAnalytics.trackEvent('/GameSettings',
+                                               'Settings',
+                                               'Create start menu shortcut',
+                                               'Game: ' + currentItem.gaName);
+                }
             }
         }
     }

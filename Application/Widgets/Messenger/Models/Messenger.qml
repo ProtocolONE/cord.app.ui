@@ -12,7 +12,7 @@ import Tulip 1.0
 import QXmpp 1.0
 import GameNet.Controls 1.0
 
-import "../../../Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 import "MessengerPrivate.js" as MessengerPrivateJs
 import "User.js" as UserJs

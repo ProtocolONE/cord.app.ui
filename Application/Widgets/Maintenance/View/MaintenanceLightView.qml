@@ -14,6 +14,7 @@ import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
 import "../../../Core/App.js" as App
+import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetView {
     id: root
@@ -129,6 +130,11 @@ WidgetView {
                             if (root.gameItem) {
                                 App.activateGameByServiceId(root.gameItem.serviceId);
                             }
+
+                            GoogleAnalytics.trackEvent('/Maintenance/',
+                                        'Game ' + root.gameItem.gaName,
+                                        'Activate My Game',
+                                        'MaintenanceLightView');
                         }
                     }
 

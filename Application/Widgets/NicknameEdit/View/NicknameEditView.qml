@@ -12,6 +12,8 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
+import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+
 WidgetView {
     id: root
 
@@ -236,6 +238,10 @@ WidgetView {
 
                 model.saveNickName(nickName.text);
                 model.saveTechName(techName.text);
+
+                GoogleAnalytics.trackEvent('NicknameEdit',
+                                           'Auth',
+                                           'Save nickname');
             }
         }
     }

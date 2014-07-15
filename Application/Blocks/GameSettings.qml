@@ -15,6 +15,7 @@ import Application.Blocks.GameSettings 1.0
 
 import "../Core/App.js" as App
 import "../Core/Popup.js" as Popup
+import "../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 Rectangle {
     id: root
@@ -84,7 +85,13 @@ Rectangle {
                             normal: "#3498BD"
                             hover: "#3670DC"
                         }
-                        onClicked: root.state = "GeneralPage";
+                        onClicked: {
+                            root.state = "GeneralPage";
+
+                            GoogleAnalytics.trackEvent('/ApplicationSettings',
+                                                       'Navigation',
+                                                       'Switch to GeneralPage');
+                        }
                     }
 
                     TextButton {
@@ -95,8 +102,14 @@ Rectangle {
                             normal: "#3498BD"
                             hover: "#3670DC"
                         }
-                        visible: root.currentGame ? root.currentGame.hasOverlay : false
-                        onClicked: root.state = "OverlayPage";
+                        visible: !!root.currentGame && root.currentGame.hasOverlay
+                        onClicked: {
+                            root.state = "OverlayPage";
+
+                            GoogleAnalytics.trackEvent('/ApplicationSettings',
+                                                       'Navigation',
+                                                       'Switch to OverlayPage');
+                        }
                     }
 
                     TextButton {
@@ -107,7 +120,13 @@ Rectangle {
                             normal: "#3498BD"
                             hover: "#3670DC"
                         }
-                        onClicked: root.state = "ControlPage";
+                        onClicked: {
+                            root.state = "ControlPage";
+
+                            GoogleAnalytics.trackEvent('/ApplicationSettings',
+                                                       'Navigation',
+                                                       'Switch to ControlPage');
+                        }
                     }
 
                 }
@@ -132,6 +151,10 @@ Rectangle {
                         gameSettingsModel.restoreClient();
                         App.navigate("mygame");
                         Popup.show('GameLoad');
+
+                        GoogleAnalytics.trackEvent('/ApplicationSettings',
+                                                   'Application',
+                                                   'Restore client');
                     }
                 }
             }

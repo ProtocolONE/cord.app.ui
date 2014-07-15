@@ -11,10 +11,10 @@
 import QtQuick 1.1
 import Tulip 1.0
 
-import "../../../Application/Core/App.js" as App
-import "../../../Application/Core/User.js" as User
-import "../../../Application/Core/MessageBox.js" as MessageBox
-import "../../../Application/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../Core/App.js" as App
+import "../../Core/User.js" as User
+import "../../Core/MessageBox.js" as MessageBox
+import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 //  UNDONE: на момент 04.07.2014 не ясно как прятать ненужные пункты меню в трее если приложение
 //  находится в состояни Loading, Authorization

@@ -20,9 +20,12 @@ import "../../../Core/Authorization.js" as Authorization
 import "../../../Core/App.js" as App
 import "../../../Core/User.js" as User
 import "../../../Core/Popup.js" as Popup
+import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetView {
     id: root
+
+    property variant gameItem: App.currentGame()
 
     implicitWidth: 180
     height: (!User.isSecondAuthorized() ? addAccountBlock.height : 0)
@@ -64,13 +67,17 @@ WidgetView {
 
                 width: parent.width
                 height: 24
-
                 style: ButtonStyleColors {
                     normal: "#1ABC9C"
                     hover: "#019074"
                 }
-
                 text: qsTr("PREMIUM_ADD_ACCOUNT")
+                analytics: GoogleAnalyticsEvent {
+                    page: '/SecondAccountAuth/'
+                    category: 'Auth'
+                    action: 'add account'
+                }
+
                 onClicked: Popup.show('SecondAccountAuth', 'SecondAccountAuthView')
             }
 
@@ -152,6 +159,12 @@ WidgetView {
                             hover: installPath + "/Assets/Images/Application/Widgets/SecondAccountAuth/logout.png"
                             disabled: installPath + "/Assets/Images/Application/Widgets/SecondAccountAuth/logout.png"
                         }
+
+                        analytics: GoogleAnalyticsEvent {
+                            page: '/SecondAccountAuth'
+                            category: 'Auth'
+                            action: 'logout second'
+                        }
                     }
                 }
             }
@@ -167,10 +180,16 @@ WidgetView {
                     normal: "#1ABC9C"
                     hover: "#019074"
                 }
-
                 text: qsTr("SECOND_GAME_BLOCK_PREMIUM_PLAY");
+                analytics: GoogleAnalyticsEvent {
+                    page: '/SecondAccountAuth'
+                    category: 'Auth'
+                    action: 'play second'
+                    label: root.gameItem ? 'game: ' + root.gameItem.serviceId : ""
+                }
+
                 onClicked: {
-                    App.executeSecondService(App.currentGame().serviceId, User.secondUserId() , User.secondAppKey());
+                    App.executeSecondService(root.gameItem.serviceId, User.secondUserId() , User.secondAppKey());
                 }
             }
         }

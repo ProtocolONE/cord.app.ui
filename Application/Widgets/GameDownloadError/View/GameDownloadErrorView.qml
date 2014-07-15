@@ -99,6 +99,13 @@ WidgetView {
                 width: 290
                 height: 48
                 text: qsTr("BUTTON_RETRY_PLAY")
+
+                analytics: GoogleAnalyticsEvent {
+                    page: "/GameDownloadError/"
+                    category: "Game " + gameItem.gaName
+                    action: "Retry button clicked"
+                }
+
                 onClicked: {
                     if (root.gameItem) {
                         App.downloadButtonStart(root.gameItem.serviceId);
@@ -109,11 +116,17 @@ WidgetView {
             }
 
             Button {
-                id: restartApplicatonButton
-
                 width: 220
                 height: 48
                 text: qsTr("BUTTON_RESTART_APPLICATION")
+
+                analytics: GoogleAnalyticsEvent {
+                    page: "/game/" + gameItem.gaName
+                    category: "Game " + gameItem.gaName
+                    action: "Restart button clicked"
+                }
+
+
                 onClicked: {
                     App.restartApplication();
                     root.close();
@@ -127,6 +140,13 @@ WidgetView {
                 height: 48
 
                 text: qsTr("BUTTON_NOTIFY_SUPPORT")
+
+                analytics: GoogleAnalyticsEvent {
+                    page: "/game/" + gameItem.gaName
+                    category: "Game " + gameItem.gaName
+                    action: "Support button clicked"
+                }
+
                 onClicked: {
                     root.close();
                     App.openExternalUrl("http://support.gamenet.ru");

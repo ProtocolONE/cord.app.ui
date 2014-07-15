@@ -12,7 +12,8 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
-import "../../../../Application/Core/App.js" as AppJs
+import "../../../Core/App.js" as App
+import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetView {
     id: root
@@ -135,7 +136,12 @@ WidgetView {
 
                     onActivate: {
                         App.navigate('mygame');
-                        App.activateGameByServiceId(serviceItem.serviceId)
+                        App.activateGameByServiceId(serviceItem.serviceId);
+
+                        GoogleAnalytics.trackEvent('/Maintenance/',
+                                    'Game ' + root.gameItem.gaName,
+                                    'Activate Maintenance Proposal 1',
+                                    'MaintenanceView');
                     }
                 }
 
@@ -144,7 +150,13 @@ WidgetView {
 
                     onActivate: {
                         App.navigate('mygame');
-                        App.activateGameByServiceId(serviceItem.serviceId)
+                        App.activateGameByServiceId(serviceItem.serviceId);
+
+                        GoogleAnalytics.trackEvent('/Maintenance/',
+                                    'Game ' + root.gameItem.gaName,
+                                    'Activate Maintenance Proposal 2',
+                                    'MaintenanceView');
+
                     }
                 }
             }

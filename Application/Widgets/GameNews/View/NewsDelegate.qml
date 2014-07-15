@@ -13,6 +13,7 @@ import GameNet.Controls 1.0
 
 import "../../../Core/App.js" as App
 import "../../../Core/moment.js" as Moment
+import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 Item {
     id: delegate
@@ -37,6 +38,11 @@ Item {
 
     function openNews(gameShortName, eventId) {
         App.openExternalUrlWithAuth("http://www.gamenet.ru/games/" + gameShortName + "/post/" + eventId);
+
+        GoogleAnalytics.trackEvent("/GameNews/",
+                              "Game " + gameShortName,
+                              "News clicked",
+                              eventId);
     }
 
     CursorMouseArea {

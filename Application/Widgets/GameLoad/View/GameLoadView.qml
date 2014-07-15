@@ -10,8 +10,9 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
+
 import "../../../Core/App.js" as App
-import "../../../Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetView {
     id: root
@@ -175,7 +176,14 @@ WidgetView {
                 text: qsTr("SHOW_STATISTICS")
                 fontSize: 14
                 style: TextButtonStyle {}
-                onClicked: stateGroup.state = "Detailed"
+
+                analytics: GoogleAnalyticsEvent {
+                    page: '/GameLoad/'
+                    category: 'Loading game ' + root.gameItem.gaName
+                    action: 'Show game loading details'
+                }
+
+                onClicked: stateGroup.state = "Detailed";
             }
 
             ProgressWidget {
