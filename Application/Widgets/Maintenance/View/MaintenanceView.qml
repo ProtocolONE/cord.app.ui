@@ -118,7 +118,7 @@ WidgetView {
                 width: parent.width - 30
                 height: 35
 
-                text: qsTr("MAINTENANCE_PROPOSAL_GAME_TEXT").arg(root.gameItem ? App.currentGame().name : "")
+                text: qsTr("MAINTENANCE_PROPOSAL_GAME_TEXT").arg(root.gameItem ? root.gameItem.name : "")
                 color: '#8ea4b9'
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 font { family: 'Arial'; pixelSize: 16 }

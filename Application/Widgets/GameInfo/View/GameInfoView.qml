@@ -19,6 +19,7 @@ WidgetView {
     id: root
 
     property int rotationTimeout: 5000
+    property variant gameItem: App.currentGame()
 
     width: 590
     height: 495
@@ -289,16 +290,6 @@ WidgetView {
             Text {
                 id: infoText
 
-                function getText() {
-                    var gameItem = App.currentGame();
-
-                    if (!gameItem) {
-                        return "";
-                    }
-
-                    return gameItem.aboutGameText.replace("<br/>", "\n").replace("<br>", "\n");
-                }
-
                 wrapMode: Text.WordWrap
                 anchors {
                     top: parent.bottom
@@ -314,7 +305,7 @@ WidgetView {
                 lineHeight: 20
                 maximumLineCount: 4
                 textFormat: Text.PlainText
-                text: getText();
+                text: root.gameItem ? root.gameItem.aboutGameText : ""
             }
         }
     }

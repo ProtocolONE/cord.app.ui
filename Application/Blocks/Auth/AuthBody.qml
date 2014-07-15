@@ -99,17 +99,22 @@ Item {
                     return;
                 }
 
-                if (response.code == RestApi.Error.INCORRECT_FORMAT_EMAIL) {
-                    loginInput.errorMessage = qsTr("AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT");
-                    loginInput.error = true;
-                    return;
-                }
+                if (response) {
+                    if (response.code == RestApi.Error.INCORRECT_FORMAT_EMAIL) {
+                        loginInput.errorMessage = qsTr("AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT");
+                        loginInput.error = true;
+                        return;
+                    }
 
-                if (response.code == RestApi.Error.AUTHORIZATION_FAILED) {
-                    passwordInput.errorMessage = qsTr("AUTH_FAIL_MESSAGE_WRONG");
-                    passwordInput.error = true;
-                    loginInput.errorMessage = "";
-                    loginInput.error = true;
+                    if (response.code == RestApi.Error.AUTHORIZATION_FAILED) {
+                        passwordInput.errorMessage = qsTr("AUTH_FAIL_MESSAGE_WRONG");
+                        passwordInput.error = true;
+                        loginInput.errorMessage = "";
+                        loginInput.error = true;
+                        return;
+                    }
+                } else {
+                    root.error(qsTr("AUTH_FAIL_GAMENET_UNAVAILABLE"));
                     return;
                 }
 

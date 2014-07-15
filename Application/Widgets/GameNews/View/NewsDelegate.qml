@@ -19,16 +19,19 @@ Item {
 
     property bool shouldShowDelimited: index != 0
     property string announcementText: announcement
-    property string previewImage
+    property string previewImage: ''
 
     clip: true
     implicitWidth: 590
     implicitHeight: index == 0 ? 130 : 139
 
     onAnnouncementTextChanged: {
-        var imageMatch = /<\!--p=(.+?)-->/.exec(announcementText);
-        if (imageMatch) {
-            previewImage = imageMatch[1];
+       var imageMatch = /<\!--p=(.+?)-->/.exec(announcementText);
+
+        if (imageMatch && imageMatch.length >= 2) {
+            delegate.previewImage = imageMatch[1];
+        } else {
+            delegate.previewImage = '';
         }
     }
 

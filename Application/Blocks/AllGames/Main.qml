@@ -10,17 +10,13 @@ Item {
     onVisibleChanged: {
         if (visible) {
             AllGamesJs.items.forEach(function(e){
-                if (e) {
-                    e.show();
-                }
+                e.show();
             });
             return;
         }
 
         AllGamesJs.items.forEach(function(e){
-            if (e) {
-                e.hide();
-            }
+            e.hide();
         });
     }
 
@@ -132,6 +128,7 @@ Item {
 //                var lineItem = lastObj.model.get(j);
 
             animationPause = currentRowIndex * 75 + 100 * countItems++;
+
             itemProperties = {
                 source: installPath + item.imageDefault,
                 serviceItem: item,

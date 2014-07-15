@@ -828,6 +828,10 @@ Please try again later.</source>
         <translation>Ваш аккаунт заблокирован. Для получения более подробной информации обратитесь в службу поддержки http://support.gamenet.ru</translation>
     </message>
     <message>
+        <source>AUTH_FAIL_GAMENET_UNAVAILABLE</source>
+        <translation>Вероятно, по нашей вине и мы работаем над скорейшим устранением этой проблемы. Но, возможно, это ваше интернет-соединение. Пожалуйста, на всякий случай проверьте ваше соединение.</translation>
+    </message>
+    <message>
         <source>AUTH_BODY_TITLE</source>
         <translation>Вход в аккаунт</translation>
     </message>
@@ -1980,7 +1984,8 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_CA_ABOUT_TEXT</source>
-        <translation>Combat Arms – ураганный онлайн шутер №1&lt;br/&gt;Динамичный геймплей, правильная графика и 300 видов стволов уже объединили два миллиона человек. Противостояние полиции и террористов, борьба с зомби на выживание, все доступно тебе в Combat Arms. Будь собой, бей, стреляй, круши и превращайся в зомби.</translation>
+        <translation>Combat Arms – ураганный онлайн шутер №1
+Динамичный геймплей, правильная графика и 300 видов стволов уже объединили два миллиона человек. Противостояние полиции и террористов, борьба с зомби на выживание, все доступно тебе в Combat Arms. Будь собой, бей, стреляй, круши и превращайся в зомби.</translation>
     </message>
     <message>
         <source>GAME_BS_ABOUT_TEXT</source>
@@ -2945,6 +2950,21 @@ Please try again later.</source>
     <message>
         <source>MESSAGE_STATE_INACTIVE</source>
         <translation>Отошел</translation>
+    </message>
+</context>
+<context>
+    <name>MessageBody</name>
+    <message>
+        <source>MESSAGE_TITLE</source>
+        <translation>В настоящий момент сервисы GameNet недоступны.</translation>
+    </message>
+    <message>
+        <source>OK_BUTTON_LABEL</source>
+        <translation>Ok</translation>
+    </message>
+    <message>
+        <source>MESSAGE_BODY</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

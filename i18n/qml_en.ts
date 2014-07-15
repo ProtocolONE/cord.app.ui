@@ -225,65 +225,70 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="103"/>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="121"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="104"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="125"/>
         <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="109"/>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="120"/>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="123"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="110"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="124"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="127"/>
         <source>AUTH_FAIL_MESSAGE_WRONG</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Application/Blocks/Auth/AuthBody.qml" line="117"/>
+        <source>AUTH_FAIL_GAMENET_UNAVAILABLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="121"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="122"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="126"/>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="152"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="156"/>
         <source>AUTH_BODY_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="171"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="175"/>
         <source>AUTH_BODY_LOGIN_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="200"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="204"/>
         <source>AUTH_BODY_PASSWORD_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="232"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="236"/>
         <source>AUTH_BODY_REMEMBER_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="246"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="250"/>
         <source>AUTH_BODY_AMNESIA_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="267"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="271"/>
         <source>AUTH_BODY_LOGIN_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="286"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="290"/>
         <source>AUTH_BODY_REGISTER_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="293"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="297"/>
         <source>AUTH_BODY_REGISTER_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
@@ -749,147 +754,147 @@
 <context>
     <name>GamesListModel</name>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="242"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="244"/>
         <source>LOGO_CA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="243"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="245"/>
         <source>GAME_CA_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="244"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="246"/>
         <source>GAME_CA_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="245"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="247"/>
         <source>GAME_CA_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="328"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="330"/>
         <source>LOGO_BS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="329"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="331"/>
         <source>GAME_BS_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="330"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="332"/>
         <source>GAME_BS_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="331"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="333"/>
         <source>GAME_BS_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="162"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="164"/>
         <source>LOGO_REBORN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="163"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="165"/>
         <source>GAME_REBORN_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="164"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="166"/>
         <source>GAME_REBORN_MINI_TOOLTIP</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="165"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="167"/>
         <source>GAME_REBORN_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="476"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="478"/>
         <source>LOGO_AIKA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="477"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="479"/>
         <source>GAME_AIKA_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="478"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="480"/>
         <source>GAME_AIKA_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="479"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="481"/>
         <source>GAME_AIKA_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="552"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="554"/>
         <source>LOGO_GA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="553"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="555"/>
         <source>GAME_GA_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="554"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="556"/>
         <source>GAME_GA_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="555"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="557"/>
         <source>GAME_GA_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="633"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="635"/>
         <source>LOGO_WI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="634"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="636"/>
         <source>GAME_WI_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="635"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="637"/>
         <source>GAME_WI_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="636"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="638"/>
         <source>GAME_WI_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="718"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="720"/>
         <source>LOGO_ROT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="719"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="721"/>
         <source>GAME_ROT_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="720"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="722"/>
         <source>GAME_ROT_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="721"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="723"/>
         <source>GAME_ROT_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="403"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="405"/>
         <source>LOGO_FJ</source>
         <translation type="unfinished"></translation>
     </message>
@@ -919,22 +924,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/GamesListModel.qml" line="84"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="85"/>
         <source>GAME_MENU_GAME_SETTINGS_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="404"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="406"/>
         <source>GAME_FJ_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="405"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="407"/>
         <source>GAME_FJ_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="406"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="408"/>
         <source>GAME_FJ_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
@@ -993,12 +998,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="120"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="121"/>
         <source>HEADER_BUTTON_SETTINGS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="137"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="139"/>
         <source>HEADER_BUTTON_LOGOUT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1019,17 +1024,17 @@
 <context>
     <name>Index</name>
     <message>
-        <location filename="../Application/Blocks/Auth/Index.qml" line="67"/>
+        <location filename="../Application/Blocks/Auth/Index.qml" line="66"/>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/Index.qml" line="71"/>
+        <location filename="../Application/Blocks/Auth/Index.qml" line="70"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/Index.qml" line="364"/>
+        <location filename="../Application/Blocks/Auth/Index.qml" line="368"/>
         <source>LOGIN_BY_GUEST_BUTTON_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1050,27 +1055,27 @@
 <context>
     <name>MaintenanceLightView</name>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="47"/>
+        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="48"/>
         <source>MAINTENANCE_LIGHT_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="84"/>
+        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="85"/>
         <source>HOUR_MAINTENANCE_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="89"/>
+        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="90"/>
         <source>MINUTE_MAINTENANCE_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="94"/>
+        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="95"/>
         <source>SECONDS_MAINTENANCE_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="141"/>
+        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="145"/>
         <source>MAINTENANCE_LIGHT_PROSOSAL_START_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1091,32 +1096,32 @@
 <context>
     <name>MaintenanceView</name>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/MaintenanceView.qml" line="52"/>
+        <location filename="../Application/Widgets/Maintenance/View/MaintenanceView.qml" line="53"/>
         <source>MAINTENANCE_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/MaintenanceView.qml" line="72"/>
+        <location filename="../Application/Widgets/Maintenance/View/MaintenanceView.qml" line="73"/>
         <source>MAINTENANCE_LABEL_END</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/MaintenanceView.qml" line="94"/>
+        <location filename="../Application/Widgets/Maintenance/View/MaintenanceView.qml" line="95"/>
         <source>HOUR_MAINTENANCE_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/MaintenanceView.qml" line="99"/>
+        <location filename="../Application/Widgets/Maintenance/View/MaintenanceView.qml" line="100"/>
         <source>MINUTE_MAINTENANCE_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/MaintenanceView.qml" line="104"/>
+        <location filename="../Application/Widgets/Maintenance/View/MaintenanceView.qml" line="105"/>
         <source>SECONDS_MAINTENANCE_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/MaintenanceView.qml" line="120"/>
+        <location filename="../Application/Widgets/Maintenance/View/MaintenanceView.qml" line="121"/>
         <source>MAINTENANCE_PROPOSAL_GAME_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1136,6 +1141,24 @@
     <message>
         <location filename="../Application/Widgets/Messenger/Models/Message.js" line="97"/>
         <source>MESSAGE_STATE_INACTIVE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MessageBody</name>
+    <message>
+        <location filename="../Application/Blocks/Auth/MessageBody.qml" line="28"/>
+        <source>MESSAGE_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/MessageBody.qml" line="42"/>
+        <source>MESSAGE_BODY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/MessageBody.qml" line="53"/>
+        <source>OK_BUTTON_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
