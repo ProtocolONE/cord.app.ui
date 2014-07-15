@@ -406,12 +406,12 @@ Item {
     }
 
     Connections {
-        target: App.mainWindowInstance()
-        onServiceStarted: gameStartedCallback(service)
-        onServiceFinished: gameClosedCallback(service)
+        target: App.signalBus()
+        onServiceStarted: gameStartedCallback(gameItem.serviceId)
+        onServiceFinished: gameClosedCallback(gameItem.serviceId)
         onServiceInstalled: {
             if (!App.isWindowVisible()) {
-                showGameInstalledAnnounce(serviceId);
+                showGameInstalledAnnounce(gameItem.serviceId);
             }
         }
     }
