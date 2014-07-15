@@ -1,9 +1,6 @@
 module Application.Blocks
 FlowView 1.0 FlowView.qml
-GameIcon 1.0 GameIcon.qml
 GamePopup 1.0 GamePopup.qml
-HomeItem 1.0 HomeItem.qml
-SettingsMenu 1.0 SettingsMenu.qml
 SplashScreen 1.0 SplashScreen.qml
 AuthIndex 1.0 Auth/Index.qml
 AppScreen 1.0 AppScreen.qml

@@ -182,7 +182,7 @@ Item {
         Image {
             id: arrowImage
 
-            source: installPath + "Assets/Images/elements/Tooltip/arrow.png"
+            source: installPath + "Assets/Images/GameNet/Controls/Tooltip/arrow.png"
         }
 
         states: [

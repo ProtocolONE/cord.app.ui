@@ -95,7 +95,7 @@ Item {
             });
         }
 
-        onInProgressChanged: AppProxy.setGlobalProgressVisible(d.inProgress);
+        onInProgressChanged: App.setGlobalProgressVisible(d.inProgress);
     }
 
     Column {

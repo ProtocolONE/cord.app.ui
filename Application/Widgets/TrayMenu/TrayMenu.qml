@@ -66,7 +66,7 @@ Item {
                 MessageBox.show(qsTr("CLOSE_APP_TOOLTIP_MESSAGE"),
                                 qsTr("CLOSE_APP_TOOLTIP_MESSAGE_DESC").arg(firstGame.name),
                                 MessageBox.button.Ok | MessageBox.button.Cancel, function(result) {
-                                    if (button != MessageBox.button.Ok) {
+                                    if (result != MessageBox.button.Ok) {
                                         return;
                                     }
 
