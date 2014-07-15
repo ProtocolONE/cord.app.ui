@@ -99,7 +99,6 @@ WidgetView {
 
                     CursorMouseArea {
                         anchors.fill: parent
-                        hoverEnabled: true
                         toolTip: qsTr("YOUR_GAMENET_LEVEL")
                         tooltipGlueCenter: true
                     }
@@ -119,14 +118,26 @@ WidgetView {
                 onNicknameClicked: AppJs.openEditNicknameDialog();
             }
 
-            Text {
-                id: balanceLabel
+            Row {
+                spacing: 4
+                Text {
+                    id: balanceLabel
 
-                width: 150
-                height: 18
-                color: "#FAFAFA"
-                font { family: "Arial"; pixelSize: 14 }
-                text: qsTr("GAMENET_BALANCE").arg(model.balance)
+                    height: 18
+                    color: "#FAFAFA"
+                    font { family: "Arial"; pixelSize: 14 }
+                    text: qsTr("GAMENET_BALANCE").arg(model.balance)
+                }
+
+                Image {
+                    anchors { bottom: balanceLabel.baseline; bottomMargin: -2 }
+                    source: installPath + "Assets/Images/Application/Widgets/UserProfile/coins.png"
+                    CursorMouseArea {
+                        anchors.fill: parent
+                        toolTip: qsTr("GN_MONEY")
+                        tooltipGlueCenter: true
+                    }
+                }
             }
 
             Button {

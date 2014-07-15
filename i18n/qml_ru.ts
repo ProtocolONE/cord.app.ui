@@ -2470,6 +2470,18 @@ Please try again later.</source>
         <source>HEADER_BUTTON_SUPPORT</source>
         <translation>Поддержка</translation>
     </message>
+    <message>
+        <source>HEADER_BUTTON_CLOSE</source>
+        <translation>Закрыть приложение</translation>
+    </message>
+    <message>
+        <source>HEADER_BUTTON_SETTINGS</source>
+        <translation>Настройки приложения</translation>
+    </message>
+    <message>
+        <source>HEADER_BUTTON_LOGOUT</source>
+        <translation>Выйти</translation>
+    </message>
 </context>
 <context>
     <name>Home</name>
@@ -3145,7 +3157,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>YOUR_NICKNAME</source>
-        <translation>Твой никнейм</translation>
+        <translation>Мой никнейм</translation>
     </message>
     <message>
         <source>ENTER_NICKNAME</source>
@@ -4530,15 +4542,15 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAMENET_BALANCE</source>
-        <translation>У тебя %1 GN-монет</translation>
+        <translation>У меня %1</translation>
     </message>
     <message>
         <source>YOUR_AVATAR</source>
-        <translation>Твой аватар</translation>
+        <translation>Мой аватар</translation>
     </message>
     <message>
         <source>YOUR_GAMENET_LEVEL</source>
-        <translation>Твой уровень</translation>
+        <translation>Мой уровень GameNet</translation>
     </message>
     <message>
         <source>PREMIUM_TOOLTIP</source>
@@ -4555,6 +4567,10 @@ Please try again later.</source>
     <message>
         <source>ADVANCED_ACCOUNT_HINT_TODAY</source>
         <translation>Истекает сегодня</translation>
+    </message>
+    <message>
+        <source>GN_MONEY</source>
+        <translation>Все игры GameNet бесплатны. За GN-монеты можно приобретать преимущества в игре.</translation>
     </message>
 </context>
 <context>

@@ -43,7 +43,8 @@ Item {
 
         anchors.fill: parent
         hoverEnabled: true
-        tooltipGlueCenter: true
+        tooltipGlueCenter: false
+        tooltipPosition: "N"
         onClicked: root.nicknameClicked()
     }
 
