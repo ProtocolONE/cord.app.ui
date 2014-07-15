@@ -24,7 +24,6 @@
 		<file>Application/Blocks/Auth/LoginInput.qml</file>
 		<file>Application/Blocks/Auth/MessageBody.qml</file>
 		<file>Application/Blocks/Auth/PasswordInput.qml</file>
-		<file>Application/Blocks/Auth/qmldir</file>
 		<file>Application/Blocks/Auth/RegistrationBody.qml</file>
 		<file>Application/Blocks/Auth/ServiceLoading.qml</file>
 		<file>Application/Blocks/DownloadStatus.qml</file>
@@ -66,6 +65,7 @@
 		<file>Application/Controls/Player.qml</file>
 		<file>Application/Controls/Player/Wrapper.qml</file>
 		<file>Application/Controls/qmldir</file>
+		<file>Application/Controls/ScrollArea.qml</file>
 		<file>Application/Controls/ScrollBar.qml</file>
 		<file>Application/Core/App.js</file>
 		<file>Application/Core/App.qml</file>
@@ -198,6 +198,10 @@
 		<file>Application/Widgets/Money/View/OldTinyScrollbar.qml</file>
 		<file>Application/Widgets/Money/View/TabItem.qml</file>
 		<file>Application/Widgets/Money/View/WebViewItem.qml</file>
+		<file>Application/Widgets/MyGamesMenu/MyGamesMenuModel.qml</file>
+		<file>Application/Widgets/MyGamesMenu/PluginContainer.qml</file>
+		<file>Application/Widgets/MyGamesMenu/qmldir</file>
+		<file>Application/Widgets/MyGamesMenu/View/MyGamesMenuView.qml</file>
 		<file>Application/Widgets/NicknameEdit/NicknameEditModel.qml</file>
 		<file>Application/Widgets/NicknameEdit/PluginContainer.qml</file>
 		<file>Application/Widgets/NicknameEdit/qmldir</file>

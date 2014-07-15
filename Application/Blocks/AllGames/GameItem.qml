@@ -224,7 +224,9 @@ Rectangle {
             anchors.centerIn: parent
             opacity: root.selected ? 1 : 0
             text: qsTr("START_GAME_BUTTON")
-            onClicked: App.downloadButtonStart(serviceItem.serviceId)
+            onClicked: {
+                App.downloadButtonStart(serviceItem.serviceId);
+            }
 
             Behavior on opacity {
                 PropertyAnimation { duration: 200 }

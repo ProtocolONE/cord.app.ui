@@ -169,20 +169,6 @@ Item {
                     disabled: '#949494'
                 }
 
-                Keys.onPressed: {
-                    if (!root.gameItem) {
-                        return;
-                    }
-
-                    var shoudlIgnoreMaintenance = (event.key === Qt.Key_M)
-                            && (event.modifiers & Qt.ShiftModifier)
-                            && (event.modifiers & Qt.ControlModifier);
-
-                    if (shoudlIgnoreMaintenance) {
-                        root.gameItem.ignoreMaintenance = true;
-                    }
-                }
-
                 onClicked: {
                     if (!root.gameItem) {
                         return;

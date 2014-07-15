@@ -65,6 +65,10 @@ function downloaderStarted(gameItem) {
     _signalBusInstance.downloaderStarted(gameItem);
 }
 
+function serviceUpdated(gameItem) {
+    _signalBusInstance.serviceUpdated(gameItem);
+}
+
 function navigate(link, from) {
      _signalBusInstance.navigate(link, from);
 }

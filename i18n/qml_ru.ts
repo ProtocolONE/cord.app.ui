@@ -873,6 +873,17 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>BaseLayer</name>
+    <message>
+        <source>MY_GAMES_CAPTION_MENU</source>
+        <translation type="unfinished">Мои игры</translation>
+    </message>
+    <message>
+        <source>MY_GAMES_MENU_NEWS</source>
+        <translation type="unfinished">Общая лента новостей</translation>
+    </message>
+</context>
+<context>
     <name>ButtonBig</name>
     <message>
         <source>ADD_ACCOUNT_BUTTON_LABEL</source>

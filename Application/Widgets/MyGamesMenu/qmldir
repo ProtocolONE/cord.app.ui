@@ -1,0 +1,4 @@
+module Application.Widgets.MyGamesMenu
+PluginContainer 1.0 PluginContainer.qml 
+MyGamesMenuModel 1.0 MyGamesMenuModel.qml
+MyGamesMenuView 1.0 View/MyGamesMenuView.qml

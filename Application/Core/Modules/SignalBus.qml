@@ -39,6 +39,7 @@ QtObject {
     signal serviceInstalled(variant gameItem);
     signal serviceStarted(variant gameItem);
     signal serviceFinished(variant gameItem);
+    signal serviceUpdated(variant gameItem);
     signal downloaderStarted(variant gameItem);
     signal navigate(string link, string from);
     signal publicTestIconClicked();

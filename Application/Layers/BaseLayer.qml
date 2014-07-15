@@ -53,6 +53,10 @@ Rectangle {
             if (page == "allgame") {
                 root.state = "AllGames";
             }
+
+            if (link == "mygames") {
+                root.state = "MyGames";
+            }
         }
     }
 
@@ -117,6 +121,12 @@ Rectangle {
 
             anchors.fill: parent
             onSwitchTo: App.navigate(page);
+            myGamesMenuEnable: App.isMyGamesEnabled();
+
+            Connections {
+                target: App.signalBus()
+                onServiceUpdated: header.myGamesMenuEnable = App.isMyGamesEnabled();
+            }
         }
 
         Item {
@@ -193,7 +203,7 @@ Rectangle {
                         id: gameMenu
 
                         anchors.fill: parent
-                        model: App.currentGame() ? App.currentGame().menu : null
+                        model: root.hasCurrentGame ? root.currentGame.menu : undefined
 
                         onUrlClicked: App.openExternalUrlWithAuth(url);
                         onPageClicked: {
@@ -251,152 +261,149 @@ Rectangle {
             }
         }
 
-        Item {
+        ScrollArea {
             id: aboutGame
 
             width: 590
             height: 600 - header.implicitHeight
 
-            Item {
-                anchors { fill: parent }
-                clip: true
+            WidgetContainer {
+                width: viewInstance.width
+                height: viewInstance.height
 
-                Flickable {
-                    id: aboutGameFlickable
-
-                    anchors { fill: parent }
-                    contentWidth: width
-                    boundsBehavior: Flickable.StopAtBounds
-
-                    Connections {
-                        target: gameMenu
-                        onPageClicked: aboutGameFlickable.contentY = 0;
-                    }
-
-                    Connections {
-                        target: App.signalBus()
-                        onNavigate: aboutGameFlickable.contentY = 0;
-                    }
-
-                    Column {
-                        width: parent.width
-                        onHeightChanged: aboutGameFlickable.contentHeight = height;
-
-                        WidgetContainer {
-                            width: viewInstance.width
-                            height: viewInstance.height
-
-                            widget: 'GameInfo'
-                        }
-
-                        Rectangle {
-                            height: 1
-                            width: parent.width
-                            color: '#e1e5e8'
-                        }
-
-                        WidgetContainer {
-                            width: parent.width
-                            height: viewInstance.height
-
-                            widget: 'GameNews'
-                        }
-                    }
-                }
+                widget: 'GameInfo'
             }
 
-            ScrollBar {
-                flickable: aboutGameFlickable
-                anchors {
-                    right: parent.right
-                    rightMargin: 2
-                }
-                height: parent.height
-                scrollbarWidth: 5
+            Rectangle {
+                height: 1
+                width: parent.width
+                color: '#e1e5e8'
+            }
+
+            WidgetContainer {
+                width: parent.width
+                height: viewInstance.height
+
+                widget: 'GameNews'
             }
         }
 
-        // TODO ниже верстку вынести куда то?
-        Item {
+        ScrollArea {
             id: centerBlock
 
             width: 590
             height: 600 - header.implicitHeight
 
-            Item {
-                anchors { fill: parent }
-                clip: true
+            Rectangle {
+                id: maintenanceRect
 
-                Flickable {
-                    id: flickable
+                width: parent.width
+                height: 112
+                color: '#082135'
+                visible: root.hasCurrentGame
+                         && root.currentGame.maintenance
+                         && root.currentGame.allreadyDownloaded
 
-                    anchors { fill: parent }
-                    contentWidth: width
-                    boundsBehavior: Flickable.StopAtBounds
+                WidgetContainer {
+                    anchors.centerIn: parent
 
-                    Connections {
-                        target: gameMenu
-                        onPageClicked: flickable.contentY = 0;
-                    }
+                    width: viewInstance.width
+                    height: viewInstance.height
 
-                    Connections {
-                        target: App.signalBus()
-                        onNavigate: flickable.contentY = 0;
-                    }
-
-                    Column {
-                        width: parent.width
-
-                        onHeightChanged: flickable.contentHeight = height;
-
-                        Rectangle {
-                            id: maintenanceRect
-
-                            width: parent.width
-                            height: 112
-                            color: '#082135'
-                            visible: App.currentGame() ? (App.currentGame().maintenance && App.currentGame().allreadyDownloaded) : false
-
-                            WidgetContainer {
-                                anchors.centerIn: parent
-
-                                width: viewInstance.width
-                                height: viewInstance.height
-
-                                widget: 'Maintenance'
-                                view: 'MaintenanceLightView'
-                            }
-                        }
-
-                        WidgetContainer {
-                            widget: 'GameAdBanner'
-                        }
-
-                        WidgetContainer {
-                            width: parent.width
-                            height: 40
-
-                            widget: 'Facts'
-                        }
-
-                        WidgetContainer {
-                            width: parent.width
-                            height: viewInstance.height
-
-                            widget: 'GameNews'
-                        }
-                    }
+                    widget: 'Maintenance'
+                    view: 'MaintenanceLightView'
                 }
             }
 
-            ScrollBar {
-                flickable: flickable
-                anchors {
-                    right: parent.right
-                    rightMargin: 2
+            WidgetContainer {
+                widget: 'GameAdBanner'
+            }
+
+            WidgetContainer {
+                width: parent.width
+                height: 40
+
+                widget: 'Facts'
+            }
+
+            WidgetContainer {
+                width: parent.width
+                height: viewInstance.height
+
+                widget: 'GameNews'
+            }
+        }
+
+        ScrollArea {
+            id: myGamesMenuCenterBlock
+
+            width: 590
+            height: 600 - header.implicitHeight
+
+            WidgetContainer {
+                width: parent.width
+                height: viewInstance.height
+
+                widget: 'GameNews'
+                view: 'NewsMyGames'
+            }
+        }
+
+        Item {
+            id: myGamesMenu
+
+            width: 180
+            height: 600 - header.implicitHeight
+
+            Column {
+                anchors.fill: parent
+
+                Item {
+                    height: 56
+                    width: parent.width - 1
+
+                    Rectangle {
+                        anchors.fill: parent
+                        color: '#071828'
+                    }
+
+                    Rectangle {
+                        width: 3
+                        height: parent.height
+                        anchors.right: parent.right
+                        color: '#fdcd00'
+                    }
+
+                    Text {
+                        font { family: 'Arial'; pixelSize: 16 }
+                        text: qsTr("MY_GAMES_CAPTION_MENU")
+                        anchors {
+                            left: parent.left
+                            top: parent.top
+                            margins: 10
+                        }
+                        color: '#5d7081'
+                    }
+
+                    Text {
+                        font { family: 'Arial'; pixelSize: 12 }
+                        text: qsTr("MY_GAMES_MENU_NEWS")
+                        anchors {
+                            left: parent.left
+                            top: parent.top
+                            leftMargin: 10
+                            topMargin: 32
+                        }
+                        color: '#5d7081'
+                    }
+
                 }
-                height: parent.height
-                scrollbarWidth: 5
+
+                WidgetContainer {
+                    width: 180
+                    height: myGamesMenu.height - 56
+                    widget: 'MyGamesMenu'
+                }
             }
         }
 
@@ -471,6 +478,19 @@ Rectangle {
 
             PropertyChanges { target: gameBlock; parent: layer1Col1}
             PropertyChanges { target: aboutGame; parent: layer1Col2}
+
+            PropertyChanges { target: userProfile; parent: layer2Col2}
+            PropertyChanges { target: contactList; parent: layer2Col2}
+        }
+        ,
+        State {
+            name: "MyGames"
+
+            PropertyChanges { target: header; parent: layer1headerContair}
+
+            PropertyChanges { target: myGamesMenu; parent: layer2Col1}
+
+            PropertyChanges { target: myGamesMenuCenterBlock; parent: layer1Col2}
 
             PropertyChanges { target: userProfile; parent: layer2Col2}
             PropertyChanges { target: contactList; parent: layer2Col2}

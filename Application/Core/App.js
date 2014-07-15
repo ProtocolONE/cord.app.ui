@@ -15,6 +15,7 @@
 var indexToGameItem = {},
     gameIdToGameItem = {},
     serviceIdToGameItemIdex = {},
+    serviceStartButtonClicked = {},
     authAccepted = false,
     count = 0,
     clientWidth = 1000,
@@ -178,4 +179,48 @@ function secondServiceFinished(service) {
 
 function getRegisteredServices() {
     return Object.keys(serviceIdToGameItemIdex);
+}
+
+function isMyGamesEnabled() {
+    var count = 0;
+
+    if (Object.keys(serviceStartButtonClicked).length >= 2) {
+        return true;
+    }
+
+    for (var i = 0; i < gamesListModel.count; ++i) {
+        var item = gamesListModel.get(i);
+
+        if (isShownInMyGames(item.serviceId)) {
+            count ++;
+        }
+
+        if (count >= 2) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+function isShownInMyGames(serviceId) {
+    if (serviceStartButtonClicked[serviceId]) {
+        return true;
+    }
+
+    return settingsValue("gameInstallBlock/serviceStartButtonOnceClicked", serviceId, 0) == 1;
+}
+
+function setShowInMyGames(serviceId, value) {
+    if (value && !serviceStartButtonClicked.hasOwnProperty(serviceId)) {
+        setSettingsValue("gameInstallBlock/serviceStartButtonOnceClicked", serviceId, 1);
+        serviceStartButtonClicked[serviceId] = true;
+        serviceUpdated(serviceItemByServiceId(serviceId));
+    }
+
+    if (!value && serviceStartButtonClicked.hasOwnProperty(serviceId)) {
+        setSettingsValue("gameInstallBlock/serviceStartButtonOnceClicked", serviceId, 0);
+        delete serviceStartButtonClicked[serviceId];
+        serviceUpdated(serviceItemByServiceId(serviceId));
+    }
 }

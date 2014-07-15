@@ -299,6 +299,19 @@
     </message>
 </context>
 <context>
+    <name>BaseLayer</name>
+    <message>
+        <location filename="../Application/Layers/BaseLayer.qml" line="316"/>
+        <source>MY_GAMES_CAPTION_MENU</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Layers/BaseLayer.qml" line="326"/>
+        <source>MY_GAMES_MENU_NEWS</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CaptchaInput</name>
     <message>
         <location filename="../Application/Blocks/Auth/CaptchaInput.qml" line="55"/>
@@ -378,27 +391,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="63"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="66"/>
         <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="176"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="180"/>
         <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="199"/>
-        <source>TEXT_PROGRESSBAR_REHASH_NOW_STATE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="213"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="205"/>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="214"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="206"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -584,27 +592,27 @@
 <context>
     <name>GameInstallBlock</name>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="144"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="124"/>
         <source>BUTTON_PLAY_NOT_INSTALLED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="145"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="125"/>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="146"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="126"/>
         <source>BUTTON_PLAY_ON_DETAILS_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="147"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="127"/>
         <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="148"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="128"/>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -988,17 +996,17 @@
 <context>
     <name>Header</name>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="74"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="71"/>
         <source>HEADER_BUTTON_MY_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="58"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="59"/>
         <source>HEADER_BUTTON_ALL_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="90"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="81"/>
         <source>HEADER_BUTTON_SUPPORT</source>
         <translation type="unfinished"></translation>
     </message>

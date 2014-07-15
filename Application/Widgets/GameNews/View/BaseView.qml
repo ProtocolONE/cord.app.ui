@@ -29,7 +29,7 @@ Item {
     }
 
     width: 590
-    height: listView.count * 148
+    height: listView.count * 149
 
     Rectangle {
         anchors.fill: parent

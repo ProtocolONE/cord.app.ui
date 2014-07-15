@@ -1,4 +1,5 @@
 import QtQuick 1.1
+import Tulip 1.0
 
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
@@ -15,7 +16,10 @@ WidgetView {
 
         for (var i = 0; i < App.gamesListModel.count; ++i) {
             var item = App.gamesListModel.get(i);
-            if (item && App.isServiceInstalled(item.serviceId)) {
+
+            if (item &&
+                item.enabled &&
+                App.isShownInMyGames(item.serviceId)) {
                 if (result == '-1') {
                     result = 'gameId=' + item.gameId;
                 } else {
@@ -25,6 +29,12 @@ WidgetView {
         }
 
         return result;
+    }
+
+    Connections {
+        target: App.signalBus()
+
+        onServiceUpdated: root.filterGameId = serviceList();
     }
 
     width: baseView.width
