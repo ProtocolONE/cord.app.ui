@@ -28,19 +28,18 @@ Rectangle {
 
     color: "#FAFAFA"
 
-    Component.onCompleted: {
-        if (Settings.value("qml/auth/", "authDone", 0) == 0 && !App.isSilentMode()) {
-            authContainer.state = "registration";
-            return;
-        }
-
-        d.autoLogin();
-    }
+    Component.onCompleted: d.autoLogin();
 
     QtObject {
         id: d
 
         property bool vkAuthInProgress: false
+
+        function isAnyAuthorizationWasDone() {
+            var refreshDate = Settings.value("qml/auth/", "refreshDate", -1),
+                authDone = Settings.value("qml/auth/", "authDone", 0);
+            return refreshDate > 0 || authDone == 1;
+        }
 
         function showError(message) {
             messageBody.backState = authContainer.state;
@@ -110,7 +109,7 @@ Rectangle {
                 var guest = CredentialStorage.loadGuest();
 
                 if (!guest || !guest.userId || !guest.appKey || !guest.cookie) {
-                    authContainer.state = "auth";
+                    authContainer.state = d.isAnyAuthorizationWasDone() ? "auth" : "registration";
 
                     if (App.isSilentMode()) {
                         var auth = new Authorization.ProviderGuest(),
@@ -204,6 +203,11 @@ Rectangle {
             id: centralSwitcher
 
             anchors.fill: parent
+            onSwitchFinished: {
+                if (authContainer.state === "serviceLoading") {
+                   serviceLoading.startTimer();
+                }
+            }
 
             ServiceLoading {
                 id: serviceLoading
@@ -213,7 +217,6 @@ Rectangle {
                 property string cookie
 
                 anchors.fill: parent
-
                 onFinished: App.authDone(userId, appKey, cookie);
             }
 
@@ -279,6 +282,7 @@ Rectangle {
         }
 
         state: ""
+
         states: [
             State {
                 name: "auth"

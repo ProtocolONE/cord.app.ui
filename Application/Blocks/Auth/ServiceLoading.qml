@@ -7,9 +7,11 @@ Rectangle {
 
     signal finished();
 
-    color: "#FAFAFA"
+    function startTimer() {
+        progressTimer.start();
+    }
 
-    onVisibleChanged: if (visible) progressTimer.start();
+    color: "#FAFAFA"
 
     Text {
         anchors {
@@ -28,6 +30,8 @@ Rectangle {
     ProgressBar {
         id: progressBar
 
+        property bool foolproof: false
+
         Timer {
             id: progressTimer
 
@@ -36,6 +40,12 @@ Rectangle {
 
             onTriggered: {
                 if (++progressBar.progress > 100) {
+                    if (progressBar.foolproof) {
+                        console.log('Double service loading finish fail.');
+                        return;
+                    }
+
+                    progressBar.foolproof = true;
                     root.finished();
                     progressTimer.stop();
                 }
