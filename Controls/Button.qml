@@ -56,16 +56,16 @@ Rectangle {
     StateGroup {
         states: [
             State {
+                name: "Hover"
+                when: buttonBehavior.containsMouse && !control.inProgress
+                PropertyChanges { target: control; color: control.style.hover}
+            },
+            State {
                 name: ""
                 when: !control.inProgress
                 PropertyChanges { target: control; color: control.style.normal}
                 PropertyChanges { target: buttonText; visible: true }
-                PropertyChanges { target: root; enabled: true }
-            },
-            State {
-                name: "Hover"
-                when: buttonBehavior.containsMouse && !control.inProgress
-                PropertyChanges { target: control; color: control.style.hover}
+                PropertyChanges { target: control; enabled: true }
             },
             State {
                 name: "Disabled"
@@ -77,7 +77,7 @@ Rectangle {
                 when: control.inProgress
                 PropertyChanges { target: inProgressIcon; visible: true }
                 PropertyChanges { target: buttonText; visible: false }
-                PropertyChanges { target: root; enabled: false }
+                PropertyChanges { target: control; enabled: false }
             }
         ]
     }

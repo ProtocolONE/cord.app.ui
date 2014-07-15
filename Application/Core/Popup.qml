@@ -83,9 +83,6 @@ Item {
         ParallelAnimation {
             PropertyAnimation { target: firstContainer; property: "opacity"; from: 0; to: 1; duration: 200 }
             PropertyAnimation { target: substrate; property: "opacity"; from: 0; to: 1; duration: 200 }
-
-            PropertyAnimation { target: substrate; property: "width"; to: firstContainer.width; duration: 125 }
-            PropertyAnimation { target: substrate; property: "height"; to: firstContainer.height; duration: 125 }
         }
 
         ScriptAction { script: d.tryShowHelp(); }
@@ -115,7 +112,24 @@ Item {
         id: substrate
 
         anchors.centerIn: parent
-        color: '#f0f5f8'    
+        color: '#f0f5f8'
+
+        width: firstContainer.width
+        height: firstContainer.height
+
+        Behavior on width {
+             NumberAnimation { duration: 125 }
+        }
+
+        Behavior on height {
+             NumberAnimation { duration: 125 }
+        }
+
+        CursorMouseArea {
+            anchors.fill: parent
+            hoverEnabled: true
+            cursor: CursorArea.ArrowCursor
+        }
     }
 
     WidgetContainer {

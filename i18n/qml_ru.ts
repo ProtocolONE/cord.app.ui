@@ -1325,6 +1325,13 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>DownloadStatus</name>
+    <message>
+        <source>DOWNLOAD_STATUS_ERROR</source>
+        <translation>Ошибка</translation>
+    </message>
+</context>
+<context>
     <name>EnterNickname</name>
     <message>
         <source>TITLE_SET_NICKNAME</source>
@@ -1620,6 +1627,29 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>GameDownloadErrorView</name>
+    <message>
+        <source>GAME_DOWNLOAD_ERROR_TITLE</source>
+        <translation>Внимание</translation>
+    </message>
+    <message>
+        <source>GAME_DOWNLOAD_ERROR_TEXT</source>
+        <translation>Что-то пошло не так. Пожалуйста, проверьте не закончилось ли у вас место на диске и активно ли подключение к интернет. Если с этим всё в порядке, мы предлагаем вам:</translation>
+    </message>
+    <message>
+        <source>BUTTON_RETRY_PLAY</source>
+        <translation>Попробовать запустить игру ещё раз</translation>
+    </message>
+    <message>
+        <source>BUTTON_RESTART_APPLICATION</source>
+        <translation>Перезагрузить приложение</translation>
+    </message>
+    <message>
+        <source>BUTTON_NOTIFY_SUPPORT</source>
+        <translation>Обратиться в службу поддержки</translation>
+    </message>
+</context>
+<context>
     <name>GameExecutingView</name>
     <message>
         <source>GAME_EXECUTING_HEADER</source>
@@ -1672,11 +1702,11 @@ Please try again later.</source>
     <name>GameInstallBlock</name>
     <message>
         <source>BUTTON_PLAY_NOT_INSTALLED</source>
-        <translation type="unfinished">Начать игру</translation>
+        <translation>Начать игру</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>
-        <translation type="unfinished">Играть</translation>
+        <translation>Начать игру</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_ON_PAUSE_STATE</source>
@@ -1684,15 +1714,19 @@ Please try again later.</source>
     </message>
     <message>
         <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
-        <translation type="unfinished">Пауза</translation>
+        <translation>Остановить</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
-        <translation type="unfinished">Играть</translation>
+        <translation>Начать игру</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_ON_DETAILS_STATE</source>
-        <translation type="unfinished">Подробнее</translation>
+        <translation>Подробнее</translation>
+    </message>
+    <message>
+        <source>BUTTON_PLAY_ERROR_STATE</source>
+        <translation>Починить</translation>
     </message>
 </context>
 <context>

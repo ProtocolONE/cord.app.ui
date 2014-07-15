@@ -11,7 +11,7 @@ import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
 
-import "../../../Elements/Tooltip" as Tooltip
+//import "../../../Elements/Tooltip" as Tooltip
 
 Rectangle {
     id: root
@@ -98,5 +98,5 @@ Rectangle {
     }
 
 
-    Tooltip.Tooltip {}
+    //Tooltip.Tooltip {}
 }

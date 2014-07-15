@@ -464,10 +464,46 @@
     </message>
 </context>
 <context>
+    <name>DownloadStatus</name>
+    <message>
+        <location filename="../Application/Blocks/DownloadStatus.qml" line="37"/>
+        <source>DOWNLOAD_STATUS_ERROR</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Footer</name>
     <message>
         <location filename="../Application/Blocks/Auth/Footer.qml" line="36"/>
         <source>AUTH_FOOTER_ALTERNATIVE_LOGIN</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GameDownloadErrorView</name>
+    <message>
+        <location filename="../Application/Widgets/GameDownloadError/View/GameDownloadErrorView.qml" line="53"/>
+        <source>GAME_DOWNLOAD_ERROR_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameDownloadError/View/GameDownloadErrorView.qml" line="73"/>
+        <source>GAME_DOWNLOAD_ERROR_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameDownloadError/View/GameDownloadErrorView.qml" line="101"/>
+        <source>BUTTON_RETRY_PLAY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameDownloadError/View/GameDownloadErrorView.qml" line="116"/>
+        <source>BUTTON_RESTART_APPLICATION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameDownloadError/View/GameDownloadErrorView.qml" line="129"/>
+        <source>BUTTON_NOTIFY_SUPPORT</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -533,28 +569,33 @@
 <context>
     <name>GameInstallBlock</name>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="123"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="143"/>
         <source>BUTTON_PLAY_NOT_INSTALLED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="124"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="144"/>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="125"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="145"/>
         <source>BUTTON_PLAY_ON_DETAILS_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="126"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="146"/>
         <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="127"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="147"/>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="148"/>
+        <source>BUTTON_PLAY_ERROR_STATE</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1170,12 +1211,12 @@
 <context>
     <name>NotificationSettings</name>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/NotificationSettings.qml" line="48"/>
+        <location filename="../Application/Blocks/ApplicationSettings/NotificationSettings.qml" line="47"/>
         <source>CHECKBOX_NOTIFICATION_MAINTENANCE_END</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/NotificationSettings.qml" line="66"/>
+        <location filename="../Application/Blocks/ApplicationSettings/NotificationSettings.qml" line="65"/>
         <source>CHECKBOX_NOTIFICATION_MESSANGER_RECEIVED_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1191,7 +1232,7 @@
 <context>
     <name>Popup</name>
     <message>
-        <location filename="../Application/Core/Popup.qml" line="175"/>
+        <location filename="../Application/Core/Popup.qml" line="189"/>
         <source>POPUP_HELP_HINT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>

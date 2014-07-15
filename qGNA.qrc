@@ -128,6 +128,9 @@
 		<file>Application/Widgets/GameAdBanner/qmldir</file>
 		<file>Application/Widgets/GameAdBanner/View/GameAdBannerView.js</file>
 		<file>Application/Widgets/GameAdBanner/View/GameAdBannerView.qml</file>
+		<file>Application/Widgets/GameDownloadError/PluginContainer.qml</file>
+		<file>Application/Widgets/GameDownloadError/qmldir</file>
+		<file>Application/Widgets/GameDownloadError/View/GameDownloadErrorView.qml</file>
 		<file>Application/Widgets/GameExecuting/GameExecutingModel.qml</file>
 		<file>Application/Widgets/GameExecuting/PluginContainer.qml</file>
 		<file>Application/Widgets/GameExecuting/qmldir</file>
@@ -175,6 +178,8 @@
 		<file>Application/Widgets/Maintenance/View/MaintenanceLightView.qml</file>
 		<file>Application/Widgets/Maintenance/View/MaintenanceView.qml</file>
 		<file>Application/Widgets/Maintenance/View/TimeTextLabel.qml</file>
+		<file>Application/Widgets/Messenger/Addons/MessageReceived.qml</file>
+		<file>Application/Widgets/Messenger/Addons/Popups.qml</file>
 		<file>Application/Widgets/Messenger/Model.qml</file>
 		<file>Application/Widgets/Messenger/Models/Group.js</file>
 		<file>Application/Widgets/Messenger/Models/Message.js</file>
@@ -200,10 +205,6 @@
 		<file>Application/Widgets/Money/View/OldTinyScrollbar.qml</file>
 		<file>Application/Widgets/Money/View/TabItem.qml</file>
 		<file>Application/Widgets/Money/View/WebViewItem.qml</file>
-		<file>Application/Widgets/MyGamesMenu/MyGamesMenuModel.qml</file>
-		<file>Application/Widgets/MyGamesMenu/PluginContainer.qml</file>
-		<file>Application/Widgets/MyGamesMenu/qmldir</file>
-		<file>Application/Widgets/MyGamesMenu/View/MyGamesMenuView.qml</file>
 		<file>Application/Widgets/NicknameEdit/NicknameEditModel.qml</file>
 		<file>Application/Widgets/NicknameEdit/PluginContainer.qml</file>
 		<file>Application/Widgets/NicknameEdit/qmldir</file>
@@ -308,6 +309,7 @@
 		<file>Tests/Application/Widgets/AnnoucementsSample.qml</file>
 		<file>Tests/Application/Widgets/FactsSample.qml</file>
 		<file>Tests/Application/Widgets/GameAdBannerSample.qml</file>
+		<file>Tests/Application/Widgets/GameDownloadErrorSample.qml</file>
 		<file>Tests/Application/Widgets/GameExecutingSample.qml</file>
 		<file>Tests/Application/Widgets/GameFailedSample.qml</file>
 		<file>Tests/Application/Widgets/GameInfoSample.qml</file>

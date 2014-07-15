@@ -24,7 +24,7 @@ Item {
     property variant gameItem: App.currentGame()
 
     width: 180
-    height: button.isStartDownloading || button.isStarting ? 137 : 101
+    height: button.isStartDownloading || button.isStarting || button.isError ? 137 : 101
 
     Behavior on height {
         NumberAnimation { id: heightAnimation; duration: 250 }
@@ -77,7 +77,7 @@ Item {
                 }
 
                 color: '#ffffff'
-                text: root.gameItem.name
+                text: root.gameItem ? root.gameItem.name : ""
             }
 
             Text {
@@ -87,7 +87,7 @@ Item {
                 }
 
                 color: '#597082'
-                text: root.gameItem.shortDescription
+                text: root.gameItem ? root.gameItem.shortDescription : ""
             }
 
             Button {
@@ -112,41 +112,63 @@ Item {
                     return false;
                 }
 
-                property bool isInstalled: App.isServiceInstalled(root.gameItem.serviceId)
-                property bool isStartDownloading: root.gameItem.status === "Downloading"
-                property bool isStarting: root.gameItem.status === "Starting"
-                property bool isError: root.gameItem.status === "Error"
-                property bool isPause: root.gameItem.status === "Paused"
-                property bool isDetailed: root.gameItem.status === "Paused"
-                property bool allreadyDownloaded: root.gameItem.allreadyDownloaded
+                function getText() {
+                    if (isError) {
+                        return buttonErrorText;
+                    }
+
+                    if (allreadyDownloaded) {
+                        return buttonDownloadedText;
+                    }
+
+                    if (isStartDownloading) {
+                        return buttonDetailsText;
+                    }
+
+                    if (isInstalled) {
+                        return buttonText;
+                    }
+
+                    return buttonNotInstalledText;
+                }
+
+                property bool isInstalled: root.gameItem ? (App.isServiceInstalled(root.gameItem.serviceId)) : false
+                property bool isStartDownloading: root.gameItem ? (root.gameItem.status === "Downloading") : false
+                property bool isStarting: root.gameItem ? (root.gameItem.status === "Starting") : false
+                property bool isError: root.gameItem ? (root.gameItem.status === "Error") : false
+                property bool isPause: root.gameItem ? (root.gameItem.status === "Paused") : false
+                property bool isDetailed: root.gameItem ? (root.gameItem.status === "Paused") : false
+                property bool allreadyDownloaded: root.gameItem ? (root.gameItem.allreadyDownloaded) : false
 
                 property string buttonNotInstalledText: qsTr("BUTTON_PLAY_NOT_INSTALLED")
                 property string buttonText: qsTr("BUTTON_PLAY_DEFAULT_STATE")
                 property string buttonDetailsText: qsTr("BUTTON_PLAY_ON_DETAILS_STATE")
                 property string buttonDownloadText: qsTr("BUTTON_PLAY_DOWNLOADING_NOW_STATE")
                 property string buttonDownloadedText: qsTr("BUTTON_PLAY_DOWNLOADED_AND_READY_STATE")
+                property string buttonErrorText: qsTr("BUTTON_PLAY_ERROR_STATE")
 
                 width: 160
                 height: 35
 
                 enabled: !testStarted()
-
-                text: allreadyDownloaded ? buttonDownloadedText
-                                         : isStartDownloading ? buttonDetailsText
-                                                              : isInstalled ?
-                                                                    buttonText : buttonNotInstalledText
+                text: button.getText()
 
                 style: ButtonStyleColors {
-                    property bool isDefaultColor: root.gameItem.status === "Normal" && !button.isInstalled
+                    property bool isDefaultColor: root.gameItem ? (root.gameItem.status === "Normal" && !button.isInstalled) : false
 
-                    normal: isDefaultColor ? "#ff4f02" : "#567dd8"
-                    hover: isDefaultColor ? "#ff7902" : "#5e89ee"
+                    normal: button.isError ? "#cc0000" : (isDefaultColor ? "#ff4f02" : "#567dd8")
+                    hover: button.isError ? "#ee0000" : (isDefaultColor ? "#ff7902" : "#5e89ee")
                 }
 
 
                 onClicked: {
+                    if (button.isError) {
+                        Popup.show('GameDownloadError');
+                        return;
+                    }
+
                     var status = root.gameItem.status,
-                            serviceId = root.gameItem.serviceId;
+                        serviceId = root.gameItem.serviceId;
 
                     if (button.isStartDownloading) {
                         Popup.show('GameLoad');
@@ -181,13 +203,20 @@ Item {
         DownloadStatus {
             id: downloadStatus
 
+            function isVisible() {
+                if (heightAnimation.running) {
+                    return false;
+                }
+
+                return button.isStartDownloading || button.isStarting || button.isError;
+            }
+
             anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
             height: 25
             serviceItem: root.gameItem
             textColor: '#597082'
             spacing: 6
-            opacity: (button.isStartDownloading || button.isStarting) && !heightAnimation.running ?
-                         1 : 0 // TODO добавить анимацию прозрачности
+            opacity: downloadStatus.isVisible() ? 1 : 0// TODO добавить анимацию прозрачности
         }
     }
 }

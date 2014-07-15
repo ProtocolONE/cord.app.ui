@@ -140,4 +140,7 @@ QtObject {
         mainWindow.terminateSecondService();
     }
 
+    function restartApplication(sameArgs) {
+        mainWindow.restartApplication(sameArgs || false);
+    }
 }

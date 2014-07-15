@@ -134,7 +134,7 @@ function isPublicTestVersion() {
     if (proxyInst) {
         return proxyInst.isPublicTestVersion();
     }
-    return false;
+    return true;
 }
 
 function switchClientVersion() {
@@ -182,4 +182,12 @@ function terminateSecondService() {
         proxyInst.terminateSecondService();
     }
 }
+
+function restartApplication(sameArgs) {
+    if (proxyInst) {
+        proxyInst.restartApplication(sameArgs);
+    }
+}
+
+
 

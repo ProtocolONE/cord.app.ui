@@ -96,6 +96,8 @@ Rectangle {
             manager.registerWidget('Application.Widgets.NicknameEdit');
             manager.registerWidget('Application.Widgets.AccountActivation');
             manager.registerWidget('Application.Widgets.PublicTest');
+            manager.registerWidget('Application.Widgets.SecondAccountAuth');
+            manager.registerWidget('Application.Widgets.GameDownloadError');
             manager.init();
         }
     }
