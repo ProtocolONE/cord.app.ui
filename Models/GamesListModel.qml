@@ -147,6 +147,7 @@ ListModel {
         gaName: "Reborn" // Never change please
 
         maintenance: false
+        ignoreMaintenance: false
         maintenanceInterval: 0
         maintenanceProposal1: "300009010000000000"
         maintenanceProposal2: "300003010000000000"
@@ -220,6 +221,7 @@ ListModel {
         gaName: "CombatArms" // Never change please
 
         maintenance: false
+        ignoreMaintenance: false
         maintenanceInterval: 0
         maintenanceProposal1: "300012010000000000"
         maintenanceProposal2: "300003010000000000"
@@ -299,6 +301,7 @@ ListModel {
         gaName: "BloodAndSoul" // Never change please
 
         maintenance: false
+        ignoreMaintenance: false
         maintenanceInterval: 0
         maintenanceProposal1: "300002010000000000"
         maintenanceProposal2: "300012010000000000"
@@ -378,6 +381,7 @@ ListModel {
         gaName: "Reborn" // Never change please
 
         maintenance: false
+        ignoreMaintenance: false
         maintenanceInterval: 0
         maintenanceProposal1: "300009010000000000"
         maintenanceProposal2: "300003010000000000"
@@ -445,6 +449,7 @@ ListModel {
         gaName: "Aika2" // Never change please
 
         maintenance: false
+        ignoreMaintenance: false
         maintenanceInterval: 0
         maintenanceProposal1: "300003010000000000"
         maintenanceProposal2: "300012010000000000"
@@ -523,6 +528,7 @@ ListModel {
         gaName: "GoldenAge" // Never change please
 
         maintenance: false
+        ignoreMaintenance: false
         maintenanceInterval: 0
         maintenanceProposal1: "300003010000000000"
         maintenanceProposal2: "300012010000000000"
@@ -604,6 +610,7 @@ ListModel {
         gaName: "FireStorm" // Never change please
 
         maintenance: false
+        ignoreMaintenance: false
         maintenanceInterval: 0
         maintenanceProposal1: "300012010000000000"
         maintenanceProposal2: "300002010000000000"
@@ -728,6 +735,7 @@ ListModel {
         gaName: "RageOfTitans" // Never change please
 
         maintenance: false
+        ignoreMaintenance: false
         maintenanceInterval: 0
         maintenanceProposal1: "300003010000000000"
         maintenanceProposal2: "300012010000000000"

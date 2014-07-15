@@ -84,6 +84,12 @@ WidgetModel {
                 continue;
             }
 
+            if (item.ignoreMaintenance) {
+                item.maintenance = false;
+                item.maintenanceInterval = 0;
+                continue;
+            }
+
             startTime = schedule[index].startTime * multiplier;
 
             //INFO maintenanceEndPause корректно отработает и выключился, потому, что будет вызван из maintCheck, т.о. состояние
@@ -111,6 +117,7 @@ WidgetModel {
             };
 
             var maintenance = currentTime >= startTime && currentTime < endTime;
+
             item.maintenance = maintenance;
             item.maintenanceInterval = Math.round((endTime - currentTime) / 1000);
 

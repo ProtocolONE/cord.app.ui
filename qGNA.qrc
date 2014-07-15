@@ -24,11 +24,11 @@
 		<file>Application/Blocks/Auth/LoginInput.qml</file>
 		<file>Application/Blocks/Auth/MessageBody.qml</file>
 		<file>Application/Blocks/Auth/PasswordInput.qml</file>
+		<file>Application/Blocks/Auth/qmldir</file>
 		<file>Application/Blocks/Auth/RegistrationBody.qml</file>
 		<file>Application/Blocks/Auth/ServiceLoading.qml</file>
 		<file>Application/Blocks/DownloadStatus.qml</file>
 		<file>Application/Blocks/FlowView.qml</file>
-		<file>Application/Blocks/GameIcon.qml</file>
 		<file>Application/Blocks/GameInstallBlock.qml</file>
 		<file>Application/Blocks/GameLoad/Main.qml</file>
 		<file>Application/Blocks/GameLoad/ProgressWidget.qml</file>
@@ -51,12 +51,7 @@
 		<file>Application/Blocks/Header/HeaderControlButton.qml</file>
 		<file>Application/Blocks/Header/PublicTestButton.qml</file>
 		<file>Application/Blocks/Header/qmldir</file>
-		<file>Application/Blocks/HomeItem.qml</file>
-		<file>Application/Blocks/Premium/Main.qml</file>
-		<file>Application/Blocks/Premium/PayItem.qml</file>
-		<file>Application/Blocks/Premium/qmldir</file>
 		<file>Application/Blocks/qmldir</file>
-		<file>Application/Blocks/SettingsMenu.qml</file>
 		<file>Application/Blocks/ShakeAnimation.qml</file>
 		<file>Application/Blocks/SocialNet.qml</file>
 		<file>Application/Blocks/SplashScreen.qml</file>
@@ -295,6 +290,7 @@
 		<file>qGNA_Main.qml</file>
 		<file>Tests/Application/Blocks/AllGames.qml</file>
 		<file>Tests/Application/Blocks/ApplicationSettingsSample.qml</file>
+		<file>Tests/Application/Blocks/DownloadStatusSample.qml</file>
 		<file>Tests/Application/Blocks/GameLoadSample.qml</file>
 		<file>Tests/Application/Blocks/GameMenuSample.qml</file>
 		<file>Tests/Application/Blocks/GameSettingsSample.qml</file>

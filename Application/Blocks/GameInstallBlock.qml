@@ -157,6 +157,8 @@ Item {
                 enabled: !testStarted()
                 text: button.getText()
 
+                focus: true
+
                 style: ButtonStyleColors {
                     property bool isDefaultColor: root.gameItem
                                                   ? (root.gameItem.status === "Normal" && !button.isInstalled)
@@ -167,9 +169,31 @@ Item {
                     disabled: '#949494'
                 }
 
+                Keys.onPressed: {
+                    if (!root.gameItem) {
+                        return;
+                    }
+
+                    var shoudlIgnoreMaintenance = (event.key === Qt.Key_M)
+                            && (event.modifiers & Qt.ShiftModifier)
+                            && (event.modifiers & Qt.ControlModifier);
+
+                    if (shoudlIgnoreMaintenance) {
+                        root.gameItem.ignoreMaintenance = true;
+                    }
+                }
 
                 onClicked: {
                     if (!root.gameItem) {
+                        return;
+                    }
+
+                    if (root.gameItem.maintenance) {
+                        button.forceActiveFocus();
+                    }
+
+                    if (button.isError) {
+                        Popup.show('GameDownloadError');
                         return;
                     }
 

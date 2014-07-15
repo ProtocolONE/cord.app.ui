@@ -21,7 +21,6 @@ import "Application"
 import "Application/Core/App.js" as App
 import "Application/Core/User.js" as User
 
-import "Application/Core/restapi.js" as RestApi // @@DEBUG
 Rectangle {
     id: root
 
