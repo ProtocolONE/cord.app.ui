@@ -4,12 +4,18 @@ import "./Switcher.js" as Js
 Item {
     id: root
 
+    property bool forceFocus: false
+
     default property alias child: stash.data
 
     signal switchFinished();
 
     function switchTo(nextItem) {
         nextItem.visible = 1;
+
+        if (root.forceFocus) {
+            nextItem.forceActiveFocus();
+        }
 
         if (!Js.currentItem) {
             Js.currentItem = nextItem;

@@ -203,6 +203,7 @@ Rectangle {
             id: centralSwitcher
 
             anchors.fill: parent
+            forceFocus: true
             onSwitchFinished: {
                 if (authContainer.state === "serviceLoading") {
                    serviceLoading.startTimer();

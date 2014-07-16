@@ -20,13 +20,13 @@ Item {
     property string login
     property bool codeSended: false
 
+    signal success();
+    signal cancel();
+
     implicitHeight: 473
     implicitWidth: 500
 
     onVisibleChanged: requestError.error = false;
-
-    signal success();
-    signal cancel();
 
     QtObject {
         id: d

@@ -16,7 +16,7 @@ import "../../../Application/Core/Authorization.js" as Authorization
 import "../../../Application/Core/restapi.js" as RestApi
 import "../../../Application/Core/App.js" as AppProxy
 
-Item {
+FocusScope {
     id: root
 
     property alias login: loginInput.text
@@ -29,6 +29,8 @@ Item {
 
     implicitHeight: 473
     implicitWidth: 500
+    Component.onCompleted: loginInput.focus = true;
+    Keys.onTabPressed: loginInput.forceActiveFocus();
 
     QtObject {
         id: d
@@ -79,6 +81,7 @@ Item {
 
                 if (error === Authorization.Result.CaptchaRequired) {
                     d.refreshCaptcha();
+                    passwordInput.forceActiveFocus();
                     if (d.captchaRequired) {
                         captchInput.errorMessage = qsTr("AUTH_BODY_CAPTCHA_FAILED");
                         captchInput.error = true;

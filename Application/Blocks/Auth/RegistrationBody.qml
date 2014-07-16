@@ -15,7 +15,7 @@ import GameNet.Controls 1.0
 import "../../../Application/Core/Authorization.js" as Authorization
 import "../../../Application/Core/App.js" as App
 
-Item {
+FocusScope {
     id: root
 
     property alias login: loginInput.text
@@ -27,6 +27,8 @@ Item {
 
     implicitHeight: 473
     implicitWidth: 500
+    Component.onCompleted: loginInput.focus = true;
+    Keys.onTabPressed: loginInput.forceActiveFocus();
 
     QtObject {
         id: d
