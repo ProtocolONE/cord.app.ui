@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.0" language="en_US">
 <context>
     <name>AccountActivationView</name>
     <message>
@@ -225,70 +225,75 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="104"/>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="125"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="108"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="133"/>
         <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="110"/>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="124"/>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="127"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="120"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="132"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="135"/>
         <source>AUTH_FAIL_MESSAGE_WRONG</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="117"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="103"/>
         <source>AUTH_FAIL_GAMENET_UNAVAILABLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="121"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="114"/>
+        <source>AUTH_FAIL_MESSAGE_ACCOUNT_NOT_EXISTS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="129"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="126"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="134"/>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="156"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="164"/>
         <source>AUTH_BODY_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="175"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="183"/>
         <source>AUTH_BODY_LOGIN_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="204"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="212"/>
         <source>AUTH_BODY_PASSWORD_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="236"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="244"/>
         <source>AUTH_BODY_REMEMBER_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="250"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="258"/>
         <source>AUTH_BODY_AMNESIA_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="271"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="279"/>
         <source>AUTH_BODY_LOGIN_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="290"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="298"/>
         <source>AUTH_BODY_REGISTER_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="297"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="305"/>
         <source>AUTH_BODY_REGISTER_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
@@ -373,22 +378,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="65"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="63"/>
         <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="179"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="176"/>
         <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="204"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="201"/>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="205"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="202"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1009,19 +1014,6 @@
     </message>
 </context>
 <context>
-    <name>HomeItem</name>
-    <message>
-        <location filename="../Application/Blocks/HomeItem.qml" line="199"/>
-        <source>TO_PLAY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/HomeItem.qml" line="232"/>
-        <source>DETAILS</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>Index</name>
     <message>
         <location filename="../Application/Blocks/Auth/Index.qml" line="66"/>
@@ -1152,12 +1144,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/MessageBody.qml" line="42"/>
-        <source>MESSAGE_BODY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/Auth/MessageBody.qml" line="53"/>
+        <location filename="../Application/Blocks/Auth/MessageBody.qml" line="52"/>
         <source>OK_BUTTON_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1686,7 +1673,7 @@
     <name>Tray</name>
     <message>
         <source>TRAY_TOOLTIP</source>
-        <translation type="vanished">GameNet</translation>
+        <translation>GameNet</translation>
     </message>
 </context>
 <context>
