@@ -50,11 +50,9 @@ Item {
             destroyInterval: 5000
 
             onAnywhereClicked: {
-                var user = {jid: jid}
-                if (!App.isWindowVisible()) {
-                    App.activateWindow();
-                }
+                var user = {jid: jid};
 
+                App.activateWindow();
                 MessengerJs.selectUser(user)
             }
         }
