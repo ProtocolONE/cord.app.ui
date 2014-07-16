@@ -3170,21 +3170,6 @@ Please try again later.</source>
     </message>
 </context>
 <context>
-    <name>NicknameEdit</name>
-    <message>
-        <source>SET_NICKNAME</source>
-        <translation>Установить никнейм</translation>
-    </message>
-    <message>
-        <source>YOUR_NICKNAME</source>
-        <translation>Мой никнейм</translation>
-    </message>
-    <message>
-        <source>ENTER_NICKNAME</source>
-        <translation>Введи свой никнейм</translation>
-    </message>
-</context>
-<context>
     <name>NicknameEditModel</name>
     <message>
         <source>VALIDATE_NICK_NAME_DEFAULT_ERROR</source>
@@ -4591,6 +4576,18 @@ Please try again later.</source>
     <message>
         <source>GN_MONEY</source>
         <translation>Все игры GameNet бесплатны. За GN-монеты можно приобретать преимущества в игре.</translation>
+    </message>
+    <message>
+        <source>NO_NICKNAME</source>
+        <translation>Введи свой никнейм</translation>
+    </message>
+    <message>
+        <source>SET_NICKNAME</source>
+        <translation>Установить никнейм</translation>
+    </message>
+    <message>
+        <source>YOUR_NICKNAME</source>
+        <translation>Мой никнейм</translation>
     </message>
 </context>
 <context>

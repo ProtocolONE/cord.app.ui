@@ -34,6 +34,8 @@ WidgetView {
         id: d
 
         property bool nickNameLowBoundReached: false
+        property bool nickNameOk: false
+        property bool techNameOk: false
         property bool nickNameSaved: false
         property bool techNameSaved: false
 
@@ -105,6 +107,7 @@ WidgetView {
 
                 Connections {
                     target: model
+
                     onNickNameError: {
                         if (!d.nickNameLowBoundReached) {
                             nickName.error = false;
@@ -119,8 +122,8 @@ WidgetView {
                     }
                     onNickNameOk: {
                         nickName.errorMessage = qsTr("NICKNAME_OK");
-                        nickName.error = true;
-                        nickName.style.text = "#1ABC9C";
+                        nickName.error = false;
+                        d.nickNameOk = true;
                     }
                     onTechNameError: {
                         if (!d.nickNameLowBoundReached) {
@@ -136,8 +139,8 @@ WidgetView {
                     }
                     onTechNameOk: {
                         techName.errorMessage = qsTr("NICKNAME_OK");
-                        techName.error = true;
-                        techName.style.text = "#1ABC9C";
+                        techName.error = false;
+                        d.techNameOk = true;
                     }
                     onNickNameSaved: {
                         d.nickNameSaved = true;
@@ -151,27 +154,47 @@ WidgetView {
                     }
                 }
 
-                InputWithError {
-                    id: nickName
+                Item {
+                    width: nickName.width
+                    height: nickName.height
 
-                    width: body.width
-                    icon: installPath + "Assets/Images/Application/Widgets/NicknameEdit/nickname.png"
-                    showLanguage: true
-                    placeholder: qsTr("YOUR_NICKNAME_PLACEHOLDER")
+                    InputWithError {
+                        id: nickName
 
-                    onTextChanged: {
-                        if (!d.nickNameLowBoundReached && nickName.text.length > 4) {
-                            d.nickNameLowBoundReached = true;
+                        width: body.width
+                        icon: installPath + "Assets/Images/Application/Widgets/NicknameEdit/nickname.png"
+                        showLanguage: true
+                        placeholder: qsTr("YOUR_NICKNAME_PLACEHOLDER")
+
+                        onTextChanged: {
+                            d.nickNameOk = false;
+
+                            if (!d.nickNameLowBoundReached && nickName.text.length > 4) {
+                                d.nickNameLowBoundReached = true;
+                            }
+
+                            techName.text = model.generateTechNick(nickName.text);
                         }
+                        onValidate: {
+                            if (!d.nickNameLowBoundReached) {
+                                return;
+                            }
 
-                        techName.text = model.generateTechNick(nickName.text);
+                            model.validateNickName(nickName.text);
+                        }
                     }
-                    onValidate: {
-                        if (!d.nickNameLowBoundReached) {
-                            return;
-                        }
 
-                        model.validateNickName(nickName.text);
+                    Image {
+                        width: 30
+                        height: 30
+                        fillMode: Image.PreserveAspectFit
+                        visible: d.nickNameOk
+                        source: installPath + "Assets/Images/Application/Widgets/NicknameEdit/ok.png"
+                        anchors {
+                            right: nickName.right
+                            rightMargin: 5
+                            verticalCenter: nickName.verticalCenter
+                        }
                     }
                 }
 
@@ -200,12 +223,28 @@ WidgetView {
                         x: 238
                         width: 352
                         placeholder: qsTr("PROFILE_LINK_PLACEHOLDER")
+                        onTextChanged: {
+                            d.techNameOk = false;
+                        }
                         onValidate: {
                             if (!d.nickNameLowBoundReached) {
                                 return;
                             }
 
                             model.validateTechName(value);
+                        }
+                    }
+
+                    Image {
+                        width: 30
+                        height: 30
+                        fillMode: Image.PreserveAspectFit
+                        visible: d.techNameOk
+                        source: installPath + "Assets/Images/Application/Widgets/NicknameEdit/ok.png"
+                        anchors {
+                            right: techName.right
+                            rightMargin: 5
+                            verticalCenter: techName.verticalCenter
                         }
                     }
                 }

@@ -17,7 +17,9 @@ import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 Item {
     id: root
 
-    property string nickname
+    property alias nickname: nickText.text
+    property alias tooltip: cursorArea.toolTip
+
     signal nicknameClicked()
 
     Text {
@@ -54,22 +56,5 @@ Item {
                                        'Profile',
                                        'nickname clicked');
         }
-    }
-
-    StateGroup {
-        states: [
-            State {
-                name: "NicknameNotSpecified"
-                when: !root.nickname
-                PropertyChanges { target: nickText; text: qsTr("ENTER_NICKNAME") }
-                PropertyChanges { target: cursorArea; toolTip: qsTr("SET_NICKNAME") }
-            },
-            State {
-                name: "AlreadyHasNickname"
-                when: root.nickname != ""
-                PropertyChanges { target: nickText; text: root.nickname }
-                PropertyChanges { target: cursorArea; toolTip: qsTr("YOUR_NICKNAME") }
-            }
-        ]
     }
 }

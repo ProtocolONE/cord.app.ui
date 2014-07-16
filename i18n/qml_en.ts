@@ -1163,24 +1163,6 @@
     </message>
 </context>
 <context>
-    <name>NicknameEdit</name>
-    <message>
-        <location filename="../Application/Widgets/UserProfile/View/NicknameEdit.qml" line="56"/>
-        <source>ENTER_NICKNAME</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/UserProfile/View/NicknameEdit.qml" line="57"/>
-        <source>SET_NICKNAME</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/UserProfile/View/NicknameEdit.qml" line="63"/>
-        <source>YOUR_NICKNAME</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>NicknameEditModel</name>
     <message>
         <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="68"/>
@@ -1780,17 +1762,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="129"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="127"/>
+        <source>NO_NICKNAME</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="128"/>
+        <source>YOUR_NICKNAME</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="128"/>
+        <source>SET_NICKNAME</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="144"/>
         <source>GAMENET_BALANCE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="137"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="152"/>
         <source>GN_MONEY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="146"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="161"/>
         <source>ADD_MONEY</source>
         <translation type="unfinished"></translation>
     </message>

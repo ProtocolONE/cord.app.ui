@@ -131,10 +131,6 @@ function indexByServiceId(serviceId) {
 /**
  * Application specific functions
  */
-function openEditNicknameDialog() {
-    console.log("!!! IMPLEMENT ME: App.js::openEditNicknameDialog()");
-}
-
 function replenishAccount() {
     openExternalUrlWithAuth("http://www.gamenet.ru/money");
 }

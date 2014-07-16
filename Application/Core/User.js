@@ -53,8 +53,16 @@ function getBalance() {
     return _userComponentInstance.balance;
 }
 
+function setNickname(value) {
+    _userComponentInstance.nickname = value;
+}
+
 function getNickname() {
     return _userComponentInstance.nickname;
+}
+
+function setTechname(value) {
+    _userComponentInstance.nametech = value;
 }
 
 function getTechName() {

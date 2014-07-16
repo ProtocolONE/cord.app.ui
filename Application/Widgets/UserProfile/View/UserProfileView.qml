@@ -122,8 +122,13 @@ WidgetView {
                 width: 150
                 height: 18
 
-                nickname: model.nickname
-                onNicknameClicked: App.openEditNicknameDialog();
+                nickname: nicknameValid ? model.nickname : qsTr("NO_NICKNAME")
+                tooltip: nicknameValid ? qsTr("YOUR_NICKNAME") : qsTr("SET_NICKNAME")
+                onNicknameClicked: {
+                    if (!nicknameValid) {
+                        Popup.show('NicknameEdit');
+                    }
+                }
             }
 
             Row {

@@ -10,6 +10,8 @@
 
 import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
+
+import "../../Core/User.js" as User
 import "../../Core/restapi.js" as RestApiJs
 
 WidgetModel {
@@ -150,6 +152,7 @@ WidgetModel {
                                         root.nickNameValid = true;
                                         d.nickNameSaved = true;
                                         d.nickNameError = "";
+                                        User.setNickname(nickName);
                                         root.nickNameSaved();
                                     },
                                     function(error) {
@@ -183,6 +186,7 @@ WidgetModel {
                                             root.techNameValid = true;
                                             d.techNameSaved = true;
                                             d.techNameError = "";
+                                            User.setTechname(techName);
                                             root.techNameSaved();
                                         },
                                         function(error) {
