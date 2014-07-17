@@ -408,22 +408,8 @@ Rectangle {
             widget: 'UserProfile'
         }
 
-        Rectangle {
-            id: fakeChat
-
-            color: "cyan"
-            width: 230
-            height: parent.height - userProfile.height
-
-            Text {
-                color: "#FFFFFF"
-                font.pixelSize: 40
-                text: "Contats list"
-            }
-        }
-
-        Rectangle {
-            id: fakeAllGames
+        AllGames.Main {
+            id: allGames
 
             color: "blue"
             width: 180+590
