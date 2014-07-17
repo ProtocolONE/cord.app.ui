@@ -269,6 +269,7 @@
 		<file>GameNet/Controls/Input.qml</file>
 		<file>GameNet/Controls/InputBehaviour.qml</file>
 		<file>GameNet/Controls/InputStyleColors.qml</file>
+		<file>GameNet/Controls/ListViewScrollBar.qml</file>
 		<file>GameNet/Controls/PageSwitcher.js</file>
 		<file>GameNet/Controls/PageSwitcher.qml</file>
 		<file>GameNet/Controls/ParallaxLayer.qml</file>
@@ -288,72 +289,9 @@
 		<file>GameNet/Controls/VerticalSplit.qml</file>
 		<file>GameNet/Controls/WebImage.qml</file>
 		<file>GameNet/Core/GoogleAnalytics.js</file>
+		<file>GameNet/Core/RestApi.js</file>
 		<file>Main.qml</file>
 		<file>plugin/QXmpp/qmldir</file>
 		<file>plugin/Tulip/qmldir</file>
-		<file>qGNA_Main.qml</file>
-		<file>Tests/Application/Blocks/AllGames.qml</file>
-		<file>Tests/Application/Blocks/ApplicationSettingsSample.qml</file>
-		<file>Tests/Application/Blocks/DownloadStatusSample.qml</file>
-		<file>Tests/Application/Blocks/GameLoadSample.qml</file>
-		<file>Tests/Application/Blocks/GameMenuSample.qml</file>
-		<file>Tests/Application/Blocks/GameSettingsSample.qml</file>
-		<file>Tests/Application/Core/AlertAdapterTestCase.qml</file>
-		<file>Tests/Application/Core/Fixtures/Popup/Sample/PluginContainer.qml</file>
-		<file>Tests/Application/Core/Fixtures/Popup/Sample/qmldir</file>
-		<file>Tests/Application/Core/Fixtures/Popup/Sample/SomeWidgetModel.qml</file>
-		<file>Tests/Application/Core/Fixtures/Popup/Sample/View/SomeWidget.qml</file>
-		<file>Tests/Application/Core/PopupTestCase.qml</file>
-		<file>Tests/Application/Widgets/AccountActivationSample.qml</file>
-		<file>Tests/Application/Widgets/AnnoucementsSample.qml</file>
-		<file>Tests/Application/Widgets/FactsSample.qml</file>
-		<file>Tests/Application/Widgets/GameAdBannerSample.qml</file>
-		<file>Tests/Application/Widgets/GameDownloadErrorSample.qml</file>
-		<file>Tests/Application/Widgets/GameExecutingSample.qml</file>
-		<file>Tests/Application/Widgets/GameFailedSample.qml</file>
-		<file>Tests/Application/Widgets/GameInfoSample.qml</file>
-		<file>Tests/Application/Widgets/GameInstallSample.qml</file>
-		<file>Tests/Application/Widgets/GameIsBoringSample.qml</file>
-		<file>Tests/Application/Widgets/GameNewsSample.qml</file>
-		<file>Tests/Application/Widgets/Maintenance/Maintenance.qml</file>
-		<file>Tests/Application/Widgets/Maintenance/MaintenanceAfterDownload.qml</file>
-		<file>Tests/Application/Widgets/MessengerSample.qml</file>
-		<file>Tests/Application/Widgets/NicknameEditSample.qml</file>
-		<file>Tests/Application/Widgets/PremiumShopSample.qml</file>
-		<file>Tests/Application/Widgets/PromoCodeSample.qml</file>
-		<file>Tests/Application/Widgets/PublicTestSample.qml</file>
-		<file>Tests/Application/Widgets/SecondAccountAuthSample.qml</file>
-		<file>Tests/Application/Widgets/SilentModeSample.qml</file>
-		<file>Tests/Application/Widgets/TrayMenuSample.qml</file>
-		<file>Tests/Application/Widgets/UserProfileSample.qml</file>
-		<file>Tests/GameNet/Components/Widgets/Fixtures/DualViewWidget/PluginContainer.qml</file>
-		<file>Tests/GameNet/Components/Widgets/Fixtures/DualViewWidget/qmldir</file>
-		<file>Tests/GameNet/Components/Widgets/Fixtures/DualViewWidget/View/ViewOne.qml</file>
-		<file>Tests/GameNet/Components/Widgets/Fixtures/DualViewWidget/View/ViewTwo.qml</file>
-		<file>Tests/GameNet/Components/Widgets/Fixtures/SeparateModelWidget/PluginContainer.qml</file>
-		<file>Tests/GameNet/Components/Widgets/Fixtures/SeparateModelWidget/qmldir</file>
-		<file>Tests/GameNet/Components/Widgets/Fixtures/SeparateModelWidget/View/ViewOne.qml</file>
-		<file>Tests/GameNet/Components/Widgets/Fixtures/SeparateModelWidget/View/ViewTwo.qml</file>
-		<file>Tests/GameNet/Components/Widgets/Fixtures/SeparateModelWidget/WidgetModel.qml</file>
-		<file>Tests/GameNet/Components/Widgets/Fixtures/SimpleWidget/PluginContainer.qml</file>
-		<file>Tests/GameNet/Components/Widgets/Fixtures/SimpleWidget/qmldir</file>
-		<file>Tests/GameNet/Components/Widgets/Fixtures/SimpleWidget/View/BasicView.qml</file>
-		<file>Tests/GameNet/Components/Widgets/Fixtures/SingletonModelWidget/PluginContainer.qml</file>
-		<file>Tests/GameNet/Components/Widgets/Fixtures/SingletonModelWidget/qmldir</file>
-		<file>Tests/GameNet/Components/Widgets/Fixtures/SingletonModelWidget/View/ViewOne.qml</file>
-		<file>Tests/GameNet/Components/Widgets/Fixtures/SingletonModelWidget/View/ViewTwo.qml</file>
-		<file>Tests/GameNet/Components/Widgets/Fixtures/SingletonModelWidget/WidgetModel.qml</file>
-		<file>Tests/GameNet/Components/Widgets/WidgetContainerTestCase.qml</file>
-		<file>Tests/GameNet/Components/Widgets/WidgetTestSuite.qml</file>
-		<file>Tests/GameNet/Controls/ButtonSample.qml</file>
-		<file>Tests/GameNet/Controls/ComboBoxSample.qml</file>
-		<file>Tests/GameNet/Controls/ErrorContainerSample.qml</file>
-		<file>Tests/GameNet/Controls/InputSample.qml</file>
-		<file>Tests/GameNet/Controls/PageSwitcher/Sample1.qml</file>
-		<file>Tests/GameNet/Controls/PageSwitcher/Sample2.qml</file>
-		<file>Tests/GameNet/Controls/PathInputSample.qml</file>
-		<file>Tests/GameNet/Controls/ProgressBarSample.qml</file>
-		<file>Tests/GameNet/Controls/TooltipSample.qml</file>
-		<file>Tests/GameNet/Controls/WebImageSample.qml</file>
 	</qresource>
 </RCC>

@@ -45,7 +45,7 @@ namespace Test_QrcGenerator
                     .Where(f => f.EndsWith(".qml") || f.EndsWith(".js") || f.EndsWith("qmldir"))
                     .Select(p => p.Remove(0, targetDirectory.Length).Replace('\\', '/'))
                     .OrderBy(q => q)
-										.Where(p2 => !p2.Contains("Test.qml"))
+										.Where(p2 => !p2.StartsWith("Tests/"))
                     .Select(p1 => "<file>" + p1 + "</file>").Aggregate((s, s1) => s + "\r\n\t\t" + s1)
                 + "\r\n\t</qresource>\r\n</RCC>";
             }

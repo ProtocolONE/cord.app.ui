@@ -109,28 +109,22 @@ ListModel {
             root.fillMenu(elem);
         }
     }
-
-        gameType: "standalone"
-        imageSource: "Assets/Images/games/reborn_icon_small.png"
+    ListElement {
         name: "Reborn"
+        enabled: true
+        gameType: "standalone"
+
         imageSmall: "Assets/Images/games/reborn_icon_small.png"
-        imageFooter: "Assets/Images/games/reborn_logo.png"
-        imageBig: ""
         imageLogoSmall: "Assets/Images/games/reborn_logo_small.png"
-        imageLogoBig: ""
         imageHorizontal: "Assets/Images/games/reborn_icon_horizontal.png"
         imageHorizontalSmall: "Assets/Images/games/reborn_icon_horizontal_small.png"
         imagePopupArt: "Assets/Images/games/Popup/RebornPopupArt.png"
-
         imageDefault: "Assets/Images/games/Default/reborn.png"
 
         size: "doubleHorizontal"
 
         formFactor: 1
         priority: 0
-
-        imageBack : "Assets/Images/games/reborn_back.png"
-        imageBackSilent : "Assets/Images/games/reborn_back_silent.png"
 
         serviceId: "300012010000000000"
         gameId: "760"
@@ -191,20 +185,22 @@ ListModel {
     }
 
     ListElement {
-        gameType: "standalone"
-        imageSource: "Assets/Images/games/ca_icon_small.png"
         name: "Combat Arms"
+        enabled: true
+        gameType: "standalone"
+
         imageSmall: "Assets/Images/games/ca_icon_small.png"
-        imageFooter: "Assets/Images/games/Combat-Arms.png"
-        imageBig: "Assets/Images/games/ca_icon_big.png"
-        imageHorizontalSmall: "Assets/Images/games/ca_icon_horizontal_small.png"
-        imageHorizontal: "Assets/Images/games/ca_icon_horisontal.png"
         imageLogoSmall: "Assets/Images/games/ca_logo_small.png"
-        imageLogoBig: "Assets/Images/games/ca_logo_big.png"
+        imageHorizontal: "Assets/Images/games/ca_icon_horisontal.png"
+        imageHorizontalSmall: "Assets/Images/games/ca_icon_horizontal_small.png"
         imagePopupArt: "Assets/Images/games/Popup/CombatArmsPopupArt.png"
+        imageDefault: "Assets/Images/games/Default/ca.png"
 
         size: "doubleHorizontal"
-        imageBack : "Assets/Images/games/ca_back.png"
+
+        formFactor: 2
+        priority: 1
+
         serviceId: "300009010000000000"
         gameId: "92"
 
@@ -272,20 +268,21 @@ ListModel {
     }
 
     ListElement {
-        gameType: "standalone"
-        imageSource: "Assets/Images/games/bs_icon_small.png"
         name: "BS.ru Demonion"
+        enabled: true
+        gameType: "standalone"
+
         imageSmall: "Assets/Images/games/bs_icon_small.png"
-        imageFooter: "Assets/Images/games/BS.png"
-        imageBig: "Assets/Images/games/bs_icon_big.png"
         imageHorizontal: "Assets/Images/games/bs_icon_horizontal.png"
         imageHorizontalSmall: "Assets/Images/games/bs_icon_horizontal_small.png"
         imageLogoSmall: "Assets/Images/games/bs_logo_small.png"
-        imageLogoBig: ""
         imagePopupArt: "Assets/Images/games/Popup/BSPopupArt.png"
+        imageDefault: "Assets/Images/games/Default/bs.png"
 
         size: "doubleHorizontal"
-        imageBack : "Assets/Images/games/bs_back.png"
+        formFactor: 2
+        priority: 2
+
         serviceId: "300003010000000000"
         gameId: "71"
 
@@ -349,22 +346,13 @@ ListModel {
     }
 
     ListElement {
-        gameType: "standalone"
-        imageSource: "Assets/Images/games/reborn_icon_small.png"
-        name: "Reborn"
-        imageSmall: "Assets/Images/games/reborn_icon_small.png"
-        imageFooter: "Assets/Images/games/reborn_logo.png"
-        imageBig: ""
-        imageLogoSmall: "Assets/Images/games/reborn_logo_small.png"
-        imageLogoBig: ""
-        imageHorizontal: "Assets/Images/games/reborn_icon_horizontal.png"
-        imageHorizontalSmall: "Assets/Images/games/reborn_icon_horizontal_small.png"
-        imagePopupArt: "Assets/Images/games/Popup/RebornPopupArt.png"
+        name: "Ферма Джейн"
+        enabled: true
+        gameType: "browser"
 
-        size: "doubleHorizontal"
-
-        imageBack : "Assets/Images/games/reborn_back.png"
-        imageBackSilent : "Assets/Images/games/reborn_back_silent.png"
+        imageSmall: "Assets/Images/games/fj_icon_small.png"
+        imageHorizontalSmall: "Assets/Images/games/fj_horizontal_small.png"
+        imageDefault: "Assets/Images/games/Default/farm.png"
 
         serviceId: "300012010000000000"
         gameId: "760"
@@ -417,22 +405,20 @@ ListModel {
     }
 
     ListElement {
-        gameType: "standalone"
-        imageSource: "Assets/Images/games/aika_icon_small.png"
         name: "Aika2"
+        enabled: true
+        gameType: "standalone"
+
         imageSmall: "Assets/Images/games/aika_icon_small.png"
-        imageFooter: "Assets/Images/games/AIKA-2.png"
-        imageBig: ""
         imageLogoSmall: "Assets/Images/games/aika_logo_small.png"
-        imageLogoBig: ""
         imageHorizontalSmall: "Assets/Images/games/aika_icon_horizontal_small.png"
         imagePopupArt: "Assets/Images/games/Popup/AikaPopupArt.png"
-
         imageDefault: "Assets/Images/games/Default/aika2.png"
 
         size: "normal"
 
-        imageBack : "Assets/Images/games/aika_back.png"
+        formFactor: 2
+        priority: 4
 
         serviceId: "300002010000000000"
         gameId: "631"
@@ -494,17 +480,12 @@ ListModel {
     }
 
     ListElement {
-        enabled: true
-
         name: "Golden Age"
+        enabled: true
         gameType: "browser"
 
-        imageSource: "Assets/Images/games/ga_icon_small.png"
         imageSmall: "Assets/Images/games/ga_icon_small.png"
-        imageFooter: "Assets/Images/games/Golden-Age.png"
-        imageBig: ""
         imageLogoSmall: "Assets/Images/games/ga_logo_small.png"
-        imageLogoBig: ""
 
         size: "normal"
 
@@ -512,7 +493,6 @@ ListModel {
         formFactor: 1
         priority: 5
 
-        imageBack : "Assets/Images/games/ga_back.png"
         serviceId: "300007010000000000"
         gameId: "83"
 
@@ -575,17 +555,13 @@ ListModel {
     }
 
     ListElement {
-        enabled: true
-
-        gameType: "standalone"
-        imageSource: "Assets/Images/games/wi_icon_small.png"
         name: "FireStorm"
+        enabled: true
+        gameType: "standalone"
+
         imageSmall: "Assets/Images/games/wi_icon_small.png"
-        imageFooter: "Assets/Images/games/Fire-Storm.png"
-        imageBig: ""
         imageHorizontalSmall: "Assets/Images/games/wi_icon_horizontal_small.png"
         imageLogoSmall: "Assets/Images/games/wi_logo_small.png"
-        imageLogoBig: ""
         imagePopupArt: "Assets/Images/games/Popup/FireStormPopupArt.png"
 
         size: "normal"
@@ -593,8 +569,6 @@ ListModel {
         imageDefault: "Assets/Images/games/wi_icon_small.png"
         formFactor: 1
         priority: 6
-
-        imageBack : "Assets/Images/games/wi_back.png"
 
         serviceId: "300005010000000000"
         gameId: "70"
@@ -661,55 +635,12 @@ ListModel {
     }
 
     ListElement {
-        enabled: true
-
-        imageBack : "images/games/mw_back.png"
-
-        serviceId: "300006010000000000"
-        gameId: "84"
-
-        forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=195"
-        blogUrl: "http://www.gamenet.ru/games/mw2/blog/"
-        guideUrl: "http://www.gamenet.ru/games/mw2/guides/"
-
-        status: "Normal" // Error Started Paused Downloading
-        statusText: ""
-        progress: -1
-        allreadyDownloaded: false
-        gaName: "MagicWorld2" // Never change please
-
-        maintenance: false
-        maintenanceInterval: 0
-        maintenanceProposal1: "300003010000000000"
-        maintenanceProposal2: "300012010000000000"
-        maintenanceEndPause: false
-
-        licenseUrl: "http://www.mw2.ru/license"
-
-        itemState: "Normal"
-        animationPause: 150
-        hasOverlay: false
-
-        logoText: QT_TR_NOOP("LOGO_MW2")
-        aboutGameText: QT_TR_NOOP("GAME_MW2_ABOUT_TEXT")
-        miniToolTip: QT_TR_NOOP("GAME_MW2_MINI_TOOLTIP")
-        shortDescription: QT_TR_NOOP("GAME_MW2_MINI_DESC")
-
-        secondStatus: "Normal"
-        secondAllowed: true
-        menu: []
-        currentMenuIndex: 1
-    }
-
-    ListElement {
-        gameType: "standalone"
-        imageSource: ""
         name: "Rage of Titans"
+        enabled: true
+        gameType: "standalone"
+
         imageSmall: ""
-        imageFooter: "Assets/Images/games/rot.png"
-        imageBig: ""
         imageLogoSmall: "Assets/Images/games/rot_logo_small.png"
-        imageLogoBig: ""
         imagePopupArt: "Assets/Images/games/Popup/RotPopupArt.png"
 
         size: "normal"
@@ -717,8 +648,6 @@ ListModel {
         imageDefault: "Assets/Images/games/rot_logo_small.png"
         formFactor: 1
         priority: 7
-
-        imageBack : "Assets/Images/games/rot_back.png"
 
         serviceId: "300004010000000000"
         gameId: "72"
