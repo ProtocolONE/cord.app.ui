@@ -1241,6 +1241,10 @@ Please try again later.</source>
         <source>SILENT_DOWNLOADING_POPUP_TEXT</source>
         <translation type="obsolete">Игра устанавливается</translation>
     </message>
+    <message>
+        <source>TEXT_PROGRESSBAR_REHASH_NOW_STATE</source>
+        <translation>Проверка файлов игры %1%</translation>
+    </message>
 </context>
 <context>
     <name>GameFailed</name>

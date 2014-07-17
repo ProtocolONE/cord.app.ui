@@ -388,6 +388,19 @@ Rectangle {
             Core.updateProgress(item);
         }
 
+        onRehashProgressChanged: {
+            var item = Core.serviceItemByServiceId(serviceId);
+            if (!item) {
+                console.log('Unknown service ' + serviceId)
+                return;
+            }
+
+            item.progress = totalprogress;
+            item.statusText = qsTr("TEXT_PROGRESSBAR_REHASH_NOW_STATE").arg(progress);
+
+            Core.updateProgress(item);
+        }
+
         onDownloadProgressChanged: {
             var item = Core.serviceItemByServiceId(serviceId);
             if (!item) {
