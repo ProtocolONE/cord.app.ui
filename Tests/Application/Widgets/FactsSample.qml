@@ -29,8 +29,6 @@ Rectangle {
     }
 
     WidgetContainer {
-        width: 590
-        height: 50
         widget: 'Facts'
     }
 
@@ -56,6 +54,16 @@ Rectangle {
             text: "Activate 71 (BS)"
             onClicked: {
                 App.activateGame(App.serviceItemByGameId("71"));
+            }
+        }
+
+        Button {
+            width: 200
+            height: 30
+
+            text: "Activate 70 (FS)"
+            onClicked: {
+                App.activateGame(App.serviceItemByGameId("70"));
             }
         }
     }

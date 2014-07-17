@@ -320,9 +320,6 @@ Rectangle {
             }
 
             WidgetContainer {
-                width: parent.width
-                height: 40
-
                 widget: 'Facts'
             }
 

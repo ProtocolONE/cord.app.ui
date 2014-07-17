@@ -19,6 +19,7 @@ WidgetView {
 
     property variant currentItem: AppJs.currentGame()
     property int index
+    property bool hasFacts: false
 
     function filter() {
         var allFacts = model.getAllFacts();
@@ -60,7 +61,9 @@ WidgetView {
         text.text = FactsView.filteredFacts[root.index].text;
     }
 
-    anchors.fill: parent
+    implicitWidth: 590
+    implicitHeight: hasFacts ? 50 : 0
+
     clip: true
     onCurrentItemChanged: filter()
 
@@ -107,7 +110,11 @@ WidgetView {
     SequentialAnimation {
         id: switchAnim
 
-        ScriptAction { script: showNextFact.stop() }
+        ScriptAction { script: {
+                root.hasFacts = true;
+                showNextFact.stop()
+            }
+        }
         NumberAnimation { target: textRow; property: "opacity"; to: 0; duration: 250 }
         ScriptAction { script: refreshText() }
         NumberAnimation { target: textRow; property: "opacity"; to: 1; duration: 250 }
@@ -133,5 +140,6 @@ WidgetView {
 
         ScriptAction { script: showNextFact.stop() }
         NumberAnimation { target: textRow; property: "opacity"; to: 0; duration: 250 }
+        ScriptAction { script: root.hasFacts = false }
     }
 }
