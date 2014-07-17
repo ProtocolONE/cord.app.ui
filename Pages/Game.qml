@@ -395,8 +395,8 @@ Rectangle {
                 return;
             }
 
-            item.progress = totalprogress;
-            item.statusText = qsTr("TEXT_PROGRESSBAR_REHASH_NOW_STATE").arg(progress);
+            item.progress = progress;
+            item.statusText = qsTr("TEXT_PROGRESSBAR_REHASH_NOW_STATE").arg(rehashProgress);
 
             Core.updateProgress(item);
         }

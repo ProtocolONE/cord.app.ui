@@ -627,7 +627,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.132.32335a70374b0be6298bd925a2583d9753bd5ec4",
+    version: "1.0.134.4c7eb425acd3b4d9914fa3c83af4794110d62aea",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',
@@ -897,7 +897,14 @@ Games.getAdvertising = function(game, successCallback, failedCallback) {
 	},
 	false, successCallback, failedCallback);
 };
-var Marketing = function() {
+
+Games.getGallery = function(game, successCallback, failedCallback) {
+    Core.execute('games.getGallery', {
+            gameId: game,
+            version: 1
+        },
+        false, successCallback, failedCallback);
+};var Marketing = function() {
 };
 
 // Пока не работает на лайве
@@ -1002,6 +1009,11 @@ User.saveTechNickname = function(techname, successCallback, failedCallback) {
 User.activatePromoKey = function(promoKey, successCallback, failedCallback) {
     Core.execute('user.activatePromoKey', { key : promoKey }, true, successCallback, failedCallback);
 };
+
+User.search = function(query, priorityForFriends, successCallback, failedCallback) {
+    Core.execute('user.search', { q : query, priorityForFriends: priorityForFriends }, true, successCallback, failedCallback);
+};
+
 var Virality = function() {
 };
 
