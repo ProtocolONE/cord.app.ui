@@ -235,7 +235,8 @@ Rectangle {
             opacity: root.selected ? 1 : 0
             text: qsTr("START_GAME_BUTTON")
             onClicked: {
-                App.downloadButtonStart(serviceItem.serviceId);
+                if (App.isMainServiceCanBeStarted(root.serviceItem))
+                    App.downloadButtonStart(serviceItem.serviceId);
             }
 
             Behavior on opacity {

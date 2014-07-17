@@ -224,3 +224,24 @@ function setShowInMyGames(serviceId, value) {
         serviceUpdated(serviceItemByServiceId(serviceId));
     }
 }
+
+function isMainServiceCanBeStarted(item) {
+    if (!item) {
+        return false;
+    }
+
+    if (item.gameType == "browser") {
+        return true;
+    }
+
+    var currentMainRunning = currentRunningMainService(),
+        currentSecondRunning = currentRunningSecondService();
+
+
+    if (currentMainRunning ||
+       (currentSecondRunning && currentSecondRunning != item.serviceId)) {
+        return false;
+    }
+
+    return true;
+}

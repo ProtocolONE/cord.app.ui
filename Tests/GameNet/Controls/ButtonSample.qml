@@ -21,14 +21,24 @@ Rectangle {
     Column {
         x: 50
         y: 30
-        spacing: 40
+        spacing: 20
 
         Button {
+            id: firstButton
+
             width: 200
             height: 50
 
             text: "Button"
             toolTip: "Simple button tooltip"
+            inProgress: inProgressRadioButton.checked
+            enabled: !disabledRadioButton.checked
+
+            style: ButtonStyleColors {
+                normal: "#3498db"
+                hover: "#118011"
+                disabled: "#888888"
+            }
         }
 
         Button {
@@ -38,6 +48,7 @@ Rectangle {
             height: 50
 
             toolTip: "Disabled button"
+            text: "Button2"
         }
 
         TextButton {
@@ -82,17 +93,80 @@ Rectangle {
         }
 
         RadioButton {
+            id: inProgressRadioButton
+
             width: 300
             height: 40
 
-            text: "Radio button"
-            toolTip: "RadioButton button tooltip"
+            text: "In progress"
+            toolTip: "In progress button tooltip"
             style: ButtonStyleColors {
                 normal: "#1ADC9C"
                 hover: "#019074"
                 disabled: "#1ADC9C"
             }
+            onClicked: {
+                if (disabledRadioButton.checked) {
+                    disabledRadioButton.checked = false;
+                }
+
+                if (normalRadioButton.checked) {
+                    normalRadioButton.checked = false;
+                }
+
+                checked = true;
+            }
+        }
+
+        RadioButton {
+            id: disabledRadioButton
+
+            width: 300
+            height: 40
+
+            text: "Disable button"
+            toolTip: "Disable button tooltip"
+            style: ButtonStyleColors {
+                normal: "#1ADC9C"
+                hover: "#019074"
+                disabled: "#1ADC9C"
+            }
+            onClicked: {
+                if (inProgressRadioButton.checked) {
+                    inProgressRadioButton.checked = false;
+                }
+
+                if (normalRadioButton.checked) {
+                    normalRadioButton.checked = false;
+                }
+
+                checked = true;
+            }
+        }
+
+        RadioButton {
+            id: normalRadioButton
+
+            width: 300
+            height: 40
+
+            text: "Normal state button"
+            toolTip: "Normal state button tooltip"
+            style: ButtonStyleColors {
+                normal: "#1ADC9C"
+                hover: "#019074"
+                disabled: "#1ADC9C"
+            }
+            onClicked: {
+                if (inProgressRadioButton.checked) {
+                    inProgressRadioButton.checked = false;
+                }
+                if (disabledRadioButton.checked) {
+                    disabledRadioButton.checked = false;
+                }
+
+                checked = true;
+            }
         }
     }
-
 }

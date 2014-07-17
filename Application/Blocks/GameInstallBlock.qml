@@ -84,32 +84,10 @@ Item {
             Button {
                 id: button
 
-                function testStarted() {
-                    if (!root.gameItem) {
-                        return false;
+                function getText() {
+                    if (isError) {
+                        return buttonErrorText;
                     }
-
-                    if (root.gameItem.gameType == "browser") {
-                        return false;
-                    }
-
-                    var currentMainRunning = App.currentRunningMainService();
-                    var currentSecondRunning = App.currentRunningSecondService();
-                    if (currentMainRunning ||
-                            currentSecondRunning && currentSecondRunning != root.gameItem.serviceId) {
-                        return true;
-                    }
-
-                    return false;
-                }
-
-                property bool isInstalled: root.gameItem ? App.isServiceInstalled(root.gameItem.serviceId) : false
-                property bool isStartDownloading: root.gameItem ? root.gameItem.status === "Downloading" : false
-                property bool isStarting: root.gameItem ? root.gameItem.status === "Starting" : false
-                property bool isError: root.gameItem ? root.gameItem.status === "Error" : false
-                property bool isPause: root.gameItem ? root.gameItem.status === "Paused" : false
-                property bool isDetailed: root.gameItem ? root.gameItem.status === "Paused" : false
-                property bool allreadyDownloaded: root.gameItem ? root.gameItem.allreadyDownloaded : false
 
                     if (allreadyDownloaded) {
                         return buttonDownloadedText;
@@ -144,19 +122,18 @@ Item {
                 width: 160
                 height: 35
 
-                enabled: !testStarted()
+                enabled: App.isMainServiceCanBeStarted(root.gameItem)
                 text: button.getText()
 
                 focus: true
 
                 style: ButtonStyleColors {
-                    property bool isDefaultColor: root.gameItem
-                                                  ? (root.gameItem.status === "Normal" && !button.isInstalled)
-                                                    : false
-
-                    normal: button.enabled ? isDefaultColor ? "#ff4f02" : "#567dd8" : disabled
-                    hover: button.enabled ? isDefaultColor ? "#ff7902" : "#5e89ee" : disabled
-                    disabled: '#949494'
+                    property bool isDefaultColor: !!root.gameItem &&
+                                                  root.gameItem.status === "Normal" &&
+                                                  !button.isInstalled
+                    normal: button.isError ? "#cc0000" : (isDefaultColor ? "#ff4f02" : "#567dd8")
+                    hover: button.isError ? "#ee0000" : (isDefaultColor ? "#ff7902" : "#5e89ee")
+                    disabled: '#888888'
                 }
 
                 onClicked: {

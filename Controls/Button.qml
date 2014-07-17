@@ -55,30 +55,38 @@ Rectangle {
     }
 
     StateGroup {
+        state: function() {
+            if (!control.enabled) {
+                return 'Disabled';
+            }
+
+            if (control.inProgress) {
+                return 'InProgress';
+            }
+
+            return control.containsMouse ? 'Hover' : 'Normal';
+        }()
+
         states: [
             State {
                 name: "Hover"
-                when: buttonBehavior.containsMouse && !control.inProgress
                 PropertyChanges { target: control; color: control.style.hover}
+                PropertyChanges { target: buttonText; visible: true }
             },
             State {
-                name: ""
-                when: !control.inProgress
+                name: "Normal"
                 PropertyChanges { target: control; color: control.style.normal}
                 PropertyChanges { target: buttonText; visible: true }
-                PropertyChanges { target: control; enabled: true }
             },
             State {
                 name: "Disabled"
-                when: !control.enabled
-                PropertyChanges { target: control; color: control.style.disabled; opacity: 0.2}
+                PropertyChanges { target: control; color: control.style.disabled}
+                PropertyChanges { target: buttonText; visible: true }
             },
             State {
                 name: "InProgress"
-                when: control.inProgress
                 PropertyChanges { target: inProgressIcon; visible: true }
                 PropertyChanges { target: buttonText; visible: false }
-                PropertyChanges { target: control; enabled: false }
             }
         ]
     }
@@ -87,6 +95,7 @@ Rectangle {
         id: buttonBehavior
 
         anchors.fill: parent
+        visible: control.enabled && !control.inProgress
 
         onEntered: control.entered();
         onExited: control.exited();
