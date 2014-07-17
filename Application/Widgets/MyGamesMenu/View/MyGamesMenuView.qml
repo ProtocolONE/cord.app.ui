@@ -19,8 +19,8 @@ import "../../../Core/App.js" as App
 WidgetView {
     id: root
 
-    width: 180
-    height: 600
+    implicitWidth: 180
+    implicitHeight: 600
 
     clip: true
 
