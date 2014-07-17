@@ -86,6 +86,7 @@ Item {
 
     function initGoogleAnalytics(options) {
         var gaSettings = {
+            accountId: "UA-35280627-5",
             saveSettings: Settings.setValue,
             loadSettings: Settings.value,
             desktop: options.desktop,

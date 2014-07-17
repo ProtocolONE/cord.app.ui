@@ -1,6 +1,6 @@
 .pragma library
 
-Qt.include('./restapi.js');
+Qt.include('./RestApi.js');
 
 var prestartQueue = [];
 var activated = false;
@@ -18,7 +18,7 @@ var applicationVersion;
 var desktop;
 var globalLocale;
 var systemVersion;
-var accountId="UA-35280627-5"; // Гугловый аккаунт един на все приложение
+var accountId; // Гугловый аккаунт един на все приложение
 
 var tmpUserId; // используется, если пользователь не авторизован
 var userId; // используется, если пользователь авторизован
@@ -97,6 +97,7 @@ function setMidDescription(description) {
 }
 
 function init(options) {
+    accountId = options.accountId;
     saveSettings = options.saveSettings;
     loadSettings = options.loadSettings;
     systemVersion = options.systemVersion;

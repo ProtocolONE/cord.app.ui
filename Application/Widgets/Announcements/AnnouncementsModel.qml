@@ -273,7 +273,7 @@ Item {
             , timeFromInstall
             , elapsedDays
             , lastExecuteDate;
-
+        var now =  (+new Date());
 
         for (var i = 0, len = services.length; i < len; ++i) {
             serviceId = services[i];
