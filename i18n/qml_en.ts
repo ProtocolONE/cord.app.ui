@@ -301,12 +301,12 @@
 <context>
     <name>BaseLayer</name>
     <message>
-        <location filename="../Application/Layers/BaseLayer.qml" line="316"/>
+        <location filename="../Application/Layers/BaseLayer.qml" line="405"/>
         <source>MY_GAMES_CAPTION_MENU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Layers/BaseLayer.qml" line="326"/>
+        <location filename="../Application/Layers/BaseLayer.qml" line="416"/>
         <source>MY_GAMES_MENU_NEWS</source>
         <translation type="unfinished"></translation>
     </message>
@@ -391,22 +391,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="66"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="67"/>
         <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="180"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="181"/>
         <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="205"/>
+        <source>TEXT_PROGRESSBAR_REHASH_NOW_STATE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="219"/>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="206"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="220"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -996,32 +1001,32 @@
 <context>
     <name>Header</name>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="71"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="78"/>
         <source>HEADER_BUTTON_MY_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="59"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="60"/>
         <source>HEADER_BUTTON_ALL_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="81"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="94"/>
         <source>HEADER_BUTTON_SUPPORT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="136"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="140"/>
         <source>HEADER_BUTTON_CLOSE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="152"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="156"/>
         <source>HEADER_BUTTON_SETTINGS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="173"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="177"/>
         <source>HEADER_BUTTON_LOGOUT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1270,7 +1275,7 @@
 <context>
     <name>Popup</name>
     <message>
-        <location filename="../Application/Core/Popup.qml" line="189"/>
+        <location filename="../Application/Core/Popup.qml" line="194"/>
         <source>POPUP_HELP_HINT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>

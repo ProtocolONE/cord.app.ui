@@ -16,7 +16,7 @@ import GameNet.Controls 1.0
 Item {
     id: root
 
-    signal close()
+    signal close(int popupId)
 
     property alias isShown: root.visible
 
@@ -24,9 +24,10 @@ Item {
         root.state = "close";
     }
 
-    function activateWidget(widgetName, widgetView) {
+    function activateWidget(widgetName, widgetView, popupId) {
         d.widgetName = widgetName;
         d.widgetView = widgetView;
+        d.popupId = popupId;
 
         firstContainer.force(d.widgetName, d.widgetView);
     }
@@ -40,6 +41,7 @@ Item {
 
         property variant widgetName
         property variant widgetView
+        property int popupId
 
         function tryShowHelp() {
             var isFirstShow = Settings.value("qml/core/popup/", "isHelpShowed", 0) == 0;
@@ -69,7 +71,7 @@ Item {
 
         onCompleted: {
             if (d.widgetName == '') {
-                root.close();
+                root.close(d.popupId);
                 return;
             }
 
@@ -147,7 +149,7 @@ Item {
             }
 
             viewInstance.close.connect(function() {
-                root.close();
+                root.close(d.popupId);
             });
         }
     }

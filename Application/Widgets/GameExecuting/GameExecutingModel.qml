@@ -17,15 +17,44 @@ import "../../Core/App.js" as App
 import "../../Core/Popup.js" as Popup
 import "../../Core/restapi.js" as RestApi
 import "../../Core/TrayPopup.js" as TrayPopup
+import "../../Core/User.js" as User
 import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetModel {
     id: root
 
+    property int internalPopupId: -1
+    property variant enterNickNameViewModelInstance: App.enterNickNameViewModelInstance()
+
+    function isNickNameValid() {
+        return User.getNickname().indexOf('@') == -1;
+    }
+
     Connections {
-        target: App.enterNickNameViewModelInstance()
+        target: enterNickNameViewModelInstance
         ignoreUnknownSignals: true
-        onStartCheck: Popup.show('NicknameEdit');
+        onStartCheck: {
+            if (isNickNameValid()) {
+                enterNickNameViewModelInstance.success();
+            } else {
+                root.internalPopupId = Popup.show('NicknameEdit');
+            }
+        }
+    }
+
+    Connections {
+        target:Popup.signalBus()
+        onClose: {
+            if (root.internalPopupId !== popupId) {
+                return;
+            }
+
+            if (isNickNameValid()) {
+                enterNickNameViewModelInstance.success();
+            } else {
+                enterNickNameViewModelInstance.failed();
+            }
+        }
     }
 
     Connections {
@@ -57,7 +86,7 @@ WidgetModel {
 
         function showCats(serviceId) {
             var succes = +(Settings.value("gameExecutor/serviceInfo/" + serviceId + "/", "successCount", "0")),
-                fail = +(Settings.value("gameExecutor/serviceInfo/" + serviceId + "/", "failedCount", "0"));
+                    fail = +(Settings.value("gameExecutor/serviceInfo/" + serviceId + "/", "failedCount", "0"));
             return (succes + fail) <= 2;
         }
 

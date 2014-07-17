@@ -42,10 +42,18 @@ WidgetView {
     }
 
     function decrementIndex() {
+        if (GameAdBannerView.filtered.length == 0) {
+            return;
+        }
+
         root.index = (root.index == 0) ? (GameAdBannerView.filtered.length - 1) : (root.index - 1);
     }
 
     function incrementIndex() {
+        if (GameAdBannerView.filtered.length == 0) {
+            return;
+        }
+
         root.index = (root.index + 1) % GameAdBannerView.filtered.length;
     }
 
@@ -123,6 +131,10 @@ WidgetView {
         hoverEnabled: true
         anchors.fill: parent
         onClicked: {
+            if (GameAdBannerView.filtered.length == 0) {
+                return;
+            }
+
             App.openExternalUrlWithAuth(GameAdBannerView.filtered[root.index].link);
 
             GoogleAnalytics.trackEvent("/game/" + currentGameItem.gaName,

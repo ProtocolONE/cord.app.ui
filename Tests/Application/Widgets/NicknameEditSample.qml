@@ -40,6 +40,13 @@ Rectangle {
         }
     }
 
+    Connections {
+        target: Popup.signalBus()
+        onClose: {
+            console.log("Closed popupId: " + popupId);
+        }
+    }
+
     Item {
         id: baseLayer
 
@@ -56,7 +63,9 @@ Rectangle {
             width: 150
             height: 20
 
-            onClicked: Popup.show("NicknameEdit");
+            onClicked: {
+                console.log("Opened popupId: " + Popup.show('NicknameEdit'));
+            }
         }
     }
 

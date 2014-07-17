@@ -1407,6 +1407,33 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>ExecuteGameNoNickname</name>
+    <message>
+        <source>CREATE_NICKNAME_TITLE</source>
+        <translation type="vanished">Придумай себе никнейм</translation>
+    </message>
+    <message>
+        <source>NO_NICKNAME_TIP</source>
+        <translation type="vanished">Без этого никнейма нельзя пользоваться социальными сервисами GameNet.&lt;br&gt;Этот шаг является обязательным для окончания регистрации.</translation>
+    </message>
+    <message>
+        <source>YOUR_NICKNAME_PLACEHOLDER</source>
+        <translation type="vanished">Твой никнейм (не более 16 символов)</translation>
+    </message>
+    <message>
+        <source>PROFILE_LINK_PLACEHOLDER</source>
+        <translation type="vanished">ссылка на твой профиль</translation>
+    </message>
+    <message>
+        <source>SAVE_BUTTON_CAPTION</source>
+        <translation type="vanished">Сохранить</translation>
+    </message>
+    <message>
+        <source>NICKNAME_OK</source>
+        <translation type="vanished">Ок!</translation>
+    </message>
+</context>
+<context>
     <name>ExpandCollapseButton</name>
     <message>
         <source>CA_SHOP_EXPAND</source>
