@@ -1418,7 +1418,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>YOUR_NICKNAME_PLACEHOLDER</source>
-        <translation type="vanished">Твой никнейм (не более 16 символов)</translation>
+        <translation type="vanished">Твой никнейм (не более 25 символов)</translation>
     </message>
     <message>
         <source>PROFILE_LINK_PLACEHOLDER</source>
