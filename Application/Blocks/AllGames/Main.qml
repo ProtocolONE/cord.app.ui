@@ -33,6 +33,11 @@ Item {
             anchors { fill: parent; margins: 10 }
             contentWidth: width
             boundsBehavior: Flickable.StopAtBounds
+            onContentYChanged: {
+                AllGamesJs.items.forEach(function(e){
+                    e.update();
+                });
+            }
 
 //            model: ListModel {}
 //            orientation: ListView.Vertical

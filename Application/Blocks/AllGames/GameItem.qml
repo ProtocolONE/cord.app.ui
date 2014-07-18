@@ -47,6 +47,16 @@ Rectangle {
         mouseArea.visible = false;
     }
 
+    function update() {
+        if (root.selected) {
+            mouseArea.visible = false;
+            mouseArea.visible = true;
+
+            startButton.visible = false;
+            startButton.visible = true;
+        }
+    }
+
     width: formFactorSizes[serviceItem.formFactor].width
     height: formFactorSizes[serviceItem.formFactor].height
 
