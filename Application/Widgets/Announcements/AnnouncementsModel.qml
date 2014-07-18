@@ -727,7 +727,7 @@ Item {
 
         Connections {
             target: announcements
-            onInternalGameStarted: internalGameStarted(serviceId)
+            onInternalGameStarted: bigAnnounceWindow.internalGameStarted(serviceId)
         }
 
         onAnnounceCloseClick: announcements.announceCloseClick(announceItem)

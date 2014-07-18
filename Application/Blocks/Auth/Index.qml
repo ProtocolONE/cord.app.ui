@@ -54,7 +54,7 @@ Rectangle {
                 d.vkAuthInProgress = false;
 
                 if (Authorization.isSuccess(error)) {
-                    d.startLoadingServices(userId, appKey, cookie);
+                    d.startLoadingServices(response.userId, response.appKey, response.cookie);
                     return;
                 }
 

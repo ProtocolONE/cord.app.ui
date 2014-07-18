@@ -46,7 +46,7 @@ WidgetView {
                 d.vkAuthInProgress = false;
 
                 if (Authorization.isSuccess(error)) {
-                    App.secondAuthDone(userId, appKey, cookie);
+                    App.secondAuthDone(response.userId, response.appKey, response.cookie);
                     return;
                 }
 
