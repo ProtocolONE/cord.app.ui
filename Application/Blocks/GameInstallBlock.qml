@@ -214,7 +214,7 @@ Item {
                     return false;
                 }
 
-                return button.isStartDownloading || button.isStarting || button.isError;
+                return root.isFullSize;
             }
 
             anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
