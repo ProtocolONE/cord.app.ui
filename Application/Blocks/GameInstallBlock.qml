@@ -31,19 +31,6 @@ Item {
     }
 
     Connections {
-        target: App.licenseModelInstance()
-        ignoreUnknownSignals: true
-
-        onOpenLicenseBlock: {
-            // TODO подумать куда это вынести
-            var gameItem = App.serviceItemByServiceId(licenseModel.serviceId());
-            App.activateGame(gameItem);
-            Popup.show('GameInstall');
-            licenseModel.setLicenseAccepted(false);
-        }
-    }
-
-    Connections {
         target: App.signalBus()
         onNavigate: {
             if (link == 'mygame' && from == 'GameItem' &&
