@@ -48,9 +48,6 @@ QtObject {
     signal needPakkanenVerification();
     signal selectService(string serviceId);
 
-    signal openApplicationSettings();
-    signal openGameSettings();
-
     signal leftMouseClick(variant rootItem, int x, int y);
     signal settingsChange(string path, string key, string value);
 }

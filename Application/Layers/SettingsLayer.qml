@@ -21,18 +21,17 @@ Item {
         target: App.signalBus()
 
         onNavigate: {
+            if (link == 'ApplicationSettings' || link == 'GameSettings') {
+                root.state = link;
+                return;
+            }
+
             //  INFO: пока такой способ скрыть формы настроек при
             //  нажатии на остальные кнопки меню
             root.state = "";
         }
-        onOpenGameSettings: {
-            root.state = "GameSettings";
-        }
-        onOpenApplicationSettings: {
-            root.state = "ApplicationSettings";
-        }
     }
-    
+
     GameSettings {
         id: gameSettings
 

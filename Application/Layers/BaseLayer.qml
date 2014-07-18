@@ -214,7 +214,7 @@ Rectangle {
                                     return;
                                 }
 
-                                App.openGameSettings();
+                                App.navigate('GameSettings');
                             }
 
                             if (page == 'AboutGame') {

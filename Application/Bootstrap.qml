@@ -181,4 +181,9 @@ Item {
             globalProgressLock.visible = value;
         }
     }
+
+    Connections {
+        target: App.mainWindowInstance()
+        onNavigate: App.navigate(page);
+    }
 }

@@ -47,7 +47,7 @@ Item {
             case 'Settings': {
                 GoogleAnalytics.trackEvent('/Tray', 'Navigation', 'Switch To Settings');
                 App.activateWindow();
-                App.openApplicationSettings();
+                App.navigate('ApplicationSettings');
             }
             break;
             case 'Quit': {

@@ -121,14 +121,6 @@ function exitApplication() {
      _signalBusInstance.exitApplication();
 }
 
-function openGameSettings() {
-    _signalBusInstance.openGameSettings();
-}
-
-function openApplicationSettings() {
-    _signalBusInstance.openApplicationSettings();
-}
-
 function leftMouseClick(root, x, y) {
     _signalBusInstance.leftMouseClick(root, x, y);
 }
