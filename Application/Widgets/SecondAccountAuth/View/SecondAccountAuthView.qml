@@ -127,7 +127,8 @@ WidgetView {
                 RegistrationBody {
                     id: registration
 
-                    anchors.fill: parent
+                    width: parent.width
+                    height: 330
                     onSwitchToLogin: authContainer.state = "auth"
                     onError: d.showError(message);
 
