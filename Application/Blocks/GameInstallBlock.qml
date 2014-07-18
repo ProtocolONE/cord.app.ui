@@ -22,9 +22,10 @@ Item {
     id: root
 
     property variant gameItem: App.currentGame()
+    property bool isFullSize: button.isStartDownloading || button.isStarting || button.isError
 
     width: 180
-    height: button.isStartDownloading || button.isStarting || button.isError ? 137 : 101
+    height: root.isFullSize ? 137 : 101
 
     Behavior on height {
         NumberAnimation { id: heightAnimation; duration: 250 }
@@ -33,8 +34,10 @@ Item {
     Connections {
         target: App.signalBus()
         onNavigate: {
-            if (link == 'mygame' && from == 'GameItem' &&
-                    !App.isAppSettingsEnabled("qml/installBlock/", "shakeAnimationShown", false)) {
+            if (link == 'mygame'
+                    && from == 'GameItem'
+                    && !root.isFullSize
+                    && !App.isAppSettingsEnabled("qml/installBlock/", "shakeAnimationShown", false)) {
                 App.setAppSettingsValue("qml/installBlock/", "shakeAnimationShown", true);
                 shakeAnimationTimer.start();
             }

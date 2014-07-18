@@ -171,8 +171,8 @@ WidgetView {
                 id: shakeAnimation
 
                 target: installButton
-                property: "x"
-                from: 0
+                property: "anchors.leftMargin"
+                from: 20
                 shakeValue: 2
                 shakeTime: 120
             }
