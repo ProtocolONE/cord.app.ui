@@ -28,7 +28,7 @@ WidgetModel {
     Timer {
         id: timer
 
-        interval: 900000 //each 30 minutes
+        interval: 43200000 //each 12 hours
         running: true
         repeat: true
         triggeredOnStart: true

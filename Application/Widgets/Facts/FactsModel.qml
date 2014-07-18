@@ -35,6 +35,10 @@ WidgetModel {
                     return;
                 }
 
+                if (response.facts.length === 0) {
+                    return;
+                }
+
                 FactsModel.allFacts = response.facts;
                 root.factsChanged();
             });

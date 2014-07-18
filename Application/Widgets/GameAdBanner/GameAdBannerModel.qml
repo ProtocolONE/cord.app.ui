@@ -30,6 +30,10 @@ WidgetModel {
                 return;
             }
 
+            if (response.banners.length === 0 && GameAdBannerModel.allAds.hasOwnProperty(gameId)) {
+                return;
+            }
+
             GameAdBannerModel.allAds[gameId] = response.banners.filter(function(e) {
                 return e.hasOwnProperty('imageQgna') && e.imageQgna !== "";
             });
