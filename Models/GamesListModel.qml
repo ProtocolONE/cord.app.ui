@@ -632,11 +632,11 @@ ListModel {
         enabled: true
         gameType: "standalone"
 
-        imageSmall: ""
+        imageSmall: "Assets/Images/games/rot_icon_small.png"
         imageLogoSmall: "Assets/Images/games/rot_logo_small.png"
         imagePopupArt: "Assets/Images/games/Popup/RotPopupArt.png"
 
-        imageDefault: "Assets/Images/games/rot_logo_small.png"
+        imageDefault: "Assets/Images/games/rot_icon_small.png"
         formFactor: 1
         priority: 7
 
@@ -752,6 +752,16 @@ ListModel {
 
         socialNet: [
             ListElement {
+                link: "https://www.youtube.com/user/BlackDesertRussia"
+                icon: "Assets/Images/socialNet/yt.png"
+            },
+            ListElement {
+                link: "https://www.facebook.com/blackdesertrussia"
+                icon: "Assets/Images/socialNet/fb.png"
+            },
+            ListElement {
+                link: "https://vk.com/bdo.russia"
+                icon: "Assets/Images/socialNet/vk.png"
             }
         ]
 
