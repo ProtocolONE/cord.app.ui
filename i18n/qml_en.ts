@@ -579,17 +579,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings/GameGeneralSettings.qml" line="78"/>
+        <location filename="../Application/Blocks/GameSettings/GameGeneralSettings.qml" line="67"/>
         <source>DISTRIB_INSTALL_PATH</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings/GameGeneralSettings.qml" line="110"/>
+        <location filename="../Application/Blocks/GameSettings/GameGeneralSettings.qml" line="99"/>
         <source>BUTTON_CREATE_DESKTOP_SHORTCUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings/GameGeneralSettings.qml" line="130"/>
+        <location filename="../Application/Blocks/GameSettings/GameGeneralSettings.qml" line="119"/>
         <source>BUTTON_CREATE_START_MENU_SHORTCUT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -597,32 +597,32 @@
 <context>
     <name>GameInstallBlock</name>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="115"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="131"/>
         <source>BUTTON_PLAY_NOT_INSTALLED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="116"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="132"/>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="117"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="133"/>
         <source>BUTTON_PLAY_ON_DETAILS_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="118"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="134"/>
         <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="119"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="135"/>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="120"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="136"/>
         <source>BUTTON_PLAY_ERROR_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -630,32 +630,32 @@
 <context>
     <name>GameInstallView</name>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="52"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="53"/>
         <source>INSTALL_VIEW_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="81"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="82"/>
         <source>DESTINATION_FOLDER_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="114"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="119"/>
         <source>CREATE_DESKTOP_SHORTCUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="131"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="136"/>
         <source>CREATE_STARTMENU_SHORTCUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="149"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="154"/>
         <source>LICENSE_TIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="194"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="199"/>
         <source>INSTALL_BUTTON_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
@@ -914,6 +914,26 @@
     <message>
         <location filename="../Application/Models/GamesListModel.qml" line="683"/>
         <source>GAME_ROT_MINI_DESC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="755"/>
+        <source>LOGO_BD</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="756"/>
+        <source>GAME_BD_ABOUT_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="757"/>
+        <source>GAME_BD_MINI_TOOLTIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="758"/>
+        <source>GAME_BD_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

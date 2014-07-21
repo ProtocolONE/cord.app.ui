@@ -121,8 +121,6 @@ ListModel {
         imagePopupArt: "Assets/Images/games/Popup/RebornPopupArt.png"
         imageDefault: "Assets/Images/games/Default/reborn.png"
 
-        size: "doubleHorizontal"
-
         formFactor: 1
         priority: 0
 
@@ -195,8 +193,6 @@ ListModel {
         imageHorizontalSmall: "Assets/Images/games/ca_icon_horizontal_small.png"
         imagePopupArt: "Assets/Images/games/Popup/CombatArmsPopupArt.png"
         imageDefault: "Assets/Images/games/Default/ca.png"
-
-        size: "doubleHorizontal"
 
         formFactor: 2
         priority: 1
@@ -354,8 +350,11 @@ ListModel {
         imageHorizontalSmall: "Assets/Images/games/fj_horizontal_small.png"
         imageDefault: "Assets/Images/games/Default/farm.png"
 
-        serviceId: "300012010000000000"
-        gameId: "760"
+        formFactor: 1
+        priority: 3
+
+        serviceId: "300011010000000000"
+        gameId: "759"
 
         ratingUrl: ""
         forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=405"
@@ -415,10 +414,8 @@ ListModel {
         imagePopupArt: "Assets/Images/games/Popup/AikaPopupArt.png"
         imageDefault: "Assets/Images/games/Default/aika2.png"
 
-        size: "normal"
-
         formFactor: 2
-        priority: 4
+        priority: 5
 
         serviceId: "300002010000000000"
         gameId: "631"
@@ -487,11 +484,9 @@ ListModel {
         imageSmall: "Assets/Images/games/ga_icon_small.png"
         imageLogoSmall: "Assets/Images/games/ga_logo_small.png"
 
-        size: "normal"
-
         imageDefault: "Assets/Images/games/ga_icon_small.png"
         formFactor: 1
-        priority: 5
+        priority: 4
 
         serviceId: "300007010000000000"
         gameId: "83"
@@ -559,14 +554,12 @@ ListModel {
         enabled: true
         gameType: "standalone"
 
-        imageSmall: "Assets/Images/games/wi_icon_small.png"
+        imageSmall: "Assets/Images/games/fs_icon_small.png"
         imageHorizontalSmall: "Assets/Images/games/wi_icon_horizontal_small.png"
-        imageLogoSmall: "Assets/Images/games/wi_logo_small.png"
+        imageLogoSmall: "Assets/Images/games/fs_icon_small.png"
         imagePopupArt: "Assets/Images/games/Popup/FireStormPopupArt.png"
 
-        size: "normal"
-
-        imageDefault: "Assets/Images/games/wi_icon_small.png"
+        imageDefault: "Assets/Images/games/fs_icon_small.png"
         formFactor: 1
         priority: 6
 
@@ -643,8 +636,6 @@ ListModel {
         imageLogoSmall: "Assets/Images/games/rot_logo_small.png"
         imagePopupArt: "Assets/Images/games/Popup/RotPopupArt.png"
 
-        size: "normal"
-
         imageDefault: "Assets/Images/games/rot_logo_small.png"
         formFactor: 1
         priority: 7
@@ -709,4 +700,76 @@ ListModel {
            gameSuccessFinish: ''
         }
     }
+
+    ListElement {
+        name: "Black Desert"
+        enabled: true
+        gameType: "browser"
+
+        imageSmall: "Assets/Images/games/bd_icon_small.png"
+        imageLogoSmall: "Assets/Images/games/bd_logo_small.png"
+
+        imageDefault: "Assets/Images/games/bd_icon_small.png"
+        formFactor: 1
+        priority: 8
+
+        serviceId: "30000000000"
+        gameId: "1021"
+
+        ratingUrl: ""
+        forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=436"
+        blogUrl: ""
+        guideUrl: ""
+
+        status: "Normal" // Error Started Paused Downloading
+        statusText: ""
+        progress: -1
+        allreadyDownloaded: false
+        gaName: "BlackDesert" // Never change please
+
+        maintenance: false
+        ignoreMaintenance: false
+        maintenanceInterval: 0
+        maintenanceProposal1: "300009010000000000"
+        maintenanceProposal2: "300012010000000000"
+        maintenanceEndPause: false
+
+        licenseUrl: "http://blackdesert.ru/"
+
+        itemState: "Normal";
+        animationPause: 0
+        hasOverlay: false
+
+        logoText: QT_TR_NOOP("LOGO_BD")
+        aboutGameText: QT_TR_NOOP("GAME_BD_ABOUT_TEXT")
+        miniToolTip: QT_TR_NOOP("GAME_BD_MINI_TOOLTIP")
+        shortDescription: QT_TR_NOOP("GAME_BD_MINI_DESC")
+
+        secondStatus: "Normal"
+        secondAllowed: false
+        menu: []
+        currentMenuIndex: 1
+
+        socialNet: [
+            ListElement {
+            }
+        ]
+
+        widgetList: ListElement {
+           gameDownloading: 'GameAdBanner'
+           gameStarting: 'GameAdBanner'
+           gameFailedFinish: 'GameFailed'
+           gameBoredFinish: 'GameIsBoring'
+           gameSuccessFinish: ''
+        }
+
+        widgets: ListElement {
+           gameDownloading: 'GameAdBanner'
+           gameStarting: 'GameAdBanner'
+           gameFailedFinish: 'GameFailed'
+           gameBoredFinish: 'GameIsBoring'
+           gameSuccessFinish: ''
+        }
+    }
+
 }

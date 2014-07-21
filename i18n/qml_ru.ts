@@ -2184,6 +2184,22 @@ Please try again later.</source>
         <source>GAME_MENU_GAME_SETTINGS_TEXT</source>
         <translation>Настройки игры</translation>
     </message>
+    <message>
+        <source>LOGO_BD</source>
+        <translation>Революционная MMORPG</translation>
+    </message>
+    <message>
+        <source>GAME_BD_ABOUT_TEXT</source>
+        <translation>Black Desert —  ролевая игра нового поколения. Вас ждут полностью открытый мир, свободное PvP, реализм и ультрасовременная графика. Испытайте себя на прочность в самой хардкорной игре последних лет!</translation>
+    </message>
+    <message>
+        <source>GAME_BD_MINI_TOOLTIP</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>GAME_BD_MINI_DESC</source>
+        <translation>Революционная MMORPG</translation>
+    </message>
 </context>
 <context>
     <name>GamesOverlaySettings</name>

@@ -119,7 +119,7 @@ Item {
 
             return a.priority < b.priority ? -1 : 1;
         }).forEach(function(item){
-            var size = (item.formFactor == 2) ? 245 : 495
+            var size = (item.formFactor == 2) ? 495 : 240
             , animationPause
             , itemProperties;
 
