@@ -19,7 +19,7 @@ import "../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 Rectangle {
     id: root
 
-    signal accepted()
+    signal close()
 
     CursorMouseArea {
         cursor: CursorArea.DefaultCursor
@@ -191,21 +191,35 @@ Rectangle {
                     }
                 }
 
-                Button {
-                    width: 200
-                    height: 48
-                    text: qsTr("OK_BUTTON_LABEL")
+                Row {
                     anchors {
                         left: parent.left
                         leftMargin: 30
                         bottom: parent.bottom
                     }
-                    onClicked: {
-                        generalSettingsPage.save();
-                        downloadSettingsPage.save();
-                        notificationSettingsPage.save();
+                    width: 500
+                    height: 50
+                    spacing: 20
 
-                        root.accepted();
+                    Button {
+                        width: 200
+                        height: 48
+                        text: qsTr("SAVE_BUTTON_LABEL")
+
+                        onClicked: {
+                            generalSettingsPage.save();
+                            downloadSettingsPage.save();
+                            notificationSettingsPage.save();
+
+                            root.close();
+                        }
+                    }
+
+                    Button {
+                        width: 200
+                        height: 48
+                        text: qsTr("CLOSE_BUTTON_LABEL")
+                        onClicked: root.close();
                     }
                 }
             }

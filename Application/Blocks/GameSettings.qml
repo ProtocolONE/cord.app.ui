@@ -23,7 +23,7 @@ Rectangle {
     property variant currentGame: App.currentGame()
     property variant gameSettingsModelInstance: App.gameSettingsModelInstance() || {}
 
-    signal accepted()
+    signal close()
 
     onCurrentGameChanged: {
         // UNDONE: Вообще надо бы перенести куда то в другое место
@@ -198,22 +198,35 @@ Rectangle {
                     }
                 }
 
-                Button {
-                    width: 200
-                    height: 48
-                    text: "Ok"
+                Row {
                     anchors {
                         left: parent.left
                         leftMargin: 30
                         bottom: parent.bottom
                     }
-                    onClicked: {
-                        generalSettingsPage.save();
-                        overlaySettingsPage.save();
-                        controlSettingsPage.save();
+                    width: 500
+                    height: 50
+                    spacing: 20
 
-                        gameSettingsModel.submitSettings();
-                        root.accepted();
+                    Button {
+                        width: 200
+                        height: 48
+                        text: qsTr("SAVE_BUTTON_LABEL")
+
+                        onClicked: {
+                            generalSettingsPage.save();
+                            downloadSettingsPage.save();
+                            notificationSettingsPage.save();
+
+                            root.close();
+                        }
+                    }
+
+                    Button {
+                        width: 200
+                        height: 48
+                        text: qsTr("CLOSE_BUTTON_LABEL")
+                        onClicked: root.close();
                     }
                 }
             }

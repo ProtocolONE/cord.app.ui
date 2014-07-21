@@ -212,9 +212,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="197"/>
-        <source>OK_BUTTON_LABEL</source>
-        <translation type="unfinished"></translation>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="207"/>
+        <source>SAVE_BUTTON_LABEL</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="221"/>
+        <source>CLOSE_BUTTON_LABEL</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -222,7 +227,7 @@
     <message>
         <location filename="../Application/Blocks/Auth/AuthBody.qml" line="86"/>
         <source>AUTH_BODY_CAPTCHA_FAILED</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Application/Blocks/Auth/AuthBody.qml" line="111"/>
@@ -771,6 +776,16 @@
     <message>
         <location filename="../Application/Blocks/GameSettings.qml" line="145"/>
         <source>RESTORE_CLIENT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/GameSettings.qml" line="213"/>
+        <source>SAVE_BUTTON_LABEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/GameSettings.qml" line="227"/>
+        <source>CLOSE_BUTTON_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

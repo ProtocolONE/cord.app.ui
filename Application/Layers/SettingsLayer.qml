@@ -40,7 +40,7 @@ Item {
         anchors.bottom: parent.bottom
         visible: false
 
-        onAccepted: root.state = "";
+        onClose: root.state = "";
     }
 
     ApplicationSettings {
@@ -51,7 +51,7 @@ Item {
         anchors.bottom: parent.bottom
         visible: false
 
-        onAccepted: root.state = "";
+        onClose: root.state = "";
     }
 
     states: [

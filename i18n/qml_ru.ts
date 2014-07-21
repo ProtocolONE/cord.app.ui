@@ -300,7 +300,15 @@
     </message>
     <message>
         <source>OK_BUTTON_LABEL</source>
-        <translation>Ок</translation>
+        <translation type="vanished">Ок</translation>
+    </message>
+    <message>
+        <source>SAVE_BUTTON_LABEL</source>
+        <translation>Сохранить</translation>
+    </message>
+    <message>
+        <source>CLOSE_BUTTON_LABEL</source>
+        <translation>Закрыть</translation>
     </message>
 </context>
 <context>
@@ -1996,6 +2004,14 @@ Please try again later.</source>
     <message>
         <source>OK_BUTTON_LABEL</source>
         <translation type="obsolete">Ок</translation>
+    </message>
+    <message>
+        <source>SAVE_BUTTON_LABEL</source>
+        <translation type="unfinished">Сохранить</translation>
+    </message>
+    <message>
+        <source>CLOSE_BUTTON_LABEL</source>
+        <translation type="unfinished">Закрыть</translation>
     </message>
 </context>
 <context>
