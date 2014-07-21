@@ -56,6 +56,7 @@ Item {
         }
         height: parent.height
         scrollbarWidth: 5
+        allwaysShown: true
     }
 
     Component {
