@@ -54,6 +54,7 @@ Rectangle {
                 d.vkAuthInProgress = false;
 
                 if (Authorization.isSuccess(error)) {
+                    CredentialStorage.save(response.userId, response.appKey, response.cookie);
                     d.startLoadingServices(response.userId, response.appKey, response.cookie);
                     return;
                 }
