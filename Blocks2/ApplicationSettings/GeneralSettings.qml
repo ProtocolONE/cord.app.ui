@@ -83,7 +83,6 @@ Item {
         CheckBox {
             id: autoRun
 
-            width: 300
             fontSize: 15
             text: qsTr("CHECKOX_AUTORUN")
             style: ButtonStyleColors {
@@ -103,13 +102,12 @@ Item {
                     settingsViewModel.setAutoStart(0);
                 }
 
-                sendAutoRunGA(settingsViewModelInstance.autoStart);
+                d.sendAutoRunGA(settingsViewModelInstance.autoStart);
             }
         }
         CheckBox {
             id: runMinimized
 
-            width: 300
             fontSize: 15
             enabled: autoRun.checked
             checked: settingsViewModelInstance.autoStart === 2
@@ -129,7 +127,7 @@ Item {
                     }
                 }
 
-                sendAutoRunGA(settingsViewModelInstance.autoStart);
+                d.sendAutoRunGA(settingsViewModelInstance.autoStart);
             }
         }
         Item {
@@ -139,7 +137,6 @@ Item {
             CheckBox {
                 id: participateTesting
 
-                width: 300
                 fontSize: 15
                 checked: App.isPublicTestVersion();
                 text: qsTr("CHECKOX_PARTICIPATE_TESTING")
