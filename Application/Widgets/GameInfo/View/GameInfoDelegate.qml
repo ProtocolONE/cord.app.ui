@@ -37,6 +37,10 @@ Rectangle {
         anchors.fill: parent
         source: preview
 
+        smooth: true
+        asynchronous: true
+        cache: true
+
         CursorMouseArea {
             id: cursorMouseArea
 
