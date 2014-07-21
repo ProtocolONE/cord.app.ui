@@ -31,6 +31,7 @@ Rectangle {
             return;
         }
 
+        root.state = "GeneralPage";
         gameSettingsModelInstance.switchGame(currentGame.serviceId);
     }
 
