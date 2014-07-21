@@ -52,9 +52,7 @@ WidgetView {
     Connections {
         target: model
 
-        onInfoChanged: {
-            update();
-        }
+        onInfoChanged: update();
     }
 
     QtObject {
@@ -133,49 +131,17 @@ WidgetView {
                     }
 
                     if (currentItem === content1) {
-                        //console.log("1) currentItem == content1");
-                        //debugLoadTimer2.nextSource = nextItem.source;
-                        //debugLoadTimer2.start();
                         content2.source = nextItem.source;
                         switchTo(content2);
                         currentItem = content2;
-                        //console.log("2) currentItem == content2");
                     } else {
-                        //console.log("4) currentItem == content2");
-                        //debugLoadTimer1.nextSource = nextItem.source;
-                        //debugLoadTimer1.start();
                         content1.source = nextItem.source;
                         switchTo(content1);
                         currentItem = content1;
-                        //console.log("5) currentItem == content1");
                     }
                 }
 
                 anchors.fill: parent
-
-//                Timer {
-//                    id: debugLoadTimer1
-
-//                    property string nextSource
-//                    interval: 2000
-//                    repeat: false
-//                    onTriggered: {
-//                        console.log("6) currentItem == content1");
-//                        content1.source = nextSource
-//                    }
-//                }
-
-//                Timer {
-//                    id: debugLoadTimer2
-
-//                    property string nextSource
-//                    interval: 2000
-//                    repeat: false
-//                    onTriggered: {
-//                        console.log("3) currentItem == content2");
-//                        content2.source = nextSource
-//                    }
-//                }
 
                 WebImage {
                     id: content1

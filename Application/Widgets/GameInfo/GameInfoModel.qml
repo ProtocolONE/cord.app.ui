@@ -23,10 +23,6 @@ WidgetModel {
     property variant gameItem: App.currentGame()
 
     onGameItemChanged: {
-        if (!timer.running) {
-           timer.start();
-        }
-
         refreshGallery(gameItem.gameId);
     }
 
@@ -37,6 +33,10 @@ WidgetModel {
     }
 
     function refreshGallery(gameId) {
+        if (GameInfoModel.allInfo.hasOwnProperty(gameId)) {
+            return;
+        }
+
         RestApi.Games.getGallery(gameId, function(response) {
             if (!response || !response.hasOwnProperty('gallery')) {
                 return;
@@ -61,18 +61,5 @@ WidgetModel {
         }, function() {
             console.log('RestApi.Games.getGallery() method failed.');
         });
-    }
-
-    Timer {
-        id: timer
-
-        interval: 43200000 //each 12 hours
-        running: false
-        repeat: true
-        onTriggered: {
-            Object.keys(GameInfoModel.allInfo).forEach(function(e) {
-                refreshGallery(e);
-            });
-        }
     }
 }
