@@ -15,6 +15,7 @@ import GameNet.Controls 1.0
 import "../../../Application/Core/Authorization.js" as Authorization
 import "../../../Application/Core/restapi.js" as RestApi
 import "../../../Application/Core/App.js" as AppProxy
+import "./AuthHelper.js" as AuthHelper
 
 FocusScope {
     id: root
@@ -243,7 +244,7 @@ FocusScope {
                 id: rememberAuth
 
                 height: parent.height
-                checked: true
+                checked: AuthHelper.rememberAccount != undefined ? AuthHelper.rememberAccount : true
                 text: qsTr("AUTH_BODY_REMEMBER_TEXT")
                 enabled: !d.inProgress
                 //toolTip: qsTr("AUTH_BODY_REMEMBER_TOOLTIP")
@@ -252,6 +253,9 @@ FocusScope {
                     normal: "#1ADC9C"
                     hover: "#019074"
                     disabled: "#1ADC9C"
+                }
+                onToggled: {
+                    AuthHelper.rememberAccount = rememberAuth.checked;
                 }
             }
 
