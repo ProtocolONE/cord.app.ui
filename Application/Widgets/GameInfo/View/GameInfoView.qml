@@ -21,6 +21,29 @@ WidgetView {
     property int rotationTimeout: 5000
     property variant gameItem: App.currentGame()
 
+    function update() {
+        if (!root.gameItem) {
+            return;
+        }
+
+        previewListModel.clear();
+        d.index = 0;
+
+        var items = model.getGallery(gameItem.gameId);
+
+        for (var i = 0; i < items.length; i++){
+            var newData = items[i];
+            newData.index = i;
+
+            previewListModel.append(newData);
+        }
+
+        if (previewListModel.count > 0) {
+            d.switchAnimation();
+        }
+    }
+
+
     width: 590
     height: 495
 
@@ -29,17 +52,8 @@ WidgetView {
     Connections {
         target: model
 
-        onDataSourceChanged: {
-            previewListModel.clear();
-
-            for (var i = 0; i < root.model.dataSource.length; ++i) {
-                var newData = root.model.dataSource[i];
-                newData.index = i;
-
-                previewListModel.append(newData);
-            }
-
-            d.switchAnimation();
+        onInfoChanged: {
+            update();
         }
     }
 
@@ -60,32 +74,30 @@ WidgetView {
         }
 
         function incrementIndex() {
-            if (!root.model.dataSource) {
+            if (previewListModel.count == 0) {
                 return;
             }
 
-            if (d.index + 1 >= root.model.dataSource.length) {
+            if (d.index + 1 >= previewListModel.count) {
                 d.index = 0;
-                switchAnimation();
-                return;
+            } else {
+                d.index++;
             }
 
-            d.index++;
             switchAnimation();
         }
 
         function decrementIndex() {
-            if (!root.model.dataSource) {
+            if (previewListModel.count == 0) {
                 return;
             }
 
             if (d.index - 1 < 0) {
-                d.index = root.model.dataSource.length - 1;
-                switchAnimation();
-                return;
+                d.index = previewListModel.count - 1;
+            } else {
+                d.index--;
             }
 
-            d.index--;
             switchAnimation();
         }
 
@@ -117,12 +129,17 @@ WidgetView {
                 property variant currentItem: content1
 
                 function switchToNext() {
+                    var nextItem = previewListModel.get(d.index);
+                    if (!nextItem) {
+                        return;
+                    }
+
                     if (currentItem === content1) {
-                        content2.source = root.model.dataSource[d.index].source;
+                        content2.source = nextItem.source;
                         switchTo(content2);
                         currentItem = content2;
                     } else {
-                        content1.source = root.model.dataSource[d.index].source;
+                        content1.source = nextItem.source;
                         switchTo(content1);
                         currentItem = content1;
                     }

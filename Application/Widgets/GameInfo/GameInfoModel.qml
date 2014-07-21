@@ -20,47 +20,58 @@ WidgetModel {
 
     signal infoChanged();
 
-    property variant dataSource
     property variant gameItem: App.currentGame()
 
-    onGameItemChanged: timer.restart();
+    onGameItemChanged: {
+        if (!timer.running) {
+           timer.start();
+        }
+
+        refreshGallery(gameItem.gameId);
+    }
+
+    function getGallery(gameId) {
+        if (GameInfoModel.allInfo.hasOwnProperty(gameId)) {
+            return GameInfoModel.allInfo[gameId];
+        }
+    }
+
+    function refreshGallery(gameId) {
+        RestApi.Games.getGallery(gameId, function(response) {
+            if (!response || !response.hasOwnProperty('gallery')) {
+                return;
+            }
+
+            var shownCategoryId;
+
+            Object.keys(response.gallery).forEach(function(e) {
+                var item = response.gallery[e].category;
+                if (item.name == "Скриншоты") {
+                    shownCategoryId = item.id;
+                }
+            });
+
+            var data = response.gallery.filter(function(e) {
+                return e.category.id == shownCategoryId;
+            });
+
+            GameInfoModel.allInfo[gameId] = data[0].media;
+
+            root.infoChanged();
+        }, function() {
+            console.log('RestApi.Games.getGallery() method failed.');
+        });
+    }
 
     Timer {
         id: timer
 
         interval: 43200000 //each 12 hours
-        running: true
+        running: false
         repeat: true
-        triggeredOnStart: true
         onTriggered: {
-            if (!root.gameItem) {
-                return;
-            }
-
-            console.log("GameInfoModel timer triggered!");
-
-            RestApi.Games.getGallery(root.gameItem.gameId, function(response) {
-                if (!response || !response.hasOwnProperty('gallery')) {
-                    return;
-                }
-
-                var shownCategory;
-
-                Object.keys(response.gallery).forEach(function(e) {
-                    var item = response.gallery[e].category;
-                    if (item.name == "Скриншоты") {
-                        shownCategory = item.id;
-                    }
-                });
-
-                var data = response.gallery.filter(function(e) {
-                    return e.category.id == shownCategory;
-                });
-
-                root.dataSource = data[0].media;
-
-            }, function() {
-                console.log('failed callback')
+            Object.keys(GameInfoModel.allInfo).forEach(function(e) {
+                refreshGallery(e);
             });
         }
     }
