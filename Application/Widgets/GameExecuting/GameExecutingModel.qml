@@ -31,7 +31,7 @@ WidgetModel {
     }
 
     Connections {
-        target: enterNickNameViewModelInstance
+        target: enterNickNameViewModelInstance || null
         ignoreUnknownSignals: true
         onStartCheck: {
             if (isNickNameValid()) {

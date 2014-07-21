@@ -51,19 +51,8 @@ Item {
                 width: parent.width
                 height: 48
                 readOnly: true
-                path: gameSettingsModelInstance.installPath || ""
+                path: gameSettingsModelInstance.installPath || ''
                 onBrowseClicked: gameSettingsModelInstance.browseInstallPath();
-                // INFO: правильнее будет при возможности переделать на
-                //path: App.getExpectedInstallPath(root.currentGame.serviceId);
-                //onBrowseClicked: {
-                //    var result = App.browseDirectory(root.currentGame.serviceId,
-                //                                                   root.currentGame.name,
-                //                                                   installationPath.path);
-                //
-                //    if (result) {
-                //        installationPath.path = result;
-                //    }
-                //}
             }
         }
 

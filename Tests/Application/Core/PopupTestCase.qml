@@ -13,6 +13,8 @@ import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 import Tests.Application.Core.Fixtures.Popup.Sample 1.0
+
+import "../../../Application/Core/MessageBox.js" as MessageBox
 import "../../../Application/Core/Popup.js" as Popup
 import "../../../Application/Core/App.js" as AppJs
 
@@ -25,6 +27,7 @@ Item {
         id: manager
 
         Component.onCompleted: {
+            manager.registerWidget('Application.Widgets.AlertAdapter');
             manager.registerWidget('Application.Widgets.Maintenance');
             manager.registerWidget('Application.Widgets.Facts');
             manager.registerWidget('Tests.Application.Core.Fixtures.Popup.Sample');
@@ -52,11 +55,19 @@ Item {
         z: 2
     }
 
+    Item {
+        id: messageBoxLayer
+
+        anchors.fill: parent
+        z: 3
+    }
+
     // Initialization
 
     Component.onCompleted: {
         Settings.setValue("qml/core/popup/", "isHelpShowed", 0);
         Popup.init(popupLayer);
+        MessageBox.init(messageBoxLayer);
     }
 
     // Test Buttons
@@ -100,6 +111,19 @@ Item {
             text: "SomeWidget (priority 1)"
 
             onClicked: Popup.show("Sample", undefined, 1);
+        }
+
+        Button {
+            width: 200
+            height: 30
+
+            text: "MessageBox"
+
+            onClicked: MessageBox.show("этот очень замечательный заголовок",
+                                        "Какой то очень длинный длинный текст раз два три четыре, я ты он она, вместе дружная семья!",
+                                        MessageBox.button["Ok"] | MessageBox.button["Cancel"] | MessageBox.button["Yes"], function(result) {
+             });
+
         }
     }
 }

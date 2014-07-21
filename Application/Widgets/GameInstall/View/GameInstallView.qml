@@ -21,9 +21,10 @@ import "../../../Core/App.js" as App
 WidgetView {
     id: root
 
-    property variant currentGameItem: App.currentGame()
+    property variant currentGame: App.currentGame()
     property alias createDesktopShortcut: desktopShortcut.checked
     property alias createStartMenuShortcut: startMenuShortcut.checked
+    property variant gameSettingsModelInstance: App.gameSettingsModelInstance() || {}
 
     width: 630
     height: 375
@@ -49,7 +50,7 @@ WidgetView {
             }
             color: '#343537'
             smooth: true
-            text: qsTr("INSTALL_VIEW_TITLE").arg(currentGameItem.name)
+            text: qsTr("INSTALL_VIEW_TITLE").arg(currentGame.name)
         }
 
         HorizontalSplit {
@@ -84,18 +85,22 @@ WidgetView {
             PathInput {
                 id: installationPath
 
+                property string bestPath: App.getExpectedInstallPath(currentGame.serviceId)
+
                 y: 22
                 width: root.width - 40
                 height: 48
-                path: App.getExpectedInstallPath(currentGameItem.serviceId);
+                path: installationPath.bestPath
                 readOnly: true
                 onBrowseClicked: {
-                    var result = App.browseDirectory(root.currentGameItem.serviceId,
-                                                                   root.currentGameItem.name,
-                                                                   installationPath.path);
+                    gameSettingsModelInstance.browseInstallPath(installationPath.bestPath);
+                }
 
-                    if (result) {
-                        installationPath.path = result;
+                Connections {
+                    target: gameSettingsModelInstance
+                    ignoreUnknownSignals: true
+                    onInstallPathChanged: {
+                        installationPath.bestPath = gameSettingsModelInstance.installPath;
                     }
                 }
             }
@@ -152,7 +157,7 @@ WidgetView {
                     pixelSize: 12
                 }
                 color: '#5c6d7d'
-                onLinkActivated: App.openExternalUrl(currentGameItem.licenseUrl)
+                onLinkActivated: App.openExternalUrl(currentGame.licenseUrl)
             }
         }
 
@@ -198,16 +203,19 @@ WidgetView {
                 licenseModel.setShurtCutInStart(startMenuShortcut.checked);
                 licenseModel.okPressed();
 
-                if (root.currentGameItem.gameType != 'browser') {
-                    App.setServiceInstallPath(root.currentGameItem.serviceId,
+                if (root.currentGame.gameType != 'browser') {
+                    App.setServiceInstallPath(root.currentGame.serviceId,
                                               installationPath.path,
                                               desktopShortcut.checked);
                 }
 
-                App.installService(currentGameItem.serviceId, {
+                App.installService(currentGame.serviceId, {
                                                 createDesktopShortCut: desktopShortcut.checked,
                                                 createStartMenuShortCut: startMenuShortcut.checked
                                             });
+
+                gameSettingsModelInstance.switchGame(currentGame.serviceId);
+
                 root.close();
             }
         }
