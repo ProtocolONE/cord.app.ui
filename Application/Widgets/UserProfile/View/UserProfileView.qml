@@ -14,6 +14,7 @@ import GameNet.Controls 1.0
 
 import "../../../Core/App.js" as App
 import "../../../Core/Popup.js" as Popup
+import "../../../Core/User.js" as User
 import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetView {
@@ -127,6 +128,10 @@ WidgetView {
                 onNicknameClicked: {
                     if (!nicknameValid) {
                         Popup.show('NicknameEdit');
+                    } else {
+                        var techName = User.getTechName();
+                        var url = "http://www.gamenet.ru/users/" + (techName || User.userId());
+                        App.openExternalUrlWithAuth(url);
                     }
                 }
             }
