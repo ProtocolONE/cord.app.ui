@@ -55,6 +55,7 @@ WidgetModel {
             root.infoChanged();
         }, function() {
             console.log('RestApi.Games.getGallery() method failed.');
+            root.infoChanged();
         });
     }
 }
