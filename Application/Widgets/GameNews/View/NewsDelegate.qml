@@ -47,11 +47,10 @@ Item {
     }
 
     CursorMouseArea {
-        anchors {
-            fill: parent
-            margins: 10
-        }
-        onClicked: delegate.openNews(gameShortName, eventId);
+        id: mouser
+
+        anchors { fill: parent; leftMargin: 10; rightMargin: 10; topMargin: shouldShowDelimited ? 9 : 0}
+        onClicked: openNews(gameShortName, eventId);
     }
 
     Column {
@@ -71,14 +70,14 @@ Item {
 
             spacing: 10
 
-            Image {
+            WebImage {
                 id: newsImage
 
                 visible: previewImage !== ''
                 height: 130
                 width: 160
                 source: previewImage
-                cache: false
+                cache: true
                 asynchronous: true
 
                 Image {
@@ -126,9 +125,13 @@ Item {
                     Text {
                         height: 12
                         text: App.serviceItemByGameId(gameId) ? App.serviceItemByGameId(gameId).name : ''
-                        color: '#4ac6aa'
+                        color: mouser.containsMouse ?  '#2c7666':'#4ac6aa'
                         font { family: 'Arial'; pixelSize: 12 }
                         visible: !root.isSingleMode
+
+                        Behavior on color {
+                            ColorAnimation { duration: 200 }
+                        }
                     }
 
                     Text {
@@ -142,8 +145,12 @@ Item {
                         }
 
                         height: 12
-                        color: '#7e99ae'
+                        color: mouser.containsMouse ? '#4b5b68' : '#7e99ae'
                         font { family: 'Arial'; pixelSize: 12 }
+
+                        Behavior on color {
+                            ColorAnimation { duration: 200 }
+                        }
                     }
                 }
 
@@ -151,9 +158,13 @@ Item {
                     height: 23
                     width: parent.width - 30
                     text: title
-                    color: '#2b6a9d'
+                    color: mouser.containsMouse ? '#193f5e':'#2B6A9D'
                     elide: Text.ElideRight
                     font { family: 'Arial'; pixelSize: 18; bold: true }
+
+                    Behavior on color {
+                        ColorAnimation { duration: 200 }
+                    }
                 }
 
                 Text {
@@ -166,11 +177,15 @@ Item {
                     elide: Text.ElideRight
                     maximumLineCount: 4
                     clip: true
-                    color: '#5e7182'
+                    color: mouser.containsMouse ? '#38434e':'#5e7182'
                     font { family: 'Arial'; pixelSize: 14 }
                     lineHeight: 20
                     lineHeightMode: Text.FixedHeight
                     onLinkActivated: App.openExternalUrl(link);
+
+                    Behavior on color {
+                        ColorAnimation { duration: 200 }
+                    }
                 }
             }
         }
