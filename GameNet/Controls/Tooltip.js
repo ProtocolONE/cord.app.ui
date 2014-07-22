@@ -38,16 +38,24 @@ function track(item) {
     }
 
     item.entered.connect(function() {
-        if (_tooltipObject) {
-            _tooltipObject.entered(item);
-        }
+        entered(item)
     });
 
     item.exited.connect(function() {
-        if (_tooltipObject) {
-            _tooltipObject.exited(item);
-        }
+        exited(item);
     });
+}
+
+function entered(item) {
+    if (_tooltipObject) {
+        _tooltipObject.entered(item);
+    }
+}
+
+function exited(item) {
+    if (_tooltipObject) {
+        _tooltipObject.exited(item);
+    }
 }
 
 function release(item) {

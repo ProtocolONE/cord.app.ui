@@ -21,8 +21,8 @@ MouseArea {
     property bool tooltipGlueCenter: false
 
     hoverEnabled: true
-    Component.onCompleted: Tooltip.track(mouser)
-    Component.onDestruction: Tooltip.release(mouser)
+    onEntered: Tooltip.entered(mouser)
+    onExited: Tooltip.exited(mouser)
 
     CursorArea {
         id: cursorArea
