@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.0" language="en_US">
 <context>
     <name>AccountActivationView</name>
     <message>
@@ -317,6 +317,14 @@
     </message>
 </context>
 <context>
+    <name>BottomBar</name>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/BottomBar.qml" line="28"/>
+        <source>MESSANGER_BOTTOM_BAR_BUTTON_NOTIFICATION_TOOLTIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CaptchaInput</name>
     <message>
         <location filename="../Application/Blocks/Auth/CaptchaInput.qml" line="55"/>
@@ -372,14 +380,6 @@
     <message>
         <location filename="../Application/Widgets/Messenger/View/ContactItem.qml" line="126"/>
         <source>CONTACT_NEW_MESSAGE</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Contacts</name>
-    <message>
-        <location filename="../Application/Widgets/Messenger/View/Contacts.qml" line="118"/>
-        <source>MESSENGER_SEARCH_FRIEND_PLACE_HOLDER</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1636,6 +1636,14 @@
     </message>
 </context>
 <context>
+    <name>Search</name>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Search.qml" line="56"/>
+        <source>MESSENGER_SEARCH_FRIEND_PLACE_HOLDER</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SecondAccountAuthView</name>
     <message>
         <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="58"/>
@@ -1732,7 +1740,7 @@
     <name>Tray</name>
     <message>
         <source>TRAY_TOOLTIP</source>
-        <translation type="vanished">GameNet</translation>
+        <translation>GameNet</translation>
     </message>
 </context>
 <context>

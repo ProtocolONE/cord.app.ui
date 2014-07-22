@@ -34,6 +34,8 @@ Item {
     signal selectedUserChanged();
     signal messageReceived(string from, string body);
 
+    signal connectedToServer();
+
     function init() {
         return {
             client: xmppClient,
@@ -59,31 +61,12 @@ Item {
     }
 
     function sendInputStatus(user, value) {
-        var messageMap = {}
-            , item;
-        item = new UserJs.User(usersModel.getById(user.jid), usersModel);
+        var item = new UserJs.User(usersModel.getById(user.jid), usersModel);
         if (!item.isValid()) {
             return;
         }
 
-        messageMap.type = QXmppMessage.Chat;
-        if (value === "Active") {
-            messageMap.state = QXmppMessage.Active;
-        }
-
-        if (value === "Composing") {
-            messageMap.state = QXmppMessage.Composing;
-        }
-
-        if (value === "Inactive") {
-            messageMap.state = QXmppMessage.Inactive;
-        }
-
-        if (value === "Paused") {
-            messageMap.state = QXmppMessage.Paused;
-        }
-
-        xmppClient.sendMessage(user.jid, messageMap);
+        xmppClient.sendInputStatus(user.jid, value);
     }
 
     function connect(jid, password) {
@@ -190,26 +173,14 @@ Item {
         return item.isGamenet;
     }
 
+    function getGamenetUser() {
+        return usersModel.getById(UserJs.getGamenetUserJid());
+    }
+
     QtObject {
         id: d
 
         property int defaultAvatarIndex: 0
-
-        function appendGamenetUser() {
-            if (usersModel.contains(UserJs.getGamenetUserJid())) {
-                return;
-            }
-
-            var gamenetUser = UserJs.createGamenetUser(),
-                gamenetGroup = GroupJs.createGamenetGroup(),
-                group;
-
-            usersModel.append(gamenetUser);
-            groupsModel.append(gamenetGroup);
-
-            group = new GroupJs.Group(groupsModel.getById(gamenetGroup.groupId), groupsModel);
-            group.appendUser(gamenetUser.jid);
-        }
 
         function rosterRecieved() {
             var rosterUsers = xmppClient.rosterManager.getRosterBareJids()
@@ -226,6 +197,14 @@ Item {
                     d.removeUserFromGroups(id);
                 }
             });
+        }
+
+        function createGamenetUser() {
+            if (usersModel.contains(UserJs.getGamenetUserJid())) {
+                return;
+            }
+
+            usersModel.append(UserJs.createGamenetUser());
         }
 
         function getDefaultAvatar() {
@@ -327,7 +306,6 @@ Item {
                 if (!root.isSelectedUser(user)) {
                     user.unreadMessageCount += 1;
                 }
-
             } else {
                 user.changeState(from, state);
             }
@@ -357,39 +335,17 @@ Item {
         idProperty: "jid"
     }
 
-    QtObject {
+    User {
         id: user
-
-        property string nickname: ""
-        property string jid: ""
-        property string userId: ""
-        property int state: QXmppMessage.Active
-        property string presenceState: ""
-        property string statusMessage: ""
-        property string avatar: installPath + "/Assets/Images/Application/Widgets/Messenger/defaultAvatar.png";
-        property int unreadMessageCount: 0
-
-        function isValid() {
-            return true;
-        }
     }
 
-    QXmppClient {
+    JabberClient {
         id: xmppClient
-
-        property int failCount: 0
-        property string failDate: ""
-
-//                logger: QXmppLogger {
-//                    loggingType: QXmppLogger.FileLogging
-//                    logFilePath: "D:\XmppClient.log"
-//                    messageTypes: QXmppLogger.AnyMessage
-//                }
 
         onConnected: {
             console.log("Connected to server ");
 
-            d.appendGamenetUser();
+            d.createGamenetUser();
 
             root.connected = true;
             root.connecting = false;
@@ -397,6 +353,8 @@ Item {
             xmppClient.failCount = 0;
             xmppClient.vcardManager.requestVCard(user.jid);
             user.nickname = user.jid;
+
+            root.connectedToServer();
         }
 
         onDisconnected: {
@@ -416,36 +374,6 @@ Item {
 
             if (message.body) {
                 root.messageReceived(bareJid, message.body);
-            }
-        }
-
-        onError: {
-            //if (error == XmppClient.SocketError) {
-            //  console.log("Error due to TCP socket.");
-            //} else if (error == XmppClient.KeepAliveError) {
-            //  console.log("Error due to no response to a keep alive.");
-            //} else if (error == XmppClient.XmppStreamError) {
-            //  console.log("Error due to XML stream.");
-            //}
-            var today = Qt.formatDateTime(new Date(), "dd.MM.yyyy");
-
-            if (xmppClient.failDate != today) {
-                xmppClient.failCount = 0;
-                xmppClient.failDate = today;
-            }
-
-            xmppClient.failCount += 1;
-
-            if (xmppClient.failCount <= 14) {
-                console.log('Jabber error sended Code: ', code, 'Count: ', xmppClient.failCount, ' Today: ', xmppClient.failDate);
-            }
-
-            var shoudlTrackConnectionFail = (xmppClient.failCount === 1) // 10 секунд - бывает.
-                || (xmppClient.failCount === 4) // 40 секунд лучше бы столько клиенту не ждать.
-                || (xmppClient.failCount === 14); // 340 секунд - это уже недопустимо.
-
-            if (shoudlTrackConnectionFail) {
-                GoogleAnalytics.trackEvent('/jabber/0.2/', 'Error', 'Code ' + code, "Try count" + xmppClient.failCount);
             }
         }
 

@@ -172,3 +172,7 @@ function isConnecting() {
     return _modelInstance.connecting;
 }
 
+function getGamenetUser() {
+    return _modelInstance.getGamenetUser();
+}
+

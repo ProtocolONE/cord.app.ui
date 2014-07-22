@@ -25,9 +25,45 @@ Item {
     implicitWidth: 228
     implicitHeight: 400
 
+    function sortFunction(a, b) {
+        if (a.value > b.value) {
+            return 1;
+        }
+
+        return -1;
+    }
+
+    function updateFilter(text) {
+        var res = []
+            , item
+            , filterText = text.toLowerCase();
+
+        searchContactModel.clear();
+
+        MessengerJs.eachUser(function(user) {
+            if (0 !== user.nickname.toLowerCase().indexOf(filterText)) {
+                return;
+            }
+
+            item = {
+                jid: user.jid,
+                value: user.nickname
+            };
+
+            res.push(item);
+        });
+
+        res.sort(sortFunction);
+
+        res.forEach(function(e) {
+            searchContactModel.append({jid: e.jid});
+        });
+    }
+
     ListView {
         id: view
 
+        model: searchContactModel
         anchors.fill: parent
         boundsBehavior: Flickable.StopAtBounds
         delegate: ContactItem {
@@ -41,6 +77,10 @@ Item {
                 MessengerJs.selectUser(model);
             }
         }
+    }
+
+    ListModel {
+        id: searchContactModel
     }
 
     ScrollBar {
