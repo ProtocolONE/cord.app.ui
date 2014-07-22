@@ -13,6 +13,8 @@ import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
+import "../../GameNet/Controls/Tooltip.js" as Tooltip
+
 Item {
     id: root
 
@@ -25,6 +27,8 @@ Item {
     }
 
     function activateWidget(widgetName, widgetView, popupId) {
+        Tooltip.releaseAll();
+
         d.widgetName = widgetName;
         d.widgetView = widgetView;
         d.popupId = popupId;
