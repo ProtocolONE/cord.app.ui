@@ -47,7 +47,6 @@ FocusScope {
             }
 
             d.password = "";
-            App.setGlobalProgressVisible(true);
             d.inProgress = true;
 
             Authorization.register(login, password, function(error, response) {                
@@ -57,7 +56,12 @@ FocusScope {
                 }
 
                 d.inProgress = false;
-                App.setGlobalProgressVisible(false);
+
+                if (!response) {
+                    root.error(qsTr("REGISTER_FAIL_GAMENET_UNAVAILABLE"));
+                    return;
+                }
+
                 if (response.message.login) {
                     loginInput.errorMessage = response.message.login;
                     loginInput.error = true;

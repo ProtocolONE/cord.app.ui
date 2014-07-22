@@ -3831,6 +3831,10 @@ Please try again later.</source>
         <translation>Зарегистрироваться</translation>
     </message>
     <message>
+        <source>REGISTER_FAIL_GAMENET_UNAVAILABLE</source>
+        <translation>Вероятно, по нашей вине и мы работаем над скорейшим устранением этой проблемы. Но, возможно, это ваше интернет-соединение. Пожалуйста, на всякий случай проверьте ваше соединение.</translation>
+    </message>
+    <message>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
         <translation>GameNet недоступен. Попробуйте авторизоваться позже.</translation>
     </message>
