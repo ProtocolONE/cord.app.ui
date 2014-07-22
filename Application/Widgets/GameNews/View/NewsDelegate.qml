@@ -14,6 +14,7 @@ import GameNet.Controls 1.0
 import "../../../Core/App.js" as App
 import "../../../Core/moment.js" as Moment
 import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../../GameNet/Core/Strings.js" as Strings
 
 Item {
     id: delegate
@@ -156,7 +157,7 @@ Item {
                 }
 
                 Text {
-                    property string clearText: announcementText.replace(/<\!--(.+?)-->/, '')
+                    property string clearText: Strings.stripTags(announcementText).replace(/\s+/g, ' ').trim();
 
                     text: clearText
                     height: 86
