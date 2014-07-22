@@ -15,6 +15,7 @@ import "../../Core/App.js" as App
 import "TaskList.js" as TaskListJs
 
 Item {
+    id: root
 
     function applyTaskList() {
         var elem
@@ -46,6 +47,11 @@ Item {
         TaskList.apply();
     }
 
+    function clear() {
+        TaskList.removeAllTasks();
+        TaskList.apply();
+    }
+
     Connections {
         target: App.mainWindowInstance()
 
@@ -62,6 +68,11 @@ Item {
         }
     }
 
+    Connections {
+        target: App.signalBus()
+        onExitApplication: root.clear()
+    }
+
     Component.onCompleted: {
         TaskListJs.installedCategory = TaskList.addCategory(qsTr("TASK_LIST_ALL_GAMES"));
         TaskListJs.notInstalledCategory = TaskList.addCategory(qsTr("TASK_LIST_MORE_GAMES"));
@@ -69,10 +80,5 @@ Item {
         TaskList.setGuid("{F29F85E0-4FF9-1068-AB91-08002B27B3D9}");
 
         applyTaskList();
-    }
-
-    Component.onDestruction: {
-        TaskList.removeAllTasks();
-        TaskList.apply();
     }
 }
