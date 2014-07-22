@@ -20,6 +20,11 @@ WidgetView {
 
     property int rotationTimeout: 5000
     property variant gameItem: App.currentGame()
+    onGameItemChanged: {
+        if (gameItem) {
+            model.refreshGallery(gameItem.gameId);
+        }
+    }
 
     function update() {
         if (!root.gameItem) {
@@ -43,9 +48,8 @@ WidgetView {
         }
     }
 
-
-    width: 590
-    height: 495
+    implicitWidth: 590
+    implicitHeight: contentColumn.height
 
     clip: true
 
@@ -112,214 +116,244 @@ WidgetView {
         color: "#f0f5f8"
     }
 
-    Item {
+    Column {
+        id: contentColumn
+
         width: parent.width
-        height: 320
 
-        Item {
-            anchors.fill: parent
+        Column {
+            width: parent.width
+            height: previewListModel.count > 0 ? 390 : 0
+            visible: previewListModel.count > 0
+            spacing: 10
 
-            Switcher {
-                id: contentSwitcher
+            Item {
+                width: parent.width
+                height: parent.height - 70
 
-                property variant currentItem: content1
+                Switcher {
+                    id: contentSwitcher
 
-                function switchToNext() {
-                    var nextItem = previewListModel.get(d.index);
-                    if (!nextItem) {
-                        return;
+                    property variant currentItem: content1
+
+                    function switchToNext() {
+                        var nextItem = previewListModel.get(d.index);
+                        if (!nextItem) {
+                            return;
+                        }
+
+                        if (currentItem === content1) {
+                            content2.source = nextItem.source;
+                            switchTo(content2);
+                            currentItem = content2;
+                            noInetTimeout.restart();
+                        } else {
+                            content1.source = nextItem.source;
+                            switchTo(content1);
+                            currentItem = content1;
+                            noInetTimeout.restart();
+                        }
                     }
 
-                    if (currentItem === content1) {
-                        content2.source = nextItem.source;
-                        switchTo(content2);
-                        currentItem = content2;
-                    } else {
-                        content1.source = nextItem.source;
-                        switchTo(content1);
-                        currentItem = content1;
+                    anchors.fill: parent
+
+                    Timer {
+                        id: noInetTimeout
+
+                        running: false
+                        interval: 5000
+                        repeat: false
+                        onTriggered: {
+                            if (contentSwitcher.currentItem.progress == 0) {
+                                showNextTimer.restart();
+                            }
+                        }
                     }
-                }
 
-                anchors.fill: parent
+                    WebImage {
+                        id: content1
 
-                WebImage {
-                    id: content1
+                        width: parent.width
+                        height: parent.height
+                        onStatusChanged: {
+                            if (content1.status == Image.Ready) {
+                                showNextTimer.restart();
+                            }
+                        }
+                    }
 
-                    width: parent.width
-                    height: parent.height
-                    onStatusChanged: {
-                        if (content1.status == Image.Ready) {
-                            showNextTimer.restart();
+                    WebImage {
+                        id: content2
+
+                        width: parent.width
+                        height: parent.height
+                        onStatusChanged: {
+                            if (content2.status == Image.Ready) {
+                                showNextTimer.restart();
+                            }
                         }
                     }
                 }
 
-                WebImage {
-                    id: content2
+                ImageButton {
+                    id: previousButton
+
+                    width: 48
+                    height: 48
+                    anchors {
+                        verticalCenter: parent.verticalCenter
+                        left: parent.left
+                        leftMargin: 10
+                    }
+                    style: ButtonStyleColors {
+                        normal: "#1ABC9C"
+                        hover: "#019074"
+                        disabled: "#1ABC9C"
+                    }
+                    styleImages: ButtonStyleImages {
+                        normal: installPath + 'Assets/images/Application/Widgets/GameInfo/leftArrow.png'
+                        hover: normal
+                        disabled: normal
+                    }
+                    onClicked: {
+                        showNextTimer.stop();
+                        d.decrementIndex();
+                    }
+                }
+
+                ImageButton {
+                    id: nextButton
+
+                    width: 48
+                    height: 48
+                    anchors {
+                        verticalCenter: parent.verticalCenter
+                        right: parent.right
+                        rightMargin: 14
+                    }
+                    style: ButtonStyleColors {
+                        normal: "#1ABC9C"
+                        hover: "#019074"
+                        disabled: "#1ABC9C"
+                    }
+                    styleImages: ButtonStyleImages {
+                        normal: installPath + 'Assets/images/Application/Widgets/GameInfo/rightArrow.png'
+                        hover: normal
+                        disabled: normal
+                    }
+                    onClicked: {
+                        showNextTimer.stop();
+                        d.incrementIndex();
+                    }
+                }
+
+
+                WidgetContainer {
+                    anchors {
+                        bottom: parent.bottom
+                    }
 
                     width: parent.width
-                    height: parent.height
-                    onStatusChanged: {
-                        if (content2.status == Image.Ready) {
-                            showNextTimer.restart();
-                        }
-                    }
+                    height: 50
+
+                    widget: 'Facts'
                 }
             }
 
-            ImageButton {
-                id: previousButton
-
-                width: 48
-                height: 48
+            Item {
+                height: 70
                 anchors {
-                    verticalCenter: parent.verticalCenter
                     left: parent.left
                     leftMargin: 10
-                }
-                style: ButtonStyleColors {
-                    normal: "#1ABC9C"
-                    hover: "#019074"
-                    disabled: "#1ABC9C"
-                }
-                styleImages: ButtonStyleImages {
-                    normal: installPath + 'Assets/images/Application/Widgets/GameInfo/leftArrow.png'
-                    hover: normal
-                    disabled: normal
-                }
-                onClicked: {
-                    showNextTimer.stop();
-                    d.decrementIndex();
-                }
-            }
-
-            ImageButton {
-                id: nextButton
-
-                width: 48
-                height: 48
-                anchors {
-                    verticalCenter: parent.verticalCenter
                     right: parent.right
-                    rightMargin: 14
+                    rightMargin: 10
                 }
-                style: ButtonStyleColors {
-                    normal: "#1ABC9C"
-                    hover: "#019074"
-                    disabled: "#1ABC9C"
+
+                WheelArea {
+                    anchors.fill: parent
+                    onVerticalWheel: {
+                        var newValue = flickable.contentX - delta;
+
+                        if (newValue < 0) {
+                            newValue = 0;
+                        }
+
+                        if (newValue > flickable.contentWidth - width ) {
+                            newValue = flickable.contentWidth - width;
+                        }
+
+                        flickable.contentX = newValue;
+                    }
                 }
-                styleImages: ButtonStyleImages {
-                    normal: installPath + 'Assets/images/Application/Widgets/GameInfo/rightArrow.png'
-                    hover: normal
-                    disabled: normal
-                }
-                onClicked: {
-                    showNextTimer.stop();
-                    d.incrementIndex();
+
+                Flickable {
+                    id: flickable
+
+                    anchors.fill: parent
+                    contentWidth: listView.width
+                    boundsBehavior: Flickable.StopAtBounds
+
+                    Behavior on contentX {
+                        NumberAnimation {
+                            id: contentAnimation
+                            duration: 75
+                        }
+                    }
+                    // TODO add acceleration
+
+                    ListView {
+                        id: listView
+
+                        height: 60
+                        width: (listView.count) * (80 + listView.spacing) - listView.spacing
+                        cacheBuffer: width
+
+                        interactive: false
+                        orientation: ListView.Horizontal
+
+                        model: ListModel {
+                            id: previewListModel
+                        }
+
+                        spacing: 18
+
+                        delegate: GameInfoDelegate {
+                            function moveToItem() {
+                                if (x + width > flickable.contentX + flickable.width) {
+                                    flickable.contentX += (x + width) - (flickable.contentX + flickable.width);
+                                }
+
+                                if (x < flickable.contentX) {
+                                    flickable.contentX = x;
+                                }
+                            }
+
+                            hovered: index == listView.currentIndex ? 1 : 0
+                            width: 80
+                            height: 60
+
+                            onClicked: d.changeIndex(index);
+                        }
+                    }
                 }
             }
-        }
-
-        WidgetContainer {
-            anchors {
-                bottom: parent.bottom
-            }
-
-            width: parent.width
-            height: 50
-
-            widget: 'Facts'
         }
 
         Item {
-            anchors {
-                top: parent.bottom
-                left: parent.left
-                right: parent.right
-                margins: 10
-            }
-
-            height: 60
-
-            WheelArea {
-                anchors.fill: parent
-                onVerticalWheel: {
-                    var newValue = flickable.contentX - delta;
-
-                    if (newValue < 0) {
-                        newValue = 0;
-                    }
-
-                    if (newValue > flickable.contentWidth - width ) {
-                        newValue = flickable.contentWidth - width;
-                    }
-
-                    flickable.contentX = newValue;
-                }
-            }
-
-            Flickable {
-                id: flickable
-
-                anchors { fill: parent }
-                contentWidth: listView.width
-                boundsBehavior: Flickable.StopAtBounds
-
-                Behavior on contentX {
-                    NumberAnimation {
-                        id: contentAnimation
-                        duration: 75
-                    }
-                }
-                // TODO add acceleration
-
-                ListView {
-                    id: listView
-
-                    height: 60
-                    width: (listView.count) * (80 + listView.spacing) - listView.spacing
-                    cacheBuffer: width
-
-                    interactive: false
-                    orientation: ListView.Horizontal
-
-                    model: ListModel {
-                        id: previewListModel
-                    }
-
-                    spacing: 18
-
-                    delegate: GameInfoDelegate {
-                        function moveToItem() {
-                            if (x + width > flickable.contentX + flickable.width) {
-                                flickable.contentX += (x + width) - (flickable.contentX + flickable.width);
-                            }
-
-                            if (x < flickable.contentX) {
-                                flickable.contentX = x;
-                            }
-                        }
-
-                        hovered: index == listView.currentIndex ? 1 : 0
-                        width: 80
-                        height: 60
-
-                        onClicked: d.changeIndex(index);
-                    }
-                }
-            }
+            width: parent.width
+            height: aboutText.height + 30
 
             Text {
-                id: infoText
+                id: aboutText
 
                 wrapMode: Text.WordWrap
+                y: 15
+
                 anchors {
-                    top: parent.bottom
                     left: parent.left
+                    leftMargin: 10
                     right: parent.right
                     rightMargin: 10
-                    topMargin: 22
                 }
                 smooth: true
                 clip: true
@@ -331,6 +365,7 @@ WidgetView {
                 text: root.gameItem ? root.gameItem.aboutGameText : ""
             }
         }
+
     }
 
     Timer {

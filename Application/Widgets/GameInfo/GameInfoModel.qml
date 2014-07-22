@@ -20,12 +20,6 @@ WidgetModel {
 
     signal infoChanged();
 
-    property variant gameItem: App.currentGame()
-
-    onGameItemChanged: {
-        refreshGallery(gameItem.gameId);
-    }
-
     function getGallery(gameId) {
         if (GameInfoModel.allInfo.hasOwnProperty(gameId)) {
             return GameInfoModel.allInfo[gameId];
@@ -34,6 +28,7 @@ WidgetModel {
 
     function refreshGallery(gameId) {
         if (GameInfoModel.allInfo.hasOwnProperty(gameId)) {
+            root.infoChanged();
             return;
         }
 
