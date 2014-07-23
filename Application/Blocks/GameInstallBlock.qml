@@ -128,11 +128,8 @@ Item {
                 focus: true
 
                 style: ButtonStyleColors {
-                    property bool isDefaultColor: !!root.gameItem &&
-                                                  root.gameItem.status === "Normal" &&
-                                                  !button.isInstalled
-                    normal: button.isError ? "#cc0000" : (isDefaultColor ? "#ff4f02" : "#567dd8")
-                    hover: button.isError ? "#ee0000" : (isDefaultColor ? "#ff7902" : "#5e89ee")
+                    normal: button.isError ? "#cc0000" : "#ff4f02"
+                    hover: button.isError ? "#ee0000" : "#ff7902"
                     disabled: '#888888'
                 }
 
