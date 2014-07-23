@@ -71,7 +71,11 @@ Item {
             height: 53
             nickname: MessengerJs.getNickname(model)
             avatar: MessengerJs.userAvatar(model)
+            status: MessengerJs.userStatusMessage(model)
+            presenceStatus: MessengerJs.userPresenceState(model)
             isPresenceVisile: !MessengerJs.isGamenetUser(model)
+            isCurrent: MessengerJs.isSelectedUser(model)
+            isUnreadMessages: !isCurrent && MessengerJs.hasUnreadMessages(model);
             onClicked: {
                 root.userClicked(model.jid);
                 MessengerJs.selectUser(model);
