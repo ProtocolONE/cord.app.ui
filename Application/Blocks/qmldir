@@ -1,12 +1,14 @@
 module Application.Blocks
-FlowView 1.0 FlowView.qml
-GamePopup 1.0 GamePopup.qml
-SplashScreen 1.0 SplashScreen.qml
-AuthIndex 1.0 Auth/Index.qml
-AppScreen 1.0 AppScreen.qml
-ServiceLoading 1.0 ServiceLoading/Index.qml
-DownloadStatus 1.0 DownloadStatus.qml
-SocialNet 1.0 SocialNet.qml
-GameInstallBlock 1.0 GameInstallBlock.qml
 ApplicationSettings 1.0 ApplicationSettings.qml
+AppScreen 1.0 AppScreen.qml
+AuthIndex 1.0 Auth/Index.qml
+DownloadStatus 1.0 DownloadStatus.qml
+FlowView 1.0 FlowView.qml
+GameInstallBlock 1.0 GameInstallBlock.qml
+GamePopup 1.0 GamePopup.qml
 GameSettings 1.0 GameSettings.qml
+ServiceLoading 1.0 ServiceLoading/Index.qml
+ShakeAnimation 1.0 ShakeAnimation.qml
+SocialNet 1.0 SocialNet.qml
+SplashScreen 1.0 SplashScreen.qml
+

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="en_US">
+<TS version="2.1" language="en_US">
 <context>
     <name>AccountActivationView</name>
     <message>
@@ -319,7 +319,7 @@
 <context>
     <name>BottomBar</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/BottomBar.qml" line="28"/>
+        <location filename="../Application/Widgets/Messenger/View/BottomBar.qml" line="38"/>
         <source>MESSANGER_BOTTOM_BAR_BUTTON_NOTIFICATION_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1568,69 +1568,68 @@
 <context>
     <name>RegistrationBody</name>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="63"/>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="65"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="61"/>
         <source>REGISTER_FAIL_GAMENET_UNAVAILABLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="94"/>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="97"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="90"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="93"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="99"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="95"/>
         <source>AUTH_FAIL_MESSAGE_WRONG</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="100"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="96"/>
         <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="120"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="116"/>
         <source>REGISTER_BODY_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="127"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="123"/>
         <source>REGISTER_BODY_SUB_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="138"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="134"/>
         <source>REGISTER_BODY_LOGIN_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="149"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="145"/>
         <source>REGISTER_BODY_PASSWORD_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="167"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="163"/>
         <source>REGISTER_BODY_REGISTER_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="186"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="182"/>
         <source>REGISTER_BODY_AUTH_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="192"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="188"/>
         <source>REGISTER_BODY_AUTH_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="216"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="212"/>
         <source>REGISTER_BODY_LICENSE_PART1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="222"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="218"/>
         <source>REGISTER_BODY_LICENSE_PART2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1638,7 +1637,7 @@
 <context>
     <name>Search</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Search.qml" line="56"/>
+        <location filename="../Application/Widgets/Messenger/View/Search.qml" line="66"/>
         <source>MESSENGER_SEARCH_FRIEND_PLACE_HOLDER</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1740,7 +1739,7 @@
     <name>Tray</name>
     <message>
         <source>TRAY_TOOLTIP</source>
-        <translation>GameNet</translation>
+        <translation type="vanished">GameNet</translation>
     </message>
 </context>
 <context>
