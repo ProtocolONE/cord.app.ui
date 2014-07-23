@@ -11,9 +11,8 @@ import "../../Application/Blocks/AllGames" as AllGames
 import "../../Application/Core/App.js" as App
 import "../../Application/Core/TrayPopup.js" as TrayPopup
 import "../../Application/Core/User.js" as User
-
-import "../../Application/Core/User.js" as User
 import "../../Application/Core/Popup.js" as Popup
+import "../../Application/Core/Styles.js" as Styles
 
 
 Rectangle {
@@ -25,7 +24,7 @@ Rectangle {
     implicitWidth: 1000
     implicitHeight: 600
 
-    color: "#092135"
+    color: Styles.style.base
 
     // HACK
     //    Component.onCompleted: {
@@ -141,7 +140,7 @@ Rectangle {
                 spacing: 1
 
                 Rectangle {
-                    color: '#082135'
+                    color: Styles.style.gameMenuBackground
                     width: parent.width
                     height: gameControlBlock.height + 1
 
@@ -407,23 +406,14 @@ Rectangle {
         WidgetContainer {
             id: userProfile
 
-            width: parent.width
-            height: 92
             widget: 'UserProfile'
         }
 
         AllGames.Main {
             id: allGames
 
-            color: "blue"
-            width: 180+590
-            height: parent.height;
-
-            Text {
-                color: "#FFFFFF"
-                font.pixelSize: 40
-                text: "All games "
-            }
+            width: 180 + 590
+            height: parent.height
         }
 
         WidgetContainer {
@@ -445,13 +435,9 @@ Rectangle {
 
         State {
             name: "SelectedGame"
-
             PropertyChanges { target: header; parent: layer1headerContair}
-
             PropertyChanges { target: gameBlock; parent: layer1Col1}
-
             PropertyChanges { target: centerBlock; parent: layer1Col2}
-
             PropertyChanges { target: userProfile; parent: layer1Col3}
             PropertyChanges { target: contactList; parent: layer1Col3}
         }
@@ -459,36 +445,26 @@ Rectangle {
         ,
         State {
             name: "AllGames"
-
             PropertyChanges { target: header; parent: layer1headerContair}
-
-            PropertyChanges { target: fakeAllGames; parent: layer2Col1}
-
+            PropertyChanges { target: allGames; parent: layer2Col1}
             PropertyChanges { target: userProfile; parent: layer2Col2}
             PropertyChanges { target: contactList; parent: layer2Col2}
         }
         ,
         State {
             name: "AboutGame"
-
             PropertyChanges { target: header; parent: layer1headerContair}
-
             PropertyChanges { target: gameBlock; parent: layer1Col1}
             PropertyChanges { target: aboutGame; parent: layer1Col2}
-
             PropertyChanges { target: userProfile; parent: layer2Col2}
             PropertyChanges { target: contactList; parent: layer2Col2}
         }
         ,
         State {
             name: "MyGames"
-
             PropertyChanges { target: header; parent: layer1headerContair}
-
             PropertyChanges { target: myGamesMenu; parent: layer2Col1}
-
             PropertyChanges { target: myGamesMenuCenterBlock; parent: layer1Col2}
-
             PropertyChanges { target: userProfile; parent: layer2Col2}
             PropertyChanges { target: contactList; parent: layer2Col2}
         }

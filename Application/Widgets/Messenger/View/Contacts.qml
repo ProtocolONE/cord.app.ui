@@ -61,7 +61,7 @@ WidgetView {
 
                     visible: root.isSearching
                     anchors.fill: parent
-                    onUserClicked: searchContactInput.text = "";
+                    onUserClicked: searchContactItem.searchText = "";
                 }
             }
 

@@ -15,16 +15,19 @@ import GameNet.Controls 1.0
 import "../../../Core/App.js" as App
 import "../../../Core/Popup.js" as Popup
 import "../../../Core/User.js" as User
+import "../../../Core/Styles.js" as Styles
+
 import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetView {
     id: root
 
-    anchors.fill: parent
+    implicitWidth: parent.width
+    implicitHeight: 92
 
     Rectangle {
         anchors.fill: parent
-        color: "#243148"
+        color: Styles.style.profileBackground
     }
 
     Row{
@@ -57,7 +60,7 @@ WidgetView {
                 Rectangle {
                     width: 24
                     height: 24
-                    color: "#31415D"
+                    color: Styles.style.profilePremiumBackground
 
                     Image {
                         anchors.centerIn: parent
@@ -94,7 +97,7 @@ WidgetView {
                 Rectangle {
                     width: 24
                     height: 24
-                    color: "#364D76"
+                    color: Styles.style.profileLevelBackground
 
                     Text {
                         text: model.level
@@ -102,7 +105,7 @@ WidgetView {
                         height: 16
                         anchors.centerIn: parent
                         horizontalAlignment: Text.AlignHCenter
-                        color: "#FAFAFA"
+                        color: Styles.style.profileLevelText
                         font { family: "Arial"; pixelSize: 14 }
                     }
 
@@ -122,6 +125,7 @@ WidgetView {
             NicknameEdit {
                 width: 150
                 height: 18
+                color: Styles.style.profileNicknameText
 
                 nickname: nicknameValid ? model.nickname : qsTr("NO_NICKNAME")
                 tooltip: nicknameValid ? qsTr("YOUR_NICKNAME") : qsTr("SET_NICKNAME")
@@ -142,7 +146,7 @@ WidgetView {
                     id: balanceLabel
 
                     height: 18
-                    color: "#FAFAFA"
+                    color: Styles.style.profileBalanceText
                     font { family: "Arial"; pixelSize: 14 }
                     text: qsTr("GAMENET_BALANCE").arg(model.balance)
                 }
@@ -164,8 +168,8 @@ WidgetView {
                 text: qsTr("ADD_MONEY")
 
                 style: ButtonStyleColors {
-                    normal: "#567DD8"
-                    hover: "#305ec8"
+                    normal: Styles.style.profileAddMoneyButtonNormal
+                    hover: Styles.style.profileAddMoneyButtonHover
                 }
 
                 onClicked: App.replenishAccount()

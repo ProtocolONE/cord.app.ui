@@ -19,6 +19,7 @@ Item {
 
     property alias nickname: nickText.text
     property alias tooltip: cursorArea.toolTip
+    property alias color: nickText.color
 
     signal nicknameClicked()
 

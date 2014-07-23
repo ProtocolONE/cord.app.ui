@@ -15,6 +15,7 @@ Rectangle {
     property alias analytics: buttonBehavior.analytics
     property alias enabled: buttonBehavior.enabled
     property alias text: buttonText.text
+    property alias textColor: buttonText.color
     property alias fontSize: buttonText.font.pixelSize
     property variant style: ButtonStyleColors {}
     property bool inProgress: false

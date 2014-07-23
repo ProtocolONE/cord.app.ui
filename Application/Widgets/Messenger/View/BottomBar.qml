@@ -11,6 +11,8 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
 
+import "../../../Core/Styles.js" as Styles
+
 import "../Models/Messenger.js" as MessengerJs
 
 Rectangle {
@@ -19,7 +21,7 @@ Rectangle {
     implicitWidth: parent.width
     implicitHeight: 32
 
-    color: "#FAFAFA"
+    color: Styles.style.messengerBottomBarBackground
 
     property variant user: null
     property variant unreadMessageCount: user ? user.unreadMessageCount : 0
@@ -42,8 +44,8 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
 
         style: ButtonStyleColors {
-            normal: "#1ABC9C"
-            hover: "#019074"
+            normal: Styles.style.messengerBottomBarButtonNormal
+            hover: Styles.style.messengerBottomBarButtonHover
         }
 
         onClicked: {
@@ -58,7 +60,7 @@ Rectangle {
         }
 
         Rectangle {
-            color: "#374E78"
+            color: Styles.style.messengerBottomBarButtonNotificationBackground
             anchors.fill: parent
             opacity: unreadMessageCount > 0 ? 1 : 0
 
@@ -72,7 +74,7 @@ Rectangle {
                 id: txt
 
                 text: unreadMessageCount + 'A'
-                color: "black"
+                color: Styles.style.messengerBottomBarButtonNotificationText
                 anchors.centerIn: parent
             }
         }
@@ -81,7 +83,7 @@ Rectangle {
     Rectangle {
         height: 1
         width: parent.width
-        color: "#E5E5E5"
+        color: Qt.darker(root.color, Styles.style.darkerFactor)
         anchors.top: parent.top
     }
 }

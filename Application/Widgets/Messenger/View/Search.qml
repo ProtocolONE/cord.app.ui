@@ -11,6 +11,8 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
 
+import "../../../Core/Styles.js" as Styles
+
 Rectangle {
     id: searchContactItem
 
@@ -19,12 +21,12 @@ Rectangle {
 
     width: parent.width
     height: 54
-    color: "#FAFAFA"
+    color: Styles.style.messengerSearchBackground
 
     Rectangle {
         height: 1
         width: parent.width
-        color: "#FFFFFF"
+        color: Qt.lighter(parent.color, Styles.style.lighterFactor)
         anchors.top: parent.top
     }
 
@@ -43,8 +45,8 @@ Rectangle {
             height: 32
 
             style: ButtonStyleColors {
-                normal: "#1ABC9C"
-                hover: "#019074"
+                normal: Styles.style.messengerSearchButtonNormal
+                hover: Styles.style.messengerSearchButtonHover
             }
 
             Image {
@@ -68,10 +70,10 @@ Rectangle {
             showCapslock: false
             showLanguage: false
             style: InputStyleColors {
-                normal: "#e5e5e5"
-                active: "#3498db"
-                hover: "#3498db"
-                placeholder: "#a4b0ba"
+                normal: Styles.style.messengerSearchInputNormal
+                active: Styles.style.messengerSearchInputActive
+                hover: Styles.style.messengerSearchInputHover
+                placeholder: Styles.style.messengerSearchInputPlaceholder
             }
         }
     }
@@ -79,7 +81,7 @@ Rectangle {
     Rectangle {
         height: 1
         width: parent.width
-        color: "#E5E5E5"
+        color: Qt.darker(parent.color, Styles.style.darkerFactor)
         anchors.bottom: parent.bottom
     }
 }

@@ -2,6 +2,8 @@ import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
 
+import "../../Core/Styles.js" as Styles
+
 Item {
     id: root
 
@@ -12,13 +14,13 @@ Item {
     property bool current: false
 
     property variant style: ButtonStyleColors {
-        normal: "#092135"
-        hover: "#243148"
+        normal: Styles.style.gameMenuButtonNormal
+        hover: Styles.style.gameMenuButtonHover
     }
 
     property variant selectedStyle: ButtonStyleColors {
-        normal: "#071828"
-        hover: "#243148"
+        normal: Styles.style.gameMenuButtonSelectedNormal
+        hover: Styles.style.gameMenuButtonSelectedHover
     }
 
     implicitHeight: 37
@@ -55,7 +57,7 @@ Item {
                 Text {
                     id: caption
 
-                    color: "#FFFFFF"
+                    color: Styles.style.gameMenuButtonText
                     font { family: "Arial"; pixelSize: 14 }
                     anchors.verticalCenter: parent.verticalCenter
                 }
@@ -76,7 +78,7 @@ Item {
 
         Rectangle {
             width: 2
-            color: "#FFCA02"
+            color: Styles.style.gameMeneSelectedIndicator
             height: parent.height
             anchors.right: parent.right
             visible: root.current
@@ -95,5 +97,10 @@ Item {
     HorizontalSplit {
         width: parent.width
         anchors.bottom: parent.bottom
+
+        style: SplitterStyleColors {
+            main: Qt.darker(Styles.style.gameMenuBackground, Styles.style.darkerFactor)
+            shadow: Qt.lighter(Styles.style.gameMenuBackground, Styles.style.darkerFactor)
+        }
     }
 }

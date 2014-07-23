@@ -11,6 +11,8 @@ import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
 
+import "../../Core/Styles.js" as Styles
+
 Button {
     id: root
 
@@ -21,15 +23,17 @@ Button {
     height: parent.height
 
     style: ButtonStyleColors {
-        normal: "#092135"
-        hover: "#243148"
+        normal: Styles.style.headerButtonNormal
+        hover: Styles.style.headerButtonHover
     }
 
     Rectangle {
         anchors.left: parent.left
         width: 1
         height: parent.height
-        color: root.containsMouse ? "#243148" : "#162E43"
+        color: root.containsMouse
+               ? Styles.style.headerButtonNormal
+               : Qt.lighter(Styles.style.headerButtonNormal, Styles.style.lighterFactor)
     }
 
     Item {
@@ -63,7 +67,7 @@ Button {
                 Text {
                     id: captionText
 
-                    color: "#FFFFFF"
+                    color: Styles.style.headerButtonText
                     font { family: "Arial"; pixelSize: 16 }
                     anchors.centerIn: parent
                 }
@@ -75,6 +79,8 @@ Button {
         anchors.right: parent.right
         width: 1
         height: parent.height
-        color: root.containsMouse ? "#243148" : "#171C2C"
+        color: root.containsMouse
+               ? Styles.style.headerButtonHover
+               : Qt.darker(Styles.style.headerButtonHover, Styles.style.darkerFactor)
     }
 }

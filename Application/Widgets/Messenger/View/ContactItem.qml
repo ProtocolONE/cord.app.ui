@@ -12,6 +12,9 @@ import Tulip 1.0
 
 import GameNet.Controls 1.0
 
+import "../../../Core/Styles.js" as Styles
+
+
 Rectangle {
     id: root
 
@@ -30,32 +33,12 @@ Rectangle {
     implicitWidth: 78
     implicitHeight: 53
 
-    color: root.isUnreadMessages
-           ? "#189A19"
-           : (root.isCurrent ? "#243148" :"#FAFAFA")
-
-    QtObject {
-        id: d
-
-        function presenceStatusToColor(status) {
-            if (status === "online") {
-                return "#1ABC9C";
-            }
-
-            if (status === "dnd") {
-                return "#FFCC00";
-            }
-
-            return "#CCCCCC";
-        }
-    }
-
     Rectangle {
+        id: upperDelimiter
+
         height: 1
         width: parent.width
-        color: root.isUnreadMessages
-               ? "#30DE79"
-               : (isCurrent ? "#243148" : "#FFFFFF")
+        color: Qt.lighter(root.color, Styles.style.lighterFactor)
         anchors.top: parent.top
     }
 
@@ -100,10 +83,6 @@ Rectangle {
                             baselineOffset: 22
                         }
 
-                        color: (root.isUnreadMessages || root.isCurrent)
-                               ? "#FAFAFA"
-                               : "#243148"
-
                         font {
                             family: "Arial"
                             pixelSize: 14
@@ -124,7 +103,7 @@ Rectangle {
 
                         visible: root.isUnreadMessages && !root.isCurrent
                         text: qsTr("CONTACT_NEW_MESSAGE")
-                        color: "#FFCC00"
+                        color: Styles.style.messengerContactNewMessageStatusText
                         font {
                             family: "Arial"
                             pixelSize: 12
@@ -140,7 +119,7 @@ Rectangle {
                         }
 
                         visible: !newMessageStatus.visible
-                        color: "#5B6F81"
+                        color: Styles.style.messengerContactStatusText
                         font {
                             family: "Arial"
                             pixelSize: 12
@@ -151,10 +130,22 @@ Rectangle {
                 Rectangle {
                     id: presenceIcon
 
+                    function presenceStatusToColor(status) {
+                        if (status === "online") {
+                            return Styles.style.messengerContactPresenceOnline;
+                        }
+
+                        if (status === "dnd") {
+                            return Styles.style.messengerContactPresenceDnd;
+                        }
+
+                        return Styles.style.messengerContactPresenceOffline;
+                    }
+
                     width: 7
                     height: 7
                     radius: 7
-                    color: d.presenceStatusToColor(root.presenceStatus)
+                    color: presenceStatusToColor(root.presenceStatus)
 
                     anchors {
                         verticalCenter: parent.verticalCenter
@@ -167,11 +158,11 @@ Rectangle {
     }
 
     Rectangle {
+        id: bottomDelimiter
+
         height: 1
         width: parent.width
-        color: root.isUnreadMessages
-               ? "#108211"
-               : (isCurrent ? "#243148" : "#E5E5E5")
+        color: Qt.darker(root.color, Styles.style.darkerFactor)
         anchors.bottom: parent.bottom
     }
 
@@ -179,4 +170,25 @@ Rectangle {
         anchors.fill: parent
         onClicked: root.clicked();
     }
+
+    states: [
+        State {
+            name: "unread"
+            when: root.isUnreadMessages
+            PropertyChanges { target: root; color: Styles.style.messengerContactBackgroundUnread }
+            PropertyChanges { target: nicknameText; color: Styles.style.messengerContactNicknameUnread }
+        },
+        State {
+            name: "selected"
+            when: root.isCurrent && !root.isUnreadMessages
+            PropertyChanges { target: root; color: Styles.style.messengerContactBackgroundSelected }
+            PropertyChanges { target: nicknameText; color: Styles.style.messengerContactNicknameSelected }
+        },
+        State {
+            name: "normal"
+            PropertyChanges { target: root; color: Styles.style.messengerContactBackground }
+            PropertyChanges { target: nicknameText; color: Styles.style.messengerContactNickname }
+        }
+    ]
+
 }

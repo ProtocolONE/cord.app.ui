@@ -13,12 +13,14 @@ import Tulip 1.0
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
+import "../../../Core/Styles.js" as Styles
+
 import "../Models/Messenger.js" as MessengerJs
 
 Rectangle {
     id: root
 
-    color: "#FFFFFF"
+    color: Styles.style.messengerMessageInputBackground
 
     property int pauseTimeout: 3
     property int inactiveTimeout: 12
@@ -72,10 +74,10 @@ Rectangle {
         Rectangle {
             height: parent.height
             width: parent.width - 110
-            color: "#E6E6E6"
+            color: Styles.style.messengerMessageInputBorder
 
             Rectangle {
-                color: "#FFFFFF"
+                color: Styles.style.messengerMessageInputTextBackground
                 anchors {
                     fill: parent
                     margins: 2
@@ -125,7 +127,7 @@ Rectangle {
                                 family: "Arial"
                             }
 
-                            color: "#252932"
+                            color: Styles.style.messengerMessageInputText
 
                             onCursorRectangleChanged: inputFlick.ensureVisible(cursorRectangle);
 
@@ -202,29 +204,19 @@ Rectangle {
                     width: 91
                     height: 24
                     style: ButtonStyleColors {
-                        normal: "#1ABC9C"
-                        hover: "#019074"
+                        normal: Styles.style.messengerMessageInputSendButtonNormal
+                        hover: Styles.style.messengerMessageInputSendButtonHover
                     }
 
                     onClicked: d.sendMessage()
-
-                    Text {
-                        anchors.centerIn: parent
-                        font {
-                            pixelSize: 16
-                            family: "Arial"
-                        }
-
-                        color: "#FAFAFA"
-                        text: qsTr("MESSENGER_SEND_BUTTON")
-                    }
-
+                    text: qsTr("MESSENGER_SEND_BUTTON")
+                    textColor: Styles.style.messengerMessageInputSendButtonText
                 }
 
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
 
-                    color: "#8596A6"
+                    color: Styles.style.messengerMessageInputSendHotkeyText
                     text: qsTr("MESSENGER_SEND_BUTTON_MESSAGE")
                 }
             }
