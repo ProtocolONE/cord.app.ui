@@ -12,6 +12,7 @@ import Tulip 1.0
 
 import GameNet.Controls 1.0
 
+import "../../../Core/Styles.js" as Styles
 import "../Models/Messenger.js" as MessengerJs
 
 Item {

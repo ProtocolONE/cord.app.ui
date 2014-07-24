@@ -189,14 +189,16 @@
 		<file>Application/Widgets/Messenger/Models/User.qml</file>
 		<file>Application/Widgets/Messenger/PluginContainer.qml</file>
 		<file>Application/Widgets/Messenger/qmldir</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/Header.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageItem.qml</file>
 		<file>Application/Widgets/Messenger/View/BottomBar.qml</file>
 		<file>Application/Widgets/Messenger/View/Chat.qml</file>
 		<file>Application/Widgets/Messenger/View/ContactItem.qml</file>
 		<file>Application/Widgets/Messenger/View/ContactList.qml</file>
 		<file>Application/Widgets/Messenger/View/Contacts.qml</file>
 		<file>Application/Widgets/Messenger/View/Group.qml</file>
-		<file>Application/Widgets/Messenger/View/MessageInput.qml</file>
-		<file>Application/Widgets/Messenger/View/MessageItem.qml</file>
 		<file>Application/Widgets/Messenger/View/Search.qml</file>
 		<file>Application/Widgets/Messenger/View/SearchContactList.qml</file>
 		<file>Application/Widgets/Money/PluginContainer.qml</file>

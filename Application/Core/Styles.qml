@@ -40,14 +40,14 @@ QtObject {
     property color gameMenuButtonText: "#FFFFFF"
     property color gameMeneSelectedIndicator: "#FFCA02"
 
-    //MESSENGER
+    //MESSENGER BOTTOM BAR
     property color messengerBottomBarBackground: "#FAFAFA"
     property color messengerBottomBarButtonNormal: "#1ABC9C"
     property color messengerBottomBarButtonHover: "#019074"
     property color messengerBottomBarButtonNotificationBackground: "#374E78"
     property color messengerBottomBarButtonNotificationText: "#FFFFFF"
 
-    //MESSENGER
+    //MESSENGER SEARCH
     property color messengerSearchBackground: "#FAFAFA"
     property color messengerSearchButtonNormal: "#1ABC9C"
     property color messengerSearchButtonHover: "#019074"
@@ -55,6 +55,8 @@ QtObject {
     property color messengerSearchInputActive: "#3498db"
     property color messengerSearchInputHover: "#3498db"
     property color messengerSearchInputPlaceholder: "#a4b0ba"
+
+    //MESSENGER CONTACT
     property color messengerContactBackground: "#FAFAFA"
     property color messengerContactBackgroundUnread: "#189A19"
     property color messengerContactBackgroundSelected: "#243148"
@@ -66,12 +68,32 @@ QtObject {
     property color messengerContactPresenceOffline: "#CCCCCC"
     property color messengerContactStatusText: "#5B6F81"
     property color messengerContactNewMessageStatusText: "#FFCC00"
+
+    //MESSENGER CONTACT INPUT
     property color messengerMessageInputBackground: "#FFFFFF"
-    property color messengerMessageInputBorder: "#FFFFFF"
+    property color messengerMessageInputBorder: "#FAFAFA"
     property color messengerMessageInputTextBackground: "#FFFFFF"
     property color messengerMessageInputText: "#252932"
     property color messengerMessageInputSendButtonNormal: "#1ABC9C"
     property color messengerMessageInputSendButtonHover: "#019074"
     property color messengerMessageInputSendButtonText: "#FAFAFA"
     property color messengerMessageInputSendHotkeyText: "#8596A6"
+
+    //MESSENGER CHAT DIALOG HEADER
+    property color messengerChatDialogHeaderBackground: "#253149"
+    property color messengerChatDialogHeaderNicknameText: "#FAFAFA"
+
+    //MESSENGER CHAT DIALOG BODY
+    property color messengerChatDialogBodyBackground: "#F0F5F8"
+
+    //MESSENGER MESSAGE ITEM
+    property color messengerChatDialogMessageNicknameText: "#243148"
+    property color messengerChatDialogMessageDateText: "#A4B0BA"
+    property color messengerChatDialogMessageText: "#5B6F81"
+    property color messengerChatDialogMessageStatusText: "#A4B0BA"
+
+    //MESSENGER CONTACTS
+    property color messengerContactsBackground: "#EEEEEE"
+
+    //MESSENGER GROUP
 }

@@ -13,6 +13,7 @@ import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
+import "../../../Core/Styles.js" as Styles
 import "../Models/Messenger.js" as MessengerJs
 
 WidgetView {
@@ -29,7 +30,7 @@ WidgetView {
             leftMargin: 1
         }
 
-        color: "#EEEEEE"
+        color: Styles.style.messengerContactsBackground
 
         Column {
             anchors.fill: parent
@@ -80,7 +81,7 @@ WidgetView {
     Rectangle {
         width: 1
         height: parent.height
-        color: "#e5e5e5"
+        color: Qt.lighter(Styles.style.messengerContactsBackground, Styles.style.lighterFactor)
     }
 }
 

@@ -73,7 +73,7 @@ Rectangle {
             Text {
                 id: txt
 
-                text: unreadMessageCount + 'A'
+                text: unreadMessageCount
                 color: Styles.style.messengerBottomBarButtonNotificationText
                 anchors.centerIn: parent
             }
