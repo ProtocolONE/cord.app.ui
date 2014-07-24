@@ -247,6 +247,19 @@ Item {
         }
     }
 
+    function keys() {
+        return Object.keys(ExtendedListModelJs.idToIndex);
+    }
+
+    function beginBatch() {
+        d.canSendSourceChanged  = false;
+    }
+
+    function endbatch() {
+        d.canSendSourceChanged  = true;
+        d.sendSourceChanged();
+    }
+
     QtObject {
         id: d
 

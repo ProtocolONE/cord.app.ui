@@ -1,18 +1,11 @@
+import QtQuick.tooling 1.1
 
 // This file describes the plugin-supplied types contained in the library.
 // It is used for QML tooling purposes only.
 //
-// This file was auto-generated with the command 'E:\Qt\Qt5.2.1\5.2.1\msvc2010\bin\qml1plugindump -path ./plugin/Tulip'.
+// This file was auto-generated with the command 'E:\Qt\521b_53\bin\qml1plugindump -path ./plugin/Tulip'.
 
 Module {
-    Component {
-        name: "App"
-        prototype: "QObject"
-        exports: ["Tulip/App 1.0"]
-        exportMetaObjectRevisions: [0]
-        Method { name: "arguments"; type: "QStringList" }
-        Method { name: "hwid"; type: "string" }
-    }
     Component {
         name: "GGS::Auth::RegistryCredentialStorage"
         prototype: "QObject"
@@ -123,34 +116,6 @@ Module {
         Property { name: "host"; type: "string" }
         Property { name: "domain"; type: "string" }
         Property { name: "debug"; type: "bool" }
-        Signal {
-            name: "error"
-            Parameter { name: "code"; type: "int" }
-        }
-        Signal { name: "connected" }
-        Method { name: "auth" }
-        Method { name: "logout" }
-    }
-    Component {
-        name: "GGS::Jabber"
-        defaultProperty: "data"
-        prototype: "QDeclarativeItem"
-        exports: [
-            "Tulip/Jabber 1.0"
-        ]
-        exportMetaObjectRevisions: [
-            0
-        ]
-        Property { name: "login"; type: "string" }
-        Property { name: "password"; type: "string" }
-        Property { name: "host"; type: "string" }
-        Property { name: "domain"; type: "string" }
-        Property { name: "debug"; type: "bool" }
-        Signal { name: "loginChanged" }
-        Signal { name: "passwordChanged" }
-        Signal { name: "hostChanged" }
-        Signal { name: "domainChanged" }
-        Signal { name: "debugChanged" }
         Method { name: "auth" }
         Method { name: "logout" }
     }
@@ -182,12 +147,8 @@ Module {
     Component {
         name: "GGS::MouseCursor"
         prototype: "QObject"
-        exports: [
-            "Tulip/MouseCursor 1.0"
-        ]
-        exportMetaObjectRevisions: [
-            0
-        ]
+        exports: ["Tulip/MouseCursor 1.0"]
+        exportMetaObjectRevisions: [0]
         Method { name: "mousePos"; type: "QPoint" }
         Method { name: "debugOnlyWindowPos"; type: "QPoint" }
     }
@@ -251,6 +212,19 @@ Module {
         Method { name: "systemVersion"; type: "string" }
     }
     Component {
+        name: "Host"
+        prototype: "QObject"
+        exports: ["Tulip/Host 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method { name: "arguments"; type: "QStringList" }
+        Method {
+            name: "hwid"
+            type: "string"
+            Parameter { name: "async"; type: "bool" }
+        }
+        Method { name: "hwid"; type: "string" }
+    }
+    Component {
         name: "QCursorArea"
         defaultProperty: "data"
         prototype: "QDeclarativeItem"
@@ -286,8 +260,6 @@ Module {
         Property { name: "screenCount"; type: "int"; isReadonly: true }
         Property { name: "primaryScreen"; type: "int"; isReadonly: true }
         Property { name: "primaryScreenAvailableGeometry"; type: "QRect"; isReadonly: true }
-        Signal { name: "screenGeometryChanged" }
-        Signal { name: "availableGeometryChanged" }
         Method { name: "anythingChanged" }
         Method {
             name: "screenGeometry"
@@ -340,11 +312,6 @@ Module {
         prototype: "QObject"
         exports: ["Tulip/PingEx 1.0"]
         exportMetaObjectRevisions: [0]
-        Signal {
-            name: "success"
-            Parameter { name: "value"; type: "uint" }
-        }
-        Signal { name: "failed" }
         Method {
             name: "start"
             Parameter { name: "url"; type: "string" }
@@ -372,8 +339,6 @@ Module {
         Property { name: "title"; type: "string" }
         Property { name: "topMost"; type: "bool" }
         Property { name: "flags"; type: "int" }
-        Signal { name: "sizeChanged" }
-        Signal { name: "beforeClosed" }
         Method { name: "close" }
         Method { name: "activate" }
     }
@@ -446,12 +411,6 @@ Module {
         prototype: "QObject"
         exports: ["Tulip/TrayWindow 1.0"]
         exportMetaObjectRevisions: [0]
-        Signal { name: "activate" }
-        Signal {
-            name: "activateWindow"
-            Parameter { name: "mouseX"; type: "int" }
-            Parameter { name: "mouseY"; type: "int" }
-        }
         Method {
             name: "install"
             Parameter { name: "icon"; type: "string" }
@@ -468,14 +427,6 @@ Module {
         prototype: "QDeclarativeItem"
         exports: ["Tulip/WheelArea 1.0"]
         exportMetaObjectRevisions: [0]
-        Signal {
-            name: "verticalWheel"
-            Parameter { name: "delta"; type: "int" }
-        }
-        Signal {
-            name: "horizontalWheel"
-            Parameter { name: "delta"; type: "int" }
-        }
     }
     Component { name: "QEasingCurve"; prototype: "QDeclarativeEasingValueType" }
 }

@@ -81,7 +81,7 @@ function setGroupOpened(groupId, value) {
 
 function getNickname(item) {
     if (!item.jid) {
-        throw new Error('Error getNickname. Object has not property jid.' + JSON.stringify(item))
+        throw new Error('Error getNickname. Object has not property jid.' + JSON.stringify(item));
     }
 
     var user = getUser(item.jid);

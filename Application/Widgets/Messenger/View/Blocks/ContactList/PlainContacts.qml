@@ -12,17 +12,13 @@ import Tulip 1.0
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
-import "../../../../GameNet/Core/lodash.js" as Lodash
-
-import "../Models/Messenger.js" as Messenger
-import "../Models/Jobs.js" as Jobs
+import "../../../../../../GameNet/Core/lodash.js" as Lodash
+import "../../../Models/Messenger.js" as Messenger
 
 import "./PlainContacts.js" as Js
 
-Rectangle {
+Item {
     id: root
-
-    color: "#FFBCB2"
 
     QtObject {
         id: d
@@ -30,14 +26,9 @@ Rectangle {
         property bool group1Opened: false
 
         function updateModel() {
-            var start = +(new Date());
             var groupIds = Messenger.groups().keys();
 
             Lodash._.difference(groupIds, Object.keys(Js.groupsMap)).forEach(function(groupId) {
-                if (Messenger.isGamenetGroup(groupId)) {
-                    return;
-                }
-
                 var itemCount = Js.itemCount();
                 var index = Js.appendGroup(groupId);
                 if (index === -1) {
@@ -55,10 +46,14 @@ Rectangle {
                 Js.removeGroup(groupId);
             });
 
+
+            d.updateOpenedGroups();
+        }
+
+        function updateOpenedGroups() {
             var usersModel = Messenger.users();
 
             var openedGroups = Object.keys(Js.groupsMap).filter(function(g) { return Js.isOpened(g); });
-
             openedGroups.forEach(function(openedId) {
                 var currentUsers = Js.groupById(openedId).users;
 
@@ -87,14 +82,14 @@ Rectangle {
                 });
 
                 Lodash._.difference(currentUsers, actualUsers).forEach(function(deletedUser) {
+                    var deleteIndex = Lodash._.findIndex(currentUsers, function(u) {
+                        return u === deletedUser;
+                    });
 
+                    currentUsers.splice(deleteIndex, 1);
+                    Js.removeItemJob(groupStartIndex + deleteIndex, 1);
                 });
             });
-
-
-
-            var end = +(new Date());
-            console.log('Update time : ', end - start, 'ms');
 
         }
 
@@ -131,26 +126,13 @@ Rectangle {
                 return 1;
             });
 
-            var qq = { t: 0 };
-            // HACK для тестов догрузки пользователей
-            if (groupId == "Combat Arms (CA)") {
-                users = Lodash._.remove(users, function (item, index) {
-                    this.t++;
-                    return this.t % 2 == 1;
-                }, qq);
-            }
-
-
-
-
             var insertIndex = Js.calculateInsertIndex(groupId);
 
             var group = Js.groupById(groupId);
             group.users = users.slice(0);
 
             Js.setGroupOpened(groupId, true);
-            Js.removeItemJob(insertIndex, 1);
-            Js.appendAllJob(insertIndex, groupId, users);
+            Js.appendAllJob(insertIndex, groupId, users, true);
         }
 
         function closeGroup(groupId) {
@@ -163,8 +145,7 @@ Rectangle {
             Js.setGroupOpened(groupId, false);
             var group = Js.groupById(groupId);
             var usersLen = group.users.length;
-            Js.removeItemJob(ind, usersLen);
-            Js.appendGroupItem(ind, groupId)
+            Js.removeItemJob(ind, usersLen, groupId);
             Js.groupsMap[groupId].users = [];
         }
 
@@ -187,35 +168,6 @@ Rectangle {
             }
         }
 
-        function appendAll2(job) {
-            var i, batchSize = job.second ? 1000 : 30;
-            job.second = 1;
-
-            var users = job.users.slice(0, batchSize);
-            var group = Js.groupById(job.groupId);
-            var startIndex = Js.calculateInsertIndex(job.groupId);
-            var user,
-                item;
-
-            for (i in users) {
-                user = users[i];
-                group.users.push(user)
-
-                item = {
-                    isGroupItem: false,
-                    value: user,
-                    sectionId: job.groupId
-                 };
-
-                d.groupModelInsert(group.users.length + startIndex - 1, item);
-            }
-
-            job.users.splice(0, batchSize);
-            if (job.users.length === 0) {
-                Js.popJob();
-            }
-        }
-
         function appendAll(job) {
             var i, batchSize = job.second ? 1000 : 30;
             job.second = 1;
@@ -224,9 +176,14 @@ Rectangle {
                 job.currentIndex = job.index;
             }
 
+            if (job.removeHeader) {
+                d.groupModelRemove(job.index);
+                job.removeHeader = false;
+            }
+
             var users = job.users.slice(0, batchSize);
             var user,
-                item;
+                    item;
 
             for (i in users) {
                 user = users[i];
@@ -234,8 +191,10 @@ Rectangle {
                 item = {
                     isGroupItem: false,
                     value: user,
-                    sectionId: job.groupId
-                 };
+                    sectionId: job.groupId,
+                    groupId: job.groupId,
+                    jid: user
+                };
 
                 d.groupModelInsert(job.currentIndex, item);
                 job.currentIndex++;
@@ -258,6 +217,16 @@ Rectangle {
             job.count -= b;
 
             if (job.count <= 0) {
+                if (job.appendGroupId) {
+                    d.groupModelInsert(job.index, {
+                                           isGroupItem: true,
+                                           value: job.appendGroupId,
+                                           sectionId: "",
+                                           groupId: job.appendGroupId,
+                                           jid: ""
+                                       });
+                }
+
                 Js.popJob();
             }
         }
@@ -266,133 +235,105 @@ Rectangle {
             d.groupModelInsert(job.index, {
                                    isGroupItem: true,
                                    value: job.groupId,
-                                   sectionId: ""
+                                   sectionId: "",
+                                   groupId: job.groupId,
+                                   jid: ""
                                });
             Js.popJob();
         }
 
         function groupModelInsert(index, item) {
-//            if (index < 0 || index > groupProxyModel.count) {
-//                throw new Error('Group proxy model insert out of range. Index: ' + index + ' Count: ' + groupProxyModel.count);
-//            }
-
             groupProxyModel.insert(index, item);
         }
 
         function groupModelRemove(index) {
-//            if (index < 0 || index >= groupProxyModel.count) {
-//                throw new Error('Group proxy model remove out of range. Index: ' + index + ' Count: ' + groupProxyModel.count);
-//            }
-
             groupProxyModel.remove(index);
+        }
+
+        function userCount(groupId) {
+            return Messenger.groups().getById(groupId).users.count;
+        }
+
+        function countUnreadUsers(groupId) {
+            var users = Messenger.groups().getById(groupId).users,
+                    count = users.count,
+                    i,
+                    result = 0;
+
+            for (i = 0; i < count; ++i) {
+                if (Messenger.hasUnreadMessages(users.get(i))) {
+                    result += 1;
+                }
+            }
+
+            return result;
         }
     }
 
     Timer {
-        id: consumer
-
         interval: 5
         running: true
         repeat: true
-        onTriggered: {
-            d.doJob();
-        }
+        onTriggered: d.doJob();
     }
 
     Connections {
         target: Messenger.groups()
-        onSourceChanged: {
-            console.log('groups model source changed');
-            d.updateModel();
-        }
+        onSourceChanged: d.updateModel();
     }
 
     Connections {
         target: Messenger.users()
-        onSourceChanged: {
-            console.log('users model source changed');
-            d.updateModel();
-        }
+        onSourceChanged: d.updateModel();
     }
 
     ListView {
         id: listView
 
-        //model: fakeGroupModel
         model: groupProxyModel
-        anchors.fill: parent
+        anchors {
+            fill: parent
+            rightMargin: 10
+        }
+
         boundsBehavior: Flickable.StopAtBounds
 
         clip: true
         section.property: "sectionId"
-        section.delegate: Rectangle {
+        section.delegate: GroupHeader {
             width: listView.width
             height: visible ? 33 : 0
-            color: "cyan"
             visible: !!section
-
-            Text {
-                color: "#000000"
-                anchors.centerIn: parent
-                text: section +  ((!!section) ? (" (" + Messenger.groups().getById(section).users.count + ")") : " empty")
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    console.log('Section clicked' + section);
-                    d.closeGroup(section)
-                }
-            }
+            opened: true
+            groupName: section
+            usersCount: section ? d.userCount(section) : 0
+            onClicked: d.closeGroup(section)
         }
 
         delegate: Item {
             width: listView.width
             height: (model.isGroupItem ? 33 : 53)
 
-            Rectangle {
-                anchors.fill: parent
+            GroupHeader {
+                width: listView.width
+                height: 33
                 visible: model.isGroupItem
-                color: "#7A7CFF"
-
-                Text {
-                    anchors.centerIn: parent
-                    color: "#000000"
-                    text: model.isGroupItem
-                          ? (model.value + (model.value ? (" (" + Messenger.groups().getById(model.value).users.count + ")") : ""))
-                          : ""
-                }
-
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: d.openGroup(model.value, index);
-                }
+                opened: false
+                groupName: model.value
+                usersCount: model.isGroupItem ? d.userCount(model.value) : 0
+                onClicked: d.openGroup(model.value, index)
+                unreadUsersCount: model.isGroupItem ? d.countUnreadUsers(model.value) : 0
             }
 
             ContactItem {
                 anchors.fill: parent
                 visible: !model.isGroupItem
-                nickname: Messenger.getNickname({jid: model.value})
-                avatar: Messenger.userAvatar({jid: model.value})
-                onClicked: {
-                    Messenger.selectUser({jid: model.value}, {groupId: model.sectionId})
-                }
+                nickname: model.isGroupItem ? "" : Messenger.getNickname(model)
+                avatar: model.isGroupItem ? "" : Messenger.userAvatar(model)
+                isUnreadMessages: model.isGroupItem ? false : (!isCurrent && Messenger.hasUnreadMessages(model));
+                isCurrent: model.isGroupItem ? false : Messenger.isSelectedUser(model) && Messenger.isSelectedGroup(model)
+                onClicked: Messenger.selectUser(model, model);
             }
-
-            Rectangle {
-                height: 1
-                width: parent.width
-                color: "#FFFFFF"
-                anchors.top: parent.top
-            }
-
-            Rectangle {
-                height: 1
-                width: parent.width
-                color: "#E5E5E5"
-                anchors.bottom: parent.bottom
-            }
-
         }
     }
 
@@ -400,73 +341,13 @@ Rectangle {
     ListViewScrollBar {
         anchors.left: listView.right
         height: listView.height
-        width: 16
+        width: 10
         listView: listView
         cursorMaxHeight: 100
     }
 
-
     ListModel {
         id: groupProxyModel
     }
-
-    ListModel {
-        id: fakeGroupModel
-
-        ListElement {
-            isGroupItem: true
-            value: "Group0"
-            sectionId: ""
-        }
-
-        ListElement {
-            isGroupItem: true
-            value: "Group01"
-            sectionId: ""
-        }
-
-        ListElement {
-            isGroupItem: true
-            value: "Group02"
-            sectionId: ""
-        }
-
-        ListElement {
-            isGroupItem: false
-            value: "Test1"
-            sectionId: "Group1"
-        }
-
-        ListElement {
-            isGroupItem: false
-            value: "Test1"
-            sectionId: "Group2"
-        }
-
-        ListElement {
-            isGroupItem: false
-            value: "Test2"
-            sectionId: "Group2"
-        }
-
-        ListElement {
-            isGroupItem: false
-            value: "Test1"
-            sectionId: "Group3"
-        }
-
-        ListElement {
-            isGroupItem: false
-            value: "Test2"
-            sectionId: "Group3"
-        }
-
-        ListElement {
-            isGroupItem: false
-            value: "Test3"
-            sectionId: "Group3"
-        }
-    }
-
 }
 

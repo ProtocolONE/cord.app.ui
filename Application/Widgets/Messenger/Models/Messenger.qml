@@ -187,6 +187,9 @@ Item {
             , currentUserMap = {}
             , removeUsers = [];
 
+            usersModel.beginBatch();
+            groupsModel.beginBatch();
+
             rosterUsers.forEach(function(jid) {
                 currentUserMap[jid] = 1;
                 d.appendUser(jid);
@@ -197,6 +200,9 @@ Item {
                     d.removeUserFromGroups(id);
                 }
             });
+
+            usersModel.endbatch();
+            groupsModel.endbatch();
         }
 
         function createGamenetUser() {
@@ -229,7 +235,7 @@ Item {
             if (usersModel.contains(user)) {
                 // UNDONE Если никнейм из берем из vcard то убрать
                 item = new UserJs.User(usersModel.getById(user), usersModel);
-                //item.nickname = nickname || user;
+                item.nickname = nickname || user;
                 // UNDONE set other properties
             } else {
                 rawUser = UserJs.createRawUser(user, nickname || user);
@@ -420,7 +426,7 @@ Item {
             var item = root.getUser(UserJs.jidWithoutResource(vcard.from));
             //if (vcard.from === user.jid)
             { // INFO пока что берем никнейм из ростера
-                item.nickname = vcard.nickName || "";
+                item.nickname = vcard.nickName || item.nickname || "";
             }
 
             if (vcard.extra) {

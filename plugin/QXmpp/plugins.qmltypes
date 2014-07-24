@@ -3,7 +3,7 @@ import QtQuick.tooling 1.1
 // This file describes the plugin-supplied types contained in the library.
 // It is used for QML tooling purposes only.
 //
-// This file was auto-generated with the command 'E:\Qt\521b_53\bin\qml1plugindump.EXE -path ./plugin/QXmpp'.
+// This file was auto-generated with the command 'E:\Qt\521b_53\bin\qml1plugindump -path ./plugin/QXmpp'.
 
 Module {
     Component { name: "QXmppClientExtension"; prototype: "QXmppLoggable" }
@@ -78,6 +78,26 @@ Module {
         prototype: "QObject"
         exports: ["QXmpp/QXmppClient 1.0"]
         exportMetaObjectRevisions: [0]
+        Enum {
+            name: "StatusType"
+            values: {
+                "Online": 0,
+                "Away": 1,
+                "XA": 2,
+                "DND": 3,
+                "Chat": 4,
+                "Invisible": 5
+            }
+        }
+        Enum {
+            name: "Error"
+            values: {
+                "NoError": 0,
+                "SocketError": 1,
+                "KeepAliveError": 2,
+                "XmppStreamError": 3
+            }
+        }
         Property {
             name: "configuration"
             type: "QmlQXmppConfiguration"
@@ -97,8 +117,8 @@ Module {
             isPointer: true
         }
         Property { name: "vcardManager"; type: "QmlQXmppVCardManager"; isReadonly: true; isPointer: true }
-        Property { name: "statusType"; type: "string" }
-        Property { name: "statusText"; type: "string" }
+        Property { name: "clientStatusType"; type: "StatusType"; isReadonly: true }
+        Property { name: "clientStatusText"; type: "string"; isReadonly: true }
         Method { name: "connectUsingConfiguration" }
         Method {
             name: "connectToServer"
@@ -109,6 +129,10 @@ Module {
         Method {
             name: "sendMessage"
             Parameter { name: "bareJid"; type: "string" }
+            Parameter { name: "map"; type: "QVariantMap" }
+        }
+        Method {
+            name: "setClientPresence"
             Parameter { name: "map"; type: "QVariantMap" }
         }
     }

@@ -319,7 +319,7 @@
 <context>
     <name>BottomBar</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/BottomBar.qml" line="38"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/BottomBar.qml" line="39"/>
         <source>MESSANGER_BOTTOM_BAR_BUTTON_NOTIFICATION_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -378,7 +378,7 @@
 <context>
     <name>ContactItem</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/ContactItem.qml" line="126"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem.qml" line="105"/>
         <source>CONTACT_NEW_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1036,32 +1036,32 @@
 <context>
     <name>Header</name>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="78"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="79"/>
         <source>HEADER_BUTTON_MY_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="60"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="61"/>
         <source>HEADER_BUTTON_ALL_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="94"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="95"/>
         <source>HEADER_BUTTON_SUPPORT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="140"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="141"/>
         <source>HEADER_BUTTON_CLOSE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="156"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="157"/>
         <source>HEADER_BUTTON_SETTINGS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="177"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="178"/>
         <source>HEADER_BUTTON_LOGOUT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1205,12 +1205,12 @@
 <context>
     <name>MessageInput</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/MessageInput.qml" line="219"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="211"/>
         <source>MESSENGER_SEND_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/MessageInput.qml" line="228"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="219"/>
         <source>MESSENGER_SEND_BUTTON_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1637,7 +1637,7 @@
 <context>
     <name>Search</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Search.qml" line="66"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml" line="68"/>
         <source>MESSENGER_SEARCH_FRIEND_PLACE_HOLDER</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1816,47 +1816,47 @@
 <context>
     <name>UserProfileView</name>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="51"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="54"/>
         <source>YOUR_AVATAR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="73"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="76"/>
         <source>ADVANCED_ACCOUNT_HINT_IN_DAYS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="75"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="78"/>
         <source>ADVANCED_ACCOUNT_HINT_TODAY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="81"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="84"/>
         <source>PREMIUM_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="82"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="85"/>
         <source>PREMIUM_NO_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="111"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="114"/>
         <source>YOUR_GAMENET_LEVEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="128"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="132"/>
         <source>NO_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="129"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="133"/>
         <source>YOUR_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="129"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="133"/>
         <source>SET_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1864,7 +1864,7 @@
 <context>
     <name>Vk</name>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="149"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="153"/>
         <source>GAMENET_BALANCE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1872,12 +1872,12 @@
 <context>
     <name>qGNA_Main</name>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="157"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="161"/>
         <source>GN_MONEY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="166"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="170"/>
         <source>ADD_MONEY</source>
         <translation type="unfinished"></translation>
     </message>

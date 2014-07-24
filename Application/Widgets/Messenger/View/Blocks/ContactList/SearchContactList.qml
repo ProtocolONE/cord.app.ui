@@ -11,7 +11,7 @@ import QtQuick 1.1
 import Tulip 1.0
 import Application.Controls 1.0
 
-import "../Models/Messenger.js" as MessengerJs
+import "../../../Models/Messenger.js" as MessengerJs
 
 Item {
     id: root

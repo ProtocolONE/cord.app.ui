@@ -69,6 +69,12 @@ QtObject {
     property color messengerContactStatusText: "#5B6F81"
     property color messengerContactNewMessageStatusText: "#FFCC00"
 
+    //MESSENGER CONTACT GROUP
+    property color messengerContactGroupBackground: "#E5E9EC"
+    property color messengerContactGroupName: "#8297a9"
+    property color messengerContactGroupUnread: "#FAFAFA"
+    property color messengerContactGroupUnreadBackground: "#189A19"
+
     //MESSENGER CONTACT INPUT
     property color messengerMessageInputBackground: "#FFFFFF"
     property color messengerMessageInputBorder: "#FAFAFA"

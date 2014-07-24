@@ -15,21 +15,26 @@ import "../../../Application/Core/App.js" as App
 import "../../../Application/Core/TrayPopup.js" as TrayPopup
 import "../../../Application/Widgets/Messenger/Models/Messenger.js" as MessengerJs
 
+import "../../../GameNet/Core/lodash.js" as Lodash
+
 Rectangle {
     width: 1000
-    height: 800
+    height: 600
     color: '#EEEEEE'
 
     Component.onCompleted: TrayPopup.init();
 
     Row {
         spacing: 10
+
         Button {
             width: 100
             height: 30
             text: 'Login'
             onClicked: App.authDone('400001000000065690', 'cd34fe488b93d254243fa2754e86df8ffbe382b9'); //300+ friends
-            //onClicked: App.authDone('400001000000000110', '599c0b9b5400a056b005cf12573ebe9e58cc29fe'); //800+ friends
+            //onClicked: App.authDone('400001000000000110', '6c5f39adaaa18c3b4a6d8f4af5289ecf76029af2'); //800+ friends
+            //onClicked: App.authDone('400001000000073060', '75517c5137f42a35f10cc984d8307209dd63b432'); //3600+ friends
+
         }
 
         Button {
@@ -44,6 +49,34 @@ Rectangle {
             height: 30
             text: 'Disconnect'
             onClicked: MessengerJs.disconnect();
+        }
+
+        Button {
+            width: 100
+            height: 30
+            text: 'del FS'
+            onClicked: {
+                var groupId = "FireStorm (FS)";
+                var users = MessengerJs.groups().getById(groupId).users;
+                for (var i = 0; i < users.count; i++) {
+                    MessengerJs.users().removeById(users.get(i).jid);
+                }
+
+                MessengerJs.groups().removeById(groupId);
+            }
+        }
+
+        Button {
+            width: 100
+            height: 30
+            text: 'del user'
+            onClicked: {
+                var groupId = "Combat Arms (CA)";
+                var users = MessengerJs.groups().getById(groupId).users;
+                var index = users.count > 5 ? 5 : Math.floor(users.count / 2)
+                users.remove(index);
+                MessengerJs.groups().endbatch();
+            }
         }
     }
 

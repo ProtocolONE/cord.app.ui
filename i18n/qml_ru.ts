@@ -3830,7 +3830,7 @@ Please try again later.</source>
     <name>Search</name>
     <message>
         <source>MESSENGER_SEARCH_FRIEND_PLACE_HOLDER</source>
-        <translation type="unfinished">Поиск друга</translation>
+        <translation>Поиск друга</translation>
     </message>
 </context>
 <context>

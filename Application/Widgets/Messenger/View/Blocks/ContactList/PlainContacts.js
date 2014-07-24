@@ -1,4 +1,4 @@
-Qt.include('../../../../GameNet/Core/lodash.js')
+Qt.include('../../../../../../GameNet/Core/lodash.js')
 
 var groupsMap = {},
 sortedGroups = [];
@@ -96,21 +96,23 @@ function appendGroupItem(index, groupId) {
               });
 }
 
-function appendAllJob(index, groupId, users) {
+function appendAllJob(index, groupId, users, removeHeader) {
     jobs.push({
                   action: "appendAll",
                   index: index,
                   groupId: groupId,
                   users: users,
-                  totalUserCount: users.length
+                  totalUserCount: users.length,
+                  removeHeader: removeHeader || false
               });
 }
 
-function removeItemJob(index, count) {
+function removeItemJob(index, count, appendGroupId) {
     jobs.push({
                   action: "remove",
                   index: index,
-                  count: count
+                  count: count,
+                  appendGroupId: appendGroupId
               });
 }
 

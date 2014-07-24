@@ -58,15 +58,3 @@ function createRawGroup(group) {
 
     return result;
 }
-
-function createGamenetGroup(group) {
-    var result = {
-        groupId: '___GameNet___',
-        name: 'GameNetGroup',
-        users: [],
-        opened: true,
-        isGamenet: true
-    };
-
-    return result;
-}

@@ -13,8 +13,9 @@ import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
-import "../../../Core/Styles.js" as Styles
 import "../Models/Messenger.js" as MessengerJs
+import "./Blocks/ContactList"
+import "../../../Core/Styles.js" as Styles
 
 WidgetView {
     id: root
@@ -51,10 +52,9 @@ WidgetView {
                 width: parent.width
                 height: parent.height - searchContactItem.height - bottomBar.height
 
-                ContactList {
+                PlainContacts {
                     anchors.fill: parent
                     visible: !root.isSearching
-                    model: MessengerJs.groupsModel()
                 }
 
                 SearchContactList {
@@ -84,4 +84,3 @@ WidgetView {
         color: Qt.lighter(Styles.style.messengerContactsBackground, Styles.style.lighterFactor)
     }
 }
-
