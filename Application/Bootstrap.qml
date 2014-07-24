@@ -12,15 +12,17 @@ import QtQuick 1.1
 import Tulip 1.0
 
 import GameNet.Controls 1.0
+import Application.Blocks 1.0
 
 import "Core/App.js" as App
 import "Core/User.js" as User
-import "../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "Core/restapi.js" as RestApi
-
+import "Core/Authorization.js" as Authorization
 import "Core/Popup.js" as Popup
 import "Core/MessageBox.js" as MessageBox
 import "Core/TrayPopup.js" as TrayPopup
+
+import "../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../GameNet/Controls/Tooltip.js" as Tooltip
 
 Item {
@@ -153,6 +155,10 @@ Item {
     GlobalProgress {
         id: globalProgressLock
 
+        anchors.fill: parent
+    }
+
+    ApplicationFocus {
         anchors.fill: parent
     }
 

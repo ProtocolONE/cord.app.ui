@@ -3,6 +3,7 @@
 		<file>Application/Blocks/AllGames/GameItem.qml</file>
 		<file>Application/Blocks/AllGames/GameItemTitle.qml</file>
 		<file>Application/Blocks/AllGames/Main.qml</file>
+		<file>Application/Blocks/ApplicationFocus.qml</file>
 		<file>Application/Blocks/ApplicationSettings.qml</file>
 		<file>Application/Blocks/ApplicationSettings/DownloadSettings.qml</file>
 		<file>Application/Blocks/ApplicationSettings/GeneralSettings.qml</file>
@@ -83,6 +84,10 @@
 		<file>Application/Core/Popup.js</file>
 		<file>Application/Core/Popup.qml</file>
 		<file>Application/Core/restapi.js</file>
+		<file>Application/Core/Styles.js</file>
+		<file>Application/Core/Styles.qml</file>
+		<file>Application/Core/TrayPopup.js</file>
+		<file>Application/Core/TrayPopup.qml</file>
 		<file>Application/Core/User.js</file>
 		<file>Application/Core/User.qml</file>
 		<file>Application/Layers/BaseLayer.qml</file>
@@ -175,13 +180,16 @@
 		<file>Application/Widgets/Messenger/Addons/Popups.qml</file>
 		<file>Application/Widgets/Messenger/Model.qml</file>
 		<file>Application/Widgets/Messenger/Models/Group.js</file>
+		<file>Application/Widgets/Messenger/Models/JabberClient.qml</file>
 		<file>Application/Widgets/Messenger/Models/Message.js</file>
 		<file>Application/Widgets/Messenger/Models/Messenger.js</file>
 		<file>Application/Widgets/Messenger/Models/Messenger.qml</file>
 		<file>Application/Widgets/Messenger/Models/MessengerPrivate.js</file>
 		<file>Application/Widgets/Messenger/Models/User.js</file>
+		<file>Application/Widgets/Messenger/Models/User.qml</file>
 		<file>Application/Widgets/Messenger/PluginContainer.qml</file>
 		<file>Application/Widgets/Messenger/qmldir</file>
+		<file>Application/Widgets/Messenger/View/BottomBar.qml</file>
 		<file>Application/Widgets/Messenger/View/Chat.qml</file>
 		<file>Application/Widgets/Messenger/View/ContactItem.qml</file>
 		<file>Application/Widgets/Messenger/View/ContactList.qml</file>
@@ -189,6 +197,7 @@
 		<file>Application/Widgets/Messenger/View/Group.qml</file>
 		<file>Application/Widgets/Messenger/View/MessageInput.qml</file>
 		<file>Application/Widgets/Messenger/View/MessageItem.qml</file>
+		<file>Application/Widgets/Messenger/View/Search.qml</file>
 		<file>Application/Widgets/Messenger/View/SearchContactList.qml</file>
 		<file>Application/Widgets/Money/PluginContainer.qml</file>
 		<file>Application/Widgets/Money/qmldir</file>
@@ -290,6 +299,7 @@
 		<file>GameNet/Controls/WebImage.qml</file>
 		<file>GameNet/Core/GoogleAnalytics.js</file>
 		<file>GameNet/Core/RestApi.js</file>
+		<file>GameNet/Core/Strings.js</file>
 		<file>Main.qml</file>
 		<file>plugin/QXmpp/qmldir</file>
 		<file>plugin/Tulip/qmldir</file>

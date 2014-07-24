@@ -11,4 +11,4 @@ ServiceLoading 1.0 ServiceLoading/Index.qml
 ShakeAnimation 1.0 ShakeAnimation.qml
 SocialNet 1.0 SocialNet.qml
 SplashScreen 1.0 SplashScreen.qml
-
+ApplicationFocus 1.0 ApplicationFocus.qml

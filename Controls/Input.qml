@@ -491,7 +491,7 @@ Item {
             },
             State {
                 name: "Active"
-                when: inputBehavior.activeFocus
+                when: inputBehavior.activeFocus && Qt.application.active
                 PropertyChanges { target: controlBorder; border.color: style.active }
                 PropertyChanges { target: inputBehavior; color: style.active }
             },
