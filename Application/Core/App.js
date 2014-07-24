@@ -55,6 +55,8 @@ function initModel() {
     count = list.count;
     for (i = 0; i < count; ++i) {
         item = list.get(i);
+
+        //  INFO: При обращении к элементам GameListModel использовать поле widgets вместо widgetsList
         item.widgets = (item.widgetList) && (item.widgetList.count > 0) ? item.widgetList.get(0) : {}
         indexToGameItem[i] = item;
         gameIdToGameItem[item.gameId] = item;
@@ -136,7 +138,7 @@ function replenishAccount() {
     openExternalUrlWithAuth("http://www.gamenet.ru/money");
 }
 
-function installService(serviceId, installParams) {
+function installService(serviceId) {
     downloadButtonStart(serviceId);
 }
 

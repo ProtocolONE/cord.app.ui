@@ -173,6 +173,7 @@ ListModel {
             }
         ]
 
+        //  INFO: При обращении к элементам GameListModel использовать поле widgets вместо widgetsList
         widgetList: ListElement {
            gameDownloading: 'GameAdBanner'
            gameStarting: 'GameAdBanner'
@@ -456,7 +457,7 @@ ListModel {
         menu: []
         currentMenuIndex: 1
 
-        widgetList: [
+        socialNet: [
             ListElement {
                 link: "http://www.youtube.com/user/GamenetAika"
                 icon: "Assets/Images/socialNet/yt.png"
@@ -467,7 +468,7 @@ ListModel {
             }
         ]
 
-        widgets: ListElement {
+        widgetList: ListElement {
            gameDownloading: 'GameAdBanner'
            gameStarting: 'GameAdBanner'
            gameFailedFinish: 'GameFailed'
@@ -533,14 +534,6 @@ ListModel {
         ]
 
         widgetList: ListElement {
-           gameDownloading: 'GameAdBanner'
-           gameStarting: 'GameAdBanner'
-           gameFailedFinish: 'GameFailed'
-           gameBoredFinish: 'GameIsBoring'
-           gameSuccessFinish: ''
-        }
-
-        widgets: ListElement {
            gameDownloading: 'GameAdBanner'
            gameStarting: 'GameAdBanner'
            gameFailedFinish: 'GameFailed'
@@ -617,14 +610,6 @@ ListModel {
            gameBoredFinish: 'GameIsBoring'
            gameSuccessFinish: ''
         }
-
-        widgets: ListElement {
-           gameDownloading: 'GameAdBanner'
-           gameStarting: 'GameAdBanner'
-           gameFailedFinish: 'GameFailed'
-           gameBoredFinish: 'GameIsBoring'
-           gameSuccessFinish: ''
-        }
     }
 
     ListElement {
@@ -685,14 +670,6 @@ ListModel {
         ]
 
         widgetList: ListElement {
-           gameDownloading: 'GameAdBanner'
-           gameStarting: 'GameAdBanner'
-           gameFailedFinish: 'GameFailed'
-           gameBoredFinish: 'GameIsBoring'
-           gameSuccessFinish: ''
-        }
-
-        widgets: ListElement {
            gameDownloading: 'GameAdBanner'
            gameStarting: 'GameAdBanner'
            gameFailedFinish: 'GameFailed'
@@ -766,14 +743,6 @@ ListModel {
         ]
 
         widgetList: ListElement {
-           gameDownloading: 'GameAdBanner'
-           gameStarting: 'GameAdBanner'
-           gameFailedFinish: 'GameFailed'
-           gameBoredFinish: 'GameIsBoring'
-           gameSuccessFinish: ''
-        }
-
-        widgets: ListElement {
            gameDownloading: 'GameAdBanner'
            gameStarting: 'GameAdBanner'
            gameFailedFinish: 'GameFailed'
