@@ -9,15 +9,17 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+
 import Application.Controls 1.0
+import Application.Blocks.Popup 1.0
+
 import GameNet.Controls 1.0
-import GameNet.Components.Widgets 1.0
 
 import "../../../Core/App.js" as App
 import "../../../Core/restapi.js" as RestApi
 import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
-WidgetView {
+PopupBase {
     id: root
 
     property variant gameItem: App.currentGame()
@@ -30,117 +32,77 @@ WidgetView {
         }
     }
 
-    width: 630
-    height: allContent.height + 40
+    title: qsTr("PROMO_CODE_TITLE")
     clip: true
 
-    Rectangle {
-        anchors.fill: parent
-        color: "#F0F5F8"
+    Item {
+        id: body
+        anchors {
+            left: parent.left
+            leftMargin: 20
+        }
+        width: root.width - 40
+        height: childrenRect.height
+
+        InputWithError {
+            id: promoCode
+
+            width: body.width
+            icon: installPath + "Assets/Images/Application/Widgets/PromoCode/promo.png"
+            showLanguage: true
+            placeholder: qsTr("PROMO_CODE_PLACEHOLDER")
+        }
     }
 
-    Column {
-        id: allContent
+    PopupHorizontalSplit {
+        width: root.width
+    }
 
-        y: 20
-        spacing: 20
+    Button {
+        id: activateButton
 
-        Text {
-            anchors {
-                left: parent.left
-                leftMargin: 20
-            }
-            font {
-                family: 'Arial'
-                pixelSize: 20
-            }
-            color: '#343537'
-            smooth: true
-            text: qsTr("PROMO_CODE_TITLE")
+        width: 200
+        height: 48
+        anchors {
+            left: parent.left
+            leftMargin: 20
         }
+        text: qsTr("ACIVATE_BUTTON_CAPTION")
+        enabled: promoCode.text.length > 0
+        onClicked: {
+            activateButton.inProgress = true;
 
-        HorizontalSplit {
-            width: root.width
+            GoogleAnalytics.trackEvent('/PromoCode',
+                                       'PromoKey',
+                                       'Activate');
 
-            style: SplitterStyleColors {
-                main: "#ECECEC"
-                shadow: "#FFFFFF"
-            }
-        }
+            RestApi.User.activatePromoKey(
+                        promoCode.text,
+                        function(response) {
+                            activateButton.inProgress = false;
 
-        Item {
-            id: body
-            anchors {
-                left: parent.left
-                leftMargin: 20
-            }
-            width: root.width - 40
-            height: childrenRect.height
+                            if (response.result === 1) {
+                                root.close();
+                                return;
+                            }
 
-
-            InputWithError {
-                id: promoCode
-
-                width: body.width
-                icon: installPath + "Assets/Images/Application/Widgets/PromoCode/promo.png"
-                showLanguage: true
-                placeholder: qsTr("PROMO_CODE_PLACEHOLDER")
-            }
-        }
-
-        HorizontalSplit {
-            width: root.width
-            style: SplitterStyleColors {
-                main: "#ECECEC"
-                shadow: "#FFFFFF"
-            }
-        }
-
-        Button {
-            id: activateButton
-
-            width: 200
-            height: 48
-            anchors {
-                left: parent.left
-                leftMargin: 20
-            }
-            text: qsTr("ACIVATE_BUTTON_CAPTION")
-            enabled: promoCode.text.length > 0
-            onClicked: {
-                activateButton.inProgress = true;
-
-                GoogleAnalytics.trackEvent('/PromoCode',
-                                           'PromoKey',
-                                           'Activate');
-
-                RestApi.User.activatePromoKey(
-                    promoCode.text,
-                    function(response) {
-                        activateButton.inProgress = false;
-
-                        if (response.result === 1) {
-                            root.close();
-                            return;
-                        }
-
-                        if (response.error) {
-                            promoCode.errorMessage = response.error.message;
-                            promoCode.error = true;
+                            if (response.error) {
+                                promoCode.errorMessage = response.error.message;
+                                promoCode.error = true;
 
 
-                        } else {
+                            } else {
+                                promoCode.errorMessage = qsTr("UNKNOWN_PROMO_VALIDATION_ERROR");
+                                promoCode.error = true;
+                            }
+
+                        },
+                        function(httpError) {
+                            activateButton.inProgress = false;
                             promoCode.errorMessage = qsTr("UNKNOWN_PROMO_VALIDATION_ERROR");
                             promoCode.error = true;
-                        }
-
-                    },
-                    function(httpError) {
-                        activateButton.inProgress = false;
-                        promoCode.errorMessage = qsTr("UNKNOWN_PROMO_VALIDATION_ERROR");
-                        promoCode.error = true;
-                    });
-            }
+                        });
         }
     }
+
 }

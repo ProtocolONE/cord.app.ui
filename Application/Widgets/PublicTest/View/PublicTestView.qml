@@ -9,129 +9,92 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+
 import Application.Controls 1.0
+import Application.Blocks.Popup 1.0
+
 import GameNet.Controls 1.0
-import GameNet.Components.Widgets 1.0
 
 import "../../../Core/App.js" as App
 import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
-WidgetView {
+PopupBase {
     id: root
 
     width: 670
-    height: allContent.height + 40
+    title:  qsTr("PUBLIC_TEST_TITLE")
     clip: true
 
-    Rectangle {
-        anchors.fill: parent
-        color: "#F0F5F8"
+    Text {
+        anchors {
+            left: parent.left
+            leftMargin: 20
+            right: parent.right
+            rightMargin: 20
+        }
+        wrapMode: Text.WordWrap
+        text: qsTr("PUBLIC_TEST_TEXT")
+        font {
+            family: 'Arial'
+            pixelSize: 15
+        }
+        color: defaultTextColor
     }
 
-    Column {
-        id: allContent
+    PopupHorizontalSplit {
+        width: root.width
+    }
 
-        y: 20
+    Row {
         spacing: 20
-
-        Text {
-            anchors {
-                left: parent.left
-                leftMargin: 20
-            }
-            font {
-                family: 'Arial'
-                pixelSize: 20
-            }
-            color: '#343537'
-            smooth: true
-            text: qsTr("PUBLIC_TEST_TITLE")
+        anchors {
+            left: parent.left
+            leftMargin: 20
         }
 
-        HorizontalSplit {
-            width: root.width
+        Button {
+            id: notifySupportButton
 
-            style: SplitterStyleColors {
-                main: "#ECECEC"
-                shadow: "#FFFFFF"
+            width: 190
+            height: 48
+            text: qsTr("BUTTON_NOTIFY_SUPPORT")
+            analytics: GoogleAnalyticsEvent {
+                page: '/PublicTest'
+                category: 'Public Test'
+                action: 'support'
             }
+
+            onClicked: App.openExternalUrl("http://support.gamenet.ru");
         }
 
-        Text {
-            anchors {
-                left: parent.left
-                leftMargin: 20
-                right: parent.right
-                rightMargin: 20
+        Button {
+            id: stopTestingButton
+
+            width: 300
+            height: 48
+            text: qsTr("BUTTON_STOP_TESTING")
+            analytics: GoogleAnalyticsEvent {
+                page: '/PublicTest'
+                category: 'Public Test'
+                action: 'switch version'
             }
-            wrapMode: Text.WordWrap
-            text: qsTr("PUBLIC_TEST_TEXT")
-            font {
-                family: 'Arial'
-                pixelSize: 15
-            }
-            color: '#5c6d7d'
+
+            onClicked: App.switchClientVersion();
         }
 
-        HorizontalSplit {
-            width: root.width
-            style: SplitterStyleColors {
-                main: "#ECECEC"
-                shadow: "#FFFFFF"
-            }
-        }
+        Button {
+            id: closeButton
 
-        Row {
-            spacing: 20
-            anchors {
-                left: parent.left
-                leftMargin: 20
+            width: 100
+            height: 48
+            text: qsTr("BUTTON_CLOSE")
+            analytics: GoogleAnalyticsEvent {
+                page: '/PublicTest'
+                category: 'Public Test'
+                action: 'close'
             }
 
-            Button {
-                id: notifySupportButton
-
-                width: 190
-                height: 48
-                text: qsTr("BUTTON_NOTIFY_SUPPORT")
-                analytics: GoogleAnalyticsEvent {
-                    page: '/PublicTest'
-                    category: 'Public Test'
-                    action: 'support'
-                }
-
-                onClicked: App.openExternalUrl("http://support.gamenet.ru");
-            }
-
-            Button {
-                id: stopTestingButton
-
-                width: 300
-                height: 48
-                text: qsTr("BUTTON_STOP_TESTING")
-                analytics: GoogleAnalyticsEvent {
-                    page: '/PublicTest'
-                    category: 'Public Test'
-                    action: 'switch version'
-                }
-
-                onClicked: App.switchClientVersion();
-            }
-
-            Button {
-                id: closeButton
-
-                width: 100
-                height: 48
-                text: qsTr("BUTTON_CLOSE")
-                analytics: GoogleAnalyticsEvent {
-                    page: '/PublicTest'
-                    category: 'Public Test'
-                    action: 'close'
-                }
-
-                onClicked: root.close();
-            }
+            onClicked: root.close();
         }
     }
 }

@@ -15,6 +15,10 @@ QtObject {
     property real lighterFactor: 1.2
     property color base: "#092135"
 
+    property color popupBackground: "#F0F5F8"
+    property color popupTitleText: "#343537"
+    property color popupText: "#343537"
+
     //HEADER
     property color headerBackground: "#092135"
     property color headerButtonNormal: "#092135"
@@ -77,7 +81,7 @@ QtObject {
 
     //MESSENGER CONTACT INPUT
     property color messengerMessageInputBackground: "#FFFFFF"
-    property color messengerMessageInputBorder: "#FAFAFA"
+    property color messengerMessageInputBorder: "#b2b2b2"
     property color messengerMessageInputTextBackground: "#FFFFFF"
     property color messengerMessageInputText: "#252932"
     property color messengerMessageInputSendButtonNormal: "#1ABC9C"

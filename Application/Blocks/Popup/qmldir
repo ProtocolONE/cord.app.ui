@@ -1,0 +1,3 @@
+﻿module Application.Blocks.Popup
+PopupBase 1.0 PopupBase.qml
+PopupHorizontalSplit 1.0 PopupHorizontalSplit.qml

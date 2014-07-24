@@ -10,16 +10,18 @@
 
 import QtQuick 1.1
 import Application.Controls 1.0
+import Application.Blocks.Popup 1.0
+
 import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
+
 import "../../../Core/restapi.js" as RestApiJs
 
-WidgetView {
+PopupBase {
     id: root
 
-    width: 630
-    height: allContent.height + 40
     clip: true
+    title: qsTr("ACCOUNT_ACTIVATION")
 
     QtObject {
         id: d
@@ -94,238 +96,189 @@ WidgetView {
         }
     }
 
-    Rectangle {
-        anchors.fill: parent
-        color: "#F0F5F8"
+
+    Text {
+        anchors {
+            left: parent.left
+            leftMargin: 20
+            right: parent.right
+            rightMargin: 20
+        }
+        font {
+            family: 'Arial'
+            pixelSize: 14
+        }
+        color: defaultTextColor
+        smooth: true
+        wrapMode: Text.WordWrap
+        text: qsTr("ACCOUNT_ACTIVATION_TIP")
     }
 
-    Column {
-        id: allContent
+    PopupHorizontalSplit {
+        width: root.width
+    }
 
-        y: 20
-        spacing: 20
+    Item {
+        id: body
+        anchors {
+            left: parent.left
+            leftMargin: 20
+            right: parent.right
+            rightMargin: 20
+        }
+        height: childrenRect.height
 
         Text {
-            anchors {
-                left: parent.left
-                leftMargin: 20
-            }
-            width: allContent.width - 40
-            font {
-                family: 'Arial'
-                pixelSize: 20
-            }
-            color: '#343537'
-            smooth: true
-            text: qsTr("ACCOUNT_ACTIVATION")
-        }
+            id: phoneLabel
 
-        HorizontalSplit {
-            width: root.width
-
-            style: SplitterStyleColors {
-                main: "#ECECEC"
-                shadow: "#FFFFFF"
-            }
-        }
-
-        Text {
-            anchors {
-                left: parent.left
-                leftMargin: 20
-                right: parent.right
-                rightMargin: 20
-            }
             font {
                 family: 'Arial'
                 pixelSize: 14
             }
-            color: '#343537'
+            color: defaultTextColor
             smooth: true
-            wrapMode: Text.WordWrap
-            text: qsTr("ACCOUNT_ACTIVATION_TIP")
+            text: qsTr("FIRST_STEP_TIP")
         }
 
-        HorizontalSplit {
-            width: root.width
+        PhoneInput {
+            id: phone
 
-            style: SplitterStyleColors {
-                main: "#ECECEC"
-                shadow: "#FFFFFF"
-            }
-        }
-
-        Item {
-            id: body
             anchors {
-                left: parent.left
-                leftMargin: 20
-                right: parent.right
-                rightMargin: 20
+                top: phoneLabel.bottom
+                topMargin: 16
             }
-            height: childrenRect.height
+            readOnly: d.inProgress
+            width: body.width
+            placeholder: qsTr("PLACEHOLDER_PHONE")
+            onEnterPressed: d.requestActivationCode();
+            onTextChanged: requestCodeError.error = false;
+            onTabPressed: code.focus = true;
+            onBackTabPressed: code.focus = true;
+        }
+    }
 
-            Text {
-                id: phoneLabel
+    Item {
+        anchors {
+            left: parent.left
+            leftMargin: 20
+            right: parent.right
+            rightMargin: 20
+        }
+        height: childrenRect.height
 
-                font {
-                    family: 'Arial'
-                    pixelSize: 14
+        Row {
+            spacing: 20
+
+            Button {
+                id: requestCodeButton
+
+                width: 200
+                height: 48
+                enabled: phone.text.length > 0
+                text: qsTr("BUTTON_GET_CODE")
+
+                analytics: GoogleAnalyticsEvent {
+                    page: "/AccountActivation/"
+                    category: "Auth"
+                    action: "Request phone code"
                 }
-                color: '#343537'
-                smooth: true
-                text: qsTr("FIRST_STEP_TIP")
+
+                onClicked: d.requestActivationCode();
             }
 
-            PhoneInput {
-                id: phone
+            ErrorContainer {
+                id: requestCodeError
 
-                anchors {
-                    top: phoneLabel.bottom
-                    topMargin: 16
-                }
-                readOnly: d.inProgress
-                width: body.width
-                placeholder: qsTr("PLACEHOLDER_PHONE")
-                onEnterPressed: d.requestActivationCode();
-                onTextChanged: requestCodeError.error = false;
-                onTabPressed: code.focus = true;
-                onBackTabPressed: code.focus = true;
+                width: 350
+                height: 48
             }
         }
+    }
 
-        Item {
+    PopupHorizontalSplit {
+        width: root.width
+    }
+
+    Item {
+        id: step2
+        anchors {
+            left: parent.left
+            leftMargin: 20
+            right: parent.right
+            rightMargin: 20
+        }
+        height: childrenRect.height
+
+        Text {
+            id: codeLabel
+
+            font {
+                family: 'Arial'
+                pixelSize: 14
+            }
+            color: defaultTextColor
+            smooth: true
+            text: qsTr("SECOND_STEP_TIP")
+        }
+
+        InputWithError {
+            id: code
+
             anchors {
-                left: parent.left
-                leftMargin: 20
-                right: parent.right
-                rightMargin: 20
+                top: codeLabel.bottom
+                topMargin: 16
             }
-            height: childrenRect.height
 
-            Row {
-                spacing: 20
-
-                Button {
-                    id: requestCodeButton
-
-                    width: 200
-                    height: 48
-                    enabled: phone.text.length > 0
-                    text: qsTr("BUTTON_GET_CODE")
-
-                    analytics: GoogleAnalyticsEvent {
-                        page: "/AccountActivation/"
-                        category: "Auth"
-                        action: "Request phone code"
-                    }
-
-                    onClicked: d.requestActivationCode();
-                }
-
-                ErrorContainer {
-                    id: requestCodeError
-
-                    width: 350
-                    height: 48
-                }
-            }
+            width: body.width
+            icon: installPath + "Assets/Images/Application/Widgets/AccountActivation/lock.png"
+            readOnly: d.inProgress
+            validator: RegExpValidator { regExp: /[0-9]{,10}/ }
+            placeholder: qsTr("PLACEHOLDER_ACTIVATION_CODE_INPUT")
+            onEnterPressed: d.validateActivationCode();
+            onTextChanged: validateCodeError.error = false;
+            onTabPressed: phone.focus = true;
+            onBackTabPressed: phone.focus = true;
         }
+    }
 
+    PopupHorizontalSplit {
+        width: root.width
+    }
 
-        HorizontalSplit {
-            width: root.width
-            style: SplitterStyleColors {
-                main: "#ECECEC"
-                shadow: "#FFFFFF"
-            }
+    Item {
+        anchors {
+            left: parent.left
+            leftMargin: 20
+            right: parent.right
+            rightMargin: 20
         }
+        height: childrenRect.height
 
-        Item {
-            id: step2
-            anchors {
-                left: parent.left
-                leftMargin: 20
-                right: parent.right
-                rightMargin: 20
-            }
-            height: childrenRect.height
+        Row {
+            spacing: 20
 
-            Text {
-                id: codeLabel
+            Button {
+                id: validateCodeButton
 
-                font {
-                    family: 'Arial'
-                    pixelSize: 14
-                }
-                color: '#343537'
-                smooth: true
-                text: qsTr("SECOND_STEP_TIP")
-            }
+                width: 200
+                height: 48
+                enabled: code.text.length > 0
+                text: qsTr("BUTTON_CODE_CONFIRM")
 
-            InputWithError {
-                id: code
-
-                anchors {
-                    top: codeLabel.bottom
-                    topMargin: 16
+                analytics: GoogleAnalyticsEvent {
+                    page: "/AccountActivation/"
+                    category: "Auth"
+                    action: "Validate phone code"
                 }
 
-                width: body.width
-                icon: installPath + "Assets/Images/Application/Widgets/AccountActivation/lock.png"
-                readOnly: d.inProgress
-                validator: RegExpValidator { regExp: /[0-9]{,10}/ }
-                placeholder: qsTr("PLACEHOLDER_ACTIVATION_CODE_INPUT")
-                onEnterPressed: d.validateActivationCode();
-                onTextChanged: validateCodeError.error = false;
-                onTabPressed: phone.focus = true;
-                onBackTabPressed: phone.focus = true;
+                onClicked: d.validateActivationCode();
             }
-        }
 
-        HorizontalSplit {
-            width: root.width
-            style: SplitterStyleColors {
-                main: "#ECECEC"
-                shadow: "#FFFFFF"
-            }
-        }
+            ErrorContainer {
+                id: validateCodeError
 
-        Item {
-            anchors {
-                left: parent.left
-                leftMargin: 20
-                right: parent.right
-                rightMargin: 20
-            }
-            height: childrenRect.height
-
-            Row {
-                spacing: 20
-
-                Button {
-                    id: validateCodeButton
-
-                    width: 200
-                    height: 48
-                    enabled: code.text.length > 0
-                    text: qsTr("BUTTON_CODE_CONFIRM")
-
-                    analytics: GoogleAnalyticsEvent {
-                        page: "/AccountActivation/"
-                        category: "Auth"
-                        action: "Validate phone code"
-                    }
-
-                    onClicked: d.validateActivationCode();
-                }
-
-                ErrorContainer {
-                    id: validateCodeError
-
-                    width: 350
-                    height: 48
-                }
+                width: 350
+                height: 48
             }
         }
     }

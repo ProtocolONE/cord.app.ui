@@ -10,12 +10,13 @@
 
 import QtQuick 1.1
 import Tulip 1.0
-import GameNet.Components.Widgets 1.0
+
+import Application.Blocks.Popup 1.0
 import GameNet.Controls 1.0
 
 import "../../../Core/App.js" as App
 
-WidgetView {
+PopupBase {
     id: root
 
     property variant gameItem
@@ -24,134 +25,96 @@ WidgetView {
         root.gameItem = App.currentGame();
     }
 
+    title: qsTr("GAME_DOWNLOAD_ERROR_TITLE")
     width: 850
-    height: allContent.height + 40
     clip: true
 
-    Rectangle {
-        anchors.fill: parent
-        color: "#F0F5F8"
+    Text {
+        anchors {
+            left: parent.left
+            leftMargin: 20
+            right: parent.right
+            rightMargin: 20
+        }
+        wrapMode: Text.WordWrap
+        text: qsTr("GAME_DOWNLOAD_ERROR_TEXT")
+        font {
+            family: 'Arial'
+            pixelSize: 15
+        }
+        color: '#5c6d7d'
     }
 
-    Column {
-        id: allContent
+    PopupHorizontalSplit {
+        width: root.width
+    }
 
-        y: 20
+    Row {
         spacing: 20
-
-        Text {
-            anchors {
-                left: parent.left
-                leftMargin: 20
-            }
-            font {
-                family: 'Arial'
-                pixelSize: 20
-            }
-            color: '#343537'
-            smooth: true
-            text: qsTr("GAME_DOWNLOAD_ERROR_TITLE")
+        anchors {
+            left: parent.left
+            leftMargin: 20
         }
 
-        HorizontalSplit {
-            width: root.width
+        Button {
+            id: playRetryButton
 
-            style: SplitterStyleColors {
-                main: "#ECECEC"
-                shadow: "#FFFFFF"
-            }
-        }
+            width: 290
+            height: 48
+            text: qsTr("BUTTON_RETRY_PLAY")
 
-        Text {
-            anchors {
-                left: parent.left
-                leftMargin: 20
-                right: parent.right
-                rightMargin: 20
+            analytics: GoogleAnalyticsEvent {
+                page: "/GameDownloadError/"
+                category: "Game " + gameItem.gaName
+                action: "Retry button clicked"
             }
-            wrapMode: Text.WordWrap
-            text: qsTr("GAME_DOWNLOAD_ERROR_TEXT")
-            font {
-                family: 'Arial'
-                pixelSize: 15
-            }
-            color: '#5c6d7d'
-        }
 
-        HorizontalSplit {
-            width: root.width
-            style: SplitterStyleColors {
-                main: "#ECECEC"
-                shadow: "#FFFFFF"
+            onClicked: {
+                if (root.gameItem) {
+                    App.downloadButtonStart(root.gameItem.serviceId);
+                }
+
+                root.close();
             }
         }
 
-        Row {
-            spacing: 20
-            anchors {
-                left: parent.left
-                leftMargin: 20
+        Button {
+            width: 220
+            height: 48
+            text: qsTr("BUTTON_RESTART_APPLICATION")
+
+            analytics: GoogleAnalyticsEvent {
+                page: "/game/" + gameItem.gaName
+                category: "Game " + gameItem.gaName
+                action: "Restart button clicked"
             }
 
-            Button {
-                id: playRetryButton
 
-                width: 290
-                height: 48
-                text: qsTr("BUTTON_RETRY_PLAY")
+            onClicked: {
+                App.restartApplication();
+                root.close();
+            }
+        }
 
-                analytics: GoogleAnalyticsEvent {
-                    page: "/GameDownloadError/"
-                    category: "Game " + gameItem.gaName
-                    action: "Retry button clicked"
-                }
+        Button {
+            id: openSupportButton
 
-                onClicked: {
-                    if (root.gameItem) {
-                        App.downloadButtonStart(root.gameItem.serviceId);
-                    }
+            width: 260
+            height: 48
 
-                    root.close();
-                }
+            text: qsTr("BUTTON_NOTIFY_SUPPORT")
+
+            analytics: GoogleAnalyticsEvent {
+                page: "/game/" + gameItem.gaName
+                category: "Game " + gameItem.gaName
+                action: "Support button clicked"
             }
 
-            Button {
-                width: 220
-                height: 48
-                text: qsTr("BUTTON_RESTART_APPLICATION")
-
-                analytics: GoogleAnalyticsEvent {
-                    page: "/game/" + gameItem.gaName
-                    category: "Game " + gameItem.gaName
-                    action: "Restart button clicked"
-                }
-
-
-                onClicked: {
-                    App.restartApplication();
-                    root.close();
-                }
-            }
-
-            Button {
-                id: openSupportButton
-
-                width: 260
-                height: 48
-
-                text: qsTr("BUTTON_NOTIFY_SUPPORT")
-
-                analytics: GoogleAnalyticsEvent {
-                    page: "/game/" + gameItem.gaName
-                    category: "Game " + gameItem.gaName
-                    action: "Support button clicked"
-                }
-
-                onClicked: {
-                    root.close();
-                    App.openExternalUrl("http://support.gamenet.ru");
-                }
+            onClicked: {
+                root.close();
+                App.openExternalUrl("http://support.gamenet.ru");
             }
         }
     }
+
 }

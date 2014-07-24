@@ -51,6 +51,9 @@
 		<file>Application/Blocks/Header/HeaderControlButton.qml</file>
 		<file>Application/Blocks/Header/PublicTestButton.qml</file>
 		<file>Application/Blocks/Header/qmldir</file>
+		<file>Application/Blocks/Popup/PopupBase.qml</file>
+		<file>Application/Blocks/Popup/PopupHorizontalSplit.qml</file>
+		<file>Application/Blocks/Popup/qmldir</file>
 		<file>Application/Blocks/qmldir</file>
 		<file>Application/Blocks/ShakeAnimation.qml</file>
 		<file>Application/Blocks/SocialNet.qml</file>
@@ -133,7 +136,6 @@
 		<file>Application/Widgets/GameExecuting/PluginContainer.qml</file>
 		<file>Application/Widgets/GameExecuting/qmldir</file>
 		<file>Application/Widgets/GameExecuting/View/GameExecutingView.qml</file>
-		<file>Application/Widgets/GameExecuting/View/SplitterStyleColorsPrivate.qml</file>
 		<file>Application/Widgets/GameFailed/PluginContainer.qml</file>
 		<file>Application/Widgets/GameFailed/qmldir</file>
 		<file>Application/Widgets/GameFailed/View/GameFailedView.qml</file>

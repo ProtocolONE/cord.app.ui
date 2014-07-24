@@ -10,13 +10,16 @@
 
 import QtQuick 1.1
 import Tulip 1.0
+
+import Application.Blocks.Popup 1.0
+
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
 import "../../../Core/App.js" as App
 
 
-WidgetView {
+PopupBase {
     id: root
 
     property variant currentItem: App.currentGame();
@@ -34,137 +37,99 @@ WidgetView {
         root.setupButton(button2, root.currentItem.maintenanceProposal2);
     }
 
+    title: qsTr("GAME_BORING_TITLE")
     width: 670
-    height: allContent.height + 40
     clip: true
 
-    Rectangle {
-        anchors.fill: parent
-        color: "#F0F5F8"
-    }
+    Item {
+        id: body
 
-    Column {
-        id: allContent
-
-        y: 20
-        spacing: 20
-
-        Text {
-            anchors {
-                left: parent.left
-                leftMargin: 20
-            }
-            font {
-                family: 'Arial'
-                pixelSize: 20
-            }
-            color: '#343537'
-            smooth: true
-            text: qsTr("GAME_BORING_TITLE")
+        anchors {
+            left: parent.left
+            leftMargin: 20
+            right: parent.right
+            rightMargin: 20
         }
+        width: root.width - 40
+        height: childrenRect.height
 
-        HorizontalSplit {
-            width: root.width
+        Row {
+            spacing: 20
 
-            style: SplitterStyleColors {
-                main: "#ECECEC"
-                shadow: "#FFFFFF"
+            Image {
+                source: installPath + "Assets/Images/Application/Widgets/GameIsBoring/gameIsBoring.png"
             }
-        }
 
-        Item {
-            id: body
-
-            anchors {
-                left: parent.left
-                leftMargin: 20
-                right: parent.right
-                rightMargin: 20
-            }
-            width: root.width - 40
-            height: childrenRect.height
-
-            Row {
+            Column {
                 spacing: 20
 
-                Image {
-                    source: installPath + "Assets/Images/Application/Widgets/GameIsBoring/gameIsBoring.png"
+                Text {
+                    width: 400
+                    font {
+                        family: 'Arial'
+                        pixelSize: 14
+                    }
+                    color: defaultTextColor
+                    smooth: true
+                    wrapMode: Text.WordWrap
+                    text: qsTr("GAME_BORING_TIP").arg(root.currentItem ? root.currentItem.name : '')
                 }
 
-                Column {
+                Row {
                     spacing: 20
 
-                    Text {
-                        width: 400
-                        font {
-                            family: 'Arial'
-                            pixelSize: 14
-                        }
-                        color: '#343537'
-                        smooth: true
-                        wrapMode: Text.WordWrap
-                        text: qsTr("GAME_BORING_TIP").arg(root.currentItem ? root.currentItem.name : '')
-                    }
-
-                    Row {
-                        spacing: 20
-
-                        GameIsBoringButton {
-                            id: button1
-                            width: 187
-                            height: 93
-                            onClicked: {
-                                root.close();
-                            }
-                        }
-
-                        GameIsBoringButton {
-                            id: button2
-                            width: 187
-                            height: 93
-                            onClicked: {
-                                root.close();
-                            }
+                    GameIsBoringButton {
+                        id: button1
+                        width: 187
+                        height: 93
+                        onClicked: {
+                            root.close();
                         }
                     }
 
-                    Text {
-                        width: 400
-                        font {
-                            family: 'Arial'
-                            pixelSize: 14
+                    GameIsBoringButton {
+                        id: button2
+                        width: 187
+                        height: 93
+                        onClicked: {
+                            root.close();
                         }
-                        color: '#343537'
-                        smooth: true
-                        wrapMode: Text.WordWrap
-                        text: qsTr("GAME_BORING_TIP_2")
                     }
                 }
-            }
-        }
 
-        HorizontalSplit {
-            width: root.width
-            style: SplitterStyleColors {
-                main: "#ECECEC"
-                shadow: "#FFFFFF"
-            }
-        }
-
-        Button {
-            id: activateButton
-
-            width: 200
-            height: 48
-            anchors {
-                left: parent.left
-                leftMargin: 20
-            }
-            text: qsTr("GAME_FAILED_BUTTON_CLOSE")
-            onClicked: {
-                root.close();
-                Marketing.send(Marketing.NotLikeTheGame, root.currentItem.serviceId, { serviceId: 0 });
+                Text {
+                    width: 400
+                    font {
+                        family: 'Arial'
+                        pixelSize: 14
+                    }
+                    color: defaultTextColor
+                    smooth: true
+                    wrapMode: Text.WordWrap
+                    text: qsTr("GAME_BORING_TIP_2")
+                }
             }
         }
     }
+
+    PopupHorizontalSplit {
+        width: root.width
+    }
+
+    Button {
+        id: activateButton
+
+        width: 200
+        height: 48
+        anchors {
+            left: parent.left
+            leftMargin: 20
+        }
+        text: qsTr("GAME_FAILED_BUTTON_CLOSE")
+        onClicked: {
+            root.close();
+            Marketing.send(Marketing.NotLikeTheGame, root.currentItem.serviceId, { serviceId: 0 });
+        }
+    }
+
 }

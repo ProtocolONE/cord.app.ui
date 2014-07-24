@@ -23,6 +23,7 @@ Rectangle {
 
         Component.onCompleted: {
             manager.registerWidget('Application.Widgets.GameAdBanner');
+            manager.registerWidget('Application.Widgets.GameInfo');
             manager.registerWidget('Application.Widgets.GameExecuting');
             manager.init();
             App.activateGame(App.serviceItemByGameId("92"));
