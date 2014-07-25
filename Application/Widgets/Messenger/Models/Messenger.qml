@@ -430,7 +430,7 @@ Item {
             }
 
             if (vcard.extra) {
-                item.avatar = vcard.extra.PHOTOURL || "";
+                item.avatar = vcard.extra.PHOTOURL || item.avatar || "";
             }
         }
     }
