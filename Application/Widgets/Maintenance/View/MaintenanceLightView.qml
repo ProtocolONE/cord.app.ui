@@ -122,22 +122,6 @@ WidgetView {
                     height: parent.height
                     width: parent.width - 80
 
-                    CursorMouseArea {
-                        anchors { fill: parent }
-                        onClicked: {
-                            App.navigate('mygame');
-
-                            if (root.gameItem) {
-                                App.activateGameByServiceId(root.gameItem.serviceId);
-                            }
-
-                            GoogleAnalytics.trackEvent('/Maintenance/',
-                                        'Game ' + root.gameItem.gaName,
-                                        'Activate My Game',
-                                        'MaintenanceLightView');
-                        }
-                    }
-
                     Text {
                         anchors {
                             top: parent.top
@@ -161,6 +145,24 @@ WidgetView {
                     }
                 }
             }
+
+            CursorMouseArea {
+                anchors { fill: parent }
+                onClicked: {
+                    App.navigate('mygame');
+
+                    if (proposalRect.proposalGameItem) {
+                        App.activateGameByServiceId(proposalRect.proposalGameItem.serviceId);
+                    }
+
+                    GoogleAnalytics.trackEvent('/Maintenance/',
+                                'Game ' + root.gameItem.gaName,
+                                'Activate Game ' + proposalRect.proposalGameItem.gaName,
+                                'MaintenanceLightView');
+                }
+            }
+
+
         }
     }
 }
