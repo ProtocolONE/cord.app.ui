@@ -1,14 +1,18 @@
 Qt.include('../../../../../../GameNet/Core/lodash.js')
+Qt.include('./Jobs/AppendGroupJob.js');
+Qt.include('./Jobs/RemoveItemJob.js');
+Qt.include('./Jobs/OpenGroupJob.js');
 
 var groupsMap = {},
-sortedGroups = [];
+sortedGroups = [],
+        jobs = [];
 
 function containsGroup(groupId) {
     return groupsMap.hasOwnProperty(groupId);
 }
 
 function groupIndexById(groupId) {
-    return _.findIndex(sortedGroups, function(g) { return g === groupId });
+    return sortedGroups.indexOf(groupId);
 }
 
 function groupById(groupId) {
@@ -16,13 +20,10 @@ function groupById(groupId) {
 }
 
 function itemCount() {
-    var resultIndex = 0;
-    sortedGroups.forEach(function(g) {
+    return sortedGroups.reduce(function(sum, g) {
         var group = groupsMap[g];
-        resultIndex += (group.opened ? group.users.length : 1);
-    });
-
-    return resultIndex;
+        return sum + (group.opened ? group.users.length : 1);
+    }, 0);
 }
 
 function calculateInsertIndexByIndex(groupIndex) {
@@ -53,16 +54,14 @@ function appendGroup(groupId) {
     if (insertIndex == -1) {
         sortedGroups.push(groupId);
         return -1;
-
-    } else {
-        sortedGroups.splice(insertIndex, 0, groupId);
-        return calculateInsertIndexByIndex(insertIndex);
     }
+
+    sortedGroups.splice(insertIndex, 0, groupId);
+    return calculateInsertIndexByIndex(insertIndex);
 }
 
 function removeGroup(groupId) {
-    var index = groupIndexById(groupId);
-    sortedGroups.splice(index, 1);
+    sortedGroups.splice(groupIndexById(groupId), 1);
     delete groupsMap[groupId];
 }
 
@@ -86,37 +85,35 @@ function setGroupOpened(groupId, value) {
     groupsMap[groupId].opened = value;
 }
 
-var jobs = [];
 
-function appendGroupItem(index, groupId) {
-    jobs.push({
-                  action: "appendGroup",
-                  index: index,
-                  groupId: groupId
-              });
+function queueAppendGroupItemJob(index, groupId) {
+    jobs.push(new AppendGroupJob(
+                  {
+                      index: index,
+                      groupId: groupId
+                  }));
 }
 
-function appendAllJob(index, groupId, users, removeHeader) {
-    jobs.push({
-                  action: "appendAll",
-                  index: index,
-                  groupId: groupId,
-                  users: users,
-                  totalUserCount: users.length,
-                  removeHeader: removeHeader || false
-              });
+function queueAppendAllJob(index, groupId, users, removeHeader) {
+    jobs.push(new OpenGroupJob(
+                  {
+                      index: index,
+                      groupId: groupId,
+                      users: users,
+                      removeHeader: removeHeader
+                  }));
 }
 
-function removeItemJob(index, count, appendGroupId) {
-    jobs.push({
-                  action: "remove",
-                  index: index,
-                  count: count,
-                  appendGroupId: appendGroupId
-              });
+function queueRemoveItemJob(index, count, appendGroupId) {
+    jobs.push(new RemoveItemJob(
+                  {
+                      index: index,
+                      count: count,
+                      appendGroupId: appendGroupId
+                  }));
 }
 
-function jobInProgress() {
+function hasJobs() {
     return jobs.length > 0;
 }
 
@@ -129,7 +126,16 @@ function currentJob() {
 }
 
 function popJob() {
-    if (jobs.length > 0) {
-        jobs.shift();
+    jobs.shift();
+}
+
+function processJob(groupProxyModel) {
+    var job = currentJob();
+    if (!job) {
+        return;
+    }
+
+    if (job.execute(groupProxyModel)) {
+        popJob();
     }
 }

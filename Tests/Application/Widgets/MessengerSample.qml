@@ -56,6 +56,22 @@ Rectangle {
             height: 30
             text: 'del FS'
             onClicked: {
+                var q = ["1","2","3","4"];
+                var w = {
+                    "1" : 11000,
+                    "2" : 6,
+                    "3" : 7,
+                    "4" : 8,
+                    "5" : 9,
+                };
+
+                var res = q.reduce(function(sum, a) {
+                    return sum + w[a];
+                }, 0);
+
+                console.log(res);
+
+                return;
                 var groupId = "FireStorm (FS)";
                 var users = MessengerJs.groups().getById(groupId).users;
                 for (var i = 0; i < users.count; i++) {

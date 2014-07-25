@@ -13,6 +13,7 @@ import GameNet.Controls 1.0
 import Application.Controls 1.0
 
 import "../../../../../../GameNet/Core/lodash.js" as Lodash
+import "../../../../../Core/Styles.js" as Styles
 import "../../../Models/Messenger.js" as Messenger
 
 import "./PlainContacts.js" as Js
@@ -26,23 +27,26 @@ Item {
         property bool group1Opened: false
 
         function updateModel() {
-            var groupIds = Messenger.groups().keys();
+            var groupIds = Messenger.groups().keys()
+            , itemCount
+            , index
+            , remvoeGroupIndex;
 
             Lodash._.difference(groupIds, Object.keys(Js.groupsMap)).forEach(function(groupId) {
-                var itemCount = Js.itemCount();
-                var index = Js.appendGroup(groupId);
+                itemCount = Js.itemCount();
+                index = Js.appendGroup(groupId);
                 if (index === -1) {
                     index = itemCount;
                 }
 
-                Js.appendGroupItem(index, groupId);
+                Js.queueAppendGroupItemJob(index, groupId);
             });
 
             Lodash._.difference(Object.keys(Js.groupsMap), groupIds).forEach(function(groupId) {
-                var remvoeGroupIndex = Js.calculateInsertIndex(groupId);
-                var itemCount = Js.isOpened(groupId) ? Js.groupById(groupId).users.length : 1;
+                remvoeGroupIndex = Js.calculateInsertIndex(groupId);
+                itemCount = Js.isOpened(groupId) ? Js.groupById(groupId).users.length : 1;
 
-                Js.removeItemJob(remvoeGroupIndex, itemCount);
+                Js.queueRemoveItemJob(remvoeGroupIndex, itemCount);
                 Js.removeGroup(groupId);
             });
 
@@ -51,65 +55,81 @@ Item {
         }
 
         function updateOpenedGroups() {
-            var usersModel = Messenger.users();
+            Object.keys(Js.groupsMap).filter(function(g) {
+                return Js.isOpened(g);
+            }).forEach(function(openedId) {
+                var currentUsers = Js.groupById(openedId).users,
+                    actualUsers = [],
+                    actualUsersMap = {},
+                    groupStartIndex,
+                    usersToInsert,
+                    usersToRemove;
 
-            var openedGroups = Object.keys(Js.groupsMap).filter(function(g) { return Js.isOpened(g); });
-            openedGroups.forEach(function(openedId) {
-                var currentUsers = Js.groupById(openedId).users;
+                d.buildReduceMap(openedId, actualUsersMap, actualUsers);
 
-                var actualUserModel = Messenger.groups().getById(openedId).users;
-                var actualUsers = [];
-                var actualUsersMap = {};
-                var i;
-                for (i = 0; i < actualUserModel.count; ++i) {
-                    var modelUser = actualUserModel.get(i)
-                    var jid = modelUser.jid;
-                    actualUsersMap[jid] = usersModel.getById(jid).nickname.toLowerCase();
-                    actualUsers.push(jid);
-                }
+                groupStartIndex = Js.calculateInsertIndex(openedId);
+                usersToInsert = Lodash._.difference(actualUsers, currentUsers);
+                usersToRemove = Lodash._.difference(currentUsers, actualUsers);
 
-                var groupStartIndex = Js.calculateInsertIndex(openedId);
-
-                Lodash._.difference(actualUsers, currentUsers).forEach(function(newUser) {
-                    var newUserNickName = Messenger.users().getById(newUser).nickname.toLowerCase();
-                    var newUserInsertIndex = Lodash._.findIndex(currentUsers, function(u) {
-                        return actualUsersMap[u] > newUserNickName;
-                    });
-
-                    newUserInsertIndex = newUserInsertIndex > 0 ? newUserInsertIndex : currentUsers.length;
-                    currentUsers.splice(newUserInsertIndex, 0, newUser);
-                    Js.appendAllJob(groupStartIndex + newUserInsertIndex, openedId, [newUser]);
-                });
-
-                Lodash._.difference(currentUsers, actualUsers).forEach(function(deletedUser) {
-                    var deleteIndex = Lodash._.findIndex(currentUsers, function(u) {
-                        return u === deletedUser;
-                    });
-
-                    currentUsers.splice(deleteIndex, 1);
-                    Js.removeItemJob(groupStartIndex + deleteIndex, 1);
-                });
+                d.insertUsersToOpenedGroup(usersToInsert, currentUsers, groupStartIndex, openedId);
+                d.removeFromOpenedGroup(usersToRemove, currentUsers, groupStartIndex);
             });
-
         }
 
+        function buildReduceMap(openedId, actualUsersMap, actualUsers) {
+            var usersModel = Messenger.users()
+                , actualUserModel = Messenger.groups().getById(openedId).users
+                , modelUser
+                , jid
+                , i;
+
+            for (i = 0; i < actualUserModel.count; ++i) {
+                modelUser = actualUserModel.get(i)
+                jid = modelUser.jid;
+                actualUsersMap[jid] = usersModel.getById(jid).nickname.toLowerCase();
+                actualUsers.push(jid);
+            }
+        }
+
+        function insertUsersToOpenedGroup(users, currentUsers, groupStartIndex, openedId) {
+            users.forEach(function(newUser) {
+                var newUserNickName,
+                    newUserInsertIndex;
+
+                newUserNickName = Messenger.users().getById(newUser).nickname.toLowerCase();
+                newUserInsertIndex = Lodash._.findIndex(currentUsers, function(u) {
+                    return actualUsersMap[u] > newUserNickName;
+                });
+
+                newUserInsertIndex = newUserInsertIndex > 0 ? newUserInsertIndex : currentUsers.length;
+                currentUsers.splice(newUserInsertIndex, 0, newUser);
+                Js.queueAppendAllJob(groupStartIndex + newUserInsertIndex, openedId, [newUser]);
+            });
+        }
+
+        function removeFromOpenedGroup(users, currentUsers, groupStartIndex) {
+            users.forEach(function(deletedUser) {
+                var deleteIndex = Lodash._.findIndex(currentUsers, function(u) {
+                    return u === deletedUser;
+                });
+
+                currentUsers.splice(deleteIndex, 1);
+                Js.queueRemoveItemJob(groupStartIndex + deleteIndex, 1);
+            });
+        }
+
+
         function openGroup(groupId, index) {
-            if (Js.jobInProgress()) {
+            var users = []
+                , usersMap = {}
+                , insertIndex
+                , group;
+
+            if (Js.hasJobs()) {
                 return;
             }
 
-            var groupUsersModel = Messenger.groups().getById(groupId).users;
-            var users = [];
-            var usersMap = {};
-            var usersModel = Messenger.users();
-            var i;
-
-            for (i = 0; i < groupUsersModel.count; ++i) {
-                var modelUser = groupUsersModel.get(i)
-                var jid = modelUser.jid;
-                users.push(jid);
-                usersMap[jid] = usersModel.getById(jid).nickname.toLowerCase();
-            }
+            d.buildReduceMap(groupId, usersMap, users);
 
             users.sort(function(a, b) {
                 var val1 = usersMap[a];
@@ -126,128 +146,28 @@ Item {
                 return 1;
             });
 
-            var insertIndex = Js.calculateInsertIndex(groupId);
-
-            var group = Js.groupById(groupId);
+            insertIndex = Js.calculateInsertIndex(groupId);
+            group = Js.groupById(groupId);
             group.users = users.slice(0);
 
             Js.setGroupOpened(groupId, true);
-            Js.appendAllJob(insertIndex, groupId, users, true);
+            Js.queueAppendAllJob(insertIndex, groupId, users, true);
         }
 
         function closeGroup(groupId) {
-            if (Js.jobInProgress()) {
+            var ind, group, usersLen;
+
+            if (Js.hasJobs()) {
                 return;
             }
 
-            var ind = Js.calculateInsertIndex(groupId);
+            ind = Js.calculateInsertIndex(groupId);
 
             Js.setGroupOpened(groupId, false);
-            var group = Js.groupById(groupId);
-            var usersLen = group.users.length;
-            Js.removeItemJob(ind, usersLen, groupId);
+            group = Js.groupById(groupId);
+            usersLen = group.users.length;
+            Js.queueRemoveItemJob(ind, usersLen, groupId);
             Js.groupsMap[groupId].users = [];
-        }
-
-        function doJob() {
-            var job = Js.currentJob();
-            if (!job) {
-                return;
-            }
-
-            if (job.action === "appendAll") {
-                d.appendAll(job);
-            }
-
-            if (job.action === "remove") {
-                d.remove(job)
-            }
-
-            if (job.action === "appendGroup") {
-                d.appendGroup(job)
-            }
-        }
-
-        function appendAll(job) {
-            var i, batchSize = job.second ? 1000 : 30;
-            job.second = 1;
-
-            if (!job.currentIndex) {
-                job.currentIndex = job.index;
-            }
-
-            if (job.removeHeader) {
-                d.groupModelRemove(job.index);
-                job.removeHeader = false;
-            }
-
-            var users = job.users.slice(0, batchSize);
-            var user,
-                    item;
-
-            for (i in users) {
-                user = users[i];
-
-                item = {
-                    isGroupItem: false,
-                    value: user,
-                    sectionId: job.groupId,
-                    groupId: job.groupId,
-                    jid: user
-                };
-
-                d.groupModelInsert(job.currentIndex, item);
-                job.currentIndex++;
-            }
-
-            job.users.splice(0, batchSize);
-            if (job.users.length === 0) {
-                Js.popJob();
-            }
-        }
-
-        function remove(job) {
-            var batchSize = 500;
-            var b = Math.min(batchSize, job.count);
-
-            for (var i = 0; i < b; i++) {
-                d.groupModelRemove(job.index + job.count - 1 - i);
-            }
-
-            job.count -= b;
-
-            if (job.count <= 0) {
-                if (job.appendGroupId) {
-                    d.groupModelInsert(job.index, {
-                                           isGroupItem: true,
-                                           value: job.appendGroupId,
-                                           sectionId: "",
-                                           groupId: job.appendGroupId,
-                                           jid: ""
-                                       });
-                }
-
-                Js.popJob();
-            }
-        }
-
-        function appendGroup(job) {
-            d.groupModelInsert(job.index, {
-                                   isGroupItem: true,
-                                   value: job.groupId,
-                                   sectionId: "",
-                                   groupId: job.groupId,
-                                   jid: ""
-                               });
-            Js.popJob();
-        }
-
-        function groupModelInsert(index, item) {
-            groupProxyModel.insert(index, item);
-        }
-
-        function groupModelRemove(index) {
-            groupProxyModel.remove(index);
         }
 
         function userCount(groupId) {
@@ -274,7 +194,7 @@ Item {
         interval: 5
         running: true
         repeat: true
-        onTriggered: d.doJob();
+        onTriggered: Js.processJob(groupProxyModel);
     }
 
     Connections {
@@ -337,13 +257,15 @@ Item {
         }
     }
 
-
     ListViewScrollBar {
         anchors.left: listView.right
         height: listView.height
         width: 10
         listView: listView
-        cursorMaxHeight: 100
+        cursorMaxHeight: listView.height
+        cursorMinHeight: 50
+        color: Qt.darker(Styles.style.messengerContactsBackground, Styles.style.darkerFactor);
+        cursorColor: Qt.darker(Styles.style.messengerContactsBackground, Styles.style.darkerFactor * 1.5);
     }
 
     ListModel {

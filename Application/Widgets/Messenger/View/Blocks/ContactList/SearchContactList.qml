@@ -9,9 +9,11 @@
 ****************************************************************************/
 import QtQuick 1.1
 import Tulip 1.0
+import GameNet.Controls 1.0
 import Application.Controls 1.0
 
 import "../../../Models/Messenger.js" as MessengerJs
+import "../../../../../Core/Styles.js" as Styles
 
 Item {
     id: root
@@ -64,7 +66,11 @@ Item {
         id: view
 
         model: searchContactModel
-        anchors.fill: parent
+        anchors {
+            fill: parent
+            rightMargin: 10
+        }
+
         boundsBehavior: Flickable.StopAtBounds
         delegate: ContactItem {
             width: root.width
@@ -87,10 +93,14 @@ Item {
         id: searchContactModel
     }
 
-    ScrollBar {
-        flickable: view
-        anchors.right: parent.right
-        height: parent.height
-        scrollbarWidth: 5
+    ListViewScrollBar {
+        anchors.left: view.right
+        height: view.height
+        width: 10
+        listView: view
+        cursorMaxHeight: view.height
+        cursorMinHeight: 50
+        color: Qt.darker(Styles.style.messengerContactsBackground, Styles.style.darkerFactor);
+        cursorColor: Qt.darker(Styles.style.messengerContactsBackground, Styles.style.darkerFactor * 1.5);
     }
 }
