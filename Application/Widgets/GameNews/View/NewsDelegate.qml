@@ -168,9 +168,14 @@ Item {
                 }
 
                 Text {
-                    property string clearText: Strings.stripTags(announcementText).replace(/\s+/g, ' ').trim();
+                    function clearText(text) {
+                        var tmp = Strings.stripTags(text);
+                        tmp = Strings.htmlDecode(tmp);
 
-                    text: clearText
+                        return tmp.replace(/\s+/g, ' ').trim();
+                    }
+
+                    text: clearText(announcementText)
                     height: 86
                     width: parent.width - 35
                     wrapMode: Text.WordWrap
