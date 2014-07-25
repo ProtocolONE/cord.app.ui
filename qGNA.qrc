@@ -7,6 +7,7 @@
 		<file>Application/Blocks/ApplicationSettings.qml</file>
 		<file>Application/Blocks/ApplicationSettings/DownloadSettings.qml</file>
 		<file>Application/Blocks/ApplicationSettings/GeneralSettings.qml</file>
+		<file>Application/Blocks/ApplicationSettings/MessengerSettings.qml</file>
 		<file>Application/Blocks/ApplicationSettings/NotificationSettings.qml</file>
 		<file>Application/Blocks/ApplicationSettings/qmldir</file>
 		<file>Application/Blocks/AppScreen.qml</file>
@@ -187,6 +188,7 @@
 		<file>Application/Widgets/Messenger/Models/Messenger.js</file>
 		<file>Application/Widgets/Messenger/Models/Messenger.qml</file>
 		<file>Application/Widgets/Messenger/Models/MessengerPrivate.js</file>
+		<file>Application/Widgets/Messenger/Models/Settings.js</file>
 		<file>Application/Widgets/Messenger/Models/User.js</file>
 		<file>Application/Widgets/Messenger/Models/User.qml</file>
 		<file>Application/Widgets/Messenger/PluginContainer.qml</file>

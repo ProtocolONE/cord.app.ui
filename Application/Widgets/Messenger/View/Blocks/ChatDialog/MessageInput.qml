@@ -13,8 +13,10 @@ import Tulip 1.0
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
+import "../../../../../Core/App.js" as App
 import "../../../../../Core/Styles.js" as Styles
 import "../../../Models/Messenger.js" as MessengerJs
+import "../../../Models/Settings.js" as Settings
 
 FocusScope {
     id: root
@@ -24,6 +26,7 @@ FocusScope {
         color: Styles.style.messengerMessageInputBackground
     }
 
+    property int sendAction
     property int pauseTimeout: 3
     property int inactiveTimeout: 12
 
@@ -34,6 +37,7 @@ FocusScope {
         id: d
 
         property string activeStatus: ""
+
 
         function sendMessage() {
             if (messengerInput.text.length > 0) {
@@ -135,13 +139,22 @@ FocusScope {
 
                             onCursorRectangleChanged: inputFlick.ensureVisible(cursorRectangle);
 
-                            Keys.onReturnPressed: {
-                                if (event.modifiers !== Qt.NoModifier)  {
-                                    event.accepted = false;
-                                    return;
+                            Keys.onPressed: {
+                                if (event.key == Qt.Key_Enter || event.key == Qt.Key_Return) {
+                                    switch (root.sendAction) {
+                                    case Settings.SendShortCut.CtrlEnter:
+                                        if (event.modifiers & Qt.ControlModifier) {
+                                            d.sendMessage();
+                                            event.accepted = true;
+                                        }
+                                        break;
+                                    case Settings.SendShortCut.Enter:
+                                        if (event.modifiers == Qt.NoModifier) {
+                                            d.sendMessage();
+                                            event.accepted = true;
+                                        }
+                                    }
                                 }
-
-                                d.sendMessage();
                             }
 
                             Keys.onEscapePressed: root.closeDialogPressed();
@@ -220,10 +233,21 @@ FocusScope {
                 }
 
                 Text {
+                    function getText() {
+                        switch(root.sendAction){
+                        case Settings.SendShortCut.Enter:
+                            return qsTr("MESSENGER_SEND_BUTTON_MESSAGE_ENTER");
+                        case Settings.SendShortCut.CtrlEnter:
+                            return qsTr("MESSENGER_SEND_BUTTON_MESSAGE_CTRL_ENTER");
+                        case Settings.SendShortCut.ButtonOnly:
+                            return "";
+                        }
+                    }
+
                     anchors.horizontalCenter: parent.horizontalCenter
 
                     color: Styles.style.messengerMessageInputSendHotkeyText
-                    text: qsTr("MESSENGER_SEND_BUTTON_MESSAGE")
+                    text: getText()
                 }
             }
         }

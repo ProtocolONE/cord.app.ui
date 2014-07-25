@@ -50,6 +50,7 @@ WidgetView {
         anchors.bottom: parent.bottom
         focus: true
         onCloseDialogPressed: MessengerJs.closeChat()
+        sendAction: model.settings.sendAction
     }
 
     Connections {

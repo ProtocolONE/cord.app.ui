@@ -3,9 +3,6 @@ import Tulip 1.0
 
 import Application.Blocks 1.0
 
-import "../../../Pages" as Pages
-import "../../../Blocks2" as Blocks2
-
 Rectangle {
     id: sampleRoot
 
@@ -32,9 +29,6 @@ Rectangle {
         height: 558
         anchors {
             bottom: parent.bottom
-        }
-        onAccepted: {
-            console.log("Application settings accepted!");
         }
     }
 }

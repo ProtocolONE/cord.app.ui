@@ -25,6 +25,7 @@ Rectangle {
         generalSettingsPage.load();
         downloadSettingsPage.load();
         notificationSettingsPage.load();
+        messengerSettingsPage.load();
     }
 
     CursorMouseArea {
@@ -129,6 +130,27 @@ Rectangle {
 
                         onClicked: root.state = "NotificationsPage";
                     }
+
+                    TextButton {
+                        checkable: true
+                        checked: root.state === "MessengerPage"
+                        text: qsTr("MESSENGER_TAB")
+                        width: 160
+                        height: 20
+                        style: ButtonStyleColors {
+                            normal: "#3498BD"
+                            hover: "#3670DC"
+                            active: "#000000"
+                        }
+                        analytics: GoogleAnalyticsEvent {
+                            page: '/ApplicationSettings'
+                            category: 'Navigation'
+                            action: 'Switch to MessengerPage'
+                        }
+
+                        onClicked: root.state = "MessengerPage";
+                    }
+
                 }
 
                 TextButton {
@@ -195,6 +217,11 @@ Rectangle {
 
                         anchors.fill: parent
                     }
+                    MessengerSettings {
+                        id: messengerSettingsPage
+
+                        anchors.fill: parent
+                    }
                 }
 
                 Row {
@@ -216,6 +243,7 @@ Rectangle {
                             generalSettingsPage.save();
                             downloadSettingsPage.save();
                             notificationSettingsPage.save();
+                            messengerSettingsPage.save();
 
                             root.close();
                         }
@@ -259,6 +287,15 @@ Rectangle {
                 script: {
                     notificationSettingsPage.load();
                     pageSwitcher.switchTo(notificationSettingsPage);
+                }
+            }
+        },
+        State {
+            name: "MessengerPage"
+            StateChangeScript {
+                script: {
+                    messengerSettingsPage.load();
+                    pageSwitcher.switchTo(messengerSettingsPage);
                 }
             }
         }

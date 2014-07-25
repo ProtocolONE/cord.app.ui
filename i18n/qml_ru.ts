@@ -295,12 +295,12 @@
         <translation>Уведомления</translation>
     </message>
     <message>
-        <source>RESTORE_SETTINGS</source>
-        <translation>Загрузить настройки по умолчанию</translation>
+        <source>MESSENGER_TAB</source>
+        <translation>Чат</translation>
     </message>
     <message>
-        <source>OK_BUTTON_LABEL</source>
-        <translation type="vanished">Ок</translation>
+        <source>RESTORE_SETTINGS</source>
+        <translation>Загрузить настройки по умолчанию</translation>
     </message>
     <message>
         <source>SAVE_BUTTON_LABEL</source>
@@ -2983,8 +2983,31 @@ Please try again later.</source>
         <translation>Отправить</translation>
     </message>
     <message>
-        <source>MESSENGER_SEND_BUTTON_MESSAGE</source>
-        <translation>Или Enter</translation>
+        <source>MESSENGER_SEND_BUTTON_MESSAGE_ENTER</source>
+        <translation>или Enter</translation>
+    </message>
+    <message>
+        <source>MESSENGER_SEND_BUTTON_MESSAGE_CTRL_ENTER</source>
+        <translation>или Ctrl+Enter</translation>
+    </message>
+</context>
+<context>
+    <name>MessengerSettings</name>
+    <message>
+        <source>MESSENGER_SEND_ACTION_TITLE</source>
+        <translation>Отправка сообщений</translation>
+    </message>
+    <message>
+        <source>MESSENGER_SEND_ON_ENTER</source>
+        <translation>Отправлять сообщения по Enter</translation>
+    </message>
+    <message>
+        <source>MESSENGER_SEND_ON_CTRL_ENTER</source>
+        <translation>Отправлять сообщения по Ctrl+Enter</translation>
+    </message>
+    <message>
+        <source>MESSENGER_SEND_ON_BUTTON</source>
+        <translation>Отправлять только по кнопке Отправить</translation>
     </message>
     <message>
         <source>MAINTENANCE_PROPOSAL_GAME_TEXT</source>

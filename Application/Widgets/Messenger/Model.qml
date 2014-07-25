@@ -10,16 +10,17 @@
 import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 
-import "./Addons" as Addons
-
-import "./Models/Messenger.js" as MessengerJs
 import "../../Core/App.js" as App
+import "./Addons" as Addons
+import "./Models/Messenger.js" as MessengerJs
+import "./Models/Settings.js" as Settings
 
 WidgetModel {
     settings: WidgetSettings {
         namespace: 'Messenger'
 
-        property bool messengerReceivedMessage;
+        property bool messengerReceivedMessage
+        property int sendAction: Settings.SendShortCut.Enter
     }
 
     // UNDONE коннект на запуск игры

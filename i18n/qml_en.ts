@@ -207,17 +207,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="139"/>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="130"/>
+        <source>MESSENGER_TAB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="160"/>
         <source>RESTORE_SETTINGS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="207"/>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="233"/>
         <source>SAVE_BUTTON_LABEL</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="221"/>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="248"/>
         <source>CLOSE_BUTTON_LABEL</source>
         <translation></translation>
     </message>
@@ -319,7 +324,7 @@
 <context>
     <name>BottomBar</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/BottomBar.qml" line="39"/>
+        <location filename="../Application/Widgets/Messenger/View/BottomBar.qml" line="40"/>
         <source>MESSANGER_BOTTOM_BAR_BUTTON_NOTIFICATION_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -378,7 +383,7 @@
 <context>
     <name>ContactItem</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem.qml" line="105"/>
+        <location filename="../Application/Widgets/Messenger/View/ContactItem.qml" line="105"/>
         <source>CONTACT_NEW_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1225,31 +1230,41 @@
 <context>
     <name>MessageInput</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="215"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="223"/>
         <source>MESSENGER_SEND_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="223"/>
-        <source>MESSENGER_SEND_BUTTON_MESSAGE</source>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="231"/>
+        <source>MESSENGER_SEND_BUTTON_MESSAGE_ENTER</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="233"/>
+        <source>MESSENGER_SEND_BUTTON_MESSAGE_CTRL_ENTER</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>NicknameEdit</name>
+    <name>MessengerSettings</name>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/NicknameEdit.qml" line="64"/>
-        <source>ENTER_NICKNAME</source>
+        <location filename="../Application/Blocks/ApplicationSettings/MessengerSettings.qml" line="57"/>
+        <source>MESSENGER_SEND_ACTION_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/NicknameEdit.qml" line="65"/>
-        <source>SET_NICKNAME</source>
+        <location filename="../Application/Blocks/ApplicationSettings/MessengerSettings.qml" line="71"/>
+        <source>MESSENGER_SEND_ON_ENTER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/NicknameEdit.qml" line="71"/>
-        <source>YOUR_NICKNAME</source>
+        <location filename="../Application/Blocks/ApplicationSettings/MessengerSettings.qml" line="86"/>
+        <source>MESSENGER_SEND_ON_CTRL_ENTER</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/ApplicationSettings/MessengerSettings.qml" line="101"/>
+        <source>MESSENGER_SEND_ON_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1657,7 +1672,7 @@
 <context>
     <name>Search</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml" line="68"/>
+        <location filename="../Application/Widgets/Messenger/View/Search.qml" line="68"/>
         <source>MESSENGER_SEARCH_FRIEND_PLACE_HOLDER</source>
         <translation type="unfinished"></translation>
     </message>

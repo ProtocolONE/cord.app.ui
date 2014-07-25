@@ -29,6 +29,9 @@ Item {
     signal clicked(variant mouse)
     signal toggled(bool isChecked)
 
+    implicitHeight: 16
+    implicitWidth: childrenRect.width
+
     Row {
         id: row
 
@@ -63,6 +66,7 @@ Item {
             id: controlText
 
             color: control.style.normal
+            anchors.verticalCenter: parent.verticalCenter
             font {
                 family: "Arial"
                 pixelSize: 16
