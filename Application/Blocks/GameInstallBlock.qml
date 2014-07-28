@@ -89,6 +89,10 @@ Item {
                         return buttonErrorText;
                     }
 
+                    if (isPause) {
+                        return qsTr("BUTTON_PLAY_ON_PAUSED_STATE");
+                    }
+
                     if (allreadyDownloaded) {
                         return buttonDownloadedText;
                     }

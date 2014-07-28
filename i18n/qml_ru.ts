@@ -1708,11 +1708,15 @@ Please try again later.</source>
     </message>
     <message>
         <source>BUTTON_PLAY_ON_DETAILS_STATE</source>
-        <translation>Подробнее</translation>
+        <translation>Остановить</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_ERROR_STATE</source>
         <translation>Починить</translation>
+    </message>
+    <message>
+        <source>BUTTON_PLAY_ON_PAUSED_STATE</source>
+        <translation>Продолжить</translation>
     </message>
 </context>
 <context>

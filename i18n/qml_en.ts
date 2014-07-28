@@ -602,32 +602,37 @@
 <context>
     <name>GameInstallBlock</name>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="131"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="93"/>
+        <source>BUTTON_PLAY_ON_PAUSED_STATE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="119"/>
         <source>BUTTON_PLAY_NOT_INSTALLED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="132"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="120"/>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="133"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="121"/>
         <source>BUTTON_PLAY_ON_DETAILS_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="134"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="122"/>
         <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="135"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="123"/>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="136"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="124"/>
         <source>BUTTON_PLAY_ERROR_STATE</source>
         <translation type="unfinished"></translation>
     </message>
