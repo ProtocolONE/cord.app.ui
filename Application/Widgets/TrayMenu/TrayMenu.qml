@@ -16,15 +16,10 @@ import "../../Core/User.js" as User
 import "../../Core/MessageBox.js" as MessageBox
 import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
-//  UNDONE: на момент 04.07.2014 не ясно как прятать ненужные пункты меню в трее если приложение
-//  находится в состояни Loading, Authorization
-//  Возможные варианты решения - ввести в App.js методы позволяющие получить текущее глобальное состояние
-//  приложения, по типу getGlobalState()
-
 Item {
     id: root
 
-    property bool isFullMenu: true
+    property bool isFullMenu: User.isAuthorized()
 
     signal activate()
 
