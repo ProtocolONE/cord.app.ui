@@ -20,6 +20,8 @@ import "WidgetManager.js" as WidgetManager
  * See WidgetTestSuite.qml for usage example.
  */
 Item {
+    id: root
+
     function registerWidget(name) {
         return WidgetManager.registerWidget(name);
     }
@@ -28,7 +30,7 @@ Item {
         return WidgetManager.getWidgetByName(name);
     }
 
-    function init() {
-        WidgetManager.init();
+    function init(parent) {
+        WidgetManager.init(parent || root);
     }
 }

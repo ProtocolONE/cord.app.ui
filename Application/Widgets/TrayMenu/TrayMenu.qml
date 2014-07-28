@@ -28,12 +28,6 @@ Item {
 
     signal activate()
 
-    //  INFO: обязательно обернуть вызов в функцию, если написать прям внутри обработчика Connections,
-    //  то получим ошибку 'Result of expression 'TrayWindow.hide' [undefined] is not a function.'
-    function hideTrayIcon() {
-        TrayWindow.hide();
-    }
-
     function menuClick(name) {
         switch(name) {
             case 'Profile': {
@@ -86,11 +80,6 @@ Item {
     function quitTrigger() {
         GoogleAnalytics.trackEvent('/Tray', 'Application', 'Quit');
         App.exitApplication();
-    }
-
-    Connections {
-        target: App.signalBus()
-        onExitApplication: root.hideTrayIcon();
     }
 
     Component.onCompleted: {

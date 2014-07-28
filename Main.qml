@@ -27,7 +27,6 @@ Rectangle {
     signal dragWindowPressed(int x, int y);
     signal dragWindowReleased(int x, int y);
     signal dragWindowPositionChanged(int x, int y);
-    signal windowClose();
 
     color: "#092135"
     opacity: 0
@@ -38,7 +37,7 @@ Rectangle {
     ParallelAnimation {
         id: exitAnimation;
 
-        onCompleted: root.windowClose();
+        onCompleted: Qt.quit();
         NumberAnimation { target: root; property: "opacity"; from: 1; to: 0;  duration: 250 }
     }
 

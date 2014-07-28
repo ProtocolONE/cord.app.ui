@@ -89,14 +89,16 @@ function WidgetManager() {
         , _modelsByReference = {}
         , _parentComp = Qt.createComponent('WidgetManagerPrivate.qml')
         , _private = _parentComp.createObject(null)
+        , _globalParent = null;
 
     /**
      * Should be called once to confirm all widgets registration. All WidgetContainer wait`s for this moment to
      * update they views.
      */
-    this.initialize = function() {
-        this.forceModelCreation();
+    this.initialize = function(parent) {
+        _globalParent = parent;
 
+        this.forceModelCreation();
         _initialized = true;
         _private.widgetsReady();
     }
@@ -219,7 +221,7 @@ function WidgetManager() {
             throw new Error(comp.errorString());
         }
 
-        return comp.createObject(parentObj || this._private);
+        return comp.createObject(parentObj || _globalParent || _private);
     }
 
     function createViewObject(namespace, object, modelReference, parentObj) {
@@ -228,7 +230,7 @@ function WidgetManager() {
             throw new Error(comp.errorString());
         }
 
-        return comp.createObject(parentObj || this._private, {__modelReference: modelReference});
+        return comp.createObject(parentObj || _globalParent || _private, {__modelReference: modelReference});
     }
 }
 
@@ -256,8 +258,8 @@ function createNamedView(widgetName, viewName, parentObj) {
     return _internal.createNamedView(widgetName, viewName, parentObj);
 }
 
-function init() {
-    _internal.initialize();
+function init(parent) {
+    _internal.initialize(parent);
 }
 
 function isReady() {
