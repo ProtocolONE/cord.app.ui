@@ -21,6 +21,12 @@ Rectangle {
 
     signal close()
 
+    onClose: {
+        generalSettingsPage.load();
+        downloadSettingsPage.load();
+        notificationSettingsPage.load();
+    }
+
     CursorMouseArea {
         cursor: CursorArea.DefaultCursor
         anchors.fill: parent
@@ -231,20 +237,29 @@ Rectangle {
         State {
             name: "GeneralPage"
             StateChangeScript {
-                script: pageSwitcher.switchTo(generalSettingsPage);
+                script: {
+                    generalSettingsPage.load();
+                    pageSwitcher.switchTo(generalSettingsPage);
+                }
             }
         },
         State {
             name: "DownloadsPage"
 
             StateChangeScript {
-                script: pageSwitcher.switchTo(downloadSettingsPage);
+                script: {
+                    downloadSettingsPage.load();
+                    pageSwitcher.switchTo(downloadSettingsPage);
+                }
             }
         },
         State {
             name: "NotificationsPage"
             StateChangeScript {
-                script: pageSwitcher.switchTo(notificationSettingsPage);
+                script: {
+                    notificationSettingsPage.load();
+                    pageSwitcher.switchTo(notificationSettingsPage);
+                }
             }
         }
     ]

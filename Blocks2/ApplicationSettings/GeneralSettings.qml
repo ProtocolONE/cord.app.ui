@@ -38,6 +38,27 @@ Item {
 
     function save() {
         App.saveLanguage(applicationLanguage.getValue(applicationLanguage.currentIndex));
+
+        var autostart = 0;
+
+        if (runMinimized.checked && autoRun.checked) {
+            autostart = 2;
+        } else if (autoRun.checked) {
+                autostart = 1;
+        }
+
+        if (settingsViewModelInstance.autoStart != autostart) {
+            settingsViewModelInstance.setAutoStart(autostart);
+            d.sendAutoRunGA(settingsViewModelInstance.autoStart);
+        }
+    }
+
+    function load() {
+        applicationLanguage.currentIndex = applicationLanguage.findValue(App.language());
+        participateTesting.checked = App.isPublicTestVersion();
+
+        autoRun.checked = settingsViewModelInstance.autoStart > 0;
+        runMinimized.checked = settingsViewModelInstance.autoStart === 2;
     }
 
     QtObject {
@@ -91,18 +112,9 @@ Item {
             }
             checked: settingsViewModelInstance.autoStart > 0
             onToggled: {
-                if (checked) {
-                    if (runMinimized.checked) {
-                        settingsViewModel.setAutoStart(2);
-                    } else {
-                        settingsViewModel.setAutoStart(1);
-                    }
-                } else {
-                    runMinimized.checked = false;
-                    settingsViewModel.setAutoStart(0);
+                if (!checked) {
+                     runMinimized.checked = false;
                 }
-
-                d.sendAutoRunGA(settingsViewModelInstance.autoStart);
             }
         }
         CheckBox {
@@ -115,19 +127,6 @@ Item {
             style: ButtonStyleColors {
                 normal: "#1ABC9C"
                 hover: "#019074"
-            }
-            onToggled: {
-                if (checked) {
-                    if (autoRun.checked) {
-                        settingsViewModelInstance.setAutoStart(2);
-                    }
-                } else {
-                    if (autoRun.checked) {
-                        settingsViewModelInstance.setAutoStart(1);
-                    }
-                }
-
-                d.sendAutoRunGA(settingsViewModelInstance.autoStart);
             }
         }
         Item {

@@ -49,9 +49,13 @@ WidgetView {
         height: 78
         anchors.bottom: parent.bottom
 
-        onVisibleChanged: {
-            if (visible)
-                messageInput.forceActiveFocus();
+        Connections {
+            target: MessengerJs.instance()
+            onSelectedUserChanged: {
+                if (messageInput.visible) {
+                    messageInput.forceActiveFocus();
+                }
+            }
         }
     }
 }

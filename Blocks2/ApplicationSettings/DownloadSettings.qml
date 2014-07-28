@@ -42,6 +42,15 @@ Rectangle {
         settingsViewModelInstance.seedEnabled = participateSeeding.checked;
     }
 
+    function load() {
+        downloadBandwidthLimit.currentIndex = downloadBandwidthLimit.findValue(settingsViewModelInstance.downloadSpeed);
+        uploadBandwidthLimit.currentIndex   = uploadBandwidthLimit.findValue(settingsViewModelInstance.uploadSpeed);
+        incomingPort.text = settingsViewModelInstance.incomingPort;
+        connectionsLimit.text = settingsViewModelInstance.numConnections;
+        participateSeeding.checked = settingsViewModelInstance.seedEnabled;
+
+    }
+
     QtObject {
         id: d
 
@@ -108,9 +117,6 @@ Rectangle {
                             downloadBandwidthLimit.currentIndex = index;
                         }
                     }
-                    onCurrentIndexChanged: {
-                        settingsViewModel.downloadSpeed = downloadBandwidthLimit.getValue(downloadBandwidthLimit.currentIndex);
-                    }
                 }
             }
 
@@ -150,9 +156,6 @@ Rectangle {
                         if (index >= 0) {
                             uploadBandwidthLimit.currentIndex = index;
                         }
-                    }
-                    onCurrentIndexChanged: {
-                        settingsViewModel.uploadSpeed = uploadBandwidthLimit.getValue(uploadBandwidthLimit.currentIndex);
                     }
                 }
             }

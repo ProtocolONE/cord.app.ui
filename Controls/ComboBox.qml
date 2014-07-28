@@ -34,7 +34,7 @@ Item {
 
         for (i = 0; i < model.count; i++) {
             item = model.get(i);
-            if (item.value != undefined && item.value === value) {
+            if (item.value != undefined && item.value == value) {
                 return i;
             }
         }

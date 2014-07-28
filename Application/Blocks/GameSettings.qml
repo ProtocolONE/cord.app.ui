@@ -23,7 +23,13 @@ Rectangle {
     property variant currentGame: App.currentGame()
     property variant gameSettingsModelInstance: App.gameSettingsModelInstance() || {}
 
-    signal close()
+    signal close();
+
+    onClose: {
+        generalSettingsPage.load();
+        overlaySettingsPage.load();
+        controlSettingsPage.load();
+    }
 
     onCurrentGameChanged: {
         // UNDONE: Вообще надо бы перенести куда то в другое место
@@ -215,8 +221,10 @@ Rectangle {
 
                         onClicked: {
                             generalSettingsPage.save();
-                            downloadSettingsPage.save();
-                            notificationSettingsPage.save();
+                            overlaySettingsPage.save();
+                            controlSettingsPage.save();
+
+                            gameSettingsModelInstance.submitSettings();
 
                             root.close();
                         }
@@ -238,20 +246,29 @@ Rectangle {
         State {
             name: "GeneralPage"
             StateChangeScript {
-                script: pageSwitcher.switchTo(generalSettingsPage);
+                script: {
+                    generalSettingsPage.load();
+                    pageSwitcher.switchTo(generalSettingsPage);
+                }
             }
         },
         State {
             name: "OverlayPage"
 
             StateChangeScript {
-                script: pageSwitcher.switchTo(overlaySettingsPage);
+                script: {
+                    overlaySettingsPage.load();
+                    pageSwitcher.switchTo(overlaySettingsPage);
+                }
             }
         },
         State {
             name: "ControlPage"
             StateChangeScript {
-                script: pageSwitcher.switchTo(controlSettingsPage);
+                script: {
+                    controlSettingsPage.load();
+                    pageSwitcher.switchTo(controlSettingsPage);
+                }
             }
         }
     ]

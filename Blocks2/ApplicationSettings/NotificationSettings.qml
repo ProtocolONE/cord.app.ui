@@ -26,6 +26,11 @@ Item {
         App.settingsChange('notifications', 'messengerReceivedMessage', receivedMsgEnabled.checked);
     }
 
+    function load() {
+        receivedMsgEnabled.checked = App.isAppSettingsEnabled('notifications', 'messengerReceivedMessage', true);
+        notificationEnabled.checked = App.isAppSettingsEnabled('notifications', 'maintenanceEndPopup', true);
+    }
+
     function gaEvent(name) {
         var gameItem = App.currentGame();
 

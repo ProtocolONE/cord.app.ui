@@ -25,6 +25,12 @@ Item {
 
     }
 
+    function load() {
+        if (root.currentItem) {
+            gameSettingsModelInstance.switchGame(root.currentItem.serviceId);
+        }
+    }
+
     Column {
         x: 30
         spacing: 20

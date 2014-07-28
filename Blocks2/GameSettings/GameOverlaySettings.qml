@@ -25,6 +25,10 @@ Item {
                                                   enableOverlay.checked ? 1 : 0);
     }
 
+    function load() {
+        enableOverlay.checked = enableOverlay.isOverlayEnabled();
+    }
+
     Column {
         x: 30
         spacing: 20
