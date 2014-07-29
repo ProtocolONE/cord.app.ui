@@ -39,16 +39,19 @@ WidgetModel {
 
         RestApi.Premium.getGrid(function(response) {
             optionsModel.clear();
-            root.defaultIndex = -1;
+
+            var max = response && response[0] ? response[0].price : 0,
+                index = 0;
 
             for (i = 0; i < response.length; i++) {
-                d.addOption(response[i].gridId, response[i].days, response[i].price, (i === 0));
+                d.addOption(response[i].gridId, response[i].days, response[i].price);
+                if (response[i].price > max) {
+                    index = i;
+                    max = response[i].price;
+                }
             }
 
-            if (root.defaultIndex === -1 && response.length > 0) {
-                root.defaultIndex = 0;
-            }
-
+            root.defaultIndex = index;
             root.modelChanged();
         }, function(response) {});
     }
@@ -56,19 +59,14 @@ WidgetModel {
     QtObject {
         id: d
 
-        function addOption(optId, daysCount, optionPrice, isDefault) {
+        function addOption(optId, daysCount, optionPrice) {
             optionsModel.append(
                         {
                             optionId: optId,
                             label: d.makeDays(daysCount),
                             price: optionPrice,
-                            defaultItem: isDefault,
                             days: daysCount
                         });
-
-            if (isDefault) {
-                root.defaultIndex = optionsModel.count - 1;
-            }
         }
 
         function makeDays(daysCount) {
