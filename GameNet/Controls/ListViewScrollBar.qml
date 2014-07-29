@@ -60,6 +60,12 @@ Rectangle {
         cursor.y = Math.round(cursorMaxPosition * currentIndex / listViewCount);
     }
 
+    function positionViewAtBeginning() {
+        listView.positionViewAtBeginning();
+        root.currentIndex = 0;
+        updateCursorY();
+    }
+
     onCurrentIndexChanged: {
         if (!root.listView.flicking) {
             listView.positionViewAtIndex(currentIndex, cursorMode);

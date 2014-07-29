@@ -10,7 +10,8 @@
 .pragma library
 
 var groupToUser = {}
-    , userToGroup = {};
+    , userToGroup = {}
+    , lastTalkMap = {};
 
 function reset() {
     groupToUser = {};

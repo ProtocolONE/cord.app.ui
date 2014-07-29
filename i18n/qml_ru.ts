@@ -1273,6 +1273,17 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>ContactsTypeTabs</name>
+    <message>
+        <source>CONTACT_LIST_TABS_CONTACTS</source>
+        <translation>Контакты</translation>
+    </message>
+    <message>
+        <source>CONTACT_LIST_TABS_RECENT</source>
+        <translation>Разговоры</translation>
+    </message>
+</context>
+<context>
     <name>DownloadManagerConnector</name>
     <message>
         <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
@@ -1367,6 +1378,29 @@ Please try again later.</source>
     <message>
         <source>DOWNLOAD_STATUS_ERROR</source>
         <translation>Ошибка</translation>
+    </message>
+</context>
+<context>
+    <name>EmptyContactListInfo</name>
+    <message>
+        <source>EMPTY_CONTACT_LIST_FIND_USER</source>
+        <translation>Добавить кого-то можно здесь</translation>
+    </message>
+    <message>
+        <source>EMPTY_CONTACT_LIST_FIND_CONTACT</source>
+        <translation>Поиск по моим друзьям GameNet. Пригодится позже</translation>
+    </message>
+    <message>
+        <source>EMPTY_CONTACT_LIST_SYSTEM_NOTIFICATION</source>
+        <translation>Тут отображаются уведомления GameNet</translation>
+    </message>
+    <message>
+        <source>EMPTY_CONTACT_LIST_CONTACT_FILTER</source>
+        <translation>Скрыть или показать контакты не в сети</translation>
+    </message>
+    <message>
+        <source>EMPTY_CONTACT_LIST_INFO</source>
+        <translation>Все, с кем вы подружитесь в игре, будут добавлены автоматически</translation>
     </message>
 </context>
 <context>
@@ -3618,6 +3652,25 @@ Please try again later.</source>
     <message>
         <source>CA_SHOP_DETAILS_PURCHASE_SUCCESS</source>
         <translation type="vanished">Вы успешно купили предмет %1, он добавлен во входящие. Если у Вас запущена игра, поменяйте сервер для отображения покупки.</translation>
+    </message>
+</context>
+<context>
+    <name>RecentConversation</name>
+    <message>
+        <source>RECENTCONVERSATION_TODAY</source>
+        <translation>Сегодня</translation>
+    </message>
+    <message>
+        <source>RECENTCONVERSATION_YESTERDAY</source>
+        <translation>Вчера</translation>
+    </message>
+    <message>
+        <source>RECENTCONVERSATION_LONGAGO</source>
+        <translation>Более недели назад</translation>
+    </message>
+    <message>
+        <source>MESSENGER_RECENT_CONTACTS_EMPTY_INFO</source>
+        <translation>Это список ваших последних бесед в чате. Но бесед пока не было и он пустой.</translation>
     </message>
 </context>
 <context>

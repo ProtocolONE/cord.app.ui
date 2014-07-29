@@ -16,6 +16,7 @@ import GameNet.Controls 1.0
 import "../Models/Messenger.js" as MessengerJs
 import "./Blocks/ContactList"
 import "../../../Core/Styles.js" as Styles
+import "../../../../Application/Core/App.js" as App
 
 WidgetView {
     id: root
@@ -26,6 +27,23 @@ WidgetView {
     implicitHeight: parent.height
 
     Keys.onEscapePressed: MessengerJs.closeChat()
+
+    QtObject {
+        id: d
+
+        property bool contactReceived: false
+        property bool hasContacts: MessengerJs.users().count > 1 // INFO 1 - GameNet user.
+    }
+
+    Connections {
+        target: MessengerJs.instance()
+        onRosterRecieved: d.contactReceived = true;
+    }
+
+    Connections {
+        target: App.signalBus()
+        onLogoutDone: d.contactReceived = false;
+    }
 
     Rectangle {
         anchors {
@@ -54,9 +72,46 @@ WidgetView {
                 width: parent.width
                 height: parent.height - searchContactItem.height - bottomBar.height
 
-                PlainContacts {
+
+                EmptyContactListInfo {
+                    visible: !d.hasContacts && !root.isSearching && d.contactReceived
                     anchors.fill: parent
-                    visible: !root.isSearching
+                }
+
+                Item {
+                    id: contactListItem
+
+                    anchors.fill: parent
+                    visible: !root.isSearching && d.hasContacts
+
+                    ContactsTypeTabs {
+                        id: tabView
+
+                        width: parent.width
+                        height: 20
+                        recentUnreadedContacts: recentConversation.unreadContactCount
+                    }
+
+                    Item {
+                        anchors {
+                            fill: parent
+                            topMargin: 20
+                        }
+
+                        PlainContacts {
+                            id: allContacts
+
+                            anchors.fill: parent
+                            visible: tabView.isContactsVisible
+                        }
+
+                        RecentConversation {
+                            id: recentConversation
+
+                            anchors.fill: parent
+                            visible: tabView.isRecentVisible
+                        }
+                    }
                 }
 
                 SearchContactList {

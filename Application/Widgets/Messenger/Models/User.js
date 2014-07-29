@@ -118,6 +118,14 @@ function User(item, model) {
         return _item.isGamenet;
     });
 
+    this.__defineGetter__("lastTalkDate", function() {
+        return _item.lastTalkDate;
+    });
+
+    this.__defineSetter__("lastTalkDate", function(val) {
+        _model.setPropertyById(self.jid, 'lastTalkDate', val);
+    });
+
     this.isValid = function() {
         return !!_item && !!_model;
     }
@@ -180,8 +188,8 @@ function createRawUser(jid, nickname) {
         presenceState: "",
         inputMessage: "",
         avatar: "",
-        lastActivity: -1,
-        isGamenet: false
+        isGamenet: false,
+        lastTalkDate: ""
     };
 
     return result;
@@ -203,8 +211,8 @@ function createGamenetUser() {
         presenceState: "",
         inputMessage: "",
         avatar: "",
-        lastActivity: -1,
-        isGamenet: true
+        isGamenet: true,
+        lastTalkDate: ""
     };
 
     return result;

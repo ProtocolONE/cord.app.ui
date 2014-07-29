@@ -36,18 +36,25 @@ FocusScope {
     QtObject {
         id: d
 
-        property string activeStatus: ""
+        property string activeStatus: "Active"
 
 
         function sendMessage() {
             if (messengerInput.text.length > 0) {
                 MessengerJs.sendMessage(MessengerJs.selectedUser(), messengerInput.text);
                 messengerInput.text = "";
-                d.activeStatus = "Active";
+                d.setActiveStatus(MessengerJs.selectedUser(), "Active");
             }
         }
 
-        onActiveStatusChanged: MessengerJs.sendInputStatus(MessengerJs.selectedUser(), d.activeStatus);
+        function setActiveStatus(user, status) {
+            if (d.activeStatus === status) {
+                return;
+            }
+
+            d.activeStatus = status;
+            MessengerJs.sendInputStatus(user, status);
+        }
     }
 
     Connections {
@@ -59,6 +66,10 @@ FocusScope {
                 if (user.isValid()) {
                     user.inputMessage = messengerInput.text;
                 }
+            }
+
+            if (MessengerJs.previousUser().isValid()) {
+                d.setActiveStatus(MessengerJs.previousUser(), "Active");
             }
 
             user = MessengerJs.selectedUser();
@@ -161,11 +172,11 @@ FocusScope {
 
                             onTextChanged: {
                                 if (text.length <= 0) {
-                                    d.activeStatus = "Active";
+                                    d.setActiveStatus(MessengerJs.selectedUser(), "Active");
                                     composingTimer.stop();
                                     composingTimer.count = 0;
                                 } else {
-                                    d.activeStatus = "Composing"
+                                    d.setActiveStatus(MessengerJs.selectedUser(), "Composing");
                                     composingTimer.count = 0;
                                     composingTimer.start();
                                 }
@@ -185,12 +196,12 @@ FocusScope {
                                 count++;
 
                                 if (composingTimer.count >= root.inactiveTimeout) {
-                                    d.activeStatus = "Inactive"
+                                    d.setActiveStatus(MessengerJs.selectedUser(), "Inactive");
                                     return;
                                 }
 
                                 if (composingTimer.count >= root.pauseTimeout) {
-                                    d.activeStatus = "Paused"
+                                    d.setActiveStatus(MessengerJs.selectedUser(), "Paused");
                                     return;
                                 }
                             }

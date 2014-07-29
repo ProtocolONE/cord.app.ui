@@ -14,6 +14,7 @@ import GameNet.Controls 1.0
 import "../../../Application/Core/App.js" as App
 import "../../../Application/Core/TrayPopup.js" as TrayPopup
 import "../../../Application/Widgets/Messenger/Models/Messenger.js" as MessengerJs
+import "../../../Application/Core/moment.js" as Moment
 
 import "../../../GameNet/Core/lodash.js" as Lodash
 
@@ -31,7 +32,8 @@ Rectangle {
             width: 100
             height: 30
             text: 'Login'
-            onClicked: App.authDone('400001000000065690', 'cd34fe488b93d254243fa2754e86df8ffbe382b9'); //300+ friends
+            onClicked: App.authDone('400001000005869460', 'fac8da16caa762f91607410d2bf428fb7e4b2c5e'); //0 friends
+            //onClicked: App.authDone('400001000000065690', 'cd34fe488b93d254243fa2754e86df8ffbe382b9'); //300+ friends
             //onClicked: App.authDone('400001000000000110', '6c5f39adaaa18c3b4a6d8f4af5289ecf76029af2'); //800+ friends
             //onClicked: App.authDone('400001000000073060', '75517c5137f42a35f10cc984d8307209dd63b432'); //3600+ friends
 
@@ -56,22 +58,6 @@ Rectangle {
             height: 30
             text: 'del FS'
             onClicked: {
-                var q = ["1","2","3","4"];
-                var w = {
-                    "1" : 11000,
-                    "2" : 6,
-                    "3" : 7,
-                    "4" : 8,
-                    "5" : 9,
-                };
-
-                var res = q.reduce(function(sum, a) {
-                    return sum + w[a];
-                }, 0);
-
-                console.log(res);
-
-                return;
                 var groupId = "FireStorm (FS)";
                 var users = MessengerJs.groups().getById(groupId).users;
                 for (var i = 0; i < users.count; i++) {
@@ -105,37 +91,43 @@ Rectangle {
         }
     }
 
-    Row {
-        anchors.fill: parent
+    Item {
+        anchors { fill: parent;  topMargin: 42}
 
-        Item {
-            height: parent.height
-            width: 180
-        }
+        Row {
+            anchors.fill: parent
 
-        WidgetContainer {
-            height: parent.height
-            width: 590
-            widget: 'Messenger'
-            view: 'Chat'
-        }
-
-        Column {
-            width: 230
-            height: parent.height
-
-            Rectangle {
-                width: parent.width
-                height: 91
-                color: "#243148"
+            Item {
+                height: parent.height
+                width: 180
             }
 
             WidgetContainer {
-                height: parent.height - 91
-                width: 230
+                height: parent.height
+                width: 590
                 widget: 'Messenger'
-                view: 'Contacts'
+                view: 'Chat'
+            }
+
+            Column {
+                width: 230
+                height: parent.height
+
+                Rectangle {
+                    width: parent.width
+                    height: 91
+                    color: "#243148"
+                }
+
+                WidgetContainer {
+                    height: parent.height - 91
+                    width: 230
+                    widget: 'Messenger'
+                    view: 'Contacts'
+                }
             }
         }
     }
+
+
 }

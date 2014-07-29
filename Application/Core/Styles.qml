@@ -79,6 +79,10 @@ QtObject {
     property color messengerContactGroupUnread: "#FAFAFA"
     property color messengerContactGroupUnreadBackground: "#189A19"
 
+    //MESSENGER RECENT CONTACT GROUP
+    property color messengerRecentContactGroupBackground: "#E5E9EC"
+    property color messengerRecentContactGroupName: "#8297a9"
+
     //MESSENGER CONTACT INPUT
     property color messengerMessageInputBackground: "#FFFFFF"
     property color messengerMessageInputBorder: "#b2b2b2"
@@ -105,5 +109,10 @@ QtObject {
     //MESSENGER CONTACTS
     property color messengerContactsBackground: "#EEEEEE"
 
-    //MESSENGER GROUP
+    //MESSENGER CONTACTS TABS
+    property color messengerContactsTypeTabBackground: "#E5E9EC"
+    property color messengerRecentContactsUnreadIcon: "#189A19"
+
+    //MESSENGER EMPTY CONTACTS INFO
+    property color messengerEmptyContactListInfoBackground: "#EEEEEE"
 }

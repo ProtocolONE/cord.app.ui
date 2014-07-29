@@ -80,12 +80,16 @@ function setGroupOpened(groupId, value) {
 }
 
 function getNickname(item) {
-    if (!item.jid) {
+    if (!item.hasOwnProperty('jid')) {
         throw new Error('Error getNickname. Object has not property jid.' + JSON.stringify(item));
     }
 
     var user = getUser(item.jid);
-    return user ? user.nickname : '';
+    if (!user || !user.isValid()) {
+        return "";
+    }
+
+    return user.nickname;
 }
 
 function closeChat() {

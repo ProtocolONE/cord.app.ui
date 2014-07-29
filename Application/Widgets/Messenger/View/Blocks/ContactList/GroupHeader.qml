@@ -32,7 +32,6 @@ Item {
             height: 1
             width: parent.width
             color: Qt.lighter(groupTitle.color, Styles.style.lighterFactor)
-
         }
 
         Rectangle {

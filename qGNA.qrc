@@ -199,12 +199,18 @@
 		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageItem.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/BottomBar.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/GroupHeader.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Jobs/AppendGroupJob.js</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Jobs/OpenGroupJob.js</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Jobs/RemoveItemJob.js</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/PlainContacts.js</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/PlainContacts.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/RecentConversation.js</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/RecentConversation.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/RecentDateHeader.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/SearchContactList.qml</file>
 		<file>Application/Widgets/Messenger/View/Chat.qml</file>

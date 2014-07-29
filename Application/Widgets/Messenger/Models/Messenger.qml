@@ -13,6 +13,7 @@ import QXmpp 1.0
 import GameNet.Controls 1.0
 
 import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../../Application/Core/moment.js" as Moment
 
 import "MessengerPrivate.js" as MessengerPrivateJs
 import "User.js" as UserJs
@@ -36,6 +37,9 @@ Item {
 
     signal connectedToServer();
 
+    signal talkDateChanged(string jid);
+    signal rosterRecieved();
+
     function init() {
         return {
             client: xmppClient,
@@ -54,6 +58,7 @@ Item {
 
         item = new UserJs.User(usersModel.getById(user.jid), usersModel);
         item.appendMessage(root.authedJid, body);
+        d.updateUserTalkDate(item);
         messageMap.body = body;
         messageMap.type = QXmppMessage.Chat;
         messageMap.state = QXmppMessage.Active;
@@ -66,6 +71,7 @@ Item {
             return;
         }
 
+        d.updateUserTalkDate(item);
         xmppClient.sendInputStatus(user.jid, value);
     }
 
@@ -77,6 +83,8 @@ Item {
 
         user.jid = jid;
         user.userId = UserJs.jidToUser(jid);
+
+        d.loadUserTalkDate(user.userId);
 
         root.connecting = true;
         root.authedJid = jid;
@@ -222,6 +230,7 @@ Item {
 
             usersModel.endbatch();
             groupsModel.endbatch();
+            root.rosterRecieved();
         }
 
         function createGamenetUser() {
@@ -252,13 +261,14 @@ Item {
                     : groups;
 
             if (usersModel.contains(user)) {
-                // UNDONE Если никнейм из берем из vcard то убрать
+                // INFO Никнейм из вкарда мы берем, но сортировка происходит по нику из ростера
                 item = new UserJs.User(usersModel.getById(user), usersModel);
                 item.nickname = nickname || user;
                 // UNDONE set other properties
             } else {
                 rawUser = UserJs.createRawUser(user, nickname || user);
                 rawUser.avatar = d.getDefaultAvatar();
+                rawUser.lastTalkDate = d.getUserTalkDate(rawUser);
                 usersModel.append(rawUser);
                 xmppClient.vcardManager.requestVCard(user);
                 xmppClient.lastActivityManager.requestLastActivity(user);
@@ -304,8 +314,6 @@ Item {
         }
 
         function appendUserToGroup(groupId, user) {
-            // UNDONE нет сортировки пользоватей внутри группы и групп
-            // При сортировке не забыть про псевдо группу "Gamenet" и "!"
             var group;
 
             if (!groupsModel.contains(groupId)) {
@@ -329,6 +337,7 @@ Item {
 
             if (message) {
                 user.appendMessage(from, message);
+                d.updateUserTalkDate(user);
                 if (!root.isSelectedUser(user)) {
                     user.unreadMessageCount += 1;
                 }
@@ -346,6 +355,47 @@ Item {
 
             user.presenceState = presence.type;
             user.statusMessage = presence.status;
+        }
+
+        function updateUserTalkDate(user) {
+            var lastDate = Moment.moment(user.lastTalkDate).format('DD.MM.YYYY'),
+                nowDate = Moment.moment().format('DD.MM.YYYY'),
+                authedUserId;
+
+            if (lastDate === nowDate) {
+                return;
+            }
+
+            var now = Date.now();
+            user.lastTalkDate = now;
+
+            MessengerPrivateJs.lastTalkMap[user.jid] = now;
+            authedUserId = root.authedUser().userId;
+
+            Settings.setValue(
+                        'qml/messenger/recentconversation/' + authedUserId,
+                        'lastTalkDate',
+                        JSON.stringify(MessengerPrivateJs.lastTalkMap));
+
+            root.talkDateChanged(user.jid);
+        }
+
+        function loadUserTalkDate(userId) {
+            var loadString = Settings.value('qml/messenger/recentconversation/' + userId, 'lastTalkDate', "{}");
+            try {
+                MessengerPrivateJs.lastTalkMap = JSON.parse(loadString);
+            } catch(e) {
+                console.log(e)
+                MessengerPrivateJs.lastTalkMap = {};
+            }
+        }
+
+        function getUserTalkDate(user) {
+            if (!MessengerPrivateJs.lastTalkMap.hasOwnProperty(user.jid)) {
+                return 0;
+            }
+
+            return MessengerPrivateJs.lastTalkMap[user.jid] || 0;
         }
     }
 

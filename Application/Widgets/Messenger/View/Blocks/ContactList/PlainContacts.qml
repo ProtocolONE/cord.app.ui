@@ -24,13 +24,11 @@ Item {
     QtObject {
         id: d
 
-        property bool group1Opened: false
-
         function updateModel() {
             var groupIds = Messenger.groups().keys()
-            , itemCount
-            , index
-            , remvoeGroupIndex;
+                , itemCount
+                , index
+                , remvoeGroupIndex;
 
             Lodash._.difference(groupIds, Object.keys(Js.groupsMap)).forEach(function(groupId) {
                 itemCount = Js.itemCount();
@@ -118,7 +116,6 @@ Item {
             });
         }
 
-
         function openGroup(groupId, index) {
             var users = []
                 , usersMap = {}
@@ -171,7 +168,12 @@ Item {
         }
 
         function userCount(groupId) {
-            return Messenger.groups().getById(groupId).users.count;
+            var group = Messenger.groups().getById(groupId);
+            if (!group) {
+                return 0;
+            }
+
+            return group.users.count;
         }
 
         function countUnreadUsers(groupId) {
@@ -217,7 +219,6 @@ Item {
         }
 
         boundsBehavior: Flickable.StopAtBounds
-
         clip: true
         section.property: "sectionId"
         section.delegate: GroupHeader {
@@ -245,14 +246,11 @@ Item {
                 unreadUsersCount: model.isGroupItem ? d.countUnreadUsers(model.value) : 0
             }
 
-            ContactItem {
+            ContactItemDelegate {
                 anchors.fill: parent
                 visible: !model.isGroupItem
-                nickname: model.isGroupItem ? "" : Messenger.getNickname(model)
-                avatar: model.isGroupItem ? "" : Messenger.userAvatar(model)
-                isUnreadMessages: model.isGroupItem ? false : (!isCurrent && Messenger.hasUnreadMessages(model));
-                isCurrent: model.isGroupItem ? false : Messenger.isSelectedUser(model) && Messenger.isSelectedGroup(model)
-                onClicked: Messenger.selectUser(model, model);
+                user: model
+                group: model
             }
         }
     }
