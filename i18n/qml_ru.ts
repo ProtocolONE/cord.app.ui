@@ -4675,7 +4675,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>NO_NICKNAME</source>
-        <translation>Введи свой никнейм</translation>
+        <translation>Выбрать никнейм</translation>
     </message>
     <message>
         <source>SET_NICKNAME</source>
