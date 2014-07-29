@@ -12,6 +12,7 @@ import QtQuick 1.1
 import Tulip 1.0
 
 import GameNet.Controls 1.0
+import GameNet.Components.Widgets 1.0
 import Application.Blocks 1.0
 
 import "../../Core/TrayPopup.js" as PopupHelper
@@ -21,7 +22,7 @@ import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 import "./AnnouncementsModel.js" as AnnouncementsHelper
 
-Item {
+WidgetModel {
     id: announcements
 
     property variant _lastShownPopupDate: 0

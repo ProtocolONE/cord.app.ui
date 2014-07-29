@@ -12,6 +12,7 @@ import QtQuick 1.1
 import GameNet.Controls 1.0
 
 import "../../Core/App.js" as App
+import "../../../GameNet/Components/Widgets/WidgetManager.js" as WidgetManager
 import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 Item {
@@ -19,15 +20,16 @@ Item {
 
     function save() {
         App.setAppSettingsValue('notifications', 'maintenanceEndPopup', notificationEnabled.checked);
-        App.setAppSettingsValue('notifications', 'messengerReceivedMessage', receivedMsgEnabled.checked);
 
-        //HACK Костыль. На текущий момент не вижу более верного решения уведомить всё остальное приложение об
-        //изменении этой настройки. Скажите, если есть другие идеи.
-        App.settingsChange('notifications', 'messengerReceivedMessage', receivedMsgEnabled.checked);
+        var settings = WidgetManager.getWidgetSettings('Messenger');
+        settings.messengerReceivedMessage = receivedMsgEnabled.checked;
+        settings.save();
     }
 
     function load() {
-        receivedMsgEnabled.checked = App.isAppSettingsEnabled('notifications', 'messengerReceivedMessage', true);
+        var settings = WidgetManager.getWidgetSettings('Messenger');
+        receivedMsgEnabled.checked = settings.messengerReceivedMessage; //copy of value, use Binding for 2 way bind
+
         notificationEnabled.checked = App.isAppSettingsEnabled('notifications', 'maintenanceEndPopup', true);
     }
 

@@ -16,8 +16,13 @@ import "./Models/Messenger.js" as MessengerJs
 import "../../Core/App.js" as App
 
 WidgetModel {
-    // UNDONE коннект на запуск игры
+    settings: WidgetSettings {
+        namespace: 'Messenger'
 
+        property bool messengerReceivedMessage;
+    }
+
+    // UNDONE коннект на запуск игры
     Connections {
         target: App.signalBus();
         onAuthDone: {
@@ -31,21 +36,9 @@ WidgetModel {
 
         onLogoutDone: MessengerJs.disconnect();
         onNavigate: MessengerJs.closeChat();
-        onSettingsChange: {
-            if (key === 'messengerReceivedMessage') {
-                receivedMessageAddon.enabled = value;
-            }
-        }
-
     }
 
     Addons.Popups {
-        id: receivedMessageAddon
-
-        Component.onCompleted: {
-            enabled = App.isAppSettingsEnabled('notifications', 'messengerReceivedMessage', true);
-        }
-
-        enabled: false
+        enabled: settings.messengerReceivedMessage
     }
 }

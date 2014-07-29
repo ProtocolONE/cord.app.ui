@@ -50,6 +50,14 @@ function Widget(namespace, pluginContainer){
         return this.pluginContainer.version;
     }
 
+    this.getSettings = function() {
+        if (!this.hasModelInstance()) {
+            throw new Error('Widget model `' + this.getName() + '` not exists');
+        }
+
+        return this.model.settings;
+    }
+
     this.getView = function(name) {
         var views;
 
@@ -203,6 +211,10 @@ function WidgetManager() {
         throw new Error('Error: Widget with name part `' + namePart + '` not registered');
     };
 
+    this.getSettings = function(namePart) {
+        return this.getWidgetByName(namePart).getSettings();
+    }
+
     function getTempId(prefix) {
         return prefix
             + '_'
@@ -268,4 +280,8 @@ function isReady() {
 
 function getWidgetByName(name) {
     return _internal.getWidgetByName(name);
+}
+
+function getWidgetSettings(name) {
+    return _internal.getSettings(name);
 }

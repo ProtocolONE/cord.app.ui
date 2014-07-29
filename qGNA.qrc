@@ -266,6 +266,7 @@
 		<file>GameNet/Components/Widgets/WidgetManager.qml</file>
 		<file>GameNet/Components/Widgets/WidgetManagerPrivate.qml</file>
 		<file>GameNet/Components/Widgets/WidgetModel.qml</file>
+		<file>GameNet/Components/Widgets/WidgetSettings.qml</file>
 		<file>GameNet/Components/Widgets/WidgetView.qml</file>
 		<file>GameNet/Controls/Button.qml</file>
 		<file>GameNet/Controls/ButtonBehavior.qml</file>

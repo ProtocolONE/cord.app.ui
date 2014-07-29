@@ -17,7 +17,7 @@ import "../../Core/App.js" as AppJs
 import "../../Core/TrayPopup.js" as TrayPopupJs
 import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
-Item {
+WidgetModel {
     id: premiumNotifier
 
     QtObject {

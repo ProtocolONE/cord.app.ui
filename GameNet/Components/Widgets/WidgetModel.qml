@@ -11,4 +11,9 @@
 import QtQuick 1.1
 
 Item {
+    id: root
+
+    property string namespace
+    property WidgetSettings settings: WidgetSettings {
+    }
 }

@@ -11,12 +11,14 @@
 import QtQuick 1.1
 import Tulip 1.0
 
+import GameNet.Components.Widgets 1.0
+
 import "../../Core/App.js" as App
 import "../../Core/User.js" as User
 import "../../Core/MessageBox.js" as MessageBox
 import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
-Item {
+WidgetModel {
     id: root
 
     property bool isFullMenu: User.isAuthorized()

@@ -1,9 +1,11 @@
 import QtQuick 1.1
 import Tulip 1.0
 
+import GameNet.Components.Widgets 1.0
+
 import "../../../Application/Core/App.js" as App
 
-Item {
+WidgetModel {
     id: root
 
     width: 800
