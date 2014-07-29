@@ -31,14 +31,20 @@ WidgetView {
     }
 
     ChatDialog.Header {
+        id: header
     }
 
     ChatDialog.Body {
-       anchors {
-           fill: parent
-           topMargin: 52
-           bottomMargin: MessengerJs.isSelectedGamenet() ? 0 : 78
-       }
+        id: body
+
+        anchors {
+            left: parent.left
+            top: parent.top
+            right: parent.right
+            topMargin: header.height
+        }
+        height: separator.y - header.height
+
     }
 
     ChatDialog.MessageInput {
@@ -46,19 +52,39 @@ WidgetView {
 
         visible: !MessengerJs.isSelectedGamenet()
         width: parent.width
-        height: 78
-        anchors.bottom: parent.bottom
-        focus: true
-        onCloseDialogPressed: MessengerJs.closeChat()
-        sendAction: model.settings.sendAction
-    }
 
-    Connections {
-        target: MessengerJs.instance()
-        onSelectedUserChanged: {
-            if (messageInput.visible) {
-                root.forceActiveFocus();
+        anchors {
+            bottom: parent.bottom
+            top: body.bottom
+        }
+
+        Connections {
+            target: MessengerJs.instance()
+            onSelectedUserChanged: {
+                if (messageInput.visible) {
+                    messageInput.forceActiveFocus();
+                }
             }
         }
+    }
+
+    CursorMouseArea {
+        id: separator
+
+        anchors { left: parent.left; right: parent.right }
+        height: 8
+
+        acceptedButtons: Qt.LeftButton
+        cursor: CursorArea.SizeVerCursor
+        visible: messageInput.visible
+        drag {
+            target: separator
+            axis: Drag.YAxis
+            minimumY: parent.height - 250
+            maximumY: parent.height - 78
+        }
+
+        onReleased: model.settings.chatBodyHeight = separator.y;
+        Component.onCompleted: separator.y = model.settings.chatBodyHeight;
     }
 }

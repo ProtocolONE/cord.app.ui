@@ -18,9 +18,11 @@ import "./Models/Settings.js" as Settings
 WidgetModel {
     settings: WidgetSettings {
         namespace: 'Messenger'
+        autoSave: ['chatBodyHeight']
 
         property bool messengerReceivedMessage
         property int sendAction: Settings.SendShortCut.Enter
+        property int chatBodyHeight: 470
     }
 
     // UNDONE коннект на запуск игры

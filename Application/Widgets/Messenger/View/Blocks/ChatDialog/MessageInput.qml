@@ -81,6 +81,16 @@ FocusScope {
         }
     }
 
+
+    Rectangle {
+        width: 4
+        height: 4
+        border { color: Styles.style.messengerMessageInputPin }
+        color: '#00000000'
+        radius: 2
+        anchors { top: parent.top; topMargin: 2; left: parent.left; leftMargin: 10 + (parent.width - 110) / 2 }
+    }
+
     Row {
         anchors {
             fill: parent
@@ -269,6 +279,8 @@ FocusScope {
                         case Settings.SendShortCut.ButtonOnly:
                             return "";
                         }
+
+                        return "";
                     }
 
                     anchors.horizontalCenter: parent.horizontalCenter

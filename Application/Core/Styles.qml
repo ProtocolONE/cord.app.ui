@@ -92,6 +92,7 @@ QtObject {
     property color messengerMessageInputSendButtonHover: "#019074"
     property color messengerMessageInputSendButtonText: "#FAFAFA"
     property color messengerMessageInputSendHotkeyText: "#8596A6"
+    property color messengerMessageInputPin: '#8badbb'
 
     //MESSENGER CHAT DIALOG HEADER
     property color messengerChatDialogHeaderBackground: "#253149"
