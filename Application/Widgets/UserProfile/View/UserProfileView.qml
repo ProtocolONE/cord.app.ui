@@ -25,6 +25,10 @@ WidgetView {
     implicitWidth: parent.width
     implicitHeight: 92
 
+    function getGameNetProfileUrl() {
+        return "http://gamenet.ru/users/" + (User.getTechName() || User.userId()) + "/";
+    }
+
     Rectangle {
         anchors.fill: parent
         color: Styles.style.profileBackground
@@ -53,6 +57,7 @@ WidgetView {
                     hoverEnabled: true
                     toolTip: qsTr("YOUR_AVATAR")
                     tooltipGlueCenter: true
+                    onClicked: App.openExternalUrlWithAuth('http://gamenet.ru/edit/')
                 }
             }
 
@@ -113,6 +118,7 @@ WidgetView {
                         anchors.fill: parent
                         toolTip: qsTr("YOUR_GAMENET_LEVEL")
                         tooltipGlueCenter: true
+                        onClicked: App.openExternalUrlWithAuth(root.getGameNetProfileUrl() + 'achievements/')
                     }
                 }
             }
@@ -133,9 +139,7 @@ WidgetView {
                     if (!nicknameValid) {
                         Popup.show('NicknameEdit');
                     } else {
-                        var techName = User.getTechName();
-                        var url = "http://www.gamenet.ru/users/" + (techName || User.userId());
-                        App.openExternalUrlWithAuth(url);
+                        App.openExternalUrlWithAuth(root.getGameNetProfileUrl());
                     }
                 }
             }
