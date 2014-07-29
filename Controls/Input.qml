@@ -44,6 +44,10 @@ Item {
     signal tabPressed()
     signal backTabPressed()
 
+    function isSuggestionsContainerVisible() {
+        return suggestionsContainer.controlVisible && suggestionsView.model.count > 0;
+    }
+
     onFocusChanged: {
         if (focus) {
             inputBehavior.focus = true;
@@ -222,7 +226,7 @@ Item {
 
                     if (event.key == Qt.Key_Escape) {
                         event.accepted = true;
-                        if (suggestionsContainer.controlVisible) {
+                        if (root.isSuggestionsContainerVisible()) {
                             suggestionsContainer.controlVisible = false;
                             return;
                         }
@@ -366,7 +370,7 @@ Item {
         }
 
         height: suggestionsView.height + 4
-        visible: suggestionsContainer.controlVisible && suggestionsView.model.count > 0
+        visible: root.isSuggestionsContainerVisible()
 
         Rectangle {
             anchors { fill: parent; margins: 1 }
