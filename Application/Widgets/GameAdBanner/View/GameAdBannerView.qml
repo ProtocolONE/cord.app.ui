@@ -216,7 +216,11 @@ WidgetView {
     Timer {
         id: showNextTimer
 
-        repeat: false
+        /*
+          INFO У таймар появился баг, если в его onTriggered попытаться остановить / перезапустить таймер с repeat
+          false то таймер не перезапустится.
+        */
+        repeat: true
         interval: root.rotationTimeout
         onTriggered: {
             incrementIndex();

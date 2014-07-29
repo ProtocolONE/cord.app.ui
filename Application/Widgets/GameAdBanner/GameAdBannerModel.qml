@@ -38,6 +38,10 @@ WidgetModel {
                 return e.hasOwnProperty('imageQgna') && e.imageQgna !== "";
             });
 
+            GameAdBannerModel.allAds[gameId].sort(function(a, b) {
+                return b.priority - a.priority;
+            });
+
             root.adsChanged();
         });
     }
