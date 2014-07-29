@@ -28,6 +28,7 @@ FocusScope {
     property int inactiveTimeout: 12
 
     signal inputStatusChanged(string value);
+    signal closeDialogPressed();
 
     QtObject {
         id: d
@@ -142,6 +143,8 @@ FocusScope {
 
                                 d.sendMessage();
                             }
+
+                            Keys.onEscapePressed: root.closeDialogPressed();
 
                             onTextChanged: {
                                 if (text.length <= 0) {

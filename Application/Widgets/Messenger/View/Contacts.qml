@@ -25,6 +25,8 @@ WidgetView {
     implicitWidth: parent.width
     implicitHeight: parent.height
 
+    Keys.onEscapePressed: MessengerJs.closeChat()
+
     Rectangle {
         anchors {
             fill: parent

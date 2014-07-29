@@ -11,7 +11,7 @@
 import QtQuick 1.1
 import "WidgetManager.js" as WidgetManager
 
-Item {
+FocusScope {
     id: root
 
     signal close();

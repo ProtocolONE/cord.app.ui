@@ -48,13 +48,15 @@ WidgetView {
         width: parent.width
         height: 78
         anchors.bottom: parent.bottom
+        focus: true
+        onCloseDialogPressed: MessengerJs.closeChat()
+    }
 
-        Connections {
-            target: MessengerJs.instance()
-            onSelectedUserChanged: {
-                if (messageInput.visible) {
-                    messageInput.forceActiveFocus();
-                }
+    Connections {
+        target: MessengerJs.instance()
+        onSelectedUserChanged: {
+            if (messageInput.visible) {
+                root.forceActiveFocus();
             }
         }
     }

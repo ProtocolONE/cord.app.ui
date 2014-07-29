@@ -221,6 +221,7 @@ Item {
                     }
 
                     if (event.key == Qt.Key_Escape) {
+                        event.accepted = true;
                         if (suggestionsContainer.controlVisible) {
                             suggestionsContainer.controlVisible = false;
                             return;
