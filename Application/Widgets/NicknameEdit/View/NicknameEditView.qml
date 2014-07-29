@@ -128,6 +128,7 @@ PopupBase {
                 InputWithError {
                     id: nickName
 
+                    focus: true
                     width: body.width
                     icon: installPath + "Assets/Images/Application/Widgets/NicknameEdit/nickname.png"
                     showLanguage: true

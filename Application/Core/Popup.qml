@@ -152,6 +152,7 @@ Item {
                 root.state = "open";
             }
 
+            viewInstance.forceActiveFocus();
             viewInstance.close.connect(function() {
                 root.close(d.popupId);
             });

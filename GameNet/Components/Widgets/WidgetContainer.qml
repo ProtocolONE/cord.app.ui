@@ -11,7 +11,7 @@
 import QtQuick 1.1
 import "WidgetManager.js" as WidgetManager
 
-Item {
+FocusScope {
     id: root
 
     signal viewReady();
@@ -36,11 +36,11 @@ Item {
     }
 
     function force(widgetName, widgetView) {
-         if (widgetName == widget && view == widgetView ) {
-               d.updateView();
-         } else {
-             view = widgetView;
-             widget = widgetName;
+        if (widgetName == widget && view == widgetView ) {
+            d.updateView();
+        } else {
+            view = widgetView;
+            widget = widgetName;
         }
     }
 
