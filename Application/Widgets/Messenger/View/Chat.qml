@@ -61,8 +61,7 @@ WidgetView {
             top: body.bottom
         }
 
-        onCloseDialogPressed: MessengerJs.closeChat();
-
+        sendAction: model.settings.sendAction
         Connections {
             target: MessengerJs.instance()
             onSelectedUserChanged: {

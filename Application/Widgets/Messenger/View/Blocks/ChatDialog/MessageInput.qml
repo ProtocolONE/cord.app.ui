@@ -143,6 +143,11 @@ FocusScope {
                         TextEdit {
                             id: messengerInput
 
+                            function appendNewLine() {
+                                messengerInput.text = messengerInput.text + "\n";
+                                messengerInput.cursorPosition = messengerInput.text.length;
+                            }
+
                             width: inputFlick.width
                             height: inputFlick.height
                             focus: true
@@ -155,6 +160,7 @@ FocusScope {
                                 family: "Arial"
                             }
 
+
                             color: Styles.style.messengerMessageInputText
 
                             onCursorRectangleChanged: inputFlick.ensureVisible(cursorRectangle);
@@ -162,35 +168,65 @@ FocusScope {
                             Keys.onEnterPressed: {
                                 switch (root.sendAction) {
                                 case Settings.SendShortCut.CtrlEnter:
-                                    if (event.modifiers & Qt.ControlModifier) {
-                                        d.sendMessage();
+                                    {
+                                        if (event.modifiers & Qt.ControlModifier) {
+                                            d.sendMessage();
+                                        } else {
+                                            messengerInput.appendNewLine();
+                                        }
                                         event.accepted = true;
+                                        return;
                                     }
-                                    break;
                                 case Settings.SendShortCut.Enter:
-                                    if (event.modifiers === Qt.KeypadModifier) {
-                                        d.sendMessage();
+                                    {
+                                        if (event.modifiers === Qt.KeypadModifier) {
+                                            d.sendMessage();
+                                        } else {
+                                            messengerInput.appendNewLine();
+                                        }
                                         event.accepted = true;
+                                        return;
                                     }
-                                    break;
+                                case Settings.SendShortCut.ButtonOnly:
+                                    {
+                                        messengerInput.appendNewLine();
+                                        event.accepted = true;
+                                        return;
+                                    }
                                 }
+                                event.accepted = false;
                             }
 
                             Keys.onReturnPressed: {
                                 switch (root.sendAction) {
                                 case Settings.SendShortCut.CtrlEnter:
-                                    if (event.modifiers & Qt.ControlModifier) {
-                                        d.sendMessage();
+                                    {
+                                        if (event.modifiers & Qt.ControlModifier) {
+                                            d.sendMessage();
+                                        } else {
+                                            messengerInput.appendNewLine();
+                                        }
                                         event.accepted = true;
+                                        return;
                                     }
-                                    break;
                                 case Settings.SendShortCut.Enter:
-                                    if (event.modifiers === Qt.NoModifier) {
-                                        d.sendMessage();
+                                    {
+                                        if (event.modifiers === Qt.NoModifier) {
+                                            d.sendMessage();
+                                        } else {
+                                            messengerInput.appendNewLine();
+                                        }
                                         event.accepted = true;
+                                        return;
                                     }
-                                    break;
+                                case Settings.SendShortCut.ButtonOnly:
+                                    {
+                                        messengerInput.appendNewLine();
+                                        event.accepted = true;
+                                        return;
+                                    }
                                 }
+                                event.accepted = false;
                             }
 
                             Keys.onEscapePressed: root.closeDialogPressed();
