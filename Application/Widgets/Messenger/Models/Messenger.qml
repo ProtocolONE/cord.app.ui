@@ -385,7 +385,6 @@ Item {
             try {
                 MessengerPrivateJs.lastTalkMap = JSON.parse(loadString);
             } catch(e) {
-                console.log(e)
                 MessengerPrivateJs.lastTalkMap = {};
             }
         }
