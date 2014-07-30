@@ -1,7 +1,11 @@
 import QtQuick 1.1
 
-Item {
+import "../../Core/Styles.js"  as Styles
+
+
+Rectangle {
     implicitHeight: 62
+    color: Styles.style.authHeaderBackground
 
     Image {
         anchors {
@@ -15,7 +19,7 @@ Item {
 
     Rectangle {
         height: 1
-        color: "#ECECEC"
+        color: Qt.darker(Styles.style.authHeaderBackground, Styles.style.darkerFactor)
         anchors {
             left: parent.left
             right: parent.right
@@ -26,7 +30,7 @@ Item {
 
     Rectangle {
         height: 1
-        color: "#FFFFFF"
+        color: Qt.lighter(Styles.style.authHeaderBackground, Styles.style.lighterFactor)
         anchors {
             left: parent.left
             right: parent.right

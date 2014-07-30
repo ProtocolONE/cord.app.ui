@@ -12,8 +12,10 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0 as Controls
 
-import "../../../../Application/Core/App.js" as AppJs
-import "../../../../Application/Core/MessageBox.js" as MessageBox
+import "../../../Core/MessageBox.js" as MessageBox
+import "../../../Core/App.js" as App
+import "../../../Core/Styles.js" as Styles
+
 import "./AlertAdapter.js" as AlertAdapter
 
 
@@ -138,11 +140,11 @@ WidgetView {
             smooth: true
         }
 
-        Rectangle { anchors.fill: parent; color: '#111111' }
+        Rectangle { anchors.fill: parent; color: Styles.style.messageBoxShadowBorder }
     }
 
     Rectangle {
-        color: "#027aca"
+        color: Styles.style.messageBoxBackground
         width: parent.width
         height: parent.height
 
@@ -158,7 +160,7 @@ WidgetView {
             width: parent.width - 40
             font { family: "Arial"; pixelSize: 20 }
             elide: Text.ElideRight
-            color: "#fafafa"
+            color: Styles.style.messageBoxHeaderText
             smooth: true
         }
 
@@ -169,7 +171,7 @@ WidgetView {
             }
             width: parent.width
             height: 1
-            color: "#3393d3"
+            color: Qt.lighter(Styles.style.messageBoxBackground, Styles.style.lighterFactor)
         }
 
         Text {
@@ -186,7 +188,7 @@ WidgetView {
 
             font { family: "Arial"; pixelSize: 14 }
             wrapMode: Text.Wrap
-            color: "#fafafa"
+            color: Styles.style.messageBoxText
             smooth: true
             textFormat: Text.RichText
             onLinkActivated: AppJs.openExternalUrl(link)
@@ -222,7 +224,7 @@ WidgetView {
             }
             width: parent.width
             height: 1
-            color: "#3393d3"
+            color: Qt.lighter(Styles.style.messageBoxBackground, Styles.style.lighterFactor)
         }
     }
 }

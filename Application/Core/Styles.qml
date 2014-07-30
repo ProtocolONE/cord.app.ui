@@ -20,9 +20,34 @@ Item {
     property real lighterFactor: 1.2
     property color base: "#092135"
 
+    property color focusOverlay: "#bdbdbd"
+    property real focusOverlayOpacity: 0.15
+
     property color popupBackground: "#F0F5F8"
     property color popupTitleText: "#343537"
     property color popupText: "#343537"
+
+    //MESSAGE BOX (ALERT ADAPTER WIDGET)
+    property color messageBoxShadowBorder: "#111111"
+    property color messageBoxBackground: "#027aca"
+    property color messageBoxHeaderText: "#fafafa"
+    property color messageBoxText: "#fafafa"
+    property color messageBoxPositiveButtonNormal: "#1abc9c"
+    property color messageBoxPositiveButtonHover: "#47c9af"
+    property color messageBoxNegativeButtonNormal: "#cccccc"
+    property color messageBoxNegativeButtonHover: "#ffffff"
+
+    //DOWNLOAD STATUS BLOCK
+    property color downloadStatusProgressBackground: "#0d5043"
+    property color downloadStatusProgressLine: "#35cfb1"
+    property color downloadStatusText: "#eff0f0"
+
+    //GAME INSTALL BLOCK
+    property color gameInstallButtonErrorNormal: "#cc0000"
+    property color gameInstallButtonErrorHover: "#ee0000"
+    property color gameInstallButtonNormal: "#ff4f02"
+    property color gameInstallButtonHover: "#ff7902"
+    property color gameInstallButtonDisabled: "#888888"
 
     //HEADER
     property color headerBackground: "#092135"
@@ -47,7 +72,43 @@ Item {
     property color gameMenuButtonSelectedNormal: "#071828"
     property color gameMenuButtonSelectedHover: "#243148"
     property color gameMenuButtonText: "#FFFFFF"
-    property color gameMeneSelectedIndicator: "#FFCA02"
+    property color gameMenuSelectedIndicator: "#FFCA02"
+    property color gameMenuText: '#5d7081'
+
+    // SETTINGS
+    property color settingsBackground: '#00ffff'
+    property color settingsTitleText: '#343537'
+    property color settingsCaptionText: '#5c6d7d'
+    property color settingsCategoryButtonNormal: "#3498BD"
+    property color settingsCategoryButtonHover: "#3670DC"
+    property color settingsCategoryButtonActive: "#000000"
+    property color settingsSpecialButtonNormal: "#1ADC9C"
+    property color settingsSpecialButtonHover: "#019074"
+    property color settingsCheckBoxNormal: "#1ADC9C"
+    property color settingsCheckBoxHover: "#019074"
+    property color settingsRadioButtonNormal: "#1ADC9C"
+    property color settingsRadioButtonHover: "#019074"
+    property color settingsButtonNormal: "#3498BD"
+    property color settingsButtonHover: "#3670DC"
+
+    // AUTH / REGISTRATION
+    property color authBackground: '#fafafa'
+    property color authHeaderBackground: '#fafafa'
+
+    // NEWS
+    property color newsBackground: '#f0f5f8'
+    property color newsCommentCountText: '#f5755a'
+    property color newsAnnouncementTextNormal: '#5e7182'
+    property color newsAnnouncementTextHover: '#38434e'
+    property color newsTitleTextNormal: '#2B6A9D'
+    property color newsTitleTextHover: '#193f5e'
+    property color newsTimeTextNormal: '#7e99ae'
+    property color newsTimeTextHover: '#4b5b68'
+    property color newsGameTextNormal: '#4ac6aa'
+    property color newsGameTextHover: '#2c7666'
+
+    // MAINTENANCE BLOCK
+    property color maintenanceBackground: '#082135'
 
     //MESSENGER BOTTOM BAR
     property color messengerBottomBarBackground: "#FAFAFA"

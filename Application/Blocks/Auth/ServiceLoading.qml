@@ -1,6 +1,8 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
+
 import "../../Core/App.js" as App
+import "../../Core/Styles.js" as Styles
 
 Rectangle {
     id: root
@@ -11,55 +13,19 @@ Rectangle {
         progressTimer.start();
     }
 
-    color: "#FAFAFA"
+    color: Styles.style.base
 
-    Text {
-        anchors {
-            horizontalCenter: parent.horizontalCenter
-            top: parent.top
-            topMargin: 150
-        }
-
-        text: 'Loading services...'
-        color: '#111111'
-
-        font { family: 'Arial'; pixelSize: 18 }
-
+    AnimatedImage {
+        anchors.centerIn: parent
+        source: installPath + "/Assets/Images/Auth/wait.gif"
     }
 
-    ProgressBar {
-        id: progressBar
+    Timer {
+        id: progressTimer
 
-        property bool foolproof: false
+        interval: 1000
+        repeat: false
 
-        Timer {
-            id: progressTimer
-
-            interval: 15
-            repeat: true
-
-            onTriggered: {
-                if (++progressBar.progress > 100) {
-                    if (progressBar.foolproof) {
-                        console.log('Double service loading finish fail.');
-                        return;
-                    }
-
-                    progressBar.foolproof = true;
-                    root.finished();
-                    progressTimer.stop();
-                }
-            }
-        }
-
-        width: parent.width - 30
-        height: 10
-        anchors.centerIn: parent
-        progress: 0
-        style: ProgressBarStyleColors {
-            line: '#dddddd'
-        }
-        animated: true
-
+        onTriggered: root.finished();
     }
 }

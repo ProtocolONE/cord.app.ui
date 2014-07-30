@@ -11,11 +11,13 @@
 import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
-import Application.Blocks.GameSettings 1.0
+
+import "./Settings"
+import "./Settings/Game"
 
 import "../Core/App.js" as App
 import "../Core/Popup.js" as Popup
-import "../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../Core/Styles.js" as Styles
 
 Rectangle {
     id: root
@@ -25,6 +27,7 @@ Rectangle {
 
     signal close();
 
+    color: Styles.style.settingsBackground
     onClose: {
         try {
             generalSettingsPage.load();
@@ -54,7 +57,7 @@ Rectangle {
         width: parent.width
         height: parent.height
 
-        Rectangle {
+        Item {
             id: headerRect
 
             width: parent.width
@@ -71,12 +74,12 @@ Rectangle {
                     family: 'Arial'
                     pixelSize: 20
                 }
-                color: '#343537'
+                color: Styles.style.settingsTitleText
                 smooth: true
             }
         }
 
-        Rectangle {
+        Item {
             width: parent.width
             height: 421
 
@@ -88,98 +91,65 @@ Rectangle {
                 Column {
                     spacing: 12
 
-                    TextButton {
-                        text: qsTr("FOLDERS_TAB")
-                        width: 160
-                        height: 20
-                        style: ButtonStyleColors {
-                            normal: "#3498BD"
-                            hover: "#3670DC"
-                        }
-                        onClicked: {
-                            root.state = "GeneralPage";
+                    SettingsTextButton {
+                         checked: root.state === "GeneralPage"
+                         text: qsTr("FOLDERS_TAB")
+                         analytics {
+                            page: '/GameSettings'
+                            action: 'Switch to GeneralPage'
+                         }
 
-                            GoogleAnalytics.trackEvent('/ApplicationSettings',
-                                                       'Navigation',
-                                                       'Switch to GeneralPage');
-                        }
+                         onClicked: root.state = "GeneralPage";
                     }
 
-                    TextButton {
-                        text: qsTr("OVERLAY_TAB")
-                        width: 160
-                        height: (root.currentGame && root.currentGame.hasOverlay) ? 20 : 0
-                        style: ButtonStyleColors {
-                            normal: "#3498BD"
-                            hover: "#3670DC"
-                        }
-                        visible: !!root.currentGame && root.currentGame.hasOverlay
-                        onClicked: {
-                            root.state = "OverlayPage";
-
-                            GoogleAnalytics.trackEvent('/ApplicationSettings',
-                                                       'Navigation',
-                                                       'Switch to OverlayPage');
-                        }
+                    SettingsTextButton {
+                         checked: root.state === "OverlayPage"
+                         text: qsTr("OVERLAY_TAB")
+                         height: (root.currentGame && root.currentGame.hasOverlay) ? 20 : 0
+                         visible: !!root.currentGame && root.currentGame.hasOverlay
+                         analytics {
+                            page: '/GameSettings'
+                            action: 'Switch to OverlayPage'
+                         }
+                         onClicked: root.state = "OverlayPage";
                     }
 
-                    TextButton {
-                        text: qsTr("CONTROLS_TAB")
-                        width: 160
-                        height: 20
-                        style: ButtonStyleColors {
-                            normal: "#3498BD"
-                            hover: "#3670DC"
-                        }
-                        onClicked: {
-                            root.state = "ControlPage";
 
-                            GoogleAnalytics.trackEvent('/ApplicationSettings',
-                                                       'Navigation',
-                                                       'Switch to ControlPage');
-                        }
+                    SettingsTextButton {
+                         checked: root.state === "ControlPage"
+                         text: qsTr("CONTROLS_TAB")
+                         analytics {
+                            page: '/GameSettings'
+                            action: 'Switch to ControlPage'
+                         }
+                         onClicked: root.state = "ControlPage";
                     }
-
                 }
 
-                TextButton {
+                SettingsSpecialButton {
                     width: 150
                     height: 15
-                    anchors {
-                        bottom: parent.bottom
-                    }
-                    font {
-                        family: 'Arial'
-                        pixelSize: 15
-                    }
-                    wrapMode: Text.WordWrap
+                    anchors { bottom: parent.bottom }
                     text: qsTr("RESTORE_CLIENT")
-                    style: ButtonStyleColors {
-                        normal: "#1ADC9C"
-                        hover: "#019074"
+                    analytics {
+                        page: '/GameSettings'
+                        category: 'Settings'
+                        action: 'Restore client'
                     }
                     onClicked: {
                         gameSettingsModel.restoreClient();
                         App.navigate("mygame");
                         Popup.show('GameLoad');
-
-                        GoogleAnalytics.trackEvent('/ApplicationSettings',
-                                                   'Application',
-                                                   'Restore client');
                     }
                 }
             }
 
-            VerticalSplit {
+            SettingsVerticalSplit {
                 x: 219
                 height: 422
-                style: SplitterStyleColors {
-                    main: "#CCCCCC"
-                    shadow: "#FFFFFF"
-                }
             }
 
-            Rectangle {
+            Item {
                 x: 220
                 width: 529
                 height: 424

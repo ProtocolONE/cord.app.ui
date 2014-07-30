@@ -11,10 +11,12 @@
 import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
-import Application.Blocks.ApplicationSettings 1.0
+
+import "./Settings"
+import "./Settings/Application"
 
 import "../Core/App.js" as App
-import "../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../Core/Styles.js" as Styles
 
 Rectangle {
     id: root
@@ -32,6 +34,7 @@ Rectangle {
         }
     }
 
+    color: Styles.style.settingsBackground
     onClose: root.reloadSettings();
 
     CursorMouseArea {
@@ -43,7 +46,7 @@ Rectangle {
         width: parent.width
         height: parent.height
 
-        Rectangle {
+        Item {
             id: headerRect
 
             width: parent.width
@@ -60,12 +63,12 @@ Rectangle {
                     family: 'Arial'
                     pixelSize: 20
                 }
-                color: '#343537'
+                color: Styles.style.settingsTitleText
                 smooth: true
             }
         }
 
-        Rectangle {
+        Item {
             width: parent.width
             height: 421
 
@@ -77,105 +80,53 @@ Rectangle {
                 Column {
                     spacing: 12
 
-                    TextButton {
-                        checkable: true
+                    SettingsTextButton {
                         checked: root.state === "GeneralPage"
                         text: qsTr("GENERAL_TAB")
-                        width: 160
-                        height: 20
-                        style: ButtonStyleColors {
-                            normal: "#3498BD"
-                            hover: "#3670DC"
-                            active: "#000000"
-                        }
-                        analytics: GoogleAnalyticsEvent {
+                        analytics {
                             page: '/ApplicationSettings'
-                            category: 'Navigation'
                             action: 'Switch to GeneralPage'
                         }
-
                         onClicked: root.state = "GeneralPage";
                     }
 
-                    TextButton {
-                        checkable: true
+                    SettingsTextButton {
                         checked: root.state === "DownloadsPage"
                         text: qsTr("DOWNLOADS_TAB")
-                        width: 160
-                        height: 20
-                        style: ButtonStyleColors {
-                            normal: "#3498BD"
-                            hover: "#3670DC"
-                            active: "#000000"
-                        }
-                        analytics: GoogleAnalyticsEvent {
+                        analytics {
                             page: '/ApplicationSettings'
-                            category: 'Navigation'
                             action: 'Switch to DownloadsPage'
                         }
-
                         onClicked: root.state = "DownloadsPage";
                     }
 
-                    TextButton {
-                        checkable: true
+                    SettingsTextButton {
                         checked: root.state === "NotificationsPage"
                         text: qsTr("NOTIFICATIONS_TAB")
-                        width: 160
-                        height: 20
-                        style: ButtonStyleColors {
-                            normal: "#3498BD"
-                            hover: "#3670DC"
-                            active: "#000000"
-                        }
-                        analytics: GoogleAnalyticsEvent {
+                        analytics {
                             page: '/ApplicationSettings'
-                            category: 'Navigation'
                             action: 'Switch to NotificationPage'
                         }
-
                         onClicked: root.state = "NotificationsPage";
                     }
 
-                    TextButton {
-                        checkable: true
+                    SettingsTextButton {
                         checked: root.state === "MessengerPage"
                         text: qsTr("MESSENGER_TAB")
-                        width: 160
-                        height: 20
-                        style: ButtonStyleColors {
-                            normal: "#3498BD"
-                            hover: "#3670DC"
-                            active: "#000000"
-                        }
-                        analytics: GoogleAnalyticsEvent {
+                        analytics {
                             page: '/ApplicationSettings'
-                            category: 'Navigation'
                             action: 'Switch to MessengerPage'
                         }
-
                         onClicked: root.state = "MessengerPage";
                     }
-
                 }
 
-                TextButton {
+                SettingsSpecialButton {
                     width: 150
                     height: 30
-                    anchors {
-                        bottom: parent.bottom
-                    }
-                    font {
-                        family: 'Arial'
-                        pixelSize: 15
-                    }
-                    wrapMode: Text.WordWrap
+                    anchors { bottom: parent.bottom }
                     text: qsTr("RESTORE_SETTINGS")
-                    style: ButtonStyleColors {
-                        normal: "#1ADC9C"
-                        hover: "#019074"
-                    }
-                    analytics: GoogleAnalyticsEvent {
+                    analytics {
                         page: '/ApplicationSettings'
                         category: 'Settings'
                         action: 'Restore default settings'
@@ -189,16 +140,12 @@ Rectangle {
                 }
             }
 
-            VerticalSplit {
+            SettingsVerticalSplit {
                 x: 219
                 height: 422
-                style: SplitterStyleColors {
-                    main: "#CCCCCC"
-                    shadow: "#FFFFFF"
-                }
             }
 
-            Rectangle {
+            Item {
                 x: 220
                 y: 2
                 width: 529

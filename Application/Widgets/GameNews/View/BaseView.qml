@@ -11,6 +11,8 @@
 import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 
+import "../../../Core/Styles.js" as Styles
+
 Item {
     id: root
 
@@ -33,7 +35,7 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-        color: '#f0f5f8'
+        color: Styles.style.newsBackground
     }
 
     ListView {

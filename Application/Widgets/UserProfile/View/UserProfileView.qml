@@ -34,6 +34,27 @@ WidgetView {
         color: Styles.style.profileBackground
     }
 
+    Rectangle {
+        anchors {
+            left: parent.left
+            top: parent.top
+            bottom: parent.bottom
+            leftMargin: 1
+        }
+        width: 1
+        color: Qt.lighter(Styles.style.base, Styles.style.lighterFactor)
+    }
+
+    Rectangle {
+        anchors {
+            left: parent.left
+            top: parent.top
+            bottom: parent.bottom
+        }
+        width: 1
+        color: Qt.darker(Styles.style.base, Styles.style.darkerFactor)
+    }
+
     Row{
         x: 9
         y: 8

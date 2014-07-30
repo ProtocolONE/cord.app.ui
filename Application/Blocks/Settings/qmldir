@@ -1,0 +1,9 @@
+﻿module Application.Blocks.Settings
+SettingsSpecialButton 1.0 SettingsSpecialButton.qml
+SettingsTextButton 1.0 SettingsTextButton.qml
+SettingsVerticalSplit 1.0 SettingsVerticalSplit.qml
+SettingsCaption 1.0 SettingsCaption.qml
+SettingsCheckBox 1.0 SettingsCheckBox.qml
+SettingsRadioButton 1.0 SettingsRadioButton.qml
+SettingsButton 1.0 SettingsButton.qml
+

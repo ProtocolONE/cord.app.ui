@@ -1,5 +1,7 @@
 import QtQuick 1.1
-import GameNet.Controls 1.0 as Controls
+import GameNet.Controls 1.0
+
+import "../../../Core/Styles.js" as Styles
 
 Item {
     id: root
@@ -23,7 +25,7 @@ Item {
         }
     }
 
-    Controls.TextButton {
+    TextButton {
         id: button
 
         anchors {
@@ -33,12 +35,10 @@ Item {
         }
 
         onClicked: root.buttonClick(buttonId);
-
-        style: Controls.ButtonStyleColors {
-            normal: "#cccccc"
-            hover: "#ffffff"
+        style {
+            normal: Styles.style.messageBoxNegativeButtonNormal
+            hover: Styles.style.messageBoxNegativeButtonHover
         }
-
         fontSize: 14
     }
 }

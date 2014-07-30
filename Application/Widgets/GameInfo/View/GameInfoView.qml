@@ -14,6 +14,7 @@ import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 
 import "../../../Core/App.js" as App
+import "../../../Core/Styles.js" as Styles
 
 WidgetView {
     id: root
@@ -366,6 +367,12 @@ WidgetView {
             }
         }
 
+    }
+
+    Rectangle {
+        height: 1
+        anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
+        color: Qt.darker("#f0f5f8", Styles.style.darkerFactor)
     }
 
     Timer {

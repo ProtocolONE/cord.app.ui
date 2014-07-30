@@ -17,7 +17,7 @@ Rectangle {
     property alias text: buttonText.text
     property alias textColor: buttonText.color
     property alias fontSize: buttonText.font.pixelSize
-    property variant style: ButtonStyleColors {}
+    property ButtonStyleColors style: ButtonStyleColors {}
     property bool inProgress: false
     property alias toolTip: buttonBehavior.toolTip
     property alias tooltipPosition: buttonBehavior.tooltipPosition

@@ -10,7 +10,7 @@
 import QtQuick 1.1
 
 Item {
-    property variant style: SplitterStyleColors {}
+    property SplitterStyleColors style: SplitterStyleColors {}
 
     implicitWidth: 2
     implicitHeight: 100

@@ -13,7 +13,7 @@ import Tulip 1.0
 Item {
     id: root
 
-    property variant style: ProgressBarStyleColors {}
+    property ProgressBarStyleColors style: ProgressBarStyleColors {}
     property int progress: 0
     property bool animated: false
     property int duration: 2000

@@ -14,7 +14,7 @@ import "../Core/GoogleAnalytics.js" as GoogleAnalytics
 Item {
     id: behavior
 
-    property variant analytics: GoogleAnalyticsEvent{}
+    property GoogleAnalyticsEvent analytics: GoogleAnalyticsEvent{}
 
     property alias cursor: mouseArea.cursor
     property alias enabled: mouseArea.enabled

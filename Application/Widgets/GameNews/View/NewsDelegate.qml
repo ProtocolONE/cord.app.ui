@@ -13,6 +13,7 @@ import GameNet.Controls 1.0
 
 import "../../../Core/App.js" as App
 import "../../../Core/moment.js" as Moment
+import "../../../Core/Styles.js" as Styles
 import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../../../../GameNet/Core/Strings.js" as Strings
 
@@ -60,7 +61,7 @@ Item {
         Rectangle {
             height: 1
             width: parent.width + 10
-            color: '#e1e5e8'
+            color: Qt.darker(Styles.style.newsBackground, Styles.style.darkerFactor)
             visible: shouldShowDelimited
         }
 
@@ -104,7 +105,7 @@ Item {
                         family: 'Arial'
                         pixelSize: 12
                     }
-                    color: '#f5755a'
+                    color: Styles.style.newsCommentCountText
                     text: commentCount
                 }
             }
@@ -125,7 +126,8 @@ Item {
                     Text {
                         height: 12
                         text: App.serviceItemByGameId(gameId) ? App.serviceItemByGameId(gameId).name : ''
-                        color: mouser.containsMouse ?  '#2c7666':'#4ac6aa'
+                        color: mouser.containsMouse ? Styles.style.newsGameTextHover :
+                                                      Styles.style.newsGameTextNormal
                         font { family: 'Arial'; pixelSize: 12 }
                         visible: !root.isSingleMode
 
@@ -145,7 +147,9 @@ Item {
                         }
 
                         height: 12
-                        color: mouser.containsMouse ? '#4b5b68' : '#7e99ae'
+                        color: mouser.containsMouse ? Styles.style.newsTimeTextHover :
+                                                      Styles.style.newsTimeTextNormal
+
                         font { family: 'Arial'; pixelSize: 12 }
 
                         Behavior on color {
@@ -158,7 +162,8 @@ Item {
                     height: 23
                     width: parent.width - 30
                     text: title
-                    color: mouser.containsMouse ? '#193f5e':'#2B6A9D'
+                    color: mouser.containsMouse ? Styles.style.newsTitleTextHover :
+                                                  Styles.style.newsTitleTextNormal
                     elide: Text.ElideRight
                     font { family: 'Arial'; pixelSize: 18; bold: true }
 
@@ -182,7 +187,8 @@ Item {
                     elide: Text.ElideRight
                     maximumLineCount: 4
                     clip: true
-                    color: mouser.containsMouse ? '#38434e':'#5e7182'
+                    color: mouser.containsMouse ? Styles.style.newsAnnouncementTextHover :
+                                                  Styles.style.newsAnnouncementTextNormal
                     font { family: 'Arial'; pixelSize: 14 }
                     lineHeight: 20
                     lineHeightMode: Text.FixedHeight

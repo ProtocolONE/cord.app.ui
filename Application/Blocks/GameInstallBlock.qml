@@ -15,6 +15,7 @@ import GameNet.Controls 1.0
 import Application.Blocks 1.0
 
 import "../Core/App.js" as App
+import "../Core/Styles.js" as Styles
 import "../Core/Popup.js" as Popup
 import "../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
@@ -131,10 +132,14 @@ Item {
 
                 focus: true
 
-                style: ButtonStyleColors {
-                    normal: button.isError ? "#cc0000" : "#ff4f02"
-                    hover: button.isError ? "#ee0000" : "#ff7902"
-                    disabled: '#888888'
+                style {
+                    normal: button.isError
+                            ? Styles.style.gameInstallButtonErrorNormal
+                            : Styles.style.gameInstallButtonNormal
+                    hover: button.isError
+                           ? Styles.style.gameInstallButtonErrorHover
+                           : Styles.style.gameInstallButtonHover
+                    disabled: Styles.style.gameInstallButtonDisabled
                 }
 
                 onClicked: {

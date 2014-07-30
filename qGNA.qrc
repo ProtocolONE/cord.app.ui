@@ -5,11 +5,6 @@
 		<file>Application/Blocks/AllGames/Main.qml</file>
 		<file>Application/Blocks/ApplicationFocus.qml</file>
 		<file>Application/Blocks/ApplicationSettings.qml</file>
-		<file>Application/Blocks/ApplicationSettings/DownloadSettings.qml</file>
-		<file>Application/Blocks/ApplicationSettings/GeneralSettings.qml</file>
-		<file>Application/Blocks/ApplicationSettings/MessengerSettings.qml</file>
-		<file>Application/Blocks/ApplicationSettings/NotificationSettings.qml</file>
-		<file>Application/Blocks/ApplicationSettings/qmldir</file>
 		<file>Application/Blocks/AppScreen.qml</file>
 		<file>Application/Blocks/Auth/AnimatedBackground/Index.qml</file>
 		<file>Application/Blocks/Auth/AnimatedBackground/LightningBackground.qml</file>
@@ -31,22 +26,11 @@
 		<file>Application/Blocks/DownloadStatus.qml</file>
 		<file>Application/Blocks/FlowView.qml</file>
 		<file>Application/Blocks/GameInstallBlock.qml</file>
-		<file>Application/Blocks/GameLoad/Main.qml</file>
-		<file>Application/Blocks/GameLoad/ProgressWidget.qml</file>
-		<file>Application/Blocks/GameLoad/qmldir</file>
-		<file>Application/Blocks/GameLoad/SplitterStyleColorsPrivate.qml</file>
-		<file>Application/Blocks/GameLoad/StatInfoElementBig.qml</file>
-		<file>Application/Blocks/GameLoad/StatInfoElementSmall.qml</file>
-		<file>Application/Blocks/GameLoad/TextButtonStyle.qml</file>
 		<file>Application/Blocks/GameMenu/GameMenu.qml</file>
 		<file>Application/Blocks/GameMenu/GameMenuItem.qml</file>
 		<file>Application/Blocks/GameMenu/qmldir</file>
 		<file>Application/Blocks/GamePopup.qml</file>
 		<file>Application/Blocks/GameSettings.qml</file>
-		<file>Application/Blocks/GameSettings/GameControlSettings.qml</file>
-		<file>Application/Blocks/GameSettings/GameGeneralSettings.qml</file>
-		<file>Application/Blocks/GameSettings/GameOverlaySettings.qml</file>
-		<file>Application/Blocks/GameSettings/qmldir</file>
 		<file>Application/Blocks/Header/Header.qml</file>
 		<file>Application/Blocks/Header/HeaderButton.qml</file>
 		<file>Application/Blocks/Header/HeaderControlButton.qml</file>
@@ -56,6 +40,23 @@
 		<file>Application/Blocks/Popup/PopupHorizontalSplit.qml</file>
 		<file>Application/Blocks/Popup/qmldir</file>
 		<file>Application/Blocks/qmldir</file>
+		<file>Application/Blocks/Settings/Application/DownloadSettings.qml</file>
+		<file>Application/Blocks/Settings/Application/GeneralSettings.qml</file>
+		<file>Application/Blocks/Settings/Application/MessengerSettings.qml</file>
+		<file>Application/Blocks/Settings/Application/NotificationSettings.qml</file>
+		<file>Application/Blocks/Settings/Application/qmldir</file>
+		<file>Application/Blocks/Settings/Game/GameControlSettings.qml</file>
+		<file>Application/Blocks/Settings/Game/GameGeneralSettings.qml</file>
+		<file>Application/Blocks/Settings/Game/GameOverlaySettings.qml</file>
+		<file>Application/Blocks/Settings/Game/qmldir</file>
+		<file>Application/Blocks/Settings/qmldir</file>
+		<file>Application/Blocks/Settings/SettingsButton.qml</file>
+		<file>Application/Blocks/Settings/SettingsCaption.qml</file>
+		<file>Application/Blocks/Settings/SettingsCheckBox.qml</file>
+		<file>Application/Blocks/Settings/SettingsRadioButton.qml</file>
+		<file>Application/Blocks/Settings/SettingsSpecialButton.qml</file>
+		<file>Application/Blocks/Settings/SettingsTextButton.qml</file>
+		<file>Application/Blocks/Settings/SettingsVerticalSplit.qml</file>
 		<file>Application/Blocks/ShakeAnimation.qml</file>
 		<file>Application/Blocks/SocialNet.qml</file>
 		<file>Application/Blocks/SplashScreen.qml</file>

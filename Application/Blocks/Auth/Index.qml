@@ -15,6 +15,7 @@ import GameNet.Controls 1.0
 import "../../../Application/Core/Authorization.js" as Authorization
 import "../../../Application/Core/User.js" as User
 import "../../../Application/Core/App.js" as App
+import "../../../Application/Core/Styles.js" as Styles
 
 import "./AuthHelper.js" as AuthHelper
 
@@ -26,7 +27,7 @@ Rectangle {
     width: 1000
     height: 600
 
-    color: "#FAFAFA"
+    color: Styles.style.authBackground
 
     Component.onCompleted: d.autoLogin();
 
@@ -192,35 +193,22 @@ Rectangle {
         id: authContainer
 
         anchors {
-            left: parent.left
-            leftMargin: 250
-            right: parent.right
-            rightMargin: 250
             top: header.bottom
             bottom: footer.top
+            left: parent.left
+            right: parent.right
         }
 
         Switcher {
             id: centralSwitcher
 
-            anchors.fill: parent
+            anchors {
+                fill: parent
+                leftMargin: 250
+                rightMargin: 250
+            }
+
             forceFocus: true
-            onSwitchFinished: {
-                if (authContainer.state === "serviceLoading") {
-                   serviceLoading.startTimer();
-                }
-            }
-
-            ServiceLoading {
-                id: serviceLoading
-
-                property string userId
-                property string appKey
-                property string cookie
-
-                anchors.fill: parent
-                onFinished: App.authDone(userId, appKey, cookie);
-            }
 
             AuthBody {
                 id: auth
@@ -317,8 +305,11 @@ Rectangle {
             State {
                 name: "serviceLoading"
 
+                PropertyChanges {
+                    target: serviceLoading; visible: true
+                }
                 StateChangeScript {
-                    script: centralSwitcher.switchTo(serviceLoading);
+                    script: serviceLoading.startTimer();
                 }
             }
         ]
@@ -428,4 +419,17 @@ Rectangle {
             }
         }
     }
+
+    ServiceLoading {
+        id: serviceLoading
+
+        property string userId
+        property string appKey
+        property string cookie
+
+        visible: false
+        anchors.fill: parent
+        onFinished: App.authDone(userId, appKey, cookie);
+    }
+
 }

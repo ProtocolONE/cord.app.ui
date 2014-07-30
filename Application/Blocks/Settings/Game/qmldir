@@ -1,4 +1,4 @@
-﻿module Application.Blocks.GameSettings
+﻿module Application.Blocks.Settings.Game
 GameControlSettings 1.0 GameControlSettings.qml
 GameGeneralSettings 1.0 GameGeneralSettings.qml
 GameOverlaySettings 1.0 GameOverlaySettings.qml

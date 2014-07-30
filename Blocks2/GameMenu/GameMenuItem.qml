@@ -13,16 +13,6 @@ Item {
 
     property bool current: false
 
-    property variant style: ButtonStyleColors {
-        normal: Styles.style.gameMenuButtonNormal
-        hover: Styles.style.gameMenuButtonHover
-    }
-
-    property variant selectedStyle: ButtonStyleColors {
-        normal: Styles.style.gameMenuButtonSelectedNormal
-        hover: Styles.style.gameMenuButtonSelectedHover
-    }
-
     implicitHeight: 37
     implicitWidth: 178
 
@@ -31,7 +21,10 @@ Item {
     Button {
         width: parent.width
         height: 35
-        style: root.current ? root.selectedStyle : root.style
+        style {
+            normal: root.current ? Styles.style.gameMenuButtonSelectedNormal : Styles.style.gameMenuButtonNormal
+            hover: root.current ? Styles.style.gameMenuButtonSelectedHover : Styles.style.gameMenuButtonHover
+        }
 
         onClicked: root.clicked();
 
@@ -78,7 +71,7 @@ Item {
 
         Rectangle {
             width: 2
-            color: Styles.style.gameMeneSelectedIndicator
+            color: Styles.style.gameMenuSelectedIndicator
             height: parent.height
             anchors.right: parent.right
             visible: root.current

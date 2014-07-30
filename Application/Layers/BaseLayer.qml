@@ -187,7 +187,7 @@ Rectangle {
                         anchors.bottom: parent.bottom
                         width: parent.width
                         height: 1
-                        color: '#242537'
+                        color: Qt.darker(parent.color, Styles.style.darkerFactor)
                     }
                 }
 
@@ -236,7 +236,7 @@ Rectangle {
                 }
 
                 width: 1
-                color: '#133042'
+                color: Qt.lighter(Styles.style.gameMenuBackground, Styles.style.lighterFactor)
             }
 
             Rectangle {
@@ -248,7 +248,7 @@ Rectangle {
                 }
 
                 width: 1
-                color: '#191a2f'
+                color: Qt.darker(Styles.style.gameMenuBackground, Styles.style.darkerFactor)
             }
 
             SocialNet {
@@ -267,22 +267,10 @@ Rectangle {
             height: 600 - header.implicitHeight
 
             WidgetContainer {
-                width: viewInstance.width
-                height: viewInstance.height
-
                 widget: 'GameInfo'
             }
 
-            Rectangle {
-                height: 1
-                width: parent.width
-                color: '#e1e5e8'
-            }
-
             WidgetContainer {
-                width: parent.width
-                height: viewInstance.height
-
                 widget: 'GameNews'
             }
         }
@@ -293,26 +281,26 @@ Rectangle {
             width: 590
             height: 600 - header.implicitHeight
 
-            Rectangle {
-                id: maintenanceRect
+            Connections {
+                target: gameMenu
+                onPageClicked: centerBlock.scrollToBegin();
+            }
 
-                width: parent.width
-                height: 112
-                color: '#082135'
+            Connections {
+                target: App.signalBus()
+                onNavigate: centerBlock.scrollToBegin();
+            }
+
+
+            WidgetContainer {
                 visible: root.hasCurrentGame
                          && root.currentGame.maintenance
                          && root.currentGame.allreadyDownloaded
 
-                WidgetContainer {
-                    anchors.centerIn: parent
-
-                    width: viewInstance.width
-                    height: viewInstance.height
-
-                    widget: 'Maintenance'
-                    view: 'MaintenanceLightView'
-                }
+                widget: 'Maintenance'
+                view: 'MaintenanceLightView'
             }
+
 
             WidgetContainer {
                 widget: 'GameAdBanner'
@@ -360,14 +348,14 @@ Rectangle {
 
                     Rectangle {
                         anchors.fill: parent
-                        color: '#071828'
+                        color: Styles.style.gameMenuBackground
                     }
 
                     Rectangle {
                         width: 3
                         height: parent.height
                         anchors.right: parent.right
-                        color: '#fdcd00'
+                        color: Styles.style.gameMenuSelectedIndicator
                     }
 
                     Text {
@@ -378,7 +366,7 @@ Rectangle {
                             top: parent.top
                             margins: 10
                         }
-                        color: '#5d7081'
+                        color: Styles.style.gameMenuText
                     }
 
                     Text {
@@ -390,7 +378,7 @@ Rectangle {
                             leftMargin: 10
                             topMargin: 32
                         }
-                        color: '#5d7081'
+                        color: Styles.style.gameMenuText
                     }
 
                 }

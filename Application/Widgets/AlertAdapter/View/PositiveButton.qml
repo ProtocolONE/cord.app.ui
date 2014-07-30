@@ -1,7 +1,9 @@
 import QtQuick 1.1
-import GameNet.Controls 1.0 as Controls
+import GameNet.Controls 1.0
 
-Controls.Button {
+import "../../../Core/Styles.js" as Styles
+
+Button {
     id: button
 
     signal buttonClick(int button)
@@ -13,8 +15,9 @@ Controls.Button {
 
     onClicked: buttonClick(buttonId);
 
-    style: Controls.ButtonStyleColors {
-        normal: "#1abc9c"
+    style {
+        normal: Styles.style.messageBoxPositiveButtonNormal
+        hover: Styles.style.messageBoxPositiveButtonHover
     }
 }
 

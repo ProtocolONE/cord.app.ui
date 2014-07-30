@@ -11,6 +11,8 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
 
+import "../Core/Styles.js" as Styles
+
 Column {
     id: root
 
@@ -50,9 +52,9 @@ Column {
         id: progressBar
 
         height: 4
-        style: ProgressBarStyleColors {
-            background: "#0d5043"
-            line: "#35cfb1"
+        style {
+            background: Styles.style.downloadStatusProgressBackground
+            line: Styles.style.downloadStatusProgressLine
         }
         animated: true
         anchors { left: parent.left; right: parent.right}
@@ -72,7 +74,7 @@ Column {
             property int offsetDuration: 0
 
             font { family: 'Arial'; pixelSize: 12 }
-            color: '#eff0f0'
+            color: Styles.style.downloadStatusText
             text: d.getStatusText();
             smooth: true
 
