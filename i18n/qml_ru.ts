@@ -3927,6 +3927,10 @@ Please try again later.</source>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
         <translation type="unfinished">Не удалось войти как пользователь Вконтакте. Попробуйте ещё раз позже.</translation>
     </message>
+    <message>
+        <source>SECOND_ACCOUNT_ACTIVATION_TITLE</source>
+        <translation type="unfinished">Дополнительный аккаунт</translation>
+    </message>
 </context>
 <context>
     <name>SecondAccountView</name>

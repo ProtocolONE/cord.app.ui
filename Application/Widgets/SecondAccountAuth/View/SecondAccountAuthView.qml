@@ -15,14 +15,16 @@ import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 
 import Application.Blocks.Auth 1.0
+import Application.Blocks.Popup 1.0
 
 import "../../../Core/Authorization.js" as Authorization
 import "../../../Core/App.js" as App
 
-WidgetView {
+PopupBase {
     id: root
 
-    width: 540
+    title: qsTr("SECOND_ACCOUNT_ACTIVATION_TITLE")
+    implicitWidth: 540
     height: 473
 
     Connections {
@@ -81,9 +83,9 @@ WidgetView {
         }
     }
 
-    Rectangle {
-        anchors.fill: parent
-        color: "#FAFAFA"
+    Item {
+        width: root.width
+        height: 473
 
         Item {
             id: authContainer
@@ -92,6 +94,7 @@ WidgetView {
                 fill: parent
                 leftMargin: 20
                 rightMargin: 20
+                topMargin: -20
             }
 
             Switcher {

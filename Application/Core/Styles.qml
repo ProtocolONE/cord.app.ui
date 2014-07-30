@@ -8,8 +8,13 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 import QtQuick 1.1
+import Tulip 1.0
 
-QtObject {
+import "App.js" as App
+
+Item {
+    id: root
+
     //BASE
     property real darkerFactor: 1.2
     property real lighterFactor: 1.2
@@ -110,10 +115,73 @@ QtObject {
     //MESSENGER CONTACTS
     property color messengerContactsBackground: "#EEEEEE"
 
-    //MESSENGER CONTACTS TABS
-    property color messengerContactsTypeTabBackground: "#E5E9EC"
-    property color messengerRecentContactsUnreadIcon: "#189A19"
+    //PRIVATE PART
+    property variant styleList
+    property string currentStyle
+    property alias settingsModel: data
 
-    //MESSENGER EMPTY CONTACTS INFO
-    property color messengerEmptyContactListInfoBackground: "#EEEEEE"
+    function setCurrentStyle(value) {
+        if (value !== currentStyle) {
+            App.setSettingsValue('qml/settings/', 'style', value);
+            currentStyle = value;
+            apply();
+        }
+    }
+
+    function getCurrentStyle() {
+        return currentStyle;
+    }
+
+    function init() {
+        var realPath = installPath.replace('file:///', '')
+            , rawStyles = StyleReader.read(realPath + "Assets/Styles/")
+            , currentLang = App.language()
+            , tmpMap = {}
+            , tmpStyles;
+
+        tmpStyles = rawStyles.filter(function(e) {
+            return e.hasOwnProperty('id')
+                && e.hasOwnProperty('name')
+                && e.name.hasOwnProperty('en')
+                && e.name.hasOwnProperty(currentLang)
+                && e.hasOwnProperty('styles')
+                && e.hasOwnProperty('default');
+        });
+
+        tmpStyles.sort(function(a, b) {
+            if (a['default']) {
+                return 1;
+            }
+
+            return a.name[currentLang].localeCompare(b.name[currentLang]);
+        });
+
+        tmpStyles.forEach(function(e) {
+            tmpMap[e.id] = e.styles;
+            data.append({
+                value: e.id,
+                text: e.name[currentLang]
+            });
+        });
+
+        styleList = tmpMap;
+        currentStyle = App.settingsValue('qml/settings/', 'style', 'mainStyle');
+        apply();
+    }
+
+    function apply() {
+        if (!styleList.hasOwnProperty(currentStyle)) {
+            return;
+        }
+
+        Object.keys(styleList[currentStyle]).forEach(function(prop) {
+            if (root.hasOwnProperty(prop) && root[prop] !== styleList[currentStyle][prop]) {
+                root[prop] = styleList[currentStyle][prop];
+            }
+        });
+    }
+
+    ListModel {
+        id: data
+    }
 }

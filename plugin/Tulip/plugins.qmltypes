@@ -3,7 +3,7 @@ import QtQuick.tooling 1.1
 // This file describes the plugin-supplied types contained in the library.
 // It is used for QML tooling purposes only.
 //
-// This file was auto-generated with the command 'E:\Qt\521b_53\bin\qml1plugindump -path ./plugin/Tulip'.
+// This file was auto-generated with the command 'D:\SDK\Qt\Qt5.2.1\5.2.1\msvc2010\bin\qml1plugindump.EXE -path ./plugin/Tulip'.
 
 Module {
     Component {
@@ -365,6 +365,17 @@ Module {
             type: "QVariant"
             Parameter { name: "group"; type: "string" }
             Parameter { name: "key"; type: "string" }
+        }
+    }
+    Component {
+        name: "StyleReader"
+        prototype: "QObject"
+        exports: ["Tulip/StyleReader 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method {
+            name: "read"
+            type: "QVariantList"
+            Parameter { name: "path"; type: "string" }
         }
     }
     Component {

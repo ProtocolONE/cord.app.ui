@@ -13,6 +13,7 @@ import Application.Controls 1.0 as ApplicationControls
 import GameNet.Controls 1.0
 
 import "../../Core/App.js" as App
+import "../../Core/Styles.js" as Styles
 import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 Item {
@@ -37,6 +38,7 @@ Item {
     property variant settingsViewModelInstance: App.settingsViewModelInstance() || {}
 
     function save() {
+        Styles.setCurrentStyle(styleSettings.getValue(styleSettings.currentIndex));
         App.saveLanguage(applicationLanguage.getValue(applicationLanguage.currentIndex));
 
         var autostart = 0;
@@ -59,6 +61,8 @@ Item {
 
         autoRun.checked = settingsViewModelInstance.autoStart > 0;
         runMinimized.checked = settingsViewModelInstance.autoStart === 2;
+
+        styleSettings.currentIndex = styleSettings.findValue(Styles.getCurrentStyle());
     }
 
     QtObject {
@@ -79,6 +83,17 @@ Item {
         x: 30
         spacing: 20
 
+        ApplicationControls.ComboBox {
+            id: styleSettings
+
+            z: 101
+            width: 500
+            height: 48
+
+            icon: installPath + "Assets/Images/Application/Blocks/ApplicationSettings/style.png"
+
+            model: Styles.settingsModel()
+        }
 
         ApplicationControls.ComboBox {
             id: applicationLanguage

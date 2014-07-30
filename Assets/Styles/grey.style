@@ -1,0 +1,11 @@
+{
+    "id": "gn2",
+    "default": false,
+    "name": {
+        "ru": "Серая тема",
+        "en": "Grey" 
+    },
+    "styles": {
+        "headerBackground": "#FF0000"
+    }
+}

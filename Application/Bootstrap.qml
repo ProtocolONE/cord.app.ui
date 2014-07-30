@@ -15,6 +15,7 @@ import GameNet.Controls 1.0
 import Application.Blocks 1.0
 
 import "Core/App.js" as App
+import "Core/Styles.js" as Styles
 import "Core/User.js" as User
 import "Core/restapi.js" as RestApi
 import "Core/Authorization.js" as Authorization
@@ -51,6 +52,7 @@ Item {
         console.log('GameNet Application version ' + App.fileVersion() + ' starting up');
         console.log('Desktop', options.desktop);
 
+        Styles.init();
         initRestApi(options);
         initGoogleAnalytics(options);
         initAdditionalLayers(options);

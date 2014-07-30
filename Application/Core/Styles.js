@@ -18,3 +18,21 @@ if (stylesComponent.status != 1) {
 }
 
 style = stylesComponent.createObject(null);
+
+function init() {
+    style.init();
+}
+
+function settingsModel() {
+    return style.settingsModel;
+}
+
+function getCurrentStyle() {
+    return style.getCurrentStyle();
+}
+
+function setCurrentStyle(value) {
+    return style.setCurrentStyle(value);
+}
+
+

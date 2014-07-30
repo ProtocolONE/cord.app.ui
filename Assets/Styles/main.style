@@ -1,0 +1,11 @@
+{
+    "id": "mainStyle",
+    "default": true,
+    "name": {
+        "ru": "Основная тема",
+        "en": "Grey" 
+    },
+    "styles": {
+         "headerBackground": "#092135"
+    }
+}
