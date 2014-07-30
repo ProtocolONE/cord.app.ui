@@ -21,12 +21,14 @@ Rectangle {
 
     signal close()
 
-    onClose: {
+    function reloadSettings() {
         generalSettingsPage.load();
         downloadSettingsPage.load();
         notificationSettingsPage.load();
         messengerSettingsPage.load();
     }
+
+    onClose: root.reloadSettings();
 
     CursorMouseArea {
         cursor: CursorArea.DefaultCursor
@@ -178,6 +180,7 @@ Rectangle {
                     onClicked: {
                         settingsViewModel.setDefaultSettings();
                         App.selectLanguage("ru");
+                        root.reloadSettings();
                     }
                 }
             }
