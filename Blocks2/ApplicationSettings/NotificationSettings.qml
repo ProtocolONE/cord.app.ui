@@ -19,7 +19,7 @@ Item {
     id: root
 
     function save() {
-        App.setAppSettingsValue('notifications', 'maintenanceEndPopup', notificationEnabled.checked);
+        App.setAppSettingsValue('notifications', 'maintenanceEndPopup', notificationEnabled.checked ? 1 : 0 );
 
         var settings = WidgetManager.getWidgetSettings('Messenger');
         settings.messengerReceivedMessage = receivedMsgEnabled.checked;
