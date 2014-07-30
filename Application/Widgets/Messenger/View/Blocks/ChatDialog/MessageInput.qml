@@ -150,21 +150,37 @@ FocusScope {
 
                             onCursorRectangleChanged: inputFlick.ensureVisible(cursorRectangle);
 
-                            Keys.onPressed: {
-                                if (event.key == Qt.Key_Enter || event.key == Qt.Key_Return) {
-                                    switch (root.sendAction) {
-                                    case Settings.SendShortCut.CtrlEnter:
-                                        if (event.modifiers & Qt.ControlModifier) {
-                                            d.sendMessage();
-                                            event.accepted = true;
-                                        }
-                                        break;
-                                    case Settings.SendShortCut.Enter:
-                                        if (event.modifiers == Qt.NoModifier) {
-                                            d.sendMessage();
-                                            event.accepted = true;
-                                        }
+                            Keys.onEnterPressed: {
+                                switch (root.sendAction) {
+                                case Settings.SendShortCut.CtrlEnter:
+                                    if (event.modifiers & Qt.ControlModifier) {
+                                        d.sendMessage();
+                                        event.accepted = true;
                                     }
+                                    break;
+                                case Settings.SendShortCut.Enter:
+                                    if (event.modifiers === Qt.KeypadModifier) {
+                                        d.sendMessage();
+                                        event.accepted = true;
+                                    }
+                                    break;
+                                }
+                            }
+
+                            Keys.onReturnPressed: {
+                                switch (root.sendAction) {
+                                case Settings.SendShortCut.CtrlEnter:
+                                    if (event.modifiers & Qt.ControlModifier) {
+                                        d.sendMessage();
+                                        event.accepted = true;
+                                    }
+                                    break;
+                                case Settings.SendShortCut.Enter:
+                                    if (event.modifiers === Qt.NoModifier) {
+                                        d.sendMessage();
+                                        event.accepted = true;
+                                    }
+                                    break;
                                 }
                             }
 
