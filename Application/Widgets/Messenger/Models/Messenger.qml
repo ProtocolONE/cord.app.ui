@@ -81,7 +81,17 @@ Item {
         root.connecting = true;
         root.authedJid = jid;
 
-        xmppClient.connectToServer(jid, password)
+
+        console.log( "jid: " + jid);
+        //  DEBUG ONLY
+        xmppClient.connectToServer(jid, password);
+
+//        xmppClient.configuration.host = "31.25.225.144";
+//        xmppClient.configuration.port = "5222";
+//        xmppClient.configuration.domain = "qj.gamenet.ru"
+//        xmppClient.configuration.user = user.userId;
+//        xmppClient.configuration.password = password;
+        //xmppClient.connectUsingConfiguration();
     }
 
     function disconnect() {
@@ -164,6 +174,15 @@ Item {
         return data.avatar || defaultAvatar;
     }
 
+    function lastActivity(item) {
+        var data = getUser(item.jid);
+        if (!data.isValid()) {
+            return -1;
+        }
+
+        return data.lastActivity || -1;
+    }
+
     function isSelectedGamenet() {
         var item = root.selectedUser();
         if (!item.isValid()) {
@@ -242,6 +261,7 @@ Item {
                 rawUser.avatar = d.getDefaultAvatar();
                 usersModel.append(rawUser);
                 xmppClient.vcardManager.requestVCard(user);
+                xmppClient.lastActivityManager.requestLastActivity(user);
             }
 
             groups.forEach(function(group) {
@@ -431,6 +451,17 @@ Item {
 
             if (vcard.extra) {
                 item.avatar = vcard.extra.PHOTOURL || item.avatar || "";
+            }
+        }
+    }
+
+    Connections {
+        target: xmppClient.lastActivityManager
+        onLastActivityUpdated: {
+            var item = root.getUser(UserJs.jidWithoutResource(lastActivity.from));
+            if (lastActivity.seconds > 0) {
+                console.log(lastActivity.from + ": " + lastActivity.seconds);
+                item.lastActivity = lastActivity.seconds;
             }
         }
     }

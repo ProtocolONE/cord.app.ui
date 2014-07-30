@@ -14,8 +14,11 @@ import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 import Application.Controls 1.0
 
+import "../../../../../Core/moment.js" as Moment
 import "../../../../../Core/Styles.js" as Styles
 import "../../../Models/Messenger.js" as MessengerJs
+
+import "../ContactList" as ContactList
 
 Rectangle {
     id: root
@@ -24,8 +27,34 @@ Rectangle {
     implicitHeight: 52
     color: Styles.style.messengerChatDialogHeaderBackground
 
-    Row {
-        anchors.fill: parent
+//    function getText() {
+//        var selectedUser = MessengerJs.selectedUser();
+//        if (!selectedUser.isValid()) {
+//            return "";
+//        }
+
+//        var lastActivity = MessengerJs.userLastActivity(selectedUser);
+
+//        if (lastActivity < 0) {
+//            return "";
+//        }
+
+//        var lastActivityTime = Moment.moment().subtract(lastActivity, 'seconds');
+//        return qsTr("LAST_ACTIVITY_TODAY").arg( Moment.moment(lastActivityTime).lang('ru').fromNow());
+//    }
+
+//    ContactList.ContactItem {
+//        anchors.fill: parent
+
+//        isCurrent: true
+//        avatar: MessengerJs.userAvatar(MessengerJs.selectedUser())
+//        nickname: MessengerJs.selectedUserNickname();
+//        status: root.getText();
+//    }
+
+
+   Row {
+       anchors.fill: parent
 
         Item {
             width: parent.height
@@ -40,7 +69,7 @@ Rectangle {
         }
 
         Item {
-            width: parent.width - parent.height
+            width: parent.width - parent.height - 250
             height: parent.height
 
             Text {
@@ -51,6 +80,45 @@ Rectangle {
                     pixelSize: 18
                     family: "Arial"
                 }
+            }
+        }
+    }
+
+    Item {
+        id: lastActivityText
+
+        width: childrenRect.width
+        height: parent.height
+        anchors {
+            top: parent.top
+            right: parent.right
+            rightMargin: 45
+        }
+
+        function getText() {
+            var selectedUser = MessengerJs.selectedUser();
+            if (!selectedUser.isValid()) {
+                return "";
+            }
+
+            var lastActivity = MessengerJs.userLastActivity(selectedUser);
+
+            if (lastActivity < 0) {
+                return "";
+            }
+
+            var lastActivityTime = Moment.moment().subtract(lastActivity, 'seconds');
+            return qsTr("LAST_ACTIVITY_PLACEHOLDER").arg( Moment.moment(lastActivityTime).lang('ru').fromNow());
+        }
+
+        Text {
+            text: lastActivityText.getText();
+            color: Styles.style.messengerChatDialogHeaderNicknameText
+            anchors.verticalCenter: parent.verticalCenter
+            horizontalAlignment: Text.AlignRight
+            font {
+                pixelSize: 16
+                family: "Arial"
             }
         }
     }

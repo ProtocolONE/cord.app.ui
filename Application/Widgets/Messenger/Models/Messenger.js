@@ -155,6 +155,10 @@ function userAvatar(item) {
     return _modelInstance.userAvatar(item);
 }
 
+function userLastActivity(item) {
+    return _modelInstance.lastActivity(item);
+}
+
 function isSelectedGamenet() {
     return _modelInstance.isSelectedGamenet();
 }

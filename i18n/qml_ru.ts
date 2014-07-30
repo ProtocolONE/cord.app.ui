@@ -2492,6 +2492,10 @@ Please try again later.</source>
         <source>HEADER_BUTTON_LOGOUT</source>
         <translation>Выйти</translation>
     </message>
+    <message>
+        <source>LAST_ACTIVITY_PLACEHOLDER</source>
+        <translation>Был %1</translation>
+    </message>
 </context>
 <context>
     <name>Home</name>

@@ -16,10 +16,13 @@ import Application.Controls 1.0
 import "../../../../../Core/Styles.js" as Styles
 import "../../../Models/Messenger.js" as MessengerJs
 
-Rectangle {
+FocusScope {
     id: root
 
-    color: Styles.style.messengerMessageInputBackground
+    Rectangle {
+        anchors.fill: parent
+        color: Styles.style.messengerMessageInputBackground
+    }
 
     property int pauseTimeout: 3
     property int inactiveTimeout: 12
@@ -117,6 +120,7 @@ Rectangle {
 
                             width: inputFlick.width
                             height: inputFlick.height
+                            focus: true
 
                             selectByMouse: true
                             wrapMode: TextEdit.Wrap

@@ -106,6 +106,14 @@ function User(item, model) {
         _model.setPropertyById(self.jid, 'avatar', val);
     });
 
+    this.__defineGetter__("lastActivity", function() {
+        return _item.lastActivity;
+    });
+
+    this.__defineSetter__("lastActivity", function(val) {
+        _model.setPropertyById(self.jid, 'lastActivity', val);
+    });
+
     this.__defineGetter__("isGamenet", function() {
         return _item.isGamenet;
     });
@@ -172,6 +180,7 @@ function createRawUser(jid, nickname) {
         presenceState: "",
         inputMessage: "",
         avatar: "",
+        lastActivity: -1,
         isGamenet: false
     };
 
@@ -194,6 +203,7 @@ function createGamenetUser() {
         presenceState: "",
         inputMessage: "",
         avatar: "",
+        lastActivity: -1,
         isGamenet: true
     };
 

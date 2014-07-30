@@ -42,9 +42,16 @@ WidgetView {
     }
 
     ChatDialog.MessageInput {
+        id: messageInput
+
         visible: !MessengerJs.isSelectedGamenet()
         width: parent.width
         height: 78
         anchors.bottom: parent.bottom
+
+        onVisibleChanged: {
+            if (visible)
+                messageInput.forceActiveFocus();
+        }
     }
 }
