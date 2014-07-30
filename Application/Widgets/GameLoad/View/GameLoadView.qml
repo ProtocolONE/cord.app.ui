@@ -87,7 +87,7 @@ PopupBase {
                     }
 
                     smooth: true
-                    color: '#5d6f7b'
+                    color: defaultTextColor
                     text: model.headerText
                 }
 
@@ -175,14 +175,12 @@ PopupBase {
                 }
 
 
-                HorizontalSplit {
+                PopupHorizontalSplit {
                     anchors {
                         left: parent.left
                         right: parent.right
                         bottom: parent.bottom
                     }
-
-                    style: SplitterStyleColorsPrivate {}
                 }
 
                 Item {
