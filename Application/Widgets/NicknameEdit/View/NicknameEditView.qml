@@ -93,11 +93,6 @@ PopupBase {
                     d.nickNameOk = true;
                 }
                 onTechNameError: {
-                    if (!d.nickNameLowBoundReached) {
-                        nickName.error = false;
-                        return;
-                    }
-
                     if (error != "") {
                         techName.errorMessage = error;
                         techName.style.text = "#FF2E44";
@@ -141,7 +136,9 @@ PopupBase {
                             d.nickNameLowBoundReached = true;
                         }
 
-                        techName.text = model.generateTechNick(nickName.text);
+                        if (techName.text.length == 0 || !model.techNameValid) {
+                            techName.text = model.generateTechNick(nickName.text);
+                        }
                     }
                     onValidate: {
                         if (!d.nickNameLowBoundReached) {
@@ -195,10 +192,6 @@ PopupBase {
                         d.techNameOk = false;
                     }
                     onValidate: {
-                        if (!d.nickNameLowBoundReached) {
-                            return;
-                        }
-
                         model.validateTechName(value);
                     }
                 }
