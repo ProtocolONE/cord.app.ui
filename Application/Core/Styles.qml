@@ -167,22 +167,87 @@ Item {
 
         styleList = tmpMap;
         currentStyle = App.settingsValue('qml/settings/', 'style', 'mainStyle');
-        apply();
+        apply(true);
     }
 
-    function apply() {
+    function apply(applyNow) {
         if (!styleList.hasOwnProperty(currentStyle)) {
             return;
         }
 
-        Object.keys(styleList[currentStyle]).forEach(function(prop) {
-            if (root.hasOwnProperty(prop) && root[prop] !== styleList[currentStyle][prop]) {
-                root[prop] = styleList[currentStyle][prop];
-            }
-        });
+        if (applyNow) {
+            Object.keys(styleList[currentStyle]).forEach(function(prop) {
+                if (root.hasOwnProperty(prop) && root[prop] !== styleList[currentStyle][prop]) {
+                    root[prop] = styleList[currentStyle][prop];
+                }
+            });
+        } else {
+            blendTimer.startAnimation();
+        }
     }
 
     ListModel {
         id: data
+    }
+
+    Timer {
+        id: blendTimer
+
+        property int frame: 0;
+        property variant sourceColors;
+        property variant targetColors;
+        property variant blendProperties;
+
+        interval: 33
+        repeat: true
+
+        function startAnimation() {
+            var tmpSourceColors = {}
+                , tmpTargetColors = {};
+
+            blendProperties = Object.keys(styleList[currentStyle]).filter(function(prop){
+                return root.hasOwnProperty(prop)
+                    && typeof(root[prop]) === 'object'
+                    && root[prop].toString()[0] === '#'
+                    && root[prop] != styleList[currentStyle][prop];
+            });
+
+            blendProperties.forEach(function(field) {
+                tmpSourceColors[field] = hexToRgb(root[field]);
+                tmpTargetColors[field] = hexToRgb(styleList[currentStyle][field]);
+            });
+
+            sourceColors = tmpSourceColors;
+            targetColors = tmpTargetColors;
+
+            blendTimer.frame = 0;
+            blendTimer.start();
+        }
+
+        function hexToRgb(hex) {
+            var bigint = parseInt(hex.toString().replace('#',''), 16);
+            var r = (bigint >> 16) & 255;
+            var g = (bigint >> 8) & 255;
+            var b = bigint & 255;
+            return [r , g, b];
+        }
+
+        onTriggered: {
+            var delta = Math.min(1.0, ++frame * (blendTimer.interval / 250));
+            blendProperties.forEach(function(field) {
+                var sourceColor = sourceColors[field];
+                var targetColor = targetColors[field];
+                var currentR = sourceColor[0] + (targetColor[0] - sourceColor[0]) * delta;
+                var currentG = sourceColor[1] + (targetColor[1] - sourceColor[1]) * delta;
+                var currentB = sourceColor[2] + (targetColor[2] - sourceColor[2]) * delta;
+                var color = Qt.rgba(currentR / 255, currentG / 255, currentB / 255, 1.0);
+
+                root[field] = color;
+            });
+
+            if (delta >= 1.0) {
+                blendTimer.stop();
+            }
+        }
     }
 }

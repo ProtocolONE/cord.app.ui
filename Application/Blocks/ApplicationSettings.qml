@@ -22,10 +22,14 @@ Rectangle {
     signal close()
 
     function reloadSettings() {
-        generalSettingsPage.load();
-        downloadSettingsPage.load();
-        notificationSettingsPage.load();
-        messengerSettingsPage.load();
+        try {
+            generalSettingsPage.load();
+            downloadSettingsPage.load();
+            notificationSettingsPage.load();
+            messengerSettingsPage.load();
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     onClose: root.reloadSettings();
@@ -243,10 +247,14 @@ Rectangle {
                         text: qsTr("SAVE_BUTTON_LABEL")
 
                         onClicked: {
-                            generalSettingsPage.save();
-                            downloadSettingsPage.save();
-                            notificationSettingsPage.save();
-                            messengerSettingsPage.save();
+                            try {
+                                generalSettingsPage.save();
+                                downloadSettingsPage.save();
+                                notificationSettingsPage.save();
+                                messengerSettingsPage.save();
+                            } catch (e) {
+                                console.log(e);
+                            }
 
                             root.close();
                         }

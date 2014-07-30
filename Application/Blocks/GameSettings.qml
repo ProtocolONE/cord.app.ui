@@ -26,9 +26,13 @@ Rectangle {
     signal close();
 
     onClose: {
-        generalSettingsPage.load();
-        overlaySettingsPage.load();
-        controlSettingsPage.load();
+        try {
+            generalSettingsPage.load();
+            overlaySettingsPage.load();
+            controlSettingsPage.load();
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     onCurrentGameChanged: {
@@ -220,11 +224,14 @@ Rectangle {
                         text: qsTr("SAVE_BUTTON_LABEL")
 
                         onClicked: {
-                            generalSettingsPage.save();
-                            overlaySettingsPage.save();
-                            controlSettingsPage.save();
-
-                            gameSettingsModelInstance.submitSettings();
+                            try {
+                                generalSettingsPage.save();
+                                overlaySettingsPage.save();
+                                controlSettingsPage.save();
+                                gameSettingsModelInstance.submitSettings();
+                            } catch (e) {
+                                console.log(e);
+                            }
 
                             root.close();
                         }
