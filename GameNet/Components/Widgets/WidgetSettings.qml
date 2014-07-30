@@ -5,7 +5,9 @@ QtObject {
     id: root
 
     property string namespace
+    property variant autoSave: []
 
+    property variant __properties: []
     property variant __supportedTypes: ['boolean', 'string', 'number']
     property string __defaultNamespace: 'qml/widgets/'
 
@@ -42,20 +44,36 @@ QtObject {
     }
 
     function save() {
-        var fields = root.enumerateProperties();
-        fields.forEach(function(field) {
+        __properties.filter(function(field) {
+            return -1 === autoSave.indexOf(field);
+        }).forEach(function(field) {
             root.setValue(field, root[field]);
             root.propertySaved(field, root[field]);
         });
     }
 
     function load() {
-        var fields = root.enumerateProperties();
-        fields.forEach(function(field) {
+        __properties.forEach(function(field) {
             var value = root.value(field, undefined);
             if (value !== undefined) {
                 root[field] = value;
             }
+        });
+    }
+
+    function connectToAutoLoad() {
+        autoSave.filter(function(field) {
+            return -1 !== __properties.indexOf(field);
+        }).forEach(function(field) {
+            var changeSignal = field + 'Changed';
+            if (!root.hasOwnProperty(changeSignal)) {
+                return;
+            }
+
+            root[changeSignal].connect(function() {
+                root.setValue(field, root[field]);
+                root.propertySaved(field, root[field]);
+            });
         });
     }
 
@@ -77,5 +95,9 @@ QtObject {
         return true;
     }
 
-    Component.onCompleted: load();
+    Component.onCompleted: {
+        __properties = enumerateProperties();
+        load();
+        connectToAutoLoad();
+    }
 }
