@@ -1266,6 +1266,13 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>ContactItemDelegate</name>
+    <message>
+        <source>LAST_ACTIVITY_PLACEHOLDER</source>
+        <translation>Был %1</translation>
+    </message>
+</context>
+<context>
     <name>Contacts</name>
     <message>
         <source>MESSENGER_SEARCH_FRIEND_PLACE_HOLDER</source>
@@ -1898,7 +1905,7 @@ Please try again later.</source>
     <name>GameLoadSample</name>
     <message>
         <source>GAMELOAD_STARTING_GAME_NAME_HEADER</source>
-        <translation type="unfinished">Запуск BS.ru Demonion</translation>
+        <translation type="obsolete">Запуск BS.ru Demonion</translation>
     </message>
 </context>
 <context>
@@ -2532,7 +2539,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>LAST_ACTIVITY_PLACEHOLDER</source>
-        <translation>Был %1</translation>
+        <translation type="unfinished">Был %1</translation>
     </message>
 </context>
 <context>
@@ -2849,11 +2856,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>PAUSE</source>
-        <translation type="unfinished">Пауза</translation>
+        <translation type="obsolete">Пауза</translation>
     </message>
     <message>
         <source>SHOW_STATISTICS</source>
-        <translation type="unfinished">Показать статистику</translation>
+        <translation type="obsolete">Показать статистику</translation>
     </message>
 </context>
 <context>

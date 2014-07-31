@@ -28,6 +28,7 @@ Item {
     property string selectedJid
     property string selectedGroupId
     property string authedJid: ""
+    property variant currentTime
 
     property bool connecting: false
     property bool connected: false
@@ -89,17 +90,7 @@ Item {
         root.connecting = true;
         root.authedJid = jid;
 
-
-        console.log( "jid: " + jid);
-        //  DEBUG ONLY
         xmppClient.connectToServer(jid, password);
-
-//        xmppClient.configuration.host = "31.25.225.144";
-//        xmppClient.configuration.port = "5222";
-//        xmppClient.configuration.domain = "qj.gamenet.ru"
-//        xmppClient.configuration.user = user.userId;
-//        xmppClient.configuration.password = password;
-        //xmppClient.connectUsingConfiguration();
     }
 
     function disconnect() {
@@ -185,10 +176,10 @@ Item {
     function lastActivity(item) {
         var data = getUser(item.jid);
         if (!data.isValid()) {
-            return -1;
+            return null;
         }
 
-        return data.lastActivity || -1;
+        return data.lastActivity;
     }
 
     function isSelectedGamenet() {
@@ -455,6 +446,14 @@ Item {
         onPresenceReceived: d.updatePresence(presence);
     }
 
+    Timer {
+        running: true
+        repeat: true
+        interval: 20000
+        triggeredOnStart: true
+        onTriggered: root.currentTime = Date.now();
+    }
+
     Connections {
         target: App.signalBus()
         onLogoutDone: xmppClient.failCount = 0;
@@ -509,8 +508,7 @@ Item {
         onLastActivityUpdated: {
             var item = root.getUser(UserJs.jidWithoutResource(lastActivity.from));
             if (lastActivity.seconds > 0) {
-                console.log(lastActivity.from + ": " + lastActivity.seconds);
-                item.lastActivity = lastActivity.seconds;
+                item.lastActivity = Moment.moment().subtract(lastActivity.seconds, 'seconds');
             }
         }
     }

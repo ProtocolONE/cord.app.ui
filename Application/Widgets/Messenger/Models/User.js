@@ -188,6 +188,7 @@ function createRawUser(jid, nickname) {
         presenceState: "",
         inputMessage: "",
         avatar: "",
+        lastActivity: null,
         isGamenet: false,
         lastTalkDate: ""
     };
@@ -211,6 +212,7 @@ function createGamenetUser() {
         presenceState: "",
         inputMessage: "",
         avatar: "",
+        lastActivity: null,
         isGamenet: true,
         lastTalkDate: ""
     };

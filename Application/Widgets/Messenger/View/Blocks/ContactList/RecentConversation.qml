@@ -268,6 +268,7 @@ Item {
             height: 53
             user: model
             group: model
+            onClicked: select();
         }
     }
 

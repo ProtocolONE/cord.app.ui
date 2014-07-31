@@ -66,20 +66,56 @@ Rectangle {
                 }
             }
 
-            Item {
+            Column {
                 height: parent.height
                 width: parent.width - parent.height
 
+                anchors {
+                    top: parent.top
+                    margins: 8
+                }
+
                 Item {
-                    anchors.fill: parent
-                    anchors.rightMargin: 33
+                    width: parent.width
+                    height: nicknameText.height
+
+                    Rectangle {
+                        id: presenceIcon
+
+                        function presenceStatusToColor(status) {
+                            if (status === "online") {
+                                return Styles.style.messengerContactPresenceOnline;
+                            }
+
+                            if (status === "dnd") {
+                                return Styles.style.messengerContactPresenceDnd;
+                            }
+
+                            return Styles.style.messengerContactPresenceOffline;
+                        }
+
+                        width: 8
+                        height: 8
+                        border {
+                            width: 1
+                            color: Qt.darker(presenceIcon.color, Styles.style.darkerFactor)
+                        }
+                        color: presenceStatusToColor(root.presenceStatus)
+
+                        anchors {
+                            verticalCenter: nicknameText.baseline
+                            verticalCenterOffset: -4
+                            left: parent.left
+                            leftMargin: 2
+                        }
+                    }
 
                     Text {
                         id: nicknameText
 
                         anchors {
-                            baseline: parent.top
-                            baselineOffset: 22
+                            left: parent.left
+                            leftMargin: 20
                         }
 
                         font {
@@ -88,70 +124,27 @@ Rectangle {
                             bold: root.isUnreadMessages
                         }
 
+                        height: 20
                         width: parent.width
                         elide: Text.ElideRight
                     }
-
-                    Text {
-                        id: newMessageStatus
-
-                        anchors {
-                            baseline: parent.bottom
-                            baselineOffset: -10
-                        }
-
-                        visible: root.isUnreadMessages && !root.isCurrent
-                        text: qsTr("CONTACT_NEW_MESSAGE")
-                        color: Styles.style.messengerContactNewMessageStatusText
-                        font {
-                            family: "Arial"
-                            pixelSize: 12
-                        }
-                    }
-
-                    Text {
-                        id: statusText
-
-                        anchors {
-                            baseline: parent.bottom
-                            baselineOffset: -10
-                        }
-
-                        visible: !newMessageStatus.visible
-                        color: Styles.style.messengerContactStatusText
-                        font {
-                            family: "Arial"
-                            pixelSize: 12
-                        }
-                    }
                 }
 
-                Rectangle {
-                    id: presenceIcon
-
-                    function presenceStatusToColor(status) {
-                        if (status === "online") {
-                            return Styles.style.messengerContactPresenceOnline;
-                        }
-
-                        if (status === "dnd") {
-                            return Styles.style.messengerContactPresenceDnd;
-                        }
-
-                        return Styles.style.messengerContactPresenceOffline;
-                    }
-
-                    width: 7
-                    height: 7
-                    radius: 7
-                    color: presenceStatusToColor(root.presenceStatus)
+                Text {
+                    id: statusText
 
                     anchors {
-                        verticalCenter: parent.verticalCenter
-                        right: parent.right
-                        rightMargin: 16
+                        left: parent.left
+                        leftMargin: 1
+                    }
+
+                    color: Styles.style.messengerContactStatusText
+                    font {
+                        family: "Arial"
+                        pixelSize: 12
                     }
                 }
+
             }
         }
     }

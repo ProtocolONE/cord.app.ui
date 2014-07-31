@@ -251,6 +251,7 @@ Item {
                 visible: !model.isGroupItem
                 user: model
                 group: model
+                onClicked: select();
             }
         }
     }

@@ -11,6 +11,7 @@
 import QtQuick 1.1
 import Tulip 1.0
 import "../../../Models/Messenger.js" as Messenger
+import "../../../../../Core/moment.js" as Moment
 
 ContactItem {
     id: root
@@ -27,13 +28,16 @@ ContactItem {
     isUnreadMessages: !root.isCurrent && d.hasUnreadMessages();
     isCurrent: d.isCurrent()
 
-    onClicked: Messenger.selectUser(root.user || "", root.group || "");
+    function select() {
+        Messenger.selectUser(root.user || "", root.group || "");
+    }
 
     QtObject {
         id: d
 
         function nickName() {
             if (!root.user) {
+
                 return "";
             }
 
@@ -53,6 +57,16 @@ ContactItem {
                 return "";
             }
 
+            if (root.presenceStatus != "online" && root.presenceStatus != "dnd") {
+                var lastActivity = Messenger.userLastActivity(root.user);
+
+                if (!lastActivity) {
+                    return "";
+                }
+
+                var currentTime = Messenger.getCurrentTime();
+                return qsTr("LAST_ACTIVITY_PLACEHOLDER").arg(Moment.moment(lastActivity).lang('ru').from(currentTime));
+            }
             return Messenger.userStatusMessage(root.user) || "";
         }
 

@@ -184,3 +184,6 @@ function getGamenetUser() {
     return _modelInstance.getGamenetUser();
 }
 
+function getCurrentTime() {
+    return _modelInstance.currentTime;
+}
