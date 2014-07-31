@@ -36,6 +36,7 @@ namespace Test_QrcGenerator
                 targetFile = args[0];
 
             string targetDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string qrcFullPath = Path.Combine(targetDirectory, targetFile);
             string result;
             try
             {
@@ -55,8 +56,8 @@ namespace Test_QrcGenerator
                 return;
             }
 
-            File.WriteAllText(targetFile, result, Encoding.UTF8);
-            Console.WriteLine("Qrc generation finished.");
+            File.WriteAllText(qrcFullPath, result, Encoding.UTF8);
+            Console.WriteLine("Qrc generation finished. File: {0}", qrcFullPath);
         }
     }
 }
