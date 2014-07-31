@@ -19,6 +19,7 @@ import Application.Controls 1.0 as AppControls
 
 import "Application"
 import "Application/Core/App.js" as App
+import "Application/Core/Styles.js" as Styles
 import "Application/Core/User.js" as User
 
 Rectangle {
@@ -28,7 +29,7 @@ Rectangle {
     signal dragWindowReleased(int x, int y);
     signal dragWindowPositionChanged(int x, int y);
 
-    color: "#092135"
+    color: Styles.style.base
     opacity: 0
 
     width: App.clientWidth
