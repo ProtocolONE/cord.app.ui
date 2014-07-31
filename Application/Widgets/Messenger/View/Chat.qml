@@ -38,12 +38,15 @@ WidgetView {
         id: body
 
         anchors {
-            left: parent.left
             top: parent.top
-            right: parent.right
             topMargin: header.height
+            left: parent.left
+            right: parent.right
         }
-        height: separator.y - header.height
+
+        height: MessengerJs.isSelectedGamenet()
+                    ? root.height - header.height
+                    : separator.y - header.height
 
     }
 
@@ -57,6 +60,8 @@ WidgetView {
             bottom: parent.bottom
             top: body.bottom
         }
+
+        onCloseDialogPressed: MessengerJs.closeChat();
 
         Connections {
             target: MessengerJs.instance()

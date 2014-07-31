@@ -369,13 +369,13 @@ Item {
             var now = Date.now();
             user.lastTalkDate = now;
 
-            MessengerPrivateJs.lastTalkMap[user.jid] = now;
+            MessengerPrivateJs.lastTalkDateMap[user.jid] = now;
             authedUserId = root.authedUser().userId;
 
             Settings.setValue(
                         'qml/messenger/recentconversation/' + authedUserId,
                         'lastTalkDate',
-                        JSON.stringify(MessengerPrivateJs.lastTalkMap));
+                        JSON.stringify(MessengerPrivateJs.lastTalkDateMap));
 
             root.talkDateChanged(user.jid);
         }
@@ -383,18 +383,18 @@ Item {
         function loadUserTalkDate(userId) {
             var loadString = Settings.value('qml/messenger/recentconversation/' + userId, 'lastTalkDate', "{}");
             try {
-                MessengerPrivateJs.lastTalkMap = JSON.parse(loadString);
+                MessengerPrivateJs.lastTalkDateMap = JSON.parse(loadString);
             } catch(e) {
-                MessengerPrivateJs.lastTalkMap = {};
+                MessengerPrivateJs.lastTalkDateMap = {};
             }
         }
 
         function getUserTalkDate(user) {
-            if (!MessengerPrivateJs.lastTalkMap.hasOwnProperty(user.jid)) {
+            if (!MessengerPrivateJs.lastTalkDateMap.hasOwnProperty(user.jid)) {
                 return 0;
             }
 
-            return MessengerPrivateJs.lastTalkMap[user.jid] || 0;
+            return MessengerPrivateJs.lastTalkDateMap[user.jid] || 0;
         }
     }
 

@@ -55,21 +55,16 @@ FocusScope {
             d.activeStatus = status;
             MessengerJs.sendInputStatus(user, status);
         }
-    }
 
-    Connections {
-        target: MessengerJs.instance()
-        onSelectedUserChanged: {
-            var user;
-            if (messengerInput.text.length > 0) {
-                user = MessengerJs.previousUser();
-                if (user.isValid()) {
+        function updateUserSelectedText() {
+            var user = MessengerJs.previousUser();
+
+            if (user.isValid()) {
+                d.setActiveStatus(user, "Active");
+
+                if (messengerInput.text.length > 0) {
                     user.inputMessage = messengerInput.text;
                 }
-            }
-
-            if (MessengerJs.previousUser().isValid()) {
-                d.setActiveStatus(MessengerJs.previousUser(), "Active");
             }
 
             user = MessengerJs.selectedUser();
@@ -81,6 +76,10 @@ FocusScope {
         }
     }
 
+    Connections {
+        target: MessengerJs.instance()
+        onSelectedUserChanged: d.updateUserSelectedText()
+    }
 
     Rectangle {
         width: 4
@@ -197,13 +196,12 @@ FocusScope {
                             Keys.onEscapePressed: root.closeDialogPressed();
 
                             onTextChanged: {
+                                composingTimer.count = 0;
                                 if (text.length <= 0) {
                                     d.setActiveStatus(MessengerJs.selectedUser(), "Active");
                                     composingTimer.stop();
-                                    composingTimer.count = 0;
                                 } else {
                                     d.setActiveStatus(MessengerJs.selectedUser(), "Composing");
-                                    composingTimer.count = 0;
                                     composingTimer.start();
                                 }
 

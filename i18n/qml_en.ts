@@ -1056,22 +1056,22 @@
 <context>
     <name>GeneralSettings</name>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/GeneralSettings.qml" line="108"/>
+        <location filename="../Application/Blocks/ApplicationSettings/GeneralSettings.qml" line="123"/>
         <source>CHECKOX_AUTORUN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/GeneralSettings.qml" line="126"/>
+        <location filename="../Application/Blocks/ApplicationSettings/GeneralSettings.qml" line="141"/>
         <source>CHECKOX_RUN_MINIMIZED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/GeneralSettings.qml" line="141"/>
+        <location filename="../Application/Blocks/ApplicationSettings/GeneralSettings.qml" line="156"/>
         <source>CHECKOX_PARTICIPATE_TESTING</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings/GeneralSettings.qml" line="170"/>
+        <location filename="../Application/Blocks/ApplicationSettings/GeneralSettings.qml" line="185"/>
         <source>TEST_VERSION_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1271,17 +1271,17 @@
 <context>
     <name>MessageInput</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="257"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="268"/>
         <source>MESSENGER_SEND_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="265"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="276"/>
         <source>MESSENGER_SEND_BUTTON_MESSAGE_ENTER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="267"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="278"/>
         <source>MESSENGER_SEND_BUTTON_MESSAGE_CTRL_ENTER</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1462,12 +1462,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="259"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="254"/>
         <source>MONEY_TOTAL %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="281"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="276"/>
         <source>ACCEPT_BUY</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1659,7 +1659,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/RecentConversation.qml" line="287"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/RecentConversation.qml" line="286"/>
         <source>MESSENGER_RECENT_CONTACTS_EMPTY_INFO</source>
         <translation type="unfinished"></translation>
     </message>

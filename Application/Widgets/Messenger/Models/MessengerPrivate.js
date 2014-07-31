@@ -11,7 +11,7 @@
 
 var groupToUser = {}
     , userToGroup = {}
-    , lastTalkMap = {};
+    , lastTalkDateMap = {};
 
 function reset() {
     groupToUser = {};

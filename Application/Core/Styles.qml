@@ -87,6 +87,7 @@ Item {
     //MESSENGER RECENT CONTACT GROUP
     property color messengerRecentContactGroupBackground: "#E5E9EC"
     property color messengerRecentContactGroupName: "#8297a9"
+    property color messengerRecentContactEmptyInfo: "#000000"
 
     //MESSENGER CONTACT INPUT
     property color messengerMessageInputBackground: "#FFFFFF"

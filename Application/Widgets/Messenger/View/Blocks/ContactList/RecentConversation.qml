@@ -285,7 +285,7 @@ Item {
 
         text: qsTr("MESSENGER_RECENT_CONTACTS_EMPTY_INFO")
         wrapMode: Text.Wrap
-        color: "#000000"
+        color: Styles.style.messengerRecentContactEmptyInfo
         font {
             family: "Arial"
             pixelSize: 14
