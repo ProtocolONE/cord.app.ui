@@ -19,19 +19,13 @@ import Application.Blocks.Popup 1.0
 
 import "../../../Core/Authorization.js" as Authorization
 import "../../../Core/App.js" as App
+import "../../../Core/User.js" as User
 
 PopupBase {
     id: root
 
     title: qsTr("SECOND_ACCOUNT_ACTIVATION_TITLE")
     implicitWidth: 540
-    height: 473
-
-    Connections {
-        target: App.signalBus()
-
-        onSecondAuthDone: root.close();
-    }
 
     QtObject {
         id: d
@@ -48,7 +42,7 @@ PopupBase {
                 d.vkAuthInProgress = false;
 
                 if (Authorization.isSuccess(error)) {
-                    App.secondAuthDone(response.userId, response.appKey, response.cookie);
+                    d.authSuccess(response.userId, response.appKey, response.cookie, true);
                     return;
                 }
 
@@ -81,11 +75,26 @@ PopupBase {
             Settings.setValue("qml/auth/" , "authedLogins", JSON.stringify(currentValue));
             auth.loginSuggestion = currentValue;
         }
+
+        function authSuccess(userId, appKey, cookie, remember, login) {
+            if (userId != User.userId()) {
+                if (remember) {
+                    CredentialStorage.saveEx(d.savePrefix, userId, appKey, cookie, false);
+                    if (login) {
+                        d.saveAuthorizedLogins(login);
+                    }
+                }
+
+                App.secondAuthDone(userId, appKey, cookie);
+            }
+
+            root.close();
+        }
     }
 
     Item {
         width: root.width
-        height: 473
+        height: 433
 
         Item {
             id: authContainer
@@ -115,13 +124,8 @@ PopupBase {
                     loginSuggestion: d.loginSuggestion();
 
                     onAuthDone: {
-                        App.secondAuthDone(userId, appKey, cookie);
-
-                        if (remember) {
-                            CredentialStorage.saveEx(d.savePrefix, userId, appKey, cookie, false);
-
-                            d.saveAuthorizedLogins(auth.login);
-                        } else {
+                        d.authSuccess(userId, appKey, cookie, remember, auth.login);
+                        if (!remember) {
                             auth.login = "";
                         }
                     }
@@ -134,12 +138,7 @@ PopupBase {
                     height: 330
                     onSwitchToLogin: authContainer.state = "auth"
                     onError: d.showError(message);
-
-                    onAuthDone: {
-                        App.secondAuthDone(userId, appKey, cookie);
-                        CredentialStorage.saveEx(d.savePrefix, userId, appKey, cookie, false);
-                        d.saveAuthorizedLogins(registration.login);
-                    }
+                    onAuthDone: d.authSuccess(userId, appKey, cookie, true, registration.login);
                 }
 
                 CodeBody {
