@@ -195,6 +195,15 @@ Item {
         return usersModel.getById(UserJs.getGamenetUserJid());
     }
 
+    function getGroupName(item) {
+        var group = new GroupJs.Group(groupsModel.getById(item.groupId), groupsModel);
+        if (!group.isValid()) {
+            return "";
+        }
+
+        return group.name;
+    }
+
     QtObject {
         id: d
 
@@ -318,7 +327,7 @@ Item {
             }
         }
 
-        function appendMessage(from, state, message) {
+        function appendMessage(from, state, message, date) {
             var user;
 
             if (!usersModel.contains(from))
@@ -327,7 +336,7 @@ Item {
             user = new UserJs.User(usersModel.getById(from), usersModel);
 
             if (message) {
-                user.appendMessage(from, message);
+                user.appendMessage(from, message, date);
                 d.updateUserTalkDate(user);
                 if (!root.isSelectedUser(user)) {
                     user.unreadMessageCount += 1;
@@ -430,13 +439,22 @@ Item {
         }
 
         onMessageReceived: {
-            //console.log('------ !!!', JSON.stringify(message));
+            var messageDate;
+
+            if (message.stamp != "Invalid Date") {
+                messageDate = +(Moment.moment(message.stamp));
+            }
+
             if (message.type !== QXmppMessage.Chat) {
                 return;
             }
 
             var bareJid = UserJs.jidWithoutResource(message.from)
-            d.appendMessage(bareJid, message.state, message.body)
+            if (!usersModel.contains(bareJid)) {
+                d.appendUser(bareJid);
+            }
+
+            d.appendMessage(bareJid, message.state, message.body, messageDate)
 
             if (message.body) {
                 root.messageReceived(bareJid, message.body);

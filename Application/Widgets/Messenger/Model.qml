@@ -20,7 +20,7 @@ WidgetModel {
         namespace: 'Messenger'
         autoSave: ['chatBodyHeight']
 
-        property bool messengerReceivedMessage
+        property bool messengerReceivedMessage: true
         property int sendAction: Settings.SendShortCut.Enter
         property int chatBodyHeight: 470
     }

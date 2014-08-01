@@ -130,30 +130,30 @@ function User(item, model) {
         return !!_item && !!_model;
     }
 
-    this.appendRawMessage = function(from, isStatus, body) {
-        message = createRawMessage(from, isStatus, body);
+    this.appendRawMessage = function(from, isStatus, body, date) {
+        message = createRawMessage(from, isStatus, body, date);
         _item.messages.append(message);
     }
 
-    this.appendMessage = function(from, body) {
+    this.appendMessage = function(from, body, date) {
         if (self.jid !== from) {
             if (self.isLastMessageStatus) {
-                message = createRawMessage(from, false, body)
+                message = createRawMessage(from, false, body, date)
                 _item.messages.insert(_item.messages.count - 1, message);
             } else {
-                self.appendRawMessage(from, false, body);
+                self.appendRawMessage(from, false, body, date);
             }
 
             return;
         }
 
         if (self.isLastMessageStatus) {
-            self.lastMessage.finishComposing(body);
+            self.lastMessage.finishComposing(body, date);
             _item.state = MessageType.Normal;
             return;
         }
 
-        self.appendRawMessage(from, false, body);
+        self.appendRawMessage(from, false, body, date);
     }
 
     this.removeMessage = function(msg) {

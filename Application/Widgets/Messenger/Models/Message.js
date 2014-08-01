@@ -65,18 +65,18 @@ function Message(model, index) {
         _model.setProperty(_index, 'date', val);
     });
 
-    this.finishComposing = function(body) {
+    this.finishComposing = function(body, date) {
         this.isStatusMessage = false;
-        this.date = +(new Date());
+        this.date = date || Date.now();
         this.text = body;
     }
 }
 
-function createRawMessage(from, isStatus, body) {
+function createRawMessage(from, isStatus, body, date) {
     var result = {
         jid: from,
         text: body || "",
-        date: (+ new Date()),
+        date: date || Date.now(),
         isStatusMessage: isStatus
     };
 

@@ -33,8 +33,6 @@ Item {
             id = 'messageReceived' + Qt.md5(from + body);
             data = {
                 jid: from,
-                avatar: MessengerJs.userAvatar(user),
-                nickname: MessengerJs.getNickname(user),
                 messageText: body,
             };
 

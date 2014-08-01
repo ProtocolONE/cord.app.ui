@@ -48,7 +48,6 @@ Item {
                 Js.removeGroup(groupId);
             });
 
-
             d.updateOpenedGroups();
         }
 
@@ -177,7 +176,13 @@ Item {
         }
 
         function countUnreadUsers(groupId) {
-            var users = Messenger.groups().getById(groupId).users,
+            var group = Messenger.groups().getById(groupId);
+
+            if (!group) {
+                return 0;
+            }
+
+            var users = group.users,
                     count = users.count,
                     i,
                     result = 0;
@@ -226,7 +231,7 @@ Item {
             height: visible ? 33 : 0
             visible: !!section
             opened: true
-            groupName: section
+            groupName: Messenger.getGroupName({groupId: section})
             usersCount: section ? d.userCount(section) : 0
             onClicked: d.closeGroup(section)
         }
@@ -240,7 +245,7 @@ Item {
                 height: 33
                 visible: model.isGroupItem
                 opened: false
-                groupName: model.value
+                groupName: Messenger.getGroupName(model)
                 usersCount: model.isGroupItem ? d.userCount(model.value) : 0
                 onClicked: d.openGroup(model.value, index)
                 unreadUsersCount: model.isGroupItem ? d.countUnreadUsers(model.value) : 0

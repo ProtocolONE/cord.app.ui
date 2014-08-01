@@ -137,7 +137,6 @@ Item {
     property color messengerContactPresenceDnd: "#FFCC00"
     property color messengerContactPresenceOffline: "#CCCCCC"
     property color messengerContactStatusText: "#5B6F81"
-    property color messengerContactNewMessageStatusText: "#FFCC00"
 
     //MESSENGER CONTACT GROUP
     property color messengerContactGroupBackground: "#E5E9EC"

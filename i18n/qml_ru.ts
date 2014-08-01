@@ -1262,7 +1262,7 @@ Please try again later.</source>
     <name>ContactItem</name>
     <message>
         <source>CONTACT_NEW_MESSAGE</source>
-        <translation>Новое сообщение</translation>
+        <translation type="vanished">Новое сообщение</translation>
     </message>
 </context>
 <context>
@@ -3325,6 +3325,13 @@ Please try again later.</source>
     <message>
         <source>MESSAGE_INTERNET_UNAVAILABLE</source>
         <translation type="vanished">В настоящий момент сервисы GameNet недоступны. Вероятно по нашей вине, но, возможно, это ваше интернет-соединение. Пожалуйста, на всякий случай проверьте ваше соединение.</translation>
+    </message>
+</context>
+<context>
+    <name>PlainContacts</name>
+    <message>
+        <source>WITHOUT_GROUP_NAME</source>
+        <translation type="vanished">Без группы</translation>
     </message>
 </context>
 <context>

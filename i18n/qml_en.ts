@@ -187,42 +187,42 @@
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="56"/>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="53"/>
         <source>APPLICATION_SETTINGS_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="85"/>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="83"/>
         <source>GENERAL_TAB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="95"/>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="103"/>
         <source>DOWNLOADS_TAB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="105"/>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="123"/>
         <source>NOTIFICATIONS_TAB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="115"/>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="143"/>
         <source>MESSENGER_TAB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="128"/>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="173"/>
         <source>RESTORE_SETTINGS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="194"/>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="247"/>
         <source>SAVE_BUTTON_LABEL</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/ApplicationSettings.qml" line="213"/>
+        <location filename="../Application/Blocks/ApplicationSettings.qml" line="266"/>
         <source>CLOSE_BUTTON_LABEL</source>
         <translation></translation>
     </message>
@@ -377,22 +377,6 @@
     <message>
         <location filename="../Application/Blocks/Auth/CodeBody.qml" line="172"/>
         <source>CODE_BODY_CANCEL_BUTTON</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ContactItem</name>
-    <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem.qml" line="104"/>
-        <source>CONTACT_NEW_MESSAGE</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ContactItemDelegate</name>
-    <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="63"/>
-        <source>LAST_ACTIVITY_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -805,37 +789,37 @@
 <context>
     <name>GameSettings</name>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="67"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="64"/>
         <source>GAME_SETTINGS_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="96"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="92"/>
         <source>FOLDERS_TAB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="107"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="109"/>
         <source>OVERLAY_TAB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="120"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="127"/>
         <source>CONTROLS_TAB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="133"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="156"/>
         <source>RESTORE_CLIENT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="194"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="224"/>
         <source>SAVE_BUTTON_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="213"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="243"/>
         <source>CLOSE_BUTTON_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1079,7 +1063,7 @@
 <context>
     <name>Group</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Group.js" line="53"/>
+        <location filename="../Application/Widgets/Messenger/Models/Group.js" line="61"/>
         <source>WITHOUT_GROUP_NAME</source>
         <translation type="unfinished"></translation>
     </message>

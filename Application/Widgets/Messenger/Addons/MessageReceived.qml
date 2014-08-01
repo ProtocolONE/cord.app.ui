@@ -3,13 +3,15 @@ import QtQuick 1.1
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
+import "../Models/Messenger.js" as MessengerJs
+
 TrayPopupBase {
     id: root
 
     property string jid
     property string messageText
-    property string avatar
-    property string nickname
+    property string avatar: MessengerJs.userAvatar(root)
+    property string nickname: MessengerJs.getNickname(root)
 
     width: 209
     height: 122

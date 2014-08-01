@@ -15,6 +15,10 @@ function Group(item, model) {
         self = this;
 
     this.__defineGetter__("groupId", function() {
+        if (!_item) {
+            return "";
+        }
+
         return _item.groupId;
     });
 
@@ -44,6 +48,10 @@ function Group(item, model) {
 
     this.appendUser = function(jid) {
         _item.users.append({jid: jid});
+    }
+
+    this.isValid = function() {
+        return !!_item && !!_model;
     }
 }
 

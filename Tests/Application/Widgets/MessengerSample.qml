@@ -32,8 +32,8 @@ Rectangle {
             width: 100
             height: 30
             text: 'Login'
-            onClicked: App.authDone('400001000005869460', 'fac8da16caa762f91607410d2bf428fb7e4b2c5e'); //0 friends
-            //onClicked: App.authDone('400001000000065690', 'cd34fe488b93d254243fa2754e86df8ffbe382b9'); //300+ friends
+            //onClicked: App.authDone('400001000005869460', 'fac8da16caa762f91607410d2bf428fb7e4b2c5e'); //0 friends
+            onClicked: App.authDone('400001000000065690', 'cd34fe488b93d254243fa2754e86df8ffbe382b9'); //300+ friends
             //onClicked: App.authDone('400001000000000110', '6c5f39adaaa18c3b4a6d8f4af5289ecf76029af2'); //800+ friends
             //onClicked: App.authDone('400001000000073060', '75517c5137f42a35f10cc984d8307209dd63b432'); //3600+ friends
 

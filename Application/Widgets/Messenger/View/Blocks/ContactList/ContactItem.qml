@@ -102,22 +102,19 @@ Rectangle {
                         }
                         color: presenceStatusToColor(root.presenceStatus)
 
-                        anchors {
-                            verticalCenter: nicknameText.baseline
-                            verticalCenterOffset: -4
-                            left: parent.left
-                            leftMargin: 2
-                        }
+                        width: parent.width
+                        elide: Text.ElideRight
                     }
 
                     Text {
-                        id: nicknameText
+                        id: statusText
 
                         anchors {
                             left: parent.left
                             leftMargin: 20
                         }
 
+                        color: Styles.style.messengerContactStatusText
                         font {
                             family: "Arial"
                             pixelSize: 14

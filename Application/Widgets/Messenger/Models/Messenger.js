@@ -80,6 +80,10 @@ function setGroupOpened(groupId, value) {
 }
 
 function getNickname(item) {
+    if (!item) {
+        return "";
+    }
+
     if (!item.hasOwnProperty('jid')) {
         throw new Error('Error getNickname. Object has not property jid.' + JSON.stringify(item));
     }
@@ -90,6 +94,18 @@ function getNickname(item) {
     }
 
     return user.nickname;
+}
+
+function getGroupName(item) {
+    if (!item) {
+        return "";
+    }
+
+    if (!item.hasOwnProperty('groupId')) {
+        throw new Error('Error getGroupName. Object has not property groupId.' + JSON.stringify(item));
+    }
+
+    return _modelInstance.getGroupName(item);
 }
 
 function closeChat() {
