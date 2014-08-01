@@ -28,7 +28,7 @@ Item {
     property string selectedJid
     property string selectedGroupId
     property string authedJid: ""
-    property variant currentTime
+    property int currentTime
 
     property bool connecting: false
     property bool connected: false
@@ -58,7 +58,7 @@ Item {
         if (!usersModel.contains(user.jid))
             return;
 
-        item = new UserJs.User(usersModel.getById(user.jid), usersModel);
+        item = root.getUser(user.jid);
         item.appendMessage(root.authedJid, body);
         d.updateUserTalkDate(item);
         messageMap.body = body;
@@ -68,7 +68,7 @@ Item {
     }
 
     function sendInputStatus(user, value) {
-        var item = new UserJs.User(usersModel.getById(user.jid), usersModel);
+        var item = root.getUser(user.jid);
         if (!item.isValid()) {
             return;
         }
@@ -113,7 +113,7 @@ Item {
         if (root.authedJid && jid === root.authedJid)
             return user;
 
-        return new UserJs.User(usersModel.getById(jid), usersModel);
+        return new UserJs.User(usersModel.getById(jid), usersModel, xmppClient);
     }
 
     function isSelectedUser(user) {
@@ -156,11 +156,11 @@ Item {
     }
 
     function selectedUser() {
-        return new UserJs.User(usersModel.getById(root.selectedJid), usersModel);
+        return root.getUser(root.selectedJid);
     }
 
     function previousUser() {
-        return new UserJs.User(usersModel.getById(root.previousJid), usersModel);
+        return root.getUser(root.previousJid);
     }
 
     function authedUser() {
@@ -180,10 +180,10 @@ Item {
     function lastActivity(item) {
         var data = getUser(item.jid);
         if (!data.isValid()) {
-            return null;
+            return 0;
         }
 
-        return data.lastActivity;
+        return data.lastActivity || 0;
     }
 
     function isSelectedGamenet() {
@@ -274,7 +274,7 @@ Item {
 
             if (usersModel.contains(user)) {
                 // INFO Никнейм из вкарда мы берем, но сортировка происходит по нику из ростера
-                item = new UserJs.User(usersModel.getById(user), usersModel);
+                item = root.getUser(user);
                 item.nickname = nickname || user;
                 // UNDONE set other properties
             } else {
@@ -282,8 +282,6 @@ Item {
                 rawUser.avatar = d.getDefaultAvatar();
                 rawUser.lastTalkDate = d.getUserTalkDate(rawUser);
                 usersModel.append(rawUser);
-                xmppClient.vcardManager.requestVCard(user);
-                xmppClient.lastActivityManager.requestLastActivity(user);
             }
 
             groups.forEach(function(group) {
@@ -345,7 +343,7 @@ Item {
             if (!usersModel.contains(from))
                 return;
 
-            user = new UserJs.User(usersModel.getById(from), usersModel);
+            user = root.getUser(from);
 
             if (message) {
                 user.appendMessage(from, message, date);
@@ -370,6 +368,10 @@ Item {
             user.statusMessage = presence.status;
             if (user.online !== oldOnline) {
                 root.onlineStatusChanged(user.jid);
+            }
+
+            if (!user.online) {
+                xmppClient.lastActivityManager.requestLastActivity(bareJid);
             }
         }
 
@@ -483,9 +485,9 @@ Item {
     Timer {
         running: true
         repeat: true
-        interval: 20000
+        interval: 60000
         triggeredOnStart: true
-        onTriggered: root.currentTime = Date.now();
+        onTriggered: root.currentTime = Math.floor(Date.now()/1000);
     }
 
     Connections {
@@ -541,8 +543,9 @@ Item {
         target: xmppClient.lastActivityManager
         onLastActivityUpdated: {
             var item = root.getUser(UserJs.jidWithoutResource(lastActivity.from));
-            if (lastActivity.seconds > 0) {
-                item.lastActivity = Moment.moment().subtract(lastActivity.seconds, 'seconds');
+
+            if (lastActivity.seconds >= 0) {
+                item.lastActivity = (+ Moment.moment().subtract(lastActivity.seconds, 'seconds'))/1000;
             }
         }
     }

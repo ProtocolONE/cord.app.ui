@@ -11,11 +11,18 @@
 
 Qt.include("Message.js");
 
-function User(item, model) {
+function User(item, model, jabber) {
     var _item = item,
         _model = model,
         self = this,
         message;
+
+    function warmUpVCard() {
+        if (!_item.__vCardRequested) {
+            jabber.vcardManager.requestVCard(self.jid);
+            _model.setPropertyById(self.jid, '__vCardRequested', true);
+        }
+    }
 
     this.__defineGetter__("jid", function() {
         if (!_item) {
@@ -99,6 +106,8 @@ function User(item, model) {
     });
 
     this.__defineGetter__("avatar", function() {
+        warmUpVCard()
+
         return _item.avatar;
     });
 
@@ -107,6 +116,11 @@ function User(item, model) {
     });
 
     this.__defineGetter__("lastActivity", function() {
+        if (!_item.__lastActivityRequested) {
+            jabber.lastActivityManager.requestLastActivity(self.jid);
+            _model.setPropertyById(self.jid, '__lastActivityRequested', true);
+        }
+
         return _item.lastActivity;
     });
 
@@ -192,10 +206,12 @@ function createRawUser(jid, nickname) {
         presenceState: "",
         inputMessage: "",
         avatar: "",
-        lastActivity: null,
+        lastActivity: 0,
         isGamenet: false,
         lastTalkDate: "",
-        online: false
+        online: false,
+        __lastActivityRequested: false,
+        __vCardRequested: false
     };
 
     return result;
@@ -217,10 +233,12 @@ function createGamenetUser() {
         presenceState: "",
         inputMessage: "",
         avatar: "",
-        lastActivity: null,
+        lastActivity: 0,
         isGamenet: true,
         lastTalkDate: "",
-        online: true
+        online: true,
+        __lastActivityRequested: false,
+        __vCardRequested: false
     };
 
     return result;

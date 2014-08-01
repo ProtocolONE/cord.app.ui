@@ -11,7 +11,9 @@
 import QtQuick 1.1
 import Tulip 1.0
 import "../../../Models/Messenger.js" as Messenger
+import "../../../Models/User.js" as User
 import "../../../../../Core/moment.js" as Moment
+
 
 ContactItem {
     id: root
@@ -57,17 +59,18 @@ ContactItem {
                 return "";
             }
 
-            if (root.presenceStatus != "online" && root.presenceStatus != "dnd") {
-                var lastActivity = Messenger.userLastActivity(root.user);
-
-                if (!lastActivity) {
-                    return "";
-                }
-
-                var currentTime = Messenger.getCurrentTime();
-                return qsTr("LAST_ACTIVITY_PLACEHOLDER").arg(Moment.moment(lastActivity).lang('ru').from(currentTime));
+            if (User.isOnline(root.presenceStatus)) {
+                return Messenger.userStatusMessage(root.user) || "";
             }
-            return Messenger.userStatusMessage(root.user) || "";
+
+            var lastActivity = Messenger.userLastActivity(root.user);
+            if (!lastActivity) {
+                return "";
+            }
+
+            var currentTime = Math.max(Messenger.getCurrentTime() * 1000, Date.now());
+
+            return qsTr("LAST_ACTIVITY_PLACEHOLDER").arg(Moment.moment(lastActivity * 1000).lang('ru').from(currentTime));
         }
 
         function presenceStatus() {
