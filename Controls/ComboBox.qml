@@ -97,6 +97,18 @@ Item {
         }
     }
 
+    MouseArea {
+        // INFO Пока изменяется анимация высоты с помошью behavior on height, MouseArea в делегатах ListView не работают
+        // эта подложка нужна что-бы недопустить клики насквозь, пока анимация не завершится
+        anchors {
+            left: parent.left
+            top: parent.bottom
+            right: parent.right
+        }
+        height: listView.height
+        visible: listContainer.controlVisible
+    }
+
     Item {
         id: control
 
