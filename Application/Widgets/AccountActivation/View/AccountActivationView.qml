@@ -26,19 +26,19 @@ PopupBase {
     QtObject {
         id: d
 
-        property bool inProgress: false
-        property int pendingCodeRequests: 0
-
         function requestActivationCode() {
-            d.inProgress = true;
+            requestCodeButton.inProgress = true;
+
             RestApiJs.User.sendMobileActivationCode(
                         phone.text,
                         function(response) {
-                            d.inProgress = false;
+                            requestCodeButton.inProgress = false;
 
                             if (response.result === 1) {
                                 phone.error = false;
                                 requestCodeError.error = false;
+                                stateGroup.state = "ValidateCode";
+                                code.forceActiveFocus();
                                 return;
                             }
 
@@ -54,7 +54,7 @@ PopupBase {
                             }
                         },
                         function(response) {
-                            d.inProgress = false;
+                            requestCodeButton.inProgress = false;
 
                             phone.error = true;
                             requestCodeError.error = true;
@@ -63,17 +63,20 @@ PopupBase {
         }
 
         function validateActivationCode() {
-            d.inProgress = true;
+            validateCodeButton.inProgress = true;
+
             RestApiJs.User.validateMobileActivationCode(
                         code.text,
                         function(response) {
-                            d.inProgress = false;
+                            validateCodeButton.inProgress = false;
 
                             if (response.result === 1) {
                                 code.error = false;
                                 validateCodeError.error = false;
+                                root.close();
                                 return;
                             }
+
 
                             if (response.error) {
                                 code.error = true;
@@ -84,10 +87,9 @@ PopupBase {
                                     validateCodeError.errorMessage = qsTr("ACCOUNT_ACTIVATION_ERROR");
                                 }
                             }
-
                         },
                         function(response) {
-                            d.inProgress = false;
+                            validateCodeButton.inProgress = false;
 
                             code.error = true;
                             validateCodeError.error = true;
@@ -120,6 +122,7 @@ PopupBase {
 
     Item {
         id: body
+
         anchors {
             left: parent.left
             leftMargin: 20
@@ -147,13 +150,13 @@ PopupBase {
                 top: phoneLabel.bottom
                 topMargin: 16
             }
-            readOnly: d.inProgress
+            readOnly: requestCodeButton.inProgress
             width: body.width
             placeholder: qsTr("PLACEHOLDER_PHONE")
             onEnterPressed: d.requestActivationCode();
             onTextChanged: requestCodeError.error = false;
-            onTabPressed: code.focus = true;
-            onBackTabPressed: code.focus = true;
+            onTabPressed: code.forceActiveFocus();
+            onBackTabPressed: code.forceActiveFocus();
         }
     }
 
@@ -174,7 +177,7 @@ PopupBase {
 
                 width: 200
                 height: 48
-                enabled: phone.text.length > 0
+                enabled: phone.text.length > 0 && stateGroup.state == "RequestCode"
                 text: qsTr("BUTTON_GET_CODE")
 
                 analytics: GoogleAnalyticsEvent {
@@ -182,7 +185,6 @@ PopupBase {
                     category: "Auth"
                     action: "Request phone code"
                 }
-
                 onClicked: d.requestActivationCode();
             }
 
@@ -201,6 +203,7 @@ PopupBase {
 
     Item {
         id: step2
+
         anchors {
             left: parent.left
             leftMargin: 20
@@ -231,13 +234,13 @@ PopupBase {
 
             width: body.width
             icon: installPath + "Assets/Images/Application/Widgets/AccountActivation/lock.png"
-            readOnly: d.inProgress
+            readOnly: validateCodeButton.inProgress
             validator: RegExpValidator { regExp: /[0-9]{,10}/ }
             placeholder: qsTr("PLACEHOLDER_ACTIVATION_CODE_INPUT")
             onEnterPressed: d.validateActivationCode();
             onTextChanged: validateCodeError.error = false;
-            onTabPressed: phone.focus = true;
-            onBackTabPressed: phone.focus = true;
+            onTabPressed: phone.forceActiveFocus();
+            onBackTabPressed: phone.forceActiveFocus();
         }
     }
 
@@ -262,7 +265,7 @@ PopupBase {
 
                 width: 200
                 height: 48
-                enabled: code.text.length > 0
+                enabled: code.text.length > 0 && stateGroup.state == "ValidateCode"
                 text: qsTr("BUTTON_CODE_CONFIRM")
 
                 analytics: GoogleAnalyticsEvent {
@@ -281,5 +284,23 @@ PopupBase {
                 height: 48
             }
         }
+    }
+
+    StateGroup {
+        id:  stateGroup
+
+        state: "RequestCode"
+        states: [
+            State {
+                name: "RequestCode"
+                PropertyChanges { target: code; enabled: false }
+                PropertyChanges { target: requestCodeButton; enabled: false }
+            },
+            State {
+                name: "ValidateCode"
+                PropertyChanges { target: phone; enabled: false }
+                PropertyChanges { target: validateCodeButton; enabled: false }
+            }
+        ]
     }
 }
