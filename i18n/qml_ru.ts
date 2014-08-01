@@ -3930,6 +3930,10 @@ Please try again later.</source>
         <source>MESSENGER_SEARCH_FRIEND_PLACE_HOLDER</source>
         <translation>Поиск друга</translation>
     </message>
+    <message>
+        <source>MESSENGER_WEB_SEARCH_PLACE_HOLDER</source>
+        <translation>Поиск GameNet</translation>
+    </message>
 </context>
 <context>
     <name>SecondAccountAuthView</name>
@@ -4709,6 +4713,21 @@ Please try again later.</source>
     <message>
         <source>WINDOW_TITLE_VK_AUTH</source>
         <translation>Авторизация с помощью ВКонтакте</translation>
+    </message>
+</context>
+<context>
+    <name>WebSearch</name>
+    <message>
+        <source>WEB_SEARCH_NOT_CHARS</source>
+        <translation type="unfinished">Нет персонажей</translation>
+    </message>
+    <message>
+        <source>WEB_SEARCH_CHARS_PRIVACY_FILTER_ACTIVE</source>
+        <translation type="unfinished">Список персонажей скрыт настройками приватности</translation>
+    </message>
+    <message>
+        <source>WEB_SEARCH_BACKGROUND_TEXT</source>
+        <translation type="unfinished">Введите что-нибудь в поле.&lt;br&gt;&lt;br&gt;Я умею искать по никнейму в GameNet, имени персонажа в игре, названию игры и сервера, а также по названию гильдии или клана.&lt;br&gt;&lt;br&gt;Я обновляю результаты с каждым введённым символом&lt;br&gt;&lt;br&gt;Вы можете написать несколько слов через пробел, например: Коля BS.ru</translation>
     </message>
 </context>
 <context>

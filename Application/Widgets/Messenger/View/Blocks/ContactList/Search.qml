@@ -51,7 +51,8 @@ Rectangle {
 
             Image {
                 anchors.centerIn: parent
-                source: installPath + "Assets/Images/Application/Widgets/Messenger/add_friend.png"
+                source: localSearch ? installPath + "Assets/Images/Application/Widgets/Messenger/add_friend.png" :
+                                      installPath + "Assets/Images/Application/Widgets/Messenger/home_icon.png"
             }
 
             onClicked: localSearch = !localSearch;
@@ -65,7 +66,8 @@ Rectangle {
 
             icon: installPath + "/Assets/Images/Application/Widgets/Messenger/chat_search.png"
 
-            placeholder: qsTr("MESSENGER_SEARCH_FRIEND_PLACE_HOLDER")
+            placeholder: localSearch ? qsTr("MESSENGER_SEARCH_FRIEND_PLACE_HOLDER") :
+                                       qsTr("MESSENGER_WEB_SEARCH_PLACE_HOLDER")
             fontSize: 14
             showCapslock: false
             showLanguage: false

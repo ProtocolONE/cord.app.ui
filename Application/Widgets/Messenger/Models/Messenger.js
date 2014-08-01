@@ -27,8 +27,8 @@ function instance() {
     return _modelInstance;
 }
 
-function connect(user, password) {
-    _modelInstance.connect(user, password);
+function connect(server, user, password) {
+    _modelInstance.connect(server, user, Qt.md5(password));
 }
 
 function disconnect() {
@@ -200,6 +200,10 @@ function getGamenetUser() {
     return _modelInstance.getGamenetUser();
 }
 
-function getCurrentTime() {
-    return _modelInstance.currentTime;
+function openDialog(user) {
+    _modelInstance.openDialog(user);
+}
+
+function userIdToJid(userId) {
+  return _modelInstance.userIdToJid(userId);
 }

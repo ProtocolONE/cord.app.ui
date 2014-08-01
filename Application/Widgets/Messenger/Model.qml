@@ -29,12 +29,7 @@ WidgetModel {
     Connections {
         target: App.signalBus();
         onAuthDone: {
-            var server = "qj.gamenet.ru"
-                , user = userId
-                , password = Qt.md5(appKey)
-                , bareJid = user + "@" + server;
-
-            MessengerJs.connect(bareJid, password);
+            MessengerJs.connect("qj.gamenet.ru", userId, appKey);
         }
 
         onLogoutDone: MessengerJs.disconnect();

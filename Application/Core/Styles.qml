@@ -125,6 +125,8 @@ Item {
     property color messengerSearchInputActive: "#3498db"
     property color messengerSearchInputHover: "#3498db"
     property color messengerSearchInputPlaceholder: "#a4b0ba"
+    property color messengerWebSearchBackground: '#9fa2a4'
+    property color messengerWebSearchBackgroundText: '#ffffff'
 
     //MESSENGER CONTACT
     property color messengerContactBackground: "#FAFAFA"

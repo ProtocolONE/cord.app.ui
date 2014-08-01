@@ -77,12 +77,15 @@ Item {
         xmppClient.sendInputStatus(user.jid, value);
     }
 
-    function connect(jid, password) {
+    function connect(server, user, password) {
+        d.serverUrl = server;
+
         if (root.connecting || root.connected) {
             console.log('Warning! Ask connecting to already connected jabber');
             return;
         }
 
+        var jid = root.userIdToJid(user);
         user.jid = jid;
         user.userId = UserJs.jidToUser(jid);
 
@@ -196,19 +199,27 @@ Item {
         return usersModel.getById(UserJs.getGamenetUserJid());
     }
 
-    function getGroupName(item) {
-        var group = new GroupJs.Group(groupsModel.getById(item.groupId), groupsModel);
-        if (!group.isValid()) {
-            return "";
+    function openDialog(user) {
+        if (!user) {
+            return;
         }
 
-        return group.name;
+        if (!usersModel.contains(user.jid)) {
+            d.appendUser(user.jid, user.nickname);
+        }
+
+        root.selectUser(user);
+    }
+
+    function userIdToJid(userId) {
+        return userId + '@' + d.serverUrl;
     }
 
     QtObject {
         id: d
 
         property int defaultAvatarIndex: 0
+        property string serverUrl: ''
 
         function rosterRecieved() {
             var rosterUsers = xmppClient.rosterManager.getRosterBareJids()
@@ -248,14 +259,14 @@ Item {
             return installPath + "/Assets/Images/Application/Widgets/Messenger/" + name;
         }
 
-        function appendUser(user) {
+        function appendUser(user, externalNickName) {
             var nickname
             , groups
             , item
             , groupsMap = {}
             , rawUser;
 
-            nickname = xmppClient.rosterManager.getNickname(user);
+            nickname = xmppClient.rosterManager.getNickname(user) || externalNickName;
             groups = xmppClient.rosterManager.getGroups(user);
             groups = (groups.length === 0)
                     ? ['!']

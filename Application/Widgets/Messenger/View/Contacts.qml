@@ -51,7 +51,12 @@ WidgetView {
             leftMargin: 1
         }
 
-        color: Styles.style.messengerContactsBackground
+        color: searchContactItem.localSearch ? Styles.style.messengerContactsBackground :
+                                               Styles.style.messengerWebSearchBackground
+
+        Behavior on color {
+            ColorAnimation { duration: 250 }
+        }
 
         Column {
             anchors.fill: parent
@@ -61,28 +66,33 @@ WidgetView {
 
                 width: parent.width
                 onSearchTextChanged: {
-                    root.isSearching = (searchText.length > 0);
-                    if (root.isSearching) {
-                        searchContactList.updateFilter(searchText);
+                    if (searchContactItem.localSearch) {
+                        root.isSearching = (searchText.length > 0);
+                        if (root.isSearching) {
+                            searchContactList.updateFilter(searchText);
+                        }
                     }
                 }
+                onLocalSearchChanged: searchText = '';
             }
 
             Item {
                 width: parent.width
                 height: parent.height - searchContactItem.height - bottomBar.height
 
-
                 EmptyContactListInfo {
                     visible: !d.hasContacts && !root.isSearching && d.contactReceived
                     anchors.fill: parent
+                    opacity: (!root.isSearching && searchContactItem.localSearch) ? 1 : 0
+
+                    Behavior on opacity { NumberAnimation { duration: 150 } }
                 }
 
                 Item {
                     id: contactListItem
 
                     anchors.fill: parent
-                    visible: !root.isSearching && d.hasContacts
+                    visible: !root.isSearching && d.hasContacts && searchContactItem.localSearch
 
                     ContactsTypeTabs {
                         id: tabView
@@ -117,9 +127,19 @@ WidgetView {
                 SearchContactList {
                     id: searchContactList
 
-                    visible: root.isSearching
+                    opacity: (root.isSearching && searchContactItem.localSearch) ? 1 : 0
                     anchors.fill: parent
                     onUserClicked: searchContactItem.searchText = "";
+
+                    Behavior on opacity { NumberAnimation { duration: 150 } }
+                }
+
+                WebSearch {
+                    id: webSearch
+
+                    anchors.fill: parent
+                    visible: !searchContactItem.localSearch
+                    searchText: searchContactItem.searchText
                 }
             }
 
