@@ -135,7 +135,7 @@ PopupBase {
                     id: registration
 
                     width: parent.width
-                    height: 330
+                    height: 385
                     onSwitchToLogin: authContainer.state = "auth"
                     onError: d.showError(message);
                     onAuthDone: d.authSuccess(userId, appKey, cookie, true, registration.login);
