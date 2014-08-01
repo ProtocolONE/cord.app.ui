@@ -60,7 +60,9 @@ function init(layer) {
 function registerModel(model) {
     _model = model;
     _model.callback.connect(function(button) {
-        _currentWidget.callback(button);
+        if (_currentWidget.callback) {
+            _currentWidget.callback(button);
+        }
         refresh();
     });
 }

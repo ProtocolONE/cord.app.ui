@@ -24,10 +24,12 @@ WidgetModel {
     signal modelChanged();
     signal purchaseCompleted();
 
-    function buy(optionId) {
+    function buy(optionId, days) {
         root.inProgress = true;
         RestApi.Premium.purchase(optionId,
-                                 d.purchaseComplete,
+                                 function(response) {
+                                     d.purchaseComplete(response, days);
+                                 },
                                  function(response) {
                                      root.inProgress = false;
                                      d.showError();
@@ -83,7 +85,7 @@ WidgetModel {
             return resultStr.arg(daysCount);
         }
 
-        function purchaseComplete(response) {
+        function purchaseComplete(response, days) {
             root.inProgress = false;
             if (response && response.error) {
                 d.showError(response.error.message);
@@ -93,10 +95,14 @@ WidgetModel {
             root.purchaseCompleted();
             User.refreshBalance();
             User.refreshPremium();
+
+            MessageBox.show(qsTr("PREMIUM_BUY_SUCCESS_CAPTION").arg(days),
+                            qsTr("PREMIUM_SHOP_BUY_SUCCESS_DETAILS"),
+                            MessageBox.button.Ok);
         }
 
         function showError(message) {
-            MessageBox.show("PREMIUM_BUY_ERROR_CATION",
+            MessageBox.show(qsTr("PREMIUM_BUY_ERROR_CAPTION"),
                             message || qsTr("PREMIUM_SHOP_DETAILS_ERROR_UNKNOWN"),
                             MessageBox.button.Ok, function(result) {
                                 root.inProgress = false;

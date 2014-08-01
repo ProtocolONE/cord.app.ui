@@ -1376,24 +1376,39 @@
 <context>
     <name>PremiumShopModel</name>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="75"/>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="78"/>
         <source>PREMIUM_SHOP_DAYS_OTHER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="76"/>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="79"/>
         <source>PREMIUM_SHOP_DAYS_1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="77"/>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="78"/>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="79"/>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="80"/>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="81"/>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="82"/>
         <source>PREMIUM_SHOP_DAYS_2_4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="100"/>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="102"/>
+        <source>PREMIUM_BUY_SUCCESS_CATION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="103"/>
+        <source>PREMIUM_SHOP_BUY_SUCCESS_DETAILS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="108"/>
+        <source>PREMIUM_BUY_ERROR_CATION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="109"/>
         <source>PREMIUM_SHOP_DETAILS_ERROR_UNKNOWN</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1406,37 +1421,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="109"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="123"/>
         <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="126"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="140"/>
         <source>TITLE_PREMIUM_ACCOUNT_LEFT_TIME_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="140"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="154"/>
         <source>TITLE_PREMIUM_ACCOUNT_CONTINUE_ACCOUNT_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="204"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="218"/>
         <source>NOT_ENOUGH_MONEY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="234"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="248"/>
         <source>ADD_MONEY_BUTTON_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="254"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="268"/>
         <source>MONEY_TOTAL %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="276"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="290"/>
         <source>ACCEPT_BUY</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1952,6 +1967,24 @@
     <message>
         <location filename="../qGNA_Main.qml" line="651"/>
         <source>CLOSE_APP_TOOLTIP_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WebSearch</name>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="22"/>
+        <source>WEB_SEARCH_NOT_CHARS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="26"/>
+        <source>WEB_SEARCH_CHARS_PRIVACY_FILTER_ACTIVE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="144"/>
+        <source>WEB_SEARCH_BACKGROUND_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

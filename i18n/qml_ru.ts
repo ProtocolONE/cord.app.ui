@@ -3393,6 +3393,22 @@ Please try again later.</source>
         <source>PREMIUM_SHOP_DETAILS_ERROR_UNKNOWN</source>
         <translation>Произошла ошибка в процессе покупки. Пожалуйста, попробуйте позже.</translation>
     </message>
+    <message>
+        <source>PREMIUM_BUY_SUCCESS_CATION</source>
+        <translation type="obsolete">Расширенный аккаунт активирован на %1 дней</translation>
+    </message>
+    <message>
+        <source>PREMIUM_SHOP_BUY_SUCCESS_DETAILS</source>
+        <translation type="unfinished">Чтобы запустить второе окно игры BS.ru, Reborn или Aika2 нажмите «Добавить аккаунт» и авторизуйтесь вторым аккаунтом. Запуск игры под вторым аккаунтом происходит по кнопке «Начать игру» в блоке дополнительного аккаунта и доступен после запуска игры под основным аккаунтом.&lt;br&gt;Приятной игры.</translation>
+    </message>
+    <message>
+        <source>PREMIUM_BUY_SUCCESS_CAPTION</source>
+        <translation type="unfinished">Расширенный аккаунт активирован на %1 дней</translation>
+    </message>
+    <message>
+        <source>PREMIUM_BUY_ERROR_CAPTION</source>
+        <translation type="unfinished">Упс! Что-то пошло не так...</translation>
+    </message>
 </context>
 <context>
     <name>PremiumShopView</name>

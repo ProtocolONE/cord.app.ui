@@ -90,11 +90,13 @@ Item {
         anchors.fill: parent
     }
 
-    MouseArea {
+    CursorMouseArea {
         id: outerMouser
 
         visible: false
         anchors.fill: parent
+        hoverEnabled: true
+        cursor: CursorArea.ArrowCursor
         onClicked: root.blink();
     }
 
