@@ -76,7 +76,7 @@ Item {
     property color gameMenuText: '#5d7081'
 
     // SETTINGS
-    property color settingsBackground: '#00ffff'
+    property color settingsBackground: '#fafafa'
     property color settingsTitleText: '#343537'
     property color settingsCaptionText: '#5c6d7d'
     property color settingsCategoryButtonNormal: "#3498BD"

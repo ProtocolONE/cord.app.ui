@@ -205,6 +205,7 @@
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/GroupHeader.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Jobs/AppendGroupJob.js</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Jobs/MoveItemJob.js</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Jobs/OpenGroupJob.js</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Jobs/RemoveItemJob.js</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/PlainContacts.js</file>

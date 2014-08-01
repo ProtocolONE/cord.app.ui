@@ -130,9 +130,19 @@ Rectangle {
                 Text {
                     id: statusText
 
-                    anchors {
-                        left: parent.left
-                        leftMargin: 1
+                    function presenceStatusToColor(status) {
+                        switch(status) {
+                        case "online":
+                        case "chat":
+                            return Styles.style.messengerContactPresenceOnline;
+                        case "dnd":
+                        case "away":
+                        case "xa":
+                            return Styles.style.messengerContactPresenceDnd;
+                        case "offline":
+                        default:
+                            return Styles.style.messengerContactPresenceOffline;
+                        }
                     }
 
                     color: Styles.style.messengerContactStatusText

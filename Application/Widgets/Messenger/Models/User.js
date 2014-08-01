@@ -126,6 +126,10 @@ function User(item, model) {
         _model.setPropertyById(self.jid, 'lastTalkDate', val);
     });
 
+    this.__defineGetter__("online", function() {
+        return isOnline(self.presenceState);
+    });
+
     this.isValid = function() {
         return !!_item && !!_model;
     }
@@ -190,7 +194,8 @@ function createRawUser(jid, nickname) {
         avatar: "",
         lastActivity: null,
         isGamenet: false,
-        lastTalkDate: ""
+        lastTalkDate: "",
+        online: false
     };
 
     return result;
@@ -214,7 +219,8 @@ function createGamenetUser() {
         avatar: "",
         lastActivity: null,
         isGamenet: true,
-        lastTalkDate: ""
+        lastTalkDate: "",
+        online: true
     };
 
     return result;
@@ -233,4 +239,18 @@ function jidWithoutResource(jid) {
         return jid;
 
     return jid.substring(0, pos);
+}
+
+function isOnline(status) {
+    switch(status) {
+    case "online":
+    case "chat":
+    case "dnd":
+    case "away":
+    case "xa":
+        return true;
+    case "offline":
+    default:
+        return false;
+    }
 }

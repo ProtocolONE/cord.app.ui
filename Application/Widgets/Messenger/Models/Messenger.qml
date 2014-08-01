@@ -39,6 +39,7 @@ Item {
     signal connectedToServer();
 
     signal talkDateChanged(string jid);
+    signal onlineStatusChanged(string jid);
     signal rosterRecieved();
 
     function init() {
@@ -353,8 +354,12 @@ Item {
                 return;
             }
 
+            var oldOnline = user.online;
             user.presenceState = presence.type;
             user.statusMessage = presence.status;
+            if (user.online !== oldOnline) {
+                root.onlineStatusChanged(user.jid);
+            }
         }
 
         function updateUserTalkDate(user) {

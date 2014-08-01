@@ -15,6 +15,7 @@ import Application.Controls 1.0
 import "../../../../../../GameNet/Core/lodash.js" as Lodash
 import "../../../../../Core/Styles.js" as Styles
 import "../../../Models/Messenger.js" as Messenger
+import "../../../Models/User.js" as User
 
 import "./PlainContacts.js" as Js
 
@@ -23,6 +24,18 @@ Item {
 
     QtObject {
         id: d
+
+        function forEachOpenedGroup(cb) {
+            Object.keys(Js.groupsMap).filter(function(g) {
+                return Js.isOpened(g);
+            }).forEach(cb);
+        }
+
+        function findUserIndex(data, user) {
+            return Lodash._.findIndex(data, function(u) {
+                return u === user;
+            });
+        }
 
         function updateModel() {
             var groupIds = Messenger.groups().keys()
@@ -52,9 +65,7 @@ Item {
         }
 
         function updateOpenedGroups() {
-            Object.keys(Js.groupsMap).filter(function(g) {
-                return Js.isOpened(g);
-            }).forEach(function(openedId) {
+            d.forEachOpenedGroup(function(openedId) {
                 var currentUsers = Js.groupById(openedId).users,
                     actualUsers = [],
                     actualUsersMap = {},
@@ -78,12 +89,20 @@ Item {
                 , actualUserModel = Messenger.groups().getById(openedId).users
                 , modelUser
                 , jid
-                , i;
+                , i
+                , userInfo;
 
             for (i = 0; i < actualUserModel.count; ++i) {
                 modelUser = actualUserModel.get(i)
                 jid = modelUser.jid;
-                actualUsersMap[jid] = usersModel.getById(jid).nickname.toLowerCase();
+
+                userInfo = usersModel.getById(jid);
+                actualUsersMap[jid] =
+                    {
+                        online: User.isOnline(userInfo.presenceState),
+                        nickname: userInfo.nickname.toLowerCase()
+                    };
+
                 actualUsers.push(jid);
             }
         }
@@ -95,10 +114,10 @@ Item {
 
                 newUserNickName = Messenger.users().getById(newUser).nickname.toLowerCase();
                 newUserInsertIndex = Lodash._.findIndex(currentUsers, function(u) {
-                    return actualUsersMap[u] > newUserNickName;
+                    return actualUsersMap[u].nickname > newUserNickName;
                 });
 
-                newUserInsertIndex = newUserInsertIndex > 0 ? newUserInsertIndex : currentUsers.length;
+                newUserInsertIndex = newUserInsertIndex >= 0 ? newUserInsertIndex : currentUsers.length;
                 currentUsers.splice(newUserInsertIndex, 0, newUser);
                 Js.queueAppendAllJob(groupStartIndex + newUserInsertIndex, openedId, [newUser]);
             });
@@ -106,10 +125,7 @@ Item {
 
         function removeFromOpenedGroup(users, currentUsers, groupStartIndex) {
             users.forEach(function(deletedUser) {
-                var deleteIndex = Lodash._.findIndex(currentUsers, function(u) {
-                    return u === deletedUser;
-                });
-
+                var deleteIndex = d.findUserIndex(currentUsers, deletedUser);
                 currentUsers.splice(deleteIndex, 1);
                 Js.queueRemoveItemJob(groupStartIndex + deleteIndex, 1);
             });
@@ -128,8 +144,19 @@ Item {
             d.buildReduceMap(groupId, usersMap, users);
 
             users.sort(function(a, b) {
-                var val1 = usersMap[a];
-                var val2 = usersMap[b];
+                var online1 = usersMap[a].online;
+                var online2 = usersMap[b].online;
+
+                if (online1 && !online2) {
+                    return -1;
+                }
+
+                if (!online1 && online2) {
+                    return 1;
+                }
+
+                var val1 = usersMap[a].nickname;
+                var val2 = usersMap[b].nickname;
 
                 if (val1 === val2) {
                     return 0;
@@ -183,9 +210,9 @@ Item {
             }
 
             var users = group.users,
-                    count = users.count,
-                    i,
-                    result = 0;
+                count = users.count,
+                i,
+                result = 0;
 
             for (i = 0; i < count; ++i) {
                 if (Messenger.hasUnreadMessages(users.get(i))) {
@@ -195,6 +222,47 @@ Item {
 
             return result;
         }
+
+        function updateUserOnlineStatus(jid) {
+            d.forEachOpenedGroup(function(openedId) {
+                var group;
+                group = Js.groupById(openedId);
+
+                var index = d.findUserIndex(group.users, jid);
+                if (index === -1) {
+                    return;
+                }
+
+                group.users.splice(index, 1);
+
+                var user = Messenger.getUser(jid),
+                    online = user.online,
+                    nickname = user.nickname.toLowerCase();
+
+                var insertIndex = Lodash._.findIndex(group.users, function(u) {
+                    var user1 = Messenger.getUser(u),
+                        online1 = user1.online,
+                        nickname1 = user1.nickname.toLowerCase();
+
+                    if (online && !online1) {
+                        return true;
+                    }
+
+                    if (!online && online1) {
+                        return false;
+                    }
+
+                    return nickname1 > nickname;
+                });
+
+                insertIndex = insertIndex >= 0 ? insertIndex : group.users.length;
+                group.users.splice(insertIndex, 0, jid);
+
+                var groupIndex = Js.calculateInsertIndex(openedId);
+                Js.queueMoveItemJob(index + groupIndex, insertIndex + groupIndex);
+
+            });
+        }
     }
 
     Timer {
@@ -202,6 +270,11 @@ Item {
         running: true
         repeat: true
         onTriggered: Js.processJob(groupProxyModel);
+    }
+
+    Connections {
+        target: Messenger.instance()
+        onOnlineStatusChanged: d.updateUserOnlineStatus(jid);
     }
 
     Connections {

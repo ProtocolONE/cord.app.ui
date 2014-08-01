@@ -2,10 +2,11 @@ Qt.include('../../../../../../GameNet/Core/lodash.js')
 Qt.include('./Jobs/AppendGroupJob.js');
 Qt.include('./Jobs/RemoveItemJob.js');
 Qt.include('./Jobs/OpenGroupJob.js');
+Qt.include('./Jobs/MoveItemJob.js');
 
-var groupsMap = {},
-sortedGroups = [],
-        jobs = [];
+var groupsMap = {}
+    , sortedGroups = []
+    , jobs = [];
 
 function containsGroup(groupId) {
     return groupsMap.hasOwnProperty(groupId);
@@ -110,6 +111,14 @@ function queueRemoveItemJob(index, count, appendGroupId) {
                       index: index,
                       count: count,
                       appendGroupId: appendGroupId
+                  }));
+}
+
+function queueMoveItemJob(fromIndex, toIndex) {
+    jobs.push(new MoveItemJob(
+                  {
+                      fromIndex: fromIndex,
+                      toIndex: toIndex
                   }));
 }
 
