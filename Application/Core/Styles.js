@@ -35,4 +35,8 @@ function setCurrentStyle(value) {
     return style.setCurrentStyle(value);
 }
 
+function updateStyle(value) {
+    style.updateStyle(value);
+}
+
 

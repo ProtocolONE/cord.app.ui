@@ -32,6 +32,18 @@ Rectangle {
     implicitWidth: 78
     implicitHeight: 53
 
+    color: root.getBgColor()
+
+    function getBgColor() {
+        var map = {
+            unread: Styles.style.messengerContactBackgroundUnread,
+            selected: Styles.style.messengerContactBackgroundSelected,
+            normal: Styles.style.messengerContactBackground,
+        }
+
+        return map[root.state] || Styles.style.messengerContactBackground;
+    }
+
     Rectangle {
         id: upperDelimiter
 
@@ -82,16 +94,19 @@ Rectangle {
                     Rectangle {
                         id: presenceIcon
 
-                        function presenceStatusToColor(status) {
-                            if (status === "online") {
-                                return Styles.style.messengerContactPresenceOnline;
+                        function getTextColor() {
+                            var map = {
+                                unread: Styles.style.messengerContactNicknameUnread,
+                                selected: Styles.style.messengerContactNicknameSelected,
+                                normal: Styles.style.messengerContactNickname,
                             }
 
-                            if (status === "dnd") {
-                                return Styles.style.messengerContactPresenceDnd;
-                            }
+                            return map[root.state] || Styles.style.messengerContactNickname;
+                        }
 
-                            return Styles.style.messengerContactPresenceOffline;
+                        anchors {
+                            baseline: parent.top
+                            baselineOffset: 22
                         }
 
                         width: 8
@@ -104,6 +119,7 @@ Rectangle {
 
                         width: parent.width
                         elide: Text.ElideRight
+                        color: nicknameText.getTextColor()
                     }
 
                     Text {
@@ -174,20 +190,13 @@ Rectangle {
         State {
             name: "unread"
             when: root.isUnreadMessages
-            PropertyChanges { target: root; color: Styles.style.messengerContactBackgroundUnread }
-            PropertyChanges { target: nicknameText; color: Styles.style.messengerContactNicknameUnread }
         },
         State {
             name: "selected"
             when: root.isCurrent && !root.isUnreadMessages
-            PropertyChanges { target: root; color: Styles.style.messengerContactBackgroundSelected }
-            PropertyChanges { target: nicknameText; color: Styles.style.messengerContactNicknameSelected }
         },
         State {
             name: "normal"
-            PropertyChanges { target: root; color: Styles.style.messengerContactBackground }
-            PropertyChanges { target: nicknameText; color: Styles.style.messengerContactNickname }
         }
     ]
-
 }

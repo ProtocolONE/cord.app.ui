@@ -27,6 +27,10 @@ Item {
     property color popupTitleText: "#343537"
     property color popupText: "#343537"
 
+    //GAME INFO
+    property color gameInfoBackground: "#f0f5f8"
+    property color gameInfoAboutText: "#000000"
+
     //MESSAGE BOX (ALERT ADAPTER WIDGET)
     property color messageBoxShadowBorder: "#111111"
     property color messageBoxBackground: "#027aca"
@@ -191,11 +195,25 @@ Item {
         }
     }
 
+    function updateStyle(value) {
+        console.log('WARNING! Use `UpdateStyle` in dev only');
+
+        currentStyle = value || currentStyle;
+        readStyles();
+        apply(true);
+    }
+
     function getCurrentStyle() {
         return currentStyle;
     }
 
     function init() {
+        currentStyle = App.settingsValue('qml/settings/', 'style', 'mainStyle');
+        readStyles();
+        apply(true);
+    }
+
+    function readStyles() {
         var realPath = installPath.replace('file:///', '')
             , rawStyles = StyleReader.read(realPath + "Assets/Styles/")
             , currentLang = App.language()
@@ -219,6 +237,7 @@ Item {
             return a.name[currentLang].localeCompare(b.name[currentLang]);
         });
 
+        data.clear();
         tmpStyles.forEach(function(e) {
             tmpMap[e.id] = e.styles;
             data.append({
@@ -228,8 +247,6 @@ Item {
         });
 
         styleList = tmpMap;
-        currentStyle = App.settingsValue('qml/settings/', 'style', 'mainStyle');
-        apply(true);
     }
 
     function apply(applyNow) {

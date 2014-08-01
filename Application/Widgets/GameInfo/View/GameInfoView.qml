@@ -114,7 +114,7 @@ WidgetView {
 
     Rectangle {
         anchors.fill: parent
-        color: "#f0f5f8"
+        color: Styles.style.gameInfoBackground
     }
 
     Column {
@@ -356,6 +356,7 @@ WidgetView {
                     right: parent.right
                     rightMargin: 10
                 }
+                color: Styles.style.gameInfoAboutText
                 smooth: true
                 clip: true
                 font { family: "Verdana"; pixelSize: 14 }
@@ -372,7 +373,7 @@ WidgetView {
     Rectangle {
         height: 1
         anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
-        color: Qt.darker("#f0f5f8", Styles.style.darkerFactor)
+        color: Qt.darker(Styles.style.gameInfoBackground, Styles.style.darkerFactor)
     }
 
     Timer {
