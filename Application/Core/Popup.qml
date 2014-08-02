@@ -160,8 +160,15 @@ Item {
     }
 
     Image {
-        anchors { left: firstContainer.right; top: firstContainer.top; leftMargin: 20; topMargin: -35}
-        source: installPath + '/Assets/Images/Popup/close.png'
+        id: closeButton
+
+        function getTopMargin() {
+            var topSpacing = Math.floor((root.height - firstContainer.height)/2) - 35;
+            return topSpacing >= 0 ? -35 : 0;
+        }
+
+        anchors { left: firstContainer.right; top: firstContainer.top; leftMargin: 20; topMargin: getTopMargin()}
+        source: installPath + '/Assets/Images/Application/Core/Popup/close.png'
 
         CursorMouseArea {
             anchors.fill: parent
@@ -173,8 +180,8 @@ Item {
     Image {
         id: helpImage
 
-        anchors { left: firstContainer.right; top: firstContainer.top; leftMargin: -5; topMargin: -75}
-        source: installPath + '/Assets/Images/Popup/popupInfoHelpText.png'
+        anchors { left: closeButton.left; top: closeButton.top; leftMargin: -25; topMargin: -40}
+        source: installPath + '/Assets/Images/Application/Core/Popup/popupInfoHelpText.png'
 
         SequentialAnimation {
             id: showHelp
