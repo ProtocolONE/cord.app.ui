@@ -23,6 +23,12 @@ PopupBase {
 
     title: qsTr("GAME_EXECUTING_HEADER").arg(root.gameItem.name)
 
+    onVisibleChanged: {
+        if (visible) {
+            model.startExecuting(root.gameItem.serviceId);
+        }
+    }
+
     Component.onDestruction: {
         root.gameItem.statusText = '';
         root.gameItem.status = "Normal";
@@ -33,7 +39,6 @@ PopupBase {
         interval: 5000
         running: root.visible
         onTriggered: {
-            App.executeService(root.gameItem.serviceId);
             root.close();
         }
     }

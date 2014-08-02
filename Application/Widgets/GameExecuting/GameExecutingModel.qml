@@ -30,6 +30,11 @@ WidgetModel {
         return User.getNickname().indexOf('@') == -1;
     }
 
+    function startExecuting(serviceId) {
+        executeServiceDelay.serviceId = serviceId;
+        executeServiceDelay.start();
+    }
+
     Connections {
         target: enterNickNameViewModelInstance || null
         ignoreUnknownSignals: true
@@ -43,7 +48,7 @@ WidgetModel {
     }
 
     Connections {
-        target:Popup.signalBus()
+        target: Popup.signalBus()
         onClose: {
             if (root.internalPopupId !== popupId) {
                 return;
@@ -130,6 +135,21 @@ WidgetModel {
                 App.activateGameByServiceId(service);
                 Popup.show('GameIsBoring');
             }
+        }
+    }
+
+    Timer {
+        id: executeServiceDelay
+
+        property string serviceId
+
+        interval: 5000
+        onTriggered: {
+            if (!executeServiceDelay.serviceId) {
+                return;
+            }
+
+            App.executeService(executeServiceDelay.serviceId);
         }
     }
 }

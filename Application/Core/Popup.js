@@ -8,26 +8,26 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-var _tultipComponent,
-    _tultipObj,
+var _popupComponent,
+    _popupObj,
     _currentWidget,
     _queue = [],
     _internalPopupId = 0;
 
-if (!_tultipComponent) {
-    _tultipComponent = Qt.createComponent('./Popup.qml');
-    _tultipObj = _tultipComponent.createObject(null);
-    if (!_tultipObj) {
+if (!_popupComponent) {
+    _popupComponent = Qt.createComponent('./Popup.qml');
+    _popupObj = _popupComponent.createObject(null);
+    if (!_popupObj) {
         throw new Error('FATAL: error creating Popup.qml - ' + component.errorString());
     }
 
-    _tultipObj.close.connect(function() {
+    _popupObj.close.connect(function() {
         refresh();
     });
 }
 
 function init(layer) {
-    _tultipObj.parent = layer;
+    _popupObj.parent = layer;
 }
 
 function show(widgetName, view, priority) {
@@ -42,7 +42,7 @@ function show(widgetName, view, priority) {
         return -1;
     });
 
-    if (!_tultipObj.isShown) {
+    if (!_popupObj.isShown) {
         refresh();
     }
 
@@ -51,20 +51,20 @@ function show(widgetName, view, priority) {
 
 function refresh() {
     if (_queue.length == 0) {
-        _tultipObj.hide();
+        _popupObj.hide();
         return;
     }
 
     var _currentWidget = _queue.shift();
 
-    _tultipObj.activateWidget(_currentWidget.widgetName, _currentWidget.view, _currentWidget.popupId);
+    _popupObj.activateWidget(_currentWidget.widgetName, _currentWidget.view, _currentWidget.popupId);
 }
 
 function isPopupOpen() {
-    return _tultipObj.isShown;
+    return _popupObj.isShown;
 }
 
 function signalBus() {
-    return _tultipObj;
+    return _popupObj;
 }
 
