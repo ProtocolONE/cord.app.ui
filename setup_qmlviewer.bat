@@ -4,7 +4,8 @@
 
 @set CoreArea=trunk
 @set SettingsArea=trunk
-@set QxmppArea=0.7.6_qt4.8.5
+@set QxmppArea=0.7.6_Qt5.2.1
+@set GameNetQxmppArea=1.0
 @set OverlayArea=trunk
 @set QmlExtensionArea=trunk
 
@@ -14,8 +15,7 @@
 @xcopy /Y /I /R /E "%QGNACOMMONDIR%\GGS\Core\%CoreArea%\bin\CoreX86.dll" "%QTDIR%\bin"
 @xcopy /Y /I /R /E "%QGNACOMMONDIR%\Qxmpp\%QxmppArea%\bin\qxmppx860.dll" "%QTDIR%\bin"
 
-@xcopy /Y /I /R /E "%QGNACOMMONDIR%\GGS\Overlay\%OverlayArea%\bin\QmlOverlayX86.dll" .\plugin\
-@xcopy /Y /I /R /E "%QGNACOMMONDIR%\GGS\QmlExtension\%QmlExtensionArea%\bin\QmlExtensionX86.dll" .\plugin\
+@xcopy /Y /I /R /E "%QGNACOMMONDIR%\GameNet\qxmpp\%GameNetQxmppArea%\bin\qxmpp0.dll" "%QTDIR%\bin"
 
 @rem New plugins model:
 @xcopy /Y /I /R /E "%QGNACOMMONDIR%\GGS\Settings\%SettingsArea%\bin\SettingsX86.dll" .\plugin\Tulip\
