@@ -13,7 +13,7 @@ import GameNet.Controls 1.0
 
 import "../../../../../Core/Styles.js" as Styles
 
-Rectangle {
+FocusScope {
     id: searchContactItem
 
     property alias searchText: searchContactInput.text
@@ -21,12 +21,18 @@ Rectangle {
 
     width: parent.width
     height: 54
-    color: Styles.style.messengerSearchBackground
+
+    Rectangle {
+        id: background
+
+        anchors.fill: parent
+        color: Styles.style.messengerSearchBackground
+    }
 
     Rectangle {
         height: 1
         width: parent.width
-        color: Qt.lighter(parent.color, Styles.style.lighterFactor)
+        color: Qt.lighter(background.color, Styles.style.lighterFactor)
         anchors.top: parent.top
     }
 
@@ -44,7 +50,7 @@ Rectangle {
             width: 32
             height: 32
 
-            style: ButtonStyleColors {
+            style {
                 normal: Styles.style.messengerSearchButtonNormal
                 hover: Styles.style.messengerSearchButtonHover
             }
@@ -83,7 +89,8 @@ Rectangle {
     Rectangle {
         height: 1
         width: parent.width
-        color: Qt.darker(parent.color, Styles.style.darkerFactor)
+        color: Qt.darker(background.color, Styles.style.darkerFactor)
         anchors.bottom: parent.bottom
     }
 }
+

@@ -4,10 +4,12 @@ import "../../../../../../Application/Core/restapi.js" as RestApi
 import "../../../../../Core/Styles.js" as Styles
 import "../../../Models/Messenger.js" as MessengerJs
 
-Item {
+NavigatableContactList {
     id: root
 
     property string searchText: ''
+
+    internalView: listView
 
     QtObject {
         id: d
@@ -148,23 +150,39 @@ Item {
         visible: root.searchText.length == 0
     }
 
-    ListView {
+    NavigatableListView {
         id: listView
 
         anchors.fill: parent
         visible: root.searchText.length > 0
+        highlightMoveSpeed: 1000
         boundsBehavior: Flickable.StopAtBounds
         currentIndex: -1
+        onCountChanged: currentIndex = -1;
 
         delegate: WebSearchContact {
+            function isSelected() {
+                var user = MessengerJs.selectedUser(MessengerJs.USER_INFO_JID);
+                if (!user || !user.jid || !model.gamenetid) {
+                    return false;
+                }
+
+                return user.jid == MessengerJs.userIdToJid(model.gamenetid);
+            }
+
             width: listView.width
-            isActive: listView.currentIndex === index;
+            isHighlighted: listView.currentIndex === index;
+            isActive: isSelected();
             searchText: root.searchText
             nickname: model.nickname
             avatar: model.avatar
             charsText: model.charsText
             onClicked: {
                 listView.currentIndex = index;
+                select();
+            }
+
+            function select() {
                 if (model.gamenetid) {
                     MessengerJs.openDialog({jid: MessengerJs.userIdToJid(model.gamenetid),
                                                nickname: model.nickname});

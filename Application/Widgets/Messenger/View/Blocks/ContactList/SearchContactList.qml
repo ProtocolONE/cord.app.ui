@@ -15,7 +15,7 @@ import Application.Controls 1.0
 import "../../../Models/Messenger.js" as MessengerJs
 import "../../../../../Core/Styles.js" as Styles
 
-Item {
+NavigatableContactList {
     id: root
 
     property alias model: view.model
@@ -26,6 +26,8 @@ Item {
 
     implicitWidth: 228
     implicitHeight: 400
+
+    internalView: view
 
     function sortFunction(a, b) {
         if (a.value > b.value) {
@@ -62,7 +64,7 @@ Item {
         });
     }
 
-    ListView {
+    NavigatableListView {
         id: view
 
         model: searchContactModel
@@ -71,7 +73,10 @@ Item {
             rightMargin: 10
         }
 
+        currentIndex: -1
+        highlightMoveSpeed: 1000
         boundsBehavior: Flickable.StopAtBounds
+        onCountChanged: currentIndex = -1;
         delegate: ContactItemDelegate {
             width: root.width
             height: 53
@@ -79,6 +84,7 @@ Item {
             user: model
             group: model
             onClicked: select();
+            isHighlighted: view.currentIndex == index
         }
     }
 

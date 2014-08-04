@@ -28,6 +28,32 @@ WidgetView {
 
     Keys.onEscapePressed: MessengerJs.closeChat()
 
+    Keys.onPressed: {
+        var target = searchContactItem.localSearch ? searchContactList : webSearch;
+        var actions = {};
+
+        actions[Qt.Key_Up] = 'decrementIndex';
+        actions[Qt.Key_Down] = 'incrementIndex';
+        actions[Qt.Key_Home] = 'scrollToStart';
+        actions[Qt.Key_End] = 'scrollToEnd';
+        actions[Qt.Key_PageUp] = 'decrementIndexPgUp';
+        actions[Qt.Key_PageDown] = 'incrementIndexPgDown';
+
+        if (actions.hasOwnProperty(event.key) && target.hasOwnProperty(actions[event.key])) {
+            target[actions[event.key]].apply(target);
+            return;
+        }
+
+        if (target.isAnyItemHighlighted() &&
+           (event.key == Qt.Key_Enter || event.key == Qt.Key_Return)) {
+            root.isSearching = false;
+            if (searchContactItem.localSearch) {
+                searchContactItem.searchText = '';
+            }
+            target.selectCurrentUser();
+        }
+    }
+
     QtObject {
         id: d
 

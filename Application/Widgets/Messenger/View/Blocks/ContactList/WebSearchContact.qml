@@ -9,6 +9,7 @@ Item {
     property string searchText
     property bool isActive
     property variant charsList
+    property bool isHighlighted: false
 
     property string nickname
     property string avatar
@@ -28,6 +29,21 @@ Item {
         anchors.fill: parent
         color: root.isActive ? Styles.style.messengerContactBackgroundSelected :
                                Styles.style.messengerContactBackground
+    }
+
+    Rectangle {
+        anchors {
+            fill: parent
+            margins: 4
+            rightMargin: 14
+        }
+        color: background.color
+
+        border {
+            width: 1
+            color: Qt.darker(background.color, Styles.style.darkerFactor * 1.5)
+        }
+        visible: root.isHighlighted && !root.isActive
     }
 
     Rectangle {

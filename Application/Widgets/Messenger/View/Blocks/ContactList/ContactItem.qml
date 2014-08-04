@@ -25,6 +25,7 @@ Rectangle {
 
     property bool isCurrent: false
     property bool isUnreadMessages: false
+    property bool isHighlighted: false
 
     property string presenceStatus: ""
 
@@ -43,6 +44,21 @@ Rectangle {
         }
 
         return map[root.state] || Styles.style.messengerContactBackground;
+    }
+
+    Rectangle {
+        anchors {
+            fill: parent
+            margins: 4
+            rightMargin: 14
+        }
+        color: root.color
+
+        border {
+            width: 1
+            color: Qt.darker(root.color, Styles.style.darkerFactor * 1.5)
+        }
+        visible: root.isHighlighted && !root.isCurrent
     }
 
     Rectangle {
