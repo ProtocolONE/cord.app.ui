@@ -97,6 +97,7 @@ Rectangle {
             manager.registerWidget('Application.Widgets.PublicTest');
             manager.registerWidget('Application.Widgets.SecondAccountAuth');
             manager.registerWidget('Application.Widgets.MyGamesMenu');
+            manager.registerWidget('Application.Widgets.NicknameReminder');
             manager.init();
         }
     }

@@ -19,7 +19,9 @@ import "MessengerPrivate.js" as MessengerPrivateJs
 import "User.js" as UserJs
 import "Message.js" as MessageJs
 import "Group.js" as GroupJs
+
 import "../../../Core/App.js" as App
+import "../../../Core/User.js" as User
 
 Item {
     id: root
@@ -500,6 +502,14 @@ Item {
         interval: 60000
         triggeredOnStart: true
         onTriggered: root.currentTime = Math.floor(Date.now()/1000);
+    }
+
+    Connections {
+        target: User.getInstance()
+        onNicknameChanged: {
+            var user = root.authedUser();
+            user.nickname = User.getNickname();
+        }
     }
 
     Connections {

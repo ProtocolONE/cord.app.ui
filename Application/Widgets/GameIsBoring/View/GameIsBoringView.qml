@@ -127,9 +127,8 @@ PopupBase {
         }
         text: qsTr("GAME_FAILED_BUTTON_CLOSE")
         onClicked: {
-            root.close();
             Marketing.send(Marketing.NotLikeTheGame, root.currentItem.serviceId, { serviceId: 0 });
+            root.close();
         }
     }
-
 }

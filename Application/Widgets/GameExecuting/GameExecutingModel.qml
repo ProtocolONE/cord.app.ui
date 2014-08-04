@@ -26,10 +26,6 @@ WidgetModel {
     property int internalPopupId: -1
     property variant enterNickNameViewModelInstance: App.enterNickNameViewModelInstance()
 
-    function isNickNameValid() {
-        return User.getNickname().indexOf('@') == -1;
-    }
-
     function startExecuting(serviceId) {
         executeServiceDelay.serviceId = serviceId;
         executeServiceDelay.start();
@@ -39,7 +35,7 @@ WidgetModel {
         target: enterNickNameViewModelInstance || null
         ignoreUnknownSignals: true
         onStartCheck: {
-            if (isNickNameValid()) {
+            if (User.isNicknameValid()) {
                 enterNickNameViewModelInstance.success();
             } else {
                 root.internalPopupId = Popup.show('NicknameEdit');
@@ -54,7 +50,7 @@ WidgetModel {
                 return;
             }
 
-            if (isNickNameValid()) {
+            if (User.isNicknameValid()) {
                 enterNickNameViewModelInstance.success();
             } else {
                 enterNickNameViewModelInstance.failed();

@@ -31,7 +31,7 @@ function init(layer) {
 }
 
 function show(widgetName, view, priority) {
-    _queue.push({widgetName: widgetName, view: view, priority: priority || 0, popupId: ++_internalPopupId});
+    _queue.push({widgetName: widgetName, view: view || '', priority: priority || 0, popupId: ++_internalPopupId});
     _queue.sort(function(a, b){
         if (a.priority < b.priority){
             return 1;

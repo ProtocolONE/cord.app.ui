@@ -311,12 +311,12 @@
 <context>
     <name>BaseLayer</name>
     <message>
-        <location filename="../Application/Layers/BaseLayer.qml" line="380"/>
+        <location filename="../Application/Layers/BaseLayer.qml" line="377"/>
         <source>MY_GAMES_CAPTION_MENU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Layers/BaseLayer.qml" line="391"/>
+        <location filename="../Application/Layers/BaseLayer.qml" line="388"/>
         <source>MY_GAMES_MENU_NEWS</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1332,6 +1332,24 @@
     </message>
 </context>
 <context>
+    <name>NicknameReminderView</name>
+    <message>
+        <location filename="../Application/Widgets/NicknameReminder/View/NicknameReminderView.qml" line="25"/>
+        <source>USER_LOST_NICK_NAME_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/NicknameReminder/View/NicknameReminderView.qml" line="57"/>
+        <source>USER_LOST_NICKNAME_BODY_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/NicknameReminder/View/NicknameReminderView.qml" line="76"/>
+        <source>USER_LOST_NICKNAME_ENTER_BUTTON_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>NotificationSettings</name>
     <message>
         <location filename="../Application/Blocks/Settings/Application/NotificationSettings.qml" line="56"/>
@@ -1355,7 +1373,7 @@
 <context>
     <name>Popup</name>
     <message>
-        <location filename="../Application/Core/Popup.qml" line="196"/>
+        <location filename="../Application/Core/Popup.qml" line="205"/>
         <source>POPUP_HELP_HINT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1376,39 +1394,39 @@
 <context>
     <name>PremiumShopModel</name>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="78"/>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="77"/>
         <source>PREMIUM_SHOP_DAYS_OTHER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="79"/>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="78"/>
         <source>PREMIUM_SHOP_DAYS_1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="79"/>
         <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="80"/>
         <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="81"/>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="82"/>
         <source>PREMIUM_SHOP_DAYS_2_4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="102"/>
-        <source>PREMIUM_BUY_SUCCESS_CATION</source>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="99"/>
+        <source>PREMIUM_BUY_SUCCESS_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="103"/>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="105"/>
+        <source>PREMIUM_BUY_ERROR_CAPTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="100"/>
         <source>PREMIUM_SHOP_BUY_SUCCESS_DETAILS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="108"/>
-        <source>PREMIUM_BUY_ERROR_CATION</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="109"/>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="106"/>
         <source>PREMIUM_SHOP_DETAILS_ERROR_UNKNOWN</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1421,37 +1439,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="123"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="98"/>
         <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="140"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="115"/>
         <source>TITLE_PREMIUM_ACCOUNT_LEFT_TIME_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="154"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="129"/>
         <source>TITLE_PREMIUM_ACCOUNT_CONTINUE_ACCOUNT_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="218"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="193"/>
         <source>NOT_ENOUGH_MONEY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="248"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="223"/>
         <source>ADD_MONEY_BUTTON_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="268"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="243"/>
         <source>MONEY_TOTAL %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="290"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="265"/>
         <source>ACCEPT_BUY</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1743,8 +1761,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="183"/>
+        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="184"/>
         <source>SECOND_GAME_BLOCK_PREMIUM_PLAY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="203"/>
+        <source>SECOND_GAME_BLOCK_PREMIUM_PLAY_TULTIP</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

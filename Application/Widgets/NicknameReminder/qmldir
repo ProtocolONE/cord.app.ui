@@ -1,0 +1,3 @@
+module Application.Widgets.NicknameReminder
+PluginContainer 1.0 PluginContainer.qml 
+NicknameReminder 1.0 View/NicknameReminderView.qml

@@ -137,3 +137,7 @@ function getSecondNickname() {
 function isSecondAuthorized() {
     return !!secondUserId() && !!secondAppKey() && !!secondCookie();
 }
+
+function isNicknameValid() {
+    return getNickname().indexOf('@') == -1;
+}

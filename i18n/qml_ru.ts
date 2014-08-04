@@ -3281,6 +3281,36 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>NicknameReminderView</name>
+    <message>
+        <source>USER_LOST_NICK_NAME_TITLE</source>
+        <translation type="unfinished">Отличный момент чтобы выбрать никнейм!</translation>
+    </message>
+    <message>
+        <source>USER_LOST_NICKNAME_BODY_TEXT</source>
+        <translation type="unfinished">А то вашим друзьям придётся узнавать вас по аватару. У них может не получится.</translation>
+    </message>
+    <message>
+        <source>USER_LOST_NICKNAME_ENTER_BUTTON_TEXT</source>
+        <translation type="unfinished">Ввести никнейм</translation>
+    </message>
+</context>
+<context>
+    <name>NicknameView</name>
+    <message>
+        <source>USER_LOST_NICK_NAME_TITLE</source>
+        <translation type="obsolete">Отличный момент чтобы выбрать никнейм!</translation>
+    </message>
+    <message>
+        <source>USER_LOST_NICKNAME_BODY_TEXT</source>
+        <translation type="obsolete">А то вашим друзьям придётся узнавать вас по аватару. У них может не получится.</translation>
+    </message>
+    <message>
+        <source>USER_LOST_NICKNAME_ENTER_BUTTON_TEXT</source>
+        <translation type="obsolete">Ввести никнейм</translation>
+    </message>
+</context>
+<context>
     <name>NotificationPage</name>
     <message>
         <source>CHECKBOX_NOTIFICATION_MAINTENANCE_END</source>

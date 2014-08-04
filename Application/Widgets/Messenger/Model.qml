@@ -39,4 +39,6 @@ WidgetModel {
     Addons.Popups {
         enabled: settings.messengerReceivedMessage
     }
+
+    Addons.NickNameReminder {}
 }

@@ -181,6 +181,7 @@
 		<file>Application/Widgets/Maintenance/View/MaintenanceView.qml</file>
 		<file>Application/Widgets/Maintenance/View/TimeTextLabel.qml</file>
 		<file>Application/Widgets/Messenger/Addons/MessageReceived.qml</file>
+		<file>Application/Widgets/Messenger/Addons/NickNameReminder.qml</file>
 		<file>Application/Widgets/Messenger/Addons/Popups.qml</file>
 		<file>Application/Widgets/Messenger/Model.qml</file>
 		<file>Application/Widgets/Messenger/Models/Group.js</file>
@@ -237,6 +238,20 @@
 		<file>Application/Widgets/NicknameEdit/qmldir</file>
 		<file>Application/Widgets/NicknameEdit/View/InputWithError.qml</file>
 		<file>Application/Widgets/NicknameEdit/View/NicknameEditView.qml</file>
+		<file>Application/Widgets/NicknameReminder/PluginContainer.qml</file>
+		<file>Application/Widgets/NicknameReminder/qmldir</file>
+		<file>Application/Widgets/NicknameReminder/View/NicknameReminderView.qml</file>
+		<file>Application/Widgets/Overlay/OverlayModel.qml</file>
+		<file>Application/Widgets/Overlay/PluginContainer.qml</file>
+		<file>Application/Widgets/Overlay/qmldir</file>
+		<file>Application/Widgets/Overlay/View/Games/Aika.qml</file>
+		<file>Application/Widgets/Overlay/View/Games/BS.qml</file>
+		<file>Application/Widgets/Overlay/View/Games/Reborn.qml</file>
+		<file>Application/Widgets/Overlay/View/OverlayBase.js</file>
+		<file>Application/Widgets/Overlay/View/OverlayBase.qml</file>
+		<file>Application/Widgets/PremiumNotifier/PluginContainer.qml</file>
+		<file>Application/Widgets/PremiumNotifier/PremiumNotifierModel.qml</file>
+		<file>Application/Widgets/PremiumNotifier/qmldir</file>
 		<file>Application/Widgets/PremiumShop/PluginContainer.qml</file>
 		<file>Application/Widgets/PremiumShop/PremiumShopModel.qml</file>
 		<file>Application/Widgets/PremiumShop/qmldir</file>
