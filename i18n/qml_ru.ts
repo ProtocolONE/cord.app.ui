@@ -3414,7 +3414,7 @@ Please try again later.</source>
     <name>PremiumShopView</name>
     <message>
         <source>PREMIUM_ACCOUNT_HEADER_TEXT_BLOCK</source>
-        <translation>Расширенный аккаунт</translation>
+        <translation type="unfinished">Дополнительный аккаунт</translation>
     </message>
     <message>
         <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
@@ -3979,6 +3979,10 @@ Please try again later.</source>
     <message>
         <source>PREMIUM_ADD_ACCOUNT</source>
         <translation>Добавить аккаунт</translation>
+    </message>
+    <message>
+        <source>SECOND_GAME_BLOCK_PREMIUM_PLAY_TULTIP</source>
+        <translation type="unfinished">Запуск второго окна возможен только после запуска игры под основным аккаунтом</translation>
     </message>
 </context>
 <context>

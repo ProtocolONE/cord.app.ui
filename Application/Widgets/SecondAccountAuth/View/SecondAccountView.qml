@@ -176,11 +176,14 @@ WidgetView {
                 height: 24
                 anchors.bottom: parent.bottom
 
-                style: ButtonStyleColors {
+                style {
                     normal: "#1ABC9C"
                     hover: "#019074"
+                    disabled: '#888888'
                 }
                 text: qsTr("SECOND_GAME_BLOCK_PREMIUM_PLAY");
+                toolTipDisable: qsTr("SECOND_GAME_BLOCK_PREMIUM_PLAY_TULTIP")
+                enabled: !!App.currentRunningMainService()
                 analytics: GoogleAnalyticsEvent {
                     page: '/SecondAccountAuth'
                     category: 'Auth'
