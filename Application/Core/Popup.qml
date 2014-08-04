@@ -71,7 +71,12 @@ Item {
             PropertyAnimation { target: substrate; property: "opacity"; from: 1; to: 0; duration: 200 }
         }
 
-        ScriptAction { script: firstContainer.clear(); }
+        ScriptAction {
+            script: {
+                firstContainer.clear();
+                firstContainer.reset();
+            }
+        }
 
         onCompleted: {
             if (d.widgetName == '') {
@@ -142,9 +147,6 @@ Item {
         id: firstContainer
 
         anchors.centerIn: parent
-        width: viewInstance ? viewInstance.width : 0
-        height: viewInstance ? viewInstance.height : 0
-
         onViewReady: {
             showWidgetAnimation.start();
 

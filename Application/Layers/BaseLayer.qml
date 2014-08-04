@@ -312,8 +312,6 @@ Rectangle {
 
             WidgetContainer {
                 width: parent.width
-                height: viewInstance.height
-
                 widget: 'GameNews'
             }
         }
@@ -326,7 +324,6 @@ Rectangle {
 
             WidgetContainer {
                 width: parent.width
-                height: viewInstance.height
 
                 widget: 'GameNews'
                 view: 'NewsMyGames'

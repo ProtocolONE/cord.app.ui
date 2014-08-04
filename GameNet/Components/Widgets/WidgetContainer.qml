@@ -17,31 +17,51 @@ FocusScope {
     signal viewReady();
 
     property string widget: ''
-    property variant view
+    property string view: ''
 
     property alias viewInstance: d.viewObj //@readonly
 
-    onViewChanged: d.updateView()
-    onWidgetChanged: d.updateView()
+    onViewChanged: delayedUpdate.restart()
+    onWidgetChanged: delayedUpdate.restart()
     Component.onDestruction: root.clear()
 
     implicitWidth: childrenRect.width
     implicitHeight: childrenRect.height
 
     function clear() {
+        if (d.viewObj === root) {
+            //INFO Мы только инициализированы и в viewObj находится прокси объект
+            return;
+        }
+
         if (d.viewObj) {
             d.viewObj.clear();
             d.viewObj.destroy();
         }
     }
 
+    function reset() {
+        root.widget = '';
+        root.view = '';
+    }
+
     function force(widgetName, widgetView) {
-        if (widgetName == widget && view == widgetView ) {
-            d.updateView();
-        } else {
-            view = widgetView;
+        if (widgetName !== widget || view !== widgetView ) {
+            d.ignoreUpdate = true;
             widget = widgetName;
+            view = widgetView;
+            d.ignoreUpdate = false;
         }
+
+        d.updateView();
+    }
+
+    Timer {
+        id: delayedUpdate
+
+        interval: 0
+        triggeredOnStart: false
+        onTriggered: d.updateView()
     }
 
     Connections {
@@ -52,18 +72,23 @@ FocusScope {
     QtObject {
         id: d
 
-        property variant viewObj
+        property variant viewObj: root
+        property bool ignoreUpdate: false
 
         function updateView() {
-            if (!WidgetManager.isReady()) {
+            if (!WidgetManager.isReady() || ignoreUpdate) {
                 return;
             }
+
+            console.log('update', root.widget, root.view)
 
             root.clear();
             if (root.widget === '') {
                 return;
             }
 
+
+            console.log('create', root.widget, root.view)
             d.viewObj = (root.view !== '')
                 ? WidgetManager.createNamedView(root.widget, root.view, root)
                 : WidgetManager.createView(root.widget, root);
