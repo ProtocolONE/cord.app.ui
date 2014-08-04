@@ -282,13 +282,24 @@ Item {
 
         function startAnimation() {
             var tmpSourceColors = {}
-                , tmpTargetColors = {};
+                , tmpTargetColors = {}
+                , tmpProps;
 
-            blendProperties = Object.keys(styleList[currentStyle]).filter(function(prop){
+            tmpProps = Object.keys(styleList[currentStyle]).filter(function(prop){
                 return root.hasOwnProperty(prop)
-                    && typeof(root[prop]) === 'object'
-                    && root[prop].toString()[0] === '#'
                     && root[prop] != styleList[currentStyle][prop];
+            });
+
+            tmpProps.filter(function(prop) {
+                var type = typeof(root[prop]);
+                return type === 'number';
+            }).forEach(function(prop) {
+                root[prop] = styleList[currentStyle][prop];
+            });
+
+            blendProperties = tmpProps.filter(function(prop){
+                return typeof(root[prop]) === 'object'
+                    && root[prop].toString()[0] === '#';
             });
 
             blendProperties.forEach(function(field) {

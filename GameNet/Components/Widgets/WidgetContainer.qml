@@ -80,15 +80,11 @@ FocusScope {
                 return;
             }
 
-            console.log('update', root.widget, root.view)
-
             root.clear();
             if (root.widget === '') {
                 return;
             }
 
-
-            console.log('create', root.widget, root.view)
             d.viewObj = (root.view !== '')
                 ? WidgetManager.createNamedView(root.widget, root.view, root)
                 : WidgetManager.createView(root.widget, root);
