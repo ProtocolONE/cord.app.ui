@@ -28,7 +28,7 @@ Rectangle {
     color: Styles.style.messengerChatDialogHeaderBackground
 
     ContactList.ContactItemDelegate {
-        user: MessengerJs.selectedUser();
+        user: MessengerJs.selectedUser(MessengerJs.USER_INFO_JID)
         anchors.fill: parent
     }
 

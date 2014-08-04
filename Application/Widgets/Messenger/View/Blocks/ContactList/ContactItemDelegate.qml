@@ -83,7 +83,7 @@ ContactItem {
 
         function hasUnreadMessages() {
             if (!root.user) {
-                return "";
+                return false;
             }
 
             return Messenger.hasUnreadMessages(root.user) || false;

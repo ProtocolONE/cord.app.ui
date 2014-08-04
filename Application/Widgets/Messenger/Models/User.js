@@ -120,7 +120,6 @@ function User(item, model, jabber) {
             _model.setPropertyById(self.jid, '__lastActivityRequested', true);
             var value = jabber.getLastActivity(self.jid);
             self.lastActivity = value;
-            return value;
         }
 
         return _item.lastActivity;

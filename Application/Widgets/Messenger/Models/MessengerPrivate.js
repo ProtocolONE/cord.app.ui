@@ -9,6 +9,10 @@
 ****************************************************************************/
 .pragma library
 
+// INFO see Messenger.js
+var USER_INFO_FULL = 1;
+var USER_INFO_JID = 2;
+
 var groupToUser = {}
     , userToGroup = {}
     , lastTalkDateMap = {};

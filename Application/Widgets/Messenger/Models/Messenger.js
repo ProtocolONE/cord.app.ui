@@ -9,6 +9,9 @@
 ****************************************************************************/
 .pragma library
 
+var USER_INFO_FULL = 1;
+var USER_INFO_JID = 2;
+
 var _modelComponent,
     _modelInstance;
 
@@ -59,8 +62,8 @@ function selectUser(user, group) {
     _modelInstance.selectUser(user, group);
 }
 
-function selectedUser() {
-    return _modelInstance.selectedUser();
+function selectedUser(type) {
+    return _modelInstance.selectedUser(type);
 }
 
 function previousUser() {

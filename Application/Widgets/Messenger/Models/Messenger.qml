@@ -107,7 +107,12 @@ Item {
         xmppClient.disconnectFromServer();
     }
 
-    function getUser(jid) {
+    function getUser(jid, type) {
+        type = type || MessengerPrivateJs.USER_INFO_FULL;
+        if (type === MessengerPrivateJs.USER_INFO_JID) {
+            return { jid: jid };
+        }
+
         if (myUser.jid && jid === myUser.jid)
             return myUser;
 
@@ -153,8 +158,8 @@ Item {
         root.selectUser({jid:""}, {groupId: ""});
     }
 
-    function selectedUser() {
-        return root.getUser(root.selectedJid);
+    function selectedUser(type) {
+        return root.getUser(root.selectedJid, type);
     }
 
     function previousUser() {
