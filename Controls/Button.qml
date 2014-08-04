@@ -19,11 +19,6 @@ Rectangle {
     property alias fontSize: buttonText.font.pixelSize
     property ButtonStyleColors style: ButtonStyleColors {}
     property bool inProgress: false
-
-    property alias toolTipDisable: mouseAreaTultip.toolTip
-    property alias tooltipPositionDisable: mouseAreaTultip.tooltipPosition
-    property alias tooltipGlueCenterDisable: mouseAreaTultip.tooltipGlueCenter
-
     property alias toolTip: buttonBehavior.toolTip
     property alias tooltipPosition: buttonBehavior.tooltipPosition
     property alias tooltipGlueCenter: buttonBehavior.tooltipGlueCenter
@@ -95,14 +90,6 @@ Rectangle {
                 PropertyChanges { target: buttonText; visible: false }
             }
         ]
-    }
-
-    CursorMouseArea {
-        id: mouseAreaTultip
-
-        anchors.fill: parent
-        hoverEnabled: buttonBehavior.hoverEnabled
-        visible: !buttonBehavior.visible
     }
 
     ButtonBehavior {

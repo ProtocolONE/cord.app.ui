@@ -182,7 +182,6 @@ WidgetView {
                     disabled: '#888888'
                 }
                 text: qsTr("SECOND_GAME_BLOCK_PREMIUM_PLAY");
-                toolTipDisable: qsTr("SECOND_GAME_BLOCK_PREMIUM_PLAY_TULTIP")
                 enabled: !!App.currentRunningMainService()
                 analytics: GoogleAnalyticsEvent {
                     page: '/SecondAccountAuth'
@@ -194,6 +193,14 @@ WidgetView {
                 onClicked: {
                     App.executeSecondService(root.gameItem.serviceId, User.secondUserId() , User.secondAppKey());
                 }
+            }
+
+            CursorMouseArea {
+                width: parent.width
+                height: 24
+                anchors.bottom: parent.bottom
+                visible: !playSecondAccount.enabled
+                toolTip: qsTr("SECOND_GAME_BLOCK_PREMIUM_PLAY_TULTIP")
             }
         }
     }

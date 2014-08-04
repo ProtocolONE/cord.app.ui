@@ -78,5 +78,4 @@ Item {
         }
         onCanceled: behavior.buttonPressed = false;
     }
-
 }
