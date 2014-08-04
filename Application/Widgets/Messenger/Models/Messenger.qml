@@ -27,7 +27,6 @@ Item {
     property string previousJid
     property string selectedJid
     property string selectedGroupId
-    property string authedJid: ""
     property int currentTime
 
     property bool connecting: false
@@ -40,6 +39,7 @@ Item {
 
     signal talkDateChanged(string jid);
     signal onlineStatusChanged(string jid);
+    signal lastActivityChanged(string jid);
     signal rosterRecieved();
 
     function init() {
@@ -47,19 +47,19 @@ Item {
             client: xmppClient,
             groups: groupsModel,
             users: usersModel,
-            user: user
+            user: myUser
         };
     }
 
     function sendMessage(user, body) {
         var messageMap = {}
-            , item;
+        , item;
 
         if (!usersModel.contains(user.jid))
             return;
 
         item = root.getUser(user.jid);
-        item.appendMessage(root.authedJid, body);
+        item.appendMessage(myUser.jid, body);
         d.updateUserTalkDate(item);
         messageMap.body = body;
         messageMap.type = QXmppMessage.Chat;
@@ -77,7 +77,7 @@ Item {
         xmppClient.sendInputStatus(user.jid, value);
     }
 
-    function connect(server, user, password) {
+    function connect(server, userId, password) {
         d.serverUrl = server;
 
         if (root.connecting || root.connected) {
@@ -85,15 +85,13 @@ Item {
             return;
         }
 
-        var jid = root.userIdToJid(user);
-        user.jid = jid;
-        user.userId = UserJs.jidToUser(jid);
+        var jid = root.userIdToJid(userId);
+        myUser.jid = jid;
+        myUser.userId = userId;
 
-        d.loadUserTalkDate(user.userId);
+        d.loadUserTalkDate(myUser.userId);
 
         root.connecting = true;
-        root.authedJid = jid;
-
         xmppClient.connectToServer(jid, password);
     }
 
@@ -110,8 +108,8 @@ Item {
     }
 
     function getUser(jid) {
-        if (root.authedJid && jid === root.authedJid)
-            return user;
+        if (myUser.jid && jid === myUser.jid)
+            return myUser;
 
         return new UserJs.User(usersModel.getById(jid), usersModel, xmppClient);
     }
@@ -164,12 +162,12 @@ Item {
     }
 
     function authedUser() {
-        return user;
+        return myUser;
     }
 
     function userAvatar(item) {
         var defaultAvatar = (installPath + "/Assets/Images/Application/Widgets/Messenger/defaultAvatar.png");
-        var data = getUser(item.jid);
+        var data = root.getUser(item.jid);
         if (!data.isValid()) {
             return defaultAvatar;
         }
@@ -178,7 +176,7 @@ Item {
     }
 
     function lastActivity(item) {
-        var data = getUser(item.jid);
+        var data = root.getUser(item.jid);
         if (!data.isValid()) {
             return 0;
         }
@@ -279,7 +277,6 @@ Item {
                 // UNDONE set other properties
             } else {
                 rawUser = UserJs.createRawUser(user, nickname || user);
-                rawUser.avatar = d.getDefaultAvatar();
                 rawUser.lastTalkDate = d.getUserTalkDate(rawUser);
                 usersModel.append(rawUser);
             }
@@ -377,8 +374,8 @@ Item {
 
         function updateUserTalkDate(user) {
             var lastDate = Moment.moment(user.lastTalkDate).format('DD.MM.YYYY'),
-                nowDate = Moment.moment().format('DD.MM.YYYY'),
-                authedUserId;
+                    nowDate = Moment.moment().format('DD.MM.YYYY'),
+                    authedUserId;
 
             if (lastDate === nowDate) {
                 return;
@@ -429,7 +426,7 @@ Item {
     }
 
     User {
-        id: user
+        id: myUser
     }
 
     JabberClient {
@@ -444,8 +441,8 @@ Item {
             root.connecting = false;
 
             xmppClient.failCount = 0;
-            xmppClient.vcardManager.requestVCard(user.jid);
-            user.nickname = user.jid;
+            xmppClient.vcardManager.requestVCard(myUser.jid);
+            myUser.nickname = myUser.jid;
 
             root.connectedToServer();
         }
@@ -480,6 +477,16 @@ Item {
         }
 
         onPresenceReceived: d.updatePresence(presence);
+
+        onLastActivityUpdated: {
+            var item = root.getUser(jid);
+            if (!item.isValid()) {
+                return;
+            }
+
+            item.lastActivity = timestamp;
+            root.lastActivityChanged(jid);
+        }
     }
 
     Timer {
@@ -534,19 +541,14 @@ Item {
             }
 
             if (vcard.extra) {
-                item.avatar = vcard.extra.PHOTOURL || item.avatar || "";
+                item.avatar = vcard.extra.PHOTOURL || item.avatar;
+            }
+
+            if (!item.avatar) {
+                item.avatar = d.getDefaultAvatar();
             }
         }
     }
 
-    Connections {
-        target: xmppClient.lastActivityManager
-        onLastActivityUpdated: {
-            var item = root.getUser(UserJs.jidWithoutResource(lastActivity.from));
 
-            if (lastActivity.seconds >= 0) {
-                item.lastActivity = (+ Moment.moment().subtract(lastActivity.seconds, 'seconds'))/1000;
-            }
-        }
-    }
 }

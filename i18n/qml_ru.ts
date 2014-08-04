@@ -2539,7 +2539,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>LAST_ACTIVITY_PLACEHOLDER</source>
-        <translation type="unfinished">Был %1</translation>
+        <translation type="obsolete">Был %1</translation>
     </message>
 </context>
 <context>

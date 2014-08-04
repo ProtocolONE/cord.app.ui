@@ -9,8 +9,13 @@
 ****************************************************************************/
 import QtQuick 1.1
 import QXmpp 1.0
+import Tulip 1.0
 
 import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../Core/moment.js" as Moment
+import "User.js" as User
+
+import "JabberClient.js" as Js
 
 QXmppClient {
     id: xmppClient
@@ -33,6 +38,8 @@ QXmppClient {
         'Paused': QXmppMessage.Paused
     }
 
+    signal lastActivityUpdated(string jid, int timestamp);
+
     function sendInputStatus(jid, value) {
         var messageMap = {
             type: QXmppMessage.Chat,
@@ -40,6 +47,38 @@ QXmppClient {
         };
 
         xmppClient.sendMessage(jid, messageMap);
+    }
+
+    function getLastActivity(jid) {
+        xmppClient.lastActivityManager.requestLastActivity(jid);
+        return Js.lastActivityCache[jid] || 0;
+    }
+
+    function processLastActiviteResponse(lastActivity) {
+        if (lastActivity.seconds < 0) {
+            return;
+        }
+
+        var date = (+ Moment.moment().subtract(lastActivity.seconds, 'seconds'))/1000 | 0;
+        var jid = User.jidWithoutResource(lastActivity.from);
+        var current = Js.lastActivityCache[jid];
+
+        if (date != current) {
+            Js.lastActivityCache[jid] = date;
+            autoSaveDelay.restart();
+            xmppClient.lastActivityUpdated(jid, date);
+        }
+    }
+
+    Component.onCompleted: {
+        var cache;
+        try {
+            cache = JSON.parse(Settings.value('qml/messenger/cache/', 'lastActivity' , '{}'));
+        } catch(e) {
+            cache = {};
+        }
+
+        Js.lastActivityCache = cache;
     }
 
     onError: {
@@ -71,4 +110,17 @@ QXmppClient {
             GoogleAnalytics.trackEvent('/jabber/0.2/', 'Error', 'Code ' + code, "Try count" + xmppClient.failCount);
         }
     }
+
+    Connections {
+        target: xmppClient.lastActivityManager
+        onLastActivityUpdated: xmppClient.processLastActiviteResponse(lastActivity);
+    }
+
+    Timer {
+        id: autoSaveDelay
+
+        interval: 5000
+        onTriggered: Settings.setValue('qml/messenger/cache/', 'lastActivity' , JSON.stringify(Js.lastActivityCache));
+    }
+
 }

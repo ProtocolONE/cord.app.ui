@@ -184,6 +184,7 @@
 		<file>Application/Widgets/Messenger/Addons/Popups.qml</file>
 		<file>Application/Widgets/Messenger/Model.qml</file>
 		<file>Application/Widgets/Messenger/Models/Group.js</file>
+		<file>Application/Widgets/Messenger/Models/JabberClient.js</file>
 		<file>Application/Widgets/Messenger/Models/JabberClient.qml</file>
 		<file>Application/Widgets/Messenger/Models/Message.js</file>
 		<file>Application/Widgets/Messenger/Models/Messenger.js</file>

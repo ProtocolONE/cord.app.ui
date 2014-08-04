@@ -100,7 +100,8 @@ Item {
                 actualUsersMap[jid] =
                     {
                         online: User.isOnline(userInfo.presenceState),
-                        nickname: userInfo.nickname.toLowerCase()
+                        nickname: userInfo.nickname.toLowerCase(),
+                        lastActivity: Messenger.getUser(jid).lastActivity
                     };
 
                 actualUsers.push(jid);
@@ -152,6 +153,17 @@ Item {
                 }
 
                 if (!online1 && online2) {
+                    return 1;
+                }
+
+                var lastActivity1 = usersMap[a].lastActivity;
+                var lastActivity2 = usersMap[b].lastActivity;
+
+                if ((lastActivity1 > 0) && (lastActivity2 == 0)) {
+                    return -1;
+                }
+
+                if ((lastActivity1 == 0) && (lastActivity2 > 0)) {
                     return 1;
                 }
 
@@ -223,7 +235,7 @@ Item {
             return result;
         }
 
-        function updateUserOnlineStatus(jid) {
+        function updateUserOrderPosition(jid) {
             d.forEachOpenedGroup(function(openedId) {
                 var group;
                 group = Js.groupById(openedId);
@@ -237,18 +249,28 @@ Item {
 
                 var user = Messenger.getUser(jid),
                     online = user.online,
-                    nickname = user.nickname.toLowerCase();
+                    nickname = user.nickname.toLowerCase(),
+                    lastActivity = user.lastActivity;
 
                 var insertIndex = Lodash._.findIndex(group.users, function(u) {
                     var user1 = Messenger.getUser(u),
                         online1 = user1.online,
-                        nickname1 = user1.nickname.toLowerCase();
+                        nickname1 = user1.nickname.toLowerCase(),
+                        lastActivity1 = user1.lastActivity;
 
                     if (online && !online1) {
                         return true;
                     }
 
                     if (!online && online1) {
+                        return false;
+                    }
+
+                    if ((lastActivity > 0) && (lastActivity1 == 0)) {
+                        return true;
+                    }
+
+                    if ((lastActivity == 0) && (lastActivity1 > 0)) {
                         return false;
                     }
 
@@ -260,7 +282,6 @@ Item {
 
                 var groupIndex = Js.calculateInsertIndex(openedId);
                 Js.queueMoveItemJob(index + groupIndex, insertIndex + groupIndex);
-
             });
         }
     }
@@ -274,7 +295,8 @@ Item {
 
     Connections {
         target: Messenger.instance()
-        onOnlineStatusChanged: d.updateUserOnlineStatus(jid);
+        onOnlineStatusChanged: d.updateUserOrderPosition(jid);
+        onLastActivityChanged: d.updateUserOrderPosition(jid);
     }
 
     Connections {
@@ -299,6 +321,7 @@ Item {
         boundsBehavior: Flickable.StopAtBounds
         clip: true
         section.property: "sectionId"
+        cacheBuffer: 300
         section.delegate: GroupHeader {
             width: listView.width
             height: visible ? 33 : 0

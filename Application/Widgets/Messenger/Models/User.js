@@ -117,8 +117,10 @@ function User(item, model, jabber) {
 
     this.__defineGetter__("lastActivity", function() {
         if (!_item.__lastActivityRequested) {
-            jabber.lastActivityManager.requestLastActivity(self.jid);
             _model.setPropertyById(self.jid, '__lastActivityRequested', true);
+            var value = jabber.getLastActivity(self.jid);
+            self.lastActivity = value;
+            return value;
         }
 
         return _item.lastActivity;

@@ -150,7 +150,7 @@ WidgetView {
 
         AnimatedImage {
             anchors.centerIn: parent
-            visible: MessengerJs.isConnecting()
+            visible: !d.contactReceived
             source: installPath + "Assets/Images/Application/Widgets/Messenger/wait.gif"
         }
     }
