@@ -265,6 +265,11 @@ Item {
         }
     }
 
+    Shortcut {
+        key: "Ctrl+Shift+Z"
+        onActivated: updateStyle()
+    }
+
     ListModel {
         id: data
     }
