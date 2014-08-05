@@ -452,7 +452,9 @@ WidgetModel {
             }
 
             var path = App.getExpectedInstallPath(serviceId);
-            App.setServiceInstallPath(serviceId, path, true);
+            App.setServiceInstallPath(serviceId, path);
+            App.gameSettingsModelInstance().createShortcutOnDesktop(serviceId);
+            App.gameSettingsModelInstance().createShortcutInMainMenu(serviceId);
             App.acceptFirstLicense(serviceId);
             App.downloadButtonStart(serviceId);
         }

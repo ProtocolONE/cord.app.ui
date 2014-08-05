@@ -96,8 +96,8 @@ QtObject {
         mainWindow.activateWindow();
     }
 
-    function setServiceInstallPath(serviceId, path, isCreateShortcut) {
-        mainWindow.setServiceInstallPath(serviceId, path, isCreateShortcut)
+    function setServiceInstallPath(serviceId, path) {
+        mainWindow.setServiceInstallPath(serviceId, path)
     }
 
     function initFinished() {

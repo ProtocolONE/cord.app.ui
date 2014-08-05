@@ -127,6 +127,49 @@ function language() {
         return proxyInst.isSilentMode();
     }
 
+    return 'ru';
+}
+
+function saveLanguage(lang) {
+    if (proxyInst) {
+        proxyInst.saveLanguage(lang);
+    }
+}
+
+function selectLanguage(lang) {
+    if (proxyInst) {
+        proxyInst.selectLanguage(lang);
+    }
+}
+
+function activateWindow() {
+    if (proxyInst) {
+        proxyInst.activateWindow();
+    }
+}
+
+function setServiceInstallPath(serviceId, path) {
+    if (proxyInst) {
+        proxyInst.setServiceInstallPath(serviceId, path);
+    }
+}
+
+function initFinished() {
+    if (proxyInst) {
+        proxyInst.initFinished();
+    }
+}
+
+function updateFinishedSlot() {
+    if (proxyInst) {
+        proxyInst.updateFinishedSlot();
+    }
+}
+
+function isPublicVersion() {
+    if (proxyInst) {
+        return proxyInst.isPublicVersion();
+    }
     return false;
 }
 

@@ -163,22 +163,25 @@ PopupBase {
         text: qsTr("INSTALL_BUTTON_CAPTION")
         onClicked: {
             licenseModel.setLicenseAccepted(true);
-            licenseModel.setShurtCutInDesktop(desktopShortcut.checked);
-            licenseModel.setShurtCutInStart(startMenuShortcut.checked);
             licenseModel.okPressed();
 
             if (root.currentGame.gameType != 'browser') {
                 App.setServiceInstallPath(root.currentGame.serviceId,
-                                          installationPath.path,
-                                          desktopShortcut.checked);
+                                          installationPath.path);
             }
 
-            App.installService(currentGame.serviceId, {
-                                   createDesktopShortCut: desktopShortcut.checked,
-                                   createStartMenuShortCut: startMenuShortcut.checked
-                               });
 
             gameSettingsModelInstance.switchGame(currentGame.serviceId);
+
+            if (desktopShortcut.checked) {
+                gameSettingsModelInstance.createShortcutOnDesktop(currentGame.serviceId);
+            }
+
+            if (startMenuShortcut.checked) {
+                gameSettingsModelInstance.createShortcutInMainMenu(currentGame.serviceId);
+            }
+
+            App.installService(currentGame.serviceId);
 
             root.close();
         }
