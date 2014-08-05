@@ -101,14 +101,15 @@ Item {
     }
 
     onSearchTextChanged: {
-        model.clear();
-
         if (searchText.length == 0) {
+            model.clear();
             return;
         }
 
         RestApi.User.search(searchText.trim(), false,
                             function(response) {
+                                model.clear();
+
                                 if (response.hasOwnProperty('error')) {
                                     return;
                                 }
