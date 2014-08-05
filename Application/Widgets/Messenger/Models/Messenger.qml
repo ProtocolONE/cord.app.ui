@@ -255,7 +255,9 @@ Item {
                 return;
             }
 
-            usersModel.append(UserJs.createGamenetUser());
+            var rawUser = UserJs.createGamenetUser();
+            rawUser.statusMessage = qsTr("MESSENGER_GAMENET_USER_STATUS_MESSAGE");
+            usersModel.append(rawUser);
         }
 
         function getDefaultAvatar() {

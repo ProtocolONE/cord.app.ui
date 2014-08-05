@@ -231,7 +231,7 @@ function createGamenetUser() {
         state: 0,
         messages: [],
         statusMessage: "",
-        presenceState: "",
+        presenceState: "online",
         inputMessage: "",
         avatar: "",
         lastActivity: 0,
@@ -272,4 +272,12 @@ function isOnline(status) {
     default:
         return false;
     }
+}
+
+function isGameNet(item) {
+    if (!item) {
+        return false;
+    }
+
+    return item.jid === getGamenetUserJid();
 }

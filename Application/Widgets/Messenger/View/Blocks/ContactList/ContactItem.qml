@@ -21,6 +21,7 @@ Rectangle {
     property alias avatar: avatarImage.source
     property alias status: statusText.text
     property alias isPresenceVisile: presenceIcon.visible
+    property alias mouseEnabled: mouser.enabled
 
     property bool isCurrent: false
     property bool isUnreadMessages: false
@@ -182,6 +183,8 @@ Rectangle {
     }
 
     CursorMouseArea {
+        id: mouser
+
         anchors.fill: parent
         onClicked: root.clicked();
     }

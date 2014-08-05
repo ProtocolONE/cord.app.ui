@@ -17,6 +17,7 @@ import "../../../../../../Application/Core/moment.js" as Moment
 
 import "../../../../../Core/Styles.js" as Styles
 import "../../../Models/Messenger.js" as Messenger
+import "../../../Models/User.js" as User
 
 import "./RecentConversation.js" as Js;
 
@@ -93,7 +94,7 @@ Item {
             for (i = 0; i < usersModel.count; ++i) {
                 modelUser = usersModel.get(i)
                 lastTalkDate = modelUser.lastTalkDate || 0;
-                if (lastTalkDate === 0) {
+                if (lastTalkDate === 0 || User.isGameNet(modelUser)) {
                     continue;
                 }
 
@@ -180,6 +181,10 @@ Item {
 
         function talkDateChanged(userId) {
             var user = Messenger.getUser(userId);
+
+            if (User.isGameNet(user)) {
+                return;
+            }
 
             var actualDate = Moment.moment(user.lastTalkDate).format('DD.MM.YYYY');
 

@@ -3033,6 +3033,13 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>Messenger</name>
+    <message>
+        <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
+        <translation>Уведомления от проекта GameNet</translation>
+    </message>
+</context>
+<context>
     <name>MessengerSettings</name>
     <message>
         <source>MESSENGER_SEND_ACTION_TITLE</source>

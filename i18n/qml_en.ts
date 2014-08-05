@@ -1256,6 +1256,14 @@
     </message>
 </context>
 <context>
+    <name>Messenger</name>
+    <message>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="268"/>
+        <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MessengerSettings</name>
     <message>
         <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="50"/>
@@ -1628,22 +1636,22 @@
 <context>
     <name>RecentConversation</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/RecentConversation.qml" line="138"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/RecentConversation.qml" line="139"/>
         <source>RECENTCONVERSATION_TODAY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/RecentConversation.qml" line="142"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/RecentConversation.qml" line="143"/>
         <source>RECENTCONVERSATION_YESTERDAY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/RecentConversation.qml" line="146"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/RecentConversation.qml" line="147"/>
         <source>RECENTCONVERSATION_LONGAGO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/RecentConversation.qml" line="287"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/RecentConversation.qml" line="292"/>
         <source>MESSENGER_RECENT_CONTACTS_EMPTY_INFO</source>
         <translation type="unfinished"></translation>
     </message>

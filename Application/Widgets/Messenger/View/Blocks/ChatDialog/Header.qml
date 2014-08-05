@@ -30,6 +30,7 @@ Rectangle {
     ContactList.ContactItemDelegate {
         user: MessengerJs.selectedUser(MessengerJs.USER_INFO_JID)
         anchors.fill: parent
+        mouseEnabled: false
     }
 
     ImageButton {
