@@ -1,19 +1,25 @@
 import QtQuick 1.1
+import GameNet.Controls 1.0
 import "../../../../../Core/Styles.js" as Styles
 
 Item {
     id: root
 
     signal clicked();
+    signal inviteFriend();
 
     property string searchText
     property bool isActive
     property variant charsList
     property bool isHighlighted: false
+    property bool isInviteToFriendSended: false
+    property bool isFriend: false
 
     property string nickname
     property string avatar
     property string charsText
+
+    property bool inviteMaximumLimitSended: false
 
     implicitWidth: 78
     height: 57 + textInfoColumn.height
@@ -77,19 +83,45 @@ Item {
                 source: root.avatar
             }
 
-            Text {
-                id: nicknameText
+            Column {
+                width: parent.width
+                height: parent.height
 
-                font {
-                    family: "Arial"
-                    pixelSize: 14
+                Text {
+                    id: nicknameText
+
+                    font {
+                        family: "Arial"
+                        pixelSize: 14
+                    }
+
+                    height: 18
+                    width: parent.width - 40
+                    elide: Text.ElideRight
+                    text: root.nickname
+                    color: root.isActive ? Styles.style.messengerContactNicknameSelected :
+                                           Styles.style.messengerContactNickname
                 }
 
-                width: parent.width - 40
-                elide: Text.ElideRight
-                text: root.nickname
-                color: root.isActive ? Styles.style.messengerContactNicknameSelected :
-                                       Styles.style.messengerContactNickname
+                TextButton {
+                    width: parent.width - 40
+                    height: 16
+
+                    text: root.inviteMaximumLimitSended ? qsTr("INVITE_MAXIMUM_LIMIT_SENDED") :
+                          root.isInviteToFriendSended ? qsTr("INVITE_TO_FRIEND_SENDED") : qsTr("SEND_INVITE_TO_FRIEND")
+                    fontSize: 11
+                    visible: !root.isFriend
+                    enabled: !root.isInviteToFriendSended && !root.inviteMaximumLimitSended
+                    style {
+                        normal: "#3498db"
+                        hover: "#3670DC"
+                        disabled: "#3498db"
+                    }
+
+                    font.family: 'Tahoma'
+
+                    onClicked: root.inviteFriend();
+                }
             }
         }
     }

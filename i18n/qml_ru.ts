@@ -4788,6 +4788,21 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>WebSearchContact</name>
+    <message>
+        <source>INVITE_TO_FRIEND_SENDED</source>
+        <translation>Запрос дружбы отправлен</translation>
+    </message>
+    <message>
+        <source>SEND_INVITE_TO_FRIEND</source>
+        <translation>Добавить в друзья</translation>
+    </message>
+    <message>
+        <source>INVITE_MAXIMUM_LIMIT_SENDED</source>
+        <translation type="unfinished">Превышен лимит инвайтов</translation>
+    </message>
+</context>
+<context>
     <name>WellcomeGuide</name>
     <message>
         <source>GUIDE_2</source>

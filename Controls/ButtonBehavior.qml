@@ -49,6 +49,7 @@ Item {
 
         hoverEnabled: behavior.hoverEnabled
         enabled: behavior.enabled
+        visible: behavior.enabled
 
         onPressed: {
             behavior.pressed(mouse);

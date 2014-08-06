@@ -1258,7 +1258,7 @@
 <context>
     <name>Messenger</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="268"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="284"/>
         <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1728,12 +1728,12 @@
 <context>
     <name>Search</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml" line="69"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml" line="75"/>
         <source>MESSENGER_SEARCH_FRIEND_PLACE_HOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml" line="70"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml" line="76"/>
         <source>MESSENGER_WEB_SEARCH_PLACE_HOLDER</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2022,19 +2022,37 @@
 <context>
     <name>WebSearch</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="22"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="24"/>
         <source>WEB_SEARCH_NOT_CHARS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="26"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="28"/>
         <source>WEB_SEARCH_CHARS_PRIVACY_FILTER_ACTIVE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="144"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="149"/>
         <source>WEB_SEARCH_BACKGROUND_TEXT</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WebSearchContact</name>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml" line="110"/>
+        <source>INVITE_MAXIMUM_LIMIT_SENDED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml" line="111"/>
+        <source>INVITE_TO_FRIEND_SENDED</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml" line="111"/>
+        <source>SEND_INVITE_TO_FRIEND</source>
+        <translation></translation>
     </message>
 </context>
 </TS>

@@ -11,6 +11,7 @@ import QtQuick 1.1
 import Tulip 1.0
 
 import "../../../../../Core/Styles.js" as Styles
+import "../../../../../Core/App.js" as App
 
 Item {
     id: root
@@ -86,14 +87,12 @@ Item {
                 topMargin: 23
             }
 
-            TextEdit {
+            Text {
                 id: messageBody
 
-                selectByMouse: false
-                readOnly: true
                 wrapMode: TextEdit.Wrap
                 width: parent.width
-                textFormat: TextEdit.PlainText
+                textFormat: TextEdit.RichText
                 color: root.isStatusMessage
                        ? Styles.style.messengerChatDialogMessageStatusText
                        : Styles.style.messengerChatDialogMessageText
@@ -103,6 +102,8 @@ Item {
                     pixelSize: 12
                     italic: root.isStatusMessage
                 }
+
+                onLinkActivated: App.openExternalUrlWithAuth(link);
             }
         }
     }

@@ -172,6 +172,7 @@ Item {
 
     //MESSENGER CHAT DIALOG BODY
     property color messengerChatDialogBodyBackground: "#F0F5F8"
+    property color messengerChatHyperlinkColor: '#3498db'
 
     //MESSENGER MESSAGE ITEM
     property color messengerChatDialogMessageNicknameText: "#243148"
