@@ -80,6 +80,7 @@ Item {
                         text: "ВКонтакте"
                         color: Styles.style.authVkButtonText
 
+                        visible: !root.vkButtonInProgress
                         font { pixelSize: 14; family: "Arial" }
                         anchors {
                             verticalCenter: parent.verticalCenter

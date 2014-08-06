@@ -15,6 +15,8 @@ Item {
     id: root
 
     property int interval: 5000
+    property alias showWaitImage: animatedImage.visible
+    property real maxOpacity: 0.75
 
     visible: false
 
@@ -30,6 +32,8 @@ Item {
         visible: false
 
         AnimatedImage {
+            id: animatedImage
+
             anchors.centerIn: parent
             playing: back.visible
             source: installPath + "Assets/Images/wait_animation.gif"
@@ -90,7 +94,7 @@ Item {
                     }
 
                     PauseAnimation { duration: root.interval }
-                    NumberAnimation { target: back; property: "opacity"; duration: 3000; to: 0.75; easing.type: Easing.InOutQuad }
+                    NumberAnimation { target: back; property: "opacity"; duration: 3000; to: root.maxOpacity; easing.type: Easing.InOutQuad }
                 }
             }
         ]

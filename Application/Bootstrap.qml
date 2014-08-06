@@ -157,6 +157,8 @@ Item {
     GlobalProgress {
         id: globalProgressLock
 
+        showWaitImage: false
+        maxOpacity: 0.25
         anchors.fill: parent
     }
 
