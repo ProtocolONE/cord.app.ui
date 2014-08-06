@@ -162,14 +162,12 @@ PopupBase {
         }
         text: qsTr("INSTALL_BUTTON_CAPTION")
         onClicked: {
-            licenseModel.setLicenseAccepted(true);
-            licenseModel.okPressed();
-
             if (root.currentGame.gameType != 'browser') {
                 App.setServiceInstallPath(root.currentGame.serviceId,
                                           installationPath.path);
             }
 
+            App.acceptFirstLicense(currentGame.serviceId);
 
             gameSettingsModelInstance.switchGame(currentGame.serviceId);
 
@@ -181,7 +179,7 @@ PopupBase {
                 gameSettingsModelInstance.createShortcutInMainMenu(currentGame.serviceId);
             }
 
-            App.installService(currentGame.serviceId);
+            App.downloadButtonStart(currentGame.serviceId);
 
             root.close();
         }

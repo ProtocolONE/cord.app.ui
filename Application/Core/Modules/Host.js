@@ -36,6 +36,20 @@ function isAnyLicenseAccepted() {
     return true;
 }
 
+function isLicenseAccepted(serviceId) {
+    if (proxyInst) {
+        return proxyInst.isLicenseAccepted(serviceId);
+    }
+
+    return true;
+}
+
+function acceptFirstLicense(serviceId) {
+    if (proxyInst) {
+        proxyInst.acceptFirstLicense(serviceId);
+    }
+}
+
 function getExpectedInstallPath(serviceId) {
     if (proxyInst) {
         return proxyInst.getExpectedInstallPath(serviceId);

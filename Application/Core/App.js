@@ -138,10 +138,6 @@ function replenishAccount() {
     openExternalUrlWithAuth("http://www.gamenet.ru/money");
 }
 
-function installService(serviceId) {
-    downloadButtonStart(serviceId);
-}
-
 function isServiceInstalled(serviceId) {
     return isSettingsEnabled("GameDownloader/" + serviceId + "/", "isInstalled", false);
 }
