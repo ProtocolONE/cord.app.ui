@@ -30,7 +30,7 @@ Window {
     height: 480
     visible: true
     title: qsTr('WINDOW_TITLE_VK_AUTH')
-    flags: Qt.Tool
+    flags: Qt.Tool | Qt.WindowStaysOnTopHint
     modality: Qt.ApplicationModal
     onBeforeClosed: clearCookies();
 
