@@ -10,8 +10,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="84"/>
-        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="94"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="87"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="96"/>
         <source>ACCOUNT_ACTIVATION_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21,37 +21,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="114"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="116"/>
         <source>ACCOUNT_ACTIVATION_TIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="140"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="143"/>
         <source>FIRST_STEP_TIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="152"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="155"/>
         <source>PLACEHOLDER_PHONE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="178"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="181"/>
         <source>BUTTON_GET_CODE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="221"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="224"/>
         <source>SECOND_STEP_TIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="236"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="239"/>
         <source>PLACEHOLDER_ACTIVATION_CODE_INPUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="266"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="269"/>
         <source>BUTTON_CODE_CONFIRM</source>
         <translation type="unfinished"></translation>
     </message>
@@ -174,12 +174,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="538"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="540"/>
         <source>SILENT_REMIND_POPUP_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="539"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="541"/>
         <source>SILENT_REMIND_POPUP_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -230,60 +230,60 @@
 <context>
     <name>AuthBody</name>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="87"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="89"/>
         <source>AUTH_BODY_CAPTCHA_FAILED</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="112"/>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="137"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="114"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="139"/>
         <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="124"/>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="136"/>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="139"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="126"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="138"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="141"/>
         <source>AUTH_FAIL_MESSAGE_WRONG</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="107"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="109"/>
         <source>AUTH_FAIL_GAMENET_UNAVAILABLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="118"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="120"/>
         <source>AUTH_FAIL_MESSAGE_ACCOUNT_NOT_EXISTS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="133"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="135"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="138"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="140"/>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="168"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="170"/>
         <source>AUTH_BODY_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="187"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="189"/>
         <source>AUTH_BODY_LOGIN_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="216"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="218"/>
         <source>AUTH_BODY_PASSWORD_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="248"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="250"/>
         <source>AUTH_BODY_REMEMBER_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -293,17 +293,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="286"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="285"/>
         <source>AUTH_BODY_LOGIN_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="305"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="304"/>
         <source>AUTH_BODY_REGISTER_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="312"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="311"/>
         <source>AUTH_BODY_REGISTER_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
@@ -345,37 +345,37 @@
 <context>
     <name>CodeBody</name>
     <message>
-        <location filename="../Application/Blocks/Auth/CodeBody.qml" line="81"/>
+        <location filename="../Application/Blocks/Auth/CodeBody.qml" line="82"/>
         <source>CODE_BODY_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/CodeBody.qml" line="93"/>
+        <location filename="../Application/Blocks/Auth/CodeBody.qml" line="94"/>
         <source>CODE_BODY_INFO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/CodeBody.qml" line="109"/>
+        <location filename="../Application/Blocks/Auth/CodeBody.qml" line="110"/>
         <source>CODE_BODY_SEND_BY_MAIL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/CodeBody.qml" line="122"/>
+        <location filename="../Application/Blocks/Auth/CodeBody.qml" line="123"/>
         <source>CODE_BODY_SEND_BY_SMS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/CodeBody.qml" line="147"/>
+        <location filename="../Application/Blocks/Auth/CodeBody.qml" line="148"/>
         <source>CODE_BODY_CODE_INPUT_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/CodeBody.qml" line="160"/>
+        <location filename="../Application/Blocks/Auth/CodeBody.qml" line="161"/>
         <source>CODE_BODY_CONFIRM_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/CodeBody.qml" line="172"/>
+        <location filename="../Application/Blocks/Auth/CodeBody.qml" line="173"/>
         <source>CODE_BODY_CANCEL_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
@@ -553,7 +553,7 @@
 <context>
     <name>Footer</name>
     <message>
-        <location filename="../Application/Blocks/Auth/Footer.qml" line="36"/>
+        <location filename="../Application/Blocks/Auth/Footer.qml" line="32"/>
         <source>AUTH_FOOTER_ALTERNATIVE_LOGIN</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1227,12 +1227,12 @@
 <context>
     <name>MessageBody</name>
     <message>
-        <location filename="../Application/Blocks/Auth/MessageBody.qml" line="28"/>
+        <location filename="../Application/Blocks/Auth/MessageBody.qml" line="30"/>
         <source>MESSAGE_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/MessageBody.qml" line="52"/>
+        <location filename="../Application/Blocks/Auth/MessageBody.qml" line="54"/>
         <source>OK_BUTTON_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1659,58 +1659,58 @@
 <context>
     <name>RegistrationBody</name>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="61"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="62"/>
         <source>REGISTER_FAIL_GAMENET_UNAVAILABLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="90"/>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="93"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="91"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="94"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="95"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="96"/>
         <source>AUTH_FAIL_MESSAGE_WRONG</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="96"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="97"/>
         <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="116"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="117"/>
         <source>REGISTER_BODY_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="123"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="124"/>
         <source>REGISTER_BODY_SUB_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="134"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="135"/>
         <source>REGISTER_BODY_LOGIN_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="145"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="146"/>
         <source>REGISTER_BODY_PASSWORD_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="163"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="164"/>
         <source>REGISTER_BODY_REGISTER_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="182"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="183"/>
         <source>REGISTER_BODY_AUTH_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="188"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="189"/>
         <source>REGISTER_BODY_AUTH_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2004,17 +2004,17 @@
 <context>
     <name>WebSearch</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="22"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="24"/>
         <source>WEB_SEARCH_NOT_CHARS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="26"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="28"/>
         <source>WEB_SEARCH_CHARS_PRIVACY_FILTER_ACTIVE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="144"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="147"/>
         <source>WEB_SEARCH_BACKGROUND_TEXT</source>
         <translation type="unfinished"></translation>
     </message>

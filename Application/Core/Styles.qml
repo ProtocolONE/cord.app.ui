@@ -27,6 +27,17 @@ Item {
     property color popupTitleText: "#343537"
     property color popupText: "#343537"
 
+    property color inputNormal: "#66758F"
+    property color inputHover: "#3498DB"
+    property color inputActive: "#3498DB"
+    property color inputDisabled: "#66758F"
+    property color inputError: "#FF6555"
+    property color inputPlaceholder: "#d6d6d6"
+    property color inputBackground: "#FFFFFF"
+    property color inputText: "#000000"
+    property color errorContainerText: "#FF2E44"
+    property color errorContainerBackground: "#00000000"
+
     //GAME INFO
     property color gameInfoBackground: "#f0f5f8"
     property color gameInfoAboutText: "#000000"
@@ -82,16 +93,14 @@ Item {
     // SETTINGS
     property color settingsBackground: '#fafafa'
     property color settingsTitleText: '#343537'
-    property color settingsCaptionText: '#5c6d7d'
+    property color settingsCaptionText: '#FFFFFF'
     property color settingsCategoryButtonNormal: "#3498BD"
     property color settingsCategoryButtonHover: "#3670DC"
     property color settingsCategoryButtonActive: "#000000"
     property color settingsSpecialButtonNormal: "#1ADC9C"
     property color settingsSpecialButtonHover: "#019074"
-    property color settingsCheckBoxNormal: "#1ADC9C"
-    property color settingsCheckBoxHover: "#019074"
-    property color settingsRadioButtonNormal: "#1ADC9C"
-    property color settingsRadioButtonHover: "#019074"
+    property color settingsControlNormal: "#1ADC9C"
+    property color settingsControlHover: "#019074"
     property color settingsButtonNormal: "#3498BD"
     property color settingsButtonHover: "#3670DC"
 
@@ -149,7 +158,9 @@ Item {
     property color messengerSearchInputNormal: "#e5e5e5"
     property color messengerSearchInputActive: "#3498db"
     property color messengerSearchInputHover: "#3498db"
+    property color messengerSearchInputBackground: "#FFFFFF"
     property color messengerSearchInputPlaceholder: "#a4b0ba"
+    property color messengerSearchInputText: "#000000"
     property color messengerWebSearchBackground: '#9fa2a4'
     property color messengerWebSearchBackgroundText: '#ffffff'
 

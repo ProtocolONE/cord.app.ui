@@ -39,7 +39,7 @@ Item {
             width: parent.width
             opacity: 0
             visible: root.error && root.errorMessage.length > 0
-            style: ErrorMessageStyle {
+            style {
                 text: "#FC3147"
                 background: "#00000000"
             }

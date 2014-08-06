@@ -12,7 +12,8 @@ import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
 
-import "../../../Application/Core/Authorization.js" as Authorization
+import "../../Core/Authorization.js" as Authorization
+import "../../Core/Styles.js" as Styles
 
 ErrorContainer {
     id: root
@@ -56,6 +57,17 @@ ErrorContainer {
                 placeholder: qsTr("CAPTCHA_INPUT_PLACEHOLDER")
                 onTabPressed: root.tabPressed();
                 onBackTabPressed: root.backTabPressed();
+
+                style {
+                    normal: Styles.style.inputNormal
+                    hover: Styles.style.inputHover
+                    active: Styles.style.inputActive
+                    disabled: Styles.style.inputDisabled
+                    error: Styles.style.inputError
+                    placeholder: Styles.style.inputPlaceholder
+                    text: Styles.style.inputText
+                    background: Styles.style.inputBackground
+                }
             }
 
             Item {

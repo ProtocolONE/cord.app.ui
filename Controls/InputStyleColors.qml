@@ -16,4 +16,6 @@ QtObject {
     property color disabled: "#66758F"
     property color error: "#FF6555"
     property color placeholder: "#d6d6d6"
+    property color text: "#000000"
+    property color background: "#FFFFFF"
 }

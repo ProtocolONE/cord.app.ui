@@ -27,7 +27,7 @@ Item {
     property alias capsLock: inputBehavior.capsLock
 
     property int fontSize: 16
-    property variant style: InputStyleColors {}
+    property InputStyleColors style: InputStyleColors {}
 
     property alias error: inputBehavior.error
 
@@ -58,7 +58,7 @@ Item {
         id: controlBorder
 
         anchors { fill: parent; margins: 1 }
-        color: "#FFFFFF"
+        color: style.background
         border { width: 2; color: style.normal }
 
         Behavior on border.color {
@@ -93,7 +93,7 @@ Item {
             visible: root.icon != ""
             width: root.icon != "" ? parent.height : 0
             height: parent.height
-            color: "#FFFFFF"
+            color: style.background
 
             anchors {
                 left: parent.left
@@ -168,7 +168,7 @@ Item {
 
                     width: getWidth();
                     height: parent.height
-                    color: "#FFFFFF"
+                    color: style.background
                 }
             }
 
@@ -190,6 +190,7 @@ Item {
             InputBehaviour {
                 id: inputBehavior
 
+                color: style.text
                 fontSize: root.fontSize
                 anchors {
                     left: parent.left
@@ -334,7 +335,7 @@ Item {
                     ]
                 }
 
-                Rectangle {
+                Item {
                     id: capslockIcon
 
                     width: visible ? height : 0
@@ -374,7 +375,7 @@ Item {
 
         Rectangle {
             anchors { fill: parent; margins: 1 }
-            color: "#FFFFFF"
+            color: style.background
             border {
                 color: root.style.active
                 width: 2

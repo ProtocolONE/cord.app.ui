@@ -9,7 +9,9 @@
 ****************************************************************************/
 import QtQuick 1.1
 import GameNet.Controls 1.0
-import "../../../Application/Core/App.js" as App
+
+import "../../Core/App.js" as App
+import "../../Core/Styles.js" as Styles
 
 ErrorContainer {
     id: root
@@ -27,9 +29,9 @@ ErrorContainer {
     implicitWidth: parent.width
     error: input.error
 
-    style: ErrorMessageStyle {
-        text: "#FF2E44"
-        background: "#00000000"
+    style {
+        text: Styles.style.errorContainerText
+        background: Styles.style.errorContainerBackground
     }
 
     onFocusChanged: {
@@ -52,6 +54,17 @@ ErrorContainer {
 
         typeahead: TypeaheadBehaviour {
             dictionary: []
+        }
+
+        style {
+            normal: Styles.style.inputNormal
+            hover: Styles.style.inputHover
+            active: Styles.style.inputActive
+            disabled: Styles.style.inputDisabled
+            error: Styles.style.inputError
+            placeholder: Styles.style.inputPlaceholder
+            text: Styles.style.inputText
+            background: Styles.style.inputBackground
         }
     }
 

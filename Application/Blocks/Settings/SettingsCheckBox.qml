@@ -5,7 +5,7 @@ import "../../Core/Styles.js" as Styles
 
 CheckBox {
     style {
-        normal: Styles.style.settingsCheckBoxNormal
-        hover: Styles.style.settingsCheckBoxHover
+        normal: Styles.style.settingsControlNormal
+        hover: Styles.style.settingsControlHover
     }
 }

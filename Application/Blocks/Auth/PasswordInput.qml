@@ -9,11 +9,12 @@
 ****************************************************************************/
 import QtQuick 1.1
 import Tulip 1.0
-import GameNet.Controls 1.0 as Controls
+import GameNet.Controls 1.0
 
-import "../../../Application/Core/App.js" as App
+import "../../Core/App.js" as App
+import "../../Core/Styles.js" as Styles
 
-Controls.ErrorContainer {
+ErrorContainer {
     id: root
 
     default property alias someName: root.data
@@ -27,9 +28,9 @@ Controls.ErrorContainer {
 
     error: control.error
 
-    style: Controls.ErrorMessageStyle {
-        text: "#FF2E44"
-        background: "#00000000"
+    style {
+        text: Styles.style.errorContainerText
+        background: Styles.style.errorContainerBackground
     }
 
     onFocusChanged: {
@@ -38,7 +39,7 @@ Controls.ErrorContainer {
         }
     }
 
-    Controls.Input {
+    Input {
         id: control
 
         property bool passwordVisible: false
@@ -60,6 +61,17 @@ Controls.ErrorContainer {
 
         onTabPressed: root.tabPressed();
         onBackTabPressed: root.backTabPressed();
+
+        style {
+            normal: Styles.style.inputNormal
+            hover: Styles.style.inputHover
+            active: Styles.style.inputActive
+            disabled: Styles.style.inputDisabled
+            error: Styles.style.inputError
+            placeholder: Styles.style.inputPlaceholder
+            text: Styles.style.inputText
+            background: Styles.style.inputBackground
+        }
 
         StateGroup {
             states: [

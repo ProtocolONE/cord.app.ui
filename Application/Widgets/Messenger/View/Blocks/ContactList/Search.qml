@@ -77,11 +77,13 @@ FocusScope {
             fontSize: 14
             showCapslock: false
             showLanguage: false
-            style: InputStyleColors {
+            style {
                 normal: Styles.style.messengerSearchInputNormal
                 active: Styles.style.messengerSearchInputActive
                 hover: Styles.style.messengerSearchInputHover
+                background: Styles.style.messengerSearchInputBackground
                 placeholder: Styles.style.messengerSearchInputPlaceholder
+                text: Styles.style.messengerSearchInputText
             }
         }
     }

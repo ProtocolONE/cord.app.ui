@@ -8,7 +8,7 @@ RadioButton {
     height: 20
     fontSize: 15
     style {
-        normal: Styles.style.settingsRadioButtonNormal
-        hover: Styles.style.settingsRadioButtonHover
+        normal: Styles.style.settingsControlNormal
+        hover: Styles.style.settingsControlHover
     }
 }
