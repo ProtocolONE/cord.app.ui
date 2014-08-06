@@ -11,8 +11,9 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
 
-import "../../../Application/Core/Authorization.js" as Authorization
-import "../../../Application/Core/App.js" as App
+import "../../Core/Authorization.js" as Authorization
+import "../../Core/App.js" as App
+import "../../Core/Styles.js" as Styles
 
 Item {
     id: root
@@ -81,14 +82,14 @@ Item {
                         text: qsTr("CODE_BODY_TITLE")
                         font { family: "Arial"; pixelSize: 20 }
                         anchors.baseline: parent.bottom
-                        color: "#363636"
+                        color: Styles.style.authTitleText
                     }
                 }
 
                 Text {
                     width: parent.width
                     font { family: "Arial"; pixelSize: 14 }
-                    color: "#66758F"
+                    color: Styles.style.authSubTitleText
                     wrapMode: Text.WordWrap
                     text: qsTr("CODE_BODY_INFO")
                 }
@@ -108,9 +109,9 @@ Item {
                     width: 240
                     text: qsTr("CODE_BODY_SEND_BY_MAIL")
 
-                    style: ButtonStyleColors {
-                        normal: "#1ABC9C"
-                        hover: "#019074"
+                    style {
+                        normal: Styles.style.authSendCodeButtonNormal
+                        hover: Styles.style.authSendCodeButtonHover
                     }
 
                     onClicked: d.getCode('email');
@@ -121,9 +122,9 @@ Item {
                     width: 240
                     text: qsTr("CODE_BODY_SEND_BY_SMS")
 
-                    style: ButtonStyleColors {
-                        normal: "#1ABC9C"
-                        hover: "#019074"
+                    style {
+                        normal: Styles.style.authSendCodeButtonNormal
+                        hover: Styles.style.authSendCodeButtonHover
                     }
 
                     onClicked: d.getCode('sms');
@@ -164,7 +165,7 @@ Item {
 
             Rectangle {
                 width: 1
-                color: "#CCCCCC"
+                color: Styles.style.authDelimiter
                 height: parent.height
             }
 
@@ -172,10 +173,10 @@ Item {
                 text: qsTr("CODE_BODY_CANCEL_BUTTON")
 
                 anchors.verticalCenter: parent.verticalCenter
-                style: ButtonStyleColors {
-                    normal: "#3498db"
-                    hover: "#3670DC"
-                    disabled: "#3498db"
+                style {
+                    normal: Styles.style.authCancelCodeHormal
+                    hover: Styles.style.authCancelCodeHover
+                    disabled: Styles.style.authCancelCodeHormal
                 }
 
                 onClicked: root.cancel();

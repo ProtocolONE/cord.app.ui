@@ -12,8 +12,9 @@ import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
 
-import "../../../Application/Core/Authorization.js" as Authorization
-import "../../../Application/Core/App.js" as App
+import "../../Core/Authorization.js" as Authorization
+import "../../Core/App.js" as App
+import "../../Core/Styles.js" as Styles
 
 FocusScope {
     id: root
@@ -116,12 +117,12 @@ FocusScope {
                 text: qsTr("REGISTER_BODY_TITLE")
                 font { family: "Arial"; pixelSize: 20 }
                 anchors { baseline: parent.top; baselineOffset: 35 }
-                color: "#363636"
+                color: Styles.style.authTitleText
             }
 
             Text {
                 text: qsTr("REGISTER_BODY_SUB_TITLE")
-                color: "#66758F"
+                color: Styles.style.authSubTitleText
                 anchors { baseline: parent.top; baselineOffset: 64 }
                 font { family: "Arial"; pixelSize: 14 }
             }
@@ -166,7 +167,7 @@ FocusScope {
 
             Rectangle {
                 width: 1
-                color: "#CCCCCC"
+                color: Styles.style.authDelimiter
                 height: parent.height
             }
 
@@ -177,7 +178,7 @@ FocusScope {
 
                 Text {
                     anchors { baseline: parent.bottom; baselineOffset: -21 }
-                    color: "#66758F"
+                    color: Styles.style.authSubTitleText
                     font { family: "Arial"; pixelSize: 12 }
                     text: qsTr("REGISTER_BODY_AUTH_TEXT")
                 }
@@ -186,10 +187,9 @@ FocusScope {
                     anchors { baseline: parent.bottom; baselineOffset: -21 }
                     height: parent.height
                     text: qsTr("REGISTER_BODY_AUTH_BUTTON")
-                    style: ButtonStyleColors {
-                        normal: "#3498db"
-                        hover: "#3670DC"
-                        disabled: "#3498db"
+                    style {
+                        normal: Styles.style.authSwitchPageButtonHormal
+                        hover: Styles.style.authSwitchPageButtonHover
                     }
 
                     fontSize: 12
@@ -208,7 +208,7 @@ FocusScope {
         Text {
             anchors { baseline: parent.bottom; baselineOffset: -20 }
             font.pixelSize: 12
-            color: "#66758F"
+            color: Styles.style.authSubTitleText
             text: qsTr("REGISTER_BODY_LICENSE_PART1")
         }
 
@@ -217,10 +217,9 @@ FocusScope {
             fontSize: 12
             text: qsTr("REGISTER_BODY_LICENSE_PART2")
 
-            style: ButtonStyleColors {
-                normal: "#3498db"
-                hover: "#3670DC"
-                disabled: "#3498db"
+            style {
+                normal: Styles.style.authLicenseButtonTextNormal
+                hover: Styles.style.authLicenseButtonTextHover
             }
 
             onClicked: App.openExternalUrl("http://www.gamenet.ru/license");

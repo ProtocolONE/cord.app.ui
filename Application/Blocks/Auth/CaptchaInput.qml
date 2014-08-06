@@ -88,13 +88,13 @@ ErrorContainer {
 
                         toolTip: qsTr("CAPTCHA_INPUT_REFRESH_BUTTON_TOOLTIP")
 
-                        style: ButtonStyleColors {
+                        style {
                             normal: "#1BBC9B"
                             hover: "#019074"
                             disabled: "#1ABC9C"
                         }
 
-                        styleImages: ButtonStyleImages {
+                        styleImages {
                             normal: installPath + "Assets/Images/Auth/refresh.png"
                         }
 

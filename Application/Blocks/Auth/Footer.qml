@@ -1,5 +1,7 @@
 import QtQuick 1.1
-import GameNet.Controls 1.0 as Control
+import GameNet.Controls 1.0
+
+import "../../Core/Styles.js" as Styles
 
 Item {
     id: root
@@ -13,13 +15,7 @@ Item {
 
     Rectangle {
         height: 1
-        color: "#ECECEC"
-        anchors { left: parent.left; right: parent.right; top: parent.top }
-    }
-
-    Rectangle {
-        height: 1
-        color: "#FFFFFF"
+        color: Styles.style.authDelimiter
         anchors { left: parent.left; right: parent.right; top: parent.top; topMargin: 1 }
     }
 
@@ -34,20 +30,21 @@ Item {
             Text {
                 anchors.verticalCenter: parent.verticalCenter
                 text: qsTr("AUTH_FOOTER_ALTERNATIVE_LOGIN")
-                color: "#66758F"
+                color: Styles.style.authSubTitleText
                 font { pixelSize: 12; family: "Arial" }
             }
         }
 
-        Control.Button {
+        //INFO Стили кнопки "ВКонтакте" не должны настраиваться
+        Button {
             id: vkButton
 
             width: height + vkCaption.width + 21
             height: 24
 
-            style: Control.ButtonStyleColors {
-                normal: "#4D739E"
-                hover: "#3378c7"
+            style {
+                normal: Styles.style.authVkButtonNormal
+                hover: Styles.style.authVkButtonHover
             }
 
             onClicked: root.openVkAuth();
@@ -63,7 +60,7 @@ Item {
                     Text {
                         anchors.centerIn: parent
                         text: "B"
-                        color: "#FFFFFF"
+                        color: Styles.style.authVkButtonText
                         font { pixelSize: 14; family: "Arial" }
                     }
                 }
@@ -71,7 +68,7 @@ Item {
                 Rectangle {
                     width: 1
                     height: 24
-                    color: "#5F81A8"
+                    color: Styles.style.authVkButtonNormal
                 }
 
                 Item {
@@ -81,7 +78,7 @@ Item {
                     Text {
                         id: vkCaption
                         text: "ВКонтакте"
-                        color: "#FFFFFF"
+                        color: Styles.style.authVkButtonText
 
                         font { pixelSize: 14; family: "Arial" }
                         anchors {

@@ -367,9 +367,9 @@ Rectangle {
         anchors { verticalCenter: parent.verticalCenter; right: parent.right }
         visible: authContainer.state !== 'serviceLoading'
 
-        style: ButtonStyleColors {
-            normal: "#ffae02"
-            hover: "#ffcc02"
+        style {
+            normal: Styles.style.authSupportButtonNormal
+            hover: Styles.style.authSupportButtonHover
         }
 
         onClicked: {
@@ -392,7 +392,7 @@ Rectangle {
                     Text {
                         anchors.centerIn: parent
                         text: "Задать вопрос"
-                        color: "#FFFFFF"
+                        color: Styles.style.authSupportButtonText
                         font {
                             family: "Arial"
                             pixelSize: 14
@@ -404,7 +404,7 @@ Rectangle {
             Rectangle {
                 width: parent.width
                 height: 1
-                color: "#FFFFFF"
+                color: Styles.style.authSupportButtonText
                 opacity: 0.2
             }
 

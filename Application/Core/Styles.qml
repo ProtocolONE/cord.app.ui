@@ -98,6 +98,27 @@ Item {
     // AUTH / REGISTRATION
     property color authBackground: '#fafafa'
     property color authHeaderBackground: '#fafafa'
+    property color authDelimiter: "#CCCCCC"
+    property color authTitleText: "#363636"
+    property color authSubTitleText: "#66758F"
+    property color authSupportButtonNormal: "#ffae02"
+    property color authSupportButtonHover: "#ffcc02"
+    property color authSupportButtonText: "#FFFFFF"
+    property color authLicenseButtonTextNormal: "#3498db"
+    property color authLicenseButtonTextHover: "#3670DC"
+    property color authAmnesiaButtonTextNormal: "#3498db"
+    property color authAmnesiaButtonTextHover: "#3670DC"
+    property color authSwitchPageButtonHormal: "#3498db"
+    property color authSwitchPageButtonHover: "#3670DC"
+    property color authRememberCheckBoxNormal: "#1ADC9C"
+    property color authRememberCheckBoxHover: "#019074"
+    property color authVkButtonNormal: "#4D739E"
+    property color authVkButtonHover: "#3378c7"
+    property color authVkButtonText: "#FFFFFF"
+    property color authSendCodeButtonNormal: "#1ABC9C"
+    property color authSendCodeButtonHover: "#019074"
+    property color authCancelCodeHormal: "#3498db"
+    property color authCancelCodeHover: "#3670DC"
 
     // NEWS
     property color newsBackground: '#f0f5f8'
@@ -185,6 +206,8 @@ Item {
 
     //PRIVATE PART
     property variant styleList
+    property string styleListOriginal
+
     property string currentStyle
     property alias settingsModel: data
 
@@ -214,9 +237,13 @@ Item {
         apply(true);
     }
 
+    function readStyleObject() {
+        var realPath = installPath.replace('file:///', '');
+        return StyleReader.read(realPath + "Assets/Styles/")
+    }
+
     function readStyles() {
-        var realPath = installPath.replace('file:///', '')
-            , rawStyles = StyleReader.read(realPath + "Assets/Styles/")
+        var rawStyles = readStyleObject()
             , currentLang = App.language()
             , tmpMap = {}
             , tmpStyles;
@@ -248,6 +275,7 @@ Item {
         });
 
         styleList = tmpMap;
+        styleListOriginal = JSON.stringify(rawStyles);
     }
 
     function apply(applyNow) {
@@ -268,7 +296,23 @@ Item {
 
     Shortcut {
         key: "Ctrl+Shift+Z"
-        onActivated: updateStyle()
+        onActivated: {
+            dev.running = !dev.running
+            console.log('WARNING! Style realoadign ' + dev.running)
+        }
+    }
+
+    Timer {
+        id: dev
+
+        interval: 250
+        repeat: true
+        onTriggered: {
+            var rawStyles = readStyleObject();
+            if (JSON.stringify(rawStyles) != styleListOriginal) {
+                updateStyle()
+            }
+        }
     }
 
     ListModel {

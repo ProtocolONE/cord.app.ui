@@ -8,7 +8,6 @@ Rectangle {
         anim1.start();
     }
 
-    color: "#000000"
     opacity: 0
 
     SequentialAnimation {

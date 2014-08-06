@@ -1,6 +1,8 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
 
+import "../../Core/Styles.js" as Styles
+
 Item {
     id: root
 
@@ -24,7 +26,7 @@ Item {
                     pixelSize: 18
                 }
                 anchors.baseline: parent.bottom
-                color: "#363636"
+                color: Styles.style.authTitleText
                 text: qsTr("MESSAGE_TITLE");
             }
         }
@@ -37,7 +39,7 @@ Item {
                 pixelSize: 15
             }
 
-            color: "#6A768E"
+            color: Styles.style.authSubTitleText
             wrapMode: Text.WordWrap
         }
 

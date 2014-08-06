@@ -12,9 +12,11 @@ import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
 
-import "../../../Application/Core/Authorization.js" as Authorization
-import "../../../Application/Core/restapi.js" as RestApi
-import "../../../Application/Core/App.js" as AppProxy
+import "../../Core/Authorization.js" as Authorization
+import "../../Core/restapi.js" as RestApi
+import "../../Core/App.js" as AppProxy
+import "../../Core/Styles.js" as Styles
+
 import "./AuthHelper.js" as AuthHelper
 
 FocusScope {
@@ -167,7 +169,7 @@ FocusScope {
             Text {
                 text: qsTr("AUTH_BODY_TITLE")
                 font { family: "Arial"; pixelSize: 20 }
-                color: "#363636"
+                color: Styles.style.authTitleText
                 anchors { baseline: parent.top; baselineOffset: 35 }
             }
         }
@@ -247,12 +249,10 @@ FocusScope {
                 checked: AuthHelper.rememberAccount != undefined ? AuthHelper.rememberAccount : true
                 text: qsTr("AUTH_BODY_REMEMBER_TEXT")
                 enabled: !d.inProgress
-                //toolTip: qsTr("AUTH_BODY_REMEMBER_TOOLTIP")
                 fontSize: 14
-                style: ButtonStyleColors {
-                    normal: "#1ADC9C"
-                    hover: "#019074"
-                    disabled: "#1ADC9C"
+                style  {
+                    normal: Styles.style.authRememberCheckBoxNormal
+                    hover: Styles.style.authRememberCheckBoxHover
                 }
                 onToggled: {
                     AuthHelper.rememberAccount = rememberAuth.checked;
@@ -265,10 +265,9 @@ FocusScope {
                 text: qsTr("AUTH_BODY_AMNESIA_TEXT")
 
                 fontSize: 14
-                style: ButtonStyleColors {
-                    normal: "#3498db"
-                    hover: "#3670DC"
-                    disabled: "#3498db"
+                style {
+                    normal: Styles.style.authAmnesiaButtonTextNormal
+                    hover: Styles.style.authAmnesiaButtonTextHover
                 }
 
                 onClicked: AppProxy.openExternalUrl("http://gamenet.ru/restore/?login=" + d.login);
@@ -290,7 +289,7 @@ FocusScope {
 
             Rectangle {
                 width: 1
-                color: "#CCCCCC"
+                color: Styles.style.authDelimiter
                 height: parent.height
             }
 
@@ -301,7 +300,7 @@ FocusScope {
 
                 Text {
                     anchors { baseline: parent.bottom; baselineOffset: -21 }
-                    color: "#66758F"
+                    color: Styles.style.authSubTitleText
                     text: qsTr("AUTH_BODY_REGISTER_TEXT")
                     font { family: "Arial"; pixelSize: 12 }
                 }
@@ -310,10 +309,9 @@ FocusScope {
                     anchors { baseline: parent.bottom; baselineOffset: -21 }
                     height: parent.height
                     text: qsTr("AUTH_BODY_REGISTER_BUTTON")
-                    style: ButtonStyleColors {
-                        normal: "#3498db"
-                        hover: "#3670DC"
-                        disabled: "#3498db"
+                    style {
+                        normal: Styles.style.authSwitchPageButtonHormal
+                        hover: Styles.style.authSwitchPageButtonHover
                     }
 
                     onClicked: if (!d.inProgress) root.switchToRegistration();
