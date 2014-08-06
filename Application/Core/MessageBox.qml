@@ -33,7 +33,7 @@ Item {
         App.activateWindow();
 
         d.widgetName = widgetName;
-        d.widgetView = widgetView;
+        d.widgetView = widgetView || '';
 
         if (root.isShown) {
             hideWidgetAnimation.start();
