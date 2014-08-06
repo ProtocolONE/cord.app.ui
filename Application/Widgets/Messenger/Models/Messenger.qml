@@ -14,7 +14,6 @@ import GameNet.Controls 1.0
 
 import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../../../../Application/Core/moment.js" as Moment
-import "../../../../GameNet/Core/Strings.js" as Strings
 
 import "MessengerPrivate.js" as MessengerPrivateJs
 import "User.js" as UserJs
@@ -23,7 +22,6 @@ import "Group.js" as GroupJs
 
 import "../../../Core/App.js" as App
 import "../../../Core/User.js" as User
-import "../../../Core/Styles.js" as Styles
 
 Item {
     id: root
@@ -62,18 +60,13 @@ Item {
         if (!usersModel.contains(user.jid))
             return;
 
-        body = Strings.stripTags(body);
-
+        item = root.getUser(user.jid);
+        item.appendMessage(myUser.jid, body);
+        d.updateUserTalkDate(item);
         messageMap.body = body;
         messageMap.type = QXmppMessage.Chat;
         messageMap.state = QXmppMessage.Active;
         xmppClient.sendMessage(user.jid, messageMap);
-
-        body = d.replaceHyperlinks(body);
-
-        item = root.getUser(user.jid);
-        item.appendMessage(myUser.jid, body);
-        d.updateUserTalkDate(item);
     }
 
     function sendInputStatus(user, value) {
@@ -233,21 +226,6 @@ Item {
         property int defaultAvatarIndex: 0
         property string serverUrl: ''
 
-        function replaceHyperlinks(message) {
-            return message.replace(/(\b(https|http):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig, function(e) {
-                if (e.length > 60) {
-                    return "<a style='color:" +
-                            Styles.style.messengerChatHyperlinkColor +
-                            "' href='" + e + "'>ссылка</a>";
-                }
-
-                return "<a style='color:" +
-                        Styles.style.messengerChatHyperlinkColor +
-                        "' href='" + e + "'>" + e + "</a>";
-            });
-
-        }
-
         function rosterRecieved() {
             var rosterUsers = xmppClient.rosterManager.getRosterBareJids()
             , currentUserMap = {}
@@ -372,9 +350,6 @@ Item {
                 return;
 
             user = root.getUser(from);
-
-            message = Strings.stripTags(message);
-            message = d.replaceHyperlinks(message);
 
             if (message) {
                 user.appendMessage(from, message, date);

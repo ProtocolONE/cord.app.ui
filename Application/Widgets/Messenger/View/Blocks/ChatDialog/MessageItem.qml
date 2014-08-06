@@ -12,13 +12,14 @@ import Tulip 1.0
 
 import "../../../../../Core/Styles.js" as Styles
 import "../../../../../Core/App.js" as App
+import "../../../../../../GameNet/Core/Strings.js" as Strings
 
 Item {
     id: root
 
     property alias nickname: nicknameText.text
     property alias date: dateText.text
-    property alias body: messageBody.text
+    property string body
     property alias avatar: avatarImage.source
 
     property bool isStatusMessage: false
@@ -90,9 +91,25 @@ Item {
             Text {
                 id: messageBody
 
+                function replaceHyperlinks(message) {
+                    return message.replace(/(\b(https|http):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig, function(e) {
+                        if (e.length > 60) {
+                            return "<a style='color:" +
+                                    Styles.style.messengerChatHyperlinkColor +
+                                    "' href='" + e + "'>ссылка</a>";
+                        }
+
+                        return "<a style='color:" +
+                                Styles.style.messengerChatHyperlinkColor +
+                                "' href='" + e + "'>" + e + "</a>";
+                    });
+
+                }
+
                 wrapMode: TextEdit.Wrap
                 width: parent.width
                 textFormat: TextEdit.RichText
+                text: replaceHyperlinks(Strings.stripTags(root.body))
                 color: root.isStatusMessage
                        ? Styles.style.messengerChatDialogMessageStatusText
                        : Styles.style.messengerChatDialogMessageText
