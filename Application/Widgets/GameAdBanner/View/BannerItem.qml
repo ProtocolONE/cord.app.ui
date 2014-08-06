@@ -11,6 +11,8 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
 
+import "../../../Core/Styles.js" as Styles
+
 Item {
     id: root
 
@@ -36,7 +38,7 @@ Item {
             width: contentText.width
             height: contentText.lineCount > 1 ? 60: 40
             opacity: 0.3
-            color: "#092135"
+            color: Styles.style.gameAdWidgetBackground
         }
 
         Text {
@@ -50,7 +52,7 @@ Item {
             }
             wrapMode: Text.WordWrap
             opacity: 0.8
-            color: "#fafafa"
+            color: Styles.style.gameAdWidgetText
             font { family: "Arial"; pixelSize: 20 }
             lineHeightMode: Text.FixedHeight
             lineHeight: 22

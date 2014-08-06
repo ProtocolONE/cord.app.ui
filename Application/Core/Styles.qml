@@ -38,6 +38,15 @@ Item {
     property color errorContainerText: "#FF2E44"
     property color errorContainerBackground: "#00000000"
 
+    //FACTS WIDGET
+    property color factsWidgetBackground: "#092135"
+    property color factsWidgetValue: "#ff6555"
+    property color factsWidgetText: "#fafafa"
+
+    //AD BANNER WIDGET
+    property color gameAdWidgetBackground: "#092135"
+    property color gameAdWidgetText: "#fafafa"
+
     //GAME INFO
     property color gameInfoBackground: "#f0f5f8"
     property color gameInfoAboutText: "#000000"

@@ -10,6 +10,8 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
 
+import "../../../Core/Styles.js" as Style
+
 ErrorContainer {
     id: root
 
@@ -30,9 +32,9 @@ ErrorContainer {
     implicitWidth: parent.width
     error: input.error
 
-    style: ErrorMessageStyle {
-        text: "#FF2E44"
-        background: "#00000000"
+    style {
+        text: Style.style.errorContainerText
+        background: Style.style.errorContainerBackground
     }
 
     onFocusChanged: {

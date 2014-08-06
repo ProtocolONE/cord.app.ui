@@ -168,7 +168,7 @@ PopupBase {
                 height: techName.height
 
                 Input {
-                    style: InputStyleColors {
+                    style {
                         normal: "#CCCCCC"
                         hover: "#CCCCCC"
                         active: "#CCCCCC"

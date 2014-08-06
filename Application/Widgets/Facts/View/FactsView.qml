@@ -11,7 +11,9 @@
 import QtQuick 1.1
 
 import GameNet.Components.Widgets 1.0
-import "../../../../Application/Core/App.js" as AppJs
+
+import "../../../Core/App.js" as App
+import "../../../Core/Styles.js" as Styles
 import "FactsView.js" as FactsView
 
 WidgetView {
@@ -76,7 +78,7 @@ WidgetView {
         anchors.fill: parent
 
         opacity: 0.3
-        color: "#092135"
+        color: Styles.style.factsWidgetBackground
     }
 
     Row {
@@ -93,7 +95,7 @@ WidgetView {
 
             anchors.verticalCenter: textRow.verticalCenter
             opacity: 0.8
-            color: "#ff6555"
+            color: Styles.style.factsWidgetValue
             font { family: "Arial"; pixelSize: 30 }
         }
 
@@ -102,7 +104,7 @@ WidgetView {
 
             anchors.verticalCenter: textRow.verticalCenter
             opacity: 0.8
-            color: "#fafafa"
+            color: Styles.style.factsWidgetText
             font { family: "Arial"; pixelSize: 18 }
         }
     }

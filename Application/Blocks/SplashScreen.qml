@@ -87,6 +87,10 @@ Item {
         height: 3
         animated: true
         progress: d.progress
+        style {
+            background: "#3E220D"
+            line: "#FF6554"
+        }
     }
 
     Text {

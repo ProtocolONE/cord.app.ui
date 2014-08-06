@@ -22,7 +22,7 @@ import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 WidgetView {
     id: root
 
-    implicitWidth: parent.width
+    implicitWidth: 230
     implicitHeight: 92
 
     function getGameNetProfileUrl() {
