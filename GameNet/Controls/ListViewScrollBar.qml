@@ -83,7 +83,7 @@ Rectangle {
     }
 
     onCurrentIndexChanged: {
-        if (!root.listView.flicking) {
+        if (!root.listView.moving) {
             listView.positionViewAtIndex(currentIndex, cursorMode);
         }
     }
@@ -111,7 +111,7 @@ Rectangle {
     Timer {
         id: updateFlickIndex
 
-        running: root.listView.flicking
+        running: root.listView.moving
         interval: 30
         repeat: true
         onTriggered: {
