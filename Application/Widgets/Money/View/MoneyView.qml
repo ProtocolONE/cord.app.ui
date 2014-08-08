@@ -33,23 +33,19 @@ WidgetView {
 
     signal positionPressed(int x, int y);
     signal positionChanged(int x, int y);
-    signal updateBalance(int balance);
 
     function addPage(html) {
         var page = webViewItem.createObject(rootRect, {html: html});
     }
 
-    onPositionPressed: {
-        root.saveX = x;
-        root.saveY = y;
+    function show() {
+        root.addPage(d.urlEncondingHack(d.getMoneyUrl()));
+        root.visible = true;
     }
 
-    onPositionChanged: {
-        window.x = window.x + (x - root.saveX);
-        window.y = window.y + (y - root.saveY);
-    }
+    function closeWidget() {
+        root.visible = false;
 
-    onClose: {
         Object.keys(MoneyJs.pages).forEach(function(i){
             d.removeTab(i);
         });
@@ -57,6 +53,8 @@ WidgetView {
 
     width: 1000
     height: 600
+
+    visible: false
 
     Rectangle {
         width: root.width
@@ -70,9 +68,15 @@ WidgetView {
             target: AppJs.signalBus()
 
             onNavigate: {
-                if (link == 'gogamenetmoney' && MoneyJs.isOverlayEnable && !AppJs.isPublicVersion()) {
+                if (link == 'gogamenetmoney' && AppJs.isOverlayEnabled()) {
+                    if (root.visible) {
+                        root.closeWidget();
+                    }
+
                     RestApiJs.Billing.isInGameRefillAvailable(function(response) {
-                        root.addPage(d.urlEncondingHack(d.getMoneyUrl()));
+                        if (!!response.enabled) {
+                            root.show();
+                        }
                     });
                 }
             }
@@ -138,7 +142,7 @@ WidgetView {
 
                             anchors.fill: parent
                             hoverEnabled: true
-                            onClicked: root.close();
+                            onClicked: root.closeWidget();
                         }
                     }
                 }
@@ -235,7 +239,7 @@ WidgetView {
 
                 onPageCountChanged: {
                     if (pageCount < 1) {
-                        root.close();
+                        root.closeWidget();
                     }
                 }
 
@@ -288,9 +292,8 @@ WidgetView {
 
                     onPaymentResponse: {
                         UserJs.refreshBalance();
-                        root.close();
+                        root.closeWidget();
                     }
-
                 }
             }
         }

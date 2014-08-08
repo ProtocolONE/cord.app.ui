@@ -98,6 +98,8 @@ Rectangle {
             manager.registerWidget('Application.Widgets.SecondAccountAuth');
             manager.registerWidget('Application.Widgets.MyGamesMenu');
             manager.registerWidget('Application.Widgets.NicknameReminder');
+            manager.registerWidget('Application.Widgets.Overlay');
+            manager.registerWidget('Application.Widgets.Money');
             manager.init();
         }
     }

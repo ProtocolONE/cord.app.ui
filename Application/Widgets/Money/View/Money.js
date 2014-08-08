@@ -12,8 +12,7 @@
 var moneyFrame = null,
     moneyFrameInstance = null,
     callback = [],
-    pages = {},
-    isOverlayEnable = false;
+    pages = {};
 
 function updatePagesWidth(rootWidth) {
     var w = ((rootWidth - 50) / (Object.keys(pages).length)),

@@ -4,12 +4,10 @@ import GameNet.Components.Widgets 1.0
 
 import "../../../Core/User.js" as User
 import "../../../Core/App.js" as App
-import "OverlayBase.js" as Overlay
+import "OverlayBase.js" as OverlayBase
 
 Overlay {
     id: over
-
-    signal showMoney();
 
     flags: Qt.Window | Qt.Tool | Qt.FramelessWindowHint
     width: 1024
@@ -35,16 +33,14 @@ Overlay {
         }
     }
 
-    onShowMoney: App.navigate("gogamenetmoney");
-
     Component.onCompleted: {
-        Overlay.setBlockFunc(function(block) {
+        OverlayBase.setBlockFunc(function(block) {
             over.inputBlock = block;
         });
     }
 
     function setBlockInput(name, value) {
-        Overlay.setBlockInput(name, value);
+        OverlayBase.setBlockInput(name, value);
     }
 
     Connections {
@@ -56,17 +52,18 @@ Overlay {
     }
 
     WidgetContainer {
-        widget: 'Money'
+        id: browserRoot
 
+        property bool viewVisible: viewInstance.visible
+
+        widget: 'Money'
         width: 1002
         height: 697
         anchors.centerIn: parent
-        visible: false
-        onVisibleChanged: {
-            over.setBlockInput('money', (visible ? Overlay.MouseAndKeyboard : Overlay.None));
+        onViewVisibleChanged: {
+            over.setBlockInput('money', (viewVisible ? Overlay.MouseAndKeyboard : Overlay.None));
         }
     }
-
 
     // Попробуем таймер для проверки работает ли вообще репейнт на ноуте.
     // Хак работает - решить оставить ли его
