@@ -34,6 +34,8 @@ Item {
     property bool connecting: false
     property bool connected: false
 
+    property alias historySaveInterval: xmppClient.historySaveInterval
+
     signal selectedUserChanged();
     signal messageReceived(string from, string body);
 
@@ -66,7 +68,7 @@ Item {
         messageMap.body = body;
         messageMap.type = QXmppMessage.Chat;
         messageMap.state = QXmppMessage.Active;
-        xmppClient.sendMessage(user.jid, messageMap);
+        xmppClient.sendMessageEx(user.jid, messageMap);
     }
 
     function sendInputStatus(user, value) {
@@ -94,7 +96,7 @@ Item {
         d.loadUserTalkDate(myUser.userId);
 
         root.connecting = true;
-        xmppClient.connectToServer(jid, password);
+        xmppClient.connectToServerEx(jid, password);
     }
 
     function disconnect() {
@@ -218,6 +220,10 @@ Item {
 
     function userIdToJid(userId) {
         return userId + '@' + d.serverUrl;
+    }
+
+    function clearHistory() {
+        xmppClient.clearHistory();
     }
 
     QtObject {
@@ -495,6 +501,23 @@ Item {
 
             item.lastActivity = timestamp;
             root.lastActivityChanged(jid);
+        }
+
+        onHistoryReceived: {
+            var item = root.getUser(jid);
+            if (!item.isValid() || !history) {
+                return;
+            }
+
+            for (var i = history.length; i--;) {
+                Object.keys(history[i]).forEach(function(e) {
+
+                var message = history[i][e],
+                    date = +Moment.moment(message.date).startOf('day');
+
+                    item.prependMessage(message.from, message.body, message.date);
+                });
+            }
         }
     }
 

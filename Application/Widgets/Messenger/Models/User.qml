@@ -23,6 +23,7 @@ QtObject {
     property string avatar: installPath + "/Assets/Images/Application/Widgets/Messenger/defaultAvatar.png";
     property int unreadMessageCount: 0
     property int lastActivity: 0
+    property int historyDay: 0
 
     function isValid() {
         return true;

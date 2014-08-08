@@ -186,6 +186,8 @@ Item {
     property color messengerContactPresenceDnd: "#FFCC00"
     property color messengerContactPresenceOffline: "#CCCCCC"
     property color messengerContactStatusText: "#5B6F81"
+    property color messangerContactScrollBar: "#F0F5F8"
+    property color messangerContactScrollBarCursor: '#95999b'
 
     //MESSENGER CONTACT GROUP
     property color messengerContactGroupBackground: "#E5E9EC"
@@ -215,7 +217,14 @@ Item {
 
     //MESSENGER CHAT DIALOG BODY
     property color messengerChatDialogBodyBackground: "#F0F5F8"
-    property color messengerChatHyperlinkColor: '#3498db'
+    property color messengerChatDialogHyperlinkColor: '#3498db'
+    property color messangerChatDialogScrollBar: "#F0F5F8"
+    property color messangerChatDialogScrollBarCursor: '#95999b'
+
+    //MESSENGER CHAT HISTORY
+    property color messengerChatDialogHistoryNavigateButton: "#3498db"
+    property color messengerChatDialogHistoryNavigateButtonHover: "#3670DC"
+    property color messengerChatDialogHistoryNavigateButtonDisabled: "#888888"
 
     //MESSENGER MESSAGE ITEM
     property color messengerChatDialogMessageNicknameText: "#243148"

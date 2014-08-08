@@ -16,6 +16,8 @@ import "./Models/Messenger.js" as MessengerJs
 import "./Models/Settings.js" as Settings
 
 WidgetModel {
+    id: root
+
     settings: WidgetSettings {
         namespace: 'Messenger'
         autoSave: ['chatBodyHeight']
@@ -23,6 +25,11 @@ WidgetModel {
         property bool messengerReceivedMessage: true
         property int sendAction: Settings.SendShortCut.Enter
         property int chatBodyHeight: 470
+        property string historySaveInterval: '0'
+    }
+
+    function clearHistory() {
+        MessengerJs.clearHistory();
     }
 
     // UNDONE коннект на запуск игры
@@ -34,6 +41,13 @@ WidgetModel {
 
         onLogoutDone: MessengerJs.disconnect();
         onNavigate: MessengerJs.closeChat();
+    }
+
+    Binding {
+        target: MessengerJs.instance()
+        property: "historySaveInterval"
+        value: settings.historySaveInterval
+
     }
 
     Addons.Popups {

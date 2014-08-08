@@ -364,8 +364,8 @@ Item {
         listView: listView
         cursorMaxHeight: listView.height
         cursorMinHeight: 50
-        color: Qt.darker(Styles.style.messengerContactsBackground, Styles.style.darkerFactor);
-        cursorColor: Qt.darker(Styles.style.messengerContactsBackground, Styles.style.darkerFactor * 1.5);
+        color: Styles.style.messangerContactScrollBar
+        cursorColor: Styles.style.messangerContactScrollBarCursor
     }
 
     ListModel {

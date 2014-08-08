@@ -10,6 +10,7 @@
 .pragma library
 
 Qt.include("Message.js");
+Qt.include("../../../../Core/moment.js")
 
 function User(item, model, jabber) {
     var _item = item,
@@ -37,6 +38,11 @@ function User(item, model, jabber) {
     });
 
     this.__defineGetter__("messages", function() {
+        if (!_item.__historyRequested) {
+            jabber.queryHistory(self.jid);
+            _model.setPropertyById(self.jid, '__historyRequested', true);
+        }
+
         return _item.messages;
     });
 
@@ -133,8 +139,16 @@ function User(item, model, jabber) {
         return _item.isGamenet;
     });
 
+    this.__defineGetter__("historyDay", function() {
+        return _item.historyDay;
+    });
+
     this.__defineGetter__("lastTalkDate", function() {
         return _item.lastTalkDate;
+    });
+
+    this.__defineSetter__("historyDay", function(val) {
+        _model.setPropertyById(self.jid, 'historyDay', val);
     });
 
     this.__defineSetter__("lastTalkDate", function(val) {
@@ -158,7 +172,7 @@ function User(item, model, jabber) {
         if (self.jid !== from) {
             if (self.isLastMessageStatus) {
                 message = createRawMessage(from, false, body, date)
-                _item.messages.insert(_item.messages.count - 1, message);
+                _item.messages.append(message);
             } else {
                 self.appendRawMessage(from, false, body, date);
             }
@@ -173,6 +187,11 @@ function User(item, model, jabber) {
         }
 
         self.appendRawMessage(from, false, body, date);
+    }
+
+    this.prependMessage = function(from, body, date) {
+        message = createRawMessage(from, false, body, date);
+        _item.messages.insert(0, message);
     }
 
     this.removeMessage = function(msg) {
@@ -193,6 +212,17 @@ function User(item, model, jabber) {
             }
         }
     }
+
+    this.queryMoreMessages = function(num, name) {
+        if (!self.historyDay) {
+            self.historyDay = moment().startOf('day');
+        }
+
+        var from = +moment(self.historyDay).startOf('day').subtract(num, name);
+
+        jabber.queryHistory(self.jid, from, self.historyDay);
+        self.historyDay = from;
+    }
 }
 
 function createRawUser(jid, nickname) {
@@ -208,11 +238,13 @@ function createRawUser(jid, nickname) {
         inputMessage: "",
         avatar: "",
         lastActivity: 0,
+        historyDay: +moment().startOf('day'),
         isGamenet: false,
         lastTalkDate: "",
         online: false,
         __lastActivityRequested: false,
-        __vCardRequested: false
+        __vCardRequested: false,
+        __historyRequested: false
     };
 
     return result;
@@ -235,6 +267,7 @@ function createGamenetUser() {
         inputMessage: "",
         avatar: "",
         lastActivity: 0,
+        historyDay: +moment().startOf('day'),
         isGamenet: true,
         lastTalkDate: "",
         online: true,

@@ -892,6 +892,55 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>Body</name>
+    <message>
+        <source>CHAT_HISTORY_BODY_TODAY_TEXT</source>
+        <translation type="obsolete">Сегодня</translation>
+    </message>
+    <message>
+        <source>CHAT_HISTORY_BODY_YESTERDAY_TEXT</source>
+        <translation type="obsolete">Вчера</translation>
+    </message>
+    <message>
+        <source>CHAT_BODY_DATE_FORMAT</source>
+        <translation type="obsolete">%1 г.</translation>
+    </message>
+</context>
+<context>
+    <name>BodyHistoryHeader</name>
+    <message>
+        <source>YESTERDAY_HISTORY_TEXT</source>
+        <translation type="unfinished">Вчера</translation>
+    </message>
+    <message>
+        <source>WEEK_HISTORY_TEXT</source>
+        <translation type="unfinished">Неделя</translation>
+    </message>
+    <message>
+        <source>TWO_WEEKS_HISTORY_TEXT</source>
+        <translation type="unfinished">2 Недели</translation>
+    </message>
+    <message>
+        <source>MONTH_HISTORY_MONTH</source>
+        <translation type="unfinished">Месяц</translation>
+    </message>
+</context>
+<context>
+    <name>BodySection</name>
+    <message>
+        <source>CHAT_HISTORY_BODY_TODAY_TEXT</source>
+        <translation type="unfinished">Сегодня</translation>
+    </message>
+    <message>
+        <source>CHAT_HISTORY_BODY_YESTERDAY_TEXT</source>
+        <translation type="unfinished">Вчера</translation>
+    </message>
+    <message>
+        <source>CHAT_BODY_DATE_FORMAT</source>
+        <translation type="unfinished">%1 г.</translation>
+    </message>
+</context>
+<context>
     <name>BottomBar</name>
     <message>
         <source>MESSANGER_BOTTOM_BAR_BUTTON_NOTIFICATION_TOOLTIP</source>
@@ -3062,8 +3111,40 @@ Please try again later.</source>
         <translation>Отправлять только по кнопке Отправить</translation>
     </message>
     <message>
-        <source>MAINTENANCE_PROPOSAL_GAME_TEXT</source>
-        <translation type="unfinished">Пока мы делаем игру лучше, попробуй другие игры, в которые играют пользователи %1</translation>
+        <source>MESSENGER_HISTORY_ACTION_TITLE</source>
+        <translation type="vanished">История собщений</translation>
+    </message>
+    <message>
+        <source>HISTORY_DONT_SAVE</source>
+        <translation>Не сохранять</translation>
+    </message>
+    <message>
+        <source>HISTORY_SAVE_TWO_WEEKS</source>
+        <translation>2 недели</translation>
+    </message>
+    <message>
+        <source>HISTORY_SAVE_ONE_MONTH</source>
+        <translation>1 месяц</translation>
+    </message>
+    <message>
+        <source>HISTORY_SAVE_TWO_MONTH</source>
+        <translation>2 месяца</translation>
+    </message>
+    <message>
+        <source>HISTORY_SAVE_3_MONTH</source>
+        <translation>3 месяца</translation>
+    </message>
+    <message>
+        <source>HISTORY_SAVE_ALLWAYS</source>
+        <translation>всегда</translation>
+    </message>
+    <message>
+        <source>HISTORY_CLEAR_BUTTON</source>
+        <translation>Очистить историю</translation>
+    </message>
+    <message>
+        <source>MESSENGER_HISTORY_SAVE_COMBOBOX_TITLE</source>
+        <translation type="unfinished">Хранить историю</translation>
     </message>
 </context>
 <context>

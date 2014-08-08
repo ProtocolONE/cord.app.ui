@@ -185,6 +185,8 @@
 		<file>Application/Widgets/Messenger/Addons/Popups.qml</file>
 		<file>Application/Widgets/Messenger/Model.qml</file>
 		<file>Application/Widgets/Messenger/Models/Group.js</file>
+		<file>Application/Widgets/Messenger/Models/History.js</file>
+		<file>Application/Widgets/Messenger/Models/History.qml</file>
 		<file>Application/Widgets/Messenger/Models/JabberClient.js</file>
 		<file>Application/Widgets/Messenger/Models/JabberClient.qml</file>
 		<file>Application/Widgets/Messenger/Models/Message.js</file>
@@ -197,6 +199,8 @@
 		<file>Application/Widgets/Messenger/PluginContainer.qml</file>
 		<file>Application/Widgets/Messenger/qmldir</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/BodySection.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/Header.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageItem.qml</file>

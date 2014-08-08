@@ -322,6 +322,47 @@
     </message>
 </context>
 <context>
+    <name>BodyHistoryHeader</name>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="64"/>
+        <source>YESTERDAY_HISTORY_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="81"/>
+        <source>WEEK_HISTORY_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="97"/>
+        <source>TWO_WEEKS_HISTORY_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="113"/>
+        <source>MONTH_HISTORY_MONTH</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>BodySection</name>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodySection.qml" line="30"/>
+        <source>CHAT_HISTORY_BODY_TODAY_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodySection.qml" line="34"/>
+        <source>CHAT_HISTORY_BODY_YESTERDAY_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodySection.qml" line="37"/>
+        <source>CHAT_BODY_DATE_FORMAT</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>BottomBar</name>
     <message>
         <location filename="../Application/Widgets/Messenger/View/BottomBar.qml" line="40"/>
@@ -442,74 +483,74 @@
 <context>
     <name>DownloadSettings</name>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="91"/>
+        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="95"/>
         <source>DOWNLOAD_LIMIT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="101"/>
-        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="134"/>
-        <source>SPEED_UNLIMITED</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="102"/>
-        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="135"/>
-        <source>SPEED_50</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="103"/>
-        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="136"/>
-        <source>SPEED_200</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="104"/>
-        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="137"/>
-        <source>SPEED_500</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="105"/>
         <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="138"/>
-        <source>SPEED_1000</source>
+        <source>SPEED_UNLIMITED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="106"/>
         <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="139"/>
-        <source>SPEED_2000</source>
+        <source>SPEED_50</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="107"/>
         <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="140"/>
+        <source>SPEED_200</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="108"/>
+        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="141"/>
+        <source>SPEED_500</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="109"/>
+        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="142"/>
+        <source>SPEED_1000</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="110"/>
+        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="143"/>
+        <source>SPEED_2000</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="111"/>
+        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="144"/>
         <source>SPEED_5000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="123"/>
+        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="127"/>
         <source>UPLOAD_LIMIT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="161"/>
+        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="165"/>
         <source>INCOMING_PORT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="182"/>
+        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="186"/>
         <source>PORT_AUTO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="195"/>
+        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="199"/>
         <source>CONNECTION_COUNT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="215"/>
+        <location filename="../Application/Blocks/Settings/Application/DownloadSettings.qml" line="219"/>
         <source>PARTICIPATE_SEEDING</source>
         <translation type="unfinished"></translation>
     </message>
@@ -856,21 +897,25 @@
     </message>
     <message>
         <location filename="../Application/Models/GamesListModel.qml" line="310"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="388"/>
         <source>LOGO_BS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Application/Models/GamesListModel.qml" line="311"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="389"/>
         <source>GAME_BS_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Application/Models/GamesListModel.qml" line="312"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="390"/>
         <source>GAME_BS_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Application/Models/GamesListModel.qml" line="313"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="391"/>
         <source>GAME_BS_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
@@ -895,107 +940,107 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="446"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="524"/>
         <source>LOGO_AIKA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="447"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="525"/>
         <source>GAME_AIKA_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="448"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="526"/>
         <source>GAME_AIKA_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="449"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="527"/>
         <source>GAME_AIKA_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="515"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="593"/>
         <source>LOGO_GA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="516"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="594"/>
         <source>GAME_GA_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="517"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="595"/>
         <source>GAME_GA_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="518"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="596"/>
         <source>GAME_GA_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="581"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="659"/>
         <source>LOGO_WI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="582"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="660"/>
         <source>GAME_WI_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="583"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="661"/>
         <source>GAME_WI_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="584"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="662"/>
         <source>GAME_WI_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="651"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="729"/>
         <source>LOGO_ROT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="652"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="730"/>
         <source>GAME_ROT_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="653"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="731"/>
         <source>GAME_ROT_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="654"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="732"/>
         <source>GAME_ROT_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="716"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="794"/>
         <source>LOGO_BD</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="717"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="795"/>
         <source>GAME_BD_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="718"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="796"/>
         <source>GAME_BD_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="719"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="797"/>
         <source>GAME_BD_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="381"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="459"/>
         <source>LOGO_FJ</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1030,17 +1075,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="382"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="460"/>
         <source>GAME_FJ_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="383"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="461"/>
         <source>GAME_FJ_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="384"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="462"/>
         <source>GAME_FJ_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1048,22 +1093,22 @@
 <context>
     <name>GeneralSettings</name>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/GeneralSettings.qml" line="126"/>
+        <location filename="../Application/Blocks/Settings/Application/GeneralSettings.qml" line="127"/>
         <source>CHECKOX_AUTORUN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/GeneralSettings.qml" line="141"/>
+        <location filename="../Application/Blocks/Settings/Application/GeneralSettings.qml" line="142"/>
         <source>CHECKOX_RUN_MINIMIZED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/GeneralSettings.qml" line="153"/>
+        <location filename="../Application/Blocks/Settings/Application/GeneralSettings.qml" line="154"/>
         <source>CHECKOX_PARTICIPATE_TESTING</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/GeneralSettings.qml" line="178"/>
+        <location filename="../Application/Blocks/Settings/Application/GeneralSettings.qml" line="179"/>
         <source>TEST_VERSION_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1214,17 +1259,17 @@
 <context>
     <name>Message</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="89"/>
+        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="99"/>
         <source>MESSAGE_STATE_COMPOSING</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="93"/>
+        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="103"/>
         <source>MESSAGE_STATE_PAUSED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="97"/>
+        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="107"/>
         <source>MESSAGE_STATE_INACTIVE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1263,7 +1308,7 @@
 <context>
     <name>Messenger</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="284"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="276"/>
         <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1271,22 +1316,62 @@
 <context>
     <name>MessengerSettings</name>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="50"/>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="84"/>
+        <source>HISTORY_DONT_SAVE</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="83"/>
+        <source>HISTORY_SAVE_TWO_WEEKS</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="82"/>
+        <source>HISTORY_SAVE_ONE_MONTH</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="81"/>
+        <source>HISTORY_SAVE_TWO_MONTH</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="80"/>
+        <source>HISTORY_SAVE_3_MONTH</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="79"/>
+        <source>HISTORY_SAVE_ALLWAYS</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="65"/>
+        <source>MESSENGER_HISTORY_SAVE_COMBOBOX_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="93"/>
+        <source>HISTORY_CLEAR_BUTTON</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="102"/>
         <source>MESSENGER_SEND_ACTION_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="58"/>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="110"/>
         <source>MESSENGER_SEND_ON_ENTER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="68"/>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="120"/>
         <source>MESSENGER_SEND_ON_CTRL_ENTER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="78"/>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="130"/>
         <source>MESSENGER_SEND_ON_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>

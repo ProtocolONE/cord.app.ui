@@ -167,12 +167,12 @@ function isAnySecondServiceRunning() {
 
 function secondServiceStarted(service) {
     runningSecondService[service] = 1;
-    _signalBusInst.isAnySecondServiceRunning = true;
+    _signalBusInstance.isAnySecondServiceRunning = true;
 }
 
 function secondServiceFinished(service) {
     delete runningSecondService[service];
-    _signalBusInst.isAnySecondServiceRunning = Object.keys(runningSecondService) > 0;
+    _signalBusInstance.isAnySecondServiceRunning = Object.keys(runningSecondService).length > 0;
 }
 
 function getRegisteredServices() {

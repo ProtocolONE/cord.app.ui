@@ -46,6 +46,10 @@ Rectangle {
     }
 
     function isAtEnd() {
+        if (!root.listView) {
+            return false;
+        }
+
         var bottomIndex = root.listView.indexAt(0, root.listView.contentY + root.listView.height - 1);
         return bottomIndex + 1 >= listViewCount;
     }

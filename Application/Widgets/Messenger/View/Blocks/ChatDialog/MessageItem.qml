@@ -88,26 +88,21 @@ Item {
                 topMargin: 23
             }
 
-            Text {
+            TextEdit {
                 id: messageBody
 
                 function replaceHyperlinks(message) {
-                    return message.replace(/(\b(https|http):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig, function(e) {
-                        if (e.length > 60) {
-                            return "<a style='color:" +
-                                    Styles.style.messengerChatHyperlinkColor +
-                                    "' href='" + e + "'>ссылка</a>";
-                        }
-
+                    return message.replace(/\(?(?:(http|https):\/\/)?(?:((?:[^\W\s]|\.|-|[:]{1})+)@{1})?((?:www.)?(?:[^\W\s]|\.|-)+[\.][^\W\s]{2,4}|localhost(?=\/)|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?::(\d*))?([\/]?[^\s\?]*[\/]{1})*(?:\/?([^\s\n\?\[\]\{\}\#]*(?:(?=\.)){1}|[^\s\n\?\[\]\{\}\.\#]*)?([\.]{1}[^\s\?\#]*)?)?(?:\?{1}([^\s\n\#\[\]]*))?([\#][^\s\n]*)?\)?/ig, function(e) {
                         return "<a style='color:" +
-                                Styles.style.messengerChatHyperlinkColor +
+                                Styles.style.messengerChatDialogHyperlinkColor +
                                 "' href='" + e + "'>" + e + "</a>";
                     });
-
                 }
 
-                wrapMode: TextEdit.Wrap
+                wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
                 width: parent.width
+                readOnly: true
+                selectByMouse: true
                 textFormat: TextEdit.RichText
                 text: replaceHyperlinks(Strings.stripTags(root.body))
                 color: root.isStatusMessage

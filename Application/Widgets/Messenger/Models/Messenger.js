@@ -210,3 +210,16 @@ function openDialog(user) {
 function userIdToJid(userId) {
   return _modelInstance.userIdToJid(userId);
 }
+
+function clearHistory() {
+    _modelInstance.clearHistory();
+
+    for (var i = 0; i < users().count; ++i) {
+        var actualUser = users().get(i);
+        actualUser.messages.clear();
+    }
+}
+
+function checkHistoryInterval() {
+    _modelInstance.checkHistoryInterval();
+}

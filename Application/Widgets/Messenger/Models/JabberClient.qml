@@ -28,8 +28,11 @@ QXmppClient {
     //                }
 
 
+    property alias historySaveInterval: history.historySaveInterval
+
     property int failCount: 0
     property string failDate: ""
+    property string myJid: ""
 
     property variant statesMap: {
         'Active': QXmppMessage.Active,
@@ -39,6 +42,35 @@ QXmppClient {
     }
 
     signal lastActivityUpdated(string jid, int timestamp);
+    signal historyReceived(string jid, variant history);
+
+    function clearHistory() {
+        history.clear();
+    }
+
+    function saveToHistory(jid, message) {
+        history.save(jid, message);
+    }
+
+    function queryHistory(jid, from, to) {
+        var result = history.query(jid, from, to);
+        xmppClient.historyReceived(jid, result);
+    }
+
+    function checkHistoryInterval() {
+        history.checkHistoryInterval();
+    }
+
+    function connectToServerEx(jid, password) {
+        xmppClient.myJid = jid;
+        xmppClient.connectToServer(jid, password);
+    }
+
+    function sendMessageEx(jid, message) {
+        xmppClient.sendMessage(jid, message);
+        message.from = xmppClient.myJid;
+        xmppClient.saveToHistory(jid, message);
+    }
 
     function sendInputStatus(jid, value) {
         var messageMap = {
@@ -59,7 +91,7 @@ QXmppClient {
             return;
         }
 
-        var date = (+ Moment.moment().subtract(lastActivity.seconds, 'seconds'))/1000 | 0;
+        var date = (+Moment.moment().subtract(lastActivity.seconds, 'seconds'))/1000 | 0;
         var jid = User.jidWithoutResource(lastActivity.from);
         var current = Js.lastActivityCache[jid];
 
@@ -68,6 +100,10 @@ QXmppClient {
             autoSaveDelay.restart();
             xmppClient.lastActivityUpdated(jid, date);
         }
+    }
+
+    onMessageReceived: {
+        xmppClient.saveToHistory(message.from, message);
     }
 
     Component.onCompleted: {
@@ -121,6 +157,12 @@ QXmppClient {
 
         interval: 5000
         onTriggered: Settings.setValue('qml/messenger/cache/', 'lastActivity' , JSON.stringify(Js.lastActivityCache));
+    }
+
+    History {
+        id: history
+
+        myJid: xmppClient.myJid
     }
 
 }
