@@ -29,6 +29,7 @@ WidgetModel {
     function startExecuting(serviceId) {
         executeServiceDelay.serviceId = serviceId;
         executeServiceDelay.start();
+        App.serviceItemByServiceId(serviceId).status = "Starting";
     }
 
     Connections {

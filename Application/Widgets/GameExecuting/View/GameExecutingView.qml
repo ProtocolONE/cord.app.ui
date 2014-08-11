@@ -29,12 +29,6 @@ PopupBase {
         }
     }
 
-    Component.onDestruction: {
-        root.gameItem.statusText = '';
-        root.gameItem.status = "Normal";
-        App.updateProgress(root.gameItem);
-    }
-
     Timer {
         interval: 5000
         running: root.visible
