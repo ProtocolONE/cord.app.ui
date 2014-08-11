@@ -38,7 +38,7 @@ Item {
                 // 26.08.2013 HACK Выключено из-за проблемы на XP
                 //'300002010000000000': 'Games/Aika.qml',
                 '300003010000000000': 'Games/BS.qml',
-                //'300012010000000000': 'Games/Reborn.qml',
+                '300012010000000000': 'Games/Reborn.qml',
             }
 
             if (!supportedGames.hasOwnProperty(service)) {
