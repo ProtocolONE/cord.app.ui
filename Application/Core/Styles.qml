@@ -110,6 +110,7 @@ Item {
     property color settingsSpecialButtonHover: "#019074"
     property color settingsControlNormal: "#1ADC9C"
     property color settingsControlHover: "#019074"
+    property color settingsControlDisabled: "#FF4F02"
     property color settingsButtonNormal: "#3498BD"
     property color settingsButtonHover: "#3670DC"
 
@@ -223,6 +224,17 @@ Item {
 
     //MESSENGER CONTACTS
     property color messengerContactsBackground: "#EEEEEE"
+
+    //MESSENGER CONTACTS TABS
+    property color messengerContactsTabSelected: "#E5E9EC"
+    property color messengerContactsTabNormal: "#898b8d"
+    property color messengerContactsTabHover: "#444546"
+    property color messengerContactsTabText: "#8297a9"
+
+    property color messengerRecentContactsUnreadIcon: "#189A19"
+
+    //MESSENGER EMPTY CONTACTS INFO
+    property color messengerEmptyContactListInfoBackground: "#EEEEEE"
 
     //PRIVATE PART
     property variant styleList

@@ -7,5 +7,6 @@ CheckBox {
     style {
         normal: Styles.style.settingsControlNormal
         hover: Styles.style.settingsControlHover
+        disabled: Styles.style.settingsControlDisabled
     }
 }

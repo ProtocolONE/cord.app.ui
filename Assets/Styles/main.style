@@ -76,6 +76,7 @@
         "settingsSpecialButtonHover": "#019074",
         "settingsControlNormal": "#1ADC9C",
         "settingsControlHover": "#019074",
+        "settingsControlDisabled": "#FF4F02",
         "settingsButtonNormal": "#3498BD",
         "settingsButtonHover": "#3670DC",
         "authBackground": "#fafafa",
@@ -162,7 +163,10 @@
         "messengerChatDialogMessageText": "#5B6F81",
         "messengerChatDialogMessageStatusText": "#A4B0BA",
         "messengerContactsBackground": "#EEEEEE",
-        "messengerContactsTypeTabBackground": "#E5E9EC",
+        "messengerContactsTabSelected": "#E5E9EC",
+        "messengerContactsTabNormal": "#898b8d",
+        "messengerContactsTabHover": "#444546",
+        "messengerContactsTabText": "#8297a9",
         "messengerRecentContactsUnreadIcon": "#189A19",
         "messengerEmptyContactListInfoBackground": "#EEEEEE"
     }

@@ -35,12 +35,9 @@ Item {
             height: root.height
             text: qsTr("CONTACT_LIST_TABS_CONTACTS")
             style: ButtonStyleColors {
-                normal: enabled ? Qt.darker(Styles.style.messengerContactsTypeTabBackground, Styles.style.darkerFactor * 1.2)
-                                : Styles.style.messengerContactsTypeTabBackground
-
-                hover: enabled ? Qt.darker(Styles.style.messengerContactsTypeTabBackground, Styles.style.darkerFactor * 1.4)
-                               : Styles.style.messengerContactsTypeTabBackground
-                disabled: Styles.style.messengerContactsTypeTabBackground
+                normal:Styles.style.messengerContactsTabNormal
+                hover: Styles.style.messengerContactsTabHover
+                disabled: Styles.style.messengerContactsTabSelected
             }
             onClicked: contactViewState.state = "AllContacts"
             enabled: true
@@ -53,12 +50,12 @@ Item {
             height: root.height
             text: qsTr("CONTACT_LIST_TABS_RECENT")
             style: ButtonStyleColors {
-                normal: enabled ? Qt.darker(Styles.style.messengerContactsTypeTabBackground, Styles.style.darkerFactor * 1.2)
-                                : Styles.style.messengerContactsTypeTabBackground
+                normal: enabled ? Styles.style.messengerContactsTabNormal
+                                : Styles.style.messengerContactsTabSelected
 
-                hover: enabled ? Qt.darker(Styles.style.messengerContactsTypeTabBackground, Styles.style.darkerFactor * 1.4)
-                               : Styles.style.messengerContactsTypeTabBackground
-                disabled: Styles.style.messengerContactsTypeTabBackground
+                hover: enabled ? Styles.style.messengerContactsTabHover
+                               : Styles.style.messengerContactsTabSelected
+                disabled: Styles.style.messengerContactsTabSelected
             }
             onClicked: contactViewState.state = "RecentConversation"
             enabled: true
@@ -95,7 +92,7 @@ Item {
 
                 PropertyChanges {
                     target: contactsButton
-                    textColor: Styles.style.messengerContactGroupName
+                    textColor: Styles.style.messengerContactsTabText
                     enabled: false
                 }
             },
@@ -110,7 +107,7 @@ Item {
 
                 PropertyChanges {
                     target: recentButton
-                    textColor: Styles.style.messengerContactGroupName
+                    textColor: Styles.style.messengerContactsTabText
                     enabled: false
                 }
             }
