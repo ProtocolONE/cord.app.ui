@@ -36,4 +36,13 @@ Item {
     function isAnyItemHighlighted() {
         return internalView.currentIndex != -1;
     }
+
+    function selectFirstUser() {
+        if (internalView.count < 1 || internalView.currentIndex < 0) {
+            return;
+        }
+
+        internalView.currentIndex = 0;
+        internalView.currentItem.select();
+    }
 }

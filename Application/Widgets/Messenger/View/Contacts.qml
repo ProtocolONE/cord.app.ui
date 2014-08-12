@@ -100,6 +100,13 @@ WidgetView {
                     }
                 }
                 onLocalSearchChanged: searchText = '';
+
+                Keys.onPressed: {
+                    if (event.key == Qt.Key_Enter || event.key == Qt.Key_Return) {
+                        var target = searchContactItem.localSearch ? searchContactList : webSearch;
+                        target.selectFirstUser();
+                    }
+                }
             }
 
             Item {
