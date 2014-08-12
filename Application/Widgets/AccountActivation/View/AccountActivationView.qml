@@ -16,6 +16,7 @@ import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 
 import "../../../Core/restapi.js" as RestApiJs
+import "../../../Core/App.js" as App
 
 PopupBase {
     id: root
@@ -23,8 +24,12 @@ PopupBase {
     clip: true
     title: qsTr("ACCOUNT_ACTIVATION")
 
+    Component.onCompleted: d.requestServiceId = App.currentGame().serviceId;
+
     QtObject {
         id: d
+
+        property string requestServiceId
 
         function requestActivationCode() {
             requestCodeButton.inProgress = true;
@@ -73,6 +78,9 @@ PopupBase {
                             if (response.result === 1) {
                                 code.error = false;
                                 validateCodeError.error = false;
+                                if (d.requestServiceId) {
+                                    App.downloadButtonStart(d.requestServiceId);
+                                }
                                 root.close();
                                 return;
                             }
@@ -294,12 +302,10 @@ PopupBase {
             State {
                 name: "RequestCode"
                 PropertyChanges { target: code; enabled: false }
-                PropertyChanges { target: requestCodeButton; enabled: false }
             },
             State {
                 name: "ValidateCode"
                 PropertyChanges { target: phone; enabled: false }
-                PropertyChanges { target: validateCodeButton; enabled: false }
             }
         ]
     }
