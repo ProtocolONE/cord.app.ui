@@ -192,6 +192,7 @@ WidgetView {
                 height: 24
                 text: qsTr("ADD_MONEY")
 
+                textColor: Styles.style.profileAddMoneyButtonText
                 style: ButtonStyleColors {
                     normal: Styles.style.profileAddMoneyButtonNormal
                     hover: Styles.style.profileAddMoneyButtonHover

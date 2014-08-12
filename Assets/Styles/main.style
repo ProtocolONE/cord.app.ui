@@ -56,6 +56,7 @@
         "profileNicknameText": "#1ABC9C",
         "profileLevelText": "#FAFAFA",
         "profileBalanceText": "#FAFAFA",
+        "profileAddMoneyButtonText": "#FFFFFF",
         "profileAddMoneyButtonNormal": "#567DD8",
         "profileAddMoneyButtonHover": "#305ec8",
         "gameMenuBackground": "#082135",

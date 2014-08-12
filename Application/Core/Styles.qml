@@ -86,6 +86,7 @@ Item {
     property color profileNicknameText: "#1ABC9C"
     property color profileLevelText: "#FAFAFA"
     property color profileBalanceText: "#FAFAFA"
+    property color profileAddMoneyButtonText: "#FFFFFF"
     property color profileAddMoneyButtonNormal: "#567DD8"
     property color profileAddMoneyButtonHover: "#305ec8"
 
