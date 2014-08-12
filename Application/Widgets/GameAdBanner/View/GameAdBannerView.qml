@@ -24,6 +24,20 @@ WidgetView {
     property variant currentGameItem: App.currentGame()
     property int index
     property bool hasAds: GameAdBannerView.filtered.length > 0
+    property bool initialized: false
+
+    onCurrentGameItemChanged: {
+        if (currentGameItem && initialized) {
+            model.refreshAds(currentGameItem.gameId);
+        }
+    }
+
+    Component.onCompleted: {
+        if (currentGameItem) {
+            model.refreshAds(currentGameItem.gameId);
+        }
+        initialized = true;
+    }
 
     function update() {
         if (!root.currentGameItem) {
@@ -69,11 +83,6 @@ WidgetView {
     width: 590
     height: 150
     clip: true
-    onCurrentGameItemChanged: {
-        if (currentGameItem) {
-            model.refreshAds(currentGameItem.gameId);
-        }
-    }
 
     QtObject {
         id: d
@@ -82,7 +91,7 @@ WidgetView {
     }
 
     Connections {
-        target: model
+        target: root.model || null
         onAdsChanged: update();
     }
 

@@ -45,12 +45,6 @@ Rectangle {
         }
     }
 
-    WidgetContainer {
-        x: 182
-        y: 115
-        widget: 'GameExecuting'
-    }
-
     Connections {
         target: Popup.signalBus()
         onClose: {
