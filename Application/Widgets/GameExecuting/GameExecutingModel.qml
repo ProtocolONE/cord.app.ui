@@ -71,9 +71,13 @@ WidgetModel {
         onNeedPakkanenVerification: {
             Popup.show('AccountActivation');
         }
+    }
+
+    Connections {
+        target: App.mainWindowInstance()
 
         onServiceFinished: {  // ввод промо кода
-            if (gameItem.serviceState !== RestApi.Error.SERVICE_AUTHORIZATION_IMPOSSIBLE) {
+            if (serviceState !== RestApi.Error.SERVICE_AUTHORIZATION_IMPOSSIBLE) {
                 return;
             }
 

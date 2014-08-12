@@ -22,9 +22,12 @@ import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 PopupBase {
     id: root
 
-    property variant gameItem: App.currentGame()
+    property variant gameItem
 
-    Component.onCompleted: sendGoogleStat('show');
+    Component.onCompleted: {
+        root.gameItem = App.currentGame();
+        sendGoogleStat('show');
+    }
 
     function sendGoogleStat(action) {
         if (root.gameItem) {
@@ -82,6 +85,7 @@ PopupBase {
                             activateButton.inProgress = false;
 
                             if (response.result === 1) {
+                                App.downloadButtonStart(root.gameItem.serviceId)
                                 root.close();
                                 return;
                             }
