@@ -332,12 +332,12 @@
 <context>
     <name>CaptchaInput</name>
     <message>
-        <location filename="../Application/Blocks/Auth/CaptchaInput.qml" line="55"/>
+        <location filename="../Application/Blocks/Auth/CaptchaInput.qml" line="57"/>
         <source>CAPTCHA_INPUT_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/CaptchaInput.qml" line="89"/>
+        <location filename="../Application/Blocks/Auth/CaptchaInput.qml" line="101"/>
         <source>CAPTCHA_INPUT_REFRESH_BUTTON_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -391,12 +391,12 @@
 <context>
     <name>ContactsTypeTabs</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml" line="52"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml" line="36"/>
         <source>CONTACT_LIST_TABS_CONTACTS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml" line="63"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml" line="51"/>
         <source>CONTACT_LIST_TABS_RECENT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -404,37 +404,37 @@
 <context>
     <name>DownloadManagerConnector</name>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="31"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="32"/>
         <source>POPUP_PLAY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="32"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="33"/>
         <source>POPUP_READY_TO_START</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="67"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="74"/>
         <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="181"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="188"/>
         <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="205"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="212"/>
         <source>TEXT_PROGRESSBAR_REHASH_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="219"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="226"/>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="220"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="227"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1090,21 +1090,26 @@
     </message>
     <message>
         <location filename="../Application/Blocks/Header/Header.qml" line="95"/>
+        <source>HEADER_BUTTON_REWARDS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Header/Header.qml" line="108"/>
         <source>HEADER_BUTTON_SUPPORT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="141"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="156"/>
         <source>HEADER_BUTTON_CLOSE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="157"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="172"/>
         <source>HEADER_BUTTON_SETTINGS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="178"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="193"/>
         <source>HEADER_BUTTON_LOGOUT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1808,12 +1813,12 @@
     </message>
     <message>
         <location filename="../Application/Blocks/SplashScreen.qml" line="42"/>
-        <location filename="../Application/Blocks/SplashScreen.qml" line="107"/>
+        <location filename="../Application/Blocks/SplashScreen.qml" line="111"/>
         <source>TEXT_STARTING_APPLICATION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/SplashScreen.qml" line="97"/>
+        <location filename="../Application/Blocks/SplashScreen.qml" line="101"/>
         <source>TEXT_VERSION</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2014,24 +2019,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="147"/>
-        <source>WEB_SEARCH_BACKGROUND_TEXT</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>WebSearch</name>
-    <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="24"/>
-        <source>WEB_SEARCH_NOT_CHARS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="28"/>
-        <source>WEB_SEARCH_CHARS_PRIVACY_FILTER_ACTIVE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="149"/>
         <source>WEB_SEARCH_BACKGROUND_TEXT</source>
         <translation type="unfinished"></translation>
@@ -2047,12 +2034,12 @@
     <message>
         <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml" line="111"/>
         <source>INVITE_TO_FRIEND_SENDED</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml" line="111"/>
         <source>SEND_INVITE_TO_FRIEND</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

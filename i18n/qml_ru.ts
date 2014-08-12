@@ -2541,6 +2541,10 @@ Please try again later.</source>
         <source>LAST_ACTIVITY_PLACEHOLDER</source>
         <translation type="obsolete">Был %1</translation>
     </message>
+    <message>
+        <source>HEADER_BUTTON_REWARDS</source>
+        <translation type="unfinished">Награды</translation>
+    </message>
 </context>
 <context>
     <name>Home</name>

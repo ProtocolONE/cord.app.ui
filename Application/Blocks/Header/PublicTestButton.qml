@@ -17,8 +17,8 @@ Button {
     property alias source: icon.source
 
     toolTip: qsTr("PUBLIC_TEST_TOOLTIP")
-    width: 16
-    height: 16
+    width: 24
+    height: 24
 
     style: ButtonStyleColors {
         normal: "#00000000"
@@ -33,6 +33,7 @@ Button {
         width: parent.width
         height: parent.height
         fillMode: Image.PreserveAspectFit
+        smooth: true
         anchors.centerIn: parent
     }
 }
