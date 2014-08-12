@@ -222,7 +222,7 @@ Item {
     property color messangerChatDialogScrollBarCursor: '#95999b'
 
     //MESSENGER CHAT HISTORY
-    property color messengerChatDialogHistoryNavigateButton: "#3498db"
+    property color messengerChatDialogHistoryNavigateButtonNormal: "#3498db"
     property color messengerChatDialogHistoryNavigateButtonHover: "#3670DC"
     property color messengerChatDialogHistoryNavigateButtonDisabled: "#888888"
 
@@ -252,6 +252,8 @@ Item {
 
     property string currentStyle
     property alias settingsModel: data
+
+    property int version: 1
 
     function setCurrentStyle(value) {
         if (value !== currentStyle) {
@@ -291,12 +293,15 @@ Item {
             , tmpStyles;
 
         tmpStyles = rawStyles.filter(function(e) {
-            return e.hasOwnProperty('id')
+            var hasValidProperties = e.hasOwnProperty('id')
                 && e.hasOwnProperty('name')
                 && e.name.hasOwnProperty('en')
                 && e.name.hasOwnProperty(currentLang)
                 && e.hasOwnProperty('styles')
+                && e.hasOwnProperty('version')
                 && e.hasOwnProperty('default');
+
+            return hasValidProperties && e['version'] >= root.version;
         });
 
         tmpStyles.sort(function(a, b) {

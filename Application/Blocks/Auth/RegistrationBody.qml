@@ -200,7 +200,7 @@ FocusScope {
     }
 
     Row {
-        opacity: licenseMouse.containsMouse ? 1 : 0.2
+        opacity: licenseMouse.containsMouse ? 1 : 0.8
         height: 40
         anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
         spacing: 5

@@ -91,7 +91,7 @@ Item {
                 onClicked: root.queryMore(model.number, model.name);
                 enabled: isEnabled(model.number, model.name)
                 style {
-                    normal: Styles.style.messengerChatDialogHistoryNavigateButton
+                    normal: Styles.style.messengerChatDialogHistoryNavigateButtonNormal
                     hover: Styles.style.messengerChatDialogHistoryNavigateButtonHover
                     disabled: Styles.style.messengerChatDialogHistoryNavigateButtonDisabled
                 }
