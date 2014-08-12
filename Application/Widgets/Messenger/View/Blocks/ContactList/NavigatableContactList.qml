@@ -38,7 +38,7 @@ Item {
     }
 
     function selectFirstUser() {
-        if (internalView.count < 1 || internalView.currentIndex < 0) {
+        if (internalView.count < 1 || internalView.currentIndex !== -1) {
             return;
         }
 
