@@ -38,8 +38,20 @@ Rectangle {
 
     property int currentIndex
 
+    property bool isPositionAtBeging: isAtBeging()
+    property bool isPositionAtEnd: isAtEnd()
+
+    function isAtBeging() {
+        return root.currentIndex <= 1;
+    }
+
+    function isAtEnd() {
+        var bottomIndex = root.listView.indexAt(0, root.listView.contentY + root.listView.height - 1);
+        return bottomIndex + 1 >= listViewCount;
+    }
+
     function updateCurrentIndex(y) {
-        var relativeOffset = y / (parent.height - cursorHeight);
+        var relativeOffset = y / (root.height - cursorHeight);
         currentIndex = Math.min(listViewCount, Math.max(0, Math.round(listViewCount * relativeOffset)));
     }
 

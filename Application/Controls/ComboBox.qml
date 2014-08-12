@@ -14,7 +14,7 @@ ComboBox {
             posInItem = root.listBlock.mapFromItem(rootItem, x, y);
 
             if (posInItem.x < 0 || posInItem.x > listBlock.width ||
-                    posInItem.y < 0 || posInItem.x > listBlock.height) {
+                posInItem.y < 0 || posInItem.y > listBlock.height) {
                 listContainer.controlVisible = false;
             }
         }
