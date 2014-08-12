@@ -47,7 +47,7 @@ Item {
 
         border {
             width: 1
-            color: Qt.darker(background.color, Styles.style.darkerFactor * 1.5)
+            color: Styles.style.messengerContactBackgroundHightlighted
         }
         visible: root.isHighlighted && !root.isActive
     }

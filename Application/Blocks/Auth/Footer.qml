@@ -3,7 +3,7 @@ import GameNet.Controls 1.0
 
 import "../../Core/Styles.js" as Styles
 
-Item {
+Form {
     id: root
 
     property alias vkButtonContainsMouse: vkButton.containsMouse
@@ -15,7 +15,7 @@ Item {
 
     Rectangle {
         height: 1
-        color: Styles.style.authDelimiter
+        color: root.style.authDelimiter
         anchors { left: parent.left; right: parent.right; top: parent.top; topMargin: 1 }
     }
 
@@ -30,7 +30,7 @@ Item {
             Text {
                 anchors.verticalCenter: parent.verticalCenter
                 text: qsTr("AUTH_FOOTER_ALTERNATIVE_LOGIN")
-                color: Styles.style.authSubTitleText
+                color: root.style.authSubTitleText
                 font { pixelSize: 12; family: "Arial" }
             }
         }

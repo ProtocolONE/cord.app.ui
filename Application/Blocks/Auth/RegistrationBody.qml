@@ -16,7 +16,7 @@ import "../../Core/Authorization.js" as Authorization
 import "../../Core/App.js" as App
 import "../../Core/Styles.js" as Styles
 
-FocusScope {
+Form {
     id: root
 
     property alias login: loginInput.text
@@ -117,12 +117,12 @@ FocusScope {
                 text: qsTr("REGISTER_BODY_TITLE")
                 font { family: "Arial"; pixelSize: 20 }
                 anchors { baseline: parent.top; baselineOffset: 35 }
-                color: Styles.style.authTitleText
+                color: root.style.authTitleText
             }
 
             Text {
                 text: qsTr("REGISTER_BODY_SUB_TITLE")
-                color: Styles.style.authSubTitleText
+                color: root.style.authSubTitleText
                 anchors { baseline: parent.top; baselineOffset: 64 }
                 font { family: "Arial"; pixelSize: 14 }
             }
@@ -167,7 +167,7 @@ FocusScope {
 
             Rectangle {
                 width: 1
-                color: Styles.style.authDelimiter
+                color: root.style.authDelimiter
                 height: parent.height
             }
 
@@ -178,7 +178,7 @@ FocusScope {
 
                 Text {
                     anchors { baseline: parent.bottom; baselineOffset: -21 }
-                    color: Styles.style.authSubTitleText
+                    color: root.style.authSubTitleText
                     font { family: "Arial"; pixelSize: 12 }
                     text: qsTr("REGISTER_BODY_AUTH_TEXT")
                 }
@@ -208,7 +208,7 @@ FocusScope {
         Text {
             anchors { baseline: parent.bottom; baselineOffset: -20 }
             font.pixelSize: 12
-            color: Styles.style.authSubTitleText
+            color: root.style.authSubTitleText
             text: qsTr("REGISTER_BODY_LICENSE_PART1")
         }
 

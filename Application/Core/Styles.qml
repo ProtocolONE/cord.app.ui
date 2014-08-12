@@ -27,6 +27,10 @@ Item {
     property color popupTitleText: "#343537"
     property color popupText: "#343537"
 
+    property color secondAccountPopupAuthDelimiter: "#CCCCCC"
+    property color secondAccountPopupAuthTitleText: "#363636"
+    property color secondAccountPopupAuthSubTitleText: "#66758F"
+
     property color inputNormal: "#66758F"
     property color inputHover: "#3498DB"
     property color inputActive: "#3498DB"
@@ -179,6 +183,7 @@ Item {
     property color messengerContactBackground: "#FAFAFA"
     property color messengerContactBackgroundUnread: "#189A19"
     property color messengerContactBackgroundSelected: "#243148"
+    property color messengerContactBackgroundHightlighted: "#7d7d7d"
     property color messengerContactNickname: "#243148"
     property color messengerContactNicknameUnread: "#FAFAFA"
     property color messengerContactNicknameSelected: "#FAFAFA"

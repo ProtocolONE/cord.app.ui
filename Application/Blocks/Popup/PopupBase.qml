@@ -26,12 +26,13 @@ WidgetView {
     default property alias data: container.data
     property alias title: titleText.text
 
+    property color defaultBackgroundColor: Styles.style.popupBackground
     property color defaultTitleColor: Styles.style.popupTitleText
     property color defaultTextColor: Styles.style.popupText
 
     Rectangle {
         anchors.fill: parent
-        color: Styles.style.popupBackground
+        color: defaultBackgroundColor
     }
 
     Column {

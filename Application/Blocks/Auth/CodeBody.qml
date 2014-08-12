@@ -15,7 +15,7 @@ import "../../Core/Authorization.js" as Authorization
 import "../../Core/App.js" as App
 import "../../Core/Styles.js" as Styles
 
-Item {
+Form {
     id: root
 
     property string login
@@ -82,14 +82,14 @@ Item {
                         text: qsTr("CODE_BODY_TITLE")
                         font { family: "Arial"; pixelSize: 20 }
                         anchors.baseline: parent.bottom
-                        color: Styles.style.authTitleText
+                        color: root.style.authTitleText
                     }
                 }
 
                 Text {
                     width: parent.width
                     font { family: "Arial"; pixelSize: 14 }
-                    color: Styles.style.authSubTitleText
+                    color: root.style.authSubTitleText
                     wrapMode: Text.WordWrap
                     text: qsTr("CODE_BODY_INFO")
                 }
@@ -165,7 +165,7 @@ Item {
 
             Rectangle {
                 width: 1
-                color: Styles.style.authDelimiter
+                color: root.style.authDelimiter
                 height: parent.height
             }
 

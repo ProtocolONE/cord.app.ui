@@ -19,7 +19,7 @@ import "../../Core/Styles.js" as Styles
 
 import "./AuthHelper.js" as AuthHelper
 
-FocusScope {
+Form {
     id: root
 
     property alias login: loginInput.text
@@ -169,7 +169,7 @@ FocusScope {
             Text {
                 text: qsTr("AUTH_BODY_TITLE")
                 font { family: "Arial"; pixelSize: 20 }
-                color: Styles.style.authTitleText
+                color: root.style.authTitleText
                 anchors { baseline: parent.top; baselineOffset: 35 }
             }
         }
@@ -289,7 +289,7 @@ FocusScope {
 
             Rectangle {
                 width: 1
-                color: Styles.style.authDelimiter
+                color: root.style.authDelimiter
                 height: parent.height
             }
 
@@ -300,7 +300,7 @@ FocusScope {
 
                 Text {
                     anchors { baseline: parent.bottom; baselineOffset: -21 }
-                    color: Styles.style.authSubTitleText
+                    color: root.style.authSubTitleText
                     text: qsTr("AUTH_BODY_REGISTER_TEXT")
                     font { family: "Arial"; pixelSize: 12 }
                 }

@@ -3,7 +3,7 @@ import GameNet.Controls 1.0
 
 import "../../Core/Styles.js" as Styles
 
-Item {
+Form {
     id: root
 
     property alias message: messageText.text
@@ -26,7 +26,7 @@ Item {
                     pixelSize: 18
                 }
                 anchors.baseline: parent.bottom
-                color: Styles.style.authTitleText
+                color: root.style.authTitleText
                 text: qsTr("MESSAGE_TITLE");
             }
         }
@@ -39,7 +39,7 @@ Item {
                 pixelSize: 15
             }
 
-            color: Styles.style.authSubTitleText
+            color: root.style.authSubTitleText
             wrapMode: Text.WordWrap
         }
 

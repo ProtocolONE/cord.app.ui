@@ -4,3 +4,4 @@ Footer 1.0 Footer.qml
 RegistrationBody 1.0 RegistrationBody.qml
 CodeBody 1.0 CodeBody.qml
 MessageBody 1.0 MessageBody.qml
+AuthFormStyle 1.0 AuthFormStyle.qml

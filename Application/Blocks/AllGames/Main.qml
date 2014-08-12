@@ -3,19 +3,25 @@ import GameNet.Controls 1.0 as Controls
 import Application.Controls 1.0
 
 import "../../Core/App.js" as App
-import "AllGames.js" as AllGamesJs
 
 Item {
     id: root
+
+    property variant items: []
+
     onVisibleChanged: {
+        if (!root.items) {
+            return;
+        }
+
         if (visible) {
-            AllGamesJs.items.forEach(function(e){
+            root.items.forEach(function(e){
                 e.show();
             });
             return;
         }
 
-        AllGamesJs.items.forEach(function(e){
+        root.items.forEach(function(e){
             e.hide();
         });
     }
@@ -34,7 +40,7 @@ Item {
             contentWidth: width
             boundsBehavior: Flickable.StopAtBounds
             onContentYChanged: {
-                AllGamesJs.items.forEach(function(e){
+                root.items.forEach(function(e){
                     e.update();
                 });
             }
@@ -98,20 +104,18 @@ Item {
 
     Component.onCompleted: {
         var countItems = 0,
-                lineWidth = 0,
-                currentRowIndex = 0,
-                lastObj,
-                lastRow = rowComponent.createObject(rowView),
-                model = [],
-                i = 0;
+            lineWidth = 0,
+            currentRowIndex = 0,
+            lastObj,
+            lastRow = rowComponent.createObject(rowView),
+            model = [],
+            i = 0;
 
         for (i = 0; i < App.gamesListModel.count; ++i) {
             model.push(App.gamesListModel.get(i));
         }
 
-        AllGamesJs.items = [];
-
-        model.filter(function(item) {
+        root.items = model.filter(function(item) {
             return item.enabled;
         }).sort(function(a, b){
             if (a.priority == b.priority) {
@@ -119,7 +123,7 @@ Item {
             }
 
             return a.priority < b.priority ? -1 : 1;
-        }).forEach(function(item){
+        }).map(function(item){
             var size = (item.formFactor == 2) ? 495 : 240
             , animationPause
             , itemProperties;
@@ -141,7 +145,7 @@ Item {
                 pauseAnimation: animationPause
             };
 
-            AllGamesJs.items.push(itemComponent.createObject(lastRow, itemProperties));
+            return itemComponent.createObject(lastRow, itemProperties);
         });
     }
 }
