@@ -20,7 +20,14 @@ NavigatableContactList {
 
     property alias model: view.model
 
+    property string searchText
+    property bool nothingFound: searchText !== '' && searchContactModel.count === 0
+
     signal userClicked(string jid);
+
+    onSearchTextChanged: {
+        updateFilter(searchText);
+    }
 
     clip: true
 
@@ -43,6 +50,9 @@ NavigatableContactList {
             , filterText = text.toLowerCase();
 
         searchContactModel.clear();
+        if (filterText === "") {
+            return;
+        }
 
         MessengerJs.eachUser(function(user) {
             if (0 !== user.nickname.toLowerCase().indexOf(filterText)) {

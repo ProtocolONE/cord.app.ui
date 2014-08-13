@@ -21,7 +21,7 @@ import "../../../../Application/Core/App.js" as App
 WidgetView {
     id: root
 
-    property bool isSearching: false
+    property bool isSearching: searchContactItem.searchText.length > 0
 
     implicitWidth: parent.width
     implicitHeight: parent.height
@@ -91,14 +91,6 @@ WidgetView {
                 id: searchContactItem
 
                 width: parent.width
-                onSearchTextChanged: {
-                    if (searchContactItem.localSearch) {
-                        root.isSearching = (searchText.length > 0);
-                        if (root.isSearching) {
-                            searchContactList.updateFilter(searchText);
-                        }
-                    }
-                }
                 onLocalSearchChanged: searchText = '';
 
                 Keys.onPressed: {
@@ -114,9 +106,23 @@ WidgetView {
                 height: parent.height - searchContactItem.height - bottomBar.height
 
                 EmptyContactListInfo {
-                    visible: !d.hasContacts && !root.isSearching && d.contactReceived
+                    function isVisible() {
+                        if (!d.contactReceived) {
+                            return false;
+                        }
+
+                        if (!searchContactItem.localSearch) {
+                            return false;
+                        }
+
+                        return (!d.hasContacts && !root.isSearching)
+                            || (root.isSearching && showSearchTipOnly);
+                    }
+
+                    visible: opacity > 0
                     anchors.fill: parent
-                    opacity: (!root.isSearching && searchContactItem.localSearch) ? 1 : 0
+                    opacity: isVisible() ? 1 : 0
+                    showSearchTipOnly: searchContactItem.localSearch && searchContactList.nothingFound
 
                     Behavior on opacity { NumberAnimation { duration: 150 } }
                 }
@@ -159,6 +165,10 @@ WidgetView {
 
                 SearchContactList {
                     id: searchContactList
+
+                    searchText: searchContactItem.localSearch
+                                ? searchContactItem.searchText
+                                : ""
 
                     opacity: (root.isSearching && searchContactItem.localSearch) ? 1 : 0
                     anchors.fill: parent
