@@ -100,6 +100,7 @@ Rectangle {
             manager.registerWidget('Application.Widgets.NicknameReminder');
             manager.registerWidget('Application.Widgets.Overlay');
             manager.registerWidget('Application.Widgets.Money');
+            manager.registerWidget('Application.Widgets.PremiumNotifier');
             manager.init();
         }
     }

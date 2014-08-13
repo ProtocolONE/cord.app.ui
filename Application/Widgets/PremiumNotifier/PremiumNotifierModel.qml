@@ -27,8 +27,8 @@ WidgetModel {
             var gameItem = AppJs.serviceItemByServiceId(0);
             var popUpOptions = {
                 gameItem: gameItem,
-                buttonCaption: qsTr("PREMIUM_EXPIRED_BUTTON_CAPTION"), // "Продлить",
-                message: qsTr("PREMIUM_EXPIRED_MESSAGE")    //"Действие расширенного аккаунта закончилось."
+                buttonCaption: qsTr("PREMIUM_EXPIRED_BUTTON_CAPTION"),
+                message: qsTr("PREMIUM_EXPIRED_MESSAGE")
             };
 
             TrayPopupJs.showPopup(premiumExpiredPopup, popUpOptions, 'premiumExpiredNotification');
