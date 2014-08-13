@@ -39,6 +39,8 @@ Item {
     property alias inputMask: inputBehavior.inputMask
     property alias validator: inputBehavior.validator
 
+    property bool clearOnEsc: false
+
     signal iconClicked()
     signal enterPressed()
     signal tabPressed()
@@ -230,6 +232,10 @@ Item {
                         if (root.isSuggestionsContainerVisible()) {
                             suggestionsContainer.controlVisible = false;
                             return;
+                        }
+
+                        if (root.clearOnEsc) {
+                            root.text = "";
                         }
 
                         inputBehavior.focus = false;

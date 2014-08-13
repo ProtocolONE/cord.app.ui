@@ -71,7 +71,7 @@ FocusScope {
             width: parent.width - 42
 
             icon: installPath + "/Assets/Images/Application/Widgets/Messenger/chat_search.png"
-
+            clearOnEsc: true
             placeholder: localSearch ? qsTr("MESSENGER_SEARCH_FRIEND_PLACE_HOLDER") :
                                        qsTr("MESSENGER_WEB_SEARCH_PLACE_HOLDER")
             fontSize: 14
