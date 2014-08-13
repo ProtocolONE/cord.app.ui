@@ -47,8 +47,22 @@ WidgetView {
         root.visible = false;
 
         Object.keys(MoneyJs.pages).forEach(function(i){
-            d.removeTab(i);
+            MoneyJs.pages[i].destroy();
         });
+
+        MoneyJs.pages = {};
+        rootRect.pageCount = 0;
+    }
+
+    Connections {
+        target: model
+        onOpenMoneyOverlay: {
+            if (root.visible) {
+                root.closeWidget();
+            }
+
+            root.show();
+        }
     }
 
     width: 1000
@@ -63,24 +77,6 @@ WidgetView {
         border { color: '#1a466a'; width: 1 }
         radius: 3
         color: '#00000000'
-
-        Connections {
-            target: AppJs.signalBus()
-
-            onNavigate: {
-                if (link == 'gogamenetmoney' && AppJs.isOverlayEnabled()) {
-                    if (root.visible) {
-                        root.closeWidget();
-                    }
-
-                    RestApiJs.Billing.isInGameRefillAvailable(function(response) {
-                        if (!!response.enabled) {
-                            root.show();
-                        }
-                    });
-                }
-            }
-        }
 
         QtObject {
             id: d

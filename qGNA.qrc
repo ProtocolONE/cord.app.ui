@@ -227,6 +227,7 @@
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml</file>
 		<file>Application/Widgets/Messenger/View/Chat.qml</file>
 		<file>Application/Widgets/Messenger/View/Contacts.qml</file>
+		<file>Application/Widgets/Money/MoneyModel.qml</file>
 		<file>Application/Widgets/Money/PluginContainer.qml</file>
 		<file>Application/Widgets/Money/qmldir</file>
 		<file>Application/Widgets/Money/View/Money.js</file>

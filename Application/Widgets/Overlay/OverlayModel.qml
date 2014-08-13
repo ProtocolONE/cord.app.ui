@@ -60,8 +60,8 @@ WidgetModel {
                     overlayInstance.forceActiveFocus();
                     App.setOverlayEnabled(true);
 
-                    var serviceFinishCallback = function(serviceId) {
-                        if (service == serviceId) {
+                    var serviceFinishCallback = function(gameItem) {
+                        if (service == gameItem.serviceId) {
                             signalBusInstance.serviceFinished.disconnect(serviceFinishCallback);
                             overlayInstance.destroy();
                             App.setOverlayEnabled(false);

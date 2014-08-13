@@ -12,6 +12,10 @@ var _blocks = {},
     _setBlock;
 
 function setBlockInput(name, value) {
+    if (!_setBlock) {
+        return;
+    }
+
     var result = 0;
 
     _blocks[name] = value;
