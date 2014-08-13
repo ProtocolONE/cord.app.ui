@@ -115,7 +115,13 @@ Item {
                     italic: root.isStatusMessage
                 }
 
-                onLinkActivated: App.openExternalUrlWithAuth(link);
+                onLinkActivated: {
+                    if (link.indexOf("http://gamenet.ru") === 0) {
+                        App.openExternalUrlWithAuth(link);
+                    } else {
+                        App.openExternalUrl(link);
+                    }
+                }
             }
         }
     }
