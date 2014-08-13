@@ -549,7 +549,7 @@ ListModel {
 
         imageSmall: "Assets/Images/games/fs_icon_small.png"
         imageHorizontalSmall: "Assets/Images/games/wi_icon_horizontal_small.png"
-        imageLogoSmall: "Assets/Images/games/fs_icon_small.png"
+        imageLogoSmall: "Assets/Images/games/wi_logo_small.png"
         imagePopupArt: "Assets/Images/games/Popup/FireStormPopupArt.png"
 
         imageDefault: "Assets/Images/games/fs_icon_small.png"
