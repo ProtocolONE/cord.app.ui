@@ -25,6 +25,8 @@ WidgetView {
 
     function filter() {
         var allFacts = model.getAllFacts();
+        showNextFact.stop();
+
         if (!root.currentItem) {
             return;
         }
@@ -34,12 +36,10 @@ WidgetView {
         });
 
         root.index = -1;
-        switchAnim.complete();
+        root.hasFacts = FactsView.filteredFacts.length > 0;
 
         if (FactsView.filteredFacts.length > 0) {
             switchAnim.start();
-        } else {
-            switchToEmptyAnim.start();
         }
     }
 
@@ -113,7 +113,7 @@ WidgetView {
         id: switchAnim
 
         ScriptAction { script: {
-                root.hasFacts = true;
+                root.hasFacts = FactsView.filteredFacts.length > 0;
                 showNextFact.stop()
             }
         }
@@ -135,13 +135,5 @@ WidgetView {
         repeat: false
         interval: 5000
         onTriggered: switchAnim.start();
-    }
-
-    SequentialAnimation {
-        id: switchToEmptyAnim
-
-        ScriptAction { script: showNextFact.stop() }
-        NumberAnimation { target: textRow; property: "opacity"; to: 0; duration: 250 }
-        ScriptAction { script: root.hasFacts = false }
     }
 }

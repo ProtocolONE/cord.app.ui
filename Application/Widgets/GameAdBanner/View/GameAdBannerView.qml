@@ -23,7 +23,7 @@ WidgetView {
     property int rotationTimeout: 5000
     property variant currentGameItem: App.currentGame()
     property int index
-    property bool hasAds: GameAdBannerView.filtered.length > 0
+    property bool hasAds: true
     property bool initialized: false
 
     onCurrentGameItemChanged: {
@@ -40,6 +40,7 @@ WidgetView {
     }
 
     function update() {
+        showNextTimer.stop();
         if (!root.currentGameItem) {
             return;
         }
@@ -47,11 +48,10 @@ WidgetView {
         GameAdBannerView.filtered = model.getAds(currentGameItem.gameId);
 
         root.index = 0;
+        root.hasAds = GameAdBannerView.filtered.length > 0;
 
-        if (GameAdBannerView.filtered.length > 0) {
+        if (root.hasAds) {
             switchAnimation();
-        } else {
-            switchToEmptyAnim.start();
         }
     }
 
@@ -81,7 +81,8 @@ WidgetView {
     }
 
     width: 590
-    height: 150
+    height: root.hasAds ? 150 : 0
+    visible: root.hasAds
     clip: true
 
     QtObject {
@@ -181,8 +182,6 @@ WidgetView {
 
                 if (GameAdBannerView.filtered.length > 0) {
                     switchAnimation();
-                } else {
-                    switchToEmptyAnim.start();
                 }
             }
         }
@@ -215,8 +214,6 @@ WidgetView {
 
                 if (GameAdBannerView.filtered.length > 0) {
                     switchAnimation();
-                } else {
-                    switchToEmptyAnim.start();
                 }
             }
         }
@@ -235,12 +232,5 @@ WidgetView {
             incrementIndex();
             switchAnimation();
         }
-    }
-
-    SequentialAnimation {
-        id: switchToEmptyAnim
-
-        ScriptAction { script: showNextTimer.stop() }
-        NumberAnimation { target: contentSwitcher; property: "opacity"; to: 0; duration: 250 }
     }
 }
