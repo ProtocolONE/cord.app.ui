@@ -39,7 +39,7 @@ function User(item, model, jabber) {
 
     this.__defineGetter__("messages", function() {
         if (!_item.__historyRequested) {
-            jabber.queryHistory(self.jid);
+            jabber.queryHistory(self.jid, undefined, undefined, _item.messages);
             _model.setPropertyById(self.jid, '__historyRequested', true);
         }
 

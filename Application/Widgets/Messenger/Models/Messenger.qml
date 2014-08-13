@@ -469,7 +469,7 @@ Item {
         }
 
         onMessageReceived: {
-            var messageDate;
+            var messageDate = Date.now();
 
             if (message.stamp != "Invalid Date") {
                 messageDate = +(Moment.moment(message.stamp));
@@ -484,7 +484,8 @@ Item {
                 d.appendUser(bareJid);
             }
 
-            d.appendMessage(bareJid, message.state, message.body, messageDate)
+            d.appendMessage(bareJid, message.state, message.body, messageDate);
+            xmppClient.saveToHistory(message.from, message, messageDate);
 
             if (message.body) {
                 root.messageReceived(bareJid, message.body);

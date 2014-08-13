@@ -48,12 +48,12 @@ QXmppClient {
         history.clear();
     }
 
-    function saveToHistory(jid, message) {
-        history.save(jid, message);
+    function saveToHistory(jid, message, date) {
+        history.save(jid, message, date);
     }
 
-    function queryHistory(jid, from, to) {
-        var result = history.query(jid, from, to);
+    function queryHistory(jid, from, to, existingMessages) {
+        var result = history.query(jid, from, to, existingMessages);
         xmppClient.historyReceived(jid, result);
     }
 
@@ -102,9 +102,6 @@ QXmppClient {
         }
     }
 
-    onMessageReceived: {
-        xmppClient.saveToHistory(message.from, message);
-    }
 
     Component.onCompleted: {
         var cache;

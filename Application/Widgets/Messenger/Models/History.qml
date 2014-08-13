@@ -65,6 +65,21 @@ Item {
 
             return +Moment.moment().subtract(interval[0], interval[1]).startOf('day');
         }
+
+        function getCheckMap(existingMessages) {
+            var checkMap = {}
+                , item
+                , key
+                , i;
+
+            for (i = 0; i < existingMessages.count; i++) {
+                item = existingMessages.get(i);
+                key = Qt.md5(item.jid + item.text + item.date);
+                checkMap[key] = true;
+            }
+
+            return checkMap;
+        }
     }
 
     function checkHistoryInterval() {
@@ -109,7 +124,7 @@ Item {
         Settings.remove('qml/messenger/history/' + xmppClient.myJid, '');
     }
 
-    function save(jid, message) {
+    function save(jid, message, date) {
         if (d.getHistorySaveDuration() === false) {
             return;
         }
@@ -118,13 +133,15 @@ Item {
             return;
         }
 
-        var messageDate,
+        var messageDate = date,
             bareJid = UserJs.jidWithoutResource(jid),
-            day = +Moment.moment().startOf('day');
+            day;
 
         if (message.stamp != "Invalid Date") {
             messageDate = +(Moment.moment(message.stamp));
         }
+
+        day = +Moment.moment(messageDate).startOf('day');
 
         if (!Js.historyCache.hasOwnProperty(bareJid)) {
             Js.historyCache[bareJid] = {};
@@ -173,8 +190,10 @@ Item {
         }
     }
 
-    function query(jid, from, to) {
-        var cache;
+    function query(jid, from, to, existingMessages) {
+        var cache
+            , checkMap = d.getCheckMap(existingMessages);
+
         from = from || +(Moment.moment().startOf('day'));
 
         try {
@@ -201,7 +220,10 @@ Item {
                 history = {};
             }
 
-            return history;
+            return history.filter(function(elem){
+                var key = Qt.md5(elem.from + elem.body + elem.date);
+                return !checkMap.hasOwnProperty(key);
+            });
         });
     }
 }
