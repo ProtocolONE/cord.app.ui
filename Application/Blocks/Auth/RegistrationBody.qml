@@ -163,6 +163,11 @@ Form {
                 inProgress: d.inProgress
                 text: qsTr("REGISTER_BODY_REGISTER_BUTTON")
                 onClicked: d.register();
+                analytics {
+                   page: '/Auth'
+                   category: 'RegistrationBody'
+                   action: 'Register button pressed'
+                }
             }
 
             Rectangle {

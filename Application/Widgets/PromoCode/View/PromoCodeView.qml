@@ -75,9 +75,7 @@ PopupBase {
         onClicked: {
             activateButton.inProgress = true;
 
-            GoogleAnalytics.trackEvent('/PromoCode',
-                                       'PromoKey',
-                                       'Activate');
+            root.sendGoogleStat('Activate');
 
             RestApi.User.activatePromoKey(
                         promoCode.text,

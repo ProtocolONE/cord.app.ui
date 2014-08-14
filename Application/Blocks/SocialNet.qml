@@ -60,8 +60,8 @@ Item {
                 onClicked: {
                     App.openExternalUrl(link);
 
-                    GoogleAnalytics.trackEvent('/SoicialNet',
-                                               'Navigation',
+                    GoogleAnalytics.trackEvent('/game/' + root.gameItem.gaName,
+                                               'SocialNet',
                                                'Open link ' + link);
                 }
             }

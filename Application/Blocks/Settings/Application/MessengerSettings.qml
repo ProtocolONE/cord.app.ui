@@ -132,9 +132,5 @@ Item {
             checked: d.currentSendOption === optionValue
             onClicked: d.currentSendOption = optionValue;
         }
-
-
-
-
     }
 }

@@ -179,10 +179,13 @@ Item {
 
         onLogoutDone: {
             App.setGlobalState('Authorization');
+            GoogleAnalytics.userId = null;
         }
 
         onAuthDone: {
             root.setAuthInfo(userId, appKey, cookie);
+            GoogleAnalytics.userId = userId;
+            GoogleAnalytics.activate();
             App.setGlobalState('Application');
         }
 

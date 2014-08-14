@@ -14,6 +14,8 @@ import "../../Application/Core/User.js" as User
 import "../../Application/Core/Popup.js" as Popup
 import "../../Application/Core/Styles.js" as Styles
 
+import "../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+
 
 Rectangle {
     id: root
@@ -37,10 +39,17 @@ Rectangle {
         onNavigate: {
             console.log("onNavigate: " + link);
 
+            if (link == 'ApplicationSettings' || link == 'GameSettings') {
+                GoogleAnalytics.trackPageView('/' + link);
+                return;
+            }
+
             if (link == "mygame") {
                 root.state = "SelectedGame";
 
                 if (root.hasCurrentGame) {
+                    GoogleAnalytics.trackPageView('/game/' + root.currentGame.gaName);
+
                     if (!App.isServiceInstalled(root.currentGame.serviceId)) {
                         gameMenu.pageClicked('AboutGame');
                     } else {

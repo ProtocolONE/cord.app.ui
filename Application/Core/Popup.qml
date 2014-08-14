@@ -14,6 +14,7 @@ import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
 import "../../GameNet/Controls/Tooltip.js" as Tooltip
+import "../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 Item {
     id: root
@@ -34,6 +35,7 @@ Item {
         d.popupId = popupId;
 
         firstContainer.force(d.widgetName, d.widgetView);
+        GoogleAnalytics.trackPageView('/' + widgetName + '/' + widgetView || '');
     }
 
     anchors.fill: parent

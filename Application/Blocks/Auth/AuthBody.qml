@@ -285,6 +285,11 @@ Form {
                 text: qsTr("AUTH_BODY_LOGIN_BUTTON")
                 inProgress: d.inProgress
                 onClicked: d.genericAuth();
+                analytics {
+                   page: '/Auth'
+                   category: 'AuthBody'
+                   action: 'Login button pressed'
+                }
             }
 
             Rectangle {

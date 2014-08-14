@@ -113,9 +113,9 @@ WidgetView {
                         onClicked: {
                             Popup.show('PremiumShop', 'PremiumShopView')
 
-                            GoogleAnalytics.trackEvent('/PremiumShop/',
-                                                       'Premium',
-                                                       'show');
+                            GoogleAnalytics.trackEvent('/UserProfile',
+                                                       'UserProfileView',
+                                                       'ShowPremiumPopup');
                         }
                     }
                 }
@@ -162,6 +162,10 @@ WidgetView {
                     } else {
                         App.openExternalUrlWithAuth(root.getGameNetProfileUrl());
                     }
+
+                    GoogleAnalytics.trackEvent('/UserProfile',
+                                               'UserProfileView',
+                                               'nickname clicked');
                 }
             }
 

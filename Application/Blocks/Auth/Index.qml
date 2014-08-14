@@ -12,6 +12,8 @@ import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
 
+import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+
 import "../../../Application/Core/Authorization.js" as Authorization
 import "../../../Application/Core/User.js" as User
 import "../../../Application/Core/App.js" as App
@@ -71,6 +73,8 @@ Rectangle {
 
                 d.showError(qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR"));
             });
+
+            GoogleAnalytics.trackEvent('/Auth', 'Auth', 'Vk Login');
         }
 
         function loginSuggestion() {
@@ -214,7 +218,10 @@ Rectangle {
                 id: auth
 
                 anchors.fill: parent
-                onSwitchToRegistration: authContainer.state = "registration"
+                onSwitchToRegistration: {
+                    authContainer.state = "registration";
+                    GoogleAnalytics.trackEvent('/Auth', 'Auth', 'Switch To Registration');
+                }
                 onCodeRequired: {
                     codeForm.codeSended = false;
                     authContainer.state = "code"
@@ -241,7 +248,8 @@ Rectangle {
                 anchors.fill: parent
                 onError: d.showError(message);
                 onSwitchToLogin: {
-                    authContainer.state = "auth"
+                    authContainer.state = "auth";
+                    GoogleAnalytics.trackEvent('/Auth', 'Auth', 'Switch To Login');
                 }
 
                 onAuthDone: {
