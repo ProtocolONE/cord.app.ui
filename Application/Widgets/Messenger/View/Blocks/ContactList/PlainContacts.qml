@@ -79,7 +79,7 @@ Item {
                 usersToInsert = Lodash._.difference(actualUsers, currentUsers);
                 usersToRemove = Lodash._.difference(currentUsers, actualUsers);
 
-                d.insertUsersToOpenedGroup(usersToInsert, currentUsers, groupStartIndex, openedId);
+                d.insertUsersToOpenedGroup(usersToInsert, currentUsers, groupStartIndex, openedId, actualUsersMap);
                 d.removeFromOpenedGroup(usersToRemove, currentUsers, groupStartIndex);
             });
         }
@@ -108,7 +108,7 @@ Item {
             }
         }
 
-        function insertUsersToOpenedGroup(users, currentUsers, groupStartIndex, openedId) {
+        function insertUsersToOpenedGroup(users, currentUsers, groupStartIndex, openedId, actualUsersMap) {
             users.forEach(function(newUser) {
                 var newUserNickName,
                     newUserInsertIndex;
