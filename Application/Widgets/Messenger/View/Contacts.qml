@@ -119,12 +119,9 @@ WidgetView {
                             || (root.isSearching && showSearchTipOnly);
                     }
 
-                    visible: opacity > 0
+                    visible: isVisible()
                     anchors.fill: parent
-                    opacity: isVisible() ? 1 : 0
                     showSearchTipOnly: searchContactItem.localSearch && searchContactList.nothingFound
-
-                    Behavior on opacity { NumberAnimation { duration: 150 } }
                 }
 
                 Item {
