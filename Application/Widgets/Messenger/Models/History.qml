@@ -67,6 +67,10 @@ Item {
         }
 
         function getCheckMap(existingMessages) {
+            if (!existingMessages) {
+                return {};
+            }
+
             var checkMap = {}
                 , item
                 , key
