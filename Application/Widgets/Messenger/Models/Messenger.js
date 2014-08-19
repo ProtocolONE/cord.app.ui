@@ -116,12 +116,7 @@ function closeChat() {
 }
 
 function hasUnreadMessages(user) {
-    var data = getUser(user.jid);
-    if (!data.isValid()) {
-        return;
-    }
-
-    return data.unreadMessageCount > 0;
+    return _modelInstance.hasUnreadMessages(user);
 }
 
 function userStatusMessage(user) {
@@ -200,7 +195,7 @@ function isConnecting() {
 }
 
 function getGamenetUser() {
-    return _modelInstance.getGamenetUser();
+    return _modelInstance.gamenetUser;
 }
 
 function openDialog(user) {
@@ -222,4 +217,16 @@ function clearHistory() {
 
 function checkHistoryInterval() {
     _modelInstance.checkHistoryInterval();
+}
+
+function getPlainContactsItem() {
+    return _modelInstance.plainContactsItem();
+}
+
+function getRecentConversationItem() {
+    return _modelInstance.recentConversationItem();
+}
+
+function isContactReceived() {
+    return _modelInstance.contactReceived;
 }

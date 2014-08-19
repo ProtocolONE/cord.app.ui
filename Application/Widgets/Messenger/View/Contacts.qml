@@ -57,18 +57,7 @@ WidgetView {
     QtObject {
         id: d
 
-        property bool contactReceived: false
         property bool hasContacts: MessengerJs.users().count > 1 // INFO 1 - GameNet user.
-    }
-
-    Connections {
-        target: MessengerJs.instance()
-        onRosterRecieved: d.contactReceived = true;
-    }
-
-    Connections {
-        target: App.signalBus()
-        onLogoutDone: d.contactReceived = false;
     }
 
     Rectangle {
@@ -107,7 +96,7 @@ WidgetView {
 
                 EmptyContactListInfo {
                     function isVisible() {
-                        if (!d.contactReceived) {
+                        if (!MessengerJs.isContactReceived()) {
                             return false;
                         }
 
@@ -135,7 +124,7 @@ WidgetView {
 
                         width: parent.width
                         height: 20
-                        recentUnreadedContacts: recentConversation.unreadContactCount
+                        recentUnreadedContacts: MessengerJs.getRecentConversationItem().unreadContactCount
                     }
 
                     Item {
@@ -190,7 +179,7 @@ WidgetView {
 
         AnimatedImage {
             anchors.centerIn: parent
-            visible: !d.contactReceived
+            visible: !MessengerJs.isContactReceived()
             source: installPath + "Assets/Images/Application/Widgets/Messenger/wait.gif"
         }
     }

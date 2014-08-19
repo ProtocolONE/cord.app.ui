@@ -22,15 +22,8 @@ Rectangle {
 
     color: Styles.style.messengerBottomBarBackground
 
-    property variant user: null
+    property variant user: MessengerJs.getGamenetUser();
     property variant unreadMessageCount: user ? user.unreadMessageCount : 0
-
-    Connections {
-        target: MessengerJs.instance()
-        onConnectedToServer: {
-            root.user = MessengerJs.getGamenetUser();
-        }
-    }
 
     Button {
         width: 22
@@ -48,8 +41,8 @@ Rectangle {
         }
 
         onClicked: {
-            if (user) {
-                MessengerJs.selectUser(user)
+            if (root.user) {
+                MessengerJs.selectUser(root.user)
             }
         }
 

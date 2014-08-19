@@ -65,6 +65,17 @@ Overlay {
         }
     }
 
+//    INFO Чат в оверлее пока отключен до выяснения
+//
+//    Chat {
+//        anchors.fill: parent
+
+//        onIsShownChanged: {
+//            over.setBlockInput('chat', (isShown ? Overlay.MouseAndKeyboard : Overlay.None));
+//        }
+//    }
+
+
     // Попробуем таймер для проверки работает ли вообще репейнт на ноуте.
     // Хак работает - решить оставить ли его
     Timer {

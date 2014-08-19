@@ -12,10 +12,12 @@
 		<file>Application/Blocks/Auth/AnimatedBackground/Sun.qml</file>
 		<file>Application/Blocks/Auth/AnimatedBackground/VkDoggy.qml</file>
 		<file>Application/Blocks/Auth/AuthBody.qml</file>
+		<file>Application/Blocks/Auth/AuthFormStyle.qml</file>
 		<file>Application/Blocks/Auth/AuthHelper.js</file>
 		<file>Application/Blocks/Auth/CaptchaInput.qml</file>
 		<file>Application/Blocks/Auth/CodeBody.qml</file>
 		<file>Application/Blocks/Auth/Footer.qml</file>
+		<file>Application/Blocks/Auth/Form.qml</file>
 		<file>Application/Blocks/Auth/Header.qml</file>
 		<file>Application/Blocks/Auth/Index.qml</file>
 		<file>Application/Blocks/Auth/LoginInput.qml</file>
@@ -193,6 +195,10 @@
 		<file>Application/Widgets/Messenger/Models/Messenger.js</file>
 		<file>Application/Widgets/Messenger/Models/Messenger.qml</file>
 		<file>Application/Widgets/Messenger/Models/MessengerPrivate.js</file>
+		<file>Application/Widgets/Messenger/Models/Private/PlainContacts.js</file>
+		<file>Application/Widgets/Messenger/Models/Private/PlainContacts.qml</file>
+		<file>Application/Widgets/Messenger/Models/Private/RecentConversation.js</file>
+		<file>Application/Widgets/Messenger/Models/Private/RecentConversation.qml</file>
 		<file>Application/Widgets/Messenger/Models/Settings.js</file>
 		<file>Application/Widgets/Messenger/Models/User.js</file>
 		<file>Application/Widgets/Messenger/Models/User.qml</file>
@@ -216,9 +222,7 @@
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Jobs/RemoveItemJob.js</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/NavigatableContactList.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/NavigatableListView.qml</file>
-		<file>Application/Widgets/Messenger/View/Blocks/ContactList/PlainContacts.js</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/PlainContacts.qml</file>
-		<file>Application/Widgets/Messenger/View/Blocks/ContactList/RecentConversation.js</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/RecentConversation.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/RecentDateHeader.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml</file>
@@ -251,6 +255,7 @@
 		<file>Application/Widgets/Overlay/OverlayModel.qml</file>
 		<file>Application/Widgets/Overlay/PluginContainer.qml</file>
 		<file>Application/Widgets/Overlay/qmldir</file>
+		<file>Application/Widgets/Overlay/View/Chat.qml</file>
 		<file>Application/Widgets/Overlay/View/Games/Aika.qml</file>
 		<file>Application/Widgets/Overlay/View/Games/BS.qml</file>
 		<file>Application/Widgets/Overlay/View/Games/Reborn.qml</file>

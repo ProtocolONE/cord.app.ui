@@ -23,6 +23,8 @@ import "Group.js" as GroupJs
 import "../../../Core/App.js" as App
 import "../../../Core/User.js" as User
 
+import "./Private" as Private
+
 Item {
     id: root
 
@@ -31,6 +33,9 @@ Item {
     property string selectedGroupId
     property int currentTime
 
+    property variant gamenetUser
+
+    property bool contactReceived: false
     property bool connecting: false
     property bool connected: false
 
@@ -53,6 +58,23 @@ Item {
             users: usersModel,
             user: myUser
         };
+    }
+
+    function getUsersModel() {
+        return usersModel;
+    }
+
+    function getGroupsModel() {
+        return groupsModel;
+    }
+
+    function hasUnreadMessages(user) {
+        var data = root.getUser(user.jid);
+        if (!data.isValid()) {
+            return;
+        }
+
+        return data.unreadMessageCount > 0;
     }
 
     function sendMessage(user, body) {
@@ -107,6 +129,7 @@ Item {
         groupsModel.clear();
         usersModel.clear();
         MessengerPrivateJs.reset();
+        root.contactReceived = false;
 
         xmppClient.disconnectFromServer();
     }
@@ -226,6 +249,14 @@ Item {
         xmppClient.clearHistory();
     }
 
+    function plainContactsItem() {
+        return plainContacts;
+    }
+
+    function recentConversationItem() {
+        return recentConversation;
+    }
+
     QtObject {
         id: d
 
@@ -254,6 +285,7 @@ Item {
             usersModel.endbatch();
             groupsModel.endbatch();
             root.rosterRecieved();
+            root.contactReceived = true;
         }
 
         function createGamenetUser() {
@@ -460,6 +492,7 @@ Item {
             myUser.nickname = myUser.jid;
 
             root.connectedToServer();
+            root.gamenetUser = root.getGamenetUser();
         }
 
         onDisconnected: {
@@ -591,5 +624,15 @@ Item {
         }
     }
 
+    Private.PlainContacts {
+        id: plainContacts
 
+        messenger: root
+    }
+
+    Private.RecentConversation {
+        id: recentConversation
+
+        messenger: root
+    }
 }
