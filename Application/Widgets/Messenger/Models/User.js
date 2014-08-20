@@ -8,6 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 .pragma library
+var serverUrl;
 
 Qt.include("Message.js");
 Qt.include("../../../../Core/moment.js")
@@ -159,6 +160,14 @@ function User(item, model, jabber) {
         return isOnline(self.presenceState);
     });
 
+    this.__defineGetter__("playingGame", function() {
+        return _item.playingGame;
+    });
+
+    this.__defineSetter__("playingGame", function(val) {
+        _model.setPropertyById(self.jid, 'playingGame', val);
+    });
+
     this.isValid = function() {
         return !!_item && !!_model;
     }
@@ -242,6 +251,7 @@ function createRawUser(jid, nickname) {
         isGamenet: false,
         lastTalkDate: "",
         online: false,
+        playingGame: "",
         __lastActivityRequested: false,
         __vCardRequested: false,
         __historyRequested: false
@@ -271,6 +281,7 @@ function createGamenetUser() {
         isGamenet: true,
         lastTalkDate: "",
         online: true,
+        playingGame: "",
         __lastActivityRequested: false,
         __vCardRequested: false
     };
@@ -313,4 +324,8 @@ function isGameNet(item) {
     }
 
     return item.jid === getGamenetUserJid();
+}
+
+function userIdToJid(userId) {
+    return userId + '@' + serverUrl;
 }

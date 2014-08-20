@@ -17,57 +17,74 @@ import "../../../Models/Messenger.js" as MessengerJs
 Rectangle {
     id: root
 
+    property variant user: MessengerJs.getGamenetUser();
+    property variant unreadMessageCount: user ? user.unreadMessageCount : 0
+    property alias gameFilterChecked: gameFilterCheckbox.checked
+
     implicitWidth: parent.width
     implicitHeight: 32
 
     color: Styles.style.messengerBottomBarBackground
 
-    property variant user: MessengerJs.getGamenetUser();
-    property variant unreadMessageCount: user ? user.unreadMessageCount : 0
-
-    Button {
-        width: 22
-        height: 22
-
-        toolTip: qsTr('MESSANGER_BOTTOM_BAR_BUTTON_NOTIFICATION_TOOLTIP')
-
-        anchors.left: parent.left
+    Row {
+        anchors.fill: parent
         anchors.leftMargin: 5
-        anchors.verticalCenter: parent.verticalCenter
+        spacing: 20
 
-        style: ButtonStyleColors {
-            normal: Styles.style.messengerBottomBarButtonNormal
-            hover: Styles.style.messengerBottomBarButtonHover
-        }
+        Button {
+            width: 22
+            height: 22
 
-        onClicked: {
-            if (root.user) {
-                MessengerJs.selectUser(root.user)
-            }
-        }
+            toolTip: qsTr('MESSANGER_BOTTOM_BAR_BUTTON_NOTIFICATION_TOOLTIP')
 
-        Image {
-            anchors.centerIn: parent
-            source: installPath + "Assets/Images/Application/Widgets/Messenger/BottomBar/info.png"
-        }
+            anchors.verticalCenter: parent.verticalCenter
 
-        Rectangle {
-            color: Styles.style.messengerBottomBarButtonNotificationBackground
-            anchors.fill: parent
-            opacity: unreadMessageCount > 0 ? 1 : 0
-
-            Behavior on opacity {
-                PropertyAnimation {
-                    duration: 200
+            onClicked: {
+                if (root.user) {
+                    MessengerJs.selectUser(root.user)
                 }
             }
 
-            Text {
-                id: txt
-
-                text: unreadMessageCount
-                color: Styles.style.messengerBottomBarButtonNotificationText
+            Image {
                 anchors.centerIn: parent
+                source: installPath + "Assets/Images/Application/Widgets/Messenger/BottomBar/info.png"
+            }
+
+            Rectangle {
+                color: Styles.style.messengerBottomBarButtonNotificationBackground
+                anchors.fill: parent
+                opacity: unreadMessageCount > 0 ? 1 : 0
+
+                Behavior on opacity {
+                    PropertyAnimation {
+                        duration: 200
+                    }
+                }
+
+                Text {
+                    id: txt
+
+                    text: unreadMessageCount
+                    color: Styles.style.messengerBottomBarButtonNotificationText
+                    anchors.centerIn: parent
+                }
+            }
+        }
+
+        CheckBox {
+            id: gameFilterCheckbox
+
+            width: 100
+            height: 12
+            anchors.verticalCenter: parent.verticalCenter
+            text: qsTr("MESSENGER_PLAYING_GAME_FILTER")
+            fontSize: 14
+
+            style {
+                normal: Styles.style.messengerPlayingContactFilterNormal
+                hover: Styles.style.messengerPlayingContactFilterHover
+                active: Styles.style.messengerPlayingContactFilterDisabled
+                disabled: Styles.style.messengerPlayingContactFilterActive
             }
         }
     }

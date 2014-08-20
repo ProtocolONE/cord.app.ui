@@ -12,6 +12,8 @@ import Tulip 1.0
 import QXmpp 1.0
 import GameNet.Controls 1.0
 
+import "./Private" as Private
+
 import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../../../../Application/Core/moment.js" as Moment
 
@@ -22,8 +24,6 @@ import "Group.js" as GroupJs
 
 import "../../../Core/App.js" as App
 import "../../../Core/User.js" as User
-
-import "./Private" as Private
 
 Item {
     id: root
@@ -49,7 +49,7 @@ Item {
     signal talkDateChanged(string jid);
     signal onlineStatusChanged(string jid);
     signal lastActivityChanged(string jid);
-    signal rosterRecieved();
+    signal rosterReceived();
 
     function init() {
         return {
@@ -105,7 +105,7 @@ Item {
 
     function connect(server, userId, password) {
         d.serverUrl = server;
-
+        UserJs.serverUrl = server;
         if (root.connecting || root.connected) {
             console.log('Warning! Ask connecting to already connected jabber');
             return;
@@ -245,8 +245,20 @@ Item {
         return userId + '@' + d.serverUrl;
     }
 
+    function setGameInfo(info) {
+        xmppClient.setGamingInfo(info);
+    }
+
     function clearHistory() {
         xmppClient.clearHistory();
+    }
+
+    function getJabberClient() {
+        return xmppClient;
+    }
+
+    function getPlayingContactsModel() {
+        return playingContacts;
     }
 
     function plainContactsItem() {
@@ -263,7 +275,7 @@ Item {
         property int defaultAvatarIndex: 0
         property string serverUrl: ''
 
-        function rosterRecieved() {
+        function rosterReceived() {
             var rosterUsers = xmppClient.rosterManager.getRosterBareJids()
             , currentUserMap = {}
             , removeUsers = [];
@@ -282,9 +294,9 @@ Item {
                 }
             });
 
-            usersModel.endbatch();
-            groupsModel.endbatch();
-            root.rosterRecieved();
+            usersModel.endBatch();
+            groupsModel.endBatch();
+            root.rosterReceived();
             root.contactReceived = true;
         }
 
@@ -545,9 +557,8 @@ Item {
 
             for (var i = history.length; i--;) {
                 Object.keys(history[i]).forEach(function(e) {
-
-                var message = history[i][e],
-                    date = +Moment.moment(message.date).startOf('day');
+                    var message = history[i][e]
+                        , date = +Moment.moment(message.date).startOf('day');
 
                     item.prependMessage(message.from, message.body, message.date);
                 });
@@ -582,24 +593,24 @@ Item {
         onItemAdded: {
             console.log("Roster item added: " + bareJid);
             //root.contactAdded(bareJid);
-            d.rosterRecieved();
+            d.rosterReceived();
         }
 
         onItemChanged: {
             console.log("Roster item changed: " + bareJid, xmppClient.rosterManager.getGroups(bareJid));
             //root.contactChanged(bareJid);
-            d.rosterRecieved();
+            d.rosterReceived();
         }
 
         onItemRemoved: {
             console.log("Roster item removed: " + bareJid);
             //root.contactRemoved(bareJid);
-            d.rosterRecieved();
+            d.rosterReceived();
         }
 
         onRosterReceived: {
             console.log("ROSTER MANAGER: Roster received");
-            d.rosterRecieved();
+            d.rosterReceived();
         }
     }
 
@@ -622,6 +633,12 @@ Item {
                 item.avatar = d.getDefaultAvatar();
             }
         }
+    }
+
+    Private.PlayingGame {
+        id: playingContacts
+
+        messenger: root
     }
 
     Private.PlainContacts {

@@ -133,11 +133,23 @@ WidgetView {
                             topMargin: 20
                         }
 
-                        PlainContacts {
-                            id: allContacts
+                        Item {
+                            id: contactsTabItem
 
                             anchors.fill: parent
                             visible: tabView.isContactsVisible
+
+                            PlainContacts {
+                                id: allContacts
+
+                                anchors.fill: parent
+                                visible: !bottomBar.gameFilterChecked
+                            }
+
+                            PlayingGameContacts {
+                                anchors.fill: parent
+                                visible: bottomBar.gameFilterChecked
+                            }
                         }
 
                         RecentConversation {

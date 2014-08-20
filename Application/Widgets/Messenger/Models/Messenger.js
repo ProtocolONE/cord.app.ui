@@ -206,6 +206,27 @@ function userIdToJid(userId) {
   return _modelInstance.userIdToJid(userId);
 }
 
+function setGameInfo(info) {
+  _modelInstance.setGameInfo(info);
+}
+
+function gamePlayingByUser(item) {
+    if (!item) {
+        return "";
+    }
+
+    if (!item.hasOwnProperty('jid')) {
+        throw new Error('Error gamePlayingByUser. Object has not property jid.' + JSON.stringify(item));
+    }
+
+    var user = getUser(item.jid);
+    if (!user || !user.isValid()) {
+        return "";
+    }
+
+    return user.playingGame;
+}
+
 function clearHistory() {
     _modelInstance.clearHistory();
 
@@ -217,6 +238,10 @@ function clearHistory() {
 
 function checkHistoryInterval() {
     _modelInstance.checkHistoryInterval();
+}
+
+function getPlayingContactsModel() {
+    return _modelInstance.getPlayingContactsModel();
 }
 
 function getPlainContactsItem() {

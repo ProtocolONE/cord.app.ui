@@ -14,6 +14,8 @@ import "../../../Models/Messenger.js" as Messenger
 import "../../../Models/User.js" as User
 import "../../../../../Core/moment.js" as Moment
 
+import "../../../../../Core/App.js" as App
+
 
 ContactItem {
     id: root
@@ -60,6 +62,14 @@ ContactItem {
             }
 
             if (User.isOnline(root.presenceStatus)) {
+                var serviceId = Messenger.gamePlayingByUser(root.user);
+                if (serviceId) {
+                    var gameInfo = App.serviceItemByServiceId(serviceId);
+                    if (gameInfo) {
+                        return qsTr("MESSENGER_CONTACT_ITEM_PLAYING_STATUS_INFO").arg(gameInfo.name);
+                    }
+                }
+
                 return Messenger.userStatusMessage(root.user) || "";
             }
 

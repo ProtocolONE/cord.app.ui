@@ -131,6 +131,14 @@ function indexByServiceId(serviceId) {
     return serviceIdToGameItemIdex[serviceId];
 }
 
+function serviceExists(serviceId) {
+    return serviceIdToGameItemIdex.hasOwnProperty(serviceId);
+}
+
+function gameExists(gameId) {
+    return gameIdToGameItem.hasOwnProperty(gameId);
+}
+
 /**
  * Application specific functions
  */

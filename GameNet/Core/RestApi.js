@@ -627,7 +627,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.132.32335a70374b0be6298bd925a2583d9753bd5ec4",
+    version: "1.0.135.d249b986ed1ced4c705ce0f673b6fb3df98571a7",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',
@@ -761,12 +761,11 @@ Games.getAdvertising = function(game, successCallback, failedCallback) {
 
 Games.getGallery = function(game, successCallback, failedCallback) {
     Core.execute('games.getGallery', {
-        gameId: game,
-        version: 1
-    },
-    false, successCallback, failedCallback);
-};
-var Marketing = function() {
+            gameId: game,
+            version: 1
+        },
+        false, successCallback, failedCallback);
+};var Marketing = function() {
 };
 
 // Пока не работает на лайве
@@ -796,8 +795,8 @@ Premium.purchase = function(gridId, successCallback, failedCallback) {
 var Service = function() {
 };
 
-Service.getServices = function(successCallback, failedCallback) {
-    Core.execute('service.getServices', {}, false, successCallback, failedCallback);
+Service.getServices = function(sessionId, successCallback, failedCallback) {
+    Core.execute('service.getServices', { sessionId : sessionId }, true, successCallback, failedCallback);
 };
 var Social = function() {
 };
@@ -833,6 +832,10 @@ User.getSpeedyInfo = function(successCallback, failedCallback) {
 
 User.getProfile = function(profiles, successCallback, failedCallback) {
     Core.execute('user.getProfile', {profileId: profiles, shortInfo: 1, achievements: 1}, true, successCallback, failedCallback);
+};
+
+User.getPlayedInfo = function(profiles, successCallback, failedCallback) {
+    Core.execute('user.getProfile', {profileId: profiles, playedGames: 1}, true, successCallback, failedCallback);
 };
 
 //Следующий метод не должен тестироваться по понятным причинам
@@ -871,6 +874,11 @@ User.saveTechNickname = function(techname, successCallback, failedCallback) {
 User.activatePromoKey = function(promoKey, successCallback, failedCallback) {
     Core.execute('user.activatePromoKey', { key : promoKey }, true, successCallback, failedCallback);
 };
+
+User.search = function(query, priorityForFriends, successCallback, failedCallback) {
+    Core.execute('user.search', { q : query, priorityForFriends: priorityForFriends }, true, successCallback, failedCallback);
+};
+
 var Virality = function() {
 };
 

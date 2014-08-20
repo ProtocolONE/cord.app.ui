@@ -42,6 +42,7 @@ QXmppClient {
     }
 
     signal lastActivityUpdated(string jid, int timestamp);
+    signal gamingInfoReceived(variant info);
     signal historyReceived(string jid, variant history);
 
     function clearHistory() {
@@ -102,6 +103,22 @@ QXmppClient {
         }
     }
 
+    function setGamingInfo(opt) {
+        var gameInfo;
+        if (opt) {
+            gameInfo = {
+                characterName: opt.characterName || '',
+                characterProfile: opt.characterProfile || '',
+                name: opt.name || '',
+                level: opt.level || '',
+                serverAddress: opt.serverAddress || '',
+                serverName: opt.serverName || '',
+                uri: opt.uri || ''
+            };
+        }
+
+        xmppClient.pepManager.setGamingInfo(gameInfo);
+    }
 
     Component.onCompleted: {
         var cache;
@@ -154,6 +171,11 @@ QXmppClient {
 
         interval: 5000
         onTriggered: Settings.setValue('qml/messenger/cache/', 'lastActivity' , JSON.stringify(Js.lastActivityCache));
+    }
+
+    Connections {
+        target: xmppClient.pepManager
+        onGamingReceived: xmppClient.gamingInfoReceived(game);
     }
 
     History {

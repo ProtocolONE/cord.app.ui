@@ -205,6 +205,13 @@ Item {
     property color messengerRecentContactGroupName: "#8297a9"
     property color messengerRecentContactEmptyInfo: "#000000"
 
+    //MESSENGER PLAYING GAME CONTACT GROUP
+    property color messengerPlayingContactEmptyInfo: "#000000"
+    property color messengerPlayingContactFilterNormal: "#FF4F02"
+    property color messengerPlayingContactFilterHover: "#FF7902"
+    property color messengerPlayingContactFilterDisabled: "#FF4F02"
+    property color messengerPlayingContactFilterActive: "#FF4F02"
+
     //MESSENGER CONTACT INPUT
     property color messengerMessageInputBackground: "#FFFFFF"
     property color messengerMessageInputBorder: "#b2b2b2"

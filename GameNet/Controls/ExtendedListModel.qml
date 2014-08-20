@@ -255,7 +255,7 @@ Item {
         d.canSendSourceChanged  = false;
     }
 
-    function endbatch() {
+    function endBatch() {
         d.canSendSourceChanged  = true;
         d.sendSourceChanged();
     }

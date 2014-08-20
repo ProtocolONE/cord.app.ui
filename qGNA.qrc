@@ -195,8 +195,14 @@
 		<file>Application/Widgets/Messenger/Models/Messenger.js</file>
 		<file>Application/Widgets/Messenger/Models/Messenger.qml</file>
 		<file>Application/Widgets/Messenger/Models/MessengerPrivate.js</file>
+		<file>Application/Widgets/Messenger/Models/Private/Jobs/AppendGroupJob.js</file>
+		<file>Application/Widgets/Messenger/Models/Private/Jobs/MoveItemJob.js</file>
+		<file>Application/Widgets/Messenger/Models/Private/Jobs/OpenGroupJob.js</file>
+		<file>Application/Widgets/Messenger/Models/Private/Jobs/RemoveItemJob.js</file>
 		<file>Application/Widgets/Messenger/Models/Private/PlainContacts.js</file>
 		<file>Application/Widgets/Messenger/Models/Private/PlainContacts.qml</file>
+		<file>Application/Widgets/Messenger/Models/Private/PlayingGame.js</file>
+		<file>Application/Widgets/Messenger/Models/Private/PlayingGame.qml</file>
 		<file>Application/Widgets/Messenger/Models/Private/RecentConversation.js</file>
 		<file>Application/Widgets/Messenger/Models/Private/RecentConversation.qml</file>
 		<file>Application/Widgets/Messenger/Models/Settings.js</file>
@@ -216,13 +222,10 @@
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/GroupHeader.qml</file>
-		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Jobs/AppendGroupJob.js</file>
-		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Jobs/MoveItemJob.js</file>
-		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Jobs/OpenGroupJob.js</file>
-		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Jobs/RemoveItemJob.js</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/NavigatableContactList.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/NavigatableListView.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/PlainContacts.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/PlayingGameContacts.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/RecentConversation.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/RecentDateHeader.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml</file>
@@ -299,6 +302,9 @@
 		<file>Application/Widgets/UserProfile/UserProfileModel.qml</file>
 		<file>Application/Widgets/UserProfile/View/NicknameEdit.qml</file>
 		<file>Application/Widgets/UserProfile/View/UserProfileView.qml</file>
+		<file>GameNet/Components/JobWorker/JobWorker.js</file>
+		<file>GameNet/Components/JobWorker/JobWorker.qml</file>
+		<file>GameNet/Components/JobWorker/qmldir</file>
 		<file>GameNet/Components/Widgets/PluginContainer.qml</file>
 		<file>GameNet/Components/Widgets/qmldir</file>
 		<file>GameNet/Components/Widgets/WidgetContainer.qml</file>

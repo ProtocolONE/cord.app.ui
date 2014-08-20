@@ -627,7 +627,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.134.4c7eb425acd3b4d9914fa3c83af4794110d62aea",
+    version: "1.0.135.d249b986ed1ced4c705ce0f673b6fb3df98571a7",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',

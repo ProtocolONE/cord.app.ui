@@ -946,6 +946,10 @@ Please try again later.</source>
         <source>MESSANGER_BOTTOM_BAR_BUTTON_NOTIFICATION_TOOLTIP</source>
         <translation>Уведомления от GameNet</translation>
     </message>
+    <message>
+        <source>MESSENGER_PLAYING_GAME_FILTER</source>
+        <translation>Сейчас играют</translation>
+    </message>
 </context>
 <context>
     <name>ButtonBig</name>
@@ -1050,6 +1054,13 @@ Please try again later.</source>
     <message>
         <source>CAPTCHA_INPUT_REFRESH_BUTTON_TOOLTIP</source>
         <translation>Показать другую картинку</translation>
+    </message>
+</context>
+<context>
+    <name>Chat</name>
+    <message>
+        <source>CHAT</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1319,6 +1330,10 @@ Please try again later.</source>
     <message>
         <source>LAST_ACTIVITY_PLACEHOLDER</source>
         <translation>Был %1</translation>
+    </message>
+    <message>
+        <source>MESSENGER_CONTACT_ITEM_PLAYING_STATUS_INFO</source>
+        <translation>Играет в %1</translation>
     </message>
 </context>
 <context>
@@ -3454,6 +3469,13 @@ Please try again later.</source>
     <message>
         <source>WITHOUT_GROUP_NAME</source>
         <translation type="vanished">Без группы</translation>
+    </message>
+</context>
+<context>
+    <name>PlayingGameContacts</name>
+    <message>
+        <source>MESSENGER_PLAYING_CONTACTS_EMPTY_INFO</source>
+        <translation>Прямо сейчас никто из друзей не играет</translation>
     </message>
 </context>
 <context>

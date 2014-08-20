@@ -111,19 +111,21 @@ Rectangle {
                     Rectangle {
                         id: presenceIcon
 
-                        function getTextColor() {
-                            var map = {
-                                unread: Styles.style.messengerContactNicknameUnread,
-                                selected: Styles.style.messengerContactNicknameSelected,
-                                normal: Styles.style.messengerContactNickname,
+                        function presenceStatusToColor(status) {
+                            switch(status) {
+                            case "online":
+                            case "chat":
+                                return Styles.style.messengerContactPresenceOnline;
+                            case "dnd":
+                            case "away":
+                            case "xa":
+                                return Styles.style.messengerContactPresenceDnd;
+                            case "offline":
+                            default:
+                                return Styles.style.messengerContactPresenceOffline;
                             }
 
                             return map[root.state] || Styles.style.messengerContactNickname;
-                        }
-
-                        anchors {
-                            baseline: parent.top
-                            baselineOffset: 22
                         }
 
                         width: 8
@@ -134,9 +136,12 @@ Rectangle {
                         }
                         color: presenceStatusToColor(root.presenceStatus)
 
-                        width: parent.width
-                        elide: Text.ElideRight
-                        color: nicknameText.getTextColor()
+                        anchors {
+                            verticalCenter: nicknameText.baseline
+                            verticalCenterOffset: -4
+                            left: parent.left
+                            leftMargin: 2
+                        }
                     }
 
                     Text {

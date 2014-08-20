@@ -9,6 +9,7 @@
 ****************************************************************************/
 import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
+import GameNet.Components.JobWorker 1.0
 import GameNet.Controls 1.0
 
 import "../../../Application/Core/App.js" as App
@@ -17,6 +18,7 @@ import "../../../Application/Widgets/Messenger/Models/Messenger.js" as Messenger
 import "../../../Application/Core/moment.js" as Moment
 
 import "../../../GameNet/Core/lodash.js" as Lodash
+import "../../../GameNet/Core/RestApi.js" as RestApiG
 
 Rectangle {
     width: 1000
@@ -34,8 +36,9 @@ Rectangle {
             text: 'Login'
             //onClicked: App.authDone('400001000005869460', 'fac8da16caa762f91607410d2bf428fb7e4b2c5e'); //0 friends
             onClicked: App.authDone('400001000000065690', 'cd34fe488b93d254243fa2754e86df8ffbe382b9'); //300+ friends
-            //onClicked: App.authDone('400001000000000110', '6c5f39adaaa18c3b4a6d8f4af5289ecf76029af2'); //800+ friends
+            //onClicked: App.authDone('400001000000000110', 'acf2f89b60dfe4eddc1b7a1cbdaf0d737d0a5311'); //800+ friends
             //onClicked: App.authDone('400001000000073060', '75517c5137f42a35f10cc984d8307209dd63b432'); //3600+ friends
+            //onClicked: App.authDone('400001000005959640', '1123cf8d91aabb9ebc8345def6a13772cc020498');
 
         }
 
@@ -80,7 +83,63 @@ Rectangle {
                 MessengerJs.groups().endbatch();
             }
         }
+
+        Button {
+            width: 100
+            height: 30
+            text: 'Start Play'
+            onClicked: {
+                var game = App.serviceItemByGameId("71");
+                game.status = "Started";
+                App.serviceStarted(game);
+            }
+        }
+
+        Button {
+            width: 100
+            height: 30
+            text: 'Stop Play'
+            onClicked: {
+                var game = App.serviceItemByGameId("71");
+                game.status = "Normal";
+                App.serviceFinished(game);
+            }
+        }
+
+        Button {
+            width: 100
+            height: 30
+            text: 'Feed'
+            onClicked: {
+                console.log('---- push');
+                var item = {};
+                item.x = 5;
+                item.start = Date.now();
+                item.execute = function() {
+                    console.log(Date.now(), this.x, this.start);
+                    this.x--;
+                    return this.x === 0;
+                }
+
+                worker.push(item);
+            }
+        }
     }
+
+    Connections {
+        target: App.signalBus()
+        onAuthDone: {
+            RestApiG.Core.setUserId(userId);
+            RestApiG.Core.setAppKey(appKey);
+        }
+    }
+
+    JobWorker {
+        id: worker
+
+        interval: 100
+    }
+
 
     WidgetManager {
         id: manager

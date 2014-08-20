@@ -2,7 +2,7 @@
 // This file describes the plugin-supplied types contained in the library.
 // It is used for QML tooling purposes only.
 //
-// This file was auto-generated with the command 'D:\Qt\Qt5.3.1\5.3\msvc2010_opengl\bin\qml1plugindump -path ./plugin/QXmpp'.
+// This file was auto-generated with the command 'D:\Qt\Qt5.2.1\5.2.1\msvc2010\bin\qml1plugindump -path ./plugin/QXmpp'.
 
 Module {
     Component { name: "QXmppClientExtension"; prototype: "QXmppLoggable" }
@@ -124,6 +124,7 @@ Module {
             isReadonly: true
             isPointer: true
         }
+        Property { name: "pepManager"; type: "QmlQXmppPEPManager"; isReadonly: true; isPointer: true }
         Property { name: "clientStatusType"; type: "StatusType"; isReadonly: true }
         Property { name: "clientStatusText"; type: "string"; isReadonly: true }
         Method { name: "connectUsingConfiguration" }
@@ -159,6 +160,20 @@ Module {
         Property { name: "autoReconnectionEnabled"; type: "bool" }
         Property { name: "keepAliveInterval"; type: "int" }
         Property { name: "keepAliveTimeout"; type: "int" }
+    }
+    Component {
+        name: "QmlQXmppGaming"
+        prototype: "QObject"
+        exports: ["QXmpp/QXmppGaming 1.0"]
+        exportMetaObjectRevisions: [0]
+        Property { name: "from"; type: "string"; isReadonly: true }
+        Property { name: "characterName"; type: "string"; isReadonly: true }
+        Property { name: "characterProfile"; type: "string"; isReadonly: true }
+        Property { name: "name"; type: "string"; isReadonly: true }
+        Property { name: "level"; type: "string"; isReadonly: true }
+        Property { name: "serverAddress"; type: "string"; isReadonly: true }
+        Property { name: "serverName"; type: "string"; isReadonly: true }
+        Property { name: "uri"; type: "string"; isReadonly: true }
     }
     Component {
         name: "QmlQXmppLastActivity"
@@ -224,6 +239,16 @@ Module {
         Property { name: "from"; type: "string"; isReadonly: true }
         Property { name: "id"; type: "string"; isReadonly: true }
         Property { name: "lang"; type: "string"; isReadonly: true }
+    }
+    Component {
+        name: "QmlQXmppPEPManager"
+        prototype: "QObject"
+        exports: ["QXmpp/QmlQXmppPEPManager 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method {
+            name: "setGamingInfo"
+            Parameter { name: "info"; type: "QVariantMap" }
+        }
     }
     Component {
         name: "QmlQXmppPresence"
