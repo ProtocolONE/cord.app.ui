@@ -6,6 +6,12 @@
         "ru": "Светлая тема оформления",
         "en": "Light skin" 
     },
+    "authors": [
+        {
+            "name": "GameNet",
+            "email": "support@gamenet.ru"
+        }
+    ],
     "styles": {
         "darkerFactor": 1.2,
         "lighterFactor": 1.2,
