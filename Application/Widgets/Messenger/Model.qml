@@ -32,6 +32,26 @@ WidgetModel {
         MessengerJs.clearHistory();
     }
 
+    function signalBus() {
+        return MessengerJs.instance();
+    }
+
+    function userSelected() {
+        return MessengerJs.userSelected();
+    }
+
+    function selectUser(user, group) {
+        MessengerJs.selectUser(user, group);
+    }
+
+    function userAvatar(item) {
+        return MessengerJs.userAvatar(item);
+    }
+
+    function getNickname(item) {
+        return MessengerJs.getNickname(item);
+    }
+
     // UNDONE коннект на запуск игры
     Connections {
         target: App.signalBus();

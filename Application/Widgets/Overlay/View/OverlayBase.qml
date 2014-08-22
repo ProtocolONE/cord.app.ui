@@ -2,8 +2,13 @@ import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 
+import "../../../../GameNet/Components/Widgets/WidgetManager.js" as WidgetManager
+
 import "../../../Core/User.js" as User
 import "../../../Core/App.js" as App
+
+import "./Chat"
+
 import "OverlayBase.js" as OverlayBase
 
 Overlay {
@@ -31,6 +36,17 @@ Overlay {
             height < browserRoot.height) {
             App.setOverlayEnabled(false);
         }
+
+        var messenger = WidgetManager.getWidgetByName('Messenger');
+        if (!messenger) {
+            return;
+        }
+
+        loader.sourceComponent = chatComponent;
+        loader.item.messenger = messenger.model;
+        loader.item.init();
+
+        over.keyPressed.connect(loader.item.keyDown);
     }
 
     Component.onCompleted: {
@@ -47,7 +63,7 @@ Overlay {
         target: User.getInstance()
 
         onBalanceChanged: {
-           over.sendMessage("custom.accountFunding", {amount: balance});
+            over.sendMessage("custom.accountFunding", {amount: balance});
         }
     }
 
@@ -65,16 +81,34 @@ Overlay {
         }
     }
 
-//    INFO Чат в оверлее пока отключен до выяснения
-//
-//    Chat {
-//        anchors.fill: parent
+    Loader {
+        id: loader
 
-//        onIsShownChanged: {
-//            over.setBlockInput('chat', (isShown ? Overlay.MouseAndKeyboard : Overlay.None));
-//        }
-//    }
+        anchors.fill: parent
+    }
 
+    Component {
+        id: chatComponent
+
+        Chat {
+            id: chat
+
+            anchors.fill: parent
+
+            settings: WidgetManager.getWidgetSettings('Overlay')
+
+            onBlockMouse: over.setBlockInput('chat', Overlay.Mouse);
+            onBlockNone: over.setBlockInput('chat', Overlay.None);
+
+            onIsShownChanged: {
+                over.setBlockInput('chat', (isShown ? Overlay.MouseAndKeyboard : Overlay.None));
+
+                if (!isShown) {
+                    chat.forceActiveFocus();
+                }
+            }
+        }
+    }
 
     // Попробуем таймер для проверки работает ли вообще репейнт на ноуте.
     // Хак работает - решить оставить ли его
@@ -87,3 +121,4 @@ Overlay {
         onTriggered: over.repaint();
     }
 }
+

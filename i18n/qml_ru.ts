@@ -1059,8 +1059,8 @@ Please try again later.</source>
 <context>
     <name>Chat</name>
     <message>
-        <source>CHAT</source>
-        <translation type="unfinished"></translation>
+        <source>MESSENGER_OVERLAY_POPUP_HELPER_TEXT</source>
+        <translation type="unfinished">Чтобы открыть чат GameNet используете хоткей %1</translation>
     </message>
 </context>
 <context>
@@ -3160,6 +3160,14 @@ Please try again later.</source>
     <message>
         <source>MESSENGER_HISTORY_SAVE_COMBOBOX_TITLE</source>
         <translation type="unfinished">Хранить историю</translation>
+    </message>
+    <message>
+        <source>MESSENGER_OPEN_CHAT_TITLE</source>
+        <translation type="unfinished">Хоткей открытия чата в игре</translation>
+    </message>
+    <message>
+        <source>MESSENGER_SHOW_CHAT_NOTIFY_IN_OVERLAY</source>
+        <translation type="unfinished">Показывать уведомление о новых сообщениях в игре</translation>
     </message>
 </context>
 <context>

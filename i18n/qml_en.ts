@@ -391,8 +391,8 @@
 <context>
     <name>Chat</name>
     <message>
-        <location filename="../Application/Widgets/Overlay/View/Chat.qml" line="72"/>
-        <source>CHAT</source>
+        <location filename="../Application/Widgets/Overlay/View/Chat/Chat.qml" line="168"/>
+        <source>MESSENGER_OVERLAY_POPUP_HELPER_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -401,7 +401,7 @@
     <message>
         <location filename="../Application/Blocks/Auth/CodeBody.qml" line="82"/>
         <source>CODE_BODY_TITLE</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Application/Blocks/Auth/CodeBody.qml" line="94"/>
@@ -442,7 +442,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="84"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="83"/>
         <source>LAST_ACTIVITY_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1322,7 +1322,7 @@
 <context>
     <name>Messenger</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="320"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="318"/>
         <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1330,62 +1330,72 @@
 <context>
     <name>MessengerSettings</name>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="85"/>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="100"/>
         <source>HISTORY_DONT_SAVE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="84"/>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="99"/>
         <source>HISTORY_SAVE_TWO_WEEKS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="83"/>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="98"/>
         <source>HISTORY_SAVE_ONE_MONTH</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="82"/>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="97"/>
         <source>HISTORY_SAVE_TWO_MONTH</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="81"/>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="96"/>
         <source>HISTORY_SAVE_3_MONTH</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="80"/>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="95"/>
         <source>HISTORY_SAVE_ALLWAYS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="66"/>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="81"/>
         <source>MESSENGER_HISTORY_SAVE_COMBOBOX_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="94"/>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="109"/>
         <source>HISTORY_CLEAR_BUTTON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="103"/>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="125"/>
+        <source>MESSENGER_OPEN_CHAT_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="145"/>
+        <source>MESSENGER_SHOW_CHAT_NOTIFY_IN_OVERLAY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="149"/>
         <source>MESSENGER_SEND_ACTION_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="111"/>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="157"/>
         <source>MESSENGER_SEND_ON_ENTER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="121"/>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="167"/>
         <source>MESSENGER_SEND_ON_CTRL_ENTER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="131"/>
+        <location filename="../Application/Blocks/Settings/Application/MessengerSettings.qml" line="177"/>
         <source>MESSENGER_SEND_ON_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>

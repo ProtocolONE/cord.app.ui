@@ -255,10 +255,16 @@
 		<file>Application/Widgets/NicknameReminder/PluginContainer.qml</file>
 		<file>Application/Widgets/NicknameReminder/qmldir</file>
 		<file>Application/Widgets/NicknameReminder/View/NicknameReminderView.qml</file>
+		<file>Application/Widgets/Overlay/Core/Popup.js</file>
+		<file>Application/Widgets/Overlay/Core/Popup.qml</file>
+		<file>Application/Widgets/Overlay/Core/PopupBase.qml</file>
 		<file>Application/Widgets/Overlay/OverlayModel.qml</file>
 		<file>Application/Widgets/Overlay/PluginContainer.qml</file>
 		<file>Application/Widgets/Overlay/qmldir</file>
-		<file>Application/Widgets/Overlay/View/Chat.qml</file>
+		<file>Application/Widgets/Overlay/View/Chat/Chat.qml</file>
+		<file>Application/Widgets/Overlay/View/Chat/ChatNotify.qml</file>
+		<file>Application/Widgets/Overlay/View/Chat/MessageReceived.qml</file>
+		<file>Application/Widgets/Overlay/View/Chat/PopupHelper.qml</file>
 		<file>Application/Widgets/Overlay/View/Games/Aika.qml</file>
 		<file>Application/Widgets/Overlay/View/Games/BS.qml</file>
 		<file>Application/Widgets/Overlay/View/Games/Reborn.qml</file>

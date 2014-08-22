@@ -35,6 +35,16 @@ Item {
         }
 
         messengerHistoryInterval.currentIndex = historyValue;
+
+        var overlaySettings = WidgetManager.getWidgetSettings('Overlay'),
+            overlayChatOpenHotkey = messengerOverlayHotkey.findValue(overlaySettings.messengerOpenChatHotkey);
+
+        if (overlayChatOpenHotkey == -1) {
+            overlayChatOpenHotkey = 0;
+        }       
+
+        messengerOverlayHotkey.currentIndex = overlayChatOpenHotkey;
+        messengerShowChatOverlayNotify.checked = overlaySettings.messengerShowChatOverlayNotify;
     }
 
     function save() {
@@ -42,6 +52,11 @@ Item {
         settings.sendAction = d.currentSendOption;
         settings.historySaveInterval = messengerHistoryInterval.getValue(messengerHistoryInterval.currentIndex);
         settings.save();
+
+        var overlaySettings = WidgetManager.getWidgetSettings('Overlay');
+        overlaySettings.messengerOpenChatHotkey = messengerOverlayHotkey.getValue(messengerOverlayHotkey.currentIndex);
+        overlaySettings.messengerShowChatOverlayNotify = messengerShowChatOverlayNotify.checked;
+        overlaySettings.save();
     }
 
     QtObject {
@@ -62,7 +77,7 @@ Item {
 
             SettingsCaption {
                 y: 9
-                width: 140
+                width: 215
                 text: qsTr("MESSENGER_HISTORY_SAVE_COMBOBOX_TITLE")
             }
 
@@ -97,6 +112,37 @@ Item {
                     widget.model.clearHistory();
                 }
             }
+        }
+
+        Row {
+            height: 40
+            z: 1
+            spacing: 10
+
+            SettingsCaption {
+                y: 9
+                width: 215
+                text: qsTr("MESSENGER_OPEN_CHAT_TITLE")
+            }
+
+            ApplicationControls.ComboBox {
+                id: messengerOverlayHotkey
+
+                width: 200
+                height: 40
+
+                Component.onCompleted: {
+                    append(JSON.stringify({key: Qt.Key_Backtab, name: "Shift + Tab"}), "Shift + Tab");
+                    append(JSON.stringify({key: Qt.Key_Tab, modifiers: Qt.ControlModifier, name: "Ctrl + Tab"}), "Ctrl + Tab");
+                }
+            }
+        }
+
+        SettingsCheckBox {
+            id: messengerShowChatOverlayNotify
+
+            fontSize: 15
+            text: qsTr("MESSENGER_SHOW_CHAT_NOTIFY_IN_OVERLAY")
         }
 
         SettingsCaption {

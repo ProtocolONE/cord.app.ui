@@ -8,6 +8,13 @@ import "../../../Application/Core/App.js" as App
 WidgetModel {
     id: root
 
+    settings: WidgetSettings {
+        namespace: 'Overlay'
+
+        property string messengerOpenChatHotkey: JSON.stringify({key: Qt.Key_Backtab, name: "Shift + Tab"})
+        property bool messengerShowChatOverlayNotify: true
+    }
+
     width: 800
     height: 800
 
