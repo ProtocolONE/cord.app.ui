@@ -1370,7 +1370,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
-        <translation type="unfinished">Игра запускается</translation>
+        <translation type="obsolete">Игра запускается</translation>
     </message>
     <message>
         <source>POPUP_PLAY</source>
@@ -1738,6 +1738,13 @@ Please try again later.</source>
     <message>
         <source>BUTTON_NOTIFY_SUPPORT</source>
         <translation>Обратиться в службу поддержки</translation>
+    </message>
+</context>
+<context>
+    <name>GameExecutingModel</name>
+    <message>
+        <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
+        <translation>Игра запускается</translation>
     </message>
 </context>
 <context>

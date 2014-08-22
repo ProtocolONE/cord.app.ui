@@ -27,9 +27,15 @@ WidgetModel {
     property variant enterNickNameViewModelInstance: App.enterNickNameViewModelInstance()
 
     function startExecuting(serviceId) {
+        var gameItem;
+
         executeServiceDelay.serviceId = serviceId;
         executeServiceDelay.start();
-        App.serviceItemByServiceId(serviceId).status = "Starting";
+
+        gameItem = App.serviceItemByServiceId(serviceId);
+        gameItem.status = "Starting";
+        gameItem.statusText = qsTr("TEXT_PROGRESSBAR_STARTING_STATE")
+        App.updateProgress(gameItem);
     }
 
     Connections {
@@ -145,12 +151,24 @@ WidgetModel {
         property string serviceId
 
         interval: 5000
+
         onTriggered: {
+            var gameItem;
+
             if (!executeServiceDelay.serviceId) {
                 return;
             }
 
-            App.executeService(executeServiceDelay.serviceId);
+            gameItem = App.serviceItemByServiceId(executeServiceDelay.serviceId);
+            gameItem.statusText = '';
+
+            if (!App.executeService(executeServiceDelay.serviceId)) {
+                gameItem.status = "Normal";
+            } else {
+                gameItem.status = "Started";
+            }
+
+            App.updateProgress(gameItem);
         }
     }
 }

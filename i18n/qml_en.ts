@@ -391,7 +391,7 @@
 <context>
     <name>Chat</name>
     <message>
-        <location filename="../Application/Widgets/Overlay/View/Chat/Chat.qml" line="168"/>
+        <location filename="../Application/Widgets/Overlay/View/Chat/Chat.qml" line="177"/>
         <source>MESSENGER_OVERLAY_POPUP_HELPER_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -478,22 +478,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="188"/>
-        <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="212"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="210"/>
         <source>TEXT_PROGRESSBAR_REHASH_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="226"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="224"/>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="227"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="225"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -642,6 +637,15 @@
     <message>
         <location filename="../Application/Widgets/GameDownloadError/View/GameDownloadErrorView.qml" line="105"/>
         <source>BUTTON_NOTIFY_SUPPORT</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GameExecutingModel</name>
+    <message>
+        <location filename="../Application/Widgets/GameExecuting/GameExecutingModel.qml" line="37"/>
+        <location filename="../Application/Widgets/GameExecuting/GameExecutingModel.qml" line="169"/>
+        <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
