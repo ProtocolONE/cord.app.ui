@@ -19,6 +19,7 @@
 		<file>Application/Blocks/Auth/Footer.qml</file>
 		<file>Application/Blocks/Auth/Form.qml</file>
 		<file>Application/Blocks/Auth/Header.qml</file>
+		<file>Application/Blocks/Auth/HeaderNavigateItem.qml</file>
 		<file>Application/Blocks/Auth/Index.qml</file>
 		<file>Application/Blocks/Auth/LoginInput.qml</file>
 		<file>Application/Blocks/Auth/MessageBody.qml</file>

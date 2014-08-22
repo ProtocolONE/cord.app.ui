@@ -1,9 +1,11 @@
 import QtQuick 1.1
 
 import "../../Core/Styles.js"  as Styles
-
+import "../../Core/App.js" as App
 
 Rectangle {
+    id: root
+
     implicitHeight: 62
     color: Styles.style.authHeaderBackground
 
@@ -35,6 +37,89 @@ Rectangle {
             left: parent.left
             right: parent.right
             bottom: parent.bottom
+        }
+    }
+
+    Row {
+        anchors {
+            left: parent.left
+            top: parent.top
+            bottom: parent.bottom
+            right: parent.right
+            leftMargin: 255
+            topMargin: 15
+        }
+
+        spacing: 10
+        visible: root.state === 'registration'
+
+        HeaderNavigateItem {
+            num: '1'
+            text: qsTr("REGISTRATION_NAVIGATE_CREATE_ACCOUNT_TEXT")
+            color: Styles.style.authRegistrationNavigateItemHover
+            borderColor: Styles.style.authRegistrationNavigateItem
+            textColor: Styles.style.authRegistrationNavigateItem
+        }
+
+        Rectangle {
+            y: 20
+            width: 28
+            height: 1
+            color: Styles.style.authRegistrationNavigateItem
+
+            Rectangle {
+                anchors {
+                    right: parent.right
+                    top: parent.top
+                    topMargin: -2
+                    rightMargin: -1
+                }
+
+                rotation: 45
+
+                width: 7
+                height: 1
+                color: Styles.style.authRegistrationNavigateItem
+            }
+
+            Rectangle {
+                anchors {
+                    right: parent.right
+                    top: parent.top
+                    topMargin: 2
+                    rightMargin: -1
+                }
+
+                rotation: -45
+
+                width: 7
+                height: 1
+                color: Styles.style.authRegistrationNavigateItem
+            }
+        }
+
+        Item {
+            width: 15
+            height: 1
+        }
+
+        HeaderNavigateItem {
+            function playText() {
+                var serviceId = App.startingService() || '0';
+                if (!serviceId || serviceId == '0') {
+                    return qsTr("REGISTRATION_NAVIGATE_PLAY_IN_TEXT");
+                }
+
+                var gameName = App.serviceItemByServiceId(serviceId).name;
+
+                return qsTr("REGISTRATION_NAVIGATE_PLAY_IN_WITH_GAME_TEXT").arg(gameName);
+            }
+
+            num: '2'
+            text: playText()
+            borderColor: Styles.style.authRegistrationNavigateItemDisabled
+            textColor: Styles.style.authRegistrationNavigateItem
+            color: '#00000000'
         }
     }
 }

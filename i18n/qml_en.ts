@@ -1177,9 +1177,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Header.qml" line="113"/>
-        <source>LAST_ACTIVITY_PLACEHOLDER</source>
+        <location filename="../Application/Blocks/Auth/Header.qml" line="58"/>
+        <source>REGISTRATION_NAVIGATE_CREATE_ACCOUNT_TEXT</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/Header.qml" line="110"/>
+        <source>REGISTRATION_NAVIGATE_PLAY_IN_TEXT</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/Header.qml" line="115"/>
+        <source>REGISTRATION_NAVIGATE_PLAY_IN_WITH_GAME_TEXT</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1187,7 +1197,7 @@
     <message>
         <location filename="../Application/Blocks/Auth/Index.qml" line="70"/>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Application/Blocks/Auth/Index.qml" line="74"/>
@@ -1195,7 +1205,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/Index.qml" line="369"/>
+        <location filename="../Application/Blocks/Auth/Index.qml" line="370"/>
         <source>LOGIN_BY_GUEST_BUTTON_TEXT</source>
         <translation type="unfinished"></translation>
     </message>

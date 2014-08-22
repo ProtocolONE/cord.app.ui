@@ -2616,6 +2616,18 @@ Please try again later.</source>
         <source>HEADER_BUTTON_REWARDS</source>
         <translation type="unfinished">Награды</translation>
     </message>
+    <message>
+        <source>REGISTRATION_NAVIGATE_PLAY_IN_TEXT</source>
+        <translation>Играть</translation>
+    </message>
+    <message>
+        <source>REGISTRATION_NAVIGATE_PLAY_IN_WITH_GAME_TEXT</source>
+        <translation>Играть в %1</translation>
+    </message>
+    <message>
+        <source>REGISTRATION_NAVIGATE_CREATE_ACCOUNT_TEXT</source>
+        <translation type="unfinished">Создать аккаунт</translation>
+    </message>
 </context>
 <context>
     <name>Home</name>
@@ -2690,7 +2702,7 @@ Please try again later.</source>
     <name>Index</name>
     <message>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
-        <translation type="unfinished">Учётная запись заблокирована. Если вы считаете, что так не должно быть, обратитесь в &lt;a href=&quot;http://support.gamenet.ru&quot;&gt;&lt;font color=&apos;#d8e5d4&apos;&gt;службу поддержки&lt;/font&gt;&lt;/a&gt;.  </translation>
+        <translation>Учётная запись заблокирована. Если вы считаете, что так не должно быть, обратитесь в &lt;a href=&quot;http://support.gamenet.ru&quot;&gt;&lt;font color=&apos;#d8e5d4&apos;&gt;службу поддержки&lt;/font&gt;&lt;/a&gt;.  </translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>

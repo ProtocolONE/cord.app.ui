@@ -191,6 +191,7 @@ Rectangle {
 
         anchors { left: parent.left; right: parent.right }
         visible: authContainer.state !== 'serviceLoading'
+        state: authContainer.state
     }
 
     Item {

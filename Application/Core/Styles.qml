@@ -147,6 +147,9 @@ Item {
     property color authSendCodeButtonHover: "#019074"
     property color authCancelCodeHormal: "#3498db"
     property color authCancelCodeHover: "#3670DC"
+    property color authRegistrationNavigateItem: '#fffffd'
+    property color authRegistrationNavigateItemHover: '#ff4f03'
+    property color authRegistrationNavigateItemDisabled: '#818c92'
 
     // NEWS
     property color newsBackground: '#f0f5f8'
