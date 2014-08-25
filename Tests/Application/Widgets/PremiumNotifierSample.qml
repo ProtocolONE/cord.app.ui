@@ -12,20 +12,32 @@ import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
-import "../../../Application/Core/App.js" as AppJs
+import "../../../Application/Core/App.js" as App
+import "../../../Application/Core/TrayPopup.js" as TrayPopup
+import "../../../Application/Core/Popup.js" as Popup
 
 Rectangle {
     width: 1000
     height: 600
     color: '#AAAAAA'
 
+    Item {
+        id: popupLayer
+
+        anchors.fill: parent
+        z: 1
+    }
+
     WidgetManager {
         id: manager
 
         Component.onCompleted: {
             manager.registerWidget('Application.Widgets.PremiumNotifier');
+            manager.registerWidget('Application.Widgets.PremiumShop');
             manager.init();
 
+            TrayPopup.init();
+            Popup.init(popupLayer);
             emulateTimer.start();
         }
     }
@@ -36,15 +48,7 @@ Rectangle {
         interval: 2000
         repeat: false
         onTriggered: {
-            AppJs.premiumExpired();
+            App.premiumExpired();
         }
 	}
-
-    Connections {
-        target: AppJs.signalBus();
-
-        onProlongPremium: {
-            console.log("Prolong premium clicked!");
-        }
-    }
 }

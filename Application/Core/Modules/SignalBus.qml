@@ -43,7 +43,6 @@ QtObject {
     signal downloaderStarted(variant gameItem);
     signal navigate(string link, string from);
     signal publicTestIconClicked();
-    signal prolongPremium();
     signal balanceChanged(int amount);
     signal needPakkanenVerification();
     signal selectService(string serviceId);

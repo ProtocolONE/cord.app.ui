@@ -81,10 +81,6 @@ function premiumExpired() {
     _signalBusInstance.premiumExpired();
 }
 
-function prolongPremium() {
-    _signalBusInstance.prolongPremium();
-}
-
 function balanceChanged(amount) {
      _signalBusInstance.balanceChanged(amount);
 }

@@ -13,33 +13,26 @@ import Application.Blocks 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
-import "../../Core/App.js" as AppJs
-import "../../Core/TrayPopup.js" as TrayPopupJs
+import "../../Core/App.js" as App
+import "../../Core/TrayPopup.js" as TrayPopup
+import "../../Core/Popup.js" as Popup
 import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetModel {
     id: premiumNotifier
 
-    QtObject {
-        id: d
-
-        function showPremiumExpiredPopup() {
-            var gameItem = AppJs.serviceItemByServiceId(0);
-            var popUpOptions = {
-                gameItem: gameItem,
-                buttonCaption: qsTr("PREMIUM_EXPIRED_BUTTON_CAPTION"),
-                message: qsTr("PREMIUM_EXPIRED_MESSAGE")
-            };
-
-            TrayPopupJs.showPopup(premiumExpiredPopup, popUpOptions, 'premiumExpiredNotification');
-        }
-    }
-
     Connections {
-        target: AppJs.signalBus()
+        target: App.signalBus()
 
         onPremiumExpired: {
-            d.showPremiumExpiredPopup();
+            var gameItem = App.serviceItemByServiceId(0),
+                popUpOptions = {
+                    gameItem: gameItem,
+                    buttonCaption: qsTr("PREMIUM_EXPIRED_BUTTON_CAPTION"),
+                    message: qsTr("PREMIUM_EXPIRED_MESSAGE")
+                };
+
+            TrayPopup.showPopup(premiumExpiredPopup, popUpOptions, 'premiumExpiredNotification');
         }
     }
 
@@ -52,7 +45,8 @@ WidgetModel {
             state: "Green"
 
             onPlayClicked: {
-                AppJs.prolongPremium();
+                App.activateWindow();
+                Popup.show('PremiumShop');
                 GoogleAnalytics.trackEvent('/announcement/premiumExpired', 'Announcement', 'Action on Announcement');
             }
             onAnywhereClicked: {
