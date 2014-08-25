@@ -181,7 +181,7 @@ function User(item, model, jabber) {
         if (self.jid !== from) {
             if (self.isLastMessageStatus) {
                 message = createRawMessage(from, false, body, date)
-                _item.messages.append(message);
+                _item.messages.insert(_item.messages.count - 1, message);
             } else {
                 self.appendRawMessage(from, false, body, date);
             }
