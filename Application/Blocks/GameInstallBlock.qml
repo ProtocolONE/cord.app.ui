@@ -47,7 +47,7 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-        color: '#082135'
+        color: Styles.style.gameInstallBackground
     }
 
     Item {
@@ -68,8 +68,8 @@ Item {
                     pixelSize: 18
                 }
 
-                color: '#ffffff'
-                text: root.gameItem ? root.gameItem.name : ""
+                color: Styles.style.gameInstallGameName
+                text: root.gameItem ? root.gameItem.name : ''
             }
 
             Text {
@@ -78,8 +78,8 @@ Item {
                     pixelSize: 12
                 }
 
-                color: '#597082'
-                text: root.gameItem ? root.gameItem.shortDescription : ""
+                color: Styles.style.gameInstallGameShortDescription
+                text: root.gameItem ? root.gameItem.shortDescription : ''
             }
 
             Button {
@@ -203,7 +203,7 @@ Item {
             anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
             height: 25
             serviceItem: root.gameItem
-            textColor: '#597082'
+            textColor: Styles.style.gameInstallDownloadStatusText
             spacing: 6
             opacity: downloadStatus.isVisible() ? 1 : 0// TODO добавить анимацию прозрачности
         }

@@ -71,6 +71,10 @@ Item {
     property color downloadStatusText: "#eff0f0"
 
     //GAME INSTALL BLOCK
+    property color gameInstallBackground: "#082135"
+    property color gameInstallGameName: "#ffffff"
+    property color gameInstallGameShortDescription: "#597082"
+    property color gameInstallDownloadStatusText: "#597082"
     property color gameInstallButtonErrorNormal: "#cc0000"
     property color gameInstallButtonErrorHover: "#ee0000"
     property color gameInstallButtonNormal: "#ff4f02"
