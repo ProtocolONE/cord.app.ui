@@ -185,7 +185,7 @@ WidgetView {
                 }
                 textColor: Styles.style.secondAccountPlayButtonText
                 text: qsTr("SECOND_GAME_BLOCK_PREMIUM_PLAY");
-                enabled: !!App.currentRunningMainService()
+                enabled: !!App.currentRunningMainService() && !App.currentRunningSecondService()
                 analytics: GoogleAnalyticsEvent {
                     page: '/SecondAccountAuth'
                     category: 'Auth'
