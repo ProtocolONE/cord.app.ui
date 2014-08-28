@@ -18,6 +18,7 @@ import Application.Blocks.Auth 1.0
 
 import "../../../Core/Authorization.js" as Authorization
 import "../../../Core/App.js" as App
+import "../../../Core/Styles.js" as Styles
 import "../../../Core/User.js" as User
 import "../../../Core/Popup.js" as Popup
 import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
@@ -34,13 +35,13 @@ WidgetView {
 
     Rectangle {
         anchors.fill: parent
-        color: '#082135'
+        color: Styles.style.secondAccountBaseBackground
     }
 
     Rectangle {
         id: addAccountBlock
 
-        color: '#082135'
+        color: Styles.style.secondAccountAddAccountBackground
 
         width: 180
         height: 34
@@ -67,10 +68,11 @@ WidgetView {
 
                 width: parent.width
                 height: 24
-                style: ButtonStyleColors {
-                    normal: "#1ABC9C"
-                    hover: "#019074"
+                style {
+                    normal: Styles.style.secondAccountAddAccountButtonHormal
+                    hover: Styles.style.secondAccountAddAccountButtonHover
                 }
+                textColor: Styles.style.secondAccountAddAccountButtonText
                 text: qsTr("PREMIUM_ADD_ACCOUNT")
                 analytics: GoogleAnalyticsEvent {
                     page: '/SecondAccountAuth/'
@@ -87,7 +89,7 @@ WidgetView {
     Rectangle {
         id: secondAccountBlock
 
-        color: "#253149"
+        color: Styles.style.secondAccountBackground
         width: parent.width
         height: 88
 
@@ -119,7 +121,7 @@ WidgetView {
                             pixelSize: 12
                         }
 
-                        color: '#597082'
+                        color: Styles.style.secondAccountTitle
                         text: qsTr("SECOND_GAME_BLOCK_PREMIUM_TITLE")
                     }
                 }
@@ -135,7 +137,7 @@ WidgetView {
                             pixelSize: 12
                         }
 
-                        color: '#ffffff'
+                        color: Styles.style.secondAccountNickname
                         text: User.getSecondNickname()
                     }
 
@@ -148,13 +150,13 @@ WidgetView {
                             right: parent.right
                         }
 
-                        style: ButtonStyleColors {
+                        style {
                             normal: "#00000000"
                             hover: "#00000000"
                             disabled: "#00000000"
                         }
 
-                        styleImages: ButtonStyleImages {
+                        styleImages {
                             normal: installPath + "/Assets/Images/Application/Widgets/SecondAccountAuth/logout.png"
                             hover: installPath + "/Assets/Images/Application/Widgets/SecondAccountAuth/logout.png"
                             disabled: installPath + "/Assets/Images/Application/Widgets/SecondAccountAuth/logout.png"
@@ -177,10 +179,11 @@ WidgetView {
                 anchors.bottom: parent.bottom
 
                 style {
-                    normal: "#1ABC9C"
-                    hover: "#019074"
-                    disabled: '#888888'
+                    normal: Styles.style.secondAccountPlayButtonNormal
+                    hover: Styles.style.secondAccountPlayButtonHover
+                    disabled: Styles.style.secondAccountPlayButtonDisabled
                 }
+                textColor: Styles.style.secondAccountPlayButtonText
                 text: qsTr("SECOND_GAME_BLOCK_PREMIUM_PLAY");
                 enabled: !!App.currentRunningMainService()
                 analytics: GoogleAnalyticsEvent {
