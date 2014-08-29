@@ -26,6 +26,10 @@ Item {
                 , data
                 , id;
 
+            if (App.isOverlayEnabled()) {
+                return;
+            }
+
             if (MessengerJs.isSelectedUser(user) && Qt.application.active) {
                 return;
             }

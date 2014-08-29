@@ -52,6 +52,10 @@ WidgetModel {
         return MessengerJs.getNickname(item);
     }
 
+    function isSelectedUser(user) {
+        return MessengerJs.isSelectedUser(user)
+    }
+
     // UNDONE коннект на запуск игры
     Connections {
         target: App.signalBus();

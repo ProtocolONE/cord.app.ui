@@ -63,7 +63,7 @@ Item {
     }
 
     PopupHelper {
-        enabled: root.showNotify && !root.isShown
+        enabled: root.showNotify
         onOpenChat: chat.visible = true;
         messenger: root.messenger
     }
@@ -83,6 +83,7 @@ Item {
         MouseArea {
             anchors.fill: parent
             onClicked: chat.visible = false;
+            visible: chat.visible
         }
 
         Item {
@@ -105,7 +106,7 @@ Item {
 
                 drag {
                     target: parent
-                    axis: Drag.YXAxis
+                    axis: Drag.XandYAxis
                     minimumY: 25
                     maximumY: root.height - parent.height - drag.minimumY
                     minimumX: 25
@@ -138,7 +139,7 @@ Item {
                     width: 590
                     widget: 'Messenger'
                     view: 'Chat'
-                    visible: messenger.userSelected()
+                    visible: messenger ? messenger.userSelected() : false
                 }
             }
         }

@@ -38,15 +38,9 @@ Overlay {
         }
 
         var messenger = WidgetManager.getWidgetByName('Messenger');
-        if (!messenger) {
-            return;
-        }
-
-        loader.sourceComponent = chatComponent;
-        loader.item.messenger = messenger.model;
-        loader.item.init();
-
-        over.keyPressed.connect(loader.item.keyDown);
+        if (messenger) {
+            loader.sourceComponent = chatComponent;
+        } 
     }
 
     Component.onCompleted: {
@@ -85,6 +79,13 @@ Overlay {
         id: loader
 
         anchors.fill: parent
+        onLoaded: {
+            var messenger = WidgetManager.getWidgetByName('Messenger');
+            loader.item.messenger = messenger.model;
+            loader.item.init();
+
+            over.keyPressed.connect(loader.item.keyDown);
+        }
     }
 
     Component {

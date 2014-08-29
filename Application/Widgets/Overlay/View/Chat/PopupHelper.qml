@@ -22,7 +22,7 @@ Item {
     signal openChat()
 
     Connections {
-        target: enabled ? messenger.signalBus() : null
+        target: (enabled && messenger) ? messenger.signalBus() : null
 
         ignoreUnknownSignals: true
 
@@ -30,6 +30,10 @@ Item {
             var user = {jid: from}
                 , data
                 , id;
+
+            if (messenger.isSelectedUser(user)) {
+                return;
+            }
 
             id = 'messageReceived' + Qt.md5(from + body);
             data = {
