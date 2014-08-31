@@ -325,14 +325,17 @@ Item {
 
             nickname = xmppClient.rosterManager.getNickname(user) || externalNickName;
             groups = xmppClient.rosterManager.getGroups(user);
+            groups = groups.filter(function(e) {
+                return !!e;
+            });
             groups = (groups.length === 0)
-                    ? ['!']
+                    ? [GroupJs.getNoGroupId()]
                     : groups;
 
             if (usersModel.contains(user)) {
                 // INFO Никнейм из вкарда мы берем, но сортировка происходит по нику из ростера
                 item = root.getUser(user);
-                item.nickname = nickname || user;
+                item.nickname = nickname || item.nickname || user;
                 // UNDONE set other properties
             } else {
                 rawUser = UserJs.createRawUser(user, nickname || user);
@@ -354,6 +357,7 @@ Item {
 
         function removeUserFromGroup(group, user) {
             var count, i;
+            group = group || GroupJs.getNoGroupId();
             if (!MessengerPrivateJs.isUserInGroup(group, user)) {
                 return;
             }

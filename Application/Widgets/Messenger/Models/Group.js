@@ -55,10 +55,14 @@ function Group(item, model) {
     }
 }
 
+function getNoGroupId() {
+    return '!';
+}
+
 function createRawGroup(group) {
     var result = {
         groupId: group,
-        name: (group === '!') ? qsTr('WITHOUT_GROUP_NAME') : group,
+        name: (group === getNoGroupId()) ? qsTr('WITHOUT_GROUP_NAME') : group,
         users: [],
         opened: false,
         isGamenet: false
