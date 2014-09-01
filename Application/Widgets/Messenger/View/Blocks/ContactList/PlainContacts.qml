@@ -37,7 +37,7 @@ Item {
         cacheBuffer: 300
         section.delegate: GroupHeader {
             width: listView.width
-            height: visible ? 33 : 0
+            height: !!section ? 33 : 0
             visible: !!section
             opened: true
             groupName: Messenger.getGroupName({groupId: section})
