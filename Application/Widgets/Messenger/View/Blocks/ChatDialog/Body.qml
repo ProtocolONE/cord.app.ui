@@ -53,11 +53,12 @@ Rectangle {
 
         onCountChanged: {
             if (scroll.isAtEnd()) {
-                messageList.positionViewAtEnd();
+                scroll.positionViewAtEnd();
+                return;
             }
 
             if (scroll.isAtBeging()) {
-                messageList.positionViewAtBeginning();
+                scroll.positionViewAtBeginning();
             }
         }
 

@@ -33,7 +33,7 @@ Rectangle {
     //Какое количество элементов списка считается "большим". По этой величине нормируется величина прокрутеки,
     //т.е. если количество больше listViewCountLimit то размер курсора станет cursorMinHeight.
     property int listViewCountLimit: 100
-    property int listViewCount: listView ? listView.count - 1 : 0
+    property int listViewCount: listView && listView.count > 0 ? listView.count - 1 : 0
     property variant listView
 
     property int currentIndex
@@ -76,10 +76,33 @@ Rectangle {
         cursor.y = Math.round(cursorMaxPosition * currentIndex / listViewCount);
     }
 
+    function positionViewAtEnd() {
+        if (!root.listView) {
+            return;
+        }
+
+        root.currentIndex = listView.count - 1;
+        root.listView.positionViewAtEnd();
+        updateCursorHeight();
+        cursor.y = cursorMaxPosition;
+    }
+
     function positionViewAtBeginning() {
-        listView.positionViewAtBeginning();
+        if (!root.listView) {
+            return;
+        }
+
         root.currentIndex = 0;
-        updateCursorY();
+        root.listView.positionViewAtBeginning();
+        updateCursorHeight();
+        cursor.y = 0;
+    }
+
+    function updateCursorHeight() {
+        var scale = 1 - Math.min(listView.count - 1, listViewCountLimit) / listViewCountLimit,
+            additionalHeight = scale * (cursorMaxHeight - cursorMinHeight);
+
+        cursorHeight = cursorMinHeight + additionalHeight|0;
     }
 
     onCurrentIndexChanged: {
@@ -88,12 +111,7 @@ Rectangle {
         }
     }
 
-    onListViewCountChanged: {
-        var scale = 1 - Math.min(listViewCount, listViewCountLimit) / listViewCountLimit,
-            additionalHeight = scale * (cursorMaxHeight - cursorMinHeight);
-
-        cursorHeight = cursorMinHeight + additionalHeight|0;
-    }
+    onListViewCountChanged: updateCursorHeight();
 
     implicitWidth: 16
     implicitHeight: 500
