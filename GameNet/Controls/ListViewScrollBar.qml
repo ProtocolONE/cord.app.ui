@@ -99,6 +99,10 @@ Rectangle {
     }
 
     function updateCursorHeight() {
+        if (!listView) {
+            return;
+        }
+
         var scale = 1 - Math.min(listView.count - 1, listViewCountLimit) / listViewCountLimit,
             additionalHeight = scale * (cursorMaxHeight - cursorMinHeight);
 
@@ -112,6 +116,7 @@ Rectangle {
     }
 
     onListViewCountChanged: updateCursorHeight();
+    onCursorMaxHeightChanged: updateCursorHeight();
 
     implicitWidth: 16
     implicitHeight: 500
@@ -133,7 +138,14 @@ Rectangle {
         interval: 30
         repeat: true
         onTriggered: {
-            var index = root.listView.indexAt(0, root.listView.contentY + root.listView.height - 1);
+            var index;
+
+            if (root.listView.verticalVelocity >= 0) {
+                index = root.listView.indexAt(0, root.listView.contentY + root.listView.height - 1);
+            } else {
+                index = root.listView.indexAt(0, root.listView.contentY);
+            }
+
             if (index !== -1) {
                 root.currentIndex = index;
                 root.updateCursorY();

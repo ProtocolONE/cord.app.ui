@@ -19,7 +19,7 @@ Item {
     property ListModel model: ListModel {}
 
     property int fontSize: 16
-    property variant style: InputStyleColors {}
+    property variant style: ComboBoxStyle {}
     property string icon
 
     property alias listBlock: listBlock
@@ -238,12 +238,13 @@ Item {
             ListView {
                 id: listView
 
-                property int listSize: (root.dropDownSize > 0) ? root.dropDownSize : listView.model.count
+                property int listSize: (root.dropDownSize > 0) && (listView.model.count > root.dropDownSize) ?
+                                           root.dropDownSize : listView.model.count
 
                 width: control.width
                 height: listView.model.count > 0 ? (control.height * listSize) : 2
-                interactive: false
                 clip: true
+                boundsBehavior: Flickable.StopAtBounds
 
                 model: root.model
 
@@ -278,6 +279,23 @@ Item {
                         }
                     }
                 }
+            }
+
+            ListViewScrollBar {
+                id: scroll
+
+                anchors {
+                    right: listView.right
+                    rightMargin: 1
+                }
+                height: listView.height
+                width: 10
+                listView: listView
+                cursorMaxHeight: listView.height
+                visible: (root.dropDownSize > 0) && (listView.model.count > root.dropDownSize)
+                cursorMinHeight: 50
+                color: style.scrollBarCursor
+                cursorColor: style.scrollBarCursorHover
             }
         }
 

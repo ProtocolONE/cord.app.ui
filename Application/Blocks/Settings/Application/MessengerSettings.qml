@@ -72,7 +72,7 @@ Item {
 
         Row {
             height: 40
-            z: 1
+            z: 2
             spacing: 10
 
             SettingsCaption {
