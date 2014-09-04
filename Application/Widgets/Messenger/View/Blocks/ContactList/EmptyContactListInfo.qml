@@ -60,7 +60,7 @@ Rectangle {
 
         Image {
             x: 16
-            y: 238 + 12
+            y: parent.height - 131
             source: installPath + "/Assets/Images/Application/Widgets/Messenger/EmptyContactInfo/blueArrow.png"
 
             Text {
