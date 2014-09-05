@@ -554,12 +554,13 @@ Item {
         }
 
         onHistoryReceived: {
-            var item = root.getUser(jid);
+            var item = root.getUser(jid), length;
             if (!item.isValid() || !history) {
                 return;
             }
 
-            for (var i = history.length; i--;) {
+            length = history.length;
+            for (var i = 0; i < length; ++i) {
                 Object.keys(history[i]).forEach(function(e) {
                     var message = history[i][e]
                         , date = +Moment.moment(message.date).startOf('day');

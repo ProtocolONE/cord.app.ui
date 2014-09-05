@@ -54,11 +54,6 @@ Rectangle {
         onCountChanged: {
             if (scroll.isAtEnd()) {
                 scroll.positionViewAtEnd();
-                return;
-            }
-
-            if (scroll.isAtBeging()) {
-                scroll.positionViewAtBeginning();
             }
         }
 
