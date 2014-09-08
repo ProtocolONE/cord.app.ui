@@ -15,6 +15,7 @@ import "../../Core/App.js" as App
 WidgetModel {
     id: root
 
+    property variant currentGame: App.currentGame()
     property string headerText: App.currentGame().statusText
     property int progress: App.currentGame().progress
 
@@ -29,12 +30,29 @@ WidgetModel {
     property string payloadUploadRate
     property string totalPayloadUpload
 
+    onCurrentGameChanged: {
+        root.totalWantedDone = '0';
+        root.totalWanted = '0';
+        root.directTotalDownload = '0';
+        root.peerTotalDownload = '0';
+        root.payloadTotalDownload = '0';
+        root.peerPayloadDownloadRate = '0';
+        root.payloadDownloadRate = '0';
+        root.directPayloadDownloadRate = '0';
+        root.payloadUploadRate = '0';
+        root.totalPayloadUpload = '0';
+    }
+
     Connections {
         target: mainWindow
 
         ignoreUnknownSignals: true
 
         onDownloadProgressChanged: {
+            if (root.currentGame && (serviceId != root.currentGame.serviceId)) {
+                return;
+            }
+
             root.totalWantedDone = totalWantedDone;
             root.totalWanted = totalWanted;
             root.directTotalDownload = directTotalDownload;
