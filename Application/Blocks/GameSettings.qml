@@ -114,7 +114,7 @@ Rectangle {
                          onClicked: root.state = "OverlayPage";
                     }
 
-
+                    /*
                     SettingsTextButton {
                          checked: root.state === "ControlPage"
                          text: qsTr("CONTROLS_TAB")
@@ -124,6 +124,7 @@ Rectangle {
                          }
                          onClicked: root.state = "ControlPage";
                     }
+                    */
                 }
 
                 SettingsSpecialButton {
