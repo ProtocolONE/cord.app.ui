@@ -155,6 +155,11 @@ NavigatableContactList {
     NavigatableListView {
         id: listView
 
+        function getDefaultAvatar(index) {
+             var name = "defaultAvatar_" + (((index + 1) % 12) + 1) + ".png";
+             return installPath + "/Assets/Images/Application/Widgets/Messenger/" + name;
+        }
+
         anchors.fill: parent
         visible: root.searchText.length > 0
         highlightMoveSpeed: 1000
@@ -176,8 +181,8 @@ NavigatableContactList {
             isHighlighted: listView.currentIndex === index;
             isActive: isSelected();
             searchText: root.searchText
-            nickname: model.nickname
-            avatar: model.avatar
+            nickname: model.nickname || model.gamenetid
+            avatar: model.avatar || listView.getDefaultAvatar(index)
             charsText: model.charsText
             isFriend: model.isFriend
             isInviteToFriendSended: model.friendInviteSended
