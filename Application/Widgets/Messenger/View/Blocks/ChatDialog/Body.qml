@@ -52,7 +52,7 @@ Rectangle {
         model: MessengerJs.selectedUserMessages()
 
         onCountChanged: {
-            if (scroll.isAtEnd()) {
+            if (scroll.isAtEnd() && messageList.contentHeight > messageList.height) {
                 scroll.positionViewAtEnd();
             }
         }
