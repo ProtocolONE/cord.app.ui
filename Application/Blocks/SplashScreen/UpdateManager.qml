@@ -14,6 +14,8 @@
 import QtQuick 1.1
 import qGNA.Library 1.0
 
+import "../../Core/App.js" as App
+
 Item {
     id: rootItem
 
@@ -23,8 +25,40 @@ Item {
     signal progressChanged(int progress);
     signal finished();
 
+    onFinished: d.isFinished = true;
+
+    QtObject {
+        id: d
+
+        property bool isFinished: false
+
+        function finished() {
+            if (!d.isFinished && App.mainWindowInstance().isInitCompleted()) {
+                mainWindow.updateFinishedSlot();
+                rootItem.finished();
+            }
+        }
+
+        function updateProgressState() {
+            if (model.updateState == 0)
+                rootItem.statusChanged(qsTr("CHECK_UPDATE")) // "Проверка обновлений"
+            else if (model.updateState == 1){
+                rootItem.statusChanged(qsTr("LOAD_UPDATE")) // Загрузка обновлений
+            }
+        }
+    }
+
     function start() {
-        updateManager.startCheckUpdate();
+        if (App.mainWindowInstance().isInitCompleted()) {
+            delayTimer.start();
+        }
+    }
+
+    Timer {
+        id: delayTimer
+
+        interval: 1000
+        onTriggered: d.finished();
     }
 
     Timer {
@@ -36,33 +70,35 @@ Item {
         onTriggered: rootItem.statusChanged(qsTr("RETRY_CHECKING_UPDATE")) // Retry checking for updates...
     }
 
-    Timer {
-        id: retryTextTimer
+    Connections {
+        target: App.mainWindowInstance()
 
-        interval: 60000
-        running: false
-        repeat: false
-        onTriggered: updateManager.startCheckUpdateRetry();
+        onInitCompleted: {
+            d.finished();
+
+            console.log('onInitCompleted finished signal');
+        }
     }
 
-    UpdateManagerViewModel {
-        id: updateManager
+    UpdateViewModel {
+        id: model
 
-        installPath: mainWindow.installUpdateGnaPath
-        updateUrl: mainWindow.updateUrl
-
-        onDownloadUpdateProgress: rootItem.progressChanged(100 * (currentSize / totalSize));
-
-        onUpdatesFound: {
-            changeTextTimer.stop();
-            console.log("[DEBUG][QML] Found updates. Installing updates.")
-            installUpdates();
+        onDownloadUpdateProgress: {
+            rootItem.progressChanged(100 * (currentSize / totalSize));
+            d.updateProgressState();
         }
 
         onNoUpdatesFound: {
             rootItem.progressChanged(100);
             changeTextTimer.stop();
             console.log("[DEBUG][QML] Updates not found.")
+        }
+
+        onUpdateStateChanged: {
+            changeTextTimer.stop();
+            console.log('onUpdateStateChanged', model.updateState);
+
+            d.updateProgressState();
         }
 
         onDownloadRetryNumber: {
@@ -74,30 +110,11 @@ Item {
             changeTextTimer.stop();
 
             console.log("[DEBUG][QML] Update complete with state " + updateState);
-
-            if (isNeedRestart) {
-                mainWindow.restartApplication()
-                return;
-            } else {
-                mainWindow.startBackgroundCheckUpdate();
-                mainWindow.updateFinishedSlot();
-                rootItem.finished();
-            }
-        }
-
-        onUpdateStateChanged: {
-            changeTextTimer.stop();
-            if (updateState == 0)
-                rootItem.statusChanged(qsTr("CHECK_UPDATE")) // "Проверка обновлений"
-            else if (updateState == 1){
-                rootItem.statusChanged(qsTr("LOAD_UPDATE")) // Загрузка обновлений
-            }
         }
 
         onUpdateError: {
             if (errorCode == UpdateInfoGetterResults.NotEnoughSpace) {
                 rootItem.statusChanged(qsTr("UPDATE_ERROR_NOT_ENOUGH_SPACE"), errorCode);
-                retryTextTimer.start();
                 return;
             }
 
@@ -119,5 +136,4 @@ Item {
             }
         }
     }
-
 }

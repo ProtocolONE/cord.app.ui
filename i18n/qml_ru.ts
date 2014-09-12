@@ -2499,6 +2499,14 @@ Please try again later.</source>
         <source>TEST_VERSION_TOOLTIP</source>
         <translation>Поставьте отметку, чтобы участвовать в тестировании новых функций клиента GameNet. Вы можете столкнуться с различными ошибками и недочетами. Если во время использования тестового клиента вы нашли ошибку, пожалуйста, сообщите о ней в нашу службу поддержки.</translation>
     </message>
+    <message>
+        <source>INFO_CAPTION</source>
+        <translation>Внимание</translation>
+    </message>
+    <message>
+        <source>CHANGE_APPLICATION_AREA</source>
+        <translation>Для применения изменений необходимо перезапустить GameNet</translation>
+    </message>
 </context>
 <context>
     <name>Group</name>

@@ -109,15 +109,15 @@ QtObject {
     }
 
     function isPublicVersion() {
-        return mainWindow.updateArea === 'live';
+        return settingsViewModel.updateArea === 'live';
     }
 
     function isPublicTestVersion() {
-        return mainWindow.updateArea === 'pts';
+        return settingsViewModel.updateArea === 'pts';
     }
 
     function switchClientVersion() {
-        settingsViewModel.switchClientVersion();
+        mainWindow.switchClientVersion();
     }
 
     function updateProgress(value, status) {
