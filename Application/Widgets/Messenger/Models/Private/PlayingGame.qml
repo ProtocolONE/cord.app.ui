@@ -147,7 +147,7 @@ Item {
             })
         }
 
-        function findInsertIndex(userMap, jid) {
+        function findInsertIndex(usersMap, jid) {
             var index
                 , nickname = usersMap[jid].nickname
                 , gameName = usersMap[jid].gameName;
