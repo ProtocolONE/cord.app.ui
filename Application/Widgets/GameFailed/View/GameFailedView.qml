@@ -91,7 +91,7 @@ PopupBase {
 
             text: qsTr("GAME_FAILED_BUTTON_SUPPORT")
             onClicked: {
-                App.openExternalUrl("http://support.gamenet.ru");
+                App.openExternalUrl("https://support.gamenet.ru/kb");
                 Marketing.send(Marketing.ProblemAfterGameStart, root.currentItem.serviceId, { action: "support" } );
                 root.close();
             }

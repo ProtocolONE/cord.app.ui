@@ -382,7 +382,7 @@ Rectangle {
         }
 
         onClicked: {
-            App.openExternalUrl("http://support.gamenet.ru");
+            App.openExternalUrl("https://support.gamenet.ru/kb");
         }
 
         Column {

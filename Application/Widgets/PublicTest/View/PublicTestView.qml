@@ -64,7 +64,7 @@ PopupBase {
                 action: 'support'
             }
 
-            onClicked: App.openExternalUrl("http://support.gamenet.ru");
+            onClicked: App.openExternalUrl("https://support.gamenet.ru/kb");
         }
 
         Button {
