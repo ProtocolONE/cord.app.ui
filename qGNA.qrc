@@ -141,6 +141,7 @@
 		<file>Application/Widgets/GameExecuting/PluginContainer.qml</file>
 		<file>Application/Widgets/GameExecuting/qmldir</file>
 		<file>Application/Widgets/GameExecuting/View/GameExecutingView.qml</file>
+		<file>Application/Widgets/GameFailed/GameFailedModel.qml</file>
 		<file>Application/Widgets/GameFailed/PluginContainer.qml</file>
 		<file>Application/Widgets/GameFailed/qmldir</file>
 		<file>Application/Widgets/GameFailed/View/GameFailedView.qml</file>
@@ -154,6 +155,7 @@
 		<file>Application/Widgets/GameInstall/PluginContainer.qml</file>
 		<file>Application/Widgets/GameInstall/qmldir</file>
 		<file>Application/Widgets/GameInstall/View/GameInstallView.qml</file>
+		<file>Application/Widgets/GameIsBoring/GameIsBoringModel.qml</file>
 		<file>Application/Widgets/GameIsBoring/PluginContainer.qml</file>
 		<file>Application/Widgets/GameIsBoring/qmldir</file>
 		<file>Application/Widgets/GameIsBoring/View/GameIsBoringButton.qml</file>
@@ -327,6 +329,7 @@
 		<file>GameNet/Controls/ButtonStyleImages.qml</file>
 		<file>GameNet/Controls/CheckBox.qml</file>
 		<file>GameNet/Controls/ComboBox.qml</file>
+		<file>GameNet/Controls/ComboBoxStyle.qml</file>
 		<file>GameNet/Controls/CursorMouseArea.qml</file>
 		<file>GameNet/Controls/ErrorContainer.qml</file>
 		<file>GameNet/Controls/ErrorMessage.qml</file>

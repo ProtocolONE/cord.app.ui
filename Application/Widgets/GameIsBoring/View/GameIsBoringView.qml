@@ -22,7 +22,7 @@ import "../../../Core/App.js" as App
 PopupBase {
     id: root
 
-    property variant currentItem: App.currentGame();
+    property variant currentItem: App.serviceItemByServiceId(model.lastStoppedServiceId);
 
     function setupButton(button, serviceId) {
         button.gameItem = App.serviceItemByServiceId(serviceId);

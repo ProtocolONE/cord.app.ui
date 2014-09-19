@@ -18,7 +18,7 @@ import "../../../Core/App.js" as App
 PopupBase {
     id: root
 
-    property variant currentItem: App.currentGame();
+    property variant currentItem: App.serviceItemByServiceId(model.lastStoppedServiceId);
 
     title: qsTr("GAME_FAILED_TITLE")
     clip: true
