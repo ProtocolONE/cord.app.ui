@@ -130,6 +130,7 @@ Rectangle {
                 SettingsSpecialButton {
                     width: 150
                     height: 15
+                    enabled: !(App.currentRunningMainService() || App.currentRunningSecondService())
                     anchors { bottom: parent.bottom }
                     text: qsTr("RESTORE_CLIENT")
                     analytics {

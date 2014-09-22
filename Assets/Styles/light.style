@@ -102,6 +102,7 @@
         "settingsCategoryButtonActive": "#000000",
         "settingsSpecialButtonNormal": "#1ADC9C",
         "settingsSpecialButtonHover": "#019074",
+        "settingsSpecialButtonDisabled": "#FF4F02",
         "settingsControlNormal": "#1ADC9C",
         "settingsControlHover": "#019074",
         "settingsControlDisabled": "#FF4F02",

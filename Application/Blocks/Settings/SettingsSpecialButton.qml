@@ -11,6 +11,7 @@ TextButton {
     style {
         normal: Styles.style.settingsSpecialButtonNormal
         hover: Styles.style.settingsSpecialButtonHover
+        disabled: Styles.style.settingsSpecialButtonDisabled
     }
     analytics.category: 'Navigation'
 }
