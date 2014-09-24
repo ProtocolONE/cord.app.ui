@@ -131,6 +131,7 @@ Item {
     property color settingsCategoryButtonActive: "#000000"
     property color settingsSpecialButtonNormal: "#1ADC9C"
     property color settingsSpecialButtonHover: "#019074"
+    property color settingsSpecialButtonDisabled: "#FF4F02"
     property color settingsControlNormal: "#1ADC9C"
     property color settingsControlHover: "#019074"
     property color settingsControlDisabled: "#FF4F02"
