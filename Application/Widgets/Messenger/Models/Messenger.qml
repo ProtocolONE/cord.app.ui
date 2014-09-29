@@ -521,7 +521,7 @@ Item {
             var messageDate = Date.now();
 
             if (message.stamp != "Invalid Date") {
-                messageDate = +(Moment.moment(message.stamp));
+                messageDate = +(Moment.moment(+message.stamp));
             }
 
             if (message.type !== QXmppMessage.Chat) {

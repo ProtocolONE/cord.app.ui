@@ -229,7 +229,7 @@ function User(item, model, jabber) {
 
         var from = +moment(self.historyDay).startOf('day').subtract(num, name);
 
-        jabber.queryHistory(self.jid, from, self.historyDay);
+        jabber.queryHistory(self.jid, from, self.historyDay, _item.messages);
         self.historyDay = from;
     }
 }
