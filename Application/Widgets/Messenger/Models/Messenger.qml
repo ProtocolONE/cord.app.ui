@@ -521,7 +521,7 @@ Item {
             var messageDate = Date.now();
 
             if (message.stamp != "Invalid Date") {
-                messageDate = +(Moment.moment(+message.stamp));
+                messageDate = +(Moment.moment(message.stamp));
             }
 
             if (message.type !== QXmppMessage.Chat) {
@@ -589,7 +589,10 @@ Item {
 
     Connections {
         target: App.signalBus()
-        onLogoutDone: xmppClient.failCount = 0;
+        onLogoutDone: {
+            myUser.avatar = '';
+            xmppClient.failCount = 0;
+        }
     }
 
     Connections {

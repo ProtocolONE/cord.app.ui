@@ -142,7 +142,7 @@ Item {
             day;
 
         if (message.stamp != "Invalid Date") {
-            messageDate = +(Moment.moment(+message.stamp));
+            messageDate = +(Moment.moment(message.stamp));
         }
 
         day = +Moment.moment(messageDate).startOf('day');
