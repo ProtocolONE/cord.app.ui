@@ -28,6 +28,7 @@ Qt.include('./Modules/SignalBus.js');
 Qt.include('./Modules/Host.js');
 Qt.include('./Modules/Settings.js');
 Qt.include('./Modules/Overlay.js');
+Qt.include('./Modules/ApplicationStatistic.js');
 
 var gamesListModel = initModel(),
     _previousGame = gamesListModel.currentGameItem,
@@ -149,26 +150,6 @@ function startingService() {
  */
 function replenishAccount() {
     openExternalUrlWithAuth("https://www.gamenet.ru/money");
-}
-
-function isServiceInstalled(serviceId) {
-    return isSettingsEnabled("GameDownloader/" + serviceId + "/", "isInstalled", false);
-}
-
-function installDate() {
-    return settingsValue('qGNA', 'installDate', 0);
-}
-
-function setInstallDate(date) {
-    setSettingsValue('qGNA', 'installDate', date || Math.floor((+ new Date()) / 1000));
-}
-
-function gameInstallDate(serviceId) {
-    return settingsValue("GameDownloader/" + serviceId + "/", "installDate", "");
-}
-
-function gameLastExecutionTime(serviceId) {
-    return settingsValue("gameExecutor/serviceInfo/" + serviceId + "/", "lastExecutionTime", "");
 }
 
 var runningService = {},

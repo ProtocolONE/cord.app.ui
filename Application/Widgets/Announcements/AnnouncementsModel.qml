@@ -275,7 +275,7 @@ WidgetModel {
             , timeFromInstall
             , elapsedDays
             , lastExecuteDate;
-        var now =  (+new Date());
+        var now = (+new Date());
 
         for (var i = 0, len = services.length; i < len; ++i) {
             serviceId = services[i];
@@ -521,7 +521,7 @@ WidgetModel {
             var installDate = App.installDate(),
                 currentDate = Math.floor((+ new Date()) / 1000);
 
-            var serviceId = Settings.value("qGNA", "installWithService", "0");
+            var serviceId = App.installWithService();
             if (serviceId == "0") {
                 serviceId = "300012010000000000"
             }

@@ -123,9 +123,8 @@ WidgetModel {
         property variant startTime
 
         function showCats(serviceId) {
-            var succes = +(Settings.value("gameExecutor/serviceInfo/" + serviceId + "/", "successCount", "0")),
-                    fail = +(Settings.value("gameExecutor/serviceInfo/" + serviceId + "/", "failedCount", "0"));
-            return (succes + fail) <= 2;
+            var total = App.executeGameTotalCount(serviceId);
+            return total <= 2;
         }
 
         function isAlreadyHandledErrorState(serviceState) {

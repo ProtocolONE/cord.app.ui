@@ -57,8 +57,6 @@ Item {
         initGoogleAnalytics(options);
         initAdditionalLayers(options);
 
-        updateInstallDate();
-
         if (mainWindowInstance) {
             mainWindowInstance.leftMouseClick.connect(function(x,y) {
                 App.leftMouseClick(root, x, y);
@@ -134,17 +132,6 @@ Item {
 
             GoogleAnalytics.setMidDescription(midDescription);
         });
-    }
-
-    function updateInstallDate() {
-        var installDate = App.installDate();
-        if (!installDate) {
-            App.setInstallDate();
-            var startingServiceId = App.startingService() || "0";
-            if (!!startingServiceId && startingServiceId != "0") {
-                Settings.setValue('qGNA', 'installWithService', startingServiceId);
-            }
-        }
     }
 
     function resetCredential() {

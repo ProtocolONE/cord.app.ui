@@ -66,8 +66,10 @@ Rectangle {
         id: manager
 
         function setupMockForLicenseReminder() {
-            App.setInstallDate(+new Date()/1000 - 86400 * 14);
             Settings.setValue("qml/features/SilentMode", "showDate", 0);
+            App.installDate = function() {
+                return +new Date()/1000 - 86400 * 14;
+            }
 
             App.isAnyLicenseAccepted = function() {
                 return false;

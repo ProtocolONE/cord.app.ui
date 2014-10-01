@@ -86,6 +86,8 @@
 		<file>Application/Core/Authorization/Vk.qml</file>
 		<file>Application/Core/MessageBox.js</file>
 		<file>Application/Core/MessageBox.qml</file>
+		<file>Application/Core/Modules/ApplicationStatistic.js</file>
+		<file>Application/Core/Modules/ApplicationStatistic.qml</file>
 		<file>Application/Core/Modules/Host.js</file>
 		<file>Application/Core/Modules/Host.qml</file>
 		<file>Application/Core/Modules/Settings.js</file>

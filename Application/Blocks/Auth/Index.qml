@@ -122,7 +122,7 @@ Rectangle {
                             startingServiceId = App.startingService() || "0";
 
                         if (startingServiceId == "0") {
-                            startingServiceId = Settings.value('qGNA', 'installWithService', "0");
+                            startingServiceId = App.installWithService();
                         }
 
                         auth.login(App.serviceItemByServiceId(startingServiceId).gameId, function(code, response) {
