@@ -62,10 +62,22 @@ NavigatableContactList {
         }
 
         function formatItem(item) {
-            var chars = item.chars,
-                charsText = d.getDefaultCharText(item);
+            var charsText = d.getDefaultCharText(item),
+                chars;
 
             if (item.hasOwnProperty('chars') && !item.isPrivacyFilterActive) {
+                chars = item.chars.map(function(e) {
+                    /*
+                      INFO есть проблема от сервера, когда он отдает не строку а пустой массив []
+                        это временный хак
+                    */
+                    if (typeof e.name !== 'string') {
+                        e.name = '';
+                    }
+
+                    return e;
+                });
+
                 chars.sort(d.sortFunc);
 
                 chars = chars.slice(0, 4).forEach(function(e){

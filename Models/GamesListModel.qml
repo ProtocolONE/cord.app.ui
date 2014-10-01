@@ -444,8 +444,7 @@ ListModel {
         itemState: "Normal";
         animationPause: 0
 
-        // 26.08.2031 HACK Выключено из-за проблемы на XP
-        hasOverlay: false
+        hasOverlay: true
 
         logoText: QT_TR_NOOP("LOGO_AIKA")
         aboutGameText: QT_TR_NOOP("GAME_AIKA_ABOUT_TEXT")

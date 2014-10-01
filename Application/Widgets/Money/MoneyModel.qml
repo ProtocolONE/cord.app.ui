@@ -14,7 +14,11 @@ WidgetModel {
         onNavigate: {
             if (link == 'gogamenetmoney') {
                 RestApi.Billing.isInGameRefillAvailable(function(response) {
-                    if (App.isOverlayEnabled() && response && !!response.enabled) {
+                    if (App.isOverlayEnabled()
+                            && response
+                            && !!response.enabled
+                            && false // INFO временно выключенно, пока будет исправлено пополнение GN-8648
+                       ) {
                         root.openMoneyOverlay();
                         return;
                     }

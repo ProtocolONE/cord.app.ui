@@ -43,7 +43,7 @@ WidgetModel {
             var component = null;
             var supportedGames = {
                 // 26.08.2013 HACK Выключено из-за проблемы на XP
-                //'300002010000000000': 'View/Games/Aika.qml',
+                '300002010000000000': 'View/Games/Aika.qml',
                 '300003010000000000': 'View/Games/BS.qml',
                 '300012010000000000': 'View/Games/Reborn.qml',
             }

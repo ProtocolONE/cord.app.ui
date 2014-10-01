@@ -61,7 +61,7 @@ Item {
                     var val1 = usersMap[a].lastTalkDate;
                     var val2 = usersMap[b].lastTalkDate;
 
-                    if (val1 === val2) {
+                    if (val1 == val2) {
                         return 0;
                     }
 
@@ -103,7 +103,7 @@ Item {
             for (i = 0; i < usersModel.count; ++i) {
                 modelUser = usersModel.get(i)
                 lastTalkDate = modelUser.lastTalkDate || 0;
-                if (lastTalkDate === 0 || User.isGameNet(modelUser)) {
+                if (lastTalkDate == 0 || User.isGameNet(modelUser)) {
                     continue;
                 }
 
@@ -180,7 +180,7 @@ Item {
         function removeUsers(users, usersMap) {
             users.forEach(function(deletedUser) {
                 var deleteIndex = Lodash._.findIndex(Js.sortedUsers, function(u) {
-                    return u === deletedUser;
+                    return u == deletedUser;
                 });
 
                 Js.sortedUsers.splice(deleteIndex, 1);
@@ -201,7 +201,7 @@ Item {
                 return u === userId;
             });
 
-            if (-1 !== index && proxyModel.get(index).date === actualDate) {
+            if (-1 !== index && proxyModel.get(index).date == actualDate) {
                 return;
             }
 
