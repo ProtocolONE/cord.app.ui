@@ -83,6 +83,8 @@ PopupBase {
                         width: 187
                         height: 93
                         onClicked: {
+                            Marketing.send(Marketing.NotLikeTheGame, root.currentItem.serviceId,
+                                                   { serviceId: button1.gameItem.serviceId });
                             root.close();
                         }
                     }
@@ -92,6 +94,8 @@ PopupBase {
                         width: 187
                         height: 93
                         onClicked: {
+                            Marketing.send(Marketing.NotLikeTheGame, root.currentItem.serviceId,
+                                                   { serviceId: button2.gameItem.serviceId });
                             root.close();
                         }
                     }

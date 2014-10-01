@@ -20,9 +20,9 @@ ImageButton {
     property variant gameItem
 
     styleImages: ButtonStyleImages {
-        normal: installPath + root.gameItem.imageHorizontalSmall
-        hover: installPath + root.gameItem.imageHorizontalSmall
-        disabled: installPath + root.gameItem.imageHorizontalSmall
+        normal: root.gameItem ? installPath + root.gameItem.imageHorizontalSmall : ""
+        hover: root.gameItem ? installPath + root.gameItem.imageHorizontalSmall : ""
+        disabled: root.gameItem ? installPath + root.gameItem.imageHorizontalSmall : ""
     }
 
     Item {
@@ -44,7 +44,7 @@ ImageButton {
             color: "#fafafa"
             font { family: "Arial"; pixelSize: 14 }
             anchors.centerIn: parent
-            text: qsTr("PROPOSAL_BUTTON_TEXT").arg(root.gameItem.name)
+            text: root.gameItem ? qsTr("PROPOSAL_BUTTON_TEXT").arg(root.gameItem.name) : ""
         }
     }
 
@@ -52,9 +52,6 @@ ImageButton {
         if (!root.gameItem) {
             return;
         }
-
-        Marketing.send(Marketing.NotLikeTheGame, App.currentGame().serviceId,
-                       { serviceId: App.currentGame().serviceId });
 
         var startServiceId = root.gameItem.serviceId;
         App.navigate('mygame');
