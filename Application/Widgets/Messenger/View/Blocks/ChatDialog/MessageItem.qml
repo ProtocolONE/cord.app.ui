@@ -91,6 +91,13 @@ Item {
             TextEdit {
                 id: messageBody
 
+                function prepareText(message) {
+                    var text = Strings.stripTags(root.body);
+                    text = replaceHyperlinks(text);
+                    text = replaceGameNetHyperlinks(text)
+                    return text;
+                }
+
                 function replaceHyperlinks(message) {
                     return message.replace(/(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!10(?:\.\d{1,3}){3})(?!127(?:\.\d{1,3}){3})(?!169\.254(?:\.\d{1,3}){2})(?!192\.168(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\x{00a1}\-\x{ffff}0-9]+-?)*[a-z\x{00a1}\-\x{ffff}0-9]+)(?:\.(?:[a-z\x{00a1}\-\x{ffff}0-9]+-?)*[a-z\x{00a1}\-\x{ffff}0-9]+)*(?:\.(?:[a-z\x{00a1}\-\x{ffff}]{2,})))(?::\d{2,5})?(?:\/[^\s]*)?/ig, function(e) {
                         return "<a style='color:" +
@@ -99,12 +106,29 @@ Item {
                     });
                 }
 
+                /**
+                 * Заменяет ссылку вида gamenet://startservice/<serviceId> на гиперссылку
+                 * <a href="gamenet://startservice/<serviceId>">Имя игры</a>
+                 */
+                function replaceGameNetHyperlinks(message) {
+                    return message.replace(/(gamenet:\/\/startservice\/(\d+))/ig, function(str, gnLink, serviceId) {
+                        var serviceItem = App.serviceItemByServiceId(serviceId)
+                            , serviceName;
+
+                        serviceName = serviceItem ? serviceItem.name : gnLink;
+
+                        return "<a style='color:" +
+                                Styles.style.messengerChatDialogHyperlinkColor +
+                                "' href='" + gnLink + "'>" + serviceName + "</a>";
+                    });
+                }
+
                 wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
                 width: parent.width
                 readOnly: true
                 selectByMouse: true
                 textFormat: TextEdit.RichText
-                text: replaceHyperlinks(Strings.stripTags(root.body))
+                text: prepareText(root.body)
                 color: root.isStatusMessage
                        ? Styles.style.messengerChatDialogMessageStatusText
                        : Styles.style.messengerChatDialogMessageText
@@ -116,11 +140,24 @@ Item {
                 }
 
                 onLinkActivated: {
-                    if (link.indexOf("http://gamenet.ru") === 0) {
+                    var serviceId
+                        , gameNetPattern = "http://gamenet.ru"
+                        , startServicePattern = "gamenet://startservice/";
+
+                    if (link.indexOf(gameNetPattern) === 0) {
                         App.openExternalUrlWithAuth(link);
-                    } else {
-                        App.openExternalUrl(link);
+                        return;
                     }
+
+                    if (link.indexOf(startServicePattern) === 0) {
+                        serviceId = link.substring(startServicePattern.length);
+
+                        App.selectService(serviceId);
+                        App.downloadButtonStart(serviceId);
+                        return;
+                    }
+
+                    App.openExternalUrl(link);
                 }
             }
         }
