@@ -341,6 +341,9 @@ Item {
                 rawUser = UserJs.createRawUser(user, nickname || user);
                 rawUser.lastTalkDate = d.getUserTalkDate(rawUser);
                 usersModel.append(rawUser);
+                if (root.contactReceived) {
+                    d.storeRawUser(user);
+                }
             }
 
             groups.forEach(function(group) {
@@ -466,6 +469,35 @@ Item {
                 MessengerPrivateJs.lastTalkDateMap = {};
             }
         }
+
+        function getRawUsersMap() {
+            var storedUsers = {},
+                settingsValue = Settings.value('qml/messenger/stored/', myUser.jid, "{}");
+
+            try {
+                storedUsers = JSON.parse(settingsValue);
+            } catch(e) {
+                storedUsers = {};
+            }
+
+            return storedUsers;
+        }
+
+        function storeRawUser(jid) {
+            var storedUsers = d.getRawUsersMap();
+            storedUsers[jid] = {};
+
+            Settings.setValue('qml/messenger/stored/', myUser.jid, JSON.stringify(storedUsers));
+        }
+
+        function loadRawUsers() {
+            var storedUsers = d.getRawUsersMap();
+
+            Object.keys(storedUsers).forEach(function(e){
+                d.appendUser(e);
+            });
+        }
+
 
         function getUserTalkDate(user) {
             if (!MessengerPrivateJs.lastTalkDateMap.hasOwnProperty(user.jid)) {
@@ -619,6 +651,7 @@ Item {
         onRosterReceived: {
             console.log("ROSTER MANAGER: Roster received");
             d.rosterReceived();
+            d.loadRawUsers();
         }
     }
 
