@@ -45,6 +45,11 @@ Item {
             onClicked: privateItem.closeGroup(section)
         }
 
+        onContentYChanged: {
+            if (contentY == 0)
+                scrollBar.positionViewAtBeginning();
+        }
+
         delegate: Item {
             width: listView.width
             height: (model.isGroupItem ? 33 : 53)
@@ -71,6 +76,8 @@ Item {
     }
 
     ListViewScrollBar {
+        id: scrollBar
+
         anchors.left: listView.right
         height: listView.height
         width: 10
