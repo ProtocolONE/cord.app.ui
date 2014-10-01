@@ -46,8 +46,9 @@ Item {
         }
 
         onContentYChanged: {
-            if (contentY == 0)
+            if (contentY == 0) {
                 scrollBar.positionViewAtBeginning();
+            }
         }
 
         delegate: Item {
