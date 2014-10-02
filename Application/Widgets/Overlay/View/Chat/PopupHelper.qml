@@ -18,6 +18,7 @@ Item {
 
     property variant messenger
     property bool enabled: true
+    property bool chatVisible
 
     signal openChat()
 
@@ -31,7 +32,7 @@ Item {
                 , data
                 , id;
 
-            if (messenger.isSelectedUser(user)) {
+            if (messenger.isSelectedUser(user) && root.chatVisible) {
                 return;
             }
 

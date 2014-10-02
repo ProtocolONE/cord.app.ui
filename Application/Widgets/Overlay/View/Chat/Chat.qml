@@ -66,6 +66,7 @@ Item {
         enabled: root.showNotify
         onOpenChat: chat.visible = true;
         messenger: root.messenger
+        chatVisible: chat.visible
     }
 
     Rectangle {

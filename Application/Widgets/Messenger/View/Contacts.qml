@@ -46,11 +46,10 @@ WidgetView {
 
         if (target.isAnyItemHighlighted() &&
            (event.key == Qt.Key_Enter || event.key == Qt.Key_Return)) {
-            root.isSearching = false;
+            target.selectCurrentUser();
             if (searchContactItem.localSearch) {
                 searchContactItem.searchText = '';
             }
-            target.selectCurrentUser();
         }
     }
 
