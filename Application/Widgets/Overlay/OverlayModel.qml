@@ -31,10 +31,8 @@ WidgetModel {
         id: d
 
         function createOverlay(service) {
-            var overlayEnabled = Settings.value(
-                        'gameExecutor/serviceInfo/' + service + "/",
-                        "overlayEnabled",
-                        1) != 0;
+            var overlayEnabled = App.serviceItemByServiceId(service).hasOverlay &&
+                                 App.gameSettingsModelInstance().isOverlayEnabled(service);
 
             if (!overlayEnabled) {
                 console.log('Overlay disabled for game ', service);
