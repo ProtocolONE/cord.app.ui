@@ -13,6 +13,7 @@ import GameNet.Components.Widgets 1.0
 import "../Models/Messenger.js" as MessengerJs
 import "../../../Core/App.js" as App
 import "../../../Core/TrayPopup.js" as TrayPopup
+import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 Item {
     property bool enabled: true
@@ -41,6 +42,7 @@ Item {
             };
 
             TrayPopup.showPopup(messageReceivedComp, data, id);
+            GoogleAnalytics.trackEvent('Messenger', 'NewMessagePopup', 'show', 'App');
         }
     }
 
@@ -49,13 +51,23 @@ Item {
 
         MessageReceived {
             keepIfActive: true
-            destroyInterval: 5000
+            destroyInterval: 12000
+
+            onCloseButtonClicked: {
+                GoogleAnalytics.trackEvent('Messenger', 'NewMessagePopup', 'closeButton', 'App');
+            }
+
+            onTimeoutClosed: {
+                GoogleAnalytics.trackEvent('Messenger', 'NewMessagePopup', 'timeoutDestroy', 'App');
+            }
 
             onAnywhereClicked: {
                 var user = {jid: jid};
 
                 App.activateWindow();
                 MessengerJs.selectUser(user)
+
+                GoogleAnalytics.trackEvent('Messenger', 'NewMessagePopup', 'anywhereClicked', 'App');
             }
         }
     }

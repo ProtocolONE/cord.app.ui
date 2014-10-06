@@ -12,6 +12,7 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 
 import "../../Core/Popup.js" as TrayPopup
+import "../../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 Item {
     id: root
@@ -43,6 +44,7 @@ Item {
             };
 
             TrayPopup.showPopup(messageReceivedComp, data, id);
+            GoogleAnalytics.trackEvent('Messenger', 'NewMessagePopup', 'show', 'Overlay');
         }
     }
 
@@ -51,14 +53,23 @@ Item {
 
         MessageReceived {
             keepIfActive: true
-            destroyInterval: 5000
+            destroyInterval: 12000
             messenger: root.messenger
+
+            onCloseButtonClicked: {
+                GoogleAnalytics.trackEvent('Messenger', 'NewMessagePopup', 'closeButton', 'Overlay');
+            }
+
+            onTimeoutClosed: {
+                GoogleAnalytics.trackEvent('Messenger', 'NewMessagePopup', 'timeoutDestroy', 'Overlay');
+            }
 
             onAnywhereClicked: {
                 var user = {jid: jid};
 
                 messenger.selectUser(user);
                 root.openChat();
+                GoogleAnalytics.trackEvent('Messenger', 'NewMessagePopup', 'anywhereClicked', 'Overlay');
             }
         }
     }

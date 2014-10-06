@@ -21,7 +21,7 @@ Item {
 
     signal anywhereClicked()
     signal closed()
-
+    signal timeoutClosed();
 
     function shadowDestroy() {
         closeAnimation.start();
@@ -87,6 +87,9 @@ Item {
     Timer {
         running: destroyInterval > 0 && isShown && (keepIfActive ? !containsMouse : true)
         interval: destroyInterval
-        onTriggered: shadowDestroy();
+        onTriggered: {
+            root.timeoutClosed();
+            shadowDestroy();
+        }
     }
 }

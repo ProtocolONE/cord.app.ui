@@ -8,6 +8,8 @@ import "../Models/Messenger.js" as MessengerJs
 TrayPopupBase {
     id: root
 
+    signal closeButtonClicked()
+
     property string jid
     property string messageText
     property string avatar: MessengerJs.userAvatar(root)
@@ -81,7 +83,10 @@ TrayPopupBase {
 
             anchors.fill: parent
             hoverEnabled: true
-            onClicked: shadowDestroy();
+            onClicked: {
+                root.closeButtonClicked();
+                shadowDestroy();
+            }
         }
     }
 }

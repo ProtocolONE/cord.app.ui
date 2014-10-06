@@ -18,6 +18,8 @@ import "../../Core"
 PopupBase {
     id: root
 
+    signal closeButtonClicked();
+
     property variant messenger
 
     property string jid
@@ -93,7 +95,10 @@ PopupBase {
 
             anchors.fill: parent
             hoverEnabled: true
-            onClicked: shadowDestroy();
+            onClicked: {
+                root.closeButtonClicked();
+                shadowDestroy();
+            }
         }
     }
 }
