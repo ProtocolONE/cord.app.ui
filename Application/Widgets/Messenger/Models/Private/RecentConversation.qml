@@ -168,6 +168,9 @@ Item {
                     return usersMap[u].lastTalkDate < userDate;
                 });
 
+                if (index === -1) {
+                    index = Js.sortedUsers.length;
+                }
 
                 Js.sortedUsers.splice(index, 0, newUser);
                 proxyModel.insert(index, {
