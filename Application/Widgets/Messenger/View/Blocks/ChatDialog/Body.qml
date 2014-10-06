@@ -51,9 +51,24 @@ Rectangle {
 
         model: MessengerJs.selectedUserMessages()
 
+        Timer {
+            id: scrollToEndTimer
+            /*
+              INFO
+              т.к onCountChanged меняется на каждое добавление елемента в ListModel
+              пришлось написать этот хак. Если сделать scroll.positionViewAtEnd()
+              непосредственно в onCountChanged, не правильно просчитывается высота + не обновляются секции.
+              Скролл в низ нужно делать с небольшой задержкой.
+            */
+
+            interval: 25
+            onTriggered: scroll.positionViewAtEnd();
+        }
+
         onCountChanged: {
-            if (scroll.isAtEnd() && messageList.contentHeight > messageList.height) {
-                scroll.positionViewAtEnd();
+            var hasNotScroll = messageList.contentHeight < messageList.height;
+            if (hasNotScroll || scroll.isAtEnd()) {
+                scrollToEndTimer.restart();
             }
         }
 
