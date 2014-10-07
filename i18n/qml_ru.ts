@@ -3585,7 +3585,7 @@ Please try again later.</source>
     <name>PremiumShopView</name>
     <message>
         <source>PREMIUM_ACCOUNT_HEADER_TEXT_BLOCK</source>
-        <translation type="unfinished">Дополнительный аккаунт</translation>
+        <translation type="unfinished">Расширенный аккаунт</translation>
     </message>
     <message>
         <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
