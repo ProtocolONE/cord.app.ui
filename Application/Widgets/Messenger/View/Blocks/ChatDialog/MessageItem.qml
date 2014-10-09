@@ -141,7 +141,7 @@ Item {
 
                 onLinkActivated: {
                     var serviceId
-                        , gameNetPattern = "http://gamenet.ru"
+                        , gameNetPattern = "https://gamenet.ru"
                         , startServicePattern = "gamenet://startservice/";
 
                     if (link.indexOf(gameNetPattern) === 0) {

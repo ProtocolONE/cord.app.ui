@@ -1324,6 +1324,10 @@ Please try again later.</source>
         <source>CONTACT_NEW_MESSAGE</source>
         <translation>Новое сообщение</translation>
     </message>
+    <message>
+        <source>CONTACT_ITEM_NICKNAME_TOOLTIP</source>
+        <translation>Кликните, чтобы перейти к профилю %1</translation>
+    </message>
 </context>
 <context>
     <name>ContactItemDelegate</name>
@@ -2043,7 +2047,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>CONTROLS_TAB</source>
-        <translation>Управление</translation>
+        <translation type="vanished">Управление</translation>
     </message>
     <message>
         <source>RESTORE_CLIENT</source>

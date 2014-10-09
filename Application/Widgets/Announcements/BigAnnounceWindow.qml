@@ -132,7 +132,7 @@ Window {
 
             CursorMouseArea {
                 anchors.fill: parent
-                onClicked: App.openExternalUrl("http://gamenet.ru")
+                onClicked: App.openExternalUrl("https://gamenet.ru")
             }
         }
 

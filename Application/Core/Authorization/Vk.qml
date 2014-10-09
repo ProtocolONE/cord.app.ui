@@ -19,11 +19,13 @@ Window {
     }
 
     function clearCookies() {
-            WebViewHelper.setCookiesFromUrl('', 'https://vk.com')
-            WebViewHelper.setCookiesFromUrl('', 'https://login.vk.com')
-            WebViewHelper.setCookiesFromUrl('', 'http://gamenet.ru')
-            WebViewHelper.setCookiesFromUrl('', 'http://www.gamenet.ru')
-            WebViewHelper.setCookiesFromUrl('', 'https://gnlogin.ru')
+        WebViewHelper.setCookiesFromUrl('', 'https://vk.com')
+        WebViewHelper.setCookiesFromUrl('', 'https://login.vk.com')
+        WebViewHelper.setCookiesFromUrl('', 'http://gamenet.ru')
+        WebViewHelper.setCookiesFromUrl('', 'http://www.gamenet.ru')
+        WebViewHelper.setCookiesFromUrl('', 'https://gamenet.ru')
+        WebViewHelper.setCookiesFromUrl('', 'https://www.gamenet.ru')
+        WebViewHelper.setCookiesFromUrl('', 'https://gnlogin.ru')
     }
 
     width: 640

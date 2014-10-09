@@ -29,6 +29,7 @@ Rectangle {
 
     property string presenceStatus: ""
 
+    signal nicknameClicked()
     signal clicked()
 
     implicitWidth: 78
@@ -70,6 +71,14 @@ Rectangle {
         anchors.top: parent.top
     }
 
+    CursorMouseArea {
+        id: mouser
+
+        enabled: !root.interactiveNickname
+        anchors.fill: parent
+        onClicked: root.clicked();
+    }
+
     Item {
         anchors {
             fill: parent
@@ -92,6 +101,13 @@ Rectangle {
                     anchors.centerIn: parent
                     cache: true
                     asynchronous: true
+
+                    CursorMouseArea {
+                        toolTip: qsTr("CONTACT_ITEM_NICKNAME_TOOLTIP").arg(nicknameText.text)
+                        visible: !root.mouseEnabled
+                        anchors.fill: parent
+                        onClicked: root.nicknameClicked();
+                    }
                 }
             }
 
@@ -160,8 +176,14 @@ Rectangle {
                         }
 
                         height: 20
-                        width: parent.width
-                        elide: Text.ElideRight
+                        color: nicknameText.getTextColor()
+
+                        CursorMouseArea {
+                            toolTip: qsTr("CONTACT_ITEM_NICKNAME_TOOLTIP").arg(nicknameText.text)
+                            visible: !root.mouseEnabled
+                            anchors.fill: parent
+                            onClicked: root.nicknameClicked();
+                        }
                     }
                 }
 
@@ -201,13 +223,6 @@ Rectangle {
         width: parent.width
         color: Qt.darker(root.color, Styles.style.darkerFactor)
         anchors.bottom: parent.bottom
-    }
-
-    CursorMouseArea {
-        id: mouser
-
-        anchors.fill: parent
-        onClicked: root.clicked();
     }
 
     states: [

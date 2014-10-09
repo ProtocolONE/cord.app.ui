@@ -203,8 +203,8 @@ ListModel {
 
         ratingUrl: "http://www.combatarms.ru/ratings/user/"
         forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=262"
-        blogUrl: "http://www.gamenet.ru/games/ca/blog/"
-        guideUrl: "http://www.gamenet.ru/games/ca/guides/"
+        blogUrl: "https://www.gamenet.ru/games/ca/blog/"
+        guideUrl: "https://www.gamenet.ru/games/ca/guides/"
 
         status: "Normal" // Error Started Paused Downloading
         statusText: ""
@@ -285,8 +285,8 @@ ListModel {
 
         ratingUrl: ""
         forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=4"
-        blogUrl: "http://www.gamenet.ru/games/bs/blog/"
-        guideUrl: "http://www.gamenet.ru/games/bs/guides/"
+        blogUrl: "https://www.gamenet.ru/games/bs/blog/"
+        guideUrl: "https://www.gamenet.ru/games/bs/guides/"
 
         status: "Normal" // Error Started Paused Downloading
         statusText: ""
@@ -423,8 +423,8 @@ ListModel {
 
         ratingUrl: ""
         forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=3"
-        blogUrl: "http://www.gamenet.ru/games/aika/blog/"
-        guideUrl: "http://www.gamenet.ru/games/aika/guides/"
+        blogUrl: "https://www.gamenet.ru/games/aika/blog/"
+        guideUrl: "https://www.gamenet.ru/games/aika/guides/"
 
         status: "Normal" // Error Started Paused Downloading
         statusText: ""
@@ -493,8 +493,8 @@ ListModel {
 
         ratingUrl: ""
         forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=208"
-        blogUrl: "http://www.gamenet.ru/games/ga/blog/"
-        guideUrl: "http://www.gamenet.ru/games/ga/guides/"
+        blogUrl: "https://www.gamenet.ru/games/ga/blog/"
+        guideUrl: "https://www.gamenet.ru/games/ga/guides/"
 
         status: "Normal" // Error Started Paused Downloading
         statusText: ""

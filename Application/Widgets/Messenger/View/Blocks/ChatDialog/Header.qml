@@ -14,9 +14,11 @@ import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 import Application.Controls 1.0
 
+import "../../../../../Core/App.js" as App
 import "../../../../../Core/moment.js" as Moment
 import "../../../../../Core/Styles.js" as Styles
 import "../../../Models/Messenger.js" as MessengerJs
+import "../../../Models/User.js" as User
 
 import "../ContactList" as ContactList
 
@@ -31,6 +33,8 @@ Rectangle {
         user: MessengerJs.selectedUser(MessengerJs.USER_INFO_JID)
         anchors.fill: parent
         mouseEnabled: false
+
+        onNicknameClicked: App.openProfile(User.jidToUser(user.jid));
     }
 
     ImageButton {

@@ -32,13 +32,13 @@ WidgetModel {
 
                 var userId = User.getTechName() == undefined ? User.userId() : User.getTechName();
 
-                App.openExternalUrlWithAuth("http://www.gamenet.ru/users/" + userId);
+                App.openProfile(userId);
                 break;
             }
             case 'Balance': {
                 GoogleAnalytics.trackEvent('/Tray', 'Open External Link', 'Money');
 
-                App.openExternalUrlWithAuth("http://www.gamenet.ru/money")
+                App.openExternalUrlWithAuth("https://www.gamenet.ru/money")
                 break;
             }
             case 'Settings': {

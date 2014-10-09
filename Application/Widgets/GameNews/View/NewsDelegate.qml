@@ -39,7 +39,7 @@ Item {
     }
 
     function openNews(gameShortName, eventId) {
-        App.openExternalUrlWithAuth("http://www.gamenet.ru/games/" + gameShortName + "/post/" + eventId);
+        App.openExternalUrlWithAuth("https://www.gamenet.ru/games/" + gameShortName + "/post/" + eventId);
 
         GoogleAnalytics.trackEvent("/GameNews/",
                               "Game " + gameShortName,

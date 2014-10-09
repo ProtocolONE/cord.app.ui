@@ -57,7 +57,7 @@ Rectangle {
                                 icon: "Assets/Images/Application/Blocks/GameMenu/Guides.png",
                                 text: "Гайды",
                                 link: true,
-                                url: "http://www.gamenet.ru/games/bs/guides/"
+                                url: "https://www.gamenet.ru/games/bs/guides/"
                             });
 
         root.appendMenuItem(menuModel,
@@ -65,7 +65,7 @@ Rectangle {
                                 icon: "Assets/Images/Application/Blocks/GameMenu/Blog.png",
                                 text: "Блог",
                                 link: true,
-                                url: "http://www.gamenet.ru/games/bs/blog/"
+                                url: "https://www.gamenet.ru/games/bs/blog/"
                             });
 
         root.appendMenuItem(menuModel,

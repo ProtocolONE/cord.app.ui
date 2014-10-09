@@ -270,7 +270,7 @@ Form {
                     hover: Styles.style.authAmnesiaButtonTextHover
                 }
 
-                onClicked: AppProxy.openExternalUrl("http://gamenet.ru/restore/?login=" + d.login);
+                onClicked: AppProxy.openExternalUrl("https://gamenet.ru/restore/?login=" + d.login);
             }
         }
 

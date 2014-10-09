@@ -227,7 +227,7 @@ Form {
                 hover: Styles.style.authLicenseButtonTextHover
             }
 
-            onClicked: App.openExternalUrl("http://www.gamenet.ru/license");
+            onClicked: App.openExternalUrl("https://www.gamenet.ru/license");
 
             CursorArea {
                 anchors.fill: parent

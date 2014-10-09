@@ -96,6 +96,10 @@ function openExternalUrl(url) {
     Qt.openUrlExternally(url)
 }
 
+function openProfile(userId) {
+    openExternalUrlWithAuth("https://gamenet.ru/users/" + userId);
+}
+
 function logout() {
     if (proxyInst) {
         return proxyInst.logout();

@@ -143,7 +143,7 @@ function gameExists(gameId) {
  * Application specific functions
  */
 function replenishAccount() {
-    openExternalUrlWithAuth("http://www.gamenet.ru/money");
+    openExternalUrlWithAuth("https://www.gamenet.ru/money");
 }
 
 function isServiceInstalled(serviceId) {

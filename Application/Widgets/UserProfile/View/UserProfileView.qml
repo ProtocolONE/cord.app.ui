@@ -26,7 +26,7 @@ WidgetView {
     implicitHeight: 92
 
     function getGameNetProfileUrl() {
-        return "http://gamenet.ru/users/" + (User.getTechName() || User.userId()) + "/";
+        return "https://gamenet.ru/users/" + (User.getTechName() || User.userId()) + "/";
     }
 
     Rectangle {
@@ -78,7 +78,7 @@ WidgetView {
                     hoverEnabled: true
                     toolTip: qsTr("YOUR_AVATAR")
                     tooltipGlueCenter: true
-                    onClicked: App.openExternalUrlWithAuth('http://gamenet.ru/edit/')
+                    onClicked: App.openExternalUrlWithAuth('https://gamenet.ru/edit/')
                 }
             }
 

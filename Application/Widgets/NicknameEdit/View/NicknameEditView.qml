@@ -179,7 +179,7 @@ PopupBase {
                     enabled: false
                     showCapslock: false
                     showLanguage: false
-                    placeholder: "http://www.gamenet.ru/users/"
+                    placeholder: "https://www.gamenet.ru/users/"
                 }
 
                 InputWithError {

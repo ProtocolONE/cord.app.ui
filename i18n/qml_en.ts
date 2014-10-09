@@ -435,6 +435,14 @@
     </message>
 </context>
 <context>
+    <name>ContactItem</name>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem.qml" line="183"/>
+        <source>CONTACT_ITEM_NICKNAME_TOOLTIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ContactItemDelegate</name>
     <message>
         <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="69"/>
@@ -2134,7 +2142,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="168"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="161"/>
         <source>WEB_SEARCH_BACKGROUND_TEXT</source>
         <translation type="unfinished"></translation>
     </message>

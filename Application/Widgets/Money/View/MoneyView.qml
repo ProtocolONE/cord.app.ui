@@ -88,7 +88,7 @@ WidgetView {
             }
 
             function getMoneyUrl() {
-                return UserJs.getUrlWithCookieAuth("http://www.gamenet.ru/money");
+                return UserJs.getUrlWithCookieAuth("https://www.gamenet.ru/money");
             }
 
             function urlEncondingHack(url) {
