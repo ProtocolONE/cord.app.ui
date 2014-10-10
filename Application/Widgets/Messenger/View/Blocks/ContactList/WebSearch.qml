@@ -110,6 +110,14 @@ NavigatableContactList {
                 });
             }
 
+            if (!item.hasOwnProperty('nickname')) {
+                item.nickname = '';
+            }
+
+            if (!item.hasOwnProperty('avatar')) {
+                item.avatar = '';
+            }
+
             item.charsText = charsText;
             item.friendInviteSended = false;
             item.inviteMaximumLimitSended = false;
@@ -118,14 +126,13 @@ NavigatableContactList {
 
     onSearchTextChanged: {
         if (searchText.length == 0) {
-            model.clear();
+            listViewModel.clear();
             return;
         }
 
         RestApi.User.search(searchText.trim(), false,
                             function(response) {
-                                model.clear();
-
+                                listViewModel.clear();
                                 if (response.hasOwnProperty('error')) {
                                     return;
                                 }
@@ -133,7 +140,7 @@ NavigatableContactList {
                                 Object.keys(response).forEach(function(e) {
                                     var item = response[e];
                                     d.formatItem(item);
-                                    model.append(item);
+                                    listViewModel.append(item);
                                 });
                             });
     }
@@ -241,7 +248,7 @@ NavigatableContactList {
         }
 
         model: ListModel {
-            id: model
+            id: listViewModel
         }
     }
 
