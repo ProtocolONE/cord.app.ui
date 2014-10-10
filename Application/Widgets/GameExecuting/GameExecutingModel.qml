@@ -25,30 +25,28 @@ WidgetModel {
     id: root
 
     property int internalPopupId: -1
-    property variant enterNickNameViewModelInstance: App.enterNickNameViewModelInstance()
 
     function startExecuting(serviceId) {
-        var gameItem;
-
+        var gameItem = App.serviceItemByServiceId(serviceId);
         executeServiceDelay.serviceId = serviceId;
+
+        if (gameItem.checkNicknameBeforeStart && !User.isNicknameValid()) {
+            root.internalPopupId = Popup.show('NicknameEdit');
+            return;
+        }
+
+        root.executeGame(serviceId);
+        return;
+    }
+
+    function executeGame(serviceId) {
+        var gameItem = App.serviceItemByServiceId(serviceId);
+        root.internalPopupId = -1;
         executeServiceDelay.start();
 
-        gameItem = App.serviceItemByServiceId(serviceId);
         gameItem.status = "Starting";
         gameItem.statusText = qsTr("TEXT_PROGRESSBAR_STARTING_STATE")
         App.updateProgress(gameItem);
-    }
-
-    Connections {
-        target: enterNickNameViewModelInstance || null
-        ignoreUnknownSignals: true
-        onStartCheck: {
-            if (User.isNicknameValid()) {
-                enterNickNameViewModelInstance.success();
-            } else {
-                root.internalPopupId = Popup.show('NicknameEdit');
-            }
-        }
     }
 
     Connections {
@@ -59,10 +57,14 @@ WidgetModel {
             }
 
             if (User.isNicknameValid()) {
-                enterNickNameViewModelInstance.success();
-            } else {
-                enterNickNameViewModelInstance.failed();
+                root.executeGame(executeServiceDelay.serviceId);
+                return;
             }
+
+            var gameItem = App.serviceItemByServiceId(executeServiceDelay.serviceId);
+            gameItem.status = "Normal";
+            gameItem.statusText = '';
+            App.updateProgress(gameItem);
         }
     }
 

@@ -24,15 +24,10 @@ PopupBase {
     title: qsTr("GAME_EXECUTING_HEADER").arg(root.gameItem.name)
 
     Component.onCompleted: model.startExecuting(root.gameItem.serviceId);
-    Component.onDestruction: {
-        root.gameItem.statusText = '';
-        root.gameItem.status = "Normal";
-        App.updateProgress(root.gameItem);
-    }
 
     Timer {
         interval: 5000
-        running: root.visible
+        running: root.visible && root.model.internalPopupId == -1
         onTriggered: {
             root.close();
         }
