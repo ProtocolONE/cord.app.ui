@@ -45,7 +45,7 @@ Rectangle {
         }
 
         root.state = "GeneralPage";
-        gameSettingsModelInstance.switchGame(currentGame.serviceId);
+        root.gameSettingsModelInstance.switchGame(currentGame.serviceId);
     }
 
     CursorMouseArea {
