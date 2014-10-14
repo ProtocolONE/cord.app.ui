@@ -233,6 +233,7 @@
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/RecentDateHeader.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/SearchContactList.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Splash.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml</file>
 		<file>Application/Widgets/Messenger/View/Chat.qml</file>
@@ -361,6 +362,7 @@
 		<file>GameNet/Controls/TryLoader.qml</file>
 		<file>GameNet/Controls/TypeaheadBehaviour.qml</file>
 		<file>GameNet/Controls/VerticalSplit.qml</file>
+		<file>GameNet/Controls/Wait.qml</file>
 		<file>GameNet/Controls/WebImage.qml</file>
 		<file>GameNet/Core/GoogleAnalytics.js</file>
 		<file>GameNet/Core/lodash.js</file>

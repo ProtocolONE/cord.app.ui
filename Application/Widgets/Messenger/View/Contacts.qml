@@ -181,6 +181,13 @@ WidgetView {
                     visible: !searchContactItem.localSearch
                     searchText: searchContactItem.searchText
                 }
+
+                Splash {
+                    visible: MessengerJs.getStatus() === MessengerJs.ROSTER_RECEIVING;
+                    text: qsTr("MESSENGER_STATUS_RECEIVING_CONTACTS")
+                    anchors.fill: parent
+                    waitTopMargin: 107
+                }
             }
 
             BottomBar {
@@ -188,10 +195,18 @@ WidgetView {
             }
         }
 
-        AnimatedImage {
-            anchors.centerIn: parent
-            visible: !MessengerJs.isContactReceived()
-            source: installPath + "Assets/Images/Application/Widgets/Messenger/wait.gif"
+        Splash {
+            property bool reconnecting: MessengerJs.getStatus() === MessengerJs.RECONNECTING
+
+            visible: MessengerJs.getStatus() === MessengerJs.CONNECTING
+                     || MessengerJs.getStatus() === MessengerJs.RECONNECTING
+            text: reconnecting ? qsTr("MESSENGER_STATUS_RECONNECTING")
+                      : qsTr("MESSENGER_STATUS_CONNECTING")
+            anchors {
+                fill: parent
+                topMargin: 1
+            }
+            color: reconnecting ? Styles.style.messengerSplashTransparentBackground : Styles.style.messengerSplashSolidBackground
         }
     }
 

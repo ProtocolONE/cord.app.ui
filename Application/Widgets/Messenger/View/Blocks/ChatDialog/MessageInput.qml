@@ -40,6 +40,9 @@ FocusScope {
 
 
         function sendMessage() {
+            if (MessengerJs.getStatus() !== MessengerJs.ROSTER_RECEIVED) {
+                return;
+            }
             if (messengerInput.text.length > 0) {
                 MessengerJs.sendMessage(MessengerJs.selectedUser(), messengerInput.text);
                 messengerInput.text = "";
@@ -297,7 +300,7 @@ FocusScope {
                         normal: Styles.style.messengerMessageInputSendButtonNormal
                         hover: Styles.style.messengerMessageInputSendButtonHover
                     }
-
+                    enabled:  MessengerJs.getStatus() === MessengerJs.ROSTER_RECEIVED;
                     onClicked: d.sendMessage()
                     text: qsTr("MESSENGER_SEND_BUTTON")
                     textColor: Styles.style.messengerMessageInputSendButtonText

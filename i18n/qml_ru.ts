@@ -1346,6 +1346,18 @@ Please try again later.</source>
         <source>MESSENGER_SEARCH_FRIEND_PLACE_HOLDER</source>
         <translation>Поиск друга</translation>
     </message>
+    <message>
+        <source>MESSENGER_STATUS_CONNECTING</source>
+        <translation>Подключение...</translation>
+    </message>
+    <message>
+        <source>MESSENGER_STATUS_RECONNECTING</source>
+        <translation>Переподключение...</translation>
+    </message>
+    <message>
+        <source>MESSENGER_STATUS_RECEIVING_CONTACTS</source>
+        <translation>Загрузка контактов...</translation>
+    </message>
 </context>
 <context>
     <name>ContactsTypeTabs</name>

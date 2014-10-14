@@ -201,6 +201,11 @@ Item {
     property color messengerWebSearchBackground: '#9fa2a4'
     property color messengerWebSearchBackgroundText: '#ffffff'
 
+    //MESSENGER SPLASH
+    property color messengerSplashTransparentBackground: "#88243148"
+    property color messengerSplashSolidBackground: "#243148"
+    property color messengerSplashStatus: "#3498db"
+
     //MESSENGER CONTACT
     property color messengerContactBackground: "#FAFAFA"
     property color messengerContactBackgroundUnread: "#189A19"

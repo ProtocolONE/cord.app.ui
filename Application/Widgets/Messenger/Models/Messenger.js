@@ -12,6 +12,12 @@
 var USER_INFO_FULL = 1;
 var USER_INFO_JID = 2;
 
+var DISCONNECTED     = 0;
+var CONNECTING       = 1;
+var ROSTER_RECEIVING = 2;
+var ROSTER_RECEIVED  = 3;
+var RECONNECTING     = 4;
+
 var _modelComponent,
     _modelInstance;
 
@@ -194,6 +200,10 @@ function isConnecting() {
     return _modelInstance.connecting;
 }
 
+function isConnected() {
+    return _modelInstance.connected;
+}
+
 function getGamenetUser() {
     return _modelInstance.gamenetUser;
 }
@@ -254,4 +264,8 @@ function getRecentConversationItem() {
 
 function isContactReceived() {
     return _modelInstance.contactReceived;
+}
+
+function getStatus() {
+    return _modelInstance.currentStatus;
 }

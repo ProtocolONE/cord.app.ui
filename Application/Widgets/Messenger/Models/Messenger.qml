@@ -38,6 +38,8 @@ Item {
     property bool contactReceived: false
     property bool connecting: false
     property bool connected: false
+    property bool everConnected: false
+    property int currentStatus: d.getCurrentStatus();
 
     property alias historySaveInterval: xmppClient.historySaveInterval
 
@@ -506,6 +508,17 @@ Item {
 
             return MessengerPrivateJs.lastTalkDateMap[user.jid] || 0;
         }
+
+        function getCurrentStatus() {
+            if (root.connected) {
+                return root.contactReceived ? MessengerPrivateJs.ROSTER_RECEIVED : MessengerPrivateJs.ROSTER_RECEIVING;
+            } else {
+                if (root.everConnected) {
+                    return MessengerPrivateJs.RECONNECTING;
+                }
+                return root.connecting ? MessengerPrivateJs.CONNECTING : MessengerPrivateJs.DISCONNECTED;
+            }
+        }
     }
 
     ExtendedListModel {
@@ -533,6 +546,7 @@ Item {
             d.createGamenetUser();
 
             root.connected = true;
+            root.everConnected = true;
             root.connecting = false;
 
             xmppClient.failCount = 0;

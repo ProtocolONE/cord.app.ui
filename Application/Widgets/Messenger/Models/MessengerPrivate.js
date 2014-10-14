@@ -13,6 +13,12 @@
 var USER_INFO_FULL = 1;
 var USER_INFO_JID = 2;
 
+var DISCONNECTED     = 0;
+var CONNECTING       = 1;
+var ROSTER_RECEIVING = 2;
+var ROSTER_RECEIVED  = 3;
+var RECONNECTING     = 4;
+
 var groupToUser = {}
     , userToGroup = {}
     , lastTalkDateMap = {};

@@ -456,6 +456,24 @@
     </message>
 </context>
 <context>
+    <name>Contacts</name>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Contacts.qml" line="190"/>
+        <source>MESSENGER_STATUS_RECEIVING_CONTACTS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Contacts.qml" line="205"/>
+        <source>MESSENGER_STATUS_RECONNECTING</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Contacts.qml" line="206"/>
+        <source>MESSENGER_STATUS_CONNECTING</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ContactsTypeTabs</name>
     <message>
         <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml" line="36"/>
@@ -1328,7 +1346,7 @@
 <context>
     <name>Messenger</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="318"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="324"/>
         <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
