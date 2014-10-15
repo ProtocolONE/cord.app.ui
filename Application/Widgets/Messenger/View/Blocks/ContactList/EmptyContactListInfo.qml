@@ -19,127 +19,92 @@ Rectangle {
     color: Styles.style.messengerEmptyContactListInfoBackground
 
     Image {
-        x: 19
-        y: 1
+        anchors.centerIn: parent
+
+        source: installPath + "/Assets/Images/Application/Widgets/Messenger/EmptyContactInfo/background.png"
+    }
+
+    Image {
+        x: 21
+        y: 10
         source: installPath + "/Assets/Images/Application/Widgets/Messenger/EmptyContactInfo/greenArrow.png"
 
         Text {
             text: qsTr("EMPTY_CONTACT_LIST_FIND_USER")
             width: 100
-            color: "#41B700"
+            color: "#1abc9c"
             wrapMode: Text.Wrap
+            font.pixelSize: 14
             anchors {
                 verticalCenter: parent.bottom
+                left: parent.right
+                leftMargin: 10
+                verticalCenterOffset: 6
+            }
+        }
+    }
+
+    Image {
+        x: 62
+        y: 10
+        source: installPath + "/Assets/Images/Application/Widgets/Messenger/EmptyContactInfo/blueArrow.png"
+
+        Text {
+            text: qsTr("EMPTY_CONTACT_LIST_FIND_USER_WEB_SEARCH")
+            width: 100
+            color: "#3498db"
+            wrapMode: Text.Wrap
+            font.pixelSize: 14
+            anchors {
+                verticalCenter: parent.bottom
+                left: parent.right
+                leftMargin: 10
+                verticalCenterOffset: 6
+            }
+        }
+    }
+
+    Image {
+        x: 10
+        y: 133
+        source: installPath + "/Assets/Images/Application/Widgets/Messenger/EmptyContactInfo/yellowArrow.png"
+
+        Text {
+            text: qsTr("EMPTY_CONTACT_LIST_CONTACT_FILTER")
+            width: 100
+            color: "#e9cb78"
+            wrapMode: Text.Wrap
+            font.pixelSize: 14
+            anchors {
+                top: parent.top
+                topMargin: 22
                 left: parent.right
                 leftMargin: 10
             }
         }
     }
 
-    Item {
-        visible: !showSearchTipOnly
-        anchors.fill: parent
+    Image {
+        x: 11
 
-        Image {
-            x: 56
-            y: 3
-            source: installPath + "/Assets/Images/Application/Widgets/Messenger/EmptyContactInfo/redArrow.png"
-
-            Text {
-                text: qsTr("EMPTY_CONTACT_LIST_FIND_CONTACT")
-                width: 100
-                color: "#E6471F"
-                wrapMode: Text.Wrap
-                anchors {
-                    verticalCenter: parent.bottom
-                    left: parent.right
-                    leftMargin: 10
-                }
-            }
+        anchors {
+            bottom: parent.bottom
+            bottomMargin: 5
         }
 
-        Image {
-            x: 16
-            y: parent.height - 131
-            source: installPath + "/Assets/Images/Application/Widgets/Messenger/EmptyContactInfo/blueArrow.png"
+        source: installPath + "/Assets/Images/Application/Widgets/Messenger/EmptyContactInfo/redArrow.png"
 
-            Text {
-                text: qsTr("EMPTY_CONTACT_LIST_SYSTEM_NOTIFICATION")
-                width: 100
-                color: "#028ABC"
-                wrapMode: Text.Wrap
-                anchors {
-                    verticalCenter: parent.top
-                    left: parent.right
-                    leftMargin: 10
-                }
-            }
-        }
-
-        Image {
-            x: 90
-            y: 312 + 12
-            source: installPath + "/Assets/Images/Application/Widgets/Messenger/EmptyContactInfo/violetArrow.png"
-            // INFO когда появятся фильтры обновить текст и показать.
-            visible: false
-
-            Text {
-                text: qsTr("EMPTY_CONTACT_LIST_CONTACT_FILTER")
-                width: 70
-                color: "#732EAF"
-                wrapMode: Text.Wrap
-                anchors {
-                    verticalCenter: parent.top
-                    left: parent.right
-                    leftMargin: 10
-                }
-            }
-        }
-
-        Item {
-            height: 63
+        Text {
+            text: qsTr("EMPTY_CONTACT_LIST_SYSTEM_NOTIFICATION")
+            width: 100
+            color: "#ff4f02"
+            wrapMode: Text.Wrap
+            font.pixelSize: 14
             anchors {
-                left: parent.left
-                right: parent.right
-                verticalCenter: parent.verticalCenter
-            }
-
-            Rectangle {
-                width: 163
-                height: 1
-                anchors.horizontalCenter: parent.horizontalCenter
-                color: "#A4B1BA"
-            }
-
-            Image {
-                anchors {
-                    left: parent.left
-                    leftMargin: 10
-                    top: parent.top
-                }
-
-                source: installPath + "/Assets/Images/Application/Widgets/Messenger/EmptyContactInfo/lamp.png"
-            }
-
-            Text {
-                width: 163
-
-                anchors {
-                    horizontalCenter: parent.horizontalCenter
-                    top: parent.top
-                    topMargin: 10
-                }
-
-                wrapMode: Text.Wrap
-                color: "#EC6C00"
-                text: qsTr("EMPTY_CONTACT_LIST_INFO")
-            }
-
-            Rectangle {
-                width: 163
-                height: 1
-                anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom }
-                color: "#A4B1BA"
+                top: parent.top
+                topMargin: -6
+                left: parent.right
+                leftMargin: 11
             }
         }
     }

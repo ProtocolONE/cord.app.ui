@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.0" language="en_US">
 <context>
     <name>AccountActivationView</name>
     <message>
@@ -391,7 +391,7 @@
 <context>
     <name>Chat</name>
     <message>
-        <location filename="../Application/Widgets/Overlay/View/Chat/Chat.qml" line="177"/>
+        <location filename="../Application/Widgets/Overlay/View/Chat/Chat.qml" line="179"/>
         <source>MESSENGER_OVERLAY_POPUP_HELPER_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -579,28 +579,23 @@
 <context>
     <name>EmptyContactListInfo</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="27"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="35"/>
         <source>EMPTY_CONTACT_LIST_FIND_USER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="49"/>
-        <source>EMPTY_CONTACT_LIST_FIND_CONTACT</source>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="53"/>
+        <source>EMPTY_CONTACT_LIST_FIND_USER_WEB_SEARCH</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="67"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="95"/>
         <source>EMPTY_CONTACT_LIST_SYSTEM_NOTIFICATION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="87"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="71"/>
         <source>EMPTY_CONTACT_LIST_CONTACT_FILTER</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="135"/>
-        <source>EMPTY_CONTACT_LIST_INFO</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -644,7 +639,6 @@
     <name>GameExecutingModel</name>
     <message>
         <location filename="../Application/Widgets/GameExecuting/GameExecutingModel.qml" line="37"/>
-        <location filename="../Application/Widgets/GameExecuting/GameExecutingModel.qml" line="169"/>
         <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -800,12 +794,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameIsBoring/View/GameIsBoringView.qml" line="109"/>
+        <location filename="../Application/Widgets/GameIsBoring/View/GameIsBoringView.qml" line="113"/>
         <source>GAME_BORING_TIP_2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameIsBoring/View/GameIsBoringView.qml" line="128"/>
+        <location filename="../Application/Widgets/GameIsBoring/View/GameIsBoringView.qml" line="132"/>
         <source>GAME_FAILED_BUTTON_CLOSE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -875,22 +869,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="120"/>
-        <source>CONTROLS_TAB</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="133"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="135"/>
         <source>RESTORE_CLIENT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="194"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="196"/>
         <source>SAVE_BUTTON_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="213"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="215"/>
         <source>CLOSE_BUTTON_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -958,102 +947,102 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="446"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="445"/>
         <source>LOGO_AIKA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="447"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="446"/>
         <source>GAME_AIKA_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="448"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="447"/>
         <source>GAME_AIKA_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="449"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="448"/>
         <source>GAME_AIKA_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="515"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="514"/>
         <source>LOGO_GA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="516"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="515"/>
         <source>GAME_GA_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="517"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="516"/>
         <source>GAME_GA_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="518"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="517"/>
         <source>GAME_GA_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="581"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="580"/>
         <source>LOGO_WI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="582"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="581"/>
         <source>GAME_WI_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="583"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="582"/>
         <source>GAME_WI_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="584"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="583"/>
         <source>GAME_WI_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="651"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="650"/>
         <source>LOGO_ROT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="652"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="651"/>
         <source>GAME_ROT_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="653"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="652"/>
         <source>GAME_ROT_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="654"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="653"/>
         <source>GAME_ROT_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="716"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="715"/>
         <source>LOGO_BD</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="717"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="716"/>
         <source>GAME_BD_ABOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="718"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="717"/>
         <source>GAME_BD_MINI_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="719"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="718"/>
         <source>GAME_BD_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1111,22 +1100,22 @@
 <context>
     <name>GeneralSettings</name>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/GeneralSettings.qml" line="126"/>
+        <location filename="../Application/Blocks/Settings/Application/GeneralSettings.qml" line="128"/>
         <source>CHECKOX_AUTORUN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/GeneralSettings.qml" line="141"/>
+        <location filename="../Application/Blocks/Settings/Application/GeneralSettings.qml" line="143"/>
         <source>CHECKOX_RUN_MINIMIZED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/GeneralSettings.qml" line="153"/>
+        <location filename="../Application/Blocks/Settings/Application/GeneralSettings.qml" line="155"/>
         <source>CHECKOX_PARTICIPATE_TESTING</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Settings/Application/GeneralSettings.qml" line="178"/>
+        <location filename="../Application/Blocks/Settings/Application/GeneralSettings.qml" line="180"/>
         <source>TEST_VERSION_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1134,7 +1123,7 @@
 <context>
     <name>Group</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Group.js" line="61"/>
+        <location filename="../Application/Widgets/Messenger/Models/Group.js" line="65"/>
         <source>WITHOUT_GROUP_NAME</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1152,27 +1141,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="95"/>
-        <source>HEADER_BUTTON_REWARDS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="108"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="113"/>
         <source>HEADER_BUTTON_SUPPORT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="145"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="150"/>
         <source>HEADER_BUTTON_CLOSE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="161"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="166"/>
         <source>HEADER_BUTTON_SETTINGS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="182"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="187"/>
         <source>HEADER_BUTTON_LOGOUT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1525,12 +1509,12 @@
 <context>
     <name>PremiumNotifierModel</name>
     <message>
-        <location filename="../Application/Widgets/PremiumNotifier/PremiumNotifierModel.qml" line="30"/>
+        <location filename="../Application/Widgets/PremiumNotifier/PremiumNotifierModel.qml" line="31"/>
         <source>PREMIUM_EXPIRED_BUTTON_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumNotifier/PremiumNotifierModel.qml" line="31"/>
+        <location filename="../Application/Widgets/PremiumNotifier/PremiumNotifierModel.qml" line="32"/>
         <source>PREMIUM_EXPIRED_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1895,22 +1879,22 @@
 <context>
     <name>SecondAccountView</name>
     <message>
-        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="74"/>
+        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="76"/>
         <source>PREMIUM_ADD_ACCOUNT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="123"/>
+        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="125"/>
         <source>SECOND_GAME_BLOCK_PREMIUM_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="184"/>
+        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="187"/>
         <source>SECOND_GAME_BLOCK_PREMIUM_PLAY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="203"/>
+        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="206"/>
         <source>SECOND_GAME_BLOCK_PREMIUM_PLAY_TULTIP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1981,7 +1965,7 @@
     <name>Tray</name>
     <message>
         <source>TRAY_TOOLTIP</source>
-        <translation type="vanished">GameNet</translation>
+        <translation>GameNet</translation>
     </message>
 </context>
 <context>
@@ -2150,7 +2134,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="149"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="168"/>
         <source>WEB_SEARCH_BACKGROUND_TEXT</source>
         <translation type="unfinished"></translation>
     </message>

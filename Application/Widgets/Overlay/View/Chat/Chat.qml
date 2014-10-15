@@ -94,8 +94,9 @@ Item {
             y: 25
 
             width: row.width
-            height: 558
+            height: 558 - 91
             visible: false
+            clip: true
 
             onWidthChanged: root.resetCoord();
 
