@@ -20,13 +20,6 @@ Item {
     property alias text: inputBehavior.text
     property alias placeholder: placeholderText.text
     property alias maximumLength: inputBehavior.maximumLength
-    property alias echoMode: inputBehavior.echoMode
-    property bool showCapslock: true
-    property bool showLanguage: true
-    property variant typeahead: TypeaheadBehaviour {}
-
-    property alias language: inputBehavior.language
-    property alias capsLock: inputBehavior.capsLock
 
     property int fontSize: 16
     property InputStyleColors style: InputStyleColors {
@@ -35,15 +28,10 @@ Item {
         property color backgroundActive: '#183240'
     }
 
-    property alias error: inputBehavior.error
-
     property alias icon: iconImage.source
     property alias iconBackground: controlIcon.color
     property bool iconHovered: false
     property alias iconCursor: iconMouseCursor.cursor
-
-    property alias inputMask: inputBehavior.inputMask
-    property alias validator: inputBehavior.validator
 
     property bool clearOnEsc: false
 
@@ -51,10 +39,6 @@ Item {
     signal enterPressed()
     signal tabPressed()
     signal backTabPressed()
-
-    function isSuggestionsContainerVisible() {
-        return suggestionsContainer.controlVisible && suggestionsView.model.count > 0;
-    }
 
     onFocusChanged: {
         if (focus) {
@@ -132,7 +116,7 @@ Item {
         Item {
             anchors {
                 left: controlIcon.right
-                right: iconContainer.left
+                right: parent.right
                 rightMargin: 10 + clearIcon.width
                 verticalCenter: parent.verticalCenter
             }
@@ -159,10 +143,10 @@ Item {
                         verticalCenter: parent.verticalCenter
                     }
 
-                    color: root.style.placeholder//"#d6d6d6"
+                    color: root.style.placeholder
                     font { family: "Arial"; pixelSize: root.fontSize }
 
-                    visible: suggestionsContainer.visible && autoCompleteText.getFirstPosition() === 0
+                    visible: autoCompleteText.getFirstPosition() === 0
                 }
 
                 Rectangle {
@@ -209,35 +193,13 @@ Item {
                 Keys.onBacktabPressed: root.backTabPressed();
 
                 Keys.onPressed: {
-                    if (event.key == Qt.Key_Up) {
-                        suggestionsContainer.decrementCurrentIndex();
-                        return;
-                    }
-
-                    if (event.key == Qt.Key_Down) {
-                        suggestionsContainer.incrementCurrentIndex();
-                        return;
-                    }
-
-                    if (event.key == Qt.Key_Right) {
-                        if (inputBehavior.cursorPosition == inputBehavior.text.length) {
-                            suggestionsContainer.selectCurrent();
-                        }
-                        return;
-                    }
-
                     if (event.key == Qt.Key_Enter || event.key == Qt.Key_Return) {
-                        suggestionsContainer.selectCurrent();
                         root.enterPressed();
                         return;
                     }
 
                     if (event.key == Qt.Key_Escape) {
                         event.accepted = true;
-                        if (root.isSuggestionsContainerVisible()) {
-                            suggestionsContainer.controlVisible = false;
-                            return;
-                        }
 
                         if (root.clearOnEsc) {
                             root.text = "";
@@ -255,109 +217,9 @@ Item {
                     }
                 }
 
-                onFocusLost: suggestionsContainer.controlVisible = false;
-
                 onTextChanged: {
                     inputBehavior.error = false;
                     autoCompleteText.text = "";
-                    typeahead.filter = text;
-                    suggestionsContainer.controlVisible = true;
-                }
-            }
-        }
-
-        Item {
-            id: iconContainer
-
-            anchors.right: parent.right
-            width: (capslockIcon.visible ? capslockIcon.width : 0)
-                   + (languageIcon.visible ? languageIcon.width : 0)
-
-            height: parent.height
-
-            Row {
-                height: parent.height
-                anchors.right: parent.right
-                layoutDirection: Qt.RightToLeft
-
-                Item {
-                    id: languageIcon
-
-                    width: visible ? height : 0
-                    height: parent.height
-                    visible: root.showLanguage && inputBehavior.focus
-
-                    Text {
-                        id: languageText
-
-                        color: "#FF6555"
-                        font { family: "Arial"; pixelSize: 20; capitalization: Font.AllUppercase }
-                        visible: false
-                        anchors.centerIn: parent
-                    }
-
-                    Image {
-                        id: languageImage
-
-                        source: ""
-                        anchors.centerIn: parent
-                    }
-
-                    states: [
-                        State {
-                            name: "RuLayout"
-                            when: inputBehavior.language == "RU"
-                            PropertyChanges {
-                                target: languageImage
-                                source: installPath + "Assets/Images/GameNet/Controls/Input/keyboard_ru.png"
-                                visible: true
-                            }
-                            PropertyChanges {
-                                target: languageText
-                                visible: false
-                            }
-                        },
-                        State {
-                            name: "EnLayout"
-                            when: inputBehavior.language == "EN"
-                            PropertyChanges {
-                                target: languageImage
-                                source: installPath + "Assets/Images/GameNet/Controls/Input/keyboard_en.png"
-                                visible: true
-                            }
-                            PropertyChanges {
-                                target: languageText
-                                visible: false
-                            }
-                        },
-                        State {
-                            name: "OtherLayout"
-                            when:  inputBehavior.language != "RU" && inputBehavior.language != "EN"
-                            PropertyChanges {
-                                target: languageImage
-                                visible: false
-                            }
-                            PropertyChanges {
-                                target: languageText
-                                visible: true
-                                text: inputBehavior.language
-                            }
-                        }
-                    ]
-                }
-
-                Item {
-                    id: capslockIcon
-
-                    width: visible ? height : 0
-                    height: parent.height
-                    visible: inputBehavior.activeFocus && root.showCapslock && inputBehavior.capsLock
-                    anchors.verticalCenter: parent.verticalCenter
-
-                    Image {
-                        anchors.centerIn: parent
-                        source: installPath + "Assets/Images/GameNet/Controls/Input/capslock.png"
-                    }
                 }
             }
         }
@@ -371,132 +233,6 @@ Item {
         acceptedButtons: Qt.NoButton
         onClicked: inputBehavior.focus = true;
         onPositionChanged: controlIcon.isOver(mouse.x, mouse.y);
-    }
-
-    Item {
-        anchors {
-            left: parent.left
-            right: parent.right
-            top: parent.bottom
-            topMargin: -2
-        }
-
-        height: suggestionsView.height + 4
-        visible: root.isSuggestionsContainerVisible()
-
-        Rectangle {
-            anchors { fill: parent; margins: 1 }
-            color: style.background
-            border {
-                color: root.style.active
-                width: 2
-            }
-        }
-
-        Item {
-            id: suggestionsContainer
-
-            property bool controlVisible: false
-
-            anchors { fill: parent; margins: 2 }
-
-            function decrementCurrentIndex() {
-                var newIndex;
-
-                if (suggestionsView.count == 0) {
-                    return;
-                }
-
-                newIndex = suggestionsView.currentIndex - 1;
-                if (newIndex < 0) {
-                    newIndex = suggestionsView.count - 1;
-                }
-
-                suggestionsView.currentIndex = newIndex;
-            }
-
-            function incrementCurrentIndex() {
-                var newIndex = -1;
-
-                if (suggestionsView.count == 0) {
-                    return;
-                }
-
-                newIndex = suggestionsView.currentIndex + 1;
-
-                if (newIndex >= suggestionsView.count) {
-                    newIndex = 0;
-                }
-
-                suggestionsView.currentIndex = newIndex;
-            }
-
-            function selectCurrent() {
-                var value = "";
-
-                if (suggestionsView.count == 0) {
-                    return;
-                }
-
-                if (suggestionsView.currentIndex >= 0) {
-                    value = suggestionsView.model.get(suggestionsView.currentIndex).value;
-                } else {
-                    value = suggestionsView.model.get(0).value;
-                }
-
-                root.text = value;
-                autoCompleteText.text = "";
-                suggestionsContainer.controlVisible = false;
-            }
-
-            ListView {
-                id: suggestionsView
-
-                onCurrentIndexChanged: {
-                    if (currentIndex >= 0)
-                        autoCompleteText.text = suggestionsView.model.get(currentIndex).value;
-                }
-
-                width: control.width
-                height: suggestionsView.model.count > 0 ? (control.height * suggestionsView.model.count) : 2
-                interactive: false
-                clip: true
-
-                model: typeahead.proxyModel
-
-                delegate: Rectangle {
-                    color: suggestionsView.currentIndex == index || delegateArea.containsMouse ? "#FFCC00" : "#FFFFFF"
-                    width: control.width
-                    height: control.height
-
-                    Text {
-                        anchors {
-                            right: parent.right
-                            rightMargin: 10
-                            left: parent.left
-                            leftMargin: control.height + 10
-                            verticalCenter: parent.verticalCenter
-                        }
-                        elide: Text.ElideRight
-                        text: model.value
-                        color: '#66758F'
-                        font { family: 'Arial'; pixelSize: 16 }
-                    }
-
-                    MouseArea {
-                        id: delegateArea
-
-                        anchors.fill: parent
-                        hoverEnabled: true
-
-                        onClicked: {
-                            root.text = value;
-                            suggestionsContainer.controlVisible = false;
-                        }
-                    }
-                }
-            }
-        }
     }
 
     Image {
@@ -557,27 +293,6 @@ Item {
                 PropertyChanges { target: controlBorder; color: style.background }
                 PropertyChanges { target: iconImage; opacity: 0.2 }
                 PropertyChanges { target: inputBehavior; opacity: 0.2 }
-            },
-            State {
-                name: "ErrorNormal"
-                when: inputBehavior.error
-                PropertyChanges { target: controlBorder; border.color: style.error }
-                PropertyChanges { target: controlBorder; color: style.background }
-                PropertyChanges { target: inputBehavior; color: style.error }
-            },
-            State {
-                name: "ErrorActive"
-                when: inputBehavior.activeFocus && inputBehavior.error
-                PropertyChanges { target: controlBorder; border.color: style.hover }
-                PropertyChanges { target: controlBorder; color: style.background }
-                PropertyChanges { target: inputBehavior; color: style.hover }
-            },
-            State {
-                name: "ErrorHover"
-                when: mouseArea.containsMouse && inputBehavior.error
-                PropertyChanges { target: controlBorder; border.color: style.hover }
-                PropertyChanges { target: controlBorder; color: style.background }
-                PropertyChanges { target: inputBehavior; color: style.error }
             }
         ]
     }

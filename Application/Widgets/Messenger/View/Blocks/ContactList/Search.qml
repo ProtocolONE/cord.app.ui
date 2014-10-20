@@ -96,8 +96,6 @@ FocusScope {
             onIconClicked: searchContactInput.forceActiveFocus()
 
             fontSize: 12
-            showCapslock: false
-            showLanguage: false
             style {
                 normal: Styles.style.messengerSearchInputNormal
                 active: Styles.style.messengerSearchInputActive

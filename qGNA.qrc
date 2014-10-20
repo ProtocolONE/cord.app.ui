@@ -233,6 +233,7 @@
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/RecentDateHeader.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/SearchContactList.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/SearchInput.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Splash.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml</file>
