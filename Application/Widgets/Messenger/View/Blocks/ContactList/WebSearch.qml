@@ -150,25 +150,58 @@ NavigatableContactList {
     implicitWidth: 228
     implicitHeight: 400
 
-    Text {
-        anchors {
-            verticalCenter: parent.verticalCenter
-            left: parent.left
-            leftMargin: 12
-        }
+    Image {
+        anchors.centerIn: parent
 
-        width: parent.width - 12
+        source: installPath + "/Assets/Images/Application/Widgets/Messenger/EmptyContactInfo/background.png"
+    }
 
-        font {
-            family: 'Arial'
-            pixelSize: 14
-        }
-        color: Styles.style.messengerWebSearchBackgroundText
+    Item {
+        y: 10
 
-        text: qsTr("WEB_SEARCH_BACKGROUND_TEXT");
+        width: 190
+        height: 405
 
-        wrapMode: Text.WordWrap
         visible: root.searchText.length == 0
+
+        Image {
+            x: 21
+            source: installPath + "/Assets/Images/Application/Widgets/Messenger/greenArrow.png"
+
+            Text {
+                text: qsTr("WEB_SEARCH_BUTTON_HELP_TEXT")
+                width: 100
+                color: "#1abc9c"
+                wrapMode: Text.Wrap
+                font.pixelSize: 14
+                anchors {
+                    verticalCenter: parent.bottom
+                    left: parent.right
+                    leftMargin: 10
+                    verticalCenterOffset: 6
+                }
+            }
+        }
+
+        Image {
+            x: 62
+            source: installPath + "/Assets/Images/Application/Widgets/Messenger/blueArrow.png"
+
+            Text {
+                text: qsTr("WEB_SEARCH_INPUT_HELP_TEXT")
+                width: 100
+                color: "#3498db"
+                wrapMode: Text.Wrap
+                font.pixelSize: 14
+                anchors {
+                    top: parent.top
+                    topMargin: 29
+                    left: parent.right
+                    leftMargin: 10
+                }
+            }
+        }
+
     }
 
     NavigatableListView {

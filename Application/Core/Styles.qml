@@ -189,16 +189,20 @@ Item {
     property color messengerBottomBarButtonNotificationText: "#FFFFFF"
 
     //MESSENGER SEARCH
-    property color messengerSearchBackground: "#FAFAFA"
+    property color messengerSearchBackground: "#324e5e"
     property color messengerSearchButtonNormal: "#1ABC9C"
     property color messengerSearchButtonHover: "#019074"
-    property color messengerSearchInputNormal: "#e5e5e5"
-    property color messengerSearchInputActive: "#3498db"
-    property color messengerSearchInputHover: "#3498db"
-    property color messengerSearchInputBackground: "#FFFFFF"
-    property color messengerSearchInputPlaceholder: "#a4b0ba"
-    property color messengerSearchInputText: "#000000"
-    property color messengerWebSearchBackground: '#9fa2a4'
+    property color messengerSearchInputNormal: "#3e7090"
+    property color messengerSearchInputActive: "#3e7090"
+    property color messengerSearchInputHover: "#3e7090"
+    property color messengerSearchInputBackground: "#324e5e"
+    property color messengerSearchInputBackgroundHover: "#183240"
+    property color messengerSearchInputPlaceholder: "#3e7090"
+    property color messengerSearchInputText: "#3e7090"
+    property color messengerSearchInputTextHover: "#ffffff"
+
+
+    property color messengerWebSearchBackground: '#ffffff'
     property color messengerWebSearchBackgroundText: '#ffffff'
 
     //MESSENGER SPLASH

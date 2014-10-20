@@ -47,6 +47,8 @@ FocusScope {
         spacing: 10
 
         Button {
+            id: button
+
             width: 32
             height: 32
 
@@ -56,15 +58,31 @@ FocusScope {
             }
 
             Image {
+                function getImage() {
+                    if (searchContactItem.localSearch) {
+                        if (button.containsMouse) {
+                            return (installPath + "Assets/Images/Application/Widgets/Messenger/norm_search_active.png");
+                        }
+
+                        return installPath + "Assets/Images/Application/Widgets/Messenger/norm_search.png";
+                        return;
+                    }
+
+                    if (button.containsMouse) {
+                        return installPath + "Assets/Images/Application/Widgets/Messenger/web_search_active.png";
+                    }
+
+                    return installPath + "Assets/Images/Application/Widgets/Messenger/web_search.png";
+                }
+
                 anchors.centerIn: parent
-                source: localSearch ? installPath + "Assets/Images/Application/Widgets/Messenger/add_friend.png" :
-                                      installPath + "Assets/Images/Application/Widgets/Messenger/home_icon.png"
+                source: getImage()
             }
 
             onClicked: localSearch = !localSearch;
         }
 
-        Input {
+        SearchInput {
             id: searchContactInput
 
             height: parent.height
@@ -74,7 +92,10 @@ FocusScope {
             clearOnEsc: true
             placeholder: localSearch ? qsTr("MESSENGER_SEARCH_FRIEND_PLACE_HOLDER") :
                                        qsTr("MESSENGER_WEB_SEARCH_PLACE_HOLDER")
-            fontSize: 14
+
+            onIconClicked: searchContactInput.forceActiveFocus()
+
+            fontSize: 12
             showCapslock: false
             showLanguage: false
             style {
@@ -84,6 +105,11 @@ FocusScope {
                 background: Styles.style.messengerSearchInputBackground
                 placeholder: Styles.style.messengerSearchInputPlaceholder
                 text: Styles.style.messengerSearchInputText
+
+                property color textNormal: Styles.style.messengerSearchInputText
+                property color textActive: Styles.style.messengerSearchInputTextHover
+
+                property color backgroundActive: Styles.style.messengerSearchInputBackgroundHover
             }
         }
     }

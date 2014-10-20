@@ -391,7 +391,7 @@
 <context>
     <name>Chat</name>
     <message>
-        <location filename="../Application/Widgets/Overlay/View/Chat/Chat.qml" line="179"/>
+        <location filename="../Application/Widgets/Overlay/View/Chat/Chat.qml" line="180"/>
         <source>MESSENGER_OVERLAY_POPUP_HELPER_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -437,7 +437,8 @@
 <context>
     <name>ContactItem</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem.qml" line="183"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem.qml" line="106"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem.qml" line="189"/>
         <source>CONTACT_ITEM_NICKNAME_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -458,17 +459,17 @@
 <context>
     <name>Contacts</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Contacts.qml" line="190"/>
+        <location filename="../Application/Widgets/Messenger/View/Contacts.qml" line="187"/>
         <source>MESSENGER_STATUS_RECEIVING_CONTACTS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Contacts.qml" line="205"/>
+        <location filename="../Application/Widgets/Messenger/View/Contacts.qml" line="203"/>
         <source>MESSENGER_STATUS_RECONNECTING</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Contacts.qml" line="206"/>
+        <location filename="../Application/Widgets/Messenger/View/Contacts.qml" line="204"/>
         <source>MESSENGER_STATUS_CONNECTING</source>
         <translation type="unfinished"></translation>
     </message>
@@ -605,7 +606,7 @@
 <context>
     <name>EmptyContactListInfo</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="35"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="33"/>
         <source>EMPTY_CONTACT_LIST_FIND_USER</source>
         <translation type="unfinished"></translation>
     </message>
@@ -615,12 +616,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="95"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="98"/>
         <source>EMPTY_CONTACT_LIST_SYSTEM_NOTIFICATION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="71"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="73"/>
         <source>EMPTY_CONTACT_LIST_CONTACT_FILTER</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1328,17 +1329,17 @@
 <context>
     <name>MessageInput</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="302"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="305"/>
         <source>MESSENGER_SEND_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="310"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="313"/>
         <source>MESSENGER_SEND_BUTTON_MESSAGE_ENTER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="312"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="315"/>
         <source>MESSENGER_SEND_BUTTON_MESSAGE_CTRL_ENTER</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1346,7 +1347,7 @@
 <context>
     <name>Messenger</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="324"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="320"/>
         <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1874,12 +1875,12 @@
 <context>
     <name>Search</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml" line="75"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml" line="93"/>
         <source>MESSENGER_SEARCH_FRIEND_PLACE_HOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml" line="76"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml" line="94"/>
         <source>MESSENGER_WEB_SEARCH_PLACE_HOLDER</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2137,8 +2138,8 @@
 <context>
     <name>qGNA_Main</name>
     <message>
-        <location filename="../qGNA_Main.qml" line="650"/>
-        <source>CLOSE_APP_TOOLTIP_MESSAGE_DESC</source>
+        <location filename="../Application/Core/Authorization/Vk.qml" line="34"/>
+        <source>WINDOW_TITLE_VK_AUTH</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2160,8 +2161,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="161"/>
-        <source>WEB_SEARCH_BACKGROUND_TEXT</source>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="173"/>
+        <source>WEB_SEARCH_BUTTON_HELP_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="193"/>
+        <source>WEB_SEARCH_INPUT_HELP_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
