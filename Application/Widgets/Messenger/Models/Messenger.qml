@@ -178,6 +178,7 @@ Item {
         if (item.isValid()) {
             item.unreadMessageCount = 0;
             item.hasUnreadMessage = false;
+            d.setUnreadMessageForUser(item.jid, 0);
         }
 
         root.selectedUserChanged();
@@ -323,10 +324,12 @@ Item {
             , groups
             , item
             , groupsMap = {}
-            , rawUser;
+            , rawUser
+            , unreadMessageUsersMap;
 
             nickname = xmppClient.rosterManager.getNickname(user) || externalNickName;
             groups = xmppClient.rosterManager.getGroups(user);
+            unreadMessageUsersMap = d.unreadMessageUsers();
             groups = groups.filter(function(e) {
                 return !!e;
             });
@@ -339,9 +342,19 @@ Item {
                 item = root.getUser(user);
                 item.nickname = nickname || item.nickname || user;
                 // UNDONE set other properties
+
+                if (unreadMessageUsersMap.hasOwnProperty(item.jid)) {
+                    item.unreadMessageCount = unreadMessageUsersMap[item.jid].count;
+                }
+
             } else {
                 rawUser = UserJs.createRawUser(user, nickname || user);
                 rawUser.lastTalkDate = d.getUserTalkDate(rawUser);
+
+                if (unreadMessageUsersMap.hasOwnProperty(rawUser.jid)) {
+                    rawUser.unreadMessageCount = unreadMessageUsersMap[rawUser.jid].count;
+                }
+
                 usersModel.append(rawUser);
                 if (root.contactReceived) {
                     d.storeRawUser(user);
@@ -415,6 +428,7 @@ Item {
                 d.updateUserTalkDate(user);
                 if (!root.isSelectedUser(user)) {
                     user.unreadMessageCount += 1;
+                    d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
                 }
             } else {
                 user.changeState(from, state);
@@ -470,6 +484,38 @@ Item {
             } catch(e) {
                 MessengerPrivateJs.lastTalkDateMap = {};
             }
+        }
+
+        function unreadMessageUsers() {
+            if (MessengerPrivateJs.unreadMessageCountMap) {
+                return MessengerPrivateJs.unreadMessageCountMap;
+            }
+
+            var storedUsers = {},
+                settingsValue = Settings.value('qml/messenger/unreadmessage/', myUser.jid, "{}");
+
+            try {
+                storedUsers = JSON.parse(settingsValue);
+            } catch(e) {
+                storedUsers = {};
+            }
+
+            MessengerPrivateJs.unreadMessageCountMap = storedUsers;
+
+            return storedUsers;
+        }
+
+        function setUnreadMessageForUser(jid, count) {
+            var storedUsers = d.unreadMessageUsers();
+            if (count === 0) {
+                delete storedUsers[jid];
+            } else {
+                storedUsers[jid] = {count: count};
+            }
+
+            Settings.setValue('qml/messenger/unreadmessage/', myUser.jid, JSON.stringify(storedUsers));
+
+            MessengerPrivateJs.unreadMessageCountMap = storedUsers;
         }
 
         function getRawUsersMap() {

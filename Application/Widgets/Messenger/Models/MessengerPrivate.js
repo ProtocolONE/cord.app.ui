@@ -21,7 +21,8 @@ var RECONNECTING     = 4;
 
 var groupToUser = {}
     , userToGroup = {}
-    , lastTalkDateMap = {};
+    , lastTalkDateMap = {}
+    , unreadMessageCountMap;
 
 function reset() {
     groupToUser = {};
