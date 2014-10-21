@@ -564,6 +564,7 @@ var Core = function(options) {
     this._lang = (options && options.lang) ? options.lang : 'ru';
     this._auth = (options && options.auth) ? options.auth : false;
     this._url =  (options && options.url) ? options.url : "https://gnapi.com:8443/restapi";
+    this._genericErrorCallback = undefined;
 
     this.__defineSetter__('lang', function(value) {
         this._lang = value;
@@ -575,6 +576,10 @@ var Core = function(options) {
 
     this.__defineSetter__("url", function(value) {
         this._url = value;
+    });
+
+    this.__defineSetter__("genericErrorCallback", function(value) {
+        this._genericErrorCallback = value;
     });
 };
 
@@ -607,6 +612,10 @@ Core.setup = function(options){
     if (options.lang) {
         Core.instance.lang = options.lang;
     }
+
+    if (options.genericErrorCallback) {
+        Core.instance.genericErrorCallback = options.genericErrorCallback;
+    }
 };
 
 Core.execute = function(method, params, auth, successCallback, errorCallback) {
@@ -627,7 +636,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.135.d249b986ed1ced4c705ce0f673b6fb3df98571a7",
+    version: "1.0.148.9f5b03de941df9da38cd981c754bf2f978a9641e",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',
@@ -661,7 +670,7 @@ Core.prototype = {
     },
 
     execute:  function(method, params, successCallback, errorCallback) {
-        var responseObject, internalParams, stringParams, format, response;
+        var responseObject, internalParams, stringParams, format, response, genericErrorCallback;
 
         format = params.format || 'json';
 
@@ -678,6 +687,8 @@ Core.prototype = {
             uri: new Uri((params.restapiUrl || this._url) + stringParams)
         };
 
+        genericErrorCallback = this._genericErrorCallback;
+
         http.request(internalParams, function(response) {
 
             if (response.status !== 200) {
@@ -691,25 +702,32 @@ Core.prototype = {
                 return;
             }
 
-            if (format === 'json') {
-                try {
-                    responseObject = JSON.parse(response.body);
-                } catch (e) {
-                }
-
-                if (!responseObject.hasOwnProperty('response')) {
-                    if (typeof errorCallback === 'function') {
-                        errorCallback(0);
-                    }
-                    return;
-                }
-
-                successCallback(responseObject.response);
+            if (format !== 'json') {
+                successCallback(response.body);
                 return;
             }
 
-            successCallback(response.body);
+            try {
+                responseObject = JSON.parse(response.body);
+            } catch (e) {
+            }
 
+            if (!responseObject.hasOwnProperty('response')) {
+                if (typeof errorCallback === 'function') {
+                    errorCallback(0);
+                }
+                return;
+            }
+
+            if (responseObject.response.hasOwnProperty('error')) {
+                if (typeof genericErrorCallback === 'function') {
+                    genericErrorCallback(
+                        responseObject.response.error.code,
+                        responseObject.response.error.message);
+                }
+            }
+
+            successCallback(responseObject.response);
         });
     }
 }

@@ -85,7 +85,20 @@ Item {
         var url = Settings.value('qGNA/restApi', 'url', options.defaultApiUrl);
 
         console.log('RestApi use', url);
-        RestApi.Core.setup({lang: 'ru', url: url});
+        RestApi.Core.setup({
+                               lang: 'ru',
+                               url: url,
+                               genericErrorCallback: function(code, message) {
+                                   if (code == RestApi.Error.AUTHORIZATION_FAILED
+                                       || code == RestApi.Error.ACCOUNT_NOT_EXISTS
+                                       || code == RestApi.Error.AUTHORIZATION_LIMIT_EXCEED
+                                       || code == RestApi.Error.UNKNOWN_ACCOUNT_STATUS) {
+
+                                       App.logoutRequest();
+                                   }
+
+                               }
+                           });
     }
 
     function initGoogleAnalytics(options) {
@@ -198,5 +211,6 @@ Item {
     Connections {
         target: App.mainWindowInstance()
         onNavigate: App.navigate(page);
+        onNeedAuth: App.logoutRequest()
     }
 }
