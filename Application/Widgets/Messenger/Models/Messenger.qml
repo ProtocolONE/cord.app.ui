@@ -684,6 +684,7 @@ Item {
         onLogoutDone: {
             myUser.avatar = '';
             xmppClient.failCount = 0;
+            MessengerPrivateJs.unreadMessageCountMap = undefined;
         }
     }
 
