@@ -132,3 +132,19 @@ function selectService(serviceId) {
 function settingsChange(path, key, value) {
     _signalBusInstance.settingsChange(path, key, value);
 }
+
+function setTrayIcon(source) {
+    _signalBusInstance.setTrayIcon(source);
+}
+
+function setAnimatedTrayIcon(animatedSource) {
+    _signalBusInstance.setAnimatedTrayIcon(animatedSource);
+}
+
+function updateTaskbarIcon(source) {
+    _signalBusInstance.updateTaskbarIcon(source);
+}
+
+function unreadContactsChanged(contacts) {
+    _signalBusInstance.unreadContactsChanged(contacts);
+}

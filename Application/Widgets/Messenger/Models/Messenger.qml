@@ -39,7 +39,7 @@ Item {
     property bool connecting: false
     property bool connected: false
     property bool everConnected: false
-    property int currentStatus: d.getCurrentStatus();
+    property int currentStatus: d.getCurrentStatus()
 
     property alias historySaveInterval: xmppClient.historySaveInterval
 
@@ -428,7 +428,6 @@ Item {
                 d.updateUserTalkDate(user);
                 if (!root.isSelectedUser(user)) {
                     user.unreadMessageCount += 1;
-                    d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
                 }
             } else {
                 user.changeState(from, state);

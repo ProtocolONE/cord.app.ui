@@ -163,4 +163,8 @@ QtObject {
     function gameSettingsModelInstance() {
         return gameSettingsModel;
     }
+
+    function setTaskbarIcon(source) {
+        mainWindow.setTaskbarIcon(source);
+    }
 }

@@ -71,7 +71,6 @@ WidgetModel {
         target: MessengerJs.instance()
         property: "historySaveInterval"
         value: settings.historySaveInterval
-
     }
 
     Addons.Popups {
@@ -79,4 +78,6 @@ WidgetModel {
     }
 
     Addons.NickNameReminder {}
+
+    Addons.Notifications {}
 }

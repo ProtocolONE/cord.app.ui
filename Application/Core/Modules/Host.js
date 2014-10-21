@@ -291,3 +291,9 @@ function gameSettingsModelInstance() {
 
     return null;
 }
+
+function setTaskbarIcon(source) {
+    if (proxyInst) {
+        proxyInst.setTaskbarIcon(source);
+    }
+}

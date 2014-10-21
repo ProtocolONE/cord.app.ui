@@ -21,6 +21,7 @@ import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 WidgetModel {
     id: root
 
+    property string defaultTrayIcon: "Assets/Images/Application/Widgets/TrayMenu/tray.ico"
     property bool isFullMenu: User.isAuthorized()
 
     signal activate()
@@ -79,11 +80,43 @@ WidgetModel {
         App.exitApplication();
     }
 
-    Component.onCompleted: {
-        var iconPath = installPath + 'Assets/Images/Application/Widgets/TrayMenu/tray.ico';
-        iconPath = iconPath.replace('file:///', '');
+    function setTrayIcon(source) {
+        if (source !== "") {
+            TrayWindow.setIcon(preparePath(source));
+            return;
+        }
 
-        TrayWindow.install(iconPath);
+        TrayWindow.setIcon(preparePath(root.defaultTrayIcon));
+    }
+
+    function setAnimatedTrayIcon(source) {
+        if (source !== "") {
+            TrayWindow.animatedSource = preparePath(source);
+            return;
+        }
+
+        TrayWindow.setIcon(preparePath(root.defaultTrayIcon));
+    }
+
+    function preparePath(path) {
+        var iconPath = installPath + path;
+        return iconPath.replace('file:///', '');
+    }
+
+    Connections {
+        target: App.signalBus()
+
+        onSetTrayIcon: {
+            root.setTrayIcon(source);
+        }
+
+        onSetAnimatedTrayIcon: {
+            root.setAnimatedTrayIcon(source);
+        }
+    }
+
+    Component.onCompleted: {
+        TrayWindow.install(preparePath(root.defaultTrayIcon));
         TrayWindow.setToolTip(qsTr('TRAY_TOOLTIP'));
         TrayWindow.activate.connect(window.activateWindow);
         TrayWindow.activateWindow.connect(window.moveToTray);

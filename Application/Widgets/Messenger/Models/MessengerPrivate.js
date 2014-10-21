@@ -21,8 +21,7 @@ var RECONNECTING     = 4;
 
 var groupToUser = {}
     , userToGroup = {}
-    , lastTalkDateMap = {}
-    , unreadMessageCountMap;
+    , lastTalkDateMap = {};
 
 function reset() {
     groupToUser = {};
@@ -65,4 +64,3 @@ function userGroups(user) {
 
     return Object.keys(userToGroup[user]);
 }
-

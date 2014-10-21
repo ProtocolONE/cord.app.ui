@@ -49,4 +49,9 @@ QtObject {
 
     signal leftMouseClick(variant rootItem, int x, int y);
     signal settingsChange(string path, string key, string value);
+
+    signal setTrayIcon(string source);
+    signal setAnimatedTrayIcon(string source);
+    signal updateTaskbarIcon(string source);
+    signal unreadContactsChanged(int contacts);
 }
