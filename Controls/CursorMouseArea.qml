@@ -23,6 +23,8 @@ MouseArea {
     hoverEnabled: true
     onEntered: Tooltip.entered(mouser)
     onExited: Tooltip.exited(mouser)
+    onPressed: Tooltip.exited(mouser)
+    onReleased: Tooltip.entered(mouser)
 
     CursorArea {
         id: cursorArea

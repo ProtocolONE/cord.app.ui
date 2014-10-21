@@ -13,6 +13,8 @@ import Tulip 1.0
 import "../../../../../Core/Styles.js" as Styles
 
 Rectangle {
+    id: root
+
     property bool showSearchTipOnly: false
 
     anchors.fill: parent
@@ -48,6 +50,7 @@ Rectangle {
         x: 62
         y: 10
         source: installPath + "/Assets/Images/Application/Widgets/Messenger/EmptyContactInfo/blueArrow.png"
+        visible: !root.showSearchTipOnly
 
         Text {
             text: qsTr("EMPTY_CONTACT_LIST_FIND_USER_WEB_SEARCH")
@@ -68,6 +71,7 @@ Rectangle {
         x: 10
         y: 133
         source: installPath + "/Assets/Images/Application/Widgets/Messenger/EmptyContactInfo/yellowArrow.png"
+        visible: !root.showSearchTipOnly
 
         Text {
             text: qsTr("EMPTY_CONTACT_LIST_CONTACT_FILTER")
@@ -86,6 +90,7 @@ Rectangle {
 
     Image {
         x: 11
+        visible: !root.showSearchTipOnly
 
         anchors {
             bottom: parent.bottom

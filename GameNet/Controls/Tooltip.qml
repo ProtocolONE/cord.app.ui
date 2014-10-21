@@ -17,6 +17,7 @@ Item {
     id: root
 
     property int maxTextLen: 24
+    property int animationDuration: animation.duration
 
     signal linkActivated(string link)
 
@@ -27,7 +28,11 @@ Item {
     height: baseRect.height
 
     Behavior on opacity {
-        PropertyAnimation { duration: 250 }
+        PropertyAnimation {
+            id: animation
+
+            duration: 250
+        }
     }
 
     property string text: !!item ? item.toolTip : ''

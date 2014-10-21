@@ -23,6 +23,7 @@ Rectangle {
     property alias tooltipPosition: buttonBehavior.tooltipPosition
     property alias tooltipGlueCenter: buttonBehavior.tooltipGlueCenter
     property alias containsMouse: buttonBehavior.containsMouse
+    property bool buttonPressed: buttonBehavior.buttonPressed
 
     signal entered()
     signal exited()

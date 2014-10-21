@@ -58,6 +58,14 @@ function exited(item) {
     }
 }
 
+function animationDuration() {
+    if (_tooltipObject) {
+        return _tooltipObject.animationDuration;
+    }
+
+    return 0;
+}
+
 function release(item) {
     if (!this.isItemValid(item)) {
         console.log('FATAL: Could not release tooltip item object ' + item);

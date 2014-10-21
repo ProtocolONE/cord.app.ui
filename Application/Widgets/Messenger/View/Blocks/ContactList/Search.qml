@@ -12,6 +12,7 @@ import QtQuick 1.1
 import GameNet.Controls 1.0
 
 import "../../../../../Core/Styles.js" as Styles
+import "../../../../../../GameNet/Controls/Tooltip.js" as Tooltip
 
 FocusScope {
     id: searchContactItem
@@ -55,6 +56,45 @@ FocusScope {
             style {
                 normal: Styles.style.messengerSearchButtonNormal
                 hover: Styles.style.messengerSearchButtonHover
+            }
+
+            StateGroup {
+                states: [
+                    State {
+                        name: "LocalSearch"
+                        when: searchContactItem.localSearch
+                    },
+                    State {
+                        name: "WebSearch"
+                        when: !searchContactItem.localSearch
+                    }
+                ]
+
+                transitions: [
+                    Transition {
+                        from: "*"
+                        to: "WebSearch"
+
+                        SequentialAnimation {
+                            PauseAnimation { duration: Tooltip.animationDuration() }
+                            ScriptAction {
+                                script: button.toolTip = qsTr("WEBSEARCH_BUTTON_TULTIP");
+                            }
+                        }
+                    },
+                    Transition {
+                        from: "*"
+                        to: "LocalSearch"
+
+                        SequentialAnimation {
+                            PauseAnimation { duration: Tooltip.animationDuration() }
+
+                            ScriptAction {
+                                script: button.toolTip = qsTr("LOCAL_SEARCH_BUTTON_TULTIP");
+                            }
+                        }
+                    }
+                ]
             }
 
             Image {

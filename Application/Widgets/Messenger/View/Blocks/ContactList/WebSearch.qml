@@ -162,7 +162,7 @@ NavigatableContactList {
         width: 190
         height: 405
 
-        visible: root.searchText.length == 0
+        visible: (root.searchText.length == 0) || (listView.count === 0)
 
         Image {
             x: 21

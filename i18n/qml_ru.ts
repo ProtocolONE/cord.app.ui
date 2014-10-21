@@ -4141,6 +4141,14 @@ Please try again later.</source>
         <source>MESSENGER_WEB_SEARCH_PLACE_HOLDER</source>
         <translation type="unfinished">Поиск в GameNet</translation>
     </message>
+    <message>
+        <source>LOCAL_SEARCH_BUTTON_TULTIP</source>
+        <translation type="unfinished">Поиск среди моих контактов.</translation>
+    </message>
+    <message>
+        <source>WEBSEARCH_BUTTON_TULTIP</source>
+        <translation type="unfinished">Добавление новых контактов. Поиск по имени персонажа в игре, никнейму в GameNet или названию гильдии.</translation>
+    </message>
 </context>
 <context>
     <name>SecondAccountAuthView</name>
