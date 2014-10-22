@@ -93,8 +93,11 @@ Item {
                                        || code == RestApi.Error.ACCOUNT_NOT_EXISTS
                                        || code == RestApi.Error.AUTHORIZATION_LIMIT_EXCEED
                                        || code == RestApi.Error.UNKNOWN_ACCOUNT_STATUS) {
+                                       console.log('RestApi generic error', code, message);
 
-                                       App.logoutRequest();
+                                       if (User.isAuthorized()) {
+                                        App.logoutRequest();
+                                       }
                                    }
 
                                }

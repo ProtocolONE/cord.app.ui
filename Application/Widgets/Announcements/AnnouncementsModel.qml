@@ -713,11 +713,17 @@ WidgetModel {
         onTriggered: logicTick();
     }
 
+    Connections {
+        target: App.signalBus();
+        onAuthDone: refreshTimer.restart();
+        onLogoutDone: refreshTimer.stop();
+    }
+
     Timer {
         id: refreshTimer
 
         interval: 10800000
-        running: true
+        running: false
         repeat: true
         triggeredOnStart: true
         onTriggered: {
