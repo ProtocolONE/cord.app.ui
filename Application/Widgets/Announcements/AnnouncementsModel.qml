@@ -18,6 +18,7 @@ import Application.Blocks 1.0
 import "../../Core/TrayPopup.js" as PopupHelper
 import "../../Core/restapi.js" as RestApi
 import "../../Core/App.js" as App
+import "../../Core/User.js" as User
 import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 import "./AnnouncementsModel.js" as AnnouncementsHelper
@@ -45,7 +46,7 @@ WidgetModel {
             return;
         }
 
-        Marketing.send(Marketing.AnnouncementShown, serviceId, { type: "installedGame" });
+        Marketing.send(Marketing.AnnouncementShown, serviceId, { type: "installedGame", userId: User.userId()});
 
         var gameItem = App.serviceItemByServiceId(serviceId);
 
@@ -101,7 +102,7 @@ WidgetModel {
     function showSmallAnnouncement(announceItem) {
         Marketing.send(Marketing.AnnouncementShown,
                        announceItem.serviceId,
-                       { type: "announcementSmall", id: announceItem.id });
+                       { type: "announcementSmall", id: announceItem.id, userId: User.userId() });
 
         var gameItem = App.serviceItemByServiceId(announceItem.serviceId);
         PopupHelper.showPopup(announceGameItemPopUp,
@@ -132,7 +133,7 @@ WidgetModel {
     function showBigAnnouncement(announceItem) {
         Marketing.send(Marketing.AnnouncementShown,
                        announceItem.serviceId,
-                       { type: "announcementBig", id: announceItem.id });
+                       { type: "announcementBig", id: announceItem.id, userId: User.userId() });
 
         bigAnnounceWindow.imageUrl = announceItem.image;
         bigAnnounceWindow.announceItem = announceItem;
@@ -585,7 +586,7 @@ WidgetModel {
             function sendAnnouncementActionClicked() {
                 Marketing.send(Marketing.AnnouncementActionClicked,
                                announceItem.serviceId,
-                               { type: "announcementSmall", id: announceItem.id });
+                               { type: "announcementSmall", id: announceItem.id, userId: User.userId() });
                 var gameItem = App.serviceItemByServiceId(announceItem.serviceId);
                 GoogleAnalytics.trackEvent('/announcement/small/' + announceItem.id,
                                            'Announcement', 'Action on Announcement', gameItem.gaName);
@@ -609,7 +610,7 @@ WidgetModel {
             onAnywhereClicked: {
                 Marketing.send(Marketing.AnnouncementMissClicked,
                                announceItem.serviceId,
-                               { type: "announcementSmall", id: announceItem.id });
+                               { type: "announcementSmall", id: announceItem.id, userId: User.userId() });
 
                 if (announceItem.url) {
                     announcements.announceActionClick(announceItem);
@@ -632,7 +633,7 @@ WidgetModel {
             onCloseButtonClicked: {
                 Marketing.send(Marketing.AnnouncementClosedClicked,
                                announceItem.serviceId,
-                               { type: "announcementSmall", id: announceItem.id });
+                               { type: "announcementSmall", id: announceItem.id, userId: User.userId() });
                 announcements.announceCloseClick(announceItem);
 
                 var gameItem = App.serviceItemByServiceId(announceItem.serviceId);
@@ -654,7 +655,7 @@ WidgetModel {
             property variant popupType: "unknown"
 
             function sendAnnouncementActionClicked() {
-                Marketing.send(Marketing.AnnouncementActionClicked, serviceId, { type: popupType });
+                Marketing.send(Marketing.AnnouncementActionClicked, serviceId, { type: popupType, userId: User.userId() });
 
                 var gameItem = App.serviceItemByServiceId(serviceId);
                 GoogleAnalytics.trackEvent('/announcement/'+ popupType +'/' + serviceId,
@@ -672,7 +673,7 @@ WidgetModel {
             }
 
             onAnywhereClicked: {
-                Marketing.send(Marketing.AnnouncementMissClicked, serviceId, { type: popupType });
+                Marketing.send(Marketing.AnnouncementMissClicked, serviceId, { type: popupType, userId: User.userId() });
                 announcements.missClicked(serviceId);
 
                 var gameItem = App.serviceItemByServiceId(serviceId);
@@ -681,7 +682,7 @@ WidgetModel {
             }
 
             onCloseButtonClicked: {
-                Marketing.send(Marketing.AnnouncementClosedClicked, serviceId, { type: popupType });
+                Marketing.send(Marketing.AnnouncementClosedClicked, serviceId, { type: popupType, userId: User.userId() });
 
                 var gameItem = App.serviceItemByServiceId(serviceId);
                 GoogleAnalytics.trackEvent('/announcement/'+ popupType +'/' + serviceId,
@@ -699,7 +700,7 @@ WidgetModel {
                             'Announcement',
                             'Show Announcement',
                             remindGameItemPopup.gameItem.gaName);
-                Marketing.send(Marketing.AnnouncementShown, serviceId, { type: popupType });
+                Marketing.send(Marketing.AnnouncementShown, serviceId, { type: popupType, userId: User.userId() });
             }
         }
     }

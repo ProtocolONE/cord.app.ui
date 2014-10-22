@@ -15,6 +15,7 @@ import GameNet.Controls 1.0
 import Application.Blocks 1.0
 
 import "../../Core/App.js" as App
+import "../../Core/User.js" as User
 import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 Window {
@@ -58,7 +59,7 @@ Window {
     function sendAnnouncementActionClicked() {
         Marketing.send(Marketing.AnnouncementActionClicked,
                        bigAnnounceWindow.announceItem.serviceId,
-                       { type: "announcementBig", id: bigAnnounceWindow.announceItem.id });
+                       { type: "announcementBig", id: bigAnnounceWindow.announceItem.id, userId: User.userId() });
 
         var gameItem = App.serviceItemByServiceId(bigAnnounceWindow.announceItem.serviceId);
         GoogleAnalytics.trackEvent('/announcement/big/' + bigAnnounceWindow.announceItem.id,
@@ -68,7 +69,7 @@ Window {
     function close() {
         Marketing.send(Marketing.AnnouncementClosedClicked,
                        bigAnnounceWindow.announceItem.serviceId,
-                       { type: "announcementBig", id: bigAnnounceWindow.announceItem.id });
+                       { type: "announcementBig", id: bigAnnounceWindow.announceItem.id, userId: User.userId() });
 
         bigAnnounceWindow.visible = false;
         bigAnnounceWindow.announceCloseClick(bigAnnounceWindow.announceItem);
