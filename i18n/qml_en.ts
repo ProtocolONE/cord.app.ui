@@ -606,22 +606,22 @@
 <context>
     <name>EmptyContactListInfo</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="33"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="35"/>
         <source>EMPTY_CONTACT_LIST_FIND_USER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="53"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="56"/>
         <source>EMPTY_CONTACT_LIST_FIND_USER_WEB_SEARCH</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="98"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="103"/>
         <source>EMPTY_CONTACT_LIST_SYSTEM_NOTIFICATION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="73"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="77"/>
         <source>EMPTY_CONTACT_LIST_CONTACT_FILTER</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1875,22 +1875,22 @@
 <context>
     <name>Search</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml" line="60"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml" line="93"/>
         <source>LOCAL_SEARCH_BUTTON_TULTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml" line="61"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml" line="81"/>
         <source>WEBSEARCH_BUTTON_TULTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml" line="96"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml" line="133"/>
         <source>MESSENGER_SEARCH_FRIEND_PLACE_HOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml" line="97"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/Search.qml" line="134"/>
         <source>MESSENGER_WEB_SEARCH_PLACE_HOLDER</source>
         <translation type="unfinished"></translation>
     </message>

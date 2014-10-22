@@ -2138,31 +2138,27 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_CA_MINI_TOOLTIP</source>
-        <translation>Онлайн-шутер с самым большим выбором оружия и экипировки.</translation>
+        <translation>Попробуй онлайн-шутер с самым большим выбором оружия и экипировки.</translation>
     </message>
     <message>
         <source>GAME_BS_MINI_TOOLTIP</source>
-        <translation>Красивая онлайн-игра, полная любви и беспощадных межсерверных сражений.</translation>
+        <translation>Есть красивая онлайн-игра, полная любви и беспощадных межсерверных сражений.</translation>
     </message>
     <message>
         <source>GAME_GA_MINI_TOOLTIP</source>
-        <translation>Глобальная браузерная стратегия в реальном времени.</translation>
-    </message>
-    <message>
-        <source>GAME_MW2_MINI_TOOLTIP</source>
-        <translation type="obsolete">Суровый и таинственный мир, полный сражений между гильдиями.</translation>
+        <translation>Строй и сражайся в глобальной браузерной стратегии в реальном времени.</translation>
     </message>
     <message>
         <source>GAME_WI_MINI_TOOLTIP</source>
-        <translation>Реалистичный тактический шутер с отличной графикой и шикарным арсеналом.</translation>
+        <translation>Попробуй реалистичный тактический шутер с отличной графикой и шикарным арсеналом.</translation>
     </message>
     <message>
         <source>GAME_AIKA_MINI_TOOLTIP</source>
-        <translation>Ожесточенная борьба за превосходство между пятью нациями.</translation>
+        <translation>Прямо сейчас идёт ожесточенная борьба за превосходство между пятью нациями.</translation>
     </message>
     <message>
         <source>GAME_ROT_MINI_TOOLTIP</source>
-        <translation>Арена командных боёв (MOBA)</translation>
+        <translation>Сражайся на арене командных боёв (MOBA)</translation>
     </message>
     <message>
         <source>GAME_CA_MINI_DESC</source>
@@ -2202,7 +2198,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_FJ_MINI_TOOLTIP</source>
-        <translation>Превратите свое маленькое хозяйство в огромную и прибыльную ферму!</translation>
+        <translation>Преврати свое маленькое хозяйство в огромную и прибыльную ферму!</translation>
     </message>
     <message>
         <source>GAME_FJ_MINI_DESC</source>
@@ -2218,7 +2214,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_REBORN_MINI_TOOLTIP</source>
-        <translation>Фэнтезийный мир, полный приключений.</translation>
+        <translation>Окунись в фэнтезийный мир, полный приключений.</translation>
     </message>
     <message>
         <source>GAME_REBORN_MINI_DESC</source>
@@ -3057,7 +3053,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>MAINTENANCE_LIGHT_PROSOSAL_START_TEXT</source>
-        <translation type="unfinished">Не теряй времени! Попробуй %1</translation>
+        <translation type="unfinished">Не теряй времени! %1</translation>
     </message>
 </context>
 <context>
