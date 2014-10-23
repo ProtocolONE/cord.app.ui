@@ -447,6 +447,10 @@ Item {
             user.statusMessage = presence.status;
             if (user.online !== oldOnline) {
                 root.onlineStatusChanged(user.jid);
+
+                if (!user.online) {
+                    user.changeState(presence.from, MessageJs.Active);
+                }
             }
 
             if (!user.online) {
