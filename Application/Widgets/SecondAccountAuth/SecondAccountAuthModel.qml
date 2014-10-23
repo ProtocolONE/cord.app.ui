@@ -25,6 +25,7 @@ WidgetModel {
     function secondLogout() {
         User.resetSecond();
         CredentialStorage.resetEx(root.savePrefix);
+        App.terminateSecondService();
     }
 
     function autoLogin() {
