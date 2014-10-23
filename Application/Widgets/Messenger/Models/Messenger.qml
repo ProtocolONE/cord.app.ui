@@ -613,6 +613,23 @@ Item {
             root.connecting = false;
         }
 
+        onCarbonMessageReceived: {
+            if (message.type !== QXmppMessage.Chat || !message.body) {
+                return;
+            }
+
+            var to = UserJs.jidWithoutResource(message.to);
+
+            if (!usersModel.contains(to)) {
+                d.appendUser(to);
+            }
+
+            var item = root.getUser(to);
+            item.appendMessage(UserJs.jidWithoutResource(message.from), message.body);
+            d.updateUserTalkDate(item);
+            xmppClient.saveToHistory(to, message);
+        }
+
         onMessageReceived: {
             var messageDate = Date.now();
 
