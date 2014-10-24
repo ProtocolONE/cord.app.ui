@@ -40,7 +40,7 @@ QtObject {
         mainWindow.hide();
     }
 
-    function startingService() {
+    function startingServiceUnsafe() {
         return mainWindow.startingService();
     }
 

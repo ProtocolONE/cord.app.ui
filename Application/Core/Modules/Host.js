@@ -72,9 +72,9 @@ function hide() {
     }
 }
 
-function startingService() {
+function startingServiceUnsafe() {
     if (proxyInst) {
-        return proxyInst.startingService();
+        return proxyInst.startingServiceUnsafe();
     }
 
     return '0';

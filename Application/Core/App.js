@@ -139,6 +139,11 @@ function gameExists(gameId) {
     return gameIdToGameItem.hasOwnProperty(gameId);
 }
 
+function startingService() {
+    var serviceId = startingServiceUnsafe();
+    return serviceExists(serviceId) ? serviceId : "0";
+}
+
 /**
  * Application specific functions
  */
