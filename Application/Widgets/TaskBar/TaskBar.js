@@ -22,7 +22,7 @@ function updateProgress(gameItem) {
     if (!activeServices[serviceId] && !gameItem.allreadyDownloaded) {
         activeServices[serviceId] = gameItem;
     } else {
-        if (gameItem.status === 'DownloadFinished' && gameItem.allreadyDownloaded)
+        if (gameItem.status === 'Starting' && gameItem.allreadyDownloaded)
             delete activeServices[serviceId];
     }
 
