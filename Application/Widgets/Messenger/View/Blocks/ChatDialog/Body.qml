@@ -29,6 +29,13 @@ Rectangle {
         boundsBehavior: Flickable.StopAtBounds
         interactive: true
 
+        function scrollCheck() {
+            var hasNotScroll = messageList.contentHeight < messageList.height;
+            if (hasNotScroll || scroll.isAtEnd()) {
+                scrollToEndTimer.restart();
+            }
+        }
+
         function queryMore(number, name) {
             var user = MessengerJs.selectedUser(MessengerJs.USER_INFO_JID);
             if (!user || !user.jid) {
@@ -65,12 +72,7 @@ Rectangle {
             onTriggered: scroll.positionViewAtEnd();
         }
 
-        onCountChanged: {
-            var hasNotScroll = messageList.contentHeight < messageList.height;
-            if (hasNotScroll || scroll.isAtEnd()) {
-                scrollToEndTimer.restart();
-            }
-        }
+        onCountChanged: messageList.scrollCheck();
 
         header: BodyHistoryHeader {
             width: messageList.width
@@ -91,6 +93,7 @@ Rectangle {
             date: Qt.formatDateTime(new Date(+model.date), "hh:mm")
             body: model.text
             isStatusMessage: model.isStatusMessage
+            onIsStatusMessageChanged: messageList.scrollCheck();
         }
     }
 

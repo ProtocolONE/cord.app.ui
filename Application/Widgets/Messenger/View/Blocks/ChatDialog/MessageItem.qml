@@ -94,9 +94,10 @@ Item {
                 id: messageBody
 
                 function prepareText(message) {
-                    var text = Strings.stripTags(root.body);
+                    var text = Strings.stripTags(message);
                     text = replaceHyperlinks(text);
-                    text = StringHelper.replaceGameNetHyperlinks(text, true, App.serviceItemByServiceId);
+                    text = replaceGameNetHyperlinks(text);
+                    text = replaceNewLines(text);
                     return text;
                 }
 
@@ -106,6 +107,27 @@ Item {
                                 Styles.style.messengerChatDialogHyperlinkColor +
                                 "' href='" + e + "'>" + e + "</a>";
                     });
+                }
+
+                /**
+                 * Заменяет ссылку вида gamenet://startservice/<serviceId> на гиперссылку
+                 * <a href="gamenet://startservice/<serviceId>">Имя игры</a>
+                 */
+                function replaceGameNetHyperlinks(message) {
+                    return message.replace(/(gamenet:\/\/startservice\/(\d+))/ig, function(str, gnLink, serviceId) {
+                        var serviceItem = App.serviceItemByServiceId(serviceId)
+                            , serviceName;
+
+                        serviceName = serviceItem ? serviceItem.name : gnLink;
+
+                        return "<a style='color:" +
+                                Styles.style.messengerChatDialogHyperlinkColor +
+                                "' href='" + gnLink + "'>" + serviceName + "</a>";
+                    });
+                }
+
+                function replaceNewLines(message) {
+                    return message.replace(/(?:\r\n|\r|\n)/g, '<br/>');
                 }
 
                 wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
