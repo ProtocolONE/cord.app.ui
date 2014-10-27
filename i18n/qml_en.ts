@@ -152,34 +152,34 @@
 <context>
     <name>AnnouncementsModel</name>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="57"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="58"/>
         <source>ANNOUNCE_GAME_INSTALLED_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="58"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="59"/>
         <source>ANNOUNCE_GAME_INSTALLED_BUTTON</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="307"/>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="320"/>
-        <source>REMINDER_NEVER_PLAYED_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="308"/>
         <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="321"/>
+        <source>REMINDER_NEVER_PLAYED_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="309"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="322"/>
         <source>REMINDER_NEVER_PLAYED_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="540"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="549"/>
         <source>SILENT_REMIND_POPUP_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="541"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="550"/>
         <source>SILENT_REMIND_POPUP_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>

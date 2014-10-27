@@ -236,20 +236,16 @@
         <source>SILENT_REMIND_POPUP_BUTTON</source>
         <translation type="vanished">Играть</translation>
     </message>
-    <message>
-        <source>SILENT_REMIND_POPUP_MESSAGE</source>
-        <translation type="vanished">Нажимая &quot;Играть&quot;, Вы подтверждаете, что согласны с условиями &lt;a href=&quot;http://www.gamenet.ru/license&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Лицензионного соглашения GameNet&lt;/font&gt;&lt;/a&gt; и &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Игры&lt;/font&gt;&lt;/a&gt;</translation>
-    </message>
 </context>
 <context>
     <name>AnnouncementsModel</name>
     <message>
         <source>ANNOUNCE_GAME_INSTALLED_MESSAGE</source>
-        <translation type="unfinished">Игра установлена</translation>
+        <translation>Игра установлена</translation>
     </message>
     <message>
         <source>ANNOUNCE_GAME_INSTALLED_BUTTON</source>
-        <translation type="unfinished">Играть</translation>
+        <translation>Играть</translation>
     </message>
     <message>
         <source>REMINDER_PLAYED_LONGAGO_BUTTON</source>
@@ -261,19 +257,19 @@
     </message>
     <message>
         <source>REMINDER_NEVER_PLAYED_MESSAGE</source>
-        <translation type="unfinished">Игра установлена и вы ни разу не пробовали играть</translation>
+        <translation>Игра установлена и вы ни разу не пробовали играть</translation>
     </message>
     <message>
         <source>REMINDER_NEVER_PLAYED_BUTTON</source>
-        <translation type="unfinished">Играть</translation>
+        <translation>Играть</translation>
     </message>
     <message>
         <source>SILENT_REMIND_POPUP_BUTTON</source>
-        <translation type="unfinished">Играть</translation>
+        <translation>Играть</translation>
     </message>
     <message>
         <source>SILENT_REMIND_POPUP_MESSAGE</source>
-        <translation type="unfinished"></translation>
+        <translation>Нажимая &quot;Играть&quot;, Вы подтверждаете, что согласны с условиями &lt;a href=&quot;http://www.gamenet.ru/license&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Лицензионного соглашения GameNet&lt;/font&gt;&lt;/a&gt; и &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Игры&lt;/font&gt;&lt;/a&gt;</translation>
     </message>
 </context>
 <context>
