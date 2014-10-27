@@ -3,7 +3,10 @@ import QtQuick 1.1
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
+import "../../../Core/App.js" as App
+import "../../../Core/Styles.js" as Styles
 import "../Models/Messenger.js" as MessengerJs
+import "../Models/StringHelper.js" as StringHelper
 
 TrayPopupBase {
     id: root
@@ -53,7 +56,7 @@ TrayPopupBase {
             color: "#243148"
 
             Text {
-                text: messageText
+                text: StringHelper.replaceGameNetHyperlinks(root.messageText, false, App.serviceItemByServiceId);
                 color: "#FAFAFA"
                 elide: Text.ElideRight
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere

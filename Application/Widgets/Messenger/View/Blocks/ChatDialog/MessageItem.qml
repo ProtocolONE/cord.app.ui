@@ -14,6 +14,8 @@ import "../../../../../Core/Styles.js" as Styles
 import "../../../../../Core/App.js" as App
 import "../../../../../../GameNet/Core/Strings.js" as Strings
 
+import "../../../Models/StringHelper.js" as StringHelper
+
 Item {
     id: root
 
@@ -94,7 +96,7 @@ Item {
                 function prepareText(message) {
                     var text = Strings.stripTags(root.body);
                     text = replaceHyperlinks(text);
-                    text = replaceGameNetHyperlinks(text)
+                    text = StringHelper.replaceGameNetHyperlinks(text, true, App.serviceItemByServiceId);
                     return text;
                 }
 
@@ -103,23 +105,6 @@ Item {
                         return "<a style='color:" +
                                 Styles.style.messengerChatDialogHyperlinkColor +
                                 "' href='" + e + "'>" + e + "</a>";
-                    });
-                }
-
-                /**
-                 * Заменяет ссылку вида gamenet://startservice/<serviceId> на гиперссылку
-                 * <a href="gamenet://startservice/<serviceId>">Имя игры</a>
-                 */
-                function replaceGameNetHyperlinks(message) {
-                    return message.replace(/(gamenet:\/\/startservice\/(\d+))/ig, function(str, gnLink, serviceId) {
-                        var serviceItem = App.serviceItemByServiceId(serviceId)
-                            , serviceName;
-
-                        serviceName = serviceItem ? serviceItem.name : gnLink;
-
-                        return "<a style='color:" +
-                                Styles.style.messengerChatDialogHyperlinkColor +
-                                "' href='" + gnLink + "'>" + serviceName + "</a>";
                     });
                 }
 
