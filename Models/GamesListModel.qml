@@ -224,7 +224,7 @@ ListModel {
 
         itemState: "Normal"
         animationPause: 100
-        hasOverlay: false
+        hasOverlay: true
 
         logoText: QT_TR_NOOP("LOGO_CA")
         aboutGameText: QT_TR_NOOP("GAME_CA_ABOUT_TEXT")

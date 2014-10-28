@@ -46,6 +46,7 @@ WidgetModel {
                 '300002010000000000': 'View/Games/Aika.qml',
                 '300003010000000000': 'View/Games/BS.qml',
                 '300012010000000000': 'View/Games/Reborn.qml',
+                '300009010000000000': 'View/Games/CA.qml'
             }
 
             if (!supportedGames.hasOwnProperty(service)) {
