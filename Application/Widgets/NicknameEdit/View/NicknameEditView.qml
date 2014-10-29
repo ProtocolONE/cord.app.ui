@@ -200,11 +200,7 @@ PopupBase {
                     width: 352
                     placeholder: qsTr("PROFILE_LINK_PLACEHOLDER")
                     onTextChanged: {
-                        if (d.generatingTechName) {
-                            manuallyEdited = false;
-                        } else {
-                            manuallyEdited = true;
-                        }
+                        manuallyEdited = !d.generatingTechName;
 
                         d.techNameOk = false;
                     }
