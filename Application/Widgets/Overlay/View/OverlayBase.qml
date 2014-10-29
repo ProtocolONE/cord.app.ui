@@ -84,7 +84,7 @@ Overlay {
             loader.item.messenger = messenger.model;
             loader.item.init();
 
-            over.keyPressed.connect(loader.item.keyDown);
+            over.keyReleased.connect(loader.item.keyDown);
         }
     }
 
