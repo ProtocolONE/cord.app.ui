@@ -12,6 +12,8 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
+import "../../../Core/Styles.js" as Styles
+
 Item {
     id: root
 
@@ -30,15 +32,30 @@ Item {
         clip: true
     }
 
-    Image {
+    Rectangle {
+        width: 16
+        height: 19
         visible: nickText.paintedWidth >= nickText.width
-
         anchors {
             right: nickText.right
             verticalCenter: nickText.verticalCenter
         }
+        rotation: -90;
 
-        source: installPath + "Assets/Images/Application/Widgets/UserProfile/nickname_mask.png"
+        gradient: Gradient {
+            GradientStop {
+                position: 0.00
+                color: "#00000000"
+            }
+            GradientStop {
+                position: 0.455
+                color: Styles.style.profileBackground
+            }
+            GradientStop {
+                position: 1.00
+                color: Styles.style.profileBackground
+            }
+        }
     }
 
     CursorMouseArea {
