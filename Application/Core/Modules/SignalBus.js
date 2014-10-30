@@ -24,11 +24,6 @@ function secondAuthDone(userId, appKey, cookie) {
     _signalBusInstance.secondAuthDone(userId, appKey, cookie);
 }
 
-//@deprecated
-function needAuth() {
-    _signalBusInstance.needAuth();
-}
-
 function setGlobalState(stateName) {
     _signalBusInstance.setGlobalState(stateName);
 }

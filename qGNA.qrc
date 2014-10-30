@@ -194,7 +194,6 @@
 		<file>Application/Widgets/Messenger/Addons/MessageReceived.qml</file>
 		<file>Application/Widgets/Messenger/Addons/NickNameReminder.qml</file>
 		<file>Application/Widgets/Messenger/Addons/Notifications.qml</file>
-		<file>Application/Widgets/Messenger/Addons/Popups.js</file>
 		<file>Application/Widgets/Messenger/Addons/Popups.qml</file>
 		<file>Application/Widgets/Messenger/Model.qml</file>
 		<file>Application/Widgets/Messenger/Models/Group.js</file>

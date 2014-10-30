@@ -206,6 +206,10 @@ Item {
     Connections {
         target: App.mainWindowInstance()
         onNavigate: App.navigate(page);
-        onNeedAuth: App.logoutRequest()
+        onWrongCredential: {
+            if (userId === User.userId()) {
+                App.logoutRequest()
+            }
+        }
     }
 }

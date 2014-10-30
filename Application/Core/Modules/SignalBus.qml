@@ -17,7 +17,6 @@ QtObject {
     signal authDone(string userId, string appKey, string cookie);
     signal secondAuthDone(string userId, string appKey, string cookie);
 
-    signal needAuth();
     signal logoutDone();
     signal logoutRequest();
 

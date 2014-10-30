@@ -46,4 +46,12 @@ WidgetModel {
    }
 
 
+   Connections {
+       target: App.mainWindowInstance()
+       onWrongCredential: {
+           if (userId === User.secondUserId()) {
+               root.secondLogout();
+           }
+       }
+   }
 }
