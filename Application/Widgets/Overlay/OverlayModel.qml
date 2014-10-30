@@ -49,6 +49,11 @@ WidgetModel {
                 '300009010000000000': 'View/Games/CA.qml'
             }
 
+            if (App.isPublicVersion()) {
+                // Временно отключено из-за бага в оверлее СА
+                delete supportedGames['300009010000000000'];
+            }
+
             if (!supportedGames.hasOwnProperty(service)) {
                 return;
             }

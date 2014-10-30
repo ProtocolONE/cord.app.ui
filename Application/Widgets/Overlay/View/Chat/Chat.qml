@@ -94,7 +94,7 @@ Item {
             y: 25
 
             width: row.width
-            height: 558 - 91
+            height: 558
             visible: false
             clip: true
 
@@ -127,7 +127,7 @@ Item {
                     height: parent.height
 
                     WidgetContainer {
-                        height: parent.height
+                        height: parent.height - 91
                         width: 230
                         widget: 'Messenger'
                         view: 'Contacts'
