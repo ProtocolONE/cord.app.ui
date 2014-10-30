@@ -131,7 +131,15 @@ WidgetView {
                     height: 12
 
                     Text {
-                        anchors.baseline: parent.bottom
+                        id: nickText
+
+                        anchors {
+                            left: parent.left
+                            right: parent.right
+                            top: parent.top
+                            rightMargin: 22
+                        }
+
                         font {
                             family: 'Arial'
                             pixelSize: 12
@@ -139,6 +147,33 @@ WidgetView {
 
                         color: Styles.style.secondAccountNickname
                         text: User.getSecondNickname()
+                        clip: true
+                    }
+
+                    Rectangle {
+                        width: 16
+                        height: 19
+                        visible: nickText.paintedWidth >= nickText.width
+                        anchors {
+                            right: nickText.right
+                            verticalCenter: nickText.verticalCenter
+                        }
+                        rotation: -90
+
+                        gradient: Gradient {
+                            GradientStop {
+                                position: 0.00
+                                color: "#00000000"
+                            }
+                            GradientStop {
+                                position: 0.455
+                                color: Styles.style.secondAccountBackground
+                            }
+                            GradientStop {
+                                position: 1.00
+                                color: Styles.style.secondAccountBackground
+                            }
+                        }
                     }
 
                     ImageButton {

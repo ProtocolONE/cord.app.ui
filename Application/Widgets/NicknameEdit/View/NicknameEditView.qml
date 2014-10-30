@@ -38,6 +38,8 @@ PopupBase {
         property bool techNameOk: false
         property bool nickNameSaved: false
         property bool techNameSaved: false
+        property bool needGenerateTechName: true
+        property bool generatingTechName: false
 
         function tryClose() {
             if (d.nickNameSaved && d.techNameSaved) {
@@ -97,12 +99,16 @@ PopupBase {
                         techName.errorMessage = error;
                         techName.style.text = "#FF2E44";
                         techName.error = true;
+                        d.needGenerateTechName = true;
                     }
                 }
                 onTechNameOk: {
                     techName.errorMessage = qsTr("NICKNAME_OK");
                     techName.error = false;
                     d.techNameOk = true;
+                    if (techName.manuallyEdited) {
+                        d.needGenerateTechName = false;
+                    }
                 }
                 onNickNameSaved: {
                     d.nickNameSaved = true;
@@ -136,8 +142,11 @@ PopupBase {
                             d.nickNameLowBoundReached = true;
                         }
 
-                        if (techName.text.length == 0 || !model.techNameValid) {
+                        if (d.needGenerateTechName) {
+                            //   хак нужен чтбы различать - нагенерили или ввели вручную
+                            d.generatingTechName = true;
                             techName.text = model.generateTechNick(nickName.text);
+                            d.generatingTechName = false;
                         }
                     }
                     onValidate: {
@@ -185,10 +194,18 @@ PopupBase {
                 InputWithError {
                     id: techName
 
+                    property bool manuallyEdited: false
+
                     x: 238
                     width: 352
                     placeholder: qsTr("PROFILE_LINK_PLACEHOLDER")
                     onTextChanged: {
+                        if (d.generatingTechName) {
+                            manuallyEdited = false;
+                        } else {
+                            manuallyEdited = true;
+                        }
+
                         d.techNameOk = false;
                     }
                     onValidate: {
