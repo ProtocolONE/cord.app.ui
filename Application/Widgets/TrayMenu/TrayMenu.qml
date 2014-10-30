@@ -116,7 +116,7 @@ WidgetModel {
     }
 
     Component.onCompleted: {
-        TrayWindow.install(preparePath(root.defaultTrayIcon));
+        TrayWindow.setIcon(preparePath(root.defaultTrayIcon));
         TrayWindow.setToolTip(qsTr('TRAY_TOOLTIP'));
         TrayWindow.activate.connect(window.activateWindow);
         TrayWindow.activateWindow.connect(window.moveToTray);
