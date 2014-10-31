@@ -62,9 +62,9 @@ QXmppClient {
         history.checkHistoryInterval();
     }
 
-    function connectToServerEx(jid, password) {
+    function connectToServerEx(jid, password, params) {
         xmppClient.myJid = jid;
-        xmppClient.connectToServer(jid, password);
+        xmppClient.connectToServer(jid, password, params);
     }
 
     function sendMessageEx(jid, message) {

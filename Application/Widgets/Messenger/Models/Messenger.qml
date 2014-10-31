@@ -117,10 +117,14 @@ Item {
         myUser.jid = jid;
         myUser.userId = userId;
 
+        var options = {};
+        var currentTime = new Date();
+        options.resource = "QGNA_" + Qt.md5(currentTime.toString() + Math.floor(Math.random() * 100));
+
         d.loadUserTalkDate(myUser.userId);
 
         root.connecting = true;
-        xmppClient.connectToServerEx(jid, password);
+        xmppClient.connectToServerEx(jid, password, options);
     }
 
     function disconnect() {
