@@ -125,12 +125,16 @@ NavigatableContactList {
     }
 
     onSearchTextChanged: {
+        var searchStr;
         if (searchText.length == 0) {
             listViewModel.clear();
             return;
         }
 
-        RestApi.User.search(searchText.trim(), false,
+        searchStr = searchText.trim();
+        searchStr = encodeURIComponent(searchStr);
+
+        RestApi.User.search(searchStr, false,
                             function(response) {
                                 listViewModel.clear();
                                 if (response.hasOwnProperty('error')) {
