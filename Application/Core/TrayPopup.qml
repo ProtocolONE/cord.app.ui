@@ -39,7 +39,7 @@ Window {
             id: popupColumn
 
             anchors.top: parent.bottom
-            width: 211
+            width: 250
             spacing: 10
             transform: Rotation { angle: 180 }
 

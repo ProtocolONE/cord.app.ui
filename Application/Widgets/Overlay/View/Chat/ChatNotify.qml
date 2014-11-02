@@ -10,40 +10,71 @@
 
 import QtQuick 1.1
 
-Rectangle {
+import "../../../../Core/Styles.js" as Styles
+
+Item {
     id: root
 
     property alias text: textElement.text
 
-    color: "#243148"
-
-    Image {
+    Rectangle {
         anchors {
-            top: parent.top
-            left: parent.left
-            margins: 5
+            fill: parent
+            rightMargin: 1
+            bottomMargin: 1
         }
-
-        asynchronous: true
-        source: installPath + "Assets/Images/Application/Blocks/Header/GamenetLogo.png"
+        color: Styles.style.trayPopupBackground
+        border.color: Styles.style.trayPopupBackgroundBorder
     }
 
-    Text {
-        id: textElement
+    Column {
+        anchors.fill: parent
 
-        anchors {
-            left: parent.left
-            top: parent.top
-            leftMargin: 5
-            topMargin: 35
+        Item {
+            width: parent.width
+            height: 50
+
+            Row {
+                anchors { fill: parent; margins: 10 }
+                spacing: 8
+
+                Image {
+                    source: installPath + "Assets/Images/Application/Widgets/Overlay/gamenetLogo.png"
+                    width: 32
+                    height: 32
+                    cache: true
+                    asynchronous: true
+                }
+
+                Text {
+                    text: 'GameNet'
+                    color: Styles.style.trayPopupTextHeader
+                    width: 160
+                    elide: Text.ElideRight
+                    anchors.verticalCenter: parent.verticalCenter
+                    font { pixelSize: 18; family: "Arial"}
+                }
+            }
         }
 
-        color: "#FAFAFA"
-        elide: Text.ElideRight
-        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-        maximumLineCount: 3
-        font { pixelSize: 14; family: "Arial"}
-        anchors { fill: parent; margins: 10 }
+        Item {
+            id: bodyItem
+
+            width: parent.width
+            height: root.height
+
+            Text {
+                id: textElement
+
+                x: 8
+                width: parent.width - 10 - 42
+                text: model.body
+                color: Styles.style.trayPopupText
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                font { pixelSize: 13; family: "Arial"}
+            }
+
+        }
     }
 }
 

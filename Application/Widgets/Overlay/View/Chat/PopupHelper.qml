@@ -13,6 +13,7 @@ import GameNet.Components.Widgets 1.0
 
 import "../../Core/Popup.js" as TrayPopup
 import "../../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "./Popups.js" as Popups
 
 Item {
     id: root
@@ -43,8 +44,13 @@ Item {
                 messageText: body,
             };
 
-            TrayPopup.showPopup(messageReceivedComp, data, id);
-            GoogleAnalytics.trackEvent('Messenger', 'NewMessagePopup', 'show', 'Overlay');
+            if (!Popups.objects.hasOwnProperty(from)) {
+                Popups.objects[from] = TrayPopup.showPopup(messageReceivedComp, data, id);
+            }
+
+            Popups.objects[from].message = message;
+
+            GoogleAnalytics.trackEvent('Messenger', 'NewMessagePopup', 'show', 'Overlay')
         }
     }
 
@@ -55,6 +61,8 @@ Item {
             keepIfActive: true
             destroyInterval: 12000
             messenger: root.messenger
+
+            onClosed: delete Popups.objects[jid];
 
             onCloseButtonClicked: {
                 GoogleAnalytics.trackEvent('Messenger', 'NewMessagePopup', 'closeButton', 'Overlay');

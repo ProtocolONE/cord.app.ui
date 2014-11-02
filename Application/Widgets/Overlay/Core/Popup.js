@@ -87,6 +87,7 @@ function showPopup(component, context, itemId) {
         obj: object
     }
     popupCount++;
+    return object;
 }
 
 function destroy(destroyedObject) {

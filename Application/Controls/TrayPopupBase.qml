@@ -23,6 +23,10 @@ Item {
     signal closed()
     signal timeoutClosed();
 
+    function restartDestroyTimer() {
+        destroyTimer.restart();
+    }
+
     function shadowDestroy() {
         closeAnimation.start();
     }
@@ -32,22 +36,24 @@ Item {
     }
 
     function forceDestroy() {
-        anywhereClicked();
+        popupItem.anywhereClicked();
         shadowDestroy();
     }
 
     opacity: 0
     transform: [
-        Rotation { angle: 180; },
-        Translate { y:height }
+        Rotation { angle: 180 },
+        Translate { y: height }
     ]
 
-    width: 211
+    width: 250
     height: 106
 
     SequentialAnimation {
         id: fadeInAnimation
+
         running: true
+
         PauseAnimation { duration: 200 }
         PropertyAnimation {
             target: popupItem
@@ -82,6 +88,8 @@ Item {
     }
 
     Timer {
+        id: destroyTimer
+
         running: destroyInterval > 0 && isShown && (keepIfActive ? !containsMouse : true)
         interval: destroyInterval
         onTriggered: {

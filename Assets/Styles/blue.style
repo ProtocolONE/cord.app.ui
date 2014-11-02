@@ -1,4 +1,4 @@
-{
+﻿{
     "id": "mainStyle",
     "default": true,
     "version": 1,
@@ -20,6 +20,11 @@
         "popupBackground": "#F0F5F8",
         "popupTitleText": "#343537",
         "popupText": "#343537",
+		"trayPopupBackground": "#475671",
+		"trayPopupBackgroundBorder": "#303947",	
+		"trayPopupTextHeader": "#97aacd",
+		"trayPopupPlayText": "#8c9fc1",
+		"trayPopupText": "#ffffff",
         "secondAccountBaseBackground": "#082135",
         "secondAccountAddAccountBackground": "#082135",
         "secondAccountAddAccountButtonHormal": "#1ABC9C",

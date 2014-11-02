@@ -14,6 +14,7 @@ import "../Models/Messenger.js" as MessengerJs
 import "../../../Core/App.js" as App
 import "../../../Core/TrayPopup.js" as TrayPopup
 import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "./Popups.js" as Popups
 
 Item {
     property bool enabled: true
@@ -41,7 +42,12 @@ Item {
                 messageText: body,
             };
 
-            TrayPopup.showPopup(messageReceivedComp, data, id);
+            if (!Popups.objects.hasOwnProperty(from)) {
+                Popups.objects[from] = TrayPopup.showPopup(messageReceivedComp, data, id);
+            }
+
+            Popups.objects[from].message = message;
+
             GoogleAnalytics.trackEvent('Messenger', 'NewMessagePopup', 'show', 'App');
         }
     }
@@ -52,6 +58,8 @@ Item {
         MessageReceived {
             keepIfActive: true
             destroyInterval: 12000
+
+            onClosed: delete Popups.objects[jid];
 
             onCloseButtonClicked: {
                 GoogleAnalytics.trackEvent('Messenger', 'NewMessagePopup', 'closeButton', 'App');

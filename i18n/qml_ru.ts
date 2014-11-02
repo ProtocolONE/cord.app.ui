@@ -3132,6 +3132,20 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>MessagePlayingRow</name>
+    <message>
+        <source>PLAYING_GAME_MESSANGE_TEXT</source>
+        <translation type="unfinished">Играю в %1</translation>
+    </message>
+</context>
+<context>
+    <name>MessageReceived</name>
+    <message>
+        <source>PLAYING_GAME_MESSANGE_TEXT</source>
+        <translation type="obsolete">Играю в %1</translation>
+    </message>
+</context>
+<context>
     <name>Messenger</name>
     <message>
         <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>

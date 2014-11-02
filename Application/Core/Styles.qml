@@ -27,6 +27,12 @@ Item {
     property color popupTitleText: "#343537"
     property color popupText: "#343537"
 
+    property color trayPopupBackground: '#475671'
+    property color trayPopupBackgroundBorder: '#303947'
+    property color trayPopupTextHeader: '#97aacd'
+    property color trayPopupPlayText: '#8c9fc1'
+    property color trayPopupText: '#ffffff'
+
     property color secondAccountBaseBackground: "#082135"
     property color secondAccountAddAccountBackground: "#082135"
     property color secondAccountAddAccountButtonHormal: "#1ABC9C"

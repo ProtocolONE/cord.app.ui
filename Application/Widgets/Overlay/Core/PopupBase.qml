@@ -23,6 +23,10 @@ Item {
     signal closed()
     signal timeoutClosed();
 
+    function restartDestroyTimer() {
+        destroyTimer.restart();
+    }
+
     function shadowDestroy() {
         closeAnimation.start();
     }
@@ -42,7 +46,7 @@ Item {
         Translate { y: height }
     ]
 
-    width: 211
+    width: 250
     height: 106
 
     SequentialAnimation {
@@ -85,6 +89,8 @@ Item {
     }
 
     Timer {
+        id: destroyTimer
+
         running: destroyInterval > 0 && isShown && (keepIfActive ? !containsMouse : true)
         interval: destroyInterval
         onTriggered: {

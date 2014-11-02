@@ -167,8 +167,8 @@ Item {
     ChatNotify {
         id: chatNotify
 
-        width: 245
-        height: 80
+        width: 250
+        height: 110
 
         anchors {
             right: parent.right

@@ -174,12 +174,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="549"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="541"/>
         <source>SILENT_REMIND_POPUP_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="550"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="542"/>
         <source>SILENT_REMIND_POPUP_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -505,17 +505,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="210"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="212"/>
         <source>TEXT_PROGRESSBAR_REHASH_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="224"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="226"/>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="225"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="227"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1345,6 +1345,14 @@
     </message>
 </context>
 <context>
+    <name>MessagePlayingRow</name>
+    <message>
+        <location filename="../Application/Controls/MessagePopup/MessagePlayingRow.qml" line="20"/>
+        <source>PLAYING_GAME_MESSANGE_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Messenger</name>
     <message>
         <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="321"/>
@@ -1452,28 +1460,28 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="67"/>
+        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="69"/>
         <source>NO_NICKNAME_TIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="91"/>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="103"/>
+        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="93"/>
+        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="106"/>
         <source>NICKNAME_OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="130"/>
+        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="136"/>
         <source>YOUR_NICKNAME_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="190"/>
+        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="201"/>
         <source>PROFILE_LINK_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="228"/>
+        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="241"/>
         <source>SAVE_BUTTON_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1926,12 +1934,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="187"/>
+        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="222"/>
         <source>SECOND_GAME_BLOCK_PREMIUM_PLAY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="206"/>
+        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="241"/>
         <source>SECOND_GAME_BLOCK_PREMIUM_PLAY_TULTIP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2008,37 +2016,37 @@
 <context>
     <name>TrayMenu</name>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="63"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="64"/>
         <source>CLOSE_APP_TOOLTIP_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="64"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="65"/>
         <source>CLOSE_APP_TOOLTIP_MESSAGE_DESC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="87"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="120"/>
         <source>TRAY_TOOLTIP</source>
         <translation type="unfinished">GameNet</translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="223"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="256"/>
         <source>MENU_ITEM_PROFILE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="229"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="262"/>
         <source>MENU_ITEM_MONEY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="235"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="268"/>
         <source>MENU_ITEM_SETTINGS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="241"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="274"/>
         <source>MENU_ITEM_QUIT</source>
         <translation type="unfinished"></translation>
     </message>

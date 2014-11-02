@@ -69,6 +69,9 @@
 		<file>Application/Controls/ComboBox.qml</file>
 		<file>Application/Controls/HiddenAppCloseButton.qml</file>
 		<file>Application/Controls/InputWithError.qml</file>
+		<file>Application/Controls/MessagePopup/MessageCropElement.qml</file>
+		<file>Application/Controls/MessagePopup/MessagePlayingRow.qml</file>
+		<file>Application/Controls/MessagePopup/MessageReceivedDelegate.qml</file>
 		<file>Application/Controls/MouseClick.js</file>
 		<file>Application/Controls/MouseClick.qml</file>
 		<file>Application/Controls/Player.qml</file>
@@ -187,6 +190,8 @@
 		<file>Application/Widgets/Maintenance/View/TimeTextLabel.qml</file>
 		<file>Application/Widgets/Messenger/Addons/MessageReceived.qml</file>
 		<file>Application/Widgets/Messenger/Addons/NickNameReminder.qml</file>
+		<file>Application/Widgets/Messenger/Addons/Notifications.qml</file>
+		<file>Application/Widgets/Messenger/Addons/Popups.js</file>
 		<file>Application/Widgets/Messenger/Addons/Popups.qml</file>
 		<file>Application/Widgets/Messenger/Model.qml</file>
 		<file>Application/Widgets/Messenger/Models/Group.js</file>
@@ -209,6 +214,7 @@
 		<file>Application/Widgets/Messenger/Models/Private/RecentConversation.js</file>
 		<file>Application/Widgets/Messenger/Models/Private/RecentConversation.qml</file>
 		<file>Application/Widgets/Messenger/Models/Settings.js</file>
+		<file>Application/Widgets/Messenger/Models/StringHelper.js</file>
 		<file>Application/Widgets/Messenger/Models/User.js</file>
 		<file>Application/Widgets/Messenger/Models/User.qml</file>
 		<file>Application/Widgets/Messenger/PluginContainer.qml</file>
@@ -270,8 +276,10 @@
 		<file>Application/Widgets/Overlay/View/Chat/ChatNotify.qml</file>
 		<file>Application/Widgets/Overlay/View/Chat/MessageReceived.qml</file>
 		<file>Application/Widgets/Overlay/View/Chat/PopupHelper.qml</file>
+		<file>Application/Widgets/Overlay/View/Chat/Popups.js</file>
 		<file>Application/Widgets/Overlay/View/Games/Aika.qml</file>
 		<file>Application/Widgets/Overlay/View/Games/BS.qml</file>
+		<file>Application/Widgets/Overlay/View/Games/CA.qml</file>
 		<file>Application/Widgets/Overlay/View/Games/Reborn.qml</file>
 		<file>Application/Widgets/Overlay/View/OverlayBase.js</file>
 		<file>Application/Widgets/Overlay/View/OverlayBase.qml</file>

@@ -52,6 +52,10 @@ WidgetModel {
         return MessengerJs.getNickname(item);
     }
 
+    function userPlayingGame(item) {
+        return MessengerJs.userPlayingGame(item);
+    }
+
     function isSelectedUser(user) {
         return MessengerJs.isSelectedUser(user)
     }

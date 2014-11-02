@@ -1,0 +1,4 @@
+module Application.Controls.MessagePopup
+MessageCropElement 1.0 MessageCropElement.qml
+MessagePlayingRow 1.0 MessagePlayingRow.qml
+MessageReceivedDelegate 1.0 MessageReceivedDelegate.qml

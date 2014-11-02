@@ -44,7 +44,7 @@ Item {
     property alias historySaveInterval: xmppClient.historySaveInterval
 
     signal selectedUserChanged();
-    signal messageReceived(string from, string body);
+    signal messageReceived(string from, string body, variant message);
 
     signal connectedToServer();
 
@@ -634,11 +634,7 @@ Item {
         }
 
         onMessageReceived: {
-            var user
-                , nowDay
-                , days
-                , realDays
-                , messageDate = Date.now();
+            var messageDate = Date.now();
 
             if (message.stamp != "Invalid Date") {
                 messageDate = +(Moment.moment(message.stamp));
@@ -671,7 +667,7 @@ Item {
             }
 
             if (message.body) {
-                root.messageReceived(bareJid, message.body);
+                root.messageReceived(bareJid, message.body, message);
             }
         }
 

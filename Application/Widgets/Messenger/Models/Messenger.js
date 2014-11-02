@@ -134,6 +134,15 @@ function userStatusMessage(user) {
     return data.statusMessage;
 }
 
+function userPlayingGame(user) {
+    var data = getUser(user.jid);
+    if (!data.isValid()) {
+        return "";
+    }
+
+    return data.playingGame;
+}
+
 function userPresenceState(user) {
     var data = getUser(user.jid);
     if (!data.isValid()) {
