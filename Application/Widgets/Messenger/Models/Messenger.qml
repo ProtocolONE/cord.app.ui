@@ -118,7 +118,7 @@ Item {
         myUser.userId = userId;
 
         var options = {};
-        var currentTime = new Date();
+        var currentTime = Date.now();
         options.resource = "QGNA_" + Qt.md5(currentTime.toString() + Math.floor(Math.random() * 100));
 
         d.loadUserTalkDate(myUser.userId);
