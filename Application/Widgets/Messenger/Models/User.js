@@ -40,8 +40,8 @@ function User(item, model, jabber) {
 
     this.__defineGetter__("messages", function() {
         if (!_item.__historyRequested) {
-            jabber.queryHistory(self.jid, undefined, undefined, _item.messages);
             _model.setPropertyById(self.jid, '__historyRequested', true);
+            jabber.queryHistory(self.jid, undefined, undefined, _item.messages);
         }
 
         return _item.messages;
@@ -223,6 +223,11 @@ function User(item, model, jabber) {
     }
 
     this.queryMoreMessages = function(num, name) {
+        if (!_item.__historyRequested) {
+            _model.setPropertyById(self.jid, '__historyRequested', true);
+            jabber.queryHistory(self.jid, undefined, undefined, _item.messages);
+        }
+
         if (!self.historyDay) {
             self.historyDay = moment().startOf('day');
         }

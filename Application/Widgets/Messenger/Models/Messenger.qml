@@ -634,7 +634,11 @@ Item {
         }
 
         onMessageReceived: {
-            var messageDate = Date.now();
+            var user
+                , nowDay
+                , days
+                , realDays
+                , messageDate = Date.now();
 
             if (message.stamp != "Invalid Date") {
                 messageDate = +(Moment.moment(message.stamp));
@@ -644,13 +648,27 @@ Item {
                 return;
             }
 
-            var bareJid = UserJs.jidWithoutResource(message.from)
+            var bareJid = UserJs.jidWithoutResource(message.from);
             if (!usersModel.contains(bareJid)) {
                 d.appendUser(bareJid);
             }
 
-            d.appendMessage(bareJid, message.state, message.body, messageDate);
             xmppClient.saveToHistory(message.from, message, messageDate);
+
+            if (message.stamp != "Invalid Date") {
+                user = root.getUser(bareJid);
+                if (!user.isValid()) {
+                    return;
+                }
+
+                nowDay = +Moment.moment().startOf('day'),
+                days = +Moment.moment(messageDate).startOf('day'),
+                realDays = (nowDay - days) / 86400000;
+
+                user.queryMoreMessages(realDays, 'day');
+            } else {
+                d.appendMessage(bareJid, message.state, message.body, messageDate);
+            }
 
             if (message.body) {
                 root.messageReceived(bareJid, message.body);
