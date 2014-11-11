@@ -17,6 +17,7 @@ import "../../Core/App.js" as App
 import "../../Core/Popup.js" as Popup
 import "../../Core/restapi.js" as RestApi
 import "../../Core/TrayPopup.js" as TrayPopup
+import "../../Core/MessageBox.js" as MessageBox
 import "../../Core/User.js" as User
 import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
@@ -83,6 +84,28 @@ WidgetModel {
         target: App.mainWindowInstance()
 
         onServiceFinished: {  // ввод промо кода
+            //--------------------------------------------------------------
+            //INFO Парни, этот код нужен ровно на 3 суток. Простите, за 100500 но очень не хочется добавлять сигнал
+            //отдельный чтобы его тут же удалить. https://jira.gamenet.ru:8443/browse/QGNA-1037
+
+            if (service == "30000000000" && serviceState == 100500) {
+                MessageBox.show(
+                            qsTr("Вам нужен ключ доступа"),
+                            qsTr("Скачать клиент игры могут только участники F&F-теста. Если у вас есть ключ доступа, нажмите \"Да\"."),
+                            MessageBox.button.Yes | MessageBox.button.No,
+                            function(result) {
+                                console.log(result)
+                                if (result == 16384) {
+                                    //INFO Думаете магия? Кто-то проебался и колбек деоргается восем не с
+                                    //теми аргументами, как обещано в справке - обещали f(id, button), но по факту не
+                                    //то. Исправят тут https://jira.gamenet.ru:8443/browse/QGNA-1044
+                                    Popup.show('PromoCode');
+                                }
+                            });
+                return;
+            }
+            //--------------------------------------------------------------
+
             if (serviceState !== RestApi.Error.SERVICE_AUTHORIZATION_IMPOSSIBLE) {
                 return;
             }

@@ -680,7 +680,7 @@ ListModel {
     ListElement {
         name: "Black Desert"
         enabled: true
-        gameType: "browser"
+        gameType: "standalone"
 
         imageSmall: "Assets/Images/games/bd_icon_small.png"
         imageLogoSmall: "Assets/Images/games/bd_logo_small.png"
@@ -710,7 +710,7 @@ ListModel {
         maintenanceProposal2: "300012010000000000"
         maintenanceEndPause: false
 
-        licenseUrl: "http://blackdesert.ru/"
+        licenseUrl: "https://gamenet.ru/games/blackdesert/rules/"
 
         itemState: "Normal";
         animationPause: 0
