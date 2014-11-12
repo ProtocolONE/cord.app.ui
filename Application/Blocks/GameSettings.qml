@@ -131,6 +131,7 @@ Rectangle {
                     width: 150
                     height: 15
                     enabled: !(App.currentRunningMainService() || App.currentRunningSecondService())
+                    visible: currentGame.serviceId != "30000000000" //INFO F&F Hack
                     anchors { bottom: parent.bottom }
                     text: qsTr("RESTORE_CLIENT")
                     analytics {
