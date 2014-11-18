@@ -553,7 +553,7 @@ ListModel {
 
         imageDefault: "Assets/Images/games/fs_icon_small.png"
         formFactor: 1
-        priority: 6
+        priority: 7
 
         serviceId: "300005010000000000"
         gameId: "70"
@@ -612,72 +612,6 @@ ListModel {
     }
 
     ListElement {
-        name: "Rage of Titans"
-        enabled: true
-        gameType: "standalone"
-
-        imageSmall: "Assets/Images/games/rot_icon_small.png"
-        imageLogoSmall: "Assets/Images/games/rot_logo_small.png"
-        imagePopupArt: "Assets/Images/games/Popup/RotPopupArt.png"
-
-        imageDefault: "Assets/Images/games/rot_icon_small.png"
-        formFactor: 1
-        priority: 7
-
-        serviceId: "300004010000000000"
-        gameId: "72"
-
-        ratingUrl: ""
-        forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=5"
-        blogUrl: ""
-        guideUrl: ""
-
-        status: "Normal" // Error Started Paused Downloading
-        statusText: ""
-        progress: -1
-        allreadyDownloaded: false
-        gaName: "RageOfTitans" // Never change please
-
-        maintenance: false
-        ignoreMaintenance: false
-        maintenanceInterval: 0
-        maintenanceProposal1: "300003010000000000"
-        maintenanceProposal2: "300012010000000000"
-        maintenanceEndPause: false
-
-        licenseUrl: "http://www.rot.ru/license"
-
-        itemState: "Normal"
-        animationPause: 150
-        hasOverlay: false
-
-        logoText: QT_TR_NOOP("LOGO_ROT")
-        aboutGameText: QT_TR_NOOP("GAME_ROT_ABOUT_TEXT")
-        miniToolTip: QT_TR_NOOP("GAME_ROT_MINI_TOOLTIP")
-        shortDescription: QT_TR_NOOP("GAME_ROT_MINI_DESC")
-
-        secondStatus: "Normal"
-        secondAllowed: false
-        menu: []
-        currentMenuIndex: 1
-
-        socialNet: [
-            ListElement {
-                link: "http://vk.com/rageoftitans"
-                icon: "Assets/Images/socialNet/vk.png"
-            }
-        ]
-
-        widgetList: ListElement {
-           gameDownloading: 'GameAdBanner'
-           gameStarting: 'GameAdBanner'
-           gameFailedFinish: 'GameFailed'
-           gameBoredFinish: 'GameIsBoring'
-           gameSuccessFinish: ''
-        }
-    }
-
-    ListElement {
         name: "Black Desert"
         enabled: true
         gameType: "standalone"
@@ -686,8 +620,8 @@ ListModel {
         imageLogoSmall: "Assets/Images/games/bd_logo_small.png"
 
         imageDefault: "Assets/Images/games/bd_icon_small.png"
-        formFactor: 1
-        priority: 8
+        formFactor: 2
+        priority: 6
 
         serviceId: "30000000000"
         gameId: "1021"

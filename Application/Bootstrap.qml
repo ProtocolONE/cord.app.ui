@@ -65,6 +65,11 @@ Item {
             });
 
             mainWindowInstance.selectService.connect(function(serviceId) {
+                if (!App.serviceExists(serviceId)) {
+                    App.navigate('allgame')
+                    return;
+                }
+
                 App.selectService(serviceId);
             });
 
