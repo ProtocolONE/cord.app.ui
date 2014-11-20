@@ -35,7 +35,7 @@ Rectangle {
             text: qsTr("EMPTY_CONTACT_LIST_FIND_USER")
             width: 100
             color: "#1abc9c"
-            wrapMode: Text.Wrap
+            wrapMode: Text.WordWrap
             font.pixelSize: 14
             anchors {
                 verticalCenter: parent.bottom
@@ -56,7 +56,7 @@ Rectangle {
             text: qsTr("EMPTY_CONTACT_LIST_FIND_USER_WEB_SEARCH")
             width: 100
             color: "#3498db"
-            wrapMode: Text.Wrap
+            wrapMode: Text.WordWrap
             font.pixelSize: 14
             anchors {
                 verticalCenter: parent.bottom
@@ -77,7 +77,7 @@ Rectangle {
             text: qsTr("EMPTY_CONTACT_LIST_CONTACT_FILTER")
             width: 100
             color: "#e9cb78"
-            wrapMode: Text.Wrap
+            wrapMode: Text.WordWrap
             font.pixelSize: 14
             anchors {
                 top: parent.top
@@ -101,9 +101,9 @@ Rectangle {
 
         Text {
             text: qsTr("EMPTY_CONTACT_LIST_SYSTEM_NOTIFICATION")
-            width: 100
+            width: 105
             color: "#ff4f02"
-            wrapMode: Text.Wrap
+            wrapMode: Text.WordWrap
             font.pixelSize: 14
             anchors {
                 top: parent.top
