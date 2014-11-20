@@ -127,7 +127,7 @@ function isPublicVersion() {
 
 function updateProgress(value, status) {
     if (proxyInst) {
-        return proxyInst.updateProgress(value, status);
+        return proxyInst.executeService(serviceId);
     }
     return false;
 }
