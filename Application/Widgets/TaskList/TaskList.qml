@@ -40,11 +40,11 @@ WidgetModel {
                              installDir + "Assets/Images/icons/" + elem.serviceId + ".ico",
                              elem.name,
                              "",
-                             "-startservice " + elem.serviceId);
+                             "startservice/" + elem.serviceId);
         }
 
-        TaskList.addTask("", qsTr("TASK_LIST_SETTING"), "", "-settings ");
-        TaskList.addTask("", qsTr("TASK_LIST_QUIT"), "", "-quit ");
+        TaskList.addTask("", qsTr("TASK_LIST_SETTING"), "", "settings");
+        TaskList.addTask("", qsTr("TASK_LIST_QUIT"), "", "quit");
         TaskList.apply();
     }
 
@@ -80,6 +80,6 @@ WidgetModel {
 
         TaskList.setGuid("{F29F85E0-4FF9-1068-AB91-08002B27B3D9}");
 
-        applyTaskList();
+        root.applyTaskList();
     }
 }
