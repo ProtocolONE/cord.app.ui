@@ -419,7 +419,7 @@ ListModel {
         imagePopupArt: "Assets/Images/games/Popup/AikaPopupArt.png"
         imageDefault: "Assets/Images/games/Default/aika2.png"
 
-        formFactor: 2
+        formFactor: 1
         priority: 5
 
         serviceId: "300002010000000000"
@@ -746,6 +746,84 @@ ListModel {
             },
             ListElement {
                 link: "https://vk.com/bdo.russia"
+                icon: "Assets/Images/socialNet/vk.png"
+            }
+        ]
+
+        widgetList: ListElement {
+           gameDownloading: 'GameAdBanner'
+           gameStarting: 'GameAdBanner'
+           gameFailedFinish: 'GameFailed'
+           gameBoredFinish: 'GameIsBoring'
+           gameSuccessFinish: ''
+        }
+    }
+    // HACK псевдо игра для тестов DA
+    ListElement {
+        name: "Dark Age"
+        enabled: true
+        gameType: "standalone"
+
+        imageSmall: "Assets/Images/games/da_icon_small.png"
+        //imageHorizontal: "Assets/Images/games/bs_icon_horizontal.png" // неиспользуется
+        imageHorizontalSmall: "Assets/Images/games/da_icon_horizontal_small.png"
+        imageLogoSmall: "Assets/Images/games/da_logo_small.png"
+        //imagePopupArt: "Assets/Images/games/Popup/BSPopupArt.png"
+        imageDefault: "Assets/Images/games/Default/da.png"
+
+        formFactor: 1
+        priority: 2
+
+        serviceId: "60000000000"
+        gameId: "1030"
+
+        ratingUrl: ""
+        forumUrl: "https://forum.gamenet.ru/forumdisplay.php?f=4" // UNDONE
+        blogUrl: "https://www.gamenet.ru/games/da/blog/"
+        guideUrl: "https://www.gamenet.ru/games/da/guides/"
+
+        status: "Normal" // Error Started Paused Downloading
+        statusText: ""
+        progress: -1
+        allreadyDownloaded: false
+        gaName: "DarkAge" // Never change please
+        checkNicknameBeforeStart: false
+
+        maintenance: false
+        ignoreMaintenance: false
+        maintenanceInterval: 0
+        maintenanceProposal1: "300002010000000000"
+        maintenanceProposal2: "300012010000000000"
+        maintenanceEndPause: false
+
+        licenseUrl: "http://www.bs.ru/license"
+
+        itemState: "Normal"
+        animationPause: 150
+        hasOverlay: false
+
+        logoText: QT_TR_NOOP("LOGO_DA")
+        aboutGameText: QT_TR_NOOP("GAME_DA_ABOUT_TEXT")
+        miniToolTip: QT_TR_NOOP("GAME_DA_MINI_TOOLTIP")
+        shortDescription: QT_TR_NOOP("GAME_DA_MINI_DESC")
+
+        secondStatus: "Normal"
+        secondAllowed: false
+
+        menu: []
+        currentMenuIndex: 1
+
+        socialNet: [
+            ListElement {
+                link: "http://www.youtube.com/bloodandsoulru"
+                icon: "Assets/Images/socialNet/yt.png"
+            },
+            ListElement {
+                link: "http://www.facebook.com/pages/Blood-Soul/201464389893835"
+                icon: "Assets/Images/socialNet/fb.png"
+            },
+            ListElement {
+                link: "http://vk.com/bloodandsoul"
                 icon: "Assets/Images/socialNet/vk.png"
             }
         ]

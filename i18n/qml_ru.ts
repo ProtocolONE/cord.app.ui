@@ -1762,6 +1762,14 @@ Please try again later.</source>
         <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
         <translation>Игра запускается</translation>
     </message>
+    <message>
+        <source>Вам нужен ключ доступа</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Скачать клиент игры могут только участники F&amp;F-теста. Если у вас есть ключ доступа, нажмите &quot;Да&quot;.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>GameExecutingView</name>
@@ -2271,6 +2279,22 @@ Please try again later.</source>
     <message>
         <source>GAME_BD_MINI_DESC</source>
         <translation>Революционная MMORPG</translation>
+    </message>
+    <message>
+        <source>LOGO_DA</source>
+        <translation>Мифическая игра</translation>
+    </message>
+    <message>
+        <source>GAME_DA_ABOUT_TEXT</source>
+        <translation>Dark Age (название в ОБТ — Forsaken World) ― это единственная клиентская онлайн-игра о конфликте бессмертных вампиров и свирепых оборотней, с современной графикой, детально проработанной вселенной и игровой механикой. Кровавое и беспощадное противостояние тёмных сил в огромном мире, полном испытаний и невероятных возможностей, покажет вашу истинную сущность!</translation>
+    </message>
+    <message>
+        <source>GAME_DA_MINI_TOOLTIP</source>
+        <translation>Онлайн-игра о конфликте бессмертных вампиров и свирепых оборотней.</translation>
+    </message>
+    <message>
+        <source>GAME_DA_MINI_DESC</source>
+        <translation>Мифическая игра</translation>
     </message>
 </context>
 <context>
