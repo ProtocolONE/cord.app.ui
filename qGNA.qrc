@@ -72,6 +72,7 @@
 		<file>Application/Controls/MessagePopup/MessageCropElement.qml</file>
 		<file>Application/Controls/MessagePopup/MessagePlayingRow.qml</file>
 		<file>Application/Controls/MessagePopup/MessageReceivedDelegate.qml</file>
+		<file>Application/Controls/MessagePopup/qmldir</file>
 		<file>Application/Controls/MouseClick.js</file>
 		<file>Application/Controls/MouseClick.qml</file>
 		<file>Application/Controls/Player.qml</file>
@@ -277,6 +278,7 @@
 		<file>Application/Widgets/Overlay/View/Chat/MessageReceived.qml</file>
 		<file>Application/Widgets/Overlay/View/Chat/PopupHelper.qml</file>
 		<file>Application/Widgets/Overlay/View/Chat/Popups.js</file>
+		<file>Application/Widgets/Overlay/View/Chat/StringHelper.js</file>
 		<file>Application/Widgets/Overlay/View/Games/Aika.qml</file>
 		<file>Application/Widgets/Overlay/View/Games/BS.qml</file>
 		<file>Application/Widgets/Overlay/View/Games/CA.qml</file>

@@ -36,8 +36,9 @@ Item {
     }
 
     function forceDestroy() {
+        destroyTimer.stop();
         popupItem.anywhereClicked();
-        shadowDestroy();
+        popupItem.shadowDestroy();
     }
 
     opacity: 0
@@ -73,9 +74,10 @@ Item {
         duration: 100
         running: false
         onCompleted: {
-            popupItem.destroy()
+            destroyTimer.stop();
             TrayPopup.destroy(popupItem);
-            closed();
+            popupItem.closed();
+            popupItem.destroy();
         }
     }
 
@@ -84,7 +86,7 @@ Item {
 
         hoverEnabled: true
         anchors.fill: parent
-        onClicked: forceDestroy()
+        onClicked: if (!closeAnimation.running) popupItem.forceDestroy();
     }
 
     Timer {
@@ -93,8 +95,8 @@ Item {
         running: destroyInterval > 0 && isShown && (keepIfActive ? !containsMouse : true)
         interval: destroyInterval
         onTriggered: {
-            root.timeoutClosed();
-            shadowDestroy();
+            popupItem.timeoutClosed();
+            popupItem.shadowDestroy();
         }
     }
 }

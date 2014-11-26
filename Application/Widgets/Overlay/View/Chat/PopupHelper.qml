@@ -44,6 +44,10 @@ Item {
                 messageText: body,
             };
 
+            if (!Popups.objects) {
+                Popups.objects = {};
+            }
+
             if (!Popups.objects.hasOwnProperty(from)) {
                 Popups.objects[from] = TrayPopup.showPopup(messageReceivedComp, data, id);
             }
@@ -62,7 +66,11 @@ Item {
             destroyInterval: 12000
             messenger: root.messenger
 
-            onClosed: delete Popups.objects[jid];
+            onClosed: {
+                if (Popups.objects.hasOwnProperty(jid)) {
+                    delete Popups.objects[jid];
+                }
+            }
 
             onCloseButtonClicked: {
                 GoogleAnalytics.trackEvent('Messenger', 'NewMessagePopup', 'closeButton', 'Overlay');

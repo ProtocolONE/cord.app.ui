@@ -8,6 +8,7 @@ import "../../../Core/App.js" as App
 import "../../../Core/Styles.js" as Styles
 import "../../../Core/moment.js" as Moment
 import "../Models/Messenger.js" as MessengerJs
+import "../Models/StringHelper.js" as StringHelper
 
 TrayPopupBase {
     id: root
@@ -138,7 +139,7 @@ TrayPopupBase {
                 delegate: MessageReceivedDelegate {
                     externalMaximumHeight: model.maximumHeight || -1
                     date: model.messageDate
-                    body: model.body
+                    body: StringHelper.replaceGameNetHyperlinks(model.body, false, App.serviceItemByServiceId)
                     maximumHeight: model.maximumHeight
 
                     width: listViewMessage.width

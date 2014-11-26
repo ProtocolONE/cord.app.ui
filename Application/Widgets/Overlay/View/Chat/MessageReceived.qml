@@ -13,13 +13,14 @@ import GameNet.Controls 1.0
 import Application.Controls 1.0
 import Application.Controls.MessagePopup 1.0
 
-import "../../Core"
+import "../../Core" as OverlayCore
 
 import "../../../../Core/App.js" as App
 import "../../../../Core/Styles.js" as Styles
 import "../../../../Core/moment.js" as Moment
+import "./StringHelper.js" as StringHelper
 
-TrayPopupBase {
+OverlayCore.PopupBase {
     id: root
 
     signal closeButtonClicked()
@@ -150,7 +151,7 @@ TrayPopupBase {
                 delegate: MessageReceivedDelegate {
                     externalMaximumHeight: model.maximumHeight || -1
                     date: model.messageDate
-                    body: model.body
+                    body: StringHelper.replaceGameNetHyperlinks(model.body, false, App.serviceItemByServiceId)
                     maximumHeight: model.maximumHeight
 
                     width: listViewMessage.width
@@ -209,7 +210,7 @@ TrayPopupBase {
             hoverEnabled: true
             onClicked: {
                 root.closeButtonClicked();
-                shadowDestroy();
+                root.shadowDestroy();
             }
         }
     }

@@ -57,7 +57,7 @@ WidgetModel {
                 if (component.status === Component.Ready) {
                     var signalBusInstance = App.signalBus();
 
-                    var overlayInstance = component.createObject(null,
+                    var overlayInstance = component.createObject(root,
                                                                  {
                                                                      width: 1024,
                                                                      height: 1024,
