@@ -89,6 +89,9 @@ WidgetModel {
             //отдельный чтобы его тут же удалить. https://jira.gamenet.ru:8443/browse/QGNA-1037
 
             if (service == "30000000000" && serviceState == 100500) {
+                App.activateGameByServiceId(service);
+                App.navigate('mygame', 'GameItem');
+
                 MessageBox.show(
                             qsTr("Вам нужен ключ доступа"),
                             qsTr("Скачать клиент игры могут только участники F&F-теста. Если у вас есть ключ доступа, нажмите \"Да\"."),
