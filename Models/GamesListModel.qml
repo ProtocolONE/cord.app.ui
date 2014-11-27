@@ -796,7 +796,7 @@ ListModel {
         maintenanceProposal2: "300012010000000000"
         maintenanceEndPause: false
 
-        licenseUrl: "http://www.bs.ru/license"
+        licenseUrl: "https://gamenet.ru/games/da/rules/"
 
         itemState: "Normal"
         animationPause: 150
