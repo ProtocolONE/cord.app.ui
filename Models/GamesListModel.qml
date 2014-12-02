@@ -614,7 +614,7 @@ ListModel {
     ListElement {
         name: "Black Desert"
         enabled: true
-        gameType: "standalone"
+        gameType: "browser"
 
         imageSmall: "Assets/Images/games/bd_icon_small.png"
         imageLogoSmall: "Assets/Images/games/bd_logo_small.png"
