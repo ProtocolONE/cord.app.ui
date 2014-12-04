@@ -28,6 +28,11 @@ function init(parent) {
     }
 }
 
+function clearAll() {
+    popupCount = 0;
+    shownObject = {};
+}
+
 function removeOldPopupItem() {
     var item, oldestTime = Infinity;
     for (var key in shownObject) {
@@ -91,6 +96,10 @@ function showPopup(component, context, itemId) {
 }
 
 function destroy(destroyedObject) {
+    if (!shownObject.hasOwnProperty(destroyedObject)) {
+        return;
+    }
+
     delete shownObject[destroyedObject];
     popupCount--;
 }

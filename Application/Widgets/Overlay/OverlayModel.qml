@@ -4,6 +4,7 @@ import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 
 import "../../../Application/Core/App.js" as App
+import "./Core/Popup.js" as TrayPopup
 
 WidgetModel {
     id: root
@@ -52,6 +53,8 @@ WidgetModel {
             if (!supportedGames.hasOwnProperty(service)) {
                 return;
             }
+
+            TrayPopup.clearAll();
 
             function finishCreation() {
                 if (component.status === Component.Ready) {
