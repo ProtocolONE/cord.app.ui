@@ -127,7 +127,7 @@ Item {
                 width: 160
                 height: 35
 
-                enabled: App.isMainServiceCanBeStarted(root.gameItem) && !root.gameItem.locked
+                enabled: App.isMainServiceCanBeStarted(root.gameItem)
                 text: button.getText()
 
                 focus: true

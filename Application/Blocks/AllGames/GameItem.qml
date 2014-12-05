@@ -235,7 +235,7 @@ Rectangle {
             anchors.centerIn: parent
             opacity: root.selected ? 1 : 0
             text: qsTr("START_GAME_BUTTON")
-            enabled: !root.serviceItem.locked
+            enabled: App.isMainServiceCanBeStarted(root.serviceItem)
 
             style {
                 normal: Styles.style.gameInstallButtonNormal
@@ -244,11 +244,9 @@ Rectangle {
             }
 
             onClicked: {
-                if (App.isMainServiceCanBeStarted(root.serviceItem)) {
-                    App.activateGameByServiceId(root.serviceItem.serviceId);
-                    App.navigate('mygame', 'GameItem');
-                    App.downloadButtonStart(serviceItem.serviceId);
-                }
+                App.activateGameByServiceId(root.serviceItem.serviceId);
+                App.navigate('mygame', 'GameItem');
+                App.downloadButtonStart(serviceItem.serviceId);
             }
 
             Behavior on opacity {

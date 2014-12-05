@@ -22,6 +22,7 @@ WidgetModel {
             var gameItem = App.serviceItemByServiceId(serviceId);
 
             if (!gameItem) {
+                console.log('ERROR: serviceLocked() received for unknown service: ' + serviceId);
                 return;
             }
 
@@ -32,6 +33,7 @@ WidgetModel {
             var gameItem = App.serviceItemByServiceId(serviceId);
 
             if (!gameItem) {
+                console.log('ERROR: serviceUnlocked() received for unknown service: ' + serviceId);
                 return;
             }
 

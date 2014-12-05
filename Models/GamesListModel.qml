@@ -138,6 +138,7 @@ ListModel {
         allreadyDownloaded: false
         gaName: "Reborn" // Never change please
         checkNicknameBeforeStart: false
+        locked: false
 
         maintenance: false
         ignoreMaintenance: false
@@ -214,6 +215,7 @@ ListModel {
         allreadyDownloaded: false
         gaName: "CombatArms" // Never change please
         checkNicknameBeforeStart: false
+        locked: false
 
         maintenance: false
         ignoreMaintenance: false
@@ -296,6 +298,7 @@ ListModel {
         allreadyDownloaded: false
         gaName: "BloodAndSoul" // Never change please
         checkNicknameBeforeStart: false
+        locked: false
 
         maintenance: false
         ignoreMaintenance: false
@@ -371,6 +374,7 @@ ListModel {
         allreadyDownloaded: false
         gaName: "FermaJane" // Never change please
         checkNicknameBeforeStart: false
+        locked: false
 
         maintenance: false
         ignoreMaintenance: false
@@ -436,6 +440,7 @@ ListModel {
         allreadyDownloaded: false
         gaName: "Aika2" // Never change please
         checkNicknameBeforeStart: false
+        locked: false
 
         maintenance: false
         ignoreMaintenance: false
@@ -507,6 +512,7 @@ ListModel {
         allreadyDownloaded: false
         gaName: "GoldenAge" // Never change please
         checkNicknameBeforeStart: false
+        locked: false
 
         maintenance: false
         ignoreMaintenance: false
@@ -574,6 +580,7 @@ ListModel {
         allreadyDownloaded: false
         gaName: "FireStorm" // Never change please
         checkNicknameBeforeStart: true
+        locked: false
 
         maintenance: false
         ignoreMaintenance: false
@@ -711,6 +718,7 @@ ListModel {
         allreadyDownloaded: false
         gaName: "BlackDesert" // Never change please
         checkNicknameBeforeStart: false
+        locked: false
 
         maintenance: false
         ignoreMaintenance: false
@@ -788,6 +796,7 @@ ListModel {
         allreadyDownloaded: false
         gaName: "DarkAge" // Never change please
         checkNicknameBeforeStart: false
+        locked: false
 
         maintenance: false
         ignoreMaintenance: false

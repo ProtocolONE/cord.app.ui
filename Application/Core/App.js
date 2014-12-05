@@ -235,5 +235,9 @@ function isMainServiceCanBeStarted(item) {
         return false;
     }
 
+    if (item.locked) {
+        return false;
+    }
+
     return true;
 }
