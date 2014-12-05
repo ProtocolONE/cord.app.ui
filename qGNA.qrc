@@ -305,6 +305,9 @@
 		<file>Application/Widgets/SecondAccountAuth/SecondAccountAuthModel.qml</file>
 		<file>Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml</file>
 		<file>Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml</file>
+		<file>Application/Widgets/ServiceLockConnector/PluginContainer.qml</file>
+		<file>Application/Widgets/ServiceLockConnector/qmldir</file>
+		<file>Application/Widgets/ServiceLockConnector/ServiceLockConnector.qml</file>
 		<file>Application/Widgets/SilentMode/PluginContainer.qml</file>
 		<file>Application/Widgets/SilentMode/qmldir</file>
 		<file>Application/Widgets/SilentMode/SilentModeModel.qml</file>

@@ -1,0 +1,3 @@
+module Application.Widgets.ServiceLockConnector
+PluginContainer 1.0 PluginContainer.qml 
+ServiceLockConnector 1.0 ServiceLockConnector.qml

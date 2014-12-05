@@ -13,6 +13,7 @@ import GameNet.Controls 1.0
 import Application.Blocks 1.0
 
 import "../../../Application/Core/App.js" as App
+import "../../Core/Styles.js" as Styles
 
 Rectangle {
     width: 245
@@ -234,6 +235,14 @@ Rectangle {
             anchors.centerIn: parent
             opacity: root.selected ? 1 : 0
             text: qsTr("START_GAME_BUTTON")
+            enabled: !root.serviceItem.locked
+
+            style {
+                normal: Styles.style.gameInstallButtonNormal
+                hover: Styles.style.gameInstallButtonHover
+                disabled: Styles.style.gameInstallButtonDisabled
+            }
+
             onClicked: {
                 if (App.isMainServiceCanBeStarted(root.serviceItem)) {
                     App.activateGameByServiceId(root.serviceItem.serviceId);
