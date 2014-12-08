@@ -120,6 +120,7 @@ Item {
         var options = {};
         var currentTime = Date.now();
         options.resource = "QGNA_" + Qt.md5(currentTime.toString() + Math.floor(Math.random() * 100));
+        options.streamManagementMode = 1;
 
         d.loadUserTalkDate(myUser.userId);
 
@@ -592,6 +593,19 @@ Item {
 
     JabberClient {
         id: xmppClient
+
+        onStreamManagementResumed: {
+            if (!resumed) {
+                return;
+            }
+            console.log('Connection resumed');
+
+            root.connected = true;
+            root.everConnected = true;
+            root.connecting = false;
+
+            xmppClient.failCount = 0;
+        }
 
         onConnected: {
             console.log("Connected to server ");
