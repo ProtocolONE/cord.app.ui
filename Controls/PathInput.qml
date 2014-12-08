@@ -86,19 +86,19 @@ Item {
             }
         }
 
-        Rectangle {
+        Item {
             id: browseButton
 
             property bool isMouseOver: btnCursorArea.containsMouse
 
             width: parent.height
             height: parent.height
-            color: "#FFFFFF"
-
             anchors {
                 right: parent.right
                 verticalCenter: parent.verticalCenter
             }
+
+            visible: root.enabled
 
             Image {
                 id: browsebuttonImage
@@ -115,7 +115,6 @@ Item {
                 cursor: CursorArea.PointingHandCursor
                 anchors.fill: parent
                 onClicked: root.browseClicked();
-                visible: true
             }
         }
     }
@@ -143,8 +142,6 @@ Item {
                 name: "Disabled"
                 when: !root.enabled
                 PropertyChanges { target: controlBorder; border.color: style.disabled }
-                PropertyChanges { target: iconImage; opacity: 0.2 }
-                PropertyChanges { target: inputBehavior; opacity: 0.2 }
             },
             State {
                 name: "ErrorNormal"
