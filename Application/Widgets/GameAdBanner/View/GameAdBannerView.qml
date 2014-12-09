@@ -46,6 +46,7 @@ WidgetView {
         }
 
         GameAdBannerView.filtered = model.getAds(currentGameItem.gameId);
+        d.banners = GameAdBannerView.filtered;
 
         root.index = 0;
         root.hasAds = GameAdBannerView.filtered.length > 0;
@@ -71,6 +72,15 @@ WidgetView {
         root.index = (root.index + 1) % GameAdBannerView.filtered.length;
     }
 
+    function switchToIndex(toIndex) {
+        if (toIndex < 0 || toIndex > GameAdBannerView.filtered.length - 1) {
+            return;
+        }
+
+        root.index = toIndex;
+        switchAnimation();
+    }
+
     function switchAnimation() {
         showNextTimer.stop();
         contentSwitcher.opacity = 1;
@@ -89,6 +99,7 @@ WidgetView {
         id: d
 
         property bool buttonsOver: previousButton.containsMouse || nextButton.containsMouse
+        property variant banners
     }
 
     Connections {
@@ -133,7 +144,7 @@ WidgetView {
             width: root.width
             height: root.height
         }
-    }
+    } 
 
     MouseArea {
         id: mouseArea
@@ -148,7 +159,7 @@ WidgetView {
             App.openExternalUrlWithAuth(GameAdBannerView.filtered[root.index].link);
 
             GoogleAnalytics.trackEvent("/game/" + currentGameItem.gaName,
-                                       "Game " + currentGameItem.gaName,
+                                       "GameAdBanner",
                                        "Game advertisement clicked",
                                        contentSwitcher.currentItem.bannerId);
         }
@@ -157,22 +168,29 @@ WidgetView {
         ImageButton {
             id: previousButton
 
-            visible: (mouseArea.containsMouse || d.buttonsOver) && GameAdBannerView.filtered.length > 1
+            visible: d.banners ? d.banners.length > 1 : false
             width: 24
             height: 24
             anchors {
                 verticalCenter: parent.verticalCenter
                 left: parent.left
-                leftMargin: 10
+                leftMargin: 3
             }
+            analytics: GoogleAnalyticsEvent {
+                page: "/game/" + currentGameItem.gaName
+                category: "GameAdBanner"
+                action: "LeftArrow"
+                label: contentSwitcher.currentItem.bannerId
+            }
+
             style: ButtonStyleColors {
-                normal: "#1ABC9C"
-                hover: "#019074"
-                disabled: "#1ABC9C"
+                normal: "#00000000"
+                hover: "#00000000"
+                disabled: "#00000000"
             }
             styleImages: ButtonStyleImages {
                 normal: installPath + "Assets/Images/Application/Widgets/GameAdBanner/arrow_left.png"
-                hover: installPath + "Assets/Images/Application/Widgets/GameAdBanner/arrow_left.png"
+                hover: installPath + "Assets/Images/Application/Widgets/GameAdBanner/arrow_left_hover.png"
                 disabled: installPath + "Assets/Images/Application/Widgets/GameAdBanner/arrow_left.png"
             }
             onClicked: {
@@ -189,22 +207,28 @@ WidgetView {
         ImageButton {
             id: nextButton
 
-            visible: (mouseArea.containsMouse || d.buttonsOver) && GameAdBannerView.filtered.length > 1
+            visible: d.banners ? d.banners.length > 1 : false
             width: 24
             height: 24
             anchors {
                 verticalCenter: parent.verticalCenter
                 right: parent.right
-                rightMargin: 10
+                rightMargin: 3
+            }
+            analytics: GoogleAnalyticsEvent {
+                page: "/game/" + currentGameItem.gaName
+                category: "GameAdBanner"
+                action: "RightArrow"
+                label: contentSwitcher.currentItem.bannerId
             }
             style: ButtonStyleColors {
-                normal: "#1ABC9C"
-                hover: "#019074"
-                disabled: "#1ABC9C"
+                normal: "#00000000"
+                hover: "#00000000"
+                disabled: "#00000000"
             }
             styleImages: ButtonStyleImages {
                 normal: installPath + "Assets/Images/Application/Widgets/GameAdBanner/arrow_right.png"
-                hover: installPath + "Assets/Images/Application/Widgets/GameAdBanner/arrow_right.png"
+                hover: installPath + "Assets/Images/Application/Widgets/GameAdBanner/arrow_right_hover.png"
                 disabled: installPath + "Assets/Images/Application/Widgets/GameAdBanner/arrow_rigth.png"
             }
             onClicked: {
@@ -216,6 +240,56 @@ WidgetView {
                     switchAnimation();
                 }
             }
+        }
+    }
+
+    Item {
+        anchors {
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+            margins: 7
+            rightMargin: 3
+        }
+        height: 8
+
+        ListView {
+            anchors.right: parent.right
+            height: parent.height
+            width: count * (12 + spacing)
+
+            orientation: ListView.Horizontal
+            spacing: 2
+            interactive: false
+
+            delegate: Item {
+                width: 12
+                height: 12
+
+                Image {
+                    source: root.index === index ?
+                                installPath + "Assets/Images/Application/Widgets/GameAdBanner/crumb_active.png" :
+                                crumbMouseArea.containsMouse ?
+                                    installPath + "Assets/Images/Application/Widgets/GameAdBanner/crumb_hover.png" :
+                                    installPath + "Assets/Images/Application/Widgets/GameAdBanner/crumb_inactive.png"
+                }
+
+                CursorMouseArea {
+                    id: crumbMouseArea
+
+                    anchors.fill: parent
+                    onClicked: {
+                        root.switchToIndex(index);
+
+                        GoogleAnalytics.trackEvent("/game/" + currentGameItem.gaName,
+                                                   "GameAdBanner",
+                                                   "PillClick",
+                                                   "" + index);
+                    }
+                }
+            }
+
+            model: d.banners
         }
     }
 
