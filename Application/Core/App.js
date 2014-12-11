@@ -104,6 +104,20 @@ function currentRunningSecondService() {
     }
 }
 
+function isAnyServiceLocked() {
+    var serviceItem;
+    for (var i = 0; i < gamesListModel.count; i++) {
+        serviceItem = gamesListModel.get(i);
+
+        if (serviceItem.locked) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
 function activateGame(item) {
     _previousGame = gamesListModel.currentGameItem;
     gamesListModel.currentGameItem = item;
@@ -241,16 +255,15 @@ function isMainServiceCanBeStarted(item) {
         return true;
     }
 
-    var currentMainRunning = currentRunningMainService(),
-        currentSecondRunning = currentRunningSecondService();
-
-
-    if (currentMainRunning ||
-       (currentSecondRunning && currentSecondRunning != item.serviceId)) {
+    if (isAnyServiceLocked()) {
         return false;
     }
 
-    if (item.locked) {
+    var currentMainRunning = currentRunningMainService(),
+        currentSecondRunning = currentRunningSecondService();
+
+    if (currentMainRunning ||
+       (currentSecondRunning && currentSecondRunning != item.serviceId)) {
         return false;
     }
 
