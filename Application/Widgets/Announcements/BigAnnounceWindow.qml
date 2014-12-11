@@ -91,6 +91,8 @@ Window {
         }
     }
 
+    onBeforeClosed: bigAnnounceWindow.close();
+
     Item {
         anchors.fill: parent
 
