@@ -177,7 +177,7 @@ WidgetView {
                 leftMargin: 3
             }
             analytics: GoogleAnalyticsEvent {
-                page: "/game/" + currentGameItem.gaName
+                page: currentGameItem ? "/game/" + currentGameItem.gaName : ''
                 category: "GameAdBanner"
                 action: "LeftArrow"
                 label: contentSwitcher.currentItem.bannerId
@@ -216,7 +216,7 @@ WidgetView {
                 rightMargin: 3
             }
             analytics: GoogleAnalyticsEvent {
-                page: "/game/" + currentGameItem.gaName
+                page: currentGameItem ? "/game/" + currentGameItem.gaName : ''
                 category: "GameAdBanner"
                 action: "RightArrow"
                 label: contentSwitcher.currentItem.bannerId

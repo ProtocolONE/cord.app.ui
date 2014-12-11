@@ -90,6 +90,9 @@
 		<file>Application/Core/Modules/ApplicationStatistic.qml</file>
 		<file>Application/Core/Modules/Host.js</file>
 		<file>Application/Core/Modules/Host.qml</file>
+		<file>Application/Core/Modules/Overlay.js</file>
+		<file>Application/Core/Modules/ServiceHandleModel.js</file>
+		<file>Application/Core/Modules/ServiceHandleModel.qml</file>
 		<file>Application/Core/Modules/Settings.js</file>
 		<file>Application/Core/Modules/Settings.qml</file>
 		<file>Application/Core/Modules/SignalBus.js</file>

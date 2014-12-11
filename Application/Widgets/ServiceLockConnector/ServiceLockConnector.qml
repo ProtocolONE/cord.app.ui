@@ -9,7 +9,6 @@
 ****************************************************************************/
 
 import QtQuick 1.1
-import qGNA.Library 1.0
 import GameNet.Components.Widgets 1.0
 
 import "../../Core/App.js" as App
@@ -17,7 +16,11 @@ import "../../Core/App.js" as App
 WidgetModel {
     id: root
 
-    ServiceHandle {
+    Connections {
+        target: App.serviceHandleModel()
+
+        ignoreUnknownSignals: true
+
         onServiceLocked: {
             var gameItem = App.serviceItemByServiceId(serviceId);
 

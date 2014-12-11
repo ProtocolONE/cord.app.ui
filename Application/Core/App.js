@@ -28,6 +28,7 @@ Qt.include('./Modules/SignalBus.js');
 Qt.include('./Modules/Host.js');
 Qt.include('./Modules/Settings.js');
 Qt.include('./Modules/Overlay.js');
+Qt.include('./Modules/ServiceHandleModel.js');
 Qt.include('./Modules/ApplicationStatistic.js');
 
 var gamesListModel = initModel(),
