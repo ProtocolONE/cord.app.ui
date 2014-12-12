@@ -43,7 +43,7 @@ FocusScope {
             if (MessengerJs.getStatus() !== MessengerJs.ROSTER_RECEIVED) {
                 return;
             }
-            if (messengerInput.text.length > 0) {
+            if (d.validateMessage(messengerInput.text)) {
                 MessengerJs.sendMessage(MessengerJs.selectedUser(), messengerInput.text);
                 messengerInput.text = "";
                 d.setActiveStatus(MessengerJs.selectedUser(), "Active");
@@ -76,6 +76,11 @@ FocusScope {
                 user.inputMessage = "";
                 messengerInput.cursorPosition = messengerInput.text.length;
             }
+        }
+
+        function validateMessage(msg) {
+            var replaced = msg.replace(/\s/g, "");
+            return replaced.length > 0;
         }
     }
 
