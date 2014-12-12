@@ -59,7 +59,7 @@ WidgetModel {
             return;
         }
 
-        RestApiJs.User.validateNickname(nickName,
+        RestApiJs.User.validateNickname(encodeURIComponent(nickName),
                                         function(response) {
                                             if (response.hasOwnProperty('error')){
                                                 var error = response.error;
@@ -98,7 +98,7 @@ WidgetModel {
             return;
         }
 
-        RestApiJs.User.validateTechNickname(techName,
+        RestApiJs.User.validateTechNickname(encodeURIComponent(techName),
                                             function(response) {
                                                 if (response.hasOwnProperty('error')){
                                                     var error = response.error;
