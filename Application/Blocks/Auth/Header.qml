@@ -1,7 +1,9 @@
 import QtQuick 1.1
+import GameNet.Controls 1.0
 
 import "../../Core/Styles.js"  as Styles
 import "../../Core/App.js" as App
+import "../Header"
 
 Rectangle {
     id: root
@@ -37,6 +39,35 @@ Rectangle {
             left: parent.left
             right: parent.right
             bottom: parent.bottom
+        }
+    }
+
+    Item {
+        width: 120
+        height: parent.height
+        anchors { right: parent.right; rightMargin: 10 }
+
+
+        Row {
+            anchors.fill: parent
+            layoutDirection: Qt.RightToLeft
+
+            HeaderControlButton {
+                width: 26
+                height: parent.height
+                source: installPath + "Assets/Images/Application/Blocks/Header/Close.png"
+                anchors.verticalCenter: parent.verticalCenter
+                toolTip: qsTr("HEADER_BUTTON_CLOSE")
+                tooltipGlueCenter: true
+                analytics: GoogleAnalyticsEvent {
+                    page: '/Header/AuthScreen'
+                    category: 'Navigation'
+                    action: 'Close application'
+                }
+
+                onClicked: App.hideMainWindow();
+            }
+
         }
     }
 
