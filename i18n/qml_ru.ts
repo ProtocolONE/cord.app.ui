@@ -1905,11 +1905,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>LICENSE_TIP</source>
-        <translation>Нажимая &quot;Продолжить установку&quot;, ты соглашаешься с &lt;a href=&apos;http://&apos;&gt;&lt;font style=&apos;text-decoration: none;&apos; color=&apos;#1ABC9C&apos;&gt;условиями лицензионного соглашения&lt;/font&gt;&lt;/a&gt;</translation>
+        <translation>Нажимая &quot;Установить&quot;, ты соглашаешься с &lt;a href=&apos;http://&apos;&gt;&lt;font style=&apos;text-decoration: none;&apos; color=&apos;#1ABC9C&apos;&gt;условиями лицензионного соглашения&lt;/font&gt;&lt;/a&gt;</translation>
     </message>
     <message>
         <source>INSTALL_BUTTON_CAPTION</source>
-        <translation>Продолжить установку</translation>
+        <translation>Установить</translation>
     </message>
 </context>
 <context>
