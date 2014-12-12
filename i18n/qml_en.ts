@@ -860,17 +860,7 @@
 <context>
     <name>GameItem</name>
     <message>
-        <location filename="../Application/Widgets/AllGames/View/GameItem.qml" line="90"/>
-        <source>GAME_TOP_STICK</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/AllGames/View/GameItem.qml" line="100"/>
-        <source>GAME_NEW_STICK</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/AllGames/View/GameItem.qml" line="209"/>
+        <location filename="../Application/Blocks/AllGames/GameItem.qml" line="236"/>
         <source>START_GAME_BUTTON</source>
         <translation></translation>
     </message>

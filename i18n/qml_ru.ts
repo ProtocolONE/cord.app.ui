@@ -1949,7 +1949,7 @@ Please try again later.</source>
     <name>GameItem</name>
     <message>
         <source>START_GAME_BUTTON</source>
-        <translation>Играть</translation>
+        <translation>Начать игру</translation>
     </message>
     <message>
         <source>GAME_TOP_STICK</source>
@@ -2319,7 +2319,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_DA_ABOUT_TEXT</source>
-        <translation type="vanished">Dark Age (название в ОБТ — Forsaken World) ― это единственная клиентская онлайн-игра о конфликте бессмертных вампиров и свирепых оборотней, с современной графикой, детально проработанной вселенной и игровой механикой. Кровавое и беспощадное противостояние тёмных сил в огромном мире, полном испытаний и невероятных возможностей, покажет вашу истинную сущность!</translation>
+        <translation>Dark Age ― единственная онлайн-игра о конфликте бессмертных вампиров и свирепых оборотней, с современной графикой, детально проработанной вселенной и игровой механикой. Кровавое и беспощадное противостояние тёмных сил в мире невероятных возможностей!</translation>
     </message>
     <message>
         <source>GAME_DA_MINI_TOOLTIP</source>
