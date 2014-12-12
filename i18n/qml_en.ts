@@ -852,17 +852,7 @@
 <context>
     <name>GameItem</name>
     <message>
-        <location filename="../Application/Widgets/AllGames/View/GameItem.qml" line="89"/>
-        <source>GAME_TOP_STICK</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/AllGames/View/GameItem.qml" line="99"/>
-        <source>GAME_NEW_STICK</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/AllGames/View/GameItem.qml" line="193"/>
+        <location filename="../Application/Blocks/AllGames/GameItem.qml" line="236"/>
         <source>START_GAME_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
@@ -960,6 +950,171 @@
 <context>
     <name>GamesListModel</name>
     <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="233"/>
+        <source>LOGO_CA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="234"/>
+        <source>GAME_CA_ABOUT_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="235"/>
+        <source>GAME_CA_MINI_TOOLTIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="236"/>
+        <source>GAME_CA_MINI_DESC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="316"/>
+        <source>LOGO_BS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="317"/>
+        <source>GAME_BS_ABOUT_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="318"/>
+        <source>GAME_BS_MINI_TOOLTIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="319"/>
+        <source>GAME_BS_MINI_DESC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="157"/>
+        <source>LOGO_REBORN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="158"/>
+        <source>GAME_REBORN_ABOUT_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="159"/>
+        <source>GAME_REBORN_MINI_TOOLTIP</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="160"/>
+        <source>GAME_REBORN_MINI_DESC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="455"/>
+        <source>LOGO_AIKA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="456"/>
+        <source>GAME_AIKA_ABOUT_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="457"/>
+        <source>GAME_AIKA_MINI_TOOLTIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="458"/>
+        <source>GAME_AIKA_MINI_DESC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="526"/>
+        <source>LOGO_GA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="527"/>
+        <source>GAME_GA_ABOUT_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="528"/>
+        <source>GAME_GA_MINI_TOOLTIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="529"/>
+        <source>GAME_GA_MINI_DESC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="594"/>
+        <source>LOGO_WI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="595"/>
+        <source>GAME_WI_ABOUT_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="596"/>
+        <source>GAME_WI_MINI_TOOLTIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="597"/>
+        <source>GAME_WI_MINI_DESC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="665"/>
+        <source>LOGO_BD</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="666"/>
+        <source>GAME_BD_ABOUT_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="667"/>
+        <source>GAME_BD_MINI_TOOLTIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="668"/>
+        <source>GAME_BD_MINI_DESC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="743"/>
+        <source>LOGO_DA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="744"/>
+        <source>GAME_DA_ABOUT_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="745"/>
+        <source>GAME_DA_MINI_TOOLTIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="746"/>
+        <source>GAME_DA_MINI_DESC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="389"/>
+        <source>LOGO_FJ</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../Application/Models/GamesListModel.qml" line="39"/>
         <source>GAME_MENU_NEWS_TEXT</source>
         <translation type="unfinished"></translation>
@@ -987,6 +1142,21 @@
     <message>
         <location filename="../Application/Models/GamesListModel.qml" line="85"/>
         <source>GAME_MENU_GAME_SETTINGS_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="390"/>
+        <source>GAME_FJ_ABOUT_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="391"/>
+        <source>GAME_FJ_MINI_TOOLTIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Models/GamesListModel.qml" line="392"/>
+        <source>GAME_FJ_MINI_DESC</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

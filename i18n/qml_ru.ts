@@ -3502,11 +3502,11 @@ Please try again later.</source>
     <name>NicknameReminderView</name>
     <message>
         <source>USER_LOST_NICK_NAME_TITLE</source>
-        <translation type="unfinished">Отличный момент чтобы выбрать никнейм!</translation>
+        <translation type="unfinished">Отличный момент, чтобы выбрать никнейм!</translation>
     </message>
     <message>
         <source>USER_LOST_NICKNAME_BODY_TEXT</source>
-        <translation type="unfinished">А то вашим друзьям придётся узнавать вас по аватару. У них может не получится.</translation>
+        <translation type="unfinished">А то вашим друзьям придётся узнавать вас по аватару. У них может не получиться.</translation>
     </message>
     <message>
         <source>USER_LOST_NICKNAME_ENTER_BUTTON_TEXT</source>
