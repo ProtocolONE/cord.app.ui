@@ -159,6 +159,8 @@ Item {
                     var status = root.gameItem.status,
                         serviceId = root.gameItem.serviceId;
 
+                    App.activateGameByServiceId(serviceId);
+
                     if (button.isStartDownloading) {
                         Popup.show('GameLoad');
                     } else {
