@@ -8,15 +8,24 @@ ComboBox {
 
     Connections {
         target: App.signalBus()
-        onLeftMouseClick: {
-            var posInItem;
-
-            posInItem = root.listBlock.mapFromItem(rootItem, x, y);
-
-            if (posInItem.x < 0 || posInItem.x > listBlock.width ||
-                posInItem.y < 0 || posInItem.y > listBlock.height) {
+        onLeftMouseRelease: {
+            if (root.controlVisible) {
+                root.preventDefault = true;
                 listContainer.controlVisible = false;
+                restoreDefaultTimer.restart();
             }
+        }
+    }
+
+    //  HACK: таймер нужен для предотвращения срабатывания обработчика
+    //  внутри ComboBox
+    Timer {
+        id: restoreDefaultTimer
+
+        interval: 1
+        repeat: false
+        onTriggered: {
+            root.preventDefault = false;
         }
     }
 }

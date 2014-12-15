@@ -46,7 +46,8 @@ QtObject {
     signal needPakkanenVerification();
     signal selectService(string serviceId);
 
-    signal leftMouseClick(variant rootItem, int x, int y);
+    signal leftMousePress(variant rootItem, int x, int y);
+    signal leftMouseRelease(variant rootItem, int x, int y);
     signal settingsChange(string path, string key, string value);
 
     signal setTrayIcon(string source);

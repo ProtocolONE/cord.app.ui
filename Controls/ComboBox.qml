@@ -13,6 +13,7 @@ import Tulip 1.0
 Item {
     id: root
 
+
     property bool enabled: true
     property int currentIndex: 0
     property int dropDownSize: -1
@@ -24,6 +25,9 @@ Item {
 
     property alias listBlock: listBlock
     property alias listContainer: listContainer
+
+    property bool preventDefault: false
+    property alias controlVisible: listContainer.controlVisible
 
     function append(value, text, icon) {
         root.model.append({"value": value, "text": text, "icon": icon})
@@ -195,7 +199,11 @@ Item {
             hoverEnabled: true
             anchors.fill: parent
             acceptedButtons: Qt.LeftButton
-            onClicked: listContainer.controlVisible = !listContainer.controlVisible;
+            onClicked: {
+                if (!root.preventDefault) {
+                    listContainer.controlVisible = !listContainer.controlVisible;
+                }
+            }
         }
     }
 

@@ -112,8 +112,12 @@ function exitApplication() {
      _signalBusInstance.exitApplication();
 }
 
-function leftMouseClick(root, x, y) {
-    _signalBusInstance.leftMouseClick(root, x, y);
+function leftMousePress(root, x, y) {
+    _signalBusInstance.leftMousePress(root, x, y);
+}
+
+function leftMouseRelease(root, x, y) {
+    _signalBusInstance.leftMouseRelease(root, x, y);
 }
 
 function needPakkanenVerification() {

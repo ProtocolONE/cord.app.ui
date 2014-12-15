@@ -15,11 +15,11 @@ Rectangle {
 //    MouseArea {
 //        id: mainWindow
 
-//        signal leftMouseClick(int x, int y);
+//        signal leftMouseRelease(int x, int y);
 
 //        hoverEnabled: true
 //        anchors.fill: parent
-//        onClicked: mainWindow.leftMouseClick(mouse.x, mouse.y);
+//        onClicked: mainWindow.leftMouseRelease(mouse.x, mouse.y);
 //    }
 
     ApplicationSettings {

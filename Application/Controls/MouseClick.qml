@@ -10,12 +10,13 @@
 
 import QtQuick 1.1
 import "MouseClick.js" as Js
+import "../Core/App.js" as App
 
 Item {
     Connections {
-        target: mainWindow
+        target: App.signalBus()
 
-        onLeftMouseClick: {
+        onLeftMousePress: {
             var obj = Js.widgets();
 
             Object.keys(obj).forEach(function(e){

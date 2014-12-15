@@ -58,8 +58,12 @@ Item {
         initAdditionalLayers(options);
 
         if (mainWindowInstance) {
-            mainWindowInstance.leftMouseClick.connect(function(x,y) {
-                App.leftMouseClick(root, x, y);
+            mainWindowInstance.leftMousePress.connect(function(x,y) {
+                App.leftMousePress(root, x, y);
+            });
+
+            mainWindowInstance.leftMouseRelease.connect(function(x,y) {
+                App.leftMouseRelease(root, x, y);
             });
 
             mainWindowInstance.selectService.connect(function(serviceId) {
