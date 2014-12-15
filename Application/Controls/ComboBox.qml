@@ -9,9 +9,9 @@ ComboBox {
     Connections {
         target: App.signalBus()
         onLeftMouseRelease: {
-            if (root.controlVisible) {
+            if (root.listContainer.controlVisible) {
                 root.preventDefault = true;
-                listContainer.controlVisible = false;
+                root.listContainer.controlVisible = false;
                 restoreDefaultTimer.restart();
             }
         }

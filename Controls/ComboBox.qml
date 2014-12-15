@@ -27,7 +27,6 @@ Item {
     property alias listContainer: listContainer
 
     property bool preventDefault: false
-    property alias controlVisible: listContainer.controlVisible
 
     function append(value, text, icon) {
         root.model.append({"value": value, "text": text, "icon": icon})
