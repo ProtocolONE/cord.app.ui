@@ -159,8 +159,10 @@ Item {
                     if (link.indexOf(startServicePattern) === 0) {
                         serviceId = link.substring(startServicePattern.length);
 
-                        App.selectService(serviceId);
-                        App.downloadButtonStart(serviceId);
+                        if (App.serviceExists(serviceId)) {
+                            App.selectService(serviceId);
+                            App.downloadButtonStart(serviceId);
+                        }
                         return;
                     }
 

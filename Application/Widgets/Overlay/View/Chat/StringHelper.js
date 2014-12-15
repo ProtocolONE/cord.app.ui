@@ -7,7 +7,11 @@ function replaceGameNetHyperlinks(message, makeHyperlink, getServiceItemFn) {
         var serviceItem = getServiceItemFn(serviceId)
             , serviceName;
 
-        serviceName = serviceItem ? serviceItem.name : gnLink;
+        if (!serviceItem) {
+            return str;
+        }
+
+        serviceName = serviceItem.name;
 
         if (makeHyperlink) {
             return "<a style='color:" +
