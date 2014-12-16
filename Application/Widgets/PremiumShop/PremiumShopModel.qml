@@ -40,7 +40,7 @@ WidgetModel {
         var i;
 
         RestApi.Premium.getGrid(function(response) {
-            optionsModel.clear();
+            root.premiumModel.clear();
 
             var max = response && response[0] ? response[0].price : 0,
                 index = 0;
@@ -55,7 +55,9 @@ WidgetModel {
 
             root.defaultIndex = index;
             root.modelChanged();
-        }, function(response) {});
+        }, function(response) {
+            root.modelChanged();
+        });
     }
 
     QtObject {
@@ -113,9 +115,5 @@ WidgetModel {
 
     ListModel {
         id: optionsModel
-    }
-
-    Component.onCompleted: {
-        root.refreshModel();
     }
 }

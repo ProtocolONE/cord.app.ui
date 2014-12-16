@@ -15,4 +15,5 @@ PluginContainer {
     name: "PremiumShop"
     view: "PremiumShopView"
     model: "PremiumShopModel"
+    singletonModel: true
 }
