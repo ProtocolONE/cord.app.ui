@@ -47,7 +47,7 @@ ErrorContainer {
         width: parent.width
         height: 48
         language: App.keyboardLayout()
-        capsLock: App.isCapsLockEnabled()
+        showCapslock: false
 
         onTabPressed: root.tabPressed();
         onBackTabPressed: root.backTabPressed();
