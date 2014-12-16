@@ -129,7 +129,7 @@ Rectangle {
 
                 SettingsSpecialButton {
                     width: 150
-                    height: 15
+                    height: 30
                     enabled: !(App.currentRunningMainService() || App.currentRunningSecondService())
                     visible: currentGame ? currentGame.serviceId != "30000000000" : false //INFO F&F Hack
                     anchors { bottom: parent.bottom }
