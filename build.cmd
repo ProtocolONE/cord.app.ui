@@ -17,6 +17,8 @@ xcopy %CUR_PATH%*.* %BUILD_PATH% /S /E /H /R /Y /EXCLUDE:%CUR_PATH%build_exclude
 call %CUR_PATH%build_fix_cc.cmd %BUILD_PATH%
                                   
 %QTDIR%\bin\rcc.exe -compress 3 -threshold 4 -binary  "%BUILD_PATH%\qGNA.qrc" -o "%BUILD_PATH%\qGNA.tmp"
+if %errorlevel% neq 0 goto rccFailed
+
 %QTDIR%\bin\ert e "%BUILD_PATH%\qGNA.tmp" "%BUILD_PATH%\qGNA.rcc"
 del /F /Q "%BUILD_PATH%\qGNA.tmp"
 
@@ -33,3 +35,15 @@ if not exist %DST_PATH% (
 xcopy /I /Q /R /Y "%BUILD_PATH%\qGNA.rcc" "%DST_PATH%"
 
 rmdir /S /Q %BUILD_PATH%
+
+goto end
+
+:rccFailed
+echo ============
+echo RCC Failed: %ERRORLEVEL%
+echo ============
+exit /B 1
+
+
+
+:end
