@@ -49,8 +49,7 @@ ErrorContainer {
         capsLock: App.isCapsLockEnabled()
 
         onIconClicked: {
-            passwordVisible = true;
-            iconCursor = CursorArea.ArrowCursor;
+            passwordVisible = !passwordVisible;
         }
 
         echoMode: passwordVisible ? TextInput.Normal : TextInput.Password
