@@ -52,6 +52,7 @@ Item {
         console.log('GameNet Application version ' + App.fileVersion() + ' starting up');
         console.log('Desktop', options.desktop);
 
+        App.setHost('https://www.gamenet.ru/');
         Styles.init();
         initRestApi(options);
         initGoogleAnalytics(options);

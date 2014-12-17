@@ -3,14 +3,29 @@ import GameNet.Controls 1.0
 
 import "../../Core/App.js" as App
 import "../../Core/Styles.js" as Styles
+import "../../Core/restapi.js" as RestApi
 
 Rectangle {
     id: root
 
     signal finished();
 
-    function startTimer() {
-        progressTimer.start();
+    property string userId
+    property string appKey
+    property string cookie
+
+    function requestServices() {
+        RestApi.Core.setUserId(userId);
+        RestApi.Core.setAppKey(appKey);
+
+        RestApi.Service.getUI(function(result) {
+            App.servicesUI = result;
+            App.fillGamesModel(result.services);
+            root.finished();
+        }, function(result) {
+            console.log('get services error', result.code);
+            retryTimer.start();
+        });
     }
 
     color: Styles.style.base
@@ -21,11 +36,12 @@ Rectangle {
     }
 
     Timer {
-        id: progressTimer
+        id: retryTimer
 
-        interval: 1000
-        repeat: false
+        interval: 10000
+        repeat: true
+        running: false
 
-        onTriggered: root.finished();
+        onTriggered: root.requestServices();
     }
 }

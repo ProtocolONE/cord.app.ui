@@ -1,7 +1,8 @@
 import QtQuick 1.1
 
 Image {
-    property alias background: back.color;
+    property bool isReady: status == Image.Ready
+    property alias background: back.color
 
     Rectangle {
         id: back

@@ -6,8 +6,6 @@ import Application.Blocks.Header 1.0
 import Application.Blocks.GameMenu 1.0
 import GameNet.Components.Widgets 1.0
 
-import "../../Application/Blocks/AllGames" as AllGames
-
 import "../../Application/Core/App.js" as App
 import "../../Application/Core/TrayPopup.js" as TrayPopup
 import "../../Application/Core/User.js" as User
@@ -403,11 +401,10 @@ Rectangle {
             widget: 'UserProfile'
         }
 
-        AllGames.Main {
+        WidgetContainer {
             id: allGames
 
-            width: 180 + 590
-            height: parent.height
+            widget: 'AllGames'
         }
 
         WidgetContainer {
@@ -440,7 +437,7 @@ Rectangle {
         State {
             name: "AllGames"
             PropertyChanges { target: header; parent: layer1headerContair}
-            PropertyChanges { target: allGames; parent: layer2Col1}
+            PropertyChanges { target: allGames; parent: layer1Col1}
             PropertyChanges { target: userProfile; parent: layer2Col2}
             PropertyChanges { target: contactList; parent: layer2Col2}
         }

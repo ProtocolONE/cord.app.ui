@@ -16,6 +16,8 @@ var indexToGameItem = {},
     gameIdToGameItem = {},
     serviceIdToGameItemIdex = {},
     serviceStartButtonClicked = {},
+    servicesUI,
+    currentHost,
     authAccepted = false,
     count = 0,
     clientWidth = 1000,
@@ -32,6 +34,7 @@ Qt.include('./Modules/ServiceHandleModel.js');
 Qt.include('./Modules/ApplicationStatistic.js');
 
 var gamesListModel = initModel(),
+    _gamesListModelList,
     _previousGame = gamesListModel.currentGameItem,
     gamenetGameItem = {
     imageLogoSmall: "Assets/Images/games/gamenet_logo_small.png",
@@ -47,25 +50,49 @@ function initModel() {
         return null;
     }
 
-    var list = component.createObject(null);
-    if (!list) {
+    _gamesListModelList = component.createObject(null);
+    if (!_gamesListModelList) {
         console.log('FATAL: error creating model');
         return null;
     }
 
-    var i, item;
-    count = list.count;
-    for (i = 0; i < count; ++i) {
-        item = list.get(i);
+    return _gamesListModelList;
+}
 
-        //  INFO: При обращении к элементам GameListModel использовать поле widgets вместо widgetsList
-        item.widgets = (item.widgetList) && (item.widgetList.count > 0) ? item.widgetList.get(0) : {}
-        indexToGameItem[i] = item;
-        gameIdToGameItem[item.gameId] = item;
-        serviceIdToGameItemIdex[item.serviceId] = i;
-    }
+function fillGamesModel(data) {
+        var i, item;
+        count = data.length;
+        _gamesListModelList.clear();
 
-    return list;
+        for (i = 0; i < count; ++i) {
+            item = data[i];
+
+            item.maintenance = false;
+            item.maintenanceInterval = 0;
+            item.allreadyDownloaded = false;
+            item.progress = -1;
+            item.status = "Normal";
+            item.statusText = "";
+            item.menu = [];
+            item.currentMenuIndex = 1;
+
+            _gamesListModelList.fillMenu(item);
+
+            item.widgets = item.widgetList;
+            _gamesListModelList.append(item);
+
+            indexToGameItem[i] = _gamesListModelList.get(_gamesListModelList.count - 1);
+            gameIdToGameItem[item.gameId] = _gamesListModelList.get(_gamesListModelList.count - 1);
+            serviceIdToGameItemIdex[item.serviceId] = i;
+        }
+}
+
+function setHost(host) {
+    currentHost = host;
+}
+
+function host() {
+    return currentHost;
 }
 
 function currentRunningMainService() {

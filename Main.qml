@@ -72,6 +72,7 @@ Rectangle {
         id: manager
 
         Component.onCompleted: {
+            manager.registerWidget('Application.Widgets.AllGames');
             manager.registerWidget('Application.Widgets.AlertAdapter');
             manager.registerWidget('Application.Widgets.Facts');
             manager.registerWidget('Application.Widgets.GameAdBanner');

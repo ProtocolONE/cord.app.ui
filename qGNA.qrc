@@ -1,8 +1,5 @@
 ﻿<RCC>
 	<qresource prefix="/">
-		<file>Application/Blocks/AllGames/GameItem.qml</file>
-		<file>Application/Blocks/AllGames/GameItemTitle.qml</file>
-		<file>Application/Blocks/AllGames/Main.qml</file>
 		<file>Application/Blocks/ApplicationFocus.qml</file>
 		<file>Application/Blocks/ApplicationSettings.qml</file>
 		<file>Application/Blocks/AppScreen.qml</file>
@@ -125,6 +122,23 @@
 		<file>Application/Widgets/AlertAdapter/View/AlertAdapterView.qml</file>
 		<file>Application/Widgets/AlertAdapter/View/NegativeButton.qml</file>
 		<file>Application/Widgets/AlertAdapter/View/PositiveButton.qml</file>
+		<file>Application/Widgets/AllGames/AllGamesModel.qml</file>
+		<file>Application/Widgets/AllGames/PluginContainer.qml</file>
+		<file>Application/Widgets/AllGames/qmldir</file>
+		<file>Application/Widgets/AllGames/View/AllButton.qml</file>
+		<file>Application/Widgets/AllGames/View/AllGamesView.qml</file>
+		<file>Application/Widgets/AllGames/View/DownloadProgress.qml</file>
+		<file>Application/Widgets/AllGames/View/GameItem.qml</file>
+		<file>Application/Widgets/AllGames/View/GameItemSmall.qml</file>
+		<file>Application/Widgets/AllGames/View/GameItemTitle.qml</file>
+		<file>Application/Widgets/AllGames/View/GameList.qml</file>
+		<file>Application/Widgets/AllGames/View/GameListPage.qml</file>
+		<file>Application/Widgets/Announcements/AnnouncementsModel.js</file>
+		<file>Application/Widgets/Announcements/AnnouncementsModel.qml</file>
+		<file>Application/Widgets/Announcements/ArtPopup.qml</file>
+		<file>Application/Widgets/Announcements/BigAnnounceWindow.qml</file>
+		<file>Application/Widgets/Announcements/PluginContainer.qml</file>
+		<file>Application/Widgets/Announcements/qmldir</file>
 		<file>Application/Widgets/AutoRefreshCookie/AutoRefreshCookie.qml</file>
 		<file>Application/Widgets/AutoRefreshCookie/PluginContainer.qml</file>
 		<file>Application/Widgets/AutoRefreshCookie/qmldir</file>

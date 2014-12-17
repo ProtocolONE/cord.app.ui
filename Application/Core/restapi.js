@@ -964,6 +964,11 @@ var Service = function() {
 Service.getServices = function(sessionId, successCallback, failedCallback) {
     Core.execute('service.getServices', { sessionId : sessionId }, true, successCallback, failedCallback);
 };
+
+Service.getUI = function(successCallback, failedCallback) {
+    Core.execute('service.getUI', {}, true, successCallback, failedCallback);
+};
+
 var Social = function() {
 };
 

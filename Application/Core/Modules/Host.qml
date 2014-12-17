@@ -116,6 +116,10 @@ QtObject {
         return settingsViewModel.updateArea === 'pts';
     }
 
+    function isPrivateTestVersion() {
+        return settingsViewModel.updateArea === 'tst';
+    }
+
     function switchClientVersion() {
         mainWindow.switchClientVersion();
     }

@@ -134,7 +134,7 @@ WidgetView {
                         height: 70
 
                         source: proposalRect.proposalGameItem && proposalRect.proposalGameItem.imageSmall ?
-                                    installPath + proposalRect.proposalGameItem.imageSmall : ''
+                                App.host() + proposalRect.proposalGameItem.imageSmall : ''
                     }
 
                     Item {

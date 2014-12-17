@@ -1402,6 +1402,13 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>DownloadProgress</name>
+    <message>
+        <source>DOWNLOAD_STATUS_ERROR</source>
+        <translation type="unfinished">Ошибка</translation>
+    </message>
+</context>
+<context>
     <name>DownloadSettings</name>
     <message>
         <source>DOWNLOAD_LIMIT</source>
@@ -1730,7 +1737,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_REHASH_NOW_STATE</source>
-        <translation>Проверка файлов игры %1%</translation>
+        <translation type="vanished">Проверка файлов игры %1%</translation>
     </message>
 </context>
 <context>
@@ -1935,7 +1942,30 @@ Please try again later.</source>
     <name>GameItem</name>
     <message>
         <source>START_GAME_BUTTON</source>
-        <translation type="unfinished">Начать игру</translation>
+        <translation type="unfinished">Играть</translation>
+    </message>
+    <message>
+        <source>GAME_TOP_STICK</source>
+        <translation type="unfinished">ТОП ИГРА</translation>
+    </message>
+    <message>
+        <source>GAME_NEW_STICK</source>
+        <translation type="unfinished">НОВАЯ ИГРА</translation>
+    </message>
+</context>
+<context>
+    <name>GameItemSmall</name>
+    <message>
+        <source>START_GAME_BUTTON</source>
+        <translation type="unfinished">Играть</translation>
+    </message>
+    <message>
+        <source>GAME_TOP_STICK</source>
+        <translation type="unfinished">ТОП ИГРА</translation>
+    </message>
+    <message>
+        <source>GAME_NEW_STICK</source>
+        <translation type="unfinished">НОВАЯ ИГРА</translation>
     </message>
 </context>
 <context>
@@ -2086,15 +2116,15 @@ Please try again later.</source>
     <name>GamesListModel</name>
     <message>
         <source>LOGO_CA</source>
-        <translation>Динамичный шутер</translation>
+        <translation type="vanished">Динамичный шутер</translation>
     </message>
     <message>
         <source>LOGO_BS</source>
-        <translation>Романтическая ролевая игра</translation>
+        <translation type="vanished">Романтическая ролевая игра</translation>
     </message>
     <message>
         <source>LOGO_GA</source>
-        <translation>Браузерная стратегия</translation>
+        <translation type="vanished">Браузерная стратегия</translation>
     </message>
     <message>
         <source>LOGO_MW2</source>
@@ -2102,27 +2132,27 @@ Please try again later.</source>
     </message>
     <message>
         <source>LOGO_WI</source>
-        <translation>Тактический шутер</translation>
+        <translation type="vanished">Тактический шутер</translation>
     </message>
     <message>
         <source>LOGO_AIKA</source>
-        <translation>Масштабная MMORPG</translation>
+        <translation type="vanished">Масштабная MMORPG</translation>
     </message>
     <message>
         <source>LOGO_ROT</source>
-        <translation>Арена командных боёв</translation>
+        <translation type="vanished">Арена командных боёв</translation>
     </message>
     <message>
         <source>GAME_CA_ABOUT_TEXT</source>
-        <translation type="unfinished">Combat Arms — онлайн-шутер с динамичным геймлеем, правильной «классической» графикой, интересными режимами игры, огромным выбором экипировки и оружия. Противостояние полиции и террористов, борьба с зомби, или ураганное убийство всего живого – выбирай!</translation>
+        <translation type="obsolete">Combat Arms — онлайн-шутер с динамичным геймлеем, правильной «классической» графикой, интересными режимами игры, огромным выбором экипировки и оружия. Противостояние полиции и террористов, борьба с зомби, или ураганное убийство всего живого – выбирай!</translation>
     </message>
     <message>
         <source>GAME_BS_ABOUT_TEXT</source>
-        <translation type="unfinished">BS — классическая ролевая игра, сочетающая многоуровневую систему развития персонажа, поиска и улучшения экипировки с мощной социальной частью, позволяющей найти друзей, создать семью, основать гильдию и доминировать в мире BS!</translation>
+        <translation type="obsolete">BS — классическая ролевая игра, сочетающая многоуровневую систему развития персонажа, поиска и улучшения экипировки с мощной социальной частью, позволяющей найти друзей, создать семью, основать гильдию и доминировать в мире BS!</translation>
     </message>
     <message>
         <source>GAME_GA_ABOUT_TEXT</source>
-        <translation type="unfinished">Golden Age — мир, в котором от вас зависит всё: экономика, войны и политические интриги. Нанимайте великих полководцев, создавайте альянсы, сжигайте вражеские города, стройте неприступные крепости, завоевывайте новые территории и подчиняйте вассалов!</translation>
+        <translation type="obsolete">Golden Age — мир, в котором от вас зависит всё: экономика, войны и политические интриги. Нанимайте великих полководцев, создавайте альянсы, сжигайте вражеские города, стройте неприступные крепости, завоевывайте новые территории и подчиняйте вассалов!</translation>
     </message>
     <message>
         <source>GAME_MW2_ABOUT_TEXT</source>
@@ -2130,51 +2160,51 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_WI_ABOUT_TEXT</source>
-        <translation type="unfinished">FireStorm — командный тактический шутер, в который можно играть как от первого, так и от третьего лица! Отличная графика, игровая физика, многообразие и реалистичность оружия, яркие спецэффекты и разнообразные карты делают игру незабываемой!</translation>
+        <translation type="obsolete">FireStorm — командный тактический шутер, в который можно играть как от первого, так и от третьего лица! Отличная графика, игровая физика, многообразие и реалистичность оружия, яркие спецэффекты и разнообразные карты делают игру незабываемой!</translation>
     </message>
     <message>
         <source>GAME_AIKA_ABOUT_TEXT</source>
-        <translation type="unfinished">Aika 2 — хардкорная игра, идеально подходящая для любителей напряженного и сложного противостояния с другими игроками. Противостояние наций в борьбе за первенство, реликвии, замки и звания маршала нации.</translation>
+        <translation type="obsolete">Aika 2 — хардкорная игра, идеально подходящая для любителей напряженного и сложного противостояния с другими игроками. Противостояние наций в борьбе за первенство, реликвии, замки и звания маршала нации.</translation>
     </message>
     <message>
         <source>GAME_ROT_ABOUT_TEXT</source>
-        <translation type="unfinished">RoT — командные бои в жанре Moba, для победы в которых необходимо овладеть тактикой ведения битвы, применить всё ваше мастерство, продемонстрировать скорость реакции и совершенное владение персонажами.</translation>
+        <translation type="obsolete">RoT — командные бои в жанре Moba, для победы в которых необходимо овладеть тактикой ведения битвы, применить всё ваше мастерство, продемонстрировать скорость реакции и совершенное владение персонажами.</translation>
     </message>
     <message>
         <source>GAME_CA_MINI_TOOLTIP</source>
-        <translation>Попробуй онлайн-шутер с самым большим выбором оружия и экипировки.</translation>
+        <translation type="vanished">Попробуй онлайн-шутер с самым большим выбором оружия и экипировки.</translation>
     </message>
     <message>
         <source>GAME_BS_MINI_TOOLTIP</source>
-        <translation>Есть красивая онлайн-игра, полная любви и беспощадных межсерверных сражений.</translation>
+        <translation type="vanished">Есть красивая онлайн-игра, полная любви и беспощадных межсерверных сражений.</translation>
     </message>
     <message>
         <source>GAME_GA_MINI_TOOLTIP</source>
-        <translation>Строй и сражайся в глобальной браузерной стратегии в реальном времени.</translation>
+        <translation type="vanished">Строй и сражайся в глобальной браузерной стратегии в реальном времени.</translation>
     </message>
     <message>
         <source>GAME_WI_MINI_TOOLTIP</source>
-        <translation>Попробуй реалистичный тактический шутер с отличной графикой и шикарным арсеналом.</translation>
+        <translation type="vanished">Попробуй реалистичный тактический шутер с отличной графикой и шикарным арсеналом.</translation>
     </message>
     <message>
         <source>GAME_AIKA_MINI_TOOLTIP</source>
-        <translation>Прямо сейчас идёт ожесточенная борьба за превосходство между пятью нациями.</translation>
+        <translation type="vanished">Прямо сейчас идёт ожесточенная борьба за превосходство между пятью нациями.</translation>
     </message>
     <message>
         <source>GAME_ROT_MINI_TOOLTIP</source>
-        <translation>Сражайся на арене командных боёв (MOBA)</translation>
+        <translation type="vanished">Сражайся на арене командных боёв (MOBA)</translation>
     </message>
     <message>
         <source>GAME_CA_MINI_DESC</source>
-        <translation>Динамичный шутер</translation>
+        <translation type="vanished">Динамичный шутер</translation>
     </message>
     <message>
         <source>GAME_BS_MINI_DESC</source>
-        <translation>Романтическая онлайн игра</translation>
+        <translation type="vanished">Романтическая онлайн игра</translation>
     </message>
     <message>
         <source>GAME_GA_MINI_DESC</source>
-        <translation>Браузерная стратегия</translation>
+        <translation type="vanished">Браузерная стратегия</translation>
     </message>
     <message>
         <source>GAME_MW2_MINI_DESC</source>
@@ -2182,47 +2212,47 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_WI_MINI_DESC</source>
-        <translation>Тактический шутер</translation>
+        <translation type="vanished">Тактический шутер</translation>
     </message>
     <message>
         <source>GAME_AIKA_MINI_DESC</source>
-        <translation>Масштабная MMORPG</translation>
+        <translation type="vanished">Масштабная MMORPG</translation>
     </message>
     <message>
         <source>GAME_ROT_MINI_DESC</source>
-        <translation>Арена командных боёв</translation>
+        <translation type="vanished">Арена командных боёв</translation>
     </message>
     <message>
         <source>LOGO_FJ</source>
-        <translation>Симулятор фермы</translation>
+        <translation type="vanished">Симулятор фермы</translation>
     </message>
     <message>
         <source>GAME_FJ_ABOUT_TEXT</source>
-        <translation type="unfinished">Совершите своё экономическое чудо в увлекательной игре «Ферма Джейн»: начните с маленького хозяйства и сделайте из него крупную ферму. Высаживайте растения, разводите домашних животных и выпускайте продукцию на заводах!</translation>
+        <translation type="obsolete">Совершите своё экономическое чудо в увлекательной игре «Ферма Джейн»: начните с маленького хозяйства и сделайте из него крупную ферму. Высаживайте растения, разводите домашних животных и выпускайте продукцию на заводах!</translation>
     </message>
     <message>
         <source>GAME_FJ_MINI_TOOLTIP</source>
-        <translation>Преврати свое маленькое хозяйство в огромную и прибыльную ферму!</translation>
+        <translation type="vanished">Преврати свое маленькое хозяйство в огромную и прибыльную ферму!</translation>
     </message>
     <message>
         <source>GAME_FJ_MINI_DESC</source>
-        <translation>Симулятор фермы</translation>
+        <translation type="vanished">Симулятор фермы</translation>
     </message>
     <message>
         <source>LOGO_REBORN</source>
-        <translation>Фэнтезийная игра</translation>
+        <translation type="vanished">Фэнтезийная игра</translation>
     </message>
     <message>
         <source>GAME_REBORN_ABOUT_TEXT</source>
-        <translation type="unfinished">Reborn Online — ролевая игра, удачно сочетающая лучшие и популярные игровые механики, противостояние и кооперацию с другими игроками. Интересная система подземелий, экипировки и развития персонажа и его спутников.</translation>
+        <translation type="obsolete">Reborn Online — ролевая игра, удачно сочетающая лучшие и популярные игровые механики, противостояние и кооперацию с другими игроками. Интересная система подземелий, экипировки и развития персонажа и его спутников.</translation>
     </message>
     <message>
         <source>GAME_REBORN_MINI_TOOLTIP</source>
-        <translation>Окунись в фэнтезийный мир, полный приключений.</translation>
+        <translation type="vanished">Окунись в фэнтезийный мир, полный приключений.</translation>
     </message>
     <message>
         <source>GAME_REBORN_MINI_DESC</source>
-        <translation>Фэнтезийная игра</translation>
+        <translation type="vanished">Фэнтезийная игра</translation>
     </message>
     <message>
         <source>TASK_LIST_ALL_GAMES</source>
@@ -2266,35 +2296,31 @@ Please try again later.</source>
     </message>
     <message>
         <source>LOGO_BD</source>
-        <translation>Революционная MMORPG</translation>
+        <translation type="vanished">Революционная MMORPG</translation>
     </message>
     <message>
         <source>GAME_BD_ABOUT_TEXT</source>
-        <translation>Black Desert —  ролевая игра нового поколения. Вас ждут полностью открытый мир, свободное PvP, реализм и ультрасовременная графика. Испытайте себя на прочность в самой хардкорной игре последних лет!</translation>
-    </message>
-    <message>
-        <source>GAME_BD_MINI_TOOLTIP</source>
-        <translation></translation>
+        <translation type="vanished">Black Desert —  ролевая игра нового поколения. Вас ждут полностью открытый мир, свободное PvP, реализм и ультрасовременная графика. Испытайте себя на прочность в самой хардкорной игре последних лет!</translation>
     </message>
     <message>
         <source>GAME_BD_MINI_DESC</source>
-        <translation>Революционная MMORPG</translation>
+        <translation type="vanished">Революционная MMORPG</translation>
     </message>
     <message>
         <source>LOGO_DA</source>
-        <translation>Мифическая игра</translation>
+        <translation type="vanished">Мифическая игра</translation>
     </message>
     <message>
         <source>GAME_DA_ABOUT_TEXT</source>
-        <translation>Dark Age (название в ОБТ — Forsaken World) ― это единственная клиентская онлайн-игра о конфликте бессмертных вампиров и свирепых оборотней, с современной графикой, детально проработанной вселенной и игровой механикой. Кровавое и беспощадное противостояние тёмных сил в огромном мире, полном испытаний и невероятных возможностей, покажет вашу истинную сущность!</translation>
+        <translation type="vanished">Dark Age (название в ОБТ — Forsaken World) ― это единственная клиентская онлайн-игра о конфликте бессмертных вампиров и свирепых оборотней, с современной графикой, детально проработанной вселенной и игровой механикой. Кровавое и беспощадное противостояние тёмных сил в огромном мире, полном испытаний и невероятных возможностей, покажет вашу истинную сущность!</translation>
     </message>
     <message>
         <source>GAME_DA_MINI_TOOLTIP</source>
-        <translation>Онлайн-игра о конфликте бессмертных вампиров и свирепых оборотней.</translation>
+        <translation type="vanished">Онлайн-игра о конфликте бессмертных вампиров и свирепых оборотней.</translation>
     </message>
     <message>
         <source>GAME_DA_MINI_DESC</source>
-        <translation>Мифическая игра</translation>
+        <translation type="vanished">Мифическая игра</translation>
     </message>
 </context>
 <context>

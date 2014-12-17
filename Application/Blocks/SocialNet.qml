@@ -45,8 +45,28 @@ Item {
         model: gameItem ? gameItem.socialNet : null
 
         delegate: Image {
+            function iconUrl(id) {
+                if (id === 'fb') {
+                    return installPath + "Assets/Images/socialNet/fb.png";
+                }
+
+                if (id === 'vk') {
+                    return  installPath + "Assets/Images/socialNet/vk.png";
+                }
+
+                if (id === 'yt') {
+                    return installPath + "Assets/Images/socialNet/yt.png";
+                }
+
+                if (id === 'ok') {
+                    return installPath + "Assets/Images/socialNet/ok.png";
+                }
+
+                return '';
+            }
+
             opacity: mouser.containsMouse ? 1 : 0.8
-            source : installPath + icon
+            source : iconUrl(model.id)
 
             Behavior on opacity {
                 NumberAnimation { duration: 250 }

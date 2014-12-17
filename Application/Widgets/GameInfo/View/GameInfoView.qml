@@ -364,7 +364,7 @@ WidgetView {
                 lineHeight: 20
                 maximumLineCount: 4
                 textFormat: Text.PlainText
-                text: root.gameItem ? root.gameItem.aboutGameText : ""
+                text: root.gameItem ? root.gameItem.aboutGame : ""
             }
         }
 

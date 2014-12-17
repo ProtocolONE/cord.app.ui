@@ -16,14 +16,14 @@ Column {
     property variant serviceItem
 
     Text {
-        font { family: 'Arial';pixelSize: 18 }
-        color: '#eff0f0'
+        font { family: 'Arial'; pixelSize: 20 }
+        color: '#ffffff'
         text: serviceItem ? serviceItem.name : 'name'
     }
 
     Text {
         font { family: 'Arial'; pixelSize: 12 }
-        color: '#eff0f0'
+        color: '#ddc071'
         text: serviceItem ? serviceItem.shortDescription : 'shortDescription'
     }
 }

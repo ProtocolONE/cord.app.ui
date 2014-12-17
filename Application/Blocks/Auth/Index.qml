@@ -318,7 +318,7 @@ Rectangle {
                     target: serviceLoading; visible: true
                 }
                 StateChangeScript {
-                    script: serviceLoading.startTimer();
+                    script: serviceLoading.requestServices();
                 }
             }
         ]
@@ -432,13 +432,8 @@ Rectangle {
     ServiceLoading {
         id: serviceLoading
 
-        property string userId
-        property string appKey
-        property string cookie
-
         visible: false
         anchors.fill: parent
         onFinished: App.authDone(userId, appKey, cookie);
     }
-
 }

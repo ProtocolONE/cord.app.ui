@@ -1,0 +1,4 @@
+module Application.Widgets.AllGames
+PluginContainer 1.0 PluginContainer.qml 
+AllGamesView 1.0 View/AllGamesView.qml
+AllGamesModel 1.0 AllGamesModel.qml

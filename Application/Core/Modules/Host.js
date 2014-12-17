@@ -198,6 +198,13 @@ function isPublicTestVersion() {
     return true;
 }
 
+function isPrivateTestVersion() {
+    if (proxyInst) {
+        return proxyInst.isPrivateTestVersion();
+    }
+    return false;
+}
+
 function switchClientVersion() {
     if (proxyInst) {
         return proxyInst.switchClientVersion();
@@ -296,4 +303,18 @@ function setTaskbarIcon(source) {
     if (proxyInst) {
         proxyInst.setTaskbarIcon(source);
     }
+}
+
+function getDefaultBrowser() {
+    /*
+    IE.AssocFile.HTM
+    FirefoxHTML
+    ChromeHTML
+    Opera.HTML
+    */
+    if (proxyInst) {
+        return proxyInst.getDefaultBrowser();
+    }
+
+    return null;
 }
