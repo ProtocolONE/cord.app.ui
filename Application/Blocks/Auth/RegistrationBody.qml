@@ -198,7 +198,12 @@ Form {
                     }
 
                     fontSize: 12
-                    onClicked: if (!d.inProgress) root.switchToLogin();
+                    onClicked: {
+                        if (!d.inProgress) {
+                            passwordInput.text = "";
+                            root.switchToLogin();
+                        }
+                    }
                 }
             }
         }

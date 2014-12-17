@@ -319,7 +319,12 @@ Form {
                         hover: Styles.style.authSwitchPageButtonHover
                     }
 
-                    onClicked: if (!d.inProgress) root.switchToRegistration();
+                    onClicked: {
+                        if (!d.inProgress) {
+                            passwordInput.text = "";
+                            root.switchToRegistration();
+                        }
+                    }
                     fontSize: 12
                 }
             }
