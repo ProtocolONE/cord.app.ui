@@ -79,6 +79,16 @@ FocusScope {
         }
 
         function validateMessage(msg) {
+            //  INFO: стандарт не предусматривает ограничение длины сообщения, но на момент 17.12.2014
+            //  на наших серверах стоит ограничение 64кб на станзу (это с учетом служебной инфы)
+            //  Поэтому, в рамках QGNA-1117 решено сделать ограничение 32кб на длину самого сообщения
+            //  Ссылки по теме:
+            //      - http://xmpp.org/extensions/xep-0205.html#rec-stanzasize
+            //      - http://www.xmpp.org/extensions/inbox/stanzalimits.html
+            if (msg.length > 32768) {
+                return false;
+            }
+
             var replaced = msg.replace(/\s/g, "");
             return replaced.length > 0;
         }
