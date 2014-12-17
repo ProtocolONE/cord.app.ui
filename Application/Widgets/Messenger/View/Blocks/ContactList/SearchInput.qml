@@ -30,8 +30,8 @@ Item {
 
     property alias icon: iconImage.source
     property alias iconBackground: controlIcon.color
-    property bool iconHovered: false
-    property alias iconCursor: iconMouseCursor.cursor
+    property bool iconHovered: iconMouseArea.containsMouse
+    property alias iconCursor: iconMouseArea.cursor
 
     property bool clearOnEsc: false
 
@@ -58,29 +58,15 @@ Item {
         }
     }
 
-    Item {
-        id: control
+    MouseArea {
+        id: mouseArea
 
         anchors { fill: parent; margins: 2 }
+        hoverEnabled: true
+        onClicked: inputBehavior.forceActiveFocus();
 
         Rectangle {
             id: controlIcon
-
-            property bool internaMouseOver: false
-            property bool isMouseOver: internaMouseOver && mouseArea.containsMouse
-
-            onIsMouseOverChanged: iconHovered = isMouseOver;
-
-            function isOver(x, y) {
-                var internalPos = mapToItem(controlIcon, x, y);
-                if (0 < internalPos.x && internalPos.x < controlIcon.width
-                        && 0 < internalPos.y && internalPos.y < controlIcon.height) {
-                    internaMouseOver = true;
-                    return;
-                }
-
-                internaMouseOver =  false;
-            }
 
             visible: root.icon != ""
             width: root.icon != "" ? parent.height : 0
@@ -99,16 +85,12 @@ Item {
                 source: root.icon
             }
 
-            MouseArea {
+            CursorMouseArea {
+                id: iconMouseArea
+
                 anchors.fill: parent
                 onClicked: root.iconClicked();
-            }
-
-            CursorArea {
-                id: iconMouseCursor
-
                 cursor: CursorArea.ArrowCursor
-                anchors.fill: parent
                 visible: mouseArea.containsMouse
             }
         }
@@ -130,7 +112,7 @@ Item {
                     id: autoCompleteText
 
                     function getFirstPosition() {
-                        // INFO нужен биндинг на inputBehavior.cursorPosition, но значение его не важно для расчетов.
+                        // HACK: нужен биндинг на inputBehavior.cursorPosition, но значение его не важно для расчетов.
                         if (inputBehavior.cursorPosition > 0) {
                         }
 
@@ -223,16 +205,20 @@ Item {
                 }
             }
         }
+
+        CursorArea {
+            cursor: CursorArea.IBeamCursor
+            anchors {
+                left: controlIcon.right
+                right: parent.right
+            }
+            height: parent.height
+        }
     }
 
     MouseArea {
-        id: mouseArea
-
-        hoverEnabled: true
         anchors.fill: parent
         acceptedButtons: Qt.NoButton
-        onClicked: inputBehavior.focus = true;
-        onPositionChanged: controlIcon.isOver(mouse.x, mouse.y);
     }
 
     Image {

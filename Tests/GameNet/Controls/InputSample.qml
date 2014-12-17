@@ -11,7 +11,7 @@ import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
 
-import "../../../Pages/Auth"
+import "../../../Application/Blocks/Auth"
 
 Rectangle {
     id: root
@@ -42,7 +42,7 @@ Rectangle {
                 width: parent.width
                 height: 26
 
-                icon: installPath + "Samples/images/mail.png"
+                icon: installPath + "Assets/Images/GameNet/Controls/LoginInput/login.png"
                 showLanguage: true
 
                 typeahead: TypeaheadBehaviour {
@@ -74,7 +74,7 @@ Rectangle {
 
             z: 200//q1.activeFocus ? 200 : 0
 
-            icon: installPath + "Samples/images/mail.png"
+            icon: installPath + "Assets/Images/GameNet/Controls/LoginInput/login.png"
             showLanguage: true
 
             typeahead: TypeaheadBehaviour {

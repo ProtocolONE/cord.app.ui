@@ -33,8 +33,8 @@ Item {
 
     property alias icon: iconImage.source
     property alias iconBackground: controlIcon.color
-    property bool iconHovered: false
-    property alias iconCursor: iconMouseCursor.cursor
+    property bool iconHovered: iconMouseArea.containsMouse
+    property alias iconCursor: iconMouseArea.cursor
 
     property alias inputMask: inputBehavior.inputMask
     property alias validator: inputBehavior.validator
@@ -68,29 +68,15 @@ Item {
         }
     }
 
-    Item {
-        id: control
+    MouseArea {
+        id: mouseArea
 
         anchors { fill: parent; margins: 2 }
+        hoverEnabled: true
+        onClicked: inputBehavior.forceActiveFocus();
 
         Rectangle {
             id: controlIcon
-
-            property bool internaMouseOver: false
-            property bool isMouseOver: internaMouseOver && mouseArea.containsMouse
-
-            onIsMouseOverChanged: iconHovered = isMouseOver;
-
-            function isOver(x, y) {
-                var internalPos = mapToItem(controlIcon, x, y);
-                if (0 < internalPos.x && internalPos.x < controlIcon.width
-                        && 0 < internalPos.y && internalPos.y < controlIcon.height) {
-                    internaMouseOver = true;
-                    return;
-                }
-
-                internaMouseOver =  false;
-            }
 
             visible: root.icon != ""
             width: root.icon != "" ? parent.height : 0
@@ -109,16 +95,12 @@ Item {
                 source: root.icon
             }
 
-            MouseArea {
+            CursorMouseArea {
+                id: iconMouseArea
+
                 anchors.fill: parent
                 onClicked: root.iconClicked();
-            }
-
-            CursorArea {
-                id: iconMouseCursor
-
                 cursor: CursorArea.ArrowCursor
-                anchors.fill: parent
                 visible: mouseArea.containsMouse
             }
         }
@@ -141,7 +123,7 @@ Item {
                     id: autoCompleteText
 
                     function getFirstPosition() {
-                        // INFO нужен биндинг на inputBehavior.cursorPosition, но значение его не важно для расчетов.
+                        // HACK: нужен биндинг на inputBehavior.cursorPosition, но значение его не важно для расчетов.
                         if (inputBehavior.cursorPosition > 0) {
                         }
 
@@ -259,6 +241,16 @@ Item {
                     suggestionsContainer.controlVisible = true;
                 }
             }
+
+        }
+
+        CursorArea {
+            cursor: CursorArea.IBeamCursor
+            height: parent.height
+            anchors {
+                left: controlIcon.right
+                right: iconContainer.left
+            }
         }
 
         Item {
@@ -359,13 +351,8 @@ Item {
     }
 
     MouseArea {
-        id: mouseArea
-
-        hoverEnabled: true
         anchors.fill: parent
         acceptedButtons: Qt.NoButton
-        onClicked: inputBehavior.focus = true;
-        onPositionChanged: controlIcon.isOver(mouse.x, mouse.y);
     }
 
     Item {
@@ -452,8 +439,8 @@ Item {
                         autoCompleteText.text = suggestionsView.model.get(currentIndex).value;
                 }
 
-                width: control.width
-                height: suggestionsView.model.count > 0 ? (control.height * suggestionsView.model.count) : 2
+                width: mouseArea.width
+                height: suggestionsView.model.count > 0 ? (mouseArea.height * suggestionsView.model.count) : 2
                 interactive: false
                 clip: true
 
@@ -461,15 +448,15 @@ Item {
 
                 delegate: Rectangle {
                     color: suggestionsView.currentIndex == index || delegateArea.containsMouse ? "#FFCC00" : "#FFFFFF"
-                    width: control.width
-                    height: control.height
+                    width: mouseArea.width
+                    height: mouseArea.height
 
                     Text {
                         anchors {
                             right: parent.right
                             rightMargin: 10
                             left: parent.left
-                            leftMargin: control.height + 10
+                            leftMargin: mouseArea.height + 10
                             verticalCenter: parent.verticalCenter
                         }
                         elide: Text.ElideRight

@@ -128,64 +128,66 @@ FocusScope {
                     margins: 2
                 }
 
-                Item {
-                    id: inputContainer
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: messengerInput.forceActiveFocus();
 
-                    anchors {
-                        fill: parent
-                        margins: 8
-                    }
-
-                    Flickable {
-                        id: inputFlick
-
-                        width: parent.width
-                        height: parent.height
-
-                        contentWidth: messengerInput.paintedWidth
-                        contentHeight: messengerInput.paintedHeight
-                        boundsBehavior: Flickable.StopAtBounds
-                        clip: true
-
-                        function ensureVisible(r) {
-                            if (contentX >= r.x)
-                                contentX = r.x;
-                            else if (contentX+width <= r.x+r.width)
-                                contentX = r.x+r.width-width;
-                            if (contentY >= r.y)
-                                contentY = r.y;
-                            else if (contentY+height <= r.y+r.height)
-                                contentY = r.y+r.height-height;
+                    Item {
+                        anchors {
+                            fill: parent
+                            margins: 8
                         }
 
-                        TextEdit {
-                            id: messengerInput
+                        Flickable {
+                            id: inputFlick
 
-                            function appendNewLine() {
-                                messengerInput.text = messengerInput.text + "\n";
-                                messengerInput.cursorPosition = messengerInput.text.length;
+                            width: parent.width
+                            height: parent.height
+
+                            contentWidth: messengerInput.paintedWidth
+                            contentHeight: messengerInput.paintedHeight
+                            boundsBehavior: Flickable.StopAtBounds
+                            clip: true
+
+                            function ensureVisible(r) {
+                                if (contentX >= r.x)
+                                    contentX = r.x;
+                                else if (contentX+width <= r.x+r.width)
+                                    contentX = r.x+r.width-width;
+                                if (contentY >= r.y)
+                                    contentY = r.y;
+                                else if (contentY+height <= r.y+r.height)
+                                    contentY = r.y+r.height-height;
                             }
 
-                            width: inputFlick.width
-                            height: inputFlick.height
-                            focus: true
+                            TextEdit {
+                                id: messengerInput
 
-                            selectByMouse: true
-                            wrapMode: TextEdit.Wrap
+                                function appendNewLine() {
+                                    messengerInput.text = messengerInput.text + "\n";
+                                    messengerInput.cursorPosition = messengerInput.text.length;
+                                }
 
-                            font {
-                                pixelSize: 12
-                                family: "Arial"
-                            }
+                                width: inputFlick.width
+                                height: inputFlick.height
+                                focus: true
+
+                                selectByMouse: true
+                                wrapMode: TextEdit.Wrap
+
+                                font {
+                                    pixelSize: 12
+                                    family: "Arial"
+                                }
 
 
-                            color: Styles.style.messengerMessageInputText
+                                color: Styles.style.messengerMessageInputText
 
-                            onCursorRectangleChanged: inputFlick.ensureVisible(cursorRectangle);
+                                onCursorRectangleChanged: inputFlick.ensureVisible(cursorRectangle);
 
-                            Keys.onEnterPressed: {
-                                switch (root.sendAction) {
-                                case Settings.SendShortCut.CtrlEnter:
+                                Keys.onEnterPressed: {
+                                    switch (root.sendAction) {
+                                    case Settings.SendShortCut.CtrlEnter:
                                     {
                                         if (event.modifiers & Qt.ControlModifier) {
                                             d.sendMessage();
@@ -195,7 +197,7 @@ FocusScope {
                                         event.accepted = true;
                                         return;
                                     }
-                                case Settings.SendShortCut.Enter:
+                                    case Settings.SendShortCut.Enter:
                                     {
                                         if (event.modifiers === Qt.KeypadModifier) {
                                             d.sendMessage();
@@ -205,19 +207,19 @@ FocusScope {
                                         event.accepted = true;
                                         return;
                                     }
-                                case Settings.SendShortCut.ButtonOnly:
+                                    case Settings.SendShortCut.ButtonOnly:
                                     {
                                         messengerInput.appendNewLine();
                                         event.accepted = true;
                                         return;
                                     }
+                                    }
+                                    event.accepted = false;
                                 }
-                                event.accepted = false;
-                            }
 
-                            Keys.onReturnPressed: {
-                                switch (root.sendAction) {
-                                case Settings.SendShortCut.CtrlEnter:
+                                Keys.onReturnPressed: {
+                                    switch (root.sendAction) {
+                                    case Settings.SendShortCut.CtrlEnter:
                                     {
                                         if (event.modifiers & Qt.ControlModifier) {
                                             d.sendMessage();
@@ -227,7 +229,7 @@ FocusScope {
                                         event.accepted = true;
                                         return;
                                     }
-                                case Settings.SendShortCut.Enter:
+                                    case Settings.SendShortCut.Enter:
                                     {
                                         if (event.modifiers === Qt.NoModifier) {
                                             d.sendMessage();
@@ -237,50 +239,51 @@ FocusScope {
                                         event.accepted = true;
                                         return;
                                     }
-                                case Settings.SendShortCut.ButtonOnly:
+                                    case Settings.SendShortCut.ButtonOnly:
                                     {
                                         messengerInput.appendNewLine();
                                         event.accepted = true;
                                         return;
                                     }
+                                    }
+                                    event.accepted = false;
                                 }
-                                event.accepted = false;
+
+                                Keys.onEscapePressed: root.closeDialogPressed();
+
+                                onTextChanged: {
+                                    composingTimer.count = 0;
+                                    if (text.length <= 0) {
+                                        d.setActiveStatus(MessengerJs.selectedUser(), "Active");
+                                        composingTimer.stop();
+                                    } else {
+                                        d.setActiveStatus(MessengerJs.selectedUser(), "Composing");
+                                        composingTimer.start();
+                                    }
+
+                                }
                             }
 
-                            Keys.onEscapePressed: root.closeDialogPressed();
+                            Timer {
+                                id: composingTimer
 
-                            onTextChanged: {
-                                composingTimer.count = 0;
-                                if (text.length <= 0) {
-                                    d.setActiveStatus(MessengerJs.selectedUser(), "Active");
-                                    composingTimer.stop();
-                                } else {
-                                    d.setActiveStatus(MessengerJs.selectedUser(), "Composing");
-                                    composingTimer.start();
-                                }
+                                property int count: 0
 
-                            }
-                        }
+                                running: false
+                                repeat: true
+                                interval: 1000
+                                onTriggered: {
+                                    count++;
 
-                        Timer {
-                            id: composingTimer
+                                    if (composingTimer.count >= root.inactiveTimeout) {
+                                        d.setActiveStatus(MessengerJs.selectedUser(), "Inactive");
+                                        return;
+                                    }
 
-                            property int count: 0
-
-                            running: false
-                            repeat: true
-                            interval: 1000
-                            onTriggered: {
-                                count++;
-
-                                if (composingTimer.count >= root.inactiveTimeout) {
-                                    d.setActiveStatus(MessengerJs.selectedUser(), "Inactive");
-                                    return;
-                                }
-
-                                if (composingTimer.count >= root.pauseTimeout) {
-                                    d.setActiveStatus(MessengerJs.selectedUser(), "Paused");
-                                    return;
+                                    if (composingTimer.count >= root.pauseTimeout) {
+                                        d.setActiveStatus(MessengerJs.selectedUser(), "Paused");
+                                        return;
+                                    }
                                 }
                             }
                         }
@@ -296,6 +299,11 @@ FocusScope {
                     }
 
                     scrollbarWidth: 5
+                }
+
+                CursorArea {
+                    anchors.fill: parent
+                    cursor: CursorArea.IBeamCursor
                 }
             }
         }
