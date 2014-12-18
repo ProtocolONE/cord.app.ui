@@ -159,6 +159,10 @@ WidgetModel {
             var time = finishTime - gameExecuteTime.startTime;
             gameExecuteTime.startTime = undefined;
 
+            if (!User.isAuthorized()) {
+                return;
+            }
+
             if (time < 20) {
                 Popup.show('GameFailed');
             } else if (time < 300) {

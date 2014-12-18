@@ -1212,33 +1212,43 @@
 <context>
     <name>Header</name>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="79"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="80"/>
         <source>HEADER_BUTTON_MY_GAMES</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="61"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="62"/>
         <source>HEADER_BUTTON_ALL_GAMES</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="113"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="114"/>
         <source>HEADER_BUTTON_SUPPORT</source>
         <translation></translation>
     </message>
     <message>
+        <location filename="../Application/Blocks/Header/Header.qml" line="200"/>
+        <source>LOGOUT_ALERT_HEADER</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Header/Header.qml" line="201"/>
+        <source>LOGOUT_ALERT_BODY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../Application/Blocks/Auth/Header.qml" line="60"/>
-        <location filename="../Application/Blocks/Header/Header.qml" line="150"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="151"/>
         <source>HEADER_BUTTON_CLOSE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="166"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="167"/>
         <source>HEADER_BUTTON_SETTINGS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="187"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="188"/>
         <source>HEADER_BUTTON_LOGOUT</source>
         <translation></translation>
     </message>
@@ -1925,12 +1935,12 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="217"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="222"/>
         <source>REGISTER_BODY_LICENSE_PART1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="223"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="228"/>
         <source>REGISTER_BODY_LICENSE_PART2</source>
         <translation></translation>
     </message>

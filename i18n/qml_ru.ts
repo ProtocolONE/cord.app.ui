@@ -2705,6 +2705,14 @@ Please try again later.</source>
         <source>REGISTRATION_NAVIGATE_CREATE_ACCOUNT_TEXT</source>
         <translation>Создать аккаунт</translation>
     </message>
+    <message>
+        <source>LOGOUT_ALERT_HEADER</source>
+        <translation>Внимание!</translation>
+    </message>
+    <message>
+        <source>LOGOUT_ALERT_BODY</source>
+        <translation>Все запущенные игры будут закрыты. Вы уверены, что хотите выйти?</translation>
+    </message>
 </context>
 <context>
     <name>Home</name>
