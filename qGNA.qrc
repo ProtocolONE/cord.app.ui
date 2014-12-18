@@ -65,6 +65,7 @@
 		<file>Application/Bootstrap.qml</file>
 		<file>Application/Controls/ComboBox.qml</file>
 		<file>Application/Controls/HiddenAppCloseButton.qml</file>
+		<file>Application/Controls/Input.qml</file>
 		<file>Application/Controls/InputWithError.qml</file>
 		<file>Application/Controls/MessagePopup/MessageCropElement.qml</file>
 		<file>Application/Controls/MessagePopup/MessagePlayingRow.qml</file>

@@ -22,6 +22,7 @@ Item {
     property bool showCapslock: true
     property bool showLanguage: true
     property variant typeahead: TypeaheadBehaviour {}
+    property alias suggestionsVisible: suggestionsContainer.controlVisible
 
     property alias language: inputBehavior.language
     property alias capsLock: inputBehavior.capsLock
@@ -54,6 +55,28 @@ Item {
         if (focus) {
             inputBehavior.focus = true;
         }
+    }
+
+    function isMouseInside(x, y) {
+        var translatedCoords;
+
+        translatedCoords = controlBorder.mapFromItem(root, x, y);
+        if (translatedCoords.x > 0 && translatedCoords.x < controlBorder.width &&
+                translatedCoords.y > 0 && translatedCoords.y < controlBorder.height) {
+            return true;
+        }
+
+        if (!root.isSuggestionsContainerVisible()) {
+            return false;
+        }
+
+        translatedCoords = suggestionsBorder.mapFromItem(root, x, y);
+        if (translatedCoords.x > 0 && translatedCoords.x < suggestionsBorder.width &&
+                translatedCoords.y > 0 && translatedCoords.y < suggestionsBorder.height) {
+            return true;
+        }
+
+        return false;
     }
 
     Rectangle {
@@ -356,6 +379,8 @@ Item {
     }
 
     Item {
+        id: suggestionsBorder
+
         anchors {
             left: parent.left
             right: parent.right

@@ -9,6 +9,7 @@
 ****************************************************************************/
 import QtQuick 1.1
 import GameNet.Controls 1.0
+import Application.Controls 1.0 as AppControls
 
 import "../../Core/App.js" as App
 import "../../Core/Styles.js" as Styles
@@ -41,7 +42,7 @@ ErrorContainer {
         }
     }
 
-    Input {
+    AppControls.Input {
         id: input
 
         icon: installPath + "Assets/Images/GameNet/Controls/LoginInput/login.png"
