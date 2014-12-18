@@ -183,10 +183,12 @@ WidgetView {
                 Image {
                     anchors { bottom: balanceLabel.baseline; bottomMargin: -2 }
                     source: installPath + "Assets/Images/Application/Widgets/UserProfile/coins.png"
+
                     CursorMouseArea {
                         anchors.fill: parent
                         toolTip: qsTr("GN_MONEY")
                         tooltipGlueCenter: true
+                        onClicked: App.replenishAccount()
                     }
                 }
             }
