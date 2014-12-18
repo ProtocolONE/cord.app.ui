@@ -24,6 +24,7 @@ Form {
 
     property alias login: loginInput.text
     property alias loginSuggestion: loginSuggestion.dictionary
+    property int loginMaxSize: 254
 
     signal switchToRegistration();
     signal codeRequired();
@@ -54,6 +55,12 @@ Form {
 
         function genericAuth() {
             if (d.inProgress || !AppProxy.authAccepted) {
+                return;
+            }
+
+            if (d.login.length > root.loginMaxSize) {
+                loginInput.errorMessage = qsTr("REGISTER_FAIL_LOGIN_TOO_LONG");
+                loginInput.error = true;
                 return;
             }
 
@@ -190,8 +197,16 @@ Form {
 
             onTabPressed: passwordInput.forceActiveFocus();
             onBackTabPressed: loginInput.nextBackTabItem();
+            maximumLength: loginMaxSize + 1
 
-            onTextChanged: d.captchaRequired = false;
+            onTextChanged: {
+                if (loginInput.text.length > root.loginMaxSize) {
+                  loginInput.errorMessage = qsTr("REGISTER_FAIL_LOGIN_TOO_LONG");
+                  loginInput.error = true;
+                }
+
+                d.captchaRequired = false;
+            }
             z: 1
 
             typeahead: TypeaheadBehaviour {

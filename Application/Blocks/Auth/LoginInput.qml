@@ -22,6 +22,7 @@ ErrorContainer {
     property alias text: input.text
     property alias error: input.error
     property alias typeahead: input.typeahead
+    property alias maximumLength: input.maximumLength
 
     signal tabPressed()
     signal backTabPressed()

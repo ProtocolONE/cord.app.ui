@@ -21,6 +21,7 @@ Form {
 
     property alias login: loginInput.text
     property alias password: passwordInput.text
+    property int loginMaxSize: 254
 
     signal switchToLogin();
     signal error(string message);
@@ -44,6 +45,12 @@ Form {
                 password = d.password;
 
             if (d.inProgress || !App.authAccepted) {
+                return;
+            }
+
+            if (login.length > root.loginMaxSize) {
+                loginInput.errorMessage = qsTr("REGISTER_FAIL_LOGIN_TOO_LONG");
+                loginInput.error = true;
                 return;
             }
 
@@ -133,8 +140,15 @@ Form {
 
             width: parent.width
             placeholder: qsTr("REGISTER_BODY_LOGIN_PLACEHOLDER")
+            maximumLength: loginMaxSize + 1
             z: 1
 
+            onTextChanged: {
+                if (loginInput.text.length > root.loginMaxSize) {
+                  loginInput.errorMessage = qsTr("REGISTER_FAIL_LOGIN_TOO_LONG");
+                  loginInput.error = true;
+                }
+            }
             onTabPressed: passwordInput.forceActiveFocus();
             onBackTabPressed: passwordInput.forceActiveFocus();
         }

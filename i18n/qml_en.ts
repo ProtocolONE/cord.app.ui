@@ -238,80 +238,86 @@
 <context>
     <name>AuthBody</name>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="89"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="96"/>
         <source>AUTH_BODY_CAPTCHA_FAILED</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="114"/>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="139"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="121"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="146"/>
         <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="126"/>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="138"/>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="141"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="133"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="145"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="148"/>
         <source>AUTH_FAIL_MESSAGE_WRONG</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="109"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="116"/>
         <source>AUTH_FAIL_GAMENET_UNAVAILABLE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="120"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="62"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="204"/>
+        <source>REGISTER_FAIL_LOGIN_TOO_LONG</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="127"/>
         <source>AUTH_FAIL_MESSAGE_ACCOUNT_NOT_EXISTS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="135"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="142"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="140"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="147"/>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="170"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="177"/>
         <source>AUTH_BODY_TITLE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="189"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="196"/>
         <source>AUTH_BODY_LOGIN_PLACEHOLDER</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="218"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="233"/>
         <source>AUTH_BODY_PASSWORD_PLACEHOLDER</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="250"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="265"/>
         <source>AUTH_BODY_REMEMBER_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="265"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="280"/>
         <source>AUTH_BODY_AMNESIA_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="285"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="300"/>
         <source>AUTH_BODY_LOGIN_BUTTON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="309"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="324"/>
         <source>AUTH_BODY_REGISTER_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="316"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="331"/>
         <source>AUTH_BODY_REGISTER_BUTTON</source>
         <translation></translation>
     </message>
@@ -1227,12 +1233,12 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="200"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="201"/>
         <source>LOGOUT_ALERT_HEADER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="201"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="202"/>
         <source>LOGOUT_ALERT_BODY</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1622,39 +1628,39 @@
 <context>
     <name>PremiumShopModel</name>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="77"/>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="79"/>
         <source>PREMIUM_SHOP_DAYS_OTHER</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="78"/>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="80"/>
         <source>PREMIUM_SHOP_DAYS_1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="79"/>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="80"/>
         <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="81"/>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="82"/>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="83"/>
         <source>PREMIUM_SHOP_DAYS_2_4</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="99"/>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="101"/>
         <source>PREMIUM_BUY_SUCCESS_CAPTION</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="105"/>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="107"/>
         <source>PREMIUM_BUY_ERROR_CAPTION</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="100"/>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="102"/>
         <source>PREMIUM_SHOP_BUY_SUCCESS_DETAILS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="106"/>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="108"/>
         <source>PREMIUM_SHOP_DETAILS_ERROR_UNKNOWN</source>
         <translation></translation>
     </message>
@@ -1667,37 +1673,37 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="98"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="116"/>
         <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="115"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="133"/>
         <source>TITLE_PREMIUM_ACCOUNT_LEFT_TIME_LABEL</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="129"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="164"/>
         <source>TITLE_PREMIUM_ACCOUNT_CONTINUE_ACCOUNT_LABEL</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="193"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="228"/>
         <source>NOT_ENOUGH_MONEY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="223"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="258"/>
         <source>ADD_MONEY_BUTTON_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="243"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="280"/>
         <source>MONEY_TOTAL %1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="265"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="304"/>
         <source>ACCEPT_BUY</source>
         <translation></translation>
     </message>
@@ -1879,68 +1885,74 @@
 <context>
     <name>RegistrationBody</name>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="62"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="52"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="148"/>
+        <source>REGISTER_FAIL_LOGIN_TOO_LONG</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="69"/>
         <source>REGISTER_FAIL_GAMENET_UNAVAILABLE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="91"/>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="94"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="98"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="101"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="96"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="103"/>
         <source>AUTH_FAIL_MESSAGE_WRONG</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="97"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="104"/>
         <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="117"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="124"/>
         <source>REGISTER_BODY_TITLE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="124"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="131"/>
         <source>REGISTER_BODY_SUB_TITLE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="135"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="142"/>
         <source>REGISTER_BODY_LOGIN_PLACEHOLDER</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="146"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="160"/>
         <source>REGISTER_BODY_PASSWORD_PLACEHOLDER</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="164"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="178"/>
         <source>REGISTER_BODY_REGISTER_BUTTON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="188"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="202"/>
         <source>REGISTER_BODY_AUTH_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="194"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="208"/>
         <source>REGISTER_BODY_AUTH_BUTTON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="222"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="236"/>
         <source>REGISTER_BODY_LICENSE_PART1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="228"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="242"/>
         <source>REGISTER_BODY_LICENSE_PART2</source>
         <translation></translation>
     </message>
@@ -2208,12 +2220,12 @@
 <context>
     <name>qGNA_Main</name>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="190"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="191"/>
         <source>GN_MONEY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="199"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="201"/>
         <source>ADD_MONEY</source>
         <translation></translation>
     </message>

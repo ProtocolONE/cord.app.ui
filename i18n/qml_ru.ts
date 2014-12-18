@@ -827,6 +827,10 @@ Please try again later.</source>
         <translation>Неправильный формат электронной почты. Проверьте правильность ввода.</translation>
     </message>
     <message>
+        <source>REGISTER_FAIL_LOGIN_TOO_LONG</source>
+        <translation>Длина адреса электронной почты не должна превышать 254 символа.</translation>
+    </message>
+    <message>
         <source>AUTH_FAIL_MESSAGE_WRONG</source>
         <translation>Неправильный логин или пароль</translation>
     </message>
@@ -4157,6 +4161,10 @@ Please try again later.</source>
     <message>
         <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
         <translation>Неправильный формат электронной почты. Проверьте правильность ввода.</translation>
+    </message>
+    <message>
+        <source>REGISTER_FAIL_LOGIN_TOO_LONG</source>
+        <translation>Длина адреса электронной почты не должна превышать 128 символов.</translation>
     </message>
 </context>
 <context>
