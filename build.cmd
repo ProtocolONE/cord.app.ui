@@ -1,3 +1,5 @@
+echo %CmdCmdLine%  >> qrc_build.log
+
 set BUILD_PATH=.\..\!build
 if "%1" neq "" (
    set BUILD_PATH=%1
@@ -6,15 +8,15 @@ if "%1" neq "" (
 if exist %BUILD_PATH% (
     rmdir /S /Q %BUILD_PATH%
 )
-mkdir %BUILD_PATH%
+mkdir %BUILD_PATH% 
 
 for /f %%i in ("%0") do set CUR_PATH=%%~dpi
 
-call %CUR_PATH%GenerateQrc.bat
+call "%CUR_PATH%GenerateQrc.bat"  >> qrc_build.log
 
-xcopy %CUR_PATH%*.* %BUILD_PATH% /S /E /H /R /Y /EXCLUDE:%CUR_PATH%build_exclude.txt
+xcopy %CUR_PATH%*.* %BUILD_PATH% /S /E /H /R /Y /EXCLUDE:%CUR_PATH%build_exclude.txt  >> qrc_build.log
             
-call %CUR_PATH%build_fix_cc.cmd %BUILD_PATH%
+call %CUR_PATH%build_fix_cc.cmd %BUILD_PATH%  >> qrc_build.log
                                   
 %QTDIR%\bin\rcc.exe -compress 3 -threshold 4 -binary  "%BUILD_PATH%\qGNA.qrc" -o "%BUILD_PATH%\qGNA.tmp"
 if %errorlevel% neq 0 goto rccFailed

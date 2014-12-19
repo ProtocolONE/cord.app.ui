@@ -12,8 +12,8 @@ IF EXIST "%WinDirNet%\v3.5\csc.exe" set csc="%WinDirNet%\v3.5\csc.exe"
 IF EXIST "%WinDirNet%\v4.0.30319\csc.exe" set csc="%WinDirNet%\v4.0.30319\csc.exe"
 %csc% /nologo /out:"%~0.exe" %0
 echo ========================================================================
-echo "%~0.exe" %TargetQrcName%
-"%~0.exe" %TargetQrcName%
+echo "%~0.exe" %TargetQrcName% >> qrc_build.log
+"%~0.exe" %TargetQrcName% >> qrc_build.log
 del "%~0.exe"
 
 goto end
