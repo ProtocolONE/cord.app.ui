@@ -8,6 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 import QtQuick 1.1
+import Tulip 1.0
 
 import GameNet.Controls 1.0
 import Application.Blocks 1.0
@@ -100,13 +101,28 @@ Item {
             }
 
             Image {
+                function getSourceIcon() {
+                    var browser = BrowserDetect.getBrowserName();
+
+                    var browserIcons = {
+                        "firefox": "firefox.png",
+                        "iexplore": "ie.png",
+                        "opera": "opera.png",
+                        "chrome": "chrome.png",
+                        "google chrome": "chrome.png"
+                    }
+
+                    return installPath + 'Assets/Images/Application/Widgets/AllGames/browsers/' +
+                            browserIcons[browser] || 'unknown.png'
+                }
+
                 anchors {
                     right: parent.right
                     top: parent.top
                     margins: 4
                 }
 
-                source: installPath + '/Assets/Images/Application/Widgets/AllGames/firefoxIcon.png'
+                source: root.isWebGame ? getSourceIcon() : ''
                 visible: root.isWebGame
             }
         }

@@ -11,7 +11,7 @@ Item {
         anchors {
             left: parent.left
             right: parent.right
-            margins: 16
+            margins: 18
         }
 
         height: parent.height

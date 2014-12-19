@@ -18,12 +18,11 @@ Rectangle {
         RestApi.Core.setUserId(userId);
         RestApi.Core.setAppKey(appKey);
 
-        RestApi.Service.getUI(function(result) {
-            App.servicesUI = result;
-            App.fillGamesModel(result.services);
+        RestApi.Service.getGrid(function(result) {
+            App.servicesGrid = result;
             root.finished();
         }, function(result) {
-            console.log('get services error', result.code);
+            console.log('Get services grid error');
             retryTimer.start();
         });
     }
@@ -38,7 +37,16 @@ Rectangle {
     Timer {
         id: retryTimer
 
-        interval: 10000
+        property int count: 0
+
+        function getInterval() {
+          var timeout = [5,10,15,20,60];
+          var index = (retryTimer.count >= timeout.length) ? (timeout.length - 1) : retryTimer.count;
+          retryTimer.count += 1;
+          return timeout[index] * 1000;
+        }
+
+        interval: getInterval()
         repeat: true
         running: false
 

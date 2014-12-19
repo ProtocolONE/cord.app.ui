@@ -46,23 +46,15 @@ Item {
 
         delegate: Image {
             function iconUrl(id) {
-                if (id === 'fb') {
-                    return installPath + "Assets/Images/socialNet/fb.png";
+                var socialIcons = {
+                    'fb' : 'fb.png',
+                    'vk' : 'vk.png',
+                    'yt' : 'yt.png',
+                    'ok' : 'ok.png'
                 }
 
-                if (id === 'vk') {
-                    return  installPath + "Assets/Images/socialNet/vk.png";
-                }
-
-                if (id === 'yt') {
-                    return installPath + "Assets/Images/socialNet/yt.png";
-                }
-
-                if (id === 'ok') {
-                    return installPath + "Assets/Images/socialNet/ok.png";
-                }
-
-                return '';
+                return socialIcons.hasOwnProperty(id) ?
+                            (installPath + "Assets/Images/socialNet/" + socialIcons[id]) : ''
             }
 
             opacity: mouser.containsMouse ? 1 : 0.8

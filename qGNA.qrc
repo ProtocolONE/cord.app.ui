@@ -133,6 +133,7 @@
 		<file>Application/Widgets/AllGames/View/GameItemTitle.qml</file>
 		<file>Application/Widgets/AllGames/View/GameList.qml</file>
 		<file>Application/Widgets/AllGames/View/GameListPage.qml</file>
+		<file>Application/Widgets/AllGames/View/Stick.qml</file>
 		<file>Application/Widgets/Announcements/AnnouncementsModel.js</file>
 		<file>Application/Widgets/Announcements/AnnouncementsModel.qml</file>
 		<file>Application/Widgets/Announcements/ArtPopup.qml</file>

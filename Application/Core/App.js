@@ -16,8 +16,8 @@ var indexToGameItem = {},
     gameIdToGameItem = {},
     serviceIdToGameItemIdex = {},
     serviceStartButtonClicked = {},
-    servicesUI,
-    currentHost,
+    servicesGrid,
+    servicesList,
     authAccepted = false,
     count = 0,
     clientWidth = 1000,
@@ -32,6 +32,7 @@ Qt.include('./Modules/Settings.js');
 Qt.include('./Modules/Overlay.js');
 Qt.include('./Modules/ServiceHandleModel.js');
 Qt.include('./Modules/ApplicationStatistic.js');
+Qt.include('./Modules/Service.js');
 
 var gamesListModel = initModel(),
     _gamesListModelList,
@@ -60,39 +61,25 @@ function initModel() {
 }
 
 function fillGamesModel(data) {
-        var i, item;
+        var i, item, last;
         count = data.length;
         _gamesListModelList.clear();
 
         for (i = 0; i < count; ++i) {
-            item = data[i];
+            item = createService(data[i]);
 
-            item.maintenance = false;
-            item.maintenanceInterval = 0;
-            item.allreadyDownloaded = false;
-            item.progress = -1;
-            item.status = "Normal";
-            item.statusText = "";
-            item.menu = [];
-            item.currentMenuIndex = 1;
+            if (!item) {
+                continue;
+            }
 
             _gamesListModelList.fillMenu(item);
-
-            item.widgets = item.widgetList;
             _gamesListModelList.append(item);
 
-            indexToGameItem[i] = _gamesListModelList.get(_gamesListModelList.count - 1);
-            gameIdToGameItem[item.gameId] = _gamesListModelList.get(_gamesListModelList.count - 1);
+            last = _gamesListModelList.count - 1;
+            indexToGameItem[i] = _gamesListModelList.get(last);
+            gameIdToGameItem[item.gameId] = _gamesListModelList.get(last);
             serviceIdToGameItemIdex[item.serviceId] = i;
         }
-}
-
-function setHost(host) {
-    currentHost = host;
-}
-
-function host() {
-    return currentHost;
 }
 
 function currentRunningMainService() {

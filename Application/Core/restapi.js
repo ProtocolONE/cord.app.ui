@@ -966,7 +966,11 @@ Service.getServices = function(sessionId, successCallback, failedCallback) {
 };
 
 Service.getUI = function(successCallback, failedCallback) {
-    Core.execute('service.getUI', {}, true, successCallback, failedCallback);
+    Core.execute('service.getUI', {}, false, successCallback, failedCallback);
+};
+
+Service.getGrid = function(successCallback, failedCallback) {
+    Core.execute('service.getGrid', {}, true, successCallback, failedCallback);
 };
 
 var Social = function() {

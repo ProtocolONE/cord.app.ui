@@ -127,75 +127,82 @@
     <name>AlertAdapterModel</name>
     <message>
         <source>OK</source>
-        <translation type="unfinished">OK</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Сохранить</translation>
+        <translation>Сохранить</translation>
     </message>
     <message>
         <source>SaveAll</source>
-        <translation type="unfinished">Сохранить все</translation>
+        <translation>Сохранить все</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation type="unfinished">Открыть</translation>
+        <translation>Открыть</translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished">Да</translation>
+        <translation>Да</translation>
     </message>
     <message>
         <source>YesToAll</source>
-        <translation type="unfinished">Да для всех</translation>
+        <translation>Да для всех</translation>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished">Нет</translation>
+        <translation>Нет</translation>
     </message>
     <message>
         <source>NoToAll</source>
-        <translation type="unfinished">Нет для всех</translation>
+        <translation>Нет для всех</translation>
     </message>
     <message>
         <source>Abort</source>
-        <translation type="unfinished">Отменить</translation>
+        <translation>Отменить</translation>
     </message>
     <message>
         <source>Retry</source>
-        <translation type="unfinished">Повторить</translation>
+        <translation>Повторить</translation>
     </message>
     <message>
         <source>Ignore</source>
-        <translation type="unfinished">Игнорировать</translation>
+        <translation>Игнорировать</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Закрыть</translation>
+        <translation>Закрыть</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Отмена</translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Discard</source>
-        <translation type="unfinished">Отклонить</translation>
+        <translation>Отклонить</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished">Помощь</translation>
+        <translation>Помощь</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">Применить</translation>
+        <translation>Применить</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished">Сбросить</translation>
+        <translation>Сбросить</translation>
     </message>
     <message>
         <source>RestoreDefaults</source>
-        <translation type="unfinished">Сбросить по умолчанию</translation>
+        <translation>Сбросить по умолчанию</translation>
+    </message>
+</context>
+<context>
+    <name>AllButton</name>
+    <message>
+        <source>ALL_GAMES_GRID_TITLE_TEXT</source>
+        <translation>Все игры GameNet</translation>
     </message>
 </context>
 <context>
@@ -880,11 +887,11 @@ Please try again later.</source>
     <name>BaseLayer</name>
     <message>
         <source>MY_GAMES_CAPTION_MENU</source>
-        <translation type="unfinished">Мои игры</translation>
+        <translation>Мои игры</translation>
     </message>
     <message>
         <source>MY_GAMES_MENU_NEWS</source>
-        <translation type="unfinished">Общая лента новостей</translation>
+        <translation>Общая лента новостей</translation>
     </message>
 </context>
 <context>
@@ -906,34 +913,34 @@ Please try again later.</source>
     <name>BodyHistoryHeader</name>
     <message>
         <source>YESTERDAY_HISTORY_TEXT</source>
-        <translation type="unfinished">Вчера</translation>
+        <translation>Вчера</translation>
     </message>
     <message>
         <source>WEEK_HISTORY_TEXT</source>
-        <translation type="unfinished">Неделя</translation>
+        <translation>Неделя</translation>
     </message>
     <message>
         <source>TWO_WEEKS_HISTORY_TEXT</source>
-        <translation type="unfinished">2 Недели</translation>
+        <translation>2 Недели</translation>
     </message>
     <message>
         <source>MONTH_HISTORY_MONTH</source>
-        <translation type="unfinished">Месяц</translation>
+        <translation>Месяц</translation>
     </message>
 </context>
 <context>
     <name>BodySection</name>
     <message>
         <source>CHAT_HISTORY_BODY_TODAY_TEXT</source>
-        <translation type="unfinished">Сегодня</translation>
+        <translation>Сегодня</translation>
     </message>
     <message>
         <source>CHAT_HISTORY_BODY_YESTERDAY_TEXT</source>
-        <translation type="unfinished">Вчера</translation>
+        <translation>Вчера</translation>
     </message>
     <message>
         <source>CHAT_BODY_DATE_FORMAT</source>
-        <translation type="unfinished">%1 г.</translation>
+        <translation>%1 г.</translation>
     </message>
 </context>
 <context>
@@ -1056,7 +1063,7 @@ Please try again later.</source>
     <name>Chat</name>
     <message>
         <source>MESSENGER_OVERLAY_POPUP_HELPER_TEXT</source>
-        <translation type="unfinished">Чтобы открыть чат GameNet используете хоткей %1</translation>
+        <translation>Чтобы открыть чат GameNet используете хоткей %1</translation>
     </message>
 </context>
 <context>
@@ -1370,15 +1377,15 @@ Please try again later.</source>
     <name>DownloadManagerConnector</name>
     <message>
         <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
-        <translation type="unfinished">Игра запущена</translation>
+        <translation>Игра запущена</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
-        <translation type="unfinished">Обновление игры: %1 из %2 МБ</translation>
+        <translation>Обновление игры: %1 из %2 МБ</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
-        <translation type="unfinished">Загрузка игры: %1 из %2 МБ</translation>
+        <translation>Загрузка игры: %1 из %2 МБ</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
@@ -1386,11 +1393,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>POPUP_PLAY</source>
-        <translation type="unfinished">Играть</translation>
+        <translation>Играть</translation>
     </message>
     <message>
         <source>POPUP_READY_TO_START</source>
-        <translation type="unfinished">Игра готова к запуску!</translation>
+        <translation>Игра готова к запуску!</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_DOWNLOADED_AND_READY_STATE</source>
@@ -1405,7 +1412,7 @@ Please try again later.</source>
     <name>DownloadProgress</name>
     <message>
         <source>DOWNLOAD_STATUS_ERROR</source>
-        <translation type="unfinished">Ошибка</translation>
+        <translation>Ошибка</translation>
     </message>
 </context>
 <context>
@@ -1474,7 +1481,7 @@ Please try again later.</source>
     <name>EmptyContactListInfo</name>
     <message>
         <source>EMPTY_CONTACT_LIST_FIND_USER</source>
-        <translation type="unfinished">Добавить новых друзей</translation>
+        <translation>Добавить новых друзей</translation>
     </message>
     <message>
         <source>EMPTY_CONTACT_LIST_FIND_CONTACT</source>
@@ -1482,11 +1489,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>EMPTY_CONTACT_LIST_SYSTEM_NOTIFICATION</source>
-        <translation type="unfinished">Следи за уведомлениями GameNet</translation>
+        <translation>Следи за уведомлениями GameNet</translation>
     </message>
     <message>
         <source>EMPTY_CONTACT_LIST_CONTACT_FILTER</source>
-        <translation type="unfinished">Все, с кем ты подружишься в игре, появятся в этом списке</translation>
+        <translation>Все, с кем ты подружишься в игре, появятся в этом списке</translation>
     </message>
     <message>
         <source>EMPTY_CONTACT_LIST_INFO</source>
@@ -1494,7 +1501,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>EMPTY_CONTACT_LIST_FIND_USER_WEB_SEARCH</source>
-        <translation type="unfinished">Найди среди своих друзей</translation>
+        <translation>Найди среди своих друзей</translation>
     </message>
 </context>
 <context>
@@ -1771,18 +1778,18 @@ Please try again later.</source>
     </message>
     <message>
         <source>Вам нужен ключ доступа</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Скачать клиент игры могут только участники F&amp;F-теста. Если у вас есть ключ доступа, нажмите &quot;Да&quot;.</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
     <name>GameExecutingView</name>
     <message>
         <source>GAME_EXECUTING_HEADER</source>
-        <translation type="unfinished">Игра %1 запускается...</translation>
+        <translation>Игра %1 запускается...</translation>
     </message>
 </context>
 <context>
@@ -1942,30 +1949,30 @@ Please try again later.</source>
     <name>GameItem</name>
     <message>
         <source>START_GAME_BUTTON</source>
-        <translation type="unfinished">Играть</translation>
+        <translation>Играть</translation>
     </message>
     <message>
         <source>GAME_TOP_STICK</source>
-        <translation type="unfinished">ТОП ИГРА</translation>
+        <translation>ТОП ИГРА</translation>
     </message>
     <message>
         <source>GAME_NEW_STICK</source>
-        <translation type="unfinished">НОВАЯ ИГРА</translation>
+        <translation>НОВАЯ ИГРА</translation>
     </message>
 </context>
 <context>
     <name>GameItemSmall</name>
     <message>
         <source>START_GAME_BUTTON</source>
-        <translation type="unfinished">Играть</translation>
+        <translation>Играть</translation>
     </message>
     <message>
         <source>GAME_TOP_STICK</source>
-        <translation type="unfinished">ТОП ИГРА</translation>
+        <translation>ТОП ИГРА</translation>
     </message>
     <message>
         <source>GAME_NEW_STICK</source>
-        <translation type="unfinished">НОВАЯ ИГРА</translation>
+        <translation>НОВАЯ ИГРА</translation>
     </message>
 </context>
 <context>
@@ -2041,19 +2048,19 @@ Please try again later.</source>
     </message>
     <message>
         <source>SHOW_STATISTICS</source>
-        <translation type="unfinished">Показать статистику</translation>
+        <translation>Показать статистику</translation>
     </message>
     <message>
         <source>GAME_LOAD_PAUSE</source>
-        <translation type="unfinished">Пауза</translation>
+        <translation>Пауза</translation>
     </message>
     <message>
         <source>GAME_LOAD_CONTINUE</source>
-        <translation type="unfinished">Продолжить</translation>
+        <translation>Продолжить</translation>
     </message>
     <message>
         <source>GAME_LOAD_VIEW_HEADER_TEXT</source>
-        <translation type="unfinished">Загрузка %1</translation>
+        <translation>Загрузка %1</translation>
     </message>
 </context>
 <context>
@@ -2105,11 +2112,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>SAVE_BUTTON_LABEL</source>
-        <translation type="unfinished">Сохранить</translation>
+        <translation>Сохранить</translation>
     </message>
     <message>
         <source>CLOSE_BUTTON_LABEL</source>
-        <translation type="unfinished">Закрыть</translation>
+        <translation>Закрыть</translation>
     </message>
 </context>
 <context>
@@ -2696,7 +2703,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>REGISTRATION_NAVIGATE_CREATE_ACCOUNT_TEXT</source>
-        <translation type="unfinished">Создать аккаунт</translation>
+        <translation>Создать аккаунт</translation>
     </message>
 </context>
 <context>
@@ -2776,11 +2783,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
-        <translation type="unfinished">Не удалось войти как пользователь Вконтакте. Попробуйте ещё раз позже.</translation>
+        <translation>Не удалось войти как пользователь Вконтакте. Попробуйте ещё раз позже.</translation>
     </message>
     <message>
         <source>LOGIN_BY_GUEST_BUTTON_TEXT</source>
-        <translation type="unfinished">Войти как гость</translation>
+        <translation>Войти как гость</translation>
     </message>
 </context>
 <context>
@@ -3091,61 +3098,61 @@ Please try again later.</source>
     </message>
     <message>
         <source>HOUR_MAINTENANCE_LABEL</source>
-        <translation type="unfinished">ч</translation>
+        <translation>ч</translation>
     </message>
     <message>
         <source>MINUTE_MAINTENANCE_LABEL</source>
-        <translation type="unfinished">мин.</translation>
+        <translation>мин.</translation>
     </message>
     <message>
         <source>SECONDS_MAINTENANCE_LABEL</source>
-        <translation type="unfinished">с</translation>
+        <translation>с</translation>
     </message>
     <message>
         <source>MAINTENANCE_LIGHT_LABEL</source>
-        <translation type="unfinished">Технические работы окончатся через</translation>
+        <translation>Технические работы окончатся через</translation>
     </message>
     <message>
         <source>MAINTENANCE_LIGHT_PROSOSAL_START_TEXT</source>
-        <translation type="unfinished">Не теряй времени! %1</translation>
+        <translation>Не теряй времени! %1</translation>
     </message>
 </context>
 <context>
     <name>MaintenanceModel</name>
     <message>
         <source>POPUP_PLAY</source>
-        <translation type="unfinished">Играть</translation>
+        <translation>Играть</translation>
     </message>
     <message>
         <source>POPUP_MAINTENANCE_END_AND_READY_TO_START</source>
-        <translation type="unfinished">Технические работы завершены</translation>
+        <translation>Технические работы завершены</translation>
     </message>
 </context>
 <context>
     <name>MaintenanceView</name>
     <message>
         <source>MAINTENANCE_LABEL</source>
-        <translation type="unfinished">Технические работы</translation>
+        <translation>Технические работы</translation>
     </message>
     <message>
         <source>MAINTENANCE_LABEL_END</source>
-        <translation type="unfinished">Завершение через</translation>
+        <translation>Завершение через</translation>
     </message>
     <message>
         <source>HOUR_MAINTENANCE_LABEL</source>
-        <translation type="unfinished">ч</translation>
+        <translation>ч</translation>
     </message>
     <message>
         <source>MINUTE_MAINTENANCE_LABEL</source>
-        <translation type="unfinished">мин.</translation>
+        <translation>мин.</translation>
     </message>
     <message>
         <source>SECONDS_MAINTENANCE_LABEL</source>
-        <translation type="unfinished">с</translation>
+        <translation>с</translation>
     </message>
     <message>
         <source>MAINTENANCE_PROPOSAL_GAME_TEXT</source>
-        <translation type="unfinished">Пока мы делаем игру лучше, попробуй другие игры, в которые играют пользователи %1</translation>
+        <translation>Пока мы делаем игру лучше, попробуй другие игры, в которые играют пользователи %1</translation>
     </message>
 </context>
 <context>
@@ -3193,7 +3200,7 @@ Please try again later.</source>
     <name>MessagePlayingRow</name>
     <message>
         <source>PLAYING_GAME_MESSANGE_TEXT</source>
-        <translation type="unfinished">Играю в %1</translation>
+        <translation>Играю в %1</translation>
     </message>
 </context>
 <context>
@@ -3262,15 +3269,15 @@ Please try again later.</source>
     </message>
     <message>
         <source>MESSENGER_HISTORY_SAVE_COMBOBOX_TITLE</source>
-        <translation type="unfinished">Хранить историю</translation>
+        <translation>Хранить историю</translation>
     </message>
     <message>
         <source>MESSENGER_OPEN_CHAT_TITLE</source>
-        <translation type="unfinished">Хоткей открытия чата в игре</translation>
+        <translation>Хоткей открытия чата в игре</translation>
     </message>
     <message>
         <source>MESSENGER_SHOW_CHAT_NOTIFY_IN_OVERLAY</source>
-        <translation type="unfinished">Показывать уведомление о новых сообщениях в игре</translation>
+        <translation>Показывать уведомление о новых сообщениях в игре</translation>
     </message>
 </context>
 <context>
@@ -3464,11 +3471,11 @@ Please try again later.</source>
     <name>NicknameEditModel</name>
     <message>
         <source>VALIDATE_NICK_NAME_DEFAULT_ERROR</source>
-        <translation type="unfinished">GameNet недоступен, невозможно проверить никнейм. Проверьте подключение к интернет или попробуйте ещё раз позже.</translation>
+        <translation>GameNet недоступен, невозможно проверить никнейм. Проверьте подключение к интернет или попробуйте ещё раз позже.</translation>
     </message>
     <message>
         <source>VALIDATE_TECH_NAME_DEFAULT_ERROR</source>
-        <translation type="unfinished">GameNet недоступен, невозможно проверить ссылку.</translation>
+        <translation>GameNet недоступен, невозможно проверить ссылку.</translation>
     </message>
 </context>
 <context>
@@ -3502,15 +3509,15 @@ Please try again later.</source>
     <name>NicknameReminderView</name>
     <message>
         <source>USER_LOST_NICK_NAME_TITLE</source>
-        <translation type="unfinished">Отличный момент, чтобы выбрать никнейм!</translation>
+        <translation>Отличный момент, чтобы выбрать никнейм!</translation>
     </message>
     <message>
         <source>USER_LOST_NICKNAME_BODY_TEXT</source>
-        <translation type="unfinished">А то вашим друзьям придётся узнавать вас по аватару. У них может не получиться.</translation>
+        <translation>А то вашим друзьям придётся узнавать вас по аватару. У них может не получиться.</translation>
     </message>
     <message>
         <source>USER_LOST_NICKNAME_ENTER_BUTTON_TEXT</source>
-        <translation type="unfinished">Ввести никнейм</translation>
+        <translation>Ввести никнейм</translation>
     </message>
 </context>
 <context>
@@ -3557,7 +3564,7 @@ Please try again later.</source>
     <name>PayItem</name>
     <message>
         <source>ONE_DAY_PREMIUM_TRADIO_TEXT</source>
-        <translation type="unfinished">1 день</translation>
+        <translation>1 день</translation>
     </message>
 </context>
 <context>
@@ -3654,22 +3661,22 @@ Please try again later.</source>
     </message>
     <message>
         <source>PREMIUM_SHOP_BUY_SUCCESS_DETAILS</source>
-        <translation type="unfinished">Чтобы запустить второе окно игры BS.ru, Reborn или Aika2 нажмите «Добавить аккаунт» и авторизуйтесь вторым аккаунтом. Запуск игры под вторым аккаунтом происходит по кнопке «Начать игру» в блоке дополнительного аккаунта и доступен после запуска игры под основным аккаунтом.&lt;br&gt;Приятной игры.</translation>
+        <translation>Чтобы запустить второе окно игры BS.ru, Reborn или Aika2 нажмите «Добавить аккаунт» и авторизуйтесь вторым аккаунтом. Запуск игры под вторым аккаунтом происходит по кнопке «Начать игру» в блоке дополнительного аккаунта и доступен после запуска игры под основным аккаунтом.&lt;br&gt;Приятной игры.</translation>
     </message>
     <message>
         <source>PREMIUM_BUY_SUCCESS_CAPTION</source>
-        <translation type="unfinished">Расширенный аккаунт активирован на %1 дней</translation>
+        <translation>Расширенный аккаунт активирован на %1 дней</translation>
     </message>
     <message>
         <source>PREMIUM_BUY_ERROR_CAPTION</source>
-        <translation type="unfinished">Упс! Что-то пошло не так...</translation>
+        <translation>Упс! Что-то пошло не так...</translation>
     </message>
 </context>
 <context>
     <name>PremiumShopView</name>
     <message>
         <source>PREMIUM_ACCOUNT_HEADER_TEXT_BLOCK</source>
-        <translation type="unfinished">Расширенный аккаунт</translation>
+        <translation>Расширенный аккаунт</translation>
     </message>
     <message>
         <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
@@ -3768,39 +3775,39 @@ Please try again later.</source>
     </message>
     <message>
         <source>DOWNLOAD_PEER_DOWNLOAD_SPEED</source>
-        <translation type="unfinished">Скорость пиринговой загрузки:</translation>
+        <translation>Скорость пиринговой загрузки:</translation>
     </message>
     <message>
         <source>DOWNLOAD_PEER_DIRECT_SPEED</source>
-        <translation type="unfinished">Скорость прямой загрузки:</translation>
+        <translation>Скорость прямой загрузки:</translation>
     </message>
     <message>
         <source>DOWNLOAD_PEER_UPLOAD_SPEED</source>
-        <translation type="unfinished">Скорость отправки:</translation>
+        <translation>Скорость отправки:</translation>
     </message>
     <message>
         <source>DOWNLOAD_COMPLETE_FROM_TO</source>
-        <translation type="unfinished">Завершено:</translation>
+        <translation>Завершено:</translation>
     </message>
     <message>
         <source>DOWNLOAD_COMPLETE_TOTAL</source>
-        <translation type="unfinished">Загружено:</translation>
+        <translation>Загружено:</translation>
     </message>
     <message>
         <source>DOWNLOAD_SPEED_TOTAL</source>
-        <translation type="unfinished">Скорость загрузки данных</translation>
+        <translation>Скорость загрузки данных</translation>
     </message>
     <message>
         <source>DOWNLOAD_PEER_DOWNLOAD_TOTAL</source>
-        <translation type="unfinished">Пиринговая загрузка:</translation>
+        <translation>Пиринговая загрузка:</translation>
     </message>
     <message>
         <source>DOWNLOAD_PEER_DIRECT_TOTAL</source>
-        <translation type="unfinished">Прямая загрузка:</translation>
+        <translation>Прямая загрузка:</translation>
     </message>
     <message>
         <source>DOWNLOAD_PEER_UPLOAD_TOTAL</source>
-        <translation type="unfinished">Отправленно:</translation>
+        <translation>Отправленно:</translation>
     </message>
     <message>
         <source>DOWNLOAD_COMPLETED_TEXT</source>
@@ -3824,11 +3831,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>DOWNLOAD_COMPLETE_FROM_TO_PERCENT</source>
-        <translation type="unfinished">%1 из %2 (%3%)</translation>
+        <translation>%1 из %2 (%3%)</translation>
     </message>
     <message>
         <source>DOWNLOAD_STATUS_TEXT</source>
-        <translation type="unfinished">Идет загрузка игры: %1 из %2... </translation>
+        <translation>Идет загрузка игры: %1 из %2... </translation>
     </message>
 </context>
 <context>
@@ -4199,34 +4206,34 @@ Please try again later.</source>
     <name>Search</name>
     <message>
         <source>MESSENGER_SEARCH_FRIEND_PLACE_HOLDER</source>
-        <translation type="unfinished">Имя или никнейм</translation>
+        <translation>Имя или никнейм</translation>
     </message>
     <message>
         <source>MESSENGER_WEB_SEARCH_PLACE_HOLDER</source>
-        <translation type="unfinished">Поиск в GameNet</translation>
+        <translation>Поиск в GameNet</translation>
     </message>
     <message>
         <source>LOCAL_SEARCH_BUTTON_TULTIP</source>
-        <translation type="unfinished">Поиск среди моих контактов.</translation>
+        <translation>Поиск среди моих контактов.</translation>
     </message>
     <message>
         <source>WEBSEARCH_BUTTON_TULTIP</source>
-        <translation type="unfinished">Добавление новых контактов. Поиск по имени персонажа в игре, никнейму в GameNet или названию гильдии.</translation>
+        <translation>Добавление новых контактов. Поиск по имени персонажа в игре, никнейму в GameNet или названию гильдии.</translation>
     </message>
 </context>
 <context>
     <name>SecondAccountAuthView</name>
     <message>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
-        <translation type="unfinished">Не удалось войти как пользователь Вконтакте. Попробуйте ещё раз позже.</translation>
+        <translation>Не удалось войти как пользователь Вконтакте. Попробуйте ещё раз позже.</translation>
     </message>
     <message>
         <source>SECOND_ACCOUNT_ACTIVATION_TITLE</source>
-        <translation type="unfinished">Дополнительный аккаунт</translation>
+        <translation>Дополнительный аккаунт</translation>
     </message>
 </context>
 <context>
@@ -4245,7 +4252,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>SECOND_GAME_BLOCK_PREMIUM_PLAY_TULTIP</source>
-        <translation type="unfinished">Запуск второго окна возможен только после запуска игры под основным аккаунтом</translation>
+        <translation>Запуск второго окна возможен только после запуска игры под основным аккаунтом</translation>
     </message>
 </context>
 <context>
@@ -4792,11 +4799,11 @@ Please try again later.</source>
     <name>SilentModeModel</name>
     <message>
         <source>SILENT_DOWNLOADING_POPUP_BUTTON</source>
-        <translation type="unfinished">OK</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>SILENT_DOWNLOADING_POPUP_TEXT</source>
-        <translation type="unfinished">Игра устанавливается</translation>
+        <translation>Игра устанавливается</translation>
     </message>
 </context>
 <context>
@@ -4810,15 +4817,15 @@ Please try again later.</source>
     <name>SplashScreen</name>
     <message>
         <source>TEXT_INITIALIZATION</source>
-        <translation type="unfinished">Инициализация...</translation>
+        <translation>Инициализация...</translation>
     </message>
     <message>
         <source>TEXT_STARTING_APPLICATION</source>
-        <translation type="unfinished">Запуск GameNet</translation>
+        <translation>Запуск GameNet</translation>
     </message>
     <message>
         <source>TEXT_VERSION</source>
-        <translation type="unfinished">Версия %1</translation>
+        <translation>Версия %1</translation>
     </message>
 </context>
 <context>
@@ -5002,11 +5009,11 @@ Please try again later.</source>
     <name>WebSearch</name>
     <message>
         <source>WEB_SEARCH_NOT_CHARS</source>
-        <translation type="unfinished">Нет персонажей</translation>
+        <translation>Нет персонажей</translation>
     </message>
     <message>
         <source>WEB_SEARCH_CHARS_PRIVACY_FILTER_ACTIVE</source>
-        <translation type="unfinished">Список персонажей скрыт настройками приватности</translation>
+        <translation>Список персонажей скрыт настройками приватности</translation>
     </message>
     <message>
         <source>WEB_SEARCH_BACKGROUND_TEXT</source>
@@ -5014,11 +5021,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>WEB_SEARCH_BUTTON_HELP_TEXT</source>
-        <translation type="unfinished">Открой список своих друзей</translation>
+        <translation>Открой список своих друзей</translation>
     </message>
     <message>
         <source>WEB_SEARCH_INPUT_HELP_TEXT</source>
-        <translation type="unfinished">Найди новых друзей в сети GameNet. Введи никнейм, имя персонажа, название игры или сервера.</translation>
+        <translation>Найди новых друзей в сети GameNet. Введи никнейм, имя персонажа, название игры или сервера.</translation>
     </message>
 </context>
 <context>
@@ -5033,7 +5040,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>INVITE_MAXIMUM_LIMIT_SENDED</source>
-        <translation type="unfinished">Превышен лимит инвайтов</translation>
+        <translation>Превышен лимит инвайтов</translation>
     </message>
 </context>
 <context>

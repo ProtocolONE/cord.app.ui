@@ -224,6 +224,10 @@
         "messengerContactsTabHover": "#444546",
         "messengerContactsTabText": "#8297a9",
         "messengerRecentContactsUnreadIcon": "#189A19",
-        "messengerEmptyContactListInfoBackground": "#EEEEEE"
+        "messengerEmptyContactListInfoBackground": "#EEEEEE",
+		"messangerGridBackground": "#000c13",
+		"messengerAllButtonGridHover": "#113344",
+		"messengerAllButtonGridTextHover": "#f3d173",
+		"messengerAllButtonGridTextNormal": "#ff6555"
     }
 }

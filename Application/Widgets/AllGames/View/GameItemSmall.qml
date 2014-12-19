@@ -15,7 +15,7 @@ Column {
     property bool isWebGame: serviceItem ? serviceItem.gameType != 'standalone' : false
     property bool selected: mouseArea.containsMouse || startButton.containsMouse
 
-    spacing: 15
+    spacing: 12
 
     Connections {
         target: App.signalBus()
@@ -41,7 +41,7 @@ Column {
             height: parent.height
 
             anchors.centerIn: parent
-            source: serviceItem.imageSmall ? App.host() + serviceItem.imageSmall : ''
+            source: serviceItem.imageSmall ? serviceItem.imageSmall : ''
         }
 
         Stick {

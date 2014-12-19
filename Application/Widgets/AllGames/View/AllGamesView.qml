@@ -16,6 +16,7 @@ import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 
 import "../../../Core/App.js" as App
+import "../../../Core/Styles.js" as Styles
 
 WidgetView {
     id: root
@@ -25,64 +26,81 @@ WidgetView {
 
     Rectangle {
         anchors.fill: parent
-        color: '#000c13'
+        color: Styles.style.messangerGridBackground
     }
 
-    Component.onCompleted: {
-        var data = App.servicesUI,
-                grid = data.grid,
-                services,
-                gridServices = {};
+    Component.onCompleted: d.fillGrid();
 
-        Object.keys(grid).forEach(function(e){
-            var item = grid[e];
+    QtObject {
+        id: d
 
-            var itemProperties = {
-                source: App.host() + item.image,
-                serviceItem: App.serviceItemByServiceId(item.serviceId),
-                serviceItemGrid: item,
-                serviceId: item.serviceId,
-                x: (item.col - 1) * 256,
-                y: (item.row - 1) * 100
-            };
+        function fillGrid() {
+            var grid = App.servicesGrid,
+                    services,
+                    index = 0,
+                    gameListServices,
+                    gridServices = {};
 
-            var comp = itemComponent.createObject(baseArea, itemProperties);
-            gridServices[item.serviceId] = 1;
-        });
+            Object.keys(grid).forEach(function(e){
+                var item = grid[e];
 
-        services = data.services.filter(function(e){
-            if (gridServices.hasOwnProperty(e.serviceId)) {
-                return false;
+                if (!App.serviceItemByServiceId(item.serviceId)) {
+                    return;
+                }
+
+                var itemProperties = {
+                    source: item.image,
+                    serviceItem: App.serviceItemByServiceId(item.serviceId),
+                    serviceItemGrid: item,
+                    serviceId: item.serviceId,
+                    x: (item.col - 1) * 256,
+                    y: (item.row - 1) * 100
+                };
+
+                var comp = itemComponent.createObject(baseArea, itemProperties);
+                gridServices[item.serviceId] = 1;
+            });
+
+            services = App.servicesList.filter(function(e){
+                if (gridServices.hasOwnProperty(e.serviceId)) {
+                    return false;
+                }
+
+                if (App.isPrivateTestVersion()) {
+                    return true;
+                }
+
+                return e.isPublishedInApp == true;
+            }).sort(function(a,b) {
+                var isAinstalled = App.isServiceInstalled(a.serviceId),
+                    isBinstalled = App.isServiceInstalled(b.serviceId);
+
+                if (isAinstalled == isBinstalled) {
+                    return (a.sortPositionInApp < b.sortPositionInApp) ? -1 :
+                           (a.sortPositionInApp > b.sortPositionInApp) ? 1 : 0;
+                }
+
+                return (isAinstalled < isBinstalled) ? -1 : 1;
+
+
+            }).slice(0, 7);
+
+            gameListServices = services;
+
+            while (gameListServices.length < 7) {
+                gameListServices.push(App.serviceItemByServiceId(grid[index++].serviceId));
             }
 
-            if (App.isPrivateTestVersion()) {
-                return true;
-            }
+            gameList.model = services;
 
-            return e.isPublishedInApp == true;
-        }).sort(function(a,b) {
-            var isAinstalled = App.isServiceInstalled(a.serviceId),
-                isBinstalled = App.isServiceInstalled(b.serviceId);
+            gameListPage.services = App.servicesList.filter(function(e){
+                if (App.isPrivateTestVersion()) {
+                    return true;
+                }
 
-            if (isAinstalled == isBinstalled) {
-                return (a.sortPositionInApp < b.sortPositionInApp) ? -1 :
-                       (a.sortPositionInApp > b.sortPositionInApp) ? 1 : 0;
-            }
-
-            return (isAinstalled < isBinstalled) ? -1 : 1;
-
-
-        }).slice(0, 7);
-
-        gameList.model = services;
-        gameListPage.services = data.services.filter(function(e){
-            if (App.isPrivateTestVersion()) {
-                return true;
-            }
-
-            return e.isPublishedInApp == true;
-        });
-
+                return e.isPublishedInApp == true;
+            });
+        }
     }
 
     Component {
@@ -99,7 +117,7 @@ WidgetView {
             leftMargin: 1
             topMargin: 1
         }
-        spacing: 3
+        spacing: 1
 
         Item {
             id: baseArea
@@ -107,12 +125,12 @@ WidgetView {
             width: parent.width
             height: 398
             visible: height > 0
-            clip: true
+            clip: height < 398 ? true : false
 
             Behavior on height {
                 PropertyAnimation {
                     easing.type: Easing.InQuad
-                    duration: 250
+                    duration: 200
                 }
             }
         }
@@ -136,6 +154,12 @@ WidgetView {
             id: gameList
 
             width: parent.width
+
+            Behavior on opacity {
+                PropertyAnimation {
+                    duration: 100
+                }
+            }
         }
 
         GameListPage {
@@ -145,8 +169,6 @@ WidgetView {
             height: 560
         }
     }
-
-
 
     StateGroup {
         id: stateGroup
@@ -158,14 +180,14 @@ WidgetView {
                 PropertyChanges { target: baseArea; height: 398 }
                 PropertyChanges { target: allGamesButon; iconRotation: 0 }
                 PropertyChanges { target: gameListPage; visible: false }
-                PropertyChanges { target: gameList; visible: true }
+                PropertyChanges { target: gameList; opacity: 1 }
             },
             State {
                 name: "AllGames"
                 PropertyChanges { target: baseArea; height: 0 }
                 PropertyChanges { target: allGamesButon; iconRotation: 190 }
                 PropertyChanges { target: gameListPage; visible: true }
-                PropertyChanges { target: gameList; visible: false }
+                PropertyChanges { target: gameList; opacity: 0 }
             }
         ]
     }

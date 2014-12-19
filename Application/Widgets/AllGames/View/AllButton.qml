@@ -1,6 +1,8 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
 
+import "../../../Core/Styles.js" as Styles
+
 Item {
     id: root
 
@@ -9,24 +11,31 @@ Item {
     signal clicked()
 
     width: row.width + 30
-    height: row.height + 4
+    height: row.height + 8
 
     Rectangle {
-        anchors.fill: parent
-        color: '#113344'
+        anchors {
+            fill: parent
+            margins: 2
+        }
+        color: Styles.style.messengerAllButtonGridHover //'#113344'
         visible: mouseArea.containsMouse
     }
 
     Row {
         id: row
 
-        anchors.centerIn: parent
+        anchors {
+            centerIn: parent
+        }
 
-        spacing: 7
+        spacing: 8
 
         Text {
-            text: 'Все игры GameNet'
-            color: mouseArea.containsMouse ? '#f3d173' : '#ff6555'
+            text: qsTr("ALL_GAMES_GRID_TITLE_TEXT")
+            color: mouseArea.containsMouse ? Styles.style.messengerAllButtonGridTextHover :
+                                             Styles.style.messengerAllButtonGridTextNormal
+                       //'#f3d173' : '#ff6555'
             font.pixelSize: 17
         }
 

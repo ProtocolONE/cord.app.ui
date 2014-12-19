@@ -295,6 +295,12 @@ Item {
     //MESSENGER EMPTY CONTACTS INFO
     property color messengerEmptyContactListInfoBackground: "#EEEEEE"
 
+    //GRID
+    property color messangerGridBackground: '#000c13'
+    property color messengerAllButtonGridHover: "#113344"
+    property color messengerAllButtonGridTextHover: "#f3d173"
+    property color messengerAllButtonGridTextNormal: "#ff6555"
+
     //PRIVATE PART
     property variant styleList
     property string styleListOriginal

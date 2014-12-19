@@ -52,7 +52,6 @@ Item {
         console.log('GameNet Application version ' + App.fileVersion() + ' starting up');
         console.log('Desktop', options.desktop);
 
-        App.setHost('https://www.gamenet.ru/');
         Styles.init();
         initRestApi(options);
         initGoogleAnalytics(options);
@@ -145,6 +144,33 @@ Item {
         User.setCredential(userId, appKey, cookie);
     }
 
+    function requestServices() {
+        RestApi.Service.getUI(function(result) {
+            App.servicesList = result;
+            App.fillGamesModel(result);
+            App.setGlobalState("Authorization");
+        }, function(result) {
+            console.log('get services error', result);
+            retryTimer.start();
+        });
+    }
+
+    Timer {
+        id: retryTimer
+
+        property int count: 0
+
+        function getInterval() {
+          var timeout = [5,10,15,20,60];
+          var index = (retryTimer.count >= timeout.length) ? (timeout.length - 1) : retryTimer.count;
+          retryTimer.count += 1;
+          return timeout[index] * 1000;
+        }
+
+        interval: getInterval()
+        onTriggered: d.requestServices();
+    }
+
     Item {
         id: popupLayer
 
@@ -201,6 +227,10 @@ Item {
         onSetGlobalProgressVisible: {
             globalProgressLock.interval = (timeout && value) ? timeout : 500;
             globalProgressLock.visible = value;
+        }
+
+        onUpdateFinished: {
+            root.requestServices();
         }
     }
 

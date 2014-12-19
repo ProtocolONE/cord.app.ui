@@ -123,7 +123,6 @@ Rectangle {
         }
         onBackgroundMousePositionChanged: dragWindowPositionChanged(mouseX, mouseY);
         onBackgroundMousePressed: dragWindowPressed(mouseX, mouseY);
-        onUpdateFinished: App.setGlobalState("Authorization")
         onExitApplication: exitAnimation.start()
     }
 
