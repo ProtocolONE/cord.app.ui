@@ -151,15 +151,15 @@ Item {
                         button.forceActiveFocus();
                     }
 
-                    if (button.isError) {
-                        Popup.show('GameDownloadError');
-                        return;
-                    }
-
                     var status = root.gameItem.status,
                         serviceId = root.gameItem.serviceId;
 
                     App.activateGameByServiceId(serviceId);
+
+                    if (button.isError) {
+                        Popup.show('GameDownloadError');
+                        return;
+                    }
 
                     if (button.isStartDownloading) {
                         Popup.show('GameLoad');
@@ -202,8 +202,9 @@ Item {
                 return root.isFullSize;
             }
 
-            anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
+            anchors.bottom: parent.bottom
             height: 25
+            width: 160
             serviceItem: root.gameItem
             textColor: Styles.style.gameInstallDownloadStatusText
             spacing: 6
