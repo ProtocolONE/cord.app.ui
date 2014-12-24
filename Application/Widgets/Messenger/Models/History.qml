@@ -128,7 +128,7 @@ Item {
         Settings.remove('qml/messenger/history/' + xmppClient.myJid, '');
     }
 
-    function save(jid, message, date) {
+    function save(bareJid, message, date) {
         if (d.getHistorySaveDuration() === false) {
             return;
         }
@@ -138,12 +138,7 @@ Item {
         }
 
         var messageDate = date,
-            bareJid = UserJs.jidWithoutResource(jid),
             day;
-
-        if (message.stamp != "Invalid Date") {
-            messageDate = +(Moment.moment(message.stamp));
-        }
 
         day = +Moment.moment(messageDate).startOf('day');
 
@@ -161,7 +156,7 @@ Item {
         }
 
         Js.historyCache[bareJid][day].unshift({
-                              from: UserJs.jidWithoutResource(message.from),
+                              from: bareJid,
                               body: message.body,
                               date: messageDate || +new Date()
                           });
@@ -173,7 +168,7 @@ Item {
         try {
             dayList = JSON.parse(Settings.value(d.getMyHistoryPath(bareJid), 'days' , '[]'));
         } catch(e) {
-            dayList = []
+            dayList = [];
         }
 
         if (dayList.indexOf(day) == -1) {
@@ -195,8 +190,8 @@ Item {
     }
 
     function query(jid, from, to, existingMessages) {
-        var cache
-            , checkMap = d.getCheckMap(existingMessages);
+        var cache,
+            checkMap = d.getCheckMap(existingMessages);
 
         from = from || +(Moment.moment().startOf('day'));
 
@@ -208,7 +203,7 @@ Item {
 
         return cache.filter(function(key){
             if (to) {
-                return (key >= from) && (key < to);
+                return (key >= from) && (key <= to);
             }
 
             if (key == from) {

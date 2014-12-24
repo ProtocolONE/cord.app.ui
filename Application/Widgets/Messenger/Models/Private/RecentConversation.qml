@@ -29,6 +29,7 @@ Item {
     property variant messenger
 
     property int unreadContactCount: d.calcUnreadContactCount()
+    property bool unreadGameNetMessages: d.hasUnreadGameNetMessages()
     property alias proxyModel: proxyModel
 
     function sectionCaption(date) {
@@ -226,6 +227,7 @@ Item {
 
         function calcUnreadContactCount() {
             var result = 0, i;
+
             for (i = 0; i < proxyModel.count; ++i) {
                 if (messenger.hasUnreadMessages(proxyModel.get(i))) {
                     result += 1;
@@ -233,6 +235,22 @@ Item {
             }
 
             return result;
+        }
+
+        function hasUnreadGameNetMessages() {
+            if (!messenger) {
+                return false;
+            }
+
+            // HACK: значение нужно для биндинга, но фактически не используется
+            var count = proxyModel.count;
+
+            var gameNetUser = messenger.getGamenetUser();
+            if (gameNetUser) {
+                return gameNetUser.unreadMessageCount > 0;
+            }
+
+            return false;
         }
     }
 

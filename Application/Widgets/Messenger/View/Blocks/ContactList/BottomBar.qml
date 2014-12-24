@@ -21,6 +21,8 @@ Rectangle {
     property variant unreadMessageCount: user ? user.unreadMessageCount : 0
     property alias gameFilterChecked: gameFilterCheckbox.checked
 
+    onUnreadMessageCountChanged: messagesCountContainer.opacity = 0;
+
     implicitWidth: parent.width
     implicitHeight: 32
 
@@ -51,9 +53,11 @@ Rectangle {
             }
 
             Rectangle {
+                id: messagesCountContainer
+
                 color: Styles.style.messengerBottomBarButtonNotificationBackground
                 anchors.fill: parent
-                opacity: unreadMessageCount > 0 ? 1 : 0
+                opacity: 0
 
                 Behavior on opacity {
                     PropertyAnimation {
@@ -68,6 +72,15 @@ Rectangle {
                     color: Styles.style.messengerBottomBarButtonNotificationText
                     anchors.centerIn: parent
                 }
+            }
+
+            Timer {
+                id: animationTimer
+
+                running: root.unreadMessageCount > 0
+                interval: 600
+                repeat: true
+                onTriggered: messagesCountContainer.opacity = (messagesCountContainer.opacity == 0 ? 1 : 0);
             }
         }
 

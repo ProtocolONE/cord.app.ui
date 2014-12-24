@@ -420,25 +420,6 @@ Item {
             }
         }
 
-        function appendMessage(from, state, message, date) {
-            var user;
-
-            if (!usersModel.contains(from))
-                return;
-
-            user = root.getUser(from);
-
-            if (message) {
-                user.appendMessage(from, message, date);
-                d.updateUserTalkDate(user);
-                if (!root.isSelectedUser(user)) {
-                    user.unreadMessageCount += 1;
-                }
-            } else {
-                user.changeState(from, state);
-            }
-        }
-
         function updatePresence(presence) {
             var bareJid = UserJs.jidWithoutResource(presence.from)
             var user = root.getUser(bareJid);
@@ -644,7 +625,7 @@ Item {
             var item = root.getUser(to);
             item.appendMessage(UserJs.jidWithoutResource(message.from), message.body);
             d.updateUserTalkDate(item);
-            xmppClient.saveToHistory(to, message);
+            xmppClient.saveToHistory(to, message, Date.now());
         }
 
         onMessageReceived: {
@@ -663,12 +644,16 @@ Item {
                 d.appendUser(bareJid);
             }
 
-            xmppClient.saveToHistory(message.from, message, messageDate);
+            xmppClient.saveToHistory(bareJid, message, messageDate);
 
+            user = root.getUser(bareJid);
+            if (!user.isValid()) {
+                return;
+            }
             if (message.stamp != "Invalid Date") {
-                user = root.getUser(bareJid);
-                if (!user.isValid()) {
-                    return;
+                if (!root.isSelectedUser(user)) {
+                    user.unreadMessageCount += 1;
+                    d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
                 }
 
                 nowDay = +Moment.moment().startOf('day'),
@@ -677,7 +662,16 @@ Item {
 
                 user.queryMoreMessages(realDays, 'day');
             } else {
-                d.appendMessage(bareJid, message.state, message.body, messageDate);
+                if (message.body) {
+                    user.appendMessage(bareJid, message.body, messageDate);
+                    d.updateUserTalkDate(user);
+                    if (!root.isSelectedUser(user)) {
+                        user.unreadMessageCount += 1;
+                        d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
+                    }
+                } else {
+                    user.changeState(bareJid, message.state);
+                }
             }
 
             if (message.body) {
@@ -688,29 +682,38 @@ Item {
         onPresenceReceived: d.updatePresence(presence);
 
         onLastActivityUpdated: {
-            var item = root.getUser(jid);
-            if (!item.isValid()) {
+            var user = root.getUser(jid);
+            if (!user.isValid()) {
                 return;
             }
 
-            item.lastActivity = timestamp;
+            user.lastActivity = timestamp;
             root.lastActivityChanged(jid);
         }
 
         onHistoryReceived: {
-            var item = root.getUser(jid), length;
-            if (!item.isValid() || !history) {
+            var i,
+                e,
+                messages,
+                message,
+                date;
+
+            var user = root.getUser(jid), length;
+            if (!user.isValid() || !history) {
                 return;
             }
 
             length = history.length;
-            for (var i = 0; i < length; ++i) {
-                Object.keys(history[i]).forEach(function(e) {
-                    var message = history[i][e]
-                        , date = +Moment.moment(message.date).startOf('day');
 
-                    item.prependMessage(message.from, message.body, message.date);
-                });
+            for (i = 0; i < length; ++i) {
+                messages = Object.keys(history[i]);
+
+                for(e = messages.length - 1; e >= 0; --e) {
+                    message = history[i][e];
+                    date = +Moment.moment(message.date).startOf('day');
+
+                    user.mergeMessage(message.from, message.body, message.date);
+                };
             }
         }
     }

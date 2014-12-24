@@ -4,7 +4,9 @@ import "../../../Core/App.js" as App
 import "../Models/Messenger.js" as Messenger
 
 Item {
-    property int unreadContactsCount: Messenger.getRecentConversationItem().unreadContactCount;
+    property int gamenetMessages: Messenger.getRecentConversationItem().unreadGameNetMessages ? 1 : 0
+    property int rosterUnreadContacts: Messenger.getRecentConversationItem().unreadContactCount
+    property int unreadContactsCount: gamenetMessages + rosterUnreadContacts
 
     onUnreadContactsCountChanged: {
         App.unreadContactsChanged(unreadContactsCount);

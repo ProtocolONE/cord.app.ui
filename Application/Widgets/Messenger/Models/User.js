@@ -203,6 +203,25 @@ function User(item, model, jabber) {
         _item.messages.insert(0, message);
     }
 
+    this.mergeMessage = function(from, body, date) {
+        var foundIndex,
+            msg,
+            i;
+
+        message = createRawMessage(from, false, body, date);
+
+        foundIndex = _item.messages.count;
+        for (i = 0; i < _item.messages.count; i++) {
+            msg = _item.messages.get(i);
+            if (date < msg.date) {
+                foundIndex = i;
+                break;
+            }
+        };
+
+        _item.messages.insert(foundIndex, message);
+    }
+
     this.removeMessage = function(msg) {
         self.messages.remove(msg.index);
     }
