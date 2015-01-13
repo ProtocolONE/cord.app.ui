@@ -4,7 +4,7 @@ Qt.include('./restapi.js');
 
 //Replaced during CI build
 var authVersion = "2.0.39.ac313be24ea64659b590784c28ff62c5b8522ed2"
-    , _gnLoginUrl = 'http://gnlogin.stg.gamenet.ru' //'https://gnlogin.ru'
+    , _gnLoginUrl = 'https://gnlogin.ru'
     , _gnLoginTitleApiUrl = 'gnlogin.ru'
     , _hwid
     , _mid

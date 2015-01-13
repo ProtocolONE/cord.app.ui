@@ -13,8 +13,8 @@ import Tulip 1.0
 import GameNet.Controls 1.0
 import Application.Blocks 1.0
 
-import "../../../../Application/Core/App.js" as App
-import "../../../Core/Styles.js" as Styles
+import "../../../../../Application/Core/App.js" as App
+import "../../../../Core/Styles.js" as Styles
 
 Item {
     id: root
@@ -58,7 +58,7 @@ Item {
 
             Rectangle {
                 anchors.fill: parent
-                color: '#092135'
+                color: Styles.style.messengerGridBackgroud
             }
 
             WebImage {
@@ -83,21 +83,10 @@ Item {
             Stick {
                 anchors {
                     left: parent.left
-                    leftMargin: 15
+                    leftMargin: 17
                 }
-                type: 0
-                visible: root.isTop && image.isReady
-                text: qsTr("GAME_TOP_STICK")
-            }
-
-            Stick {
-                anchors {
-                    left: parent.left
-                    leftMargin: 15
-                }
-                type: 1
-                visible: root.isNew && image.isReady
-                text: qsTr("GAME_NEW_STICK")
+                type: serviceItem.typeShortcut
+                visible: !!serviceItem.typeShortcut && image.isReady
             }
 
             Image {
@@ -155,9 +144,9 @@ Item {
 
             Rectangle {
                 anchors.fill: parent
-                color: '#19384a'
+                color: Styles.style.messengerGridBackgroud
                 opacity: root.selected || stateGroup.state == 'Downloading' ? 0.77 : 0
-                z: informationContent.isSmall() ? 1 : 0
+                z: informationContent.isSmall() && stateGroup.state != 'Downloading' ? 1 : 0
 
                 Behavior on opacity {
                     PropertyAnimation { duration: 100 }
@@ -187,7 +176,7 @@ Item {
 
         Rectangle {
             border {
-                color: '#dec37b'
+                color: Styles.style.messengerGridHightlight
                 width: 4
             }
             color: '#00000000'

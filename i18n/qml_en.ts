@@ -152,7 +152,7 @@
 <context>
     <name>AllButton</name>
     <message>
-        <location filename="../Application/Widgets/AllGames/View/AllButton.qml" line="33"/>
+        <location filename="../Application/Widgets/AllGames/View/Private/AllButton.qml" line="35"/>
         <source>ALL_GAMES_GRID_TITLE_TEXT</source>
         <translation></translation>
     </message>
@@ -325,12 +325,12 @@
 <context>
     <name>BaseLayer</name>
     <message>
-        <location filename="../Application/Layers/BaseLayer.qml" line="384"/>
+        <location filename="../Application/Layers/BaseLayer.qml" line="383"/>
         <source>MY_GAMES_CAPTION_MENU</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Layers/BaseLayer.qml" line="395"/>
+        <location filename="../Application/Layers/BaseLayer.qml" line="394"/>
         <source>MY_GAMES_MENU_NEWS</source>
         <translation></translation>
     </message>
@@ -537,7 +537,7 @@
 <context>
     <name>DownloadProgress</name>
     <message>
-        <location filename="../Application/Widgets/AllGames/View/DownloadProgress.qml" line="38"/>
+        <location filename="../Application/Widgets/AllGames/View/Private/DownloadProgress.qml" line="38"/>
         <source>DOWNLOAD_STATUS_ERROR</source>
         <translation></translation>
     </message>
@@ -866,7 +866,7 @@
 <context>
     <name>GameItem</name>
     <message>
-        <location filename="../Application/Blocks/AllGames/GameItem.qml" line="236"/>
+        <location filename="../Application/Widgets/AllGames/View/Private/GameItem.qml" line="218"/>
         <source>START_GAME_BUTTON</source>
         <translation></translation>
     </message>
@@ -874,17 +874,7 @@
 <context>
     <name>GameItemSmall</name>
     <message>
-        <location filename="../Application/Widgets/AllGames/View/GameItemSmall.qml" line="54"/>
-        <source>GAME_TOP_STICK</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/AllGames/View/GameItemSmall.qml" line="64"/>
-        <source>GAME_NEW_STICK</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/AllGames/View/GameItemSmall.qml" line="118"/>
+        <location filename="../Application/Widgets/AllGames/View/Private/GameItemSmall.qml" line="102"/>
         <source>START_GAME_BUTTON</source>
         <translation></translation>
     </message>
@@ -2058,6 +2048,19 @@
         <location filename="../Application/Blocks/SplashScreen.qml" line="101"/>
         <source>TEXT_VERSION</source>
         <translation></translation>
+    </message>
+</context>
+<context>
+    <name>Stick</name>
+    <message>
+        <location filename="../Application/Widgets/AllGames/View/Private/Stick.qml" line="29"/>
+        <source>GAME_TOP_STICK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AllGames/View/Private/Stick.qml" line="33"/>
+        <source>GAME_NEW_STICK</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -886,6 +886,10 @@ Please try again later.</source>
         <source>AUTH_FAIL_MESSAGE_ACCOUNT_NOT_EXISTS</source>
         <translation>Учётной записи с таким логином не существует.</translation>
     </message>
+    <message>
+        <source>REGISTER_FAIL_LOGIN_TOO_LONG</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BaseLayer</name>
@@ -1957,11 +1961,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_TOP_STICK</source>
-        <translation>ТОП ИГРА</translation>
+        <translation type="vanished">ТОП ИГРА</translation>
     </message>
     <message>
         <source>GAME_NEW_STICK</source>
-        <translation>НОВАЯ ИГРА</translation>
+        <translation type="vanished">НОВАЯ ИГРА</translation>
     </message>
 </context>
 <context>
@@ -1972,11 +1976,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_TOP_STICK</source>
-        <translation>ТОП ИГРА</translation>
+        <translation type="vanished">ТОП ИГРА</translation>
     </message>
     <message>
         <source>GAME_NEW_STICK</source>
-        <translation>НОВАЯ ИГРА</translation>
+        <translation type="vanished">НОВАЯ ИГРА</translation>
     </message>
 </context>
 <context>
@@ -2711,11 +2715,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>LOGOUT_ALERT_HEADER</source>
-        <translation>Внимание!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>LOGOUT_ALERT_BODY</source>
-        <translation>Все запущенные игры будут закрыты. Вы уверены, что хотите выйти?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4164,7 +4168,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>REGISTER_FAIL_LOGIN_TOO_LONG</source>
-        <translation>Длина адреса электронной почты не должна превышать 128 символов.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4842,6 +4846,17 @@ Please try again later.</source>
     <message>
         <source>TEXT_VERSION</source>
         <translation>Версия %1</translation>
+    </message>
+</context>
+<context>
+    <name>Stick</name>
+    <message>
+        <source>GAME_TOP_STICK</source>
+        <translation type="unfinished">ТОП ИГРА</translation>
+    </message>
+    <message>
+        <source>GAME_NEW_STICK</source>
+        <translation type="unfinished">НОВАЯ ИГРА</translation>
     </message>
 </context>
 <context>

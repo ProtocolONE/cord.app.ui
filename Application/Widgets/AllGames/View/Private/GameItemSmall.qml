@@ -1,9 +1,10 @@
 import QtQuick 1.1
 
 import GameNet.Controls 1.0
+import Tulip 1.0
 
-import "../../../Core/App.js" as App
-import "../../../Core/Styles.js" as Styles
+import "../../../../Core/App.js" as App
+import "../../../../Core/Styles.js" as Styles
 
 Column {
     id: root
@@ -15,7 +16,7 @@ Column {
     property bool isWebGame: serviceItem ? serviceItem.gameType != 'standalone' : false
     property bool selected: mouseArea.containsMouse || startButton.containsMouse
 
-    spacing: 12
+    spacing: 11
 
     Connections {
         target: App.signalBus()
@@ -49,19 +50,34 @@ Column {
                 left: parent.left
                 leftMargin: 5
             }
-            type: 0
-            visible: root.isTop && webImage.isReady
-            text: qsTr("GAME_TOP_STICK")
+            type: serviceItem.typeShortcut
+            visible: !!serviceItem.typeShortcut && webImage.isReady
         }
 
-        Stick {
-            anchors {
-                left: parent.left
-                leftMargin: 5
+        Image {
+            function getSourceIcon() {
+                var browser = BrowserDetect.getBrowserName();
+
+                var browserIcons = {
+                    "firefox": "firefox.png",
+                    "iexplore": "ie.png",
+                    "opera": "opera.png",
+                    "chrome": "chrome.png",
+                    "google chrome": "chrome.png"
+                }
+
+                return installPath + 'Assets/Images/Application/Widgets/AllGames/browsers/' +
+                        browserIcons[browser] || 'unknown.png'
             }
-            type: 1
-            visible: root.isNew && webImage.isReady
-            text: qsTr("GAME_NEW_STICK")
+
+            anchors {
+                right: parent.right
+                top: parent.top
+                margins: 3
+            }
+
+            source: root.isWebGame ? getSourceIcon() : ''
+            visible: root.isWebGame
         }
 
         CursorMouseArea {
@@ -83,27 +99,12 @@ Column {
 
             Rectangle {
                 anchors.fill: parent
-                color: '#092135'
+                color: Styles.style.messengerGridBackgroud
                 opacity: root.selected ? 0.8 : 0
 
                 Behavior on opacity {
                     PropertyAnimation { duration: 100 }
                 }
-            }
-        }
-
-        Rectangle {
-            border {
-                color: '#dec37b'
-                width: 4
-            }
-            color: '#00000000'
-            anchors { fill: parent }
-            radius: 4
-            opacity: root.selected ? 1 : 0
-
-            Behavior on opacity {
-                PropertyAnimation { duration: 150 }
             }
         }
 
@@ -142,8 +143,23 @@ Column {
             width: parent.width
             height: (root.serviceItem.progress / 100) * parent.height
 
-            color: '#247f71'
+            color: Styles.style.messengerGridProgressRect
             opacity: 0.75
+        }
+
+        Rectangle {
+            border {
+                color: Styles.style.messengerGridHightlight
+                width: 4
+            }
+            color: '#00000000'
+            anchors { fill: parent }
+            radius: 4
+            opacity: root.selected ? 1 : 0
+
+            Behavior on opacity {
+                PropertyAnimation { duration: 150 }
+            }
         }
 
         Text {
@@ -161,7 +177,8 @@ Column {
 
         text: root.serviceItem ? root.serviceItem.name : ''
         elide: Text.ElideRight
-        color: root.selected ? '#dec37b' : '#ffffff'
+        color: root.selected ? Styles.style.messengerGridHightlight :
+                               Styles.style.messengerGameItemTextNormal
         font.pixelSize: 12
     }
 

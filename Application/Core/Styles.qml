@@ -300,6 +300,14 @@ Item {
     property color messengerAllButtonGridHover: "#113344"
     property color messengerAllButtonGridTextHover: "#f3d173"
     property color messengerAllButtonGridTextNormal: "#ff6555"
+    property color messengerGameItemText: '#ddc071'
+    property color messengerGameItemTextNormal: '#ffffff'
+
+    property color messengerGridBackgroud: '#092135'
+    property color messengerGridHightlight: '#dec37b'
+    property color messengerGridProgressRect: '#247f71'
+    property color messengerGridGenreText: '#8e9ca7'
+    property color messengerGridStickText: '#ffffff'
 
     //PRIVATE PART
     property variant styleList

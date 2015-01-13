@@ -1,8 +1,9 @@
 import QtQuick 1.1
 
 import Application.Controls 1.0
-import "../../../Core/App.js" as App
 
+import "../../../../Core/App.js" as App
+import "../../../../Core/Styles.js" as Styles
 Item {
     property variant services
 
@@ -106,7 +107,7 @@ Item {
 
                     text: genre
                     font.pixelSize: 16
-                    color: '#8e9ca7'
+                    color: Styles.style.messengerGridGenreText
                 }
 
                 Rectangle {

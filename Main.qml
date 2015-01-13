@@ -103,7 +103,6 @@ Rectangle {
             manager.registerWidget('Application.Widgets.Money');
             manager.registerWidget('Application.Widgets.PremiumNotifier');
             manager.registerWidget('Application.Widgets.ServiceLockConnector');
-            manager.init();
         }
     }
 
@@ -124,6 +123,7 @@ Rectangle {
         onBackgroundMousePositionChanged: dragWindowPositionChanged(mouseX, mouseY);
         onBackgroundMousePressed: dragWindowPressed(mouseX, mouseY);
         onExitApplication: exitAnimation.start()
+        onUpdateFinished: manager.init();
     }
 
     PageSwitcher {

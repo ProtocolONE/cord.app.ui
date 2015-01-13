@@ -40,7 +40,7 @@ Rectangle {
         property int count: 0
 
         function getInterval() {
-          var timeout = [5,10,15,20,60];
+          var timeout = [5, 10, 15, 20, 60];
           var index = (retryTimer.count >= timeout.length) ? (timeout.length - 1) : retryTimer.count;
           retryTimer.count += 1;
           return timeout[index] * 1000;

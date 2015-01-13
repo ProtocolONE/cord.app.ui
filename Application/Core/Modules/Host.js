@@ -304,17 +304,3 @@ function setTaskbarIcon(source) {
         proxyInst.setTaskbarIcon(source);
     }
 }
-
-function getDefaultBrowser() {
-    /*
-    IE.AssocFile.HTM
-    FirefoxHTML
-    ChromeHTML
-    Opera.HTML
-    */
-    if (proxyInst) {
-        return proxyInst.getDefaultBrowser();
-    }
-
-    return null;
-}

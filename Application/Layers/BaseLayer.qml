@@ -75,7 +75,7 @@ Rectangle {
             id: layer1headerContair
 
             width: parent.width
-            height: 42
+            height: 40
         }
 
         //3 column set
@@ -83,7 +83,7 @@ Rectangle {
             id: cs3
             z: 0
 
-            anchors { fill: parent;  topMargin: 42}
+            anchors { fill: parent;  topMargin: 40}
 
             Column {id: layer1Col1; width: 180; height: parent.height;}
             Column {id: layer1Col2; width: 590; height: parent.height;}
@@ -95,7 +95,7 @@ Rectangle {
             id: cs2
             z: 0
 
-            anchors { fill: parent;  topMargin: 42}
+            anchors { fill: parent;  topMargin: 40}
 
             Column {id: layer2Col1 ; width: 770; height: parent.height;}
             Column {id: layer2Col2; width: 230; height: parent.height;}
@@ -105,7 +105,7 @@ Rectangle {
         Row {
             id: cs1
 
-            anchors { fill: parent;  topMargin: 42}
+            anchors { fill: parent;  topMargin: 40}
 
             Column {id: layer3Col1 ; width: 1000; height: parent.height}
         }
@@ -125,7 +125,7 @@ Rectangle {
         Header {
             id: header
 
-            anchors.fill: parent
+
             onSwitchTo: App.navigate(page);
             myGamesMenuEnable: App.isMyGamesEnabled();
 

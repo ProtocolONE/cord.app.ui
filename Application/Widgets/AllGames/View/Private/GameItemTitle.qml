@@ -9,6 +9,7 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+import "../../../../Core/Styles.js" as Styles
 
 Column {
     spacing: 2
@@ -17,13 +18,13 @@ Column {
 
     Text {
         font { family: 'Arial'; pixelSize: 20 }
-        color: '#ffffff'
+        color: Styles.style.messengerGameItemTextNormal
         text: serviceItem ? serviceItem.name : 'name'
     }
 
     Text {
         font { family: 'Arial'; pixelSize: 12 }
-        color: '#ddc071'
+        color: Styles.style.messengerGameItemText
         text: serviceItem ? serviceItem.shortDescription : 'shortDescription'
     }
 }

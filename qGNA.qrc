@@ -88,6 +88,7 @@
 		<file>Application/Core/Modules/Host.js</file>
 		<file>Application/Core/Modules/Host.qml</file>
 		<file>Application/Core/Modules/Overlay.js</file>
+		<file>Application/Core/Modules/Service.js</file>
 		<file>Application/Core/Modules/ServiceHandleModel.js</file>
 		<file>Application/Core/Modules/ServiceHandleModel.qml</file>
 		<file>Application/Core/Modules/Settings.js</file>
@@ -125,15 +126,15 @@
 		<file>Application/Widgets/AllGames/AllGamesModel.qml</file>
 		<file>Application/Widgets/AllGames/PluginContainer.qml</file>
 		<file>Application/Widgets/AllGames/qmldir</file>
-		<file>Application/Widgets/AllGames/View/AllButton.qml</file>
 		<file>Application/Widgets/AllGames/View/AllGamesView.qml</file>
-		<file>Application/Widgets/AllGames/View/DownloadProgress.qml</file>
-		<file>Application/Widgets/AllGames/View/GameItem.qml</file>
-		<file>Application/Widgets/AllGames/View/GameItemSmall.qml</file>
-		<file>Application/Widgets/AllGames/View/GameItemTitle.qml</file>
-		<file>Application/Widgets/AllGames/View/GameList.qml</file>
-		<file>Application/Widgets/AllGames/View/GameListPage.qml</file>
-		<file>Application/Widgets/AllGames/View/Stick.qml</file>
+		<file>Application/Widgets/AllGames/View/Private/AllButton.qml</file>
+		<file>Application/Widgets/AllGames/View/Private/DownloadProgress.qml</file>
+		<file>Application/Widgets/AllGames/View/Private/GameItem.qml</file>
+		<file>Application/Widgets/AllGames/View/Private/GameItemSmall.qml</file>
+		<file>Application/Widgets/AllGames/View/Private/GameItemTitle.qml</file>
+		<file>Application/Widgets/AllGames/View/Private/GameList.qml</file>
+		<file>Application/Widgets/AllGames/View/Private/GameListPage.qml</file>
+		<file>Application/Widgets/AllGames/View/Private/Stick.qml</file>
 		<file>Application/Widgets/Announcements/AnnouncementsModel.js</file>
 		<file>Application/Widgets/Announcements/AnnouncementsModel.qml</file>
 		<file>Application/Widgets/Announcements/ArtPopup.qml</file>

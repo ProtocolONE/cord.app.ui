@@ -228,6 +228,13 @@
 		"messangerGridBackground": "#000c13",
 		"messengerAllButtonGridHover": "#113344",
 		"messengerAllButtonGridTextHover": "#f3d173",
-		"messengerAllButtonGridTextNormal": "#ff6555"
+		"messengerAllButtonGridTextNormal": "#ff6555",
+		"messengerGameItemText": "#ddc071",
+		"messengerGameItemTextNormal": "#ffffff",
+		"messengerGridBackgroud": "#092135",
+		"messengerGridHightlight": "#dec37b",
+		"messengerGridProgressRect": "#247f71",
+		"messengerGridGenreText": "#8e9ca7",
+		"messengerGridStickText": "#ffffff"
     }
 }

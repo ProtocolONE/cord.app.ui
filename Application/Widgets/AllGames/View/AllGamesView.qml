@@ -18,6 +18,8 @@ import GameNet.Components.Widgets 1.0
 import "../../../Core/App.js" as App
 import "../../../Core/Styles.js" as Styles
 
+import "Private" as Private
+
 WidgetView {
     id: root
 
@@ -53,8 +55,8 @@ WidgetView {
                     serviceItem: App.serviceItemByServiceId(item.serviceId),
                     serviceItemGrid: item,
                     serviceId: item.serviceId,
-                    x: (item.col - 1) * 256,
-                    y: (item.row - 1) * 100
+                    x: (item.col - 1) * 257,
+                    y: (item.row - 1) * 101
                 };
 
                 var comp = itemComponent.createObject(baseArea, itemProperties);
@@ -106,7 +108,7 @@ WidgetView {
     Component {
         id: itemComponent
 
-        GameItem { }
+        Private.GameItem { }
     }
 
     Column {
@@ -115,7 +117,6 @@ WidgetView {
         anchors {
             fill: parent
             leftMargin: 1
-            topMargin: 1
         }
         spacing: 1
 
@@ -135,7 +136,7 @@ WidgetView {
             }
         }
 
-        AllButton {
+        Private.AllButton {
             id: allGamesButon
 
             anchors {
@@ -150,7 +151,7 @@ WidgetView {
 
         }
 
-        GameList {
+        Private.GameList {
             id: gameList
 
             width: parent.width
@@ -162,7 +163,7 @@ WidgetView {
             }
         }
 
-        GameListPage {
+        Private.GameListPage {
             id: gameListPage
 
             width: parent.width

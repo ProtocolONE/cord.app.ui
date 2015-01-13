@@ -11,7 +11,7 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
 
-import "../../../Core/Styles.js" as Styles
+import "../../../../Core/Styles.js" as Styles
 
 Column {
     id: root
@@ -36,10 +36,6 @@ Column {
         function getStatusText() {
             if (d.isError()) {
                 return qsTr("DOWNLOAD_STATUS_ERROR");
-            }
-
-            if (!root.serviceItem) {
-                return 'Mocked text about downloding...';
             }
 
             return serviceItem.statusText;

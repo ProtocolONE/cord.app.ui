@@ -689,7 +689,6 @@ Core.prototype = {
 
         genericErrorCallback = this._genericErrorCallback;
 
-        console.log(internalParams.uri)
         http.request(internalParams, function(response) {
 
             if (response.status !== 200) {
