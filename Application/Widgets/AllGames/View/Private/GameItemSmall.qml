@@ -50,7 +50,7 @@ Column {
                 left: parent.left
                 leftMargin: 5
             }
-            type: serviceItem.typeShortcut
+            type: serviceItem.typeShortcut || ''
             visible: !!serviceItem.typeShortcut && webImage.isReady
         }
 

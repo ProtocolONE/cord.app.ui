@@ -149,7 +149,7 @@ Item {
     }
 
     function requestServices() {
-        RestApi.Service.getUI(function(result) {
+        RestApi.Service.getUi(function(result) {
             App.servicesList = result;
             App.fillGamesModel(result);
             App.setGlobalState("Authorization");
