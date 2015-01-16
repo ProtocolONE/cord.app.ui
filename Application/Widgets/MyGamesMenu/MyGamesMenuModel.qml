@@ -25,7 +25,7 @@ WidgetModel {
         for (var i = 0; i < App.gamesListModel.count; ++i) {
             var item = App.gamesListModel.get(i);
 
-            if (!item || !item.enabled) {
+            if (!item || !item.isPublishedInApp) {
                 continue;
             }
 
@@ -44,7 +44,6 @@ WidgetModel {
         target: App.signalBus()
 
         onServiceUpdated: root.fillModel();
+        onAuthDone: root.fillModel();
     }
-
-    Component.onCompleted: root.fillModel();
 }

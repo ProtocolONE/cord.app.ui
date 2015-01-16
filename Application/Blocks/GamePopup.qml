@@ -72,7 +72,7 @@ TrayPopupBase {
 
         Image {
             anchors { top: parent.top; topMargin: 23; horizontalCenter: parent.horizontalCenter }
-            source: installPath + gameItem.imageLogoSmall
+            source: gameItem.imageLogoSmall
         }
 
         Text {

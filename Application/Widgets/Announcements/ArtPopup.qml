@@ -41,7 +41,7 @@ AppControls.TrayPopupBase {
                 id: background
 
                 anchors.horizontalCenter: parent.horizontalCenter
-                source: installPath + gameItem.imagePopupArt
+                source: gameItem.imagePopupArt
             }
 
             Image {

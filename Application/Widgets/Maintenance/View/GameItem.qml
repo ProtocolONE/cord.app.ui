@@ -10,7 +10,7 @@ Image {
     width: 195
     height: 90
 
-    source: root.gameItem ? (installPath + root.gameItem.imageHorizontalSmall) : ""
+    source: !!gameItem && gameItem.imageHorizontalSmall ? gameItem.imageHorizontalSmall : ''
 
     Rectangle {
         anchors {

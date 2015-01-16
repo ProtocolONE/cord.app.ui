@@ -72,6 +72,7 @@ WidgetModel {
     Connections {
         target: App.signalBus()
         onExitApplication: root.clear()
+        onAuthDone: root.applyTaskList();
     }
 
     Component.onCompleted: {

@@ -20,9 +20,9 @@ ImageButton {
     property variant gameItem
 
     styleImages: ButtonStyleImages {
-        normal: root.gameItem ? installPath + root.gameItem.imageHorizontalSmall : ""
-        hover: root.gameItem ? installPath + root.gameItem.imageHorizontalSmall : ""
-        disabled: root.gameItem ? installPath + root.gameItem.imageHorizontalSmall : ""
+        normal: root.gameItem ? root.gameItem.imageHorizontalSmall : ""
+        hover: root.gameItem ? root.gameItem.imageHorizontalSmall : ""
+        disabled: root.gameItem ? root.gameItem.imageHorizontalSmall : ""
     }
 
     Item {
