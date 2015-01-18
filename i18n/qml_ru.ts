@@ -4977,7 +4977,7 @@ Please try again later.</source>
     <name>UserProfileView</name>
     <message>
         <source>ADD_MONEY</source>
-        <translation>Пополнить счет</translation>
+        <translation type="vanished">Пополнить счет</translation>
     </message>
     <message>
         <source>EXTENDED_ACCOUNT</source>
@@ -4985,15 +4985,15 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAMENET_BALANCE</source>
-        <translation>У меня %1</translation>
+        <translation type="unfinished">У меня</translation>
     </message>
     <message>
         <source>YOUR_AVATAR</source>
-        <translation>Мой аватар</translation>
+        <translation type="vanished">Мой аватар</translation>
     </message>
     <message>
         <source>YOUR_GAMENET_LEVEL</source>
-        <translation>Мой уровень GameNet</translation>
+        <translation type="vanished">Мой уровень GameNet</translation>
     </message>
     <message>
         <source>PREMIUM_TOOLTIP</source>
@@ -5013,11 +5013,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>GN_MONEY</source>
-        <translation>Все игры GameNet бесплатны. За GN-монеты можно приобретать преимущества в игре.</translation>
+        <translation type="vanished">Все игры GameNet бесплатны. За GN-монеты можно приобретать преимущества в игре.</translation>
     </message>
     <message>
         <source>NO_NICKNAME</source>
-        <translation>Выбрать никнейм</translation>
+        <translation type="unfinished">Без никнейма</translation>
     </message>
     <message>
         <source>SET_NICKNAME</source>
@@ -5026,6 +5026,34 @@ Please try again later.</source>
     <message>
         <source>YOUR_NICKNAME</source>
         <translation>Мой никнейм</translation>
+    </message>
+    <message>
+        <source>PROFILE_MONEY_TEXT</source>
+        <translation type="unfinished">монет</translation>
+    </message>
+    <message>
+        <source>PROFILE_ADD_MONEY_TEXT</source>
+        <translation type="unfinished">Пополнить</translation>
+    </message>
+    <message>
+        <source>PROFILE_EXTENDED_ACCOUNT_TEXT</source>
+        <translation type="unfinished">Расширить аккаунт</translation>
+    </message>
+    <message>
+        <source>PROFILE_CHOISE_NICKNAME</source>
+        <translation type="unfinished">Выберите никнейм</translation>
+    </message>
+    <message>
+        <source>PROFILE_CHOISE_NICKNAME_TULTIP</source>
+        <translation type="unfinished">Выбрать никнейм</translation>
+    </message>
+    <message>
+        <source>PROFILE_LEVEL_TEXT</source>
+        <translation type="unfinished">уровень</translation>
+    </message>
+    <message>
+        <source>PROFILE_ADD_MONEY_TULTIP</source>
+        <translation type="unfinished">Пополнить счет</translation>
     </message>
 </context>
 <context>

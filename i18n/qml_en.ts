@@ -154,7 +154,7 @@
     <message>
         <location filename="../Application/Widgets/AllGames/View/Private/AllButton.qml" line="35"/>
         <source>ALL_GAMES_GRID_TITLE_TEXT</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -267,6 +267,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="62"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="204"/>
+        <source>REGISTER_FAIL_LOGIN_TOO_LONG</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../Application/Blocks/Auth/AuthBody.qml" line="127"/>
         <source>AUTH_FAIL_MESSAGE_ACCOUNT_NOT_EXISTS</source>
         <translation></translation>
@@ -325,12 +331,12 @@
 <context>
     <name>BaseLayer</name>
     <message>
-        <location filename="../Application/Layers/BaseLayer.qml" line="384"/>
+        <location filename="../Application/Layers/BaseLayer.qml" line="383"/>
         <source>MY_GAMES_CAPTION_MENU</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Layers/BaseLayer.qml" line="395"/>
+        <location filename="../Application/Layers/BaseLayer.qml" line="394"/>
         <source>MY_GAMES_MENU_NEWS</source>
         <translation></translation>
     </message>
@@ -539,7 +545,7 @@
     <message>
         <location filename="../Application/Widgets/AllGames/View/Private/DownloadProgress.qml" line="38"/>
         <source>DOWNLOAD_STATUS_ERROR</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -876,7 +882,7 @@
     <message>
         <location filename="../Application/Widgets/AllGames/View/Private/GameItemSmall.qml" line="119"/>
         <source>START_GAME_BUTTON</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -954,171 +960,6 @@
 <context>
     <name>GamesListModel</name>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="233"/>
-        <source>LOGO_CA</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="234"/>
-        <source>GAME_CA_ABOUT_TEXT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="235"/>
-        <source>GAME_CA_MINI_TOOLTIP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="236"/>
-        <source>GAME_CA_MINI_DESC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="316"/>
-        <source>LOGO_BS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="317"/>
-        <source>GAME_BS_ABOUT_TEXT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="318"/>
-        <source>GAME_BS_MINI_TOOLTIP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="319"/>
-        <source>GAME_BS_MINI_DESC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="157"/>
-        <source>LOGO_REBORN</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="158"/>
-        <source>GAME_REBORN_ABOUT_TEXT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="159"/>
-        <source>GAME_REBORN_MINI_TOOLTIP</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="160"/>
-        <source>GAME_REBORN_MINI_DESC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="455"/>
-        <source>LOGO_AIKA</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="456"/>
-        <source>GAME_AIKA_ABOUT_TEXT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="457"/>
-        <source>GAME_AIKA_MINI_TOOLTIP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="458"/>
-        <source>GAME_AIKA_MINI_DESC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="526"/>
-        <source>LOGO_GA</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="527"/>
-        <source>GAME_GA_ABOUT_TEXT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="528"/>
-        <source>GAME_GA_MINI_TOOLTIP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="529"/>
-        <source>GAME_GA_MINI_DESC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="594"/>
-        <source>LOGO_WI</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="595"/>
-        <source>GAME_WI_ABOUT_TEXT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="596"/>
-        <source>GAME_WI_MINI_TOOLTIP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="597"/>
-        <source>GAME_WI_MINI_DESC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="665"/>
-        <source>LOGO_BD</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="666"/>
-        <source>GAME_BD_ABOUT_TEXT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="667"/>
-        <source>GAME_BD_MINI_TOOLTIP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="668"/>
-        <source>GAME_BD_MINI_DESC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="743"/>
-        <source>LOGO_DA</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="744"/>
-        <source>GAME_DA_ABOUT_TEXT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="745"/>
-        <source>GAME_DA_MINI_TOOLTIP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="746"/>
-        <source>GAME_DA_MINI_DESC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="389"/>
-        <source>LOGO_FJ</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../Application/Models/GamesListModel.qml" line="39"/>
         <source>GAME_MENU_NEWS_TEXT</source>
         <translation></translation>
@@ -1147,21 +988,6 @@
         <location filename="../Application/Models/GamesListModel.qml" line="85"/>
         <source>GAME_MENU_GAME_SETTINGS_TEXT</source>
         <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="390"/>
-        <source>GAME_FJ_ABOUT_TEXT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="391"/>
-        <source>GAME_FJ_MINI_TOOLTIP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="392"/>
-        <source>GAME_FJ_MINI_DESC</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1883,7 +1709,7 @@
     <message>
         <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="69"/>
         <source>REGISTER_FAIL_GAMENET_UNAVAILABLE</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="98"/>
@@ -2064,14 +1890,27 @@
     </message>
 </context>
 <context>
+    <name>Stick</name>
+    <message>
+        <location filename="../Application/Widgets/AllGames/View/Private/Stick.qml" line="29"/>
+        <source>GAME_TOP_STICK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AllGames/View/Private/Stick.qml" line="33"/>
+        <source>GAME_NEW_STICK</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TaskList</name>
     <message>
-        <location filename="../Application/Widgets/TaskList/TaskList.qml" line="78"/>
+        <location filename="../Application/Widgets/TaskList/TaskList.qml" line="79"/>
         <source>TASK_LIST_ALL_GAMES</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TaskList/TaskList.qml" line="79"/>
+        <location filename="../Application/Widgets/TaskList/TaskList.qml" line="80"/>
         <source>TASK_LIST_MORE_GAMES</source>
         <translation></translation>
     </message>
@@ -2167,70 +2006,80 @@
 <context>
     <name>UserProfileView</name>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="79"/>
-        <source>YOUR_AVATAR</source>
-        <translation></translation>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="89"/>
+        <source>PROFILE_MONEY_TEXT</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="102"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="103"/>
+        <source>PROFILE_ADD_MONEY_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="116"/>
         <source>ADVANCED_ACCOUNT_HINT_IN_DAYS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="104"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="118"/>
         <source>ADVANCED_ACCOUNT_HINT_TODAY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="110"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="124"/>
+        <source>PROFILE_ADD_MONEY_TULTIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="157"/>
         <source>PREMIUM_TOOLTIP</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="111"/>
-        <source>PREMIUM_NO_TOOLTIP</source>
-        <translation></translation>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="158"/>
+        <source>PROFILE_EXTENDED_ACCOUNT_TEXT</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="140"/>
-        <source>YOUR_GAMENET_LEVEL</source>
-        <translation></translation>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="245"/>
+        <source>PROFILE_CHOISE_NICKNAME</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="159"/>
-        <source>NO_NICKNAME</source>
-        <translation></translation>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="254"/>
+        <source>PROFILE_CHOISE_NICKNAME_TULTIP</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="160"/>
-        <source>YOUR_NICKNAME</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="160"/>
-        <source>SET_NICKNAME</source>
-        <translation></translation>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="282"/>
+        <source>PROFILE_LEVEL_TEXT</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Vk</name>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="182"/>
-        <source>GAMENET_BALANCE</source>
-        <translation></translation>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="213"/>
+        <source>NO_NICKNAME</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>qGNA_Main</name>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="191"/>
-        <source>GN_MONEY</source>
-        <translation></translation>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="214"/>
+        <source>YOUR_NICKNAME</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="201"/>
-        <source>ADD_MONEY</source>
-        <translation></translation>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="214"/>
+        <source>SET_NICKNAME</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="72"/>
+        <source>GAMENET_BALANCE</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

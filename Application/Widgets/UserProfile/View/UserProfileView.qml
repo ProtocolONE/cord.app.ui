@@ -22,6 +22,8 @@ import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 WidgetView {
     id: root
 
+    property bool nicknameValid: model.nickname.indexOf('@') == -1
+
     implicitWidth: 230
     implicitHeight: 92
 
@@ -34,177 +36,258 @@ WidgetView {
         color: Styles.style.profileBackground
     }
 
-    Rectangle {
-        anchors {
-            left: parent.left
-            top: parent.top
-            bottom: parent.bottom
-            leftMargin: 1
-        }
-        width: 1
-        color: Qt.lighter(Styles.style.base, Styles.style.lighterFactor)
-    }
+    Column {
+        anchors.fill: parent
 
-    Rectangle {
-        anchors {
-            left: parent.left
-            top: parent.top
-            bottom: parent.bottom
-        }
-        width: 1
-        color: Qt.darker(Styles.style.base, Styles.style.darkerFactor)
-    }
-
-    Row{
-        x: 9
-        y: 8
-        spacing: 10
-
-        Column {
-            Item {
-                width: 48
-                height: 48
-
-                Image {
-                    id: avatarImage
-
-                    asynchronous: true
-                    anchors.fill: parent
-                    source: model.avatarMedium != undefined ? model.avatarMedium : installPath + "Assets/Images/avatar.png"
-                }
-
-                CursorMouseArea {
-                    anchors.fill: parent
-                    hoverEnabled: true
-                    toolTip: qsTr("YOUR_AVATAR")
-                    tooltipGlueCenter: true
-                    onClicked: App.openExternalUrlWithAuth('https://gamenet.ru/edit/')
-                }
-            }
+        Rectangle {
+            width: parent.width
+            height: 21
+            color: Styles.style.profileBackgroundTop
 
             Row {
-                Rectangle {
-                    width: 24
-                    height: 24
-                    color: Styles.style.profilePremiumBackground
+                anchors {
+                    fill: parent
+                    leftMargin: 13
+                }
 
-                    Image {
+                Item {
+                    id: topItem
+
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: parent.width - 83
+                    height: baseText.height
+
+                    Row {
+                        id: topRow
+
+                        anchors.verticalCenter: parent.verticalCenter
+                        height: baseText.height
+                        spacing: 5
+
+                        Text {
+                            id: baseText
+
+                            color: Styles.style.profileBaseText
+                            font { family: "Arial"; pixelSize: 12 }
+                            text: qsTr("GAMENET_BALANCE")
+                        }
+
+                        Text {
+                            color: Styles.style.profileBalanceText
+                            font { family: "Arial"; pixelSize: 12 }
+                            text: model.balance
+                        }
+
+                        Image {
+                            y: 2
+                            source: installPath + "Assets/Images/Application/Widgets/UserProfile/coins.png"
+                        }
+
+                        Text {
+                            color: Styles.style.profileBaseText
+                            font { family: "Arial"; pixelSize: 12 }
+                            text: qsTr("PROFILE_MONEY_TEXT")
+                            visible: (x + width + topRow.spacing) < topItem.width
+                        }
+                    }
+                }
+
+                Rectangle {
+                    width: 83
+                    height: parent.height
+                    color: addMoneyMouseArea.containsMouse ? Styles.style.profileAddMoneyHover :
+                                                             Styles.style.profileAddMoneyNormal
+
+                    Text {
                         anchors.centerIn: parent
-                        source: installPath + "Assets/Images/Application/Widgets/UserProfile/" +
-                                (model.isPremium ? "premium_active.png" : "premium.png")
+                        text: qsTr("PROFILE_ADD_MONEY_TEXT")
+                        color: addMoneyMouseArea.containsMouse ? Styles.style.profileBackgroundTop :
+                                                                 Styles.style.profileAddMoneyTextHover
+
+                        font.pixelSize: 12
                     }
 
                     CursorMouseArea {
-
-                        function getText() {
-                            var durationInDays = Math.floor(model.premiumDuration / 86400);
-                            if (durationInDays > 0) {
-                                return qsTr("ADVANCED_ACCOUNT_HINT_IN_DAYS").arg(durationInDays);
-                            } else {
-                                return qsTr("ADVANCED_ACCOUNT_HINT_TODAY");
-                            }
-                        }
+                        id: addMoneyMouseArea
 
                         anchors.fill: parent
                         hoverEnabled: true
-                        toolTip: model.isPremium ? (qsTr("PREMIUM_TOOLTIP") + ". " + getText())
-                                                 : qsTr("PREMIUM_NO_TOOLTIP")
+                        toolTip: qsTr("PROFILE_ADD_MONEY_TULTIP")
                         tooltipGlueCenter: true
                         onClicked: {
-                            Popup.show('PremiumShop', 'PremiumShopView')
-
-                            GoogleAnalytics.trackEvent('/UserProfile',
-                                                       'UserProfileView',
-                                                       'ShowPremiumPopup');
+                            App.replenishAccount();
                         }
-                    }
-                }
-
-                Rectangle {
-                    width: 24
-                    height: 24
-                    color: Styles.style.profileLevelBackground
-
-                    Text {
-                        text: model.level
-                        width: parent.width
-                        height: 16
-                        anchors.centerIn: parent
-                        horizontalAlignment: Text.AlignHCenter
-                        color: Styles.style.profileLevelText
-                        font { family: "Arial"; pixelSize: 14 }
-                    }
-
-                    CursorMouseArea {
-                        anchors.fill: parent
-                        toolTip: qsTr("YOUR_GAMENET_LEVEL")
-                        tooltipGlueCenter: true
-                        onClicked: App.openExternalUrlWithAuth(root.getGameNetProfileUrl() + 'achievements/')
                     }
                 }
             }
         }
 
-        Column {
-            y: 6
-            spacing: 3
+        Item {
+            width: parent.width
+            height: parent.height - 21
 
-            NicknameEdit {
-                width: 150
-                height: 18
-                color: Styles.style.profileNicknameText
+            Item {
+                anchors {
+                    fill: parent
+                    leftMargin: 10
+                    rightMargin: 10
+                    topMargin: 10
+                }
 
-                nickname: nicknameValid ? model.nickname : qsTr("NO_NICKNAME")
-                tooltip: nicknameValid ? qsTr("YOUR_NICKNAME") : qsTr("SET_NICKNAME")
-                onNicknameClicked: {
-                    if (!nicknameValid) {
-                        Popup.show('NicknameEdit');
-                    } else {
-                        App.openExternalUrlWithAuth(root.getGameNetProfileUrl());
+                ImageButton {
+                    function getText() {
+                        var durationInDays = Math.floor(model.premiumDuration / 86400);
+                        if (durationInDays > 0) {
+                            return qsTr("ADVANCED_ACCOUNT_HINT_IN_DAYS").arg(durationInDays);
+                        } else {
+                            return qsTr("ADVANCED_ACCOUNT_HINT_TODAY");
+                        }
                     }
 
-                    GoogleAnalytics.trackEvent('/UserProfile',
-                                               'UserProfileView',
-                                               'nickname clicked');
-                }
-            }
+                    anchors {
+                        right: parent.right
+                        top: parent.top
+                        rightMargin: 2
+                        topMargin: 5
+                    }
 
-            Row {
-                spacing: 4
-                Text {
-                    id: balanceLabel
+                    width: 21
+                    height: 21
 
-                    height: 18
-                    color: Styles.style.profileBalanceText
-                    font { family: "Arial"; pixelSize: 14 }
-                    text: qsTr("GAMENET_BALANCE").arg(model.balance)
-                }
+                    toolTip: User.isPremium() ? (qsTr("PREMIUM_TOOLTIP") + ". " + getText())
+                                             : qsTr("PROFILE_EXTENDED_ACCOUNT_TEXT")
 
-                Image {
-                    anchors { bottom: balanceLabel.baseline; bottomMargin: -2 }
-                    source: installPath + "Assets/Images/Application/Widgets/UserProfile/coins.png"
+                    style: ButtonStyleColors {
+                        normal: "#00000000"
+                        hover: normal
+                        disabled: normal
+                    }
 
-                    CursorMouseArea {
-                        anchors.fill: parent
-                        toolTip: qsTr("GN_MONEY")
-                        tooltipGlueCenter: true
-                        onClicked: App.replenishAccount()
+                    styleImages: ButtonStyleImages {
+                        property string active: installPath + 'Assets/images/Application/Widgets/UserProfile/premium_active.png'
+
+                        normal: User.isPremium() ? active :
+                            installPath + 'Assets/images/Application/Widgets/UserProfile/premium.png'
+                        hover: installPath + 'Assets/images/Application/Widgets/UserProfile/premium_hover.png'
+                        disabled: normal
+                    }
+                    onClicked: {
+                        Popup.show('PremiumShop', 'PremiumShopView')
+
+                        GoogleAnalytics.trackEvent('/UserProfile',
+                                                   'UserProfileView',
+                                                   'ShowPremiumPopup');
                     }
                 }
-            }
 
-            Button {
-                width: 150
-                height: 24
-                text: qsTr("ADD_MONEY")
+                Row {
+                    anchors.fill: parent
+                    spacing: 10
 
-                textColor: Styles.style.profileAddMoneyButtonText
-                style: ButtonStyleColors {
-                    normal: Styles.style.profileAddMoneyButtonNormal
-                    hover: Styles.style.profileAddMoneyButtonHover
+                    Image {
+                        id: avatarImage
+
+                        asynchronous: true
+                        source: model.avatarMedium != undefined ?
+                                    model.avatarMedium : installPath + "Assets/Images/Application/Widgets/UserProfile/defaultAvatar.png"
+                    }
+
+                    Item {
+                        width: parent.width - 10 - avatarImage.width
+                        height: parent.height
+
+                        Column {
+                            anchors {
+                                fill: parent
+                                topMargin: 5
+                            }
+
+                            spacing: 5
+
+                            NicknameEdit {
+                                width: 150 - 30
+                                height: 18
+                                color: root.nicknameValid ? Styles.style.profileNicknameTextNormal :
+                                                            Styles.style.profileNicknameTextNotValid
+
+                                nickname: root.nicknameValid ? model.nickname : qsTr("NO_NICKNAME")
+                                tooltip: root.nicknameValid ? qsTr("YOUR_NICKNAME") : qsTr("SET_NICKNAME")
+                                onNicknameClicked: {
+                                    if (!nicknameValid) {
+                                        Popup.show('NicknameEdit');
+                                    } else {
+                                        App.openExternalUrlWithAuth(root.getGameNetProfileUrl());
+                                    }
+
+                                    GoogleAnalytics.trackEvent('/UserProfile',
+                                                               'UserProfileView',
+                                                               'nickname clicked');
+                                }
+                            }
+
+                            Item {
+                                width: parent.width
+                                height: 20
+
+                                visible: !root.nicknameValid
+
+                                Row {
+                                    id: row
+
+                                    height: parent.height
+                                    spacing: 5
+
+                                    Image {
+                                        source: installPath  + "Assets/Images/Application/Widgets/UserProfile/attention.png"
+                                    }
+
+                                    Text {
+                                        text: qsTr("PROFILE_CHOISE_NICKNAME")
+                                        color: Styles.style.profileBaseText
+                                        font.pixelSize: 12
+                                    }
+                                }
+
+                                CursorMouseArea {
+                                    width: row.width
+                                    height: row.height
+                                    toolTip: qsTr("PROFILE_CHOISE_NICKNAME_TULTIP")
+                                    onClicked: Popup.show('NicknameEdit');
+                                }
+                            }
+
+                            Item {
+                                width: parent.width
+                                height: 20
+                                visible: root.nicknameValid
+
+                                Row {
+                                    height: parent.height
+                                    spacing: 4
+
+                                    Image {
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        source: installPath  + "Assets/Images/Application/Widgets/UserProfile/level.png"
+                                    }
+
+                                    Text {
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        text: User.getLevel()
+                                        color: Styles.style.profileBaseText
+                                        font.pixelSize: 12
+                                    }
+
+                                    Text {
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        text: qsTr("PROFILE_LEVEL_TEXT")
+                                        color: Styles.style.profileBaseText
+                                        font.pixelSize: 12
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
-
-                onClicked: App.replenishAccount()
             }
         }
     }

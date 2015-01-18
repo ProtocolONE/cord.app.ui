@@ -109,11 +109,17 @@ Item {
 
     //USER PROFILE
     property color profileBackground: "#243148"
+    property color profileBackgroundTop: "#0d2e40"
     property color profilePremiumBackground: "#31415D"
     property color profileLevelBackground: "#364D76"
-    property color profileNicknameText: "#1ABC9C"
+    property color profileNicknameTextNormal: "#ffffff"
+    property color profileNicknameTextNotValid: "#7c99a9"
     property color profileLevelText: "#FAFAFA"
     property color profileBalanceText: "#FAFAFA"
+    property color profileBaseText: "#7c99a9"
+    property color profileAddMoneyNormal: "#19384a"
+    property color profileAddMoneyHover: "#ff4f03"
+    property color profileAddMoneyTextHover: "#fada66"
     property color profileAddMoneyButtonText: "#FFFFFF"
     property color profileAddMoneyButtonNormal: "#567DD8"
     property color profileAddMoneyButtonHover: "#305ec8"
