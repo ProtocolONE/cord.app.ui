@@ -2715,13 +2715,12 @@ Please try again later.</source>
     </message>
     <message>
         <source>LOGOUT_ALERT_HEADER</source>
-        <translation type="unfinished"></translation>
+        <translation>Внимание!</translation>
     </message>
     <message>
         <source>LOGOUT_ALERT_BODY</source>
         <translation>Все запущенные игры будут закрыты. Вы уверены, что хотите выйти?</translation>
-    </message>
-</context>
+    </message></context>
 <context>
     <name>Home</name>
     <message>

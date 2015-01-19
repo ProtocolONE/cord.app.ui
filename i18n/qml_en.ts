@@ -325,12 +325,12 @@
 <context>
     <name>BaseLayer</name>
     <message>
-        <location filename="../Application/Layers/BaseLayer.qml" line="383"/>
+        <location filename="../Application/Layers/BaseLayer.qml" line="384"/>
         <source>MY_GAMES_CAPTION_MENU</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Layers/BaseLayer.qml" line="394"/>
+        <location filename="../Application/Layers/BaseLayer.qml" line="395"/>
         <source>MY_GAMES_MENU_NEWS</source>
         <translation></translation>
     </message>
@@ -866,7 +866,7 @@
 <context>
     <name>GameItem</name>
     <message>
-        <location filename="../Application/Widgets/AllGames/View/Private/GameItem.qml" line="218"/>
+        <location filename="../Application/Widgets/AllGames/View/Private/GameItem.qml" line="198"/>
         <source>START_GAME_BUTTON</source>
         <translation></translation>
     </message>
@@ -874,7 +874,7 @@
 <context>
     <name>GameItemSmall</name>
     <message>
-        <location filename="../Application/Widgets/AllGames/View/Private/GameItemSmall.qml" line="102"/>
+        <location filename="../Application/Widgets/AllGames/View/Private/GameItemSmall.qml" line="119"/>
         <source>START_GAME_BUTTON</source>
         <translation></translation>
     </message>
@@ -1390,17 +1390,17 @@
 <context>
     <name>MessageInput</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="320"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="328"/>
         <source>MESSENGER_SEND_BUTTON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="328"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="336"/>
         <source>MESSENGER_SEND_BUTTON_MESSAGE_ENTER</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="330"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="338"/>
         <source>MESSENGER_SEND_BUTTON_MESSAGE_CTRL_ENTER</source>
         <translation></translation>
     </message>
