@@ -190,6 +190,14 @@ WidgetView {
                         asynchronous: true
                         source: model.avatarMedium != undefined ?
                                     model.avatarMedium : installPath + "Assets/Images/Application/Widgets/UserProfile/defaultAvatar.png"
+
+                        CursorMouseArea {
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            toolTip: qsTr("YOUR_AVATAR")
+                            tooltipGlueCenter: true
+                            onClicked: App.openExternalUrlWithAuth('https://gamenet.ru/edit/')
+                        }
                     }
 
                     Item {

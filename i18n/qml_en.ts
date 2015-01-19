@@ -2016,17 +2016,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="116"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="141"/>
         <source>ADVANCED_ACCOUNT_HINT_IN_DAYS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="118"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="143"/>
         <source>ADVANCED_ACCOUNT_HINT_TODAY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="124"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="115"/>
         <source>PROFILE_ADD_MONEY_TULTIP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2041,17 +2041,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="245"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="197"/>
+        <source>YOUR_AVATAR</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="253"/>
         <source>PROFILE_CHOISE_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="254"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="262"/>
         <source>PROFILE_CHOISE_NICKNAME_TULTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="282"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="290"/>
         <source>PROFILE_LEVEL_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2059,7 +2064,7 @@
 <context>
     <name>Vk</name>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="213"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="221"/>
         <source>NO_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2067,12 +2072,12 @@
 <context>
     <name>qGNA_Main</name>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="214"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="222"/>
         <source>YOUR_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="214"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="222"/>
         <source>SET_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
