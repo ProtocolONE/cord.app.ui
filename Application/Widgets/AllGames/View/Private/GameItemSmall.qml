@@ -9,6 +9,8 @@ import "../../../../Core/Styles.js" as Styles
 Column {
     id: root
 
+    signal clicked(variant serviceItem)
+
     property string serviceId
     property variant serviceItem: App.serviceItemByServiceId(root.serviceId)
     property bool isTop: serviceItem ? serviceItem.typeShortcut == 'hit' : false
@@ -89,6 +91,7 @@ Column {
             onClicked: {
                 App.activateGameByServiceId(serviceItem.serviceId);
                 App.navigate('mygame', 'GameItem');
+                root.clicked(serviceItem);
             }
         }
 
@@ -118,6 +121,13 @@ Column {
             fontSize: 12
             text: qsTr("START_GAME_BUTTON")
             enabled: App.isMainServiceCanBeStarted(root.serviceItem)
+
+            analytics {
+                page: '/AllGames'
+                category: 'Game ' + root.serviceItem.gaName
+                action: 'Play'
+                label: 'GameItemSmall'
+            }
 
             style {
                 normal: Styles.style.gameInstallButtonNormal

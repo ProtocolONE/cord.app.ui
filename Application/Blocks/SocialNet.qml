@@ -59,6 +59,7 @@ Item {
 
             opacity: mouser.containsMouse ? 1 : 0.8
             source : iconUrl(model.id)
+            visible: !!link
 
             Behavior on opacity {
                 NumberAnimation { duration: 250 }

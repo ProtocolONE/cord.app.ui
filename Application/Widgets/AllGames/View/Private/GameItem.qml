@@ -19,6 +19,8 @@ import "../../../../Core/Styles.js" as Styles
 Item {
     id: root
 
+    signal clicked(variant serviceItem)
+
     property alias source: image.source
     property string serviceId
     property variant serviceItemGrid
@@ -125,6 +127,7 @@ Item {
             onClicked: {
                 App.activateGameByServiceId(serviceItem.serviceId);
                 App.navigate('mygame', 'GameItem');
+                root.clicked(serviceItem);
             }
         }
 
@@ -197,6 +200,13 @@ Item {
             opacity: root.selected ? 1 : 0
             text: qsTr("START_GAME_BUTTON")
             enabled: App.isMainServiceCanBeStarted(root.serviceItem)
+
+            analytics {
+                page: '/AllGames'
+                category: 'Game ' + root.serviceItem.gaName
+                action: 'Play'
+                label: 'GameItem'
+            }
 
             style {
                 normal: Styles.style.gameInstallButtonNormal

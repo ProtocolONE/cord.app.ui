@@ -34,6 +34,7 @@ function createService(data) {
                 'forumUrl',
                 'guideUrl',
                 'blogUrl',
+                'licenseUrl',
                 'maintenanceProposal1',
                 'maintenanceProposal2',
                 'logoText',

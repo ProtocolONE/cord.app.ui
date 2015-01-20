@@ -1,6 +1,10 @@
 import QtQuick 1.1
 
 Item {
+    id: root
+
+    signal clicked(variant serviceItem)
+
     property alias model: listView.model
 
     height: 87
@@ -23,6 +27,7 @@ Item {
 
         delegate: GameItemSmall {
             serviceId: listView.model[index].serviceId
+            onClicked: root.clicked(serviceItem)
         }
 
     }

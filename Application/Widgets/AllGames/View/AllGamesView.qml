@@ -18,6 +18,8 @@ import GameNet.Components.Widgets 1.0
 import "../../../Core/App.js" as App
 import "../../../Core/Styles.js" as Styles
 
+import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+
 import "Private" as Private
 
 WidgetView {
@@ -32,6 +34,7 @@ WidgetView {
     }
 
     Component.onCompleted: d.fillGrid();
+    onVisibleChanged: stateGroup.state = 'Normal';
 
     QtObject {
         id: d
@@ -143,7 +146,13 @@ WidgetView {
                 horizontalCenter: parent.horizontalCenter
                 horizontalCenterOffset: 8
             }
-            onClicked: stateGroup.state === 'Normal' ? stateGroup.state = 'AllGames' : stateGroup.state = 'Normal'
+            onClicked: {
+                GoogleAnalytics.trackEvent('/AllGames',
+                                           'Navigation',
+                                           'Switch to All games');
+
+                stateGroup.state === 'Normal' ? stateGroup.state = 'AllGames' : stateGroup.state = 'Normal'
+            }
 
             Behavior on iconRotation {
                 NumberAnimation { duration: 250 }
@@ -161,6 +170,12 @@ WidgetView {
                     duration: 100
                 }
             }
+
+            onClicked: {
+                GoogleAnalytics.trackEvent('/AllGames',
+                                           'Navigation',
+                                           'Switch To Game ' + serviceItem.gaName);
+            }
         }
 
         Private.GameListPage {
@@ -168,6 +183,12 @@ WidgetView {
 
             width: parent.width
             height: 560
+
+            onClicked: {
+                GoogleAnalytics.trackEvent('/AllGames',
+                                           'Navigation',
+                                           'Switch To Game ' + serviceItem.gaName);
+            }
         }
     }
 

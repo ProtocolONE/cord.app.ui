@@ -4,7 +4,12 @@ import Application.Controls 1.0
 
 import "../../../../Core/App.js" as App
 import "../../../../Core/Styles.js" as Styles
+
 Item {
+    id: root
+
+    signal clicked(variant serviceItem)
+
     property variant services
 
     onServicesChanged: {
@@ -137,7 +142,7 @@ Item {
         id: itemComponent
 
         GameItemSmall {
-
+            onClicked: root.clicked(serviceItem);
         }
     }
 }
