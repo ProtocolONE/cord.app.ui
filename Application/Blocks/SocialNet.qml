@@ -39,43 +39,56 @@ Item {
         id: view
 
         anchors.fill: parent
-        spacing: 5
+        spacing: 4
         orientation: ListView.Horizontal
+        interactive: false
         layoutDirection: Qt.LeftToRight
-        model: gameItem ? gameItem.socialNet : null
+        model: gameItem ? gameItem.socialNet : undefined
+        delegate: Item {
+            id: delegate
 
-        delegate: Image {
-            function iconUrl(id) {
-                var socialIcons = {
-                    'fb' : 'fb.png',
-                    'vk' : 'vk.png',
-                    'yt' : 'yt.png',
-                    'ok' : 'ok.png'
+            width: visible ? image.width : -view.spacing
+            height: visible ? image.height : 0
+
+            visible: !!model.link
+
+            Image {
+                id: image
+
+                function iconUrl(id) {
+                    var socialIcons = {
+                        'fb' : 'fb.png',
+                        'vk' : 'vk.png',
+                        'yt' : 'yt.png',
+                        'ok' : 'ok.png',
+                        'gp' : 'gp.png',
+                        'tw' : 'tw.png',
+                        'mm' : 'mm.png'
+                    }
+
+                    return socialIcons.hasOwnProperty(id)?
+                                (installPath + "Assets/Images/socialNet/" + socialIcons[id]) : ''
                 }
 
-                return socialIcons.hasOwnProperty(id) ?
-                            (installPath + "Assets/Images/socialNet/" + socialIcons[id]) : ''
-            }
+                opacity: mouser.containsMouse ? 1 : 0.8
+                source : iconUrl(model.id)
 
-            opacity: mouser.containsMouse ? 1 : 0.8
-            source : iconUrl(model.id)
-            visible: !!link
+                Behavior on opacity {
+                    NumberAnimation { duration: 250 }
+                }
 
-            Behavior on opacity {
-                NumberAnimation { duration: 250 }
-            }
+                CursorMouseArea {
+                    id: mouser
 
-            CursorMouseArea {
-                id: mouser
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    onClicked: {
+                        App.openExternalUrl(link);
 
-                anchors.fill: parent
-                hoverEnabled: true
-                onClicked: {
-                    App.openExternalUrl(link);
-
-                    GoogleAnalytics.trackEvent('/game/' + root.gameItem.gaName,
-                                               'SocialNet',
-                                               'Open link ' + link);
+                        GoogleAnalytics.trackEvent('/game/' + root.gameItem.gaName,
+                                                   'SocialNet',
+                                                   'Open link ' + link);
+                    }
                 }
             }
         }
