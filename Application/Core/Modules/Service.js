@@ -2,7 +2,8 @@
 
 function createService(data) {
     var item = {},
-        properties;
+        properties,
+        urlProps;
 
     if (!data || !data.hasOwnProperty("serviceId")) {
         return null;
@@ -31,10 +32,6 @@ function createService(data) {
                 'imageHorizontalSmall',
                 'imageLogoSmall',
                 'imagePopupArt',
-                'forumUrl',
-                'guideUrl',
-                'blogUrl',
-                'licenseUrl',
                 'maintenanceProposal1',
                 'maintenanceProposal2',
                 'logoText',
@@ -51,10 +48,24 @@ function createService(data) {
                 'socialNet'
             ];
 
+    urlProps = [
+                'forumUrl',
+                'guideUrl',
+                'blogUrl',
+                'licenseUrl',
+            ];
+
     Object.keys(properties).forEach(function(e){
         var prop = properties[e];
         if (data.hasOwnProperty(prop)) {
             item[prop] = data[prop];
+        }
+    });
+
+    Object.keys(urlProps).forEach(function(e){
+        var prop = urlProps[e];
+        if (data.hasOwnProperty(prop)) {
+            item[prop] = 'https://gamenet.ru' + data[prop];
         }
     });
 
