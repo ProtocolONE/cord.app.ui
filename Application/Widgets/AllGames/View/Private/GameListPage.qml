@@ -10,13 +10,12 @@ Item {
 
     signal clicked(variant serviceItem)
 
-    property variant services
-
-    onServicesChanged: {
-        var sortModel = {};
+    function update() {
+        var services = App.getRegisteredServices(),
+            sortModel = {};
 
         Object.keys(services).forEach(function(e){
-            var item = services[e];
+            var item = App.serviceItemByServiceId(services[e]);
 
             if (!item.genre) {
                 return;
@@ -30,7 +29,7 @@ Item {
                 sortModel[item.genre] = [];
             }
 
-            sortModel[item.genre].push(item);
+            sortModel[item.genre].push({serviceId: item.serviceId, sortPositionInApp: item.sortPositionInApp});
 
         });
 

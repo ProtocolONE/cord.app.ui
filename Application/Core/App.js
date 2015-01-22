@@ -17,7 +17,6 @@ var indexToGameItem = {},
     serviceIdToGameItemIdex = {},
     serviceStartButtonClicked = {},
     servicesGrid,
-    servicesList,
     authAccepted = false,
     count = 0,
     clientWidth = 1000,
@@ -63,12 +62,13 @@ function initModel() {
 function fillGamesModel(data) {
         var i, item, last;
         count = data.length;
+
         _gamesListModelList.clear();
 
         for (i = 0; i < count; ++i) {
             item = createService(data[i]);
 
-            if (!item) {
+            if (!item || (!isPrivateTestVersion() && !item.isPublishedInApp)) {
                 continue;
             }
 

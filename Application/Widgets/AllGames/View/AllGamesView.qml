@@ -66,17 +66,16 @@ WidgetView {
                 gridServices[item.serviceId] = 1;
             });
 
-            services = App.servicesList.filter(function(e){
-                if (gridServices.hasOwnProperty(e.serviceId)) {
+            services = App.getRegisteredServices().filter(function(e){
+                if (gridServices.hasOwnProperty(e)) {
                     return false;
                 }
 
-                if (App.isPrivateTestVersion()) {
-                    return true;
-                }
+                return true;
+            }).sort(function(_a, _b) {
+                var a = App.serviceItemByServiceId(_a),
+                    b = App.serviceItemByServiceId(_b);
 
-                return e.isPublishedInApp == true;
-            }).sort(function(a,b) {
                 var isAinstalled = App.isServiceInstalled(a.serviceId),
                     isBinstalled = App.isServiceInstalled(b.serviceId);
 
@@ -87,24 +86,19 @@ WidgetView {
 
                 return (isAinstalled < isBinstalled) ? -1 : 1;
 
-
             }).slice(0, 7);
 
             gameListServices = services;
 
             while (gameListServices.length < 7) {
-                gameListServices.push(App.serviceItemByServiceId(grid[index++].serviceId));
+                gameListServices.push(grid[index++].serviceId);
             }
 
-            gameList.model = services;
-
-            gameListPage.services = App.servicesList.filter(function(e){
-                if (App.isPrivateTestVersion()) {
-                    return true;
-                }
-
-                return e.isPublishedInApp == true;
+            gameList.model = gameListServices.map(function(e){
+                return {serviceId: e};
             });
+
+            gameListPage.update();
         }
     }
 
