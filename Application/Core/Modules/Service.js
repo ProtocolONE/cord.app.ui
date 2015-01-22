@@ -64,7 +64,7 @@ function createService(data) {
 
     Object.keys(urlProps).forEach(function(e){
         var prop = urlProps[e];
-        if (data.hasOwnProperty(prop)) {
+        if (data.hasOwnProperty(prop) && !!data[prop]) {
             item[prop] = 'https://gamenet.ru' + data[prop];
         }
     });

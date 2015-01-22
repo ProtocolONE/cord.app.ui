@@ -13,7 +13,7 @@ Item {
     Rectangle {
         color: "#000000"
         opacity: 0.7
-        height: 558
+        height: 560
         visible: MessengerJs.userSelected()
 
         anchors {
@@ -39,7 +39,7 @@ Item {
             bottom: parent.bottom
         }
 
-        height: 558
+        height: 560
         width: 590
         widget: 'Messenger'
         view: 'Chat'
