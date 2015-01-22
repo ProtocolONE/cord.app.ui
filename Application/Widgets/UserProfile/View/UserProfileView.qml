@@ -210,7 +210,7 @@ WidgetView {
                                 topMargin: 5
                             }
 
-                            spacing: 5
+                            spacing: 8
 
                             NicknameEdit {
                                 width: 150 - 30
