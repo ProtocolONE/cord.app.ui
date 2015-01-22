@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="ru_RU">
+<TS version="2.1" language="ru_RU">
 <context>
     <name>AccountActivationView</name>
     <message>
@@ -48,79 +48,79 @@
     <name>AlertAdapter</name>
     <message>
         <source>Save</source>
-        <translation>Сохранить</translation>
+        <translation type="vanished">Сохранить</translation>
     </message>
     <message>
         <source>SaveAll</source>
-        <translation>Сохранить все</translation>
+        <translation type="vanished">Сохранить все</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation>Открыть</translation>
+        <translation type="vanished">Открыть</translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation>Да</translation>
+        <translation type="vanished">Да</translation>
     </message>
     <message>
         <source>YesToAll</source>
-        <translation>Да для всех</translation>
+        <translation type="vanished">Да для всех</translation>
     </message>
     <message>
         <source>No</source>
-        <translation>Нет</translation>
+        <translation type="vanished">Нет</translation>
     </message>
     <message>
         <source>NoToAll</source>
-        <translation>Нет для всех</translation>
+        <translation type="vanished">Нет для всех</translation>
     </message>
     <message>
         <source>Abort</source>
-        <translation>Отменить</translation>
+        <translation type="vanished">Отменить</translation>
     </message>
     <message>
         <source>Retry</source>
-        <translation>Повторить</translation>
+        <translation type="vanished">Повторить</translation>
     </message>
     <message>
         <source>Ignore</source>
-        <translation>Игнорировать</translation>
+        <translation type="vanished">Игнорировать</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Закрыть</translation>
+        <translation type="vanished">Закрыть</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Отмена</translation>
+        <translation type="vanished">Отмена</translation>
     </message>
     <message>
         <source>Discard</source>
-        <translation>Отклонить</translation>
+        <translation type="vanished">Отклонить</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation>Помощь</translation>
+        <translation type="vanished">Помощь</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation>Применить</translation>
+        <translation type="vanished">Применить</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation>Сбросить</translation>
+        <translation type="vanished">Сбросить</translation>
     </message>
     <message>
         <source>RestoreDefaults</source>
-        <translation>Сбросить по умолчанию</translation>
+        <translation type="vanished">Сбросить по умолчанию</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="vanished">OK</translation>
     </message>
     <message>
         <source>Default Text</source>
-        <translation>Текст по умолчанию</translation>
+        <translation type="vanished">Текст по умолчанию</translation>
     </message>
 </context>
 <context>
@@ -209,19 +209,19 @@
     <name>Announcements</name>
     <message>
         <source>ANNOUNCE_GAME_INSTALLED_MESSAGE</source>
-        <translation>Игра установлена</translation>
+        <translation type="vanished">Игра установлена</translation>
     </message>
     <message>
         <source>ANNOUNCE_GAME_INSTALLED_BUTTON</source>
-        <translation>Играть</translation>
+        <translation type="vanished">Играть</translation>
     </message>
     <message>
         <source>REMINDER_NEVER_PLAYED_BUTTON</source>
-        <translation>Играть</translation>
+        <translation type="vanished">Играть</translation>
     </message>
     <message>
         <source>REMINDER_NEVER_PLAYED_MESSAGE</source>
-        <translation>Игра установлена и вы ни разу не пробовали играть</translation>
+        <translation type="vanished">Игра установлена и вы ни разу не пробовали играть</translation>
     </message>
     <message>
         <source>REMINDER_NEVER_PLAYED_FRIST_TIME_BUTTON</source>
@@ -233,15 +233,15 @@
     </message>
     <message>
         <source>REMINDER_PLAYED_LONGAGO_BUTTON</source>
-        <translation>Играть</translation>
+        <translation type="vanished">Играть</translation>
     </message>
     <message>
         <source>REMINDER_PLAYED_LONGAGO_MESSAGE</source>
-        <translation>Вы давно не заходили в игру</translation>
+        <translation type="vanished">Вы давно не заходили в игру</translation>
     </message>
     <message>
         <source>SILENT_REMIND_POPUP_BUTTON</source>
-        <translation>Играть</translation>
+        <translation type="vanished">Играть</translation>
     </message>
 </context>
 <context>
@@ -471,7 +471,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>AUTH_LOGIN_TITLE</source>
-        <translation>Вход</translation>
+        <translation type="vanished">Вход</translation>
     </message>
     <message>
         <source>AUTH_LOGIN_BUTTON</source>
@@ -479,7 +479,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>AUTH_CANCEL_BUTTON</source>
-        <translation>Отмена</translation>
+        <translation type="vanished">Отмена</translation>
     </message>
     <message>
         <source>AUTH_GUEST_TITLE</source>
@@ -653,11 +653,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>AUTH_GUEST_REGISTER_HEADER</source>
-        <translation>Завершение регистрации</translation>
+        <translation type="vanished">Завершение регистрации</translation>
     </message>
     <message>
         <source>AUTH_NORMAL_REGISTER_HEADER</source>
-        <translation>Регистрация</translation>
+        <translation type="vanished">Регистрация</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_NORMAL_MESSAGE_DESC</source>
@@ -668,19 +668,19 @@ Please try again later.</source>
     <name>AuthBlock</name>
     <message>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
-        <translation>Учётная запись заблокирована. Если вы считаете, что так не должно быть, обратитесь в &lt;a href=&quot;http://support.gamenet.ru&quot;&gt;&lt;font color=&apos;#d8e5d4&apos;&gt;службу поддержки&lt;/font&gt;&lt;/a&gt;.  </translation>
+        <translation type="vanished">Учётная запись заблокирована. Если вы считаете, что так не должно быть, обратитесь в &lt;a href=&quot;http://support.gamenet.ru&quot;&gt;&lt;font color=&apos;#d8e5d4&apos;&gt;службу поддержки&lt;/font&gt;&lt;/a&gt;.  </translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_WRONG</source>
-        <translation>Неправильный логин или пароль</translation>
+        <translation type="vanished">Неправильный логин или пароль</translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
-        <translation>GameNet недоступен. Попробуйте авторизоваться позже.</translation>
+        <translation type="vanished">GameNet недоступен. Попробуйте авторизоваться позже.</translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
-        <translation>Неправильный формат электронной почты. Проверьте правильность ввода.</translation>
+        <translation type="vanished">Неправильный формат электронной почты. Проверьте правильность ввода.</translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_GUEST_ERROR</source>
@@ -688,15 +688,15 @@ Please try again later.</source>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
-        <translation>Не удалось войти как пользователь Вконтакте. Попробуйте ещё раз позже.</translation>
+        <translation type="vanished">Не удалось войти как пользователь Вконтакте. Попробуйте ещё раз позже.</translation>
     </message>
     <message>
         <source>VK_LOGIN_BUTTON_TEXT</source>
-        <translation>Войти ВКонтакте</translation>
+        <translation type="vanished">Войти ВКонтакте</translation>
     </message>
     <message>
         <source>REGISTRATION_LEFT_LABEL_TEXT</source>
-        <translation>Введите почту и пароль
+        <translation type="vanished">Введите почту и пароль
 и нажмите войти или авторизуйтесь аккаунтом ВКонтакте</translation>
     </message>
     <message>
@@ -729,7 +729,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>AUTH_LEFT_LABEL_CODE_REQUIRED</source>
-        <translation>Мы зафиксировали попытку подбора пароля к этой учётной записи.</translation>
+        <translation type="vanished">Мы зафиксировали попытку подбора пароля к этой учётной записи.</translation>
     </message>
 </context>
 <context>
@@ -984,19 +984,19 @@ Please try again later.</source>
     </message>
     <message>
         <source>TITLE_PREMIUM_ACCOUNT_BUY</source>
-        <translation>Расширенный аккаунт</translation>
+        <translation type="vanished">Расширенный аккаунт</translation>
     </message>
     <message>
         <source>TITLE_PREMIUM_ACCOUNT_INFO_TEXT</source>
-        <translation>Расширенный аккаунт GameNet — это возможность играть двумя аккаунтами одновременно в игры BS.ru, Aika 2, и Reborn. Мы постоянно добавлем в расширенный аккаунт другие приятные бонусы. &lt;a href=&quot;http://gamenet.ru/extra&quot;&gt;Подробности тут.&lt;/a&gt;</translation>
+        <translation type="vanished">Расширенный аккаунт GameNet — это возможность играть двумя аккаунтами одновременно в игры BS.ru, Aika 2, и Reborn. Мы постоянно добавлем в расширенный аккаунт другие приятные бонусы. &lt;a href=&quot;http://gamenet.ru/extra&quot;&gt;Подробности тут.&lt;/a&gt;</translation>
     </message>
     <message>
         <source>TITLE_PREMIUM_ACCOUNT_LEFT_TIME_LABEL</source>
-        <translation>Осталось дней: &lt;b&gt;%1&lt;/b&gt;</translation>
+        <translation type="vanished">Осталось дней: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <source>TITLE_PREMIUM_ACCOUNT_CONTINUE_ACCOUNT_LABEL</source>
-        <translation>Продлите действие расширенного аккаунта:</translation>
+        <translation type="vanished">Продлите действие расширенного аккаунта:</translation>
     </message>
     <message>
         <source>TITLE_PREMIUM_ACCOUNT_DAYS_GM_MONEY</source>
@@ -1004,15 +1004,15 @@ Please try again later.</source>
     </message>
     <message>
         <source>ACCEPT_BUY_BUTTON_TEXT</source>
-        <translation>Подтвердить покупку</translation>
+        <translation type="vanished">Подтвердить покупку</translation>
     </message>
     <message>
         <source>CANCEL_BUY_BUTTON_TEXT</source>
-        <translation>Отмена</translation>
+        <translation type="vanished">Отмена</translation>
     </message>
     <message>
         <source>PREMIUM_SHOP_DETAILS_ERROR_UNKNOWN</source>
-        <translation>Произошла ошибка в процессе покупки. Пожалуйста, попробуйте позже.</translation>
+        <translation type="vanished">Произошла ошибка в процессе покупки. Пожалуйста, попробуйте позже.</translation>
     </message>
     <message>
         <source>PREMIUM_SHOP_DETAILS_ERROR_INSUFFICIENT_GN</source>
@@ -1020,23 +1020,23 @@ Please try again later.</source>
     </message>
     <message>
         <source>PREMIUM_SHOP_DETAILS_CLOSE</source>
-        <translation>Закрыть</translation>
+        <translation type="vanished">Закрыть</translation>
     </message>
     <message>
         <source>PREMIUM_SHOP_DAYS_1</source>
-        <translation>%1 день</translation>
+        <translation type="vanished">%1 день</translation>
     </message>
     <message>
         <source>PREMIUM_SHOP_DAYS_2_4</source>
-        <translation>%1 дня</translation>
+        <translation type="vanished">%1 дня</translation>
     </message>
     <message>
         <source>PREMIUM_SHOP_DAYS_OTHER</source>
-        <translation>%1 дней</translation>
+        <translation type="vanished">%1 дней</translation>
     </message>
     <message>
         <source>PREMIUM_SHOP_DETAILS_PURCHASE_SUCCESS</source>
-        <translation>Вы успешно купили и активировали расширенный аккаунт GameNet на %1.
+        <translation type="vanished">Вы успешно купили и активировали расширенный аккаунт GameNet на %1.
 
 Чтобы запустить второе окно игры BS.ru, Aika 2, и Reborn, нажмите на кнопку &quot;Играть&quot; и после выберите &quot;Играть расширенным аккаунтом&quot;</translation>
     </message>
@@ -1049,11 +1049,11 @@ Please try again later.</source>
     <name>Captcha</name>
     <message>
         <source>PLACEHOLDER_CAPTCHA</source>
-        <translation>Введите символы с картинки</translation>
+        <translation type="vanished">Введите символы с картинки</translation>
     </message>
     <message>
         <source>BUTTON_SHOW_ANOTHER_CAPTCHA</source>
-        <translation>Показать другую картинку</translation>
+        <translation type="vanished">Показать другую картинку</translation>
     </message>
 </context>
 <context>
@@ -1120,220 +1120,220 @@ Please try again later.</source>
     <name>CodeForm</name>
     <message>
         <source>MESSAGE_CODE_SENDED</source>
-        <translation>Код отправлен</translation>
+        <translation type="vanished">Код отправлен</translation>
     </message>
     <message>
         <source>TITLE_TEXT_ABOUT_ENTER_CODE</source>
-        <translation>Вы можете авторизоваться введя код подтверждения авторизации. Так мы сможем понять, что вы действительно владелец этой учётной записи
+        <translation type="vanished">Вы можете авторизоваться введя код подтверждения авторизации. Так мы сможем понять, что вы действительно владелец этой учётной записи
 </translation>
     </message>
     <message>
         <source>BUTTON_SEND_BY_MAIL</source>
-        <translation>В письме</translation>
+        <translation type="vanished">В письме</translation>
     </message>
     <message>
         <source>BUTTON_SEND_BY_SMS</source>
-        <translation>В СМС</translation>
+        <translation type="vanished">В СМС</translation>
     </message>
     <message>
         <source>PLACEHOLDER_ENTER_CODE</source>
-        <translation>Введите полученный код</translation>
+        <translation type="vanished">Введите полученный код</translation>
     </message>
     <message>
         <source>BUTTON_SEND</source>
-        <translation>Ввести код</translation>
+        <translation type="vanished">Ввести код</translation>
     </message>
     <message>
         <source>AUTH_CANCEL_BUTTON</source>
-        <translation>Отмена</translation>
+        <translation type="vanished">Отмена</translation>
     </message>
 </context>
 <context>
     <name>CombatArmsItemsModel</name>
     <message>
         <source>CA_SHOP_ITEM_1790_TITLE</source>
-        <translation>Ящик снабжения MYST-N</translation>
+        <translation type="vanished">Ящик снабжения MYST-N</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1790_DESCRIPTION</source>
-        <translation>Ящик снабжения MYST-N служит для перевозки редких видов оружия. Этот ящик снабжения содержит одно редкое оружие с различным сроком службы. Так же, только из этого ящика можно получить эпическое оружие.
+        <translation type="vanished">Ящик снабжения MYST-N служит для перевозки редких видов оружия. Этот ящик снабжения содержит одно редкое оружие с различным сроком службы. Так же, только из этого ящика можно получить эпическое оружие.
 
 
 Пожалуйста, выберите количество предметов:</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1790_DESCRIPTION_SHORT</source>
-        <translation>Содержит редкое и эпическое оружие</translation>
+        <translation type="vanished">Содержит редкое и эпическое оружие</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1735_TITLE</source>
-        <translation>Набор продления оружия</translation>
+        <translation type="vanished">Набор продления оружия</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1735_DESCRIPTION</source>
-        <translation>Этот предмет увеличивает оставшееся время использования вашего основного и вспомогательного оружия. ИО и GN оружие может быть продлено на различное время, включая 90 дней и постоянное!
+        <translation type="vanished">Этот предмет увеличивает оставшееся время использования вашего основного и вспомогательного оружия. ИО и GN оружие может быть продлено на различное время, включая 90 дней и постоянное!
 
 
 Пожалуйста, выберите количество предметов:</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1735_DESCRIPTION_SHORT</source>
-        <translation>Продлевает срок действия оружия</translation>
+        <translation type="vanished">Продлевает срок действия оружия</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1631_TITLE</source>
-        <translation>Бронежилет разведчика</translation>
+        <translation type="vanished">Бронежилет разведчика</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1631_DESCRIPTION</source>
-        <translation>Легкий, пулеустойчивый и компактный. Жилет разведчика обеспечивает высокую скорость солдата, сохраняя защиту на уровне Легкого жилета. Общая защита -10% Скорость +15%
+        <translation type="vanished">Легкий, пулеустойчивый и компактный. Жилет разведчика обеспечивает высокую скорость солдата, сохраняя защиту на уровне Легкого жилета. Общая защита -10% Скорость +15%
 
 
 Пожалуйста, выберите срок, на который хотите приобрести предмет:</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1631_DESCRIPTION_SHORT</source>
-        <translation>+15% к скорости бега</translation>
+        <translation type="vanished">+15% к скорости бега</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1339_TITLE</source>
-        <translation>Черный электронный ключ</translation>
+        <translation type="vanished">Черный электронный ключ</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1339_DESCRIPTION</source>
-        <translation>Ключ для черного электронного сейфа.
+        <translation type="vanished">Ключ для черного электронного сейфа.
 
 
 Пожалуйста, выберите количество предметов:</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1339_DESCRIPTION_SHORT</source>
-        <translation>Для открытия черного сейфа</translation>
+        <translation type="vanished">Для открытия черного сейфа</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1004_TITLE</source>
-        <translation>Ящик снабжения ИО - Рискованный</translation>
+        <translation type="vanished">Ящик снабжения ИО - Рискованный</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1004_DESCRIPTION</source>
-        <translation>Этот рискованный ящик снабжения может потенциально содержать очень большое количество ИО (1,000 - 2,000,000 ИО).
+        <translation type="vanished">Этот рискованный ящик снабжения может потенциально содержать очень большое количество ИО (1,000 - 2,000,000 ИО).
 
 
 Пожалуйста, выберите количество предметов:</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1004_DESCRIPTION_SHORT</source>
-        <translation>Шанс получить до 2 млн. ИО</translation>
+        <translation type="vanished">Шанс получить до 2 млн. ИО</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_4125_TITLE</source>
-        <translation>Ящик снабжения ИО - Экстрим</translation>
+        <translation type="vanished">Ящик снабжения ИО - Экстрим</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_4125_DESCRIPTION</source>
-        <translation>Чрезвычайно рискованный ящик припасов с ИО, который может содержать 3,5 или даже 10 миллионов ИО.
+        <translation type="vanished">Чрезвычайно рискованный ящик припасов с ИО, который может содержать 3,5 или даже 10 миллионов ИО.
 
 
 Пожалуйста, выберите количество предметов:</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_4125_DESCRIPTION_SHORT</source>
-        <translation>Шанс получить до 10 млн. ИО</translation>
+        <translation type="vanished">Шанс получить до 10 млн. ИО</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_645_TITLE</source>
-        <translation>M69HE Осколочная-NL</translation>
+        <translation type="vanished">M69HE Осколочная-NL</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_645_DESCRIPTION</source>
-        <translation>Мощная и разрушительная ручная граната. Наносит серьёзные повреждения врагам, оказавшимся в зоне взрыва.
+        <translation type="vanished">Мощная и разрушительная ручная граната. Наносит серьёзные повреждения врагам, оказавшимся в зоне взрыва.
 
 
 Пожалуйста, выберите срок, на который хотите приобрести предмет:</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_645_DESCRIPTION_SHORT</source>
-        <translation>Наносит серьезные повреждения</translation>
+        <translation type="vanished">Наносит серьезные повреждения</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_784_TITLE</source>
-        <translation>М67 Осколочная - связка</translation>
+        <translation type="vanished">М67 Осколочная - связка</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_784_DESCRIPTION</source>
-        <translation>Компактный набор гранат с удобным доступом. Позволяет носить 2 осколочные гранаты М67 в одной ячейке.
+        <translation type="vanished">Компактный набор гранат с удобным доступом. Позволяет носить 2 осколочные гранаты М67 в одной ячейке.
 
 
 Пожалуйста, выберите срок, на который хотите приобрести предмет:</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_784_DESCRIPTION_SHORT</source>
-        <translation>2 гранаты в одной ячейке</translation>
+        <translation type="vanished">2 гранаты в одной ячейке</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1533_TITLE</source>
-        <translation>Бандана циклопа</translation>
+        <translation type="vanished">Бандана циклопа</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1533_DESCRIPTION</source>
-        <translation>Бандана с изображение циклопа, предпочитаемая членами Боевого корпуса. Дает прибавку к скорости +7.
+        <translation type="vanished">Бандана с изображение циклопа, предпочитаемая членами Боевого корпуса. Дает прибавку к скорости +7.
 
 
 Пожалуйста, выберите срок, на который хотите приобрести предмет:</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_1533_DESCRIPTION_SHORT</source>
-        <translation>+7% к скорости бега</translation>
+        <translation type="vanished">+7% к скорости бега</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_375_TITLE</source>
-        <translation>Изменение имени игрока</translation>
+        <translation type="vanished">Изменение имени игрока</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_375_DESCRIPTION</source>
-        <translation>Этот предмет позволяет изменить имя вашего персонажа.
+        <translation type="vanished">Этот предмет позволяет изменить имя вашего персонажа.
 
 
 Пожалуйста, подтвердите покупку предмета, который хотите приобрести:</translation>
     </message>
     <message>
         <source>CA_SHOP_ITEM_375_DESCRIPTION_SHORT</source>
-        <translation>Позволяет изменить имя в игре</translation>
+        <translation type="vanished">Позволяет изменить имя в игре</translation>
     </message>
     <message>
         <source>CA_SHOP_1DAY</source>
-        <translation>1 День</translation>
+        <translation type="vanished">1 День</translation>
     </message>
     <message>
         <source>CA_SHOP_7DAYS</source>
-        <translation>7 дней</translation>
+        <translation type="vanished">7 дней</translation>
     </message>
     <message>
         <source>CA_SHOP_30DAYS</source>
-        <translation>30 дней</translation>
+        <translation type="vanished">30 дней</translation>
     </message>
     <message>
         <source>CA_SHOP_FOREVER</source>
-        <translation>Навсегда</translation>
+        <translation type="vanished">Навсегда</translation>
     </message>
     <message>
         <source>CA_SHOP_1PCS</source>
-        <translation>1 шт.</translation>
+        <translation type="vanished">1 шт.</translation>
     </message>
     <message>
         <source>CA_SHOP_7PCS</source>
-        <translation>7 шт.</translation>
+        <translation type="vanished">7 шт.</translation>
     </message>
     <message>
         <source>CA_SHOP_15PCS</source>
-        <translation>15 шт.</translation>
+        <translation type="vanished">15 шт.</translation>
     </message>
 </context>
 <context>
     <name>ContactItem</name>
     <message>
         <source>CONTACT_NEW_MESSAGE</source>
-        <translation>Новое сообщение</translation>
+        <translation type="vanished">Новое сообщение</translation>
     </message>
     <message>
         <source>CONTACT_ITEM_NICKNAME_TOOLTIP</source>
@@ -1493,7 +1493,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>EMPTY_CONTACT_LIST_FIND_CONTACT</source>
-        <translation>Поиск по моим друзьям GameNet. Пригодится позже</translation>
+        <translation type="vanished">Поиск по моим друзьям GameNet. Пригодится позже</translation>
     </message>
     <message>
         <source>EMPTY_CONTACT_LIST_SYSTEM_NOTIFICATION</source>
@@ -1505,7 +1505,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>EMPTY_CONTACT_LIST_INFO</source>
-        <translation>Все, с кем вы подружитесь в игре, будут добавлены автоматически</translation>
+        <translation type="vanished">Все, с кем вы подружитесь в игре, будут добавлены автоматически</translation>
     </message>
     <message>
         <source>EMPTY_CONTACT_LIST_FIND_USER_WEB_SEARCH</source>
@@ -1516,22 +1516,22 @@ Please try again later.</source>
     <name>ExpandCollapseButton</name>
     <message>
         <source>CA_SHOP_EXPAND</source>
-        <translation>Больше</translation>
+        <translation type="vanished">Больше</translation>
     </message>
     <message>
         <source>CA_SHOP_COLLAPSE</source>
-        <translation>Меньше</translation>
+        <translation type="vanished">Меньше</translation>
     </message>
 </context>
 <context>
     <name>FailBlock</name>
     <message>
         <source>BUTTON_OK</source>
-        <translation>OK</translation>
+        <translation type="vanished">OK</translation>
     </message>
     <message>
         <source>RESTORE_PASSWORD_LINK</source>
-        <translation>&lt;a href=&apos;http://www.gamenet.ru/restore/&apos;&gt;&lt;font color=&apos;#d8e5d4&apos;&gt;Напомнить пароль&lt;/font&gt;&lt;/a&gt;</translation>
+        <translation type="vanished">&lt;a href=&apos;http://www.gamenet.ru/restore/&apos;&gt;&lt;font color=&apos;#d8e5d4&apos;&gt;Напомнить пароль&lt;/font&gt;&lt;/a&gt;</translation>
     </message>
 </context>
 <context>
@@ -1542,19 +1542,19 @@ Please try again later.</source>
     </message>
     <message>
         <source>FIRSTLICENSE_GAMEPATH_LABEL</source>
-        <translation>Игра будет установленна в папку</translation>
+        <translation type="vanished">Игра будет установленна в папку</translation>
     </message>
     <message>
         <source>BUTTON_BROWSE</source>
-        <translation>Обзор...</translation>
+        <translation type="vanished">Обзор...</translation>
     </message>
     <message>
         <source>FIRSTLICENSE_LICENSE_CAPTION</source>
-        <translation>Нажимая &quot;Я согласен&quot;, Вы подтверждаете, что согласны с условиями</translation>
+        <translation type="vanished">Нажимая &quot;Я согласен&quot;, Вы подтверждаете, что согласны с условиями</translation>
     </message>
     <message>
         <source>FIRSTLICENSE_GAMENET_LICENSE_CAPTION</source>
-        <translation>Лицензионного соглашения GameNet</translation>
+        <translation type="vanished">Лицензионного соглашения GameNet</translation>
     </message>
     <message>
         <source>FIRSTLICENSE_BROWSE_WINDOW_CAPTION</source>
@@ -1562,15 +1562,15 @@ Please try again later.</source>
     </message>
     <message>
         <source>FIRSTLICENSE_GAME_LICENSE_CAPTION</source>
-        <translation>Лицензионного соглашения Игры</translation>
+        <translation type="vanished">Лицензионного соглашения Игры</translation>
     </message>
     <message>
         <source>FIRSTLICENSE_ACCEPT_BUTTON_CAPTION</source>
-        <translation>Я согласен &amp;rarr; Играть</translation>
+        <translation type="vanished">Я согласен &amp;rarr; Играть</translation>
     </message>
     <message>
         <source>FIRSTLICENSE_CREATE_SHORTCUTS</source>
-        <translation>Создать ярлык на рабочем столе</translation>
+        <translation type="vanished">Создать ярлык на рабочем столе</translation>
     </message>
     <message>
         <source>FIRSTLICENSE_ACCEPT_BUTTON_CAPTION_SILENT</source>
@@ -1633,7 +1633,7 @@ Please try again later.</source>
     <name>Footer</name>
     <message>
         <source>REGISTER_NEW_USER_LINK</source>
-        <translation>Регистрация нового пользователя</translation>
+        <translation type="vanished">Регистрация нового пользователя</translation>
     </message>
     <message>
         <source>AUTH_FOOTER_ALTERNATIVE_LOGIN</source>
@@ -1644,63 +1644,63 @@ Please try again later.</source>
     <name>Game</name>
     <message>
         <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
-        <translation>Игра запущена</translation>
+        <translation type="vanished">Игра запущена</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_DOWNLOADED_AND_READY_STATE</source>
-        <translation>Игра готова к запуску</translation>
+        <translation type="vanished">Игра готова к запуску</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
-        <translation>Обновление игры: %1 из %2 МБ...</translation>
+        <translation type="vanished">Обновление игры: %1 из %2 МБ...</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
-        <translation>Загрузка игры: %1 из %2 МБ...</translation>
+        <translation type="vanished">Загрузка игры: %1 из %2 МБ...</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_EXTRACTING_NOW_STATE</source>
-        <translation>Извлечение игры: %1 из %2</translation>
+        <translation type="vanished">Извлечение игры: %1 из %2</translation>
     </message>
     <message>
         <source>REWARDS_TOOLTIP</source>
-        <translation>Нажмите, чтобы узнать подробности</translation>
+        <translation type="vanished">Нажмите, чтобы узнать подробности</translation>
     </message>
     <message>
         <source>REWARDS_BUTTON</source>
-        <translation>НАГРАДЫ</translation>
+        <translation type="vanished">НАГРАДЫ</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>
-        <translation>Играть</translation>
+        <translation type="vanished">Играть</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_ON_PAUSE_STATE</source>
-        <translation>Играть</translation>
+        <translation type="vanished">Играть</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
-        <translation>Пауза</translation>
+        <translation type="vanished">Пауза</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_ERROR_STATE</source>
-        <translation>Ошибка</translation>
+        <translation type="vanished">Ошибка</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
-        <translation>Играть</translation>
+        <translation type="vanished">Играть</translation>
     </message>
     <message>
         <source>POPUP_PLAY</source>
-        <translation>Играть</translation>
+        <translation type="vanished">Играть</translation>
     </message>
     <message>
         <source>POPUP_READY_TO_START</source>
-        <translation>Игра готова к запуску!</translation>
+        <translation type="vanished">Игра готова к запуску!</translation>
     </message>
     <message>
         <source>PUBLIC_TEST_TOOLTIP</source>
-        <translation>Вы приняли участие в тестировании новых функций клиента GameNet. Нажмите, чтобы узнать подробности.</translation>
+        <translation type="vanished">Вы приняли участие в тестировании новых функций клиента GameNet. Нажмите, чтобы узнать подробности.</translation>
     </message>
     <message>
         <source>REBORB_ZBT_INVITE_HELPER_TEXT</source>
@@ -1712,7 +1712,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
-        <translation>Подготовка к запуску игры</translation>
+        <translation type="vanished">Подготовка к запуску игры</translation>
     </message>
     <message>
         <source>POPUP_MAINTENANCE_END_AND_READY_TO_START</source>
@@ -1728,19 +1728,19 @@ Please try again later.</source>
     </message>
     <message>
         <source>ADVANCED_ACCOUNT_HINT</source>
-        <translation>РАСШИРЕННЫЙ АККАУНТ</translation>
+        <translation type="vanished">РАСШИРЕННЫЙ АККАУНТ</translation>
     </message>
     <message>
         <source>ADVANCED_ACCOUNT_HINT_IN_DAYS</source>
-        <translation>Осталось %1 д.</translation>
+        <translation type="vanished">Осталось %1 д.</translation>
     </message>
     <message>
         <source>ADVANCED_ACCOUNT_HINT_TODAY</source>
-        <translation>Истекает сегодня</translation>
+        <translation type="vanished">Истекает сегодня</translation>
     </message>
     <message>
         <source>BUY_PREMIUM_BUTTON_TOOLTIP</source>
-        <translation>Приобрести или продлить расширенный аккаунт</translation>
+        <translation type="vanished">Приобрести или продлить расширенный аккаунт</translation>
     </message>
     <message>
         <source>SILENT_DOWNLOADING_POPUP_BUTTON</source>
@@ -1752,7 +1752,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_REHASH_NOW_STATE</source>
-        <translation>Проверка файлов игры %1%</translation>
+        <translation type="vanished">Проверка файлов игры %1%</translation>
     </message>
 </context>
 <context>
@@ -1961,11 +1961,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_TOP_STICK</source>
-        <translation>ТОП ИГРА</translation>
+        <translation type="vanished">ТОП ИГРА</translation>
     </message>
     <message>
         <source>GAME_NEW_STICK</source>
-        <translation>НОВАЯ ИГРА</translation>
+        <translation type="vanished">НОВАЯ ИГРА</translation>
     </message>
 </context>
 <context>
@@ -1976,11 +1976,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_TOP_STICK</source>
-        <translation>ТОП ИГРА</translation>
+        <translation type="vanished">ТОП ИГРА</translation>
     </message>
     <message>
         <source>GAME_NEW_STICK</source>
-        <translation>НОВАЯ ИГРА</translation>
+        <translation type="vanished">НОВАЯ ИГРА</translation>
     </message>
 </context>
 <context>
@@ -2108,7 +2108,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>CONTROLS_TAB</source>
-        <translation>Управление</translation>
+        <translation type="vanished">Управление</translation>
     </message>
     <message>
         <source>RESTORE_CLIENT</source>
@@ -2131,15 +2131,15 @@ Please try again later.</source>
     <name>GamesListModel</name>
     <message>
         <source>LOGO_CA</source>
-        <translation>Динамичный шутер</translation>
+        <translation type="vanished">Динамичный шутер</translation>
     </message>
     <message>
         <source>LOGO_BS</source>
-        <translation>Романтическая ролевая игра</translation>
+        <translation type="vanished">Романтическая ролевая игра</translation>
     </message>
     <message>
         <source>LOGO_GA</source>
-        <translation>Браузерная стратегия</translation>
+        <translation type="vanished">Браузерная стратегия</translation>
     </message>
     <message>
         <source>LOGO_MW2</source>
@@ -2147,15 +2147,15 @@ Please try again later.</source>
     </message>
     <message>
         <source>LOGO_WI</source>
-        <translation>Тактический шутер</translation>
+        <translation type="vanished">Тактический шутер</translation>
     </message>
     <message>
         <source>LOGO_AIKA</source>
-        <translation>Масштабная MMORPG</translation>
+        <translation type="vanished">Масштабная MMORPG</translation>
     </message>
     <message>
         <source>LOGO_ROT</source>
-        <translation>Арена командных боёв</translation>
+        <translation type="vanished">Арена командных боёв</translation>
     </message>
     <message>
         <source>GAME_CA_ABOUT_TEXT</source>
@@ -2187,39 +2187,39 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_CA_MINI_TOOLTIP</source>
-        <translation>Попробуй онлайн-шутер с самым большим выбором оружия и экипировки.</translation>
+        <translation type="vanished">Попробуй онлайн-шутер с самым большим выбором оружия и экипировки.</translation>
     </message>
     <message>
         <source>GAME_BS_MINI_TOOLTIP</source>
-        <translation>Есть красивая онлайн-игра, полная любви и беспощадных межсерверных сражений.</translation>
+        <translation type="vanished">Есть красивая онлайн-игра, полная любви и беспощадных межсерверных сражений.</translation>
     </message>
     <message>
         <source>GAME_GA_MINI_TOOLTIP</source>
-        <translation>Строй и сражайся в глобальной браузерной стратегии в реальном времени.</translation>
+        <translation type="vanished">Строй и сражайся в глобальной браузерной стратегии в реальном времени.</translation>
     </message>
     <message>
         <source>GAME_WI_MINI_TOOLTIP</source>
-        <translation>Попробуй реалистичный тактический шутер с отличной графикой и шикарным арсеналом.</translation>
+        <translation type="vanished">Попробуй реалистичный тактический шутер с отличной графикой и шикарным арсеналом.</translation>
     </message>
     <message>
         <source>GAME_AIKA_MINI_TOOLTIP</source>
-        <translation>Прямо сейчас идёт ожесточенная борьба за превосходство между пятью нациями.</translation>
+        <translation type="vanished">Прямо сейчас идёт ожесточенная борьба за превосходство между пятью нациями.</translation>
     </message>
     <message>
         <source>GAME_ROT_MINI_TOOLTIP</source>
-        <translation>Сражайся на арене командных боёв (MOBA)</translation>
+        <translation type="vanished">Сражайся на арене командных боёв (MOBA)</translation>
     </message>
     <message>
         <source>GAME_CA_MINI_DESC</source>
-        <translation>Динамичный шутер</translation>
+        <translation type="vanished">Динамичный шутер</translation>
     </message>
     <message>
         <source>GAME_BS_MINI_DESC</source>
-        <translation>Романтическая онлайн игра</translation>
+        <translation type="vanished">Романтическая онлайн игра</translation>
     </message>
     <message>
         <source>GAME_GA_MINI_DESC</source>
-        <translation>Браузерная стратегия</translation>
+        <translation type="vanished">Браузерная стратегия</translation>
     </message>
     <message>
         <source>GAME_MW2_MINI_DESC</source>
@@ -2227,19 +2227,19 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_WI_MINI_DESC</source>
-        <translation>Тактический шутер</translation>
+        <translation type="vanished">Тактический шутер</translation>
     </message>
     <message>
         <source>GAME_AIKA_MINI_DESC</source>
-        <translation>Масштабная MMORPG</translation>
+        <translation type="vanished">Масштабная MMORPG</translation>
     </message>
     <message>
         <source>GAME_ROT_MINI_DESC</source>
-        <translation>Арена командных боёв</translation>
+        <translation type="vanished">Арена командных боёв</translation>
     </message>
     <message>
         <source>LOGO_FJ</source>
-        <translation>Симулятор фермы</translation>
+        <translation type="vanished">Симулятор фермы</translation>
     </message>
     <message>
         <source>GAME_FJ_ABOUT_TEXT</source>
@@ -2247,15 +2247,15 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_FJ_MINI_TOOLTIP</source>
-        <translation>Преврати свое маленькое хозяйство в огромную и прибыльную ферму!</translation>
+        <translation type="vanished">Преврати свое маленькое хозяйство в огромную и прибыльную ферму!</translation>
     </message>
     <message>
         <source>GAME_FJ_MINI_DESC</source>
-        <translation>Симулятор фермы</translation>
+        <translation type="vanished">Симулятор фермы</translation>
     </message>
     <message>
         <source>LOGO_REBORN</source>
-        <translation>Фэнтезийная игра</translation>
+        <translation type="vanished">Фэнтезийная игра</translation>
     </message>
     <message>
         <source>GAME_REBORN_ABOUT_TEXT</source>
@@ -2263,11 +2263,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_REBORN_MINI_TOOLTIP</source>
-        <translation>Окунись в фэнтезийный мир, полный приключений.</translation>
+        <translation type="vanished">Окунись в фэнтезийный мир, полный приключений.</translation>
     </message>
     <message>
         <source>GAME_REBORN_MINI_DESC</source>
-        <translation>Фэнтезийная игра</translation>
+        <translation type="vanished">Фэнтезийная игра</translation>
     </message>
     <message>
         <source>TASK_LIST_ALL_GAMES</source>
@@ -2311,31 +2311,31 @@ Please try again later.</source>
     </message>
     <message>
         <source>LOGO_BD</source>
-        <translation>Революционная MMORPG</translation>
+        <translation type="vanished">Революционная MMORPG</translation>
     </message>
     <message>
         <source>GAME_BD_ABOUT_TEXT</source>
-        <translation>Black Desert —  ролевая игра нового поколения. Вас ждут полностью открытый мир, свободное PvP, реализм и ультрасовременная графика. Испытайте себя на прочность в самой хардкорной игре последних лет!</translation>
+        <translation type="vanished">Black Desert —  ролевая игра нового поколения. Вас ждут полностью открытый мир, свободное PvP, реализм и ультрасовременная графика. Испытайте себя на прочность в самой хардкорной игре последних лет!</translation>
     </message>
     <message>
         <source>GAME_BD_MINI_DESC</source>
-        <translation>Революционная MMORPG</translation>
+        <translation type="vanished">Революционная MMORPG</translation>
     </message>
     <message>
         <source>LOGO_DA</source>
-        <translation>Мифическая игра</translation>
+        <translation type="vanished">Мифическая игра</translation>
     </message>
     <message>
         <source>GAME_DA_ABOUT_TEXT</source>
-        <translation>Dark Age (название в ОБТ — Forsaken World) ― это единственная клиентская онлайн-игра о конфликте бессмертных вампиров и свирепых оборотней, с современной графикой, детально проработанной вселенной и игровой механикой. Кровавое и беспощадное противостояние тёмных сил в огромном мире, полном испытаний и невероятных возможностей, покажет вашу истинную сущность!</translation>
+        <translation type="vanished">Dark Age (название в ОБТ — Forsaken World) ― это единственная клиентская онлайн-игра о конфликте бессмертных вампиров и свирепых оборотней, с современной графикой, детально проработанной вселенной и игровой механикой. Кровавое и беспощадное противостояние тёмных сил в огромном мире, полном испытаний и невероятных возможностей, покажет вашу истинную сущность!</translation>
     </message>
     <message>
         <source>GAME_DA_MINI_TOOLTIP</source>
-        <translation>Онлайн-игра о конфликте бессмертных вампиров и свирепых оборотней.</translation>
+        <translation type="vanished">Онлайн-игра о конфликте бессмертных вампиров и свирепых оборотней.</translation>
     </message>
     <message>
         <source>GAME_DA_MINI_DESC</source>
-        <translation>Мифическая игра</translation>
+        <translation type="vanished">Мифическая игра</translation>
     </message>
 </context>
 <context>
@@ -2588,11 +2588,11 @@ Please try again later.</source>
     <name>Guide</name>
     <message>
         <source>BUTTON_PREV</source>
-        <translation>Предыдущий</translation>
+        <translation type="vanished">Предыдущий</translation>
     </message>
     <message>
         <source>BUTTON_NEXT</source>
-        <translation>Следующий</translation>
+        <translation type="vanished">Следующий</translation>
     </message>
     <message>
         <source>TEXT_CURRENT_FROM_MAX</source>
@@ -2600,19 +2600,19 @@ Please try again later.</source>
     </message>
     <message>
         <source>BUTTON_DISABLE_SOUND</source>
-        <translation>Выключить звук</translation>
+        <translation type="vanished">Выключить звук</translation>
     </message>
     <message>
         <source>BUTTON_ENABLE_SOUND</source>
-        <translation>Включить звук</translation>
+        <translation type="vanished">Включить звук</translation>
     </message>
     <message>
         <source>GUIDE_WELLCOME</source>
-        <translation>Вы можете узнать больше о приложении GameNet всего за 40 секунд</translation>
+        <translation type="vanished">Вы можете узнать больше о приложении GameNet всего за 40 секунд</translation>
     </message>
     <message>
         <source>GUIDE_BUTTON_OK</source>
-        <translation>Ок</translation>
+        <translation type="vanished">Ок</translation>
     </message>
     <message>
         <source>GUIDE_BUTTON_LATER</source>
@@ -2620,7 +2620,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GUIDE_BUTTON_REFUSE</source>
-        <translation>Мне не интересно</translation>
+        <translation type="vanished">Мне не интересно</translation>
     </message>
     <message>
         <source>GUIDE_2</source>
@@ -2656,7 +2656,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>BUTTON_CLOSE_GUIDE</source>
-        <translation>Закрыть</translation>
+        <translation type="vanished">Закрыть</translation>
     </message>
 </context>
 <context>
@@ -2667,7 +2667,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>ALL_GAMES</source>
-        <translation>Все игры</translation>
+        <translation type="vanished">Все игры</translation>
     </message>
     <message>
         <source>HEADER_BUTTON_MY_GAMES</source>
@@ -2726,22 +2726,22 @@ Please try again later.</source>
     <name>Home</name>
     <message>
         <source>FREE_OF_CHARGE</source>
-        <translation>Бесплатно</translation>
+        <translation type="vanished">Бесплатно</translation>
     </message>
     <message>
         <source>ALL_GAMES</source>
-        <translation>Все игры</translation>
+        <translation type="vanished">Все игры</translation>
     </message>
 </context>
 <context>
     <name>HomeItem</name>
     <message>
         <source>TO_PLAY</source>
-        <translation>ИГРАТЬ</translation>
+        <translation type="vanished">ИГРАТЬ</translation>
     </message>
     <message>
         <source>DETAILS</source>
-        <translation>ПОДРОБНЕЙ</translation>
+        <translation type="vanished">ПОДРОБНЕЙ</translation>
     </message>
 </context>
 <context>
@@ -2760,35 +2760,35 @@ Please try again later.</source>
     </message>
     <message>
         <source>ACCOUNT_WIDGET_HEAD_LABEL</source>
-        <translation>Есть аккаунт</translation>
+        <translation type="vanished">Есть аккаунт</translation>
     </message>
     <message>
         <source>ACCOUNT_WIDGET_HEAD_DESC</source>
-        <translation>Используйте единый&lt;br&gt;аккаунт GameNet</translation>
+        <translation type="vanished">Используйте единый&lt;br&gt;аккаунт GameNet</translation>
     </message>
     <message>
         <source>AUTH_LOGIN_BUTTON</source>
-        <translation>Войти</translation>
+        <translation type="vanished">Войти</translation>
     </message>
     <message>
         <source>AUTH_WIDGET_HEAD_LABEL</source>
-        <translation>С помощью ВКонтакте</translation>
+        <translation type="vanished">С помощью ВКонтакте</translation>
     </message>
     <message>
         <source>AUTH_WIDGET_HEAD_DESC</source>
-        <translation>Используйте свой аккаунт&lt;br&gt;ВКонтакте для входа</translation>
+        <translation type="vanished">Используйте свой аккаунт&lt;br&gt;ВКонтакте для входа</translation>
     </message>
     <message>
         <source>NEW_WIDGET_HEAD_LABEL</source>
-        <translation>Новый пользователь</translation>
+        <translation type="vanished">Новый пользователь</translation>
     </message>
     <message>
         <source>NEW_WIDGET_HEAD_DESC</source>
-        <translation>Получи больше&lt;br&gt;возможностей, рейтинги,&lt;br&gt; общение, награды,&lt;br&gt;подарки</translation>
+        <translation type="vanished">Получи больше&lt;br&gt;возможностей, рейтинги,&lt;br&gt; общение, награды,&lt;br&gt;подарки</translation>
     </message>
     <message>
         <source>REGISTRATION_BUTTON</source>
-        <translation>Регистрация</translation>
+        <translation type="vanished">Регистрация</translation>
     </message>
 </context>
 <context>
@@ -2810,25 +2810,25 @@ Please try again later.</source>
     <name>Input</name>
     <message>
         <source>Login</source>
-        <translation>Логин</translation>
+        <translation type="vanished">Логин</translation>
     </message>
     <message>
         <source>ENABLED_CAPSLOCK_TIPS</source>
-        <translation>Включен &quot;Caps Lock&quot;</translation>
+        <translation type="vanished">Включен &quot;Caps Lock&quot;</translation>
     </message>
 </context>
 <context>
     <name>ItemDelegate</name>
     <message>
         <source>CA_SHOP_ITEMS_BUY</source>
-        <translation>КУПИТЬ</translation>
+        <translation type="vanished">КУПИТЬ</translation>
     </message>
 </context>
 <context>
     <name>ItemsView</name>
     <message>
         <source>CA_SHOP_ITEMS_TITLE</source>
-        <translation>ТОП ПРЕДМЕТОВ</translation>
+        <translation type="vanished">ТОП ПРЕДМЕТОВ</translation>
     </message>
 </context>
 <context>
@@ -2843,31 +2843,31 @@ Please try again later.</source>
     </message>
     <message>
         <source>CHECKBOX_I_AGREE</source>
-        <translation>Нажимая &quot;Установить&quot;, Вы подтверждаете, что согласны с условиями &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#CCCCCC&quot;&gt;лицензионного соглашения игры&lt;/font&gt;&lt;/a&gt;</translation>
+        <translation type="vanished">Нажимая &quot;Установить&quot;, Вы подтверждаете, что согласны с условиями &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#CCCCCC&quot;&gt;лицензионного соглашения игры&lt;/font&gt;&lt;/a&gt;</translation>
     </message>
     <message>
         <source>LABEL_GAME_INSTALLATION_PATH_INPUT</source>
-        <translation>Игра будет установленна в папку</translation>
+        <translation type="vanished">Игра будет установленна в папку</translation>
     </message>
     <message>
         <source>BUTTON_BROWSE</source>
-        <translation>Обзор...</translation>
+        <translation type="vanished">Обзор...</translation>
     </message>
     <message>
         <source>CHECKBOX_CREATE_SHORTCUT_ON_DESKTOP</source>
-        <translation>Создать ярлык на рабочем столе</translation>
+        <translation type="vanished">Создать ярлык на рабочем столе</translation>
     </message>
     <message>
         <source>CHECKBOX_CREATE_SHORTCUT_IN_START_MENU</source>
-        <translation>Создать ярлык в меню Пуск</translation>
+        <translation type="vanished">Создать ярлык в меню Пуск</translation>
     </message>
     <message>
         <source>BUTTON_NEXT</source>
-        <translation>Установить</translation>
+        <translation type="vanished">Установить</translation>
     </message>
     <message>
         <source>BUTTON_CANCEL</source>
-        <translation>Отмена</translation>
+        <translation type="vanished">Отмена</translation>
     </message>
 </context>
 <context>
@@ -2887,11 +2887,11 @@ Please try again later.</source>
     <message>
         <source>TEXT_VERSION</source>
         <translatorcomment>%1 - номер версии приложения</translatorcomment>
-        <translation>Версия %1</translation>
+        <translation type="vanished">Версия %1</translation>
     </message>
     <message>
         <source>TEXT_STARTING_APPLICATION</source>
-        <translation>Запуск GameNet</translation>
+        <translation type="vanished">Запуск GameNet</translation>
     </message>
     <message>
         <source>TECHNICAL_PROBLEM_INFO</source>
@@ -2903,7 +2903,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>TEXT_INITIALIZATION</source>
-        <translation>Инициализация...</translation>
+        <translation type="vanished">Инициализация...</translation>
     </message>
     <message>
         <source>TEXT_RETRY_UPDATE_CHECK</source>
@@ -2969,23 +2969,23 @@ Please try again later.</source>
     <name>LoginForm</name>
     <message>
         <source>PLACEHOLDER_LOGIN_INPUT</source>
-        <translation>Почта</translation>
+        <translation type="vanished">Почта</translation>
     </message>
     <message>
         <source>PLACEHOLDER_PASSWORD_INPUT</source>
-        <translation>Пароль</translation>
+        <translation type="vanished">Пароль</translation>
     </message>
     <message>
         <source>CHECKBOX_REMEMBER_ME</source>
-        <translation>Запомнить меня</translation>
+        <translation type="vanished">Запомнить меня</translation>
     </message>
     <message>
         <source>AUTH_LOGIN_BUTTON</source>
-        <translation>Войти</translation>
+        <translation type="vanished">Войти</translation>
     </message>
     <message>
         <source>AUTH_CANCEL_BUTTON</source>
-        <translation>Отмена</translation>
+        <translation type="vanished">Отмена</translation>
     </message>
 </context>
 <context>
@@ -3047,35 +3047,35 @@ Please try again later.</source>
     <name>Maintenance</name>
     <message>
         <source>MAINTENANCE_FIRST_TITLE</source>
-        <translation>Технические работы</translation>
+        <translation type="vanished">Технические работы</translation>
     </message>
     <message>
         <source>MAINTENANCE_TIME_TITLE</source>
-        <translation>Завершение через:</translation>
+        <translation type="vanished">Завершение через:</translation>
     </message>
     <message>
         <source>STATUS_TEXT_MAINTENANCE_GREATE_HOUR</source>
-        <translation>%1 ч %2 мин %3 сек</translation>
+        <translation type="vanished">%1 ч %2 мин %3 сек</translation>
     </message>
     <message>
         <source>STATUS_TEXT_MAINTENANCE_LESS_HOUR</source>
-        <translation>%2 мин %3 сек</translation>
+        <translation type="vanished">%2 мин %3 сек</translation>
     </message>
     <message>
         <source>MAINTENANCE_SECOND_TITLE</source>
-        <translation>Чем заняться?</translation>
+        <translation type="vanished">Чем заняться?</translation>
     </message>
     <message>
         <source>MAINTENANCE_ADV_TITLE</source>
-        <translation>Пока мы делаем игру еще лучше, попробуйте другие игры, в которые обычно играют пользователи %1</translation>
+        <translation type="vanished">Пока мы делаем игру еще лучше, попробуйте другие игры, в которые обычно играют пользователи %1</translation>
     </message>
     <message>
         <source>POPUP_PLAY</source>
-        <translation>Играть</translation>
+        <translation type="vanished">Играть</translation>
     </message>
     <message>
         <source>POPUP_MAINTENANCE_END_AND_READY_TO_START</source>
-        <translation>Технические работы завершены</translation>
+        <translation type="vanished">Технические работы завершены</translation>
     </message>
     <message>
         <source>MAINTENANCE_LABEL</source>
@@ -3253,7 +3253,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>MESSENGER_HISTORY_ACTION_TITLE</source>
-        <translation>История собщений</translation>
+        <translation type="vanished">История собщений</translation>
     </message>
     <message>
         <source>HISTORY_DONT_SAVE</source>
@@ -3315,87 +3315,87 @@ Please try again later.</source>
     </message>
     <message>
         <source>TAB_NEWS</source>
-        <translation>НОВОСТИ</translation>
+        <translation type="vanished">НОВОСТИ</translation>
     </message>
     <message>
         <source>TAB_FORUM</source>
-        <translation>ФОРУМ</translation>
+        <translation type="vanished">ФОРУМ</translation>
     </message>
     <message>
         <source>TAB_NEWS_ABOUT_GAME</source>
-        <translation>ОБ ИГРЕ</translation>
+        <translation type="vanished">ОБ ИГРЕ</translation>
     </message>
     <message>
         <source>TAB_BLOG</source>
-        <translation>БЛОГ</translation>
+        <translation type="vanished">БЛОГ</translation>
     </message>
     <message>
         <source>SUPPORT_ICON_BUTTON</source>
-        <translation>ПОМОЩЬ</translation>
+        <translation type="vanished">ПОМОЩЬ</translation>
     </message>
     <message>
         <source>JANUARY</source>
-        <translation>января</translation>
+        <translation type="vanished">января</translation>
     </message>
     <message>
         <source>FEBRUARY</source>
-        <translation>февраля</translation>
+        <translation type="vanished">февраля</translation>
     </message>
     <message>
         <source>MARCH</source>
-        <translation>марта</translation>
+        <translation type="vanished">марта</translation>
     </message>
     <message>
         <source>APRIL</source>
-        <translation>апреля</translation>
+        <translation type="vanished">апреля</translation>
     </message>
     <message>
         <source>MAY</source>
-        <translation>мая</translation>
+        <translation type="vanished">мая</translation>
     </message>
     <message>
         <source>JUNE</source>
-        <translation>июня</translation>
+        <translation type="vanished">июня</translation>
     </message>
     <message>
         <source>JULY</source>
-        <translation>июля</translation>
+        <translation type="vanished">июля</translation>
     </message>
     <message>
         <source>AUGUST</source>
-        <translation>августа</translation>
+        <translation type="vanished">августа</translation>
     </message>
     <message>
         <source>SEPTEMBER</source>
-        <translation>сентября</translation>
+        <translation type="vanished">сентября</translation>
     </message>
     <message>
         <source>OCTOBER</source>
-        <translation>октября</translation>
+        <translation type="vanished">октября</translation>
     </message>
     <message>
         <source>NOVEMBER</source>
-        <translation>ноября</translation>
+        <translation type="vanished">ноября</translation>
     </message>
     <message>
         <source>DECEMBER</source>
-        <translation>декабря</translation>
+        <translation type="vanished">декабря</translation>
     </message>
     <message>
         <source>MENU_ITEM_SETTINGS</source>
-        <translation>НАСТРОЙКА</translation>
+        <translation type="vanished">НАСТРОЙКА</translation>
     </message>
     <message>
         <source>ALL_NEWS</source>
-        <translation>Все новости</translation>
+        <translation type="vanished">Все новости</translation>
     </message>
     <message>
         <source>MORE_ABOUT_GAME</source>
-        <translation>Подробнее об игре</translation>
+        <translation type="vanished">Подробнее об игре</translation>
     </message>
     <message>
         <source>TAB_RATING</source>
-        <translation>РЕЙТИНГ</translation>
+        <translation type="vanished">РЕЙТИНГ</translation>
     </message>
 </context>
 <context>
@@ -3409,11 +3409,11 @@ Please try again later.</source>
     <name>NickNameEditModel</name>
     <message>
         <source>VALIDATE_NICK_NAME_DEFAULT_ERROR</source>
-        <translation>GameNet недоступен, невозможно проверить никнейм. Проверьте подключение к интернет или попробуйте ещё раз позже.</translation>
+        <translation type="vanished">GameNet недоступен, невозможно проверить никнейм. Проверьте подключение к интернет или попробуйте ещё раз позже.</translation>
     </message>
     <message>
         <source>VALIDATE_TECH_NAME_DEFAULT_ERROR</source>
-        <translation>GameNet недоступен, невозможно проверить ссылку.</translation>
+        <translation type="vanished">GameNet недоступен, невозможно проверить ссылку.</translation>
     </message>
 </context>
 <context>
@@ -3456,31 +3456,31 @@ Please try again later.</source>
     </message>
     <message>
         <source>ACCOUNT_DEPOSIT</source>
-        <translation>ПОПОЛНИТЬ СЧЁТ</translation>
+        <translation type="vanished">ПОПОЛНИТЬ СЧЁТ</translation>
     </message>
     <message>
         <source>LOGOUT_TOOLTIP</source>
-        <translation>Выйти</translation>
+        <translation type="vanished">Выйти</translation>
     </message>
     <message>
         <source>LEVEL_AVATAR_TOOLTIP</source>
-        <translation>Ваш аватар и уровень</translation>
+        <translation type="vanished">Ваш аватар и уровень</translation>
     </message>
     <message>
         <source>PREMIUM_TOOLTIP</source>
-        <translation>Расширенный аккаунт</translation>
+        <translation type="vanished">Расширенный аккаунт</translation>
     </message>
     <message>
         <source>PREMIUM_NO_TOOLTIP</source>
-        <translation>Обычный аккаунт</translation>
+        <translation type="vanished">Обычный аккаунт</translation>
     </message>
     <message>
         <source>NICKNAME_TOOLTIP</source>
-        <translation>Никнейм</translation>
+        <translation type="vanished">Никнейм</translation>
     </message>
     <message>
         <source>MONEY_TOOLTIP</source>
-        <translation>GameNet монеты</translation>
+        <translation type="vanished">GameNet монеты</translation>
     </message>
 </context>
 <context>
@@ -3555,7 +3555,7 @@ Please try again later.</source>
     <name>NotificationPage</name>
     <message>
         <source>CHECKBOX_NOTIFICATION_MAINTENANCE_END</source>
-        <translation>Оповещать об окончании технических работ</translation>
+        <translation type="vanished">Оповещать об окончании технических работ</translation>
     </message>
 </context>
 <context>
@@ -3573,7 +3573,7 @@ Please try again later.</source>
     <name>Password</name>
     <message>
         <source>password</source>
-        <translation>пароль</translation>
+        <translation type="vanished">пароль</translation>
     </message>
 </context>
 <context>
@@ -3587,22 +3587,22 @@ Please try again later.</source>
     <name>Ping</name>
     <message>
         <source>HEADER_TITLE</source>
-        <translation>Устанавливается соединение с GameNet</translation>
+        <translation type="vanished">Устанавливается соединение с GameNet</translation>
     </message>
     <message>
         <source>MESSAGE_GAMENET_UNAVAILABLE</source>
-        <translation>В настоящий момент сервисы GameNet недоступны. Мы работаем над скорейшим устранением этой проблемы.</translation>
+        <translation type="vanished">В настоящий момент сервисы GameNet недоступны. Мы работаем над скорейшим устранением этой проблемы.</translation>
     </message>
     <message>
         <source>MESSAGE_INTERNET_UNAVAILABLE</source>
-        <translation>В настоящий момент сервисы GameNet недоступны. Вероятно по нашей вине, но, возможно, это ваше интернет-соединение. Пожалуйста, на всякий случай проверьте ваше соединение.</translation>
+        <translation type="vanished">В настоящий момент сервисы GameNet недоступны. Вероятно по нашей вине, но, возможно, это ваше интернет-соединение. Пожалуйста, на всякий случай проверьте ваше соединение.</translation>
     </message>
 </context>
 <context>
     <name>PlainContacts</name>
     <message>
         <source>WITHOUT_GROUP_NAME</source>
-        <translation>Без группы</translation>
+        <translation type="vanished">Без группы</translation>
     </message>
 </context>
 <context>
@@ -3623,7 +3623,7 @@ Please try again later.</source>
     <name>Premium</name>
     <message>
         <source>ADWANCED_ACCOUNT_HINT</source>
-        <translation>РАСШИРЕННЫЙ АККАУНТ</translation>
+        <translation type="vanished">РАСШИРЕННЫЙ АККАУНТ</translation>
     </message>
 </context>
 <context>
@@ -3779,7 +3779,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>DOWNLOAD_INFO_CAPTION</source>
-        <translation>Сведения о подключении</translation>
+        <translation type="vanished">Сведения о подключении</translation>
     </message>
     <message>
         <source>DOWNLOAD_PEER_DIRECT_TOTAL %1</source>
@@ -3931,35 +3931,35 @@ Please try again later.</source>
     <name>PurchaseDetails</name>
     <message>
         <source>CA_SHOP_DETAILS_TITLE</source>
-        <translation>Подтверждение покупки</translation>
+        <translation type="vanished">Подтверждение покупки</translation>
     </message>
     <message>
         <source>CA_SHOP_DETAILS_ERROR_INSUFFICIENT_GN</source>
-        <translation>У вас недостаточно GN-монет. &lt;a href=&quot;http://www.gamenet.ru/money&quot;&gt;Пополнить счет&lt;/a&gt;</translation>
+        <translation type="vanished">У вас недостаточно GN-монет. &lt;a href=&quot;http://www.gamenet.ru/money&quot;&gt;Пополнить счет&lt;/a&gt;</translation>
     </message>
     <message>
         <source>CA_SHOP_DETAILS_ERROR_UNKNOWN</source>
-        <translation>Произошла ошибка в процессе покупки. Пожалуйста, попробуйте позже.</translation>
+        <translation type="vanished">Произошла ошибка в процессе покупки. Пожалуйста, попробуйте позже.</translation>
     </message>
     <message>
         <source>CA_SHOP_DETAILS_ERROR_NO_CHAR</source>
-        <translation>Мы не нашли вашего персонажа Combat Arms. Вы пока не можете покупать предметы.</translation>
+        <translation type="vanished">Мы не нашли вашего персонажа Combat Arms. Вы пока не можете покупать предметы.</translation>
     </message>
     <message>
         <source>CA_SHOP_DETAILS_CONFIRM</source>
-        <translation>Подтвердить покупку</translation>
+        <translation type="vanished">Подтвердить покупку</translation>
     </message>
     <message>
         <source>CA_SHOP_DETAILS_CANCEL</source>
-        <translation>Отмена</translation>
+        <translation type="vanished">Отмена</translation>
     </message>
     <message>
         <source>CA_SHOP_DETAILS_CLOSE</source>
-        <translation>Закрыть</translation>
+        <translation type="vanished">Закрыть</translation>
     </message>
     <message>
         <source>CA_SHOP_DETAILS_PURCHASE_SUCCESS</source>
-        <translation>Вы успешно купили предмет %1, он добавлен во входящие. Если у Вас запущена игра, поменяйте сервер для отображения покупки.</translation>
+        <translation type="vanished">Вы успешно купили предмет %1, он добавлен во входящие. Если у Вас запущена игра, поменяйте сервер для отображения покупки.</translation>
     </message>
 </context>
 <context>
@@ -3985,131 +3985,131 @@ Please try again later.</source>
     <name>Registration</name>
     <message>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
-        <translation>GameNet недоступен. Попробуйте авторизоваться позже.</translation>
+        <translation type="vanished">GameNet недоступен. Попробуйте авторизоваться позже.</translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
-        <translation>Неправильный формат электронной почты. Проверьте правильность ввода.</translation>
+        <translation type="vanished">Неправильный формат электронной почты. Проверьте правильность ввода.</translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_WRONG</source>
-        <translation>Неправильный логин или пароль</translation>
+        <translation type="vanished">Неправильный логин или пароль</translation>
     </message>
     <message>
         <source>LINK_GUEST_UNKNOWN_ERROR</source>
-        <translation>Не удалось зарегистрировать вашу учётную запись. Попробуйте ещё раз позже.</translation>
+        <translation type="vanished">Не удалось зарегистрировать вашу учётную запись. Попробуйте ещё раз позже.</translation>
     </message>
     <message>
         <source>GUEST_VK_LINK_UNKNOWN_ERROR</source>
-        <translation>Не удалось зарегистрировать вас как пользователя Вконтакте. Попробуйте ещё раз позже  или воспользуйтесь регистрацией с помощью логина и пароля.</translation>
+        <translation type="vanished">Не удалось зарегистрировать вас как пользователя Вконтакте. Попробуйте ещё раз позже  или воспользуйтесь регистрацией с помощью логина и пароля.</translation>
     </message>
     <message>
         <source>VK_LOGIN_BUTTON_TEXT</source>
-        <translation>Войти ВКонтакте</translation>
+        <translation type="vanished">Войти ВКонтакте</translation>
     </message>
     <message>
         <source>AUTH_GUEST_REGISTER_MESSAGE</source>
-        <translation>Для использования всех&lt;br&gt;функций GameNet вам&lt;br&gt;необходимо&lt;br&gt;зарегистрироваться, весь&lt;br&gt;прогресс под гостевой&lt;br&gt;учетной записью в играх будет&lt;br&gt;сохранен.</translation>
+        <translation type="vanished">Для использования всех&lt;br&gt;функций GameNet вам&lt;br&gt;необходимо&lt;br&gt;зарегистрироваться, весь&lt;br&gt;прогресс под гостевой&lt;br&gt;учетной записью в играх будет&lt;br&gt;сохранен.</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_NORMAL_MESSAGE_DESC</source>
-        <translation>Заполните поля и нажмите&lt;br&gt;зарегистрироваться&lt;br&gt;или воспользуйтесь аккаунтом&lt;br&gt;ВКонтакте</translation>
+        <translation type="vanished">Заполните поля и нажмите&lt;br&gt;зарегистрироваться&lt;br&gt;или воспользуйтесь аккаунтом&lt;br&gt;ВКонтакте</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_LOGIN_LABEL</source>
-        <translation>Почта</translation>
+        <translation type="vanished">Почта</translation>
     </message>
     <message>
         <source>PLACEHOLDER_LOGIN_INPUT</source>
-        <translation>Почта</translation>
+        <translation type="vanished">Почта</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_LOGIN_CAPTION</source>
-        <translation>не будет отображаться на сайте</translation>
+        <translation type="vanished">не будет отображаться на сайте</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_PASSWORD_LABEL</source>
-        <translation>Пароль</translation>
+        <translation type="vanished">Пароль</translation>
     </message>
     <message>
         <source>PLACEHOLDER_PASSWORD_INPUT</source>
-        <translation>Пароль</translation>
+        <translation type="vanished">Пароль</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_PASSWORD_CAPTION</source>
-        <translation>от 6 до 32 символов</translation>
+        <translation type="vanished">от 6 до 32 символов</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_LICENSE_MESSAGE</source>
-        <translation>Фактом регистрации вы соглашаетесь &lt;br/&gt;с условиями &lt;a href=&apos;http://www.gamenet.ru/license&apos;&gt;&lt;font color=&apos;#b9d3b3&apos;&gt;пользовательского соглашения&lt;/font&gt;&lt;/a&gt;.</translation>
+        <translation type="vanished">Фактом регистрации вы соглашаетесь &lt;br/&gt;с условиями &lt;a href=&apos;http://www.gamenet.ru/license&apos;&gt;&lt;font color=&apos;#b9d3b3&apos;&gt;пользовательского соглашения&lt;/font&gt;&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>AUTH_START_REGISTER_BUTTON</source>
-        <translation>Зарегистрироваться</translation>
+        <translation type="vanished">Зарегистрироваться</translation>
     </message>
     <message>
         <source>AUTH_CANCEL_REGISTER_BUTTON</source>
-        <translation>Отмена</translation>
+        <translation type="vanished">Отмена</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_TITLE</source>
-        <translation>Регистрация нового пользователя</translation>
+        <translation type="vanished">Регистрация нового пользователя</translation>
     </message>
     <message>
         <source>AUTH_LEFT_BUTTON</source>
-        <translation>Вход</translation>
+        <translation type="vanished">Вход</translation>
     </message>
     <message>
         <source>AUTH_NORMAL_REGISTER_MESSAGE</source>
-        <translation>Учетная запись GameNet может быть использована для авторизации во всех проектах и приложениях GameNet, в том числе на сайте &lt;a href=&apos;http://www.gamenet.ru&apos;&gt;&lt;font color=&apos;#ffffff&apos;&gt;www.gamenet.ru&lt;/font&gt;&lt;/a&gt;.</translation>
+        <translation type="vanished">Учетная запись GameNet может быть использована для авторизации во всех проектах и приложениях GameNet, в том числе на сайте &lt;a href=&apos;http://www.gamenet.ru&apos;&gt;&lt;font color=&apos;#ffffff&apos;&gt;www.gamenet.ru&lt;/font&gt;&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_TITLE_GUEST_LOGOUT</source>
-        <translation>Сохраните свои достижения в играх!</translation>
+        <translation type="vanished">Сохраните свои достижения в играх!</translation>
     </message>
     <message>
         <source>AUTH_LEFT_BUTTON_GUEST_LOGOUT</source>
-        <translation>Выход</translation>
+        <translation type="vanished">Выход</translation>
     </message>
     <message>
         <source>AUTH_GUEST_LOGOUT_REGISTER_MESSAGE</source>
-        <translation>Выйдя из гостевой учётной записи вы потеряете весь прогресс в играх, зарегистрируйтесь и мы перенесем весь прогресс на вашу новую учётную запись.</translation>
+        <translation type="vanished">Выйдя из гостевой учётной записи вы потеряете весь прогресс в играх, зарегистрируйтесь и мы перенесем весь прогресс на вашу новую учётную запись.</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_TITLE_GUEST_EXPIRED</source>
-        <translation>Повысьте безопасность вашего аккаунта</translation>
+        <translation type="vanished">Повысьте безопасность вашего аккаунта</translation>
     </message>
     <message>
         <source>AUTH_LEFT_BUTTON_GUEST_EXPIRED</source>
-        <translation>Отмена</translation>
+        <translation type="vanished">Отмена</translation>
     </message>
     <message>
         <source>AUTH_GUEST_EXPIRED_REGISTER_MESSAGE</source>
-        <translation>Чтобы продолжать играть вам необходимо зарегистрироваться. Весь прогресс в играх будет сохранен.</translation>
+        <translation type="vanished">Чтобы продолжать играть вам необходимо зарегистрироваться. Весь прогресс в играх будет сохранен.</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_TITLE_GUEST_OPEN_URL</source>
-        <translation>Повысьте безопасность вашего аккаунта</translation>
+        <translation type="vanished">Повысьте безопасность вашего аккаунта</translation>
     </message>
     <message>
         <source>AUTH_LEFT_BUTTON_GUEST_OPEN_URL</source>
-        <translation>Позже</translation>
+        <translation type="vanished">Позже</translation>
     </message>
     <message>
         <source>AUTH_GUEST_OPEN_URL_REGISTER_MESSAGE</source>
-        <translation>Для использования всех функций GameNet вам необходимо зарегистрироваться, весь прогресс под гостевой учётной записью в играх будет сохранён.</translation>
+        <translation type="vanished">Для использования всех функций GameNet вам необходимо зарегистрироваться, весь прогресс под гостевой учётной записью в играх будет сохранён.</translation>
     </message>
     <message>
         <source>AUTH_REGISTER_TITLE_GUEST_REQUEST_CONFIGRM</source>
-        <translation>Завершение регистрации</translation>
+        <translation type="vanished">Завершение регистрации</translation>
     </message>
     <message>
         <source>AUTH_LEFT_BUTTON_GUEST_REQUEST_CONFIGRM</source>
-        <translation>Позже</translation>
+        <translation type="vanished">Позже</translation>
     </message>
     <message>
         <source>AUTH_GUEST_REQUEST_CONFIGRM_REGISTER_MESSAGE</source>
-        <translation>Для использования всех функций GameNet вам необходимо зарегистрироваться, весь прогресс под гостевой учётной записью в играх будет сохранён.</translation>
+        <translation type="vanished">Для использования всех функций GameNet вам необходимо зарегистрироваться, весь прогресс под гостевой учётной записью в играх будет сохранён.</translation>
     </message>
 </context>
 <context>
@@ -4168,58 +4168,58 @@ Please try again later.</source>
     </message>
     <message>
         <source>REGISTER_FAIL_LOGIN_TOO_LONG</source>
-        <translation type="unfinished"></translation>
+        <translation>Длина адреса электронной почты не должна превышать 254 символов.</translation>
     </message>
 </context>
 <context>
     <name>RoatateNews</name>
     <message>
         <source>JANUARY</source>
-        <translation>января</translation>
+        <translation type="vanished">января</translation>
     </message>
     <message>
         <source>FEBRUARY</source>
-        <translation>февраля</translation>
+        <translation type="vanished">февраля</translation>
     </message>
     <message>
         <source>MARCH</source>
-        <translation>марта</translation>
+        <translation type="vanished">марта</translation>
     </message>
     <message>
         <source>APRIL</source>
-        <translation>апреля</translation>
+        <translation type="vanished">апреля</translation>
     </message>
     <message>
         <source>MAY</source>
-        <translation>мая</translation>
+        <translation type="vanished">мая</translation>
     </message>
     <message>
         <source>JUNE</source>
-        <translation>июня</translation>
+        <translation type="vanished">июня</translation>
     </message>
     <message>
         <source>JULY</source>
-        <translation>июля</translation>
+        <translation type="vanished">июля</translation>
     </message>
     <message>
         <source>AUGUST</source>
-        <translation>августа</translation>
+        <translation type="vanished">августа</translation>
     </message>
     <message>
         <source>SEPTEMBER</source>
-        <translation>сентября</translation>
+        <translation type="vanished">сентября</translation>
     </message>
     <message>
         <source>OCTOBER</source>
-        <translation>октября</translation>
+        <translation type="vanished">октября</translation>
     </message>
     <message>
         <source>NOVEMBER</source>
-        <translation>ноября</translation>
+        <translation type="vanished">ноября</translation>
     </message>
     <message>
         <source>DECEMBER</source>
-        <translation>декабря</translation>
+        <translation type="vanished">декабря</translation>
     </message>
 </context>
 <context>
@@ -4279,30 +4279,30 @@ Please try again later.</source>
     <name>SecondAuth</name>
     <message>
         <source>AUTH_GUEST_REGISTER_HEADER</source>
-        <translation>Завершение регистрации</translation>
+        <translation type="vanished">Завершение регистрации</translation>
     </message>
     <message>
         <source>AUTH_NORMAL_REGISTER_HEADER</source>
-        <translation>Регистрация</translation>
+        <translation type="vanished">Регистрация</translation>
     </message>
     <message>
         <source>AUTH_LOGIN_TITLE</source>
-        <translation>Вход</translation>
+        <translation type="vanished">Вход</translation>
     </message>
 </context>
 <context>
     <name>SecondAuthButton</name>
     <message>
         <source>ADD_ACCOUNT_BUTTON_LABEL</source>
-        <translation>Добавить аккаунт</translation>
+        <translation type="vanished">Добавить аккаунт</translation>
     </message>
     <message>
         <source>SECOND_GAME_UNABLE_PLAY_TOOLTIP</source>
-        <translation>Сначала запустите игру под основным аккаунтом</translation>
+        <translation type="vanished">Сначала запустите игру под основным аккаунтом</translation>
     </message>
     <message>
         <source>SECOND_GAME_PLAY_TOOLTIP</source>
-        <translation>Запустить игру под дополнительным аккаунтом</translation>
+        <translation type="vanished">Запустить игру под дополнительным аккаунтом</translation>
     </message>
     <message>
         <source>LOGOUT_TOOLTIP</source>
@@ -4310,30 +4310,30 @@ Please try again later.</source>
     </message>
     <message>
         <source>SECOND_GAME_LOGOUT_TOOLTIP</source>
-        <translation>Выйти</translation>
+        <translation type="vanished">Выйти</translation>
     </message>
 </context>
 <context>
     <name>SelectMw2Server</name>
     <message>
         <source>LABEL_SERVER_NAME</source>
-        <translation>Сервер</translation>
+        <translation type="vanished">Сервер</translation>
     </message>
     <message>
         <source>LABEL_SERVER_STATUS</source>
-        <translation>Статус</translation>
+        <translation type="vanished">Статус</translation>
     </message>
     <message>
         <source>LABEL_CHARS_ON_SERVER</source>
-        <translation>Персонажей</translation>
+        <translation type="vanished">Персонажей</translation>
     </message>
     <message>
         <source>TITLE_CHOOSE_MW2_SERVER</source>
-        <translation>Выберите сервер</translation>
+        <translation type="vanished">Выберите сервер</translation>
     </message>
     <message>
         <source>BUTTON_PLAY</source>
-        <translation>Играть</translation>
+        <translation type="vanished">Играть</translation>
     </message>
 </context>
 <context>
@@ -4491,7 +4491,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>Unlimited</source>
-        <translation>Неограниченно</translation>
+        <translation type="vanished">Неограниченно</translation>
     </message>
     <message>
         <source>100 Mbit/s</source>
@@ -4551,51 +4551,51 @@ Please try again later.</source>
     </message>
     <message>
         <source>LABEL_NUMBER_OF_CONNECTIONS_LIMIT_INPUT</source>
-        <translation>Количество одновременных соединений</translation>
+        <translation type="vanished">Количество одновременных соединений</translation>
     </message>
     <message>
         <source>LABEL_PORT_INPUT</source>
-        <translation>Порт для входящих соединений</translation>
+        <translation type="vanished">Порт для входящих соединений</translation>
     </message>
     <message>
         <source>BUTTON_PORT_AUTOSET</source>
-        <translation>Авто</translation>
+        <translation type="vanished">Авто</translation>
     </message>
     <message>
         <source>LABEL_UPLOAD_SPEED_LIMIT_INPUT</source>
-        <translation>Ограничение скорости отдачи</translation>
+        <translation type="vanished">Ограничение скорости отдачи</translation>
     </message>
     <message>
         <source>LABEL_DOWNLOAD_SPEED_LIMIT_INPUT</source>
-        <translation>Ограничение скорости загрузки</translation>
+        <translation type="vanished">Ограничение скорости загрузки</translation>
     </message>
     <message>
         <source>50 KByte/s</source>
-        <translation>50 КБайт/c</translation>
+        <translation type="vanished">50 КБайт/c</translation>
     </message>
     <message>
         <source>200 KByte/s</source>
-        <translation>200 КБайт/c</translation>
+        <translation type="vanished">200 КБайт/c</translation>
     </message>
     <message>
         <source>500 KByte/s</source>
-        <translation>500 КБайт/c</translation>
+        <translation type="vanished">500 КБайт/c</translation>
     </message>
     <message>
         <source>1000 KByte/s</source>
-        <translation>1000 КБайт/c</translation>
+        <translation type="vanished">1000 КБайт/c</translation>
     </message>
     <message>
         <source>2000 KByte/s</source>
-        <translation>2000 КБайт/c</translation>
+        <translation type="vanished">2000 КБайт/c</translation>
     </message>
     <message>
         <source>5000 KByte/s</source>
-        <translation>5000 КБайт/c</translation>
+        <translation type="vanished">5000 КБайт/c</translation>
     </message>
     <message>
         <source>CHECKBOX_GNA_SEED_ENABLED</source>
-        <translation>Участвовать в раздаче игр</translation>
+        <translation type="vanished">Участвовать в раздаче игр</translation>
     </message>
 </context>
 <context>
@@ -4642,23 +4642,23 @@ Please try again later.</source>
     </message>
     <message>
         <source>LABEL_LANGUAGE_SELECT_DROPDOWN</source>
-        <translation>Язык (требуется перезапуск)</translation>
+        <translation type="vanished">Язык (требуется перезапуск)</translation>
     </message>
     <message>
         <source>CHECKBOX_AUTORUN</source>
-        <translation>Автозапуск GameNet</translation>
+        <translation type="vanished">Автозапуск GameNet</translation>
     </message>
     <message>
         <source>CHECKBOX_AUTORUN_MINIMIZED</source>
-        <translation>Запускать приложение свернутым</translation>
+        <translation type="vanished">Запускать приложение свернутым</translation>
     </message>
     <message>
         <source>CHECKBOX_GNA_TEST_VERSION</source>
-        <translation>Принять участие в тестировании клиента GameNet</translation>
+        <translation type="vanished">Принять участие в тестировании клиента GameNet</translation>
     </message>
     <message>
         <source>CHECKBOX_GNA_TEST_VERSION_TOOLTIP</source>
-        <translation>Поставьте отметку, чтобы участвовать в тестировании новых функций клиента GameNet. Вы можете столкнуться с различными ошибками и недочетами. Если во время использования тестового клиента вы нашли ошибку, пожалуйста, сообщите о ней в нашу службу поддержки.</translation>
+        <translation type="vanished">Поставьте отметку, чтобы участвовать в тестировании новых функций клиента GameNet. Вы можете столкнуться с различными ошибками и недочетами. Если во время использования тестового клиента вы нашли ошибку, пожалуйста, сообщите о ней в нашу службу поддержки.</translation>
     </message>
 </context>
 <context>
@@ -4708,23 +4708,23 @@ Please try again later.</source>
     <name>SettingsPage</name>
     <message>
         <source>TITLE_SETTINGS_SCREEN</source>
-        <translation>Настройки</translation>
+        <translation type="vanished">Настройки</translation>
     </message>
     <message>
         <source>MENU_ITEM_GENERAL</source>
-        <translation>Основные</translation>
+        <translation type="vanished">Основные</translation>
     </message>
     <message>
         <source>MENU_ITEM_DOWNLOAD</source>
-        <translation>Загрузка</translation>
+        <translation type="vanished">Загрузка</translation>
     </message>
     <message>
         <source>MENU_ITEM_NOTIFICATIONS</source>
-        <translation>Уведомления</translation>
+        <translation type="vanished">Уведомления</translation>
     </message>
     <message>
         <source>MENU_GAMES_SECTION_TITLE</source>
-        <translation>Настройки игр</translation>
+        <translation type="vanished">Настройки игр</translation>
     </message>
     <message>
         <source>MENU_ITEM_AIKA</source>
@@ -4752,50 +4752,50 @@ Please try again later.</source>
     </message>
     <message>
         <source>BUTTON_DEFAULT_SETTINGS</source>
-        <translation>Настройки по умолчанию</translation>
+        <translation type="vanished">Настройки по умолчанию</translation>
     </message>
     <message>
         <source>SUBTITLE_FOLDERS_GAME_SETTING</source>
-        <translation>Папки</translation>
+        <translation type="vanished">Папки</translation>
     </message>
     <message>
         <source>LABEL_INSTALL_PATH_INPUT</source>
-        <translation>Путь установки игры</translation>
+        <translation type="vanished">Путь установки игры</translation>
     </message>
     <message>
         <source>BUTTON_SET_PATH</source>
-        <translation>Выбрать</translation>
+        <translation type="vanished">Выбрать</translation>
     </message>
     <message>
         <source>LABEL_DISTR_PATH_INPUT</source>
-        <translation>Путь установки дистрибутивов</translation>
+        <translation type="vanished">Путь установки дистрибутивов</translation>
     </message>
     <message>
         <source>BUTTON_CREATE_DESKTOP_SHORTCUT</source>
-        <translation>Ярлык на рабочем столе</translation>
+        <translation type="vanished">Ярлык на рабочем столе</translation>
     </message>
     <message>
         <source>BUTTON_CREATE_START_MENU_SHORTCUT</source>
-        <translation>Ярлык в меню Пуск</translation>
+        <translation type="vanished">Ярлык в меню Пуск</translation>
     </message>
     <message>
         <source>BUTTON_RESTORE_GAME_CLIENT</source>
-        <translation>Восстановить клиент</translation>
+        <translation type="vanished">Восстановить клиент</translation>
     </message>
     <message>
         <source>ENABLE_OVERLAY_TITLE</source>
-        <translation>Использовать оверлей</translation>
+        <translation type="vanished">Использовать оверлей</translation>
     </message>
 </context>
 <context>
     <name>SilentMode</name>
     <message>
         <source>SILENT_DOWNLOADING_POPUP_BUTTON</source>
-        <translation>OK</translation>
+        <translation type="vanished">OK</translation>
     </message>
     <message>
         <source>SILENT_DOWNLOADING_POPUP_TEXT</source>
-        <translation>Игра устанавливается</translation>
+        <translation type="vanished">Игра устанавливается</translation>
     </message>
     <message>
         <source>FIRSTLICENSE_LICENSE_CAPTION</source>
@@ -4830,7 +4830,7 @@ Please try again later.</source>
     <name>SocialNet</name>
     <message>
         <source>SOCIAL_NET_TEXT</source>
-        <translation>Играешь сам - поделись с друзьями</translation>
+        <translation type="vanished">Играешь сам - поделись с друзьями</translation>
     </message>
 </context>
 <context>
@@ -4863,7 +4863,7 @@ Please try again later.</source>
     <name>Support</name>
     <message>
         <source>SUPPORT_HELP</source>
-        <translation>Служба поддержки пользователей GameNet</translation>
+        <translation type="vanished">Служба поддержки пользователей GameNet</translation>
     </message>
 </context>
 <context>
@@ -4963,26 +4963,26 @@ Please try again later.</source>
     <name>UserInfo</name>
     <message>
         <source>BUTTON_SHOW_LOG_IN_FORM</source>
-        <translation>ВОЙТИ</translation>
+        <translation type="vanished">ВОЙТИ</translation>
     </message>
     <message>
         <source>GUEST_DEFAULT_NICKNAME</source>
-        <translation>Гостевой аккаунт</translation>
+        <translation type="vanished">Гостевой аккаунт</translation>
     </message>
     <message>
         <source>DEFAULT_NICKNAME</source>
-        <translation>Никнейм не выбран</translation>
+        <translation type="vanished">Никнейм не выбран</translation>
     </message>
 </context>
 <context>
     <name>UserProfileView</name>
     <message>
         <source>ADD_MONEY</source>
-        <translation>Пополнить счет</translation>
+        <translation type="vanished">Пополнить счет</translation>
     </message>
     <message>
         <source>EXTENDED_ACCOUNT</source>
-        <translation>Расширенный аккаунт</translation>
+        <translation type="vanished">Расширенный аккаунт</translation>
     </message>
     <message>
         <source>GAMENET_BALANCE</source>
@@ -4994,7 +4994,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>YOUR_GAMENET_LEVEL</source>
-        <translation>Мой уровень GameNet</translation>
+        <translation type="vanished">Мой уровень GameNet</translation>
     </message>
     <message>
         <source>PREMIUM_TOOLTIP</source>
@@ -5002,7 +5002,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>PREMIUM_NO_TOOLTIP</source>
-        <translation>Обычный аккаунт</translation>
+        <translation type="vanished">Обычный аккаунт</translation>
     </message>
     <message>
         <source>ADVANCED_ACCOUNT_HINT_IN_DAYS</source>
@@ -5014,7 +5014,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GN_MONEY</source>
-        <translation>Все игры GameNet бесплатны. За GN-монеты можно приобретать преимущества в игре.</translation>
+        <translation type="vanished">Все игры GameNet бесплатны. За GN-монеты можно приобретать преимущества в игре.</translation>
     </message>
     <message>
         <source>NO_NICKNAME</source>

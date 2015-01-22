@@ -385,12 +385,12 @@
 <context>
     <name>BottomBar</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/BottomBar.qml" line="38"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/BottomBar.qml" line="40"/>
         <source>MESSANGER_BOTTOM_BAR_BUTTON_NOTIFICATION_TOOLTIP</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/BottomBar.qml" line="80"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/BottomBar.qml" line="93"/>
         <source>MESSENGER_PLAYING_GAME_FILTER</source>
         <translation></translation>
     </message>
@@ -872,7 +872,7 @@
 <context>
     <name>GameItem</name>
     <message>
-        <location filename="../Application/Widgets/AllGames/View/Private/GameItem.qml" line="198"/>
+        <location filename="../Application/Widgets/AllGames/View/Private/GameItem.qml" line="201"/>
         <source>START_GAME_BUTTON</source>
         <translation></translation>
     </message>
@@ -880,7 +880,7 @@
 <context>
     <name>GameItemSmall</name>
     <message>
-        <location filename="../Application/Widgets/AllGames/View/Private/GameItemSmall.qml" line="119"/>
+        <location filename="../Application/Widgets/AllGames/View/Private/GameItemSmall.qml" line="122"/>
         <source>START_GAME_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1678,17 +1678,17 @@
 <context>
     <name>RecentConversation</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Private/RecentConversation.qml" line="148"/>
+        <location filename="../Application/Widgets/Messenger/Models/Private/RecentConversation.qml" line="149"/>
         <source>RECENTCONVERSATION_TODAY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Private/RecentConversation.qml" line="152"/>
+        <location filename="../Application/Widgets/Messenger/Models/Private/RecentConversation.qml" line="153"/>
         <source>RECENTCONVERSATION_YESTERDAY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Private/RecentConversation.qml" line="156"/>
+        <location filename="../Application/Widgets/Messenger/Models/Private/RecentConversation.qml" line="157"/>
         <source>RECENTCONVERSATION_LONGAGO</source>
         <translation></translation>
     </message>
@@ -1929,7 +1929,7 @@
     <name>Tray</name>
     <message>
         <source>TRAY_TOOLTIP</source>
-        <translation>GameNet</translation>
+        <translation type="vanished">GameNet</translation>
     </message>
 </context>
 <context>
