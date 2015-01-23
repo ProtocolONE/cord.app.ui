@@ -70,7 +70,7 @@ QXmppClient {
     function sendMessageEx(jid, message) {
         xmppClient.sendMessage(jid, message);
         message.from = xmppClient.myJid;
-        xmppClient.saveToHistory(jid, message);
+        xmppClient.saveToHistory(jid, message, Date.now());
     }
 
     function sendInputStatus(jid, value) {

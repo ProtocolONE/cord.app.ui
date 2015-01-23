@@ -156,7 +156,7 @@ Item {
         }
 
         Js.historyCache[bareJid][day].unshift({
-                              from: bareJid,
+                              from: UserJs.jidWithoutResource(message.from),
                               body: message.body,
                               date: messageDate || +new Date()
                           });
