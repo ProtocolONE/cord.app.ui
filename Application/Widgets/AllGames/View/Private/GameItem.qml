@@ -33,9 +33,6 @@ Item {
 
     property bool selected: mouseArea.containsMouse || startButton.containsMouse
 
-    width: image.width
-    height: image.height
-
     Connections {
         target: App.signalBus()
 
@@ -67,6 +64,7 @@ Item {
                 id: image
 
                 opacity: status == Image.Ready ? 1 : 0
+                anchors.centerIn: parent
                 asynchronous: true
                 smooth: true
 

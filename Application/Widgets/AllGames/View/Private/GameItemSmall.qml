@@ -59,17 +59,23 @@ Column {
         Image {
             function getSourceIcon() {
                 var browser = BrowserDetect.getBrowserName();
+                if (browser.indexOf('chrome') !== -1) {
+                    browser = 'chrome';
+                }
+
+                if (browser.indexOf('launcher') !== -1) {
+                    browser = 'opera';
+                }
 
                 var browserIcons = {
                     "firefox": "firefox.png",
                     "iexplore": "ie.png",
                     "opera": "opera.png",
-                    "chrome": "chrome.png",
-                    "google chrome": "chrome.png"
+                    "chrome": "chrome.png"
                 }
 
                 return installPath + 'Assets/Images/Application/Widgets/AllGames/browsers/' +
-                        browserIcons[browser] || 'unknown.png'
+                        (browserIcons[browser] || 'unknown.png')
             }
 
             anchors {

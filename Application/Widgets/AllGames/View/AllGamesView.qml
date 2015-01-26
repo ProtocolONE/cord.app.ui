@@ -59,7 +59,9 @@ WidgetView {
                     serviceItemGrid: item,
                     serviceId: item.serviceId,
                     x: (item.col - 1) * 257,
-                    y: (item.row - 1) * 101
+                    y: (item.row - 1) * 101,
+                    width: (item.width * 254) + (item.width - 1) * 2,
+                    height: (item.height * 98) + (item.height - 1) * 2
                 };
 
                 var comp = itemComponent.createObject(baseArea, itemProperties);
