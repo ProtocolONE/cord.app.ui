@@ -59,6 +59,15 @@ Item {
         overlaySettings.save();
     }
 
+    function reset() {
+        var overlayChatOpenHotkey = messengerOverlayHotkey.findValue(JSON.stringify({key: Qt.Key_Backtab, name: "Shift + Tab"}));
+
+        d.currentSendOption = MessengerSettings.SendShortCut.Enter;
+        messengerHistoryInterval.currentIndex = messengerHistoryInterval.findValue("0");
+        messengerOverlayHotkey.currentIndex = overlayChatOpenHotkey;
+        messengerShowChatOverlayNotify.checked = true;
+    }
+
     QtObject {
         id: d
 

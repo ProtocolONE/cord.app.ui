@@ -34,8 +34,23 @@ Rectangle {
         }
     }
 
+    function resetSettings() {
+        generalSettingsPage.reset();
+        downloadSettingsPage.reset();
+        notificationSettingsPage.reset();
+        messengerSettingsPage.reset();
+    }
+
     color: Styles.style.settingsBackground
-    onClose: root.reloadSettings();
+
+    Connections {
+        target: App.signalBus();
+        onNavigate: {
+            if (link === "ApplicationSettings") {
+                root.reloadSettings();
+            }
+        }
+    }
 
     CursorMouseArea {
         cursor: CursorArea.DefaultCursor
@@ -132,11 +147,7 @@ Rectangle {
                         action: 'Restore default settings'
                     }
 
-                    onClicked: {
-                        settingsViewModel.setDefaultSettings();
-                        App.selectLanguage("ru");
-                        root.reloadSettings();
-                    }
+                    onClicked: root.resetSettings();
                 }
             }
 
@@ -224,7 +235,6 @@ Rectangle {
             name: "GeneralPage"
             StateChangeScript {
                 script: {
-                    generalSettingsPage.load();
                     pageSwitcher.switchTo(generalSettingsPage);
                 }
             }
@@ -234,7 +244,6 @@ Rectangle {
 
             StateChangeScript {
                 script: {
-                    downloadSettingsPage.load();
                     pageSwitcher.switchTo(downloadSettingsPage);
                 }
             }
@@ -243,7 +252,6 @@ Rectangle {
             name: "NotificationsPage"
             StateChangeScript {
                 script: {
-                    notificationSettingsPage.load();
                     pageSwitcher.switchTo(notificationSettingsPage);
                 }
             }
@@ -252,7 +260,6 @@ Rectangle {
             name: "MessengerPage"
             StateChangeScript {
                 script: {
-                    messengerSettingsPage.load();
                     pageSwitcher.switchTo(messengerSettingsPage);
                 }
             }
