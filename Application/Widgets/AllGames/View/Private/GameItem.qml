@@ -89,29 +89,13 @@ Item {
                 visible: !!serviceItem.typeShortcut && image.isReady
             }
 
-            Image {
-                function getSourceIcon() {
-                    var browser = BrowserDetect.getBrowserName();
-
-                    var browserIcons = {
-                        "firefox": "firefox.png",
-                        "iexplore": "ie.png",
-                        "opera": "opera.png",
-                        "chrome": "chrome.png",
-                        "google chrome": "chrome.png"
-                    }
-
-                    return installPath + 'Assets/Images/Application/Widgets/AllGames/browsers/' +
-                            browserIcons[browser] || 'unknown.png'
-                }
-
+            BrowserIcon {
                 anchors {
                     right: parent.right
                     top: parent.top
                     margins: 4
                 }
 
-                source: root.isWebGame ? getSourceIcon() : ''
                 visible: root.isWebGame
             }
         }

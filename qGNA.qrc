@@ -129,6 +129,7 @@
 		<file>Application/Widgets/AllGames/qmldir</file>
 		<file>Application/Widgets/AllGames/View/AllGamesView.qml</file>
 		<file>Application/Widgets/AllGames/View/Private/AllButton.qml</file>
+		<file>Application/Widgets/AllGames/View/Private/BrowserIcon.qml</file>
 		<file>Application/Widgets/AllGames/View/Private/DownloadProgress.qml</file>
 		<file>Application/Widgets/AllGames/View/Private/GameItem.qml</file>
 		<file>Application/Widgets/AllGames/View/Private/GameItemSmall.qml</file>
