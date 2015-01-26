@@ -554,6 +554,12 @@ Item {
                 return root.connecting ? MessengerPrivateJs.CONNECTING : MessengerPrivateJs.DISCONNECTED;
             }
         }
+		
+		function needIncrementUnread(user) {
+            var allWindowsInactive = !App.overlayChatVisible() && !Qt.application.active;
+
+            return !root.isSelectedUser(user) || allWindowsInactive;
+        }
     }
 
     ExtendedListModel {
@@ -651,7 +657,7 @@ Item {
                 return;
             }
             if (message.stamp != "Invalid Date") {
-                if (!root.isSelectedUser(user)) {
+                if (d.needIncrementUnread(user)) {
                     user.unreadMessageCount += 1;
                     d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
                 }
@@ -665,7 +671,7 @@ Item {
                 if (message.body) {
                     user.appendMessage(bareJid, message.body, messageDate);
                     d.updateUserTalkDate(user);
-                    if (!root.isSelectedUser(user)) {
+                    if (d.needIncrementUnread(user)) {
                         user.unreadMessageCount += 1;
                         d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
                     }
@@ -740,6 +746,45 @@ Item {
             myUser.avatar = '';
             xmppClient.failCount = 0;
             MessengerPrivateJs.unreadMessageCountMap = undefined;
+        }
+    }
+
+    Connections {
+        target: App.mainWindowInstance()
+
+        onWindowActivated: {
+            resetUnreadDelay.resetForJid = root.selectedJid;
+            resetUnreadDelay.restart();
+        }
+    }
+
+    Timer {
+        id: resetUnreadDelay
+
+        property string resetForJid
+
+        interval: 1000
+        repeat: false
+        onTriggered: {
+            var user;
+
+            if (!Qt.application.active) {
+                return;
+            }
+
+            if (root.selectedJid !== resetUnreadDelay.resetForJid) {
+                return;
+            }
+
+            user = root.getUser(resetUnreadDelay.resetForJid);
+            if (!user.isValid()) {
+                return;
+            }
+
+            user.unreadMessageCount = 0;
+            d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
+
+            resetUnreadDelay.resetForJid = "";
         }
     }
 

@@ -104,6 +104,8 @@ Overlay {
             onIsShownChanged: {
                 over.setBlockInput('chat', (isShown ? Overlay.MouseAndKeyboard : Overlay.None));
 
+                App.setOverlayChatVisible(isShown);
+
                 if (!isShown) {
                     chat.forceActiveFocus();
                 }
