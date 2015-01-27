@@ -22,6 +22,7 @@ import "Core/Authorization.js" as Authorization
 import "Core/Popup.js" as Popup
 import "Core/MessageBox.js" as MessageBox
 import "Core/TrayPopup.js" as TrayPopup
+import "Core/EmojiOne.js" as EmojiOne
 
 import "../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../GameNet/Controls/Tooltip.js" as Tooltip
@@ -53,6 +54,8 @@ Item {
         console.log('Desktop', options.desktop);
 
         Styles.init();
+
+        initEmojiOne();
         initRestApi(options);
         initGoogleAnalytics(options);
         initAdditionalLayers(options);
@@ -79,6 +82,19 @@ Item {
                 App.needPakkanenVerification();
             });
         }
+    }
+
+    function initEmojiOne() {
+        if (App.isQmlViewer()) {
+            EmojiOne.ns.imagePathPNG = (installPath + 'Develop/Assets/Smiles/').replace("file:///", ""); // Debug for QmlViewer
+        } else {
+            EmojiOne.ns.imagePathPNG = ':/Develop/Assets/Smiles/';
+        }
+
+        EmojiOne.ns.ascii = true;
+        EmojiOne.ns.unicodeAlt = false;
+        EmojiOne.ns.cacheBustParam = "";
+        EmojiOne.ns.addedImageProps = '"width"= "20" height"="20"'
     }
 
     function initAdditionalLayers(options) {

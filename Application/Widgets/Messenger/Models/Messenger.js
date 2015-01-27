@@ -88,6 +88,14 @@ function setGroupOpened(groupId, value) {
     _modelInstance.setGroupOpened(groupId, value);
 }
 
+function setSmilePanelVisible(value) {
+    _modelInstance.setSmilePanelVisible(value);
+}
+
+function smilePanelVisible() {
+    return _modelInstance.smilePanelVisible();
+}
+
 function getNickname(item) {
     if (!item) {
         return "";

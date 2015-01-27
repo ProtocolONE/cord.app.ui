@@ -4827,6 +4827,61 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>SmilePanel</name>
+    <message>
+        <source>FACE_TAB_TULTIP</source>
+        <translation>Все смайлы</translation>
+    </message>
+    <message>
+        <source>LAST_TAB_TULTIP</source>
+        <translation type="unfinished">Последние использованые</translation>
+    </message>
+    <message>
+        <source>RECENT_TAB_TULTIP</source>
+        <translation type="unfinished">Часто используемые</translation>
+    </message>
+    <message>
+        <source>SMALL_TAB_1_TULTIP</source>
+        <translation type="unfinished">Смайлы и головы</translation>
+    </message>
+    <message>
+        <source>SMALL_TAB_2_TULTIP</source>
+        <translation type="unfinished">Руки и тела</translation>
+    </message>
+    <message>
+        <source>SMALL_TAB_3_TULTIP</source>
+        <translation type="unfinished">Предметы одежды</translation>
+    </message>
+    <message>
+        <source>SMALL_TAB_4_TULTIP</source>
+        <translation type="unfinished">Сердца</translation>
+    </message>
+    <message>
+        <source>SMALL_TAB_5_TULTIP</source>
+        <translation type="unfinished">Флора и фауна</translation>
+    </message>
+    <message>
+        <source>SMALL_TAB_6_TULTIP</source>
+        <translation type="unfinished">Еда</translation>
+    </message>
+    <message>
+        <source>SMALL_TAB_7_TULTIP</source>
+        <translation type="unfinished">Транспорт</translation>
+    </message>
+    <message>
+        <source>SMALL_TAB_8_TULTIP</source>
+        <translation type="unfinished">Места и открытки</translation>
+    </message>
+    <message>
+        <source>SMALL_TAB_9_TULTIP</source>
+        <translation type="unfinished">Разное</translation>
+    </message>
+    <message>
+        <source>SMALL_TAB_10_TULTIP</source>
+        <translation type="unfinished">Символы, иероглифы, стрелки</translation>
+    </message>
+</context>
+<context>
     <name>SocialNet</name>
     <message>
         <source>SOCIAL_NET_TEXT</source>

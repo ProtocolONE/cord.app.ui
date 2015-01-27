@@ -20,6 +20,10 @@ function createObject(path) {
     return component.createObject(null);
 }
 
+function isQmlViewer() {
+    return !proxyInst;
+}
+
 function isWindowVisible() {
     if (proxyInst) {
         return proxyInst.isWindowVisible();

@@ -12,6 +12,7 @@ import GameNet.Components.Widgets 1.0
 
 import "../../Core/App.js" as App
 import "./Addons" as Addons
+
 import "./Models/Messenger.js" as MessengerJs
 import "./Models/Settings.js" as Settings
 

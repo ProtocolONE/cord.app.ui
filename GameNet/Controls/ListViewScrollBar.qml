@@ -76,6 +76,13 @@ Rectangle {
         cursor.y = Math.round(cursorMaxPosition * currentIndex / listViewCount);
     }
 
+    function positionViewAtIndex(index, type) {
+        root.currentIndex = index;
+        root.listView.positionViewAtIndex(index, type);
+        updateCursorHeight();
+        cursor.y = Math.round(cursorMaxPosition * index / listViewCount);
+    }
+
     function positionViewAtEnd() {
         if (!root.listView) {
             return;

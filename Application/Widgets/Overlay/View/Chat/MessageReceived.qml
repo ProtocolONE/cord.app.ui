@@ -18,6 +18,9 @@ import "../../Core" as OverlayCore
 import "../../../../Core/App.js" as App
 import "../../../../Core/Styles.js" as Styles
 import "../../../../Core/moment.js" as Moment
+import "../../../../Core/EmojiOne.js" as EmojiOne
+import "../../../../../GameNet/Core/Strings.js" as Strings
+
 import "./StringHelper.js" as StringHelper
 
 OverlayCore.PopupBase {
@@ -151,7 +154,11 @@ OverlayCore.PopupBase {
                 delegate: MessageReceivedDelegate {
                     externalMaximumHeight: model.maximumHeight || -1
                     date: model.messageDate
-                    body: StringHelper.replaceGameNetHyperlinks(model.body, false, App.serviceItemByServiceId)
+                    body: StringHelper.prepareText(model.body, {
+                                                                 hyperLinkStyle: Styles.style.messengerChatDialogHyperlinkColor,
+                                                                 smileResolver: EmojiOne.ns.toImage,
+                                                                 serviceResolver: App.serviceItemByServiceId
+                                                               })
                     maximumHeight: model.maximumHeight
 
                     width: listViewMessage.width

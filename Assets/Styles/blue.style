@@ -241,6 +241,11 @@
 		"messengerGridHightlight": "#dec37b",
 		"messengerGridProgressRect": "#247f71",
 		"messengerGridGenreText": "#8e9ca7",
-		"messengerGridStickText": "#ffffff"
+		"messengerGridStickText": "#ffffff",
+		"messengerSmilePanelBackground": "#001f30",
+		"messengerSmilePanelBorder": "#324e5e",
+		"messengerSmilePanelHover": "#002336",
+		"messengerSmilePanelSubstrate": "#19384a",
+		"messengerSmileChatButtonHover": "#1abc9c"
     }
 }

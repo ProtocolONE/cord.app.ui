@@ -35,6 +35,7 @@ if not exist %DST_PATH% (
 )
 
 xcopy /I /Q /R /Y "%BUILD_PATH%\qGNA.rcc" "%DST_PATH%"
+xcopy /I /Q /R /Y "%QGNAQMLDIR%\smiles.rcc" "%DST_PATH%"
 
 rmdir /S /Q %BUILD_PATH%
 

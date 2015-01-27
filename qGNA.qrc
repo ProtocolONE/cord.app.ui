@@ -82,6 +82,7 @@
 		<file>Application/Core/App.qml</file>
 		<file>Application/Core/Authorization.js</file>
 		<file>Application/Core/Authorization/Vk.qml</file>
+		<file>Application/Core/EmojiOne.js</file>
 		<file>Application/Core/MessageBox.js</file>
 		<file>Application/Core/MessageBox.qml</file>
 		<file>Application/Core/Modules/ApplicationStatistic.js</file>
@@ -237,6 +238,9 @@
 		<file>Application/Widgets/Messenger/Models/Private/RecentConversation.js</file>
 		<file>Application/Widgets/Messenger/Models/Private/RecentConversation.qml</file>
 		<file>Application/Widgets/Messenger/Models/Settings.js</file>
+		<file>Application/Widgets/Messenger/Models/Smiles.js</file>
+		<file>Application/Widgets/Messenger/Models/Smiles.qml</file>
+		<file>Application/Widgets/Messenger/Models/SmilesPrivate.js</file>
 		<file>Application/Widgets/Messenger/Models/StringHelper.js</file>
 		<file>Application/Widgets/Messenger/Models/User.js</file>
 		<file>Application/Widgets/Messenger/Models/User.qml</file>
@@ -248,6 +252,12 @@
 		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/Header.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageItem.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/BaseGrid.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmileButton.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmileChatButton.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmilePanel.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmilesPack.js</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmileTab.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/BottomBar.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml</file>

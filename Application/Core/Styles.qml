@@ -301,6 +301,14 @@ Item {
     //MESSENGER EMPTY CONTACTS INFO
     property color messengerEmptyContactListInfoBackground: "#EEEEEE"
 
+    // Smile panel
+
+    property color messengerSmilePanelBackground: "#001f30"
+    property color messengerSmilePanelBorder: "#324e5e"
+    property color messengerSmilePanelHover: "#002336"
+    property color messengerSmilePanelSubstrate: "#19384a"
+    property color messengerSmileChatButtonHover: "#1abc9c"
+
     //GRID
     property color messangerGridBackground: '#000c13'
     property color messengerAllButtonGridHover: "#113344"

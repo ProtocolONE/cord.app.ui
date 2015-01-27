@@ -21,6 +21,7 @@ import "MessengerPrivate.js" as MessengerPrivateJs
 import "User.js" as UserJs
 import "Message.js" as MessageJs
 import "Group.js" as GroupJs
+import "Smiles.js" as Smiles
 
 import "../../../Core/App.js" as App
 import "../../../Core/User.js" as User
@@ -54,6 +55,8 @@ Item {
     signal rosterReceived();
 
     function init() {
+        Smiles.init();
+
         return {
             client: xmppClient,
             groups: groupsModel,
@@ -93,6 +96,7 @@ Item {
         messageMap.type = QXmppMessage.Chat;
         messageMap.state = QXmppMessage.Active;
         xmppClient.sendMessageEx(user.jid, messageMap);
+        Smiles.processSmiles(myUser.jid, body);
     }
 
     function sendInputStatus(user, value) {
@@ -277,11 +281,20 @@ Item {
         return recentConversation;
     }
 
+    function setSmilePanelVisible(value) {
+        d.smilePanelVisible = value;
+    }
+
+    function smilePanelVisible() {
+        return d.smilePanelVisible;
+    }
+
     QtObject {
         id: d
 
         property int defaultAvatarIndex: 0
         property string serverUrl: ''
+        property bool smilePanelVisible: false
 
         function rosterReceived() {
             var rosterUsers = xmppClient.rosterManager.getRosterBareJids()
@@ -598,6 +611,7 @@ Item {
             console.log("Connected to server ");
 
             d.createGamenetUser();
+            Smiles.loadRecentSmiles(myUser.jid);
 
             root.connected = true;
             root.everConnected = true;

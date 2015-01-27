@@ -15,6 +15,8 @@ import GameNet.Components.Widgets 1.0
 import Application.Controls 1.0
 
 import "./Blocks/ChatDialog" as ChatDialog
+import "./Blocks/ChatDialog/Smile" as SmilesBlock
+
 import "../Models/Messenger.js" as MessengerJs
 
 WidgetView {
@@ -61,7 +63,10 @@ WidgetView {
             top: body.bottom
         }
 
-        onCloseDialogPressed: MessengerJs.closeChat();
+        onCloseDialogPressed: {
+            MessengerJs.closeChat();
+            MessengerJs.setSmilePanelVisible(false);
+        }
         sendAction: model.settings.sendAction
 
         Connections {
@@ -92,5 +97,49 @@ WidgetView {
 
         onReleased: model.settings.chatBodyHeight = separator.y;
         Component.onCompleted: separator.y = model.settings.chatBodyHeight;
+    }
+
+    Rectangle {
+        anchors.fill: parent
+        color: "#002336"
+        opacity: 0.78
+        visible: MessengerJs.smilePanelVisible()
+
+        CursorMouseArea {
+            anchors.fill: parent
+            hoverEnabled: true
+            cursor: CursorArea.ArrowCursor
+            onClicked: MessengerJs.setSmilePanelVisible(false)
+        }
+    }
+
+    SmilesBlock.SmileButton {
+        id: smileButton
+
+        anchors {
+            right: parent.right
+            top: messageInput.top
+            rightMargin: 118 + 5
+            topMargin: 6 + 6
+        }
+        onClicked: MessengerJs.setSmilePanelVisible(true);
+    }
+
+    SmilesBlock.SmilePanel {
+        id: smilePanel
+
+        anchors {
+            bottom: smileButton.top
+            bottomMargin: 18
+            horizontalCenter: smileButton.horizontalCenter
+            horizontalCenterOffset: -10
+        }
+        visible: MessengerJs.smilePanelVisible()
+        onInsertSmile: {
+            MessengerJs.setSmilePanelVisible(false);
+            messageInput.insertText(tag);
+            messageInput.forceActiveFocus();
+        }
+        onCloseRequest: MessengerJs.setSmilePanelVisible(false);
     }
 }

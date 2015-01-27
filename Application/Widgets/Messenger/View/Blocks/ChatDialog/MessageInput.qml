@@ -18,6 +18,8 @@ import "../../../../../Core/Styles.js" as Styles
 import "../../../Models/Messenger.js" as MessengerJs
 import "../../../Models/Settings.js" as Settings
 
+import "../../../../../Core/EmojiOne.js" as EmojiOne
+
 FocusScope {
     id: root
 
@@ -33,18 +35,104 @@ FocusScope {
     signal inputStatusChanged(string value);
     signal closeDialogPressed();
 
+    function appendText(text) {
+        var actualFormattedText = d.getPlainText();
+
+        messengerInput.textFormat = TextEdit.PlainText;
+        messengerInput.text = actualFormattedText + text;
+        messengerInput.textFormat = TextEdit.RichText;
+    }
+
+    function insertText(text) {
+        var actualFormattedText,
+            oldCursorPosition,
+            insertPosition,
+            leftPad,
+            rightPad;
+
+        actualFormattedText = d.getPlainText();
+
+        oldCursorPosition = messengerInput.cursorPosition;
+        insertPosition = d.getInsertPosition(messengerInput.cursorPosition, actualFormattedText);
+        leftPad = actualFormattedText.substring(0, insertPosition);
+        rightPad = actualFormattedText.substring(insertPosition, actualFormattedText.length);
+
+        messengerInput.textFormat = TextEdit.PlainText;
+        messengerInput.text = leftPad + EmojiOne.ns.toImage(text) + rightPad;
+        messengerInput.textFormat = TextEdit.RichText;
+        messengerInput.cursorPosition = oldCursorPosition + 1;
+    }
+
     QtObject {
         id: d
 
         property string activeStatus: "Active"
+        property string plainText: TextDocumentHelper.stripHtml(messengerInput.text)
 
+        function getPlainText() {
+            var temporaryModifiedImgTag,
+                actualText,
+                actualFormattedText;
+
+            temporaryModifiedImgTag = messengerInput.text.replace(/<img\s+([^>]+)>/gi, function(attr) {
+                    return '[' + attr.substring(1, attr.length - 2) + ']';
+            });
+
+            temporaryModifiedImgTag = temporaryModifiedImgTag.replace(/<br [/]>/gi, "[br /]");
+
+            actualText = TextDocumentHelper.stripHtml(temporaryModifiedImgTag);
+
+            actualFormattedText = actualText.replace(/\[img\s+([^\]]+)\]/gi, function(attr) {
+                    return '<' + attr.substring(1, attr.length - 2) + '>';
+            });
+
+            actualFormattedText = actualFormattedText.replace(/\[br \/\]/gi, "<br />");
+
+            return actualFormattedText;
+        }
+
+        function getInsertPosition(pos, shortArray) {
+            var i,
+                result = 0,
+                html = shortArray,
+                imgPosition = {},
+                regExp = /<img\s+([^>]+)>/gi,
+                found;
+
+            while (found = regExp.exec(html)) {
+                imgPosition[+found.index] = regExp.lastIndex;
+            }
+
+            regExp = /<br [/]>/gi;
+
+            while (found = regExp.exec(html)) {
+                imgPosition[+found.index] = regExp.lastIndex;
+            }
+
+            for (i = 0; i < html.length; result++) {
+                if (result == pos) {
+                    return i;
+                }
+
+                if (imgPosition.hasOwnProperty(i)) {
+                    i += (imgPosition[i] - i);
+                } else {
+                    i++;
+                }
+            }
+
+            return i;
+        }
 
         function sendMessage() {
             if (MessengerJs.getStatus() !== MessengerJs.ROSTER_RECEIVED) {
                 return;
             }
             if (d.validateMessage(messengerInput.text)) {
-                MessengerJs.sendMessage(MessengerJs.selectedUser(), messengerInput.text);
+                var convertedText = EmojiOne.ns.htmlToShortname(messengerInput.text);
+                convertedText = TextDocumentHelper.stripHtml(convertedText);
+
+                MessengerJs.sendMessage(MessengerJs.selectedUser(), convertedText);
                 messengerInput.text = "";
                 d.setActiveStatus(MessengerJs.selectedUser(), "Active");
             }
@@ -65,7 +153,7 @@ FocusScope {
             if (user.isValid()) {
                 d.setActiveStatus(user, "Active");
 
-                if (messengerInput.text.length > 0) {
+                if (d.plainText.length > 0) {
                     user.inputMessage = messengerInput.text;
                 }
             }
@@ -74,7 +162,7 @@ FocusScope {
             if (user.isValid()) {
                 messengerInput.text = user.inputMessage;
                 user.inputMessage = "";
-                messengerInput.cursorPosition = messengerInput.text.length;
+                messengerInput.cursorPosition = d.plainText.length;
             }
         }
 
@@ -85,6 +173,8 @@ FocusScope {
             //  Ссылки по теме:
             //      - http://xmpp.org/extensions/xep-0205.html#rec-stanzasize
             //      - http://www.xmpp.org/extensions/inbox/stanzalimits.html
+            msg = TextDocumentHelper.stripHtml(msg);
+
             if (msg.length > 32768) {
                 return false;
             }
@@ -164,13 +254,14 @@ FocusScope {
                                 id: messengerInput
 
                                 function appendNewLine() {
-                                    messengerInput.text = messengerInput.text + "\n";
-                                    messengerInput.cursorPosition = messengerInput.text.length;
+                                    root.appendText("<br />");
+                                    messengerInput.cursorPosition = d.plainText.length;
                                 }
 
-                                width: inputFlick.width
+                                width: inputFlick.width - 18
                                 height: inputFlick.height
                                 focus: true
+                                textFormat: TextEdit.RichText
 
                                 selectByMouse: true
                                 wrapMode: TextEdit.Wrap
@@ -179,7 +270,6 @@ FocusScope {
                                     pixelSize: 12
                                     family: "Arial"
                                 }
-
 
                                 color: Styles.style.messengerMessageInputText
 
@@ -253,14 +343,13 @@ FocusScope {
 
                                 onTextChanged: {
                                     composingTimer.count = 0;
-                                    if (text.length <= 0) {
+                                    if (d.plainText.length <= 0) {
                                         d.setActiveStatus(MessengerJs.selectedUser(), "Active");
                                         composingTimer.stop();
                                     } else {
                                         d.setActiveStatus(MessengerJs.selectedUser(), "Composing");
                                         composingTimer.start();
                                     }
-
                                 }
                             }
 

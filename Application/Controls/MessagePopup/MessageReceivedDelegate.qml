@@ -24,11 +24,6 @@ Item {
             delegate.height = 0;
             return;
         }
-
-        if (externalMaximumHeight >= 0) {
-            mainText.maximumLineCount = Math.floor(externalMaximumHeight / 16);
-            mainText.height = listViewMessage.maximumHeight;
-        }
     }
 
     Text {
@@ -45,9 +40,20 @@ Item {
         x: 42
         y: -2
         width: parent.width - 10 - 42
-        text: delegate.body
+
+        function getText() {
+            if (delegate.externalMaximumHeight > 0) {
+                return '<table height="' + delegate.externalMaximumHeight + '"><tbody><tr><td width="' + mainText.width + '" align="left">' + delegate.body + '</td></tr></tbody></table>'
+            }
+
+            return '<table><tbody><tr><td width="' + mainText.width + '" align="left">' + delegate.body + '</td></tr></tbody></table>'
+        }
+
+        text: getText()
+
         color: Styles.style.trayPopupText
+        textFormat: Text.RichText
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-        font { pixelSize: 13; family: "Arial"}
+        font { pixelSize: 12; family: "Arial"}
     }
 }

@@ -25,3 +25,8 @@
  - Агрегация для Base и Behavior. Почему (главное) - не весь набор свойств Behavior может и должен относится к Base классу.
  - Наследование для <Class> и <Class>Base.  
  - Наследование для разновидностей одного стиля, например TextStyleRedColors или ComboBoxStyleFunnyImages
+ 
+ Смайлы
+ - Репозиторий содержит в себе уже готовый smiles.rcc пакет, с графическими смайлами. Для желающих перегенерировать файл, нужно:
+	спулить изображения https://github.com/Ranks/emojione/tree/master/assets/png в папку "%QMLDIR%\Develop\Assets\Smiles\
+	rcc.exe -compress 3 -threshold 4 -binary  smiles.qrc" -o smiles.rcc

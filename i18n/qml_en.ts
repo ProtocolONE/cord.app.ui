@@ -872,7 +872,7 @@
 <context>
     <name>GameItem</name>
     <message>
-        <location filename="../Application/Widgets/AllGames/View/Private/GameItem.qml" line="201"/>
+        <location filename="../Application/Widgets/AllGames/View/Private/GameItem.qml" line="183"/>
         <source>START_GAME_BUTTON</source>
         <translation></translation>
     </message>
@@ -880,7 +880,7 @@
 <context>
     <name>GameItemSmall</name>
     <message>
-        <location filename="../Application/Widgets/AllGames/View/Private/GameItemSmall.qml" line="122"/>
+        <location filename="../Application/Widgets/AllGames/View/Private/GameItemSmall.qml" line="106"/>
         <source>START_GAME_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1216,17 +1216,17 @@
 <context>
     <name>MessageInput</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="328"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="416"/>
         <source>MESSENGER_SEND_BUTTON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="336"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="424"/>
         <source>MESSENGER_SEND_BUTTON_MESSAGE_ENTER</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="338"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="426"/>
         <source>MESSENGER_SEND_BUTTON_MESSAGE_CTRL_ENTER</source>
         <translation></translation>
     </message>
@@ -1242,7 +1242,7 @@
 <context>
     <name>Messenger</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="326"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="339"/>
         <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
         <translation></translation>
     </message>
@@ -1854,6 +1854,74 @@
     <message>
         <location filename="../Application/Widgets/SilentMode/SilentModeModel.qml" line="37"/>
         <source>SILENT_DOWNLOADING_POPUP_TEXT</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
+    <name>SmilePanel</name>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmilePanel.qml" line="164"/>
+        <source>SMALL_TAB_1_TULTIP</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmilePanel.qml" line="165"/>
+        <source>SMALL_TAB_2_TULTIP</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmilePanel.qml" line="166"/>
+        <source>SMALL_TAB_3_TULTIP</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmilePanel.qml" line="167"/>
+        <source>SMALL_TAB_4_TULTIP</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmilePanel.qml" line="168"/>
+        <source>SMALL_TAB_5_TULTIP</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmilePanel.qml" line="169"/>
+        <source>SMALL_TAB_6_TULTIP</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmilePanel.qml" line="170"/>
+        <source>SMALL_TAB_7_TULTIP</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmilePanel.qml" line="171"/>
+        <source>SMALL_TAB_8_TULTIP</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmilePanel.qml" line="172"/>
+        <source>SMALL_TAB_9_TULTIP</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmilePanel.qml" line="173"/>
+        <source>SMALL_TAB_10_TULTIP</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmilePanel.qml" line="245"/>
+        <source>FACE_TAB_TULTIP</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmilePanel.qml" line="246"/>
+        <source>LAST_TAB_TULTIP</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmilePanel.qml" line="247"/>
+        <source>RECENT_TAB_TULTIP</source>
         <translation></translation>
     </message>
 </context>
