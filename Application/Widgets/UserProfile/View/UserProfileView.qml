@@ -184,9 +184,11 @@ WidgetView {
                     anchors.fill: parent
                     spacing: 10
 
-                    Image {
+                    WebImage {
                         id: avatarImage
 
+                        width: 47
+                        height: 47
                         asynchronous: true
                         source: model.avatarMedium != undefined ?
                                     model.avatarMedium : installPath + "Assets/Images/Application/Widgets/UserProfile/defaultAvatar.png"
