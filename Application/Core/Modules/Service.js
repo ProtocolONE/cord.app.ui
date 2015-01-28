@@ -49,7 +49,6 @@ function createService(data) {
             ];
 
     urlProps = [
-                'forumUrl',
                 'guideUrl',
                 'blogUrl',
                 'licenseUrl',
