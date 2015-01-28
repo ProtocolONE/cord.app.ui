@@ -78,7 +78,7 @@ FocusScope {
                         SequentialAnimation {
                             PauseAnimation { duration: Tooltip.animationDuration() }
                             ScriptAction {
-                                script: button.toolTip = qsTr("WEBSEARCH_BUTTON_TULTIP");
+                                script: button.toolTip = qsTr("LOCAL_SEARCH_BUTTON_TULTIP");
                             }
                         }
                     },
@@ -90,7 +90,7 @@ FocusScope {
                             PauseAnimation { duration: Tooltip.animationDuration() }
 
                             ScriptAction {
-                                script: button.toolTip = qsTr("LOCAL_SEARCH_BUTTON_TULTIP");
+                                script: button.toolTip = qsTr("WEBSEARCH_BUTTON_TULTIP");
                             }
                         }
                     }
