@@ -632,20 +632,26 @@ Item {
         }
 
         onCarbonMessageReceived: {
+            var bareJid
+                , messageDate
+                , user;
+
             if (message.type !== QXmppMessage.Chat || !message.body) {
                 return;
             }
 
-            var to = UserJs.jidWithoutResource(message.to);
+            bareJid = UserJs.jidWithoutResource(message.to);
+            messageDate = Date.now();
 
-            if (!usersModel.contains(to)) {
-                d.appendUser(to);
+            if (!usersModel.contains(bareJid)) {
+                d.appendUser(bareJid);
             }
 
-            var item = root.getUser(to);
-            item.appendMessage(UserJs.jidWithoutResource(message.from), message.body);
-            d.updateUserTalkDate(item);
-            xmppClient.saveToHistory(to, message, Date.now());
+            xmppClient.saveToHistory(bareJid, message, messageDate);
+
+            user = root.getUser(bareJid);
+            user.appendMessage(UserJs.jidWithoutResource(message.from), message.body, messageDate);
+            d.updateUserTalkDate(user);
         }
 
         onMessageReceived: {
@@ -731,7 +737,6 @@ Item {
                 for(e = messages.length - 1; e >= 0; --e) {
                     message = history[i][e];
                     date = +Moment.moment(message.date).startOf('day');
-
                     user.mergeMessage(message.from, message.body, message.date);
                 };
             }

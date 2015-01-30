@@ -185,7 +185,7 @@ function selectedUserMessages() {
         return [];
     }
 
-    return _modelInstance.selectedUser().messages
+    return _modelInstance.selectedUser().messages;
 }
 
 function eachUser(callback) {
