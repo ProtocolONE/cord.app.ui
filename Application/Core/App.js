@@ -54,6 +54,10 @@ function initModel() {
     return _gamesListModelList;
 }
 
+function getGames() {
+    return gamesListModel;
+}
+
 function fillGamesModel(data) {
         var i,
             item,
@@ -267,6 +271,10 @@ function isMainServiceCanBeStarted(item) {
 
     if (currentMainRunning ||
        (currentSecondRunning && currentSecondRunning != item.serviceId)) {
+        return false;
+    }
+
+    if (item.status === "Uninstalling") {
         return false;
     }
 

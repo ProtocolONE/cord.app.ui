@@ -148,10 +148,30 @@ function unreadContactsChanged(contacts) {
     _signalBusInstance.unreadContactsChanged(contacts);
 }
 
+function uninstallRequested(serviceId) {
+    _signalBusInstance.uninstallRequested(serviceId);
+}
+
+function uninstallStarted(serviceId) {
+    _signalBusInstance.uninstallStarted(serviceId);
+}
+
+function uninstallProgressChanged(serviceId, progress) {
+    _signalBusInstance.uninstallProgressChanged(serviceId, progress);
+}
+
+function uninstallFinished(serviceId) {
+    _signalBusInstance.uninstallFinished(serviceId);
+}
+
 function openDetailedUserInfo(opt) {
     _signalBusInstance.openDetailedUserInfo(opt);
 }
 
 function closeDetailedUserInfo() {
     _signalBusInstance.closeDetailedUserInfo();
+}
+
+function servicesLoaded() {
+    _signalBusInstance.servicesLoaded();
 }

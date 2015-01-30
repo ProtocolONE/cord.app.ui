@@ -102,6 +102,12 @@ Item {
     property color gameInstallButtonHover: "#ff7902"
     property color gameInstallButtonDisabled: "#888888"
 
+    //  GAME UNINSTALLWIDGET
+    property color gameUninstallWidgetBackground: "#00000000"
+    property color gameUninstallWidgetBorder: "#e1e5e8"
+    property color gameUninstallWidgetProgressBackground: "#0d5144"
+    property color gameUninstallWidgetProgressLine: "#32cfb2"
+
     //HEADER
     property color headerBackground: "#092135"
     property color headerButtonNormal: "#092135"

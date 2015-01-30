@@ -14,6 +14,7 @@ function createService(data) {
     item.maintenanceInterval = 0;
     item.allreadyDownloaded = false;
     item.progress = -1;
+    item.isInstalled = false;
     item.status = "Normal";
     item.statusText = "";
     item.menu = [];

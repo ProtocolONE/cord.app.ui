@@ -18,6 +18,8 @@ import "./Settings/Game"
 import "../Core/App.js" as App
 import "../Core/Popup.js" as Popup
 import "../Core/Styles.js" as Styles
+import "../Core/User.js" as User
+import "../Core/MessageBox.js" as MessageBox
 
 Rectangle {
     id: root
@@ -127,6 +129,36 @@ Rectangle {
                          onClicked: root.state = "ControlPage";
                     }
                     */
+                }
+
+                SettingsSpecialButton {
+                    function isUninstallButtonVisible() {
+                        if (!root.currentGame) {
+                            return false;
+                        }
+
+                        if (root.currentGame.status === "Uninstalling") {
+                            return false;
+                        }
+
+                        return App.isServiceInstalled(root.currentGame.serviceId);
+                    }
+
+                    width: 150
+                    height: 30
+                    visible: isUninstallButtonVisible();
+                    anchors {
+                        bottom: parent.bottom
+                        bottomMargin: 40
+                    }
+                    text: qsTr("UNINSTALL_GAME")
+                    analytics {
+                        page: '/GameSettings'
+                        category: 'Uninstall'
+                        action: 'Uninstall client'
+                    }
+
+                    onClicked: App.uninstallRequested(root.currentGame.serviceId);
                 }
 
                 SettingsSpecialButton {

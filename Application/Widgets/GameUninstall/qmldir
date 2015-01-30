@@ -1,0 +1,3 @@
+module Application.Widgets.GameUninstall
+PluginContainer 1.0 PluginContainer.qml 
+GameUninstall 1.0 View/GameUninstall.qml

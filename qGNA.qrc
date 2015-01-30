@@ -147,16 +147,7 @@
 		<file>Application/Widgets/AutoRefreshCookie/AutoRefreshCookie.qml</file>
 		<file>Application/Widgets/AutoRefreshCookie/PluginContainer.qml</file>
 		<file>Application/Widgets/AutoRefreshCookie/qmldir</file>
-		<file>Application/Widgets/DetailedUserInfo/DetailedUserInfoModel.qml</file>
-		<file>Application/Widgets/DetailedUserInfo/PluginContainer.qml</file>
-		<file>Application/Widgets/DetailedUserInfo/qmldir</file>
-		<file>Application/Widgets/DetailedUserInfo/View/Blocks/Background.qml</file>
-		<file>Application/Widgets/DetailedUserInfo/View/Blocks/BlockHeader.qml</file>
-		<file>Application/Widgets/DetailedUserInfo/View/Blocks/GameChars.qml</file>
-		<file>Application/Widgets/DetailedUserInfo/View/Blocks/GameInfo.qml</file>
-		<file>Application/Widgets/DetailedUserInfo/View/Blocks/Header.qml</file>
-		<file>Application/Widgets/DetailedUserInfo/View/Blocks/MainInfo.qml</file>
-		<file>Application/Widgets/DetailedUserInfo/View/DetailedUserInfoView.qml</file>
+		<file>Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.js</file>
 		<file>Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml</file>
 		<file>Application/Widgets/DownloadManagerConnector/PluginContainer.qml</file>
 		<file>Application/Widgets/DownloadManagerConnector/qmldir</file>
@@ -214,6 +205,10 @@
 		<file>Application/Widgets/GameNews/View/NewsDelegate.qml</file>
 		<file>Application/Widgets/GameNews/View/NewsMyGames.qml</file>
 		<file>Application/Widgets/GameNews/View/NewsSingleGame.qml</file>
+		<file>Application/Widgets/GameUninstall/GameUninstallModel.qml</file>
+		<file>Application/Widgets/GameUninstall/PluginContainer.qml</file>
+		<file>Application/Widgets/GameUninstall/qmldir</file>
+		<file>Application/Widgets/GameUninstall/View/GameUninstallView.qml</file>
 		<file>Application/Widgets/Maintenance/MaintenanceModel.js</file>
 		<file>Application/Widgets/Maintenance/MaintenanceModel.qml</file>
 		<file>Application/Widgets/Maintenance/PluginContainer.qml</file>

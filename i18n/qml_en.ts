@@ -398,7 +398,7 @@
 <context>
     <name>Chat</name>
     <message>
-        <location filename="../Application/Widgets/Overlay/View/Chat/Chat.qml" line="180"/>
+        <location filename="../Application/Widgets/Overlay/View/Chat/Chat.qml" line="194"/>
         <source>MESSENGER_OVERLAY_POPUP_HELPER_TEXT</source>
         <translation></translation>
     </message>
@@ -538,32 +538,37 @@
 <context>
     <name>DownloadManagerConnector</name>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="32"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="33"/>
         <source>POPUP_PLAY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="33"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="34"/>
         <source>POPUP_READY_TO_START</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="74"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="75"/>
         <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="212"/>
-        <source>TEXT_PROGRESSBAR_REHASH_NOW_STATE</source>
-        <translation></translation>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="107"/>
+        <source>STATE_PREPARE_UNINSTALL</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="226"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="235"/>
+        <source>TEXT_PROGRESSBAR_REHASH_NOW_STATE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="249"/>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="227"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="250"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
         <translation></translation>
     </message>
@@ -654,7 +659,7 @@
 <context>
     <name>DownloadStatus</name>
     <message>
-        <location filename="../Application/Blocks/DownloadStatus.qml" line="39"/>
+        <location filename="../Application/Blocks/DownloadStatus.qml" line="41"/>
         <source>DOWNLOAD_STATUS_ERROR</source>
         <translation></translation>
     </message>
@@ -859,42 +864,52 @@
 <context>
     <name>GameInstallBlock</name>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="94"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="121"/>
         <source>BUTTON_PLAY_ON_PAUSED_STATE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="124"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="98"/>
+        <source>BUTTON_UNINSTALLING_STATE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="156"/>
         <source>BUTTON_PLAY_NOT_INSTALLED</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="106"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="137"/>
         <source>ABOUT_PLAY_NOT_INSTALLED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Application/Blocks/GameInstallBlock.qml" line="125"/>
+        <source>BUTTON_UNINSTALLING_STATE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="157"/>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="126"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="158"/>
         <source>BUTTON_PLAY_ON_DETAILS_STATE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="127"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="159"/>
         <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="128"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="160"/>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="129"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="161"/>
         <source>BUTTON_PLAY_ERROR_STATE</source>
         <translation></translation>
     </message>
@@ -1015,7 +1030,7 @@
 <context>
     <name>GameNetNotification</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/GameNetNotification.qml" line="40"/>
+        <location filename="../Application/Widgets/Messenger/View/GameNetNotification.qml" line="37"/>
         <source>MESSANGER_GAMENET_NOTIFICATION_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1039,34 +1054,153 @@
 <context>
     <name>GameSettings</name>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="69"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="71"/>
         <source>GAME_SETTINGS_TITLE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="98"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="100"/>
         <source>FOLDERS_TAB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="109"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="111"/>
         <source>OVERLAY_TAB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="138"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="195"/>
+        <source>UNINSTALL_GAME</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/GameSettings.qml" line="154"/>
+        <source>UNINSTALL_GAME</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/GameSettings.qml" line="170"/>
         <source>RESTORE_CLIENT</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="200"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="232"/>
         <source>SAVE_BUTTON_LABEL</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameSettings.qml" line="219"/>
+        <location filename="../Application/Blocks/GameSettings.qml" line="251"/>
         <source>CLOSE_BUTTON_LABEL</source>
         <translation></translation>
+    </message>
+</context>
+<context>
+    <name>GameUninstallModel</name>
+    <message>
+        <location filename="../Application/Widgets/GameUninstall/GameUninstallModel.qml" line="43"/>
+        <source>WARNING_UNINSTALL_INPROGRESS_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameUninstall/GameUninstallModel.qml" line="44"/>
+        <source>WARNING_UNINSTALL_INPROGRESS_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameUninstall/GameUninstallModel.qml" line="50"/>
+        <source>WARNING_GAME_ISDOWNLOADING_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameUninstall/GameUninstallModel.qml" line="51"/>
+        <source>WARNING_GAME_ISDOWNLOADING_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameUninstall/GameUninstallModel.qml" line="57"/>
+        <source>WARNING_GAME_ISRUNNING_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameUninstall/GameUninstallModel.qml" line="58"/>
+        <source>WARNING_GAME_ISRUNNING_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameUninstall/GameUninstallModel.qml" line="64"/>
+        <source>WARNING_QUESTION_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameUninstall/GameUninstallModel.qml" line="65"/>
+        <source>WARNING_QUESTION_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GameUninstallModel</name>
+    <message>
+        <location filename="../Application/Widgets/GameUninstall/GameUninstallModel.qml" line="34"/>
+        <source>WARNING_UNINSTALL_NOT_INSTALLED_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameUninstall/GameUninstallModel.qml" line="35"/>
+        <source>WARNING_UNINSTALL_NOT_INSTALLED_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameUninstall/GameUninstallModel.qml" line="42"/>
+        <source>WARNING_UNINSTALL_INPROGRESS_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameUninstall/GameUninstallModel.qml" line="43"/>
+        <source>WARNING_UNINSTALL_INPROGRESS_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameUninstall/GameUninstallModel.qml" line="50"/>
+        <source>WARNING_GAME_ISDOWNLOADING_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameUninstall/GameUninstallModel.qml" line="51"/>
+        <source>WARNING_GAME_ISDOWNLOADING_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameUninstall/GameUninstallModel.qml" line="58"/>
+        <source>WARNING_GAME_ISRUNNING_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameUninstall/GameUninstallModel.qml" line="59"/>
+        <source>WARNING_GAME_ISRUNNING_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameUninstall/GameUninstallModel.qml" line="66"/>
+        <source>WARNING_QUESTION_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameUninstall/GameUninstallModel.qml" line="67"/>
+        <source>WARNING_QUESTION_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GameUninstallView</name>
+    <message>
+        <location filename="../Application/Widgets/GameUninstall/View/GameUninstallView.qml" line="56"/>
+        <source>UNINSTALL_COMPLETE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameUninstall/View/GameUninstallView.qml" line="63"/>
+        <source>UNINSTALL_TITLE</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1408,7 +1542,7 @@
 <context>
     <name>Messenger</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="352"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="354"/>
         <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
         <translation></translation>
     </message>

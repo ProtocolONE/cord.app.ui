@@ -55,6 +55,13 @@ QtObject {
     signal updateTaskbarIcon(string source);
     signal unreadContactsChanged(int contacts);
 
+    signal uninstallRequested(string serviceId);
+    signal uninstallStarted(string serviceId);
+    signal uninstallProgressChanged(string serviceId, int progress);
+    signal uninstallFinished(string serviceId);
+
     signal openDetailedUserInfo(variant opt);
     signal closeDetailedUserInfo();
+
+    signal servicesLoaded();
 }

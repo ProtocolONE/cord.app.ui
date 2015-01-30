@@ -23,7 +23,7 @@ Item {
     id: root
 
     property variant gameItem: App.currentGame()
-    property bool isFullSize: button.isStartDownloading || button.isStarting || button.isError
+    property bool isFullSize: button.isStartDownloading || button.isStarting || button.isError || button.isUninstalling
 
     width: 180
     height: root.isFullSize ? 137 : 101
@@ -41,6 +41,33 @@ Item {
                     && !App.isAppSettingsEnabled("qml/installBlock/", "shakeAnimationShown", false)) {
                 App.setAppSettingsValue("qml/installBlock/", "shakeAnimationShown", true);
                 shakeAnimationTimer.start();
+            }
+        }
+    }
+
+    QtObject {
+        id: d
+
+        function showPopup() {
+            if (!root.gameItem) {
+                return;
+            }
+
+            App.activateGameByServiceId(root.gameItem.serviceId);
+
+            if (button.isError) {
+                Popup.show('GameDownloadError');
+                return;
+            }
+
+            if (button.isStartDownloading) {
+                Popup.show('GameLoad');
+                return;
+            }
+
+            if (button.isUninstalling) {
+                Popup.show('GameUninstall');
+                return;
             }
         }
     }
@@ -94,6 +121,10 @@ Item {
                         return qsTr("BUTTON_PLAY_ON_PAUSED_STATE");
                     }
 
+                    if (isUninstalling) {
+                        return qsTr("BUTTON_UNINSTALLING_STATE");
+                    }
+
                     if (allreadyDownloaded) {
                         return buttonDownloadedText;
                     }
@@ -113,12 +144,13 @@ Item {
                     return buttonNotInstalledText;
                 }
 
-                property bool isInstalled: root.gameItem ? (App.isServiceInstalled(root.gameItem.serviceId)) : false
+                property bool isInstalled: root.gameItem ? root.gameItem.isInstalled : false
                 property bool isStartDownloading: root.gameItem ? (root.gameItem.status === "Downloading") : false
                 property bool isStarting: root.gameItem ? (root.gameItem.status === "Starting") : false
                 property bool isError: root.gameItem ? (root.gameItem.status === "Error") : false
                 property bool isPause: root.gameItem ? (root.gameItem.status === "Paused") : false
                 property bool isDetailed: root.gameItem ? (root.gameItem.status === "Paused") : false
+                property bool isUninstalling: root.gameItem ? (root.gameItem.status === "Uninstalling") : false
                 property bool allreadyDownloaded: root.gameItem ? (root.gameItem.allreadyDownloaded) : false
 
                 property string buttonNotInstalledText: qsTr("BUTTON_PLAY_NOT_INSTALLED")
@@ -155,8 +187,7 @@ Item {
                         button.forceActiveFocus();
                     }
 
-                    var status = root.gameItem.status,
-                        serviceId = root.gameItem.serviceId;
+                    var serviceId = root.gameItem.serviceId;
 
                     App.activateGameByServiceId(serviceId);
 
@@ -213,6 +244,8 @@ Item {
             textColor: Styles.style.gameInstallDownloadStatusText
             spacing: 6
             opacity: downloadStatus.isVisible() ? 1 : 0// TODO добавить анимацию прозрачности
+
+            onClicked: d.showPopup();
         }
     }
 }

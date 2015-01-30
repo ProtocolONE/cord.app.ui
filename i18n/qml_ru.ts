@@ -1451,6 +1451,14 @@ Please try again later.</source>
         <source>TEXT_PROGRESSBAR_REHASH_NOW_STATE</source>
         <translation type="unfinished">Проверка файлов игры %1%</translation>
     </message>
+    <message>
+        <source>STATE_UNINSTALLING</source>
+        <translation type="vanished">Удаление %1</translation>
+    </message>
+    <message>
+        <source>STATE_PREPARE_UNINSTALL</source>
+        <translation type="obsolete">Подготовка к удалению %1</translation>
+    </message>
 </context>
 <context>
     <name>DownloadProgress</name>
@@ -1967,8 +1975,8 @@ Please try again later.</source>
         <translation>Продолжить</translation>
     </message>
     <message>
-        <source>ABOUT_PLAY_NOT_INSTALLED</source>
-        <translation>Подробнее</translation>
+        <source>BUTTON_UNINSTALLING_STATE</source>
+        <translation>Удаление игры</translation>
     </message>
 </context>
 <context>
@@ -2220,6 +2228,10 @@ Please try again later.</source>
         <translation type="vanished">Управление</translation>
     </message>
     <message>
+        <source>UNINSTALL_GAME</source>
+        <translation>Удалить</translation>
+    </message>
+    <message>
         <source>RESTORE_CLIENT</source>
         <translation>Восстановить клиент</translation>
     </message>
@@ -2234,6 +2246,60 @@ Please try again later.</source>
     <message>
         <source>CLOSE_BUTTON_LABEL</source>
         <translation>Закрыть</translation>
+    </message>
+</context>
+<context>
+    <name>GameUninstallModel</name>
+    <message>
+        <source>WARNING_UNINSTALL_NOT_INSTALLED_TITLE</source>
+        <translation>Ошибка</translation>
+    </message>
+    <message>
+        <source>WARNING_UNINSTALL_NOT_INSTALLED_MESSAGE</source>
+        <translation>Игра %1 не установлена.</translation>
+    </message>
+    <message>
+        <source>WARNING_GAME_ISRUNNING_TITLE</source>
+        <translation>Игра запущена</translation>
+    </message>
+    <message>
+        <source>WARNING_GAME_ISRUNNING_MESSAGE</source>
+        <translation>Игра %1 сейчас запущена и не может быть удалена. Пожалуйста, выйдите из игры и запустите удаление снова.</translation>
+    </message>
+    <message>
+        <source>WARNING_GAME_ISDOWNLOADING_TITLE</source>
+        <translation>Игра в процессе запуска</translation>
+    </message>
+    <message>
+        <source>WARNING_GAME_ISDOWNLOADING_MESSAGE</source>
+        <translation>Идёт процесс запуска игры %1. Пожалуйста, дождитесь его завершения и запустите удаление %1 снова.</translation>
+    </message>
+    <message>
+        <source>WARNING_UNINSTALL_INPROGRESS_TITLE</source>
+        <translation>Сейчас удаляется другая игра</translation>
+    </message>
+    <message>
+        <source>WARNING_UNINSTALL_INPROGRESS_MESSAGE</source>
+        <translation>Идёт процесс удаления другой игры. Пожалуйста, дождитесь его завершения и запустите удаление %1 снова.</translation>
+    </message>
+    <message>
+        <source>WARNING_QUESTION_TITLE</source>
+        <translation>Подтвердите удаление</translation>
+    </message>
+    <message>
+        <source>WARNING_QUESTION_MESSAGE</source>
+        <translation>Удалить %1 с компьютера?</translation>
+    </message>
+</context>
+<context>
+    <name>GameUninstallView</name>
+    <message>
+        <source>UNINSTALL_TITLE</source>
+        <translation>Удаление игры %1</translation>
+    </message>
+    <message>
+        <source>UNINSTALL_COMPLETE</source>
+        <translation>Игра %1 успешно удалена</translation>
     </message>
 </context>
 <context>

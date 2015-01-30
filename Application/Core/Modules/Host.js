@@ -40,14 +40,6 @@ function isAnyLicenseAccepted() {
     return true;
 }
 
-function isLicenseAccepted(serviceId) {
-    if (proxyInst) {
-        return proxyInst.isLicenseAccepted(serviceId);
-    }
-
-    return true;
-}
-
 function acceptFirstLicense(serviceId) {
     if (proxyInst) {
         proxyInst.acceptFirstLicense(serviceId);
@@ -255,6 +247,12 @@ function terminateSecondService() {
     }
 }
 
+function restartApplication(sameArgs) {
+    if (proxyInst) {
+        proxyInst.restartApplication(sameArgs);
+    }
+}
+
 function mainWindowInstance() {
     if (proxyInst) {
         return proxyInst.mainWindowInstance();
@@ -308,3 +306,16 @@ function setTaskbarIcon(source) {
         proxyInst.setTaskbarIcon(source);
     }
 }
+
+function uninstallService(serviceId) {
+    if (proxyInst) {
+        proxyInst.uninstallService(serviceId);
+    }
+}
+
+function cancelServiceUninstall(serviceId) {
+    if (proxyInst) {
+        proxyInst.cancelServiceUninstall(serviceId);
+    }
+}
+

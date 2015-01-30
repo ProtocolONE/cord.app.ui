@@ -170,6 +170,7 @@ Item {
     function requestServices() {
         RestApi.Service.getUi(function(result) {
             App.fillGamesModel(result);
+            App.servicesLoaded();
             App.setGlobalState("Authorization");
         }, function(result) {
             console.log('get services error', result);

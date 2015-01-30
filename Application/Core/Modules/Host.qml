@@ -171,4 +171,12 @@ QtObject {
     function setTaskbarIcon(source) {
         mainWindow.setTaskbarIcon(source);
     }
+
+    function uninstallService(serviceId) {
+        mainWindow.uninstallService(serviceId);
+    }
+
+    function cancelServiceUninstall(serviceId) {
+        mainWindow.cancelServiceUninstall(serviceId);
+    }
 }
