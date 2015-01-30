@@ -102,6 +102,10 @@ Item {
                         return buttonDetailsText;
                     }
 
+                    if (root.gameItem && !root.gameItem.isRunnable) {
+                        return qsTr("ABOUT_PLAY_NOT_INSTALLED");
+                    }
+
                     if (isInstalled) {
                         return buttonText;
                     }

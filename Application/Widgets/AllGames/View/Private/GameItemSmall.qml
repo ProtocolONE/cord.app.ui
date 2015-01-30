@@ -103,7 +103,8 @@ Column {
             anchors.centerIn: parent
             opacity: root.selected && stateGroup.state != 'Downloading' ? 1 : 0
             fontSize: 12
-            text: qsTr("START_GAME_BUTTON")
+            text: root.serviceItem.isRunnable ? qsTr("START_GAME_BUTTON") : qsTr("ABOUT_GAME_BUTTON")
+
             enabled: App.isMainServiceCanBeStarted(root.serviceItem)
 
             analytics {

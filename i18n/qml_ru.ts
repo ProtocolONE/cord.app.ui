@@ -1876,6 +1876,10 @@ Please try again later.</source>
         <source>BUTTON_PLAY_ON_PAUSED_STATE</source>
         <translation>Продолжить</translation>
     </message>
+    <message>
+        <source>ABOUT_PLAY_NOT_INSTALLED</source>
+        <translation type="unfinished">Подробнее</translation>
+    </message>
 </context>
 <context>
     <name>GameInstallBlockView</name>
@@ -1967,6 +1971,10 @@ Please try again later.</source>
         <source>GAME_NEW_STICK</source>
         <translation>НОВАЯ ИГРА</translation>
     </message>
+    <message>
+        <source>ABOUT_GAME_BUTTON</source>
+        <translation>Об игре</translation>
+    </message>
 </context>
 <context>
     <name>GameItemSmall</name>
@@ -1981,6 +1989,10 @@ Please try again later.</source>
     <message>
         <source>GAME_NEW_STICK</source>
         <translation>НОВАЯ ИГРА</translation>
+    </message>
+    <message>
+        <source>ABOUT_GAME_BUTTON</source>
+        <translation>Об игре</translation>
     </message>
 </context>
 <context>

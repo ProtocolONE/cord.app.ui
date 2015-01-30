@@ -180,7 +180,7 @@ Item {
             height: 32
             anchors.centerIn: parent
             opacity: root.selected ? 1 : 0
-            text: qsTr("START_GAME_BUTTON")
+            text: root.serviceItem.isRunnable ? qsTr("START_GAME_BUTTON") : qsTr("ABOUT_GAME_BUTTON")
             enabled: App.isMainServiceCanBeStarted(root.serviceItem)
 
             analytics {

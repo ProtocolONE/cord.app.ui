@@ -20,46 +20,38 @@ function createService(data) {
     item.currentMenuIndex = 1;
     item.widgets = {};
 
-    // External properties
-    properties = [
-                'gameId',
-                'serviceId',
-                'name',
-                'gaName',
-                'gameType',
-                'genre',
-                'imageSmall',
-                'imageHorizontalSmall',
-                'imageLogoSmall',
-                'imagePopupArt',
-                'maintenanceProposal1',
-                'maintenanceProposal2',
-                'logoText',
-                'aboutGame',
-                'miniToolTip',
-                'shortDescription',
-                'secondAllowed',
-                'widgetList',
-                'isPublishedInApp',
-                'iconInApp',
-                'typeShortcut',
-                'sortPositionInApp',
-                'hasOverlay',
-                'socialNet'
-            ];
+    // External item properties
+    item.gameId = data.gameId || '';
+    item.serviceId = data.serviceId || '';
+    item.name = data.name || '';
+    item.gaName = data.gaName || '';
+    item.gameType = data.gameType || '';
+    item.genre = data.genre || '';
+    item.imageSmall = data.imageSmall || '';
+    item.imageHorizontalSmall = data.imageHorizontalSmall || '';
+    item.imageLogoSmall = data.imageLogoSmall || '';
+    item.imagePopupArt = data.imagePopupArt || '';
+    item.maintenanceProposal1 = data.maintenanceProposal1 || '';
+    item.maintenanceProposal2 = data.maintenanceProposal2 || '';
+    item.logoText = data.logoText || '';
+    item.aboutGame = data.aboutGame || '';
+    item.miniToolTip = data.miniToolTip || '';
+    item.shortDescription = data.shortDescription || '';
+    item.secondAllowed = !!data.secondAllowed;
+    item.widgetList = data.widgetList || '';
+    item.isPublishedInApp = !!data.isPublishedInApp;
+    item.iconInApp = data.iconInApp || '';
+    item.typeShortcut = data.typeShortcut || '';
+    item.sortPositionInApp = data.sortPositionInApp || '0';
+    item.hasOverlay = !!data.hasOverlay;
+    item.socialNet = data.socialNet || '';
+    item.isRunnable = !!data.isRunnable;
 
     urlProps = [
                 'guideUrl',
                 'blogUrl',
                 'licenseUrl',
             ];
-
-    Object.keys(properties).forEach(function(e){
-        var prop = properties[e];
-        if (data.hasOwnProperty(prop)) {
-            item[prop] = data[prop];
-        }
-    });
 
     Object.keys(urlProps).forEach(function(e){
         var prop = urlProps[e];
