@@ -33,16 +33,17 @@ Qt.include('./Modules/ServiceHandleModel.js');
 Qt.include('./Modules/ApplicationStatistic.js');
 Qt.include('./Modules/Service.js');
 
-var gamesListModel,
-    _previousGame = gamesListModel ? gamesListModel.currentGameItem : null,
-    gamenetGameItem = {
-    imageLogoSmall: "Assets/Images/games/gamenet_logo_small.png",
-    name: "GameNet",
-    serviceId: "0"
-};
+var gamesListModel = initModel(),
+    _gamesListModelList,
+    _previousGame = gamesListModel.currentGameItem;
 
 function fillGamesModel(data) {
-        var i, item, last;
+        var i,
+            item,
+            last,
+            isGameNetItem,
+            isItemShouldBeShown;
+
         count = data.length;
 
         gamesListModel.clear();
@@ -50,8 +51,15 @@ function fillGamesModel(data) {
         for (i = 0; i < count; ++i) {
             item = createService(data[i]);
 
-            if (!item || (!isPrivateTestVersion() && !item.isPublishedInApp)) {
-                continue;
+            if (!item) {
+                 continue;
+            }
+
+            isGameNetItem = (item.serviceId == '0');
+            isItemShouldBeShown = isPrivateTestVersion() || item.isPublishedInApp || isGameNetItem;
+
+            if (!isItemShouldBeShown) {
+                 continue;
             }
 
             gamesListModel.fillMenu(item);
@@ -131,10 +139,6 @@ function serviceItemByGameId(gameId) {
 }
 
 function serviceItemByServiceId(serviceId) {
-    if (serviceId == 0) {
-        return gamenetGameItem;
-    }
-
     var index = indexByServiceId(serviceId)
     return index != undefined ? indexToGameItem[index] : undefined;
 }
