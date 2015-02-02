@@ -141,6 +141,7 @@ Rectangle {
                     }
                     onClicked: {
                         gameSettingsModel.restoreClient();
+                        root.currentGame.status = 'Normal';
                         App.navigate("mygame");
                         Popup.show('GameLoad');
                     }
