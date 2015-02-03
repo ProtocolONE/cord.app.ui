@@ -480,7 +480,7 @@ Item {
 
             tmpProps.filter(function(prop) {
                 var type = typeof(root[prop]);
-                return type === 'number';
+                return type === 'number' || type === 'string';
             }).forEach(function(prop) {
                 root[prop] = styleList[currentStyle][prop];
             });
