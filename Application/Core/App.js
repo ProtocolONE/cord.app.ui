@@ -33,37 +33,19 @@ Qt.include('./Modules/ServiceHandleModel.js');
 Qt.include('./Modules/ApplicationStatistic.js');
 Qt.include('./Modules/Service.js');
 
-var gamesListModel = initModel(),
-    _gamesListModelList,
-    _previousGame = gamesListModel.currentGameItem,
+var gamesListModel,
+    _previousGame = gamesListModel ? gamesListModel.currentGameItem : null,
     gamenetGameItem = {
     imageLogoSmall: "Assets/Images/games/gamenet_logo_small.png",
     name: "GameNet",
     serviceId: "0"
 };
 
-function initModel() {
-    var component = Qt.createComponent('../Models/GamesListModel.qml');
-
-    if (component.status != 1) {
-        console.log('FATAL: error loading model:', component.errorString());
-        return null;
-    }
-
-    _gamesListModelList = component.createObject(null);
-    if (!_gamesListModelList) {
-        console.log('FATAL: error creating model');
-        return null;
-    }
-
-    return _gamesListModelList;
-}
-
 function fillGamesModel(data) {
         var i, item, last;
         count = data.length;
 
-        _gamesListModelList.clear();
+        gamesListModel.clear();
 
         for (i = 0; i < count; ++i) {
             item = createService(data[i]);
@@ -72,12 +54,12 @@ function fillGamesModel(data) {
                 continue;
             }
 
-            _gamesListModelList.fillMenu(item);
-            _gamesListModelList.append(item);
+            gamesListModel.fillMenu(item);
+            gamesListModel.append(item);
 
-            last = _gamesListModelList.count - 1;
-            indexToGameItem[i] = _gamesListModelList.get(last);
-            gameIdToGameItem[item.gameId] = _gamesListModelList.get(last);
+            last = gamesListModel.count - 1;
+            indexToGameItem[i] = gamesListModel.get(last);
+            gameIdToGameItem[item.gameId] = gamesListModel.get(last);
             serviceIdToGameItemIdex[item.serviceId] = i;
         }
 }

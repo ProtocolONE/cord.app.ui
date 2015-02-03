@@ -246,6 +246,16 @@
 		"messengerSmilePanelBorder": "#324e5e",
 		"messengerSmilePanelHover": "#002336",
 		"messengerSmilePanelSubstrate": "#19384a",
-		"messengerSmileChatButtonHover": "#1abc9c"
+		"messengerSmileChatButtonHover": "#1abc9c",
+		"headerGameNetLogo": "Assets/Images/Application/Blocks/Header/GamenetLogo.png",
+		"headerAllGames": "Assets/Images/Application/Blocks/Header/AllGames.png",
+		"headerMyGames": "Assets/Images/Application/Blocks/Header/MyGames.png",
+		"headerSupport": "Assets/Images/Application/Blocks/Header/Support.png",
+		"gameMenuNewsIcon": "Assets/Images/Application/Blocks/GameMenu/News.png",
+		"gameMenuAboutIcon": "Assets/Images/Application/Blocks/GameMenu/About.png",
+		"gameMenuBlogIcon": "Assets/Images/Application/Blocks/GameMenu/Blog.png",
+		"gameMenuGuidesIcon": "Assets/Images/Application/Blocks/GameMenu/Guides.png",
+		"gameMenuForumIcon": "Assets/Images/Application/Blocks/GameMenu/Forum.png",
+		"gameMenuSettingsIcon": "Assets/Images/Application/Blocks/GameMenu/Settings.png"
     }
 }

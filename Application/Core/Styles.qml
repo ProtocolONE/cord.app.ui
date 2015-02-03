@@ -323,6 +323,20 @@ Item {
     property color messengerGridGenreText: '#8e9ca7'
     property color messengerGridStickText: '#ffffff'
 
+    // Images header
+    property string headerGameNetLogo: "Assets/Images/Application/Blocks/Header/GamenetLogo.png"
+    property string headerAllGames: "Assets/Images/Application/Blocks/Header/AllGames.png"
+    property string headerMyGames: "Assets/Images/Application/Blocks/Header/MyGames.png"
+    property string headerSupport: "Assets/Images/Application/Blocks/Header/Support.png"
+
+    // Images game menu
+    property string gameMenuNewsIcon: "Assets/Images/Application/Blocks/GameMenu/News.png"
+    property string gameMenuAboutIcon: "Assets/Images/Application/Blocks/GameMenu/About.png"
+    property string gameMenuBlogIcon: "Assets/Images/Application/Blocks/GameMenu/Blog.png"
+    property string gameMenuGuidesIcon: "Assets/Images/Application/Blocks/GameMenu/Guides.png"
+    property string gameMenuForumIcon: "Assets/Images/Application/Blocks/GameMenu/Forum.png"
+    property string gameMenuSettingsIcon: "Assets/Images/Application/Blocks/GameMenu/Settings.png"
+
     //PRIVATE PART
     property variant styleList
     property string styleListOriginal

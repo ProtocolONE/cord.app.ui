@@ -10,6 +10,8 @@
 import Tulip 1.0
 import QtQuick 1.1
 
+import "../Core/Styles.js" as Styles
+
 ListModel {
     id: root
 
@@ -35,14 +37,14 @@ ListModel {
     function fillMenu(element) {
         root.appendMenuItem(element.menu,
                             {
-                                icon: "Assets/Images/Application/Blocks/GameMenu/News.png",
+                                icon: Styles.style.gameMenuNewsIcon,
                                 text: qsTr("GAME_MENU_NEWS_TEXT"),
                                 page: "News",
                             });
 
         root.appendMenuItem(element.menu,
                             {
-                                icon: "Assets/Images/Application/Blocks/GameMenu/About.png",
+                                icon: Styles.style.gameMenuAboutIcon,
                                 text: qsTr("GAME_MENU_ABOUT_GAME_TEXT"),
                                 page: "AboutGame",
                             });
@@ -51,7 +53,7 @@ ListModel {
             root.appendMenuItem(element.menu,
                                 {
                                     link: true,
-                                    icon: "Assets/Images/Application/Blocks/GameMenu/Blog.png",
+                                    icon: Styles.style.gameMenuBlogIcon,
                                     text: qsTr("GAME_MENU_BLOG_TEXT"),
                                     url: element.blogUrl
                                 });
@@ -62,7 +64,7 @@ ListModel {
             root.appendMenuItem(element.menu,
                                 {
                                     link: true,
-                                    icon: "Assets/Images/Application/Blocks/GameMenu/Guides.png",
+                                    icon: Styles.style.gameMenuGuidesIcon,
                                     text: qsTr("GAME_MENU_GUIDES_TEXT"),
                                     url: element.guideUrl
                                 });
@@ -72,7 +74,7 @@ ListModel {
             root.appendMenuItem(element.menu,
                                 {
                                     link: true,
-                                    icon: "Assets/Images/Application/Blocks/GameMenu/Forum.png",
+                                    icon: Styles.style.gameMenuForumIcon,
                                     text: qsTr("GAME_MENU_FORUM_TEXT"),
                                     url: element.forumUrl
                                 });
@@ -81,7 +83,7 @@ ListModel {
         if (element.gameType === "standalone") {
             root.appendMenuItem(element.menu,
                             {
-                                icon: "Assets/Images/Application/Blocks/GameMenu/Settings.png",
+                                icon: Styles.style.gameMenuSettingsIcon,
                                 text: qsTr("GAME_MENU_GAME_SETTINGS_TEXT"),
                                 page: "GameSettings",
                             });
