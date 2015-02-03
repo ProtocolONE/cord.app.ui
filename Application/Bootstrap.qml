@@ -24,8 +24,6 @@ import "Core/MessageBox.js" as MessageBox
 import "Core/TrayPopup.js" as TrayPopup
 import "Core/EmojiOne.js" as EmojiOne
 
-import "Models/GamesListModel.js" as GamesListModel
-
 import "../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../GameNet/Controls/Tooltip.js" as Tooltip
 
@@ -56,7 +54,6 @@ Item {
         console.log('Desktop', options.desktop);
 
         Styles.init();
-        App.gamesListModel = GamesListModel.initModel();
 
         initEmojiOne();
         initRestApi(options);

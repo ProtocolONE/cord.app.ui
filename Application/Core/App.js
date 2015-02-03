@@ -37,6 +37,23 @@ var gamesListModel = initModel(),
     _gamesListModelList,
     _previousGame = gamesListModel.currentGameItem;
 
+function initModel() {
+    var component = Qt.createComponent('../Models/GamesListModel.qml');
+
+    if (component.status != 1) {
+        console.log('FATAL: error loading model:', component.errorString());
+        return null;
+    }
+
+    _gamesListModelList = component.createObject(null);
+    if (!_gamesListModelList) {
+        console.log('FATAL: error creating model');
+        return null;
+    }
+
+    return _gamesListModelList;
+}
+
 function fillGamesModel(data) {
         var i,
             item,
@@ -46,7 +63,7 @@ function fillGamesModel(data) {
 
         count = data.length;
 
-        gamesListModel.clear();
+        _gamesListModelList.clear();
 
         for (i = 0; i < count; ++i) {
             item = createService(data[i]);
@@ -62,12 +79,12 @@ function fillGamesModel(data) {
                  continue;
             }
 
-            gamesListModel.fillMenu(item);
-            gamesListModel.append(item);
+            _gamesListModelList.fillMenu(item);
+            _gamesListModelList.append(item);
 
-            last = gamesListModel.count - 1;
-            indexToGameItem[i] = gamesListModel.get(last);
-            gameIdToGameItem[item.gameId] = gamesListModel.get(last);
+            last = _gamesListModelList.count - 1;
+            indexToGameItem[i] = _gamesListModelList.get(last);
+            gameIdToGameItem[item.gameId] = _gamesListModelList.get(last);
             serviceIdToGameItemIdex[item.serviceId] = i;
         }
 }

@@ -10,8 +10,6 @@
 import Tulip 1.0
 import QtQuick 1.1
 
-import "../Core/Styles.js" as Styles
-
 ListModel {
     id: root
 
@@ -37,14 +35,14 @@ ListModel {
     function fillMenu(element) {
         root.appendMenuItem(element.menu,
                             {
-                                icon: Styles.style.gameMenuNewsIcon,
+                                icon: 'gameMenuNewsIcon',
                                 text: qsTr("GAME_MENU_NEWS_TEXT"),
                                 page: "News",
                             });
 
         root.appendMenuItem(element.menu,
                             {
-                                icon: Styles.style.gameMenuAboutIcon,
+                                icon: 'gameMenuAboutIcon',
                                 text: qsTr("GAME_MENU_ABOUT_GAME_TEXT"),
                                 page: "AboutGame",
                             });
@@ -53,7 +51,7 @@ ListModel {
             root.appendMenuItem(element.menu,
                                 {
                                     link: true,
-                                    icon: Styles.style.gameMenuBlogIcon,
+                                    icon: 'gameMenuBlogIcon',
                                     text: qsTr("GAME_MENU_BLOG_TEXT"),
                                     url: element.blogUrl
                                 });
@@ -64,7 +62,7 @@ ListModel {
             root.appendMenuItem(element.menu,
                                 {
                                     link: true,
-                                    icon: Styles.style.gameMenuGuidesIcon,
+                                    icon: 'gameMenuGuidesIcon',
                                     text: qsTr("GAME_MENU_GUIDES_TEXT"),
                                     url: element.guideUrl
                                 });
@@ -74,7 +72,7 @@ ListModel {
             root.appendMenuItem(element.menu,
                                 {
                                     link: true,
-                                    icon: Styles.style.gameMenuForumIcon,
+                                    icon: 'gameMenuForumIcon',
                                     text: qsTr("GAME_MENU_FORUM_TEXT"),
                                     url: element.forumUrl
                                 });
@@ -83,7 +81,7 @@ ListModel {
         if (element.gameType === "standalone") {
             root.appendMenuItem(element.menu,
                             {
-                                icon: Styles.style.gameMenuSettingsIcon,
+                                icon: 'gameMenuSettingsIcon',
                                 text: qsTr("GAME_MENU_GAME_SETTINGS_TEXT"),
                                 page: "GameSettings",
                             });
