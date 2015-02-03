@@ -15,12 +15,14 @@ import GameNet.Components.Widgets 1.0
 
 import "../../../Core/App.js" as App
 import "../../../Core/Styles.js" as Styles
+import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetView {
     id: root
 
     property int rotationTimeout: 5000
     property variant gameItem: App.currentGame()
+
     onGameItemChanged: {
         if (gameItem) {
             model.refreshGallery(gameItem.gameId);
@@ -114,7 +116,7 @@ WidgetView {
 
     Rectangle {
         anchors.fill: parent
-        color: Styles.style.gameInfoBackground
+        color: Styles.style.gameInfoImageBackground
     }
 
     Column {
@@ -126,11 +128,18 @@ WidgetView {
             width: parent.width
             height: previewListModel.count > 0 ? 390 : 0
             visible: previewListModel.count > 0
-            spacing: 10
+            spacing: 2
 
             Item {
                 width: parent.width
-                height: parent.height - 70
+                height: parent.height - 60
+
+                MouseArea {
+                    id: hoverArea
+
+                    anchors.fill: parent
+                    hoverEnabled: true
+                }
 
                 Switcher {
                     id: contentSwitcher
@@ -196,26 +205,56 @@ WidgetView {
                     }
                 }
 
+                Image {
+                    id: edgeLeftImage
+
+                    anchors.left: parent.left
+                    source: installPath + 'Assets/images/Application/Widgets/GameInfo/leftEdgeHover.png'
+                    visible: previousButton.containsMouse || nextButton.containsMouse || hoverArea.containsMouse
+                }
+
+                Image {
+                    id: edgeRightImage
+
+                    anchors.right: parent.right
+                    source: installPath + 'Assets/images/Application/Widgets/GameInfo/rightEdgeHover.png'
+                    visible: previousButton.containsMouse || nextButton.containsMouse || hoverArea.containsMouse
+                }
+
                 ImageButton {
                     id: previousButton
 
-                    width: 48
-                    height: 48
+                    width: edgeLeftImage.width
+                    height: parent.height
                     anchors {
                         verticalCenter: parent.verticalCenter
                         left: parent.left
-                        leftMargin: 10
                     }
+                    imageAnchors.horizontalCenterOffset: -4
+
                     style: ButtonStyleColors {
-                        normal: "#1ABC9C"
-                        hover: "#019074"
-                        disabled: "#1ABC9C"
+                        normal: "#00000000"
+                        hover: "#00000000"
+                        disabled: "#00000000"
                     }
                     styleImages: ButtonStyleImages {
-                        normal: installPath + 'Assets/images/Application/Widgets/GameInfo/leftArrow.png'
+                        normal: previousButton.containsMouse || hoverArea.containsMouse ?
+                                    installPath + 'Assets/images/Application/Widgets/GameInfo/leftArrowHover.png' :
+                                    installPath + 'Assets/images/Application/Widgets/GameInfo/leftArrow.png'
+                        /*
+                          INFO теперь есть ховер на весь виджет, и по новому дизайну, ховер на весь виджет, должен
+                          подсвечивать и кнопки, поэтому пришлось написать так.
+                          */
                         hover: normal
                         disabled: normal
                     }
+                    analytics: GoogleAnalyticsEvent {
+                        page: '/GameInfo/' + (root.gameItem ? root.gameItem.gaName : '')
+                        category: 'PreviousButton'
+                        action: 'Click'
+                        label: previewListModel.count > 0 ? previewListModel.get(d.index).preview : ''
+                    }
+
                     onClicked: {
                         showNextTimer.stop();
                         d.decrementIndex();
@@ -225,29 +264,40 @@ WidgetView {
                 ImageButton {
                     id: nextButton
 
-                    width: 48
-                    height: 48
+                    width: edgeRightImage.width
+                    height: parent.height
                     anchors {
                         verticalCenter: parent.verticalCenter
                         right: parent.right
-                        rightMargin: 14
                     }
+                    imageAnchors.horizontalCenterOffset: 4
                     style: ButtonStyleColors {
-                        normal: "#1ABC9C"
-                        hover: "#019074"
-                        disabled: "#1ABC9C"
+                        normal: "#00000000"
+                        hover: "#00000000"
+                        disabled: "#00000000"
                     }
                     styleImages: ButtonStyleImages {
-                        normal: installPath + 'Assets/images/Application/Widgets/GameInfo/rightArrow.png'
+                        normal: nextButton.containsMouse || hoverArea.containsMouse ?
+                                    installPath + 'Assets/images/Application/Widgets/GameInfo/rightArrowHover.png' :
+                                    installPath + 'Assets/images/Application/Widgets/GameInfo/rightArrow.png'
+                        /*
+                          INFO теперь есть ховер на весь виджет, и по новому дизайну, ховер на весь виджет, должен
+                          подсвечивать и кнопки, поэтому пришлось написать так.
+                          */
                         hover: normal
                         disabled: normal
+                    }
+                    analytics: GoogleAnalyticsEvent {
+                        page: '/GameInfo/' + (root.gameItem ? root.gameItem.gaName : '')
+                        category: 'NextButton'
+                        action: 'Click'
+                        label: previewListModel.count > 0 ? previewListModel.get(d.index).preview : ''
                     }
                     onClicked: {
                         showNextTimer.stop();
                         d.incrementIndex();
                     }
                 }
-
 
                 WidgetContainer {
                     anchors {
@@ -262,36 +312,37 @@ WidgetView {
             }
 
             Item {
-                height: 70
+                height: 60
                 anchors {
                     left: parent.left
-                    leftMargin: 10
+                    leftMargin: 1
                     right: parent.right
-                    rightMargin: 10
+                    rightMargin: 1
                 }
 
                 WheelArea {
                     anchors.fill: parent
                     onVerticalWheel: {
-                        var newValue = flickable.contentX - delta;
+                        var newValue = listView.contentX - delta;
 
                         if (newValue < 0) {
                             newValue = 0;
                         }
 
-                        if (newValue > flickable.contentWidth - width ) {
-                            newValue = flickable.contentWidth - width;
+                        if (newValue > listView.contentWidth - listView.width ) {
+                            newValue = listView.contentWidth - listView.width;
                         }
 
-                        flickable.contentX = newValue;
+                        listView.contentX = newValue;
                     }
                 }
 
-                Flickable {
-                    id: flickable
+                ListView {
+                    id: listView
 
-                    anchors.fill: parent
-                    contentWidth: listView.width
+                    height: 60
+                    width: parent.width
+                    cacheBuffer: width
                     boundsBehavior: Flickable.StopAtBounds
 
                     Behavior on contentX {
@@ -300,40 +351,47 @@ WidgetView {
                             duration: 75
                         }
                     }
-                    // TODO add acceleration
 
-                    ListView {
-                        id: listView
+                    interactive: false
+                    orientation: ListView.Horizontal
 
-                        height: 60
-                        width: (listView.count) * (80 + listView.spacing) - listView.spacing
-                        cacheBuffer: width
+                    model: ListModel {
+                        id: previewListModel
+                    }
 
-                        interactive: false
-                        orientation: ListView.Horizontal
+                    spacing: 2
 
-                        model: ListModel {
-                            id: previewListModel
-                        }
-
-                        spacing: 18
-
-                        delegate: GameInfoDelegate {
-                            function moveToItem() {
-                                if (x + width > flickable.contentX + flickable.width) {
-                                    flickable.contentX += (x + width) - (flickable.contentX + flickable.width);
-                                }
-
-                                if (x < flickable.contentX) {
-                                    flickable.contentX = x;
-                                }
+                    delegate: GameInfoDelegate {
+                        function moveToItem() {
+                            if (index == listView.count - 1) {
+                                listView.contentX = x - listView.width + width;
+                                return;
                             }
 
-                            hovered: index == listView.currentIndex ? 1 : 0
-                            width: 80
-                            height: 60
+                            if (index == 0) {
+                                listView.contentX = x;
+                                return;
+                            }
 
-                            onClicked: d.changeIndex(index);
+                            if (x + width * 1.5 > listView.contentX + listView.width) {
+                                listView.contentX += (x + width * 1.5) - (listView.contentX + listView.width);
+                            }
+
+                            if (x < listView.contentX) {
+                                listView.contentX = x - width / 2;
+                            }
+                        }
+
+                        hovered: index == listView.currentIndex ? 1 : 0
+                        width: 106
+                        height: 60
+
+                        onClicked: {
+                            GoogleAnalytics.trackEvent('/GameInfo/' + root.gameItem.gaName,
+                                                       "MiniImage",
+                                                       "Click",
+                                                       preview);
+                            d.changeIndex(index);
                         }
                     }
                 }
@@ -344,11 +402,20 @@ WidgetView {
             width: parent.width
             height: aboutText.height + 30
 
+            Rectangle {
+                anchors {
+                    fill: parent
+                    topMargin: 3
+                }
+
+                color: Styles.style.gameInfoBackground
+            }
+
             Text {
                 id: aboutText
 
                 wrapMode: Text.WordWrap
-                y: 15
+                y: 17
 
                 anchors {
                     left: parent.left
@@ -359,7 +426,10 @@ WidgetView {
                 color: Styles.style.gameInfoAboutText
                 smooth: true
                 clip: true
-                font { family: "Verdana"; pixelSize: 14 }
+                font {
+                    family: "Myriad"
+                    pixelSize: 15
+                }
                 lineHeightMode: Text.FixedHeight
                 lineHeight: 20
                 maximumLineCount: 4
@@ -367,7 +437,6 @@ WidgetView {
                 text: root.gameItem ? root.gameItem.aboutGame : ""
             }
         }
-
     }
 
     Rectangle {

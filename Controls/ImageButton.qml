@@ -12,6 +12,7 @@ import QtQuick 1.1
 Item {
     id: control
 
+    property alias imageAnchors: buttonIcon.anchors
     property alias analytics: buttonBehavior.analytics
     property alias toolTip: buttonBehavior.toolTip
     property alias tooltipPosition: buttonBehavior.tooltipPosition

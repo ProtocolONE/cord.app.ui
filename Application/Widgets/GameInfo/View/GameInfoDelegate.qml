@@ -1,37 +1,12 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
 
-Rectangle {
+Item {
     id: delegate
 
     signal clicked();
 
     property bool hovered
-
-    color: '#00000000'
-
-    Rectangle {
-        anchors {
-            fill: parent
-            margins: -5
-        }
-        color: '#ff6555'
-        opacity: delegate.hovered ? 1 : 0
-
-        Behavior on opacity { NumberAnimation { duration: 125 } }
-
-        Rectangle {
-            width: 14
-            height: 14
-            rotation: 45
-            anchors {
-                top: parent.top
-                topMargin: -7
-                horizontalCenter: parent.horizontalCenter
-            }
-            color: '#ff6555'
-        }
-    }
 
     WebImage {
         anchors.fill: parent
@@ -50,5 +25,34 @@ Rectangle {
                 delegate.clicked();
             }
         }
+    }
+
+    Rectangle {
+        anchors {
+            fill: parent
+            margins: 1
+        }
+        border {
+            color: '#e1c376'
+            width: 2
+        }
+
+        color: '#00000000'
+
+        opacity: delegate.hovered ? 1 : 0
+
+        Behavior on opacity { NumberAnimation { duration: 125 } }
+    }
+
+    Rectangle {
+        anchors {
+            fill: parent
+            bottomMargin: 1
+            rightMargin: 1
+        }
+        color: '#00000000'
+        border.color: '#ffffff'
+        opacity: 0.15
+        visible: !delegate.hovered
     }
 }

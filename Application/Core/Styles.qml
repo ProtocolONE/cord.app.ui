@@ -72,7 +72,8 @@ Item {
     property color gameAdWidgetText: "#fafafa"
 
     //GAME INFO
-    property color gameInfoBackground: "#f0f5f8"
+    property color gameInfoBackground: "#001825"
+    property color gameInfoImageBackground: '#001825'
     property color gameInfoAboutText: "#000000"
 
     //MESSAGE BOX (ALERT ADAPTER WIDGET)

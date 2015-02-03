@@ -57,6 +57,7 @@
         "gameAdWidgetBackground": "#092135",
         "gameAdWidgetText": "#fafafa",
         "gameInfoBackground": "#19384a",
+		"gameInfoImageBackground": "#001825",
         "gameInfoAboutText": "#99a7ae",
         "messageBoxShadowBorder": "#111111",
         "messageBoxBackground": "#027aca",
