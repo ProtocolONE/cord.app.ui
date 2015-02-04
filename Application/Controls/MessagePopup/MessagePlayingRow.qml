@@ -17,7 +17,9 @@ Row {
 
     Text {
         y: 2
-        text: qsTr("PLAYING_GAME_MESSANGE_TEXT").arg(App.serviceItemByServiceId(root.playingGameServiceId).name)
+        text: qsTr("PLAYING_GAME_MESSANGE_TEXT").arg(root.playingGameServiceId != '' ?
+                                                         App.serviceItemByServiceId(root.playingGameServiceId).name :
+                                                         '')
         color: Styles.style.trayPopupPlayText
         elide: Text.ElideRight
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
