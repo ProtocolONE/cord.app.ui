@@ -189,7 +189,8 @@ Item {
                 var user1 = root.messenger.getUser(u),
                     nickname1 = user1.nickname.toLowerCase(),
                     playingGame1 = user1.playingGame,
-                    gameName1 = App.serviceItemByServiceId(playingGame1).name.toLowerCase();
+                    gameItem1 = App.serviceItemByServiceId(playingGame1),
+                    gameName1 = gameItem1 ? gameItem1.name.toLowerCase() : ''
 
                 if (gameName > gameName1) {
                     return false;
