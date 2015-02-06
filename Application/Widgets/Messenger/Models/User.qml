@@ -28,4 +28,7 @@ QtObject {
     function isValid() {
         return true;
     }
+
+    function changeState(jid, state) {
+    }
 }
