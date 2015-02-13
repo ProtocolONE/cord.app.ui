@@ -20,6 +20,7 @@ function replaceGameNetHyperlinks(message, makeHyperlink, getServiceItemFn, styl
                 style || "#FFFFFF" +
                 "' href='" + gnLink + "'>" + serviceName + "</a>"
         }
+
         return serviceName;
     });
 }

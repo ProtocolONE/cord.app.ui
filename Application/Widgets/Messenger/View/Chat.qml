@@ -18,6 +18,7 @@ import "./Blocks/ChatDialog" as ChatDialog
 import "./Blocks/ChatDialog/Smile" as SmilesBlock
 
 import "../Models/Messenger.js" as MessengerJs
+import "../../../Core/App.js" as App
 
 WidgetView {
     id: root
@@ -99,20 +100,6 @@ WidgetView {
         Component.onCompleted: separator.y = model.settings.chatBodyHeight;
     }
 
-    Rectangle {
-        anchors.fill: parent
-        color: "#002336"
-        opacity: 0.78
-        visible: MessengerJs.smilePanelVisible()
-
-        CursorMouseArea {
-            anchors.fill: parent
-            hoverEnabled: true
-            cursor: CursorArea.ArrowCursor
-            onClicked: MessengerJs.setSmilePanelVisible(false)
-        }
-    }
-
     SmilesBlock.SmileButton {
         id: smileButton
 
@@ -141,5 +128,17 @@ WidgetView {
             messageInput.forceActiveFocus();
         }
         onCloseRequest: MessengerJs.setSmilePanelVisible(false);
+
+        Connections {
+            target: App.signalBus()
+            onLeftMousePress: {
+                var posInItem = smilePanel.mapFromItem(rootItem, x, y);
+                var contains = posInItem.x >= 0 && posInItem.y >=0
+                        && posInItem.x <= smilePanel.width && posInItem.y <= smilePanel.height;
+                if (!contains) {
+                    MessengerJs.setSmilePanelVisible(false);
+                }
+            }
+        }
     }
 }

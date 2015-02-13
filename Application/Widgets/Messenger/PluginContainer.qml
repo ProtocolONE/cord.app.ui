@@ -17,6 +17,7 @@ PluginContainer {
     singletonModel: true
     view: [
         {name: 'Contacts', source: 'Contacts', byDefault: true},
-        {name: 'Chat', source: 'Chat'}
+        {name: 'Chat', source: 'Chat'},
+        {name: 'GameNetNotification', source: 'GameNetNotification'}
     ]
 }

@@ -13,6 +13,8 @@ import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
+import "../../Core/App.js" as App
+
 Item {
     id: root
 
@@ -38,7 +40,7 @@ Item {
             property: "opacity";
             from: 0;
             to: 1;
-            duration: 1000
+            duration: App.isQmlViewer() ? 10 : 1000
         }
 
         PropertyAnimation {
@@ -47,10 +49,10 @@ Item {
             easing.type: Easing.InCubic
             from: 0;
             to: 1;
-            duration: 2000
+            duration: App.isQmlViewer() ? 10 : 2000
         }
 
-        PauseAnimation { duration: 2000 }
+        PauseAnimation { duration: App.isQmlViewer() ? 10 : 2000 }
     }
 
     ParallaxView {

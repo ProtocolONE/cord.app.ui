@@ -57,6 +57,7 @@ WidgetView {
         id: d
 
         property bool hasContacts: MessengerJs.users().count > 1 // INFO 1 - GameNet user.
+        property string imageRoot: installPath + "Assets/Images/Application/Widgets/Messenger/"
     }
 
     Rectangle {
@@ -91,7 +92,7 @@ WidgetView {
 
             Item {
                 width: parent.width
-                height: parent.height - searchContactItem.height - bottomBar.height
+                height: parent.height - searchContactItem.height
 
                 EmptyContactListInfo {
                     function isVisible() {
@@ -122,14 +123,14 @@ WidgetView {
                         id: tabView
 
                         width: parent.width
-                        height: 20
+                        height: 38
                         recentUnreadedContacts: MessengerJs.getRecentConversationItem().unreadContactCount
                     }
 
                     Item {
                         anchors {
                             fill: parent
-                            topMargin: 20
+                            topMargin: 38
                         }
 
                         Item {
@@ -138,16 +139,98 @@ WidgetView {
                             anchors.fill: parent
                             visible: tabView.isContactsVisible
 
-                            PlainContacts {
-                                id: allContacts
+                            Item {
+                                width: parent.width
+                                height: 46
 
-                                anchors.fill: parent
-                                visible: !bottomBar.gameFilterChecked
+                                Item {
+                                    // UNDONE Доделать когда будет подключаться групповые чаты, вынести цвета в стили
+                                    width: 32
+                                    height: 22
+
+                                    anchors {
+                                        left: parent.left
+                                        leftMargin: 12
+                                        verticalCenter: parent.verticalCenter
+                                    }
+
+                                    Rectangle {
+                                        anchors {
+                                            fill: parent
+                                            rightMargin: 1
+                                            bottomMargin: 1
+                                        }
+
+                                        color: "#00000000"
+                                        border {
+                                            color: "#24475a"
+                                            width: 1
+                                        }
+
+                                        radius: 1
+                                    }
+
+                                    ImageButton {
+                                        id: addGroupItem
+
+                                        anchors.fill: parent
+                                        opacity: containsMouse ? 1.0 : 0.5
+
+
+                                        enabled: false
+                                        style {
+                                            normal: "#00000000"
+                                            hover: "#1abc9c"
+                                            disabled: "#00000000"
+                                        }
+
+                                        radius: 2
+
+                                        styleImages {
+                                            normal: d.imageRoot + "groupIcon.png"
+                                            hover: d.imageRoot + "groupIcon.png"
+                                            disabled: d.imageRoot + "groupIcon.png"
+                                        }
+
+                                        Behavior on opacity {
+                                            PropertyAnimation { duration: 250 }
+                                        }
+                                    }
+                                }
+
+
+                                ContactFilter {
+                                    id: contactFilter
+
+                                    anchors {
+                                        left: parent.left
+                                        leftMargin: 12 + 32 + 10
+                                        right: parent.right
+                                        rightMargin: 12
+                                        verticalCenter: parent.verticalCenter
+                                    }
+
+                                    height: 22
+                                }
                             }
 
-                            PlayingGameContacts {
-                                anchors.fill: parent
-                                visible: bottomBar.gameFilterChecked
+                            Item {
+                                anchors {
+                                    fill: parent
+                                    topMargin: 46
+                                }
+
+                                AllContactView {
+                                    id: allContacts
+
+                                    anchors.fill: parent
+                                    visible: contactFilter.showAll
+                                }
+
+                                PlayingGameContacts {
+                                    anchors.fill: parent
+                                    visible: !contactFilter.showAll
+                                }
                             }
                         }
 
@@ -188,10 +271,6 @@ WidgetView {
                     anchors.fill: parent
                     waitTopMargin: 107
                 }
-            }
-
-            BottomBar {
-                id: bottomBar
             }
         }
 

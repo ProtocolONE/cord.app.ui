@@ -233,6 +233,10 @@ function userIdToJid(userId) {
   return _modelInstance.userIdToJid(userId);
 }
 
+function jidToUser(jid) {
+  return _modelInstance.jidToUser(jid);
+}
+
 function setGameInfo(info) {
   _modelInstance.setGameInfo(info);
 }
@@ -271,12 +275,12 @@ function getPlayingContactsModel() {
     return _modelInstance.getPlayingContactsModel();
 }
 
-function getPlainContactsItem() {
-    return _modelInstance.plainContactsItem();
-}
-
 function getRecentConversationItem() {
     return _modelInstance.recentConversationItem();
+}
+
+function getAllContactsItem() {
+    return _modelInstance.allContactsItem();
 }
 
 function isContactReceived() {
@@ -285,4 +289,8 @@ function isContactReceived() {
 
 function getStatus() {
     return _modelInstance.currentStatus;
+}
+
+function getUserGroups(user) {
+    return _modelInstance.getUserGroups(user);
 }

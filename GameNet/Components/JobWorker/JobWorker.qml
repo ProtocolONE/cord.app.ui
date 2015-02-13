@@ -23,6 +23,10 @@ Item {
         }
     }
 
+    function clear() {
+        Js.jobs = [];
+    }
+
     QtObject {
         id: d
 

@@ -127,21 +127,35 @@ Item {
                     height: parent.height
 
                     WidgetContainer {
-                        height: parent.height - 91
+                        height: parent.height
                         width: 230
                         widget: 'Messenger'
                         view: 'Contacts'
                     }
                 }
 
-                WidgetContainer {
-                    id: dialog
-
+                Item {
                     height: parent.height
                     width: 590
-                    widget: 'Messenger'
-                    view: 'Chat'
-                    visible: messenger ? messenger.userSelected() : false
+
+                    WidgetContainer {
+                        id: dialog
+
+                        height: parent.height
+                        width: 590
+                        widget: 'Messenger'
+                        view: 'Chat'
+                        visible: messenger ? messenger.userSelected() : false
+                    }
+
+                    WidgetContainer {
+                        id: userInfo
+
+                        height: parent.height
+                        width: 353
+                        widget: 'DetailedUserInfo'
+                        view: 'DetailedUserInfoView'
+                    }
                 }
             }
         }

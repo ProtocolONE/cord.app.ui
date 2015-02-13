@@ -143,7 +143,7 @@ Item {
                             interval: 60000
                             triggeredOnStart: true
                             running: true
-                            onTriggered: timeText.text = Moment.moment(time * 1000).lang('ru').fromNow();
+                            onTriggered: timeText.text = Moment.moment(time * 1000).fromNow();
                         }
 
                         height: 12

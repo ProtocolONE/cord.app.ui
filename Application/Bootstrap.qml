@@ -23,6 +23,7 @@ import "Core/Popup.js" as Popup
 import "Core/MessageBox.js" as MessageBox
 import "Core/TrayPopup.js" as TrayPopup
 import "Core/EmojiOne.js" as EmojiOne
+import "Core/moment.js" as Moment
 
 import "../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../GameNet/Controls/Tooltip.js" as Tooltip
@@ -54,6 +55,8 @@ Item {
         console.log('Desktop', options.desktop);
 
         Styles.init();
+
+        Moment.moment.lang(App.language());
 
         initEmojiOne();
         initRestApi(options);

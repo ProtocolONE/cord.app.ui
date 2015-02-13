@@ -12,10 +12,11 @@ import QtQuick 1.1
 import Tulip 1.0
 import "../../../Models/Messenger.js" as Messenger
 import "../../../Models/User.js" as User
+import "../../../Models/Group.js" as Group
 import "../../../../../Core/moment.js" as Moment
 
 import "../../../../../Core/App.js" as App
-
+import "../../../../../../GameNet/Core/lodash.js" as Lodash
 
 ContactItem {
     id: root
@@ -26,11 +27,13 @@ ContactItem {
     nickname: d.nickName()
     avatar: d.avatar()
     status: d.status()
+    extendedStatus: d.getExtendedStatus()
     presenceStatus: d.presenceStatus()
     isPresenceVisile: true
 
     isUnreadMessages: !root.isCurrent && d.hasUnreadMessages();
     isCurrent: d.isCurrent()
+    userId: d.userId()
 
     function select() {
         Messenger.selectUser(root.user || "", root.group || "");
@@ -80,7 +83,7 @@ ContactItem {
 
             var currentTime = Math.max(Messenger.getCurrentTime() * 1000, Date.now());
 
-            return qsTr("LAST_ACTIVITY_PLACEHOLDER").arg(Moment.moment(lastActivity * 1000).lang('ru').from(currentTime));
+            return qsTr("LAST_ACTIVITY_PLACEHOLDER").arg(Moment.moment(lastActivity * 1000).from(currentTime));
         }
 
         function presenceStatus() {
@@ -114,6 +117,60 @@ ContactItem {
             }
 
             return Messenger.isSelectedGroup(root.group);
+        }
+
+        function userId() {
+            if (!root.user) {
+                return "";
+            }
+
+            return Messenger.jidToUser(root.user.jid);
+        }
+
+        function getExtendedStatus() {
+            var groups;
+            if (!root.user) {
+                return "";
+            }
+
+            groups = Messenger.getUserGroups(root.user);
+
+            if (groups.length === 1 && groups[0] === "GameNet") {
+                return qsTr("CONTACT_ITEM_EXTENDED_STATUS_ONLY_GAMENET_FRINED"); // "Друг на сайте GameNet"
+            }
+
+            groups = Lodash._.chain(groups)
+                .reduce(function(a, g) {
+                    if (g === Group.getNoGroupId()) {
+                        return a;
+                    }
+
+                    if (g === "GameNet") {
+                        a.push({
+                                   id: g,
+                                   name: qsTr("CONTACT_ITEM_EXTENDED_STATUS_GAMENET_FRINED"),// "на сайте GameNet",
+                                   isGameNet: 1
+                               });
+                        return a;
+                    }
+
+                    a.push({
+                               id: g,
+                               name: g.split('(')[0].trim(),
+                               isGameNet: 0
+                           });
+                    return a;
+
+                }, [])
+                .sortByAll(['name', 'isGameNet'])
+                .pluck('name')
+                .uniq()
+                .join(', ')
+                .value();
+
+            return groups
+                    ?  qsTr("CONTACT_ITEM_EXTENDED_STATUS").arg(groups) //qsTr("Друг в %1").arg(groups)
+                    : "";
         }
     }
 }

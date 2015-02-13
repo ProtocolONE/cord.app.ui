@@ -80,7 +80,7 @@ NavigatableContactList {
         model: searchContactModel
         anchors {
             fill: parent
-            rightMargin: 10
+            rightMargin: 12
         }
 
         currentIndex: -1
@@ -88,8 +88,8 @@ NavigatableContactList {
         boundsBehavior: Flickable.StopAtBounds
         onCountChanged: currentIndex = -1;
         delegate: ContactItemDelegate {
-            width: root.width
-            height: 53
+            width: view.width
+
             visible: !model.isGroupItem
             user: model
             group: model

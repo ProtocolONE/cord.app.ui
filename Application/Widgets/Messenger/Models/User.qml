@@ -25,6 +25,9 @@ QtObject {
     property int lastActivity: 0
     property int historyDay: 0
 
+    property bool hasUnreadMessage: false
+    property string inputMessage: ""
+
     function isValid() {
         return true;
     }

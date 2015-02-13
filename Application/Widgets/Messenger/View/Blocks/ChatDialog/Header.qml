@@ -31,9 +31,13 @@ Rectangle {
 
     ContactList.ContactItemDelegate {
         user: MessengerJs.selectedUser(MessengerJs.USER_INFO_JID)
-        anchors.fill: parent
-        mouseEnabled: false
+        anchors {
+            left: parent.left
+            right: parent.right
+            verticalCenter: parent.verticalCenter
+        }
 
+        mouseEnabled: false
         onNicknameClicked: App.openProfile(User.jidToUser(user.jid));
     }
 

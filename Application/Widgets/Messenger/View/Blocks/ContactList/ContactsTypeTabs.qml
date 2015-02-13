@@ -35,7 +35,7 @@ Item {
             height: root.height
             text: qsTr("CONTACT_LIST_TABS_CONTACTS")
             style: ButtonStyleColors {
-                normal:Styles.style.messengerContactsTabNormal
+                normal: Styles.style.messengerContactsTabNormal
                 hover: Styles.style.messengerContactsTabHover
                 disabled: Styles.style.messengerContactsTabSelected
             }

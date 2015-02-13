@@ -147,3 +147,11 @@ function updateTaskbarIcon(source) {
 function unreadContactsChanged(contacts) {
     _signalBusInstance.unreadContactsChanged(contacts);
 }
+
+function openDetailedUserInfo(opt) {
+    _signalBusInstance.openDetailedUserInfo(opt);
+}
+
+function closeDetailedUserInfo() {
+    _signalBusInstance.closeDetailedUserInfo();
+}

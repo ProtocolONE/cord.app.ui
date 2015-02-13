@@ -20,6 +20,7 @@ Item {
     property ButtonStyleColors style: ButtonStyleColors {}
     property ButtonStyleImages styleImages: ButtonStyleImages {}
     property alias containsMouse: buttonBehavior.containsMouse
+    property alias radius: buttonBackground.radius
 
     signal entered()
     signal exited()

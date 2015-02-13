@@ -13,13 +13,18 @@ import Tulip 1.0
 import GameNet.Controls 1.0
 
 import "../../../../../Core/Styles.js" as Styles
+import "../../../../../Core/App.js" as App
 
 Rectangle {
     id: root
 
+    property int modelIndex: 0
+
     property alias nickname : nicknameText.text
     property alias avatar: avatarImage.source
-    property alias status: statusText.text
+    property string status: ""
+    property string extendedStatus: "Друг в Bs.ru Demonion, Aika, FireStorm, сайт GameNet"
+
     property alias isPresenceVisile: presenceIcon.visible
     property alias mouseEnabled: mouser.enabled
 
@@ -29,11 +34,15 @@ Rectangle {
 
     property string presenceStatus: ""
 
+    property bool extendedInfoEnabled: true
+    property string userId: ""
+
     signal nicknameClicked()
     signal clicked()
+    signal informationClicked();
 
     implicitWidth: 78
-    implicitHeight: 53
+    implicitHeight: 40
 
     color: root.getBgColor()
 
@@ -47,14 +56,24 @@ Rectangle {
         return map[root.state] || Styles.style.messengerContactBackground;
     }
 
+    QtObject {
+        id: d
+
+        property string imageRoot: installPath + "Assets/Images/Application/Widgets/Messenger/ContactItem/"
+        property bool extendedInfoVisible: mouser.containsMouse || informationIcon.containsMouse
+    }
+
     Rectangle {
         anchors {
             fill: parent
-            margins: 4
-            rightMargin: 14
+            topMargin: 1
+            leftMargin: 1
+            bottomMargin: 2
+            rightMargin: 2
         }
         color: root.color
 
+        radius: 1
         border {
             width: 1
             color: Styles.style.messengerContactBackgroundHightlighted
@@ -62,133 +81,42 @@ Rectangle {
         visible: root.isHighlighted && !root.isCurrent
     }
 
-    Rectangle {
-        id: upperDelimiter
-
-        height: 1
-        width: parent.width
-        color: Qt.lighter(root.color, Styles.style.lighterFactor)
-        anchors.top: parent.top
-    }
-
     CursorMouseArea {
         id: mouser
 
-        enabled: !root.interactiveNickname
         anchors.fill: parent
         onClicked: root.clicked();
-    }
-
-    Item {
-        anchors {
-            fill: parent
-            topMargin: 1
-            bottomMargin: 1
-        }
 
         Row {
-            anchors.fill: parent
+            anchors {
+                fill: parent
+                leftMargin: 12
+                topMargin: 4
+                bottomMargin: 4
+            }
 
-            Item {
-                height: parent.height
-                width: parent.height
+            Image {
+                id: avatarImage
 
-                Image {
-                    id: avatarImage
+                width: 32
+                height: 32
+                cache: true
+                asynchronous: true
 
-                    width: 32
-                    height: 32
-                    anchors.centerIn: parent
-                    cache: true
-                    asynchronous: true
-
-                    CursorMouseArea {
-                        toolTip: qsTr("CONTACT_ITEM_NICKNAME_TOOLTIP").arg(nicknameText.text)
-                        visible: !root.mouseEnabled
-                        anchors.fill: parent
-                        onClicked: root.nicknameClicked();
-                    }
+                CursorMouseArea {
+                    toolTip: qsTr("CONTACT_ITEM_NICKNAME_TOOLTIP").arg(nicknameText.text)
+                    visible: !root.mouseEnabled
+                    anchors.fill: parent
+                    onClicked: root.nicknameClicked();
                 }
             }
 
-            Column {
+            Item {
+                width: 28
                 height: parent.height
-                width: parent.width - parent.height
 
-                anchors {
-                    top: parent.top
-                    margins: 8
-                }
-
-                Item {
-                    width: parent.width
-                    height: nicknameText.height
-
-                    Rectangle {
-                        id: presenceIcon
-
-                        function presenceStatusToColor(status) {
-                            switch(status) {
-                            case "online":
-                            case "chat":
-                                return Styles.style.messengerContactPresenceOnline;
-                            case "dnd":
-                            case "away":
-                            case "xa":
-                                return Styles.style.messengerContactPresenceDnd;
-                            case "offline":
-                            default:
-                                return Styles.style.messengerContactPresenceOffline;
-                            }
-
-                            return map[root.state] || Styles.style.messengerContactNickname;
-                        }
-
-                        width: 8
-                        height: 8
-                        border {
-                            width: 1
-                            color: Qt.darker(presenceIcon.color, Styles.style.darkerFactor)
-                        }
-                        color: presenceStatusToColor(root.presenceStatus)
-
-                        anchors {
-                            verticalCenter: nicknameText.baseline
-                            verticalCenterOffset: -4
-                            left: parent.left
-                            leftMargin: 2
-                        }
-                    }
-
-                    Text {
-                        id: statusText
-
-                        anchors {
-                            left: parent.left
-                            leftMargin: 20
-                        }
-
-                        color: Styles.style.messengerContactStatusText
-                        font {
-                            family: "Arial"
-                            pixelSize: 14
-                            bold: root.isUnreadMessages
-                        }
-
-                        height: 20
-                        color: nicknameText.getTextColor()
-
-                        CursorMouseArea {
-                            toolTip: qsTr("CONTACT_ITEM_NICKNAME_TOOLTIP").arg(nicknameText.text)
-                            visible: !root.mouseEnabled
-                            anchors.fill: parent
-                            onClicked: root.nicknameClicked();
-                        }
-                    }
-                }
-
-                Text {
-                    id: statusText
+                Rectangle {
+                    id: presenceIcon
 
                     function presenceStatusToColor(status) {
                         switch(status) {
@@ -205,24 +133,145 @@ Rectangle {
                         }
                     }
 
-                    color: Styles.style.messengerContactStatusText
-                    font {
-                        family: "Arial"
-                        pixelSize: 12
+                    width: 12
+                    height: 12
+                    radius: 6
+                    color: presenceStatusToColor(root.presenceStatus)
+
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        top: parent.top
+                        topMargin: 2
                     }
                 }
+            }
 
+            Item {
+                height: parent.height
+                width: parent.width - 60
+
+                Column {
+                    anchors.fill: parent
+
+                    Item {
+                        width: parent.width
+                        height: nicknameText.height
+                        clip: true
+
+                        Text {
+                            id: nicknameText
+
+                            function getTextColor() {
+                                var map = {
+                                    unread: Styles.style.messengerContactNicknameUnread,
+                                    selected: Styles.style.messengerContactNicknameSelected,
+                                    normal: Styles.style.messengerContactNickname,
+                                }
+
+                                return map[root.state] || Styles.style.messengerContactNickname;
+                            }
+
+                            anchors.left: parent.left
+
+                            font {
+                                family: "Arial"
+                                pixelSize: 14
+                                bold: root.isUnreadMessages
+                            }
+
+                            height: 20
+                            width: parent.width - (informationIcon.visible ? informationIcon.width + 8 : 0)
+                            color: nicknameText.getTextColor()
+                            elide: Text.ElideRight
+
+                            CursorMouseArea {
+                                toolTip: qsTr("CONTACT_ITEM_NICKNAME_TOOLTIP").arg(nicknameText.text)
+                                visible: !root.mouseEnabled
+                                width: parent.paintedWidth
+                                height: parent.height
+                                onClicked: root.nicknameClicked();
+                            }
+                        }
+
+                        ImageButton {
+                            id: informationIcon
+
+                            visible: d.extendedInfoVisible
+
+                            width: 11
+                            height: 11
+                            anchors {
+                                top: parent.top
+                                topMargin: 2
+                                right: parent.right
+                                rightMargin: 4
+                            }
+
+                            analytics {
+                                page: "/messenger"
+                                category: "ContactList"
+                                action: "OpenDetailedUserInfo"
+                            }
+
+                            style {
+                                normal: "#00000000"
+                                hover: "#00000000"
+                                disabled: "#00000000"
+                            }
+
+                            styleImages {
+                               normal: d.imageRoot + "infoIconNormal.png"
+                               hover: d.imageRoot + "infoIconHover.png"
+                            }
+
+                            onClicked: App.openDetailedUserInfo({
+                                                                    userId: root.userId,
+                                                                    nickname: root.nickname,
+                                                                    status: root.presenceStatus
+                                                                });
+                        }
+                    }
+
+                    Item {
+                        width: parent.width
+                        height: statusText.height
+
+                        // INFO Тут немнго нелогичное поведение для контрола ScrollText
+                        // Требуется выйти за границы дефолтного места текста, для этого расширим клип зону.
+                        Item {
+                            clip: true
+                            anchors {
+                                fill: parent
+                                leftMargin: -22
+                            }
+
+                            ScrollText {
+                                id: statusText
+
+                                clip: false
+                                anchors {
+                                    left: parent.left
+                                    leftMargin: 22
+                                }
+
+                                width: parent.width - 4 - 22
+                                text: (mouser.containsMouse && root.extendedInfoEnabled)
+                                        ? root.extendedStatus
+                                        : root.status
+
+                                color: Styles.style.messengerContactStatusText
+                                font {
+                                    family: "Arial"
+                                    pixelSize: 12
+                                }
+
+                                textMoveDuration: 2000
+                            }
+                        }
+                    }
+                }
             }
         }
-    }
-
-    Rectangle {
-        id: bottomDelimiter
-
-        height: 1
-        width: parent.width
-        color: Qt.darker(root.color, Styles.style.darkerFactor)
-        anchors.bottom: parent.bottom
     }
 
     states: [
@@ -236,6 +285,7 @@ Rectangle {
         },
         State {
             name: "normal"
+            when: !root.isCurrent && !root.isUnreadMessages
         }
     ]
 }

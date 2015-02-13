@@ -35,7 +35,7 @@ Item {
         model: root.privateItem.proxyModel
         anchors {
             fill: parent
-            rightMargin: 10
+            rightMargin: 12
         }
 
         boundsBehavior: Flickable.StopAtBounds
@@ -44,13 +44,11 @@ Item {
         section.property: "sectionId"
         section.delegate: RecentDateHeader {
             width: listView.width
-            height: 33
             caption: root.privateItem.sectionCaption(section)
         }
 
         delegate: ContactItemDelegate {
             width: listView.width
-            height: 53
             user: model
             group: model
             onClicked: select();

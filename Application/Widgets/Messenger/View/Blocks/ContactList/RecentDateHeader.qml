@@ -12,51 +12,41 @@ import Tulip 1.0
 
 import "../../../../../Core/Styles.js" as Styles
 
-Item {
+Rectangle {
     property alias caption: captionText.text
 
     implicitWidth: 100
-    implicitHeight: 33
+    implicitHeight: 30
+    color: Styles.style.messengerRecentContactGroupBackground
 
-    Column {
-        anchors.fill: parent
+    Text {
+        id: captionText
 
-        Rectangle {
-            height: 1
-            width: parent.width
-            color: Qt.lighter(groupTitle.color, Styles.style.lighterFactor)
+        anchors {
+            verticalCenter: parent.verticalCenter
+            left: parent.left
+            leftMargin: 12
         }
 
-        Rectangle {
-            id: groupTitle
-
-            width: parent.width
-            height: 31
-            color: Styles.style.messengerRecentContactGroupBackground
-
-            Text {
-                id: captionText
-
-                anchors {
-                    verticalCenter: parent.verticalCenter
-                    left: parent.left
-                    leftMargin: 10
-                }
-
-                font {
-                    family: "Arial"
-                    pixelSize: 12
-                }
-
-                color: Styles.style.messengerRecentContactGroupName
-            }
+        font {
+            family: "Arial"
+            pixelSize: 12
         }
 
-        Rectangle {
-            height: 1
-            width: parent.width
-            color: Qt.darker(groupTitle.color, Styles.style.darkerFactor)
+        opacity: 0.5
+        color: Styles.style.messengerRecentContactGroupName
+    }
+
+    Rectangle {
+        height: 1
+        anchors {
+            bottom: parent.bottom
+            left: parent.left
+            leftMargin: 12
+            right: parent.right
         }
 
+        opacity: 0.2
+        color: Styles.style.messengerRecentContactGroupName
     }
 }

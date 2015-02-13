@@ -6,30 +6,25 @@ import GameNet.Controls 1.0
 
 import "../../Application/Widgets/Messenger/Models/Messenger.js" as MessengerJs
 import "../Core/Styles.js" as Styles
+import "../Core/App.js" as App
 
 Item {
+    id: root
+
     anchors.fill: parent
 
-    Rectangle {
-        anchors.fill: parent
-        color: Styles.style.messengerSmilePanelHover
-        opacity: 0.78
+    QtObject {
+        id: d
 
-        visible: MessengerJs.smilePanelVisible()
-
-        CursorMouseArea {
-            anchors.fill: parent
-            hoverEnabled: true
-            cursor: CursorArea.ArrowCursor
-            onClicked: MessengerJs.setSmilePanelVisible(false)
-        }
+        property bool isChatOpen: MessengerJs.userSelected()
+        property bool isDetailedInfoOpened: userInfo.viewInstance.isOpened();
     }
 
     Rectangle {
         color: "#000000"
         opacity: 0.7
         height: 560
-        visible: MessengerJs.userSelected() && !MessengerJs.smilePanelVisible()
+        visible: d.isChatOpen && !d.isDetailedInfoOpened
 
         anchors {
             right: parent.right
@@ -58,5 +53,41 @@ Item {
         width: 590
         widget: 'Messenger'
         view: 'Chat'
+    }
+
+    Rectangle {
+        color: "#000000"
+        opacity: 0.7
+        height: 560
+        visible: d.isDetailedInfoOpened
+
+        anchors {
+            right: parent.right
+            rightMargin: 230
+            left: parent.left
+            bottom: parent.bottom
+        }
+
+        CursorMouseArea {
+            anchors.fill: parent
+            hoverEnabled: true
+            cursor: CursorArea.ArrowCursor
+            onClicked: App.closeDetailedUserInfo();
+        }
+    }
+
+    WidgetContainer {
+        id: userInfo
+
+        anchors {
+            right: parent.right
+            rightMargin: 230
+            bottom: parent.bottom
+        }
+
+        height: 560
+        width: 353
+        widget: 'DetailedUserInfo'
+        view: 'DetailedUserInfoView'
     }
 }

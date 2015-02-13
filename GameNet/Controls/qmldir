@@ -35,3 +35,4 @@ Tooltip 1.0 Tooltip.qml
 Wait 1.0 Wait.qml
 WebImage 1.0 WebImage.qml
 ListViewScrollBar 1.0 ListViewScrollBar.qml
+ScrollText 1.0 ScrollText.qml

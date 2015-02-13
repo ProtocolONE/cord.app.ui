@@ -1,7 +1,8 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
-import "../../../../../../Application/Core/restapi.js" as RestApi
+import "../../../../../Core/restapi.js" as RestApi
 import "../../../../../Core/Styles.js" as Styles
+import "../../../../../Core/App.js" as App
 import "../../../Models/Messenger.js" as MessengerJs
 
 NavigatableContactList {
@@ -15,6 +16,7 @@ NavigatableContactList {
         id: d
 
         property variant splitSearch: root.searchText.trim().toLowerCase().split(' ')
+        property string imageRoot: installPath + "Assets/Images/Application/Widgets/Messenger/"
 
         function getDefaultCharText(item) {
             if (!item.isPrivacyFilterActive &&
@@ -157,7 +159,7 @@ NavigatableContactList {
     Image {
         anchors.centerIn: parent
 
-        source: installPath + "/Assets/Images/Application/Widgets/Messenger/EmptyContactInfo/background.png"
+        source: d.imageRoot + "EmptyContactInfo/background.png"
     }
 
     Item {
@@ -170,7 +172,7 @@ NavigatableContactList {
 
         Image {
             x: 21
-            source: installPath + "/Assets/Images/Application/Widgets/Messenger/greenArrow.png"
+            source: d.imageRoot + "greenArrow.png"
 
             Text {
                 text: qsTr("WEB_SEARCH_BUTTON_HELP_TEXT")
@@ -189,7 +191,7 @@ NavigatableContactList {
 
         Image {
             x: 62
-            source: installPath + "/Assets/Images/Application/Widgets/Messenger/blueArrow.png"
+            source: d.imageRoot + "blueArrow.png"
 
             Text {
                 text: qsTr("WEB_SEARCH_INPUT_HELP_TEXT")
@@ -213,10 +215,14 @@ NavigatableContactList {
 
         function getDefaultAvatar(index) {
              var name = "defaultAvatar_" + (((index + 1) % 12) + 1) + ".png";
-             return installPath + "/Assets/Images/Application/Widgets/Messenger/" + name;
+             return d.imageRoot + name;
         }
 
-        anchors.fill: parent
+        anchors {
+           fill: parent
+           //rightMargin: 12
+        }
+
         visible: root.searchText.length > 0
         highlightMoveSpeed: 1000
         boundsBehavior: Flickable.StopAtBounds
@@ -281,6 +287,44 @@ NavigatableContactList {
                     MessengerJs.openDialog({jid: MessengerJs.userIdToJid(model.gamenetid),
                                                nickname: model.nickname});
                 }
+            }
+
+            ImageButton {
+                id: informationIcon
+
+                width: 11
+                height: 11
+                anchors {
+                    top: parent.top
+                    topMargin: 8
+                    right: parent.right
+                    rightMargin: 14
+                }
+
+                style {
+                    normal: "#00000000"
+                    hover: "#00000000"
+                    disabled: "#00000000"
+                }
+
+                analytics {
+                    page: "/messenger"
+                    category: "WebSearch"
+                    action: "OpenDetailedUserInfo"
+                }
+
+                styleImages {
+                   normal: d.imageRoot + "ContactItem/infoIconNormal.png"
+                   hover: d.imageRoot + "ContactItem/infoIconHover.png"
+                }
+
+                onClicked: App.openDetailedUserInfo({
+                                                        userId: model.gamenetid,
+                                                        nickname: model.nickname,
+                                                        status: "",
+                                                        isFriend: model.isFriend,
+                                                        isSended: model.friendInviteSended || model.inviteMaximumLimitSended
+                                                    });
             }
         }
 

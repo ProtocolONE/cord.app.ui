@@ -28,13 +28,13 @@ Item {
         model: privateItem.proxyModel
         anchors {
             fill: parent
-            rightMargin: 10
+            rightMargin: 12
         }
 
         boundsBehavior: Flickable.StopAtBounds
         clip: true
-        section.property: "sectionId"
         cacheBuffer: 300
+        section.property: "sectionId"
         section.delegate: GroupHeader {
             width: listView.width
             height: !!section ? 33 : 0

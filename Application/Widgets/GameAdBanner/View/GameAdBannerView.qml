@@ -176,7 +176,8 @@ WidgetView {
                 left: parent.left
                 leftMargin: 3
             }
-            analytics: GoogleAnalyticsEvent {
+
+            analytics {
                 page: currentGameItem ? "/game/" + currentGameItem.gaName : ''
                 category: "GameAdBanner"
                 action: "LeftArrow"

@@ -147,6 +147,16 @@
 		<file>Application/Widgets/AutoRefreshCookie/AutoRefreshCookie.qml</file>
 		<file>Application/Widgets/AutoRefreshCookie/PluginContainer.qml</file>
 		<file>Application/Widgets/AutoRefreshCookie/qmldir</file>
+		<file>Application/Widgets/DetailedUserInfo/DetailedUserInfoModel.qml</file>
+		<file>Application/Widgets/DetailedUserInfo/PluginContainer.qml</file>
+		<file>Application/Widgets/DetailedUserInfo/qmldir</file>
+		<file>Application/Widgets/DetailedUserInfo/View/Blocks/Background.qml</file>
+		<file>Application/Widgets/DetailedUserInfo/View/Blocks/BlockHeader.qml</file>
+		<file>Application/Widgets/DetailedUserInfo/View/Blocks/GameChars.qml</file>
+		<file>Application/Widgets/DetailedUserInfo/View/Blocks/GameInfo.qml</file>
+		<file>Application/Widgets/DetailedUserInfo/View/Blocks/Header.qml</file>
+		<file>Application/Widgets/DetailedUserInfo/View/Blocks/MainInfo.qml</file>
+		<file>Application/Widgets/DetailedUserInfo/View/DetailedUserInfoView.qml</file>
 		<file>Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml</file>
 		<file>Application/Widgets/DownloadManagerConnector/PluginContainer.qml</file>
 		<file>Application/Widgets/DownloadManagerConnector/qmldir</file>
@@ -227,12 +237,12 @@
 		<file>Application/Widgets/Messenger/Models/Messenger.js</file>
 		<file>Application/Widgets/Messenger/Models/Messenger.qml</file>
 		<file>Application/Widgets/Messenger/Models/MessengerPrivate.js</file>
+		<file>Application/Widgets/Messenger/Models/Private/AllContacts.js</file>
+		<file>Application/Widgets/Messenger/Models/Private/AllContacts.qml</file>
 		<file>Application/Widgets/Messenger/Models/Private/Jobs/AppendGroupJob.js</file>
 		<file>Application/Widgets/Messenger/Models/Private/Jobs/MoveItemJob.js</file>
 		<file>Application/Widgets/Messenger/Models/Private/Jobs/OpenGroupJob.js</file>
 		<file>Application/Widgets/Messenger/Models/Private/Jobs/RemoveItemJob.js</file>
-		<file>Application/Widgets/Messenger/Models/Private/PlainContacts.js</file>
-		<file>Application/Widgets/Messenger/Models/Private/PlainContacts.qml</file>
 		<file>Application/Widgets/Messenger/Models/Private/PlayingGame.js</file>
 		<file>Application/Widgets/Messenger/Models/Private/PlayingGame.qml</file>
 		<file>Application/Widgets/Messenger/Models/Private/RecentConversation.js</file>
@@ -258,7 +268,8 @@
 		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmilePanel.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmilesPack.js</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmileTab.qml</file>
-		<file>Application/Widgets/Messenger/View/Blocks/ContactList/BottomBar.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/AllContactView.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactFilter.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml</file>
@@ -278,6 +289,7 @@
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml</file>
 		<file>Application/Widgets/Messenger/View/Chat.qml</file>
 		<file>Application/Widgets/Messenger/View/Contacts.qml</file>
+		<file>Application/Widgets/Messenger/View/GameNetNotification.qml</file>
 		<file>Application/Widgets/Money/MoneyModel.qml</file>
 		<file>Application/Widgets/Money/PluginContainer.qml</file>
 		<file>Application/Widgets/Money/qmldir</file>
@@ -400,6 +412,7 @@
 		<file>GameNet/Controls/ProgressBarStyleColors.qml</file>
 		<file>GameNet/Controls/qmldir</file>
 		<file>GameNet/Controls/RadioButton.qml</file>
+		<file>GameNet/Controls/ScrollText.qml</file>
 		<file>GameNet/Controls/SplitterStyleColors.qml</file>
 		<file>GameNet/Controls/Switcher.js</file>
 		<file>GameNet/Controls/Switcher.qml</file>

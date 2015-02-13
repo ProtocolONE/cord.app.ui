@@ -54,4 +54,7 @@ QtObject {
     signal setAnimatedTrayIcon(string source);
     signal updateTaskbarIcon(string source);
     signal unreadContactsChanged(int contacts);
+
+    signal openDetailedUserInfo(variant opt);
+    signal closeDetailedUserInfo();
 }

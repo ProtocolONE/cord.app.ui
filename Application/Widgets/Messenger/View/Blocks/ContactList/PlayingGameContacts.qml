@@ -25,7 +25,7 @@ Item {
 
         anchors {
             fill: parent
-            rightMargin: 10
+            rightMargin: 12
         }
 
         boundsBehavior: Flickable.StopAtBounds
@@ -33,7 +33,6 @@ Item {
 
         delegate: ContactItemDelegate {
             width: listView.width
-            height: 53
             user: model
             onClicked: select();
         }

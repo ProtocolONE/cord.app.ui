@@ -400,7 +400,7 @@ Rectangle {
 
                     Text {
                         anchors.centerIn: parent
-                        text: "Задать вопрос"
+                        text: qsTr("AUTH_SUPPORT_BUTTON_TEXT")
                         color: Styles.style.authSupportButtonText
                         font {
                             family: "Arial"

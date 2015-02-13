@@ -52,6 +52,7 @@ Item {
     signal talkDateChanged(string jid);
     signal onlineStatusChanged(string jid);
     signal lastActivityChanged(string jid);
+    signal nicknameChanged(string jid);
     signal rosterReceived();
 
     function init() {
@@ -157,6 +158,14 @@ Item {
         return new UserJs.User(usersModel.getById(jid), usersModel, xmppClient);
     }
 
+    function getUserGroups(user) {
+        // INFO пока тут нет биндинга, так как обращаемся к js модели. Понять надо ли и как чинить
+        if (!user)
+            return [];
+
+        return MessengerPrivateJs.userGroups(user.jid);
+    }
+
     function isSelectedUser(user) {
         return user.jid === root.selectedJid;
     }
@@ -257,6 +266,10 @@ Item {
         return userId + '@' + d.serverUrl;
     }
 
+    function jidToUser(jid) {
+        return UserJs.jidToUser(jid);
+    }
+
     function setGameInfo(info) {
         xmppClient.setGamingInfo(info);
     }
@@ -273,12 +286,12 @@ Item {
         return playingContacts;
     }
 
-    function plainContactsItem() {
-        return plainContacts;
-    }
-
     function recentConversationItem() {
         return recentConversation;
+    }
+
+    function allContactsItem() {
+        return allContacts;
     }
 
     function setSmilePanelVisible(value) {
@@ -441,8 +454,14 @@ Item {
             }
 
             var oldOnline = user.online;
-            user.presenceState = presence.type;
-            user.statusMessage = presence.status;
+            if (user.presenceState !== presence.type) {
+                user.presenceState = presence.type;
+            }
+
+            if (user.statusMessage !== presence.status) {
+                user.statusMessage = presence.status;
+            }
+
             if (user.online !== oldOnline) {
                 root.onlineStatusChanged(user.jid);
 
@@ -841,10 +860,6 @@ Item {
         onVCardReceived: {
             //console.log('---------- ', JSON.stringify(vcard), vcard.nickName)
             var item = root.getUser(UserJs.jidWithoutResource(vcard.from));
-            //if (vcard.from === user.jid)
-            { // INFO пока что берем никнейм из ростера
-                item.nickname = vcard.nickName || item.nickname || "";
-            }
 
             if (vcard.extra) {
                 item.avatar = vcard.extra.PHOTOURL || item.avatar;
@@ -852,6 +867,14 @@ Item {
 
             if (!item.avatar) {
                 item.avatar = d.getDefaultAvatar();
+            }
+
+            var oldNickName = item.nickname;
+            var newNickName = vcard.nickName || oldNickName || "";
+
+            if (oldNickName !== newNickName) {
+                item.nickname = newNickName;
+                root.nicknameChanged(item.jid);
             }
         }
     }
@@ -862,15 +885,16 @@ Item {
         messenger: root
     }
 
-    Private.PlainContacts {
-        id: plainContacts
-
-        messenger: root
-    }
-
     Private.RecentConversation {
         id: recentConversation
 
         messenger: root
     }
+
+    Private.AllContacts {
+        id: allContacts
+
+        messenger: root
+    }
+
 }

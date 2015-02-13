@@ -194,13 +194,6 @@ Item {
     // MAINTENANCE BLOCK
     property color maintenanceBackground: '#082135'
 
-    //MESSENGER BOTTOM BAR
-    property color messengerBottomBarBackground: "#FAFAFA"
-    property color messengerBottomBarButtonNormal: "#1ABC9C"
-    property color messengerBottomBarButtonHover: "#019074"
-    property color messengerBottomBarButtonNotificationBackground: "#374E78"
-    property color messengerBottomBarButtonNotificationText: "#FFFFFF"
-
     //MESSENGER SEARCH
     property color messengerSearchBackground: "#324e5e"
     property color messengerSearchButtonNormal: "#1ABC9C"
@@ -267,6 +260,18 @@ Item {
     property color messengerMessageInputSendHotkeyText: "#8596A6"
     property color messengerMessageInputPin: '#8badbb'
 
+    // MESSENGER CONTACT FILTER
+    property color messengerContactFilterBorder: "#24475a"
+    property color messengerContactFilterSelectedButtonNormal: "#00000000"
+    property color messengerContactFilterSelectedButtonHover: "#00000000"
+    property color messengerContactFilterSelectedButtonDisabled: "#00000000"
+    property color messengerContactFilterUnselectedButtonNormal: "#C0133345"
+    property color messengerContactFilterUnselectedButtonHover: "#19384a"
+    property color messengerContactFilterUnselectedButtonDisabled: "#C0133345"
+    property color messengerContactFilterDisabledButtonText: "#FFFFFFFF"
+    property color messengerContactFilterButtonText: "#80a1c1d2"
+    property color messengerContactFilterHoverButtonText: "#C0a1c1d2"
+
     //MESSENGER CHAT DIALOG HEADER
     property color messengerChatDialogHeaderBackground: "#253149"
     property color messengerChatDialogHeaderNicknameText: "#FAFAFA"
@@ -299,11 +304,14 @@ Item {
 
     property color messengerRecentContactsUnreadIcon: "#189A19"
 
+    // MESSENGER GAMENET NOTIFICATION
+    property color messengerGameNetNotificationTextBackground: "#FD4C01"
+    property color messengerGameNetNotificationText: "#FFFFFF"
+
     //MESSENGER EMPTY CONTACTS INFO
     property color messengerEmptyContactListInfoBackground: "#EEEEEE"
 
     // Smile panel
-
     property color messengerSmilePanelBackground: "#001f30"
     property color messengerSmilePanelBorder: "#324e5e"
     property color messengerSmilePanelHover: "#002336"
@@ -337,6 +345,39 @@ Item {
     property string gameMenuGuidesIcon: "Assets/Images/Application/Blocks/GameMenu/Guides.png"
     property string gameMenuForumIcon: "Assets/Images/Application/Blocks/GameMenu/Forum.png"
     property string gameMenuSettingsIcon: "Assets/Images/Application/Blocks/GameMenu/Settings.png"
+
+    // DETAILED USER INFO
+    property color detailedUserInfoBackground: "#19384a"
+    property color detailedUserInfoErrorText: "#FFFFFF"
+    property color detailedUserInfoHeaderBackground: "#002336"
+    property color detailedUserInfoHeaderText: "#FFFFFF"
+    property color detailedUserInfoBackgroundBorder: "#324e5e"
+    property color detailedUserInfoBlockHeaderBackground: "#002336"
+    property color detailedUserInfoBlockHeaderText: "#7c99a9"
+    property color detailedUserInfoBlockHeaderTextCount: "#FFFFFF"
+    property color detailedUserInfoGameCharsPlayingIcon: "#1abc9c"
+    property color detailedUserInfoGameCharsGameName: "#FFFFFF"
+    property color detailedUserInfoGameCharsPlayingDate: "#7c99a9"
+    property color detailedUserInfoGameCharsTableHeaderBackground: "#002336"
+    property color detailedUserInfoGameCharsTableHeaderText: "#C07c99a9"
+    property color detailedUserInfoGameCharsTableFriendText: "#1abc9c"
+    property color detailedUserInfoGameCharsTableNotFriendText: "#FFFFFF"
+    property color detailedUserInfoGameCharsTableNotFriendClassText: "#7c99a9"
+    property color detailedUserInfoGameCharsSplitter: "#002336"
+    property color detailedUserInfoMainInfoFIO: "#FFFFFF"
+    property color detailedUserInfoMainInfoSubInfo: "#7c99a9"
+    property color detailedUserInfoMainInfoLevel: "#FFFFFF"
+    property color detailedUserInfoMainInfoLevelTitle: "#7c99a9"
+    property color detailedUserInfoMainInfoLevelProgressLine: "#1abc9c"
+    property color detailedUserInfoMainInfoLevelProgressBackground: "#002336"
+    property color detailedUserInfoMainInfoRating: "#FFFFFF"
+    property color detailedUserInfoMainInfoRatingTitle: "#7c99a9"
+    property color detailedUserInfoMainInfoAchievement: "#FFFFFF"
+    property color detailedUserInfoMainInfoAchievementTitle: "#7c99a9"
+    property color detailedUserInfoMainInfoFriendButtonNormal: "#1d5248"
+    property color detailedUserInfoMainInfoFriendButtonHover: "#1abc9c"
+    property color detailedUserInfoMainInfoFriendButtonBorder: "#1abc9c"
+    property color detailedUserInfoMainInfoFriendRequestStatus: "#FFFFFF"
 
     //PRIVATE PART
     property variant styleList

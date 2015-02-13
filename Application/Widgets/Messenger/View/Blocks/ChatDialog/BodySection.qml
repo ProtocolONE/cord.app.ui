@@ -34,7 +34,7 @@ Item {
                     return qsTr("CHAT_HISTORY_BODY_YESTERDAY_TEXT");
                 }
 
-                return qsTr("CHAT_BODY_DATE_FORMAT").arg(actual.lang('ru').format('DD MMMM YYYY'));
+                return qsTr("CHAT_BODY_DATE_FORMAT").arg(actual.format('DD MMMM YYYY'));
             }
 
             anchors.centerIn: parent
