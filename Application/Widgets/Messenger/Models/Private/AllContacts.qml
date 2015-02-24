@@ -75,11 +75,13 @@ Item {
             insertIndex = insertIndex >= 0 ? insertIndex : Js.sortedUsers.length;
             Js.sortedUsers.splice(insertIndex, 0, jid);
 
-            worker.push(new Js.MoveItemJob({
-                                               model: proxyModel,
-                                               fromIndex: currentIndex,
-                                               toIndex: insertIndex
-                                           }));
+            if (currentIndex !== insertIndex) {
+                worker.push(new Js.MoveItemJob({
+                                                   model: proxyModel,
+                                                   fromIndex: currentIndex,
+                                                   toIndex: insertIndex
+                                               }));
+            }
         }
 
         function build(usersMap, users) {
