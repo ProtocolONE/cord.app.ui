@@ -4,24 +4,20 @@
 
 @set CoreArea=trunk
 @set SettingsArea=trunk
-@set QxmppArea=0.7.6_Qt5.2.1
-@set GameNetQxmppArea=0.8.1
+@set GameNetQxmppArea=0.8.2
 @set OverlayArea=trunk
 @set QmlExtensionArea=trunk
-@set QxmppDeclarativeArea=1.0
+@set QxmppDeclarativeArea=1.1.1
 
 @echo It's necessary for QmlExtensionX86.
 @echo Copy SettingsX86.dll to qmlviewer directory
 @xcopy /Y /I /R /E "%QGNACOMMONDIR%\GGS\Settings\%SettingsArea%\bin\SettingsX86.dll" "%QTDIR%\bin"
 @xcopy /Y /I /R /E "%QGNACOMMONDIR%\GGS\Core\%CoreArea%\bin\CoreX86.dll" "%QTDIR%\bin"
-@xcopy /Y /I /R /E "%QGNACOMMONDIR%\Qxmpp\%QxmppArea%\bin\qxmppx860.dll" "%QTDIR%\bin"
-
 @xcopy /Y /I /R /E "%QGNACOMMONDIR%\GameNet\qxmpp\%GameNetQxmppArea%\bin\qxmpp0.dll" "%QTDIR%\bin"
 
 @rem New plugins model:
 @xcopy /Y /I /R /E "%QGNACOMMONDIR%\GGS\Settings\%SettingsArea%\bin\SettingsX86.dll" .\plugin\Tulip\
 @xcopy /Y /I /R /E "%QGNACOMMONDIR%\GGS\Core\%CoreArea%\bin\CoreX86.dll" .\plugin\Tulip\
-@xcopy /Y /I /R /E "%QGNACOMMONDIR%\Qxmpp\%QxmppArea%\bin\qxmppx860.dll" .\plugin\Tulip\
 
 @xcopy /Y /I /R /E "%QGNACOMMONDIR%\GGS\Overlay\%OverlayArea%\bin\QmlOverlayX86.dll" .\plugin\Tulip\
 @xcopy /Y /I /R /E "%QGNACOMMONDIR%\GGS\QmlExtension\%QmlExtensionArea%\bin\QmlExtensionX86.dll" .\plugin\Tulip\

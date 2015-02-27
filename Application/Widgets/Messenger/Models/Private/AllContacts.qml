@@ -92,7 +92,7 @@ Item {
 
             for (i = 0; i < usersModel.count; ++i) {
                 modelUser = usersModel.get(i);
-                if (User.isGameNet(modelUser)) {
+                if (User.isGameNet(modelUser) || !modelUser.inContacts) {
                     continue;
                 }
 

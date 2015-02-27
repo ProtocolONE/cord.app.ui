@@ -187,8 +187,8 @@ WidgetView {
                     WebImage {
                         id: avatarImage
 
-                        width: 47
-                        height: 47
+                        width: 48
+                        height: 48
                         asynchronous: true
                         source: model.avatarMedium != undefined ?
                                     model.avatarMedium : installPath + "Assets/Images/Application/Widgets/UserProfile/defaultAvatar.png"

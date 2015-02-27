@@ -69,7 +69,7 @@ WidgetView {
             });
 
             services = App.getRegisteredServices().filter(function(e){
-                if (gridServices.hasOwnProperty(e)) {
+                if (gridServices.hasOwnProperty(e) ||  e == "0") {
                     return false;
                 }
 
@@ -93,7 +93,12 @@ WidgetView {
             gameListServices = services;
 
             while (gameListServices.length < 7) {
-                gameListServices.push(grid[index++].serviceId);
+                var s = grid[index++].serviceId;
+                if (s == "0") {
+                    continue;
+                }
+
+                gameListServices.push(s);
             }
 
             gameList.model = gameListServices.map(function(e){

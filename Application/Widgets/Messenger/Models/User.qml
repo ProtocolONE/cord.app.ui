@@ -27,6 +27,7 @@ QtObject {
 
     property bool hasUnreadMessage: false
     property string inputMessage: ""
+    property bool inContacts: false
 
     function isValid() {
         return true;

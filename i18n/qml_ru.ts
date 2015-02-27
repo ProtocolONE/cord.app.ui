@@ -4986,7 +4986,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>LAST_TAB_TULTIP</source>
-        <translation type="unfinished">Последние использованые</translation>
+        <translation type="unfinished">Последние использованные</translation>
     </message>
     <message>
         <source>RECENT_TAB_TULTIP</source>

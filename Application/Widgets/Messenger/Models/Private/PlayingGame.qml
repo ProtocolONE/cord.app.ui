@@ -62,7 +62,7 @@ Item {
 
             for (i = 0; i < usersModel.count; ++i) {
                 modelUser = usersModel.get(i);
-                if (!UserJs.isOnline(modelUser.presenceState) || UserJs.isGameNet(modelUser)) {
+                if (!UserJs.isOnline(modelUser.presenceState) || UserJs.isGameNet(modelUser) || !modelUser.inContacts) {
                     continue;
                 }
 

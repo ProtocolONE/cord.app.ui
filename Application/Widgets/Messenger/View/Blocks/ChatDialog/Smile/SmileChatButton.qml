@@ -27,9 +27,9 @@ Item {
     Image {
         width: 20
         height: 20
-
+        smooth: true
+        asynchronous: true
         anchors.centerIn: parent
-
         source: rootButton.imageSource ? rootButton.imageSource : ''
     }
 

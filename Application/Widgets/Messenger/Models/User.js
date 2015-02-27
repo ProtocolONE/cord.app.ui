@@ -276,6 +276,7 @@ function createRawUser(jid, nickname) {
         lastTalkDate: "",
         online: false,
         playingGame: "",
+        inContacts: false,
         __lastActivityRequested: false,
         __vCardRequested: false,
         __historyRequested: false
@@ -306,6 +307,7 @@ function createGamenetUser() {
         lastTalkDate: "",
         online: true,
         playingGame: "",
+        inContacts: false,
         __lastActivityRequested: false,
         __vCardRequested: false
     };

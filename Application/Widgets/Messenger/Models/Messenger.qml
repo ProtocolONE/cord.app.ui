@@ -326,6 +326,8 @@ Item {
                 if (!currentUserMap.hasOwnProperty(id)) {
                     d.removeUserFromGroups(id);
                 }
+
+                usersModel.setPropertyById(id, "inContacts", currentUserMap.hasOwnProperty(id));
             });
 
             usersModel.endBatch();
