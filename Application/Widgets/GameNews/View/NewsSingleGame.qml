@@ -19,7 +19,9 @@ WidgetView {
         id: feed
 
         xml: root.model.newsXml
-        query: filterGameId === "-1" ? "/response/news/row" : ("/response/news/row[gameId=" + filterGameId + "]")
+        query: filterGameId === "-1"
+               ? "/response/news/row"
+               : ("/response/news/row[gameId=" + filterGameId + " or gameId = 0]")
 
         XmlRole { name: "gameId"; query: "gameId/string()" }
         XmlRole { name: "gameShortName"; query: "gameShortName/string()" }
@@ -41,7 +43,6 @@ WidgetView {
         id: baseView
 
         isSingleMode: true
-
         onFinished: opacity = 1;
 
         Behavior on opacity { NumberAnimation { duration: 150 } }
