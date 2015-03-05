@@ -1,4 +1,5 @@
- var tabs = [
+.pragma library
+var tabs = [
     [
        ":smile:",
        ":smiley:",

@@ -161,22 +161,4 @@ Rectangle {
     AppControls.HiddenAppCloseButton {
         anchors { left: parent.left; top: parent.top }
     }
-
-//    TODO это не работает, разобратся
-//    <Unknown File>: QML StateGroup: Can't apply a state change as part of a state definition.
-//
-//    states: [
-//        State {
-//            name: 'Loading'
-//            PropertyChanges { target: switcher; source: "../../Application/Blocks/SplashScreen.qml" }
-//        },
-//        State {
-//            name: 'Authorization'
-//            PropertyChanges { target: switcher; source: "../../Application/Blocks/Auth/Index.qml" }
-//        },
-//        State {
-//            name: 'Application'
-//            PropertyChanges { target: switcher; source: "../../Application/Blocks/AppScreen.qml" }
-//        }
-//    ]
 }

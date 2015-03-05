@@ -43,6 +43,8 @@ Column {
             width: parent.width
             height: parent.height
 
+            cache: false
+            asynchronous: true
             anchors.centerIn: parent
             source: serviceItem.imageSmall ? serviceItem.imageSmall : ''
         }

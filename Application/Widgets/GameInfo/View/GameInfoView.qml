@@ -29,6 +29,12 @@ WidgetView {
         }
     }
 
+    Component.onCompleted: {
+        if (gameItem) {
+            model.refreshGallery(gameItem.gameId);
+        }
+    }
+
     function update() {
         if (!root.gameItem) {
             return;
@@ -185,6 +191,9 @@ WidgetView {
 
                         width: parent.width
                         height: parent.height
+                        cache: false
+                        asynchronous: true
+
                         onStatusChanged: {
                             if (content1.status == Image.Ready) {
                                 showNextTimer.restart();
@@ -197,6 +206,9 @@ WidgetView {
 
                         width: parent.width
                         height: parent.height
+                        cache: false
+                        asynchronous: true
+
                         onStatusChanged: {
                             if (content2.status == Image.Ready) {
                                 showNextTimer.restart();

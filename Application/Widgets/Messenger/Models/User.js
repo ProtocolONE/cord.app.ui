@@ -11,7 +11,25 @@
 var serverUrl;
 
 Qt.include("Message.js");
-Qt.include("../../../../Core/moment.js")
+
+function subtractTime(date, num, name) {
+    var tmp = new Date(date),
+        map = {
+            'week': 604800000,
+            'day': 86400000,
+            'hour': 3600000,
+            'minute': 60000,
+            'seconds': 1000,
+        };
+
+    if (name == 'month') {
+        tmp.setMonth(tmp.getMonth() - num);
+    } else {
+        tmp.setTime(tmp.getTime() - map[name] * num);
+    }
+
+    return +tmp;
+}
 
 function User(item, model, jabber) {
     var _item = item,
@@ -248,10 +266,10 @@ function User(item, model, jabber) {
         }
 
         if (!self.historyDay) {
-            self.historyDay = moment().startOf('day');
+            self.historyDay = startOfDay();
         }
 
-        var from = +moment(self.historyDay).startOf('day').subtract(num, name);
+        var from = subtractTime(startOfDay(self.historyDay), num, name);
 
         jabber.queryHistory(self.jid, from, self.historyDay, _item.messages);
         self.historyDay = from;
@@ -271,7 +289,7 @@ function createRawUser(jid, nickname) {
         inputMessage: "",
         avatar: "",
         lastActivity: 0,
-        historyDay: +moment().startOf('day'),
+        historyDay: startOfDay(),
         isGamenet: false,
         lastTalkDate: "",
         online: false,
@@ -302,7 +320,7 @@ function createGamenetUser() {
         inputMessage: "",
         avatar: "",
         lastActivity: 0,
-        historyDay: +moment().startOf('day'),
+        historyDay: startOfDay(),
         isGamenet: true,
         lastTalkDate: "",
         online: true,

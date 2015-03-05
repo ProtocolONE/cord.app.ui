@@ -1,3 +1,4 @@
+.pragma library
 var _signalBusInstance = createObject('./SignalBus.qml');
 
 function createObject(path) {

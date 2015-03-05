@@ -78,7 +78,7 @@ Item {
                 height: 130
                 width: 160
                 source: previewImage
-                cache: true
+                cache: false
                 asynchronous: true
 
                 Image {
@@ -88,7 +88,7 @@ Item {
                         bottomMargin: 3
                         rightMargin: 5
                     }
-
+                    cache: true
                     source: installPath + 'Assets/Images/Application/Widgets/GameNews/commentCount.png'
                 }
 
@@ -192,7 +192,7 @@ Item {
                     font { family: 'Arial'; pixelSize: 14 }
                     lineHeight: 20
                     lineHeightMode: Text.FixedHeight
-                    onLinkActivated: App.openExternalUrl(link);
+                    onLinkActivated: App.openExternalUrlWithAuth(link);
 
                     Behavior on color {
                         ColorAnimation { duration: 200 }

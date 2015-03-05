@@ -66,6 +66,7 @@ Item {
                 opacity: status == Image.Ready ? 1 : 0
                 anchors.centerIn: parent
                 asynchronous: true
+                cache: false
                 smooth: true
 
                 Behavior on opacity {

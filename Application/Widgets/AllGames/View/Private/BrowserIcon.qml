@@ -35,5 +35,6 @@ Image {
         margins: 4
     }
 
+    cache: false
     source: root.visible ? root.getSourceIcon() : ''
 }

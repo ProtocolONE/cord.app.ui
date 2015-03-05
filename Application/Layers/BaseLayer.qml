@@ -6,6 +6,7 @@ import Application.Blocks.Header 1.0
 import Application.Blocks.GameMenu 1.0
 import GameNet.Components.Widgets 1.0
 
+import "./Private"
 import "../../Application/Core/App.js" as App
 import "../../Application/Core/TrayPopup.js" as TrayPopup
 import "../../Application/Core/User.js" as User
@@ -13,7 +14,6 @@ import "../../Application/Core/Popup.js" as Popup
 import "../../Application/Core/Styles.js" as Styles
 
 import "../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
-
 
 Rectangle {
     id: root
@@ -133,6 +133,12 @@ Rectangle {
                 target: App.signalBus()
                 onServiceUpdated: header.myGamesMenuEnable = App.isMyGamesEnabled();
             }
+        }
+
+        Loader {
+            id: centralBlockLoader
+
+            onSourceComponentChanged: gc()
         }
 
         Item {
@@ -267,75 +273,6 @@ Rectangle {
             }
         }
 
-        ScrollArea {
-            id: aboutGame
-
-            width: 590
-            height: 600 - header.implicitHeight
-
-            WidgetContainer {
-                widget: 'GameInfo'
-            }
-
-            WidgetContainer {
-                widget: 'GameNews'
-            }
-        }
-
-        ScrollArea {
-            id: centerBlock
-
-            width: 590
-            height: 600 - header.implicitHeight
-
-            Connections {
-                target: gameMenu
-                onPageClicked: centerBlock.scrollToBegin();
-            }
-
-            Connections {
-                target: App.signalBus()
-                onNavigate: centerBlock.scrollToBegin();
-            }
-
-
-            WidgetContainer {
-                visible: root.hasCurrentGame
-                         && root.currentGame.maintenance
-                         && root.currentGame.allreadyDownloaded
-
-                widget: 'Maintenance'
-                view: 'MaintenanceLightView'
-            }
-
-
-            WidgetContainer {
-                widget: 'GameAdBanner'
-            }
-
-            WidgetContainer {
-                widget: 'Facts'
-            }
-
-            WidgetContainer {
-                width: parent.width
-                widget: 'GameNews'
-            }
-        }
-
-        ScrollArea {
-            id: myGamesMenuCenterBlock
-
-            width: 590
-            height: 600 - header.implicitHeight
-
-            WidgetContainer {
-                width: parent.width
-
-                widget: 'GameNews'
-                view: 'NewsMyGames'
-            }
-        }
 
         Item {
             id: myGamesMenu
@@ -402,12 +339,6 @@ Rectangle {
         }
 
         WidgetContainer {
-            id: allGames
-
-            widget: 'AllGames'
-        }
-
-        WidgetContainer {
             id: contactList
 
             anchors {
@@ -422,40 +353,113 @@ Rectangle {
         }
     }
 
-    states: [
+    Component {
+        id: aboutGameComponent
 
+        AboutGame {
+            id: aboutGameScrollArea
+
+            width: 590
+            height: 600 - header.implicitHeight
+
+            Connections {
+                target: gameMenu
+                onPageClicked: aboutGameScrollArea.scrollToBegin();
+            }
+
+            Connections {
+                target: App.signalBus()
+                onNavigate: aboutGameScrollArea.scrollToBegin();
+            }
+        }
+    }
+
+    Component {
+        id: centerBlock
+
+        MainGamePage {
+            id: mainGameScrArea
+
+            width: 590
+            height: 600 - header.implicitHeight
+            currentGame: root.currentGame
+
+            Connections {
+                target: gameMenu
+                onPageClicked: mainGameScrArea.scrollToBegin();
+            }
+
+            Connections {
+                target: App.signalBus()
+                onNavigate: mainGameScrArea.scrollToBegin();
+            }
+        }
+    }
+
+    Component {
+        id: myGamesComponent
+
+        ScrollArea {
+            width: 590
+            height: 600 - header.implicitHeight
+
+            WidgetContainer {
+                width: parent.width
+
+                widget: 'GameNews'
+                view: 'NewsMyGames'
+            }
+        }
+    }
+
+    Component {
+        id: allGames
+
+        WidgetContainer {
+            widget: 'AllGames'
+        }
+    }
+
+    states: [
         State {
             name: "SelectedGame"
+
+            PropertyChanges { target: centralBlockLoader; sourceComponent: centerBlock}
             PropertyChanges { target: header; parent: layer1headerContair}
             PropertyChanges { target: gameBlock; parent: layer1Col1}
-            PropertyChanges { target: centerBlock; parent: layer1Col2}
+            PropertyChanges { target: centralBlockLoader; parent: layer1Col2}
             PropertyChanges { target: userProfile; parent: layer1Col3}
             PropertyChanges { target: contactList; parent: layer1Col3}
         }
-
         ,
         State {
             name: "AllGames"
+
+            PropertyChanges { target: centralBlockLoader; sourceComponent: allGames}
             PropertyChanges { target: header; parent: layer1headerContair}
-            PropertyChanges { target: allGames; parent: layer1Col1}
+            PropertyChanges { target: centralBlockLoader; parent: layer1Col1}
             PropertyChanges { target: userProfile; parent: layer2Col2}
             PropertyChanges { target: contactList; parent: layer2Col2}
         }
         ,
         State {
             name: "AboutGame"
+
+            PropertyChanges { target: centralBlockLoader; sourceComponent: aboutGameComponent}
             PropertyChanges { target: header; parent: layer1headerContair}
             PropertyChanges { target: gameBlock; parent: layer1Col1}
-            PropertyChanges { target: aboutGame; parent: layer1Col2}
+            PropertyChanges { target: centralBlockLoader; parent: layer1Col2}
             PropertyChanges { target: userProfile; parent: layer2Col2}
             PropertyChanges { target: contactList; parent: layer2Col2}
         }
         ,
         State {
             name: "MyGames"
+
+            PropertyChanges { target: centralBlockLoader; sourceComponent: myGamesComponent}
             PropertyChanges { target: header; parent: layer1headerContair}
             PropertyChanges { target: myGamesMenu; parent: layer2Col1}
-            PropertyChanges { target: myGamesMenuCenterBlock; parent: layer1Col2}
+            PropertyChanges { target: centralBlockLoader; parent: layer1Col2}
             PropertyChanges { target: userProfile; parent: layer2Col2}
             PropertyChanges { target: contactList; parent: layer2Col2}
         }

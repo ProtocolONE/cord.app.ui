@@ -1,3 +1,4 @@
+.pragma library
 Qt.include("../../../../GameNet/Core/Strings.js")
 
 /**
@@ -45,5 +46,3 @@ function prepareText(message, options) {
     text = replaceNewLines(text);
     return text;
 }
-
-

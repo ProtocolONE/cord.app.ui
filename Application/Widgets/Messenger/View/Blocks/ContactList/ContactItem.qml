@@ -100,7 +100,7 @@ Rectangle {
 
                 width: 32
                 height: 32
-                cache: true
+                cache: false
                 asynchronous: true
 
                 CursorMouseArea {

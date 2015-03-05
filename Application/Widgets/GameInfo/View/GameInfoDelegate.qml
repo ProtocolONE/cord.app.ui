@@ -14,7 +14,7 @@ Item {
 
         smooth: true
         asynchronous: true
-        cache: true
+        cache: false
 
         CursorMouseArea {
             id: cursorMouseArea

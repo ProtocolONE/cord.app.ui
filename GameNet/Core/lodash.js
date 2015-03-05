@@ -1,3 +1,4 @@
+.pragma library
 /**
  * @license
  * lodash 3.2.0 (Custom Build) <https://lodash.com/>

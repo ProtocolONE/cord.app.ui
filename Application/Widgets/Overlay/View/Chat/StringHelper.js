@@ -1,3 +1,4 @@
+.pragma library
 Qt.include("../../../../../GameNet/Core/Strings.js")
 
 /**

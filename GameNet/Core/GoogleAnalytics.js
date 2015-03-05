@@ -1,7 +1,5 @@
 .pragma library
 
-Qt.include('./RestApi.js');
-
 var prestartQueue = [];
 var activated = false;
 
@@ -127,6 +125,31 @@ function init(options) {
     timestampCurrent = currentTimestamp;
 }
 
+function request(options, callback) {
+    var xhr = new XMLHttpRequest(),
+        uri,
+        userAgent;
+
+    uri = options.uri;
+    if (options.hasOwnProperty('userAgent')) {
+        userAgent = options.userAgent;
+    }
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState !== 4) { // full body received
+            return;
+        }
+        callback({status: xhr.status, header: xhr.getAllResponseHeaders(), body: xhr.responseText});
+    };
+
+    xhr.open('GET', uri.toString());
+
+    if (userAgent) {
+        xhr.setRequestHeader('QtBug', 'QTBUG-20473\r\nUser-Agent: ' + userAgent);
+    }
+    xhr.send(null);
+}
+
 function sendHit(hit) {
     if (isFiltered) {
         // sampled
@@ -134,11 +157,11 @@ function sendHit(hit) {
     }
 
     var options = {
-        uri: new Uri(hit),
+        uri: hit,
         userAgent: 'qGNA/' + applicationVersion + ' ' + systemVersion
     }
 
-    http.request(options, function(response) {});
+    request(options, function(response) {});
 }
 
 function activate() {

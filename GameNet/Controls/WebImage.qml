@@ -22,6 +22,7 @@ Image {
             source: installPath + 'Assets/Images/GameNet/Controls/WebImage/loading.gif'
             anchors.centerIn: parent
             cache: true
+            asynchronous: true
             playing: parent.visible
         }
     }

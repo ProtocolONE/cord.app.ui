@@ -109,6 +109,8 @@
 		<file>Application/Core/User.qml</file>
 		<file>Application/Layers/BaseLayer.qml</file>
 		<file>Application/Layers/ChatLayer.qml</file>
+		<file>Application/Layers/Private/AboutGame.qml</file>
+		<file>Application/Layers/Private/MainGamePage.qml</file>
 		<file>Application/Layers/qmldir</file>
 		<file>Application/Layers/SettingsLayer.qml</file>
 		<file>Application/Models/GamesListModel.qml</file>
@@ -385,6 +387,7 @@
 		<file>GameNet/Controls/ComboBox.qml</file>
 		<file>GameNet/Controls/ComboBoxStyle.qml</file>
 		<file>GameNet/Controls/CursorMouseArea.qml</file>
+		<file>GameNet/Controls/Empty.qml</file>
 		<file>GameNet/Controls/ErrorContainer.qml</file>
 		<file>GameNet/Controls/ErrorMessage.qml</file>
 		<file>GameNet/Controls/ErrorMessageStyle.qml</file>

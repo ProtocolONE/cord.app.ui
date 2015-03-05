@@ -1,3 +1,4 @@
+.pragma library
 function stripTags(input, allowed) {
     //  discuss at: http://phpjs.org/functions/strip_tags/
     // original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)

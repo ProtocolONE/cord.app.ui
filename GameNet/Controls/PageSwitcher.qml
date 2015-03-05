@@ -74,22 +74,23 @@ Item {
         function switchFinished() {
             root.switchFinished();
             if (d.currentLayer == 2) {
-                first.source = "";
-                first.sourceComponent = null;
+                first.source = "./Empty.qml";
+                first.sourceComponent = zero;
             } else {
-                second.source = "";
-                second.sourceComponent = null;
+                second.source = "./Empty.qml";
+                second.sourceComponent = zero;
             }
 
             d.reset = true;
             if (d.page) {
-                root.source = "";
+                root.source = "./Empty.qml";
             } else {
-                root.sourceComponent = null;
+                root.sourceComponent = zero;
             }
             d.reset = false;
-
             d.isInProgress = false;
+
+            gc();
 
             var next = PageSwitcherJs.get();
             if (!next) {
@@ -102,6 +103,12 @@ Item {
                 d.switchToComponent(next.value);
             }
         }
+    }
+
+    Component {
+        id: zero
+
+        Item{}
     }
 
     Switcher {

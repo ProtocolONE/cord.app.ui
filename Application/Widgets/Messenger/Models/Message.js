@@ -8,7 +8,6 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 .pragma library
-Qt.include('../../../Core/moment.js')
 
 var MessageState = function() {};
 MessageState.None = 0;       ///< The message does not contain any chat state information.
@@ -81,13 +80,23 @@ function Message(model, index) {
     }
 }
 
+function startOfDay(value) {
+    var tmp = new Date(value || Date.now());
+    tmp.setHours(0);
+    tmp.setMinutes(0);
+    tmp.setSeconds(0);
+    tmp.setMilliseconds(0);
+
+    return +tmp;
+}
+
 function createRawMessage(from, isStatus, body, date) {
     var result = {
         jid: from,
         text: body || "",
         date: date || Date.now(),
         isStatusMessage: isStatus,
-        day: +moment(date).startOf('day'),
+        day: startOfDay(date)
     };
 
     return result;

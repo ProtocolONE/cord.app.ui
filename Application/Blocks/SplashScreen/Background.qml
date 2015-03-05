@@ -100,6 +100,7 @@ Item {
             Image {
                 id: back
 
+                cache: false
                 anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
                 source: defaultPath + "01_base.jpg"
             }
@@ -108,6 +109,7 @@ Item {
                 id: backOverlay
 
                 opacity: 0
+                cache: false
                 asynchronous: true
                 anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
                 source: defaultPath + "02_base.jpg"
@@ -122,6 +124,7 @@ Item {
                id: layer1
 
                asynchronous: true
+               cache: false
                anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
                source: defaultPath + "01_particles.png"
             }
@@ -133,6 +136,7 @@ Item {
 
             Image {
                asynchronous: true
+               cache: false
                anchors { left: parent.left; top: parent.top; leftMargin: 170; topMargin: 120 }
                source: defaultPath + "line2_1.png"
             }
@@ -144,6 +148,7 @@ Item {
 
             Image {
                asynchronous: true
+               cache: false
                anchors { left: parent.left; top: parent.top; leftMargin: 570; topMargin: 180 }
                source: defaultPath + "line2_2.png"
             }
@@ -155,6 +160,7 @@ Item {
 
             Image {
                asynchronous: true
+               cache: false
                anchors { left: parent.left; top: parent.top; leftMargin: 500; topMargin: 420 }
                source: defaultPath + "line2_3.png"
             }
@@ -166,6 +172,7 @@ Item {
 
             Image {
                asynchronous: true
+               cache: false
                anchors { left: parent.left; top: parent.top; leftMargin: 100; topMargin: 320 }
                source: defaultPath + "line2_4.png"
             }
@@ -179,6 +186,7 @@ Item {
                 id: layer2
 
                 asynchronous: true
+                cache: false
                 anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
                 source: defaultPath + "02_particles.png"
             }
@@ -190,6 +198,7 @@ Item {
 
             Image {
                asynchronous: true
+               cache: false
                anchors { left: parent.left; top: parent.top; leftMargin: 50; topMargin: 120 }
                source: defaultPath + "line3_1.png"
             }
@@ -201,6 +210,7 @@ Item {
 
             Image {
                asynchronous: true
+               cache: false
                anchors { left: parent.left; top: parent.top; leftMargin: 400; topMargin: 25 }
                source: defaultPath + "line3_2.png"
             }
@@ -212,6 +222,7 @@ Item {
 
             Image {
                asynchronous: true
+               cache: false
                anchors { left: parent.left; top: parent.top; leftMargin: 900; topMargin: 500 }
                source: defaultPath + "line3_3.png"
             }
@@ -223,6 +234,7 @@ Item {
 
             Image {
                asynchronous: true
+               cache: false
                anchors { left: parent.left; top: parent.top; leftMargin: 325; topMargin: 500 }
                source: defaultPath + "line3_4.png"
             }
@@ -234,6 +246,7 @@ Item {
 
             Image {
                asynchronous: true
+               cache: false
                anchors { left: parent.left; top: parent.top; leftMargin: 850; topMargin: 100 }
                source: defaultPath + "line3_5.png"
             }
@@ -245,6 +258,7 @@ Item {
 
             Image {
                asynchronous: true
+               cache: false
                anchors { left: parent.left; top: parent.top; leftMargin: 25; topMargin: 375 }
                source: defaultPath + "line3_6.png"
             }
@@ -258,6 +272,7 @@ Item {
                 id: layer3
 
                 asynchronous: true
+                cache: false
                 anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
                 source: defaultPath + "03_particles.png"
             }
@@ -269,6 +284,7 @@ Item {
 
             Image {
                 asynchronous: true
+                cache: false
                 anchors.centerIn: parent
                 source: defaultPath + "04_particles.png"
             }
@@ -280,6 +296,7 @@ Item {
 
             Image {
                asynchronous: true
+               cache: false
                anchors { left: parent.left; top: parent.top; leftMargin: 75; topMargin: 450 }
                source: defaultPath + "line4_1.png"
             }
@@ -291,6 +308,7 @@ Item {
 
             Image {
                asynchronous: true
+               cache: false
                anchors { left: parent.left; top: parent.top; leftMargin: 775; topMargin: 150 }
                source: defaultPath + "line4_2.png"
             }
@@ -302,6 +320,7 @@ Item {
 
             Image {
                asynchronous: true
+               cache: false
                anchors { left: parent.left; top: parent.top; leftMargin: 175; topMargin: 10 }
                source: defaultPath + "line4_3.png"
             }
@@ -313,6 +332,7 @@ Item {
 
             Image {
                 asynchronous: true
+                cache: false
                 anchors.centerIn: parent
                 source: defaultPath + "05_particles.png"
             }
@@ -324,6 +344,7 @@ Item {
 
         opacity: 0
         asynchronous: true
+        cache: false
         anchors.centerIn: parent
         source: defaultPath + "01_logo.png"
     }
