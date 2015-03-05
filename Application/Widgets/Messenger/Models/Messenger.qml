@@ -360,6 +360,11 @@ Item {
             , rawUser
             , unreadMessageUsersMap;
 
+            var bareJid = UserJs.jidWithoutResource(user);
+            if (bareJid === myUser.jid) {
+                return;
+            }
+
             nickname = xmppClient.rosterManager.getNickname(user) || externalNickName;
             groups = xmppClient.rosterManager.getGroups(user);
             unreadMessageUsersMap = d.unreadMessageUsers();
@@ -449,7 +454,7 @@ Item {
         }
 
         function updatePresence(presence) {
-            var bareJid = UserJs.jidWithoutResource(presence.from)
+            var bareJid = UserJs.jidWithoutResource(presence.from);
             var user = root.getUser(bareJid);
             if (!user.isValid()) {
                 return;
@@ -561,14 +566,19 @@ Item {
             Settings.setValue('qml/messenger/stored/', myUser.jid, JSON.stringify(storedUsers));
         }
 
-        function loadRawUsers() {
+        function loadAndUpdateRawUsers() {
             var storedUsers = d.getRawUsersMap();
 
             Object.keys(storedUsers).forEach(function(e){
-                d.appendUser(e);
+                if (!usersModel.contains(e) && e !== myUser.jid) {
+                    d.appendUser(e);
+                } else {
+                    delete storedUsers[e];
+                }
             });
-        }
 
+            Settings.setValue('qml/messenger/stored/', myUser.jid, JSON.stringify(storedUsers));
+        }
 
         function getUserTalkDate(user) {
             if (!MessengerPrivateJs.lastTalkDateMap.hasOwnProperty(user.jid)) {
@@ -852,7 +862,7 @@ Item {
         onRosterReceived: {
             console.log("ROSTER MANAGER: Roster received");
             d.rosterReceived();
-            d.loadRawUsers();
+            d.loadAndUpdateRawUsers();
         }
     }
 
