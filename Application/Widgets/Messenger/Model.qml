@@ -41,8 +41,8 @@ WidgetModel {
         return MessengerJs.userSelected();
     }
 
-    function selectUser(user, group) {
-        MessengerJs.selectUser(user, group);
+    function selectUser(user) {
+        MessengerJs.selectUser(user);
     }
 
     function userAvatar(item) {

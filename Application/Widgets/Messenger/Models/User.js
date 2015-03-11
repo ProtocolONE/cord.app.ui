@@ -186,6 +186,24 @@ function User(item, model, jabber) {
         _model.setPropertyById(self.jid, 'playingGame', val);
     });
 
+    this.__defineGetter__("groups", function() {
+        var result = [];
+        for (var j = 0; j < _item.groups.count; j++) {
+            result.push(_item.groups.get(j).name);
+        }
+
+        return result;
+    });
+
+    this.__defineSetter__("groups", function(val) {
+        _item.groups.clear();
+        val.forEach(function (g) {
+            _item.groups.append({
+                                    name: g
+                                });
+        });
+    });
+
     this.isValid = function() {
         return !!_item && !!_model;
     }
@@ -280,6 +298,7 @@ function createRawUser(jid, nickname) {
     var result = {
         userId: jidToUser(jid),
         jid: jidWithoutResource(jid),
+        groups: [],
         nickname: nickname,
         unreadMessageCount: 0,
         state: 0,
@@ -315,6 +334,7 @@ function createGamenetUser() {
         unreadMessageCount: 0,
         state: 0,
         messages: [],
+        groups: [],
         statusMessage: "",
         presenceState: "online",
         inputMessage: "",

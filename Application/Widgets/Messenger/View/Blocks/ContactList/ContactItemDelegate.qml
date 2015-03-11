@@ -12,7 +12,6 @@ import QtQuick 1.1
 import Tulip 1.0
 import "../../../Models/Messenger.js" as Messenger
 import "../../../Models/User.js" as User
-import "../../../Models/Group.js" as Group
 import "../../../../../Core/moment.js" as Moment
 
 import "../../../../../Core/App.js" as App
@@ -22,7 +21,6 @@ ContactItem {
     id: root
 
     property variant user
-    property variant group
 
     nickname: d.nickName()
     avatar: d.avatar()
@@ -36,7 +34,7 @@ ContactItem {
     userId: d.userId()
 
     function select() {
-        Messenger.selectUser(root.user || "", root.group || "");
+        Messenger.selectUser(root.user || "");
     }
 
     QtObject {
@@ -107,16 +105,7 @@ ContactItem {
                 return false;
             }
 
-            if (!Messenger.isSelectedUser(root.user)) {
-                return false;
-            }
-
-
-            if (!root.group || !root.group.groupId) {
-                return true;
-            }
-
-            return Messenger.isSelectedGroup(root.group);
+            return Messenger.isSelectedUser(root.user);
         }
 
         function userId() {
@@ -134,17 +123,12 @@ ContactItem {
             }
 
             groups = Messenger.getUserGroups(root.user);
-
             if (groups.length === 1 && groups[0] === "GameNet") {
                 return qsTr("CONTACT_ITEM_EXTENDED_STATUS_ONLY_GAMENET_FRINED"); // "Друг на сайте GameNet"
             }
 
             groups = Lodash._.chain(groups)
                 .reduce(function(a, g) {
-                    if (g === Group.getNoGroupId()) {
-                        return a;
-                    }
-
                     if (g === "GameNet") {
                         a.push({
                                    id: g,

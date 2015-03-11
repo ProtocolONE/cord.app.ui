@@ -44,14 +44,6 @@ function disconnect() {
     _modelInstance.disconnect();
 }
 
-function groups() {
-    return dataModel.groups;
-}
-
-function groupsModel() {
-    return dataModel.groups.model;
-}
-
 function users() {
     return dataModel.users;
 }
@@ -64,8 +56,8 @@ function authedUser() {
     return _modelInstance.authedUser();
 }
 
-function selectUser(user, group) {
-    _modelInstance.selectUser(user, group);
+function selectUser(user) {
+    _modelInstance.selectUser(user);
 }
 
 function selectedUser(type) {
@@ -82,10 +74,6 @@ function sendMessage(user, message) {
 
 function sendInputStatus(user, value) {
     _modelInstance.sendInputStatus(user, value);
-}
-
-function setGroupOpened(groupId, value) {
-    _modelInstance.setGroupOpened(groupId, value);
 }
 
 function setSmilePanelVisible(value) {
@@ -111,18 +99,6 @@ function getNickname(item) {
     }
 
     return user.nickname;
-}
-
-function getGroupName(item) {
-    if (!item) {
-        return "";
-    }
-
-    if (!item.hasOwnProperty('groupId')) {
-        throw new Error('Error getGroupName. Object has not property groupId.' + JSON.stringify(item));
-    }
-
-    return _modelInstance.getGroupName(item);
 }
 
 function closeChat() {
@@ -162,10 +138,6 @@ function userPresenceState(user) {
 
 function isSelectedUser(user) {
     return _modelInstance.isSelectedUser(user);
-}
-
-function isSelectedGroup(group) {
-    return _modelInstance.isSelectedGroup(group);
 }
 
 function userSelected() {

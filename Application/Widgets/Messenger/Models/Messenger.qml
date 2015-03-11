@@ -20,7 +20,6 @@ import "../../../../Application/Core/moment.js" as Moment
 import "MessengerPrivate.js" as MessengerPrivateJs
 import "User.js" as UserJs
 import "Message.js" as MessageJs
-import "Group.js" as GroupJs
 import "Smiles.js" as Smiles
 
 import "../../../Core/App.js" as App
@@ -31,7 +30,6 @@ Item {
 
     property string previousJid
     property string selectedJid
-    property string selectedGroupId
     property int currentTime
 
     property variant gamenetUser
@@ -60,7 +58,6 @@ Item {
 
         return {
             client: xmppClient,
-            groups: groupsModel,
             users: usersModel,
             user: myUser
         };
@@ -68,10 +65,6 @@ Item {
 
     function getUsersModel() {
         return usersModel;
-    }
-
-    function getGroupsModel() {
-        return groupsModel;
     }
 
     function hasUnreadMessages(user) {
@@ -138,9 +131,7 @@ Item {
             return;
         }
 
-        groupsModel.clear();
         usersModel.clear();
-        MessengerPrivateJs.reset();
         root.contactReceived = false;
 
         xmppClient.disconnectFromServer();
@@ -159,38 +150,19 @@ Item {
     }
 
     function getUserGroups(user) {
-        // INFO пока тут нет биндинга, так как обращаемся к js модели. Понять надо ли и как чинить
-        if (!user)
-            return [];
-
-        return MessengerPrivateJs.userGroups(user.jid);
+        var u = root.getUser(user.jid);
+        return u.isValid() ? u.groups : [];
     }
 
     function isSelectedUser(user) {
         return user.jid === root.selectedJid;
     }
 
-    function isSelectedGroup(group) {
-        return group.groupId === root.selectedGroupId;
-    }
-
-    function setGroupOpened(group, value) {
-        var item;
-        if (!groupsModel.contains(group.groupId)) {
-            console.log('Error group not found', group.groupId);
-            return;
-        }
-
-        item = new GroupJs.Group(groupsModel.getById(group.groupId), groupsModel);
-        item.opened = value;
-    }
-
-    function selectUser(user, group) {
+    function selectUser(user) {
         var item;
 
         root.previousJid = root.selectedJid;
         root.selectedJid = user ? (user.jid || "") : "";
-        root.selectedGroupId = group ? (group.groupId || "") : "";
 
         item = root.getUser(user.jid);
         if (item.isValid()) {
@@ -203,7 +175,7 @@ Item {
     }
 
     function closeChat() {
-        root.selectUser({jid:""}, {groupId: ""});
+        root.selectUser({jid:""});
     }
 
     function selectedUser(type) {
@@ -315,7 +287,6 @@ Item {
             , removeUsers = [];
 
             usersModel.beginBatch();
-            groupsModel.beginBatch();
 
             rosterUsers.forEach(function(jid) {
                 currentUserMap[jid] = 1;
@@ -323,15 +294,10 @@ Item {
             });
 
             usersModel.forEachId(function(id) {
-                if (!currentUserMap.hasOwnProperty(id)) {
-                    d.removeUserFromGroups(id);
-                }
-
                 usersModel.setPropertyById(id, "inContacts", currentUserMap.hasOwnProperty(id));
             });
 
             usersModel.endBatch();
-            groupsModel.endBatch();
             root.rosterReceived();
             root.contactReceived = true;
         }
@@ -367,18 +333,18 @@ Item {
 
             nickname = xmppClient.rosterManager.getNickname(user) || externalNickName;
             groups = xmppClient.rosterManager.getGroups(user);
+
             unreadMessageUsersMap = d.unreadMessageUsers();
             groups = groups.filter(function(e) {
                 return !!e;
             });
-            groups = (groups.length === 0)
-                    ? [GroupJs.getNoGroupId()]
-                    : groups;
 
             if (usersModel.contains(user)) {
                 // INFO Никнейм из вкарда мы берем, но сортировка происходит по нику из ростера
                 item = root.getUser(user);
                 item.nickname = nickname || item.nickname || user;
+                item.groups = groups;
+
                 // UNDONE set other properties
 
                 if (unreadMessageUsersMap.hasOwnProperty(item.jid)) {
@@ -387,6 +353,7 @@ Item {
 
             } else {
                 rawUser = UserJs.createRawUser(user, nickname || user);
+                rawUser.groups = groups.map(function(g){ return {name: g}; });
                 rawUser.lastTalkDate = d.getUserTalkDate(rawUser);
 
                 if (unreadMessageUsersMap.hasOwnProperty(rawUser.jid)) {
@@ -397,59 +364,6 @@ Item {
                 if (root.contactReceived) {
                     d.storeRawUser(user);
                 }
-            }
-
-            groups.forEach(function(group) {
-                groupsMap[group] = 1;
-                d.appendUserToGroup(group, user);
-            });
-
-            MessengerPrivateJs.userGroups(user).forEach(function(g) {
-                if (!groupsMap.hasOwnProperty(g)) {
-                    d.removeUserFromGroup(g, user);
-                }
-            });
-        }
-
-        function removeUserFromGroup(group, user) {
-            var count, i;
-            group = group || GroupJs.getNoGroupId();
-            if (!MessengerPrivateJs.isUserInGroup(group, user)) {
-                return;
-            }
-
-            MessengerPrivateJs.removeUserFromGroup(group, user);
-
-            count = groupsModel.getById(group).users.count;
-            for (i = count - 1; i >=0; --i) {
-                if (groupsModel.getById(group).users.get(i).jid === user) {
-                    groupsModel.getById(group).users.remove(i);
-                    break;
-                }
-            }
-
-            if (groupsModel.getById(group).users.count === 0) {
-                groupsModel.removeById(group);
-            }
-        }
-
-        function removeUserFromGroups(user) {
-            groupsModel.forEachId(function (id) {
-                d.removeUserFromGroup(id, user);
-            });
-        }
-
-        function appendUserToGroup(groupId, user) {
-            var group;
-
-            if (!groupsModel.contains(groupId)) {
-                groupsModel.append(GroupJs.createRawGroup(groupId));
-            }
-
-            if (!MessengerPrivateJs.isUserInGroup(groupId, user)) {
-                MessengerPrivateJs.appendUserToGroup(groupId, user);
-                group = new GroupJs.Group(groupsModel.getById(groupId), groupsModel);
-                group.appendUser(user);
             }
         }
 
@@ -604,12 +518,6 @@ Item {
 
             return !root.isSelectedUser(user) || allWindowsInactive;
         }
-    }
-
-    ExtendedListModel {
-        id: groupsModel
-
-        idProperty: "groupId"
     }
 
     ExtendedListModel {

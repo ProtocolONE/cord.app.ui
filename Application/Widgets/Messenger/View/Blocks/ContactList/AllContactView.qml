@@ -62,9 +62,5 @@ Item {
         cursorColor: Styles.style.messangerContactScrollBarCursor
         opacity: 0.5
     }
-
-    ListModel {
-        id: groupProxyModel
-    }
 }
 

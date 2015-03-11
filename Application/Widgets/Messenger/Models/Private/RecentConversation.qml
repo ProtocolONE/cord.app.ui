@@ -255,11 +255,6 @@ Item {
     }
 
     Connections {
-        target: messenger.getGroupsModel()
-        onSourceChanged: d.updateModel();
-    }
-
-    Connections {
         target: messenger.getUsersModel()
         onSourceChanged: d.updateModel();
     }

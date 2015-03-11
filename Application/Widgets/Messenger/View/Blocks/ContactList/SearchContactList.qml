@@ -92,7 +92,6 @@ NavigatableContactList {
 
             visible: !model.isGroupItem
             user: model
-            group: model
             onClicked: select();
             isHighlighted: view.currentIndex == index
         }
