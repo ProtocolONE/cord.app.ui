@@ -191,7 +191,7 @@ Item {
         }
 
         interval: getInterval()
-        onTriggered: d.requestServices();
+        onTriggered: root.requestServices();
     }
 
     Item {
