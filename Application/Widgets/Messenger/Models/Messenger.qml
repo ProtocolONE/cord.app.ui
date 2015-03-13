@@ -117,7 +117,7 @@ Item {
 
         var options = {};
         var currentTime = Date.now();
-        options.resource = "QGNA_" + Qt.md5(currentTime.toString() + Math.floor(Math.random() * 100));
+        options.resource = "QGNA_" + currentTime.toString() + Math.floor(Math.random() * 100);
         options.streamManagementMode = 1;
 
         d.loadUserTalkDate(myUser.userId);
