@@ -93,7 +93,7 @@ function openExternalUrl(url) {
 }
 
 function openProfile(userId) {
-    openExternalUrlWithAuth("https://gamenet.ru/users/" + userId);
+    openExternalUrlWithAuth("https://gamenet.ru/users/" + userId + "/");
 }
 
 function logout() {

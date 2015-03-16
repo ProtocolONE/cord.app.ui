@@ -185,7 +185,7 @@ function startingService() {
  * Application specific functions
  */
 function replenishAccount() {
-    openExternalUrlWithAuth("https://www.gamenet.ru/money");
+    openExternalUrlWithAuth("https://gamenet.ru/money/");
 }
 
 var runningService = {},

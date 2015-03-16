@@ -116,26 +116,27 @@ Item {
                 }
 
                 onLinkActivated: {
-                    var serviceId
-                        , gameNetPattern = "https://gamenet.ru"
-                        , startServicePattern = "gamenet://startservice/";
+                    var serviceMatch
+                        , serviceId
+                        , gameNetPattern = /^https?:\/\/(www\.|support\.|rewards\.)?gamenet\.ru/ig
+                        , startServicePattern = /gamenet:\/\/startservice\/(\d*)/;
 
-                    if (link.indexOf(gameNetPattern) === 0) {
+                    if (gameNetPattern.test(link)) {
                         App.openExternalUrlWithAuth(link);
                         return;
                     }
 
-                    if (link.indexOf(startServicePattern) === 0) {
-                        serviceId = link.substring(startServicePattern.length);
-
-                        if (App.serviceExists(serviceId)) {
-                            App.selectService(serviceId);
-                            App.downloadButtonStart(serviceId);
-                        }
-                        return;
+                    serviceMatch = link.match(startServicePattern);
+                    if (!serviceMatch) {
+                        App.openExternalUrl(link);
                     }
 
-                    App.openExternalUrl(link);
+                    serviceId = serviceMatch[1];
+                    if (App.serviceExists(serviceId)) {
+                        App.selectService(serviceId);
+                        App.downloadButtonStart(serviceId);
+                    }
+                    return;
                 }
             }
         }

@@ -39,7 +39,7 @@ WidgetModel {
             case 'Balance': {
                 GoogleAnalytics.trackEvent('/Tray', 'Open External Link', 'Money');
 
-                App.openExternalUrlWithAuth("https://www.gamenet.ru/money")
+                App.openExternalUrlWithAuth("https://gamenet.ru/money/")
                 break;
             }
             case 'Settings': {
