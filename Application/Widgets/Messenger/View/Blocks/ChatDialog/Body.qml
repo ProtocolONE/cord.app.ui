@@ -51,6 +51,22 @@ Rectangle {
             user.queryMoreMessages(number, name);
         }
 
+        function isSelfMessageTest(jid){
+            var user = MessengerJs.authedUser();
+            return user.jid === jid;
+        }
+
+        function isSameJid(index, from, fromDay) {
+            if (index <= 0 || index >= model.count) {
+                return true;
+            }
+
+            var hitJid = model.get(index - 1).jid !== from;
+            var hitDay = model.get(index - 1).day !== fromDay;
+
+            return hitJid || hitDay;
+        }
+
         anchors {
             fill: parent
             rightMargin: 1
@@ -93,7 +109,9 @@ Rectangle {
             date: Qt.formatDateTime(new Date(+model.date), "hh:mm")
             body: model.text
             isStatusMessage: model.isStatusMessage
-            onIsStatusMessageChanged: messageList.scrollCheck();
+            onIsStatusMessageChanged: messageList.scrollCheck()
+            isSelfMessage: messageList.isSelfMessageTest(model.jid)
+            firstMessageInGroup: messageList.isSameJid(index, model.jid, model.day)
         }
     }
 

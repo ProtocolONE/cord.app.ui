@@ -36,6 +36,7 @@ Rectangle {
 
     property bool extendedInfoEnabled: false
     property string userId: ""
+    property bool isBigItem: false
 
     signal nicknameClicked()
     signal clicked()
@@ -91,15 +92,15 @@ Rectangle {
             anchors {
                 fill: parent
                 leftMargin: 12
-                topMargin: 4
+                topMargin: root.isBigItem ? 10 : 4
                 bottomMargin: 4
             }
 
             Image {
                 id: avatarImage
 
-                width: 32
-                height: 32
+                width: root.isBigItem ? 43 : 32
+                height: root.isBigItem ? 43 : 32
                 cache: false
                 asynchronous: true
 

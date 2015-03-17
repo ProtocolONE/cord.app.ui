@@ -256,12 +256,12 @@ Item {
     property color messengerPlayingContactFilterActive: "#FF4F02"
 
     //MESSENGER CONTACT INPUT
-    property color messengerMessageInputBackground: "#FFFFFF"
+    property color messengerMessageInputBackground: "#19384A"
     property color messengerMessageInputBorder: "#b2b2b2"
-    property color messengerMessageInputTextBackground: "#FFFFFF"
+    property color messengerMessageInputTextBackground: "#002336"
     property color messengerMessageInputText: "#252932"
-    property color messengerMessageInputSendButtonNormal: "#1ABC9C"
-    property color messengerMessageInputSendButtonHover: "#019074"
+    property color messengerMessageInputSendButtonNormal: "#1D5248"
+    property color messengerMessageInputSendButtonHover: "#1ABC9C"
     property color messengerMessageInputSendButtonText: "#FAFAFA"
     property color messengerMessageInputSendHotkeyText: "#8596A6"
     property color messengerMessageInputPin: '#8badbb'
@@ -283,10 +283,11 @@ Item {
     property color messengerChatDialogHeaderNicknameText: "#FAFAFA"
 
     //MESSENGER CHAT DIALOG BODY
-    property color messengerChatDialogBodyBackground: "#F0F5F8"
+    property color messengerChatDialogBodyBackground: "#19384A"
     property color messengerChatDialogHyperlinkColor: '#3498db'
     property color messangerChatDialogScrollBar: "#F0F5F8"
     property color messangerChatDialogScrollBarCursor: '#95999b'
+    property color messengerChatDialogBodySection: "#324E5E"
 
     //MESSENGER CHAT HISTORY
     property color messengerChatDialogHistoryNavigateButtonNormal: "#3498db"
@@ -294,10 +295,13 @@ Item {
     property color messengerChatDialogHistoryNavigateButtonDisabled: "#888888"
 
     //MESSENGER MESSAGE ITEM
-    property color messengerChatDialogMessageNicknameText: "#243148"
+    property color messengerChatDialogMessageNicknameText: "#FFFFFF"
     property color messengerChatDialogMessageDateText: "#A4B0BA"
     property color messengerChatDialogMessageText: "#5B6F81"
     property color messengerChatDialogMessageStatusText: "#A4B0BA"
+    property color messengerChatDialogMessageSelfText: "#254253"
+    property color messengerChatDialogMessageCompanionText: "#0D2E40"
+    property color messengerChatDialogMessageDateSectionText: "#577889"
 
     //MESSENGER CONTACTS
     property color messengerContactsBackground: "#EEEEEE"

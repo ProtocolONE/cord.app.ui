@@ -10,14 +10,27 @@ Item {
 
     height: 34
 
-    Item {
+    Rectangle {
+        height: 1
         anchors {
-            fill: parent
-            topMargin: 10
-            bottomMargin: 11
-            leftMargin: 20
+            top: parent.top
+            left: parent.left
+            right: parent.right
+            leftMargin: 10
             rightMargin: 20
+            topMargin: 16
         }
+        color: Styles.style.messengerChatDialogBodySection
+    }
+
+    Rectangle {
+        anchors {
+            centerIn: parent
+        }
+
+        color: Styles.style.messengerChatDialogBodyBackground
+        width: infoMessage.width + 20
+        height: parent.height
 
         Text {
             id: infoMessage
@@ -39,7 +52,7 @@ Item {
 
             anchors.centerIn: parent
 
-            color: Styles.style.messengerChatDialogMessageNicknameText
+            color: Styles.style.messengerChatDialogMessageDateSectionText
             font {
                 family: "Tahoma"
                 pixelSize: 11
@@ -47,17 +60,5 @@ Item {
             }
             text: infoMessage.dateText(+root.sectionProperty)
         }
-    }
-
-    Rectangle {
-        height: 1
-        anchors {
-            bottom: parent.bottom
-            left: parent.left
-            right: parent.right
-            leftMargin: 20
-            rightMargin: 20
-        }
-        color: Qt.darker(Styles.style.messengerChatDialogBodyBackground, Styles.style.darkerFactor)
     }
 }

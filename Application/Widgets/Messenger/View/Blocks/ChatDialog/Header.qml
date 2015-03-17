@@ -26,7 +26,7 @@ Rectangle {
     id: root
 
     implicitWidth: parent.width
-    implicitHeight: 52
+    implicitHeight: 62
     color: Styles.style.messengerChatDialogHeaderBackground
 
     ContactList.ContactItemDelegate {
@@ -34,11 +34,13 @@ Rectangle {
         anchors {
             left: parent.left
             right: parent.right
+            top: parent.top
             verticalCenter: parent.verticalCenter
         }
 
         mouseEnabled: false
         onNicknameClicked: App.openProfile(User.jidToUser(user.jid));
+        isBigItem: true
     }
 
     ImageButton {

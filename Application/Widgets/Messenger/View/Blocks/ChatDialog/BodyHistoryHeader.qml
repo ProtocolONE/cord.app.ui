@@ -98,16 +98,4 @@ Item {
             }
         }
     }
-
-    Rectangle {
-        height: 1
-        anchors {
-            bottom: parent.bottom
-            left: parent.left
-            right: parent.right
-            leftMargin: 20
-            rightMargin: 20
-        }
-        color: Qt.darker(Styles.style.messengerChatDialogBodyBackground, Styles.style.darkerFactor)
-    }
 }

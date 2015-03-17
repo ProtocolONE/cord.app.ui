@@ -71,11 +71,11 @@ FocusScope {
 
         function getPlainText() {
             var temporaryModifiedImgTag,
-                actualText,
-                actualFormattedText;
+                    actualText,
+                    actualFormattedText;
 
             temporaryModifiedImgTag = messengerInput.text.replace(/<img\s+([^>]+)>/gi, function(attr) {
-                    return '[' + attr.substring(1, attr.length - 2) + ']';
+                return '[' + attr.substring(1, attr.length - 2) + ']';
             });
 
             temporaryModifiedImgTag = temporaryModifiedImgTag.replace(/<br [/]>/gi, "[br /]");
@@ -83,7 +83,7 @@ FocusScope {
             actualText = TextDocumentHelper.stripHtml(temporaryModifiedImgTag);
 
             actualFormattedText = actualText.replace(/\[img\s+([^\]]+)\]/gi, function(attr) {
-                    return '<' + attr.substring(1, attr.length - 2) + '>';
+                return '<' + attr.substring(1, attr.length - 2) + '>';
             });
 
             actualFormattedText = actualFormattedText.replace(/\[br \/\]/gi, "<br />");
@@ -93,11 +93,11 @@ FocusScope {
 
         function getInsertPosition(pos, shortArray) {
             var i,
-                result = 0,
-                html = shortArray,
-                imgPosition = {},
-                regExp = /<img\s+([^>]+)>/gi,
-                found;
+                    result = 0,
+                    html = shortArray,
+                    imgPosition = {},
+            regExp = /<img\s+([^>]+)>/gi,
+                    found;
 
             while (found = regExp.exec(html)) {
                 imgPosition[+found.index] = regExp.lastIndex;
@@ -406,16 +406,26 @@ FocusScope {
                 spacing: 10
 
                 Button {
-                    width: 91
-                    height: 24
+                    width: 89
+                    height: 30
+
                     style: ButtonStyleColors {
                         normal: Styles.style.messengerMessageInputSendButtonNormal
                         hover: Styles.style.messengerMessageInputSendButtonHover
                     }
+
+                    fontSize: 12
+
                     enabled:  MessengerJs.getStatus() === MessengerJs.ROSTER_RECEIVED;
                     onClicked: d.sendMessage()
                     text: qsTr("MESSENGER_SEND_BUTTON")
                     textColor: Styles.style.messengerMessageInputSendButtonText
+
+                    Rectangle {
+                        anchors { fill: parent; margins: 1 }
+                        color: "#00000000"
+                        border { width: 2; color: Styles.style.messengerMessageInputSendButtonHover }
+                    }
                 }
 
                 Text {
