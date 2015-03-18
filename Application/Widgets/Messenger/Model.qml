@@ -70,6 +70,7 @@ WidgetModel {
 
         onLogoutDone: MessengerJs.disconnect();
         onNavigate: MessengerJs.closeChat();
+        onExitApplication: MessengerJs.disconnect();
     }
 
     Binding {
