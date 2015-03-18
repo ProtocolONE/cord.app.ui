@@ -161,6 +161,18 @@ WidgetView {
 
         }
 
+        Connections {
+            target: App.signalBus()
+
+            onNavigate: {
+                if (link !== 'allgame' || stateGroup.state === 'Normal') {
+                    return;
+                }
+
+                stateGroup.state = 'Normal';
+            }
+        }
+
         Private.GameList {
             id: gameList
 
@@ -185,6 +197,12 @@ WidgetView {
             width: parent.width
             height: 560
 
+            Behavior on opacity {
+                PropertyAnimation {
+                    duration: 200
+                }
+            }
+
             onClicked: {
                 GoogleAnalytics.trackEvent('/AllGames',
                                            'Navigation',
@@ -203,6 +221,7 @@ WidgetView {
                 PropertyChanges { target: baseArea; height: 398 }
                 PropertyChanges { target: allGamesButon; iconRotation: 0 }
                 PropertyChanges { target: gameListPage; visible: false }
+                PropertyChanges { target: gameListPage; opacity: 0 }
                 PropertyChanges { target: gameList; opacity: 1 }
             },
             State {
@@ -210,6 +229,7 @@ WidgetView {
                 PropertyChanges { target: baseArea; height: 0 }
                 PropertyChanges { target: allGamesButon; iconRotation: 190 }
                 PropertyChanges { target: gameListPage; visible: true }
+                PropertyChanges { target: gameListPage; opacity: 1 }
                 PropertyChanges { target: gameList; opacity: 0 }
             }
         ]
