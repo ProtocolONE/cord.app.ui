@@ -21,10 +21,14 @@ import "../../../Core/App.js" as App
 PopupBase {
     id: root
 
-    property variant currentGame: App.currentGame()
+    property variant currentGame
     property alias createDesktopShortcut: desktopShortcut.checked
     property alias createStartMenuShortcut: startMenuShortcut.checked
     property variant gameSettingsModelInstance: App.gameSettingsModelInstance() || {}
+
+    Component.onCompleted: {
+        root.currentGame = App.currentGame();
+    }
 
     title: qsTr("INSTALL_VIEW_TITLE").arg(currentGame.name)
     height: 375

@@ -18,7 +18,7 @@ import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 PopupBase {
     id: root
 
-    property variant gameItem: App.currentGame()
+    property variant gameItem: model.currentGame
     property bool isPause: false
 
     signal pause();
@@ -57,7 +57,9 @@ PopupBase {
 
     onVisibleChanged: stateGroup.state = 'Normal';
 
-    Component.onCompleted: root.isPause = (root.gameItem.status === 'Paused');
+    Component.onCompleted: {
+        root.isPause = (root.gameItem.status === 'Paused');
+    }
 
     Item {
         width: root.width

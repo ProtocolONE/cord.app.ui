@@ -22,7 +22,15 @@ import "../../../Core/Styles.js" as Styles
 PopupBase {
     id: root
 
-    property variant gameItem: App.currentGame()
+    property variant currentUninstallingItem
+
+    title: qsTr("UNINSTALL_TITLE").arg(root.currentUninstallingItem ? root.currentUninstallingItem.name : "");
+    height: 175
+    clip: true
+
+    Component.onCompleted: {
+        root.currentUninstallingItem = App.currentGame();
+    }
 
     Connections {
         target: App.signalBus()
@@ -59,10 +67,6 @@ PopupBase {
             return root.gameItem.statusText;
         }
     }
-
-    title: qsTr("UNINSTALL_TITLE").arg(root.currentUninstallingItem ? root.currentUninstallingItem.name : "");
-    height: 175
-    clip: true
 
     Item {
         width: root.width

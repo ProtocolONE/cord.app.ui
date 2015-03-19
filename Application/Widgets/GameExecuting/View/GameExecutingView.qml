@@ -19,11 +19,14 @@ import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 PopupBase {
     id: root
 
-    property variant gameItem: App.currentGame()
+    property variant gameItem
 
     title: qsTr("GAME_EXECUTING_HEADER").arg(root.gameItem.name)
 
-    Component.onCompleted: model.startExecuting(root.gameItem.serviceId);
+    Component.onCompleted: {
+        root.gameItem = App.currentGame();
+        model.startExecuting(root.gameItem.serviceId)
+    }
 
     Timer {
         interval: 5000

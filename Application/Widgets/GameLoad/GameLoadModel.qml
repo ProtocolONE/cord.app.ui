@@ -15,9 +15,9 @@ import "../../Core/App.js" as App
 WidgetModel {
     id: root
 
-    property variant currentGame: App.currentGame()
-    property string headerText: App.currentGame().statusText
-    property int progress: App.currentGame().progress
+    property variant currentGame
+    property string headerText: currentGame.statusText
+    property int progress: currentGame.progress
 
     property string totalWantedDone
     property string totalWanted
@@ -29,6 +29,10 @@ WidgetModel {
     property string directPayloadDownloadRate
     property string payloadUploadRate
     property string totalPayloadUpload
+
+    Component.onCompleted: {
+        root.currentGame = App.currentGame();
+    }
 
     onCurrentGameChanged: {
         root.totalWantedDone = '0';
