@@ -641,7 +641,8 @@ WidgetModel {
                                            'Announcement', 'Close Announcement', gameItem.gaName);
             }
 
-            Component.onCompleted: GoogleAnalytics.trackEvent('/announcement/small/' + announceItem.id);
+            Component.onCompleted: GoogleAnalytics.trackEvent('/announcement/small/' + announceItem.id, 'Announcement', 'Show Announcement', gameItem.gaName);
+
         }
     }
 
