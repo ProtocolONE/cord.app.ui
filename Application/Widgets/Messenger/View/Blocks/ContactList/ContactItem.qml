@@ -23,7 +23,7 @@ Rectangle {
     property alias nickname : nicknameText.text
     property alias avatar: avatarImage.source
     property string status: ""
-    property string extendedStatus: "Друг в Bs.ru Demonion, Aika, FireStorm, сайт GameNet"
+    property string extendedStatus: ""
 
     property alias isPresenceVisile: presenceIcon.visible
     property alias mouseEnabled: mouser.enabled
@@ -34,7 +34,7 @@ Rectangle {
 
     property string presenceStatus: ""
 
-    property bool extendedInfoEnabled: true
+    property bool extendedInfoEnabled: false
     property string userId: ""
 
     signal nicknameClicked()

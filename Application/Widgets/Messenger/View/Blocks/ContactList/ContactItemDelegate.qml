@@ -25,7 +25,7 @@ ContactItem {
     nickname: d.nickName()
     avatar: d.avatar()
     status: d.status()
-    extendedStatus: d.getExtendedStatus()
+    extendedStatus: ''
     presenceStatus: d.presenceStatus()
     isPresenceVisile: true
 
@@ -114,47 +114,6 @@ ContactItem {
             }
 
             return Messenger.jidToUser(root.user.jid);
-        }
-
-        function getExtendedStatus() {
-            var groups;
-            if (!root.user) {
-                return "";
-            }
-
-            groups = Messenger.getUserGroups(root.user);
-            if (groups.length === 1 && groups[0] === "GameNet") {
-                return qsTr("CONTACT_ITEM_EXTENDED_STATUS_ONLY_GAMENET_FRINED"); // "Друг на сайте GameNet"
-            }
-
-            groups = Lodash._.chain(groups)
-                .reduce(function(a, g) {
-                    if (g === "GameNet") {
-                        a.push({
-                                   id: g,
-                                   name: qsTr("CONTACT_ITEM_EXTENDED_STATUS_GAMENET_FRINED"),// "на сайте GameNet",
-                                   isGameNet: 1
-                               });
-                        return a;
-                    }
-
-                    a.push({
-                               id: g,
-                               name: g.split('(')[0].trim(),
-                               isGameNet: 0
-                           });
-                    return a;
-
-                }, [])
-                .sortByAll(['name', 'isGameNet'])
-                .pluck('name')
-                .uniq()
-                .join(', ')
-                .value();
-
-            return groups
-                    ?  qsTr("CONTACT_ITEM_EXTENDED_STATUS").arg(groups) //qsTr("Друг в %1").arg(groups)
-                    : "";
         }
     }
 }
