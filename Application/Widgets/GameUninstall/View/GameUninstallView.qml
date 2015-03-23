@@ -22,14 +22,14 @@ import "../../../Core/Styles.js" as Styles
 PopupBase {
     id: root
 
-    property variant currentUninstallingItem
+    property variant gameItem
 
-    title: qsTr("UNINSTALL_TITLE").arg(root.currentUninstallingItem ? root.currentUninstallingItem.name : "");
+    title: qsTr("UNINSTALL_TITLE").arg(root.gameItem ? root.gameItem.name : "");
     height: 175
     clip: true
 
     Component.onCompleted: {
-        root.currentUninstallingItem = App.currentGame();
+        root.gameItem = App.currentGame();
     }
 
     Connections {
