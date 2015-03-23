@@ -16,6 +16,7 @@ import "../../../../../Core/moment.js" as Moment
 
 import "../../../../../Core/App.js" as App
 import "../../../../../../GameNet/Core/lodash.js" as Lodash
+import "../../../../../../GameNet/Controls/ContextMenu.js" as ContextMenu
 
 ContactItem {
     id: root
@@ -115,5 +116,30 @@ ContactItem {
 
             return Messenger.jidToUser(root.user.jid);
         }
+    }
+
+    Component {
+        id: contextMenu
+
+        Rectangle {
+            property variant user
+
+            width: 100
+            height: 100
+            color: "yellow"
+
+            Text {
+                anchors.centerIn: parent
+                text: Messenger.getNickname(user)
+            }
+
+            MouseArea {
+                anchors.fill: parent
+            }
+        }
+    }
+
+    onRightButtonClicked: {
+        ContextMenu.show(mouse, root, contextMenu, {user: root.user});
     }
 }

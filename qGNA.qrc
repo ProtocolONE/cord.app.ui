@@ -385,6 +385,7 @@
 		<file>GameNet/Controls/CheckBox.qml</file>
 		<file>GameNet/Controls/ComboBox.qml</file>
 		<file>GameNet/Controls/ComboBoxStyle.qml</file>
+		<file>GameNet/Controls/ContextMenu.js</file>
 		<file>GameNet/Controls/CursorMouseArea.qml</file>
 		<file>GameNet/Controls/Empty.qml</file>
 		<file>GameNet/Controls/ErrorContainer.qml</file>

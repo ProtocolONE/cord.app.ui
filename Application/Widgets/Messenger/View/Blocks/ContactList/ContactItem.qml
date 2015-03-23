@@ -40,6 +40,7 @@ Rectangle {
 
     signal nicknameClicked()
     signal clicked()
+    signal rightButtonClicked(variant mouse);
     signal informationClicked();
 
     implicitWidth: 78
@@ -85,8 +86,17 @@ Rectangle {
     CursorMouseArea {
         id: mouser
 
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
         anchors.fill: parent
-        onClicked: root.clicked();
+        onClicked: {
+            if (mouse.button === Qt.RightButton) {
+                root.rightButtonClicked(mouse);
+            }
+
+            if (mouse.button === Qt.LeftButton) {
+                root.clicked();
+            }
+        }
 
         Row {
             anchors {

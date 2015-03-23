@@ -27,6 +27,7 @@ import "Core/moment.js" as Moment
 
 import "../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../GameNet/Controls/Tooltip.js" as Tooltip
+import "../GameNet/Controls/ContextMenu.js" as ContexMenu
 
 Item {
     id: root
@@ -101,10 +102,11 @@ Item {
     }
 
     function initAdditionalLayers(options) {
+        ContexMenu.init(contextMenuLayer);
         Popup.init(popupLayer);
         MessageBox.init(messageLayer);
         TrayPopup.init();
-        Tooltip.init(tooltipLayer);
+        Tooltip.init(tooltipLayer);        
     }
 
     function initRestApi(options) {
@@ -195,6 +197,12 @@ Item {
     }
 
     Item {
+        id: contextMenuLayer
+
+        anchors.fill: parent
+    }
+
+    Item {
         id: popupLayer
 
         anchors.fill: parent
@@ -255,6 +263,10 @@ Item {
 
         onUpdateFinished: {
             root.requestServices();
+        }
+
+        onLeftMousePress: {
+            ContexMenu.clicked(rootItem, x, y);
         }
     }
 
