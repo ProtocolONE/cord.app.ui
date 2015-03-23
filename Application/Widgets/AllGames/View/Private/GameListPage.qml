@@ -16,42 +16,25 @@ Item {
 
         Object.keys(services).forEach(function(e){
             var item = App.serviceItemByServiceId(services[e]);
-
             if (!item.genre) {
                 return;
             }
-
-            var itemProperties = {
-                serviceItem: item
-            };
-
             if (!sortModel.hasOwnProperty(item.genre)) {
                 sortModel[item.genre] = [];
             }
 
             sortModel[item.genre].push({serviceId: item.serviceId, sortPositionInApp: item.sortPositionInApp});
-
         });
 
-        Object.keys(sortModel).forEach(function(e){
-            var actualGrid = gridComponent.createObject(baseColumn, {genre: e});
+        Object.keys(sortModel).forEach(function(e) {
+            var actualGrid = gridComponent.createObject(baseColumn, {genre: e}),
+                genreGames = sortModel[e];
 
-            Object.keys(sortModel[e]).sort(function(a,b) {
+            genreGames.sort(function(a, b) {
+                return a.sortPositionInApp - b.sortPositionInApp;
+            });
 
-                var itemA = sortModel[e][a],
-                    itemB = sortModel[e][b],
-                    isAinstalled = App.isServiceInstalled(itemA.serviceId),
-                    isBinstalled = App.isServiceInstalled(itemB.serviceId);
-
-                if (isAinstalled == isBinstalled) {
-                    return (itemA.sortPositionInApp < (itemB.serviceId).sortPositionInApp) ? -1 :
-                           (itemA.sortPositionInApp > (itemB.serviceId).sortPositionInApp) ? 1 : 0;
-                }
-
-                return (isAinstalled < isBinstalled) ? -1 : 1;
-
-            }).forEach(function(elem) {
-                var item = sortModel[e][elem];
+            genreGames.forEach(function(item) {
                 itemComponent.createObject(actualGrid.content, {serviceId: item.serviceId});
             });
         });
