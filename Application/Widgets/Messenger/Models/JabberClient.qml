@@ -20,15 +20,11 @@ import "JabberClient.js" as Js
 QXmppClient {
     id: xmppClient
 
-
     //                logger: QXmppLogger {
     //                    loggingType: QXmppLogger.FileLogging
     //                    logFilePath: "D:\XmppClient.log"
     //                    messageTypes: QXmppLogger.AnyMessage
     //                }
-
-
-    property alias historySaveInterval: history.historySaveInterval
 
     property int failCount: 0
     property string failDate: ""
@@ -43,24 +39,9 @@ QXmppClient {
 
     signal lastActivityUpdated(string jid, int timestamp);
     signal gamingInfoReceived(variant info);
-    signal historyReceived(string jid, variant history);
 
-    function clearHistory() {
-        history.clear();
-    }
-
-    function saveToHistory(jid, message, date) {
-        history.save(jid, message, date);
-    }
-
-    function queryHistory(jid, from, to, existingMessages) {
-        var result = history.query(jid, from, to, existingMessages);
-        xmppClient.historyReceived(jid, result);
-    }
-
-    function checkHistoryInterval() {
-        history.checkHistoryInterval();
-    }
+    signal messageSending(string jid, variant message);
+    signal inputStatusSending(string jid, variant message);
 
     function connectToServerEx(jid, password, params) {
         xmppClient.myJid = jid;
@@ -68,9 +49,8 @@ QXmppClient {
     }
 
     function sendMessageEx(jid, message) {
+        messageSending(jid, message);
         xmppClient.sendMessage(jid, message);
-        message.from = xmppClient.myJid;
-        xmppClient.saveToHistory(jid, message, Date.now());
     }
 
     function sendInputStatus(jid, value) {
@@ -79,6 +59,7 @@ QXmppClient {
             state: statesMap[value] || value
         };
 
+        inputStatusSending(jid, messageMap);
         xmppClient.sendMessage(jid, messageMap);
     }
 
@@ -88,19 +69,25 @@ QXmppClient {
     }
 
     function processLastActiviteResponse(lastActivity) {
+        var date,
+            jid,
+            current;
+
         if (lastActivity.seconds < 0) {
             return;
         }
 
-        var date = (+Moment.moment().subtract(lastActivity.seconds, 'seconds'))/1000 | 0;
-        var jid = User.jidWithoutResource(lastActivity.from);
-        var current = Js.lastActivityCache[jid];
+        date = (+Moment.moment().subtract(lastActivity.seconds, 'seconds'))/1000 | 0;
+        current = Js.lastActivityCache[jid];
 
-        if (date != current) {
-            Js.lastActivityCache[jid] = date;
-            autoSaveDelay.restart();
-            xmppClient.lastActivityUpdated(jid, date);
+        if (date == current) {
+            return;
         }
+
+        jid = User.jidWithoutResource(lastActivity.from);
+        Js.lastActivityCache[jid] = date;
+        autoSaveDelay.restart();
+        xmppClient.lastActivityUpdated(jid, date);
     }
 
     function setGamingInfo(opt) {
@@ -177,11 +164,4 @@ QXmppClient {
         target: xmppClient.pepManager
         onGamingReceived: xmppClient.gamingInfoReceived(game);
     }
-
-    History {
-        id: history
-
-        myJid: xmppClient.myJid
-    }
-
 }

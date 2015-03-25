@@ -70,10 +70,12 @@ Rectangle {
 
             function startAuth() {
                 //App.authDone('400001000005869460', 'fac8da16caa762f91607410d2bf428fb7e4b2c5e'); //0 friends
-                App.authDone('400001000000065690', 'cd34fe488b93d254243fa2754e86df8ffbe382b9'); //300+ friends
+                //App.authDone('400001000000065690', 'cd34fe488b93d254243fa2754e86df8ffbe382b9'); //300+ friends
                 //App.authDone('400001000000000110', 'acf2f89b60dfe4eddc1b7a1cbdaf0d737d0a5311'); //800+ friends
                 //App.authDone('400001000000073060', '6f2d51fcb4fbc0db43e02c5b855ef1f10f9d5a75'); //3600+ friends
                 //App.authDone('400001000005959640', '1123cf8d91aabb9ebc8345def6a13772cc020498');
+
+                App.authDone('400001000030060540', '23c936940e97a2972e55947c9f63e3471583972c'); //300+ friends
 
 
 

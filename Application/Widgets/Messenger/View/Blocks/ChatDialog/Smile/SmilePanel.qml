@@ -7,7 +7,7 @@ import "../../../../../../Core/App.js" as App
 import "../../../../../../Core/EmojiOne.js" as EmojiOne
 import "../../../../../../Core/Styles.js" as Styles
 
-import "../../../../Models/Smiles.js" as Smiles
+import "../../../../Plugins/Smiles/Smiles.js" as Smiles
 
 import "./SmilesPack.js" as SmilesPack
 

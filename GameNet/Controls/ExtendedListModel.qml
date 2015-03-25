@@ -155,11 +155,7 @@ Item {
         }
 
         index = ExtendedListModelJs.idToIndex[id];
-
-        var obj = listModel.get(index);
-
         listModel.setProperty(index, name, value);
-        obj = listModel.get(index);
     }
 
     function getColumn(columnName) {

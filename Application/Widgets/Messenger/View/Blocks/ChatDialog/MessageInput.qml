@@ -132,7 +132,9 @@ FocusScope {
                 var convertedText = EmojiOne.ns.htmlToShortname(messengerInput.text);
                 convertedText = TextDocumentHelper.stripHtml(convertedText);
 
-                MessengerJs.sendMessage(MessengerJs.selectedUser(), convertedText);
+                MessengerJs.getConversation(MessengerJs.selectedUser().jid)
+                    .writeMessage(convertedText);
+
                 messengerInput.text = "";
                 d.setActiveStatus(MessengerJs.selectedUser(), "Active");
             }
@@ -144,7 +146,9 @@ FocusScope {
             }
 
             d.activeStatus = status;
-            MessengerJs.sendInputStatus(user, status);
+
+            MessengerJs.getConversation(MessengerJs.selectedUser().jid)
+                .setTypingState(status);
         }
 
         function updateUserSelectedText() {

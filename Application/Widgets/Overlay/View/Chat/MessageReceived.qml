@@ -19,9 +19,7 @@ import "../../../../Core/App.js" as App
 import "../../../../Core/Styles.js" as Styles
 import "../../../../Core/moment.js" as Moment
 import "../../../../Core/EmojiOne.js" as EmojiOne
-import "../../../../../GameNet/Core/Strings.js" as Strings
-
-import "./StringHelper.js" as StringHelper
+import "../../../../Core/StringHelper.js" as StringHelper
 
 OverlayCore.PopupBase {
     id: root

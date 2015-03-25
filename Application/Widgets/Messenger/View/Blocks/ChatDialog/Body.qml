@@ -48,7 +48,8 @@ Rectangle {
                 return;
             }
 
-            user.queryMoreMessages(number, name);
+            MessengerJs.getConversation(user.jid)
+                .queryLast(number, name);
         }
 
         function isSelfMessageTest(jid){

@@ -2,7 +2,7 @@ import QtQuick 1.1
 import Tulip 1.0
 
 import "./SmilesPrivate.js" as Smiles
-import "../../../Core/EmojiOne.js" as EmojiOne
+import "../../../../Core/EmojiOne.js" as EmojiOne
 
 Item {
 

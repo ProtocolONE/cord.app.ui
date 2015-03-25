@@ -52,6 +52,10 @@ function getUser(jid) {
     return _modelInstance.getUser(jid);
 }
 
+function getConversation(jid) {
+   return _modelInstance.getConversation(jid);
+}
+
 function authedUser() {
     return _modelInstance.authedUser();
 }
@@ -66,14 +70,6 @@ function selectedUser(type) {
 
 function previousUser() {
     return _modelInstance.previousUser();
-}
-
-function sendMessage(user, message) {
-    _modelInstance.sendMessage(user, message);
-}
-
-function sendInputStatus(user, value) {
-    _modelInstance.sendInputStatus(user, value);
 }
 
 function setSmilePanelVisible(value) {
@@ -157,7 +153,7 @@ function selectedUserMessages() {
         return [];
     }
 
-    return _modelInstance.selectedUser().messages;
+    return _modelInstance.getConversation(_modelInstance.selectedJid).messages;
 }
 
 function eachUser(callback) {
@@ -237,10 +233,6 @@ function clearHistory() {
         var actualUser = users().get(i);
         actualUser.messages.clear();
     }
-}
-
-function checkHistoryInterval() {
-    _modelInstance.checkHistoryInterval();
 }
 
 function getPlayingContactsModel() {

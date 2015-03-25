@@ -8,6 +8,8 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 import QtQuick 1.1
+import Tulip 1.0
+
 import GameNet.Components.Widgets 1.0
 
 import "../../Core/App.js" as App

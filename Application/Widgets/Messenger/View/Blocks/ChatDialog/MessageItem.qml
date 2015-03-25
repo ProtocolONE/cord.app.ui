@@ -13,9 +13,7 @@ import Tulip 1.0
 import "../../../../../Core/Styles.js" as Styles
 import "../../../../../Core/App.js" as App
 import "../../../../../Core/EmojiOne.js" as EmojiOne
-import "../../../../../../GameNet/Core/Strings.js" as Strings
-
-import "../../../Models/StringHelper.js" as StringHelper
+import "../../../../../Core/StringHelper.js" as StringHelper
 
 Item {
     id: root

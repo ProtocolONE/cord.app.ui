@@ -12,7 +12,7 @@ import Tulip 1.0
 import QXmpp 1.0
 import GameNet.Controls 1.0
 
-import "./Private" as Private
+import "./UserModels" as UserModels
 
 import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../../../../Application/Core/moment.js" as Moment
@@ -20,7 +20,11 @@ import "../../../../Application/Core/moment.js" as Moment
 import "MessengerPrivate.js" as MessengerPrivateJs
 import "User.js" as UserJs
 import "Message.js" as MessageJs
-import "Smiles.js" as Smiles
+
+import "ConversationManager.js" as ConversationManager
+import "AccountManager.js" as AccountManager
+
+import "../Plugins/Smiles/Smiles.js" as Smiles
 
 import "../../../Core/App.js" as App
 import "../../../Core/User.js" as User
@@ -40,7 +44,7 @@ Item {
     property bool everConnected: false
     property int currentStatus: d.getCurrentStatus()
 
-    property alias historySaveInterval: xmppClient.historySaveInterval
+    property string historySaveInterval
 
     signal selectedUserChanged();
     signal messageReceived(string from, string body, variant message);
@@ -53,8 +57,39 @@ Item {
     signal nicknameChanged(string jid);
     signal rosterReceived();
 
+    Component.onCompleted: {
+        var rosterManager = xmppClient.rosterManager;
+
+        rosterManager.itemAdded.connect(function(bareJid) {
+            console.log("[ROSTER MANAGER] Item added: " + bareJid);
+            d.rosterReceived();
+        });
+
+        rosterManager.itemChanged.connect(function(){
+            console.log("[ROSTER MANAGER] Item changed: " + bareJid, rosterManager.getGroups(bareJid));
+            d.rosterReceived();
+        });
+
+        rosterManager.itemRemoved.connect(function(bareJid) {
+            console.log("[ROSTER MANAGER] Item removed: " + bareJid);
+            d.rosterReceived();
+        });
+
+        rosterManager.rosterReceived.connect(function(){
+            console.log("[ROSTER MANAGER] Roster received");
+
+            d.rosterReceived();
+            d.loadAndUpdateRawUsers();
+        });
+    }
+
     function init() {
-        Smiles.init();
+        Smiles.init(xmppClient);
+        AccountManager.init(root, xmppClient, usersModel, {
+            defaultAvatarPath: installPath + "/Assets/Images/Application/Widgets/Messenger/"
+        });
+
+        ConversationManager.init(xmppClient, conversationModel)
 
         return {
             client: xmppClient,
@@ -74,33 +109,6 @@ Item {
         }
 
         return data.unreadMessageCount > 0;
-    }
-
-    function sendMessage(user, body) {
-        var messageMap = {}
-        , item;
-
-        if (!usersModel.contains(user.jid))
-            return;
-
-        item = root.getUser(user.jid);
-        item.appendMessage(myUser.jid, body);
-        d.updateUserTalkDate(item);
-        messageMap.body = body;
-        messageMap.type = QXmppMessage.Chat;
-        messageMap.state = QXmppMessage.Active;
-        xmppClient.sendMessageEx(user.jid, messageMap);
-        Smiles.processSmiles(myUser.jid, body);
-    }
-
-    function sendInputStatus(user, value) {
-        var item = root.getUser(user.jid);
-        if (!item.isValid()) {
-            return;
-        }
-
-        d.updateUserTalkDate(item);
-        xmppClient.sendInputStatus(user.jid, value);
     }
 
     function connect(server, userId, password) {
@@ -123,6 +131,7 @@ Item {
         d.loadUserTalkDate(myUser.userId);
 
         root.connecting = true;
+
         xmppClient.connectToServerEx(jid, password, options);
     }
 
@@ -148,6 +157,10 @@ Item {
 
         return new UserJs.User(usersModel.getById(jid), usersModel, xmppClient);
     }
+
+    function getConversation(jid) {
+        return ConversationManager.create(jid);
+     }
 
     function getUserGroups(user) {
         var u = root.getUser(user.jid);
@@ -247,7 +260,7 @@ Item {
     }
 
     function clearHistory() {
-        xmppClient.clearHistory();
+        ConversationManager.clearHistory();
     }
 
     function getJabberClient() {
@@ -274,10 +287,13 @@ Item {
         return d.smilePanelVisible;
     }
 
+    onHistorySaveIntervalChanged: {
+        ConversationManager.setHistorySaveInterval(historySaveInterval);
+    }
+
     QtObject {
         id: d
 
-        property int defaultAvatarIndex: 0
         property string serverUrl: ''
         property bool smilePanelVisible: false
 
@@ -310,12 +326,6 @@ Item {
             var rawUser = UserJs.createGamenetUser();
             rawUser.statusMessage = qsTr("MESSENGER_GAMENET_USER_STATUS_MESSAGE");
             usersModel.append(rawUser);
-        }
-
-        function getDefaultAvatar() {
-            d.defaultAvatarIndex = (d.defaultAvatarIndex + 1) % 12;
-            var name = "defaultAvatar_" + (d.defaultAvatarIndex + 1) + ".png";
-            return installPath + "/Assets/Images/Application/Widgets/Messenger/" + name;
         }
 
         function appendUser(user, externalNickName) {
@@ -387,13 +397,22 @@ Item {
                 root.onlineStatusChanged(user.jid);
 
                 if (!user.online) {
-                    user.changeState(presence.from, MessageJs.Active);
+                    var conf = getConversation(bareJid);
+                    conf.changeState(presence.from, MessageJs.Active);
                 }
             }
 
             if (!user.online) {
                 xmppClient.lastActivityManager.requestLastActivity(bareJid);
             }
+        }
+
+        function updateUserTalkDateHandler(jid) {
+            if (!usersModel.contains(jid))
+                return;
+
+            var item = root.getUser(jid);
+            d.updateUserTalkDate(item);
         }
 
         function updateUserTalkDate(user) {
@@ -550,7 +569,6 @@ Item {
             console.log("Connected to server ");
 
             d.createGamenetUser();
-            Smiles.loadRecentSmiles(myUser.jid);
 
             root.connected = true;
             root.everConnected = true;
@@ -586,10 +604,7 @@ Item {
                 d.appendUser(bareJid);
             }
 
-            xmppClient.saveToHistory(bareJid, message, messageDate);
-
             user = root.getUser(bareJid);
-            user.appendMessage(UserJs.jidWithoutResource(message.from), message.body, messageDate);
             d.updateUserTalkDate(user);
         }
 
@@ -609,77 +624,38 @@ Item {
                 d.appendUser(bareJid);
             }
 
-            xmppClient.saveToHistory(bareJid, message, messageDate);
-
             user = root.getUser(bareJid);
             if (!user.isValid()) {
                 return;
             }
-            if (message.stamp != "Invalid Date") {
+
+            if (message.body) {
                 if (d.needIncrementUnread(user)) {
                     user.unreadMessageCount += 1;
                     d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
                 }
 
-                nowDay = +Moment.moment().startOf('day'),
-                days = +Moment.moment(messageDate).startOf('day'),
-                realDays = (nowDay - days) / 86400000;
-
-                user.queryMoreMessages(realDays, 'day');
-            } else {
-                if (message.body) {
-                    user.appendMessage(bareJid, message.body, messageDate);
+                if (message.stamp == "Invalid Date") {
                     d.updateUserTalkDate(user);
-                    if (d.needIncrementUnread(user)) {
-                        user.unreadMessageCount += 1;
-                        d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
-                    }
-                } else {
-                    user.changeState(bareJid, message.state);
                 }
-            }
 
-            if (message.body) {
                 root.messageReceived(bareJid, message.body, message);
             }
         }
 
-        onPresenceReceived: d.updatePresence(presence);
 
         onLastActivityUpdated: {
-            var user = root.getUser(jid);
-            if (!user.isValid()) {
+            if (!usersModel.contains(jid))
                 return;
-            }
 
+            var user = root.getUser(jid);
             user.lastActivity = timestamp;
             root.lastActivityChanged(jid);
         }
 
-        onHistoryReceived: {
-            var i,
-                e,
-                messages,
-                message,
-                date;
-
-            var user = root.getUser(jid), length;
-            if (!user.isValid() || !history) {
-                return;
-            }
-
-            length = history.length;
-
-            for (i = 0; i < length; ++i) {
-                messages = Object.keys(history[i]);
-
-                for(e = messages.length - 1; e >= 0; --e) {
-                    message = history[i][e];
-                    date = +Moment.moment(message.date).startOf('day');
-                    user.mergeMessage(message.from, message.body, message.date);
-                };
-            }
-        }
+        onPresenceReceived: d.updatePresence(presence);
+        onInputStatusSending: d.updateUserTalkDateHandler(jid)
+        onMessageSending: d.updateUserTalkDateHandler(jid)
     }
 
     Timer {
@@ -746,75 +722,27 @@ Item {
         }
     }
 
-    Connections {
-        target: xmppClient.rosterManager
-
-        onItemAdded: {
-            console.log("Roster item added: " + bareJid);
-            //root.contactAdded(bareJid);
-            d.rosterReceived();
-        }
-
-        onItemChanged: {
-            console.log("Roster item changed: " + bareJid, xmppClient.rosterManager.getGroups(bareJid));
-            //root.contactChanged(bareJid);
-            d.rosterReceived();
-        }
-
-        onItemRemoved: {
-            console.log("Roster item removed: " + bareJid);
-            //root.contactRemoved(bareJid);
-            d.rosterReceived();
-        }
-
-        onRosterReceived: {
-            console.log("ROSTER MANAGER: Roster received");
-            d.rosterReceived();
-            d.loadAndUpdateRawUsers();
-        }
-    }
-
-    Connections {
-        target: xmppClient.vcardManager
-
-        onVCardReceived: {
-            //console.log('---------- ', JSON.stringify(vcard), vcard.nickName)
-            var item = root.getUser(UserJs.jidWithoutResource(vcard.from));
-
-            if (vcard.extra) {
-                item.avatar = vcard.extra.PHOTOURL || item.avatar;
-            }
-
-            if (!item.avatar) {
-                item.avatar = d.getDefaultAvatar();
-            }
-
-            var oldNickName = item.nickname;
-            var newNickName = vcard.nickName || oldNickName || "";
-
-            if (oldNickName !== newNickName) {
-                item.nickname = newNickName;
-                root.nicknameChanged(item.jid);
-            }
-        }
-    }
-
-    Private.PlayingGame {
+    UserModels.PlayingGame {
         id: playingContacts
 
         messenger: root
     }
 
-    Private.RecentConversation {
+    UserModels.RecentConversation {
         id: recentConversation
 
         messenger: root
     }
 
-    Private.AllContacts {
+    UserModels.AllContacts {
         id: allContacts
 
         messenger: root
     }
 
+    ExtendedListModel {
+        id: conversationModel
+
+        idProperty: 'id'
+    }
 }

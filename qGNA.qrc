@@ -225,14 +225,18 @@
 		<file>Application/Widgets/Messenger/Addons/Notifications.qml</file>
 		<file>Application/Widgets/Messenger/Addons/Popups.qml</file>
 		<file>Application/Widgets/Messenger/Model.qml</file>
-		<file>Application/Widgets/Messenger/Models/History.js</file>
-		<file>Application/Widgets/Messenger/Models/History.qml</file>
+		<file>Application/Widgets/Messenger/Models/Accounts.js</file>
+		<file>Application/Widgets/Messenger/Models/Conversation.js</file>
+		<file>Application/Widgets/Messenger/Models/ConversationManager.js</file>
+		<file>Application/Widgets/Messenger/Models/ConversationStorage.js</file>
 		<file>Application/Widgets/Messenger/Models/JabberClient.js</file>
 		<file>Application/Widgets/Messenger/Models/JabberClient.qml</file>
 		<file>Application/Widgets/Messenger/Models/Message.js</file>
 		<file>Application/Widgets/Messenger/Models/Messenger.js</file>
 		<file>Application/Widgets/Messenger/Models/Messenger.qml</file>
 		<file>Application/Widgets/Messenger/Models/MessengerPrivate.js</file>
+		<file>Application/Widgets/Messenger/Models/MetaStorage.js</file>
+		<file>Application/Widgets/Messenger/Models/Migrations/History.qml</file>
 		<file>Application/Widgets/Messenger/Models/Private/AllContacts.js</file>
 		<file>Application/Widgets/Messenger/Models/Private/AllContacts.qml</file>
 		<file>Application/Widgets/Messenger/Models/Private/PlayingGame.js</file>
@@ -243,7 +247,9 @@
 		<file>Application/Widgets/Messenger/Models/Smiles.js</file>
 		<file>Application/Widgets/Messenger/Models/Smiles.qml</file>
 		<file>Application/Widgets/Messenger/Models/SmilesPrivate.js</file>
+		<file>Application/Widgets/Messenger/Models/Storage.qml</file>
 		<file>Application/Widgets/Messenger/Models/StringHelper.js</file>
+		<file>Application/Widgets/Messenger/Models/TimeHelper.js</file>
 		<file>Application/Widgets/Messenger/Models/User.js</file>
 		<file>Application/Widgets/Messenger/Models/User.qml</file>
 		<file>Application/Widgets/Messenger/PluginContainer.qml</file>

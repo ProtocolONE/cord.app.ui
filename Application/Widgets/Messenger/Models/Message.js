@@ -7,8 +7,6 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-.pragma library
-
 var MessageState = function() {};
 MessageState.None = 0;       ///< The message does not contain any chat state information.
 MessageState.Active = 1;     ///< User is actively participating in the chat session.
@@ -90,8 +88,9 @@ function startOfDay(value) {
     return +tmp;
 }
 
-function createRawMessage(from, isStatus, body, date) {
+function createRawMessage(from, isStatus, body, date, id) {
     var result = {
+        id: id || "_",
         jid: from,
         text: body || "",
         date: date || Date.now(),
