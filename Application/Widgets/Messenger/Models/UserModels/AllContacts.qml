@@ -97,7 +97,6 @@ Item {
                 }
 
                 jid = modelUser.jid;
-
                 usersMap[jid] = {
                     online: User.isOnline(modelUser.presenceState),
                     nickname: modelUser.nickname.toLowerCase(),

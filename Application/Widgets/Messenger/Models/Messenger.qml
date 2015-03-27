@@ -202,7 +202,6 @@ Item {
     }
 
     function getUser(jid, type) {
-        var modelItem;
         var userJid = UserJs.jidWithoutResource(jid || ""),
             userType = type || MessengerPrivateJs.USER_INFO_FULL;
 
@@ -215,11 +214,6 @@ Item {
 
         if (-1 !== userJid.indexOf('@') && !usersModel.contains(userJid)) {
             d.appendUser(userJid);
-        }
-
-        modelItem = usersModel.getById(userJid);
-        if (modelItem && modelItem.isGroupChat) {
-            return new UserJs.GroupChat(usersModel.getById(userJid), usersModel, xmppClient);
         }
 
         return new UserJs.User(usersModel.getById(userJid), usersModel, xmppClient);
@@ -465,7 +459,6 @@ Item {
             , rawUser
             , unreadMessageUsersMap;
 
-            console.log('=------------- ', fullJid)
             if (!fullJid) {
                 return;
             }
@@ -475,10 +468,8 @@ Item {
                 return;
             }
 
-            if (UserJs.isGroupJid(bareJid)) {
-                d.appendGroudUser(fullJid, externalNickName);
-                return;
-            }
+            nickname = xmppClient.rosterManager.getNickname(fullJid) || externalNickName;
+            groups = xmppClient.rosterManager.getGroups(fullJid);
 
             nickname = xmppClient.rosterManager.getNickname(fullJid) || externalNickName;
             groups = xmppClient.rosterManager.getGroups(fullJid);
@@ -489,7 +480,7 @@ Item {
             });
 
             if (!usersModel.contains(bareJid)) {
-                rawUser = UserJs.createRawUser(fullJid, nickname || bareJid);
+                rawUser = UserJs.createRawUser(fullJid, nickname || fullJid);
                 rawUser.groups = groups.map(function(g){ return {name: g}; });
                 rawUser.lastTalkDate = d.getUserTalkDate(rawUser);
 
@@ -541,7 +532,7 @@ Item {
                 }
             }
 
-            if (!user.online && !user.isGroupChat) {
+            if (!user.online) {
                 xmppClient.lastActivityManager.requestLastActivity(user.jid);
             }
         }

@@ -130,12 +130,7 @@ function User(item, model, jabber) {
     defGetSet("lastTalkDate");
     defGetSet("playingGame");
 
-    defGetSet("inContacts");
-
     defGetter("isGamenet");
-
-    defGetter("isGroupChat");
-
 
     this.__defineGetter__("online", function() {
         return isOnline(self.presenceState);

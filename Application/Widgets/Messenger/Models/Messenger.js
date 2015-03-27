@@ -148,14 +148,6 @@ function selectedUserNickname() {
     return _modelInstance.selectedUser().nickname;
 }
 
-//function selectedUserMessages() {
-//    if (!userSelected()) {
-//        return [];
-//    }
-
-//    return _modelInstance.getConversation(_modelInstance.selectedJid).messages;
-//}
-
 function eachUser(callback) {
     users().forEach(callback);
 }

@@ -254,9 +254,6 @@ Item {
             }
 
             user = messenger.getUser(jid);
-            if (!user.isValid()) {
-                return;
-            }
 
             currentPlayingGame = user.playingGame;
 
