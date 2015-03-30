@@ -42,6 +42,8 @@ Item {
         id: buttonIcon
 
         source: control.styleImages.normal
+        cache: true
+        asynchronous: false
         anchors.centerIn: parent
     }
 

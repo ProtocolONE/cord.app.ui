@@ -13,6 +13,7 @@ Item {
     id: root
 
     property variant messenger
+    property bool pauseProcessing
     property alias model: proxyModel
 
     QtObject {

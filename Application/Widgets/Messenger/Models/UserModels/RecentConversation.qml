@@ -27,6 +27,7 @@ Item {
     signal dataChanged()
 
     property variant messenger
+    property bool pauseProcessing
 
     property int unreadContactCount: d.calcUnreadContactCount()
     property bool unreadGameNetMessages: d.hasUnreadGameNetMessages()

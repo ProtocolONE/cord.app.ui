@@ -9,6 +9,7 @@ Item {
 
     // auto start work when appended job and stop when queue is empty.
     property bool managed: true
+    property bool paused: false
 
     function push(job) {
         if (!job
@@ -65,6 +66,11 @@ Item {
         id: worker
 
         repeat: true
-        onTriggered: d.processJob();
+        onTriggered: {
+            if (root.paused) {
+                return;
+            }
+            d.processJob();
+        }
     }
 }

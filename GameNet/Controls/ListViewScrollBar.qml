@@ -35,6 +35,7 @@ Rectangle {
     property int listViewCountLimit: 100
     property int listViewCount: listView && listView.count > 0 ? listView.count - 1 : 0
     property variant listView
+    property bool moving: cursorMouser.drag.active || (listView ? listView.moving : false)
 
     property int currentIndex
 

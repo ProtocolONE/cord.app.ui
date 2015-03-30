@@ -1006,6 +1006,7 @@ Item {
     UserModels.AllContacts {
         id: allContacts
 
+        pauseProcessing: root.heavyInteraction
         messenger: root
     }
 

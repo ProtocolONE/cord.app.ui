@@ -59,5 +59,7 @@ Item {
         color: Styles.style.messangerContactScrollBar
         cursorColor: Styles.style.messangerContactScrollBarCursor
         opacity: 0.5
+
+        onMovingChanged: Messenger.setHeavyInteraction(moving)
     }
 }
