@@ -65,12 +65,12 @@ Rectangle {
         }
 
         function isSameJid(index, from, fromDay) {
-            if (index <= 0 || index >= model.count) {
-                return true; // UNDONE тут вроде хочется false
+            if (!!messageList.model || index <= 0 || index >= messageList.model.count) {
+                return true;
             }
 
-            var hitJid = model.get(index - 1).jid !== from;
-            var hitDay = model.get(index - 1).day !== fromDay;
+            var hitJid = messageList.model.get(index - 1).jid !== from;
+            var hitDay = messageList.model.get(index - 1).day !== fromDay;
 
             return hitJid || hitDay;
         }
