@@ -18,11 +18,16 @@ Image {
             browser = 'opera';
         }
 
+        if (browser.indexOf('yandex') !== -1) {
+            browser = 'yandex';
+        }
+
         var browserIcons = {
             "firefox": "ff.png",
             "iexplore": "ie.png",
             "opera": "opera.png",
-            "chrome": "chrome.png"
+            "chrome": "chrome.png",
+            "yandex": "yandex.png"
         }
 
         return installPath + 'Assets/Images/Application/Widgets/AllGames/browsers/' +
