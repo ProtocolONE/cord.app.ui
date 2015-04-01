@@ -44,6 +44,7 @@ function createService(data) {
     item.iconInApp = data.iconInApp || '';
     item.typeShortcut = data.typeShortcut || '';
     item.sortPositionInApp = data.sortPositionInApp || '0';
+    item.genrePosition = parseInt(data.genrePosition) | 0;
     item.hasOverlay = !!data.hasOverlay;
     item.socialNet = data.socialNet || '';
     item.isRunnable = !!data.isRunnable;

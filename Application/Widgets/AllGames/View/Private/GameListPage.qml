@@ -23,12 +23,21 @@ Item {
                 sortModel[item.genre] = [];
             }
 
-            sortModel[item.genre].push({serviceId: item.serviceId, sortPositionInApp: item.sortPositionInApp});
+            sortModel[item.genre].push({
+              serviceId: item.serviceId,
+              sortPositionInApp: item.sortPositionInApp,
+              genrePosition: item.genrePosition});
         });
 
-        Object.keys(sortModel).forEach(function(e) {
+        Object.keys(sortModel).sort(function(_a, _b) {
+            var lista = sortModel[_a],
+                listb = sortModel[_b];
+
+            return lista[0].genrePosition - listb[0].genrePosition;
+
+        }).forEach(function(e) {
             var actualGrid = gridComponent.createObject(baseColumn, {genre: e}),
-                genreGames = sortModel[e];
+                    genreGames = sortModel[e];
 
             genreGames.sort(function(a, b) {
                 return a.sortPositionInApp - b.sortPositionInApp;

@@ -53,7 +53,7 @@ Item {
 
     WidgetContainer {
         id: allWidget
-        visible: true
+
         anchors.fill: parent
     }
 }
