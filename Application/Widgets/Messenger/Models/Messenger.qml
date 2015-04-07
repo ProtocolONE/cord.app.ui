@@ -753,9 +753,24 @@ Item {
                 d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
             }
 
-            if (message.stamp == "Invalid Date") {
-                d.updateUserTalkDate(user);
+            user = root.getUser(bareJid);
+            if (!user.isValid()) {
+                return;
             }
+
+            //INFO https://jira.gamenet.ru:8443/browse/QGNA-1130
+            if (user.isGamenet && 0 === message.body.indexOf('EVENT:')) {
+                return;
+            }
+
+            xmppClient.saveToHistory(bareJid, message, messageDate);
+
+
+            if (message.stamp != "Invalid Date") {
+                if (d.needIncrementUnread(user)) {
+                    user.unreadMessageCount += 1;
+                    d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
+                }
 
             root.messageReceived(user.jid, message.body, message);
         }
