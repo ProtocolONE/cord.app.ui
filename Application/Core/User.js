@@ -45,6 +45,10 @@ function isPremium() {
     return  _userComponentInstance.isPremium;
 }
 
+function isLoginConfirmed() {
+    return _userComponentInstance.isLoginConfirmed;
+}
+
 function getPremiumDuration() {
     return _userComponentInstance.premiumDuration;
 }

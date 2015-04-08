@@ -9,7 +9,7 @@ function init(jabber) {
         throw new Error('[Smiles] Already initialized');
     }
 
-    console.log('[Smiles] Init module connections');
+    console.log('[Smiles] Init plugin');
 
     _modelComponent = Qt.createComponent('./Smiles.qml');
     if (_modelComponent.status !== 1) {

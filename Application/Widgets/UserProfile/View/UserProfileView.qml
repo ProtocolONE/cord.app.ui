@@ -23,6 +23,7 @@ WidgetView {
     id: root
 
     property bool nicknameValid: model.nickname.indexOf('@') == -1
+    property bool isLoginConfirmed: model.isLoginConfirmed
 
     implicitWidth: 230
     implicitHeight: 92
@@ -190,15 +191,16 @@ WidgetView {
                         width: 48
                         height: 48
                         asynchronous: true
-                        source: model.avatarMedium != undefined ?
-                                    model.avatarMedium : installPath + "Assets/Images/Application/Widgets/UserProfile/defaultAvatar.png"
+                        source: model.avatarMedium != undefined
+                                ? model.avatarMedium
+                                : installPath + "Assets/Images/Application/Widgets/UserProfile/defaultAvatar.png"
 
                         CursorMouseArea {
                             anchors.fill: parent
                             hoverEnabled: true
                             toolTip: qsTr("YOUR_AVATAR")
                             tooltipGlueCenter: true
-                            onClicked: App.openExternalUrlWithAuth('https://gamenet.ru/edit/')
+                            onClicked: App.openExternalUrlWithAuth('https://gamenet.ru/edit/#edit-avatar')
                         }
                     }
 
@@ -239,7 +241,7 @@ WidgetView {
                                 width: parent.width
                                 height: 20
 
-                                visible: !root.nicknameValid
+                                visible: root.state === 'DefaultNickname'
 
                                 Row {
                                     id: row
@@ -269,7 +271,38 @@ WidgetView {
                             Item {
                                 width: parent.width
                                 height: 20
-                                visible: root.nicknameValid
+
+                                visible: root.state === 'ConfirmEmail'
+
+                                Row {
+                                    id: row1
+
+                                    height: parent.height
+                                    spacing: 5
+
+                                    Image {
+                                        source: installPath  + "Assets/Images/Application/Widgets/UserProfile/attention.png"
+                                    }
+
+                                    Text {
+                                        text: qsTr("PROFILE_CONFIRM_LOGIN")
+                                        color: Styles.style.profileBaseText
+                                        font.pixelSize: 12
+                                    }
+                                }
+
+                                CursorMouseArea {
+                                    width: row1.width
+                                    height: row1.height
+                                    toolTip: qsTr("PROFILE_CONFIRM_LOGIN_TULTIP")
+                                    onClicked: App.openExternalUrlWithAuth("https://gamenet.ru/edit/#edit-reginfo");
+                                }
+                            }
+
+                            Item {
+                                width: parent.width
+                                height: 20
+                                visible: root.state === 'Normal'
 
                                 Row {
                                     height: parent.height
@@ -301,4 +334,10 @@ WidgetView {
             }
         }
     }
+
+    states: [
+        State { name: 'DefaultNickname'; when: !root.nicknameValid},
+        State { name: 'ConfirmEmail'; when: root.nicknameValid && !root.isLoginConfirmed},
+        State { name: 'Normal'; when: root.nicknameValid && root.isLoginConfirmed}
+    ]
 }

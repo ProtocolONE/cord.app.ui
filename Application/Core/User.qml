@@ -9,11 +9,10 @@
 ****************************************************************************/
 
 import QtQuick 1.1
-import GameNet.Components.Widgets 1.0
 import "App.js" as AppJs
 import "restapi.js" as RestApiJs
 
-WidgetModel {
+Item {
     id: root
 
     property int premiumExpiredNotificationTimeout: 3600000
@@ -23,6 +22,7 @@ WidgetModel {
     property string cookie
 
     property bool isPremium: false
+    property bool isLoginConfirmed: false
     property int premiumDuration: 0
     property int balance: 0
 
@@ -99,6 +99,7 @@ WidgetModel {
         root.avatarMedium = userInfo.avatarMedium;
         root.avatarSmall = userInfo.avatarSmall;
         root.guest = (userInfo.guest == 1);
+        root.isLoginConfirmed = (userInfo.loginConfirmed || false);
     }
 
     function reset() {
@@ -122,6 +123,8 @@ WidgetModel {
         onLogoutRequest: {
             root.reset();
         }
+
+        onProfileUpdated: refreshUserInfo();
 
         onAuthDone: {
             root.userId = userId;

@@ -1363,15 +1363,15 @@ Please try again later.</source>
     </message>
     <message>
         <source>CONTACT_ITEM_EXTENDED_STATUS_ONLY_GAMENET_FRINED</source>
-        <translation>Друг на сайте GameNet</translation>
+        <translation type="vanished">Друг на сайте GameNet</translation>
     </message>
     <message>
         <source>CONTACT_ITEM_EXTENDED_STATUS_GAMENET_FRINED</source>
-        <translation>на сайте GameNet</translation>
+        <translation type="vanished">на сайте GameNet</translation>
     </message>
     <message>
         <source>CONTACT_ITEM_EXTENDED_STATUS</source>
-        <translation>Друг в %1</translation>
+        <translation type="vanished">Друг в %1</translation>
     </message>
 </context>
 <context>
@@ -2756,7 +2756,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>WITHOUT_GROUP_NAME</source>
-        <translation>Без группы</translation>
+        <translation type="vanished">Без группы</translation>
     </message>
 </context>
 <context>
@@ -5259,11 +5259,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAMENET_BALANCE</source>
-        <translation type="unfinished">У меня</translation>
+        <translation>У меня</translation>
     </message>
     <message>
         <source>YOUR_AVATAR</source>
-        <translation>Мой аватар</translation>
+        <translation>Изменить аватар</translation>
     </message>
     <message>
         <source>YOUR_GAMENET_LEVEL</source>
@@ -5291,11 +5291,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>NO_NICKNAME</source>
-        <translation type="unfinished">Без никнейма</translation>
+        <translation>Без никнейма</translation>
     </message>
     <message>
         <source>SET_NICKNAME</source>
-        <translation type="unfinished">Выбрать  никнейм</translation>
+        <translation>Выбрать  никнейм</translation>
     </message>
     <message>
         <source>YOUR_NICKNAME</source>
@@ -5303,31 +5303,39 @@ Please try again later.</source>
     </message>
     <message>
         <source>PROFILE_MONEY_TEXT</source>
-        <translation type="unfinished">монет</translation>
+        <translation>монет</translation>
     </message>
     <message>
         <source>PROFILE_ADD_MONEY_TEXT</source>
-        <translation type="unfinished">Пополнить</translation>
+        <translation>Пополнить</translation>
     </message>
     <message>
         <source>PROFILE_EXTENDED_ACCOUNT_TEXT</source>
-        <translation type="unfinished">Расширить аккаунт</translation>
+        <translation>Расширить аккаунт</translation>
     </message>
     <message>
         <source>PROFILE_CHOISE_NICKNAME</source>
-        <translation type="unfinished">Выберите никнейм</translation>
+        <translation>Выберите никнейм</translation>
     </message>
     <message>
         <source>PROFILE_CHOISE_NICKNAME_TULTIP</source>
-        <translation type="unfinished">Выбрать никнейм</translation>
+        <translation>Выбрать никнейм</translation>
     </message>
     <message>
         <source>PROFILE_LEVEL_TEXT</source>
-        <translation type="unfinished">уровень</translation>
+        <translation>уровень</translation>
     </message>
     <message>
         <source>PROFILE_ADD_MONEY_TULTIP</source>
-        <translation type="unfinished">Пополнить счет</translation>
+        <translation>Пополнить счет</translation>
+    </message>
+    <message>
+        <source>PROFILE_CONFIRM_LOGIN</source>
+        <translation>Подтвердите e-mail</translation>
+    </message>
+    <message>
+        <source>PROFILE_CONFIRM_LOGIN_TULTIP</source>
+        <translation>Повысить защиту от взлома</translation>
     </message>
 </context>
 <context>

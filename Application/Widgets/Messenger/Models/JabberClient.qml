@@ -40,6 +40,18 @@ QXmppClient {
     signal lastActivityUpdated(string jid, int timestamp);
     signal gamingInfoReceived(variant info);
 
+    /**
+      INFO https://jira.gamenet.ru:8443/browse/QGNA-1130
+
+      Этот врапер нужен для того, чтобы проверка на специальное событие не расползалась по всему коду приложения.
+      Если где-то вам потребуется обычное сообщение - просто подписывайтесь на MessageReceived вместо
+      MessageReceivedEx.
+
+      @param QmlQXmppMessage message
+    */
+    signal messageReceivedEx(variant message);
+    signal eventReceived(variant event);
+
     signal messageSending(string jid, variant message);
     signal inputStatusSending(string jid, variant message);
 
@@ -107,6 +119,15 @@ QXmppClient {
         xmppClient.pepManager.setGamingInfo(gameInfo);
     }
 
+    function isEvent(message) {
+        return (message.from === 'GameNet')
+                && message.body.indexOf('EVENT:') === 0;
+    }
+
+    function parseEvent(message) {
+        return JSON.parse(message.body.substr(6))
+    }
+
     Component.onCompleted: {
         var cache;
         try {
@@ -116,6 +137,20 @@ QXmppClient {
         }
 
         Js.lastActivityCache = cache;
+    }
+
+    onMessageReceived: {
+        if (isEvent(message)) {
+            try {
+                xmppClient.eventReceived(parseEvent(message));
+            } catch (e) {
+                console.log('Error parsing event message ', message.body);
+                return;
+            }
+            return;
+        }
+
+        xmppClient.messageReceivedEx(message);
     }
 
     onError: {

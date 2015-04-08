@@ -27,6 +27,7 @@ import "AccountManager.js" as AccountManager
 import "GroupChatManager.js" as GroupChatManager
 
 import "../Plugins/Smiles/Smiles.js" as Smiles
+import "../Plugins/Events/Events.js" as Events
 
 
 import "../Plugins/Bookmarks/Bookmarks.js" as Bookmarks
@@ -74,22 +75,22 @@ Item {
         var rosterManager = xmppClient.rosterManager;
 
         rosterManager.itemAdded.connect(function(bareJid) {
-            console.log("[ROSTER MANAGER] Item added: " + bareJid);
+            console.log("[Roster] Item added: " + bareJid);
             d.rosterReceived();
         });
 
         rosterManager.itemChanged.connect(function(){
-            console.log("[ROSTER MANAGER] Item changed: " + bareJid, rosterManager.getGroups(bareJid));
+            console.log("[Roster] Item changed: " + bareJid, rosterManager.getGroups(bareJid));
             d.rosterReceived();
         });
 
         rosterManager.itemRemoved.connect(function(bareJid) {
-            console.log("[ROSTER MANAGER] Item removed: " + bareJid);
+            console.log("[Roster] Item removed: " + bareJid);
             d.rosterReceived();
         });
 
-        rosterManager.rosterReceived.connect(function() {
-            console.log("[ROSTER MANAGER] Roster received");
+        rosterManager.rosterReceived.connect(function(){
+            console.log("[Roster] Roster received");
 
             d.rosterReceived();
             d.loadAndUpdateRawUsers();
@@ -98,11 +99,7 @@ Item {
 
     function init() {
         Smiles.init(xmppClient);
-        Bookmarks.init(xmppClient, root);
-        Autojoin.init(xmppClient, root);
-        RoomCreate.init(xmppClient, root);
-        Topic.init(xmppClient, root);
-
+        Events.init(xmppClient, App.signalBus());
         AccountManager.init(root, xmppClient, usersModel, {
             defaultAvatarPath: installPath + "/Assets/Images/Application/Widgets/Messenger/"
         });
@@ -756,7 +753,7 @@ Item {
             d.updateUserTalkDate(user);
         }
 
-        onMessageReceived: {
+        onMessageReceivedEx: {
             var user;
 
             if (message.type !== QXmppMessage.Chat || !message.body) {

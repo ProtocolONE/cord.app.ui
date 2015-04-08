@@ -16,6 +16,7 @@ WidgetModel {
     id: root
 
     property bool isPremium: UserJs.isPremium()
+    property bool isLoginConfirmed: UserJs.isLoginConfirmed()
     property int premiumDuration: UserJs.getPremiumDuration()
     property int balance: UserJs.getBalance()
 

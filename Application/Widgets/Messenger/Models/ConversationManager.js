@@ -73,7 +73,7 @@ function init(jabber, extendedListModel) {
          conv.receiveMessage(bareJid, message);
      });
 
-    _jabber.messageReceived.connect(function(message) {
+    _jabber.messageReceivedEx.connect(function(message){
         var bareJid = _private.jidWithoutResource(message.from),
             conv;
 
