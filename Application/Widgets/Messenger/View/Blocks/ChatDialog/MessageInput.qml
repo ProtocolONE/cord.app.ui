@@ -441,8 +441,7 @@ FocusScope {
                         color: "#00000000"
                         border {
                                  width: 2;
-                                 color: parent.enabled ? Styles.style.messengerMessageInputSendButtonHover :
-                                                         Styles.style.messengerMessageInputSendButtonNormal
+                                 color: Styles.style.messengerMessageInputSendButtonHover
                         }
                     }
                 }
