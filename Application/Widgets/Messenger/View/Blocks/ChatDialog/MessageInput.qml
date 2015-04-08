@@ -421,15 +421,30 @@ FocusScope {
 
                     width: 89
                     height: 30
-                    enabled: d.canSendMessage();
-                    style: CheckButtonStyle{
-                      checked: sendMessageButton.enabled
+
+                    style: ButtonStyleColors {
+                        normal: Styles.style.messengerMessageInputSendButtonNormal
+                        hover: Styles.style.messengerMessageInputSendButtonHover
+                        disabled: Styles.style.messengerMessageInputSendButtonNormal
                     }
 
                     fontSize: 12
+                    opacity: enabled ? 1 : 0.75
+
+                    enabled:  MessengerJs.getStatus() === MessengerJs.ROSTER_RECEIVED;
+                    onClicked: d.sendMessage()
                     text: qsTr("MESSENGER_SEND_BUTTON")
                     textColor: Styles.style.messengerMessageInputSendButtonText
-                    onClicked: d.sendMessage()
+
+                    Rectangle {
+                        anchors { fill: parent; margins: 1 }
+                        color: "#00000000"
+                        border {
+                                 width: 2;
+                                 color: parent.enabled ? Styles.style.messengerMessageInputSendButtonHover :
+                                                         Styles.style.messengerMessageInputSendButtonNormal
+                        }
+                    }
                 }
 
                 Text {
