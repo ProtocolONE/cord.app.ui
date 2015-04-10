@@ -22,6 +22,16 @@ Rectangle {
     color: Styles.style.messengerChatDialogBodyBackground
     clip: true
 
+    property variant user: MessengerJs.selectedUser(MessengerJs.USER_INFO_JID)
+
+    onUserChanged: {
+        if (!user.jid) {
+            return;
+        }
+
+        messageList.model = MessengerJs.getConversation(user.jid).messages;
+    }
+
     ListView {
         id: messageList
 
@@ -37,19 +47,12 @@ Rectangle {
         }
 
         function queryMore(number, name) {
-            var user = MessengerJs.selectedUser(MessengerJs.USER_INFO_JID);
-            if (!user || !user.jid) {
+            var user = MessengerJs.selectedUser();
+            if (!user.isValid()) {
                 return;
             }
 
-            user = MessengerJs.getUser(user.jid);
-
-            if (!user || !user.isValid) {
-                return;
-            }
-
-            MessengerJs.getConversation(user.jid)
-                .queryLast(number, name);
+            MessengerJs.getConversation(user.jid).queryLast(number, name);
         }
 
         function isSelfMessageTest(jid){
@@ -72,8 +75,6 @@ Rectangle {
             fill: parent
             rightMargin: 1
         }
-
-        model: MessengerJs.selectedUserMessages()
 
         Timer {
             id: scrollToEndTimer

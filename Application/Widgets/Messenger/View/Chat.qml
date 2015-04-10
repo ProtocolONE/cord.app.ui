@@ -68,7 +68,7 @@ WidgetView {
             MessengerJs.closeChat();
             MessengerJs.setSmilePanelVisible(false);
         }
-        sendAction: model.settings.sendAction
+        sendAction: !!model ? model.settings.sendAction : ""
 
         Connections {
             target: MessengerJs.instance()
@@ -112,33 +112,41 @@ WidgetView {
         onClicked: MessengerJs.setSmilePanelVisible(true);
     }
 
-    SmilesBlock.SmilePanel {
-        id: smilePanel
+    Component {
+        id: smilePanelComponent
 
+        SmilesBlock.SmilePanel {
+            id: smilePanel
+
+            onInsertSmile: {
+                messageInput.insertText(tag);
+                messageInput.forceActiveFocus();
+                MessengerJs.setSmilePanelVisible(false);
+            }
+            onCloseRequest: MessengerJs.setSmilePanelVisible(false);
+
+            Connections {
+                target: App.signalBus()
+                onLeftMousePress: {
+                    var posInItem = smilePanel.mapFromItem(rootItem, x, y);
+                    var contains = posInItem.x >= 0 && posInItem.y >=0
+                            && posInItem.x <= smilePanel.width && posInItem.y <= smilePanel.height;
+                    if (!contains) {
+                        MessengerJs.setSmilePanelVisible(false);
+                    }
+                }
+            }
+        }
+    }
+
+    Loader {
         anchors {
             bottom: smileButton.top
             bottomMargin: 18
             horizontalCenter: smileButton.horizontalCenter
             horizontalCenterOffset: -10
         }
-        visible: MessengerJs.smilePanelVisible()
-        onInsertSmile: {
-            MessengerJs.setSmilePanelVisible(false);
-            messageInput.insertText(tag);
-            messageInput.forceActiveFocus();
-        }
-        onCloseRequest: MessengerJs.setSmilePanelVisible(false);
 
-        Connections {
-            target: App.signalBus()
-            onLeftMousePress: {
-                var posInItem = smilePanel.mapFromItem(rootItem, x, y);
-                var contains = posInItem.x >= 0 && posInItem.y >=0
-                        && posInItem.x <= smilePanel.width && posInItem.y <= smilePanel.height;
-                if (!contains) {
-                    MessengerJs.setSmilePanelVisible(false);
-                }
-            }
-        }
+        sourceComponent: MessengerJs.smilePanelVisible() ? smilePanelComponent : null
     }
 }

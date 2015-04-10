@@ -19,10 +19,16 @@ import "../../../Application/Core/moment.js" as Moment
 import "../../../Application/Core/Styles.js" as Styles
 import "../../../Application/Core/restapi.js" as RestApi
 import "../../../Application/Core/EmojiOne.js" as EmojiOne
+import "../../../Application/Core/User.js" as UserJs
 
 import "../../../GameNet/Core/lodash.js" as Lodash
 import "../../../GameNet/Core/RestApi.js" as RestApiG
 import "../../../GameNet/Controls/Tooltip.js" as Tooltip
+import "../../../GameNet/Controls/ContextMenu.js" as ContexMenu
+
+
+import "./Messenger/Logger.js" as Logger
+
 
 Rectangle {
     id: root
@@ -40,7 +46,6 @@ Rectangle {
         EmojiOne.ns.addedImageProps = '"width"= "20" height"="20"'
     }
 
-
     width: 1000
     height: 600
     color: '#EEEEEE'
@@ -50,42 +55,99 @@ Rectangle {
         Styles.setCurrentStyle('mainStyle');
         TrayPopup.init();
         root.initEmojiOne();
+        ContexMenu.init(contextMenuLayer);
         Tooltip.init(tooltipLayer);
         Moment.moment.lang('ru');
+
+        Logger.init(MessengerJs.dataModel.client);
+        d.initRestApi();
+    }
+
+    QtObject {
+        id: d
+
+        function requestServices() {
+            RestApi.Service.getUi(function(result) {
+                App.fillGamesModel(result);
+                App.setGlobalState("Authorization");
+            }, function(result) {
+                console.log('get services error', result);
+                retryTimer.start();
+            });
+        }
+
+        function initRestApi(options) {
+            RestApi.Core.setup({
+                                   lang: 'ru',
+                                   genericErrorCallback: function(code, message) {
+                                       if (code == RestApi.Error.AUTHORIZATION_FAILED
+                                           || code == RestApi.Error.ACCOUNT_NOT_EXISTS
+                                           || code == RestApi.Error.AUTHORIZATION_LIMIT_EXCEED
+                                           || code == RestApi.Error.UNKNOWN_ACCOUNT_STATUS) {
+                                           console.log('RestApi generic error', code, message);
+                                       }
+
+                                   }
+                               });
+        }
+
+        function authDone(userId, appKey) {
+            RestApiG.Core.setUserId(userId);
+            RestApiG.Core.setAppKey(appKey);
+            RestApi.Core.setUserId(userId);
+            RestApi.Core.setAppKey(appKey);
+
+            App.authDone(userId, appKey);
+        }
     }
 
     Row {
         spacing: 10
 
         Button {
-            function requestServices() {
-                RestApi.Service.getUi(function(result) {
-                    App.fillGamesModel(result);
-                    App.setGlobalState("Authorization");
-                }, function(result) {
-                    console.log('get services error', result);
-                    retryTimer.start();
-                });
-            }
-
             function startAuth() {
-                //App.authDone('400001000005869460', 'fac8da16caa762f91607410d2bf428fb7e4b2c5e'); //0 friends
-                //App.authDone('400001000000065690', 'cd34fe488b93d254243fa2754e86df8ffbe382b9'); //300+ friends
-                //App.authDone('400001000000000110', 'acf2f89b60dfe4eddc1b7a1cbdaf0d737d0a5311'); //800+ friends
-                //App.authDone('400001000000073060', '6f2d51fcb4fbc0db43e02c5b855ef1f10f9d5a75'); //3600+ friends
-                //App.authDone('400001000005959640', '1123cf8d91aabb9ebc8345def6a13772cc020498');
+                //d.authDone('400001000005869460', 'fac8da16caa762f91607410d2bf428fb7e4b2c5e'); //0 friends
+                //d.authDone('400001000000065690', 'cd34fe488b93d254243fa2754e86df8ffbe382b9'); //300+ friends
+                //d.authDone('400001000000000110', '6c5f39adaaa18c3b4a6d8f4af5289ecf76029af2'); //800+ friends
+                //d.authDone('400001000000073060', '6f2d51fcb4fbc0db43e02c5b855ef1f10f9d5a75'); //3600+ friends
+                //d.authDone('400001000005959640', '1123cf8d91aabb9ebc8345def6a13772cc020498');
+                //d.authDone('400001000001709240', '570e3c3e59c7c4d7a1b322a0e25f231752814dc6'); // gna2@unit.test
+                //d.authDone('400001000030060540', '23c936940e97a2972e55947c9f63e3471583972c'); //300+ friends
 
-                App.authDone('400001000030060540', '23c936940e97a2972e55947c9f63e3471583972c'); //300+ friends
+                //d.authDone('400001000002212660', '04b47ad21518058fa9d441a6d50abdfa2d21e252'); // gna3@unit.test
+                d.authDone('400001000001709240', '570e3c3e59c7c4d7a1b322a0e25f231752814dc6'); // gna2@unit.test
+                //d.authDone('400001000001634860', '4c2f65777d38eb07d32d111061005dcd5a119150');
 
-
-
-                requestServices();
+                d.requestServices();
             }
 
             width: 100
             height: 30
-            text: 'Login'
+            text: 'Master'
             onClicked: startAuth();
+        }
+
+        Button {
+            function startAuth2() {
+                //d.authDone('400001000005869460', 'fac8da16caa762f91607410d2bf428fb7e4b2c5e'); //0 friends
+                //d.authDone('400001000000065690', 'cd34fe488b93d254243fa2754e86df8ffbe382b9'); //300+ friends
+                //d.authDone('400001000000000110', '6c5f39adaaa18c3b4a6d8f4af5289ecf76029af2'); //800+ friends
+                //d.authDone('400001000000073060', '6f2d51fcb4fbc0db43e02c5b855ef1f10f9d5a75'); //3600+ friends
+                //d.authDone('400001000005959640', '1123cf8d91aabb9ebc8345def6a13772cc020498');
+                //d.authDone('400001000001709240', '570e3c3e59c7c4d7a1b322a0e25f231752814dc6'); // gna2@unit.test
+                //d.authDone('400001000030060540', '23c936940e97a2972e55947c9f63e3471583972c'); //300+ friends
+
+                d.authDone('400001000002212660', '04b47ad21518058fa9d441a6d50abdfa2d21e252'); // gna3@unit.test
+                //d.authDone('400001000001709240', '570e3c3e59c7c4d7a1b322a0e25f231752814dc6'); // gna2@unit.test
+                //d.authDone('400001000001634860', '4c2f65777d38eb07d32d111061005dcd5a119150');
+
+                d.requestServices();
+            }
+
+            width: 100
+            height: 30
+            text: 'Slave'
+            onClicked: startAuth2();
         }
 
         Button {
@@ -100,38 +162,6 @@ Rectangle {
             height: 30
             text: 'Disconnect'
             onClicked: MessengerJs.disconnect();
-        }
-
-        Button {
-            width: 100
-            height: 30
-            text: 'Refresh'
-            onClicked: {
-//                var groupId = "FireStorm (FS)";
-//                var users = MessengerJs.groups().getById(groupId).users;
-//                for (var i = 0; i < users.count; i++) {
-//                    MessengerJs.users().removeById(users.get(i).jid);
-//                }
-
-//                MessengerJs.groups().removeById(groupId);
-                //MessengerJs._modelInstance.rosterReceived();
-                MessengerJs._modelInstance.hack();
-            }
-        }
-
-        Button {
-            width: 100
-            height: 30
-            text: 'del user'
-            onClicked: {
-//                var groupId = "Combat Arms (CA)";
-//                var users = MessengerJs.groups().getById(groupId).users;
-//                var index = users.count > 5 ? 5 : Math.floor(users.count / 2)
-//                users.remove(index);
-                MessengerJs.users().remove(0);
-                //MessengerJs.groups().endBatch();
-                MessengerJs.users().endBatch();
-            }
         }
 
         Button {
@@ -155,35 +185,6 @@ Rectangle {
                 App.serviceFinished(game);
             }
         }
-
-        Button {
-            width: 100
-            height: 30
-            text: 'Feed'
-            onClicked: {
-//                console.log('---- push');
-//                var item = {};
-//                item.x = 5;
-//                item.start = Date.now();
-//                item.execute = function() {
-//                    console.log(Date.now(), this.x, this.start);
-//                    this.x--;
-//                    return this.x === 0;
-//                }
-
-//                worker.push(item);
-            }
-        }
-    }
-
-    Connections {
-        target: App.signalBus()
-        onAuthDone: {
-            RestApiG.Core.setUserId(userId);
-            RestApiG.Core.setAppKey(appKey);
-            RestApi.Core.setUserId(userId);
-            RestApi.Core.setAppKey(appKey);
-        }
     }
 
     JobWorker {
@@ -192,11 +193,11 @@ Rectangle {
         interval: 100
     }
 
-
     WidgetManager {
         id: manager
 
         Component.onCompleted: {
+            manager.registerWidget('Application.Widgets.UserProfile');
             manager.registerWidget('Application.Widgets.Messenger');
             manager.registerWidget('Application.Widgets.DetailedUserInfo');
             manager.init();
@@ -204,7 +205,7 @@ Rectangle {
     }
 
     Item {
-        anchors { fill: parent;  topMargin: 42}
+        anchors { fill: parent;  topMargin: 42 }
 
         Row {
             anchors.fill: parent
@@ -212,6 +213,68 @@ Rectangle {
             Item {
                 height: parent.height
                 width: 180
+
+                Column {
+                    anchors.fill: parent
+                    spacing: 10
+
+                    Button {
+                        width: 100
+                        height: 30
+                        text: "Join"
+                        onClicked: MessengerJs.hackJoin();
+                    }
+
+                    Button {
+                        width: 100
+                        height: 30
+                        text: "Add Bookmark"
+                        onClicked: MessengerJs.hackSetBookMark()
+                    }
+
+                    Button {
+                        width: 100
+                        height: 30
+                        text: "Rem Bookmark "
+                        onClicked: MessengerJs.hackRemBookMark();
+                    }
+
+                    Button {
+                        width: 100
+                        height: 30
+                        text: "set config"
+                        onClicked: MessengerJs.hackSetConfig()
+                    }
+
+                    Button {
+                        width: 100
+                        height: 30
+                        text: "query permissions"
+                        onClicked: MessengerJs.hackQueryPermissions()
+                    }
+
+                    Button {
+                        width: 100
+                        height: 30
+                        text: "destroy room"
+                        onClicked: MessengerJs.hackDestroyRoom()
+                    }
+
+                    Button {
+                        width: 100
+                        height: 30
+                        text: "invite"
+                        onClicked: MessengerJs.hack()
+                    }
+
+                    Button {
+                        width: 100
+                        height: 30
+                        text: "kick self"
+                        onClicked: MessengerJs.hack2()
+                    }
+
+                }
             }
 
             Item {
@@ -239,8 +302,14 @@ Rectangle {
 
                 Rectangle {
                     width: parent.width
-                    height: 91
+                    height: 92
                     color: "#243148"
+
+                    WidgetContainer {
+                        width: 229
+                        height: 92
+                        widget: 'UserProfile'
+                    }
                 }
 
                 WidgetContainer {
@@ -251,6 +320,12 @@ Rectangle {
                 }
             }
         }
+    }
+
+    Item {
+        id: contextMenuLayer
+
+        anchors.fill: parent
     }
 
     Item {

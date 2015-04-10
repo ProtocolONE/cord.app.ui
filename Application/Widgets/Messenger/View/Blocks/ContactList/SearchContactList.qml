@@ -18,7 +18,7 @@ import "../../../../../Core/Styles.js" as Styles
 NavigatableContactList {
     id: root
 
-    property alias model: view.model
+    property alias model: navigatableView.model
 
     property string searchText
     property bool nothingFound: searchText !== '' && searchContactModel.count === 0
@@ -34,7 +34,7 @@ NavigatableContactList {
     implicitWidth: 228
     implicitHeight: 400
 
-    internalView: view
+    internalView: navigatableView
 
     function sortFunction(a, b) {
         if (a.value > b.value) {
@@ -75,7 +75,7 @@ NavigatableContactList {
     }
 
     NavigatableListView {
-        id: view
+        id: navigatableView
 
         model: searchContactModel
         anchors {
@@ -88,12 +88,9 @@ NavigatableContactList {
         boundsBehavior: Flickable.StopAtBounds
         onCountChanged: currentIndex = -1;
         delegate: ContactItemDelegate {
-            width: view.width
-
-            visible: !model.isGroupItem
+            width: navigatableView.width
             user: model
-            onClicked: select();
-            isHighlighted: view.currentIndex == index
+            isHighlighted: navigatableView.currentIndex == index
         }
     }
 
@@ -102,11 +99,11 @@ NavigatableContactList {
     }
 
     ListViewScrollBar {
-        anchors.left: view.right
-        height: view.height
+        anchors.left: navigatableView.right
+        height: navigatableView.height
         width: 10
-        listView: view
-        cursorMaxHeight: view.height
+        listView: navigatableView
+        cursorMaxHeight: navigatableView.height
         cursorMinHeight: 50
         color: Qt.darker(Styles.style.messengerContactsBackground, Styles.style.darkerFactor);
         cursorColor: Qt.darker(Styles.style.messengerContactsBackground, Styles.style.darkerFactor * 1.5);

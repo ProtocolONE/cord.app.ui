@@ -13,7 +13,7 @@ function init(jabber) {
 
     _modelComponent = Qt.createComponent('./Smiles.qml');
     if (_modelComponent.status !== 1) {
-         throw new Error('Can\'t create Smiles.qml', _modelComponent.errorString());
+         throw new Error('Can\'t create Smiles.qml'+ _modelComponent.errorString());
     }
     _modelInstance = _modelComponent.createObject(null);
     _jabber = jabber;

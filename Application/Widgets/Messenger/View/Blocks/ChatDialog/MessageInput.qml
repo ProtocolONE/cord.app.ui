@@ -128,6 +128,7 @@ FocusScope {
             if (MessengerJs.getStatus() !== MessengerJs.ROSTER_RECEIVED) {
                 return;
             }
+
             if (d.validateMessage(messengerInput.text)) {
                 var convertedText = EmojiOne.ns.htmlToShortname(messengerInput.text);
                 convertedText = TextDocumentHelper.stripHtml(convertedText);
@@ -147,7 +148,7 @@ FocusScope {
 
             d.activeStatus = status;
 
-            MessengerJs.getConversation(MessengerJs.selectedUser().jid)
+            MessengerJs.getConversation(user.jid)
                 .setTypingState(status);
         }
 

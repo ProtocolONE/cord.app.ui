@@ -25,6 +25,7 @@ QtObject {
     property int lastActivity: 0
     property int historyDay: 0
 
+    property bool online: true
     property bool hasUnreadMessage: false
     property string inputMessage: ""
     property bool inContacts: false

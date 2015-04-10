@@ -10,6 +10,7 @@
 .pragma library
 
 var serverUrl;
+var conferenceUrl = 'conference.qj.gamenet.ru';
 
 Qt.include("./Helpers/TimeHelper.js");
 
@@ -30,8 +31,36 @@ function createRawUser(jid, nickname) {
         online: false,
         playingGame: "",
         inContacts: false,
+        isGroupChat: false,
+        participants: [],
         __lastActivityRequested: false,
         __vCardRequested: false,
+    };
+
+    return result;
+}
+
+function createRawGroupChat(roomJid, nickname) {
+    var result = {
+        userId: "",
+        jid: jidWithoutResource(roomJid),
+        groups: [],
+        nickname: nickname,
+        unreadMessageCount: 0,
+        statusMessage: "",
+        presenceState: "",
+        inputMessage: "",
+        avatar: "",
+        lastActivity: 0,
+        isGamenet: false,
+        lastTalkDate: "",
+        online: false,
+        playingGame: "",
+        inContacts: false,
+        isGroupChat: true,
+        participants: [],
+        __lastActivityRequested: false,
+        __vCardRequested: false
     };
 
     return result;
@@ -101,8 +130,16 @@ function User(item, model, jabber) {
     defGetSet("lastTalkDate");
     defGetSet("playingGame");
 
-    defGetter("online");
+    defGetSet("inContacts");
+
     defGetter("isGamenet");
+
+    defGetter("isGroupChat");
+
+
+    this.__defineGetter__("online", function() {
+        return isOnline(self.presenceState);
+    });
 
     this.__defineGetter__("hasUnreadMessage", function() {
         return _item.unreadMessageCount > 0;
@@ -147,6 +184,117 @@ function User(item, model, jabber) {
     }
 }
 
+function GroupChat(item, model, jabber) {
+    var _item = item,
+        _model = model,
+        self = this,
+        message;
+
+    var defGetter = function(field) {
+        self.__defineGetter__(field, function() {
+            return _item[field];
+        });
+    }
+
+    var defSetter = function(field) {
+        self.__defineSetter__(field, function(value) {
+             model.setPropertyById(self.jid, field, value);
+        });
+    }
+
+    var defGetSet = function(field) {
+        defGetter(field);
+        defSetter(field);
+    }
+
+    this.__defineGetter__("jid", function() {
+        if (!_item) {
+            return "";
+        }
+
+        return _item.jid;
+    });
+
+    this.__defineGetter__("userId", function() {
+        return jidToUser(_item.jid);
+    });
+
+    defGetSet("nickname");
+    defGetSet("statusMessage");
+    defGetSet("presenceState");
+    defGetSet("inputMessage");
+    defGetSet("unreadMessageCount");
+    defGetSet("lastTalkDate");
+    defGetSet("playingGame");
+
+    defGetSet("inContacts");
+
+    defGetter("online");
+    defGetter("isGamenet");
+
+    defGetter("isGroupChat");
+
+    this.__defineGetter__("hasUnreadMessage", function() {
+        return _item.unreadMessageCount > 0;
+    });
+
+    this.__defineGetter__("avatar", function() {
+        return _item.avatar;
+    });
+    defSetter("avatar");
+
+    this.__defineGetter__("lastActivity", function() {
+        return _item.lastActivity;
+    });
+    defSetter("lastActivity");
+
+    this.__defineGetter__("groups", function() {
+        var result = [];
+        for (var j = 0; j < _item.groups.count; j++) {
+            result.push(_item.groups.get(j).name);
+        }
+
+        return result;
+    });
+
+    this.__defineSetter__("groups", function(val) {
+        _item.groups.clear();
+        val.forEach(function (g) {
+            _item.groups.append({name: g});
+        });
+    });
+
+
+    this.__defineGetter__("participants", function() {
+//        var result = [];
+//        for (var j = 0; j < _item.groups.count; j++) {
+//            result.push(_item.participants.get(j).name);
+//        }
+//        return result;
+
+        return _item.participants;
+    });
+
+    this.__defineSetter__("participants", function(val) {
+        _item.participants.clear();
+        val.forEach(function (g) {
+            _item.participants.append(g);
+        });
+    });
+
+    this.isValid = function() {
+        return !!_item && !!_model;
+    }
+
+    this.destroyRoom = function(reason) {
+        jabber.mucManager.destroyRoom(this.jid, reason || "");
+    }
+}
+
+function getGamenetUserJid() {
+    return "GameNet";
+}
+
 function jidToUser(jid) {
     var pos = jid.indexOf('@');
     if (pos < 0)
@@ -186,4 +334,8 @@ function isGameNet(item) {
 
 function userIdToJid(userId) {
     return userId + '@' + serverUrl;
+}
+
+function isGroupJid(jid) {
+    return jid.indexOf(conferenceUrl) !== -1;
 }

@@ -50,7 +50,6 @@ Item {
         delegate: ContactItemDelegate {
             width: listView.width
             user: model
-            onClicked: select();
         }
     }
 

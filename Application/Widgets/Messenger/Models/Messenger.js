@@ -148,13 +148,13 @@ function selectedUserNickname() {
     return _modelInstance.selectedUser().nickname;
 }
 
-function selectedUserMessages() {
-    if (!userSelected()) {
-        return [];
-    }
+//function selectedUserMessages() {
+//    if (!userSelected()) {
+//        return [];
+//    }
 
-    return _modelInstance.getConversation(_modelInstance.selectedJid).messages;
-}
+//    return _modelInstance.getConversation(_modelInstance.selectedJid).messages;
+//}
 
 function eachUser(callback) {
     users().forEach(callback);
@@ -258,3 +258,65 @@ function getStatus() {
 function getUserGroups(user) {
     return _modelInstance.getUserGroups(user);
 }
+
+function setHeavyInteraction(value) {
+    _modelInstance.heavyInteraction = value;
+}
+
+
+function isGroupChatConfigOpen() {
+    return _modelInstance.isGroupChatConfigOpen;
+}
+
+function setIsGroupChatConfigOpen(value) {
+    _modelInstance.isGroupChatConfigOpen = value || false;
+}
+
+function hackJoin() {
+    _modelInstance.hackJoin();
+}
+
+function hackQueryInfo() {
+    _modelInstance.hackQueryInfo();
+}
+
+function hackQueryConfig() {
+    _modelInstance.hackQueryConfig();
+}
+
+function hackQueryPermissions() {
+    _modelInstance.hackQueryPermissions();
+}
+
+function hackSetConfig() {
+    _modelInstance.hackSetConfig();
+}
+
+function hackDestroyRoom() {
+    _modelInstance.hackDestroyRoom();
+}
+
+function hack() {
+    _modelInstance.hack()
+}
+
+function hack2() {
+    _modelInstance.hack2()
+}
+
+function hackSetBookMark() {
+    _modelInstance.hackSetBookMark();
+}
+
+function hackRemBookMark() {
+    _modelInstance.hackRemBookMark();
+}
+
+
+
+
+
+
+
+
+

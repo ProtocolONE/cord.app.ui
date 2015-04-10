@@ -1,11 +1,19 @@
 Qt.include("./Message.js");
 
-function createConversationModel(id) {
+var conferenceUrl = 'conference.qj.gamenet.ru';
+
+function isGroupJid(jid) {
+    return jid.indexOf(conferenceUrl) !== -1;
+}
+
+function createConversationModel(id, type) {
     return {
         id: id,
+        type: isGroupJid(id) ? 3 : 2, //QXmppMessage.Chat
         messages: [],
         state: 0,
         author: '',
+        historyDay: 0,
         __queryMessage: false,
     }
 }
@@ -33,6 +41,7 @@ var Conversation = function(item, model, jabber, myJid) {
     defGetter('id')
     defGetter('author')
 
+    defGetSet('type')
     defGetSet('historyDay')
     defGetSet('state')
     defGetSet('__queryMessage');
@@ -68,23 +77,31 @@ var Conversation = function(item, model, jabber, myJid) {
     });
 
     this.setTypingState = function(value) {
-        jabber.sendInputStatus(this.id, value);
+        if (this.type == 2) {
+            jabber.sendInputStatus(this.id, value);
+        }
     }
 
     this.writeMessage = function(body) {
+        if (this.type === 3 && body && body[0] === '/') {
+            this.parseCommand(body)
+            return;
+        }
+
         var message = {
             body: body,
             from: _jid,
-            type: 2, //QXmppMessage.Chat
+            type: this.type, //QXmppMessage.Chat
             state: 1 //QXmppMessage.Active
         };
 
         var time = Date.now();
 
-        var id = ConversationStorage.save(this.id, message);
-        delete message.from;
-
-        this.appendMessage(_jid, message.body, time, id);
+        if (this.type == 2) { // QXmppMessage.Chat
+            var id = ConversationStorage.save(this.id, message);
+            delete message.from;
+            this.appendMessage(_jid, message.body, time, id);
+        }
 
         jabber.sendMessageEx(this.id, message);
     }
@@ -137,12 +154,15 @@ var Conversation = function(item, model, jabber, myJid) {
 
         if (!hasStamp) {
             date = Date.now();
+            message.stamp = date;
         } else {
             date = message.stamp;
         }
 
         id = ConversationStorage.save(this.id, message);
-        this.appendMessage(fromJid, message.body, date, id);
+        if (id) { // если был дубликат, то сообщение не вставиться
+            this.appendMessage(fromJid, message.body, date, id);
+        }
 
         if (hasStamp) {
             this.query(message.stamp, date/1000|0);
@@ -192,5 +212,59 @@ var Conversation = function(item, model, jabber, myJid) {
                 this.appendRawMessage(from, true, stateMessage(state));
             }
         }
+    }
+
+    this.parseCommand = function(body) {
+        var args = body.split(' ');
+        switch(args[0]) {
+          case '/topic':
+              console.log('New topic is ', args[1]);
+              jabber.mucManager.setSubject(this.id, args[1]);
+              break;
+
+          case '/destroy':
+              _jabber.mucManager.destroyRoom(this.id, args[1] || "");
+              break;
+
+          case '/invite':
+              _jabber.invite(this.id, args[1], args[2] || "")
+//              _jabber.mucManager.setPermission(this.id, args[1], 'admin');
+//              _jabber.mucManager.sendInvitation(this.id, args[1], args[2] || "");
+              break;
+
+          case '/queryitems':
+              _jabber.discoveryManager.requestItems(this.id);
+              break
+
+          case '/queryinfo':
+              _jabber.discoveryManager.requestInfo(this.id);
+              break
+
+          case '/config':
+              _jabber.mucManager.requestConfiguration(this.id);
+              break
+          case '/permissions':
+              _jabber.mucManager.requestPermissions(this.id);
+              break
+          case '/leave':
+              _jabber.leave(this.id, args[1] || "");
+              //_jabber.mucManager.leave(this.id, args[1] || "");
+              break;
+
+          case '/kick':
+              _jabber.mucManager.kick(this.id, args[1] || "", args[2] || "");
+              break;
+          case '/ban':
+              _jabber.mucManager.ban(this.id, args[1] || "", args[2] || "");
+              break;
+
+          default:
+            this.showHelp();
+            break;
+        }
+    }
+
+    this.showHelp = function() {
+        console.log('/help');
     }
 }

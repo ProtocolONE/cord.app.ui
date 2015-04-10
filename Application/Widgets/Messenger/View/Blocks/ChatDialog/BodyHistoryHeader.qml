@@ -61,14 +61,8 @@ Item {
 
             delegate: TextButton {
                 function isEnabled(number, name) {
-                    var user = MessengerJs.selectedUser(MessengerJs.USER_INFO_JID);
-                    if (!user || !user.jid) {
-                        return false;
-                    }
-
-                    user = MessengerJs.getUser(user.jid);
-
-                    if (!user || !user.isValid) {
+                    var user = MessengerJs.selectedUser();
+                    if (!user.isValid()) {
                         return false;
                     }
 

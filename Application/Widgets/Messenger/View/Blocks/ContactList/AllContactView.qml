@@ -33,7 +33,7 @@ Item {
 
         boundsBehavior: Flickable.StopAtBounds
         clip: true
-        cacheBuffer: 300
+        cacheBuffer: 200
 
         onContentYChanged: {
             if (contentY == 0) {
@@ -44,8 +44,6 @@ Item {
         delegate: ContactItemDelegate {
             width: listView.width
             user: model
-            onClicked: select();
-            modelIndex: index
         }
     }
 
@@ -63,4 +61,3 @@ Item {
         opacity: 0.5
     }
 }
-

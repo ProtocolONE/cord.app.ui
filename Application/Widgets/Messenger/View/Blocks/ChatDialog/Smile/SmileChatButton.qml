@@ -28,7 +28,8 @@ Item {
         width: 20
         height: 20
         smooth: true
-        asynchronous: true
+        cache: false
+        asynchronous: false
         anchors.centerIn: parent
         smooth: true
 

@@ -29,7 +29,8 @@ var ConversationStorage = {
                 '`body` TEXT,' +
                 '`type` INTEGER,' +
                 '`crc`	TEXT,' +
-                'PRIMARY KEY(id)' +
+                'PRIMARY KEY(id),' +
+                'UNIQUE(crc)' +
             ')',
             'CREATE INDEX IF NOT EXISTS IDX_Messages_TS ON Messages(chatName, timestamp)',
             'CREATE INDEX IF NOT EXISTS IDX_Messages_Crc ON Messages(crc)'
@@ -76,7 +77,7 @@ var ConversationStorage = {
         to = this._jidWithoutResource(message.to);
         from = this._jidWithoutResource(message.from||bareJid);
 
-        query = "INSERT INTO Messages VALUES(NULL, ?, ?, '', ?, '', ?, ?, ?, ?)";
+        query = "INSERT OR IGNORE INTO Messages VALUES(NULL, ?, ?, '', ?, '', ?, ?, ?, ?)";
         args = [bareJid, from, to, messageDate, message.body, message.type, crc];
 
         res = this._db.executeSql(query, args);

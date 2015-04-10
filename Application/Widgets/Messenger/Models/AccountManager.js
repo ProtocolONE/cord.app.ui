@@ -22,13 +22,13 @@ function init(messenger, jabber, listModel, options) {
 
     _storageComponent = Qt.createComponent('./Storage.qml');
     if (_storageComponent.status !== 1) {
-        throw new Error('Can\'t create Storage.qml', _storageComponent.errorString());
+        throw new Error('Can\'t create Storage.qml ' + _storageComponent.errorString());
     }
     _storageInstance = _storageComponent.createObject(listModel);
 
     _managerComponent = Qt.createComponent('./AccountManager.qml');
     if (_managerComponent.status !== 1) {
-        throw new Error('Can\'t create AccountManager.qml', _managerComponent.errorString());
+        throw new Error('Can\'t create AccountManager.qml ' + _managerComponent.errorString());
     }
 
     _managerInstance = _managerComponent.createObject(listModel);
@@ -42,13 +42,6 @@ function signalBus() {
 
 _private = {
     defaultAvatarIndex: 0,
-    jidWithoutResource: function(jid) {
-        var pos = jid.indexOf('/');
-        if (pos < 0)
-            return jid;
-
-        return jid.substring(0, pos);
-    },
 
     getDefaultAvatar: function () {
         _private.defaultAvatarIndex = (_private.defaultAvatarIndex + 1) % 12;
@@ -56,8 +49,10 @@ _private = {
     },
 
     onUpdateAvatar: function(vcard) {
-        console.log('---------- ', JSON.stringify(vcard), vcard.nickName)
-        var item = _messenger.getUser(_private.jidWithoutResource(vcard.from));
+        var item = _messenger.getUser(vcard.from);
+        if (!item.isValid()) {
+            return;
+        }
 
         if (vcard.extra) {
             item.avatar = vcard.extra.PHOTOURL || item.avatar;

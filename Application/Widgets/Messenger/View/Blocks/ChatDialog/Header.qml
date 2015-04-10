@@ -26,21 +26,20 @@ Rectangle {
     id: root
 
     implicitWidth: parent.width
-    implicitHeight: 62
+    implicitHeight: contactDelegate.height// 62
     color: Styles.style.messengerChatDialogHeaderBackground
 
     ContactList.ContactItemDelegate {
+        id: contactDelegate
+
         user: MessengerJs.selectedUser(MessengerJs.USER_INFO_JID)
         anchors {
             left: parent.left
             right: parent.right
             top: parent.top
-            verticalCenter: parent.verticalCenter
         }
 
-        mouseEnabled: false
-        onNicknameClicked: App.openProfile(User.jidToUser(user.jid));
-        isBigItem: true
+        view: "header"
     }
 
     ImageButton {

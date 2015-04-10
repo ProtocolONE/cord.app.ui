@@ -43,12 +43,13 @@ function init(jabber, extendedListModel) {
     _ref = extendedListModel;
     _modelComponent = Qt.createComponent('./Storage.qml');
     if (_modelComponent.status !== 1) {
-        throw new Error('Can\'t create Storage.qml', _modelComponent.errorString());
+        throw new Error('Can\'t create Storage.qml ' + _modelComponent.errorString());
     }
 
     _modelInstance = _modelComponent.createObject(_ref);
 
     _jabber = jabber;
+
     _jabber.connected.connect(function() {
         console.log('[Conversation] Init Conversation manager for ', _jabber.myJid);
 
@@ -58,7 +59,7 @@ function init(jabber, extendedListModel) {
         ConversationStorage.init(_db);
     });
 
-     _jabber.carbonMessageReceived.connect(function(message){
+     _jabber.carbonMessageReceived.connect(function(message) {
          var bareJid = _private.jidWithoutResource(message.from),
              conv;
 
@@ -72,7 +73,7 @@ function init(jabber, extendedListModel) {
          conv.receiveMessage(bareJid, message);
      });
 
-    _jabber.messageReceived.connect(function(message){
+    _jabber.messageReceived.connect(function(message) {
         var bareJid = _private.jidWithoutResource(message.from),
             conv;
 
@@ -85,6 +86,38 @@ function init(jabber, extendedListModel) {
         conv = create(bareJid);
         conv.receiveMessage(bareJid, message);
     });
+
+    _jabber.mucManager.messageReceived.connect(function (roomJid, message) {
+        if (message.type !== 3 /*QXmppMessage.GroupChat*/) {
+            return;
+        }
+
+        if (!message.body) {
+            return;
+        }
+
+        var bareJid = _private.jidWithoutResource(message.from),
+            conv;
+
+        if (message.from === bareJid) {
+            return;
+        }
+
+        var from =_private.jidWithoutResource(_jabber.mucManager.participantFullJid(roomJid, message.from));
+        console.log('--- room message ', message.from, from, '\n', JSON.stringify(message, null, 2));
+        var tmpMessage = {
+            to: roomJid,
+            from: from,
+            type: message.type,
+            body: message.body,
+            stamp: message.stamp,
+        }
+
+        //INFO Debug purposes
+        //console.log('[Conversation] MessageReceived', JSON.stringify(message));
+        conv = create(roomJid);
+        conv.receiveMessage(from, tmpMessage);
+    });
 }
 
 function setHistorySaveInterval(value) {
@@ -96,11 +129,9 @@ function clearHistory() {
 }
 
 function create(id) {
-    var model = _ref.getById(id);
-    if (!model){
+    if (!_ref.contains(id)){
         _ref.append(createConversationModel(id));
-        model = _ref.getById(id)
     }
 
-    return new Conversation(model, _ref, _jabber, _jid);
+    return new Conversation(_ref.getById(id), _ref, _jabber, _jid);
 }

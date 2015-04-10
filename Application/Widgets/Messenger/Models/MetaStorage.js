@@ -50,6 +50,6 @@ var MetaStorage = function(db, name) {
 
 function checkDataBaseResult(res) {
     if (res.error) {
-        throw new Error(res.errorText, res.errorNumner);
+        throw new Error(res.errorText + " - " + res.errorNumber);
     }
 }
