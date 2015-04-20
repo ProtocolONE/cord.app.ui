@@ -124,7 +124,7 @@ Item {
 
                 width: parent.width
                 columns: 7
-                spacing: 22
+                spacing: 20
             }
         }
     }
