@@ -87,30 +87,4 @@ Rectangle {
             }
         }
     }
-
-    Image {
-        x: 11
-        visible: !root.showSearchTipOnly
-
-        anchors {
-            bottom: parent.bottom
-            bottomMargin: 5
-        }
-
-        source: installPath + "/Assets/Images/Application/Widgets/Messenger/EmptyContactInfo/redArrow.png"
-
-        Text {
-            text: qsTr("EMPTY_CONTACT_LIST_SYSTEM_NOTIFICATION")
-            width: 105
-            color: "#ff4f02"
-            wrapMode: Text.WordWrap
-            font.pixelSize: 14
-            anchors {
-                top: parent.top
-                topMargin: -6
-                left: parent.right
-                leftMargin: 11
-            }
-        }
-    }
 }
