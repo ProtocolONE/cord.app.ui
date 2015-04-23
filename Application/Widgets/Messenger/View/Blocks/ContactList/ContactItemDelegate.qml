@@ -64,26 +64,7 @@ Item {
                 return "";
             }
 
-            if (User.isOnline(root.presenceStatus)) {
-                var serviceId = Messenger.gamePlayingByUser(root.user);
-                if (serviceId) {
-                    var gameInfo = App.serviceItemByServiceId(serviceId);
-                    if (gameInfo) {
-                        return qsTr("MESSENGER_CONTACT_ITEM_PLAYING_STATUS_INFO").arg(gameInfo.name);
-                    }
-                }
-
-                return Messenger.userStatusMessage(root.user) || "";
-            }
-
-            var lastActivity = Messenger.userLastActivity(root.user);
-            if (!lastActivity) {
-                return "";
-            }
-
-            var currentTime = Math.max(Messenger.getCurrentTime() * 1000, Date.now());
-
-            return qsTr("LAST_ACTIVITY_PLACEHOLDER").arg(Moment.moment(lastActivity * 1000).from(currentTime));
+            return Messenger.getFullStatusMessage(root.user);
         }
 
         function presenceStatus() {
@@ -130,6 +111,10 @@ Item {
             }
 
             if (root.view === "header") {
+                if (Messenger.editGroupModel().isActive()) {
+                    return groupEditHeaderChatContactItem;
+                }
+
                 return userItem.isGroupChat ? groupHeaderChatContactItem : normalHeaderChatContactItem;
             }
 
@@ -138,11 +123,20 @@ Item {
 
         function contextClicked(user, action) {
             switch(action) {
+            case 'dump':
+                d.dump(user);
+                break;
             case 'open':
                 Messenger.selectUser(user || "");
                 break;
+            case 'leave':
+                Messenger.leaveGroup(user.jid);
+                break;
             case 'destroy':
                 d.destroyRoom(user);
+                break;
+            case "information":
+                d.showInformation(user);
                 break;
             }
 
@@ -160,7 +154,6 @@ Item {
                 return;
             }
 
-            console.log(user.jid, userItem.isGroupChat)
             userItem.destroyRoom();
         }
 
@@ -175,11 +168,24 @@ Item {
                 return [];
             }
 
-            for(var i = 0; i < userItem.participants.count; ++i) {
-                console.log(JSON.stringify(userItem.participants.get(i)))
-            }
-
             return userItem.participants;
+        }
+
+        function showInformation(user) {
+            var item = Messenger.getUser(user.jid);
+            App.openDetailedUserInfo({
+                                        userId: item.userId,
+                                        nickname: item.nickname,
+                                        status: item.presenceState
+                                    });
+        }
+
+        function dump(user) {
+            var item = Messenger.users().getById(user.jid);
+            console.log('[ContextMenu] Dump\n', JSON.stringify(item, null, 2));
+            for (var i = 0; i < item.participants.count; ++i) {
+                console.log(JSON.stringify(item.participants.get(i), null, 2))
+            }
         }
     }
 
@@ -187,6 +193,8 @@ Item {
         id: normalContactItem
 
         ContactItem {
+            id: normalContactInstance
+
             nickname: d.nickName()
             avatar: d.avatar()
             status: d.status()
@@ -198,9 +206,32 @@ Item {
             userId: d.userId()
             onClicked: root.select()
 
+            editMode: Messenger.editGroupModel().isActive()
+            checked: Messenger.editGroupModel().isSelected(root.user.jid)
+
             onRightButtonClicked: {
                 ContextMenu.show(mouse, root, contextMenu, {user: root.user});
             }
+
+            CursorMouseArea {
+                anchors.fill: parent
+                visible: Messenger.editGroupModel().isActive()
+
+                onClicked: {
+                    if (normalContactInstance.checked) {
+                        if (!Messenger.editGroupModel().owner()
+                            && !Messenger.editGroupModel().canDelete(root.user.jid)) {
+                            return;
+                        }
+
+                        Messenger.editGroupModel().removeUser(root.user.jid);
+                    } else {
+                        Messenger.editGroupModel().addUser(root.user.jid)
+                    }
+
+                }
+            }
+
         }
     }
 
@@ -208,9 +239,11 @@ Item {
         id: groupContactItem
 
         ContactItem {
+            id: cc
+
             anchors.fill: parent
 
-            nickname: d.nickName()
+            nickname: Messenger.getGroupTitle(root.user)
             avatar: d.imageRoot + 'groupChatAvatar.png';
             status: d.status()
             presenceStatus: d.presenceStatus()
@@ -220,8 +253,12 @@ Item {
             userId: d.userId()
             onClicked: root.select()
 
-            onRightButtonClicked: {
-                ContextMenu.show(mouse, root, contextMenu, {user: root.user});
+            showInformationIcon: false
+            onRightButtonClicked: ContextMenu.show(mouse, cc, contextMenu, {user: root.user});
+
+            CursorMouseArea {
+                anchors.fill: parent
+                visible: Messenger.editGroupModel().isActive()
             }
         }
     }
@@ -236,6 +273,15 @@ Item {
             extendedStatus: ''
             presenceStatus: d.presenceStatus()
             userId: d.userId()
+
+            onGroupButtonClicked: {
+                if (Messenger.editGroupModel().isActive()) {
+                    Messenger.editGroupModel().close();
+                    return;
+                }
+
+                Messenger.editGroupModel().createRoom(root.user.jid);
+            }
         }
     }
 
@@ -243,18 +289,27 @@ Item {
         id: groupHeaderChatContactItem
 
         GroupContactItemHeader {
-//            nickname: d.nickName()
-//            avatar: d.imageRoot + 'groupChatAvatar.png';
-//            status: d.status()
-//            extendedStatus: ''
-//            presenceStatus: d.presenceStatus()
-//            userId: d.userId()
-
-
+            title: Messenger.getGroupTitle(root.user)
             occupantModel: d.occupant();
             onGroupButtonClicked: {
-                var current =  Messenger.isGroupChatConfigOpen();
-                Messenger.setIsGroupChatConfigOpen(!current);
+                if (Messenger.editGroupModel().isActive()) {
+                    Messenger.editGroupModel().close();
+                    return;
+                }
+
+                Messenger.editGroupModel().startEdit(root.user.jid);
+            }
+        }
+    }
+
+    Component {
+        id: groupEditHeaderChatContactItem
+
+        GroupEditHeader {
+            occupantModel: Messenger.editGroupModel().occupants()
+            title: Messenger.editGroupModel().groupTitle();
+            onGroupButtonClicked: {
+                Messenger.editGroupModel().close();
             }
         }
     }
@@ -262,71 +317,83 @@ Item {
     Component {
         id: contextMenu
 
-        Rectangle {
-            id: contextMenuItem
-
+        ContextMenuView {
             property variant user
 
-            width: 155
-            height: actionModel.count * 27 + 2
-            color: "#19384a"
-
-            ListModel {
-                id: actionModel
-
-                ListElement {
-                    action: "open"
-                    name: "Открыть"
-                }
-
-                ListElement {
-                    action: "destroy"
-                    name: "Удалить чат"
-                }
+            onContextClicked: {
+                d.contextClicked(user, action)
+                ContextMenu.hide();
             }
 
-            Rectangle {
-                anchors {
-                    fill: parent
-                    bottomMargin: 1
-                    rightMargin: 1
-                }
-
-                color: "#00000000"
-                border {
-                    width: 1
-                    color: "#324e5e"
-                }
+            Component.onCompleted: {
+                contextMenuPrivate.fillItems();
             }
 
-            Item {
-                anchors {
-                    fill: parent
-                    margins: 1
-                }
+            QtObject {
+                id: contextMenuPrivate
 
-                ListView {
-                    id: actionListView
-                    anchors.fill: parent
-                    model: actionModel
-                    delegate: Item {
-                        width: actionListView.width
-                        height: 27
+                function fillItems() {
+                    var item = Messenger.getUser(user.jid);
+                    if (!item.isValid()) {
+                        return;
+                    }
 
-                        Text {
-                            anchors.centerIn: parent
-                            color: "#FFFFFF"
-                            text: model.name
-                        }
-
-                        CursorMouseArea {
-                            anchors.fill: parent
-                            onClicked: d.contextClicked(contextMenuItem.user, model.action)
-                        }
+                    if (item.isGroupChat) {
+                        contextMenuPrivate.fillForGroup(item);
+                    } else {
+                        contextMenuPrivate.fillForUser(item);
                     }
                 }
-            }
 
+                function fillForGroup(item) {
+                    var i
+                        , isOwner = false
+                        , selfJid = Messenger.authedUser().jid
+                        , options = [];
+
+//                    options.push({
+//                                           action: "dump",
+//                                           name: "Dump Group",
+//                                       });
+
+
+                    for(i = 0; i < item.participants.count; ++i) {
+                        var occupant = item.participants.get(i);
+                        if (occupant.jid == selfJid) {
+                            isOwner = (occupant.affiliation === "owner");
+                            break;
+                        }
+                    }
+
+                    if (isOwner) {
+                        options.push({
+                                               action: "destroy",
+                                               name: qsTr("CONTACT_CONTEXT_MENU_DESTROY_ROOM"), //"Распустить",
+                                           });
+                    } else {
+                        options.push({
+                                               action: "leave",
+                                               name: qsTr("CONTACT_CONTEXT_MENU_LEAVE"), //"Выйти",
+                                           });
+                    }
+
+                    fill(options);
+                }
+
+                function fillForUser(item) {
+                    var options = [];
+//                    options.push({
+//                                           action: "dump",
+//                                           name: "Dump User",
+//                                       });
+
+                    options.push({
+                                     name: qsTr("CONTACT_CONTEXT_MENU_INFORAMTION"),// "Информация",
+                                     action: "information"
+                                 });
+                    fill(options);
+                }
+            }
         }
     }
 

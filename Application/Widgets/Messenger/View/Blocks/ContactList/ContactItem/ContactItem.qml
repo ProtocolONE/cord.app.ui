@@ -15,6 +15,8 @@ import GameNet.Controls 1.0
 import "../../../../../../Core/Styles.js" as Styles
 import "../../../../../../Core/App.js" as App
 
+import "../../Group" as GroupEdit
+
 Rectangle {
     id: root
 
@@ -26,10 +28,14 @@ Rectangle {
     property alias presenceStatus: presenceIcon.status
 
     property bool extendedInfoEnabled: false
+    property bool showInformationIcon: true
 
     property bool isCurrent: false
     property bool isUnreadMessages: false
     property bool isHighlighted: false
+
+    property bool editMode: false
+    property bool checked: false
 
     signal clicked()
     signal rightButtonClicked(variant mouse);
@@ -97,13 +103,23 @@ Rectangle {
                 bottomMargin: 4
             }
 
-            Image {
-                id: avatarImage
-
+            Item {
                 width: 32
                 height: 32
-                cache: false
-                asynchronous: true
+
+                Image {
+                    id: avatarImage
+
+                    width: 32
+                    height: 32
+                    cache: false
+                    asynchronous: true
+                }
+
+                GroupEdit.EditCheckBox {
+                    checked: root.checked
+                    visible: root.editMode
+                }
             }
 
             Item {
@@ -163,7 +179,7 @@ Rectangle {
                         ImageButton {
                             id: informationIcon
 
-                            visible: d.extendedInfoVisible
+                            visible: root.showInformationIcon && d.extendedInfoVisible
 
                             width: 11
                             height: 11

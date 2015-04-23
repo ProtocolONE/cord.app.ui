@@ -1,7 +1,7 @@
 /****************************************************************************
 ** This file is a part of Syncopate Limited GameNet Application or it parts.
 **
-** Copyright (©) 2011 - 2014, Syncopate Limited and/or affiliates.
+** Copyright (©) 2011 - 2015, Syncopate Limited and/or affiliates.
 ** All rights reserved.
 **
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
@@ -21,7 +21,6 @@ Rectangle {
     id: root
 
     property alias occupantModel: occupantView.model
-
     property string title: ""
 
     signal nicknameClicked()
@@ -104,6 +103,7 @@ Rectangle {
                 color: Styles.style.messengerContactNickname
                 text: root.title
                 elide: Text.ElideRight
+
             }
 
             Text {
@@ -163,9 +163,8 @@ Rectangle {
                     CursorMouseArea {
                         visible: model.jid != Messenger.authedUser().jid
                         anchors.fill: parent
-                        onClicked: {
-                            Messenger.selectUser(model);
-                        }
+                        onClicked: Messenger.selectUser(model);
+
                     }
 
                 }
@@ -181,7 +180,7 @@ Rectangle {
             rightMargin: 26
         }
 
-        checked: false
+        checked: true
         onClicked: root.groupButtonClicked()
     }
 

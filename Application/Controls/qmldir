@@ -6,3 +6,5 @@ ComboBox 1.0 ComboBox.qml
 Input 1.0 Input.qml
 HiddenAppCloseButton 1.0 HiddenAppCloseButton.qml
 ScrollArea 1.0 ScrollArea.qml
+BorderedButton 1.0 BorderedButton.qml
+BorderedButtonStyle 1.0 BorderedButtonStyle.qml

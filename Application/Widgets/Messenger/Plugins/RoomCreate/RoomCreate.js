@@ -1,8 +1,5 @@
 ﻿var _private = null;
 
-// UNDONE надо б скормить снаружи
-var conferenceUrl = 'conference.qj.gamenet.ru';
-
 function init(jabber, messenger) {
     if (_private) {
         throw new Error("[CreateRoom] Already initialized");
@@ -12,11 +9,36 @@ function init(jabber, messenger) {
 }
 
 function RoomCreate(jabber, messenger) {
+    var isDebug = false;
+
     var configs = {};
 
-    // UNDONE вероятно стоит прописать полный конфиг
     var defaultConfig = {
-        membersonly: true
+        persistent: true,
+        public: false,
+        public_list: true,
+        hasPassword: false,
+        password: "",
+        maxusers: 200,
+        whois: "anyone",
+        membersonly: true,
+        moderated: true,
+        membersByDefault: true,
+        canChangeSubject: true,
+        allowPrivateMessages: true,
+        allowQueryUsers: true,
+        allowInvites: true,
+        allowVisitorStatus: true,
+        allowVisitorNickChange: true,
+        allowVoiceRequests: false,
+        voiceRequestMinInterval: 1800,
+        captchaWhitelist: []
+    };
+
+    function debug() {
+        if (isDebug) {
+            console.log.apply(console, arguments);
+        }
     }
 
     function RoomConfig(roomJid, options) {
@@ -31,11 +53,11 @@ function RoomCreate(jabber, messenger) {
         }
 
         if (!jabber.mucManager.setConfiguration(roomJid, defaultConfig)) {
-            console.log('[CreateRoom] Failed to set config');
+            debug('[CreateRoom] Failed to set config');
         }
     }
 
-    function onJoinRoom(roomJid) {
+    function applyConfig(roomJid) {
         var config;
         if (!configs.hasOwnProperty(roomJid)) {
             return;
@@ -53,17 +75,35 @@ function RoomCreate(jabber, messenger) {
         delete configs[roomJid];
     }
 
+    function onJoinRoom(roomJid) {
+        var user;
+        messenger.getUsersModel().beginBatch();
+
+        user = messenger.getUser(roomJid);
+        user.inContacts = true;
+        user.presenceState = 'online';
+
+        messenger.getUsersModel().endBatch();
+
+        applyConfig(roomJid);
+    }
+
+// INFO этот код позволяет подключиться к всем доступным комнатам
+//    _jabber.discoveryManager.itemsReceived.connect(function(items) {
+//        items.items.forEach(function(room) {
+//            _jabber.joinRoom(room.jid);
+//        });
+//    });
+
     jabber.mucManager.roomCreated.connect(onRoomCreated);
     jabber.mucManager.joined.connect(onJoinRoom);
 
     this.create = function(options) {
-        var roomJid = messenger.uuid() + '@' + conferenceUrl,
+        var roomJid = options.jid || (messenger.uuid() + '@' + jabber.conferenceUrl()),
             config = new RoomConfig(roomJid, options);
 
         configs[roomJid] = config;
-
-        jabber.mucManager.addRoom(roomJid);
-        jabber.mucManager.join(roomJid, messenger.authedUser().userId);
+        jabber.joinRoom(roomJid);
     }
 }
 

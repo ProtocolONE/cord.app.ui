@@ -4,10 +4,10 @@
 
 @set CoreArea=trunk
 @set SettingsArea=trunk
-@set GameNetQxmppArea=0.8.2
+@set GameNetQxmppArea=0.8.3
 @set OverlayArea=trunk
 @set QmlExtensionArea=trunk
-@set QxmppDeclarativeArea=1.1.1
+@set QxmppDeclarativeArea=1.1.3
 
 @echo It's necessary for QmlExtensionX86.
 @echo Copy SettingsX86.dll to qmlviewer directory

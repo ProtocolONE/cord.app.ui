@@ -9,11 +9,19 @@ function init(jabber, messenger) {
 }
 
 var Bookmarks = function(jabber, messenger) {
+    var isDebug = true;
+
     var self = this,
         queue = [],
         isReceived = false,
         bookmarks,
         knownConferences = {};
+
+    function debug() {
+        if (isDebug) {
+            console.log.apply(console, arguments);
+        }
+    }
 
     this.conference = function() {
         if (!bookmarks || !bookmarks.conferences) {
@@ -115,7 +123,7 @@ var Bookmarks = function(jabber, messenger) {
             return;
         }
 
-        console.log('jabber.bookmarkManager.received', JSON.stringify(bookmarksReceived))
+        debug('jabber.bookmarkManager.received', JSON.stringify(bookmarksReceived))
 
         isReceived = true;
         bookmarks = bookmarksReceived;
@@ -134,18 +142,30 @@ var Bookmarks = function(jabber, messenger) {
     }
 
     function onRoomJoined(roomJid) {
-        console.log('[Bookmarks] Joined ', roomJid)
+        debug('[Bookmarks] Joined ', roomJid)
         self.addConference(roomJid);
     }
 
     function onParticipantPermissions(roomJid, jid, permissions) {
-        var occupantJid = jidWithoutResource(permissions.jid);
+        var occupantJid = jidWithoutResource(permissions.jid || jabber.mucManager.participantFullJid(roomJid, jid))
+            , user;
+        debug('[Bookmarks] onParticipantPermissions ', occupantJid, roomJid, jid, permissions);
+
         if (messenger.authedUser().jid !== occupantJid) {
             return;
         }
 
         if (permissions.affiliation === "none" || permissions.affiliation === "outcast") {
+            user = messenger.getUser(roomJid);
+            user.inContacts = false;
+            user.presenceState = "";
             self.removeConference(roomJid);
+
+            if (messenger.selectedUser().jid == roomJid) {
+                messenger.closeChat();
+            }
+
+            messenger.getUsersModel().endBatch();
         }
     }
 

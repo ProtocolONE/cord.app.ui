@@ -20,12 +20,6 @@ import "JabberClient.js" as Js
 QXmppClient {
     id: xmppClient
 
-    //                logger: QXmppLogger {
-    //                    loggingType: QXmppLogger.FileLogging
-    //                    logFilePath: "D:\XmppClient.log"
-    //                    messageTypes: QXmppLogger.AnyMessage
-    //                }
-
     property int failCount: 0
     property string failDate: ""
     property string myJid: ""
@@ -126,6 +120,35 @@ QXmppClient {
 
     function parseEvent(message) {
         return JSON.parse(message.body.substr(6))
+    }
+
+    function leaveGroup(roomJid) {
+        xmppClient.mucManager.setPermission(roomJid, xmppClient.myJid, 'none');
+    }
+
+    function invite(roomJid, jid, reason) {
+        var bareJid = User.jidWithoutResource(jid)
+        xmppClient.mucManager.sendInvitationMediated(roomJid, jid, reason || "");
+    }
+
+    function joinRoomInternal(roomJid, userJid, lastMessageDate) {
+        xmppClient.mucManager.addRoom(roomJid);
+        xmppClient.mucManager.join(
+                    roomJid,
+                    userJid,
+                    {
+                        history: {
+                            since: lastMessageDate
+                        }
+                    });
+    }
+
+    function serverUrl() {
+        return User.serverUrl;
+    }
+
+    function conferenceUrl() {
+        return User.conferenceUrl();
     }
 
     Component.onCompleted: {

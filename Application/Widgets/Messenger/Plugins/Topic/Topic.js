@@ -8,7 +8,7 @@ function init(jabber, messenger) {
     var _messenger = messenger;
 
     if (_jabber) {
-        throw new Error("[RoomParticipants] Already initialized");
+        throw new Error("[Topic] Already initialized");
     }
 
     _jabber = jabber;

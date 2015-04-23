@@ -36,4 +36,17 @@ QtObject {
 
     function changeState(jid, state) {
     }
+
+    function reset() {
+        user.nickname = "";
+        user.jid = "";
+        user.userId = "";
+        user.presenceState = "";
+        user.statusMessage = "";
+        user.avatar = installPath + "/Assets/Images/Application/Widgets/Messenger/defaultAvatar.png";
+        user.unreadMessageCount = 0
+        user.lastActivity = 0;
+        user.historyDay = 0;
+        user.hasUnreadMessage = false;
+    }
 }

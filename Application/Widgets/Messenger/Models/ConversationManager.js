@@ -30,6 +30,14 @@ _private = {
     jidWithoutResource: function (jid) {
         var pos = jid.indexOf('/');
         return pos < 0 ? jid : jid.substring(0, pos);
+    },
+    chatFullJidToUser: function (roomJid) {
+        var pos = roomJid.indexOf('/');
+        if (pos < 0 || pos >= roomJid.length) {
+            return roomJid;
+        }
+
+        return roomJid.substring(pos+1) + _jabber.serverUrl();
     }
 };
 
@@ -104,7 +112,11 @@ function init(jabber, extendedListModel) {
         }
 
         var from =_private.jidWithoutResource(_jabber.mucManager.participantFullJid(roomJid, message.from));
-        console.log('--- room message ', message.from, from, '\n', JSON.stringify(message, null, 2));
+        if (!from) {
+            // Cast room@server/nickname to nickname@server - nickname is UserId
+            from = _private.chatFullJidToUser(message.from);
+        }
+
         var tmpMessage = {
             to: roomJid,
             from: from,
@@ -128,9 +140,14 @@ function clearHistory() {
     ConversationStorage.clear();
 }
 
+function isGroupJid(jid) {
+    return jid.indexOf(_jabber.conferenceUrl()) !== -1;
+}
+
 function create(id) {
-    if (!_ref.contains(id)){
-        _ref.append(createConversationModel(id));
+    if (!_ref.contains(id)) {
+        var type = isGroupJid(id) ? 3 : 2 // QXmppMessage.GroupChat || QXmppMessage.Chat
+        _ref.append(createConversationModel(id, type));
     }
 
     return new Conversation(_ref.getById(id), _ref, _jabber, _jid);

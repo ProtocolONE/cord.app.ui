@@ -26,7 +26,7 @@ Rectangle {
     id: root
 
     implicitWidth: parent.width
-    implicitHeight: contactDelegate.height// 62
+    implicitHeight: contactDelegate.height
     color: Styles.style.messengerChatDialogHeaderBackground
 
     ContactList.ContactItemDelegate {
@@ -42,36 +42,32 @@ Rectangle {
         view: "header"
     }
 
-    ImageButton {
+    Button {
         anchors {
             top: parent.top
             right: parent.right
-            rightMargin: 1
         }
 
-        width: 32
+        width: 22
         height: 32
-        styleImages: ButtonStyleImages {
-            normal: installPath + "/Assets/Images/Application/Widgets/Messenger/close_chat.png"
-            hover: installPath + "/Assets/Images/Application/Widgets/Messenger/close_chat.png"
-            disabled: installPath + "/Assets/Images/Application/Widgets/Messenger/close_chat.png"
-        }
 
-        style: ButtonStyleColors {
+        style {
             normal: "#00000000"
             hover: "#00000000"
             disabled: "#00000000"
         }
 
         onClicked: MessengerJs.closeChat();
-    }
 
-    Rectangle {
-        width: 1
-        height: parent.height
-        color: Qt.lighter(root.color, Styles.style.lighterFactor)
-        anchors {
-            right: parent.right
+        Image {
+            anchors {
+                top: parent.top
+                right: parent.right
+                rightMargin: 5
+                topMargin: 10
+            }
+
+            source: installPath + "/Assets/Images/Application/Widgets/Messenger/close_chat.png"
         }
     }
 }

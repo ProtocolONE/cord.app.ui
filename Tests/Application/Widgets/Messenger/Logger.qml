@@ -4,7 +4,6 @@ import QXmpp 1.0
 
 import GameNet.Controls 1.0
 
-import "vkbeautify.0.99.00.beta.js" as Vkbeautify
 import "pretty-data.js" as Pd
 
 Window {
@@ -39,7 +38,6 @@ Window {
 
         function pritty(xml) {
             return Pd.pd.xml(xml);
-            //return Vkbeautify.beautify.xml(xml) || xml;
         }
 
         function rawMessage() {

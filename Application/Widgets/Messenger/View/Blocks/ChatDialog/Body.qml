@@ -57,12 +57,16 @@ Rectangle {
 
         function isSelfMessageTest(jid){
             var user = MessengerJs.authedUser();
+            if (!user.jid) {
+                return false;
+            }
+
             return user.jid === jid;
         }
 
         function isSameJid(index, from, fromDay) {
             if (index <= 0 || index >= model.count) {
-                return true;
+                return true; // UNDONE тут вроде хочется false
             }
 
             var hitJid = model.get(index - 1).jid !== from;

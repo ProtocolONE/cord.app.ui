@@ -20,11 +20,20 @@ TrayPopupBase {
     property string jid
     property string messageText
     property string avatar: MessengerJs.userAvatar(root)
-    property string nickname: MessengerJs.getNickname(root)
+    property string nickname: root.getTitle()
     property string playingGameServiceId: MessengerJs.userPlayingGame(root)
     property int newHeight: bodyItem.height + 60 + (playingRow.visible ? playingRow.height : 0)
     property variant message
     property bool isCropped: false
+
+    function getTitle() {
+        var user = MessengerJs.getUser(root.jid);
+        if (user.isGroupChat) {
+            return MessengerJs.getGroupTitle(root);
+        }
+
+        return user.nickname;
+    }
 
     onMessageChanged: {
         var messageDate = Date.now(),

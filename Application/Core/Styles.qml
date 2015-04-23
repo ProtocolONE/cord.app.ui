@@ -200,6 +200,38 @@ Item {
     // MAINTENANCE BLOCK
     property color maintenanceBackground: '#082135'
 
+    //MESSENGER BUTTONS STYLE
+    property color messengerActiveButtonBorder: "#1abc9c"
+    property color messengerActiveButtonNormal: "#481abc9c"
+    property color messengerActiveButtonHover: "#1abc9c"
+    property color messengerActiveButtonDisabled: "#00000000"
+
+    property color messengerInactiveButtonBorder: "#24475a"
+    property color messengerInactiveButtonNormal: "#00000000"
+    property color messengerInactiveButtonHover: "#1abc9c"
+    property color messengerInactiveButtonDisabled: "#00000000"
+
+    //MESSENGER CONTEXT MENU
+    property color messengerContextMenuBackground: "#19384a"
+    property color messengerContextMenuBorder: "#324e5e"
+    property color messengerContextMenuItemHover: "#002336"
+    property color messengerContextMenuItemTextNormal: "#a1c1d2"
+    property color messengerContextMenuItemTextHover: "#a1c1d2"
+
+    //MESSENGER GROUP EDIT INPUT
+    property color messengerGroupEditInputNormal: "#324e5e"
+    property color messengerGroupEditInputPlaceholder: "#517284"
+    property color messengerGroupEditInputText: "#ffffff"
+    property color messengerGroupEditInputBackground: "#183240"
+
+    // MESSENGER EDIT VIEW
+    property color messengerGroupEditBorder: "#324e5e"
+    property color messengerGroupEditBackground: "#002336"
+
+    property color messengerGroupEditMemberItemHover: "#133345"
+    property color messengerGroupEditMemberItemText: "#ffffff"
+    property color messengerGroupEditMemberItemStatusText: "#a1c1d2"
+
     //MESSENGER SEARCH
     property color messengerSearchBackground: "#324e5e"
     property color messengerSearchButtonNormal: "#1ABC9C"
@@ -212,7 +244,6 @@ Item {
     property color messengerSearchInputPlaceholder: "#3e7090"
     property color messengerSearchInputText: "#3e7090"
     property color messengerSearchInputTextHover: "#ffffff"
-
 
     property color messengerWebSearchBackground: '#ffffff'
     property color messengerWebSearchBackgroundText: '#ffffff'
@@ -260,8 +291,6 @@ Item {
     property color messengerMessageInputBorder: "#b2b2b2"
     property color messengerMessageInputTextBackground: "#002336"
     property color messengerMessageInputText: "#252932"
-    property color messengerMessageInputSendButtonNormal: "#1D5248"
-    property color messengerMessageInputSendButtonHover: "#1ABC9C"
     property color messengerMessageInputSendButtonText: "#FAFAFA"
     property color messengerMessageInputSendHotkeyText: "#8596A6"
     property color messengerMessageInputPin: '#8badbb'
@@ -288,6 +317,7 @@ Item {
     property color messangerChatDialogScrollBar: "#F0F5F8"
     property color messangerChatDialogScrollBarCursor: '#95999b'
     property color messengerChatDialogBodySection: "#324E5E"
+    property color messengerChatDialogBorder: "#324e5e"
 
     //MESSENGER CHAT HISTORY
     property color messengerChatDialogHistoryNavigateButtonNormal: "#3498db"
@@ -320,6 +350,13 @@ Item {
 
     //MESSENGER EMPTY CONTACTS INFO
     property color messengerEmptyContactListInfoBackground: "#EEEEEE"
+
+    //MESSENGER EDIT GROUP CHECKBOX
+    property color messengerEditGroupCheckboxNotCheckedBackground: "#000000"
+    property color messengerEditGroupCheckboxNotCheckedBorder: "#FFFFFF"
+    property color messengerEditGroupCheckboxCheckedBackground: "#1abc9c"
+    property color messengerEditGroupCheckboxCheckedCenterBackground: "#1d5248"
+    property color messengerEditGroupCheckboxCheckedBorder: "#1d5248"
 
     // Smile panel
     property color messengerSmilePanelBackground: "#001f30"

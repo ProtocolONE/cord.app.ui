@@ -254,3 +254,27 @@ function getUserGroups(user) {
 function setHeavyInteraction(value) {
     _modelInstance.heavyInteraction = value;
 }
+
+function editGroupModel() {
+    return _modelInstance.editGroupModel();
+}
+
+function leaveGroup(roomJid) {
+    _modelInstance.leaveGroup(roomJid);
+}
+
+function getGroupTitle(user) {
+    return _modelInstance.getGroupTitle(user);
+}
+
+function getFullStatusMessage(user) {
+    return _modelInstance.getFullStatusMessage(user);
+}
+
+function changeOwner(roomJid, user) {
+    _modelInstance.changeOwner(roomJid, user)
+}
+
+
+
+

@@ -1355,11 +1355,11 @@ Please try again later.</source>
     <name>ContactItemDelegate</name>
     <message>
         <source>LAST_ACTIVITY_PLACEHOLDER</source>
-        <translation>Был %1</translation>
+        <translation type="vanished">Был %1</translation>
     </message>
     <message>
         <source>MESSENGER_CONTACT_ITEM_PLAYING_STATUS_INFO</source>
-        <translation>Играет в %1</translation>
+        <translation type="vanished">Играет в %1</translation>
     </message>
     <message>
         <source>CONTACT_ITEM_EXTENDED_STATUS_ONLY_GAMENET_FRINED</source>
@@ -1372,6 +1372,25 @@ Please try again later.</source>
     <message>
         <source>CONTACT_ITEM_EXTENDED_STATUS</source>
         <translation type="vanished">Друг в %1</translation>
+    </message>
+    <message>
+        <source>CONTACT_CONTEXT_MENU_DESTROY_ROOM</source>
+        <translation>Распустить</translation>
+    </message>
+    <message>
+        <source>CONTACT_CONTEXT_MENU_LEAVE</source>
+        <translation>Выйти</translation>
+    </message>
+    <message>
+        <source>CONTACT_CONTEXT_MENU_INFORAMTION</source>
+        <translation>Информация</translation>
+    </message>
+</context>
+<context>
+    <name>ContactItemHeader</name>
+    <message>
+        <source>CONTACT_ITEM_NICKNAME_TOOLTIP</source>
+        <translation type="unfinished">Кликните, чтобы перейти к профилю %1</translation>
     </message>
 </context>
 <context>
@@ -1527,6 +1546,37 @@ Please try again later.</source>
     <message>
         <source>DOWNLOAD_STATUS_ERROR</source>
         <translation>Ошибка</translation>
+    </message>
+</context>
+<context>
+    <name>EditView</name>
+    <message>
+        <source>GROUP_EDIT_TOPIC_PLACEHOLDER</source>
+        <translation>Название группы</translation>
+    </message>
+    <message>
+        <source>GROUP_EDIT_SAVE_CHANGE</source>
+        <translation>Сохранить группу</translation>
+    </message>
+    <message>
+        <source>GROUP_EDIT_CONTEXT_MENU_INFORAMTION</source>
+        <translation>Информация</translation>
+    </message>
+    <message>
+        <source>GROUP_EDIT_CONTEXT_MENU_KICK</source>
+        <translation>Выгнать</translation>
+    </message>
+    <message>
+        <source>GROUP_EDIT_CONTEXT_MENU_CHANGE_OWNER</source>
+        <translation>Сделать владельцем</translation>
+    </message>
+    <message>
+        <source>MESSENGER_CHANGE_OWNER_ALERT_TITLE</source>
+        <translation>Внимание</translation>
+    </message>
+    <message>
+        <source>MESSENGER_CHANGE_OWNER_ALERT_BODY</source>
+        <translation>Вы уверены, что хотите сделать владельцем группы %1?</translation>
     </message>
 </context>
 <context>
@@ -2760,6 +2810,36 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>GroupContactItemHeader</name>
+    <message>
+        <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_SINGLE</source>
+        <translation>участник</translation>
+    </message>
+    <message>
+        <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_DOUBLE</source>
+        <translation>участника</translation>
+    </message>
+    <message>
+        <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_MULTIPLE</source>
+        <translation>участников</translation>
+    </message>
+</context>
+<context>
+    <name>GroupEditHeader</name>
+    <message>
+        <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_SINGLE</source>
+        <translation>участник</translation>
+    </message>
+    <message>
+        <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_DOUBLE</source>
+        <translation>участника</translation>
+    </message>
+    <message>
+        <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_MULTIPLE</source>
+        <translation>участников</translation>
+    </message>
+</context>
+<context>
     <name>Guide</name>
     <message>
         <source>BUTTON_PREV</source>
@@ -3449,6 +3529,14 @@ Please try again later.</source>
     <message>
         <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
         <translation>Уведомления от проекта GameNet</translation>
+    </message>
+    <message>
+        <source>MESSENGER_CONTACT_ITEM_PLAYING_STATUS_INFO</source>
+        <translation>Играет в %1</translation>
+    </message>
+    <message>
+        <source>LAST_ACTIVITY_PLACEHOLDER</source>
+        <translation>Был %1</translation>
     </message>
 </context>
 <context>

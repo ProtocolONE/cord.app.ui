@@ -169,8 +169,11 @@ Item {
                                 return;
                             }
 
-                            if (link.indexOf(startServicePattern) === 0) {
-                                serviceId = link.substring(startServicePattern.length);
+                            serviceMatch = link.match(startServicePattern);
+                            if (!serviceMatch) {
+                                App.openExternalUrl(link);
+                                return;
+                            }
 
                                 if (App.serviceExists(serviceId)) {
                                     App.selectService(serviceId);

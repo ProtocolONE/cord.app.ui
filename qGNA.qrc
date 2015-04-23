@@ -63,6 +63,8 @@
 		<file>Application/Blocks/SplashScreen/Background.qml</file>
 		<file>Application/Blocks/SplashScreen/UpdateManager.qml</file>
 		<file>Application/Bootstrap.qml</file>
+		<file>Application/Controls/BorderedButton.qml</file>
+		<file>Application/Controls/BorderedButtonStyle.qml</file>
 		<file>Application/Controls/ComboBox.qml</file>
 		<file>Application/Controls/HiddenAppCloseButton.qml</file>
 		<file>Application/Controls/Input.qml</file>
@@ -101,6 +103,7 @@
 		<file>Application/Core/Popup.js</file>
 		<file>Application/Core/Popup.qml</file>
 		<file>Application/Core/restapi.js</file>
+		<file>Application/Core/StringHelper.js</file>
 		<file>Application/Core/Styles.js</file>
 		<file>Application/Core/Styles.qml</file>
 		<file>Application/Core/TrayPopup.js</file>
@@ -225,10 +228,14 @@
 		<file>Application/Widgets/Messenger/Addons/Notifications.qml</file>
 		<file>Application/Widgets/Messenger/Addons/Popups.qml</file>
 		<file>Application/Widgets/Messenger/Model.qml</file>
-		<file>Application/Widgets/Messenger/Models/Accounts.js</file>
+		<file>Application/Widgets/Messenger/Models/AccountManager.js</file>
+		<file>Application/Widgets/Messenger/Models/AccountManager.qml</file>
+		<file>Application/Widgets/Messenger/Models/AccountStorage.js</file>
 		<file>Application/Widgets/Messenger/Models/Conversation.js</file>
 		<file>Application/Widgets/Messenger/Models/ConversationManager.js</file>
 		<file>Application/Widgets/Messenger/Models/ConversationStorage.js</file>
+		<file>Application/Widgets/Messenger/Models/GroupEditModel.qml</file>
+		<file>Application/Widgets/Messenger/Models/Helpers/TimeHelper.js</file>
 		<file>Application/Widgets/Messenger/Models/JabberClient.js</file>
 		<file>Application/Widgets/Messenger/Models/JabberClient.qml</file>
 		<file>Application/Widgets/Messenger/Models/Message.js</file>
@@ -237,22 +244,28 @@
 		<file>Application/Widgets/Messenger/Models/MessengerPrivate.js</file>
 		<file>Application/Widgets/Messenger/Models/MetaStorage.js</file>
 		<file>Application/Widgets/Messenger/Models/Migrations/History.qml</file>
-		<file>Application/Widgets/Messenger/Models/Private/AllContacts.js</file>
-		<file>Application/Widgets/Messenger/Models/Private/AllContacts.qml</file>
-		<file>Application/Widgets/Messenger/Models/Private/PlayingGame.js</file>
-		<file>Application/Widgets/Messenger/Models/Private/PlayingGame.qml</file>
-		<file>Application/Widgets/Messenger/Models/Private/RecentConversation.js</file>
-		<file>Application/Widgets/Messenger/Models/Private/RecentConversation.qml</file>
+		<file>Application/Widgets/Messenger/Models/Occupant.js</file>
 		<file>Application/Widgets/Messenger/Models/Settings.js</file>
-		<file>Application/Widgets/Messenger/Models/Smiles.js</file>
-		<file>Application/Widgets/Messenger/Models/Smiles.qml</file>
-		<file>Application/Widgets/Messenger/Models/SmilesPrivate.js</file>
 		<file>Application/Widgets/Messenger/Models/Storage.qml</file>
-		<file>Application/Widgets/Messenger/Models/StringHelper.js</file>
-		<file>Application/Widgets/Messenger/Models/TimeHelper.js</file>
 		<file>Application/Widgets/Messenger/Models/User.js</file>
 		<file>Application/Widgets/Messenger/Models/User.qml</file>
+		<file>Application/Widgets/Messenger/Models/UserModels/AllContacts.js</file>
+		<file>Application/Widgets/Messenger/Models/UserModels/AllContacts.qml</file>
+		<file>Application/Widgets/Messenger/Models/UserModels/PlayingGame.js</file>
+		<file>Application/Widgets/Messenger/Models/UserModels/PlayingGame.qml</file>
+		<file>Application/Widgets/Messenger/Models/UserModels/RecentConversation.js</file>
+		<file>Application/Widgets/Messenger/Models/UserModels/RecentConversation.qml</file>
 		<file>Application/Widgets/Messenger/PluginContainer.qml</file>
+		<file>Application/Widgets/Messenger/Plugins/AutoJoin/Autojoin.js</file>
+		<file>Application/Widgets/Messenger/Plugins/Bookmarks/Bookmarks.js</file>
+		<file>Application/Widgets/Messenger/Plugins/ChatCommands/ChatCommands.js</file>
+		<file>Application/Widgets/Messenger/Plugins/Events/Events.js</file>
+		<file>Application/Widgets/Messenger/Plugins/RoomCreate/RoomCreate.js</file>
+		<file>Application/Widgets/Messenger/Plugins/RoomParticipants/RoomParticipants.js</file>
+		<file>Application/Widgets/Messenger/Plugins/Smiles/Smiles.js</file>
+		<file>Application/Widgets/Messenger/Plugins/Smiles/Smiles.qml</file>
+		<file>Application/Widgets/Messenger/Plugins/Smiles/SmilesPrivate.js</file>
+		<file>Application/Widgets/Messenger/Plugins/Topic/Topic.js</file>
 		<file>Application/Widgets/Messenger/qmldir</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml</file>
@@ -269,8 +282,15 @@
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/AllContactView.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactFilter.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/ContactItem.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/ContactItemHeader.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/EditGroupButton.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupContactItemHeader.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupEditHeader.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/PresenceIcon.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContextMenuView.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/NavigatableContactList.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/NavigatableListView.qml</file>
@@ -283,9 +303,17 @@
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Splash.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/Group/EditCheckBox.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/Group/EditView.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/Group/EditViewBackground.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/Group/GroupNameInput.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/Group/MemberItem.qml</file>
 		<file>Application/Widgets/Messenger/View/Chat.qml</file>
 		<file>Application/Widgets/Messenger/View/Contacts.qml</file>
 		<file>Application/Widgets/Messenger/View/GameNetNotification.qml</file>
+		<file>Application/Widgets/Messenger/View/Styles/ActiveButtonStyle.qml</file>
+		<file>Application/Widgets/Messenger/View/Styles/CheckButtonStyle.qml</file>
+		<file>Application/Widgets/Messenger/View/Styles/InactiveButtonStyle.qml</file>
 		<file>Application/Widgets/Money/MoneyModel.qml</file>
 		<file>Application/Widgets/Money/PluginContainer.qml</file>
 		<file>Application/Widgets/Money/qmldir</file>

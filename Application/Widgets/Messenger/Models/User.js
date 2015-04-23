@@ -10,7 +10,10 @@
 .pragma library
 
 var serverUrl;
-var conferenceUrl = 'conference.qj.gamenet.ru';
+
+function conferenceUrl() {
+    return "conference." + serverUrl;
+}
 
 Qt.include("./Helpers/TimeHelper.js");
 
@@ -88,6 +91,10 @@ function User(item, model, jabber) {
 
     var defGetter = function(field) {
         self.__defineGetter__(field, function() {
+            if (!_item) {
+                throw new Error("Can't get " + field + " of user.");
+            }
+
             return _item[field];
         });
     }
@@ -104,7 +111,7 @@ function User(item, model, jabber) {
     }
 
     function warmUpVCard() {
-        if (!_item.__vCardRequested) {
+        if (!_item.__vCardRequested && jabber.isConnected()) {
             _model.setPropertyById(self.jid, '__vCardRequested', true);
             jabber.vcardManager.requestVCard(self.jid);
         }
@@ -129,8 +136,10 @@ function User(item, model, jabber) {
     defGetSet("unreadMessageCount");
     defGetSet("lastTalkDate");
     defGetSet("playingGame");
+    defGetSet("inContacts");
 
     defGetter("isGamenet");
+    defGetter("isGroupChat");
 
     this.__defineGetter__("online", function() {
         return isOnline(self.presenceState);
@@ -221,12 +230,10 @@ function GroupChat(item, model, jabber) {
     defGetSet("unreadMessageCount");
     defGetSet("lastTalkDate");
     defGetSet("playingGame");
-
     defGetSet("inContacts");
 
     defGetter("online");
     defGetter("isGamenet");
-
     defGetter("isGroupChat");
 
     this.__defineGetter__("hasUnreadMessage", function() {
@@ -261,12 +268,6 @@ function GroupChat(item, model, jabber) {
 
 
     this.__defineGetter__("participants", function() {
-//        var result = [];
-//        for (var j = 0; j < _item.groups.count; j++) {
-//            result.push(_item.participants.get(j).name);
-//        }
-//        return result;
-
         return _item.participants;
     });
 
@@ -332,5 +333,5 @@ function userIdToJid(userId) {
 }
 
 function isGroupJid(jid) {
-    return jid.indexOf(conferenceUrl) !== -1;
+    return jid.indexOf(conferenceUrl()) !== -1;
 }

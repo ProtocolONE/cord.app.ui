@@ -1,15 +1,9 @@
 Qt.include("./Message.js");
 
-var conferenceUrl = 'conference.qj.gamenet.ru';
-
-function isGroupJid(jid) {
-    return jid.indexOf(conferenceUrl) !== -1;
-}
-
 function createConversationModel(id, type) {
     return {
         id: id,
-        type: isGroupJid(id) ? 3 : 2, //QXmppMessage.Chat
+        type: type,
         messages: [],
         state: 0,
         author: '',
@@ -83,15 +77,15 @@ var Conversation = function(item, model, jabber, myJid) {
     }
 
     this.writeMessage = function(body) {
-        if (this.type === 3 && body && body[0] === '/') {
-            this.parseCommand(body)
+        if (body && body[0] === '/') {
+            jabber.chatCommand(this.id, body);
             return;
         }
 
         var message = {
             body: body,
             from: _jid,
-            type: this.type, //QXmppMessage.Chat
+            type: this.type, //QXmppMessage.Chat or QXmppMessage.GroupChat
             state: 1 //QXmppMessage.Active
         };
 
@@ -159,9 +153,13 @@ var Conversation = function(item, model, jabber, myJid) {
             date = message.stamp;
         }
 
-        id = ConversationStorage.save(this.id, message);
-        if (id) { // если был дубликат, то сообщение не вставиться
+        if (this.type === 3 && !hasStamp) {
             this.appendMessage(fromJid, message.body, date, id);
+        } else {
+            id = ConversationStorage.save(this.id, message);
+            if (id) { // если был дубликат, то сообщение не вставиться
+                this.appendMessage(fromJid, message.body, date, id);
+            }
         }
 
         if (hasStamp) {
@@ -214,57 +212,4 @@ var Conversation = function(item, model, jabber, myJid) {
         }
     }
 
-    this.parseCommand = function(body) {
-        var args = body.split(' ');
-        switch(args[0]) {
-          case '/topic':
-              console.log('New topic is ', args[1]);
-              jabber.mucManager.setSubject(this.id, args[1]);
-              break;
-
-          case '/destroy':
-              _jabber.mucManager.destroyRoom(this.id, args[1] || "");
-              break;
-
-          case '/invite':
-              _jabber.invite(this.id, args[1], args[2] || "")
-//              _jabber.mucManager.setPermission(this.id, args[1], 'admin');
-//              _jabber.mucManager.sendInvitation(this.id, args[1], args[2] || "");
-              break;
-
-          case '/queryitems':
-              _jabber.discoveryManager.requestItems(this.id);
-              break
-
-          case '/queryinfo':
-              _jabber.discoveryManager.requestInfo(this.id);
-              break
-
-          case '/config':
-              _jabber.mucManager.requestConfiguration(this.id);
-              break
-          case '/permissions':
-              _jabber.mucManager.requestPermissions(this.id);
-              break
-          case '/leave':
-              _jabber.leave(this.id, args[1] || "");
-              //_jabber.mucManager.leave(this.id, args[1] || "");
-              break;
-
-          case '/kick':
-              _jabber.mucManager.kick(this.id, args[1] || "", args[2] || "");
-              break;
-          case '/ban':
-              _jabber.mucManager.ban(this.id, args[1] || "", args[2] || "");
-              break;
-
-          default:
-            this.showHelp();
-            break;
-        }
-    }
-
-    this.showHelp = function() {
-        console.log('/help');
-    }
 }

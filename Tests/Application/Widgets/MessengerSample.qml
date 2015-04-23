@@ -12,6 +12,8 @@ import GameNet.Components.Widgets 1.0
 import GameNet.Components.JobWorker 1.0
 import GameNet.Controls 1.0
 
+import Application.Controls 1.0
+
 import "../../../Application/Core/App.js" as App
 import "../../../Application/Core/TrayPopup.js" as TrayPopup
 import "../../../Application/Widgets/Messenger/Models/Messenger.js" as MessengerJs
@@ -20,15 +22,16 @@ import "../../../Application/Core/Styles.js" as Styles
 import "../../../Application/Core/restapi.js" as RestApi
 import "../../../Application/Core/EmojiOne.js" as EmojiOne
 import "../../../Application/Core/User.js" as UserJs
+import "../../../Application/Core/MessageBox.js" as MessageBox
 
 import "../../../GameNet/Core/lodash.js" as Lodash
 import "../../../GameNet/Core/RestApi.js" as RestApiG
 import "../../../GameNet/Controls/Tooltip.js" as Tooltip
 import "../../../GameNet/Controls/ContextMenu.js" as ContexMenu
 
-
 import "./Messenger/Logger.js" as Logger
 
+import "../../../Application/Widgets/Messenger/View/Styles"
 
 Rectangle {
     id: root
@@ -60,7 +63,11 @@ Rectangle {
         Moment.moment.lang('ru');
 
         Logger.init(MessengerJs.dataModel.client);
+
+        MessageBox.init(messageLayer);
+
         d.initRestApi();
+        //MessengerJs.selectUser({ jid:  "qwe" })
     }
 
     QtObject {
@@ -121,9 +128,10 @@ Rectangle {
                 d.requestServices();
             }
 
+            enabled: !MessengerJs.authedUser().jid
             width: 100
             height: 30
-            text: 'Master'
+            text: 'Master 02'
             onClicked: startAuth();
         }
 
@@ -144,10 +152,37 @@ Rectangle {
                 d.requestServices();
             }
 
+            enabled: !MessengerJs.authedUser().jid
             width: 100
             height: 30
-            text: 'Slave'
+            text: '8Alex8'
             onClicked: startAuth2();
+        }
+
+        Button {
+            function startAuth3() {
+                //d.authDone('400001000005869460', 'fac8da16caa762f91607410d2bf428fb7e4b2c5e'); //0 friends
+                //d.authDone('400001000000065690', 'cd34fe488b93d254243fa2754e86df8ffbe382b9'); //300+ friends
+                //d.authDone('400001000000000110', '6c5f39adaaa18c3b4a6d8f4af5289ecf76029af2'); //800+ friends
+                //d.authDone('400001000000073060', '6f2d51fcb4fbc0db43e02c5b855ef1f10f9d5a75'); //3600+ friends
+                //d.authDone('400001000005959640', '1123cf8d91aabb9ebc8345def6a13772cc020498');
+                //d.authDone('400001000001709240', '570e3c3e59c7c4d7a1b322a0e25f231752814dc6'); // gna2@unit.test
+                //d.authDone('400001000030060540', '23c936940e97a2972e55947c9f63e3471583972c'); //300+ friends
+
+                //d.authDone('400001000002212660', '04b47ad21518058fa9d441a6d50abdfa2d21e252'); // gna3@unit.test
+                //d.authDone('400001000001709240', '570e3c3e59c7c4d7a1b322a0e25f231752814dc6'); // gna2@unit.test
+                //d.authDone('400001000001634860', '4c2f65777d38eb07d32d111061005dcd5a119150');
+
+                d.authDone('400001000002837740', 'e46bbb8616670c79dabaa963f0d29fe08d100685'); // gna4@unit.test
+
+                d.requestServices();
+            }
+
+            enabled: !MessengerJs.authedUser().jid
+            width: 100
+            height: 30
+            text: 'Iuan'
+            onClicked: startAuth3();
         }
 
         Button {
@@ -200,6 +235,7 @@ Rectangle {
             manager.registerWidget('Application.Widgets.UserProfile');
             manager.registerWidget('Application.Widgets.Messenger');
             manager.registerWidget('Application.Widgets.DetailedUserInfo');
+            manager.registerWidget('Application.Widgets.AlertAdapter');
             manager.init();
         }
     }
@@ -217,62 +253,6 @@ Rectangle {
                 Column {
                     anchors.fill: parent
                     spacing: 10
-
-                    Button {
-                        width: 100
-                        height: 30
-                        text: "Join"
-                        onClicked: MessengerJs.hackJoin();
-                    }
-
-                    Button {
-                        width: 100
-                        height: 30
-                        text: "Add Bookmark"
-                        onClicked: MessengerJs.hackSetBookMark()
-                    }
-
-                    Button {
-                        width: 100
-                        height: 30
-                        text: "Rem Bookmark "
-                        onClicked: MessengerJs.hackRemBookMark();
-                    }
-
-                    Button {
-                        width: 100
-                        height: 30
-                        text: "set config"
-                        onClicked: MessengerJs.hackSetConfig()
-                    }
-
-                    Button {
-                        width: 100
-                        height: 30
-                        text: "query permissions"
-                        onClicked: MessengerJs.hackQueryPermissions()
-                    }
-
-                    Button {
-                        width: 100
-                        height: 30
-                        text: "destroy room"
-                        onClicked: MessengerJs.hackDestroyRoom()
-                    }
-
-                    Button {
-                        width: 100
-                        height: 30
-                        text: "invite"
-                        onClicked: MessengerJs.hack()
-                    }
-
-                    Button {
-                        width: 100
-                        height: 30
-                        text: "kick self"
-                        onClicked: MessengerJs.hack2()
-                    }
 
                 }
             }
@@ -333,4 +313,11 @@ Rectangle {
 
         anchors.fill: parent
     }
+
+    Item {
+        id: messageLayer
+
+        anchors.fill: parent
+    }
+
 }

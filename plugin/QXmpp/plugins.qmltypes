@@ -2,7 +2,7 @@
 // This file describes the plugin-supplied types contained in the library.
 // It is used for QML tooling purposes only.
 //
-// This file was auto-generated with the command 'D:\Qt\Qt5.2.1\5.2.1\msvc2010\bin\qml1plugindump -path ./plugin/QXmpp'.
+// This file was auto-generated with the command 'D:\Qt\521b_2\bin\qml1plugindump -path ./plugin/QXmpp'.
 
 Module {
     Component { name: "QXmppClientExtension"; prototype: "QXmppLoggable" }
@@ -74,6 +74,16 @@ Module {
         exportMetaObjectRevisions: [0]
     }
     Component {
+        name: "QmlQXmppBookmarkManager"
+        prototype: "QObject"
+        exports: ["QXmpp/QmlQXmppBookmarkManager 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method {
+            name: "setBookmarks"
+            Parameter { name: "bookmarks"; type: "QVariantMap" }
+        }
+    }
+    Component {
         name: "QmlQXmppClient"
         defaultProperty: "data"
         prototype: "QDeclarativeItem"
@@ -125,9 +135,29 @@ Module {
             isPointer: true
         }
         Property { name: "pepManager"; type: "QmlQXmppPEPManager"; isReadonly: true; isPointer: true }
+        Property { name: "mucManager"; type: "QmlQXmppMucManager"; isReadonly: true; isPointer: true }
+        Property {
+            name: "discoveryManager"
+            type: "QmlQXmppDiscoveryManager"
+            isReadonly: true
+            isPointer: true
+        }
+        Property {
+            name: "bookmarkManager"
+            type: "QmlQXmppBookmarkManager"
+            isReadonly: true
+            isPointer: true
+        }
+        Property { name: "logger"; type: "QmlQXmppLogger"; isReadonly: true; isPointer: true }
         Property { name: "clientStatusType"; type: "StatusType"; isReadonly: true }
         Property { name: "clientStatusText"; type: "string"; isReadonly: true }
         Method { name: "connectUsingConfiguration" }
+        Method {
+            name: "connectToServer"
+            Parameter { name: "jid"; type: "string" }
+            Parameter { name: "password"; type: "string" }
+            Parameter { name: "options"; type: "QVariantMap" }
+        }
         Method {
             name: "connectToServer"
             Parameter { name: "jid"; type: "string" }
@@ -160,6 +190,48 @@ Module {
         Property { name: "autoReconnectionEnabled"; type: "bool" }
         Property { name: "keepAliveInterval"; type: "int" }
         Property { name: "keepAliveTimeout"; type: "int" }
+        Property { name: "streamManagementMode"; type: "int" }
+    }
+    Component {
+        name: "QmlQXmppDiscovery"
+        prototype: "QObject"
+        exports: ["QXmpp/QmlQXmppDiscovery 1.0"]
+        exportMetaObjectRevisions: [0]
+        Property { name: "id"; type: "string"; isReadonly: true }
+        Property { name: "features"; type: "QStringList"; isReadonly: true }
+        Property { name: "identities"; type: "QVariantList"; isReadonly: true }
+        Property { name: "items"; type: "QVariantList"; isReadonly: true }
+        Property { name: "queryNode"; type: "string"; isReadonly: true }
+        Property { name: "queryType"; type: "string"; isReadonly: true }
+        Property { name: "form"; type: "QVariantMap"; isReadonly: true }
+    }
+    Component {
+        name: "QmlQXmppDiscoveryManager"
+        prototype: "QObject"
+        exports: ["QXmpp/QmlQXmppDiscoveryManager 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method {
+            name: "requestInfo"
+            type: "string"
+            Parameter { name: "jid"; type: "string" }
+            Parameter { name: "node"; type: "string" }
+        }
+        Method {
+            name: "requestInfo"
+            type: "string"
+            Parameter { name: "jid"; type: "string" }
+        }
+        Method {
+            name: "requestItems"
+            type: "string"
+            Parameter { name: "jid"; type: "string" }
+            Parameter { name: "node"; type: "string" }
+        }
+        Method {
+            name: "requestItems"
+            type: "string"
+            Parameter { name: "jid"; type: "string" }
+        }
     }
     Component {
         name: "QmlQXmppGaming"
@@ -195,6 +267,25 @@ Module {
             Parameter { name: "bareJid"; type: "string" }
         }
         Method { name: "requestLastActivity"; type: "string" }
+    }
+    Component {
+        name: "QmlQXmppLogger"
+        prototype: "QObject"
+        exports: ["QXmpp/QmlQXmppLogger 1.0"]
+        exportMetaObjectRevisions: [0]
+        Enum {
+            name: "MessageTypes"
+            values: {
+                "NoMessage": 0,
+                "DebugMessage": 1,
+                "InformationMessage": 2,
+                "WarningMessage": 4,
+                "ReceivedMessage": 8,
+                "SentMessage": 16,
+                "AnyMessage": 31
+            }
+        }
+        Property { name: "enabled"; type: "bool" }
     }
     Component {
         name: "QmlQXmppMessage"
@@ -239,6 +330,129 @@ Module {
         Property { name: "from"; type: "string"; isReadonly: true }
         Property { name: "id"; type: "string"; isReadonly: true }
         Property { name: "lang"; type: "string"; isReadonly: true }
+    }
+    Component {
+        name: "QmlQXmppMucManager"
+        prototype: "QObject"
+        exports: ["QXmpp/QmlQXmppMucManager 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method { name: "getRooms"; type: "QStringList" }
+        Method {
+            name: "addRoom"
+            Parameter { name: "roomJid"; type: "string" }
+        }
+        Method {
+            name: "requestConfiguration"
+            type: "bool"
+            Parameter { name: "roomJid"; type: "string" }
+        }
+        Method {
+            name: "requestPermissions"
+            type: "bool"
+            Parameter { name: "roomJid"; type: "string" }
+        }
+        Method {
+            name: "destroyRoom"
+            type: "bool"
+            Parameter { name: "roomJid"; type: "string" }
+            Parameter { name: "reason"; type: "string" }
+        }
+        Method {
+            name: "destroyRoom"
+            type: "bool"
+            Parameter { name: "roomJid"; type: "string" }
+        }
+        Method {
+            name: "join"
+            type: "bool"
+            Parameter { name: "roomJid"; type: "string" }
+            Parameter { name: "nickname"; type: "string" }
+            Parameter { name: "options"; type: "QVariantMap" }
+        }
+        Method {
+            name: "leave"
+            type: "bool"
+            Parameter { name: "roomJid"; type: "string" }
+            Parameter { name: "message"; type: "string" }
+        }
+        Method {
+            name: "leave"
+            type: "bool"
+            Parameter { name: "roomJid"; type: "string" }
+        }
+        Method {
+            name: "ban"
+            type: "bool"
+            Parameter { name: "roomJid"; type: "string" }
+            Parameter { name: "occupantJid"; type: "string" }
+            Parameter { name: "reason"; type: "string" }
+        }
+        Method {
+            name: "kick"
+            type: "bool"
+            Parameter { name: "roomJid"; type: "string" }
+            Parameter { name: "occupantJid"; type: "string" }
+            Parameter { name: "reason"; type: "string" }
+        }
+        Method {
+            name: "participants"
+            type: "QStringList"
+            Parameter { name: "roomJid"; type: "string" }
+        }
+        Method {
+            name: "participantsFullJid"
+            type: "QStringList"
+            Parameter { name: "roomJid"; type: "string" }
+        }
+        Method {
+            name: "participantFullJid"
+            type: "string"
+            Parameter { name: "roomJid"; type: "string" }
+            Parameter { name: "occupantJid"; type: "string" }
+        }
+        Method {
+            name: "sendInvitation"
+            type: "bool"
+            Parameter { name: "roomJid"; type: "string" }
+            Parameter { name: "jid"; type: "string" }
+            Parameter { name: "reason"; type: "string" }
+        }
+        Method {
+            name: "sendInvitationMediated"
+            type: "bool"
+            Parameter { name: "roomJid"; type: "string" }
+            Parameter { name: "jid"; type: "string" }
+            Parameter { name: "reason"; type: "string" }
+        }
+        Method {
+            name: "sendMessage"
+            type: "bool"
+            Parameter { name: "roomJid"; type: "string" }
+            Parameter { name: "text"; type: "string" }
+        }
+        Method {
+            name: "subject"
+            type: "string"
+            Parameter { name: "roomJid"; type: "string" }
+        }
+        Method {
+            name: "setSubject"
+            Parameter { name: "roomJid"; type: "string" }
+            Parameter { name: "subject"; type: "string" }
+        }
+        Method {
+            name: "setConfiguration"
+            type: "bool"
+            Parameter { name: "roomJid"; type: "string" }
+            Parameter { name: "form"; type: "QVariantMap" }
+        }
+        Method {
+            name: "setPermission"
+            type: "bool"
+            Parameter { name: "roomJid"; type: "string" }
+            Parameter { name: "jid"; type: "string" }
+            Parameter { name: "affliation"; type: "string" }
+        }
     }
     Component {
         name: "QmlQXmppPEPManager"

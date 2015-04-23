@@ -63,7 +63,6 @@ WidgetModel {
         return MessengerJs.isSelectedUser(user)
     }
 
-    // UNDONE коннект на запуск игры
     Connections {
         target: App.signalBus();
         onAuthDone: {

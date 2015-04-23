@@ -12,11 +12,14 @@ import Tulip 1.0
 
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
+import Application.Controls 1.0
 
 import "../Models/Messenger.js" as MessengerJs
 import "./Blocks/ContactList"
 import "../../../Core/Styles.js" as Styles
 import "../../../../Application/Core/App.js" as App
+
+import "./Styles"
 
 WidgetView {
     id: root
@@ -143,8 +146,11 @@ WidgetView {
                                 width: parent.width
                                 height: 46
 
-                                Item {
-                                    // UNDONE Доделать когда будет подключаться групповые чаты, вынести цвета в стили
+                                BorderedButton {
+                                    id: editGroupButton
+
+                                    property bool checked: MessengerJs.editGroupModel().isActive()
+
                                     width: 32
                                     height: 22
 
@@ -154,50 +160,25 @@ WidgetView {
                                         verticalCenter: parent.verticalCenter
                                     }
 
-                                    Rectangle {
-                                        anchors {
-                                            fill: parent
-                                            rightMargin: 1
-                                            bottomMargin: 1
-                                        }
-
-                                        color: "#00000000"
-                                        border {
-                                            color: "#24475a"
-                                            width: 1
-                                        }
-
-                                        radius: 1
+                                    style: CheckButtonStyle {
+                                        checked: editGroupButton.checked
                                     }
 
-                                    ImageButton {
-                                        id: addGroupItem
+                                    Image {
+                                        anchors.centerIn: parent
+                                        source: d.imageRoot + "groupIcon.png"
+                                        opacity: (parent.containsMouse || parent.checked) ? 1.0 : 0.5
+                                    }
 
-                                        anchors.fill: parent
-                                        opacity: containsMouse ? 1.0 : 0.5
-
-
-                                        enabled: false
-                                        style {
-                                            normal: "#00000000"
-                                            hover: "#1abc9c"
-                                            disabled: "#00000000"
+                                    onClicked: {
+                                        if (editGroupButton.checked) {
+                                            MessengerJs.editGroupModel().close();
+                                            return;
                                         }
 
-                                        radius: 2
-
-                                        styleImages {
-                                            normal: d.imageRoot + "groupIcon.png"
-                                            hover: d.imageRoot + "groupIcon.png"
-                                            disabled: d.imageRoot + "groupIcon.png"
-                                        }
-
-                                        Behavior on opacity {
-                                            PropertyAnimation { duration: 250 }
-                                        }
+                                        MessengerJs.editGroupModel().createRoom();
                                     }
                                 }
-
 
                                 ContactFilter {
                                     id: contactFilter

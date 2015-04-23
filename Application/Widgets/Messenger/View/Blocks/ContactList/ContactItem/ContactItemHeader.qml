@@ -33,6 +33,8 @@ Rectangle {
     signal rightButtonClicked(variant mouse);
     signal informationClicked();
 
+    signal groupButtonClicked();
+
     implicitWidth: 78
     implicitHeight: 68
 
@@ -44,7 +46,6 @@ Rectangle {
         id: d
 
         property string imageRoot: installPath + "Assets/Images/Application/Widgets/Messenger/ContactItem/"
-        property bool extendedInfoVisible: mouser.containsMouse
 
         function openProfile() {
             if (!root.userId) {
@@ -55,146 +56,139 @@ Rectangle {
         }
     }
 
-    CursorMouseArea { // UNDONE подумать можету брать эту mouseArea
-        id: mouser
+    Row {
+        anchors {
+            fill: parent
+            leftMargin: 12
+            topMargin: 12
+            bottomMargin: 12
+        }
 
-        acceptedButtons: Qt.LeftButton | Qt.RightButton
-        anchors.fill: parent
-        onClicked: {
-            if (mouse.button === Qt.RightButton) {
-                root.rightButtonClicked(mouse);
-            }
+        Image {
+            id: avatarImage
 
-            if (mouse.button === Qt.LeftButton) {
-                root.clicked();
+            width: 44
+            height: 44
+            cache: false
+            asynchronous: true
+
+            CursorMouseArea {
+                toolTip: qsTr("CONTACT_ITEM_NICKNAME_TOOLTIP").arg(nicknameText.text)
+                anchors.fill: parent
+                onClicked: root.nicknameClicked();
             }
         }
 
-        enabled: false
+        Item {
+            width: 28
+            height: parent.height
 
-        Row {
-            anchors {
-                fill: parent
-                leftMargin: 12
-                topMargin: 12
-                bottomMargin: 12
-            }
+            PresenceIcon {
+                id: presenceIcon
 
-            Image {
-                id: avatarImage
-
-                width: 44
-                height: 44
-                cache: false
-                asynchronous: true
-
-                CursorMouseArea {
-                    toolTip: qsTr("CONTACT_ITEM_NICKNAME_TOOLTIP").arg(nicknameText.text)
-                    anchors.fill: parent
-                    onClicked: root.nicknameClicked();
+                anchors {
+                    horizontalCenter: parent.horizontalCenter
+                    top: parent.top
+                    topMargin: 2
                 }
             }
+        }
 
-            Item {
-                width: 28
-                height: parent.height
+        Item {
+            height: parent.height
+            width: parent.width - 60
 
-                PresenceIcon {
-                    id: presenceIcon
+            Column {
+                anchors.fill: parent
 
-                    anchors {
-                        horizontalCenter: parent.horizontalCenter
-                        top: parent.top
-                        topMargin: 2
-                    }
-                }
-            }
+                Item {
+                    width: parent.width
+                    height: nicknameText.height
+                    clip: true
 
-            Item {
-                height: parent.height
-                width: parent.width - 60
+                    Text {
+                        id: nicknameText
 
-                Column {
-                    anchors.fill: parent
+                        function getTextColor() {
+                            var map = {
+                                unread: Styles.style.messengerContactNicknameUnread,
+                                selected: Styles.style.messengerContactNicknameSelected,
+                                normal: Styles.style.messengerContactNickname,
+                            }
 
-                    Item {
+                            return map[root.state] || Styles.style.messengerContactNickname;
+                        }
+
+                        anchors.left: parent.left
+
+                        font {
+                            family: "Arial"
+                            pixelSize: 14
+                        }
+
+                        height: 20
                         width: parent.width
-                        height: nicknameText.height
-                        clip: true
+                        color: nicknameText.getTextColor()
+                        elide: Text.ElideRight
 
-                        Text {
-                            id: nicknameText
-
-                            function getTextColor() {
-                                var map = {
-                                    unread: Styles.style.messengerContactNicknameUnread,
-                                    selected: Styles.style.messengerContactNicknameSelected,
-                                    normal: Styles.style.messengerContactNickname,
-                                }
-
-                                return map[root.state] || Styles.style.messengerContactNickname;
-                            }
-
-                            anchors.left: parent.left
-
-                            font {
-                                family: "Arial"
-                                pixelSize: 14
-                            }
-
-                            height: 20
-                            width: parent.width
-                            color: nicknameText.getTextColor()
-                            elide: Text.ElideRight
-
-                            CursorMouseArea {
-                                toolTip: qsTr("CONTACT_ITEM_NICKNAME_TOOLTIP").arg(nicknameText.text)
-                                width: parent.paintedWidth
-                                height: parent.height
-                                onClicked: root.nicknameClicked();
-                            }
+                        CursorMouseArea {
+                            toolTip: qsTr("CONTACT_ITEM_NICKNAME_TOOLTIP").arg(nicknameText.text)
+                            width: parent.paintedWidth
+                            height: parent.height
+                            onClicked: root.nicknameClicked();
                         }
                     }
+                }
 
+                Item {
+                    width: parent.width
+                    height: statusText.height
+
+                    // INFO Тут немнго нелогичное поведение для контрола ScrollText
+                    // Требуется выйти за границы дефолтного места текста, для этого расширим клип зону.
                     Item {
-                        width: parent.width
-                        height: statusText.height
+                        clip: true
+                        anchors {
+                            fill: parent
+                            leftMargin: -22
+                        }
 
-                        // INFO Тут немнго нелогичное поведение для контрола ScrollText
-                        // Требуется выйти за границы дефолтного места текста, для этого расширим клип зону.
-                        Item {
-                            clip: true
+                        ScrollText {
+                            id: statusText
+
+                            clip: false
                             anchors {
-                                fill: parent
-                                leftMargin: -22
+                                left: parent.left
+                                leftMargin: 22
                             }
 
-                            ScrollText {
-                                id: statusText
+                            width: parent.width - 4 - 22
+                            text: root.status
 
-                                clip: false
-                                anchors {
-                                    left: parent.left
-                                    leftMargin: 22
-                                }
-
-                                width: parent.width - 4 - 22
-                                text: (mouser.containsMouse && root.extendedInfoEnabled)
-                                        ? root.extendedStatus
-                                        : root.status
-
-                                color: Styles.style.messengerContactStatusText
-                                font {
-                                    family: "Arial"
-                                    pixelSize: 12
-                                }
-
-                                textMoveDuration: 2000
+                            color: Styles.style.messengerContactStatusText
+                            font {
+                                family: "Arial"
+                                pixelSize: 12
                             }
+
+                            textMoveDuration: 2000
                         }
                     }
                 }
             }
         }
     }
+
+    EditGroupButton {
+        anchors {
+            top: parent.top
+            topMargin: 10
+            right: parent.right
+            rightMargin: 26
+        }
+
+        checked: false
+        onClicked: root.groupButtonClicked()
+    }
+
 }

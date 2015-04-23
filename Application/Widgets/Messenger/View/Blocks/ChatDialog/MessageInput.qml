@@ -13,6 +13,8 @@ import Tulip 1.0
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
+import "../../Styles"
+
 import "../../../../../Core/App.js" as App
 import "../../../../../Core/Styles.js" as Styles
 import "../../../Models/Messenger.js" as MessengerJs
@@ -125,7 +127,7 @@ FocusScope {
         }
 
         function sendMessage() {
-            if (MessengerJs.getStatus() !== MessengerJs.ROSTER_RECEIVED) {
+            if (!d.canSendMessage()) {
                 return;
             }
 
@@ -186,6 +188,11 @@ FocusScope {
 
             var replaced = msg.replace(/\s/g, "");
             return replaced.length > 0;
+        }
+
+        function canSendMessage() {
+            return MessengerJs.getStatus() === MessengerJs.ROSTER_RECEIVED
+                && !MessengerJs.editGroupModel().isActive()
         }
     }
 
@@ -277,7 +284,6 @@ FocusScope {
                                 }
 
                                 color: Styles.style.messengerMessageInputText
-
                                 onCursorRectangleChanged: inputFlick.ensureVisible(cursorRectangle);
 
                                 Keys.onEnterPressed: {
@@ -410,27 +416,20 @@ FocusScope {
                 anchors.fill: parent
                 spacing: 10
 
-                Button {
+                BorderedButton {
+                    id: sendMessageButton
+
                     width: 89
                     height: 30
-
-                    style: ButtonStyleColors {
-                        normal: Styles.style.messengerMessageInputSendButtonNormal
-                        hover: Styles.style.messengerMessageInputSendButtonHover
+                    enabled: d.canSendMessage();
+                    style: CheckButtonStyle{
+                      checked: sendMessageButton.enabled
                     }
 
                     fontSize: 12
-
-                    enabled:  MessengerJs.getStatus() === MessengerJs.ROSTER_RECEIVED;
-                    onClicked: d.sendMessage()
                     text: qsTr("MESSENGER_SEND_BUTTON")
                     textColor: Styles.style.messengerMessageInputSendButtonText
-
-                    Rectangle {
-                        anchors { fill: parent; margins: 1 }
-                        color: "#00000000"
-                        border { width: 2; color: Styles.style.messengerMessageInputSendButtonHover }
-                    }
+                    onClicked: d.sendMessage()
                 }
 
                 Text {

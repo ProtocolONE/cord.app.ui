@@ -24,16 +24,15 @@ import "Message.js" as MessageJs
 import "ConversationManager.js" as ConversationManager
 import "AccountManager.js" as AccountManager
 
-import "GroupChatManager.js" as GroupChatManager
-
 import "../Plugins/Smiles/Smiles.js" as Smiles
 import "../Plugins/Events/Events.js" as Events
-
 
 import "../Plugins/Bookmarks/Bookmarks.js" as Bookmarks
 import "../Plugins/AutoJoin/Autojoin.js" as Autojoin
 import "../Plugins/RoomCreate/RoomCreate.js" as RoomCreate
 import "../Plugins/Topic/Topic.js" as Topic
+import "../Plugins/RoomParticipants/RoomParticipants.js" as RoomParticipants
+import "../Plugins/ChatCommands/ChatCommands.js" as ChatCommands
 
 import "../../../Core/App.js" as App
 import "../../../Core/User.js" as User
@@ -55,9 +54,6 @@ Item {
     property bool heavyInteraction: false
 
     property string historySaveInterval
-
-    // HACK
-    property bool isGroupChatConfigOpen: false
 
     signal selectedUserChanged();
     signal messageReceived(string from, string body, variant message);
@@ -100,12 +96,19 @@ Item {
     function init() {
         Smiles.init(xmppClient);
         Events.init(xmppClient, App.signalBus());
+
+        Bookmarks.init(xmppClient, root);
+        Autojoin.init(xmppClient, root);
+        RoomCreate.init(xmppClient, root);
+        Topic.init(xmppClient, root);
+        RoomParticipants.init(xmppClient, root);
+        ChatCommands.init(xmppClient);
+
         AccountManager.init(root, xmppClient, usersModel, {
             defaultAvatarPath: installPath + "/Assets/Images/Application/Widgets/Messenger/"
         });
 
         ConversationManager.init(xmppClient, conversationModel)
-        GroupChatManager.init(xmppClient, d, myUser, root);
 
         return {
             client: xmppClient,
@@ -126,42 +129,6 @@ Item {
 
         return data.unreadMessageCount > 0;
     }
-
-//    function sendMessage(user, body) {
-//        var messageMap = {}
-//        , item;
-
-//        if (!usersModel.contains(user.jid))
-//            return;
-
-//        item = root.getUser(user.jid);
-//        if (item.isGroupChat) {
-//            //item.appendMessage(myUser.jid, body);
-//            d.updateUserTalkDate(item);
-
-//            xmppClient.mucManager.sendMessage(user.jid, body);
-
-//            Smiles.processSmiles(myUser.jid, body);
-//        } else {
-//            item.appendMessage(myUser.jid, body);
-//            d.updateUserTalkDate(item);
-//            messageMap.body = body;
-//            messageMap.type = QXmppMessage.Chat;
-//            messageMap.state = QXmppMessage.Active;
-//            xmppClient.sendMessageEx(user.jid, messageMap);
-//            Smiles.processSmiles(myUser.jid, body);
-//        }
-//    }
-
-//    function sendInputStatus(user, value) {
-//        var item = root.getUser(user.jid);
-//        if (!item.isValid() || item.isGroupChat) {
-//            return;
-//        }
-
-//        d.updateUserTalkDate(item);
-//        xmppClient.sendInputStatus(user.jid, value);
-//    }
 
     function connect(server, userId, password) {
         d.serverUrl = server;
@@ -192,7 +159,12 @@ Item {
             return;
         }
 
+        root.connected = false;
+
+        root.closeChat();
+        groupEditModel.reset();
         usersModel.clear();
+        myUser.reset();
         root.contactReceived = false;
 
         xmppClient.disconnectFromServer();
@@ -271,6 +243,38 @@ Item {
         return data.avatar || defaultAvatar;
     }
 
+    function getFullStatusMessage(user) {
+        var item;
+        if (!user) {
+            return "";
+        }
+
+        item = root.getUser(user.jid);
+        if (!item.isValid()) {
+            return "";
+        }
+
+        if (UserJs.isOnline(item.presenceState)) {
+            var serviceId = item.playingGame;
+            if (serviceId) {
+                var gameInfo = App.serviceItemByServiceId(serviceId);
+                if (gameInfo) {
+                    return qsTr("MESSENGER_CONTACT_ITEM_PLAYING_STATUS_INFO").arg(gameInfo.name);
+                }
+            }
+
+            return item.statusMessage;
+        }
+
+        var lastActivity = item.lastActivity;
+        if (!lastActivity) {
+            return "";
+        }
+
+        var currentTime = Math.max(root.currentTime * 1000, Date.now());
+        return qsTr("LAST_ACTIVITY_PLACEHOLDER").arg(Moment.moment(lastActivity * 1000).from(currentTime));
+    }
+
     function lastActivity(item) {
         var data = root.getUser(item.jid);
         if (!data.isValid()) {
@@ -345,60 +349,55 @@ Item {
         return d.smilePanelVisible;
     }
 
-    // UNDONE надо бы скорее всего это как-то переписать
+    function getGroupTitle(user) {
+        if (!user) {
+            return "";
+        }
+
+        var tmp = []
+            , i
+            , item = root.getUser(user.jid)
+            , occupant;
+
+        if (!item.isValid() || !item.isGroupChat) {
+            return "";
+        }
+
+        if (item.nickname) {
+            return item.nickname;
+        }
+
+        for(i = 0; i < item.participants.count; ++i) {
+            occupant = root.getUser(item.participants.get(i).jid);
+            tmp.push(occupant.nickname);
+        }
+
+        return tmp.join(", ");
+    }
+
     function uuid() {
         return Uuid.create();
     }
 
-    function hackJoin() {
+    function editGroupModel() {
+        return groupEditModel;
+    }
+
+    function createRoom(jid, topic, invites) {
         RoomCreate.create({
-                              topic: "Good news everyone! " + Date.now(),
-                              invites: ['400001000002212660@qj.gamenet.ru']
-                          })
-        //GroupChatManager.create();
+                              jid: jid,
+                              topic: topic,
+                              invites: invites
+                          });
     }
 
-    function hackSetBookMark() {
-        Bookmarks.bookmarks.addConference(Date.now() + '@qj.gamenet.ru');
-        JSON.stringify(Bookmarks.bookmarks.conference());
-
-//        var test = {
-//            urls: [
-//                {
-//                    url: "http://ya.ru"
-//                },
-//                {
-//                    url: "http://gamenet.ru"
-//                }
-//            ],
-//            conferences: [
-//                {
-//                    jid: "1@qj.gamenet.ru",
-//                    autojoin: true
-//                },
-//                {
-//                    jid: "2@qj.gamenet.ru",
-//                    autojoin: true
-//                }
-//            ]
-//        }
-
-//        var test2 = {
-//            conferences: [
-//                {
-//                    jid: "2@qj.gamenet.ru",
-//                    autojoin: true
-//                }
-//            ]
-//        }
-
-//        xmppClient.bookmarkManager.setBookmarks(test);
+    function leaveGroup(roomJid) {
+        xmppClient.leaveGroup(roomJid);
     }
 
-    function hackRemBookMark() {
-        var q = Bookmarks.bookmarks.conference();
-        Bookmarks.bookmarks.removeConference(q[0]);
-        JSON.stringify(Bookmarks.bookmarks.conference());
+    function changeOwner(roomJid, user) {
+        xmppClient.mucManager.setPermission(roomJid, user.jid, "owner");
+        xmppClient.mucManager.setPermission(roomJid, myUser.jid, "member");
     }
 
     onHistorySaveIntervalChanged: {
@@ -424,12 +423,9 @@ Item {
             });
 
             usersModel.forEachId(function(id) {
-                //console.log('---- ', id)
                 var isGroupChat = usersModel.getPropertyById(id, "isGroupChat");
-                //if (!isGroupChat)
-                {
-
-                    usersModel.setPropertyById(id, "inContacts", true /*currentUserMap.hasOwnProperty(id)*/);
+                if (!isGroupChat) {
+                    usersModel.setPropertyById(id, "inContacts", currentUserMap.hasOwnProperty(id));
                 }
             });
 
@@ -681,17 +677,21 @@ Item {
         id: xmppClient
 
         signal bookmarksReceived(variant bookmarks);
+        signal chatCommand(string jid, string body);
 
-
-        function leave(roomJid, reason) {
-            //xmppClient.mucManager.setPermission(roomJid, myUser.jid, 'none');
-            xmppClient.mucManager.leave(roomJid, reason || "");
+        function isConnected() {
+            return root.connected;
         }
 
-        function invite(roomJid, jid, reason) {
-            var bareJid = UserJs.jidWithoutResource(jid)
-            xmppClient.mucManager.setPermission(roomJid, bareJid, 'admin');
-            xmppClient.mucManager.sendInvitation(roomJid, jid, reason || "");
+        function joinRoom(roomJid) {
+            var lastMessageDate = 0;
+            try {
+                lastMessageDate = ConversationManager.ConversationStorage.queryLastMessageDate(roomJid);
+            } catch(e) {
+                console.log("[JabberClient] Can't get last message date for", roomJid);
+            }
+
+            xmppClient.joinRoomInternal(roomJid, myUser.userId, lastMessageDate);
         }
 
         onStreamManagementResumed: {
@@ -722,19 +722,6 @@ Item {
 
             root.connectedToServer();
             root.gamenetUser = root.getGamenetUser();
-
-
-            // UNDONE
-//            xmppClient.discoveryManager.requestInfo(d.serverUrl);
-//            xmppClient.discoveryManager.requestItems(d.serverUrl);
-
-//            xmppClient.discoveryManager.requestInfo("conference." + d.serverUrl);
-            //xmppClient.discoveryManager.requestItems("conference." + d.serverUrl);
-//            xmppClient.discoveryManager.requestInfo("test2@conference.qj.gamenet.ru");
-//            xmppClient.mucManager.addRoom("test2@conference.qj.gamenet.ru");
-
-            //xmppClient.mucManager.addRoom("test5@conference.qj.gamenet.ru");
-//            xmppClient.mucManager.addRoom("test6@conference.qj.gamenet.ru");
         }
 
         onDisconnected: {
@@ -787,147 +774,38 @@ Item {
     Connections {
         target: xmppClient.mucManager
 
-        onConfigurationReceived: {
-//            console.log('==== onConfigurationReceived', roomJid, JSON.stringify(configuration, null ,2));
-//            var password = "";
-//            if (roomJid == "test5@conference.qj.gamenet.ru") {
-//                password = "123";
-//                xmppClient.mucManager.join(roomJid, myUser.userId, password)
-//            }
-
-//            if (!xmppClient.mucManager.join(roomJid, myUser.userId, password)) {
-//                console.log('failed to join ', roomJid)
-//            }
-            // + "_roomNick"
-        }
-
-        onJoined: {
-
-//            usersModel.beginBatch();
-//            var rawUser;
-//            if (!usersModel.contains(roomJid)) {
-//                rawUser = UserJs.createRawGroupChat(roomJid, roomJid);
-//                rawUser.inContacts = true;
-//                console.log(JSON.stringify(rawUser, null ,2));
-//                usersModel.append(rawUser);
-//            } else {
-
-//                console.log('--- contains')
-//            }
-
-//            usersModel.endBatch()
-
-//            console.log('=== joined ', roomJid);
-//            console.log(JSON.stringify(xmppClient.mucManager.participants(roomJid)))
-//            console.log(JSON.stringify(xmppClient.mucManager.participantsFullJid(roomJid)))
-
-//            if (roomJid == "test6@conference.qj.gamenet.ru") {
-//                console.log('-------- Set config for test6')
-//                if (!xmppClient.mucManager.setConfiguration(roomJid, {
-//                                                          description: "описание комнаты 6"
-//                                                       })){
-//                    console.log('        -         failed to set config');
-//                }
-//            }
-        }
-
         onMessageReceived: {
-//            var user;
-//            if (message.type !== QXmppMessage.GroupChat) {
-//                return;
-//            }
+            var user;
 
-//            if (message.subject) {
-//                console.log('----- group chat subject ', roomJid, JSON.stringify(message, null, 2))
-//                user = root.getUser(message.from);
-//                user.nickname = message.subject;
-//                return;
-//            }
+            if (message.type !== QXmppMessage.GroupChat || !message.body) {
+                return;
+            }
 
-//            if (!message.body) {
-//                console.log('--- empty body')
-//                return;
-//            }
+            if (message.subject) {
+                return;
+            }
 
-//            console.log('----- from message ', roomJid, JSON.stringify(message, null, 2))
-//            user = root.getUser(message.from);
-//            if (!user.isGroupChat) {
-//                console.log('--- not a group chat')
-//                return;
-//            }
+            var bareJid = UserJs.jidWithoutResource(message.from),
+                conv;
 
-//            //console.log('----- frome message ', roomJid, JSON.stringify(message, null, 2))
+            if (message.from === bareJid) {
+                return;
+            }
 
-//            if (d.needIncrementUnread(user)) {
-//                user.unreadMessageCount += 1;
-//                d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
-//            }
+            user = root.getUser(message.from);
+            if (d.needIncrementUnread(user)) {
+                user.unreadMessageCount += 1;
+                d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
+            }
 
-//            if (message.stamp == "Invalid Date") {
-//                d.updateUserTalkDate(user);
-//            }
+            if (message.stamp == "Invalid Date") {
+                d.updateUserTalkDate(user);
+            }
 
-            //root.messageReceived(user.jid, message.body, message);
-
-//            var user;
-
-//            if (message.type !== QXmppMessage.Chat || !message.body) {
-//                return;
-//            }
-
-//            user = root.getUser(message.from);
-//            if (d.needIncrementUnread(user)) {
-//                user.unreadMessageCount += 1;
-//                d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
-//            }
-
-//            if (message.stamp == "Invalid Date") {
-//                d.updateUserTalkDate(user);
-//            }
-
-//            root.messageReceived(user.jid, message.body, message);
-
-
-//            var messageDate = Date.now();
-//            if (message.stamp != "Invalid Date") {
-//                messageDate = +(Moment.moment(message.stamp));
-//            }
-
-//            var item = root.getUser(roomJid);
-//            if (message.subject) {
-//                item.nickname = message.subject;
-//                return;
-//            }
-
-//            var from = xmppClient.mucManager.participantFullJid(roomJid, message.from);
-//            var bareFrom = UserJs.jidWithoutResource(from);
-
-//            console.log('----- frome message ', bareFrom, JSON.stringify(message))
-//            item.appendMessage(bareFrom, message.body, messageDate);
-
-//            console.log(roomJid, JSON.stringify(message, null ,2), bareFrom, message.body)
+            root.messageReceived(user.jid, message.body, message);
         }
 
-//        onLeft: {
-//            console.log('left room ', roomJid)
-//        }
-
-        onInvitationReceived: {
-            console.log('onInvitationReceived ', roomJid, inviter, reason);
-        }
     }
-
-//    Connections {
-//        target: xmppClient.discoveryManager
-
-//        onInfoReceived: {
-//            console.log('---- infoReceived ', JSON.stringify(info, null ,2));
-////            console.log(info.id)
-//        }
-//        onItemsReceived: {
-//            console.log('---- itemsReceived ', JSON.stringify(items, null ,2));
-//        }
-//    }
 
     Timer {
         running: true
@@ -1011,6 +889,12 @@ Item {
         id: recentConversation
 
         pauseProcessing: root.heavyInteraction
+        messenger: root
+    }
+
+    GroupEditModel {
+        id: groupEditModel
+
         messenger: root
     }
 

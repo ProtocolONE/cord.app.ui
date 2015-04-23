@@ -3,9 +3,16 @@ import QtQuick.tooling 1.1
 // This file describes the plugin-supplied types contained in the library.
 // It is used for QML tooling purposes only.
 //
-// This file was auto-generated with the command 'D:\Qt\Qt5.2.1\5.2.1\msvc2010\bin\qml1plugindump -path ./plugin/Tulip'.
+// This file was auto-generated with the command 'D:\Qt\521b_2\bin\qml1plugindump -path ./plugin/Tulip'.
 
 Module {
+    Component {
+        name: "BrowserDetect"
+        prototype: "QObject"
+        exports: ["Tulip/BrowserDetect 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method { name: "getBrowserName"; type: "string" }
+    }
     Component {
         name: "GGS::Auth::RegistryCredentialStorage"
         prototype: "QObject"
@@ -95,7 +102,10 @@ Module {
                 "NotLikeTheGame": 2749,
                 "ThettaInfo": 2750,
                 "ThettaConnectFail": 2754,
-                "ThettaSendInfoFail": 2756
+                "ThettaSendInfoFail": 2756,
+                "ServiceUninstalledFromOS": 2762,
+                "ServiceUninstalledFromUI": 2763,
+                "ThettaPatternFound": 2766
             }
         }
         Enum {
@@ -104,20 +114,6 @@ Module {
                 "InstallAcceptLicense": 2608
             }
         }
-    }
-    Component {
-        name: "GGS::Jabber"
-        defaultProperty: "data"
-        prototype: "QDeclarativeItem"
-        exports: ["Tulip/Jabber 1.0"]
-        exportMetaObjectRevisions: [0]
-        Property { name: "login"; type: "string" }
-        Property { name: "password"; type: "string" }
-        Property { name: "host"; type: "string" }
-        Property { name: "domain"; type: "string" }
-        Property { name: "debug"; type: "bool" }
-        Method { name: "auth" }
-        Method { name: "logout" }
     }
     Component {
         name: "GGS::MarketingAdapter"
@@ -223,6 +219,21 @@ Module {
             Parameter { name: "async"; type: "bool" }
         }
         Method { name: "hwid"; type: "string" }
+    }
+    Component {
+        name: "LocalStorage"
+        prototype: "QObject"
+        exports: ["Tulip/LocalStorage 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method {
+            name: "openDatabaseSync"
+            type: "QmlSqlDatabaseData*"
+            Parameter { name: "folder"; type: "string" }
+            Parameter { name: "dbname"; type: "string" }
+            Parameter { name: "version"; type: "string" }
+            Parameter { name: "description"; type: "string" }
+            Parameter { name: "estimated_size"; type: "int" }
+        }
     }
     Component {
         name: "QCursorArea"
@@ -343,6 +354,26 @@ Module {
         Method { name: "activate" }
     }
     Component {
+        name: "QmlSqlDatabaseData"
+        prototype: "QObject"
+        exports: ["Tulip/QmlSqlDatabaseData 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method {
+            name: "executeSql"
+            type: "QVariantMap"
+            Parameter { name: "sql"; type: "string" }
+        }
+        Method {
+            name: "executeSql"
+            type: "QVariantMap"
+            Parameter { name: "sql"; type: "string" }
+            Parameter { name: "args"; type: "QVariant" }
+        }
+        Method { name: "transaction"; type: "bool" }
+        Method { name: "commit"; type: "bool" }
+        Method { name: "rollback"; type: "bool" }
+    }
+    Component {
         name: "SettingsAdapter"
         prototype: "QObject"
         exports: ["Tulip/Settings 1.0"]
@@ -430,19 +461,38 @@ Module {
         Method { name: "apply" }
     }
     Component {
+        name: "TextDocumentHelper"
+        prototype: "QObject"
+        exports: ["Tulip/TextDocumentHelper 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method {
+            name: "stripHtml"
+            type: "string"
+            Parameter { name: "html"; type: "string" }
+        }
+    }
+    Component {
         name: "TrayWindow"
         prototype: "QObject"
         exports: ["Tulip/TrayWindow 1.0"]
         exportMetaObjectRevisions: [0]
+        Property { name: "animatedSource"; type: "string" }
         Method {
-            name: "install"
-            Parameter { name: "icon"; type: "string" }
+            name: "setIcon"
+            Parameter { name: "iconSource"; type: "string" }
         }
         Method {
             name: "setToolTip"
             Parameter { name: "toolTip"; type: "string" }
         }
         Method { name: "hide" }
+    }
+    Component {
+        name: "Uuid"
+        prototype: "QObject"
+        exports: ["Tulip/Uuid 1.0"]
+        exportMetaObjectRevisions: [0]
+        Method { name: "create"; type: "string" }
     }
     Component {
         name: "WheelArea"
