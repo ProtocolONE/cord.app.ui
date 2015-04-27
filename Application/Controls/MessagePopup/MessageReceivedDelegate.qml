@@ -11,6 +11,8 @@ Item {
     property variant date
     property string body
 
+    signal linkActivated(string link);
+
     height: mainText.height
     clip: true
 
@@ -55,5 +57,6 @@ Item {
         textFormat: Text.RichText
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         font { pixelSize: 12; family: "Arial"}
+        onLinkActivated: delegate.linkActivated(link)
     }
 }

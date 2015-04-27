@@ -165,6 +165,11 @@ TrayPopupBase {
                         tmp[index] = height;
                         listViewMessage.delegateHeights = tmp;
                     }
+
+                    onLinkActivated: {
+                        App.openExternalUrl(link);
+                        root.forceDestroy();
+                    }
                 }
             }
 
