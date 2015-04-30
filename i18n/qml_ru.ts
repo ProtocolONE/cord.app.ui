@@ -1478,6 +1478,14 @@ Please try again later.</source>
         <source>STATE_PREPARE_UNINSTALL</source>
         <translation type="obsolete">Подготовка к удалению %1</translation>
     </message>
+    <message>
+        <source>GAME_DOWNLOADER_ACCESS_REQUIRED_TITLE</source>
+        <translation>Вам нужен ключ доступа</translation>
+    </message>
+    <message>
+        <source>GAME_DOWNLOADER_ACCESS_REQUIRED_TEXT</source>
+        <translation>Скачать клиент игры могут только участники тестирования. Если у вас есть ключ доступа, нажмите &quot;Да&quot;.</translation>
+    </message>
 </context>
 <context>
     <name>DownloadProgress</name>

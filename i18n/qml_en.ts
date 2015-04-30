@@ -557,6 +557,16 @@
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
         <translation></translation>
     </message>
+    <message>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="269"/>
+        <source>GAME_DOWNLOADER_ACCESS_REQUIRED_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="270"/>
+        <source>GAME_DOWNLOADER_ACCESS_REQUIRED_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DownloadProgress</name>
@@ -1570,7 +1580,7 @@
 <context>
     <name>Messenger</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="311"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="354"/>
         <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
