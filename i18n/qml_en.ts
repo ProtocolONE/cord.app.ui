@@ -457,8 +457,8 @@
 <context>
     <name>ContactItem</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem.qml" line="118"/>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem.qml" line="199"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem.qml" line="108"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem.qml" line="189"/>
         <source>CONTACT_ITEM_NICKNAME_TOOLTIP</source>
         <translation></translation>
     </message>
@@ -466,27 +466,13 @@
 <context>
     <name>ContactItemDelegate</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="371"/>
-        <source>CONTACT_CONTEXT_MENU_DESTROY_ROOM</source>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="70"/>
+        <source>MESSENGER_CONTACT_ITEM_PLAYING_STATUS_INFO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="376"/>
-        <source>CONTACT_CONTEXT_MENU_LEAVE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="391"/>
-        <source>CONTACT_CONTEXT_MENU_INFORAMTION</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ContactItemHeader</name>
-    <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/ContactItemHeader.qml" line="76"/>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/ContactItemHeader.qml" line="135"/>
-        <source>CONTACT_ITEM_NICKNAME_TOOLTIP</source>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="84"/>
+        <source>LAST_ACTIVITY_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -711,11 +697,6 @@
     <message>
         <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="56"/>
         <source>EMPTY_CONTACT_LIST_FIND_USER_WEB_SEARCH</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="103"/>
-        <source>EMPTY_CONTACT_LIST_SYSTEM_NOTIFICATION</source>
         <translation></translation>
     </message>
     <message>
@@ -1325,24 +1306,6 @@
     </message>
 </context>
 <context>
-    <name>GroupEditHeader</name>
-    <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupEditHeader.qml" line="56"/>
-        <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_SINGLE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupEditHeader.qml" line="57"/>
-        <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_DOUBLE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupEditHeader.qml" line="58"/>
-        <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_MULTIPLE</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>Header</name>
     <message>
         <location filename="../Application/Blocks/Header/Header.qml" line="81"/>
@@ -1550,17 +1513,17 @@
 <context>
     <name>Message</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="107"/>
+        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="108"/>
         <source>MESSAGE_STATE_COMPOSING</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="111"/>
+        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="112"/>
         <source>MESSAGE_STATE_PAUSED</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="115"/>
+        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="116"/>
         <source>MESSAGE_STATE_INACTIVE</source>
         <translation></translation>
     </message>
@@ -1581,17 +1544,17 @@
 <context>
     <name>MessageInput</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="430"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="423"/>
         <source>MESSENGER_SEND_BUTTON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="439"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="440"/>
         <source>MESSENGER_SEND_BUTTON_MESSAGE_ENTER</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="441"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="442"/>
         <source>MESSENGER_SEND_BUTTON_MESSAGE_CTRL_ENTER</source>
         <translation></translation>
     </message>
@@ -1607,8 +1570,8 @@
 <context>
     <name>Messenger</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="268"/>
-        <source>MESSENGER_CONTACT_ITEM_PLAYING_STATUS_INFO</source>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="311"/>
+        <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2068,7 +2031,7 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/RecentConversation.qml" line="68"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/RecentConversation.qml" line="69"/>
         <source>MESSENGER_RECENT_CONTACTS_EMPTY_INFO</source>
         <translation></translation>
     </message>

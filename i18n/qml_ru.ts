@@ -1591,7 +1591,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>EMPTY_CONTACT_LIST_SYSTEM_NOTIFICATION</source>
-        <translation>Следи за уведомлениями GameNet</translation>
+        <translation type="vanished">Следи за уведомлениями GameNet</translation>
     </message>
     <message>
         <source>EMPTY_CONTACT_LIST_CONTACT_FILTER</source>
@@ -1881,7 +1881,7 @@ Please try again later.</source>
         <source>DETAILED_USER_INFO_GAME_CHARS_CHAR_TOOLTIP_2</source>
         <translation>Член гильдии: %1
 Уровень гильдии: %2
-Учасников: %3</translation>
+Участников: %3</translation>
     </message>
     <message>
         <source>DETAILED_USER_INFO_GAME_CHARS_CHAR_TOOLTIP_2_NO_GUILD</source>
