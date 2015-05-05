@@ -57,7 +57,7 @@ Overlay {
         target: User.getInstance()
 
         onBalanceChanged: {
-            over.sendMessage("custom.accountFunding", {amount: balance});
+            over.sendMessage("custom.accountFunding", JSON.stringify({amount: balance}));
         }
     }
 
