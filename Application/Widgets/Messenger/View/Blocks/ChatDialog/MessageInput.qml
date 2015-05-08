@@ -421,11 +421,9 @@ FocusScope {
 
                     width: 89
                     height: 30
-
-                    style: ButtonStyleColors {
-                        normal: Styles.style.messengerMessageInputSendButtonNormal
-                        hover: Styles.style.messengerMessageInputSendButtonHover
-                        disabled: Styles.style.messengerMessageInputSendButtonNormal
+                    enabled: d.canSendMessage();
+                    style: CheckButtonStyle {
+                      checked: sendMessageButton.enabled
                     }
 
                     fontSize: 12

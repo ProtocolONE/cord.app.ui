@@ -37,7 +37,7 @@ _private = {
             return roomJid;
         }
 
-        return roomJid.substring(pos+1) + _jabber.serverUrl();
+        return roomJid.substring(pos+1) + "@" + _jabber.serverUrl();
     }
 };
 
