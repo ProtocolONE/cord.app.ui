@@ -1385,6 +1385,14 @@ Please try again later.</source>
         <source>CONTACT_CONTEXT_MENU_INFORAMTION</source>
         <translation>Информация</translation>
     </message>
+    <message>
+        <source>MESSENGER_DESTROY_ROOM_ALERT_TITLE</source>
+        <translation>Внимание</translation>
+    </message>
+    <message>
+        <source>MESSENGER_DESTROY_ROOM_ALERT_BODY</source>
+        <translation>Вы уверены, что хотите распустить группу?</translation>
+    </message>
 </context>
 <context>
     <name>ContactItemHeader</name>
@@ -5432,6 +5440,18 @@ Please try again later.</source>
     <message>
         <source>PROFILE_CONFIRM_LOGIN_TULTIP</source>
         <translation>Повысить защиту от взлома</translation>
+    </message>
+    <message>
+        <source>USER_PROFILE_CONTEXT_MENU_INFORAMTION</source>
+        <translation>Информация</translation>
+    </message>
+    <message>
+        <source>USER_PROFILE_CONTEXT_MENU_PROFILE</source>
+        <translation>Открыть профиль</translation>
+    </message>
+    <message>
+        <source>USER_PROFILE_CONTEXT_MENU_MONEY</source>
+        <translation>Пополнить счет</translation>
     </message>
 </context>
 <context>

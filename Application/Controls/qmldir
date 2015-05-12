@@ -8,3 +8,5 @@ HiddenAppCloseButton 1.0 HiddenAppCloseButton.qml
 ScrollArea 1.0 ScrollArea.qml
 BorderedButton 1.0 BorderedButton.qml
 BorderedButtonStyle 1.0 BorderedButtonStyle.qml
+ContextMenuView 1.0 ContextMenuView.qml
+ContextMenuStyle 1.0 ContextMenuStyle.qml

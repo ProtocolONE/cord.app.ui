@@ -5,11 +5,18 @@ var _modelComponent = null,
     _jabber = null;
 
 function init(jabber) {
+    var isDebug = false;
     if (_jabber !== null) {
         throw new Error('[Smiles] Already initialized');
     }
 
-    console.log('[Smiles] Init plugin');
+    function debug() {
+        if (isDebug) {
+            console.log.apply(console, arguments);
+        }
+    }
+
+    debug('[Smiles] Init plugin');
 
     _modelComponent = Qt.createComponent('./Smiles.qml');
     if (_modelComponent.status !== 1) {
@@ -19,12 +26,12 @@ function init(jabber) {
     _jabber = jabber;
 
     jabber.connected.connect(function() {
-        console.log('[Smiles] On connected load recent smiles');
+        debug('[Smiles] On connected load recent smiles');
         _modelInstance.loadRecentSmiles(jabber.myJid)
     });
 
     jabber.messageSending.connect(function(jid, message) {
-        console.log('[Smiles] On messageSending process smiles');
+        debug('[Smiles] On messageSending process smiles');
         _modelInstance.processSmiles(jabber.myJid, message.body)
     });
 }

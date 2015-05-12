@@ -2,10 +2,10 @@ import QtQuick 1.1
 import GameNet.Controls 1.0
 import Tulip 1.0
 
-import "../../../../../Core/Styles.js" as Styles
-
 Rectangle {
     id: root
+
+    property ContextMenuStyle style: ContextMenuStyle{}
 
     signal contextClicked(string action);
 
@@ -20,7 +20,7 @@ Rectangle {
 
     width: actionListView.width + 14
     height: actionModel.count * 28 + 14 + (actionModel.count == 0 ? 2 : 0)
-    color: Styles.style.messengerContextMenuBackground
+    color: root.style.contextMenuBackground
 
     ListModel {
         id: actionModel
@@ -36,7 +36,7 @@ Rectangle {
         color: "#00000000"
         border {
             width: 1
-            color: Styles.style.messengerContextMenuBorder
+            color: root.style.contextMenuBorder
         }
     }
 
@@ -69,7 +69,7 @@ Rectangle {
 
                 Rectangle {
                     anchors.fill: parent
-                    color: Styles.style.messengerContextMenuItemHover
+                    color: root.style.contextMenuItemHover
                     visible: actionMouser.containsMouse
                 }
 
@@ -84,8 +84,8 @@ Rectangle {
 
                     opacity: actionMouser.containsMouse ? 1 : 0.5
                     color: actionMouser.containsMouse
-                           ? Styles.style.messengerContextMenuItemTextHover
-                           : Styles.style.messengerContextMenuItemTextNormal
+                           ? root.style.contextMenuItemTextHover
+                           : root.style.contextMenuItemTextNormal
 
                     font {
                         pixelSize: 12

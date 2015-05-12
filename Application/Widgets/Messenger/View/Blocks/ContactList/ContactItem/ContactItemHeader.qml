@@ -187,6 +187,12 @@ Rectangle {
             rightMargin: 26
         }
 
+        analytics {
+            page: '/Chat'
+            category: "GroupHeader"
+            action: "OpenGroupEdit"
+        }
+
         checked: false
         onClicked: root.groupButtonClicked()
     }

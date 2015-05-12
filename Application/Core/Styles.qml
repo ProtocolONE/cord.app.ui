@@ -200,6 +200,13 @@ Item {
     // MAINTENANCE BLOCK
     property color maintenanceBackground: '#082135'
 
+    // CONTEXT MENU VIEW
+    property color contextMenuBackground: "#19384a"
+    property color contextMenuBorder: "#324e5e"
+    property color contextMenuItemHover: "#002336"
+    property color contextMenuItemTextNormal: "#a1c1d2"
+    property color contextMenuItemTextHover: "#a1c1d2"
+
     //MESSENGER BUTTONS STYLE
     property color messengerActiveButtonBorder: "#1abc9c"
     property color messengerActiveButtonNormal: "#481abc9c"

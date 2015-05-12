@@ -100,6 +100,7 @@ Rectangle {
                         text: qsTr("GENERAL_TAB")
                         analytics {
                             page: '/ApplicationSettings'
+                            category: "Settings"
                             action: 'Switch to GeneralPage'
                         }
                         onClicked: root.state = "GeneralPage";
@@ -110,6 +111,7 @@ Rectangle {
                         text: qsTr("DOWNLOADS_TAB")
                         analytics {
                             page: '/ApplicationSettings'
+                            category: "Settings"
                             action: 'Switch to DownloadsPage'
                         }
                         onClicked: root.state = "DownloadsPage";
@@ -120,6 +122,7 @@ Rectangle {
                         text: qsTr("NOTIFICATIONS_TAB")
                         analytics {
                             page: '/ApplicationSettings'
+                            category: "Settings"
                             action: 'Switch to NotificationPage'
                         }
                         onClicked: root.state = "NotificationsPage";
@@ -130,6 +133,7 @@ Rectangle {
                         text: qsTr("MESSENGER_TAB")
                         analytics {
                             page: '/ApplicationSettings'
+                            category: "Settings"
                             action: 'Switch to MessengerPage'
                         }
                         onClicked: root.state = "MessengerPage";

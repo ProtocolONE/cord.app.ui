@@ -12,15 +12,20 @@ import QtQuick 1.1
 import Tulip 1.0
 
 import GameNet.Controls 1.0
+import Application.Controls 1.0
 
-import "./ContactItem"
+import "../../../../../../GameNet/Core/lodash.js" as Lodash
+import "../../../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../../../../GameNet/Controls/ContextMenu.js" as ContextMenu
+
+import "../../../../../Core/moment.js" as Moment
+import "../../../../../Core/MessageBox.js" as MessageBox
+import "../../../../../Core/App.js" as App
+
 import "../../../Models/Messenger.js" as Messenger
 import "../../../Models/User.js" as User
-import "../../../../../Core/moment.js" as Moment
 
-import "../../../../../Core/App.js" as App
-import "../../../../../../GameNet/Core/lodash.js" as Lodash
-import "../../../../../../GameNet/Controls/ContextMenu.js" as ContextMenu
+import "./ContactItem"
 
 Item {
     id: root
@@ -141,6 +146,10 @@ Item {
             }
 
             ContextMenu.hide();
+
+            GoogleAnalytics.trackEvent('/ContactItem',
+                                      'MouseRightClick',
+                                      action);
         }
 
         function destroyRoom(user) {
@@ -154,7 +163,15 @@ Item {
                 return;
             }
 
-            userItem.destroyRoom();
+            MessageBox.show(qsTr("MESSENGER_DESTROY_ROOM_ALERT_TITLE"),
+                            qsTr("MESSENGER_DESTROY_ROOM_ALERT_BODY"),
+                            MessageBox.button.Ok | MessageBox.button.Cancel, function(result) {
+                                if (result != MessageBox.button.Ok) {
+                                    return;
+                                }
+
+                                userItem.destroyRoom();
+                            });
         }
 
         function occupant() {
@@ -320,10 +337,8 @@ Item {
         ContextMenuView {
             property variant user
 
-            onContextClicked: {
-                d.contextClicked(user, action)
-                ContextMenu.hide();
-            }
+            onContextClicked: d.contextClicked(user, action)
+
 
             Component.onCompleted: {
                 contextMenuPrivate.fillItems();

@@ -160,6 +160,12 @@ WidgetView {
                                         verticalCenter: parent.verticalCenter
                                     }
 
+                                    analytics {
+                                        page: '/ContactList'
+                                        category: "EditGroup"
+                                        action: "OpenGroupEdit"
+                                    }
+
                                     style: CheckButtonStyle {
                                         checked: editGroupButton.checked
                                     }

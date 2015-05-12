@@ -66,6 +66,8 @@
 		<file>Application/Controls/BorderedButton.qml</file>
 		<file>Application/Controls/BorderedButtonStyle.qml</file>
 		<file>Application/Controls/ComboBox.qml</file>
+		<file>Application/Controls/ContextMenuStyle.qml</file>
+		<file>Application/Controls/ContextMenuView.qml</file>
 		<file>Application/Controls/HiddenAppCloseButton.qml</file>
 		<file>Application/Controls/Input.qml</file>
 		<file>Application/Controls/InputWithError.qml</file>
@@ -290,7 +292,6 @@
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/PresenceIcon.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml</file>
-		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContextMenuView.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/NavigatableContactList.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/NavigatableListView.qml</file>

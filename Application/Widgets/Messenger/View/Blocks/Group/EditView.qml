@@ -9,6 +9,7 @@ import "../../../../../Core/Styles.js" as Styles
 import "../../../../../Core/MessageBox.js" as MessageBox
 
 import "../../../../../../GameNet/Controls/ContextMenu.js" as ContextMenu
+import "../../../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 import "../../../Models/Messenger.js" as Messenger
 
@@ -34,6 +35,10 @@ Item {
                 d.changeOwner(user);
                 break;
             }
+
+            GoogleAnalytics.trackEvent('/GroupEditView',
+                                      'MouseRightClick',
+                                      action);
         }
 
         function showInformation(user) {
@@ -155,6 +160,12 @@ Item {
 
                 anchors.horizontalCenter: parent.horizontalCenter
                 style: ActiveButtonStyle {}
+
+                analytics {
+                    page: "/GroupEditView"
+                    category: "Clicked"
+                    action: "SaveGroup"
+                }
 
                 fontSize: 12
                 text: qsTr("GROUP_EDIT_SAVE_CHANGE") // "Сохранить группу"
