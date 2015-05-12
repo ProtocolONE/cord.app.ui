@@ -952,6 +952,25 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>Bootstrap</name>
+    <message>
+        <source>INFO_CAPTION</source>
+        <translation>Внимание</translation>
+    </message>
+    <message>
+        <source>CLOSE_APP_CAPTION</source>
+        <translation>Подтверждение выхода</translation>
+    </message>
+    <message>
+        <source>CLOSE_APP_TEXT</source>
+        <translation>Игра будет закрыта вместе с приложением. Работа игры без приложения невозможна. Закрыть приложение и игру?</translation>
+    </message>
+    <message>
+        <source>UPDATE_FOUND_MESSAGE</source>
+        <translation>Доступно новое обновление. Необходимо перезапустить приложение.</translation>
+    </message>
+</context>
+<context>
     <name>BottomBar</name>
     <message>
         <source>MESSANGER_BOTTOM_BAR_BUTTON_NOTIFICATION_TOOLTIP</source>

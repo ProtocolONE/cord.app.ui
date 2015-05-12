@@ -66,4 +66,6 @@ QtObject {
     signal closeDetailedUserInfo();
 
     signal servicesLoaded();
+
+    signal beforeCloseUI();
 }

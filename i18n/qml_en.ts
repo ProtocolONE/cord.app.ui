@@ -383,6 +383,29 @@
     </message>
 </context>
 <context>
+    <name>Bootstrap</name>
+    <message>
+        <location filename="../Application/Bootstrap.qml" line="95"/>
+        <source>INFO_CAPTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Bootstrap.qml" line="96"/>
+        <source>UPDATE_FOUND_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Bootstrap.qml" line="110"/>
+        <source>CLOSE_APP_CAPTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Bootstrap.qml" line="111"/>
+        <source>CLOSE_APP_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CaptchaInput</name>
     <message>
         <location filename="../Application/Blocks/Auth/CaptchaInput.qml" line="57"/>

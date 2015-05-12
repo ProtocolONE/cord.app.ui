@@ -103,6 +103,10 @@ WidgetModel {
         return iconPath.replace('file:///', '');
     }
 
+    function hideTrayIcon() {
+        TrayWindow.hide();
+    }
+
     Connections {
         target: App.signalBus()
 
@@ -112,6 +116,10 @@ WidgetModel {
 
         onSetAnimatedTrayIcon: {
             root.setAnimatedTrayIcon(source);
+        }
+
+        onBeforeCloseUI: {
+            root.hideTrayIcon();
         }
     }
 

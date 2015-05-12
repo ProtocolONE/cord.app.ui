@@ -85,6 +85,44 @@ Item {
             mainWindowInstance.needPakkanenVerification.connect(function() {
                 App.needPakkanenVerification();
             });
+
+            mainWindowInstance.restartUIRequest.connect(function() {
+                if (!isWindowVisible()) {
+                    App.beforeCloseUI();
+                    mainWindowInstance.restartUISlot(true);
+                    return;
+                }
+
+                MessageBox.show(qsTr("INFO_CAPTION"),
+                                qsTr("UPDATE_FOUND_MESSAGE"),
+                                MessageBox.button.Ok,
+                                function(result) {
+                                    App.beforeCloseUI();
+                                    mainWindowInstance.restartUISlot(false);
+                                });
+            });
+
+            mainWindowInstance.shutdownUIRequest.connect(function() {
+                var anyGameRunning = App.currentRunningMainService() ||
+                                        App.currentRunningSecondService() ||
+                                        App.isAnyServiceLocked();
+
+                if (!anyGameRunning) {
+                   App.beforeCloseUI();
+                   mainWindowInstance.shutdownUISlot();
+                   return;
+                }
+
+                MessageBox.show(qsTr("CLOSE_APP_CAPTION"),
+                    qsTr("CLOSE_APP_TEXT"),
+                    MessageBox.button.Ok | MessageBox.button.Cancel,
+                    function(result) {
+                        if (result == MessageBox.button.Ok) {
+                            App.beforeCloseUI();
+                            mainWindowInstance.shutdownUISlot();
+                        }
+                    });
+            });
         }
     }
 

@@ -176,3 +176,7 @@ function closeDetailedUserInfo() {
 function servicesLoaded() {
     _signalBusInstance.servicesLoaded();
 }
+
+function beforeCloseUI() {
+    _signalBusInstance.beforeCloseUI();
+}
