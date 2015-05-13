@@ -94,7 +94,7 @@ function getNickname(item) {
         return "";
     }
 
-    return user.nickname;
+    return user.nickname || item.jid;
 }
 
 function closeChat() {
@@ -272,9 +272,13 @@ function getFullStatusMessage(user) {
 }
 
 function changeOwner(roomJid, user) {
-    _modelInstance.changeOwner(roomJid, user)
+    _modelInstance.changeOwner(roomJid, user);
 }
 
+function renameUser(user, newValue) {
+    _modelInstance.renameUser(user, newValue);
+}
 
-
-
+function changeGroupTopic(roomJid, newValue) {
+    _modelInstance.changeGroupTopic(roomJid, newValue);
+}

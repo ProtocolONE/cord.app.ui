@@ -75,8 +75,8 @@ Item {
             d.rosterReceived();
         });
 
-        rosterManager.itemChanged.connect(function(){
-            console.log("[Roster] Item changed: " + bareJid, rosterManager.getGroups(bareJid));
+        rosterManager.itemChanged.connect(function(bareJid){
+            console.log("[Roster] Item changed: " + bareJid);
             d.rosterReceived();
         });
 
@@ -234,6 +234,10 @@ Item {
     }
 
     function userAvatar(item) {
+        if (!root.connected) {
+            return "";
+        }
+
         var defaultAvatar = (installPath + "/Assets/Images/Application/Widgets/Messenger/defaultAvatar.png");
         var data = root.getUser(item.jid);
         if (!data.isValid()) {
@@ -400,6 +404,18 @@ Item {
         xmppClient.mucManager.setPermission(roomJid, myUser.jid, "member");
     }
 
+    function renameUser(user, newValue) {
+        if (!user || !user.jid) {
+            return;
+        }
+
+        xmppClient.rosterManager.renameItem(user.jid, newValue);
+    }
+
+    function changeGroupTopic(roomJid, newValue) {
+        xmppClient.mucManager.setSubject(roomJid, newValue);
+    }
+
     onHistorySaveIntervalChanged: {
         ConversationManager.setHistorySaveInterval(historySaveInterval);
     }
@@ -473,7 +489,7 @@ Item {
             });
 
             if (!usersModel.contains(bareJid)) {
-                rawUser = UserJs.createRawUser(fullJid, nickname || fullJid);
+                rawUser = UserJs.createRawUser(fullJid, nickname || "");
                 rawUser.groups = groups.map(function(g){ return {name: g}; });
                 rawUser.lastTalkDate = d.getUserTalkDate(rawUser);
 
@@ -483,14 +499,19 @@ Item {
                 }
             }
 
-            // INFO Никнейм из вкарда мы берем, но сортировка происходит по нику из ростера
+            // INFO Никнейм из вкарда мы берем теперь только в крайнем случаи
+            // Основным никнеймом считаетеся никнейм из ростера
             item = root.getUser(fullJid);
-            item.nickname = nickname || item.nickname || fullJid;
+            item.nickname = nickname || item.nickname || "";
             item.groups = groups;
 
             // UNDONE set other properties
             if (unreadMessageUsersMap.hasOwnProperty(item.jid)) {
                 item.unreadMessageCount = unreadMessageUsersMap[item.jid].count;
+            }
+
+            if (item.isNicknameChanged()) {
+                root.nicknameChanged(item.jid);
             }
         }
 

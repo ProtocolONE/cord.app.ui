@@ -66,9 +66,10 @@ _private = {
         var oldNickName = item.nickname;
         var newNickName = vcard.nickName || oldNickName || "";
 
-        if (oldNickName !== newNickName) {
+        if (!oldNickName && !!newNickName) {
             item.nickname = newNickName;
             _messenger.nicknameChanged(item.jid);
         }
+
     }
 };

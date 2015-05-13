@@ -39,11 +39,19 @@ Rectangle {
 
     signal clicked()
     signal rightButtonClicked(variant mouse);
+    signal nicknameChangeRequest(string value);
 
     implicitWidth: 78
     implicitHeight: 40
 
     color: root.getBgColor()
+
+    function startEdit() {
+        editNickname.text = root.nickname;
+        editNickname.visible = true
+        editNickname.selectAll();
+        editNickname.forceActiveFocus();
+    }
 
     function getBgColor() {
         var map = {
@@ -174,6 +182,39 @@ Rectangle {
                             width: parent.width - (informationIcon.visible ? informationIcon.width + 8 : 0)
                             color: nicknameText.getTextColor()
                             elide: Text.ElideRight
+                            visible: !editNickname.visible
+                        }
+
+                        TextInput {
+                            id: editNickname
+
+                            visible: false
+                            height: 20
+                            color: Styles.style.messengerContactNickname
+
+                            font {
+                                family: "Arial"
+                                pixelSize: 14
+                            }
+
+                            width: parent.width - (informationIcon.width + 8)
+                            Keys.onEnterPressed: {
+                                root.nicknameChangeRequest(editNickname.text);
+                                editNickname.visible = false;
+                            }
+
+                            Keys.onReturnPressed: {
+                                root.nicknameChangeRequest(editNickname.text);
+                                editNickname.visible = false;
+                            }
+
+                            Keys.onEscapePressed: editNickname.visible = false;
+
+                            onFocusChanged: {
+                                if (!focus) {
+                                    editNickname.visible = false;
+                                }
+                            }
                         }
 
                         ImageButton {
@@ -203,8 +244,8 @@ Rectangle {
                             }
 
                             styleImages {
-                               normal: d.imageRoot + "infoIconNormal.png"
-                               hover: d.imageRoot + "infoIconHover.png"
+                                normal: d.imageRoot + "infoIconNormal.png"
+                                hover: d.imageRoot + "infoIconHover.png"
                             }
 
                             onClicked: App.openDetailedUserInfo({

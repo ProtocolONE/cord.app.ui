@@ -1348,7 +1348,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>CONTACT_ITEM_NICKNAME_TOOLTIP</source>
-        <translation>Кликните, чтобы перейти к профилю %1</translation>
+        <translation type="vanished">Кликните, чтобы перейти к профилю %1</translation>
     </message>
 </context>
 <context>
@@ -1392,6 +1392,10 @@ Please try again later.</source>
     <message>
         <source>MESSENGER_DESTROY_ROOM_ALERT_BODY</source>
         <translation>Вы уверены, что хотите распустить группу?</translation>
+    </message>
+    <message>
+        <source>CONTACT_CONTEXT_MENU_RENAME</source>
+        <translation>Переименовать</translation>
     </message>
 </context>
 <context>

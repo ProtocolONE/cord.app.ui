@@ -89,6 +89,8 @@ function User(item, model, jabber) {
         self = this,
         message;
 
+    var nicknameChanged = false;
+
     var defGetter = function(field) {
         self.__defineGetter__(field, function() {
             if (!_item) {
@@ -129,7 +131,14 @@ function User(item, model, jabber) {
         return jidToUser(_item.jid);
     });
 
-    defGetSet("nickname");
+    defGetter("nickname");
+    this.__defineSetter__("nickname", function(value) {
+        if (value != item.nickname) {
+            model.setPropertyById(self.jid, "nickname", value);
+            nicknameChanged = true;
+        }
+    });
+
     defGetSet("statusMessage");
     defGetSet("presenceState");
     defGetSet("inputMessage");
@@ -185,6 +194,10 @@ function User(item, model, jabber) {
 
     this.isValid = function() {
         return !!_item && !!_model;
+    }
+
+    this.isNicknameChanged = function() {
+        return nicknameChanged;
     }
 }
 

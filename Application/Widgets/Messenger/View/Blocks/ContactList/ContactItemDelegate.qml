@@ -47,6 +47,8 @@ Item {
 
         property string imageRoot: installPath + "Assets/Images/Application/Widgets/Messenger/ContactItem/"
 
+        signal startEditNickname(string jid);
+
         function nickName() {
             if (!root.user) {
 
@@ -143,7 +145,11 @@ Item {
             case "information":
                 d.showInformation(user);
                 break;
+            case "rename":
+                d.rename(user);
+                break;
             }
+
 
             ContextMenu.hide();
 
@@ -197,6 +203,10 @@ Item {
                                     });
         }
 
+        function rename(user) {
+            d.startEditNickname(user.jid);
+        }
+
         function dump(user) {
             var item = Messenger.users().getById(user.jid);
             console.log('[ContextMenu] Dump\n', JSON.stringify(item, null, 2));
@@ -230,6 +240,8 @@ Item {
                 ContextMenu.show(mouse, root, contextMenu, {user: root.user});
             }
 
+            onNicknameChangeRequest: Messenger.renameUser(root.user, value);
+
             CursorMouseArea {
                 anchors.fill: parent
                 visible: Messenger.editGroupModel().isActive()
@@ -249,6 +261,10 @@ Item {
                 }
             }
 
+            Connections {
+                target: d
+                onStartEditNickname: normalContactInstance.startEdit();
+            }
         }
     }
 
@@ -256,7 +272,7 @@ Item {
         id: groupContactItem
 
         ContactItem {
-            id: cc
+            id: groupContactInstance
 
             anchors.fill: parent
 
@@ -271,11 +287,18 @@ Item {
             onClicked: root.select()
 
             showInformationIcon: false
-            onRightButtonClicked: ContextMenu.show(mouse, cc, contextMenu, {user: root.user});
+            onRightButtonClicked: ContextMenu.show(mouse, groupContactInstance, contextMenu, {user: root.user});
+
+            onNicknameChangeRequest: Messenger.changeGroupTopic(root.user.jid, value);
 
             CursorMouseArea {
                 anchors.fill: parent
                 visible: Messenger.editGroupModel().isActive()
+            }
+
+            Connections {
+                target: d
+                onStartEditNickname: groupContactInstance.startEdit();
             }
         }
     }
@@ -392,6 +415,11 @@ Item {
                                            });
                     }
 
+                    options.push({
+                                     name: qsTr("CONTACT_CONTEXT_MENU_RENAME"),// "Переименовать",
+                                     action: "rename"
+                                 });
+
                     fill(options);
                 }
 
@@ -405,6 +433,11 @@ Item {
                     options.push({
                                      name: qsTr("CONTACT_CONTEXT_MENU_INFORAMTION"),// "Информация",
                                      action: "information"
+                                 });
+
+                    options.push({
+                                     name: qsTr("CONTACT_CONTEXT_MENU_RENAME"),// "Переименовать",
+                                     action: "rename"
                                  });
                     fill(options);
                 }

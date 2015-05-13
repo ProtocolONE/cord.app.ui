@@ -455,38 +455,35 @@
     </message>
 </context>
 <context>
-    <name>ContactItem</name>
-    <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem.qml" line="108"/>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem.qml" line="189"/>
-        <source>CONTACT_ITEM_NICKNAME_TOOLTIP</source>
-        <translation></translation>
-    </message>
-</context>
-<context>
     <name>ContactItemDelegate</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="166"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="172"/>
         <source>MESSENGER_DESTROY_ROOM_ALERT_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="167"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="173"/>
         <source>MESSENGER_DESTROY_ROOM_ALERT_BODY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="386"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="418"/>
         <source>CONTACT_CONTEXT_MENU_DESTROY_ROOM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="391"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="423"/>
         <source>CONTACT_CONTEXT_MENU_LEAVE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="406"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="428"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="448"/>
+        <source>CONTACT_CONTEXT_MENU_RENAME</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="443"/>
         <source>CONTACT_CONTEXT_MENU_INFORAMTION</source>
         <translation type="unfinished"></translation>
     </message>
@@ -692,22 +689,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/Group/EditView.qml" line="170"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/Group/EditView.qml" line="171"/>
         <source>GROUP_EDIT_SAVE_CHANGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/Group/EditView.qml" line="196"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/Group/EditView.qml" line="197"/>
         <source>GROUP_EDIT_CONTEXT_MENU_INFORAMTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/Group/EditView.qml" line="202"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/Group/EditView.qml" line="203"/>
         <source>GROUP_EDIT_CONTEXT_MENU_KICK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/Group/EditView.qml" line="209"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/Group/EditView.qml" line="210"/>
         <source>GROUP_EDIT_CONTEXT_MENU_CHANGE_OWNER</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1595,17 +1592,17 @@
 <context>
     <name>Messenger</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="354"/>
-        <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="272"/>
+        <source>MESSENGER_CONTACT_ITEM_PLAYING_STATUS_INFO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="281"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="285"/>
         <source>LAST_ACTIVITY_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="449"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="465"/>
         <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
         <translation></translation>
     </message>
