@@ -283,7 +283,6 @@
 		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmileTab.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/AllContactView.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactFilter.qml</file>
-		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/ContactItem.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/ContactItemHeader.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/EditGroupButton.qml</file>
