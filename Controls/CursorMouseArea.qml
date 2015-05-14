@@ -26,6 +26,8 @@ MouseArea {
     onPressed: Tooltip.exited(mouser)
     onReleased: Tooltip.entered(mouser)
 
+    acceptedButtons: Qt.LeftButton | Qt.RightButton
+
     CursorArea {
         id: cursorArea
 

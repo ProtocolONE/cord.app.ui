@@ -265,9 +265,8 @@ Item {
             root.requestServices();
         }
 
-        onLeftMousePress: {
-            ContexMenu.clicked(rootItem, x, y);
-        }
+        onLeftMousePress: ContexMenu.clicked(rootItem, x, y);
+        onNavigate: ContexMenu.hide();
     }
 
     Connections {
