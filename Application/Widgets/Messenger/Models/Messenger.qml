@@ -11,11 +11,13 @@ import QtQuick 1.1
 import Tulip 1.0
 import QXmpp 1.0
 import GameNet.Controls 1.0
+import GameNet.Components.JobWorker 1.0
 
 import "./UserModels" as UserModels
 
 import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../../../../Application/Core/moment.js" as Moment
+import "../../../../Application/Core/MessageBox.js" as MessageBox
 
 import "MessengerPrivate.js" as MessengerPrivateJs
 import "User.js" as UserJs
@@ -33,6 +35,8 @@ import "../Plugins/RoomCreate/RoomCreate.js" as RoomCreate
 import "../Plugins/Topic/Topic.js" as Topic
 import "../Plugins/RoomParticipants/RoomParticipants.js" as RoomParticipants
 import "../Plugins/ChatCommands/ChatCommands.js" as ChatCommands
+
+import "../Plugins/MessageUrlHandler"
 
 import "../../../Core/App.js" as App
 import "../../../Core/User.js" as User
@@ -67,29 +71,70 @@ Item {
     signal nicknameChanged(string jid);
     signal rosterReceived();
 
+    signal messageLinkActivated(variant user, string link);
+
     Component.onCompleted: {
         var rosterManager = xmppClient.rosterManager;
 
         rosterManager.itemAdded.connect(function(bareJid) {
             console.log("[Roster] Item added: " + bareJid);
-            d.rosterReceived();
+
+            var user = root.getUser(bareJid);
+            d.updateNickname(bareJid, user);
+            d.updateSubscription(user);
         });
 
         rosterManager.itemChanged.connect(function(bareJid){
             console.log("[Roster] Item changed: " + bareJid);
-            d.rosterReceived();
+
+            var user = root.getUser(bareJid);
+            d.updateSubscription(user);
+            d.updateNickname(bareJid, user);
         });
 
         rosterManager.itemRemoved.connect(function(bareJid) {
             console.log("[Roster] Item removed: " + bareJid);
-            d.rosterReceived();
+
+            var user = root.getUser(bareJid);
+            user.subscription = 0;
+            user.inContacts = false;
+            usersModel.sourceChanged();
         });
 
         rosterManager.rosterReceived.connect(function(){
             console.log("[Roster] Roster received");
 
             d.rosterReceived();
-            d.loadAndUpdateRawUsers();
+        });
+
+        rosterManager.subscriptionReceived.connect(function(bareJid, reason) {
+            var user = root.getUser(bareJid);
+            if (user.subscription == QXmppRosterManager.To) {
+                rosterManager.acceptSubscription(bareJid, "");
+                return;
+            }
+
+            var conversation = root.getConversation(bareJid);
+            var subscriptionRequestMessage = qsTr("MESSENGER_SUBSCRIPTION_REQUEST_MESSAGE")
+                .arg(reason)
+                .arg('gamenet://subscription/decline')
+                .arg('gamenet://subscription/accept');
+
+            var tmpMessage = {
+                to: myUser.jid,
+                from: bareJid,
+                type: 2,
+                body: subscriptionRequestMessage,
+            }
+
+            root.messageReceived(bareJid, tmpMessage.body, tmpMessage);
+            conversation.appendMessage(bareJid, tmpMessage.body, Date.now(), Date.now())
+
+            if (d.needIncrementUnread(user)) {
+                user.unreadMessageCount += 1;
+                d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
+            }
+
         });
     }
 
@@ -159,15 +204,25 @@ Item {
             return;
         }
 
+        xmppClient.disconnectFromServer();
         root.connected = false;
+        root.contactReceived = false;
+
+        myUser.reset();
+
+        worker.clear();
 
         root.closeChat();
         groupEditModel.reset();
-        usersModel.clear();
-        myUser.reset();
-        root.contactReceived = false;
 
-        xmppClient.disconnectFromServer();
+        allContacts.reset();
+        playingContacts.reset();
+        recentConversation.reset();
+        conversationModel.clear();
+
+        // Очистка вынесеная в отложенный воркер, чтоб при логауте очистилась модель usersModel чуть позже,
+        // иначе при биндинге UI пользователи снова докидываются в модель.
+        worker.push(new MessengerPrivateJs.ClearUsersModel({ model: usersModel }));
     }
 
     function getUser(jid, type) {
@@ -416,6 +471,18 @@ Item {
         xmppClient.mucManager.setSubject(roomJid, newValue);
     }
 
+    function addContact(jid) {
+        xmppClient.rosterManager.subscribe(jid, myUser.nickname);
+    }
+
+    function removeContact(user) {
+        if (!user || !user.jid) {
+            return;
+        }
+
+        xmppClient.rosterManager.removeItem(user.jid);
+    }
+
     onHistorySaveIntervalChanged: {
         ConversationManager.setHistorySaveInterval(historySaveInterval);
     }
@@ -426,6 +493,40 @@ Item {
         property string serverUrl: ''
         property bool smilePanelVisible: false
 
+        function updateNickname(fullJid, user, externalNickName) {
+            var nickname = xmppClient.rosterManager.getNickname(fullJid) || externalNickName;
+            user.nickname = nickname || user.nickname || "";
+
+            if (user.isNicknameChanged()) {
+                root.nicknameChanged(user.jid);
+            }
+        }
+
+        function updateSubscription(user) {
+            var subscription = xmppClient.rosterManager.getSubscription(user.jid);
+
+            if (subscription !== user.subscription) {
+                user.subscription = subscription;
+                user.inContacts = (subscription == QXmppRosterManager.Both);
+                usersModel.sourceChanged();
+            }
+        }
+
+        function rosterReceivedCb() {
+            usersModel.endBatch();
+            root.rosterReceived();
+            root.contactReceived = true;
+        }
+
+        function workerAppend(user) {
+            if (user == myUser.jid) {
+                return;
+            }
+
+            var user1 = root.getUser(user);
+            d.updateSubscription(user1);
+        }
+
         function rosterReceived() {
             var rosterUsers = xmppClient.rosterManager.getRosterBareJids()
             , currentUserMap = {}
@@ -433,21 +534,13 @@ Item {
 
             usersModel.beginBatch();
 
-            rosterUsers.forEach(function(jid) {
-                currentUserMap[jid] = 1;
-                d.appendUser(jid);
-            });
-
-            usersModel.forEachId(function(id) {
-                var isGroupChat = usersModel.getPropertyById(id, "isGroupChat");
-                if (!isGroupChat) {
-                    usersModel.setPropertyById(id, "inContacts", currentUserMap.hasOwnProperty(id));
-                }
-            });
-
-            usersModel.endBatch();
-            root.rosterReceived();
-            root.contactReceived = true;
+            worker.push(new MessengerPrivateJs.InsertUsersToModel({
+                                                           index: 0,
+                                                           users: rosterUsers,
+                                                           cb: d.workerAppend,
+                                                           finish: d.rosterReceivedCb,
+                                                           model: usersModel
+                                                       }));
         }
 
         function createGamenetUser() {
@@ -466,7 +559,8 @@ Item {
             , item
             , groupsMap = {}
             , rawUser
-            , unreadMessageUsersMap;
+            , unreadMessageUsersMap
+            , subscription;
 
             if (!fullJid) {
                 return;
@@ -482,6 +576,7 @@ Item {
 
             nickname = xmppClient.rosterManager.getNickname(fullJid) || externalNickName;
             groups = xmppClient.rosterManager.getGroups(fullJid);
+            subscription = xmppClient.rosterManager.getSubscription(bareJid);
 
             unreadMessageUsersMap = d.unreadMessageUsers();
             groups = groups.filter(function(e) {
@@ -492,17 +587,15 @@ Item {
                 rawUser = UserJs.createRawUser(fullJid, nickname || "");
                 rawUser.groups = groups.map(function(g){ return {name: g}; });
                 rawUser.lastTalkDate = d.getUserTalkDate(rawUser);
+                rawUser.subscription = subscription;
+                rawUser.inContacts = (subscription == QXmppRosterManager.Both);
 
                 usersModel.append(rawUser);
-                if (root.contactReceived) {
-                    d.storeRawUser(fullJid);
-                }
             }
 
             // INFO Никнейм из вкарда мы берем теперь только в крайнем случаи
             // Основным никнеймом считаетеся никнейм из ростера
             item = root.getUser(fullJid);
-            item.nickname = nickname || item.nickname || "";
             item.groups = groups;
 
             // UNDONE set other properties
@@ -510,9 +603,7 @@ Item {
                 item.unreadMessageCount = unreadMessageUsersMap[item.jid].count;
             }
 
-            if (item.isNicknameChanged()) {
-                root.nicknameChanged(item.jid);
-            }
+            d.updateNickname(fullJid, item, externalNickName);
         }
 
         function appendGroudUser(fullJid, externalNickName) {
@@ -622,40 +713,6 @@ Item {
             Settings.setValue('qml/messenger/unreadmessage/', myUser.jid, JSON.stringify(storedUsers));
 
             MessengerPrivateJs.unreadMessageCountMap = storedUsers;
-        }
-
-        function getRawUsersMap() {
-            var storedUsers = {},
-                settingsValue = Settings.value('qml/messenger/stored/', myUser.jid, "{}");
-
-            try {
-                storedUsers = JSON.parse(settingsValue);
-            } catch(e) {
-                storedUsers = {};
-            }
-
-            return storedUsers;
-        }
-
-        function storeRawUser(jid) {
-            var storedUsers = d.getRawUsersMap();
-            storedUsers[jid] = {};
-
-            Settings.setValue('qml/messenger/stored/', myUser.jid, JSON.stringify(storedUsers));
-        }
-
-        function loadAndUpdateRawUsers() {
-            var storedUsers = d.getRawUsersMap();
-
-            Object.keys(storedUsers).forEach(function(e){
-                if (!usersModel.contains(e) && e !== myUser.jid) {
-                    d.appendUser(e);
-                } else {
-                    delete storedUsers[e];
-                }
-            });
-
-            Settings.setValue('qml/messenger/stored/', myUser.jid, JSON.stringify(storedUsers));
         }
 
         function getUserTalkDate(user) {
@@ -928,6 +985,10 @@ Item {
         messenger: root
     }
 
+    MessageUrlHandler {
+        messenger: root
+    }
+
     GroupEditModel {
         id: groupEditModel
 
@@ -938,5 +999,12 @@ Item {
         id: conversationModel
 
         idProperty: 'id'
+    }
+
+    JobWorker {
+        id: worker
+
+        interval: 10
+        managed: true
     }
 }

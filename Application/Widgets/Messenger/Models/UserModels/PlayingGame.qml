@@ -16,6 +16,10 @@ Item {
     property bool pauseProcessing
     property alias model: proxyModel
 
+    function reset() {
+        d.clearModel()
+    }
+
     QtObject {
         id: d
 

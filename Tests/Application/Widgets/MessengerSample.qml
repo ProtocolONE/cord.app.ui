@@ -118,11 +118,11 @@ Rectangle {
                 //d.authDone('400001000000000110', '6c5f39adaaa18c3b4a6d8f4af5289ecf76029af2'); //800+ friends
                 //d.authDone('400001000000073060', '6f2d51fcb4fbc0db43e02c5b855ef1f10f9d5a75'); //3600+ friends
                 //d.authDone('400001000005959640', '1123cf8d91aabb9ebc8345def6a13772cc020498');
-                //d.authDone('400001000001709240', '570e3c3e59c7c4d7a1b322a0e25f231752814dc6'); // gna2@unit.test
+                d.authDone('400001000001709240', '570e3c3e59c7c4d7a1b322a0e25f231752814dc6'); // gna2@unit.test
                 //d.authDone('400001000030060540', '23c936940e97a2972e55947c9f63e3471583972c'); //300+ friends
 
                 //d.authDone('400001000002212660', '04b47ad21518058fa9d441a6d50abdfa2d21e252'); // gna3@unit.test
-                d.authDone('400001000001709240', '570e3c3e59c7c4d7a1b322a0e25f231752814dc6'); // gna2@unit.test
+                //d.authDone('400001000001709240', '570e3c3e59c7c4d7a1b322a0e25f231752814dc6'); // gna2@unit.test
                 //d.authDone('400001000001634860', '4c2f65777d38eb07d32d111061005dcd5a119150');
 
                 d.requestServices();
@@ -183,6 +183,19 @@ Rectangle {
             height: 30
             text: 'Iuan'
             onClicked: startAuth3();
+        }
+
+        Button {
+            function startAuth4() {
+                d.authDone('400001000000073060', '6f2d51fcb4fbc0db43e02c5b855ef1f10f9d5a75'); //3600+ friends
+                d.requestServices();
+            }
+
+            enabled: !MessengerJs.authedUser().jid
+            width: 100
+            height: 30
+            text: 'Ilyatk'
+            onClicked: startAuth4();
         }
 
         Button {
@@ -254,6 +267,14 @@ Rectangle {
                     anchors.fill: parent
                     spacing: 10
 
+                    Button {
+                        width: 100
+                        height: 30
+                        text: 'SelectedUser'
+                        onClicked: {
+                            console.log(JSON.stringify(MessengerJs.selectedUser(2)));
+                        }
+                    }
                 }
             }
 

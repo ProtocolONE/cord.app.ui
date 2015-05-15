@@ -161,7 +161,7 @@ var Bookmarks = function(jabber, messenger) {
             user.presenceState = "";
             self.removeConference(roomJid);
 
-            if (messenger.selectedUser().jid == roomJid) {
+            if (messenger.selectedUser(2 /*MessengerJs.USER_INFO_JID*/).jid == roomJid) {
                 messenger.closeChat();
             }
 

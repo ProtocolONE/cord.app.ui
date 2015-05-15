@@ -27,6 +27,8 @@ Item {
     property bool isSelfMessage: false
     property bool firstMessageInGroup: false
 
+    signal linkActivated(string link);
+
     width: parent.width
     height: messageRow.height + messageRow.y
 
@@ -159,31 +161,7 @@ Item {
                             italic: root.isStatusMessage
                         }
 
-                        onLinkActivated: {
-                            var serviceId
-                            , gameNetPattern = "https://gamenet.ru"
-                            , startServicePattern = "gamenet://startservice/";
-
-                            if (link.indexOf(gameNetPattern) === 0) {
-                                App.openExternalUrlWithAuth(link);
-                                return;
-                            }
-
-                            serviceMatch = link.match(startServicePattern);
-                            if (!serviceMatch) {
-                                App.openExternalUrl(link);
-                                return;
-                            }
-
-                                if (App.serviceExists(serviceId)) {
-                                    App.selectService(serviceId);
-                                    App.downloadButtonStart(serviceId);
-                                }
-                                return;
-                            }
-
-                            App.openExternalUrl(link);
-                        }
+                        onLinkActivated: root.linkActivated(link);
                     }
                 }
             }

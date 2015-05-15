@@ -282,3 +282,12 @@ function renameUser(user, newValue) {
 function changeGroupTopic(roomJid, newValue) {
     _modelInstance.changeGroupTopic(roomJid, newValue);
 }
+
+function addContact(jid) {
+    _modelInstance.addContact(jid);
+}
+
+function removeContact(user) {
+    _modelInstance.removeContact(user);
+}
+

@@ -210,8 +210,8 @@ Rectangle {
 
                             Keys.onEscapePressed: editNickname.visible = false;
 
-                            onFocusChanged: {
-                                if (!focus) {
+                            onActiveFocusChanged: {
+                                if (!activeFocus) {
                                     editNickname.visible = false;
                                 }
                             }

@@ -6,14 +6,13 @@ Item {
     id: root
 
     signal clicked();
-    signal inviteFriend();
+    signal requestAddToContact();
 
     property string searchText
     property bool isActive
     property variant charsList
     property bool isHighlighted: false
-    property bool isInviteToFriendSended: false
-    property bool isFriend: false
+    property bool isInContacts: false
 
     property string nickname
     property string avatar
@@ -107,11 +106,10 @@ Item {
                     width: parent.width - 40
                     height: 16
 
-                    text: root.inviteMaximumLimitSended ? qsTr("INVITE_MAXIMUM_LIMIT_SENDED") :
-                          root.isInviteToFriendSended ? qsTr("INVITE_TO_FRIEND_SENDED") : qsTr("SEND_INVITE_TO_FRIEND")
+                    text: qsTr("WEB_SEARCH_ADD_CONTACT") // "Добавить в контакты"
                     fontSize: 11
-                    visible: !root.isFriend
-                    enabled: !root.isInviteToFriendSended && !root.inviteMaximumLimitSended
+
+                    visible: !root.isInContacts
                     style {
                         normal: "#3498db"
                         hover: "#3670DC"
@@ -119,8 +117,7 @@ Item {
                     }
 
                     font.family: 'Tahoma'
-
-                    onClicked: root.inviteFriend();
+                    onClicked: root.requestAddToContact();
                 }
             }
         }

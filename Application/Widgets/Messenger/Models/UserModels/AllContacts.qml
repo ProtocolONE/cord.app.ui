@@ -30,6 +30,10 @@ Item {
     property alias pauseProcessing: worker.paused
     property alias model: proxyModel
 
+    function reset() {
+        d.clearModel();
+    }
+
     QtObject {
         id: d
 

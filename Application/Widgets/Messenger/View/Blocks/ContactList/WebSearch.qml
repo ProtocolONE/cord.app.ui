@@ -207,7 +207,6 @@ NavigatableContactList {
                 }
             }
         }
-
     }
 
     NavigatableListView {
@@ -218,10 +217,7 @@ NavigatableContactList {
              return d.imageRoot + name;
         }
 
-        anchors {
-           fill: parent
-           //rightMargin: 12
-        }
+        anchors.fill: parent
 
         visible: root.searchText.length > 0
         highlightMoveSpeed: 1000
@@ -246,40 +242,17 @@ NavigatableContactList {
             nickname: model.nickname || model.gamenetid
             avatar: model.avatar || listView.getDefaultAvatar(index)
             charsText: model.charsText
-            isFriend: model.isFriend
-            isInviteToFriendSended: model.friendInviteSended
+
+            isInContacts: MessengerJs.getUser(MessengerJs.userIdToJid(model.gamenetid)).inContacts
             inviteMaximumLimitSended: model.inviteMaximumLimitSended
             onClicked: {
                 listView.currentIndex = index;
                 select();
             }
 
-            onInviteFriend: {
-                if (model.friendInviteSended || !model.gamenetid) {
-                    return;
-                }
-
-                RestApi.Social.sendInvite(model.gamenetid, function(response){
-                    if (response.hasOwnProperty('error')) {
-                        if (response.error.code == 503) {
-                            listView.model.setProperty(index, 'inviteMaximumLimitSended', true);
-                        }
-
-                        if (response.error.code == 502) {
-                            // Инвайт уже был отправлен ранее, просто показываем текст что отправлен
-                            listView.model.setProperty(index, 'friendInviteSended', true);
-                        }
-                        return;
-                    }
-
-                    if (response.hasOwnProperty('result')) {
-                        if (response.result) {
-                            listView.model.setProperty(index, 'friendInviteSended', true);
-                        }
-                    }
-                }, function(){
-
-                });
+            onRequestAddToContact: {
+                MessengerJs.addContact(MessengerJs.userIdToJid(model.gamenetid));
+                select();
             }
 
             function select() {

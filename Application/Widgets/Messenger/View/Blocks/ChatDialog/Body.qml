@@ -19,6 +19,8 @@ import "../../../Models/Messenger.js" as MessengerJs
 import "../../../../../Core/moment.js" as Moment
 
 Rectangle {
+    id: root
+
     color: Styles.style.messengerChatDialogBodyBackground
     clip: true
 
@@ -118,6 +120,7 @@ Rectangle {
             onIsStatusMessageChanged: messageList.scrollCheck()
             isSelfMessage: messageList.isSelfMessageTest(model.jid)
             firstMessageInGroup: messageList.isSameJid(index, model.jid, model.day)
+            onLinkActivated: MessengerJs.instance().messageLinkActivated(root.user, link);
         }
     }
 

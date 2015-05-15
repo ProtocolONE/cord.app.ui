@@ -457,34 +457,39 @@
 <context>
     <name>ContactItemDelegate</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="172"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="175"/>
         <source>MESSENGER_DESTROY_ROOM_ALERT_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="173"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="176"/>
         <source>MESSENGER_DESTROY_ROOM_ALERT_BODY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="418"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="412"/>
         <source>CONTACT_CONTEXT_MENU_DESTROY_ROOM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="423"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="417"/>
         <source>CONTACT_CONTEXT_MENU_LEAVE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="428"/>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="448"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="422"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="442"/>
         <source>CONTACT_CONTEXT_MENU_RENAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="443"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="437"/>
         <source>CONTACT_CONTEXT_MENU_INFORAMTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="447"/>
+        <source>CONTACT_CONTEXT_MENU_DELETE</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1592,17 +1597,22 @@
 <context>
     <name>Messenger</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="272"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="118"/>
+        <source>MESSENGER_SUBSCRIPTION_REQUEST_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="325"/>
         <source>MESSENGER_CONTACT_ITEM_PLAYING_STATUS_INFO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="285"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="338"/>
         <source>LAST_ACTIVITY_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="465"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="556"/>
         <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
         <translation></translation>
     </message>
@@ -2038,17 +2048,17 @@
 <context>
     <name>RecentConversation</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/UserModels/RecentConversation.qml" line="150"/>
+        <location filename="../Application/Widgets/Messenger/Models/UserModels/RecentConversation.qml" line="158"/>
         <source>RECENTCONVERSATION_TODAY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/UserModels/RecentConversation.qml" line="154"/>
+        <location filename="../Application/Widgets/Messenger/Models/UserModels/RecentConversation.qml" line="162"/>
         <source>RECENTCONVERSATION_YESTERDAY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/UserModels/RecentConversation.qml" line="158"/>
+        <location filename="../Application/Widgets/Messenger/Models/UserModels/RecentConversation.qml" line="166"/>
         <source>RECENTCONVERSATION_LONGAGO</source>
         <translation></translation>
     </message>
@@ -2331,6 +2341,21 @@
     </message>
 </context>
 <context>
+    <name>StringHelper</name>
+    <message>
+        <location filename="../Application/Core/StringHelper.js" line="33"/>
+        <location filename="../Application/Widgets/Overlay/View/Chat/StringHelper.js" line="32"/>
+        <source>MESSENGER_SUBSCRIPTION_REQUEST_ACCEPT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Core/StringHelper.js" line="33"/>
+        <location filename="../Application/Widgets/Overlay/View/Chat/StringHelper.js" line="32"/>
+        <source>MESSENGER_SUBSCRIPTION_REQUEST_DECLINE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TaskList</name>
     <message>
         <location filename="../Application/Widgets/TaskList/TaskList.qml" line="79"/>
@@ -2579,19 +2604,9 @@
 <context>
     <name>WebSearchContact</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml" line="110"/>
-        <source>INVITE_MAXIMUM_LIMIT_SENDED</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml" line="111"/>
-        <source>INVITE_TO_FRIEND_SENDED</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml" line="111"/>
-        <source>SEND_INVITE_TO_FRIEND</source>
-        <translation></translation>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml" line="109"/>
+        <source>WEB_SEARCH_ADD_CONTACT</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

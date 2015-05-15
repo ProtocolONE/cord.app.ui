@@ -1397,6 +1397,10 @@ Please try again later.</source>
         <source>CONTACT_CONTEXT_MENU_RENAME</source>
         <translation>Переименовать</translation>
     </message>
+    <message>
+        <source>CONTACT_CONTEXT_MENU_DELETE</source>
+        <translation>Удалить</translation>
+    </message>
 </context>
 <context>
     <name>ContactItemHeader</name>
@@ -3558,6 +3562,11 @@ Please try again later.</source>
         <source>LAST_ACTIVITY_PLACEHOLDER</source>
         <translation>Был %1</translation>
     </message>
+    <message>
+        <source>MESSENGER_SUBSCRIPTION_REQUEST_MESSAGE</source>
+        <translation>Пользователь %1 хочет внести вас в свой список контактов.
+%2 или %3</translation>
+    </message>
 </context>
 <context>
     <name>MessengerSettings</name>
@@ -5241,6 +5250,17 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>StringHelper</name>
+    <message>
+        <source>MESSENGER_SUBSCRIPTION_REQUEST_ACCEPT</source>
+        <translation>Согласиться</translation>
+    </message>
+    <message>
+        <source>MESSENGER_SUBSCRIPTION_REQUEST_DECLINE</source>
+        <translation>Отказаться</translation>
+    </message>
+</context>
+<context>
     <name>Support</name>
     <message>
         <source>SUPPORT_HELP</source>
@@ -5492,15 +5512,19 @@ Please try again later.</source>
     <name>WebSearchContact</name>
     <message>
         <source>INVITE_TO_FRIEND_SENDED</source>
-        <translation>Запрос дружбы отправлен</translation>
+        <translation type="vanished">Запрос дружбы отправлен</translation>
     </message>
     <message>
         <source>SEND_INVITE_TO_FRIEND</source>
-        <translation>Добавить в друзья</translation>
+        <translation type="vanished">Добавить в друзья</translation>
     </message>
     <message>
         <source>INVITE_MAXIMUM_LIMIT_SENDED</source>
-        <translation>Превышен лимит инвайтов</translation>
+        <translation type="vanished">Превышен лимит инвайтов</translation>
+    </message>
+    <message>
+        <source>WEB_SEARCH_ADD_CONTACT</source>
+        <translation>Добавить в контакты</translation>
     </message>
 </context>
 <context>

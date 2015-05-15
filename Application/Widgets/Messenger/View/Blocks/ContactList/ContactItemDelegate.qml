@@ -148,6 +148,9 @@ Item {
             case "rename":
                 d.rename(user);
                 break;
+            case "deleteContact":
+                Messenger.removeContact(user);
+                break;
             }
 
 
@@ -438,6 +441,11 @@ Item {
                     options.push({
                                      name: qsTr("CONTACT_CONTEXT_MENU_RENAME"),// "Переименовать",
                                      action: "rename"
+                                 });
+
+                    options.push({
+                                     name: qsTr("CONTACT_CONTEXT_MENU_DELETE"),// "Удалить",
+                                     action: "deleteContact"
                                  });
                     fill(options);
                 }

@@ -37,11 +37,20 @@ Item {
         return d.sectionCaption(date);
     }
 
+    function reset() {
+        d.clearModel();
+    }
+
     QtObject {
         id: d
 
         property string today: ""
         property string yesterday: ""
+
+        function clearModel() {
+            Js.sortedUsers = [];
+            proxyModel.clear();
+        }
 
         function updateModel() {
             var usersMap = {}
@@ -53,8 +62,7 @@ Item {
             d.build(usersMap, users);
 
             if (users.length === 0) {
-                Js.sortedUsers = [];
-                proxyModel.clear();
+                d.clearModel()
                 return;
             }
 

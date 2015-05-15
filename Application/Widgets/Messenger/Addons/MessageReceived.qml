@@ -167,7 +167,7 @@ TrayPopupBase {
                     }
 
                     onLinkActivated: {
-                        App.openExternalUrl(link);
+                        MessengerJs.instance().messageLinkActivated({jid: root.jid}, link);
                         root.forceDestroy();
                     }
                 }

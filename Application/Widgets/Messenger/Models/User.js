@@ -36,6 +36,7 @@ function createRawUser(jid, nickname) {
         inContacts: false,
         isGroupChat: false,
         participants: [],
+        subscription: 0,
         __lastActivityRequested: false,
         __vCardRequested: false,
     };
@@ -149,6 +150,8 @@ function User(item, model, jabber) {
 
     defGetter("isGamenet");
     defGetter("isGroupChat");
+
+    defGetSet("subscription");
 
     this.__defineGetter__("online", function() {
         return isOnline(self.presenceState);
