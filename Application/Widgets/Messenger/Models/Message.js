@@ -71,10 +71,11 @@ function Message(model, index) {
         _model.setProperty(_index, 'day', val);
     });
 
-    this.finishComposing = function(body, date) {
+    this.finishComposing = function(body, date, id) {
         this.isStatusMessage = false;
         this.date = date || Date.now();
         this.text = body;
+        _model.setProperty(_index, 'id', id || "_");
     }
 }
 

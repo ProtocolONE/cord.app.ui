@@ -179,7 +179,7 @@ var Conversation = function(item, model, jabber, myJid) {
         }
 
         if (this.isLastMessageStatus) {
-            this.lastMessage.finishComposing(body, date);
+            this.lastMessage.finishComposing(body, date, id);
             item.state = MessageType.Normal;
             return;
         }
