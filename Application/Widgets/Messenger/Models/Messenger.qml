@@ -302,6 +302,19 @@ Item {
         return data.avatar || defaultAvatar;
     }
 
+    function getNickname(item) {
+        if (!root.connected) {
+            return "";
+        }
+
+        var user = getUser(item.jid);
+        if (!user || !user.isValid()) {
+            return "";
+        }
+
+        return user.nickname || item.jid;
+    }
+
     function getFullStatusMessage(user) {
         var item;
         if (!user) {
@@ -531,6 +544,11 @@ Item {
             var rosterUsers = xmppClient.rosterManager.getRosterBareJids()
             , currentUserMap = {}
             , removeUsers = [];
+
+            rosterUsers = rosterUsers.filter(function(u) {
+              var validContactPattern = new RegExp("^[0-9]+@" + d.serverUrl);
+              return validContactPattern.test(u);
+            });
 
             usersModel.beginBatch();
 
@@ -796,7 +814,6 @@ Item {
 
             xmppClient.failCount = 0;
             xmppClient.vcardManager.requestVCard(myUser.jid);
-            myUser.nickname = myUser.jid;
 
             root.connectedToServer();
             root.gamenetUser = root.getGamenetUser();

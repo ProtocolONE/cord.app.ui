@@ -273,6 +273,7 @@ WidgetView {
                                 hoverEnabled: true
                                 toolTip: qsTr("YOUR_AVATAR")
                                 tooltipGlueCenter: true
+                                acceptedButtons: Qt.LeftButton
                                 onClicked: App.openExternalUrlWithAuth('https://gamenet.ru/edit/#edit-avatar')
                             }
                         }
@@ -338,6 +339,7 @@ WidgetView {
                                         height: row.height
                                         toolTip: qsTr("PROFILE_CHOISE_NICKNAME_TULTIP")
                                         onClicked: Popup.show('NicknameEdit');
+                                        acceptedButtons: Qt.LeftButton
                                     }
                                 }
 
@@ -369,6 +371,7 @@ WidgetView {
                                         height: row1.height
                                         toolTip: qsTr("PROFILE_CONFIRM_LOGIN_TULTIP")
                                         onClicked: App.openExternalUrlWithAuth("https://gamenet.ru/edit/#edit-reginfo");
+                                        acceptedButtons: Qt.LeftButton
                                     }
                                 }
 

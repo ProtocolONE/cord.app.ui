@@ -89,12 +89,7 @@ function getNickname(item) {
         throw new Error('Error getNickname. Object has not property jid.' + JSON.stringify(item));
     }
 
-    var user = getUser(item.jid);
-    if (!user || !user.isValid()) {
-        return "";
-    }
-
-    return user.nickname || item.jid;
+    return _modelInstance.getNickname(item);
 }
 
 function closeChat() {

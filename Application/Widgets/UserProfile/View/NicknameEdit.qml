@@ -61,6 +61,7 @@ Item {
     CursorMouseArea {
         id: cursorArea
 
+        acceptedButtons: Qt.LeftButton
         anchors.fill: parent
         hoverEnabled: true
         tooltipGlueCenter: false
