@@ -102,6 +102,6 @@ var ConversationStorage = {
         );
 
         checkDataBaseResult(result);
-        return result.rows[0].timestamp;
+        return result.rows[0].timestamp * 1000;
     }
 };
