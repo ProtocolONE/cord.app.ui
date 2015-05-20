@@ -1379,11 +1379,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>CONTACT_CONTEXT_MENU_LEAVE</source>
-        <translation>Выйти</translation>
+        <translation>Выйти из разговора</translation>
     </message>
     <message>
         <source>CONTACT_CONTEXT_MENU_INFORAMTION</source>
-        <translation>Информация</translation>
+        <translation>Посмотреть профиль</translation>
     </message>
     <message>
         <source>MESSENGER_DESTROY_ROOM_ALERT_TITLE</source>
@@ -1399,7 +1399,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>CONTACT_CONTEXT_MENU_DELETE</source>
-        <translation>Удалить</translation>
+        <translation>Удалить из списка контактов</translation>
     </message>
 </context>
 <context>

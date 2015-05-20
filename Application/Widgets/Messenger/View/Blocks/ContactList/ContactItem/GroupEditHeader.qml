@@ -103,7 +103,7 @@ Rectangle {
                 color: Styles.style.messengerContactNickname
                 text: root.title
                 elide: Text.ElideRight
-
+                textFormat: Text.PlainText
             }
 
             Text {
@@ -164,7 +164,6 @@ Rectangle {
                         visible: model.jid != Messenger.authedUser().jid
                         anchors.fill: parent
                         onClicked: Messenger.selectUser(model);
-
                     }
 
                 }

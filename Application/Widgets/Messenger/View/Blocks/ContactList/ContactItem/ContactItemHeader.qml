@@ -45,6 +45,7 @@ Rectangle {
     QtObject {
         id: d
 
+        property bool isGameNetUser: !root.userId // у GameNet пользователя userId пустой
         property string imageRoot: installPath + "Assets/Images/Application/Widgets/Messenger/ContactItem/"
 
         function openProfile() {
@@ -73,6 +74,7 @@ Rectangle {
             asynchronous: true
 
             CursorMouseArea {
+                visible: !d.isGameNetUser
                 toolTip: qsTr("CONTACT_ITEM_NICKNAME_TOOLTIP").arg(nicknameText.text)
                 anchors.fill: parent
                 onClicked: root.nicknameClicked();
@@ -130,8 +132,10 @@ Rectangle {
                         width: parent.width
                         color: nicknameText.getTextColor()
                         elide: Text.ElideRight
+                        textFormat: Text.PlainText
 
                         CursorMouseArea {
+                            visible: !d.isGameNetUser
                             toolTip: qsTr("CONTACT_ITEM_NICKNAME_TOOLTIP").arg(nicknameText.text)
                             width: parent.paintedWidth
                             height: parent.height
@@ -180,6 +184,7 @@ Rectangle {
     }
 
     EditGroupButton {
+        visible: !d.isGameNetUser
         anchors {
             top: parent.top
             topMargin: 10

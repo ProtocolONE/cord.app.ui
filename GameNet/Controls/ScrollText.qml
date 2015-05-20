@@ -92,6 +92,7 @@ Item {
         font { family: 'Arial'; pixelSize: 12 }
         smooth: true
         onPaintedWidthChanged: d.updateAnimationRunning()
+        textFormat: Text.PlainText
     }
 
     Timer {

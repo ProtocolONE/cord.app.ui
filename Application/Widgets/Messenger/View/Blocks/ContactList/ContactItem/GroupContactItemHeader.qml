@@ -102,8 +102,10 @@ Rectangle {
                 }
 
                 color: Styles.style.messengerContactNickname
-                text: root.title
+                // INFO Этот хак чинит проблему с уползанием текста, когад текст пустой
+                text: root.title ? root.title : "  "
                 elide: Text.ElideRight
+                textFormat: Text.PlainText
             }
 
             Text {

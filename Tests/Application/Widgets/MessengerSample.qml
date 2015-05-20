@@ -108,6 +108,18 @@ Rectangle {
         }
     }
 
+    WidgetContainer {
+        width: 30
+        height: 30
+        widget: 'Messenger'
+        view: 'GameNetNotification'
+
+        anchors {
+            right: parent.right
+            rightMargin: 10
+        }
+    }
+
     Row {
         spacing: 10
 
@@ -274,6 +286,19 @@ Rectangle {
                         onClicked: {
                             console.log(JSON.stringify(MessengerJs.selectedUser(2)));
                         }
+                    }
+
+                    Button {
+                        function startAuth() {
+                            d.authDone('400001000001634860', '4c2f65777d38eb07d32d111061005dcd5a119150');
+                            d.requestServices();
+                        }
+
+                        enabled: !MessengerJs.authedUser().jid
+                        width: 100
+                        height: 30
+                        text: 'gnaunittest'
+                        onClicked: startAuth();
                     }
                 }
             }

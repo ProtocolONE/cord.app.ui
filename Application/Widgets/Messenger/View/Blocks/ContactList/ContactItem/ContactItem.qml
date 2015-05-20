@@ -183,6 +183,7 @@ Rectangle {
                             color: nicknameText.getTextColor()
                             elide: Text.ElideRight
                             visible: !editNickname.visible
+                            textFormat: Text.PlainText
                         }
 
                         TextInput {

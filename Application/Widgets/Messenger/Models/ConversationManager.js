@@ -100,7 +100,7 @@ function init(jabber, extendedListModel) {
             return;
         }
 
-        if (!message.body) {
+        if (!message.body || message.subject) {
             return;
         }
 
@@ -128,7 +128,10 @@ function init(jabber, extendedListModel) {
         //INFO Debug purposes
         //console.log('[Conversation] MessageReceived', JSON.stringify(message));
         conv = create(roomJid);
-        conv.receiveMessage(from, tmpMessage);
+        if (conv.receiveMessage(from, tmpMessage)) {
+            _jabber.groupMessageReceived(roomJid, tmpMessage);
+        }
+
     });
 }
 

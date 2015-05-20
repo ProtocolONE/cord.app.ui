@@ -139,11 +139,12 @@ var Conversation = function(item, model, jabber, myJid) {
     this.receiveMessage = function(fromJid, message) {
         var id,
             date,
-            hasStamp = (message.stamp != "Invalid Date");
+            hasStamp = (message.stamp != "Invalid Date"),
+            newMessage = false;
 
         if (!message.body) {
             this.changeState(fromJid, message.state);
-            return;
+            return newMessage;
         }
 
         if (!hasStamp) {
@@ -156,15 +157,19 @@ var Conversation = function(item, model, jabber, myJid) {
         if (this.type === 3 && !hasStamp) {
             this.appendMessage(fromJid, message.body, date, id);
         } else {
-            id = ConversationStorage.save(this.id, message);
-            if (id) { // если был дубликат, то сообщение не вставиться
+            try {
+                id = ConversationStorage.save(this.id, message);
                 this.appendMessage(fromJid, message.body, date, id);
+                newMessage = true;
+            } catch(e) {
             }
         }
 
         if (hasStamp) {
             this.query(message.stamp, date/1000|0);
         }
+
+        return newMessage
     }
 
     this.appendMessage = function(from, body, date, id) {

@@ -230,7 +230,7 @@ Item {
             roomUser = root.messenger.getUser(root.targetJid);
 
             if (roomUser.nickname !== root.topic) {
-                jabber.mucManager.setSubject(root.targetJid, root.topic)
+                jabber.setRoomTopic(root.targetJid, root.topic)
             }
 
             for(i = roomUser.participants.count-1; i >= 0; --i) {

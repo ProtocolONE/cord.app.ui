@@ -1602,17 +1602,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="325"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="340"/>
         <source>MESSENGER_CONTACT_ITEM_PLAYING_STATUS_INFO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="338"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="353"/>
         <source>LAST_ACTIVITY_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="556"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="576"/>
         <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
         <translation></translation>
     </message>
@@ -2514,27 +2514,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="330"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="331"/>
         <source>PROFILE_CHOISE_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="339"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="340"/>
         <source>PROFILE_CHOISE_NICKNAME_TULTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="361"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="363"/>
         <source>PROFILE_CONFIRM_LOGIN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="370"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="372"/>
         <source>PROFILE_CONFIRM_LOGIN_TULTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="398"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="401"/>
         <source>PROFILE_LEVEL_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2542,7 +2542,7 @@
 <context>
     <name>Vk</name>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="298"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="299"/>
         <source>NO_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2550,12 +2550,12 @@
 <context>
     <name>qGNA_Main</name>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="299"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="300"/>
         <source>YOUR_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="299"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="300"/>
         <source>SET_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>

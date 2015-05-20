@@ -77,7 +77,8 @@ var ConversationStorage = {
         to = this._jidWithoutResource(message.to);
         from = this._jidWithoutResource(message.from||bareJid);
 
-        query = "INSERT OR IGNORE INTO Messages VALUES(NULL, ?, ?, '', ?, '', ?, ?, ?, ?)";
+        // OR IGNORE
+        query = "INSERT INTO Messages VALUES(NULL, ?, ?, '', ?, '', ?, ?, ?, ?)";
         args = [bareJid, from, to, messageDate, message.body, message.type, crc];
 
         res = this._db.executeSql(query, args);

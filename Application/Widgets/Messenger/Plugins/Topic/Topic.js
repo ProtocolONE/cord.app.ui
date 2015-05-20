@@ -1,7 +1,7 @@
 var _jabber = null;
 
 function setTopic(roomJid, topic) {
-    _jabber.mucManager.setSubject(roomJid, topic);
+    _jabber.setRoomTopic(roomJid, topic);
 }
 
 function init(jabber, messenger) {

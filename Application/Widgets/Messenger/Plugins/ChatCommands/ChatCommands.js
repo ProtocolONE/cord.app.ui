@@ -16,7 +16,7 @@ function init(jabber) {
         var args = body.split(' ');
         switch(args[0]) {
           case '/topic':
-              jabber.mucManager.setSubject(jid, args[1]);
+              jabber.setRoomTopic(jid, args[1]);
               break;
 
           case '/destroy':

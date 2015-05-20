@@ -16,8 +16,12 @@ import GameNet.Components.JobWorker 1.0
 import "./UserModels" as UserModels
 
 import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
-import "../../../../Application/Core/moment.js" as Moment
-import "../../../../Application/Core/MessageBox.js" as MessageBox
+import "../../../../GameNet/Core/Strings.js" as StringHelper
+
+import "../../../Core/moment.js" as Moment
+import "../../../Core/MessageBox.js" as MessageBox
+import "../../../Core/App.js" as App
+import "../../../Core/User.js" as User
 
 import "MessengerPrivate.js" as MessengerPrivateJs
 import "User.js" as UserJs
@@ -37,9 +41,6 @@ import "../Plugins/RoomParticipants/RoomParticipants.js" as RoomParticipants
 import "../Plugins/ChatCommands/ChatCommands.js" as ChatCommands
 
 import "../Plugins/MessageUrlHandler"
-
-import "../../../Core/App.js" as App
-import "../../../Core/User.js" as User
 
 Item {
     id: root
@@ -477,11 +478,12 @@ Item {
             return;
         }
 
-        xmppClient.rosterManager.renameItem(user.jid, newValue);
+        var clearNewNickname = StringHelper.stripTags(newValue);
+        xmppClient.rosterManager.renameItem(user.jid, clearNewNickname);
     }
 
     function changeGroupTopic(roomJid, newValue) {
-        xmppClient.mucManager.setSubject(roomJid, newValue);
+        xmppClient.setRoomTopic(roomJid, newValue)
     }
 
     function addContact(jid) {
@@ -790,6 +792,26 @@ Item {
             xmppClient.joinRoomInternal(roomJid, myUser.userId, lastMessageDate);
         }
 
+        function setRoomTopic(roomJid, topic) {
+            var clearTopic = StringHelper.stripTags(topic);
+            xmppClient.mucManager.setSubject(roomJid, clearTopic);
+        }
+
+        function groupMessageReceived(roomJid, message) {
+            var user;
+            user = root.getUser(message.to);
+            if (d.needIncrementUnread(user)) {
+                user.unreadMessageCount += 1;
+                d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
+            }
+
+            if (message.stamp == "Invalid Date") {
+                d.updateUserTalkDate(user);
+            }
+
+            root.messageReceived(user.jid, message.body, message);
+        }
+
         onStreamManagementResumed: {
             if (!resumed) {
                 return;
@@ -879,42 +901,6 @@ Item {
         onPresenceReceived: d.updatePresence(presence);
         onInputStatusSending: d.updateUserTalkDateHandler(jid)
         onMessageSending: d.updateUserTalkDateHandler(jid)
-    }
-
-    Connections {
-        target: xmppClient.mucManager
-
-        onMessageReceived: {
-            var user;
-
-            if (message.type !== QXmppMessage.GroupChat || !message.body) {
-                return;
-            }
-
-            if (message.subject) {
-                return;
-            }
-
-            var bareJid = UserJs.jidWithoutResource(message.from),
-                conv;
-
-            if (message.from === bareJid) {
-                return;
-            }
-
-            user = root.getUser(message.from);
-            if (d.needIncrementUnread(user)) {
-                user.unreadMessageCount += 1;
-                d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
-            }
-
-            if (message.stamp == "Invalid Date") {
-                d.updateUserTalkDate(user);
-            }
-
-            root.messageReceived(user.jid, message.body, message);
-        }
-
     }
 
     Timer {

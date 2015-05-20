@@ -65,7 +65,7 @@ function RoomCreate(jabber, messenger) {
 
         config = configs[roomJid];
         if (config.topic) {
-            jabber.mucManager.setSubject(roomJid, config.topic);
+            jabber.setRoomTopic(roomJid, config.topic);
         }
 
         config.invites.forEach(function(jid) {
