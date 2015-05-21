@@ -73,6 +73,7 @@ Item {
     signal rosterReceived();
 
     signal messageLinkActivated(variant user, string link);
+    signal messageRead(string jid);
 
     Component.onCompleted: {
         var rosterManager = xmppClient.rosterManager;
@@ -154,7 +155,7 @@ Item {
             defaultAvatarPath: installPath + "/Assets/Images/Application/Widgets/Messenger/"
         });
 
-        ConversationManager.init(xmppClient, conversationModel)
+        ConversationManager.init(xmppClient, conversationModel, root);
 
         return {
             client: xmppClient,
@@ -268,6 +269,7 @@ Item {
             item.unreadMessageCount = 0;
             item.hasUnreadMessage = false;
             d.setUnreadMessageForUser(item.jid, 0);
+            root.messageRead(item.jid);
         }
 
         root.selectedUserChanged();
@@ -784,7 +786,7 @@ Item {
         function joinRoom(roomJid) {
             var lastMessageDate = 0;
             try {
-                lastMessageDate = ConversationManager.ConversationStorage.queryLastMessageDate(roomJid);
+                lastMessageDate = ConversationManager.ConversationStorage.queryLastMessageDate(roomJid) * 1000;
             } catch(e) {
                 console.log("[JabberClient] Can't get last message date for", roomJid);
             }
@@ -797,18 +799,17 @@ Item {
             xmppClient.mucManager.setSubject(roomJid, clearTopic);
         }
 
-        function groupMessageReceived(roomJid, message) {
+        function newGroupMessageReceived(roomJid, message) {
             var user;
             user = root.getUser(message.to);
             if (d.needIncrementUnread(user)) {
                 user.unreadMessageCount += 1;
                 d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
+            } else {
+                root.messageRead(user.jid);
             }
 
-            if (message.stamp == "Invalid Date") {
-                d.updateUserTalkDate(user);
-            }
-
+            d.updateUserTalkDate(user);
             root.messageReceived(user.jid, message.body, message);
         }
 
@@ -868,6 +869,8 @@ Item {
             if (d.needIncrementUnread(user)) {
                 user.unreadMessageCount += 1;
                 d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
+            } else {
+                root.messageRead(user.jid);
             }
 
             user = root.getUser(bareJid);
@@ -961,6 +964,7 @@ Item {
             }
 
             user.unreadMessageCount = 0;
+            root.messageRead(user.jid);
             d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
 
             resetUnreadDelay.resetForJid = "";

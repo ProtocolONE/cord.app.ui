@@ -4,7 +4,7 @@
 
 @set CoreArea=trunk
 @set SettingsArea=trunk
-@set GameNetQxmppArea=0.8.3
+@set GameNetQxmppArea=0.8.4
 @set OverlayArea=trunk
 @set QmlExtensionArea=trunk
 @set QxmppDeclarativeArea=1.1.3

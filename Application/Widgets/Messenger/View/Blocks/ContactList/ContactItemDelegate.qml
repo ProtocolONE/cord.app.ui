@@ -260,7 +260,6 @@ Item {
                     } else {
                         Messenger.editGroupModel().addUser(root.user.jid)
                     }
-
                 }
             }
 
@@ -290,7 +289,12 @@ Item {
             onClicked: root.select()
 
             showInformationIcon: false
-            onRightButtonClicked: ContextMenu.show(mouse, groupContactInstance, contextMenu, {user: root.user});
+            onRightButtonClicked: {
+                var item = Messenger.getUser(root.user.jid);
+                if (item.inContacts) {
+                    ContextMenu.show(mouse, groupContactInstance, contextMenu, {user: root.user});
+                }
+            }
 
             onNicknameChangeRequest: Messenger.changeGroupTopic(root.user.jid, value);
 
@@ -438,15 +442,17 @@ Item {
                                      action: "information"
                                  });
 
-                    options.push({
-                                     name: qsTr("CONTACT_CONTEXT_MENU_RENAME"),// "Переименовать",
-                                     action: "rename"
-                                 });
+                    if (item.inContacts) {
+                        options.push({
+                                         name: qsTr("CONTACT_CONTEXT_MENU_RENAME"),// "Переименовать",
+                                         action: "rename"
+                                     });
 
-                    options.push({
-                                     name: qsTr("CONTACT_CONTEXT_MENU_DELETE"),// "Удалить",
-                                     action: "deleteContact"
-                                 });
+                        options.push({
+                                         name: qsTr("CONTACT_CONTEXT_MENU_DELETE"),// "Удалить",
+                                         action: "deleteContact"
+                                     });
+                    }
                     fill(options);
                 }
             }

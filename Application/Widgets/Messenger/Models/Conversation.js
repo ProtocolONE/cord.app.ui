@@ -8,7 +8,9 @@ function createConversationModel(id, type) {
         state: 0,
         author: '',
         historyDay: 0,
+        readDate: 0,
         __queryMessage: false,
+        __queryReadDate: false,
     }
 }
 
@@ -39,6 +41,7 @@ var Conversation = function(item, model, jabber, myJid) {
     defGetSet('historyDay')
     defGetSet('state')
     defGetSet('__queryMessage');
+    defGetSet('__queryReadDate');
 
     this.__defineGetter__("isLastMessageStatus", function() {
         if (item.messages.count <= 0) {
@@ -70,6 +73,27 @@ var Conversation = function(item, model, jabber, myJid) {
         return item.messages;
     });
 
+    this.__defineGetter__("readDate", function() {
+        var readDate;
+        if (self.__queryReadDate === false) {
+            self.__queryReadDate = true;
+            try {
+                readDate = ConversationStorage.queryReadDate(this.id);
+                model.setPropertyById(item.id, 'readDate', readDate);
+                return readDate;
+            } catch(e) {
+            }
+        }
+
+        return item.readDate;
+    });
+
+    this.__defineSetter__("readDate", function(value) {
+        if (self.readDate !== value) {
+            model.setPropertyById(item.id, 'readDate', value);
+            ConversationStorage.saveReadDate(this.id, value);
+        }
+    });
     this.setTypingState = function(value) {
         if (this.type == 2) {
             jabber.sendInputStatus(this.id, value);
@@ -156,6 +180,7 @@ var Conversation = function(item, model, jabber, myJid) {
 
         if (this.type === 3 && !hasStamp) {
             this.appendMessage(fromJid, message.body, date, id);
+            newMessage = true;
         } else {
             try {
                 id = ConversationStorage.save(this.id, message);

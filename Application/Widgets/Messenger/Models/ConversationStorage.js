@@ -35,6 +35,16 @@ var ConversationStorage = {
             'CREATE INDEX IF NOT EXISTS IDX_Messages_TS ON Messages(chatName, timestamp)',
             'CREATE INDEX IF NOT EXISTS IDX_Messages_Crc ON Messages(crc)'
          ]);
+
+        var metaConversation = new MetaStorage(this._db, 'Conversation');
+        metaConversation.migrate(0, 1, [
+            "CREATE TABLE IF NOT EXISTS Conversation(" +
+                '`chatName` TEXT NOT NULL,' +
+                '`timestamp` INTEGER,' +
+                'PRIMARY KEY(chatName)' +
+            ')',
+            'CREATE INDEX IF NOT EXISTS IDX_Conversation_TS ON Conversation(chatName)',
+         ]);
     },
 
     setHistorySaveInterval: function(value) {
@@ -88,7 +98,7 @@ var ConversationStorage = {
     },
     query: function(id, from, to) {
         var result = this._db.executeSql(
-            "SELECT * FROM Messages WHERE chatname = ? AND timestamp >= ? AND timestamp <= ?",
+            "SELECT * FROM Messages WHERE chatName = ? AND timestamp >= ? AND timestamp <= ?",
             [id, from, to]
         );
 
@@ -98,10 +108,30 @@ var ConversationStorage = {
 
     queryLastMessageDate: function(id) {
         var result = this._db.executeSql(
-            "SELECT MAX(timestamp) as `timestamp` FROM Messages WHERE chatname = ?", [id]
+            "SELECT MAX(timestamp) as `timestamp` FROM Messages WHERE chatName = ?", [id]
+        );
+
+        checkDataBaseResult(result);
+        return result.rows[0].timestamp;
+    },
+
+    saveReadDate: function(bareJid, date) {
+        var result = this._db.executeSql(
+            "INSERT OR REPLACE INTO Conversation VALUES(?, ?)",
+            [bareJid, (date/1000)|0]
+        );
+        checkDataBaseResult(result);
+        return true;
+    },
+
+    queryReadDate: function(bareJid) {
+        var result = this._db.executeSql(
+            "SELECT timestamp FROM Conversation WHERE chatName = ?",
+            [bareJid]
         );
 
         checkDataBaseResult(result);
         return result.rows[0].timestamp * 1000;
     }
+
 };

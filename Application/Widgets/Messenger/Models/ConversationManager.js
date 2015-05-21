@@ -41,7 +41,7 @@ _private = {
     }
 };
 
-function init(jabber, extendedListModel) {
+function init(jabber, extendedListModel, messenger) {
     console.log('[Conversation] Init', extendedListModel, jabber);
 
     if (_ref !== null) {
@@ -129,9 +129,17 @@ function init(jabber, extendedListModel) {
         //console.log('[Conversation] MessageReceived', JSON.stringify(message));
         conv = create(roomJid);
         if (conv.receiveMessage(from, tmpMessage)) {
-            _jabber.groupMessageReceived(roomJid, tmpMessage);
+            var read = (conv.readDate > tmpMessage.stamp);
+            if (!read) {
+                _jabber.newGroupMessageReceived(roomJid, tmpMessage);
+            }
         }
 
+    });
+
+    messenger.messageRead.connect(function(jid) {
+        var conv = create(jid);
+        conv.readDate = Date.now();
     });
 }
 
