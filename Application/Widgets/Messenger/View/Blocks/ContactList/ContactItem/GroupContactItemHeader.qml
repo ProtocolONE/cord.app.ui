@@ -172,7 +172,14 @@ Item {
 
                 }
             }
+
         }
+
+        ThreeDots {
+            height: parent.height
+            visible: occupantView.count > 5
+        }
+
     }
 
     EditGroupButton {

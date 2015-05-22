@@ -164,9 +164,13 @@ Item {
                         anchors.fill: parent
                         onClicked: Messenger.selectUser(model);
                     }
-
                 }
             }
+        }
+
+        ThreeDots {
+            height: parent.height
+            visible: occupantView.count > 5
         }
     }
 

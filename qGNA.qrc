@@ -293,6 +293,7 @@
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupContactItemHeader.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupEditHeader.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/PresenceIcon.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/ThreeDots.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTab.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml</file>
