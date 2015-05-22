@@ -268,8 +268,7 @@ FocusScope {
                                 id: messengerInput
 
                                 function appendNewLine() {
-                                    root.appendText("<br />");
-                                    messengerInput.cursorPosition = d.plainText.length;
+                                    root.insertText("<br />");
                                 }
 
                                 width: inputFlick.width - 18
