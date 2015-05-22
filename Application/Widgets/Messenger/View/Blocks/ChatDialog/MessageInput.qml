@@ -192,6 +192,10 @@ FocusScope {
             return MessengerJs.getStatus() === MessengerJs.ROSTER_RECEIVED
                 && !MessengerJs.editGroupModel().isActive()
         }
+
+        function canEditMessage() {
+            return !MessengerJs.editGroupModel().isActive();
+        }
     }
 
     Connections {
@@ -275,6 +279,7 @@ FocusScope {
 
                                 selectByMouse: true
                                 wrapMode: TextEdit.Wrap
+                                readOnly: !d.canEditMessage()
 
                                 font {
                                     pixelSize: 12

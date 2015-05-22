@@ -34,6 +34,7 @@ WidgetView {
     MouseArea {
         anchors.fill: parent
         hoverEnabled: true
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
     }
 
     Rectangle {

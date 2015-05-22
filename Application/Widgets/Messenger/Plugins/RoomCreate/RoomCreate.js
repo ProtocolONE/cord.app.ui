@@ -9,7 +9,7 @@ function init(jabber, messenger) {
 }
 
 function RoomCreate(jabber, messenger) {
-    var isDebug = false;
+    var isDebug = true;
 
     var configs = {};
 
@@ -87,6 +87,13 @@ function RoomCreate(jabber, messenger) {
 
         applyConfig(roomJid);
     }
+
+    jabber.discoveryManager.itemsReceived.connect(function(items) {
+        debug('DiscoveryManager itemsReceived');
+        items.items.forEach(function(room) {
+            debug(room.jid);
+        });
+    });
 
 // INFO этот код позволяет подключиться к всем доступным комнатам
 //    _jabber.discoveryManager.itemsReceived.connect(function(items) {

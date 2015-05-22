@@ -121,6 +121,7 @@ Item {
             isSelfMessage: messageList.isSelfMessageTest(model.jid)
             firstMessageInGroup: messageList.isSameJid(index, model.jid, model.day)
             onLinkActivated: MessengerJs.instance().messageLinkActivated(root.user, link);
+            onUserClicked: MessengerJs.selectUser(model);
         }
     }
 

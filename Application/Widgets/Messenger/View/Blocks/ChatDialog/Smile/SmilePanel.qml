@@ -23,27 +23,30 @@ Rectangle {
 
     border.color: Styles.style.messengerSmilePanelBorder
 
-    onVisibleChanged: {
-        if (!visible) {
-            return;
-        }
-
-        var recentArray = Smiles.recentSmilesList(),
-            mostArray = Smiles.sortedRecentSmiles();
-
-        recentGridView.grid.model = Object.keys(recentArray).map(function(e){
-            var shortName = ':' + recentArray[e] + ':';
-            return d.shortNameToModelItem(shortName);
-        });
-
-        mostUsedGridView.grid.model = Object.keys(mostArray).map(function(e){
-            var shortName = ':' + mostArray[e] + ':';
-            return d.shortNameToModelItem(shortName);
-        });
-    }
+    Component.onCompleted: d.init();
 
     QtObject {
         id: d
+
+        function init() {
+            d.loadModel();
+            d.fillData();
+        }
+
+        function loadModel() {
+            var recentArray = Smiles.recentSmilesList(),
+                mostArray = Smiles.sortedRecentSmiles();
+
+            recentGridView.grid.model = Object.keys(recentArray).map(function(e){
+                var shortName = ':' + recentArray[e] + ':';
+                return d.shortNameToModelItem(shortName);
+            });
+
+            mostUsedGridView.grid.model = Object.keys(mostArray).map(function(e){
+                var shortName = ':' + mostArray[e] + ':';
+                return d.shortNameToModelItem(shortName);
+            });
+        }
 
         function shortNameToModelItem(shortName) {
             var  item = {}
@@ -99,8 +102,6 @@ Rectangle {
             smallTabPanel.model = smileSmallTabArray;
         }
     }
-
-    Component.onCompleted: d.fillData();
 
     CursorMouseArea {
         anchors.fill: parent

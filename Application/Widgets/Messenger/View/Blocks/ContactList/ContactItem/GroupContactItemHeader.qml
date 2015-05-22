@@ -164,6 +164,7 @@ Item {
                     CursorMouseArea {
                         visible: model.jid != Messenger.authedUser().jid
                         anchors.fill: parent
+                        toolTip: Messenger.getNickname(model)
                         onClicked: {
                             Messenger.selectUser(model);
                         }

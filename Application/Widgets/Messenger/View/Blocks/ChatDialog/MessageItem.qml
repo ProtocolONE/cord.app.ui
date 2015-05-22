@@ -9,6 +9,7 @@
 ****************************************************************************/
 import QtQuick 1.1
 import Tulip 1.0
+import GameNet.Controls 1.0
 
 import "../../../../../Core/Styles.js" as Styles
 import "../../../../../Core/App.js" as App
@@ -28,6 +29,7 @@ Item {
     property bool firstMessageInGroup: false
 
     signal linkActivated(string link);
+    signal userClicked();
 
     width: parent.width
     height: messageRow.height + messageRow.y
@@ -59,6 +61,11 @@ Item {
                 }
 
                 visible: parent.needDraw
+            }
+
+            CursorMouseArea {
+                anchors.fill: parent
+                onClicked: root.userClicked();
             }
         }
 

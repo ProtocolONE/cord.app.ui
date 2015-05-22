@@ -29,23 +29,23 @@ function init(jabber) {
 
           case '/queryrooms':
               jabber.discoveryManager.requestItems(jabber.conferenceUrl());
-              break
+              break;
 
           case '/queryitems':
               jabber.discoveryManager.requestItems(jid);
-              break
+              break;
 
           case '/queryinfo':
               jabber.discoveryManager.requestInfo(jid);
-              break
+              break;
 
           case '/config':
               jabber.mucManager.requestConfiguration(jid);
-              break
+              break;
 
           case '/permissions':
               jabber.mucManager.requestPermissions(jid);
-              break
+              break;
 
           case '/leave':
               jabber.leaveGroup(jid);
@@ -57,6 +57,10 @@ function init(jabber) {
 
           case '/ban':
               jabber.mucManager.ban(jid, args[1] || "", args[2] || "");
+              break;
+
+          case '/joinRoom':
+              jabber.joinRoom(args[1] || "");
               break;
 
           default:
