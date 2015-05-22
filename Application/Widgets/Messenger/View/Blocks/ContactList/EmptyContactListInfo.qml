@@ -68,7 +68,7 @@ Item {
 
     Image {
         x: 10
-        y: 133
+        y: 150
         source: installPath + "/Assets/Images/Application/Widgets/Messenger/EmptyContactInfo/yellowArrow.png"
         visible: !root.showSearchTipOnly
 

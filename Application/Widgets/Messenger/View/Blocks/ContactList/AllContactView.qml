@@ -21,6 +21,7 @@ Item {
     id: root
 
     property variant privateItem: Messenger.getAllContactsItem()
+    property bool hasContacts: root.privateItem.count > 0
 
     ListView {
         id: listView

@@ -57,7 +57,7 @@ WidgetView {
     QtObject {
         id: d
 
-        property bool hasContacts: MessengerJs.users().count > 1 // INFO 1 - GameNet user.
+        property bool hasContacts: allContacts.hasContacts || recentConversation.hasContacts
         property string imageRoot: installPath + "Assets/Images/Application/Widgets/Messenger/"
     }
 

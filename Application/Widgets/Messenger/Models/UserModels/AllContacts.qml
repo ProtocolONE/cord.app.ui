@@ -29,6 +29,7 @@ Item {
     property variant messenger
     property alias pauseProcessing: worker.paused
     property alias model: proxyModel
+    property alias count: proxyModel.count
 
     function reset() {
         d.clearModel();

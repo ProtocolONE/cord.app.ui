@@ -32,6 +32,7 @@ Item {
     property int unreadContactCount: d.calcUnreadContactCount()
     property bool unreadGameNetMessages: d.hasUnreadGameNetMessages()
     property alias proxyModel: proxyModel
+    property alias count: proxyModel.count
 
     function sectionCaption(date) {
         return d.sectionCaption(date);

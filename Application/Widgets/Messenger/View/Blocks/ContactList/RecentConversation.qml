@@ -23,6 +23,7 @@ Item {
     id: root
 
     property variant privateItem: Messenger.getRecentConversationItem()
+    property bool hasContacts: root.privateItem.count > 0
 
     Connections {
         target: privateItem || null
