@@ -1,4 +1,5 @@
 ﻿module GameNet.Controls
+Border 1.0 Border.qml
 Button 1.0 Button.qml
 ButtonBehavior 1.0 ButtonBehavior.qml
 ButtonStyleColors 1.0 ButtonStyleColors.qml

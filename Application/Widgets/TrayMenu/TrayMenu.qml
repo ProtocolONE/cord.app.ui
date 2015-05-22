@@ -12,8 +12,10 @@ import QtQuick 1.1
 import Tulip 1.0
 
 import GameNet.Components.Widgets 1.0
+import GameNet.Controls 1.0
 
 import "../../Core/App.js" as App
+import "../../Core/Styles.js" as Styles
 import "../../Core/User.js" as User
 import "../../Core/MessageBox.js" as MessageBox
 import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
@@ -28,50 +30,50 @@ WidgetModel {
 
     function menuClick(name) {
         switch(name) {
-            case 'Profile': {
-                GoogleAnalytics.trackEvent('/Tray', 'Open External Link', 'User Profile');
+        case 'Profile': {
+            GoogleAnalytics.trackEvent('/Tray', 'Open External Link', 'User Profile');
 
-                var userId = User.getTechName() == undefined ? User.userId() : User.getTechName();
+            var userId = User.getTechName() == undefined ? User.userId() : User.getTechName();
 
-                App.openProfile(userId);
-                break;
-            }
-            case 'Balance': {
-                GoogleAnalytics.trackEvent('/Tray', 'Open External Link', 'Money');
-
-                App.openExternalUrlWithAuth("https://gamenet.ru/money/")
-                break;
-            }
-            case 'Settings': {
-                GoogleAnalytics.trackEvent('/Tray', 'Navigation', 'Switch To Settings');
-                App.activateWindow();
-                App.navigate('ApplicationSettings');
-            }
+            App.openProfile(userId);
             break;
-            case 'Quit': {
-                var services = Object.keys(App.runningService).filter(function(e) {
-                    var obj = App.serviceItemByServiceId(e);
-                    return obj.gameType != 'browser';
-                }), firstGame;
+        }
+        case 'Balance': {
+            GoogleAnalytics.trackEvent('/Tray', 'Open External Link', 'Money');
 
-                if (!services || services.length === 0) {
-                    quitTrigger();
-                    break;
-                }
+            App.openExternalUrlWithAuth("https://gamenet.ru/money/")
+            break;
+        }
+        case 'Settings': {
+            GoogleAnalytics.trackEvent('/Tray', 'Navigation', 'Switch To Settings');
+            App.activateWindow();
+            App.navigate('ApplicationSettings');
+        }
+        break;
+        case 'Quit': {
+            var services = Object.keys(App.runningService).filter(function(e) {
+                var obj = App.serviceItemByServiceId(e);
+                return obj.gameType != 'browser';
+            }), firstGame;
 
-                firstGame = App.serviceItemByServiceId(services[0]);
-
-                MessageBox.show(qsTr("CLOSE_APP_TOOLTIP_MESSAGE"),
-                                qsTr("CLOSE_APP_TOOLTIP_MESSAGE_DESC").arg(firstGame.name),
-                                MessageBox.button.Ok | MessageBox.button.Cancel, function(result) {
-                                    if (result != MessageBox.button.Ok) {
-                                        return;
-                                    }
-
-                                    quitTrigger();
-                                });
+            if (!services || services.length === 0) {
+                quitTrigger();
                 break;
             }
+
+            firstGame = App.serviceItemByServiceId(services[0]);
+
+            MessageBox.show(qsTr("CLOSE_APP_TOOLTIP_MESSAGE"),
+                            qsTr("CLOSE_APP_TOOLTIP_MESSAGE_DESC").arg(firstGame.name),
+                            MessageBox.button.Ok | MessageBox.button.Cancel, function(result) {
+                                if (result != MessageBox.button.Ok) {
+                                    return;
+                                }
+
+                                quitTrigger();
+                            });
+            break;
+        }
         }
     }
 
@@ -161,11 +163,11 @@ WidgetModel {
         }
 
         deleteOnClose: false
-
         flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Popup
 
-        width: 205
-        height: isFullMenu ? 128 : (22 + menuView.spacing) * 3
+        width: 180
+        //  HACK: минимальная высота окна должна быть >= 69
+        height: isFullMenu ? 34 + (28 + menuView.spacing) * 4 : 69
 
         onHeightChanged: {
             if (!visible) {
@@ -178,29 +180,35 @@ WidgetModel {
         visible: false
         topMost: true
 
-        Rectangle {
-            width:  window.width - 1
-            height: window.height - 1
+        Border {
+            y: isFullMenu ? 0 : 6
+            borderColor: Styles.style.trayMenuBorder
+            width: window.width
+            //  HACK: минимальная высота окна должна быть >= 69
+            //      из-за этого делаем сдвиг
+            height: isFullMenu ? window.height : 63
 
-            color: '#06335a'
-
-            border { width: 1; color: '#3276c3' }
-
-            Column {
-                anchors { fill: parent; margins: 1 }
-                spacing: 1
+            Rectangle {
+                width: parent.width
+                height: parent.height
+                opacity: Styles.style.darkBackgroundOpacity
+                color: Styles.style.contentBackgroundLight
 
                 Rectangle {
-                    width: parent.width
-                    height: 28
-                    color: '#04243f'
+                    id: menuHeader
 
-                    Text {
-                        anchors { left: parent.left; top: parent.top }
-                        anchors { leftMargin: 14; topMargin: 3 }
-                        text: 'GameNet'
-                        font { family: 'Segue UI'; pixelSize: 18 }
-                        color: '#ececec'
+                    width: parent.width
+                    height: 32
+                    color: Styles.style.menuHeaderBackground
+
+                    Image {
+                        anchors {
+                            left: parent.left
+                            leftMargin: 14
+                            verticalCenter: parent.verticalCenter
+                        }
+
+                        source: installPath + "Assets/Images/Application/Widgets/TrayMenu/trayLogo.png"
                     }
                 }
 
@@ -208,43 +216,63 @@ WidgetModel {
                     id: menuView
 
                     function fullMenuAvailable(name) {
-                        return (isFullMenu || name == 'Quit') ? true : false
+                        return (root.isFullMenu || name == 'Quit') ? true : false
                     }
 
+                    y: 33
                     width: parent.width
-                    height: parent.height - 28
+                    height: parent.height - 32
+
                     interactive: false
+                    spacing: isFullMenu ? 1 : 0
 
-                    spacing: 2
-
-                    delegate: Rectangle {
+                    delegate: Item {
+                        property bool isCurrent: mouseArea.containsMouse
 
                         width: menuView.width
-                        height: menuView.fullMenuAvailable(name) ? 22 : 0
-                        color: '#00000000'
+                        height: menuView.fullMenuAvailable(name) ? 28 : 0
                         visible: menuView.fullMenuAvailable(name)
 
-                        Image {
-                            source: installPath + 'Assets/Images/Application/Widgets/TrayMenu/hover.png'
-                            visible: mouseArea.containsMouse
+                        Rectangle {
+                            anchors.fill: parent
+                            opacity: Styles.style.baseBackgroundOpacity
+                            color: Styles.style.applicationBackground
+                            visible: isCurrent
                         }
 
-                        Image {
+                        Row {
                             anchors { verticalCenter: parent.verticalCenter }
-                            x: 5
 
-                            source: icon ? installPath + 'Assets/Images/Application/Widgets/TrayMenu/' + icon : ''
-                            visible: !!icon
+                            Item {
+                                height: 28
+                                width: 44
+
+                                Image {
+                                    function getIconPath() {
+                                        if (!icon) {
+                                            return "";
+                                        }
+
+                                        if (isCurrent) {
+                                            return installPath + 'Assets/Images/Application/Widgets/TrayMenu/' + iconActive;
+                                        }
+
+                                        return installPath + 'Assets/Images/Application/Widgets/TrayMenu/' + icon;
+                                    }
+
+                                    anchors.centerIn: parent
+                                    source: getIconPath();
+                                    visible: !!icon
+                                }
+                            }
+
+                            Text {
+                                anchors { verticalCenter: parent.verticalCenter }
+                                font { family: "Arial"; bold: true; pixelSize: 13 }
+                                color: Styles.style.menuText
+                                text: qsTr(label)
+                            }
                         }
-
-                        Text {
-                            anchors { verticalCenter: parent.verticalCenter }
-                            x: 30
-                            font { family: 'Segue UI'; pixelSize: 18 }
-                            color: '#ececec'
-                            text: qsTr(label)
-                        }
-
                         MouseArea {
                             id: mouseArea
 
@@ -261,24 +289,28 @@ WidgetModel {
                         ListElement {
                             name: 'Profile'
                             icon: 'profile.png'
+                            iconActive: 'profileActive.png'
                             label: QT_TR_NOOP("MENU_ITEM_PROFILE")
                         }
 
                         ListElement {
                             name: 'Balance'
                             icon: 'balance.png'
+                            iconActive: 'balanceActive.png'
                             label: QT_TR_NOOP("MENU_ITEM_MONEY")
                         }
 
                         ListElement {
                             name: 'Settings'
                             icon: 'settings.png'
+                            iconActive: 'settingsActive.png'
                             label: QT_TR_NOOP("MENU_ITEM_SETTINGS")
                         }
 
                         ListElement {
                             name: 'Quit'
-                            icon: ''
+                            icon: 'quit.png'
+                            iconActive: 'quitActive.png'
                             label: QT_TR_NOOP("MENU_ITEM_QUIT")
                         }
                     }
