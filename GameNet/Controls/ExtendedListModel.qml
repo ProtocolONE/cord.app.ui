@@ -171,20 +171,24 @@ Item {
     }
 
     function sort(sortFunction) {
-        var sortdata = [];
+        var sortdata = [], i, j;
 
-        for (var i = 0; i < listModel.count; ++i)
+        for (i = 0; i < listModel.count; ++i)
             sortdata[i] = listModel.get(i);
 
         sortdata.sort(sortFunction);
 
-        for (var i = 0; i < sortdata.length; ++i) {
-            for (var j = 0; j < listModel.count; ++j) {
+        for (i = 0; i < sortdata.length; ++i) {
+            for (j = 0; j < listModel.count; ++j) {
                 if (listModel.get(j) === sortdata[i]) {
                     listModel.move(j, model.count - 1, 1);
                     break;
                 }
             }
+        }
+
+        for (i = 0; i < sortdata.length; ++i) {
+            ExtendedListModelJs.idToIndex[sortdata[i][root.idProperty]] = i;
         }
     }
 

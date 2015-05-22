@@ -193,8 +193,24 @@ Item {
                             });
         }
 
+        // INFO Дубликат сортировки есть в GroupEditModel.qml
+        function occupantSortFunction(a, b) {
+            if (a.affiliation === "owner") {
+                return -1;
+            }
+
+            if (b.affiliation === "owner") {
+                return 1;
+            }
+
+            var nick1 = Messenger.getNickname(a).toLowerCase();
+            var nick2 = Messenger.getNickname(b).toLowerCase();
+
+            return nick1.localeCompare(nick2);
+        }
+
         function occupant() {
-            var userItem;
+            var userItem, i;
             if (!root.user) {
                 return [];
             }
@@ -204,7 +220,21 @@ Item {
                 return [];
             }
 
-            return userItem.participants;
+            occupantSortModel.clear();
+
+            var source = userItem.participants;
+            var sortdata = [];
+
+            for (i = 0; i < source.count; ++i)
+                sortdata[i] = source.get(i);
+
+            sortdata.sort(d.occupantSortFunction);
+
+            for (i = 0; i < sortdata.length; ++i) {
+                occupantSortModel.append(sortdata[i]);
+            }
+
+            return occupantSortModel;
         }
 
         function showInformation(user) {
@@ -228,6 +258,12 @@ Item {
             }
         }
     }
+
+    ListModel {
+        id: occupantSortModel
+
+    }
+
 
     Component {
         id: normalContactItem

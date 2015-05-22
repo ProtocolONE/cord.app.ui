@@ -90,6 +90,7 @@ Item {
             }
         }
 
+        occupantsModel.sort(d.sort);
         d.active = true;
         root.editStarted();
     }
@@ -100,6 +101,7 @@ Item {
         }
 
         occupantsModel.append(d.rawOccupant(jid));
+        occupantsModel.sort(d.sort);
     }
 
     function removeUser(jid) {
@@ -249,7 +251,21 @@ Item {
                     roomUser.participants.append(OccupantJs.createRawOccupant(item));
                 }
             });
+        }
 
+        function sort(a, b) {
+            if (a.affiliation === "owner") {
+                return -1;
+            }
+
+            if (b.affiliation === "owner") {
+                return 1;
+            }
+
+            var nick1 = messenger.getNickname(a).toLowerCase();
+            var nick2 = messenger.getNickname(b).toLowerCase();
+
+            return nick1.localeCompare(nick2);
         }
     }
 
