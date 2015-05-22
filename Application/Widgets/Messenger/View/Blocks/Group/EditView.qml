@@ -33,6 +33,9 @@ Item {
             case "changeOwner":
                 d.changeOwner(user);
                 break;
+            case "addContact":
+                Messenger.addContact(user.jid);
+                break;
             }
 
             GoogleAnalytics.trackEvent('/GroupEditView',
@@ -144,10 +147,12 @@ Item {
                         avatar: Messenger.userAvatar(model)
                         nickname: Messenger.getNickname(model)
                         canDelete: d.canDelete(model)
+                        canSelect: model.jid != Messenger.authedUser().jid
                         owner: (model.affiliation === "owner")
 
                         onDeleteClicked: Messenger.editGroupModel().removeUser(model.jid)
                         onRightButtonClicked: ContextMenu.show(mouse, memberItem, membetItemContextMenu, { targetUser: model });
+                        onSelectUser: Messenger.selectUser(model);
                     }
                 }
 
@@ -229,6 +234,15 @@ Item {
                         options.push({
                                          name: qsTr("GROUP_EDIT_CONTEXT_MENU_CHANGE_OWNER"), //"Сделать владельцем",
                                          action: "changeOwner"
+                                     });
+                    }
+
+                    var user = Messenger.getUser(targetUser.jid);
+                    var self = user.jid === Messenger.authedUser().jid;
+                    if (!self && !user.inContacts) {
+                        options.push({
+                                         name: qsTr("GROUP_EDIT_CONTEXT_MENU_ADD_CONTACT"), //"Добавить в контакт",
+                                         action: "addContact"
                                      });
                     }
 

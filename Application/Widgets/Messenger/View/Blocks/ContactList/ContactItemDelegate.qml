@@ -159,6 +159,9 @@ Item {
             case "deleteContact":
                 Messenger.removeContact(user);
                 break;
+            case "addContact":
+                Messenger.addContact(user.jid)
+                break;
             }
 
             ContextMenu.hide();
@@ -460,7 +463,13 @@ Item {
                                          name: qsTr("CONTACT_CONTEXT_MENU_DELETE"),// "Удалить",
                                          action: "deleteContact"
                                      });
+                    } else {
+                        options.push({
+                                         name: qsTr("CONTACT_CONTEXT_MENU_ADD_CONTACT"),// "Добавить в контакт",
+                                         action: "addContact"
+                                     });
                     }
+
                     fill(options);
                 }
             }

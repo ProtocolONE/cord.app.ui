@@ -262,6 +262,9 @@
 		<file>Application/Widgets/Messenger/Plugins/Bookmarks/Bookmarks.js</file>
 		<file>Application/Widgets/Messenger/Plugins/ChatCommands/ChatCommands.js</file>
 		<file>Application/Widgets/Messenger/Plugins/Events/Events.js</file>
+		<file>Application/Widgets/Messenger/Plugins/Logger/Logger.js</file>
+		<file>Application/Widgets/Messenger/Plugins/Logger/Logger.qml</file>
+		<file>Application/Widgets/Messenger/Plugins/Logger/pretty-data.js</file>
 		<file>Application/Widgets/Messenger/Plugins/MessageUrlHandler/MessageUrlHandler.qml</file>
 		<file>Application/Widgets/Messenger/Plugins/RoomCreate/RoomCreate.js</file>
 		<file>Application/Widgets/Messenger/Plugins/RoomParticipants/RoomParticipants.js</file>

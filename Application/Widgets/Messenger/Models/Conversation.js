@@ -197,13 +197,13 @@ var Conversation = function(item, model, jabber, myJid) {
         return newMessage
     }
 
-    this.appendMessage = function(from, body, date, id) {
+    this.appendMessage = function(from, body, date, id, type) {
         if (this.id !== from) {
             if (this.isLastMessageStatus) {
-               var message = createRawMessage(from, false, body, date, id)
+               var message = createRawMessage(from, false, body, date, id, type)
                item.messages.insert(item.messages.count - 1, message);
             } else {
-               this.appendRawMessage(from, false, body, date, id);
+               this.appendRawMessage(from, false, body, date, id, type);
             }
             return;
         }
@@ -214,11 +214,11 @@ var Conversation = function(item, model, jabber, myJid) {
             return;
         }
 
-        this.appendRawMessage(from, false, body, date, id);
+        this.appendRawMessage(from, false, body, date, id, type);
     }
 
-    this.appendRawMessage = function(from, isStatus, body, date, id) {
-        var message = createRawMessage(from, isStatus, body, date, id);
+    this.appendRawMessage = function(from, isStatus, body, date, id, type) {
+        var message = createRawMessage(from, isStatus, body, date, id, type);
         item.messages.append(message);
     }
 

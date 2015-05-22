@@ -29,7 +29,7 @@ import "../../../GameNet/Core/RestApi.js" as RestApiG
 import "../../../GameNet/Controls/Tooltip.js" as Tooltip
 import "../../../GameNet/Controls/ContextMenu.js" as ContexMenu
 
-import "./Messenger/Logger.js" as Logger
+import "../../../Application/Widgets/Messenger/View/Styles"
 
 Rectangle {
     id: root
@@ -59,8 +59,6 @@ Rectangle {
         ContexMenu.init(contextMenuLayer);
         Tooltip.init(tooltipLayer);
         Moment.moment.lang('ru');
-
-        Logger.init(MessengerJs.dataModel.client);
 
         MessageBox.init(messageLayer);
 

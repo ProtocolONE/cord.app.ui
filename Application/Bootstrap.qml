@@ -87,7 +87,7 @@ Item {
             });
 
             mainWindowInstance.restartUIRequest.connect(function() {
-                if (!isWindowVisible()) {
+                if (!App.isWindowVisible()) {
                     App.beforeCloseUI();
                     mainWindowInstance.restartUISlot(true);
                     return;

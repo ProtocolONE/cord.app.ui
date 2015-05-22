@@ -14,10 +14,13 @@ Item {
 
     property bool canDelete: true
     property bool owner: true
+    property bool canSelect: true
 
     signal clicked();
     signal deleteClicked();
     signal rightButtonClicked(variant mouse);
+
+    signal selectUser();
 
     implicitHeight: 40
     implicitWidth: 209
@@ -63,6 +66,12 @@ Item {
                     height: 32
 
                     source: root.avatar
+
+                    CursorMouseArea {
+                        visible: root.canSelect
+                        anchors.fill: parent
+                        onClicked: root.selectUser();
+                    }
                 }
 
                 Item  {

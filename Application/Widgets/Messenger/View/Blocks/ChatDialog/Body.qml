@@ -116,12 +116,23 @@ Item {
             avatar: MessengerJs.userAvatar(model)
             date: Qt.formatDateTime(new Date(+model.date), "hh:mm")
             body: model.text
+
             isStatusMessage: model.isStatusMessage
             onIsStatusMessageChanged: messageList.scrollCheck()
             isSelfMessage: messageList.isSelfMessageTest(model.jid)
             firstMessageInGroup: messageList.isSameJid(index, model.jid, model.day)
-            onLinkActivated: MessengerJs.instance().messageLinkActivated(root.user, link);
             onUserClicked: MessengerJs.selectUser(model);
+            onLinkActivated:  {
+                MessengerJs.instance().messageLinkActivated(root.user, link);
+                if (model.type === "invite") {
+                    var message = (link === "gamenet://subscription/accept"
+                    ? qsTr("MESSAGE_BODY_SUBSCRIPTION_INVITE_ACCEPTED") //"Вы приняли приглашение пользователя " + MessengerJs.getNickname(model)
+                    : qsTr("MESSAGE_BODY_SUBSCRIPTION_INVITE_DECLINED")) //"Вы отказали пользователю " + MessengerJs.getNickname(model);
+
+                    message = message.arg(MessengerJs.getNickname(model));
+                    messageList.model.setProperty(index, 'text', message);
+                }
+            }
         }
     }
 

@@ -75,6 +75,7 @@ var Bookmarks = function(jabber, messenger) {
     }
 
     function sendBookmarks() {
+        debug('[Bookmarks] Set bookmarks', JSON.stringify(bookmarks, null, 2))
         jabber.bookmarkManager.setBookmarks(bookmarks);
     }
 
@@ -123,7 +124,7 @@ var Bookmarks = function(jabber, messenger) {
             return;
         }
 
-        debug('jabber.bookmarkManager.received', JSON.stringify(bookmarksReceived))
+        debug('[Bookmarks] received', JSON.stringify(bookmarksReceived, null, 2))
 
         isReceived = true;
         bookmarks = bookmarksReceived;

@@ -916,6 +916,14 @@ Please try again later.</source>
         <source>CHAT_BODY_DATE_FORMAT</source>
         <translation type="obsolete">%1 г.</translation>
     </message>
+    <message>
+        <source>MESSAGE_BODY_SUBSCRIPTION_INVITE_ACCEPTED</source>
+        <translation>Вы приняли приглашение пользователя %1</translation>
+    </message>
+    <message>
+        <source>MESSAGE_BODY_SUBSCRIPTION_INVITE_DECLINED</source>
+        <translation type="unfinished">Вы отказали пользователю %1</translation>
+    </message>
 </context>
 <context>
     <name>BodyHistoryHeader</name>
@@ -1420,6 +1428,10 @@ Please try again later.</source>
         <source>CONTACT_CONTEXT_MENU_DELETE</source>
         <translation>Удалить из списка контактов</translation>
     </message>
+    <message>
+        <source>CONTACT_CONTEXT_MENU_ADD_CONTACT</source>
+        <translation>Добавить в контакты</translation>
+    </message>
 </context>
 <context>
     <name>ContactItemHeader</name>
@@ -1620,6 +1632,10 @@ Please try again later.</source>
     <message>
         <source>MESSENGER_CHANGE_OWNER_ALERT_BODY</source>
         <translation>Вы уверены, что хотите сделать владельцем группы %1?</translation>
+    </message>
+    <message>
+        <source>GROUP_EDIT_CONTEXT_MENU_ADD_CONTACT</source>
+        <translation>Добавить в контакты</translation>
     </message>
 </context>
 <context>
@@ -3585,6 +3601,14 @@ Please try again later.</source>
         <source>MESSENGER_SUBSCRIPTION_REQUEST_MESSAGE</source>
         <translation>Пользователь %1 хочет внести вас в свой список контактов.
 %2 или %3</translation>
+    </message>
+    <message>
+        <source>MESSAGE_BODY_SUBSCRIPTION_INVITE_ACCEPTED</source>
+        <translation type="obsolete">Вы приняли приглашение пользователя %1</translation>
+    </message>
+    <message>
+        <source>MESSAGE_BODY_SUBSCRIPTION_INVITE_APPROVED</source>
+        <translation>Ваше приглашение принято.</translation>
     </message>
 </context>
 <context>

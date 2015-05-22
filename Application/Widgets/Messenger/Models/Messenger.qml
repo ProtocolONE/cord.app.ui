@@ -39,6 +39,7 @@ import "../Plugins/RoomCreate/RoomCreate.js" as RoomCreate
 import "../Plugins/Topic/Topic.js" as Topic
 import "../Plugins/RoomParticipants/RoomParticipants.js" as RoomParticipants
 import "../Plugins/ChatCommands/ChatCommands.js" as ChatCommands
+import "../Plugins/Logger/Logger.js" as LoggerPlugin
 
 import "../Plugins/MessageUrlHandler"
 
@@ -110,13 +111,16 @@ Item {
         });
 
         rosterManager.subscriptionReceived.connect(function(bareJid, reason) {
+            var conversation = root.getConversation(bareJid);
             var user = root.getUser(bareJid);
+
             if (user.subscription == QXmppRosterManager.To) {
                 rosterManager.acceptSubscription(bareJid, "");
+                var msg = qsTr("MESSAGE_BODY_SUBSCRIPTION_INVITE_APPROVED");
+                conversation.appendMessage(bareJid, msg, Date.now(), Date.now(), "invite")
                 return;
             }
 
-            var conversation = root.getConversation(bareJid);
             var subscriptionRequestMessage = qsTr("MESSENGER_SUBSCRIPTION_REQUEST_MESSAGE")
                 .arg(reason)
                 .arg('gamenet://subscription/decline')
@@ -130,17 +134,21 @@ Item {
             }
 
             root.messageReceived(bareJid, tmpMessage.body, tmpMessage);
-            conversation.appendMessage(bareJid, tmpMessage.body, Date.now(), Date.now())
+
+            conversation.appendMessage(bareJid, tmpMessage.body, Date.now(), Date.now(), "invite")
 
             if (d.needIncrementUnread(user)) {
                 user.unreadMessageCount += 1;
                 d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
             }
 
+            d.updateUserTalkDate(user);
         });
     }
 
     function init() {
+        LoggerPlugin.init(xmppClient);
+
         Smiles.init(xmppClient);
         Events.init(xmppClient, App.signalBus());
 
@@ -638,7 +646,9 @@ Item {
         }
 
         function appendGroudUser(fullJid, externalNickName) {
-            usersModel.append(UserJs.createRawGroupChat(fullJid, externalNickName || ""));
+            var rawUser = UserJs.createRawGroupChat(fullJid, externalNickName || "");
+            rawUser.lastTalkDate = d.getUserTalkDate(rawUser);
+            usersModel.append(rawUser);
         }
 
         function updatePresence(presence) {
@@ -882,25 +892,7 @@ Item {
                 root.messageRead(user.jid);
             }
 
-            user = root.getUser(bareJid);
-            if (!user.isValid()) {
-                return;
-            }
-
-            //INFO https://jira.gamenet.ru:8443/browse/QGNA-1130
-            if (user.isGamenet && 0 === message.body.indexOf('EVENT:')) {
-                return;
-            }
-
-            xmppClient.saveToHistory(bareJid, message, messageDate);
-
-
-            if (message.stamp != "Invalid Date") {
-                if (d.needIncrementUnread(user)) {
-                    user.unreadMessageCount += 1;
-                    d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
-                }
-
+            d.updateUserTalkDate(user);
             root.messageReceived(user.jid, message.body, message);
         }
 

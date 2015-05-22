@@ -89,14 +89,15 @@ function startOfDay(value) {
     return +tmp;
 }
 
-function createRawMessage(from, isStatus, body, date, id) {
+function createRawMessage(from, isStatus, body, date, id, type) {
     var result = {
         id: id || "_",
         jid: from,
         text: body || "",
         date: date || Date.now(),
         isStatusMessage: isStatus,
-        day: startOfDay(date)
+        day: startOfDay(date),
+        type: type || "text"
     };
 
     return result;
