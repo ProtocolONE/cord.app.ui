@@ -45,7 +45,7 @@ Rectangle {
 
         Image {
             anchors.centerIn: parent
-            source: installPath + '/Assets/Images/test/main_07.png'
+            source: installPath + '/Tests/Assets/main_07.png'
         }
 
         Button {
