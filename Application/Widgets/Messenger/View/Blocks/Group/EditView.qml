@@ -125,13 +125,14 @@ Item {
                 height: contentContainer.height -
                         topicInput.height -
                         saveButton.height - parent.spacing*2
-                clip: true
+
 
                 ListView {
                     id: membersView
 
                     anchors.fill: parent
                     boundsBehavior: Flickable.StopAtBounds
+                    clip: true
 
                     model: Messenger.editGroupModel().occupants();
 
@@ -148,6 +149,28 @@ Item {
                         onDeleteClicked: Messenger.editGroupModel().removeUser(model.jid)
                         onRightButtonClicked: ContextMenu.show(mouse, memberItem, membetItemContextMenu, { targetUser: model });
                     }
+                }
+
+                ListViewScrollBar {
+                    id: scrollBar
+
+                    width: 7
+
+                    anchors {
+                        left: parent.right
+                        leftMargin: 3
+                    }
+
+                    visible: membersView.count > 7
+                    height: membersView.height
+                    listView: membersView
+                    cursorMaxHeight: membersView.height
+                    cursorMinHeight: 50
+                    color: Styles.style.messangerContactScrollBar
+                    cursorColor: Styles.style.messangerContactScrollBarCursor
+                    opacity: 0.5
+
+                    onMovingChanged: Messenger.setHeavyInteraction(moving)
                 }
             }
 
