@@ -35,7 +35,8 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-        color: Styles.style.newsBackground
+        color: Styles.style.contentBackgroundLight
+        opacity: Styles.style.baseBackgroundOpacity
     }
 
     ListView {

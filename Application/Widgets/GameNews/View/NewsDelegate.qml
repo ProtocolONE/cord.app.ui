@@ -60,9 +60,10 @@ Item {
 
         Rectangle {
             height: 1
-            width: parent.width + 10
-            color: Qt.darker(Styles.style.newsBackground, Styles.style.darkerFactor)
+            width: parent.width
+            color: Styles.style.light
             visible: shouldShowDelimited
+            opacity: 0.15
         }
 
         Row {
@@ -105,7 +106,7 @@ Item {
                         family: 'Arial'
                         pixelSize: 12
                     }
-                    color: Styles.style.newsCommentCountText
+                    color: Styles.style.textAttention
                     text: commentCount
                 }
             }
@@ -118,57 +119,59 @@ Item {
                 width: newsImage.visible ? 430 : 600
                 spacing: 6
 
-                Row {
-                    height: 12
+                Column {
                     width: parent.width
-                    spacing: 10
+                    spacing: 5
 
-                    Text {
+                    Row {
                         height: 12
-                        text: App.serviceItemByGameId(gameId) ? App.serviceItemByGameId(gameId).name : ''
-                        color: mouser.containsMouse ? Styles.style.newsGameTextHover :
-                                                      Styles.style.newsGameTextNormal
-                        font { family: 'Arial'; pixelSize: 12 }
-                        visible: !root.isSingleMode
+                        width: parent.width
+                        spacing: 10
 
-                        Behavior on color {
-                            ColorAnimation { duration: 200 }
+                        Text {
+                            height: 12
+                            text: App.serviceItemByGameId(gameId) ? App.serviceItemByGameId(gameId).name : ''
+                            color: Qt.darker(Styles.style.textTime, mouser.containsMouse ? 1.5: 0)
+                            font { family: 'Arial'; pixelSize: 12 }
+                            visible: !root.isSingleMode
+
+                            Behavior on color {
+                                ColorAnimation { duration: 200 }
+                            }
+                        }
+
+                        Text {
+                            id: timeText
+
+                            Timer {
+                                interval: 60000
+                                triggeredOnStart: true
+                                running: true
+                                onTriggered: timeText.text = Moment.moment(time * 1000).fromNow();
+                            }
+
+                            height: 12
+                            color: Qt.darker(Styles.style.textTime, mouser.containsMouse ? 1.5: 0)
+
+                            font { family: 'Arial'; pixelSize: 12 }
+
+                            Behavior on color {
+                                ColorAnimation { duration: 200 }
+                            }
                         }
                     }
 
                     Text {
-                        id: timeText
-
-                        Timer {
-                            interval: 60000
-                            triggeredOnStart: true
-                            running: true
-                            onTriggered: timeText.text = Moment.moment(time * 1000).fromNow();
-                        }
-
-                        height: 12
-                        color: mouser.containsMouse ? Styles.style.newsTimeTextHover :
-                                                      Styles.style.newsTimeTextNormal
-
-                        font { family: 'Arial'; pixelSize: 12 }
+                        height: 23
+                        width: parent.width - 30
+                        text: title
+                        color: Qt.darker(Styles.style.titleText, mouser.containsMouse ? 1.5: 0)
+                        elide: Text.ElideRight
+                        font { family: 'Open Sans Light'; pixelSize: 20; bold: false }
 
                         Behavior on color {
                             ColorAnimation { duration: 200 }
                         }
-                    }
-                }
-
-                Text {
-                    height: 23
-                    width: parent.width - 30
-                    text: title
-                    color: mouser.containsMouse ? Styles.style.newsTitleTextHover :
-                                                  Styles.style.newsTitleTextNormal
-                    elide: Text.ElideRight
-                    font { family: 'Arial'; pixelSize: 18; bold: true }
-
-                    Behavior on color {
-                        ColorAnimation { duration: 200 }
                     }
                 }
 
@@ -187,9 +190,8 @@ Item {
                     elide: Text.ElideRight
                     maximumLineCount: 4
                     clip: true
-                    color: mouser.containsMouse ? Styles.style.newsAnnouncementTextHover :
-                                                  Styles.style.newsAnnouncementTextNormal
-                    font { family: 'Arial'; pixelSize: 14 }
+                    color: Qt.darker(Styles.style.infoText, mouser.containsMouse ? 1.5: 0)
+                    font { family: 'Arial'; pixelSize: 13 }
                     lineHeight: 20
                     lineHeightMode: Text.FixedHeight
                     onLinkActivated: App.openExternalUrlWithAuth(link);

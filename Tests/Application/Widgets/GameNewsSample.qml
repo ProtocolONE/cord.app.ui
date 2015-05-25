@@ -11,17 +11,20 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
+import "../../../Application/Core/moment.js" as Moment
 import "../../../Application/Core/App.js" as App
 
 Rectangle {
     width: 800
     height: 800
-    color: '#EEEEEE'
+    color: '#002336'
 
     WidgetManager {
         id: manager
 
         Component.onCompleted: {
+            Moment.moment.lang('ru');
+
             manager.registerWidget('Application.Widgets.GameNews')
             manager.init()
             App.activateGame(App.serviceItemByGameId("92"))

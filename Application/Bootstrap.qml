@@ -317,21 +317,8 @@ Item {
         }
     }
 
-    QtObject {
-        id: numConnectionFix
-
-        Component.onCompleted: {
-            var settings = App.settingsViewModelInstance();
-            if (!settings) {
-                return;
-            }
-
-            if (App.settingsValue("numConnectionFix", "done", 0) == 1) {
-                return;
-            }
-
-            App.setSettingsValue("numConnectionFix", "done", 1);
-            settings.numConnections = 200;
-        }
+    FontLoader {
+        name: "Open Sans Light";
+        source: installPath + "Assets/Fonts/OpenSansLight.ttf"
     }
 }

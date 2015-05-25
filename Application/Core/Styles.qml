@@ -439,7 +439,6 @@ Item {
 
     property color light: "#FFFFFF"
 
-    property color lightText: '#FFFFFF'
     property color titleText: '#45bef6'
     property color infoText: '#7e8f9e'
     property color textBase: '#a1c1d2' // text
@@ -455,8 +454,6 @@ Item {
     //property color applicationBackground: "#002336"
     property color contentBackgroundDark: "#00111A" // bg_darkblue
     property color contentBackgroundLight: "#031d2b" // bg_blue​
-    property color menuHeaderBackground: "#0A1C26"
-    property color trayMenuBorder: "#324E5E"
     // End of GameNet 3.4
 
 
