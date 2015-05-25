@@ -16,7 +16,8 @@ import "../../../Application/Core/App.js" as App
 Rectangle {
     width: 800
     height: 800
-    color: '#EEEEEE'
+
+    color: '#002336'
 
     WidgetManager {
         id: manager
@@ -24,7 +25,12 @@ Rectangle {
         Component.onCompleted: {
             manager.registerWidget('Application.Widgets.Facts');
             manager.init();
-            App.activateGame(App.serviceItemByGameId("92"));
+        }
+    }
+
+    RequestServices {
+        onReady: {
+            App.activateGame(App.serviceItemByGameId("760"));
         }
     }
 
@@ -61,9 +67,9 @@ Rectangle {
             width: 200
             height: 30
 
-            text: "Activate 70 (FS)"
+            text: "Activate 760 (REBORN)"
             onClicked: {
-                App.activateGame(App.serviceItemByGameId("70"));
+                App.activateGame(App.serviceItemByGameId("760"));
             }
         }
     }

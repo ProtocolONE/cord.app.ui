@@ -64,7 +64,7 @@ WidgetView {
     }
 
     implicitWidth: 590
-    implicitHeight: hasFacts ? 50 : 0
+    implicitHeight: hasFacts ? 40 : 0
 
     clip: true
     onCurrentItemChanged: filter()
@@ -77,14 +77,21 @@ WidgetView {
     Rectangle {
         anchors.fill: parent
 
-        opacity: 0.3
-        color: Styles.style.factsWidgetBackground
+        opacity: Styles.style.baseBackgroundOpacity
+        color: Styles.style.contentBackgroundLight
+    }
+
+    Rectangle {
+        anchors.fill: parent
+
+        opacity: 0.15
+        color: Styles.style.light
     }
 
     Row {
         id: textRow
 
-        spacing: 10
+        spacing: 5
         anchors {
             leftMargin: 10
             fill: parent
@@ -95,8 +102,8 @@ WidgetView {
 
             anchors.verticalCenter: textRow.verticalCenter
             opacity: 0.8
-            color: Styles.style.factsWidgetValue
-            font { family: "Arial"; pixelSize: 30 }
+            color: Styles.style.textAttention
+            font { family: "Open Sans Light"; pixelSize: 30 }
         }
 
         Text {
@@ -104,8 +111,8 @@ WidgetView {
 
             anchors.verticalCenter: textRow.verticalCenter
             opacity: 0.8
-            color: Styles.style.factsWidgetText
-            font { family: "Arial"; pixelSize: 18 }
+            color: Styles.style.lightText
+            font { family: "Open Sans Light"; pixelSize: 20 }
         }
     }
 

@@ -439,6 +439,7 @@ Item {
 
     property color light: "#FFFFFF"
 
+    property color lightText: '#FFFFFF'
     property color titleText: '#45bef6'
     property color infoText: '#7e8f9e'
     property color textBase: '#a1c1d2' // text
