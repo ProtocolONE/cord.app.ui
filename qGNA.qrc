@@ -68,6 +68,7 @@
 		<file>Application/Controls/ComboBox.qml</file>
 		<file>Application/Controls/ContextMenuStyle.qml</file>
 		<file>Application/Controls/ContextMenuView.qml</file>
+		<file>Application/Controls/DelayedBinding.qml</file>
 		<file>Application/Controls/HiddenAppCloseButton.qml</file>
 		<file>Application/Controls/Input.qml</file>
 		<file>Application/Controls/InputWithError.qml</file>

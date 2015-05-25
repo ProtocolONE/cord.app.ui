@@ -44,28 +44,36 @@ Item {
 
         //Avatar
         Item {
-            property bool needDraw: !root.isSelfMessage && root.firstMessageInGroup
 
             width: 52
             height: 32
 
-            Image {
-                id: avatarImage
+            Item {
+                property bool needDraw: !root.isSelfMessage && root.firstMessageInGroup
 
-                anchors {
-                    left: parent.left
-                    top: parent.top
+                width: 32
+                height: 32
 
-                    leftMargin: 10
-                    rightMargin: 10
+                Image {
+                    id: avatarImage
+
+                    anchors {
+                        left: parent.left
+                        top: parent.top
+
+                        leftMargin: 10
+                        rightMargin: 10
+                    }
+
+                    width: 32
+                    height: 32
+                    visible: parent.needDraw
                 }
 
-                visible: parent.needDraw
-            }
-
-            CursorMouseArea {
-                anchors.fill: parent
-                onClicked: root.userClicked();
+                CursorMouseArea {
+                    anchors.fill: parent
+                    onClicked: root.userClicked();
+                }
             }
         }
 

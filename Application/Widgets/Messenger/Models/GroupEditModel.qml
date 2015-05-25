@@ -90,7 +90,9 @@ Item {
             }
         }
 
+        // INFO Может упасть, если что смотреть как формируется модель для шапки групповый чатов.
         occupantsModel.sort(d.sort);
+
         d.active = true;
         root.editStarted();
     }
@@ -262,10 +264,7 @@ Item {
                 return 1;
             }
 
-            var nick1 = messenger.getNickname(a).toLowerCase();
-            var nick2 = messenger.getNickname(b).toLowerCase();
-
-            return nick1.localeCompare(nick2);
+            return a.jid.localeCompare(b.jid);
         }
     }
 

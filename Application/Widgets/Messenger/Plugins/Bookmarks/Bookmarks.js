@@ -9,7 +9,7 @@ function init(jabber, messenger) {
 }
 
 var Bookmarks = function(jabber, messenger) {
-    var isDebug = true;
+    var isDebug = false;
 
     var self = this,
         queue = [],

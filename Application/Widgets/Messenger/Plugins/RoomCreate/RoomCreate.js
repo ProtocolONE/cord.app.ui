@@ -9,7 +9,7 @@ function init(jabber, messenger) {
 }
 
 function RoomCreate(jabber, messenger) {
-    var isDebug = true;
+    var isDebug = false;
 
     var configs = {};
 
@@ -88,9 +88,14 @@ function RoomCreate(jabber, messenger) {
         applyConfig(roomJid);
     }
 
+    messenger.rosterReceived.connect(function() {
+        jabber.discoveryManager.requestItems(jabber.conferenceUrl());
+    });
+
     jabber.discoveryManager.itemsReceived.connect(function(items) {
         debug('DiscoveryManager itemsReceived');
         items.items.forEach(function(room) {
+            jabber.joinRoom(room.jid);
             debug(room.jid);
         });
     });

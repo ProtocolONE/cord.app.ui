@@ -12,7 +12,7 @@ function init(jabber, messenger) {
 }
 
 function RoomParticipants(jabber, messenger) {
-    var isDebug = true;
+    var isDebug = false;
 
     var self = this;
 

@@ -56,7 +56,9 @@ _private = {
         }
 
         if (vcard.extra) {
-            item.avatar = vcard.extra.PHOTOURL || item.avatar;
+            if (vcard.extra.PHOTOURL) {
+                item.avatar = vcard.extra.PHOTOURL + "?width=44";
+            }
         }
 
         if (!item.avatar) {

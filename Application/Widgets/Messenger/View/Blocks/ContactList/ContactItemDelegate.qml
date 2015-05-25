@@ -47,6 +47,12 @@ Item {
 
         property string imageRoot: installPath + "Assets/Images/Application/Widgets/Messenger/ContactItem/"
 
+        // INFO если биндиться на прямую на модель и сортировать ее, то будет binding loop и падает
+        // Происходит из-за получения никнеймов оригинальной модели при сортировке копии.
+        // Сделали "копию" оригинала и при его изменении сортируется дочерняя модель.
+        property variant occupantProxy: d.onwWayBindToOccupant();
+        onOccupantProxyChanged: d.sortOccupant()
+
         signal startEditNickname(string jid);
 
         function nickName() {
@@ -203,13 +209,32 @@ Item {
                 return 1;
             }
 
-            var nick1 = Messenger.getNickname(a).toLowerCase();
-            var nick2 = Messenger.getNickname(b).toLowerCase();
-
-            return nick1.localeCompare(nick2);
+            return a.jid.localeCompare(b.jid);
         }
 
-        function occupant() {
+        function targetUser() {
+            if (!root.user) {
+                return null;
+            }
+
+            return Messenger.getUser(root.user.jid);
+        }
+
+//        function unsortedParticipants() {
+//            var userItem, i;
+//            if (!root.user) {
+//                return [];
+//            }
+
+//            userItem = Messenger.getUser(root.user.jid);
+//            if (!userItem.isValid() || !userItem.isGroupChat) {
+//                return [];
+//            }
+
+//            return userItem.participants;
+//        }
+
+        function onwWayBindToOccupant() {
             var userItem, i;
             if (!root.user) {
                 return [];
@@ -220,21 +245,46 @@ Item {
                 return [];
             }
 
-            occupantSortModel.clear();
-
             var source = userItem.participants;
             var sortdata = [];
 
-            for (i = 0; i < source.count; ++i)
-                sortdata[i] = source.get(i);
+            for (i = 0; i < source.count; ++i) {
+                sortdata.push(source.get(i));
+            }
+
+            return sortdata;
+        }
+
+        function sortOccupant() {
+            var sortdata = [], i, item;
+
+            for (i = 0; i < d.occupantProxy.length; ++i) {
+                sortdata[i] = d.occupantProxy[i];
+            }
 
             sortdata.sort(d.occupantSortFunction);
 
+            occupantSortModel.clear();
+
             for (i = 0; i < sortdata.length; ++i) {
-                occupantSortModel.append(sortdata[i]);
+                item = sortdata[i];
+                occupantSortModel.append({
+                                             jid: item.jid,
+                                             presenceState: item.presenceState,
+                                             affiliation: item.affiliation,
+                                         });
             }
 
             return occupantSortModel;
+        }
+
+        function nicknameChanged(jid) {
+            for (var i = 0; i < d.occupantProxy.length; ++i) {
+                if (d.occupantProxy[i].jid == jid) {
+                    d.sortOccupant();
+                    return;
+                }
+            }
         }
 
         function showInformation(user) {
@@ -261,9 +311,7 @@ Item {
 
     ListModel {
         id: occupantSortModel
-
     }
-
 
     Component {
         id: normalContactItem
@@ -324,8 +372,6 @@ Item {
             id: groupContactInstance
 
             anchors.fill: parent
-
-            nickname: Messenger.getGroupTitle(root.user)
             avatar: d.imageRoot + 'groupChatAvatar.png';
             status: d.status()
             presenceStatus: d.presenceStatus()
@@ -344,6 +390,13 @@ Item {
             }
 
             onNicknameChangeRequest: Messenger.changeGroupTopic(root.user.jid, value);
+
+            Timer {
+                running: true
+                repeat: true
+                interval: 250
+                onTriggered: groupContactInstance.nickname = Messenger.getGroupTitle(root.user);
+            }
 
             CursorMouseArea {
                 anchors.fill: parent
@@ -383,8 +436,9 @@ Item {
         id: groupHeaderChatContactItem
 
         GroupContactItemHeader {
-            title: Messenger.getGroupTitle(root.user)
-            occupantModel: d.occupant();
+            id: groupContactHeaderInstance
+
+            occupantModel: occupantSortModel;// d.unsortedParticipants()
             onGroupButtonClicked: {
                 if (Messenger.editGroupModel().isActive()) {
                     Messenger.editGroupModel().close();
@@ -392,6 +446,13 @@ Item {
                 }
 
                 Messenger.editGroupModel().startEdit(root.user.jid);
+            }
+
+            Timer {
+                running: true
+                repeat: true
+                interval: 250
+                onTriggered: groupContactHeaderInstance.title = Messenger.getGroupTitle(root.user);
             }
         }
     }

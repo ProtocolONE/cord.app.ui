@@ -8,5 +8,4 @@ HiddenAppCloseButton 1.0 HiddenAppCloseButton.qml
 ScrollArea 1.0 ScrollArea.qml
 ContextMenuView 1.0 ContextMenuView.qml
 ContextMenuStyle 1.0 ContextMenuStyle.qml
-CheckedButton 1.0 CheckedButton.qml
-CheckedButtonStyle 1.0 CheckedButtonStyle.qml
+DelayedBinding 1.0 DelayedBinding.qml
