@@ -36,17 +36,32 @@ Item {
         onNavigate: {
             console.log("onNavigate: " + link);
 
-            switch(link) {
+            switch (link) {
                 case 'ApplicationSettings':
-                case 'GameSettings':
+                case 'GameSettings': {
                     GoogleAnalytics.trackPageView('/' + link);
-                    break;
-                case 'mygame':
+                    return;
+                }
+                case "mygame": {
                     root.state = "SelectedGame";
-                    break;
-                case 'allgame':
-                    root.state = "AllGames";
-                    break;
+
+                    if (root.hasCurrentGame) {
+                        GoogleAnalytics.trackPageView('/game/' + root.currentGame.gaName);
+
+                        if (!App.isServiceInstalled(root.currentGame.serviceId)) {
+                            gameMenu.pageClicked('AboutGame');
+                        } else {
+                            gameMenu.pageClicked('News');
+                        }
+                    }
+                    return;
+                }
+                case "allgame": root.state = "AllGames"; break;
+                case "mygames": root.state = "MyGames"; break;
+                case "themes": root.state = "Themes"; break;
+                default: {
+                    console.log('Unknown link', link);
+                }
             }
         }
     }
@@ -180,6 +195,22 @@ Item {
         }
     }
 
+    Component {
+        id: allGames
+
+        WidgetContainer {
+            widget: 'AllGames'
+        }
+    }
+
+    Component {
+        id: themes
+
+        WidgetContainer {
+            widget: 'Themes'
+        }
+    }
+
     states: [
         State {
             name: "AllGames"
@@ -189,5 +220,26 @@ Item {
             name: "SelectedGame"
             PropertyChanges { target: centralBlockLoader; sourceComponent: gamePageBlock}
         }
+        ,
+        State {
+            name: "MyGames"
+
+            PropertyChanges { target: centralBlockLoader; sourceComponent: myGamesComponent}
+            PropertyChanges { target: header; parent: layer1headerContair}
+            PropertyChanges { target: myGamesMenu; parent: layer2Col1}
+            PropertyChanges { target: centralBlockLoader; parent: layer1Col2}
+            PropertyChanges { target: userProfile; parent: layer2Col2}
+            PropertyChanges { target: contactList; parent: layer2Col2}
+        },
+        State {
+            name: "Themes"
+
+            PropertyChanges { target: centralBlockLoader; sourceComponent: themes}
+            PropertyChanges { target: header; parent: layer1headerContair}
+            PropertyChanges { target: centralBlockLoader; parent: layer1Col1}
+            PropertyChanges { target: userProfile; parent: layer2Col2}
+            PropertyChanges { target: contactList; parent: layer2Col2}
+        }
+
     ]
 }

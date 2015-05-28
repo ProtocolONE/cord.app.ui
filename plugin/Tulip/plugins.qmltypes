@@ -3,7 +3,7 @@ import QtQuick.tooling 1.1
 // This file describes the plugin-supplied types contained in the library.
 // It is used for QML tooling purposes only.
 //
-// This file was auto-generated with the command 'D:\Qt\521b_2\bin\qml1plugindump -path ./plugin/Tulip'.
+// This file was auto-generated with the command 'D:\SDK\Qt\Qt5.2.1\5.2.1\msvc2010\bin\qml1plugindump -path ./plugin/Tulip'.
 
 Module {
     Component {
@@ -206,6 +206,7 @@ Module {
         exportMetaObjectRevisions: [0]
         Method { name: "systemLanguage"; type: "string" }
         Method { name: "systemVersion"; type: "string" }
+        Method { name: "winVersion"; type: "string" }
     }
     Component {
         name: "Host"
@@ -470,6 +471,28 @@ Module {
             type: "string"
             Parameter { name: "html"; type: "string" }
         }
+    }
+    Component {
+        name: "ThemePack"
+        prototype: "QObject"
+        exports: ["Tulip/ThemePack 0.1"]
+        exportMetaObjectRevisions: [0]
+        Enum {
+            name: "Status"
+            values: {
+                "Null": 0,
+                "Ready": 1,
+                "Loading": 2,
+                "Error": 3
+            }
+        }
+        Property { name: "themeFolder"; type: "string" }
+        Property { name: "source"; type: "string" }
+        Property { name: "progress"; type: "double"; isReadonly: true }
+        Property { name: "size"; type: "qlonglong"; isReadonly: true }
+        Property { name: "status"; type: "Status"; isReadonly: true }
+        Method { name: "install"; type: "bool" }
+        Method { name: "download" }
     }
     Component {
         name: "TrayWindow"

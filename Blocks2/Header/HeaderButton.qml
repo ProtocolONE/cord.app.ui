@@ -19,7 +19,7 @@ Button {
     property alias icon: icon.source
     property alias text: captionText.text
 
-    width: content.width + 42
+    width: content.width + 32
     height: parent.height
 
     style: ButtonStyleColors {

@@ -339,13 +339,13 @@
 <context>
     <name>Body</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="128"/>
-        <source>MESSAGE_BODY_SUBSCRIPTION_INVITE_ACCEPTED</source>
+        <location filename="../Application/Layers/BaseLayer.qml" line="310"/>
+        <source>MY_GAMES_CAPTION_MENU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="129"/>
-        <source>MESSAGE_BODY_SUBSCRIPTION_INVITE_DECLINED</source>
+        <location filename="../Application/Layers/BaseLayer.qml" line="321"/>
+        <source>MY_GAMES_MENU_NEWS</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -498,28 +498,28 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="524"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="416"/>
         <source>CONTACT_CONTEXT_MENU_DESTROY_ROOM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="529"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="421"/>
         <source>CONTACT_CONTEXT_MENU_LEAVE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="534"/>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="555"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="426"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="447"/>
         <source>CONTACT_CONTEXT_MENU_RENAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="549"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="441"/>
         <source>CONTACT_CONTEXT_MENU_INFORAMTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="560"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="452"/>
         <source>CONTACT_CONTEXT_MENU_DELETE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -532,8 +532,8 @@
 <context>
     <name>ContactItemHeader</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/ContactItemHeader.qml" line="76"/>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/ContactItemHeader.qml" line="127"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/ContactItemHeader.qml" line="78"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/ContactItemHeader.qml" line="139"/>
         <source>CONTACT_ITEM_NICKNAME_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1407,56 +1407,51 @@
 <context>
     <name>GroupEditHeader</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupEditHeader.qml" line="54"/>
-        <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_SINGLE</source>
+        <location filename="../Application/Blocks/Header/Header.qml" line="82"/>
+        <source>HEADER_BUTTON_MY_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupEditHeader.qml" line="55"/>
-        <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_DOUBLE</source>
+        <location filename="../Application/Blocks/Header/Header.qml" line="64"/>
+        <source>HEADER_BUTTON_ALL_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupEditHeader.qml" line="56"/>
-        <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_MULTIPLE</source>
+        <location filename="../Application/Blocks/Header/Header.qml" line="99"/>
+        <source>HEADER_BUTTON_THEMES</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Header/Header.qml" line="129"/>
+        <source>HEADER_BUTTON_SUPPORT</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Header</name>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="59"/>
-        <source>HEADER_BUTTON_ALL_GAMES</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="114"/>
-        <source>HEADER_BUTTON_SUPPORT</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="194"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="216"/>
         <source>LOGOUT_ALERT_HEADER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="195"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="217"/>
         <source>LOGOUT_ALERT_BODY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Application/Blocks/Auth/Header.qml" line="60"/>
-        <location filename="../Application/Blocks/Header/Header.qml" line="144"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="166"/>
         <source>HEADER_BUTTON_CLOSE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="160"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="182"/>
         <source>HEADER_BUTTON_SETTINGS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="181"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="203"/>
         <source>HEADER_BUTTON_LOGOUT</source>
         <translation></translation>
     </message>
@@ -1682,17 +1677,22 @@
 <context>
     <name>Messenger</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="327"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="120"/>
+        <source>MESSENGER_SUBSCRIPTION_REQUEST_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="343"/>
         <source>MESSENGER_CONTACT_ITEM_PLAYING_STATUS_INFO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="340"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="356"/>
         <source>LAST_ACTIVITY_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="564"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="580"/>
         <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
         <translation></translation>
     </message>
@@ -2472,6 +2472,29 @@
     </message>
 </context>
 <context>
+    <name>Theme</name>
+    <message>
+        <location filename="../Application/Widgets/Themes/View/Theme.qml" line="60"/>
+        <source>THEME_INSTALL</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Themes/View/Theme.qml" line="60"/>
+        <source>THEME_LOAD_AND_INSTALL</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Themes/View/Theme.qml" line="105"/>
+        <source>THEME_PROGRESS</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Themes/View/Theme.qml" line="118"/>
+        <source>THEME_ABOUT</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>Tray</name>
     <message>
         <source>TRAY_TOOLTIP</source>
@@ -2491,27 +2514,27 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="130"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="128"/>
         <source>TRAY_TOOLTIP</source>
         <translation>GameNet</translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="292"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="264"/>
         <source>MENU_ITEM_PROFILE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="299"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="270"/>
         <source>MENU_ITEM_MONEY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="306"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="276"/>
         <source>MENU_ITEM_SETTINGS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="313"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="282"/>
         <source>MENU_ITEM_QUIT</source>
         <translation></translation>
     </message>

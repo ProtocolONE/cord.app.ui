@@ -108,6 +108,12 @@ Rectangle {
             manager.registerWidget('Application.Widgets.PremiumNotifier');
             manager.registerWidget('Application.Widgets.ServiceLockConnector');
             manager.registerWidget('Application.Widgets.GameUninstall');
+            manager.registerWidget('Application.Widgets.DetailedUserInfo');
+
+            if (GoogleAnalyticsHelper.winVersion() > 0x0030) {
+                //INFO Available in Vista+
+                manager.registerWidget('Application.Widgets.Themes');
+            }
         }
     }
 

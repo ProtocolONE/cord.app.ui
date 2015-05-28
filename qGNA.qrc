@@ -399,6 +399,11 @@
 		<file>Application/Widgets/TaskList/qmldir</file>
 		<file>Application/Widgets/TaskList/TaskList.js</file>
 		<file>Application/Widgets/TaskList/TaskList.qml</file>
+		<file>Application/Widgets/Themes/PluginContainer.qml</file>
+		<file>Application/Widgets/Themes/qmldir</file>
+		<file>Application/Widgets/Themes/Themes.qml</file>
+		<file>Application/Widgets/Themes/View/Theme.qml</file>
+		<file>Application/Widgets/Themes/View/ThemesView.qml</file>
 		<file>Application/Widgets/TrayMenu/PluginContainer.qml</file>
 		<file>Application/Widgets/TrayMenu/qmldir</file>
 		<file>Application/Widgets/TrayMenu/TrayMenu.qml</file>

@@ -3068,6 +3068,10 @@ Please try again later.</source>
         <source>LOGOUT_ALERT_BODY</source>
         <translation>Все запущенные игры будут закрыты. Вы уверены, что хотите выйти?</translation>
     </message>
+    <message>
+        <source>HEADER_BUTTON_THEMES</source>
+        <translation>Темы Windows</translation>
+    </message>
 </context>
 <context>
     <name>Home</name>
@@ -5372,6 +5376,25 @@ Please try again later.</source>
     <message>
         <source>TASK_LIST_QUIT</source>
         <translation>Выход</translation>
+    </message>
+</context>
+<context>
+    <name>Theme</name>
+    <message>
+        <source>THEME_INSTALL</source>
+        <translation>Установить</translation>
+    </message>
+    <message>
+        <source>THEME_LOAD_AND_INSTALL</source>
+        <translation>Загрузить и установить</translation>
+    </message>
+    <message>
+        <source>THEME_PROGRESS</source>
+        <translation>Загрузка темы: %1Мб из %2Мб</translation>
+    </message>
+    <message>
+        <source>THEME_ABOUT</source>
+        <translation>Тема &quot;%1&quot; создана %2</translation>
     </message>
 </context>
 <context>

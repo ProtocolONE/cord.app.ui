@@ -391,6 +391,7 @@ Item {
     property string headerAllGames: "Assets/Images/Application/Blocks/Header/AllGames.png"
     property string headerMyGames: "Assets/Images/Application/Blocks/Header/MyGames.png"
     property string headerSupport: "Assets/Images/Application/Blocks/Header/Support.png"
+    property string headerThemes: "Assets/Images/Application/Blocks/Header/Themes.png"
 
     // Images game menu
     property string gameMenuNewsIcon: "Assets/Images/Application/Blocks/GameMenu/News.png"
@@ -438,8 +439,18 @@ Item {
     // GameNet 3.4
     property double baseBackgroundOpacity: 0.75
     property double darkBackgroundOpacity: 0.90
+    property double blockInnerOpacity: 0.10 //block_inner
 
     property color light: "#FFFFFF"
+    property color dark: "#000000"
+
+    property color primaryButtonNormal: '#ff4f02'
+    property color primaryButtonHover: '#ff6102'
+
+    property color checkedButtonActive: "#31bca0"
+    property color checkedButtonInactive: "#24475a"
+
+    property color primaryBorder: "#FFDD82"
 
     property color primaryButtonNormal: '#ff4f02'
     property color primaryButtonHover: '#ff6102'
@@ -469,6 +480,7 @@ Item {
     property color chatButtonText: "#FFFFFF"
     property color linkText: "#45bef6"
     property color fieldText: "#363636"
+
 
     // Базовый фон самого рута приложения
     //property color applicationBackground: "red" //"#002336"

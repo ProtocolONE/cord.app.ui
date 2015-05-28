@@ -1,0 +1,4 @@
+module Application.Widgets.Themes
+PluginContainer 1.0 PluginContainer.qml 
+ThemesView 1.0 View/ThemesView.qml
+Themes 1.0 Themes.qml
