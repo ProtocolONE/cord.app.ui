@@ -180,13 +180,18 @@ WidgetModel {
         visible: false
         topMost: true
 
-        Border {
-            y: isFullMenu ? 0 : 6
-            borderColor: Styles.style.trayMenuBorder
-            width: window.width
-            //  HACK: минимальная высота окна должна быть >= 69
-            //      из-за этого делаем сдвиг
-            height: isFullMenu ? window.height : 63
+        Rectangle {
+            height: isFullMenu ? parent.height - 2 : 63 - 2
+
+            anchors {
+                left: parent.left
+                right: parent.right
+                bottom: parent.bottom
+                margins: 1
+            }
+
+            opacity: Styles.style.darkBackgroundOpacity
+            color: Styles.style.contentBackgroundLight
 
             Rectangle {
                 width: parent.width
@@ -315,6 +320,23 @@ WidgetModel {
                         }
                     }
                 }
+            }
+        }
+
+        Rectangle {
+            color: "#00000000"
+            border {
+                color: Styles.style.trayMenuBorder
+                width: 1
+            }
+
+            width: parent.width
+            anchors {
+                fill: parent
+                //  HACK: минимальная высота окна должна быть >= 69
+                //      из-за этого делаем сдвиг
+                topMargin: isFullMenu ? 1 : 6
+                margins: 1
             }
         }
     }
