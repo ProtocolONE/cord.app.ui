@@ -9,6 +9,7 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+import GameNet.Controls 1.0
 
 import "../../../../Core/Styles.js" as Styles
 
@@ -18,63 +19,72 @@ Item {
     property alias text: textElement.text
 
     Rectangle {
-        anchors {
-            fill: parent
-            rightMargin: 1
-            bottomMargin: 1
-        }
-        color: Styles.style.trayPopupBackground
-        border.color: Styles.style.trayPopupBackgroundBorder
-    }
-
-    Column {
         anchors.fill: parent
+        color: Styles.style.trayPopupBackground
 
-        Item {
-            width: parent.width
-            height: 50
+        Column {
+            spacing: 1
+            anchors {
+                fill: parent
+                margins: 1
+            }
 
-            Row {
-                anchors { fill: parent; margins: 10 }
-                spacing: 8
+            Rectangle {
+                width: parent.width
+                height: 25
+
+                color: Styles.style.trayPopupHeaderBackground
 
                 Image {
-                    source: installPath + "Assets/Images/Application/Widgets/Overlay/gamenetLogo.png"
-                    width: 32
-                    height: 32
-                    cache: true
-                    asynchronous: true
+                    anchors {
+                        left: parent.left
+                        leftMargin: 6
+                        verticalCenter: parent.verticalCenter
+                    }
+
+                    source: installPath + "Assets/Images/Application/Widgets/Announcements/logo.png"
                 }
+            }
+
+            Item {
+                id: bodyItem
+
+                width: parent.width
+                height: textElement.height
 
                 Text {
-                    text: 'GameNet'
-                    color: Styles.style.trayPopupTextHeader
-                    width: 160
-                    elide: Text.ElideRight
-                    anchors.verticalCenter: parent.verticalCenter
-                    font { pixelSize: 18; family: "Arial"}
+                    id: textElement
+
+                    anchors {
+                        left: parent.left
+                        top: parent.top
+                        topMargin: 12
+                        right: parent.right
+                        leftMargin: 10
+                        rightMargin: 10
+                    }
+
+                    text: model.body
+                    color: Styles.style.trayPopupText
+                    wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                    font {
+                        pixelSize: 13
+                        family: "Arial"
+                    }
                 }
             }
-        }
-
-        Item {
-            id: bodyItem
-
-            width: parent.width
-            height: root.height
-
-            Text {
-                id: textElement
-
-                x: 8
-                width: parent.width - 10 - 42
-                text: model.body
-                color: Styles.style.trayPopupText
-                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                font { pixelSize: 13; family: "Arial"}
-            }
 
         }
+    }
+
+    Rectangle {
+        width: parent.width
+        height: 2
+        anchors {
+            margins: 1
+            bottom: parent.bottom
+        }
+        color: Styles.style.trayPopupHeaderBackground
     }
 }
 

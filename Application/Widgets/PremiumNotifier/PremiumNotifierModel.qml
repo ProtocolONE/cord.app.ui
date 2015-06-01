@@ -42,8 +42,6 @@ WidgetModel {
         GamePopup {
             id: popUp
 
-            state: "Green"
-
             onPlayClicked: {
                 App.activateWindow();
                 Popup.show('PremiumShop');

@@ -11,144 +11,154 @@
 import QtQuick 1.1
 import Tulip 1.0
 
-import Application.Controls 1.0 as AppControls
+import Application.Controls 1.0
 import GameNet.Controls 1.0
+
 import "../../Core/App.js" as App
+import "../../Core/Styles.js" as Styles
 
-
-AppControls.TrayPopupBase {
-    id: popUp
+TrayPopupBase {
+    id: root
 
     signal closeButtonClicked();
     signal playClicked();
 
     property alias message: messageText.text
-    property alias buttonCaption: buttonText.text
+    property alias buttonCaption: actionButton.text
     property alias messageFontSize : messageText.font.pixelSize
     property variant gameItem
 
-    width: 210
-    height: 297
+    width: 240
+    height: 332
 
     Rectangle {
         anchors.fill: parent
-        color: "#33FFFFFF"
+        color: Styles.style.trayPopupBackground
 
-        Item {
-            anchors { fill: parent; margins: 1 }
-
-            Image {
-                id: background
-
-                anchors.horizontalCenter: parent.horizontalCenter
-                source: gameItem.imagePopupArt
-            }
-
-            Image {
-                id: closeButtonImage
-
-                anchors { right: parent.right; top: parent.top; rightMargin: 9; topMargin: 9 }
-                visible: containsMouse || closeButtonImageMouser.containsMouse || buttonPlayMouser.containsMouse
-                source: installPath + "Assets/Images/CloseGrayBackground.png"
-                opacity: 0.5
-
-                NumberAnimation {
-                    id: closeButtonDownAnimation;
-                    running: false;
-                    target: closeButtonImage;
-                    property: "opacity";
-                    from: 0.9;
-                    to: 0.5;
-                    duration: 225
-                }
-
-                NumberAnimation {
-                    id: closeButtonUpAnimation;
-                    running: false;
-                    target: closeButtonImage;
-                    property: "opacity";
-                    from: 0.5;
-                    to: 0.9;
-                    duration: 225
-                }
-
-                CursorMouseArea {
-                    id: closeButtonImageMouser
-
-                    anchors.fill: parent
-                    hoverEnabled: true
-                    onClicked: {
-                        closeButtonClicked();
-                        shadowDestroy();
-                    }
-
-                    onEntered: closeButtonUpAnimation.start()
-                    onExited: closeButtonDownAnimation.start()
-                }
+        Column {
+            spacing: 1
+            anchors {
+                fill: parent
+                margins: 1
             }
 
             Rectangle {
-                anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
+                width: parent.width
+                height: 25
 
-                height: 43
-                color: buttonPlayMouser.containsMouse ? "#007922" : "#00822a"
+                color: Styles.style.trayPopupHeaderBackground
 
-                Text {
-                    id: buttonText
+                Image {
+                    anchors {
+                        left: parent.left
+                        leftMargin: 6
+                        verticalCenter: parent.verticalCenter
+                    }
 
-                    anchors { verticalCenter: parent.verticalCenter; horizontalCenter: parent.horizontalCenter }
-                    font {family: "Tahoma"; pixelSize: 18 }
-                    wrapMode: Text.WordWrap
-                    smooth: true
-                    color: "#ffffff"
+                    source: installPath + "Assets/Images/Application/Widgets/Announcements/logo.png"
                 }
 
-                CursorMouseArea {
-                    id: buttonPlayMouser
+                ImageButton {
+                    id: closeButtonImage
 
-                    anchors.fill: parent
-                    hoverEnabled: true
+                    anchors {
+                        right: parent.right
+                        rightMargin: 6
+                        verticalCenter: parent.verticalCenter
+                    }
+                    width: 12
+                    height: 12
 
+                    style {
+                        normal: "#00000000"
+                        hover: "#00000000"
+                        disabled: "#00000000"
+                    }
+                    styleImages {
+                        normal: installPath + "Assets/Images/Application/Widgets/Announcements/closeButton.png"
+                    }
+
+                    opacity: containsMouse ? 1 : 0.5
                     onClicked: {
-                        playClicked();
-                        shadowDestroy();
+                        root.closeButtonClicked();
+                        root.shadowDestroy();
+                    }
+
+                    Behavior on opacity {
+                        NumberAnimation {
+                            duration: 250
+                        }
                     }
                 }
             }
 
+            //  INFO: В соответсвие с дизайном QGNA 3.4 размер фоновой картинки для
+            //  артовой всплывашки должен быть 238х288
             Item {
-                anchors {
-                    left: parent.left
-                    right: parent.right
-                    bottom: parent.bottom
-                    bottomMargin: 43
+                width: parent.width
+                height: 306
+
+                Image {
+                    width: 238
+                    height: 288
+                    smooth: true
+                    source: gameItem.imagePopupArt
                 }
 
-                height: messageText.height + 20
+                Image {
+                    id: gradient
 
-                Rectangle {
-                    anchors.fill: parent
-                    color: "#000000"
-                    opacity: 0.6
+                    y: 97
+                    width: 238
+                    height: 210
+                    source: installPath + "Assets/Images/Application/Widgets/Announcements/gradient.png"
                 }
 
                 Text {
                     id: messageText
 
-                    textFormat: Text.RichText
-                    wrapMode: Text.WordWrap
                     anchors {
-                        top: parent.top
-                        left: parent.left
-                        right: parent.right
-                        topMargin: 10
+                        bottom: actionButton.top
+                        bottomMargin: 20
+
+                        left: actionButton.left
                         leftMargin: 5
+                        right: actionButton.right
                         rightMargin: 5
                     }
-
+                    wrapMode: TextEdit.WordWrap
+                    font {
+                        family: "Arial"
+                        pixelSize: 15
+                    }
+                    color: Styles.style.trayPopupText
                     horizontalAlignment: Text.AlignHCenter
-                    color: "#FFFFFF"
-                    onLinkActivated: App.openExternalUrl(link)
+                }
+
+                Button {
+                    id: actionButton
+
+                    anchors {
+                        left: parent.left
+                        leftMargin: 8
+                        right: parent.right
+                        rightMargin: 8
+                        bottom: parent.bottom
+                        bottomMargin: 8
+                    }
+
+                    style {
+                        normal: Styles.style.trayPopupButtonNormal
+                        hover:  Styles.style.trayPopupButtonHover
+                    }
+
+                    height: 44
+                    fontSize: 18
+
+                    onClicked: {
+                        root.playClicked();
+                        root.shadowDestroy();
+                    }
                 }
             }
         }

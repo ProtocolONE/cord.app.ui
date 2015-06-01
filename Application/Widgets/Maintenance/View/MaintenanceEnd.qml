@@ -31,7 +31,6 @@ GamePopup {
         }
     }
 
-    state: "Green"
     onAnywhereClicked: gaEvent('Miss Click On Announcement')
     onCloseButtonClicked: gaEvent('Close Announcement')
     onPlayClicked: {

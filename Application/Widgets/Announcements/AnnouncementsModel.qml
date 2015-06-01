@@ -583,7 +583,6 @@ WidgetModel {
             id: announcePopUp
 
             property variant announceItem
-            state: "Orange"
 
             function sendAnnouncementActionClicked() {
                 Marketing.send(Marketing.AnnouncementActionClicked,

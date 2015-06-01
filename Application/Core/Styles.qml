@@ -23,11 +23,13 @@ Item {
     property color focusOverlay: "#bdbdbd"
     property real focusOverlayOpacity: 0.15
 
-    property color trayPopupBackground: '#475671'
-    property color trayPopupBackgroundBorder: '#303947'
-    property color trayPopupTextHeader: '#97aacd'
-    property color trayPopupPlayText: '#8c9fc1'
-    property color trayPopupText: '#ffffff'
+    property color trayPopupBackground: "#00111A" // bg_darkblue
+    property color trayPopupHeaderBackground: "#c44b33"
+    property color trayPopupButtonNormal: "#c44b33"
+    property color trayPopupButtonHover: "#e94d2f"
+    property color trayPopupTextHeader: "#a1c1d2"
+    property color trayPopupPlayText: '#a1c1d2' // на макетах нигде нет - оставил == trayPopupTextHeader
+    property color trayPopupText: "#FFFFFF"
 
     // Images header
     property string headerGameNetLogo: "Assets/Images/Application/Blocks/Header/GamenetLogo.png"
@@ -110,10 +112,11 @@ Item {
     property color fieldText: "#363636"
 
     // Базовый фон самого рута приложения
-    property color applicationBackground: "#002336" // bg
-    property color contentBackground: "#031d2b" // bg_blue​
+    property color applicationBackground: "#002336"
+    //property color applicationBackground: "#002336"
     property color contentBackgroundDark: "#00111A" // bg_darkblue
     property color contentBackgroundLight: "#4ca8db" // bg_lightblue
+
     property color popupBlockBackground: "#19384A" // названия нет, вероятно переименовать надо
 
     property color trayMenuHeaderBackground: "#0A1C26"

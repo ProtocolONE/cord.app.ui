@@ -47,8 +47,6 @@ WidgetModel {
         GamePopup {
             id: popUp
 
-            state: "Orange"
-
             onPlayClicked: {
                 GoogleAnalytics.trackEvent('/announcement/silentmode', 'Announcement', 'Play');
             }

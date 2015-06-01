@@ -29,19 +29,19 @@ OverlayCore.PopupBase {
     property variant messenger
 
     property string jid
-    property string messageText
-    property string avatar: messenger.userAvatar(root)
-    property string nickname: messenger.getNickname(root)
     property string playingGameServiceId: messenger.userPlayingGame(root)
     property int newHeight: bodyItem.height + 60 + (playingRow.visible ? playingRow.height : 0)
-    property variant message
     property bool isCropped: false
 
-    onMessageChanged: {
+    function addMessage(from, body, message) {
         var messageDate = Date.now(),
-            lastDelegateHeight,
-            maximumHeight,
-            maximumListViewHeight = 200 - (playingRow.visible ? playingRow.height + 12 : 0);
+                lastDelegateHeight,
+                maximumHeight,
+                maximumListViewHeight = 200 - (playingRow.visible ? playingRow.height + 12 : 0);
+
+        var lastMessageFrom = listModel.count > 0 ? listModel.get(listModel.count - 1).from : "";
+        var avatar = d.getAvatar(from);
+        var nickname = d.getNickname(from);
 
         root.restartDestroyTimer();
 
@@ -49,11 +49,19 @@ OverlayCore.PopupBase {
             return;
         }
 
-        if (root.message.stamp != "Invalid Date") {
-            messageDate = +(Moment.moment(root.message.stamp));
+        if (data.stamp != "Invalid Date") {
+            messageDate = +(Moment.moment(data.stamp));
         }
 
-        listModel.append({body: root.message.body, messageDate: messageDate, maximumHeight: -1});
+        listModel.append({
+                             from: from,
+                             body: body,
+                             messageDate: messageDate,
+                             avatar: avatar,
+                             nickname: nickname,
+                             showAvatarAndNickname: lastMessageFrom !== from,
+                             maximumHeight: -1
+                         });
 
         if (listViewMessage.calcHeight() > maximumListViewHeight) {
             lastDelegateHeight = listViewMessage.delegateHeights[listViewMessage.count - 1];
@@ -62,122 +70,166 @@ OverlayCore.PopupBase {
             listModel.setProperty(listViewMessage.count - 1, 'maximumHeight', maximumHeight);
             root.isCropped = true;
         }
+
     }
 
-    width: 250
-    height: Math.max(newHeight, 110)
+    width: 240
+    height: Math.max(newHeight, 92)
+
+    QtObject {
+        id: d
+
+        function getNickname(from) {
+            var user = messenger.getUser(from);
+            if (user.isGroupChat) {
+                return messenger.getGroupTitle({jid: from});
+            }
+
+            return user.nickname;
+        }
+
+        function getAvatar(from) {
+            return messenger.userAvatar({jid: from});
+        }
+    }
 
     Rectangle {
-        anchors {
-            fill: parent
-            rightMargin: 1
-            bottomMargin: 1
-        }
-        color: Styles.style.trayPopupBackground
-        border.color: Styles.style.trayPopupBackgroundBorder
-    }
-
-    Column {
         anchors.fill: parent
+        color: Styles.style.trayPopupBackground
 
-        Item {
-            width: parent.width
-            height: 50
+        Column {
+            spacing: 1
+            anchors {
+                fill: parent
+                margins: 1
+            }
 
-            Row {
-                anchors { fill: parent; margins: 10 }
-                spacing: 8
+            Rectangle {
+                width: parent.width
+                height: 25
+
+                color: Styles.style.trayPopupHeaderBackground
 
                 Image {
-                    source: avatar
-                    width: 32
-                    height: 32
-                    cache: true
-                    asynchronous: true
-                }
-
-                Text {
-                    text: nickname
-                    color: Styles.style.trayPopupTextHeader
-                    width: 160
-                    elide: Text.ElideRight
-                    anchors.verticalCenter: parent.verticalCenter
-                    font { pixelSize: 18; family: "Arial"}
-                }
-            }
-        }
-
-        Item {
-            id: bodyItem
-
-            width: parent.width
-            height: listViewMessage.height
-
-            ListView {
-                id: listViewMessage
-
-                property variant delegateHeights: {}
-
-                function refreshHeight() {
-                    listViewMessage.height = calcHeight() + 1;
-                }
-
-                onDelegateHeightsChanged: refreshHeight();
-
-                function calcHeight() {
-                    var result = 0
-                        , i;
-
-                    for (i in listViewMessage.delegateHeights) {
-                        result += listViewMessage.delegateHeights[i];
+                    anchors {
+                        left: parent.left
+                        leftMargin: 6
+                        verticalCenter: parent.verticalCenter
                     }
 
-                    return Math.max(40, result);
+                    source: installPath + "Assets/Images/Application/Widgets/Announcements/logo.png"
                 }
 
-                anchors {
-                    left: parent.left
-                    top: parent.top
-                    right: parent.right
-                    leftMargin: 10
-                    rightMargin: 10
-                }
+                ImageButton {
+                    id: closeButtonImage
 
-                interactive: false
+                    anchors {
+                        right: parent.right
+                        rightMargin: 6
+                        verticalCenter: parent.verticalCenter
+                    }
+                    width: 12
+                    height: 12
 
-                model: ListModel {
-                    id: listModel
-                }
+                    style {
+                        normal: "#00000000"
+                        hover: "#00000000"
+                        disabled: "#00000000"
+                    }
+                    styleImages {
+                        normal: installPath + "Assets/Images/Application/Widgets/Announcements/closeButton.png"
+                    }
 
-                delegate: MessageReceivedDelegate {
-                    externalMaximumHeight: model.maximumHeight || -1
-                    date: model.messageDate
-                    body: StringHelper.prepareText(model.body, {
-                                                                 hyperLinkStyle: Styles.style.linkText,
-                                                                 smileResolver: EmojiOne.ns.toImage,
-                                                                 serviceResolver: App.serviceItemByServiceId
-                                                               })
-                    maximumHeight: model.maximumHeight
+                    opacity: containsMouse ? 1 : 0.5
+                    onClicked: {
+                        root.closeButtonClicked();
+                        root.shadowDestroy();
+                    }
 
-                    width: listViewMessage.width
-
-                    onHeightChanged: {
-                        var tmp = listViewMessage.delegateHeights;
-                        tmp[index] = height;
-                        listViewMessage.delegateHeights = tmp;
+                    Behavior on opacity {
+                        NumberAnimation {
+                            duration: 250
+                        }
                     }
                 }
             }
 
-            MessageCropElement {
-                anchors {
-                    left: parent.left
-                    top: parent.bottom
-                    right: parent.right
-                    topMargin: -4
+            Item {
+                id: bodyItem
+
+                width: parent.width
+                height: listViewMessage.height + 12
+
+                ListView {
+                    id: listViewMessage
+
+                    property variant delegateHeights: {}
+
+                    function refreshHeight() {
+                        listViewMessage.height = calcHeight() + 1;
+                    }
+
+                    onDelegateHeightsChanged: refreshHeight();
+
+                    function calcHeight() {
+                        var result = 0,
+                            i;
+
+                        for (i in listViewMessage.delegateHeights) {
+                            result += listViewMessage.delegateHeights[i];
+                        }
+
+                        return Math.max(40, result);
+                    }
+
+                    anchors {
+                        left: parent.left
+                        top: parent.top
+                        topMargin: 12
+                        right: parent.right
+                        leftMargin: 10
+                        rightMargin: 10
+                    }
+
+                    interactive: false
+
+                    model: ListModel {
+                        id: listModel
+                    }
+
+                    delegate: MessageReceivedDelegate {
+                        externalMaximumHeight: model.maximumHeight || -1
+                        date: model.messageDate
+                        body: StringHelper.prepareText(model.body, {
+                                                           hyperLinkStyle: Styles.style.messengerChatDialogHyperlinkColor,
+                                                           smileResolver: EmojiOne.ns.toImage,
+                                                           serviceResolver: App.serviceItemByServiceId
+                                                       })
+                        avatar: model.avatar
+                        nickname: model.nickname
+                        showAvatarAndNickname: model.showAvatarAndNickname
+
+                        maximumHeight: model.maximumHeight
+
+                        width: listViewMessage.width
+
+                        onHeightChanged: {
+                            var tmp = listViewMessage.delegateHeights;
+                            tmp[index] = height;
+                            listViewMessage.delegateHeights = tmp;
+                        }
+                    }
                 }
 
-                visible: root.isCropped
+                MessageCropElement {
+                    anchors {
+                        top: listViewMessage.bottom
+                        topMargin: 12
+                        horizontalCenter: parent.horizontalCenter
+                    }
+
+                    visible: root.isCropped
+                }
             }
         }
     }
@@ -186,37 +238,22 @@ OverlayCore.PopupBase {
         id: playingRow
 
         anchors {
-            bottom: parent.bottom
             left: parent.left
             leftMargin: 10
+            bottom: parent.bottom
             bottomMargin: 6
         }
 
         playingGameServiceId: root.playingGameServiceId
     }
 
-    Image {
-        id: closeButtonImage
-
-        anchors { right: parent.right; top: parent.top; rightMargin: 9; topMargin: 9 }
-        source: installPath + "/Assets/Images/Application/Core/TrayPopup/popupClose.png"
-        opacity: closeButtonImageMouser.containsMouse ? 1 : 0.75
-
-        Behavior on opacity {
-            PropertyAnimation {
-                duration: 225
-            }
+    Rectangle {
+        width: parent.width
+        height: 2
+        anchors {
+            margins: 1
+            bottom: parent.bottom
         }
-
-        CursorMouseArea {
-            id: closeButtonImageMouser
-
-            anchors.fill: parent
-            hoverEnabled: true
-            onClicked: {
-                root.closeButtonClicked();
-                root.shadowDestroy();
-            }
-        }
+        color: Styles.style.trayPopupHeaderBackground
     }
 }

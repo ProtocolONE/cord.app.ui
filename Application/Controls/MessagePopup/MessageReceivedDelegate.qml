@@ -6,6 +6,9 @@ import "../../Core/moment.js" as Moment
 Item {
     id: delegate
 
+    property bool showAvatarAndNickname
+    property string avatar
+    property string nickname
     property int externalMaximumHeight
     property int maximumHeight
     property variant date
@@ -13,7 +16,7 @@ Item {
 
     signal linkActivated(string link);
 
-    height: mainText.height
+    height: contentColumn.height
     clip: true
 
     onExternalMaximumHeightChanged: {
@@ -28,35 +31,81 @@ Item {
         }
     }
 
-    Text {
-        text: Moment.moment(date).format("HH:mm")
-        color: Styles.style.trayPopupTextHeader
-        elide: Text.ElideRight
-        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-        font { pixelSize: 10; family: "Arial"}
-    }
+    Column {
+        id: contentColumn
 
-    Text {
-        id: mainText
+        height: childrenRect.height + 4
+        width: parent.width
+        spacing: 4
 
-        x: 42
-        y: -2
-        width: parent.width - 10 - 42
+        Row {
+            width: parent.width
+            height: delegate.showAvatarAndNickname ? 24 : 0
+            visible: delegate.showAvatarAndNickname
 
-        function getText() {
-            if (delegate.externalMaximumHeight > 0) {
-                return '<table height="' + delegate.externalMaximumHeight + '"><tbody><tr><td width="' + mainText.width + '" align="left">' + delegate.body + '</td></tr></tbody></table>'
+            Item {
+                width: 36
+                height: parent.height
+
+                Image {
+                    anchors.verticalCenter: parent.verticalCenter
+                    source: avatar
+                    width: 24
+                    height: 24
+                    cache: true
+                    fillMode: Image.PreserveAspectFit
+                    asynchronous: true
+                }
             }
 
-            return '<table><tbody><tr><td width="' + mainText.width + '" align="left">' + delegate.body + '</td></tr></tbody></table>'
+            Text {
+                text: nickname
+                color: Styles.style.trayPopupTextHeader
+                width: 182
+                elide: Text.ElideRight
+                anchors.verticalCenter: parent.verticalCenter
+                font { pixelSize: 14; family: "Arial"}
+            }
         }
 
-        text: getText()
+        Row {
+            height: mainText.height
 
-        color: Styles.style.trayPopupText
-        textFormat: Text.RichText
-        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-        font { pixelSize: 12; family: "Arial"}
-        onLinkActivated: delegate.linkActivated(link)
+            Item {
+                width: 36
+                height: parent.height
+
+                Text {
+                    y: 3
+                    text: Moment.moment(date).format("HH:mm")
+                    color: Styles.style.trayPopupTextHeader
+                    elide: Text.ElideRight
+                    wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                    font { pixelSize: 10; family: "Arial"}
+                }
+            }
+
+            Text {
+                id: mainText
+
+                width: 182
+
+                function getText() {
+                    if (delegate.externalMaximumHeight > 0) {
+                        return '<table cellspacing="0" height="' + delegate.externalMaximumHeight + '"><tbody><tr ><td width="' + mainText.width + '" align="left">' + delegate.body + '</td></tr></tbody></table>'
+                    }
+
+                    return '<table cellspacing="0"><tbody><tr><td width="' + mainText.width + '" align="left">' + delegate.body + '</td></tr></tbody></table>'
+                }
+
+                text: getText()
+
+                color: Styles.style.trayPopupText
+                textFormat: Text.RichText
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                font { pixelSize: 12; family: "Arial"}
+                onLinkActivated: delegate.linkActivated(link)
+            }
+        }
     }
 }

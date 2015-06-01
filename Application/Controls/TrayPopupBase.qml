@@ -47,8 +47,8 @@ Item {
         Translate { y: height }
     ]
 
-    width: 250
-    height: 106
+    width: 240
+    height: 92
 
     SequentialAnimation {
         id: fadeInAnimation

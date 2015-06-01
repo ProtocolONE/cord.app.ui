@@ -25,7 +25,6 @@ Item {
 
         onMessageReceived: {
             var user = {jid: from}
-                , data
                 , id;
 
             if (App.isOverlayEnabled()) {
@@ -37,16 +36,10 @@ Item {
             }
 
             id = 'messageReceived' + Qt.md5(from + body);
-            data = {
-                jid: from,
-                messageText: body,
-            };
-
             if (!Popups.objects.hasOwnProperty(from)) {
-                Popups.objects[from] = TrayPopup.showPopup(messageReceivedComp, data, id);
+                Popups.objects[from] = TrayPopup.showPopup(messageReceivedComp, {jid: from}, id);
             }
-
-            Popups.objects[from].message = message;
+            Popups.objects[from].addMessage(message.from, body, message);
 
             GoogleAnalytics.trackEvent('Messenger', 'NewMessagePopup', 'show', 'App');
         }

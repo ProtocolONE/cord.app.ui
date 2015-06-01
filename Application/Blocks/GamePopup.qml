@@ -3,7 +3,11 @@ import Tulip 1.0
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
+import "../Core/Styles.js" as Styles
+
 TrayPopupBase {
+    id: root
+
     property variant gameItem
     property string message
     property string buttonCaption: qsTr("PLAY_NOW") // "Играть"
@@ -11,137 +15,141 @@ TrayPopupBase {
     signal closeButtonClicked()
     signal playClicked()
 
-    width: 209
-    height: 171
+    width: 240
+    height: 247
 
-    Item {
+    Rectangle {
         anchors.fill: parent
+        color: Styles.style.trayPopupBackground
 
-        Rectangle {
-            id: backgroundRectangle
-
-            color: "#FF9900"
-            border { color: "#33FFFFFF"; width: 1 }
-            anchors { fill: parent; leftMargin: 1; topMargin: -1; rightMargin: 1; bottomMargin: 1 }
-        }
-
-        Image {
-            id: closeButtonImage
-
-            anchors { right: parent.right; top: parent.top; rightMargin: 9; topMargin: 9 }
-            visible: containsMouse || closeButtonImageMouser.containsMouse || puttonPlayMouser.containsMouse
-            source: installPath + "Assets/Images/Application/Core/TrayPopup/closeButton.png"
-            opacity: 0.5
-
-            NumberAnimation {
-                id: closeButtonDownAnimation
-
-                running: false
-                target: closeButtonImage
-                property: "opacity"
-                from: 0.9
-                to: 0.5
-                duration: 225
+        Column {
+            spacing: 1
+            anchors {
+                fill: parent
+                margins: 1
             }
 
-            NumberAnimation {
-                id: closeButtonUpAnimation
+            Rectangle {
+                width: parent.width
+                height: 25
+                color: Styles.style.trayPopupHeaderBackground
 
-                running: false
-                target: closeButtonImage
-                property: "opacity"
-                from: 0.5
-                to: 0.9
-                duration: 225
-            }
+                Image {
+                    anchors {
+                        left: parent.left
+                        leftMargin: 6
+                        verticalCenter: parent.verticalCenter
+                    }
 
-            CursorMouseArea {
-                id: closeButtonImageMouser
-
-                anchors.fill: parent
-                hoverEnabled: true
-                onClicked: {
-                    closeButtonClicked();
-                    shadowDestroy();
+                    source: installPath + "Assets/Images/Application/Widgets/Announcements/logo.png"
                 }
 
-                onEntered: closeButtonUpAnimation.start()
-                onExited: closeButtonDownAnimation.start()
-            }
-        }
+                ImageButton {
+                    id: closeButtonImage
 
-        Image {
-            anchors { top: parent.top; topMargin: 23; horizontalCenter: parent.horizontalCenter }
-            source: gameItem.imageLogoSmall
-        }
+                    anchors {
+                        right: parent.right
+                        rightMargin: 6
+                        verticalCenter: parent.verticalCenter
+                    }
+                    width: 12
+                    height: 12
 
-        Text {
-            id: messageTextItem
-            anchors { fill: parent; leftMargin: 5; rightMargin: 5; topMargin: 85; bottomMargin: 50 }
-            wrapMode: TextEdit.WordWrap
-            font.pixelSize: 12
-            text: message
-            color: "#673102"
-            horizontalAlignment: Text.AlignHCenter
-        }
+                    style {
+                        normal: "#00000000"
+                        hover: "#00000000"
+                        disabled: "#00000000"
+                    }
+                    styleImages {
+                        normal: installPath + "Assets/Images/Application/Widgets/Announcements/closeButton.png"
+                    }
 
-        Rectangle {
-            id: buttonRectangle
+                    opacity: containsMouse ? 1 : 0.5
+                    onClicked: {
+                        root.closeButtonClicked();
+                        root.shadowDestroy();
+                    }
 
-            property color normalColor: "#d68200"
-            property color hoverColor: "#cd7a00"
-
-            anchors {
-                left: parent.left
-                leftMargin: 2
-                right: parent.right
-                rightMargin: 1
-                bottom: parent.bottom
-                bottomMargin: 1
-            }
-
-            height: 43
-            color: puttonPlayMouser.containsMouse ? hoverColor : normalColor
-
-            Text {
-                font.family: "Tahoma"
-                font.pixelSize: 18
-                wrapMode: Text.WordWrap
-                color: "#FFFFFF"
-                smooth: true
-                anchors { verticalCenter: parent.verticalCenter; horizontalCenter: parent.horizontalCenter }
-                text: buttonCaption
+                    Behavior on opacity {
+                        NumberAnimation {
+                            duration: 250
+                        }
+                    }
+                }
             }
 
-            CursorMouseArea {
-                id: puttonPlayMouser
+            Rectangle {
+                width: parent.width
+                height: 219
+                color: Styles.style.trayPopupHeaderBackground
 
-                anchors.fill: parent
-                hoverEnabled: true
+                Image {
+                    id: gradient
 
-                onClicked: {
-                    playClicked();
-                    shadowDestroy();
+                    anchors.bottom: parent.bottom
+                    width: 238
+                    height: 210
+                    source: installPath + "Assets/Images/Application/Blocks/gradient.png"
+                }
+
+                Image {
+                    anchors {
+                        top: parent.top
+                        topMargin: 22
+                        horizontalCenter: parent.horizontalCenter
+                    }
+                    source: gameItem.imageLogoSmall
+                }
+
+                Text {
+                    id: messageText
+
+                    anchors {
+                        bottom: actionButton.top
+                        bottomMargin: 20
+
+                        left: actionButton.left
+                        leftMargin: 5
+                        right: actionButton.right
+                        rightMargin: 5
+                    }
+                    wrapMode: TextEdit.WordWrap
+                    font {
+                        family: "Arial"
+                        pixelSize: 15
+                    }
+                    text: root.message
+                    color: Styles.style.trayPopupText
+                    horizontalAlignment: Text.AlignHCenter
+                }
+
+                Button {
+                    id: actionButton
+
+                    anchors {
+                        left: parent.left
+                        leftMargin: 8
+                        right: parent.right
+                        rightMargin: 8
+                        bottom: parent.bottom
+                        bottomMargin: 8
+                    }
+
+                    style {
+                        normal: Styles.style.trayPopupButtonNormal
+                        hover:  Styles.style.trayPopupButtonHover
+                    }
+
+                    text: root.buttonCaption
+                    height: 44
+                    fontSize: 18
+
+                    onClicked: {
+                        root.playClicked();
+                        root.shadowDestroy();
+                    }
                 }
             }
         }
     }
-
-    state: "Green"
-    states: [
-        State {
-            name: "Orange"
-            PropertyChanges { target: backgroundRectangle; color: "#FF9900" }
-            PropertyChanges { target: buttonRectangle; normalColor: "#d68200" }
-            PropertyChanges { target: buttonRectangle; hoverColor: "#CD7A00" }
-            PropertyChanges { target: messageTextItem; color: "#673102" }
-        },
-        State {
-            name: "Green"
-            PropertyChanges { target: backgroundRectangle; color: "#019934" }
-            PropertyChanges { target: buttonRectangle; normalColor: "#00822a" }
-            PropertyChanges { target: buttonRectangle; hoverColor: "#007922" }
-            PropertyChanges { target: messageTextItem; color: "#003300" }
-        }
-    ]
 }

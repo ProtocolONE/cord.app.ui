@@ -56,8 +56,6 @@ Item {
 
         GamePopup {
             id: popUp
-
-            state: "Orange"
         }
     }
 }
