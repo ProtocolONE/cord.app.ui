@@ -40,6 +40,7 @@ import "../Plugins/Topic/Topic.js" as Topic
 import "../Plugins/RoomParticipants/RoomParticipants.js" as RoomParticipants
 import "../Plugins/ChatCommands/ChatCommands.js" as ChatCommands
 import "../Plugins/Logger/Logger.js" as LoggerPlugin
+import "../Plugins/Subscription/Subscription.js" as Subscription
 
 import "../Plugins/MessageUrlHandler"
 
@@ -109,41 +110,6 @@ Item {
 
             d.rosterReceived();
         });
-
-        rosterManager.subscriptionReceived.connect(function(bareJid, reason) {
-            var conversation = root.getConversation(bareJid);
-            var user = root.getUser(bareJid);
-
-            if (user.subscription == QXmppRosterManager.To) {
-                rosterManager.acceptSubscription(bareJid, "");
-                var msg = qsTr("MESSAGE_BODY_SUBSCRIPTION_INVITE_APPROVED");
-                conversation.appendMessage(bareJid, msg, Date.now(), Date.now(), "invite")
-                return;
-            }
-
-            var subscriptionRequestMessage = qsTr("MESSENGER_SUBSCRIPTION_REQUEST_MESSAGE")
-                .arg(reason)
-                .arg('gamenet://subscription/decline')
-                .arg('gamenet://subscription/accept');
-
-            var tmpMessage = {
-                to: myUser.jid,
-                from: bareJid,
-                type: 2,
-                body: subscriptionRequestMessage,
-            }
-
-            root.messageReceived(bareJid, tmpMessage.body, tmpMessage);
-
-            conversation.appendMessage(bareJid, tmpMessage.body, Date.now(), Date.now(), "invite")
-
-            if (d.needIncrementUnread(user)) {
-                user.unreadMessageCount += 1;
-                d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
-            }
-
-            d.updateUserTalkDate(user);
-        });
     }
 
     function init() {
@@ -158,6 +124,7 @@ Item {
         Topic.init(xmppClient, root);
         RoomParticipants.init(xmppClient, root);
         ChatCommands.init(xmppClient);
+        Subscription.init(xmppClient, root, d);
 
         AccountManager.init(root, xmppClient, usersModel, {
             defaultAvatarPath: installPath + "/Assets/Images/Application/Widgets/Messenger/"

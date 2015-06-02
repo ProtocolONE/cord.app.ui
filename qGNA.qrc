@@ -272,6 +272,7 @@
 		<file>Application/Widgets/Messenger/Plugins/Smiles/Smiles.js</file>
 		<file>Application/Widgets/Messenger/Plugins/Smiles/Smiles.qml</file>
 		<file>Application/Widgets/Messenger/Plugins/Smiles/SmilesPrivate.js</file>
+		<file>Application/Widgets/Messenger/Plugins/Subscription/Subscription.js</file>
 		<file>Application/Widgets/Messenger/Plugins/Topic/Topic.js</file>
 		<file>Application/Widgets/Messenger/qmldir</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml</file>

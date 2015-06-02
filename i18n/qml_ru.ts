@@ -3599,7 +3599,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>MESSENGER_SUBSCRIPTION_REQUEST_MESSAGE</source>
-        <translation>Пользователь %1 хочет внести вас в свой список контактов.
+        <translation type="vanished">Пользователь %1 хочет внести вас в свой список контактов.
 %2 или %3</translation>
     </message>
     <message>
@@ -3608,7 +3608,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>MESSAGE_BODY_SUBSCRIPTION_INVITE_APPROVED</source>
-        <translation>Ваше приглашение принято.</translation>
+        <translation type="vanished">Ваше приглашение принято.</translation>
     </message>
 </context>
 <context>
@@ -5301,6 +5301,18 @@ Please try again later.</source>
     <message>
         <source>MESSENGER_SUBSCRIPTION_REQUEST_DECLINE</source>
         <translation>Отказаться</translation>
+    </message>
+</context>
+<context>
+    <name>Subscription</name>
+    <message>
+        <source>MESSAGE_BODY_SUBSCRIPTION_INVITE_APPROVED</source>
+        <translation>Ваше приглашение принято.</translation>
+    </message>
+    <message>
+        <source>MESSENGER_SUBSCRIPTION_REQUEST_MESSAGE</source>
+        <translation>Пользователь %1 хочет внести вас в свой список контактов.
+%2 или %3</translation>
     </message>
 </context>
 <context>
