@@ -38,6 +38,25 @@ _private = {
         }
 
         return roomJid.substring(pos+1) + "@" + _jabber.serverUrl();
+    },
+    wrapMessage: function(message) {
+        var result = {
+            body: message.body,
+            to: message.to,
+            from: message.from,
+            type: message.type,
+            stamp: message.stamp,
+            state: message.state,
+            isAttentionRequested: message.isAttentionRequested,
+            isReceiptRequested: message.isReceiptRequested,
+            mucInvitationJid: message.mucInvitationJid,
+            mucInvitationPassword: message.mucInvitationPassword,
+            mucInvitationReason: message.mucInvitationReason,
+            receiptId: message.receiptId,
+            thread: message.thread,
+        }
+
+        return result;
     }
 };
 
@@ -68,8 +87,10 @@ function init(jabber, extendedListModel, messenger) {
     });
 
      _jabber.carbonMessageReceived.connect(function(message) {
-         var bareJid = _private.jidWithoutResource(message.from),
-             conv;
+         var toBareJid = _private.jidWithoutResource(message.to),
+             fromBareJid = _private.jidWithoutResource(message.from),
+             conv,
+             tmpMessage;
 
          if (message.type !== 2 /*QXmppMessage.Chat*/ || !message.body) {
              return;
@@ -77,13 +98,15 @@ function init(jabber, extendedListModel, messenger) {
 
          //INFO Debug purposes
          //console.log('[Conversation] CarbonMessageReceived', JSON.stringify(message));
-         conv = create(bareJid);
-         conv.receiveMessage(bareJid, message);
+         conv = create(toBareJid);
+         tmpMessage = _private.wrapMessage(message);
+         conv.receiveMessage(fromBareJid, tmpMessage);
      });
 
     _jabber.messageReceivedEx.connect(function(message){
         var bareJid = _private.jidWithoutResource(message.from),
-            conv;
+            conv,
+            tmpMessage;
 
         if (message.type !== 2 /*QXmppMessage.Chat*/) {
             return;
@@ -92,7 +115,8 @@ function init(jabber, extendedListModel, messenger) {
         //INFO Debug purposes
         //console.log('[Conversation] MessageReceived', JSON.stringify(message));
         conv = create(bareJid);
-        conv.receiveMessage(bareJid, message);
+        tmpMessage = _private.wrapMessage(message);
+        conv.receiveMessage(bareJid, tmpMessage);
     });
 
     _jabber.mucManager.messageReceived.connect(function (roomJid, message) {

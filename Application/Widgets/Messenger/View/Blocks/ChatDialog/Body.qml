@@ -57,7 +57,7 @@ Item {
             MessengerJs.getConversation(user.jid).queryLast(number, name);
         }
 
-        function isSelfMessageTest(jid){
+        function isSelfMessageTest(jid) {
             var user = MessengerJs.authedUser();
             if (!user.jid) {
                 return false;
@@ -67,8 +67,8 @@ Item {
         }
 
         function isSameJid(index, from, fromDay) {
-            if (!!messageList.model || index <= 0 || index >= messageList.model.count) {
-                return true;
+            if (!messageList.model || index <= 0 || index >= messageList.model.count) {
+                return true; // UNDONE тут вроде хочется false
             }
 
             var hitJid = messageList.model.get(index - 1).jid !== from;

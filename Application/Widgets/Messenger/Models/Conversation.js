@@ -131,7 +131,7 @@ var Conversation = function(item, model, jabber, myJid) {
 
         var from = subtractTime(startOfDay(this.historyDay), number, name);
 
-        this.query(from, this.historyDay);
+        this.query((from/1000)|0, (this.historyDay/1000)|0);
         this.historyDay = from;
     };
 
