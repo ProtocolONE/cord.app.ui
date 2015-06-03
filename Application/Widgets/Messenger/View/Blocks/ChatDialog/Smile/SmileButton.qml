@@ -1,35 +1,20 @@
 import QtQuick 1.1
-
 import GameNet.Controls 1.0
 
-import Tulip 1.0
-
-Item {
+ImageButton {
     id: root
 
-    signal clicked();
-
-    width: image.width
-    height: image.height
-
-    Image {
-        id: image
-
-        source: installPath + 'Assets/Images/Application/Widgets/Messenger/smileButtonHover.png'
-        visible: mouseArea.containsMouse
+    width: 16
+    height: 16
+    style {
+        normal: "#00000000"
+        hover: "#00000000"
+        disabled: "#00000000"
     }
 
-    Image {
-        anchors.centerIn: parent
-
-        source: installPath + 'Assets/Images/Application/Widgets/Messenger/smileButton.png'
-    }
-
-    CursorMouseArea {
-        id: mouseArea
-
-        anchors.fill: parent
-        cursor: CursorArea.PointingHandCursor
-        onClicked: root.clicked();
+    styleImages {
+        normal: installPath + 'Assets/Images/Application/Widgets/Messenger/smileButton.png'
+        hover: installPath + 'Assets/Images/Application/Widgets/Messenger/smileButtonHover.png'
+        disabled: installPath + 'Assets/Images/Application/Widgets/Messenger/smileButton.png'
     }
 }

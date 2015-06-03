@@ -44,7 +44,6 @@ Item {
 
         //Avatar
         Item {
-
             width: 52
             height: 32
 
@@ -82,12 +81,8 @@ Item {
             width: 485
             height: messageContainer.height
 
-            Rectangle {
+            Item {
                 id: messageContainer
-
-                color: root.isSelfMessage ?
-                           Styles.style.messengerChatDialogMessageSelfText :
-                           Styles.style.messengerChatDialogMessageCompanionText
 
                 anchors {
                     left: parent.left
@@ -99,24 +94,41 @@ Item {
 
                 height: messageColumn.height + 20
 
-                //Left-right arrow
-                Rectangle {
+                Rectangle { // background
+                    id: itemBackground
 
-                    color: parent.color
+                    anchors.fill: parent
 
-                    anchors {
-                        left: root.isSelfMessage ? parent.right : parent.left
-                        top: parent.top
-                        leftMargin: root.isSelfMessage ? -3 : -4
-                        topMargin: 15
+                    color: root.isSelfMessage ?
+                               Styles.style.light :
+                               Styles.style.applicationBackground
+
+                    opacity: root.isSelfMessage ? 0.05 : 0.5
+
+                    //Left-right arrow
+                    // INFO из-за прозрачности приходиться отдельно вырезать треугольник.
+                    Item {
+                        anchors {
+                            left: root.isSelfMessage ? parent.right : parent.left
+                            top: parent.top
+                            leftMargin: root.isSelfMessage ? 0 : -7
+                            topMargin: 15
+                        }
+
+                        width: 7
+                        height: 7
+                        clip: true
+
+                        Rectangle {
+                            color: itemBackground.color
+
+                            x: root.isSelfMessage ? -4 : 4
+                            width: 7
+                            height: 7
+                            rotation: 45
+                            visible: root.firstMessageInGroup
+                        }
                     }
-
-                    width: 7
-                    height: 7
-
-                    rotation: 45
-
-                    visible: root.firstMessageInGroup
                 }
 
                 Column {
@@ -138,7 +150,7 @@ Item {
                     Text {
                         id: nicknameText
 
-                        color: Styles.style.messengerChatDialogMessageNicknameText
+                        color: Styles.style.menuText
 
                         font {
                             family: "Arial"
@@ -161,15 +173,12 @@ Item {
                         selectByMouse: true
                         textFormat: TextEdit.RichText
                         text: StringHelper.prepareText(root.body, {
-                                                           hyperLinkStyle: Styles.style.messengerChatDialogHyperlinkColor,
+                                                           hyperLinkStyle: Styles.style.linkText,
                                                            smileResolver: EmojiOne.ns.toImage,
                                                            serviceResolver: App.serviceItemByServiceId
                                                        })
 
-                        color: root.isStatusMessage
-                               ? Styles.style.messengerChatDialogMessageStatusText
-                               : Styles.style.messengerChatDialogMessageText
-
+                        color: Styles.style.textBase
                         font {
                             family: "Arial"
                             pixelSize: 12
@@ -181,6 +190,7 @@ Item {
                 }
             }
         }
+
         //Date
         Item {
             width: 52
@@ -194,7 +204,7 @@ Item {
                     topMargin: 10
                 }
 
-                color: Styles.style.messengerChatDialogMessageDateText
+                color: Styles.style.textTime
 
                 font {
                     family: "Arial"

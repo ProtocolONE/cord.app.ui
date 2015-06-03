@@ -144,12 +144,13 @@ Item {
             rightMargin: 1
         }
         height: messageList.height
-        width: 10
+        width: 7
         listView: messageList
         cursorMaxHeight: messageList.height
         cursorMinHeight: 50
-        color: Styles.style.messangerChatDialogScrollBar
-        cursorColor: Styles.style.messangerChatDialogScrollBarCursor
+        cursorRadius: 4
+        color: "#00000000"
+        cursorColor: Styles.style.applicationBackground
     }
 
     // INFO лежив вверху поверх чата
@@ -159,10 +160,11 @@ Item {
         onQueryMore: messageList.queryMore(number, name);
     }
 
-    Rectangle {
-        width: 1
-        height: parent.height
-        color: Qt.lighter(parent.color, Styles.style.lighterFactor)
-        anchors.right: parent.right
-    }
+    // UNDONE пропала отсечка
+//    Rectangle {
+//        width: 1
+//        height: parent.height
+//        color: Qt.lighter(parent.color, Styles.style.lighterFactor)
+//        anchors.right: parent.right
+//    }
 }

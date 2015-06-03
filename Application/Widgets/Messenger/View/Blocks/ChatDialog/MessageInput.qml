@@ -23,10 +23,10 @@ import "../../../../../Core/EmojiOne.js" as EmojiOne
 FocusScope {
     id: root
 
-    Rectangle {
-        anchors.fill: parent
-        color: Styles.style.messengerMessageInputBackground
-    }
+//    Rectangle {
+//        anchors.fill: parent
+//        color: Styles.style.messengerMessageInputBackground
+//    }
 
     property int sendAction
     property int pauseTimeout: 3
@@ -206,7 +206,9 @@ FocusScope {
     Rectangle {
         width: 4
         height: 4
-        border { color: Styles.style.messengerMessageInputPin }
+        //border { color: Styles.style.messengerMessageInputPin }
+        border { color: Styles.style.light }
+        opacity: 0.35 //Styles.style.blockInnerOpacity
         color: '#00000000'
         radius: 2
         anchors { top: parent.top; topMargin: 2; left: parent.left; leftMargin: 10 + (parent.width - 110) / 2 }
@@ -220,16 +222,35 @@ FocusScope {
 
         spacing: 10
 
-        Rectangle {
+        Item {
             height: parent.height
             width: parent.width - 110
-            color: Styles.style.messengerMessageInputBorder
 
             Rectangle {
-                color: Styles.style.messengerMessageInputTextBackground
                 anchors {
                     fill: parent
-                    margins: 2
+                    rightMargin: 1
+                    bottomMargin: 1
+                }
+
+                color: "#00000000"
+                border {
+                    color: Styles.style.light
+                    width: 1
+                }
+
+                opacity: Styles.style.blockInnerOpacity
+            }
+
+            Item {
+                anchors {
+                    fill: parent
+                    margins: 1
+                }
+
+                Rectangle {
+                    anchors.fill: parent
+                    color: Styles.style.applicationBackground
                 }
 
                 MouseArea {
@@ -285,7 +306,7 @@ FocusScope {
                                     family: "Arial"
                                 }
 
-                                color: Styles.style.messengerMessageInputText
+                                color: Styles.style.textBase
                                 onCursorRectangleChanged: inputFlick.ensureVisible(cursorRectangle);
 
                                 Keys.onEnterPressed: {
@@ -446,7 +467,7 @@ FocusScope {
 
                     anchors.horizontalCenter: parent.horizontalCenter
 
-                    color: Styles.style.messengerMessageInputSendHotkeyText
+                    color: Styles.style.textBase
                     text: getText()
                 }
             }

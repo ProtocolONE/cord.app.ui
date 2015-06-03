@@ -449,14 +449,23 @@ Item {
     property color mainMenuText: "#FFFFFF"
     property color chatInactiveText: "#577889"
     property color bannerInfoText: "#FFDD82"
+    property color chatButtonText: "#FFFFFF"
+    property color linkText: "#45bef6"
+    property color fieldText: "#363636"
 
     // Базовый фон самого рута приложения
     property color applicationBackground: "red" //"#002336"
     //property color applicationBackground: "#002336"
     property color contentBackgroundDark: "#00111A" // bg_darkblue
     property color contentBackgroundLight: "#031d2b" // bg_blue​
-    // End of GameNet 3.4
+    property color trayMenuHeaderBackground: "#0A1C26"
+    property color trayMenuBorder: "#324E5E"
+    property color chatBodyBackground: "#19384A"
 
+    // Ползунок скрола в списках контактов
+    property color contactScrollBar: '#4ca8db'
+
+    // End of GameNet 3.4
 
     //PRIVATE PART
     property variant styleList

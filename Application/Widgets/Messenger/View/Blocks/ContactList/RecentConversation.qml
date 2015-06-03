@@ -76,16 +76,10 @@ Item {
         }
     }
 
-    ListViewScrollBar {
-        id: scrollbar
+    ContactsScrollBar {
+        id: scrollBar
 
-        anchors.left: listView.right
-        height: listView.height
-        width: 10
         listView: listView
-        cursorMaxHeight: listView.height
-        cursorMinHeight: 50
-        color: Styles.style.messangerContactScrollBar
-        cursorColor: Styles.style.messangerContactScrollBarCursor
+        anchors.left: listView.right
     }
 }

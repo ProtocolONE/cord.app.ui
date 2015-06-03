@@ -308,15 +308,11 @@ NavigatableContactList {
         }
     }
 
-    ListViewScrollBar {
-        anchors.right: listView.right
-        height: listView.height
-        width: 10
+    ContactsScrollBar {
+        id: scrollBar
+
         listView: listView
+        anchors.right: listView.right
         visible: listView.visible && listView.count > 0
-        cursorMaxHeight: listView.height
-        cursorMinHeight: 50
-        color: Qt.darker(Styles.style.messengerContactsBackground, Styles.style.darkerFactor);
-        cursorColor: Qt.darker(Styles.style.messengerContactsBackground, Styles.style.darkerFactor * 1.5);
     }
 }

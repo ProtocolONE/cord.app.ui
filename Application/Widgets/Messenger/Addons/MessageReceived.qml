@@ -151,7 +151,7 @@ TrayPopupBase {
                     externalMaximumHeight: model.maximumHeight || -1
                     date: model.messageDate
                     body: StringHelper.prepareText(model.body, {
-                                                                 hyperLinkStyle: Styles.style.messengerChatDialogHyperlinkColor,
+                                                                 hyperLinkStyle: Styles.style.linkText,
                                                                  smileResolver: EmojiOne.ns.toImage,
                                                                  serviceResolver: App.serviceItemByServiceId
                                                                })

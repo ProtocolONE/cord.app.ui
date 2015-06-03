@@ -48,19 +48,27 @@ Item {
         }
     }
 
-    ListViewScrollBar {
+    ContactsScrollBar {
         id: scrollBar
 
-        anchors.left: listView.right
-        height: listView.height
-        width: 10
         listView: listView
-        cursorMaxHeight: listView.height
-        cursorMinHeight: 50
-        color: Styles.style.messangerContactScrollBar
-        cursorColor: Styles.style.messangerContactScrollBarCursor
-        opacity: 0.5
-
-        onMovingChanged: Messenger.setHeavyInteraction(moving)
+        anchors.left: listView.right
     }
+
+//    ListViewScrollBar {
+//        id: scrollBar
+
+//        anchors.left: listView.right
+//        height: listView.height
+//        width: 7
+//        listView: listView
+//        cursorMaxHeight: listView.height
+//        cursorMinHeight: 50
+//        cursorRadius: 4
+//        color: "#00000000"
+//        cursorColor: "#4ca8db" //Styles.style.applicationBackground
+//        opacity: 0.5
+
+//        onMovingChanged: Messenger.setHeavyInteraction(moving)
+//    }
 }

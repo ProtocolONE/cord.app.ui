@@ -78,16 +78,16 @@ Item {
 
                 color: Styles.style.messengerChatDialogMessageNicknameText
                 font {
-                    family: "Tahoma"
+                    family: "Arial"
                     pixelSize: 12
                 }
                 text: qsTr(textValue)
                 onClicked: root.queryMore(model.number, model.name);
                 enabled: isEnabled(model.number, model.name)
                 style {
-                    normal: Styles.style.messengerChatDialogHistoryNavigateButtonNormal
-                    hover: Styles.style.messengerChatDialogHistoryNavigateButtonHover
-                    disabled: Styles.style.messengerChatDialogHistoryNavigateButtonDisabled
+                    normal: Styles.style.infoText
+                    hover: Styles.style.textBase
+                    disabled: Styles.style.infoText
                 }
             }
         }

@@ -84,7 +84,7 @@ Item {
         spacing: 7
 
         Item {
-            width: 200 -20
+            width: 200 - 20
             height: parent.height
 
             Text {
@@ -126,7 +126,7 @@ Item {
         }
 
         Item {
-            width: 248  +20
+            width: 248 + 20
             height: parent.height
 
             ListView {

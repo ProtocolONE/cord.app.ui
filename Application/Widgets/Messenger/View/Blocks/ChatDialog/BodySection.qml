@@ -15,50 +15,56 @@ Item {
         anchors {
             top: parent.top
             left: parent.left
-            right: parent.right
-            leftMargin: 10
-            rightMargin: 20
+            right: infoMessage.left
+            leftMargin: 12
+            rightMargin: 10
             topMargin: 16
         }
-        color: Styles.style.messengerChatDialogBodySection
+        color: Styles.style.light
+        opacity: Styles.style.blockInnerOpacity
     }
 
+    Text {
+        id: infoMessage
+
+        function dateText(timestamp) {
+            var now = Moment.moment().startOf('day'),
+                    actual = Moment.moment(+timestamp);
+
+            if (now.isSame(actual)) {
+                return qsTr("CHAT_HISTORY_BODY_TODAY_TEXT");
+            }
+
+            if (now.subtract('days', 1).isSame(actual)) {
+                return qsTr("CHAT_HISTORY_BODY_YESTERDAY_TEXT");
+            }
+
+            return qsTr("CHAT_BODY_DATE_FORMAT").arg(actual.format('DD MMMM YYYY'));
+        }
+
+        anchors.centerIn: parent
+
+        color: Styles.style.textTime
+        font {
+            family: "Arial"
+            pixelSize: 12
+            bold: true
+        }
+        text: infoMessage.dateText(+root.sectionProperty)
+    }
+
+
     Rectangle {
+        height: 1
         anchors {
-            centerIn: parent
+            top: parent.top
+            left: infoMessage.right
+            right: parent.right
+            leftMargin: 10
+            rightMargin: 12
+            topMargin: 16
         }
-
-        color: Styles.style.messengerChatDialogBodyBackground
-        width: infoMessage.width + 20
-        height: parent.height
-
-        Text {
-            id: infoMessage
-
-            function dateText(timestamp) {
-                var now = Moment.moment().startOf('day'),
-                        actual = Moment.moment(+timestamp);
-
-                if (now.isSame(actual)) {
-                    return qsTr("CHAT_HISTORY_BODY_TODAY_TEXT");
-                }
-
-                if (now.subtract('days', 1).isSame(actual)) {
-                    return qsTr("CHAT_HISTORY_BODY_YESTERDAY_TEXT");
-                }
-
-                return qsTr("CHAT_BODY_DATE_FORMAT").arg(actual.format('DD MMMM YYYY'));
-            }
-
-            anchors.centerIn: parent
-
-            color: Styles.style.messengerChatDialogMessageDateSectionText
-            font {
-                family: "Tahoma"
-                pixelSize: 11
-                bold: true
-            }
-            text: infoMessage.dateText(+root.sectionProperty)
-        }
+        color: Styles.style.light
+        opacity: Styles.style.blockInnerOpacity
     }
 }

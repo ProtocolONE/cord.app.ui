@@ -98,14 +98,10 @@ NavigatableContactList {
         id: searchContactModel
     }
 
-    ListViewScrollBar {
-        anchors.left: navigatableView.right
-        height: navigatableView.height
-        width: 10
+    ContactsScrollBar {
+        id: scrollBar
+
         listView: navigatableView
-        cursorMaxHeight: navigatableView.height
-        cursorMinHeight: 50
-        color: Qt.darker(Styles.style.messengerContactsBackground, Styles.style.darkerFactor);
-        cursorColor: Qt.darker(Styles.style.messengerContactsBackground, Styles.style.darkerFactor * 1.5);
+        anchors.left: listView.right
     }
 }

@@ -40,6 +40,7 @@ WidgetView {
     Rectangle {
         anchors.fill: parent
         color: Styles.style.chatBodyBackground
+        //color: "red"
     }
 
     Item {
@@ -120,8 +121,8 @@ WidgetView {
             anchors {
                 right: parent.right
                 top: messageInput.top
-                rightMargin: 118 + 5
-                topMargin: 6 + 6
+                rightMargin: 118 + 5 + 4
+                topMargin: 6 + 6 + 4
             }
             onClicked: MessengerJs.setSmilePanelVisible(true);
         }
@@ -170,7 +171,7 @@ WidgetView {
                 right: parent.right
                 rightMargin: 10
                 top: parent.top
-                topMargin: 57
+                topMargin: 60
             }
         }
     }

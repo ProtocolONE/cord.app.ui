@@ -58,16 +58,10 @@ Item {
         }
     }
 
-    ListViewScrollBar {
-        id: scrollbar
+    ContactsScrollBar {
+        id: scrollBar
 
-        anchors.left: listView.right
-        height: listView.height
-        width: 10
         listView: listView
-        cursorMaxHeight: listView.height
-        cursorMinHeight: 50
-        color: Qt.darker(Styles.style.messengerContactsBackground, Styles.style.darkerFactor);
-        cursorColor: Qt.darker(Styles.style.messengerContactsBackground, Styles.style.darkerFactor * 1.5);
+        anchors.left: listView.right
     }
 }

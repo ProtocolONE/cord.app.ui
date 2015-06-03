@@ -30,7 +30,7 @@ Item {
     signal groupButtonClicked();
 
     implicitWidth: 78
-    implicitHeight: 68
+    implicitHeight: 72
 
     QtObject {
         id: d
@@ -83,7 +83,7 @@ Item {
         spacing: 7
 
         Item {
-            width: 200
+            width: 200 - 20
             height: parent.height
 
             Text {
@@ -124,7 +124,7 @@ Item {
         }
 
         Item {
-            width: 248
+            width: 248 + 20
             height: parent.height
 
             ListView {
@@ -136,13 +136,13 @@ Item {
                 orientation: ListView.Horizontal
 
                 delegate: Item {
-                    width: 44
-                    height: 44
+                    width: 48
+                    height: 48
                     anchors.verticalCenter: parent.verticalCenter
 
                     Image {
-                        width: 44
-                        height: 44
+                        width: 48
+                        height: 48
                         source: d.getAvatar(model);
                     }
 
@@ -177,9 +177,8 @@ Item {
     EditGroupButton {
         anchors {
             top: parent.top
-            topMargin: 10
+            topMargin: 12
             right: parent.right
-            rightMargin: 26
         }
 
         checked: true
