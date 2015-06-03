@@ -399,6 +399,8 @@ Item {
     property string gameMenuGuidesIcon: "Assets/Images/Application/Blocks/GameMenu/Guides.png"
     property string gameMenuForumIcon: "Assets/Images/Application/Blocks/GameMenu/Forum.png"
     property string gameMenuSettingsIcon: "Assets/Images/Application/Blocks/GameMenu/Settings.png"
+    property string gameMenuExtendedAccIcon: "Assets/Images/Application/Blocks/GameMenu/Accounts.png"
+    property string gameMenuAccessIcon: "Assets/Images/Application/Blocks/GameMenu/Access.png" //INFO GN-8631
 
     // DETAILED USER INFO
     property color detailedUserInfoBackground: "#19384a"
@@ -438,6 +440,21 @@ Item {
     property double darkBackgroundOpacity: 0.90
 
     property color light: "#FFFFFF"
+
+    property color primaryButtonNormal: '#ff4f02'
+    property color primaryButtonHover: '#ff6102'
+    property color primaryButtonDisabled: '#888888'
+
+    //Teach english ;) auxiliary = secondary ;)
+    property color auxiliaryButtonNormal: "#1ABC9C"
+    property color auxiliaryButtonHover: "#019074"
+    property color auxiliaryButtonDisabled: "#888888"
+
+    property color errorButtonNormal: "#cc0000"
+    property color errorButtonHover: "#ee0000"
+
+    property color checkedButtonActive: "#31bca0"
+    property color checkedButtonInactive: "#24475a"
 
     property color lightText: '#FFFFFF'
     property color titleText: '#45bef6'

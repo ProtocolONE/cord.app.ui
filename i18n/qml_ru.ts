@@ -45,6 +45,13 @@
     </message>
 </context>
 <context>
+    <name>AccountItem</name>
+    <message>
+        <source>GAME_MENU_SPECIAL_BUTTON_ACCOUNTS</source>
+        <translation>Аккаунты</translation>
+    </message>
+</context>
+<context>
     <name>AlertAdapter</name>
     <message>
         <source>Save</source>
@@ -895,11 +902,11 @@ Please try again later.</source>
     <name>BaseLayer</name>
     <message>
         <source>MY_GAMES_CAPTION_MENU</source>
-        <translation>Мои игры</translation>
+        <translation type="vanished">Мои игры</translation>
     </message>
     <message>
         <source>MY_GAMES_MENU_NEWS</source>
-        <translation>Общая лента новостей</translation>
+        <translation type="vanished">Общая лента новостей</translation>
     </message>
 </context>
 <context>
@@ -1841,7 +1848,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
-        <translation type="vanished">Играть</translation>
+        <translation type="vanished">ИГРАТЬ</translation>
     </message>
     <message>
         <source>POPUP_PLAY</source>
@@ -2057,7 +2064,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>BUTTON_PLAY_DEFAULT_STATE</source>
-        <translation>Начать игру</translation>
+        <translation type="vanished">Начать игру</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_ON_PAUSE_STATE</source>
@@ -2065,7 +2072,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>BUTTON_PLAY_DOWNLOADING_NOW_STATE</source>
-        <translation>Остановить</translation>
+        <translation type="vanished">Остановить загрузку</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
@@ -2073,11 +2080,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>BUTTON_PLAY_ON_DETAILS_STATE</source>
-        <translation>Остановить</translation>
+        <translation>Остановить загрузку</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_ERROR_STATE</source>
-        <translation>Починить</translation>
+        <translation>Исправить (ошибка)</translation>
     </message>
     <message>
         <source>BUTTON_PLAY_ON_PAUSED_STATE</source>
@@ -2086,6 +2093,17 @@ Please try again later.</source>
     <message>
         <source>BUTTON_UNINSTALLING_STATE</source>
         <translation>Удаление игры</translation>
+    </message>
+</context>
+<context>
+    <name>GameInstallBlockSample</name>
+    <message>
+        <source>Загрузка игры 1956,35 из 3347,21</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Загрузка игры 0,35 из 3347,21</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2108,7 +2126,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>BUTTON_PLAY_NOT_INSTALLED</source>
-        <translation type="obsolete">Начать игру</translation>
+        <translation type="obsolete">ИГРАТЬ</translation>
     </message>
 </context>
 <context>
@@ -2985,7 +3003,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>HEADER_BUTTON_MY_GAMES</source>
-        <translation>Мои игры</translation>
+        <translation type="vanished">Мои игры</translation>
     </message>
     <message>
         <source>HEADER_BUTTON_ALL_GAMES</source>
@@ -4642,7 +4660,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>SECOND_GAME_BLOCK_PREMIUM_PLAY</source>
-        <translation>Начать игру</translation>
+        <translation>ИГРАТЬ</translation>
     </message>
     <message>
         <source>PREMIUM_ADD_ACCOUNT</source>

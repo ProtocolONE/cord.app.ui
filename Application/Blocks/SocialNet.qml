@@ -18,8 +18,8 @@ Item {
 
     property variant gameItem: App.currentGame()
 
-    width: 300
-    height: 24
+    implicitWidth: 24
+    implicitHeight: 300
 
     onVisibleChanged: {
         if (!visible) {
@@ -40,15 +40,15 @@ Item {
 
         anchors.fill: parent
         spacing: 4
-        orientation: ListView.Horizontal
+        orientation: ListView.Vertical
         interactive: false
         layoutDirection: Qt.LeftToRight
         model: gameItem ? gameItem.socialNet : undefined
         delegate: Item {
             id: delegate
 
-            width: visible ? image.width : -view.spacing
-            height: visible ? image.height : 0
+            width: visible ? image.width : 0
+            height: visible ? image.height : -view.spacing
 
             visible: !!model.link
 

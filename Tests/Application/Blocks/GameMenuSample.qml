@@ -1,15 +1,21 @@
 import QtQuick 1.1
 import Tulip 1.0
+
+import GameNet.Components.Widgets 1.0
+
 import Application.Blocks 1.0 as Blocks
 import Application.Blocks.GameMenu 1.0 as GameMenu
+import Application 1.0
+
+
+import "../../../Application/Core/Styles.js" as Styles
 
 Rectangle {
     id: root
 
-    color: "black"
-    width: 800
+    color: Styles.style.applicationBackground
+    width: 1000
     height: 600
-
 
     function appendMenuItem(menu, option) {
         var defaultObject = {
@@ -17,11 +23,12 @@ Rectangle {
             text: '',
             page: '',
             link: false,
+            selectable: false,
             url: '',
         };
 
         var item = {};
-        ['icon', 'text', 'page', 'link', 'url'].forEach(function(e) {
+        ['icon', 'text', 'page', 'link', 'selectable', 'url'].forEach(function(e) {
             item[e] = option[e] || defaultObject[e];
         });
 
@@ -32,21 +39,23 @@ Rectangle {
 
         root.appendMenuItem(menuModel,
                             {
-                                icon: "Assets/Images/Application/Blocks/GameMenu/News.png",
+                                icon: "gameMenuNewsIcon",
                                 text: "Новости",
                                 page: "News",
+                                selectable: true
                             });
 
         root.appendMenuItem(menuModel,
                             {
-                                icon: "Assets/Images/Application/Blocks/GameMenu/About.png",
+                                icon: "gameMenuAboutIcon",
                                 text: "Об игре",
                                 page: "AboutGame",
+                                selectable: true
                             });
 
         root.appendMenuItem(menuModel,
                             {
-                                icon: "Assets/Images/Application/Blocks/GameMenu/Forum.png",
+                                icon: "gameMenuForumIcon",
                                 text: "Форум",
                                 link: true,
                                 url: "https://forum.gamenet.ru/forumdisplay.php?f=4"
@@ -54,7 +63,7 @@ Rectangle {
 
         root.appendMenuItem(menuModel,
                             {
-                                icon: "Assets/Images/Application/Blocks/GameMenu/Guides.png",
+                                icon: "gameMenuGuidesIcon",
                                 text: "Гайды",
                                 link: true,
                                 url: "https://www.gamenet.ru/games/bs/guides/"
@@ -62,7 +71,7 @@ Rectangle {
 
         root.appendMenuItem(menuModel,
                             {
-                                icon: "Assets/Images/Application/Blocks/GameMenu/Blog.png",
+                                icon: "gameMenuBlogIcon",
                                 text: "Блог",
                                 link: true,
                                 url: "https://www.gamenet.ru/games/bs/blog/"
@@ -70,20 +79,31 @@ Rectangle {
 
         root.appendMenuItem(menuModel,
                             {
-                                icon: "Assets/Images/Application/Blocks/GameMenu/Settings.png",
-                                text: "Настройки игры",
+                                icon: "gameMenuSettingsIcon",
+                                text: "Настройки",
                                 page: "GameSettings",
                             });
     }
 
-    Component.onCompleted: {
-        root.fillMenu();
+    Image {
+        source: 'https://images.gamenet.ru/pics/app/service/1432643350524.jpg'
+    }
+
+    WidgetManager {
+        id: manager
+
+        Component.onCompleted: {
+            manager.registerWidget('Application.Widgets.SecondAccountAuth');
+            manager.registerWidget('Application.Widgets.PremiumShop');
+            manager.init();
+        }
     }
 
     GameMenu.GameMenu {
         id: gameMenu
 
-        anchors.fill: parent
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
         model: menuModel
 
         onUrlClicked: {
@@ -92,6 +112,13 @@ Rectangle {
 
         onPageClicked: {
             console.log('Game menu open page ', page)
+        }
+    }
+
+    Bootstrap {
+        anchors.fill: parent
+        Component.onCompleted: {
+            root.fillMenu();
         }
     }
 

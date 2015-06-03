@@ -35,11 +35,6 @@ Rectangle {
     width: App.clientWidth
     height: App.clientHeight
 
-    // HACK
-    Image {
-        source: installPath + "/Assets/Images/testBackground.png"
-    }
-
     ParallelAnimation {
         id: exitAnimation;
 
@@ -102,7 +97,11 @@ Rectangle {
             manager.registerWidget('Application.Widgets.AccountActivation');
             manager.registerWidget('Application.Widgets.PublicTest');
             manager.registerWidget('Application.Widgets.SecondAccountAuth');
-            manager.registerWidget('Application.Widgets.MyGamesMenu');
+            manager.registerWidget('Application.Widgets.GameDownloadError');
+            /*
+              //INFO Disabled in 3.4
+              manager.registerWidget('Application.Widgets.MyGamesMenu');
+            */
             manager.registerWidget('Application.Widgets.NicknameReminder');
             manager.registerWidget('Application.Widgets.Overlay');
             manager.registerWidget('Application.Widgets.Money');

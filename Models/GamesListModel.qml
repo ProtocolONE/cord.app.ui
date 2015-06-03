@@ -21,11 +21,12 @@ ListModel {
             text: '',
             page: '',
             link: false,
+            selectable: false,
             url: '',
         };
 
         var item = {};
-        ['icon', 'text', 'page', 'link', 'url'].forEach(function(e) {
+        ['icon', 'text', 'page', 'link', 'selectable', 'url'].forEach(function(e) {
             item[e] = option[e] || defaultObject[e];
         });
 
@@ -38,6 +39,7 @@ ListModel {
                                 icon: 'gameMenuNewsIcon',
                                 text: qsTr("GAME_MENU_NEWS_TEXT"),
                                 page: "News",
+                                selectable: true,
                             });
 
         root.appendMenuItem(element.menu,
@@ -45,6 +47,7 @@ ListModel {
                                 icon: 'gameMenuAboutIcon',
                                 text: qsTr("GAME_MENU_ABOUT_GAME_TEXT"),
                                 page: "AboutGame",
+                                selectable: true,
                             });
 
         if (element.blogUrl) {
@@ -55,7 +58,7 @@ ListModel {
                                     text: qsTr("GAME_MENU_BLOG_TEXT"),
                                     url: element.blogUrl
                                 });
-        }
+    }
 
 
         if (element.guideUrl) {

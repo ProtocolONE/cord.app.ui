@@ -9,6 +9,7 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 
 import "../../Core/restapi.js" as RestApi
@@ -166,6 +167,18 @@ WidgetModel {
         onTriggered: {
             var temp = MaintenanceModel.schedule;
             update(temp);
+        }
+    }
+
+    Shortcut {
+        key: "Ctrl+Shift+M"
+        onActivated: {
+            var currentGame = App.currentGame();
+            if (!currentGame) {
+                return;
+            }
+
+            root.gameItem.ignoreMaintenance = !root.gameItem.ignoreMaintenance;
         }
     }
 }

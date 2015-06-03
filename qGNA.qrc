@@ -26,6 +26,11 @@
 		<file>Application/Blocks/DownloadStatus.qml</file>
 		<file>Application/Blocks/FlowView.qml</file>
 		<file>Application/Blocks/GameInstallBlock.qml</file>
+		<file>Application/Blocks/GameInstallBlock/MiniButton.qml</file>
+		<file>Application/Blocks/GameInstallBlock/ShakeLogic.qml</file>
+		<file>Application/Blocks/GameMenu/AccountItem.qml</file>
+		<file>Application/Blocks/GameMenu/AccountItemBottom.qml</file>
+		<file>Application/Blocks/GameMenu/AccountItemTop.qml</file>
 		<file>Application/Blocks/GameMenu/GameMenu.qml</file>
 		<file>Application/Blocks/GameMenu/GameMenuItem.qml</file>
 		<file>Application/Blocks/GameMenu/qmldir</file>
@@ -66,6 +71,8 @@
 		<file>Application/Controls/CheckedButton.qml</file>
 		<file>Application/Controls/CheckedButtonStyle.qml</file>
 		<file>Application/Controls/ComboBox.qml</file>
+		<file>Application/Controls/ContentBackground.qml</file>
+		<file>Application/Controls/ContentStroke.qml</file>
 		<file>Application/Controls/ContextMenuStyle.qml</file>
 		<file>Application/Controls/ContextMenuView.qml</file>
 		<file>Application/Controls/DelayedBinding.qml</file>
@@ -462,5 +469,6 @@
 		<file>Main.qml</file>
 		<file>plugin/QXmpp/qmldir</file>
 		<file>plugin/Tulip/qmldir</file>
+		<file>test.qml</file>
 	</qresource>
 </RCC>

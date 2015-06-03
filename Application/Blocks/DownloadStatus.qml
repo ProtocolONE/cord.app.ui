@@ -19,6 +19,7 @@ Item {
     property alias spacing: content.spacing
     property alias style: progressBar.style
     property alias textColor: text.color
+    property alias textOpacity: text.opacity
     property variant serviceItem
 
     signal clicked();
@@ -82,7 +83,7 @@ Item {
                 property int offsetDuration: 0
 
                 font { family: 'Arial'; pixelSize: 12 }
-                color: Styles.style.downloadStatusText
+                color: Styles.style.textBase
                 text: d.getStatusText();
                 smooth: true
 
@@ -150,9 +151,8 @@ Item {
         }
     }
 
-    MouseArea {
+    CursorMouseArea {
         anchors.fill: parent
-
         onClicked: root.clicked();
     }
 }

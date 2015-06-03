@@ -33,381 +33,58 @@ Item {
 
     Connections {
         target: App.signalBus()
-
         onNavigate: {
             console.log("onNavigate: " + link);
 
-            if (link == 'ApplicationSettings' || link == 'GameSettings') {
-                GoogleAnalytics.trackPageView('/' + link);
-                return;
-            }
-
-            if (link == "mygame") {
-                root.state = "SelectedGame";
-
-                if (root.hasCurrentGame) {
-                    GoogleAnalytics.trackPageView('/game/' + root.currentGame.gaName);
-
-                    if (!App.isServiceInstalled(root.currentGame.serviceId)) {
-                        gameMenu.pageClicked('AboutGame');
-                    } else {
-                        gameMenu.pageClicked('News');
-                    }
-                }
-            }
-
-            if (page == "allgame") {
-                root.state = "AllGames";
-            }
-
-            if (link == "mygames") {
-                root.state = "MyGames";
+            switch(link) {
+                case 'ApplicationSettings':
+                case 'GameSettings':
+                    GoogleAnalytics.trackPageView('/' + link);
+                    break;
+                case 'mygame':
+                    root.state = "SelectedGame";
+                    break;
+                case 'allgame':
+                    root.state = "AllGames";
+                    break;
             }
         }
     }
 
     Item {
-        id: cont
-
         anchors.fill: parent
 
-        Item {
-            id: layer1headerContair
-
-            width: parent.width
-            height: 40
-        }
-
-        //3 column set
-        Row {
-            id: cs3
-            z: 0
-
-            anchors { fill: parent;  topMargin: 40}
-
-            Column {id: layer1Col1; width: 230; height: parent.height;}
-            Column {id: layer1Col2; width: 590; height: parent.height;}
-            Column {id: layer1Col3; width: 180; height: parent.height;}
-        }
-
-        //2 column set
-        Row {
-            id: cs2
-            z: 0
-
-            anchors { fill: parent;  topMargin: 40}
-
-            Column {id: layer2Col1; width: 230; height: parent.height;}
-            Column {id: layer2Col2; width: 770; height: parent.height;}
-        }
-
-        //1 column set
-        Row {
-            id: cs1
-
-            anchors { fill: parent;  topMargin: 40}
-
-            Column {id: layer3Col1 ; width: 1000; height: parent.height}
-        }
-    }
-
-
-    Item {
-        id: stash
-
-        objectName: "Stash"
-
-        width: 0
-        height: 0
-        clip: true
-        visible: false
-
         Header {
-            id: header
-
-
+            width: parent.width
+            height: 30
             onSwitchTo: App.navigate(page);
-            myGamesMenuEnable: true//HACk App.isMyGamesEnabled();
-
-            Connections {
-                target: App.signalBus()
-                onServiceUpdated: header.myGamesMenuEnable = App.isMyGamesEnabled();
-            }
         }
 
-        Loader {
-            id: centralBlockLoader
-
-            onSourceComponentChanged: gc()
-        }
-
-        Item {
-            id: gameBlock
-
-            width: 180
-            height: root.implicitHeight - header.implicitHeight
+        Row {
+            anchors { fill: parent;  topMargin: 30}
 
             Column {
-                width: 180
-                height: parent.height
-                spacing: 1
+                width: 230;
+                height: parent.height;
 
-                Rectangle {
-                    color: Styles.style.gameMenuBackground
-                    width: parent.width
-                    height: gameControlBlock.height + 1
-
-                    Column {
-                        id: gameControlBlock
-
-                        width: parent.width
-                        height: gameInstallBlock.height + (secondAuthView.visible ? secondAuthView.height : 0)
-
-                        GameInstallBlock {
-                            id: gameInstallBlock
-                        }
-
-                        WidgetContainer {
-                            id: secondAuthView
-
-                            property bool secondAuthEnabled: User.isAuthorized()
-                                    && User.isPremium()
-                                    && root.hasCurrentGame
-                                    && root.currentGame.secondAllowed
-
-                            widget: "SecondAccountAuth"
-                            view: "SecondAccountView"
-
-                            width: parent.width
-                            height: secondAuthEnabled
-                                    ? ((!User.isSecondAuthorized() ? 34 : 0) + (User.isSecondAuthorized() ? 88 : 0))
-                                    : 0
-
-                            opacity: secondAuthEnabled ? 1 : 0
-                            visible: opacity > 0
-
-                            Behavior on opacity {
-                                NumberAnimation { duration: 250 }
-                            }
-
-                            Behavior on height {
-                                NumberAnimation { duration: 250 }
-                            }
-                        }
-                    }
-
-                    Rectangle {
-                        anchors.bottom: parent.bottom
-                        width: parent.width
-                        height: 1
-                        color: Qt.darker(parent.color, Styles.style.darkerFactor)
-                    }
-                }
-
-                Item {
-                    id: gameMenuItem
-
-                    width: 180
-                    height: 400
-                    clip: true
-
-                    GameMenu {
-                        id: gameMenu
-
-                        anchors.fill: parent
-                        model: root.hasCurrentGame ? root.currentGame.menu : undefined
-
-                        onUrlClicked: App.openExternalUrlWithAuth(url);
-                        onPageClicked: {
-                            console.log('Open Page ', page);
-                            if (page == 'GameSettings') {
-                                if ( !(root.state == "SelectedGame" || root.state == "AboutGame") ) {
-                                    console.log('Fail to open game settings from ', root.state);
-                                    return;
-                                }
-
-                                App.navigate('GameSettings');
-                            }
-
-                            if (page == 'AboutGame') {
-                                root.state = 'AboutGame';
-                            }
-
-                            if (page == 'News') {
-                                root.state = 'SelectedGame';
-                            }
-                        }
-                    }
-                }
-            }
-
-            Rectangle {
-                anchors {
-                    top: parent.top
-                    right: parent.right
-                    bottom: parent.bottom
-                }
-
-                width: 1
-                color: Qt.lighter(Styles.style.gameMenuBackground, Styles.style.lighterFactor)
-            }
-
-            Rectangle {
-                anchors {
-                    top: parent.top
-                    right: parent.right
-                    bottom: parent.bottom
-                    rightMargin: 1
-                }
-
-                width: 1
-                color: Qt.darker(Styles.style.gameMenuBackground, Styles.style.darkerFactor)
-            }
-
-            SocialNet {
-                anchors {
-                    left: parent.left
-                    bottom: parent.bottom
-                    margins: 10
-                }
-            }
-        }
-
-
-        Item {
-            id: myGamesMenu
-
-            width: 180
-            height: 600 - header.implicitHeight
-
-            Column {
-                anchors.fill: parent
-
-                Item {
-                    height: 56
-                    width: parent.width - 1
-
-                    Rectangle {
-                        anchors.fill: parent
-                        color: Styles.style.gameMenuBackground
-                    }
-
-                    Rectangle {
-                        width: 3
-                        height: parent.height
-                        anchors.right: parent.right
-                        color: Styles.style.gameMenuSelectedIndicator
-                    }
-
-                    Text {
-                        font { family: 'Arial'; pixelSize: 16 }
-                        text: qsTr("MY_GAMES_CAPTION_MENU")
-                        anchors {
-                            left: parent.left
-                            top: parent.top
-                            margins: 10
-                        }
-                        color: Styles.style.gameMenuText
-                    }
-
-                    Text {
-                        font { family: 'Arial'; pixelSize: 12 }
-                        text: qsTr("MY_GAMES_MENU_NEWS")
-                        anchors {
-                            left: parent.left
-                            top: parent.top
-                            leftMargin: 10
-                            topMargin: 32
-                        }
-                        color: Styles.style.gameMenuText
-                    }
-
+                WidgetContainer {
+                    widget: 'UserProfile'
                 }
 
                 WidgetContainer {
-                    width: 180
-                    height: myGamesMenu.height - 56
-                    widget: 'MyGamesMenu'
+                    height: 478
+                    width: 230
+                    widget: 'Messenger'
+                    view: 'Contacts'
                 }
             }
-        }
 
-        WidgetContainer {
-            id: userProfile
+            Loader {
+                id: centralBlockLoader
 
-            widget: 'UserProfile'
-        }
-
-        WidgetContainer {
-            id: contactList
-
-            anchors {
-                right: parent.right
-                bottom: parent.bottom
-            }
-
-            height: 468
-            width: 230
-            widget: 'Messenger'
-            view: 'Contacts'
-        }
-    }
-
-    Component {
-        id: aboutGameComponent
-
-        AboutGame {
-            id: aboutGameScrollArea
-
-            width: 590
-            height: 600 - header.implicitHeight
-
-            Connections {
-                target: gameMenu
-                onPageClicked: aboutGameScrollArea.scrollToBegin();
-            }
-
-            Connections {
-                target: App.signalBus()
-                onNavigate: aboutGameScrollArea.scrollToBegin();
-            }
-        }
-    }
-
-    Component {
-        id: centerBlock
-
-        MainGamePage {
-            id: mainGameScrArea
-
-            width: 590
-            height: 600 - header.implicitHeight
-            currentGame: root.currentGame
-
-            Connections {
-                target: gameMenu
-                onPageClicked: mainGameScrArea.scrollToBegin();
-            }
-
-            Connections {
-                target: App.signalBus()
-                onNavigate: mainGameScrArea.scrollToBegin();
-            }
-        }
-    }
-
-    Component {
-        id: myGamesComponent
-
-        ScrollArea {
-            width: 590
-            height: 600 - header.implicitHeight
-
-            WidgetContainer {
-                width: parent.width
-
-                widget: 'GameNews'
-                view: 'NewsMyGames'
+                width: 770;
+                height: parent.height;
+                onSourceComponentChanged: gc()
             }
         }
     }
@@ -420,51 +97,95 @@ Item {
         }
     }
 
+    Component {
+        id: mainGamePageCmp
+
+        MainGamePage {
+            width: 590
+            height: 489
+            currentGame: root.currentGame
+        }
+    }
+
+    Component {
+        id: aboutGameCmp
+
+        AboutGame {
+            width: 590
+            height: 489
+        }
+    }
+
+    Component {
+        id: gamePageBlock
+
+        Item {
+            anchors.fill: parent
+
+            Component.onCompleted: {
+                if (!root.hasCurrentGame) {
+                    return;
+                }
+
+                GoogleAnalytics.trackPageView('/game/' + root.currentGame.gaName);
+
+                if (!App.isServiceInstalled(root.currentGame.serviceId)) {
+                    gameMenu.pageClicked('AboutGame');
+                } else {
+                    gameMenu.pageClicked('News');
+                }
+            }
+
+            SocialNet {
+                anchors {right: parent.right; top: parent.top; topMargin: 8}
+            }
+
+            Loader {
+                id: widgetContent
+
+                y: 20
+                anchors.horizontalCenter: parent.horizontalCenter
+                onSourceComponentChanged: gc()
+                clip: true
+            }
+
+            GameMenu {
+                id: gameMenu
+
+                anchors.bottom: parent.bottom
+                model: root.hasCurrentGame ? root.currentGame.menu : undefined
+                onUrlClicked: App.openExternalUrlWithAuth(url);
+                onPageClicked: {
+                    console.log('Open Page ', page);
+
+                    switch(page) {
+                        case 'GameSettings':
+                            if (root.state != "SelectedGame") {
+                                console.log('Fail to open game settings from ', root.state);
+                                return;
+                            }
+                            App.navigate('GameSettings');
+                            break;
+                        case 'AboutGame':
+                            widgetContent.sourceComponent = aboutGameCmp;
+                            break;
+                        case 'News':
+                            widgetContent.sourceComponent = mainGamePageCmp;
+                            break;
+                    }
+                }
+            }
+        }
+    }
+
     states: [
         State {
-            name: "SelectedGame"
-
-            PropertyChanges { target: centralBlockLoader; sourceComponent: centerBlock}
-
-            PropertyChanges { target: header; parent: layer1headerContair}
-            PropertyChanges { target: userProfile; parent: layer1Col1}
-            PropertyChanges { target: contactList; parent: layer1Col1}
-            PropertyChanges { target: centralBlockLoader; parent: layer1Col2}
-            PropertyChanges { target: gameBlock; parent: layer1Col3}
-        }
-        ,
-        State {
             name: "AllGames"
-
             PropertyChanges { target: centralBlockLoader; sourceComponent: allGames}
-            PropertyChanges { target: header; parent: layer1headerContair}
-            PropertyChanges { target: userProfile; parent: layer2Col1}
-            PropertyChanges { target: contactList; parent: layer2Col1}
-            PropertyChanges { target: centralBlockLoader; parent: layer1Col2}
-        }
-        ,
+        },
         State {
-            name: "AboutGame"
-
-            PropertyChanges { target: centralBlockLoader; sourceComponent: aboutGameComponent}
-
-            PropertyChanges { target: header; parent: layer1headerContair}
-            PropertyChanges { target: userProfile; parent: layer1Col1}
-            PropertyChanges { target: contactList; parent: layer1Col1}
-            PropertyChanges { target: centralBlockLoader; parent: layer1Col2}
-            PropertyChanges { target: gameBlock; parent: layer1Col3}
-        }
-        ,
-        State {
-            name: "MyGames"
-
-            PropertyChanges { target: centralBlockLoader; sourceComponent: myGamesComponent}
-
-            PropertyChanges { target: header; parent: layer1headerContair}
-            PropertyChanges { target: userProfile; parent: layer1Col1}
-            PropertyChanges { target: contactList; parent: layer1Col1}
-            PropertyChanges { target: centralBlockLoader; parent: layer1Col2}
-            PropertyChanges { target: myGamesMenu; parent: layer1Col3}
+            name: "SelectedGame"
+            PropertyChanges { target: centralBlockLoader; sourceComponent: gamePageBlock}
         }
     ]
 }

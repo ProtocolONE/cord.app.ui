@@ -139,29 +139,19 @@ Rectangle {
                 }
             }
 
-            WidgetContainer {
-                visible: User.isAuthorized() && User.isPremium()
+            Rectangle {
+                width: container.width
+                height: container .height
+                color: "#082135"
 
-                width: 180
-                height: (!User.isSecondAuthorized() ? 34 : 0)
-                        + (User.isSecondAuthorized() ? 88 : 0)
+                WidgetContainer {
+                    id: container
+                    visible: User.isAuthorized() && User.isPremium()
 
-                widget: "SecondAccountAuth"
-                view: "SecondAccountView"
-
-                Behavior on height {
-                    NumberAnimation { duration: 250 }
+                    widget: "SecondAccountAuth"
+                    view: "SecondAccountView"
                 }
             }
-
-            Rectangle {
-                width: 180
-                height: 100
-                color: "#082135"
-            }
-
-
         }
     }
-
 }

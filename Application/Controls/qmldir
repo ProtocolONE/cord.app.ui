@@ -9,3 +9,7 @@ ScrollArea 1.0 ScrollArea.qml
 ContextMenuView 1.0 ContextMenuView.qml
 ContextMenuStyle 1.0 ContextMenuStyle.qml
 DelayedBinding 1.0 DelayedBinding.qml
+CheckedButton 1.0 CheckedButton.qml
+CheckedButtonStyle 1.0 CheckedButtonStyle.qml
+ContentBackground 1.0 ContentBackground.qml
+ContentStroke 1.0 ContentStroke.qml

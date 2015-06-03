@@ -28,228 +28,113 @@ WidgetView {
 
     property variant gameItem: App.currentGame()
 
-    implicitWidth: 180
-    height: (!User.isSecondAuthorized() ? addAccountBlock.height : 0)
-            + (User.isSecondAuthorized() ? secondAccountBlock.height : 0)
+    implicitWidth: 220
+    height: User.isSecondAuthorized() ? 120 : 90
     clip: true
 
-    Rectangle {
-        anchors.fill: parent
-        color: Styles.style.secondAccountBaseBackground
+    Text {
+        x: 14
+        y: 10
+        text: qsTr("SECOND_GAME_BLOCK_PREMIUM_TITLE")
+        color: Styles.style.infoText
+        font {family: 'Arial'; pixelSize: 12}
     }
 
-    Rectangle {
-        id: addAccountBlock
+    Item {
+        anchors {fill: parent; margins: 10; topMargin: 22 }
 
-        color: Styles.style.secondAccountAddAccountBackground
+        Button {
+            id: addAccountButton
 
-        width: 180
-        height: 34
-        visible: opacity > 0
-        opacity: !User.isSecondAuthorized() ? 1 : 0
+            visible: opacity > 0
+            opacity: !User.isSecondAuthorized() ? 1 : 0
 
-        Behavior on opacity {
-            NumberAnimation { duration: 250 }
+            width: parent.width
+            height: 42
+            anchors.bottom: parent.bottom
+            style {
+                normal: Styles.style.auxiliaryButtonNormal
+                hover: Styles.style.auxiliaryButtonHover
+            }
+            textColor: Styles.style.lightText
+            text: qsTr("PREMIUM_ADD_ACCOUNT")
+            analytics { page: '/SecondAccountAuth/'; category: 'Auth'; action: 'add account'}
+            onClicked: Popup.show('SecondAccountAuth', 'SecondAccountAuthView')
+
+            Behavior on opacity {
+                NumberAnimation { duration: 250 }
+            }
         }
 
         Item {
-            id: addAccountItem
+            visible: opacity > 0
+            opacity: User.isSecondAuthorized() ? 1 : 0
+            anchors {fill: parent; topMargin: 15}
 
-            height: 34
-            anchors {
-                left: parent.left
-                leftMargin: 10
-                right: parent.right
-                rightMargin: 10
+            Behavior on opacity {
+                NumberAnimation { duration: 250 }
             }
 
-            Button {
-                id: addAccountButton
-
+            Item {
                 width: parent.width
-                height: 24
-                style {
-                    normal: Styles.style.secondAccountAddAccountButtonHormal
-                    hover: Styles.style.secondAccountAddAccountButtonHover
-                }
-                textColor: Styles.style.secondAccountAddAccountButtonText
-                text: qsTr("PREMIUM_ADD_ACCOUNT")
-                analytics: GoogleAnalyticsEvent {
-                    page: '/SecondAccountAuth/'
-                    category: 'Auth'
-                    action: 'add account'
-                }
+                height: 16
 
-                onClicked: Popup.show('SecondAccountAuth', 'SecondAccountAuthView')
-            }
-
-        }
-    }
-
-    Rectangle {
-        id: secondAccountBlock
-
-        color: Styles.style.secondAccountBackground
-        width: parent.width
-        height: 88
-
-        visible: opacity > 0
-        opacity: User.isSecondAuthorized() ? 1 : 0
-
-        Behavior on opacity {
-            NumberAnimation { duration: 250 }
-        }
-
-        Item {
-            anchors {
-                fill: parent
-                margins: 10
-            }
-
-            Column {
-                anchors.fill: parent
-                spacing: 8
-
-                Item {
-                    width: parent.width
-                    height: 12
-
-                    Text {
-                        anchors.baseline: parent.bottom
-                        font {
-                            family: 'Arial'
-                            pixelSize: 12
-                        }
-
-                        color: Styles.style.secondAccountTitle
-                        text: qsTr("SECOND_GAME_BLOCK_PREMIUM_TITLE")
-                    }
+                Text {
+                    x: 4
+                    text: User.getSecondNickname()
+                    width: 180
+                    color: Styles.style.lightText
+                    elide: Text.ElideRight
+                    font {family: 'Arial'; pixelSize: 12}
+                    clip: true
                 }
 
-                Item {
-                    width: parent.width
-                    height: 12
-
-                    Text {
-                        id: nickText
-
-                        anchors {
-                            left: parent.left
-                            right: parent.right
-                            top: parent.top
-                            rightMargin: 22
-                        }
-
-                        font {
-                            family: 'Arial'
-                            pixelSize: 12
-                        }
-
-                        color: Styles.style.secondAccountNickname
-                        text: User.getSecondNickname()
-                        clip: true
+                ImageButton {
+                    width: 24
+                    height: 24
+                    onClicked: App.logoutSecondRequest();
+                    anchors { verticalCenter: parent.verticalCenter; right: parent.right }
+                    style { normal: "#00000000"; hover: "#00000000"; disabled: "#00000000"}
+                    styleImages {
+                        normal: installPath + "/Assets/Images/Application/Widgets/SecondAccountAuth/logout.png"
+                        hover: installPath + "/Assets/Images/Application/Widgets/SecondAccountAuth/logout_hover.png"
+                        disabled: installPath + "/Assets/Images/Application/Widgets/SecondAccountAuth/logout.png"
                     }
-
-                    Rectangle {
-                        width: 16
-                        height: 19
-                        visible: nickText.paintedWidth >= nickText.width
-                        anchors {
-                            right: nickText.right
-                            verticalCenter: nickText.verticalCenter
-                        }
-                        rotation: -90
-
-                        gradient: Gradient {
-                            GradientStop {
-                                position: 0.00
-                                color: "#00000000"
-                            }
-                            GradientStop {
-                                position: 0.455
-                                color: Styles.style.secondAccountBackground
-                            }
-                            GradientStop {
-                                position: 1.00
-                                color: Styles.style.secondAccountBackground
-                            }
-                        }
-                    }
-
-                    ImageButton {
-                        width: 24
-                        height: 24
-                        onClicked: App.logoutSecondRequest();
-                        anchors {
-                            verticalCenter: parent.verticalCenter
-                            right: parent.right
-                        }
-
-                        style {
-                            normal: "#00000000"
-                            hover: "#00000000"
-                            disabled: "#00000000"
-                        }
-
-                        styleImages {
-                            normal: installPath + "/Assets/Images/Application/Widgets/SecondAccountAuth/logout.png"
-                            hover: installPath + "/Assets/Images/Application/Widgets/SecondAccountAuth/logout.png"
-                            disabled: installPath + "/Assets/Images/Application/Widgets/SecondAccountAuth/logout.png"
-                        }
-
-                        analytics: GoogleAnalyticsEvent {
-                            page: '/SecondAccountAuth'
-                            category: 'Auth'
-                            action: 'logout second'
-                        }
-                    }
+                    analytics {page: '/SecondAccountAuth'; category: 'Auth'; action: 'logout second'}
                 }
             }
 
             Button {
                 id: playSecondAccount
 
+                height: 42
                 width: parent.width
-                height: 24
                 anchors.bottom: parent.bottom
 
                 style {
-                    normal: Styles.style.secondAccountPlayButtonNormal
-                    hover: Styles.style.secondAccountPlayButtonHover
-                    disabled: Styles.style.secondAccountPlayButtonDisabled
+                    normal: Styles.style.auxiliaryButtonNormal
+                    hover: Styles.style.auxiliaryButtonHover
+                    disabled: Styles.style.auxiliaryButtonDisabled
                 }
                 textColor: Styles.style.secondAccountPlayButtonText
                 text: qsTr("SECOND_GAME_BLOCK_PREMIUM_PLAY");
                 enabled: !!App.currentRunningMainService() && !App.currentRunningSecondService()
-                analytics: GoogleAnalyticsEvent {
+                analytics {
                     page: '/SecondAccountAuth'
                     category: 'Auth'
                     action: 'play second'
                     label: root.gameItem ? 'game: ' + root.gameItem.serviceId : ""
                 }
-
                 onClicked: {
                     App.executeSecondService(root.gameItem.serviceId, User.secondUserId() , User.secondAppKey());
                 }
             }
 
             CursorMouseArea {
-                width: parent.width
-                height: 24
-                anchors.bottom: parent.bottom
+                anchors.fill: playSecondAccount
                 visible: !playSecondAccount.enabled
                 toolTip: qsTr("SECOND_GAME_BLOCK_PREMIUM_PLAY_TULTIP")
             }
         }
-    }
-
-    Behavior on height {
-        NumberAnimation { duration: 250 }
-    }
-
-    Connections {
-        target: App.signalBus()
-
-        onPremiumExpired: App.terminateSecondService();
     }
 }

@@ -18,234 +18,187 @@ import "../Core/App.js" as App
 import "../Core/Styles.js" as Styles
 import "../Core/Popup.js" as Popup
 import "../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "./GameInstallBlock"
 
 Item {
     id: root
 
+    width: 205
+    height: 60
+
     property variant gameItem: App.currentGame()
-    property bool isFullSize: button.isStartDownloading || button.isStarting || button.isError || button.isUninstalling
 
-    width: 180
-    height: root.isFullSize ? 137 : 101
-
-    Behavior on height {
-        NumberAnimation { id: heightAnimation; duration: 250 }
-    }
-
-    Connections {
-        target: App.signalBus()
-        onNavigate: {
-            if (link == 'mygame'
-                    && from == 'GameItem'
-                    && !root.isFullSize
-                    && !App.isAppSettingsEnabled("qml/installBlock/", "shakeAnimationShown", false)) {
-                App.setAppSettingsValue("qml/installBlock/", "shakeAnimationShown", true);
-                shakeAnimationTimer.start();
-            }
-        }
-    }
-
-    QtObject {
+    Item {
         id: d
 
-        function showPopup() {
+        anchors {
+            fill: parent
+            margins: 9
+        }
+
+        function processClick() {
             if (!root.gameItem) {
                 return;
             }
 
             App.activateGameByServiceId(root.gameItem.serviceId);
 
-            if (button.isError) {
+            switch (stateGroup.state) {
+            case 'Error':
                 Popup.show('GameDownloadError');
-                return;
-            }
-
-            if (button.isStartDownloading) {
+                break;
+            case 'Downloading':
                 Popup.show('GameLoad');
-                return;
-            }
-
-            if (button.isUninstalling) {
+                break;
+            case 'Uninstalling':
                 Popup.show('GameUninstall');
-                return;
+                break;
+            default:
+                App.downloadButtonStart(root.gameItem.serviceId);
+                GoogleAnalytics.trackEvent('/game/' + root.gameItem.gaName,
+                                           'Game ' + root.gameItem.gaName, 'Play', 'Big Green');
             }
         }
-    }
 
-    Rectangle {
-        anchors.fill: parent
-        color: Styles.style.gameInstallBackground
-    }
+        Button {
+            id: button
 
-    Item {
-        anchors {
-            fill: parent
-            margins: 10
+            width: parent.width
+            height: parent.height
+            visible: true
+            enabled: App.isMainServiceCanBeStarted(root.gameItem)
+            style {
+                normal: stateGroup.state == 'Error' ? Styles.style.errorButtonNormal : Styles.style.primaryButtonNormal
+                hover: stateGroup.state == 'Error' ? Styles.style.errorButtonHover : Styles.style.primaryButtonHover
+                disabled: Styles.style.primaryButtonDisabled
+            }
+            onClicked: d.processClick()
+
+            ShakeLogic {
+                target: parent
+                enabled: ['Downloading', 'Starting', 'Error', 'Uninstalling'].indexOf(stateGroup.state) === -1
+            }
         }
 
-        Column {
-            id: column
+        MiniButton {
+            id: miniButton
 
-            anchors.fill: parent
-            spacing: 5
-
-            Text {
-                font {
-                    family: 'Arial'
-                    pixelSize: 18
-                }
-
-                color: Styles.style.gameInstallGameName
-                text: root.gameItem ? root.gameItem.name : ''
-            }
-
-            Text {
-                font {
-                    family: 'Arial'
-                    pixelSize: 12
-                }
-
-                color: Styles.style.gameInstallGameShortDescription
-                text: root.gameItem ? root.gameItem.shortDescription : ''
-            }
-
-            Button {
-                id: button
-
-                function getText() {
-                    if (isError) {
-                        return buttonErrorText;
-                    }
-
-                    if (isPause) {
-                        return qsTr("BUTTON_PLAY_ON_PAUSED_STATE");
-                    }
-
-                    if (isUninstalling) {
-                        return qsTr("BUTTON_UNINSTALLING_STATE");
-                    }
-
-                    if (allreadyDownloaded) {
-                        return buttonDownloadedText;
-                    }
-
-                    if (isStartDownloading) {
-                        return buttonDetailsText;
-                    }
-
-                    if (root.gameItem && !root.gameItem.isRunnable) {
-                        return qsTr("ABOUT_PLAY_NOT_INSTALLED");
-                    }
-
-                    if (isInstalled) {
-                        return buttonText;
-                    }
-
-                    return buttonNotInstalledText;
-                }
-
-                property bool isInstalled: root.gameItem ? root.gameItem.isInstalled : false
-                property bool isStartDownloading: root.gameItem ? (root.gameItem.status === "Downloading") : false
-                property bool isStarting: root.gameItem ? (root.gameItem.status === "Starting") : false
-                property bool isError: root.gameItem ? (root.gameItem.status === "Error") : false
-                property bool isPause: root.gameItem ? (root.gameItem.status === "Paused") : false
-                property bool isDetailed: root.gameItem ? (root.gameItem.status === "Paused") : false
-                property bool isUninstalling: root.gameItem ? (root.gameItem.status === "Uninstalling") : false
-                property bool allreadyDownloaded: root.gameItem ? (root.gameItem.allreadyDownloaded) : false
-
-                property string buttonNotInstalledText: qsTr("BUTTON_PLAY_NOT_INSTALLED")
-                property string buttonText: qsTr("BUTTON_PLAY_DEFAULT_STATE")
-                property string buttonDetailsText: qsTr("BUTTON_PLAY_ON_DETAILS_STATE")
-                property string buttonDownloadText: qsTr("BUTTON_PLAY_DOWNLOADING_NOW_STATE")
-                property string buttonDownloadedText: qsTr("BUTTON_PLAY_DOWNLOADED_AND_READY_STATE")
-                property string buttonErrorText: qsTr("BUTTON_PLAY_ERROR_STATE")
-
-                width: 160
-                height: 35
-
-                enabled: App.isMainServiceCanBeStarted(root.gameItem)
-                text: button.getText()
-
-                focus: true
-
-                style {
-                    normal: button.isError
-                            ? Styles.style.gameInstallButtonErrorNormal
-                            : Styles.style.gameInstallButtonNormal
-                    hover: button.isError
-                           ? Styles.style.gameInstallButtonErrorHover
-                           : Styles.style.gameInstallButtonHover
-                    disabled: Styles.style.gameInstallButtonDisabled
-                }
-
-                onClicked: {
-                    if (!root.gameItem) {
-                        return;
-                    }
-
-                    if (root.gameItem.maintenance) {
-                        button.forceActiveFocus();
-                    }
-
-                    var serviceId = root.gameItem.serviceId;
-
-                    App.activateGameByServiceId(serviceId);
-
-                    if (button.isError) {
-                        Popup.show('GameDownloadError');
-                        return;
-                    }
-
-                    if (button.isStartDownloading) {
-                        Popup.show('GameLoad');
-                    } else {
-                        App.downloadButtonStart(serviceId);
-                        if (root.gameItem) {
-                            GoogleAnalytics.trackEvent('/game/' + root.gameItem.gaName,
-                                                       'Game ' + root.gameItem.gaName, 'Play', 'Big Green');
-                        }
-                    }
-                }
-
-                ShakeAnimation {
-                    id: shakeAnimation
-
-                    target: button
-                    property: "x"
-                    from: 0
-                    shakeValue: 2
-                    shakeTime: 120
-                }
-
-                Timer {
-                    id: shakeAnimationTimer
-
-                    interval: 1500
-                    onTriggered: shakeAnimation.start();
-                }
-            }
+            width: parent.width
+            height: 21
+            visible: false
+            containsMouse: mouser.containsMouse
         }
 
         DownloadStatus {
             id: downloadStatus
 
-            function isVisible() {
-                if (heightAnimation.running) {
-                    return false;
-                }
-
-                return root.isFullSize;
-            }
-
             anchors.bottom: parent.bottom
-            height: 25
-            width: 160
+            visible: false
+            height: 21
+            width: parent.width
+            textOpacity: 0.5
+            textColor: Styles.style.textBase
+            spacing: 5
             serviceItem: root.gameItem
-            textColor: Styles.style.gameInstallDownloadStatusText
-            spacing: 6
-            opacity: downloadStatus.isVisible() ? 1 : 0// TODO добавить анимацию прозрачности
+        }
 
-            onClicked: d.showPopup();
+        CursorMouseArea {
+            id: mouser
+
+            anchors.fill: parent
+            visible: !button.visible
+            onClicked: d.processClick();
         }
     }
+
+    StateGroup {
+        id: stateGroup
+
+        property string imagePath: installPath + '/Assets/Images/Application/Blocks/GameInstallBlock/'
+
+        //INFO Помните, порядок следования стейтов важен - при совпадении критериев выигрывает тот, кто выше. Тут
+        //выписаны все стейты, даже те, которые прямо сейчас не используются, но, возможно, будут использоваться
+        //в будущем.
+        states: [
+            State {
+                name: 'OnlyBigButton'
+                PropertyChanges {target: button; visible: true}
+                PropertyChanges {target: miniButton; visible: false}
+                PropertyChanges {target: downloadStatus; visible: false}
+            },
+            State {
+                name: 'WithMiniButton'
+                PropertyChanges {target: button; visible: false}
+                PropertyChanges {target: miniButton; visible: true}
+                PropertyChanges {target: downloadStatus; visible: true}
+            },
+            State {
+                name: 'NonRunnableGame'
+                extend: 'OnlyBigButton'
+                when: root.gameItem && !root.gameItem.isRunnable
+                PropertyChanges {target: button; text: qsTr("ABOUT_PLAY_NOT_INSTALLED")}
+            },
+            State {
+                name: 'Normal'
+                extend: 'OnlyBigButton'
+                when: root.gameItem && (root.gameItem.status === "Normal" && root.gameItem.isInstalled)
+                PropertyChanges {target: button; text: qsTr("BUTTON_PLAY_NOT_INSTALLED")}
+            },
+            State {
+                name: 'NotInstalled'
+                extend: 'Normal'
+                when: root.gameItem && (root.gameItem.status === "Normal" && !root.gameItem.isInstalled)
+            },
+            State {
+                name: 'Starting'
+                extend: 'Normal'
+                when: root.gameItem && root.gameItem.status === "Starting"
+            },
+            State {
+                name: 'Started'
+                extend: 'Normal'
+                when: root.gameItem && root.gameItem.status === "Started"
+            },
+            State {
+                name: 'Finished'
+                extend: 'Normal'
+                when: root.gameItem && root.gameItem.status === "Finished"
+            },
+            State {
+                name: 'Error'
+                extend: 'OnlyBigButton'
+                when: root.gameItem && root.gameItem.status === "Error"
+                PropertyChanges {target: button; text: qsTr("BUTTON_PLAY_ERROR_STATE")}
+            },
+            State {
+                name: 'Pause'
+                extend: 'WithMiniButton'
+                when: root.gameItem && root.gameItem.status === "Paused"
+                PropertyChanges {target: miniButton; text: qsTr("BUTTON_PLAY_ON_PAUSED_STATE")}
+                PropertyChanges {target: miniButton; source: stateGroup.imagePath + 'play.png'}
+            },
+            State {
+                name: 'Uninstalling'
+                extend: 'WithMiniButton'
+                when: root.gameItem && root.gameItem.status === "Uninstalling"
+                PropertyChanges {target: button; text: qsTr("BUTTON_UNINSTALLING_STATE")}
+                PropertyChanges {target: miniButton; text: qsTr("BUTTON_UNINSTALLING_STATE")}
+                PropertyChanges {target: miniButton; source: stateGroup.imagePath + 'delete.png'}
+            },
+            State {
+                name: 'Downloading'
+                extend: 'WithMiniButton'
+                when: root.gameItem && root.gameItem.status === "Downloading"
+                PropertyChanges {target: miniButton; text: qsTr("BUTTON_PLAY_ON_DETAILS_STATE")}
+                PropertyChanges {target: miniButton; source: stateGroup.imagePath + 'pause.png'}
+            },
+            State {
+                name: 'AllreadyDownloaded'
+                extend: 'OnlyBigButton'
+                when: root.gameItem && root.gameItem.allreadyDownloaded
+                PropertyChanges {target: button; text: qsTr("BUTTON_PLAY_DOWNLOADED_AND_READY_STATE")}
+            }
+        ]
+    }
 }
+

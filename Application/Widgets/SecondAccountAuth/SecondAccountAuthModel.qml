@@ -43,6 +43,7 @@ WidgetModel {
        onAuthDone: root.autoLogin();
        onLogoutRequest: root.secondLogout();
        onLogoutSecondRequest: root.secondLogout();
+       onPremiumExpired: App.terminateSecondService();
    }
 
 
