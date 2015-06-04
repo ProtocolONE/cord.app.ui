@@ -21,7 +21,6 @@ import "../../../../../Core/moment.js" as Moment
 Item {
     id: root
 
-   // color: Styles.style.messengerChatDialogBodyBackground
     clip: true
 
     property variant user: MessengerJs.selectedUser(MessengerJs.USER_INFO_JID)
@@ -160,11 +159,4 @@ Item {
         onQueryMore: messageList.queryMore(number, name);
     }
 
-    // UNDONE пропала отсечка
-//    Rectangle {
-//        width: 1
-//        height: parent.height
-//        color: Qt.lighter(parent.color, Styles.style.lighterFactor)
-//        anchors.right: parent.right
-//    }
 }

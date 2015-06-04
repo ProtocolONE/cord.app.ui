@@ -76,7 +76,7 @@ Item {
                     return actualDay < user.historyDay;
                 }
 
-                color: Styles.style.messengerChatDialogMessageNicknameText
+                color: Styles.style.infoText
                 font {
                     family: "Arial"
                     pixelSize: 12

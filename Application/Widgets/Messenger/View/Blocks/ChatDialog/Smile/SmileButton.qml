@@ -13,8 +13,8 @@ ImageButton {
     }
 
     styleImages {
-        normal: installPath + 'Assets/Images/Application/Widgets/Messenger/smileButton.png'
+        normal: installPath + 'Assets/Images/Application/Widgets/Messenger/smileButtonNormal.png'
         hover: installPath + 'Assets/Images/Application/Widgets/Messenger/smileButtonHover.png'
-        disabled: installPath + 'Assets/Images/Application/Widgets/Messenger/smileButton.png'
+        disabled: installPath + 'Assets/Images/Application/Widgets/Messenger/smileButtonNormal.png'
     }
 }

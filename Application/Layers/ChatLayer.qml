@@ -44,7 +44,7 @@ Item {
     WidgetContainer {
         anchors {
             left: parent.left
-            leftMargin: 230
+            leftMargin: 230+1
             bottom: parent.bottom
         }
 

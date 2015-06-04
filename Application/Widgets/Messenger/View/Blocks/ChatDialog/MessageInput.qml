@@ -23,11 +23,6 @@ import "../../../../../Core/EmojiOne.js" as EmojiOne
 FocusScope {
     id: root
 
-//    Rectangle {
-//        anchors.fill: parent
-//        color: Styles.style.messengerMessageInputBackground
-//    }
-
     property int sendAction
     property int pauseTimeout: 3
     property int inactiveTimeout: 12
@@ -206,9 +201,8 @@ FocusScope {
     Rectangle {
         width: 4
         height: 4
-        //border { color: Styles.style.messengerMessageInputPin }
         border { color: Styles.style.light }
-        opacity: 0.35 //Styles.style.blockInnerOpacity
+        opacity: 0.35
         color: '#00000000'
         radius: 2
         anchors { top: parent.top; topMargin: 2; left: parent.left; leftMargin: 10 + (parent.width - 110) / 2 }

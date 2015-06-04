@@ -1,6 +1,7 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
 
+import "../../../../../Core/Styles.js" as Styles
 import "../../../Models/Messenger.js" as Messenger
 
 ListViewScrollBar {
