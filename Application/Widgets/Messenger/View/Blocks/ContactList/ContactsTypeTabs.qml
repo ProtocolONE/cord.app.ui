@@ -11,6 +11,7 @@ import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
 
+import "../../../../../Core/App.js" as App
 import "../../../../../Core/Styles.js" as Styles
 
 Item {
@@ -23,6 +24,17 @@ Item {
 
     width: parent.width
     height: 20
+
+    Connections {
+        target: App.signalBus()
+        ignoreUnknownSignals: true
+
+        onTrayIconClicked: {
+            if (root.recentUnreadedContacts > 0) {
+                contactViewState.state = "RecentConversation"
+            }
+        }
+    }
 
     Row {
         anchors.fill: parent

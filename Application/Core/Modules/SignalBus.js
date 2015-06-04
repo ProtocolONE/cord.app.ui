@@ -66,7 +66,7 @@ function serviceUpdated(gameItem) {
 }
 
 function navigate(link, from) {
-     _signalBusInstance.navigate(link, from);
+    _signalBusInstance.navigate(link, from);
 }
 
 function publicTestIconClicked() {
@@ -78,11 +78,11 @@ function premiumExpired() {
 }
 
 function balanceChanged(amount) {
-     _signalBusInstance.balanceChanged(amount);
+    _signalBusInstance.balanceChanged(amount);
 }
 
 function logoutRequest() {
-     _signalBusInstance.logoutRequest();
+    _signalBusInstance.logoutRequest();
 }
 
 function logoutDone() {
@@ -90,7 +90,7 @@ function logoutDone() {
 }
 
 function logoutSecondRequest() {
-     _signalBusInstance.logoutSecondRequest();
+    _signalBusInstance.logoutSecondRequest();
 }
 
 function setGlobalProgressVisible(value, timeout) {
@@ -110,7 +110,7 @@ function hideMainWindow() {
 }
 
 function exitApplication() {
-     _signalBusInstance.exitApplication();
+    _signalBusInstance.exitApplication();
 }
 
 function leftMousePress(root, x, y) {
@@ -143,6 +143,10 @@ function setAnimatedTrayIcon(animatedSource) {
 
 function updateTaskbarIcon(source) {
     _signalBusInstance.updateTaskbarIcon(source);
+}
+
+function trayIconClicked() {
+    _signalBusInstance.trayIconClicked();
 }
 
 function unreadContactsChanged(contacts) {

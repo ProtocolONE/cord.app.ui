@@ -140,6 +140,7 @@ WidgetModel {
         property int _mouseY
 
         function activateWindow() {
+            App.trayIconClicked();
             App.activateWindow();
         }
 
