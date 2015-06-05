@@ -474,6 +474,5 @@
 		<file>Main.qml</file>
 		<file>plugin/QXmpp/qmldir</file>
 		<file>plugin/Tulip/qmldir</file>
-		<file>test.qml</file>
 	</qresource>
 </RCC>
