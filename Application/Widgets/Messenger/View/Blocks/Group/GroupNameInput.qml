@@ -11,6 +11,7 @@ import QtQuick 1.1
 import Tulip 1.0
 
 import GameNet.Controls 1.0
+import "../../../../../Core/Styles.js" as Styles
 
 Item {
     id: root
@@ -37,15 +38,24 @@ Item {
     }
 
     Rectangle {
-        id: controlBorder
+        anchors.fill: parent
+        color: Styles.style.dark
+        opacity: 0.2
+    }
 
-        anchors { fill: parent; margins: 1 }
-        color: style.background
-        border { width: 2; color: style.normal }
-
-        Behavior on border.color {
-            ColorAnimation { duration: 300 }
+    Rectangle {
+        anchors {
+            fill: parent
+            rightMargin: 1
+            bottomMargin: 1
         }
+        border {
+            color: Styles.style.light
+            width: 1
+        }
+
+        color: "#00000000"
+        opacity: Styles.style.blockInnerOpacity
     }
 
     MouseArea {
@@ -58,9 +68,9 @@ Item {
         Item {
             anchors {
                 left: parent.left
-                leftMargin: 10
+                leftMargin: 8
                 right: parent.right
-                rightMargin: 10
+                rightMargin: 8
                 verticalCenter: parent.verticalCenter
             }
 
@@ -75,6 +85,7 @@ Item {
                     verticalCenter: parent.verticalCenter
                 }
                 color: root.style.placeholder
+                opacity: 0.5
                 elide: Text.ElideRight
                 font { family: "Arial"; pixelSize: root.fontSize }
                 visible: inputBehavior.text.length == 0

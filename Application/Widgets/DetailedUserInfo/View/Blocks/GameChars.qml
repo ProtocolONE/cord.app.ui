@@ -173,7 +173,7 @@ Item {
                                     pixelSize: 14
                                 }
 
-                                color: Styles.style.detailedUserInfoGameCharsGameName
+                                color: Styles.style.lightText
                             }
                         }
 
@@ -197,7 +197,7 @@ Item {
                                     pixelSize: 11
                                 }
 
-                                color: Styles.style.detailedUserInfoGameCharsPlayingDate
+                                color: Styles.style.textBase
                             }
                         }
                     }
@@ -218,7 +218,7 @@ Item {
                                 leftMargin: 16
                             }
 
-                            color: Styles.style.detailedUserInfoGameCharsTableHeaderBackground
+                            color: Styles.style.applicationBackground
                             opacity: 0.5
 
                             Row {
@@ -232,7 +232,7 @@ Item {
                                     height: parent.height
 
                                     Text {
-                                        color: Styles.style.detailedUserInfoGameCharsTableHeaderText
+                                        color: Styles.style.textBase
                                         font {
                                             pixelSize: 10
                                             capitalization: Font.AllUppercase
@@ -247,7 +247,7 @@ Item {
                                     height: parent.height
 
                                     Text {
-                                        color: Styles.style.detailedUserInfoGameCharsTableHeaderText
+                                        color: Styles.style.textBase
                                         font {
                                             pixelSize: 10
                                             capitalization: Font.AllUppercase
@@ -262,7 +262,7 @@ Item {
                                     height: parent.height
 
                                     Text {
-                                        color: Styles.style.detailedUserInfoGameCharsTableHeaderText
+                                        color: Styles.style.textBase
                                         font {
                                             pixelSize: 10
                                             capitalization: Font.AllUppercase
@@ -317,7 +317,7 @@ Item {
                                     Text {
                                         color: model.isFriend
                                                ? Styles.style.detailedUserInfoGameCharsTableFriendText
-                                               : Styles.style.detailedUserInfoGameCharsTableNotFriendText
+                                               : Styles.style.lightText
                                         font {
                                             pixelSize: 12
                                         }
@@ -338,17 +338,17 @@ Item {
                                             return "<span style='color: " +
                                                     (model.isFriend
                                                         ? Styles.style.detailedUserInfoGameCharsTableFriendText
-                                                        : Styles.style.detailedUserInfoGameCharsTableNotFriendText)
+                                                        : Styles.style.lightText)
                                                     + "'>" + model.level + " <span style='color: " +
                                                     (model.isFriend
                                                      ? Styles.style.detailedUserInfoGameCharsTableFriendText
-                                                     : Styles.style.detailedUserInfoGameCharsTableNotFriendClassText) +
+                                                     : Styles.style.textBase) +
                                                     "'>" + model.className + "</span></span>";
                                         }
 
                                         color: model.isFriend
                                                ? Styles.style.detailedUserInfoGameCharsTableFriendText
-                                               : Styles.style.detailedUserInfoGameCharsTableNotFriendText
+                                               : Styles.style.lightText
                                         font {
                                             pixelSize: 12
                                         }
@@ -364,7 +364,7 @@ Item {
                                     Text {
                                         color: model.isFriend
                                                ? Styles.style.detailedUserInfoGameCharsTableFriendText
-                                               : Styles.style.detailedUserInfoGameCharsTableNotFriendText
+                                               : Styles.style.lightText
                                         font {
                                             pixelSize: 12
                                         }
@@ -398,7 +398,7 @@ Item {
                 anchors.bottom: parent.bottom
                 width: parent.width
                 height: 1
-                color: Styles.style.detailedUserInfoGameCharsSplitter
+                color: Styles.style.applicationBackground
             }
         }
     }

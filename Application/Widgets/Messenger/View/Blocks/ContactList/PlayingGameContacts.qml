@@ -38,7 +38,6 @@ Item {
     }
 
     Text {
-
         anchors {
             left: parent.left
             leftMargin: 20
@@ -51,7 +50,7 @@ Item {
 
         text: qsTr("MESSENGER_PLAYING_CONTACTS_EMPTY_INFO")
         wrapMode: Text.Wrap
-        color: Styles.style.messengerPlayingContactEmptyInfo
+        color: Styles.style.textBase
         font {
             family: "Arial"
             pixelSize: 14

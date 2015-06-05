@@ -68,7 +68,7 @@ Item {
 
         text: qsTr("MESSENGER_RECENT_CONTACTS_EMPTY_INFO")
         wrapMode: Text.Wrap
-        color: Styles.style.messengerRecentContactEmptyInfo
+        color: Styles.style.textBase
         font {
             family: "Arial"
             pixelSize: 14
@@ -77,7 +77,7 @@ Item {
     }
 
     ContactsScrollBar {
-        id: scrollBar
+        id: scrollbar
 
         listView: listView
         anchors.left: listView.right

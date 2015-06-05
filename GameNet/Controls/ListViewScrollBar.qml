@@ -20,6 +20,7 @@ Rectangle {
 
     property alias cursorRadius: cursor.radius
     property alias cursorColor: cursor.color
+    property alias cursorOpacity: cursor.opacity
 
     property int cursorWheelStep: 2
 

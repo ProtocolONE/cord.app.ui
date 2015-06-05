@@ -67,10 +67,8 @@ WidgetView {
             leftMargin: 1
         }
 
-        Rectangle {
+        ContentBackground {
             anchors.fill: parent
-            color: Styles.style.contentBackgroundLight
-            opacity: Styles.style.baseBackgroundOpacity
         }
 
         Column {

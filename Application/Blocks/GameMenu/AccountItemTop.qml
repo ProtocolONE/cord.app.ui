@@ -13,7 +13,6 @@ Item {
 
     ContentBackground {
         anchors.fill: parent
-        color: Styles.style.contentBackgroundLight
         opacity: 0.95
 
         ContentStroke {

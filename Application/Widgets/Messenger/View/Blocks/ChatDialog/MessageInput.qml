@@ -198,7 +198,7 @@ FocusScope {
         onSelectedUserChanged: d.updateUserSelectedText()
     }
 
-    Rectangle {
+    Rectangle { // split sign
         width: 4
         height: 4
         border { color: Styles.style.light }
@@ -211,40 +211,27 @@ FocusScope {
     Row {
         anchors {
             fill: parent
-            margins: 10
+            topMargin: 10
+            leftMargin: 110
+            bottomMargin: 12
+            rightMargin: 12
         }
 
-        spacing: 10
+        spacing: 8
 
         Item {
             height: parent.height
-            width: parent.width - 110
+            width: parent.width - 98
 
             Rectangle {
-                anchors {
-                    fill: parent
-                    rightMargin: 1
-                    bottomMargin: 1
-                }
-
-                color: "#00000000"
-                border {
-                    color: Styles.style.light
-                    width: 1
-                }
-
-                opacity: Styles.style.blockInnerOpacity
+                anchors.fill: parent
+                color: Styles.style.dark
+                opacity: 0.2
             }
 
             Item {
                 anchors {
                     fill: parent
-                    margins: 1
-                }
-
-                Rectangle {
-                    anchors.fill: parent
-                    color: Styles.style.applicationBackground
                 }
 
                 MouseArea {
@@ -254,7 +241,10 @@ FocusScope {
                     Item {
                         anchors {
                             fill: parent
-                            margins: 8
+                            leftMargin: 10
+                            topMargin: 10
+                            bottomMargin: 10
+                            rightMargin: 28
                         }
 
                         Flickable {
@@ -286,7 +276,7 @@ FocusScope {
                                     root.insertText("<br />");
                                 }
 
-                                width: inputFlick.width - 18
+                                width: inputFlick.width
                                 height: inputFlick.height
                                 focus: true
                                 textFormat: TextEdit.RichText
@@ -300,7 +290,7 @@ FocusScope {
                                     family: "Arial"
                                 }
 
-                                color: Styles.style.textBase
+                                color: Styles.style.chatButtonText
                                 onCursorRectangleChanged: inputFlick.ensureVisible(cursorRectangle);
 
                                 Keys.onEnterPressed: {
@@ -423,10 +413,26 @@ FocusScope {
                     cursor: CursorArea.IBeamCursor
                 }
             }
+
+            Rectangle {
+                anchors {
+                    fill: parent
+                    rightMargin: 1
+                    bottomMargin: 1
+                }
+
+                color: "#00000000"
+                border {
+                    color: Styles.style.light
+                    width: 1
+                }
+
+                opacity: Styles.style.blockInnerOpacity
+            }
         }
 
         Item {
-            width: 100
+            width: 90
             height: parent.height
 
             Column {
@@ -436,7 +442,7 @@ FocusScope {
                 CheckedButton {
                     id: sendMessageButton
 
-                    width: 89
+                    width: parent.width
                     height: 30
                     boldBorder: true
                     enabled: d.canSendMessage();

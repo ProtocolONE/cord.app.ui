@@ -35,7 +35,7 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-        color: Styles.style.contentBackgroundLight
+        color: Styles.style.contentBackground
         opacity: Styles.style.baseBackgroundOpacity
     }
 

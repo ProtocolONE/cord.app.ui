@@ -18,7 +18,7 @@ Rectangle {
 
     implicitWidth: parent.width
     implicitHeight: 35
-    color: Styles.style.detailedUserInfoHeaderBackground
+    color: Styles.style.applicationBackground
 
     Row {
         anchors {
@@ -41,7 +41,7 @@ Rectangle {
         Text {
             id: targetNickname
 
-            color: Styles.style.detailedUserInfoHeaderText
+            color: Styles.style.lightText
             anchors.verticalCenter: parent.verticalCenter
         }
     }

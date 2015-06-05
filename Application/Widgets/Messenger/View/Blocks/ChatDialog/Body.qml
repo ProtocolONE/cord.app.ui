@@ -140,16 +140,17 @@ Item {
 
         anchors {
             right: messageList.right
-            rightMargin: 1
+            rightMargin: 4
         }
         height: messageList.height
-        width: 7
+        width: 6
         listView: messageList
         cursorMaxHeight: messageList.height
         cursorMinHeight: 50
         cursorRadius: 4
         color: "#00000000"
-        cursorColor: Styles.style.applicationBackground
+        cursorColor: Styles.style.contentBackgroundLight
+        cursorOpacity: 0.1
     }
 
     // INFO лежив вверху поверх чата

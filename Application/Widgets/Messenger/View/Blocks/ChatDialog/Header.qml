@@ -22,12 +22,17 @@ import "../../../Models/User.js" as User
 
 import "../ContactList" as ContactList
 
-Rectangle {
+Item {
     id: root
 
     implicitWidth: parent.width
     implicitHeight: contactDelegate.height
-    color: Styles.style.applicationBackground
+
+    Rectangle {
+        anchors.fill: parent
+        color: Styles.style.contentBackgroundLight
+        opacity: 0.15
+    }
 
     ContactList.ContactItemDelegate {
         id: contactDelegate
@@ -36,7 +41,7 @@ Rectangle {
         anchors {
             left: parent.left
             right: parent.right
-            rightMargin: 24
+            rightMargin: 36
             top: parent.top
         }
 
@@ -49,7 +54,7 @@ Rectangle {
             right: parent.right
         }
 
-        width: 22
+        width: 30
         height: 32
 
         style {
@@ -64,8 +69,8 @@ Rectangle {
             anchors {
                 top: parent.top
                 right: parent.right
-                rightMargin: 5
-                topMargin: 10
+                rightMargin: 12
+                topMargin: 12
             }
 
             source: installPath + "/Assets/Images/Application/Widgets/Messenger/close_chat.png"

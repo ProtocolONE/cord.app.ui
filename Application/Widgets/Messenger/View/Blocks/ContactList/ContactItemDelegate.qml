@@ -329,7 +329,23 @@ Item {
             isCurrent: d.isCurrent()
             isHighlighted: root.isHighlighted
             userId: d.userId()
-            onClicked: root.select()
+            onClicked:  {
+                if (!Messenger.editGroupModel().isActive()) {
+                    root.select()
+                    return;
+                }
+
+                if (normalContactInstance.checked) {
+                    if (!Messenger.editGroupModel().owner()
+                        && !Messenger.editGroupModel().canDelete(root.user.jid)) {
+                        return;
+                    }
+
+                    Messenger.editGroupModel().removeUser(root.user.jid);
+                } else {
+                    Messenger.editGroupModel().addUser(root.user.jid)
+                }
+            }
 
             editMode: Messenger.editGroupModel().isActive()
             checked: Messenger.editGroupModel().isSelected(root.user.jid)
@@ -339,24 +355,6 @@ Item {
             }
 
             onNicknameChangeRequest: Messenger.renameUser(root.user, value);
-
-            CursorMouseArea {
-                anchors.fill: parent
-                visible: Messenger.editGroupModel().isActive()
-
-                onClicked: {
-                    if (normalContactInstance.checked) {
-                        if (!Messenger.editGroupModel().owner()
-                            && !Messenger.editGroupModel().canDelete(root.user.jid)) {
-                            return;
-                        }
-
-                        Messenger.editGroupModel().removeUser(root.user.jid);
-                    } else {
-                        Messenger.editGroupModel().addUser(root.user.jid)
-                    }
-                }
-            }
 
             Connections {
                 target: d

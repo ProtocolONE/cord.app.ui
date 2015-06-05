@@ -1,6 +1,7 @@
 import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
+import Application.Controls 1.0
 
 import "../../../../../Core/Styles.js" as Styles
 
@@ -10,10 +11,8 @@ Item {
     property string text
     property int waitTopMargin: 160
 
-    Rectangle {
+    ContentBackground {
         anchors.fill: parent
-        color: Styles.style.contentBackgroundLight
-        opacity: Styles.style.baseBackgroundOpacity
     }
 
     Wait {

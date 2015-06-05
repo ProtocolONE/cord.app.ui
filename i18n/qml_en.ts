@@ -59,7 +59,7 @@
 <context>
     <name>AccountItem</name>
     <message>
-        <location filename="../Application/Blocks/GameMenu/AccountItem.qml" line="35"/>
+        <location filename="../Application/Blocks/GameMenu/AccountItem.qml" line="31"/>
         <source>GAME_MENU_SPECIAL_BUTTON_ACCOUNTS</source>
         <translation type="unfinished"></translation>
     </message>
@@ -339,12 +339,12 @@
 <context>
     <name>Body</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="129"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="128"/>
         <source>MESSAGE_BODY_SUBSCRIPTION_INVITE_ACCEPTED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="130"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="129"/>
         <source>MESSAGE_BODY_SUBSCRIPTION_INVITE_DECLINED</source>
         <translation type="unfinished"></translation>
     </message>
@@ -375,17 +375,17 @@
 <context>
     <name>BodySection</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodySection.qml" line="43"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodySection.qml" line="35"/>
         <source>CHAT_HISTORY_BODY_TODAY_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodySection.qml" line="47"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodySection.qml" line="39"/>
         <source>CHAT_HISTORY_BODY_YESTERDAY_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodySection.qml" line="50"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodySection.qml" line="42"/>
         <source>CHAT_BODY_DATE_FORMAT</source>
         <translation></translation>
     </message>
@@ -1371,17 +1371,35 @@
 <context>
     <name>GroupContactItemHeader</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupContactItemHeader.qml" line="55"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupContactItemHeader.qml" line="56"/>
         <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_SINGLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupContactItemHeader.qml" line="56"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupContactItemHeader.qml" line="57"/>
         <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_DOUBLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupContactItemHeader.qml" line="57"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupContactItemHeader.qml" line="58"/>
+        <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_MULTIPLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GroupCountButton</name>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupCountButton.qml" line="37"/>
+        <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_SINGLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupCountButton.qml" line="38"/>
+        <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_DOUBLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupCountButton.qml" line="39"/>
         <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_MULTIPLE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1638,17 +1656,17 @@
 <context>
     <name>MessageInput</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="429"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="450"/>
         <source>MESSENGER_SEND_BUTTON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="437"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="458"/>
         <source>MESSENGER_SEND_BUTTON_MESSAGE_ENTER</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="439"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="460"/>
         <source>MESSENGER_SEND_BUTTON_MESSAGE_CTRL_ENTER</source>
         <translation></translation>
     </message>
@@ -1664,27 +1682,17 @@
 <context>
     <name>Messenger</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="119"/>
-        <source>MESSAGE_BODY_SUBSCRIPTION_INVITE_APPROVED</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="124"/>
-        <source>MESSENGER_SUBSCRIPTION_REQUEST_MESSAGE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="360"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="327"/>
         <source>MESSENGER_CONTACT_ITEM_PLAYING_STATUS_INFO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="373"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="340"/>
         <source>LAST_ACTIVITY_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="597"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="564"/>
         <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
         <translation></translation>
     </message>
@@ -2259,7 +2267,7 @@
 <context>
     <name>SecondAccountView</name>
     <message>
-        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="62"/>
+        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="60"/>
         <source>PREMIUM_ADD_ACCOUNT</source>
         <translation></translation>
     </message>
@@ -2269,12 +2277,12 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="123"/>
+        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="120"/>
         <source>SECOND_GAME_BLOCK_PREMIUM_PLAY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="139"/>
+        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="136"/>
         <source>SECOND_GAME_BLOCK_PREMIUM_PLAY_TULTIP</source>
         <translation></translation>
     </message>
@@ -2430,12 +2438,12 @@
 <context>
     <name>Subscription</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Plugins/Subscription/Subscription.js" line="12"/>
+        <location filename="../Application/Widgets/Messenger/Plugins/Subscription/Subscription.js" line="20"/>
         <source>MESSAGE_BODY_SUBSCRIPTION_INVITE_APPROVED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Plugins/Subscription/Subscription.js" line="17"/>
+        <location filename="../Application/Widgets/Messenger/Plugins/Subscription/Subscription.js" line="25"/>
         <source>MESSENGER_SUBSCRIPTION_REQUEST_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>

@@ -13,7 +13,7 @@ import "../../../../Core/Styles.js" as Styles
 
 Rectangle {
     anchors.fill: parent
-    color: Styles.style.detailedUserInfoBackground
+    color: Styles.style.popupBlockBackground
 
     Rectangle {
         anchors {
@@ -22,8 +22,9 @@ Rectangle {
             bottomMargin: 1
         }
         color: "#00000000"
+        opacity: Styles.style.blockInnerOpacity
         border {
-            color: Styles.style.detailedUserInfoBackgroundBorder
+            color: Styles.style.light
             width: 1
         }
     }

@@ -99,27 +99,26 @@ Item {
 
         anchors {
             fill: parent
-            rightMargin: 1 + 12
-            bottomMargin: 1 + 12
-            leftMargin: 1 + 12
-            topMargin: 13 + 8
+            rightMargin: 12
+            bottomMargin: 12
+            leftMargin: 12
+            topMargin: 12 + 12
         }
 
         Column {
             anchors.fill: parent
-            spacing: 10
+            spacing: 12
 
             GroupNameInput {
                 id: topicInput
 
                 width: parent.width
-                height: 29
+                height: 31
                 placeholder: qsTr("GROUP_EDIT_TOPIC_PLACEHOLDER") // "Название группы"
+                fontSize: 12
                 style {
-                    normal: Styles.style.messengerGroupEditInputNormal
-                    placeholder: Styles.style.messengerGroupEditInputPlaceholder
-                    text: Styles.style.messengerGroupEditInputText
-                    background: Styles.style.messengerGroupEditInputBackground
+                    placeholder: Styles.style.textBase
+                    text: Styles.style.chatButtonText
                 }
             }
 
@@ -133,7 +132,10 @@ Item {
                 ListView {
                     id: membersView
 
-                    anchors.fill: parent
+                    anchors {
+                        fill: parent
+                        leftMargin: -4
+                    }
                     boundsBehavior: Flickable.StopAtBounds
                     clip: true
 
@@ -156,33 +158,21 @@ Item {
                     }
                 }
 
-                ListViewScrollBar {
+                ContactsScrollBar {
                     id: scrollBar
 
-                    width: 7
-
+                    listView: membersView
                     anchors {
                         left: parent.right
                         leftMargin: 3
                     }
-
-                    visible: membersView.count > 7
-                    height: membersView.height
-                    listView: membersView
-                    cursorMaxHeight: membersView.height
-                    cursorMinHeight: 50
-                    color: Styles.style.messangerContactScrollBar
-                    cursorColor: Styles.style.messangerContactScrollBarCursor
-                    opacity: 0.5
-
-                    onMovingChanged: Messenger.setHeavyInteraction(moving)
                 }
             }
 
             CheckedButton {
                 id: saveButton
 
-                width: 139
+                width: 141
                 height: 31
 
                 anchors.horizontalCenter: parent.horizontalCenter

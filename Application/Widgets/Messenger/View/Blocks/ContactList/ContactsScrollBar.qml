@@ -7,14 +7,13 @@ import "../../../Models/Messenger.js" as Messenger
 ListViewScrollBar {
     id: scrollBar
 
-    width: 7
+    width: 6
     height: scrollBar.listView.height
     cursorMaxHeight: scrollBar.listView.height
     cursorMinHeight: 50
     cursorRadius: 4
     color: "#00000000"
-    cursorColor: Styles.style.contactScrollBar
-    opacity: 0.5
-
+    cursorColor: Styles.style.contentBackgroundLight
+    cursorOpacity: 0.1
     onMovingChanged: Messenger.setHeavyInteraction(moving)
 }

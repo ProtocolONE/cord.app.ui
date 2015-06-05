@@ -11,6 +11,7 @@
 import QtQuick 1.1
 
 import GameNet.Components.Widgets 1.0
+import Application.Controls 1.0
 
 import "../../../Core/App.js" as App
 import "../../../Core/Styles.js" as Styles
@@ -74,11 +75,8 @@ WidgetView {
         onFactsChanged: filter();
     }
 
-    Rectangle {
+    ContentBackground {
         anchors.fill: parent
-
-        opacity: Styles.style.baseBackgroundOpacity
-        color: Styles.style.contentBackgroundLight
     }
 
     Rectangle {

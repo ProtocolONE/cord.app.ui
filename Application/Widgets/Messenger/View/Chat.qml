@@ -26,10 +26,31 @@ import "./Blocks/Group" as GroupBlock
 WidgetView {
     id: root
 
+    function recheckInputSize() {
+        if (!root.model) {
+            return;
+        }
+
+        var minimumY = root.height - 250,
+            maximumY = root.height - 78;
+
+        if (separator.y < minimumY) {
+            separator.y = minimumY;
+            root.model.settings.chatBodyHeight = separator.y;
+        } else if (separator.y > maximumY) {
+            separator.y = maximumY;
+            root.model.settings.chatBodyHeight = separator.y;
+        }
+    }
+
     implicitWidth: parent.width
     implicitHeight: parent.height
 
     visible: MessengerJs.userSelected()
+
+    onVisibleChanged: root.recheckInputSize();
+    onModelChanged: root.recheckInputSize();
+    onHeightChanged: root.recheckInputSize();
 
     MouseArea {
         anchors.fill: parent
@@ -37,146 +58,138 @@ WidgetView {
         acceptedButtons: Qt.LeftButton | Qt.RightButton
     }
 
-    Rectangle {
+    ContentBackground {
         anchors.fill: parent
-        color: Styles.style.chatBodyBackground
-        //color: "red"
+        opacity: 1
     }
 
-    Item {
+    ChatDialog.Header {
+        id: header
+    }
+
+    ChatDialog.Body {
+        id: body
+
         anchors {
-            fill: parent
-            margins: 1
+            top: parent.top
+            topMargin: header.height
+            left: parent.left
+            right: parent.right
         }
 
-        ChatDialog.Header {
-            id: header
+        height: MessengerJs.isSelectedGamenet()
+                    ? (root.height - header.height - 2)
+                    : (separator.y - header.height)
+
+    }
+
+    ChatDialog.MessageInput {
+        id: messageInput
+
+        visible: !MessengerJs.isSelectedGamenet()
+        width: parent.width
+        anchors {
+            bottom: parent.bottom
+            top: body.bottom
         }
 
-        ChatDialog.Body {
-            id: body
+        onCloseDialogPressed: {
+            MessengerJs.closeChat();
+            MessengerJs.setSmilePanelVisible(false);
+        }
+        sendAction: !!model ? model.settings.sendAction : ""
 
-            anchors {
-                top: parent.top
-                topMargin: header.height
-                left: parent.left
-                right: parent.right
+        Connections {
+            target: MessengerJs.instance()
+            onSelectedUserChanged: {
+                if (messageInput.visible) {
+                    messageInput.forceActiveFocus();
+                }
             }
+        }
+    }
 
-            height: MessengerJs.isSelectedGamenet()
-                        ? (root.height - header.height - 2)
-                        : (separator.y - header.height)
+    CursorMouseArea {
+        id: separator
 
+        anchors { left: parent.left; right: parent.right }
+        height: 8
+
+        acceptedButtons: Qt.LeftButton
+        cursor: CursorArea.SizeVerCursor
+        visible: messageInput.visible
+        drag {
+            target: separator
+            axis: Drag.YAxis
+            minimumY: parent.height - 250
+            maximumY: parent.height - 78
         }
 
-        ChatDialog.MessageInput {
-            id: messageInput
+        onReleased: model.settings.chatBodyHeight = separator.y;
+        Component.onCompleted: separator.y = model.settings.chatBodyHeight;
+    }
 
-            visible: !MessengerJs.isSelectedGamenet()
-            width: parent.width
-            anchors {
-                bottom: parent.bottom
-                top: body.bottom
-            }
+    SmilesBlock.SmileButton {
+        id: smileButton
 
-            onCloseDialogPressed: {
-                MessengerJs.closeChat();
+        anchors {
+            right: parent.right
+            top: messageInput.top
+            rightMargin: 118
+            topMargin: 6 + 10
+        }
+        onClicked: MessengerJs.setSmilePanelVisible(true);
+    }
+
+    Component {
+        id: smilePanelComponent
+
+        SmilesBlock.SmilePanel {
+            id: smilePanel
+
+            onInsertSmile: {
+                messageInput.insertText(tag);
+                messageInput.forceActiveFocus();
                 MessengerJs.setSmilePanelVisible(false);
             }
-            sendAction: !!model ? model.settings.sendAction : ""
+            onCloseRequest: MessengerJs.setSmilePanelVisible(false);
 
             Connections {
-                target: MessengerJs.instance()
-                onSelectedUserChanged: {
-                    if (messageInput.visible) {
-                        messageInput.forceActiveFocus();
+                target: App.signalBus()
+                onLeftMousePress: {
+                    var posInItem = smilePanel.mapFromItem(rootItem, x, y);
+                    var contains = posInItem.x >= 0 && posInItem.y >=0
+                            && posInItem.x <= smilePanel.width && posInItem.y <= smilePanel.height;
+                    if (!contains) {
+                        MessengerJs.setSmilePanelVisible(false);
                     }
                 }
-            }
-        }
-
-        CursorMouseArea {
-            id: separator
-
-            anchors { left: parent.left; right: parent.right }
-            height: 8
-
-            acceptedButtons: Qt.LeftButton
-            cursor: CursorArea.SizeVerCursor
-            visible: messageInput.visible
-            drag {
-                target: separator
-                axis: Drag.YAxis
-                minimumY: parent.height - 250
-                maximumY: parent.height - 78
-            }
-
-            onReleased: model.settings.chatBodyHeight = separator.y;
-            Component.onCompleted: separator.y = model.settings.chatBodyHeight;
-        }
-
-        SmilesBlock.SmileButton {
-            id: smileButton
-
-            anchors {
-                right: parent.right
-                top: messageInput.top
-                rightMargin: 118 + 5 + 4
-                topMargin: 6 + 6 + 4
-            }
-            onClicked: MessengerJs.setSmilePanelVisible(true);
-        }
-
-        Component {
-            id: smilePanelComponent
-
-            SmilesBlock.SmilePanel {
-                id: smilePanel
-
-                onInsertSmile: {
-                    messageInput.insertText(tag);
-                    messageInput.forceActiveFocus();
-                    MessengerJs.setSmilePanelVisible(false);
-                }
-                onCloseRequest: MessengerJs.setSmilePanelVisible(false);
-
-                Connections {
-                    target: App.signalBus()
-                    onLeftMousePress: {
-                        var posInItem = smilePanel.mapFromItem(rootItem, x, y);
-                        var contains = posInItem.x >= 0 && posInItem.y >=0
-                                && posInItem.x <= smilePanel.width && posInItem.y <= smilePanel.height;
-                        if (!contains) {
-                            MessengerJs.setSmilePanelVisible(false);
-                        }
-                    }
-                }
-            }
-        }
-
-        Loader {
-            anchors {
-                bottom: smileButton.top
-                bottomMargin: 18
-                horizontalCenter: smileButton.horizontalCenter
-                horizontalCenterOffset: -10
-            }
-
-            sourceComponent: MessengerJs.smilePanelVisible() ? smilePanelComponent : null
-        }
-
-        GroupBlock.EditView {
-            visible: MessengerJs.editGroupModel().isActive()
-            anchors {
-                right: parent.right
-                rightMargin: 10
-                top: parent.top
-                topMargin: 60
             }
         }
     }
 
-    Rectangle {
+    Loader {
+        anchors {
+            bottom: smileButton.top
+            bottomMargin: 18
+            horizontalCenter: smileButton.horizontalCenter
+            horizontalCenterOffset: -10
+        }
+
+        sourceComponent: MessengerJs.smilePanelVisible() ? smilePanelComponent : null
+    }
+
+    GroupBlock.EditView {
+        visible: MessengerJs.editGroupModel().isActive()
+        anchors {
+            right: parent.right
+            rightMargin: 24
+            top: parent.top
+            topMargin: 60+6
+        }
+    }
+
+    Rectangle { // обводка
         anchors {
             fill: parent
             rightMargin: 1

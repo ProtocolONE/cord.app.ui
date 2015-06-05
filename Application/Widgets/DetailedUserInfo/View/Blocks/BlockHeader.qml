@@ -15,7 +15,7 @@ Rectangle {
 
     implicitWidth: parent.width
     implicitHeight: 35
-    color: Styles.style.detailedUserInfoBlockHeaderBackground
+    color: Styles.style.applicationBackground
 
     Text {
         id: captionText
@@ -26,6 +26,7 @@ Rectangle {
             verticalCenter: parent.verticalCenter
         }
 
+        color: Styles.style.lightText
         textFormat: Text.RichText
     }
 }

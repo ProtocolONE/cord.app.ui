@@ -122,6 +122,7 @@ Item {
                 GroupEdit.EditCheckBox {
                     checked: root.checked
                     visible: root.editMode
+                    containsMouse: mouser.containsMouse
                 }
             }
 

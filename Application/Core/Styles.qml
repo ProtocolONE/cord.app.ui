@@ -233,7 +233,7 @@ Item {
 
     // MESSENGER EDIT VIEW
     property color messengerGroupEditBorder: "#324e5e"
-    property color messengerGroupEditBackground: "#002336"
+    //property color messengerGroupEditBackground: "#002336"
 
     property color messengerGroupEditMemberItemHover: "#133345"
     property color messengerGroupEditMemberItemText: "#ffffff"
@@ -268,9 +268,9 @@ Item {
     property color messengerContactNickname: "#243148"
     property color messengerContactNicknameUnread: "#FAFAFA"
     property color messengerContactNicknameSelected: "#FAFAFA"
-    property color messengerContactPresenceOnline: "#1ABC9C"
-    property color messengerContactPresenceDnd: "#FFCC00"
-    property color messengerContactPresenceOffline: "#CCCCCC"
+    //property color messengerContactPresenceOnline: "#1ABC9C"
+    //property color messengerContactPresenceDnd: "#FFCC00"
+    //property color messengerContactPresenceOffline: "#CCCCCC"
     property color messengerContactStatusText: "#5B6F81"
     property color messangerContactScrollBar: "#F0F5F8"
     property color messangerContactScrollBarCursor: '#95999b'
@@ -411,12 +411,12 @@ Item {
     property color detailedUserInfoBlockHeaderBackground: "#002336"
     property color detailedUserInfoBlockHeaderText: "#7c99a9"
     property color detailedUserInfoBlockHeaderTextCount: "#FFFFFF"
-    property color detailedUserInfoGameCharsPlayingIcon: "#1abc9c"
+    //property color detailedUserInfoGameCharsPlayingIcon: "#1abc9c"
     property color detailedUserInfoGameCharsGameName: "#FFFFFF"
     property color detailedUserInfoGameCharsPlayingDate: "#7c99a9"
     property color detailedUserInfoGameCharsTableHeaderBackground: "#002336"
     property color detailedUserInfoGameCharsTableHeaderText: "#C07c99a9"
-    property color detailedUserInfoGameCharsTableFriendText: "#1abc9c"
+    //property color detailedUserInfoGameCharsTableFriendText: "#1abc9c"
     property color detailedUserInfoGameCharsTableNotFriendText: "#FFFFFF"
     property color detailedUserInfoGameCharsTableNotFriendClassText: "#7c99a9"
     property color detailedUserInfoGameCharsSplitter: "#002336"
@@ -471,16 +471,23 @@ Item {
     property color fieldText: "#363636"
 
     // Базовый фон самого рута приложения
-    property color applicationBackground: "red" //"#002336"
-    //property color applicationBackground: "#002336"
+    //property color applicationBackground: "red" //"#002336"
+    property color applicationBackground: "#002336" // bg
+    property color contentBackground: "#031d2b" // bg_blue​
     property color contentBackgroundDark: "#00111A" // bg_darkblue
-    property color contentBackgroundLight: "#031d2b" // bg_blue​
+    property color contentBackgroundLight: "#4ca8db" // bg_lightblue
+    property color popupBlockBackground: "#19384A" // названия нет, вероятно переименовать надо
+
     property color trayMenuHeaderBackground: "#0A1C26"
     property color trayMenuBorder: "#324E5E"
-    property color chatBodyBackground: "#19384A"
 
-    // Ползунок скрола в списках контактов
-    property color contactScrollBar: '#4ca8db'
+    // Конкретные цвета разных иконок
+    property color messengerContactPresenceOnline: "#1ABC9C"
+    property color messengerContactPresenceDnd: "#FFCC00"
+    property color messengerContactPresenceOffline: "#CCCCCC"
+
+    property color detailedUserInfoGameCharsPlayingIcon: "#1abc9c"
+    property color detailedUserInfoGameCharsTableFriendText: "#1abc9c"
 
     // End of GameNet 3.4
 

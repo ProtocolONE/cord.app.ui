@@ -2902,6 +2902,21 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>GroupCountButton</name>
+    <message>
+        <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_SINGLE</source>
+        <translation type="unfinished">участник</translation>
+    </message>
+    <message>
+        <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_DOUBLE</source>
+        <translation type="unfinished">участника</translation>
+    </message>
+    <message>
+        <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_MULTIPLE</source>
+        <translation type="unfinished">участников</translation>
+    </message>
+</context>
+<context>
     <name>GroupEditHeader</name>
     <message>
         <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_SINGLE</source>

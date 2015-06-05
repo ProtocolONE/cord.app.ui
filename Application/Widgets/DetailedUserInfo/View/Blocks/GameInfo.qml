@@ -73,8 +73,8 @@ Item {
                 template = translate['textMultiple'];
             }
 
-            return template.arg(Styles.style.detailedUserInfoBlockHeaderText + "")
-                .arg(Styles.style.detailedUserInfoBlockHeaderTextCount + "").arg(root.gameCount);
+            return template.arg(Styles.style.textBase + "")
+                .arg(Styles.style.lightText + "").arg(root.gameCount);
         }
 
         function isPlaying(gameId) {

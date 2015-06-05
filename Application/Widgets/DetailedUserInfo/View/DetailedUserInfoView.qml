@@ -301,7 +301,6 @@ WidgetView {
             statusColor: d.presenceStatusToColor(d.status)
         }
 
-
         NumberAnimation {
             id: showAnimation
 
@@ -364,10 +363,9 @@ WidgetView {
                         rightMargin: 3
                     }
                     height: parent.height
-                    scrollbarWidth: 7
+                    scrollbarWidth: 6
                     allwaysShown: true
                 }
-
 
             }
 
@@ -378,7 +376,7 @@ WidgetView {
 
                 opacity: (d.loading || d.isError) ? 1 : 0
                 visible: opacity > 0
-                color: Styles.style.detailedUserInfoBackground
+                color: Styles.style.popupBlockBackground
 
                 Wait {
                     id: waitProgres
@@ -397,7 +395,7 @@ WidgetView {
                         verticalCenter: parent.verticalCenter
                     }
 
-                    color: Styles.style.detailedUserInfoErrorText
+                    color: Styles.style.lightText
                     text: d.errorMessage
                     visible: !d.loading && d.isError
                     wrapMode: Text.WordWrap

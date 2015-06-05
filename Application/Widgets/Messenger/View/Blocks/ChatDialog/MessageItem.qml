@@ -44,7 +44,7 @@ Item {
 
         //Avatar
         Item {
-            width: 52
+            width: 110
             height: 32
 
             Item {
@@ -53,16 +53,14 @@ Item {
                 width: 32
                 height: 32
 
+                anchors {
+                    right: parent.right
+                    top: parent.top
+                    rightMargin: 12
+                }
+
                 Image {
                     id: avatarImage
-
-                    anchors {
-                        left: parent.left
-                        top: parent.top
-
-                        leftMargin: 10
-                        rightMargin: 10
-                    }
 
                     width: 32
                     height: 32
@@ -78,7 +76,7 @@ Item {
 
         //Message body
         Item {
-            width: 485
+            width: messageRow.width - 220
             height: messageContainer.height
 
             Item {
@@ -88,8 +86,7 @@ Item {
                     left: parent.left
                     top: parent.top
                     right: parent.right
-                    leftMargin: root.isSelfMessage ? 20 : 0
-                    rightMargin: 10
+                    leftMargin: root.isSelfMessage ? 30 : 0
                 }
 
                 height: messageColumn.height + 20
@@ -101,9 +98,9 @@ Item {
 
                     color: root.isSelfMessage ?
                                Styles.style.light :
-                               Styles.style.applicationBackground
+                               Styles.style.contentBackgroundLight
 
-                    opacity: root.isSelfMessage ? 0.05 : 0.5
+                    opacity: root.isSelfMessage ? 0.15 : 0.08
 
                     //Left-right arrow
                     // INFO из-за прозрачности приходиться отдельно вырезать треугольник.
@@ -178,7 +175,7 @@ Item {
                                                            serviceResolver: App.serviceItemByServiceId
                                                        })
 
-                        color: Styles.style.textBase
+                        color: root.isSelfMessage ? Styles.style.chatButtonText : Styles.style.textBase
                         font {
                             family: "Arial"
                             pixelSize: 12
@@ -193,7 +190,7 @@ Item {
 
         //Date
         Item {
-            width: 52
+            width: 110
             height: 30
 
             Text {
@@ -202,6 +199,8 @@ Item {
                 anchors {
                     top: parent.top
                     topMargin: 10
+                    left: parent.left
+                    leftMargin: 12
                 }
 
                 color: Styles.style.textTime

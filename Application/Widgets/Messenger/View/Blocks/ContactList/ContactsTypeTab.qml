@@ -18,6 +18,8 @@ Item {
     height: 30
 
     Button {
+        id: button
+
         anchors.fill: parent
         style {
             normal: "#00000000"
@@ -32,8 +34,12 @@ Item {
     Rectangle {
         anchors.fill: parent
         color: Styles.style.dark
-        opacity: 0.3
+        opacity: button.containsMouse ? 0.15 : 0.3
         visible: !root.selected
+
+        Behavior on opacity {
+            NumberAnimation { duration: 250}
+        }
     }
 
     Text {

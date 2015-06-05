@@ -44,7 +44,8 @@ Item {
 
         Rectangle {
             anchors.fill: parent
-            color: Styles.style.messengerGroupEditMemberItemHover
+            color: Styles.style.light
+            opacity: 0.1
             visible: parent.containsMouse
         }
 
@@ -99,7 +100,7 @@ Item {
 
                         width: parent.width
                         elide: Text.ElideRight
-                        color: Styles.style.messengerGroupEditMemberItemText
+                        color: Styles.style.menuText
 
                         font {
                             pixelSize: 14
@@ -115,14 +116,13 @@ Item {
                     Text {
                         id: statusText
 
-                        color: Styles.style.messengerGroupEditMemberItemStatusText
-
+                        color: Styles.style.textBase
                         width: parent.width
                         elide: Text.ElideRight
                         opacity: 0.5
 
                         font {
-                            pixelSize: 12
+                            pixelSize: 14
                             family: "Arial"
                         }
 
@@ -138,7 +138,7 @@ Item {
 
                     visible: mouser.containsMouse && root.canDelete
 
-                    width: 29
+                    width: 19
                     height: parent.height
 
                     ImageButton {

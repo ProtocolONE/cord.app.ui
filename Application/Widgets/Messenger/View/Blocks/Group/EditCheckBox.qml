@@ -6,21 +6,21 @@ import GameNet.Controls 1.0
 import "../../../Models/Messenger.js" as Messenger
 import "../../../../../Core/Styles.js" as Styles
 
-
 Item {
     id: root
 
     property bool checked: false
+    property bool containsMouse: false
 
-    width: 32
-    height: 32
+    implicitWidth: 32
+    implicitHeight: 32
 
     Item {
         anchors.fill: parent
         visible: !root.checked
 
         Rectangle {
-            color: Styles.style.messengerEditGroupCheckboxNotCheckedBackground
+            color: Styles.style.dark
             opacity: 0.68
             anchors.fill: parent
         }
@@ -36,11 +36,11 @@ Item {
             }
 
             border {
-                color: Styles.style.messengerEditGroupCheckboxNotCheckedBorder
+                color: Styles.style.light
                 width: 1
             }
 
-            opacity: 0.74
+            opacity: root.containsMouse ? 1 : 0.5
         }
     }
 
@@ -49,13 +49,12 @@ Item {
         visible: root.checked
 
         Rectangle {
-            color: Styles.style.messengerEditGroupCheckboxCheckedBackground
+            color: Styles.style.checkedButtonActive
             opacity: 0.68
             anchors.fill: parent
         }
 
-        Rectangle {
-            color: Styles.style.messengerEditGroupCheckboxCheckedCenterBackground
+        Item {
             anchors {
                 fill: parent
                 leftMargin: 8
@@ -64,12 +63,25 @@ Item {
                 bottomMargin: 9
             }
 
-            border {
-                color: Styles.style.messengerEditGroupCheckboxCheckedBorder
-                width: 1
+            Rectangle {
+                anchors.fill: parent
+                color: Styles.style.dark
+                opacity: 0.50
             }
 
-            opacity: 0.74
+            Rectangle {
+                color: "#00000000"
+                anchors {
+                    fill: parent
+                    rightMargin: 1
+                    bottomMargin: 1
+                }
+
+                border {
+                    color: Styles.style.checkedButtonActive
+                    width: 1
+                }
+            }
         }
 
         Image {

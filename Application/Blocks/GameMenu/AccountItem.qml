@@ -22,7 +22,7 @@ Item {
 
     AccountItemBottom {
         visible: root.activated
-        color: Styles.style.contentBackgroundLight
+        color: Styles.style.contentBackground
     }
 
     GameMenuItem {

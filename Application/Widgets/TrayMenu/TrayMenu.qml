@@ -13,6 +13,7 @@ import Tulip 1.0
 
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
+import Application.Controls 1.0
 
 import "../../Core/App.js" as App
 import "../../Core/Styles.js" as Styles
@@ -191,7 +192,7 @@ WidgetModel {
             }
 
             opacity: Styles.style.darkBackgroundOpacity
-            color: Styles.style.contentBackgroundLight
+            color: Styles.style.contentBackground
 
             Rectangle {
                 width: parent.width
@@ -231,8 +232,10 @@ WidgetModel {
                     interactive: false
                     spacing: isFullMenu ? 1 : 0
 
-                    delegate: Item {
-                        property bool isCurrent: mouseArea.containsMouse
+                    ContentBackground {
+                        anchors.fill: parent
+                        visible: isCurrent
+                    }
 
                         width: menuView.width
                         height: menuView.fullMenuAvailable(name) ? 28 : 0

@@ -61,18 +61,20 @@ Item {
         }
 
         Row {
-            anchors { fill: parent;  topMargin: 30}
+            anchors { fill: parent;  topMargin: 30 }
 
             Column {
                 width: 230;
                 height: parent.height;
 
                 WidgetContainer {
+                    id: userProfile
+
                     widget: 'UserProfile'
                 }
 
                 WidgetContainer {
-                    height: 478
+                    height: parent.height - userProfile.height
                     width: 230
                     widget: 'Messenger'
                     view: 'Contacts'

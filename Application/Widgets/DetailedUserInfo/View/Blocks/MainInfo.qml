@@ -10,6 +10,8 @@
 import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
+import Application.Controls 1.0
+
 import "../../../../Core/App.js" as App
 import "../../../../Core/restapi.js" as RestApi
 import "../../../../Core/Styles.js" as Styles
@@ -137,32 +139,14 @@ Item {
             height: 32
             visible: !d.isFriend
 
-            Button {
+            CheckedButton {
                 id: sendFriendRequestButton
 
                 visible: !d.isFriendRequestSended
-
                 anchors.fill: parent
+                checked: true
+                boldBorder: true
                 text: qsTr("DETAILED_USER_INFO_MAIN_INFO_REQUEST_BUTTON") // "Дружить"
-
-                style {
-                    normal: Styles.style.detailedUserInfoMainInfoFriendButtonNormal
-                    hover: Styles.style.detailedUserInfoMainInfoFriendButtonHover
-                }
-
-                Rectangle {
-                    anchors {
-                        fill: parent
-                        margins: 1
-                    }
-
-                    color: "#00000000"
-                    border {
-                        width: 2
-                        color: Styles.style.detailedUserInfoMainInfoFriendButtonBorder
-                    }
-                }
-
                 onClicked: d.sendFriendRequest();
             }
 
@@ -175,7 +159,7 @@ Item {
                     family: "Arial"
                     pixelSize: 12
                 }
-                color: Styles.style.detailedUserInfoMainInfoFriendRequestStatus
+                color: Styles.style.lightText
             }
         }
     }
@@ -205,7 +189,7 @@ Item {
                         pixelSize: 14
                     }
 
-                    color: Styles.style.detailedUserInfoMainInfoFIO
+                    color: Styles.style.lightText
                     visible: !!text
                 }
 
@@ -218,7 +202,7 @@ Item {
                         pixelSize: 12
                     }
 
-                    color: Styles.style.detailedUserInfoMainInfoSubInfo
+                    color: Styles.style.textBase
                     visible: !!text
                 }
 
@@ -231,7 +215,7 @@ Item {
                         pixelSize: 12
                     }
 
-                    color: Styles.style.detailedUserInfoMainInfoSubInfo
+                    color: Styles.style.textBase
                     visible: !!text
                 }
             }
@@ -265,7 +249,7 @@ Item {
                                 pixelSize: 12
                             }
 
-                            color: Styles.style.detailedUserInfoMainInfoLevel
+                            color: Styles.style.lightText
                             text: root.level
                         }
 
@@ -275,7 +259,7 @@ Item {
                                 pixelSize: 12
                             }
 
-                            color: Styles.style.detailedUserInfoMainInfoLevelTitle
+                            color: Styles.style.textBase
                             text: qsTr("DETAILED_USER_INFO_MAIN_INFO_LEVEL") // " уровень"
                         }
                     }
@@ -291,8 +275,8 @@ Item {
                         width: 100
                         height: 2
                         style {
-                            background: Styles.style.detailedUserInfoMainInfoLevelProgressBackground
-                            line: Styles.style.detailedUserInfoMainInfoLevelProgressLine
+                            background: Styles.style.applicationBackground
+                            line: Styles.style.detailedUserInfoMainInfoLevelProgressLine // UNDONE
                         }
                     }
                 }
@@ -317,7 +301,7 @@ Item {
                                 pixelSize: 12
                             }
 
-                            color: Styles.style.detailedUserInfoMainInfoRating
+                            color: Styles.style.lightText
                             text: root.rating
 
                             CursorMouseArea {
@@ -333,7 +317,7 @@ Item {
                                 pixelSize: 12
                             }
 
-                            color: Styles.style.detailedUserInfoMainInfoRatingTitle
+                            color: Styles.style.textBase
                             text: qsTr("DETAILED_USER_INFO_MAIN_INFO_RATING") // " место"
                         }
                     }
@@ -355,7 +339,7 @@ Item {
                         pixelSize: 12
                     }
 
-                    color: Styles.style.detailedUserInfoMainInfoAchievementTitle
+                    color: Styles.style.textBase
                     textFormat: Text.RichText
                     text: qsTr("DETAILED_USER_INFO_MAIN_INFO_ACHIEVEMENT") // "Награды и достижения "
                 }
@@ -367,7 +351,7 @@ Item {
                     }
 
                     textFormat: Text.RichText
-                    color: Styles.style.detailedUserInfoMainInfoAchievementTitle
+                    color: Styles.style.textBase
                     text: "("
                 }
 
@@ -377,7 +361,7 @@ Item {
                         pixelSize: 12
                     }
 
-                    color: Styles.style.detailedUserInfoMainInfoAchievement
+                    color: Styles.style.lightText
                     textFormat: Text.RichText
                     text: root.countAchievements
 
@@ -395,7 +379,7 @@ Item {
                         pixelSize: 12
                     }
 
-                    color: Styles.style.detailedUserInfoMainInfoAchievementTitle
+                    color: Styles.style.textBase
                     textFormat: Text.RichText
                     text: ")"
                 }

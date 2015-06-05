@@ -11,7 +11,11 @@ import "../Core/App.js" as App
 Item {
     id: root
 
-    anchors.fill: parent
+    anchors {
+        fill: parent
+        topMargin: 30
+        leftMargin: 231
+    }
 
     QtObject {
         id: d
@@ -20,36 +24,8 @@ Item {
         property bool isDetailedInfoOpened: userInfo.viewInstance.isOpened();
     }
 
-    Rectangle {
-        color: Styles.style.contentBackgroundDark
-        opacity: Styles.style.darkBackgroundOpacity
-        height: 560
-        visible: d.isChatOpen && !d.isDetailedInfoOpened
-
-        anchors {
-            right: parent.right
-            left: parent.left
-            leftMargin: 230
-            bottom: parent.bottom
-        }
-
-        CursorMouseArea {
-            anchors.fill: parent
-            hoverEnabled: true
-            cursor: CursorArea.ArrowCursor
-            onClicked: MessengerJs.closeChat()
-        }
-    }
-
     WidgetContainer {
-        anchors {
-            left: parent.left
-            leftMargin: 230+1
-            bottom: parent.bottom
-        }
-
-        height: 560
-        width: 590
+        anchors.fill: parent
         widget: 'Messenger'
         view: 'Chat'
     }
@@ -57,15 +33,8 @@ Item {
     Rectangle {
         color: Styles.style.contentBackgroundDark
         opacity: Styles.style.darkBackgroundOpacity
-        height: 560
         visible: d.isDetailedInfoOpened
-
-        anchors {
-            right: parent.right
-            left: parent.left
-            leftMargin: 230
-            bottom: parent.bottom
-        }
+        anchors.fill: parent
 
         CursorMouseArea {
             anchors.fill: parent
@@ -80,11 +49,10 @@ Item {
 
         anchors {
             left: parent.left
-            leftMargin: 230
             bottom: parent.bottom
         }
 
-        height: 560
+        height: parent.height
         width: 353
         widget: 'DetailedUserInfo'
         view: 'DetailedUserInfoView'
