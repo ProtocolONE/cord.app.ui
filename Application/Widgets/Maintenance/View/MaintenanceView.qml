@@ -135,8 +135,12 @@ WidgetView {
                     gameItem: root.gameItem ? App.serviceItemByServiceId(App.currentGame().maintenanceProposal1) : null
 
                     onActivate: {
-                        App.navigate('mygame');
                         App.activateGameByServiceId(serviceItem.serviceId);
+                        App.navigate('mygame');
+
+                        if (serviceItem.gameType === "browser") {
+                            App.downloadButtonStart(serviceItem.serviceId);
+                        }
 
                         GoogleAnalytics.trackEvent('/Maintenance/',
                                     'Game ' + root.gameItem.gaName,
@@ -149,8 +153,12 @@ WidgetView {
                     gameItem: root.gameItem ? App.serviceItemByServiceId(App.currentGame().maintenanceProposal2) : null
 
                     onActivate: {
-                        App.navigate('mygame');
                         App.activateGameByServiceId(serviceItem.serviceId);
+                        App.navigate('mygame');
+
+                        if (serviceItem.gameType === "browser") {
+                            App.downloadButtonStart(serviceItem.serviceId);
+                        }
 
                         GoogleAnalytics.trackEvent('/Maintenance/',
                                     'Game ' + root.gameItem.gaName,

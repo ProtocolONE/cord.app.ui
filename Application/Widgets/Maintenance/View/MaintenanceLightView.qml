@@ -171,7 +171,12 @@ WidgetView {
                         App.navigate('mygame');
 
                         if (proposalRect.proposalGameItem) {
-                            App.activateGameByServiceId(proposalRect.proposalGameItem.serviceId);
+                            var serviceId = proposalRect.proposalGameItem.serviceId;
+                            App.activateGameByServiceId(serviceId);
+
+                            if (proposalRect.proposalGameItem.gameType === "browser") {
+                                App.downloadButtonStart(serviceId);
+                            }
                         }
 
                         GoogleAnalytics.trackEvent('/Maintenance/',
