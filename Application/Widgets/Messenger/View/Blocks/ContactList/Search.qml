@@ -28,7 +28,7 @@ FocusScope {
         id: background
 
         anchors.fill: parent
-        color: "#4ca8db"
+        color: Styles.style.contentBackgroundLight
         opacity: 0.15
     }
 

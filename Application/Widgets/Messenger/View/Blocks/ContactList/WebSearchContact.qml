@@ -29,37 +29,33 @@ Item {
     }
 
     Rectangle {
-        id: background
-
-        anchors.fill: parent
-        opacity: Styles.style.baseBackgroundOpacity
-        color: root.isActive ? Styles.style.messengerContactBackgroundSelected :
-                               "#00000000"
+        anchors {
+            fill: parent
+            leftMargin: 2
+            rightMargin: 7
+        }
+        color: Styles.style.light
+        opacity: 0.1
+        visible: root.isActive
     }
 
     Rectangle {
         anchors {
             fill: parent
-            margins: 4
-            rightMargin: 14
+            topMargin: 1
+            leftMargin: 3
+            rightMargin: 9
+            bottomMargin: 2
         }
 
         color: "#00000000"
 
+        opacity: 0.25
         border {
             width: 1
-            color: Styles.style.messengerContactBackgroundHightlighted
+            color: Styles.style.light
         }
-        visible: root.isHighlighted && !root.isActive
-    }
-
-    Rectangle {
-        id: upperDelimiter
-
-        height: 1
-        width: parent.width
-        color: Qt.lighter(background.color, Styles.style.lighterFactor)
-        anchors.top: parent.top
+        visible: root.isHighlighted
     }
 
     Item {
@@ -100,8 +96,7 @@ Item {
                     width: parent.width - 40
                     elide: Text.ElideRight
                     text: root.nickname
-                    color: root.isActive ? Styles.style.messengerContactNicknameSelected :
-                                           Styles.style.messengerContactNickname
+                    color: Styles.style.menuText
                 }
 
                 TextButton {
@@ -113,9 +108,9 @@ Item {
 
                     visible: !root.isInContacts
                     style {
-                        normal: "#3498db"
-                        hover: "#3670DC"
-                        disabled: "#3498db"
+                        normal: Styles.style.linkText
+                        hover: Styles.style.linkText
+                        disabled: Styles.style.linkText
                     }
 
                     font.family: 'Tahoma'
@@ -146,17 +141,8 @@ Item {
             text: root.charsText
             wrapMode: Text.WordWrap
             width: parent.width
-            color: root.isActive ? Styles.style.messengerContactNicknameSelected :
-                                   Styles.style.messengerContactNickname
+            color: Styles.style.textBase
         }
     }
 
-    Rectangle {
-        id: bottomDelimiter
-
-        height: 1
-        width: parent.width
-        color: Qt.darker(background.color, Styles.style.darkerFactor)
-        anchors.bottom: parent.bottom
-    }
 }

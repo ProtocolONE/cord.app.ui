@@ -207,42 +207,7 @@ Item {
     property color contextMenuItemTextNormal: "#a1c1d2"
     property color contextMenuItemTextHover: "#a1c1d2"
 
-    //MESSENGER BUTTONS STYLE
-    property color messengerActiveButtonBorder: "#1abc9c"
-    property color messengerActiveButtonNormal: "#481abc9c"
-    property color messengerActiveButtonHover: "#1abc9c"
-    property color messengerActiveButtonDisabled: "#00000000"
-
-    property color messengerInactiveButtonBorder: "#24475a"
-    property color messengerInactiveButtonNormal: "#00000000"
-    property color messengerInactiveButtonHover: "#1abc9c"
-    property color messengerInactiveButtonDisabled: "#00000000"
-
-    //MESSENGER CONTEXT MENU
-    property color messengerContextMenuBackground: "#19384a"
-    property color messengerContextMenuBorder: "#324e5e"
-    property color messengerContextMenuItemHover: "#002336"
-    property color messengerContextMenuItemTextNormal: "#a1c1d2"
-    property color messengerContextMenuItemTextHover: "#a1c1d2"
-
-    //MESSENGER GROUP EDIT INPUT
-    property color messengerGroupEditInputNormal: "#324e5e"
-    property color messengerGroupEditInputPlaceholder: "#517284"
-    property color messengerGroupEditInputText: "#ffffff"
-    property color messengerGroupEditInputBackground: "#183240"
-
-    // MESSENGER EDIT VIEW
-    property color messengerGroupEditBorder: "#324e5e"
-    //property color messengerGroupEditBackground: "#002336"
-
-    property color messengerGroupEditMemberItemHover: "#133345"
-    property color messengerGroupEditMemberItemText: "#ffffff"
-    property color messengerGroupEditMemberItemStatusText: "#a1c1d2"
-
     //MESSENGER SEARCH
-    property color messengerSearchBackground: "#324e5e"
-    property color messengerSearchButtonNormal: "#1ABC9C"
-    property color messengerSearchButtonHover: "#019074"
     property color messengerSearchInputNormal: "#3e7090"
     property color messengerSearchInputActive: "#3e7090"
     property color messengerSearchInputHover: "#3e7090"
@@ -252,118 +217,9 @@ Item {
     property color messengerSearchInputText: "#3e7090"
     property color messengerSearchInputTextHover: "#ffffff"
 
-    property color messengerWebSearchBackground: '#ffffff'
-    property color messengerWebSearchBackgroundText: '#ffffff'
-
-    //MESSENGER SPLASH
-    property color messengerSplashTransparentBackground: "#88243148"
-    property color messengerSplashSolidBackground: "#243148"
-    property color messengerSplashStatus: "#3498db"
-
-    //MESSENGER CONTACT
-    property color messengerContactBackground: "#FAFAFA"
-    property color messengerContactBackgroundUnread: "#189A19"
-    property color messengerContactBackgroundSelected: "#243148"
-    property color messengerContactBackgroundHightlighted: "#7d7d7d"
-    property color messengerContactNickname: "#243148"
-    property color messengerContactNicknameUnread: "#FAFAFA"
-    property color messengerContactNicknameSelected: "#FAFAFA"
-    //property color messengerContactPresenceOnline: "#1ABC9C"
-    //property color messengerContactPresenceDnd: "#FFCC00"
-    //property color messengerContactPresenceOffline: "#CCCCCC"
-    property color messengerContactStatusText: "#5B6F81"
-    property color messangerContactScrollBar: "#F0F5F8"
-    property color messangerContactScrollBarCursor: '#95999b'
-
-    //MESSENGER CONTACT GROUP
-    property color messengerContactGroupBackground: "#E5E9EC"
-    property color messengerContactGroupName: "#8297a9"
-    property color messengerContactGroupUnread: "#FAFAFA"
-    property color messengerContactGroupUnreadBackground: "#189A19"
-
-    //MESSENGER RECENT CONTACT GROUP
-    property color messengerRecentContactGroupBackground: "#E5E9EC"
-    property color messengerRecentContactGroupName: "#8297a9"
-    property color messengerRecentContactEmptyInfo: "#000000"
-
-    //MESSENGER PLAYING GAME CONTACT GROUP
-    property color messengerPlayingContactEmptyInfo: "#000000"
-    property color messengerPlayingContactFilterNormal: "#FF4F02"
-    property color messengerPlayingContactFilterHover: "#FF7902"
-    property color messengerPlayingContactFilterDisabled: "#FF4F02"
-    property color messengerPlayingContactFilterActive: "#FF4F02"
-
-    //MESSENGER CONTACT INPUT
-    property color messengerMessageInputBackground: "#19384A"
-    property color messengerMessageInputBorder: "#b2b2b2"
-    property color messengerMessageInputTextBackground: "#002336"
-    property color messengerMessageInputText: "#252932"
-    property color messengerMessageInputSendButtonText: "#FAFAFA"
-    property color messengerMessageInputSendHotkeyText: "#8596A6"
-    property color messengerMessageInputPin: '#8badbb'
-
-    // MESSENGER CONTACT FILTER
-    property color messengerContactFilterBorder: "#24475a"
-    property color messengerContactFilterSelectedButtonNormal: "#00000000"
-    property color messengerContactFilterSelectedButtonHover: "#00000000"
-    property color messengerContactFilterSelectedButtonDisabled: "#00000000"
-    property color messengerContactFilterUnselectedButtonNormal: "#C0133345"
-    property color messengerContactFilterUnselectedButtonHover: "#19384a"
-    property color messengerContactFilterUnselectedButtonDisabled: "#C0133345"
-    property color messengerContactFilterDisabledButtonText: "#FFFFFFFF"
-    property color messengerContactFilterButtonText: "#80a1c1d2"
-    property color messengerContactFilterHoverButtonText: "#C0a1c1d2"
-
-    //MESSENGER CHAT DIALOG HEADER
-    property color messengerChatDialogHeaderBackground: "#253149"
-    property color messengerChatDialogHeaderNicknameText: "#FAFAFA"
-
-    //MESSENGER CHAT DIALOG BODY
-    property color messengerChatDialogBodyBackground: "#19384A"
-    property color messengerChatDialogHyperlinkColor: '#3498db'
-    property color messangerChatDialogScrollBar: "#F0F5F8"
-    property color messangerChatDialogScrollBarCursor: '#95999b'
-    property color messengerChatDialogBodySection: "#324E5E"
-    property color messengerChatDialogBorder: "#324e5e"
-
-    //MESSENGER CHAT HISTORY
-    property color messengerChatDialogHistoryNavigateButtonNormal: "#3498db"
-    property color messengerChatDialogHistoryNavigateButtonHover: "#3670DC"
-    property color messengerChatDialogHistoryNavigateButtonDisabled: "#888888"
-
-    //MESSENGER MESSAGE ITEM
-    property color messengerChatDialogMessageNicknameText: "#FFFFFF"
-    property color messengerChatDialogMessageDateText: "#A4B0BA"
-    property color messengerChatDialogMessageText: "#5B6F81"
-    property color messengerChatDialogMessageStatusText: "#A4B0BA"
-    property color messengerChatDialogMessageSelfText: "#254253"
-    property color messengerChatDialogMessageCompanionText: "#0D2E40"
-    property color messengerChatDialogMessageDateSectionText: "#577889"
-
-    //MESSENGER CONTACTS
-    property color messengerContactsBackground: "#EEEEEE"
-
-    //MESSENGER CONTACTS TABS
-    property color messengerContactsTabSelected: "#E5E9EC"
-    property color messengerContactsTabNormal: "#898b8d"
-    property color messengerContactsTabHover: "#444546"
-    property color messengerContactsTabText: "#8297a9"
-
-    property color messengerRecentContactsUnreadIcon: "#189A19"
-
     // MESSENGER GAMENET NOTIFICATION
     property color messengerGameNetNotificationTextBackground: "#FD4C01"
     property color messengerGameNetNotificationText: "#FFFFFF"
-
-    //MESSENGER EMPTY CONTACTS INFO
-    property color messengerEmptyContactListInfoBackground: "#EEEEEE"
-
-    //MESSENGER EDIT GROUP CHECKBOX
-    property color messengerEditGroupCheckboxNotCheckedBackground: "#000000"
-    property color messengerEditGroupCheckboxNotCheckedBorder: "#FFFFFF"
-    property color messengerEditGroupCheckboxCheckedBackground: "#1abc9c"
-    property color messengerEditGroupCheckboxCheckedCenterBackground: "#1d5248"
-    property color messengerEditGroupCheckboxCheckedBorder: "#1d5248"
 
     // Smile panel
     property color messengerSmilePanelBackground: "#001f30"
@@ -372,14 +228,13 @@ Item {
     property color messengerSmilePanelSubstrate: "#19384a"
     property color messengerSmileChatButtonHover: "#1abc9c"
 
-    //GRID
+    //GRID INFO !!! эти стили к мессенджеру отношения не имеют
     property color messangerGridBackground: '#000c13'
     property color messengerAllButtonGridHover: "#113344"
     property color messengerAllButtonGridTextHover: "#f3d173"
     property color messengerAllButtonGridTextNormal: "#ff6555"
     property color messengerGameItemText: '#ddc071'
     property color messengerGameItemTextNormal: '#ffffff'
-
     property color messengerGridBackgroud: '#092135'
     property color messengerGridHightlight: '#dec37b'
     property color messengerGridProgressRect: '#247f71'
@@ -402,39 +257,6 @@ Item {
     property string gameMenuSettingsIcon: "Assets/Images/Application/Blocks/GameMenu/Settings.png"
     property string gameMenuExtendedAccIcon: "Assets/Images/Application/Blocks/GameMenu/Accounts.png"
     property string gameMenuAccessIcon: "Assets/Images/Application/Blocks/GameMenu/Access.png" //INFO GN-8631
-
-    // DETAILED USER INFO
-    property color detailedUserInfoBackground: "#19384a"
-    property color detailedUserInfoErrorText: "#FFFFFF"
-    property color detailedUserInfoHeaderBackground: "#002336"
-    property color detailedUserInfoHeaderText: "#FFFFFF"
-    property color detailedUserInfoBackgroundBorder: "#324e5e"
-    property color detailedUserInfoBlockHeaderBackground: "#002336"
-    property color detailedUserInfoBlockHeaderText: "#7c99a9"
-    property color detailedUserInfoBlockHeaderTextCount: "#FFFFFF"
-    //property color detailedUserInfoGameCharsPlayingIcon: "#1abc9c"
-    property color detailedUserInfoGameCharsGameName: "#FFFFFF"
-    property color detailedUserInfoGameCharsPlayingDate: "#7c99a9"
-    property color detailedUserInfoGameCharsTableHeaderBackground: "#002336"
-    property color detailedUserInfoGameCharsTableHeaderText: "#C07c99a9"
-    //property color detailedUserInfoGameCharsTableFriendText: "#1abc9c"
-    property color detailedUserInfoGameCharsTableNotFriendText: "#FFFFFF"
-    property color detailedUserInfoGameCharsTableNotFriendClassText: "#7c99a9"
-    property color detailedUserInfoGameCharsSplitter: "#002336"
-    property color detailedUserInfoMainInfoFIO: "#FFFFFF"
-    property color detailedUserInfoMainInfoSubInfo: "#7c99a9"
-    property color detailedUserInfoMainInfoLevel: "#FFFFFF"
-    property color detailedUserInfoMainInfoLevelTitle: "#7c99a9"
-    property color detailedUserInfoMainInfoLevelProgressLine: "#1abc9c"
-    property color detailedUserInfoMainInfoLevelProgressBackground: "#002336"
-    property color detailedUserInfoMainInfoRating: "#FFFFFF"
-    property color detailedUserInfoMainInfoRatingTitle: "#7c99a9"
-    property color detailedUserInfoMainInfoAchievement: "#FFFFFF"
-    property color detailedUserInfoMainInfoAchievementTitle: "#7c99a9"
-    property color detailedUserInfoMainInfoFriendButtonNormal: "#1d5248"
-    property color detailedUserInfoMainInfoFriendButtonHover: "#1abc9c"
-    property color detailedUserInfoMainInfoFriendButtonBorder: "#1abc9c"
-    property color detailedUserInfoMainInfoFriendRequestStatus: "#FFFFFF"
 
     // GameNet 3.4
     property double baseBackgroundOpacity: 0.75
@@ -498,8 +320,12 @@ Item {
     property color messengerContactPresenceDnd: "#FFCC00"
     property color messengerContactPresenceOffline: "#CCCCCC"
 
+    property color messengerRecentContactsUnreadIcon: "#189A19"
+
     property color detailedUserInfoGameCharsPlayingIcon: "#1abc9c"
     property color detailedUserInfoGameCharsTableFriendText: "#1abc9c"
+
+    property color detailedUserInfoMainInfoLevelProgressLine: "#1abc9c"
 
     // End of GameNet 3.4
 

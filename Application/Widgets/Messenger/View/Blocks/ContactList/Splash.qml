@@ -26,11 +26,10 @@ Item {
     }
 
     Text {
-        color: Qt.darker(Styles.style.messengerSplashStatus, Styles.style.darkerFactor)
+        color: Styles.style.textBase
         text: root.text
-        font {
-            pixelSize: 14
-        }
+        font.pixelSize: 14
+
         anchors {
             top: waitImage.bottom
             topMargin: 15

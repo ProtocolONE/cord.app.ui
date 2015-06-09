@@ -4,7 +4,7 @@ import GameNet.Controls 1.0
 import Application.Controls 1.0
 
 import "../../../../../../Core/Styles.js" as Styles
-
+import "../../ContactList"
 Item {
     id: root
 
@@ -36,18 +36,17 @@ Item {
             right: root.right
         }
         height: root.height
-        width: 7
+        width: 6
         listView: gridView
         cursorMaxHeight: root.height
         cursorMinHeight: 50
-        color: Styles.style.messangerChatDialogScrollBar
-        cursorColor: Styles.style.messangerChatDialogScrollBarCursor
+        color: "#00000000"
+        cursorColor: Styles.style.contentBackgroundLight
+        cursorOpacity: 0.1
     }
 
-    Rectangle {
-        anchors.bottom: parent.bottom
-        width: 1
+ // UNDONE чуйка есть что нужно положить 1 бордер вокруг всего контрола а не так дрочиться
+    ContentStroke {
         height: parent.height
-        color: Styles.style.messengerSmilePanelBorder
     }
 }
