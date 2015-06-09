@@ -189,17 +189,5 @@ WidgetView {
         }
     }
 
-    Rectangle { // обводка
-        anchors {
-            fill: parent
-            rightMargin: 1
-            bottomMargin: 1
-        }
-        color: "#00000000"
-        opacity: Styles.style.blockInnerOpacity
-        border {
-            width: 1
-            color: Styles.style.light
-        }
-    }
+    ContentThinBorder {}
 }

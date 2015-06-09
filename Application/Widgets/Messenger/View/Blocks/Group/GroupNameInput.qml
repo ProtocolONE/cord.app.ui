@@ -11,6 +11,7 @@ import QtQuick 1.1
 import Tulip 1.0
 
 import GameNet.Controls 1.0
+import Application.Controls 1.0
 import "../../../../../Core/Styles.js" as Styles
 
 Item {
@@ -43,20 +44,7 @@ Item {
         opacity: 0.2
     }
 
-    Rectangle {
-        anchors {
-            fill: parent
-            rightMargin: 1
-            bottomMargin: 1
-        }
-        border {
-            color: Styles.style.light
-            width: 1
-        }
-
-        color: "#00000000"
-        opacity: Styles.style.blockInnerOpacity
-    }
+    ContentThinBorder {}
 
     MouseArea {
         id: mouseArea

@@ -260,18 +260,12 @@ WidgetView {
         }
     }
 
-    Rectangle {
-        width: 1
+    ContentStroke {
         height: parent.height
-        color: Styles.style.light
-        opacity: Styles.style.blockInnerOpacity
     }
 
-    Rectangle {
+    ContentStroke {
         anchors.right: parent.right
-        width: 1
         height: parent.height
-        color: Styles.style.light
-        opacity: Styles.style.blockInnerOpacity
     }
 }

@@ -60,7 +60,7 @@ WidgetView {
 
         Text {
             text: root.unreadMessageCount
-            color: Styles.style.messengerGameNetNotificationText
+            color: Styles.style.menuText
             anchors.centerIn: parent
         }
 

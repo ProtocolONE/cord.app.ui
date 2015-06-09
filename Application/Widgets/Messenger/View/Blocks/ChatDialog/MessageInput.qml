@@ -414,21 +414,7 @@ FocusScope {
                 }
             }
 
-            Rectangle {
-                anchors {
-                    fill: parent
-                    rightMargin: 1
-                    bottomMargin: 1
-                }
-
-                color: "#00000000"
-                border {
-                    color: Styles.style.light
-                    width: 1
-                }
-
-                opacity: Styles.style.blockInnerOpacity
-            }
+            ContentThinBorder {}
         }
 
         Item {

@@ -223,22 +223,11 @@ Item {
         ,
         State {
             name: "MyGames"
-
             PropertyChanges { target: centralBlockLoader; sourceComponent: myGamesComponent}
-            PropertyChanges { target: header; parent: layer1headerContair}
-            PropertyChanges { target: myGamesMenu; parent: layer2Col1}
-            PropertyChanges { target: centralBlockLoader; parent: layer1Col2}
-            PropertyChanges { target: userProfile; parent: layer2Col2}
-            PropertyChanges { target: contactList; parent: layer2Col2}
         },
         State {
             name: "Themes"
-
             PropertyChanges { target: centralBlockLoader; sourceComponent: themes}
-            PropertyChanges { target: header; parent: layer1headerContair}
-            PropertyChanges { target: centralBlockLoader; parent: layer1Col1}
-            PropertyChanges { target: userProfile; parent: layer2Col2}
-            PropertyChanges { target: contactList; parent: layer2Col2}
         }
 
     ]

@@ -16,10 +16,7 @@ Item {
 
     Item {
         anchors {
-            top: parent.top
-            bottom: parent.bottom
-            left: parent.left
-            right: parent.right
+            fill: parent
             topMargin: 10
             bottomMargin: 11
             leftMargin: 20

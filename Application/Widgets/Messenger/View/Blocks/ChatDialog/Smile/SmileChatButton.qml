@@ -16,11 +16,17 @@ Item {
     height: 30
 
     Rectangle {
-        id: hoverRect
+        anchors {
+            fill: parent
+            rightMargin: 1
+            bottomMargin: 1
+        }
 
-        anchors.fill: parent
-        color: Styles.style.messengerSmilePanelHover
-        border.color: Styles.style.messengerSmileChatButtonHover
+        color: "#00000000"
+        border {
+            width: 1
+            color: Styles.style.checkedButtonActive
+        }
         visible: mouseArea.containsMouse
     }
 

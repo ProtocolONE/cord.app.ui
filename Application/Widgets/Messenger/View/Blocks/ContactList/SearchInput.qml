@@ -23,18 +23,7 @@ Item {
     property alias placeholder: placeholderText.text
     property alias maximumLength: inputBehavior.maximumLength
 
-    property int fontSize: 16
-    property InputStyleColors style: InputStyleColors {
-        property color textNormal: "#3e7090"
-        property color textActive: "#ffffff"
-        property color backgroundActive: '#183240'
-    }
-
     property alias icon: iconImage.source
-    property alias iconBackground: controlIcon.color
-    property bool iconHovered: iconMouseArea.containsMouse
-    property alias iconCursor: iconMouseArea.cursor
-
     property bool clearOnEsc: false
 
     signal iconClicked()
@@ -49,11 +38,23 @@ Item {
     }
 
     Rectangle {
+        anchors.fill: parent
+        color: Styles.style.dark
+        opacity: 0.3
+        visible: mouseArea.containsMouse || clearMouseArea.containsMouse
+    }
+
+    Rectangle {
         id: controlBorder
 
-        anchors { fill: parent; margins: 1 }
+        anchors {
+            fill: parent
+            rightMargin: 1
+            bottomMargin: 1
+        }
         color: "#00000000"
-        border { width: 2; color: root.style.normal }
+        radius: 1
+        border { width: 1; color: Styles.style.searchBorder }
 
         Behavior on border.color {
             ColorAnimation { duration: 300 }
@@ -67,13 +68,12 @@ Item {
         hoverEnabled: true
         onClicked: inputBehavior.forceActiveFocus();
 
-        Rectangle {
+        Item {
             id: controlIcon
 
             visible: root.icon != ""
-            width: root.icon != "" ? parent.height : 0
+            width: root.icon != "" ? 23 : 0
             height: parent.height
-            color: "#00000000"
 
             anchors {
                 left: parent.left
@@ -115,9 +115,9 @@ Item {
                     verticalCenter: parent.verticalCenter
                 }
 
-                color: Styles.style.textBase
+                color: Styles.style.textTime
                 elide: Text.ElideRight
-                font { family: "Arial"; pixelSize: root.fontSize }
+                font { family: "Arial"; pixelSize: 12 }
 
                 visible: inputBehavior.text.length == 0
             }
@@ -125,8 +125,8 @@ Item {
             InputBehaviour {
                 id: inputBehavior
 
-                color: style.text
-                fontSize: root.fontSize
+                color: Styles.style.chatButtonText
+                fontSize: 12
                 anchors {
                     left: parent.left
                     right: parent.right
@@ -201,7 +201,7 @@ Item {
             NumberAnimation { duration: 100 }
         }
 
-        MouseArea {
+        CursorMouseArea {
             id: clearMouseArea
 
             anchors.fill: parent
@@ -209,34 +209,5 @@ Item {
 
             onClicked: root.text = "";
         }
-    }
-
-    StateGroup {
-        states: [
-            State {
-                name: ""
-                PropertyChanges { target: controlBorder; border.color: style.normal }
-                PropertyChanges { target: inputBehavior; color: style.textNormal }
-            },
-            State {
-                name: "Active"
-                when: inputBehavior.activeFocus && Qt.application.active
-                PropertyChanges { target: controlBorder; border.color: style.active }
-                PropertyChanges { target: inputBehavior; color: style.textActive }
-            },
-            State {
-                name: "Hover"
-                when: mouseArea.containsMouse
-                PropertyChanges { target: controlBorder; border.color: style.active }
-                PropertyChanges { target: inputBehavior; color: style.textActive }
-            },
-            State {
-                name: "Disabled"
-                when: !root.enabled
-                PropertyChanges { target: controlBorder; border.color: style.disabled }
-                PropertyChanges { target: iconImage; opacity: 0.2 }
-                PropertyChanges { target: inputBehavior; opacity: 0.2 }
-            }
-        ]
     }
 }

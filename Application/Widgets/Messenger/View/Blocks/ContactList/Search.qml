@@ -104,21 +104,6 @@ FocusScope {
                                        qsTr("MESSENGER_WEB_SEARCH_PLACE_HOLDER")
 
             onIconClicked: searchContactInput.forceActiveFocus()
-
-            fontSize: 12
-            style {
-                normal: Styles.style.messengerSearchInputNormal
-                active: Styles.style.messengerSearchInputActive
-                hover: Styles.style.messengerSearchInputHover
-                background: Styles.style.messengerSearchInputBackground
-                placeholder: Styles.style.messengerSearchInputPlaceholder
-                text: Styles.style.messengerSearchInputText
-
-                property color textNormal: Styles.style.messengerSearchInputText
-                property color textActive: Styles.style.messengerSearchInputTextHover
-
-                property color backgroundActive: Styles.style.messengerSearchInputBackgroundHover
-            }
         }
     }
 }

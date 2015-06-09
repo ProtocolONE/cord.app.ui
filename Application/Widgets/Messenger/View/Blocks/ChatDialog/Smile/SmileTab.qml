@@ -1,10 +1,11 @@
 import QtQuick 1.1
 
 import GameNet.Controls 1.0
+import Application.Controls 1.0
 
 import "../../../../../../Core/Styles.js" as Styles
 
-Rectangle {
+Item {
     id: root
 
     signal clicked();
@@ -13,8 +14,29 @@ Rectangle {
     property string imageSource
     property bool isActive: false
 
-    color: mouseArea.containsMouse || root.isActive ?
-               Styles.style.messengerSmilePanelHover : '#00000000'
+    property bool isFirst: false
+    property bool isLast: false
+
+    Rectangle {
+        anchors {
+            fill: parent
+            margins: 1
+        }
+        color: Styles.style.dark
+        opacity: 0.2
+        visible: root.isActive
+    }
+
+    Rectangle {
+        anchors {
+            fill: parent
+            topMargin: 1
+            bottomMargin: 1
+        }
+        color: Styles.style.light
+        opacity: 0.1
+        visible: mouseArea.containsMouse
+    }
 
     Image {
         anchors.centerIn: parent
@@ -30,19 +52,16 @@ Rectangle {
         onClicked: root.clicked();
     }
 
-    Rectangle {
-        anchors.right: parent.right
-        width: 1
-        height: parent.height
-        color: Styles.style.messengerSmilePanelBorder
-        visible: mouseArea.containsMouse || root.isActive
+    ContentStroke {
+        height: parent.height - 2
+        y: 1
+        visible: (root.isActive) && !root.isFirst
     }
 
-    Rectangle {
-        anchors.left: parent.left
-        width: 1
-        height: parent.height
-        color: Styles.style.messengerSmilePanelBorder
-        visible: mouseArea.containsMouse || root.isActive
+    ContentStroke {
+        anchors.right: parent.right
+        height: parent.height - 2
+        y: 1
+        visible: (root.isActive) && !root.isLast
     }
 }

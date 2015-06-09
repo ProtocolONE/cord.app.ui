@@ -14,19 +14,8 @@ Item { // background
         color: Styles.style.popupBlockBackground
     }
 
-    Rectangle {
-        color: "#00000000"
-        border {
-            width: 1
-            color: Styles.style.light
-        }
-        opacity: Styles.style.blockInnerOpacity
-        anchors {
-            fill: parent
-            rightMargin: 1
-            bottomMargin: 1
-            topMargin: 12
-        }
+    ContentThinBorder {
+        anchors.topMargin: 12
     }
 
     Rectangle { // arrow point

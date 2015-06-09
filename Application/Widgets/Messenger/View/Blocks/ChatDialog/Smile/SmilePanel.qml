@@ -1,5 +1,6 @@
 import QtQuick 1.1
 
+import Tulip 1.0
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
@@ -17,12 +18,9 @@ Rectangle {
     signal insertSmile(string tag)
     signal closeRequest()
 
-    width: 248
-    height: 275
-    color: Styles.style.messengerSmilePanelBackground
-
-    border.color: Styles.style.messengerSmilePanelBorder
-
+    width: 254
+    height: 294
+    color: Styles.style.popupBlockBackground
     Component.onCompleted: d.init();
 
     QtObject {
@@ -103,15 +101,17 @@ Rectangle {
         }
     }
 
-    CursorMouseArea {
+    MouseArea {
         anchors.fill: parent
         hoverEnabled: true
     }
 
-    Rectangle {
+    ContentThinBorder {}
+
+    Rectangle { // bottom arrow sign
         anchors {
             top: parent.bottom
-            topMargin: -height / 2
+            topMargin: -7
             horizontalCenter: parent.horizontalCenter
             horizontalCenterOffset: 10
         }
@@ -119,110 +119,33 @@ Rectangle {
         width: 12
         height: 12
         rotation: 45
-        color: Styles.style.messengerSmilePanelSubstrate
-        border.color: parent.border.color
-    }
+        color: Styles.style.popupBlockBackground
 
-    Rectangle {
-        anchors {
-            left: parent.left
-            bottom: parent.bottom
-            right: parent.right
-        }
-        height: 22
-        color: Styles.style.messengerSmilePanelSubstrate
-
-        ListView {
-            id: smallTabPanel
-
-            width: parent.width + 1
-            height: parent.height
-
-            orientation: ListView.Horizontal
-            interactive: false
-            spacing: 1
-            clip: true
-
-            function tultip(index) {
-                var tultips = [
-                            qsTr("SMALL_TAB_1_TULTIP"),
-                            qsTr("SMALL_TAB_2_TULTIP"),
-                            qsTr("SMALL_TAB_3_TULTIP"),
-                            qsTr("SMALL_TAB_4_TULTIP"),
-                            qsTr("SMALL_TAB_5_TULTIP"),
-                            qsTr("SMALL_TAB_6_TULTIP"),
-                            qsTr("SMALL_TAB_7_TULTIP"),
-                            qsTr("SMALL_TAB_8_TULTIP"),
-                            qsTr("SMALL_TAB_9_TULTIP"),
-                            qsTr("SMALL_TAB_10_TULTIP"),
-                    ]
-                return tultips[index]
-            }
-
-            delegate: SmileTab {
-                width: 24
-                height: 22
-
-                imageSource: smallTabPanel.model[index].imageSource
-                tultip: smallTabPanel.tultip(index)
-
-                function isActiveFunc() {
-                    if (bigSmilePanel.currentIndex > 0) {
-                        return false;
-                    }
-
-                    var startIndex = smallTabPanel.model[index].scrollPos,
-                        endIndex = baseGridView.grid.count;
-
-                    if (index < smallTabPanel.count - 1) {
-                        endIndex = smallTabPanel.model[index + 1].scrollPos;
-                    }
-
-                    return (baseGridView.cursorPosition >= startIndex) && (baseGridView.cursorPosition < endIndex);
-                }
-
-                isActive: isActiveFunc()
-
-                onClicked: {
-                    var scrollPos = smallTabPanel.model[index].scrollPos;
-                    baseGridView.positionViewAtIndex(scrollPos);
-
-                    bigSmilePanel.currentIndex = 0;
-                }
-            }
-        }
-
-        Rectangle {
-            anchors.top: parent.top
+        ContentStroke {
             width: parent.width
-            height: 1
-            color: Styles.style.messengerSmilePanelBorder
+            y: parent.height - 1
         }
 
-        Rectangle {
-            anchors.top: parent.top
-            width: 1
+        ContentStroke {
             height: parent.height
-            color: Styles.style.messengerSmilePanelBorder
+            x: parent.width - 1
         }
     }
 
-    Rectangle {
+    Item {
         anchors {
             left: parent.left
             top: parent.top
             right: parent.right
         }
-        height: 35
-        color: Styles.style.messengerSmilePanelSubstrate
-        border.color: Styles.style.messengerSmilePanelBorder
+        height: 36
 
         ListView {
             id: bigSmilePanel
 
             anchors {
                 fill: parent
-                topMargin: 1
+                leftMargin: 1
             }
 
             orientation: ListView.Horizontal
@@ -256,9 +179,10 @@ Rectangle {
             }
 
             delegate: SmileTab {
-                width: 35
-                height: 34
+                width: 34
+                height: 36
 
+                isFirst: index == 0
                 imageSource: model.imageSource
                 tultip: bigSmilePanel.model.tultip(index)
 
@@ -266,13 +190,25 @@ Rectangle {
                 onClicked: bigSmilePanel.currentIndex = index;
             }
         }
+
+        ContentStroke {
+            anchors.bottom: parent.bottom
+            width: parent.width - 2
+            x: 1
+        }
     }
 
     Item {
         anchors {
             fill: parent
-            topMargin: 35
-            bottomMargin: 22
+            topMargin: 36
+            bottomMargin: 24
+        }
+
+        Rectangle {
+            anchors.fill: parent
+            color: Styles.style.dark
+            opacity: 0.2
         }
 
         BaseGrid {
@@ -326,6 +262,83 @@ Rectangle {
     }
 
     Item {
+        anchors {
+            left: parent.left
+            bottom: parent.bottom
+            right: parent.right
+        }
+        height: 24
+
+        ContentStroke {
+            width: parent.width - 2
+            x: 1
+        }
+
+        ListView {
+            id: smallTabPanel
+
+            anchors.fill: parent
+
+            orientation: ListView.Horizontal
+            interactive: false
+            clip: true
+
+            function tultip(index) {
+                var tultips = [
+                            qsTr("SMALL_TAB_1_TULTIP"),
+                            qsTr("SMALL_TAB_2_TULTIP"),
+                            qsTr("SMALL_TAB_3_TULTIP"),
+                            qsTr("SMALL_TAB_4_TULTIP"),
+                            qsTr("SMALL_TAB_5_TULTIP"),
+                            qsTr("SMALL_TAB_6_TULTIP"),
+                            qsTr("SMALL_TAB_7_TULTIP"),
+                            qsTr("SMALL_TAB_8_TULTIP"),
+                            qsTr("SMALL_TAB_9_TULTIP"),
+                            qsTr("SMALL_TAB_10_TULTIP"),
+                    ]
+                return tultips[index]
+            }
+
+            delegate: SmileTab {
+                width:  24 + (isFirst ? 5 : 0) + (isLast ? 9 : 0)
+                height: 24
+
+                isFirst: index == 0
+                isLast: index == (smallTabPanel.count - 1)
+
+                imageSource: smallTabPanel.model[index].imageSource
+                tultip: smallTabPanel.tultip(index)
+
+                function isActiveFunc() {
+                    if (bigSmilePanel.currentIndex > 0) {
+                        return false;
+                    }
+
+                    var startIndex = smallTabPanel.model[index].scrollPos,
+                        endIndex = baseGridView.grid.count;
+
+                    if (index < smallTabPanel.count - 1) {
+                        endIndex = smallTabPanel.model[index + 1].scrollPos;
+                    }
+
+                    return (baseGridView.cursorPosition >= startIndex) && (baseGridView.cursorPosition < endIndex);
+                }
+
+                isActive: isActiveFunc()
+
+                onClicked: {
+                    var scrollPos = smallTabPanel.model[index].scrollPos;
+                    baseGridView.positionViewAtIndex(scrollPos);
+
+                    bigSmilePanel.currentIndex = 0;
+                }
+            }
+        }
+    }
+
+
+
+    Item { // close button
         height: 34
         width: height
         anchors.right: parent.right
@@ -338,13 +351,6 @@ Rectangle {
             source: installPath + "Assets/Images/Application/Widgets/Messenger/Smile/cross.png"
             opacity: closeMouseArea.containsMouse ? 1 : 0.7
 
-        }
-
-        Rectangle {
-            width: 1
-            height: parent.height
-            anchors.left: parent.left
-            color: Styles.style.messengerSmilePanelBorder
         }
 
         CursorMouseArea {

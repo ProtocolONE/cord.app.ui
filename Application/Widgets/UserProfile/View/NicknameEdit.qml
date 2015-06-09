@@ -27,7 +27,6 @@ Item {
         id: nickText
 
         anchors.fill: parent
-        color: "#1ABC9C"
         font { family: "Arial"; pixelSize: 16 }
         clip: true
         elide: Text.ElideRight

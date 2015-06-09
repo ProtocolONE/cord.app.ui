@@ -13,3 +13,4 @@ CheckedButton 1.0 CheckedButton.qml
 CheckedButtonStyle 1.0 CheckedButtonStyle.qml
 ContentBackground 1.0 ContentBackground.qml
 ContentStroke 1.0 ContentStroke.qml
+ContentThinBorder 1.0 ContentThinBorder.qml

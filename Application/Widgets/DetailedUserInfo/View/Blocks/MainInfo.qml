@@ -276,7 +276,7 @@ Item {
                         height: 2
                         style {
                             background: Styles.style.applicationBackground
-                            line: Styles.style.detailedUserInfoMainInfoLevelProgressLine // UNDONE
+                            line: Styles.style.detailedUserInfoMainInfoLevelProgressLine
                         }
                     }
                 }

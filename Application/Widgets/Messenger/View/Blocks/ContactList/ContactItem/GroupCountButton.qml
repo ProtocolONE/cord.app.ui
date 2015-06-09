@@ -28,27 +28,7 @@ Item {
             height: 16
             checked: false
             onClicked: root.clicked();
-
-            // INFO When psd would be ready we can switch Item to Image.
-            Item {
-                width: 16
-                height: 16
-                clip: true
-                x: 6
-
-                Rectangle {
-                    x: -15
-                    color: "#00000000"
-                    width: 15
-                    height: 15
-                    border {
-                        color: "#FFFFFF"
-                        width: 2
-                    }
-
-                    rotation: 45
-                }
-            }
+            icon: installPath + "Assets/Images/Application/Widgets/Messenger/ContactItem/groupCountIcon.png"
         }
 
         TextButton {

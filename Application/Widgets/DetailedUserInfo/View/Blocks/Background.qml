@@ -9,25 +9,14 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+import Application.Controls 1.0
 import "../../../../Core/Styles.js" as Styles
 
 Rectangle {
     anchors.fill: parent
     color: Styles.style.popupBlockBackground
 
-    Rectangle {
-        anchors {
-            fill: parent
-            rightMargin: 1
-            bottomMargin: 1
-        }
-        color: "#00000000"
-        opacity: Styles.style.blockInnerOpacity
-        border {
-            color: Styles.style.light
-            width: 1
-        }
-    }
+    ContentThinBorder {}
 
     MouseArea {
         anchors.fill: parent

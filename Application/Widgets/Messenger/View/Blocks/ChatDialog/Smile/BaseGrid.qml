@@ -4,7 +4,7 @@ import GameNet.Controls 1.0
 import Application.Controls 1.0
 
 import "../../../../../../Core/Styles.js" as Styles
-import "../../ContactList"
+
 Item {
     id: root
 
@@ -20,7 +20,7 @@ Item {
 
         anchors {
             fill: parent
-            margins: 3
+            margins: 6
         }
 
         clip: true
@@ -34,6 +34,7 @@ Item {
 
         anchors {
             right: root.right
+            rightMargin: 3
         }
         height: root.height
         width: 6
@@ -43,10 +44,5 @@ Item {
         color: "#00000000"
         cursorColor: Styles.style.contentBackgroundLight
         cursorOpacity: 0.1
-    }
-
- // UNDONE чуйка есть что нужно положить 1 бордер вокруг всего контрола а не так дрочиться
-    ContentStroke {
-        height: parent.height
     }
 }

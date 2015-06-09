@@ -200,13 +200,6 @@ Item {
     // MAINTENANCE BLOCK
     property color maintenanceBackground: '#082135'
 
-    // CONTEXT MENU VIEW
-    property color contextMenuBackground: "#19384a"
-    property color contextMenuBorder: "#324e5e"
-    property color contextMenuItemHover: "#002336"
-    property color contextMenuItemTextNormal: "#a1c1d2"
-    property color contextMenuItemTextHover: "#a1c1d2"
-
     //MESSENGER SEARCH
     property color messengerSearchInputNormal: "#3e7090"
     property color messengerSearchInputActive: "#3e7090"
@@ -216,17 +209,6 @@ Item {
     property color messengerSearchInputPlaceholder: "#3e7090"
     property color messengerSearchInputText: "#3e7090"
     property color messengerSearchInputTextHover: "#ffffff"
-
-    // MESSENGER GAMENET NOTIFICATION
-    property color messengerGameNetNotificationTextBackground: "#FD4C01"
-    property color messengerGameNetNotificationText: "#FFFFFF"
-
-    // Smile panel
-    property color messengerSmilePanelBackground: "#001f30"
-    property color messengerSmilePanelBorder: "#324e5e"
-    property color messengerSmilePanelHover: "#002336"
-    property color messengerSmilePanelSubstrate: "#19384a"
-    property color messengerSmileChatButtonHover: "#1abc9c"
 
     //GRID INFO !!! эти стили к мессенджеру отношения не имеют
     property color messangerGridBackground: '#000c13'
@@ -303,7 +285,6 @@ Item {
     property color linkText: "#45bef6"
     property color fieldText: "#363636"
 
-
     // Базовый фон самого рута приложения
     //property color applicationBackground: "red" //"#002336"
     property color applicationBackground: "#002336" // bg
@@ -327,6 +308,8 @@ Item {
 
     property color detailedUserInfoMainInfoLevelProgressLine: "#1abc9c"
 
+    // Если будет использоваться еще, то вероятно переименовать:
+    property color searchBorder: "#3498db"
     // End of GameNet 3.4
 
     //PRIVATE PART
