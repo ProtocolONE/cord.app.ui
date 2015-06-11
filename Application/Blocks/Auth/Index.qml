@@ -101,9 +101,8 @@ Item {
 
                 function isGuestExists() {
                     var guest = CredentialStorage.loadGuest();
-                    return guest && guest.userId && guest.appKey & guest.cookie;
+                    return !!guest && !!guest.userId && !!guest.appKey && !!guest.cookie;
                 }
-
 
                 function loadGuest() {
                     var guest = CredentialStorage.loadGuest();

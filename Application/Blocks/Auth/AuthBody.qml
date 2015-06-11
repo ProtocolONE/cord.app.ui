@@ -293,8 +293,8 @@ Form {
                 enabled: !d.inProgress
                 fontSize: 14
                 style  {
-                    normal: Styles.style.authRememberCheckBoxNormal
-                    hover: Styles.style.authRememberCheckBoxHover
+                    normal: Styles.style.auxiliaryButtonNormal
+                    hover: Styles.style.auxiliaryButtonHover
                 }
                 onToggled: AuthHelper.rememberAccount = rememberAuth.checked;
             }

@@ -67,7 +67,7 @@ Item {
                     Text {
                         id: vkCaption
                         text: qsTr("VK_LOGIN_BUTTON_TEXT")
-                        color: Styles.style.authVkButtonText
+                        color: Styles.style.lightText
                         visible: !root.vkButtonInProgress
                         font { pixelSize: 15; family: "Open Sans Regular" }
                         anchors {

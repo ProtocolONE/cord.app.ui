@@ -16,71 +16,40 @@ import "../../Core/Styles.js" as Styles
 Button {
     id: root
 
-    property alias icon: icon.source
+    property string icon
     property alias text: captionText.text
 
-    width: content.width + 32
-    height: parent.height
+    implicitWidth: icon.width + 10 + captionText.width + 40
+    implicitHeight: parent.height
 
-    style: ButtonStyleColors {
-        normal: Styles.style.headerButtonNormal
-        hover: Styles.style.headerButtonHover
+    style {
+        normal: "#00000000"
+        hover: "#00000000"
+        disabled: "#00000000"
     }
 
-    Rectangle {
-        anchors.left: parent.left
-        width: 1
-        height: parent.height
-        color: root.containsMouse
-               ? Styles.style.headerButtonNormal
-               : Qt.lighter(Styles.style.headerButtonNormal, Styles.style.lighterFactor)
-    }
-
-    Item {
-        id: content
-
-        width: height + textContainer.width + 10
-        height: 24
-        anchors.centerIn: parent
-
-        Row {
-            anchors.fill: parent
-            spacing: 10
-
-            Item {
-                width: height
-                height: parent.height
-
-                Image {
-                    id: icon
-
-                    anchors.centerIn: parent
-                }
-            }
-
-            Item {
-                id: textContainer
-
-                height: parent.height
-                width: captionText.width
-
-                Text {
-                    id: captionText
-
-                    color: Styles.style.headerButtonText
-                    font { family: "Arial"; pixelSize: 16 }
-                    anchors.centerIn: parent
-                }
-            }
+    Row {
+        anchors {
+            fill: parent
+            leftMargin: 10
         }
-    }
+        spacing: 10
 
-    Rectangle {
-        anchors.right: parent.right
-        width: 1
-        height: parent.height
-        color: root.containsMouse
-               ? Styles.style.headerButtonHover
-               : Qt.darker(Styles.style.headerButtonHover, Styles.style.darkerFactor)
+        Image {
+            id: icon
+
+            anchors.verticalCenter: parent.verticalCenter
+            source: root.containsMouse
+                    ? root.icon.replace('.png', 'Hover.png') :
+                      root.icon
+        }
+
+        Text {
+            id: captionText
+
+            color: Styles.style.mainMenuText
+            font { family: "Arial"; pixelSize: 16 }
+            anchors.verticalCenter: parent.verticalCenter
+        }
     }
 }

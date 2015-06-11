@@ -1,5 +1,6 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
+import Application.Controls 1.0
 
 Item {
     id: delegate
@@ -44,15 +45,7 @@ Item {
         Behavior on opacity { NumberAnimation { duration: 125 } }
     }
 
-    Rectangle {
-        anchors {
-            fill: parent
-            bottomMargin: 1
-            rightMargin: 1
-        }
-        color: '#00000000'
-        border.color: '#ffffff'
-        opacity: 0.15
+    ContentThinBorder {
         visible: !delegate.hovered
     }
 }

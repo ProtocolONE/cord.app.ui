@@ -12,6 +12,7 @@ import Tulip 1.0
 
 import GameNet.Controls 1.0
 import Application.Blocks 1.0
+import Application.Controls 1.0
 
 import "../../../../../Application/Core/App.js" as App
 import "../../../../Core/Styles.js" as Styles
@@ -55,11 +56,6 @@ Item {
         Item {
             anchors.fill: parent
 
-            Rectangle {
-                anchors.fill: parent
-                color: Styles.style.messengerGridBackgroud
-            }
-
             WebImage {
                 id: image
 
@@ -74,12 +70,7 @@ Item {
                 }
             }
 
-            Rectangle {
-                anchors.fill: parent
-                color: '#00000000'
-                border.color: '#ffffff'
-                opacity: 0.075
-            }
+            ContentThinBorder {}
 
             Stick {
                 anchors {
@@ -130,7 +121,7 @@ Item {
 
             Rectangle {
                 anchors.fill: parent
-                color: Styles.style.messengerGridBackgroud
+                color: Styles.style.popupBlockBackground
                 opacity: root.selected || stateGroup.state == 'Downloading' ? 0.77 : 0
                 z: informationContent.isSmall() && stateGroup.state != 'Downloading' ? 1 : 0
 
@@ -146,7 +137,6 @@ Item {
 
                 GameItemTitle {
                     width: parent.width
-
                     serviceItem: root.serviceItem
                 }
 
@@ -154,7 +144,6 @@ Item {
                     id: hightlightItem
 
                     width: parent.width
-
                     serviceItem: root.serviceItem
                 }
             }
@@ -162,7 +151,7 @@ Item {
 
         Rectangle {
             border {
-                color: Styles.style.messengerGridHightlight
+                color: Styles.style.gameGridHightlight
                 width: 4
             }
             color: '#00000000'
@@ -192,9 +181,9 @@ Item {
             }
 
             style {
-                normal: Styles.style.gameInstallButtonNormal
-                hover: Styles.style.gameInstallButtonHover
-                disabled: Styles.style.gameInstallButtonDisabled
+                normal: Styles.style.primaryButtonNormal
+                hover: Styles.style.primaryButtonHover
+                disabled: Styles.style.primaryButtonDisabled
             }
 
             onClicked: {

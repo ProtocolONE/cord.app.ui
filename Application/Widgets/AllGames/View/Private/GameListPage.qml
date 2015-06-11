@@ -64,9 +64,7 @@ Item {
                 id: baseColumn
 
                 width: parent.width
-
                 onHeightChanged: flickable.contentHeight = height;
-
                 spacing: 26
             }
         }
@@ -103,19 +101,17 @@ Item {
 
                     text: genre
                     font.pixelSize: 16
-                    color: Styles.style.messengerGridGenreText
+                    color: Styles.style.textBase
                 }
 
-                Rectangle {
+                ContentStroke {
                     anchors {
                         right: parent.right
                         verticalCenter: parent.verticalCenter
                     }
 
                     width: parent.width - genreText.width - 20
-
-                    height: 1
-                    color: '#26383f'
+                    opacity: 0.2
                 }
             }
 

@@ -37,8 +37,8 @@ Item {
 
             width: contentText.width
             height: contentText.lineCount > 1 ? 60: 40
-            opacity: 0.3
-            color: Styles.style.gameAdWidgetBackground
+            color: Styles.style.contentBackground
+            opacity: Styles.style.baseBackgroundOpacity
         }
 
         Text {
@@ -52,7 +52,7 @@ Item {
             }
             wrapMode: Text.WordWrap
             opacity: 0.8
-            color: Styles.style.gameAdWidgetText
+            color: Styles.style.textBase
             font { family: "Arial"; pixelSize: 20 }
             lineHeightMode: Text.FixedHeight
             lineHeight: 22

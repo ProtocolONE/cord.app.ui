@@ -48,6 +48,7 @@ function createService(data) {
     item.hasOverlay = !!data.hasOverlay;
     item.socialNet = data.socialNet || '';
     item.isRunnable = !!data.isRunnable;
+    item.backgroundInApp = data.backgroundInApp || '';
 
     urlProps = [
                 'guideUrl',

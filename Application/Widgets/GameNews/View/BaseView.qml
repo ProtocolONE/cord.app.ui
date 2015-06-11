@@ -10,6 +10,7 @@
 
 import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
+import Application.Controls 1.0
 
 import "../../../Core/Styles.js" as Styles
 
@@ -33,11 +34,7 @@ Item {
     width: 590
     height: listView.count * 149
 
-    Rectangle {
-        anchors.fill: parent
-        color: Styles.style.contentBackground
-        opacity: Styles.style.baseBackgroundOpacity
-    }
+    ContentBackground {}
 
     ListView {
         id: listView

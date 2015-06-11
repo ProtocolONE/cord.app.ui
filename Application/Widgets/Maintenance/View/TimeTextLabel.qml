@@ -9,6 +9,7 @@
 ****************************************************************************/
 
 import QtQuick 1.1
+import "../../../Core/Styles.js" as Styles
 
 Row {
     property alias firstText: bigText.text
@@ -19,7 +20,7 @@ Row {
     Text {
         id: bigText
 
-        color: '#ffcc00'
+        color:  Styles.style.bannerInfoText
         font { pixelSize: 20 }
     }
 
@@ -27,7 +28,7 @@ Row {
         id: smallText
 
         anchors { bottom: parent.bottom; bottomMargin: 1 }
-        color: '#f8f8f6'
+        color: Styles.style.lightText
         font { pixelSize: 14 }
     }
 }

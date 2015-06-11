@@ -88,8 +88,8 @@ Form {
                     text: qsTr("CODE_BODY_SEND_BY_MAIL")
 
                     style {
-                        normal: Styles.style.authSendCodeButtonNormal
-                        hover: Styles.style.authSendCodeButtonHover
+                        normal: Styles.style.auxiliaryButtonNormal
+                        hover: Styles.style.auxiliaryButtonHover
                     }
 
                     onClicked: d.getCode('email');
@@ -101,8 +101,8 @@ Form {
                     text: qsTr("CODE_BODY_SEND_BY_SMS")
 
                     style {
-                        normal: Styles.style.authSendCodeButtonNormal
-                        hover: Styles.style.authSendCodeButtonHover
+                        normal: Styles.style.auxiliaryButtonNormal
+                        hover: Styles.style.auxiliaryButtonHover
                     }
 
                     onClicked: d.getCode('sms');

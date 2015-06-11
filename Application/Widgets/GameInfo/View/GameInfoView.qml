@@ -13,6 +13,8 @@ import Tulip 1.0
 import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 
+import Application.Controls 1.0
+
 import "../../../Core/App.js" as App
 import "../../../Core/Styles.js" as Styles
 import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
@@ -120,10 +122,7 @@ WidgetView {
         }
     }
 
-    Rectangle {
-        anchors.fill: parent
-        color: Styles.style.gameInfoImageBackground
-    }
+    ContentBackground {}
 
     Column {
         id: contentColumn
@@ -244,12 +243,12 @@ WidgetView {
                     }
                     imageAnchors.horizontalCenterOffset: -4
 
-                    style: ButtonStyleColors {
+                    style {
                         normal: "#00000000"
                         hover: "#00000000"
                         disabled: "#00000000"
                     }
-                    styleImages: ButtonStyleImages {
+                    styleImages {
                         normal: previousButton.containsMouse || hoverArea.containsMouse ?
                                     installPath + 'Assets/images/Application/Widgets/GameInfo/leftArrowHover.png' :
                                     installPath + 'Assets/images/Application/Widgets/GameInfo/leftArrow.png'
@@ -257,8 +256,8 @@ WidgetView {
                           INFO теперь есть ховер на весь виджет, и по новому дизайну, ховер на весь виджет, должен
                           подсвечивать и кнопки, поэтому пришлось написать так.
                           */
-                        hover: normal
-                        disabled: normal
+                        hover: previousButton.styleImages.normal
+                        disabled: previousButton.styleImages.normal
                     }
                     analytics: GoogleAnalyticsEvent {
                         page: '/GameInfo/' + (root.gameItem ? root.gameItem.gaName : '')
@@ -282,13 +281,15 @@ WidgetView {
                         verticalCenter: parent.verticalCenter
                         right: parent.right
                     }
+
                     imageAnchors.horizontalCenterOffset: 4
-                    style: ButtonStyleColors {
+                    style {
                         normal: "#00000000"
                         hover: "#00000000"
                         disabled: "#00000000"
                     }
-                    styleImages: ButtonStyleImages {
+
+                    styleImages {
                         normal: nextButton.containsMouse || hoverArea.containsMouse ?
                                     installPath + 'Assets/images/Application/Widgets/GameInfo/rightArrowHover.png' :
                                     installPath + 'Assets/images/Application/Widgets/GameInfo/rightArrow.png'
@@ -296,15 +297,17 @@ WidgetView {
                           INFO теперь есть ховер на весь виджет, и по новому дизайну, ховер на весь виджет, должен
                           подсвечивать и кнопки, поэтому пришлось написать так.
                           */
-                        hover: normal
-                        disabled: normal
+                        hover: nextButton.styleImages.normal
+                        disabled: nextButton.styleImages.normal
                     }
-                    analytics: GoogleAnalyticsEvent {
+
+                    analytics {
                         page: '/GameInfo/' + (root.gameItem ? root.gameItem.gaName : '')
                         category: 'NextButton'
                         action: 'Click'
                         label: previewListModel.count > 0 ? previewListModel.get(d.index).preview : ''
                     }
+
                     onClicked: {
                         showNextTimer.stop();
                         d.incrementIndex();
@@ -414,15 +417,6 @@ WidgetView {
             width: parent.width
             height: aboutText.height + 30
 
-            Rectangle {
-                anchors {
-                    fill: parent
-                    topMargin: 3
-                }
-
-                color: Styles.style.gameInfoBackground
-            }
-
             Text {
                 id: aboutText
 
@@ -435,11 +429,12 @@ WidgetView {
                     right: parent.right
                     rightMargin: 10
                 }
-                color: Styles.style.gameInfoAboutText
+
+                color: Styles.style.infoText
                 smooth: true
                 clip: true
                 font {
-                    family: "Myriad"
+                    family: "Open Sans Regular"
                     pixelSize: 15
                 }
                 lineHeightMode: Text.FixedHeight
@@ -451,10 +446,14 @@ WidgetView {
         }
     }
 
-    Rectangle {
-        height: 1
-        anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
-        color: Qt.darker(Styles.style.gameInfoBackground, Styles.style.darkerFactor)
+    ContentStroke {
+        anchors {
+            bottom: parent.bottom
+            left: parent.left
+            right: parent.right
+            leftMargin: 10
+            rightMargin: 10
+        }
     }
 
     Timer {

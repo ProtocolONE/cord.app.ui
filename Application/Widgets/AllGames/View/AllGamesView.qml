@@ -26,12 +26,7 @@ WidgetView {
     id: root
 
     implicitWidth: 770
-    implicitHeight: 560
-
-    Rectangle {
-        anchors.fill: parent
-        color: Styles.style.messangerGridBackground
-    }
+    implicitHeight: 570
 
     Component.onCompleted: d.fillGrid();
     onVisibleChanged: stateGroup.state = 'Normal';
@@ -107,6 +102,11 @@ WidgetView {
 
             gameListPage.update();
         }
+    }
+
+    Rectangle {
+        anchors.fill: parent
+        color: Styles.style.contentBackgroundDark
     }
 
     Component {
@@ -195,7 +195,7 @@ WidgetView {
             id: gameListPage
 
             width: parent.width
-            height: 560
+            height: 570
 
             Behavior on opacity {
                 PropertyAnimation {

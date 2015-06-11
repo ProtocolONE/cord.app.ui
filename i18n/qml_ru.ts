@@ -3104,6 +3104,10 @@ Please try again later.</source>
         <source>HEADER_BUTTON_THEMES</source>
         <translation>Темы Windows</translation>
     </message>
+    <message>
+        <source>PUBLIC_TEST_TOOLTIP</source>
+        <translation type="unfinished">Вы приняли участие в тестировании новых функций клиента GameNet. Нажмите, чтобы узнать подробности.</translation>
+    </message>
 </context>
 <context>
     <name>Home</name>

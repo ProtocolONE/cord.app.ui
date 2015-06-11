@@ -68,7 +68,7 @@ Column {
             property int offsetDuration: 0
 
             font { family: 'Arial'; pixelSize: 12 }
-            color: Styles.style.downloadStatusText
+            color: Styles.style.lightText
             text: d.getStatusText();
             smooth: true
         }

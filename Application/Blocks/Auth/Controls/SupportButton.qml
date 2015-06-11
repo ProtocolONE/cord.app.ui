@@ -7,8 +7,8 @@ Button {
     width: 32
     height: 146
     style {
-        normal: Styles.style.authSupportButtonNormal
-        hover: Styles.style.authSupportButtonHover
+        normal: "#ffae02"
+        hover: "#ffcc02"
     }
 
     Column {
@@ -27,7 +27,7 @@ Button {
                 Text {
                     anchors.centerIn: parent
                     text: qsTr("AUTH_SUPPORT_BUTTON_TEXT")
-                    color: Styles.style.authSupportButtonText
+                    color: Styles.style.lightText
                     font {
                         family: "Arial"
                         pixelSize: 14
@@ -39,7 +39,7 @@ Button {
         Rectangle {
             width: parent.width
             height: 1
-            color: Styles.style.authSupportButtonText
+            color: Styles.style.light
             opacity: 0.2
         }
 

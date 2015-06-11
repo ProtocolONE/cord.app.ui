@@ -39,7 +39,6 @@
 		<file>Application/Blocks/Header/Header.qml</file>
 		<file>Application/Blocks/Header/HeaderButton.qml</file>
 		<file>Application/Blocks/Header/HeaderControlButton.qml</file>
-		<file>Application/Blocks/Header/PublicTestButton.qml</file>
 		<file>Application/Blocks/Header/qmldir</file>
 		<file>Application/Blocks/Popup/PopupBase.qml</file>
 		<file>Application/Blocks/Popup/PopupHorizontalSplit.qml</file>
@@ -73,6 +72,7 @@
 		<file>Application/Controls/ComboBox.qml</file>
 		<file>Application/Controls/ContentBackground.qml</file>
 		<file>Application/Controls/ContentStroke.qml</file>
+		<file>Application/Controls/ContentThinBorder.qml</file>
 		<file>Application/Controls/ContextMenuView.qml</file>
 		<file>Application/Controls/DelayedBinding.qml</file>
 		<file>Application/Controls/HiddenAppCloseButton.qml</file>

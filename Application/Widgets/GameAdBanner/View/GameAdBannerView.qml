@@ -184,16 +184,18 @@ WidgetView {
                 label: contentSwitcher.currentItem.bannerId
             }
 
-            style: ButtonStyleColors {
+            style {
                 normal: "#00000000"
                 hover: "#00000000"
                 disabled: "#00000000"
             }
-            styleImages: ButtonStyleImages {
+
+            styleImages {
                 normal: installPath + "Assets/Images/Application/Widgets/GameAdBanner/arrow_left.png"
                 hover: installPath + "Assets/Images/Application/Widgets/GameAdBanner/arrow_left_hover.png"
                 disabled: installPath + "Assets/Images/Application/Widgets/GameAdBanner/arrow_left.png"
             }
+
             onClicked: {
                 showNextTimer.stop();
 
@@ -216,22 +218,26 @@ WidgetView {
                 right: parent.right
                 rightMargin: 3
             }
-            analytics: GoogleAnalyticsEvent {
+
+            analytics {
                 page: currentGameItem ? "/game/" + currentGameItem.gaName : ''
                 category: "GameAdBanner"
                 action: "RightArrow"
                 label: contentSwitcher.currentItem.bannerId
             }
-            style: ButtonStyleColors {
+
+            style {
                 normal: "#00000000"
                 hover: "#00000000"
                 disabled: "#00000000"
             }
-            styleImages: ButtonStyleImages {
+
+            styleImages {
                 normal: installPath + "Assets/Images/Application/Widgets/GameAdBanner/arrow_right.png"
                 hover: installPath + "Assets/Images/Application/Widgets/GameAdBanner/arrow_right_hover.png"
                 disabled: installPath + "Assets/Images/Application/Widgets/GameAdBanner/arrow_rigth.png"
             }
+
             onClicked: {
                 showNextTimer.stop();
 

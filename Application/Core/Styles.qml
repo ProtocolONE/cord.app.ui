@@ -47,74 +47,26 @@ Item {
     property color secondAccountPopupAuthTitleText: "#363636"
     property color secondAccountPopupAuthSubTitleText: "#66758F"
 
-    //FACTS WIDGET
-    property color factsWidgetBackground: "#092135"
-    property color factsWidgetValue: "#ff6555"
-    property color factsWidgetText: "#fafafa"
-
-    //AD BANNER WIDGET
-    property color gameAdWidgetBackground: "#092135"
-    property color gameAdWidgetText: "#fafafa"
-
-    //GAME INFO
-    property color gameInfoBackground: "#001825"
-    property color gameInfoImageBackground: '#001825'
-    property color gameInfoAboutText: "#000000"
+    //MESSAGE BOX (ALERT ADAPTER WIDGET)
+    property color messageBoxShadowBorder: "#111111"
+    property color messageBoxBackground: "#027aca"
+    property color messageBoxHeaderText: "#fafafa"
+    property color messageBoxText: "#fafafa"
+    property color messageBoxPositiveButtonNormal: "#1abc9c"
+    property color messageBoxPositiveButtonHover: "#47c9af"
+    property color messageBoxNegativeButtonNormal: "#cccccc"
+    property color messageBoxNegativeButtonHover: "#ffffff"
 
     //DOWNLOAD STATUS BLOCK
     property color downloadStatusProgressBackground: "#0d5043"
     property color downloadStatusProgressLine: "#35cfb1"
     property color downloadStatusText: "#eff0f0"
 
-    //GAME INSTALL BLOCK
-    property color gameInstallBackground: "#082135"
-    property color gameInstallGameName: "#ffffff"
-    property color gameInstallGameShortDescription: "#597082"
-    property color gameInstallDownloadStatusText: "#597082"
-    property color gameInstallButtonErrorNormal: "#cc0000"
-    property color gameInstallButtonErrorHover: "#ee0000"
-    property color gameInstallButtonNormal: "#ff4f02"
-    property color gameInstallButtonHover: "#ff7902"
-    property color gameInstallButtonDisabled: "#888888"
-
     //  GAME UNINSTALLWIDGET
     property color gameUninstallWidgetBackground: "#00000000"
     property color gameUninstallWidgetBorder: "#e1e5e8"
     property color gameUninstallWidgetProgressBackground: "#0d5144"
     property color gameUninstallWidgetProgressLine: "#32cfb2"
-
-    //HEADER
-    property color headerBackground: "#092135"
-    property color headerButtonNormal: "#092135"
-    property color headerButtonHover: "#243148"
-    property color headerButtonText: "#FFFFFF"
-
-    //USER PROFILE
-    property color profileBackground: "#243148"
-    property color profileBackgroundTop: "#0d2e40"
-    property color profilePremiumBackground: "#31415D"
-    property color profileLevelBackground: "#364D76"
-    property color profileNicknameTextNormal: "#ffffff"
-    property color profileNicknameTextNotValid: "#7c99a9"
-    property color profileLevelText: "#FAFAFA"
-    property color profileBalanceText: "#FAFAFA"
-    property color profileBaseText: "#7c99a9"
-    property color profileAddMoneyNormal: "#19384a"
-    property color profileAddMoneyHover: "#ff4f03"
-    property color profileAddMoneyTextHover: "#fada66"
-    property color profileAddMoneyButtonText: "#FFFFFF"
-    property color profileAddMoneyButtonNormal: "#567DD8"
-    property color profileAddMoneyButtonHover: "#305ec8"
-
-    //GAME MENU
-    property color gameMenuBackground: "#082135"
-    property color gameMenuButtonNormal: "#092135"
-    property color gameMenuButtonHover: "#243148"
-    property color gameMenuButtonSelectedNormal: "#071828"
-    property color gameMenuButtonSelectedHover: "#243148"
-    property color gameMenuButtonText: "#FFFFFF"
-    property color gameMenuSelectedIndicator: "#FFCA02"
-    property color gameMenuText: '#5d7081'
 
     // SETTINGS
     property color settingsBackground: '#fafafa'
@@ -131,44 +83,6 @@ Item {
     property color settingsControlDisabled: "#FF4F02"
     property color settingsButtonNormal: "#3498BD"
     property color settingsButtonHover: "#3670DC"
-
-    // NEWS
-    property color newsBackground: '#f0f5f8'
-    property color newsCommentCountText: '#f5755a'
-    property color newsAnnouncementTextNormal: '#5e7182'
-    property color newsAnnouncementTextHover: '#38434e'
-    property color newsTitleTextNormal: '#2B6A9D'
-    property color newsTitleTextHover: '#193f5e'
-    property color newsTimeTextNormal: '#7e99ae'
-    property color newsTimeTextHover: '#4b5b68'
-    property color newsGameTextNormal: '#4ac6aa'
-    property color newsGameTextHover: '#2c7666'
-
-    // MAINTENANCE BLOCK
-    property color maintenanceBackground: '#082135'
-
-    //MESSENGER SEARCH
-    property color messengerSearchInputNormal: "#3e7090"
-    property color messengerSearchInputActive: "#3e7090"
-    property color messengerSearchInputHover: "#3e7090"
-    property color messengerSearchInputBackground: "#324e5e"
-    property color messengerSearchInputBackgroundHover: "#183240"
-    property color messengerSearchInputPlaceholder: "#3e7090"
-    property color messengerSearchInputText: "#3e7090"
-    property color messengerSearchInputTextHover: "#ffffff"
-
-    //GRID INFO !!! эти стили к мессенджеру отношения не имеют
-    property color messangerGridBackground: '#000c13'
-    property color messengerAllButtonGridHover: "#113344"
-    property color messengerAllButtonGridTextHover: "#f3d173"
-    property color messengerAllButtonGridTextNormal: "#ff6555"
-    property color messengerGameItemText: '#ddc071'
-    property color messengerGameItemTextNormal: '#ffffff'
-    property color messengerGridBackgroud: '#092135'
-    property color messengerGridHightlight: '#dec37b'
-    property color messengerGridProgressRect: '#247f71'
-    property color messengerGridGenreText: '#8e9ca7'
-    property color messengerGridStickText: '#ffffff'
 
     // Images header
     property string headerGameNetLogo: "Assets/Images/Application/Blocks/Header/GamenetLogo.png"
@@ -252,6 +166,19 @@ Item {
     property color messengerContactPresenceOnline: "#1ABC9C"
     property color messengerContactPresenceDnd: "#FFCC00"
     property color messengerContactPresenceOffline: "#CCCCCC"
+
+    property color messengerRecentContactsUnreadIcon: "#189A19"
+
+    property color detailedUserInfoGameCharsPlayingIcon: "#1abc9c"
+    property color detailedUserInfoGameCharsTableFriendText: "#1abc9c"
+    property color detailedUserInfoMainInfoLevelProgressLine: "#1abc9c"
+
+    property color gameGridHightlight: '#dec37b'
+    property color gameGridProgress: "#1abc9c"
+
+
+    // Если будет использоваться еще, то вероятно переименовать:
+    property color searchBorder: "#3498db"
 
     property color inputNormal: "#363636"
     property color inputHover: "#3498db"

@@ -88,7 +88,7 @@ Column {
 
             Rectangle {
                 anchors.fill: parent
-                color: Styles.style.messengerGridBackgroud
+                color: Styles.style.popupBlockBackground
                 opacity: root.selected ? 0.8 : 0
 
                 Behavior on opacity {
@@ -117,9 +117,9 @@ Column {
             }
 
             style {
-                normal: Styles.style.gameInstallButtonNormal
-                hover: Styles.style.gameInstallButtonHover
-                disabled: Styles.style.gameInstallButtonDisabled
+                normal: Styles.style.primaryButtonNormal
+                hover: Styles.style.primaryButtonHover
+                disabled: Styles.style.primaryButtonDisabled
             }
 
             onClicked: {
@@ -133,20 +133,30 @@ Column {
             }
         }
 
-        Rectangle {
+        Item {
             id: progressRect
 
-            anchors.bottom: parent.bottom
-            width: parent.width
-            height: (root.serviceItem.progress / 100) * parent.height
+            anchors.fill: parent
 
-            color: Styles.style.messengerGridProgressRect
-            opacity: 0.75
+            Rectangle {
+                anchors.fill: parent
+                opacity: 0.74
+                color: Styles.style.popupBlockBackground
+            }
+
+            Rectangle {
+                anchors.bottom: parent.bottom
+                width: parent.width
+                height: (root.serviceItem.progress / 100) * parent.height
+
+                color: Styles.style.gameGridProgress
+                opacity: 0.5
+            }
         }
 
         Rectangle {
             border {
-                color: Styles.style.messengerGridHightlight
+                color: Styles.style.gameGridHightlight
                 width: 4
             }
             color: '#00000000'
@@ -165,7 +175,7 @@ Column {
             anchors.centerIn: parent
             text: root.serviceItem.progress + '%'
             font.pixelSize: 16
-            color: '#ffffff'
+            color: Styles.style.lightText
         }
     }
 
@@ -174,8 +184,8 @@ Column {
 
         text: root.serviceItem ? root.serviceItem.name : ''
         elide: Text.ElideRight
-        color: root.selected ? Styles.style.messengerGridHightlight :
-                               Styles.style.messengerGameItemTextNormal
+        color: root.selected ? Styles.style.bannerInfoText :
+                               Styles.style.lightText
         font.pixelSize: 12
     }
 

@@ -15,7 +15,7 @@ WidgetView {
     id: root
 
     width: 770
-    height: 560
+    height: 570
 
     Rectangle {
         anchors.fill: parent
@@ -25,8 +25,8 @@ WidgetView {
 
     ScrollArea {
         anchors{
-            fill: parent;
-            topMargin: 10;
+            fill: parent
+            topMargin: 10
             leftMargin: 10
         }
 

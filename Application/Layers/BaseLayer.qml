@@ -20,6 +20,7 @@ Item {
 
     property variant currentGame: App.currentGame()
     property bool hasCurrentGame: !!currentGame
+    property bool selectedGamePage: false
 
     implicitWidth: 1000
     implicitHeight: 600
@@ -30,6 +31,17 @@ Item {
             App.navigate("mygame");
             return;
         }
+
+        App.navigate("allgame");
+    }
+
+    Image {
+        visible: root.selectedGamePage
+        anchors.fill: parent
+        source: !!root.currentGame ? root.currentGame.backgroundInApp : ""
+        fillMode: Image.PreserveAspectCrop
+        smooth: true
+    }
 
     Connections {
         target: App.signalBus()
@@ -42,23 +54,20 @@ Item {
                     GoogleAnalytics.trackPageView('/' + link);
                     return;
                 }
+
                 case "mygame": {
-                    root.state = "SelectedGame";
+                    root.selectedGamePage = true;
+                    centralBlockLoader.sourceComponent = gamePageBlock;
+                } break;
+                case "allgame": {
+                    centralBlockLoader.sourceComponent = allGames;
+                    root.selectedGamePage = false;
+                } break;
+                case "themes": {
+                    centralBlockLoader.sourceComponent = themes;
+                    root.selectedGamePage = false;
+                } break;
 
-                    if (root.hasCurrentGame) {
-                        GoogleAnalytics.trackPageView('/game/' + root.currentGame.gaName);
-
-                        if (!App.isServiceInstalled(root.currentGame.serviceId)) {
-                            gameMenu.pageClicked('AboutGame');
-                        } else {
-                            gameMenu.pageClicked('News');
-                        }
-                    }
-                    return;
-                }
-                case "allgame": root.state = "AllGames"; break;
-                case "mygames": root.state = "MyGames"; break;
-                case "themes": root.state = "Themes"; break;
                 default: {
                     console.log('Unknown link', link);
                 }
@@ -96,12 +105,18 @@ Item {
                 }
             }
 
-            Loader {
-                id: centralBlockLoader
+            Item {
+                width: root.width - 230
+                height: parent.height
 
-                width: 770;
-                height: parent.height;
-                onSourceComponentChanged: gc()
+                Loader {
+                    id: centralBlockLoader
+
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: 770;
+                    height: parent.height;
+                    onSourceComponentChanged: gc()
+                }
             }
         }
     }
@@ -177,10 +192,11 @@ Item {
 
                     switch(page) {
                         case 'GameSettings':
-                            if (root.state != "SelectedGame") {
-                                console.log('Fail to open game settings from ', root.state);
+                            if (!root.selectedGamePage) {
+                                console.log('Fail to open game settings from ');
                                 return;
                             }
+
                             App.navigate('GameSettings');
                             break;
                         case 'AboutGame':
@@ -210,25 +226,4 @@ Item {
             widget: 'Themes'
         }
     }
-
-    states: [
-        State {
-            name: "AllGames"
-            PropertyChanges { target: centralBlockLoader; sourceComponent: allGames}
-        },
-        State {
-            name: "SelectedGame"
-            PropertyChanges { target: centralBlockLoader; sourceComponent: gamePageBlock}
-        }
-        ,
-        State {
-            name: "MyGames"
-            PropertyChanges { target: centralBlockLoader; sourceComponent: myGamesComponent}
-        },
-        State {
-            name: "Themes"
-            PropertyChanges { target: centralBlockLoader; sourceComponent: themes}
-        }
-
-    ]
 }

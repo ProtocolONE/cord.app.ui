@@ -36,11 +36,12 @@ Image {
             return ''
         }
 
+        text: getText(root.type)
+
         anchors {
             verticalCenter: parent.verticalCenter
             verticalCenterOffset: -4
         }
-
 
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
@@ -49,9 +50,12 @@ Image {
         height: parent.height
         wrapMode: Text.WordWrap
 
-        color: Styles.style.messengerGridStickText
-        font.pixelSize: 10
-        text: getText(root.type)
+        color: Styles.style.lightText
+        font {
+            bold: true
+            pixelSize: 10
+            family: "Open Sans Regular"
+        }
     }
 }
 

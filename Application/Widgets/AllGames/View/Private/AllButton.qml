@@ -18,24 +18,26 @@ Item {
             fill: parent
             margins: 2
         }
-        color: Styles.style.messengerAllButtonGridHover
+
         visible: mouseArea.containsMouse
+        color: Styles.style.light
+        opacity: Styles.style.blockInnerOpacity
     }
 
     Row {
         id: row
 
-        anchors {
-            centerIn: parent
-        }
-
+        anchors.centerIn: parent
         spacing: 8
 
         Text {
             text: qsTr("ALL_GAMES_GRID_TITLE_TEXT")
-            color: mouseArea.containsMouse ? Styles.style.messengerAllButtonGridTextHover :
-                                             Styles.style.messengerAllButtonGridTextNormal
-            font.pixelSize: 17
+            color: mouseArea.containsMouse ? Styles.style.bannerInfoText :
+                                             Styles.style.textAttention
+            font {
+                pixelSize: 16
+                family: "Open Sans Light"
+            }
         }
 
         Image {

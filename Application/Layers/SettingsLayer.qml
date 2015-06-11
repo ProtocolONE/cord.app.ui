@@ -36,7 +36,7 @@ Item {
         id: gameSettings
 
         width: parent.width
-        height: 560
+        height: 570
         anchors.bottom: parent.bottom
         visible: false
 
@@ -47,7 +47,7 @@ Item {
         id: applicationSettings
 
         width: parent.width
-        height: 560
+        height: 570
         anchors.bottom: parent.bottom
         visible: false
 

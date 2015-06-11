@@ -13,6 +13,8 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
+import Application.Controls 1.0
+
 import "../../../Core/App.js" as App
 import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../../../Core/Styles.js" as Styles
@@ -23,13 +25,10 @@ WidgetView {
     property variant gameItem: App.currentGame()
     property int interval: root.gameItem ? root.gameItem.maintenanceInterval : 0
 
-    implicitWidth: 560
+    implicitWidth: 590
     implicitHeight: 112
 
-    Rectangle {
-        anchors.fill: parent
-        color: Styles.style.maintenanceBackground
-    }
+    ContentBackground {}
 
     Item {
         anchors {
@@ -49,11 +48,9 @@ WidgetView {
                 height: 90
 
                 Rectangle {
-                    anchors { fill: parent  }
-
-                    color: '#082135'
-
-                    border { color: '#e53b24'; width: 2 }
+                    anchors { fill: parent; margins: 1 }
+                    color: "#00000000"
+                    border { color: Styles.style.textAttention; width: 2 }
                 }
 
                 Text {
@@ -61,15 +58,16 @@ WidgetView {
                         baseline: parent.top;
                         baselineOffset: 22
                     }
+
                     text: qsTr("MAINTENANCE_LIGHT_LABEL")
-                    color: '#fff9ea'
+                    color: Styles.style.lightText
                     font { pixelSize: 14 }
                     width: parent.width
                     wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                     horizontalAlignment: Text.AlignHCenter
                 }
 
-                Rectangle {
+                ContentStroke {
                     anchors {
                         baseline: parent.top
                         baselineOffset: 52
@@ -77,15 +75,16 @@ WidgetView {
                         right: parent.right
                         margins: 8
                     }
-
-                    color: '#162f43'
-                    height: 1
                 }
 
                 Row {
                     id: row
 
-                    anchors { baseline: parent.bottom; baselineOffset: -50 + 16; horizontalCenter: parent.horizontalCenter }
+                    anchors {
+                        baseline: parent.bottom
+                        baselineOffset: -50 + 16
+                        horizontalCenter: parent.horizontalCenter
+                    }
                     spacing: 7
 
                     function format(value) {
@@ -114,13 +113,15 @@ WidgetView {
                 }
             }
 
-            Rectangle {
+            Item {
                 id: proposalRect
 
                 width: 390
                 height: parent.height
 
-                color: '#253149'
+                ContentStroke {
+                    anchors.fill: parent
+                }
 
                 property variant proposalGameItem: App.serviceItemByServiceId(root.gameItem ?
                                                                                   root.gameItem.maintenanceProposal1 : '')
@@ -149,7 +150,7 @@ WidgetView {
                             width: parent.width
                             text: qsTr("MAINTENANCE_LIGHT_PROSOSAL_START_TEXT").arg(proposalRect.proposalGameItem ?
                                                                                         proposalRect.proposalGameItem.miniToolTip : '')
-                            color: '#8fa1b7'
+                            color: Styles.style.textBase
                             font { family: 'Arial'; pixelSize: 14 }
                             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                         }
@@ -159,7 +160,7 @@ WidgetView {
                                 bottom: parent.bottom
                             }
                             text: proposalRect.proposalGameItem ? proposalRect.proposalGameItem.name : ''
-                            color: '#ffffff'
+                            color: Styles.style.menuText
                             font { family: 'Arial'; pixelSize: 18 }
                         }
                     }

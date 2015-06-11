@@ -12,8 +12,11 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
+import Application.Controls 1.0
+
 import "../../../Core/App.js" as App
 import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../Core/Styles.js" as Styles
 
 WidgetView {
     id: root
@@ -24,10 +27,7 @@ WidgetView {
     width: 590
     height: 150
 
-    Rectangle {
-        anchors.fill: parent
-        color: '#082135'
-    }
+    ContentBackground {}
 
     Row {
         anchors { fill: parent; margins: 10 }
@@ -38,11 +38,9 @@ WidgetView {
             height: 130
 
             Rectangle {
-                anchors { fill: parent  }
-
-                color: '#082135'
-
-                border { color: '#e53b24'; width: 2 }
+                anchors { fill: parent; margins: 1 }
+                color: "#00000000"
+                border { color: Styles.style.textAttention; width: 2 }
             }
 
             Text {
@@ -52,11 +50,11 @@ WidgetView {
                     horizontalCenter: parent.horizontalCenter
                 }
                 text: qsTr("MAINTENANCE_LABEL")
-                color: '#fff9ea'
+                color: Styles.style.lightText
                 font { pixelSize: 14 }
             }
 
-            Rectangle {
+            ContentStroke {
                 anchors {
                     baseline: parent.top
                     baselineOffset: 38
@@ -64,15 +62,12 @@ WidgetView {
                     right: parent.right
                     margins: 8
                 }
-
-                color: '#162f43'
-                height: 1
             }
 
             Text {
                 anchors { baseline: parent.top; baselineOffset: 75; horizontalCenter: parent.horizontalCenter }
                 text: qsTr("MAINTENANCE_LABEL_END")
-                color: '#8ba1b6'
+                color: Styles.style.textBase
                 font { pixelSize: 14 }
             }
 
@@ -105,7 +100,6 @@ WidgetView {
                     firstText: row.format(root.interval % 60)
                     secondText: qsTr("SECONDS_MAINTENANCE_LABEL")
                 }
-
             }
         }
 
@@ -120,7 +114,7 @@ WidgetView {
                 height: 35
 
                 text: qsTr("MAINTENANCE_PROPOSAL_GAME_TEXT").arg(root.gameItem ? root.gameItem.name : "")
-                color: '#8ea4b9'
+                color: Styles.style.textBase
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 font { family: 'Arial'; pixelSize: 16 }
             }

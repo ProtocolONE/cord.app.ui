@@ -17,14 +17,14 @@ Column {
     property variant serviceItem
 
     Text {
-        font { family: 'Arial'; pixelSize: 20 }
-        color: Styles.style.messengerGameItemTextNormal
+        font { family: 'Open Sans Regular'; pixelSize: 24 }
+        color: Styles.style.menuText
         text: serviceItem ? serviceItem.name : 'name'
     }
 
     Text {
-        font { family: 'Arial'; pixelSize: 12 }
-        color: Styles.style.messengerGameItemText
+        font { family: 'Open Sans Regular'; pixelSize: 12 }
+        color: Styles.style.bannerInfoText
         text: serviceItem ? serviceItem.shortDescription : 'shortDescription'
     }
 }

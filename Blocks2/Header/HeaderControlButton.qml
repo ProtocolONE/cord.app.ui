@@ -14,13 +14,12 @@ import GameNet.Controls 1.0
 Button {
     id: root
 
-    property alias source: icon.source
+    property string source
 
-    width: 16
-    height: 14
-    opacity: root.containsMouse ? 1 : 0.2
+    implicitWidth: 16
+    implicitHeight: 14
 
-    style: ButtonStyleColors {
+    style {
         normal: "#00000000"
         hover: "#00000000"
         disabled: "#00000000"
@@ -30,9 +29,9 @@ Button {
         id: icon
 
         anchors.centerIn: parent
-    }
 
-    Behavior on opacity {
-        NumberAnimation { duration: 250 }
+        source: root.containsMouse
+                ? root.source.replace('.png', 'Hover.png') :
+                  root.source
     }
 }
