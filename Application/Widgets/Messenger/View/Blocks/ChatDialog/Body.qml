@@ -14,9 +14,13 @@ import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 import Application.Controls 1.0
 
+import "../../../../../Core/App.js" as App
 import "../../../../../Core/Styles.js" as Styles
-import "../../../Models/Messenger.js" as MessengerJs
 import "../../../../../Core/moment.js" as Moment
+
+import "../../../Models/Messenger.js" as MessengerJs
+
+import "./Body.js" as BodyJs
 
 Item {
     id: root
@@ -36,11 +40,21 @@ Item {
     ListView {
         id: messageList
 
+        property bool isFirstPass: true
+
         cacheBuffer: 100
         boundsBehavior: Flickable.StopAtBounds
         interactive: true
 
+        onModelChanged: messageList.isFirstPass = true;
+
         function scrollCheck() {
+            if (messageList.isFirstPass && BodyJs.hasSavedScroll(user.jid))  {
+                BodyJs.scrollToSaved(scroll, user.jid);
+                messageList.isFirstPass = false;
+                return;
+            }
+
             var hasNotScroll = messageList.contentHeight < messageList.height;
             if (hasNotScroll || scroll.isAtEnd()) {
                 scrollToEndTimer.restart();
@@ -151,6 +165,7 @@ Item {
         color: "#00000000"
         cursorColor: Styles.style.contentBackgroundLight
         cursorOpacity: 0.1
+        onScrolling: BodyJs.saveScroll(user.jid, index, mode);
     }
 
     // INFO лежив вверху поверх чата
@@ -160,4 +175,8 @@ Item {
         onQueryMore: messageList.queryMore(number, name);
     }
 
+    Connections {
+        target: App.signalBus();
+        onLogoutDone: BodyJs.resetSavedScroll();
+    }
 }

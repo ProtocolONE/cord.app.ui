@@ -43,6 +43,10 @@ Rectangle {
     property bool isPositionAtBeging: isAtBeging()
     property bool isPositionAtEnd: isAtEnd()
 
+    //Событие кидается при прокрутке, указывая индекс и режим postionViewAtIndex для прокрутки максимально близкой к
+    //той, что сейчас на экране.
+    signal scrolling(int index, int mode);
+
     function isAtBeging() {
         return root.currentIndex <= 1;
     }
@@ -67,9 +71,13 @@ Rectangle {
     }
 
     function wheel(delta) {
-        currentIndex = delta < 0
-            ? Math.min(listViewCount, currentIndex + cursorWheelStep)
-            : Math.max(0, currentIndex - cursorWheelStep);
+        if (delta < 0) {
+            currentIndex = Math.min(listViewCount, currentIndex + cursorWheelStep);
+            root.scrolling(currentIndex, ListView.End);
+        } else {
+            currentIndex = Math.max(0, currentIndex - cursorWheelStep);
+            root.scrolling(currentIndex, ListView.Beginning);
+        }
 
         updateCursorY();
     }
@@ -79,6 +87,10 @@ Rectangle {
     }
 
     function positionViewAtIndex(index, type) {
+        if (type === undefined) {
+            type = root.cursorMode;
+        }
+
         root.currentIndex = index;
         root.listView.positionViewAtIndex(index, type);
         updateCursorHeight();
@@ -147,16 +159,20 @@ Rectangle {
         interval: 30
         repeat: true
         onTriggered: {
-            var index;
+            var index,
+                mode;
 
             if (root.listView.verticalVelocity >= 0) {
+                mode = ListView.End;
                 index = root.listView.indexAt(0, root.listView.contentY + root.listView.height - 1);
             } else {
+                mode = ListView.Beginning;
                 index = root.listView.indexAt(0, root.listView.contentY);
             }
 
             if (index !== -1) {
                 root.currentIndex = index;
+                root.scrolling(index, mode);
                 root.updateCursorY();
             }
         }
@@ -178,12 +194,16 @@ Rectangle {
         Rectangle {
             id: cursor
 
+            property int oldY: 0
+
             color: "#A3A3A3"
             height: root.cursorHeight
             width: parent.width
             onYChanged: {
                 if (cursorMouser.drag.active) {
                     root.updateCurrentIndex(y);
+                    root.scrolling(root.currentIndex, (y - oldY > 0) ? ListView.End : ListView.Beginning);
+                    oldY = y;
                 }
             }
             radius: 3
