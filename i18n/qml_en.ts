@@ -357,24 +357,34 @@
 <context>
     <name>BodyHistoryHeader</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="43"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="32"/>
+        <source>BODY_HISTORY_HEADER_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="53"/>
         <source>YESTERDAY_HISTORY_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="48"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="58"/>
         <source>WEEK_HISTORY_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="53"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="63"/>
         <source>TWO_WEEKS_HISTORY_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="58"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="68"/>
         <source>MONTH_HISTORY_MONTH</source>
         <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="73"/>
+        <source>MONTH_HISTORY_BEGINNING</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

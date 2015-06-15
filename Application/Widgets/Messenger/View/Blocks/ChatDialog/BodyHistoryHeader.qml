@@ -23,68 +23,70 @@ Item {
             rightMargin: 20
         }
 
-        ListView {
+        Row {
             height: parent.height
             anchors.centerIn: parent
-            spacing: 7
+            spacing: 10
 
-            orientation: ListView.Horizontal
-            interactive: false
-            cacheBuffer: 10
-            width: 200 // INFO надо бы разобратся и считать ширину в зависимости от делегатов
-
-            model: ListModel {
-                ListElement {
-                    number: 1
-                    name: 'day'
-                    textValue: QT_TR_NOOP("YESTERDAY_HISTORY_TEXT")
-                }
-                ListElement {
-                    number: 1
-                    name: 'week'
-                    textValue: QT_TR_NOOP("WEEK_HISTORY_TEXT")
-                }
-                ListElement {
-                    number: 2
-                    name: 'week'
-                    textValue: QT_TR_NOOP("TWO_WEEKS_HISTORY_TEXT")
-                }
-                ListElement {
-                    number: 1
-                    name: 'month'
-                    textValue: QT_TR_NOOP("MONTH_HISTORY_MONTH")
-                }
-            }
-
-            delegate: TextButton {
-                function isEnabled(number, name) {
-                    var user = MessengerJs.selectedUser();
-                    if (!user.isValid()) {
-                        return false;
-                    }
-
-                    if (!user.historyDay) {
-                        return true;
-                    }
-
-                    var actualDay =
-                            +Moment.moment().startOf('day').subtract(number, name);
-
-                    return actualDay < user.historyDay;
-                }
-
+            Text {
+                text: qsTr("BODY_HISTORY_HEADER_TITLE")
                 color: Styles.style.infoText
                 font {
                     family: "Arial"
                     pixelSize: 12
                 }
-                text: qsTr(textValue)
-                onClicked: root.queryMore(model.number, model.name);
-                enabled: isEnabled(model.number, model.name)
-                style {
-                    normal: Styles.style.infoText
-                    hover: Styles.style.textBase
-                    disabled: Styles.style.infoText
+            }
+
+            ListView {
+                height: parent.height
+                spacing: 7
+
+                orientation: ListView.Horizontal
+                interactive: false
+                cacheBuffer: 10
+                width: 250 // INFO надо бы разобратся и считать ширину в зависимости от делегатов
+
+                model: ListModel {
+                    ListElement {
+                        number: 1
+                        name: 'day'
+                        textValue: QT_TR_NOOP("YESTERDAY_HISTORY_TEXT")
+                    }
+                    ListElement {
+                        number: 1
+                        name: 'week'
+                        textValue: QT_TR_NOOP("WEEK_HISTORY_TEXT")
+                    }
+                    ListElement {
+                        number: 2
+                        name: 'week'
+                        textValue: QT_TR_NOOP("TWO_WEEKS_HISTORY_TEXT")
+                    }
+                    ListElement {
+                        number: 1
+                        name: 'month'
+                        textValue: QT_TR_NOOP("MONTH_HISTORY_MONTH")
+                    }
+                    ListElement {
+                        number: 100
+                        name: 'month'
+                        textValue: QT_TR_NOOP("MONTH_HISTORY_BEGINNING")
+                    }
+                }
+
+                delegate: TextButton {
+                    color: Styles.style.infoText
+                    font {
+                        family: "Arial"
+                        pixelSize: 12
+                    }
+                    text: qsTr(textValue)
+                    onClicked: root.queryMore(model.number, model.name);
+                    style {
+                        normal: Styles.style.infoText
+                        hover: Styles.style.textBase
+                        disabled: Styles.style.infoText
+                    }
                 }
             }
         }

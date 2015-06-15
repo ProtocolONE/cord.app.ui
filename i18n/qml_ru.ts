@@ -936,19 +936,27 @@ Please try again later.</source>
     <name>BodyHistoryHeader</name>
     <message>
         <source>YESTERDAY_HISTORY_TEXT</source>
-        <translation>Вчера</translation>
+        <translation>Один день</translation>
     </message>
     <message>
         <source>WEEK_HISTORY_TEXT</source>
-        <translation>Неделя</translation>
+        <translation>7 дней</translation>
     </message>
     <message>
         <source>TWO_WEEKS_HISTORY_TEXT</source>
-        <translation>2 Недели</translation>
+        <translation>14 дней</translation>
     </message>
     <message>
         <source>MONTH_HISTORY_MONTH</source>
-        <translation>Месяц</translation>
+        <translation>30 дней</translation>
+    </message>
+    <message>
+        <source>MONTH_HISTORY_BEGINNING</source>
+        <translation>С самого начала</translation>
+    </message>
+    <message>
+        <source>BODY_HISTORY_HEADER_TITLE</source>
+        <translation>Вернуться на:</translation>
     </message>
 </context>
 <context>
