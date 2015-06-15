@@ -85,3 +85,11 @@ function destroy(destroyedObject) {
     popupCount--;
 }
 
+function closeAll() {
+    for (var key in shownObject) {
+        if (shownObject.hasOwnProperty(key)) {
+            shownObject[key].closeFunction();
+            destroy(shownObject[key]);
+        }
+    }
+}

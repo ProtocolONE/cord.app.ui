@@ -718,7 +718,11 @@ WidgetModel {
     Connections {
         target: App.signalBus();
         onAuthDone: refreshTimer.restart();
-        onLogoutDone: refreshTimer.stop();
+        onLogoutDone: {
+            logicTimer.stop();
+            refreshTimer.stop();
+            bigAnnounceWindow.visible = false;
+        }
     }
 
     Timer {

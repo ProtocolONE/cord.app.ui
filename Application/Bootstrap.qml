@@ -284,6 +284,7 @@ Item {
 
         onLogoutDone: {
             App.setGlobalState('Authorization');
+            TrayPopup.closeAll();
             GoogleAnalytics.userId = null;
         }
 
