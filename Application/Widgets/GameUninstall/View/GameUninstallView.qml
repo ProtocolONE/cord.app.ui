@@ -87,16 +87,11 @@ PopupBase {
         border { color: Styles.style.light }
     }
 
-    ProgressBar {
+    DownloadProgressBar {
         anchors {
             fill: progressBarBackgrount
             margins: 6
         }
-        style {
-            background: Styles.style.gameUninstallWidgetProgressBackground
-            line: Styles.style.gameUninstallWidgetProgressLine
-        }
-
         progress: root.gameItem ? root.gameItem.progress : 0
     }
 

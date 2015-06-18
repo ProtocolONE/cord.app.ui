@@ -96,15 +96,12 @@ PopupBase {
 
                    ContentThinBorder{}
 
-                   ProgressBar {
+                   DownloadProgressBar {
                        anchors {
                            fill: parent
                            margins: 6
                        }
-                       style {
-                           background: "#0d5144"
-                           line: '#32cfb2'
-                       }
+
                        progress: model.progress
                    }
                }

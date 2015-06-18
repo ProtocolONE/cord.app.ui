@@ -82,29 +82,17 @@ Form {
                 height: 48
                 spacing: 20
 
-                Button {
+                AuxiliaryButton {
                     height: parent.height
                     width: 240
                     text: qsTr("CODE_BODY_SEND_BY_MAIL")
-
-                    style {
-                        normal: Styles.style.auxiliaryButtonNormal
-                        hover: Styles.style.auxiliaryButtonHover
-                    }
-
                     onClicked: d.getCode('email');
                 }
 
-                Button {
+                AuxiliaryButton {
                     height: parent.height
                     width: 240
                     text: qsTr("CODE_BODY_SEND_BY_SMS")
-
-                    style {
-                        normal: Styles.style.auxiliaryButtonNormal
-                        hover: Styles.style.auxiliaryButtonHover
-                    }
-
                     onClicked: d.getCode('sms');
                 }
             }
@@ -133,7 +121,7 @@ Form {
             height: 48
             spacing: 30
 
-            Button {
+            PrimaryButton {
                 width: 200
                 height: parent.height
                 text: qsTr("CODE_BODY_CONFIRM_BUTTON")

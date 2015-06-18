@@ -13,10 +13,17 @@
 		<file>Application/Blocks/Auth/AuthHelper.js</file>
 		<file>Application/Blocks/Auth/CaptchaInput.qml</file>
 		<file>Application/Blocks/Auth/CodeBody.qml</file>
-		<file>Application/Blocks/Auth/Footer.qml</file>
-		<file>Application/Blocks/Auth/Form.qml</file>
-		<file>Application/Blocks/Auth/Header.qml</file>
-		<file>Application/Blocks/Auth/HeaderNavigateItem.qml</file>
+		<file>Application/Blocks/Auth/Controls/Footer.qml</file>
+		<file>Application/Blocks/Auth/Controls/FooterButton.qml</file>
+		<file>Application/Blocks/Auth/Controls/FooterProperties.qml</file>
+		<file>Application/Blocks/Auth/Controls/Form.qml</file>
+		<file>Application/Blocks/Auth/Controls/Header.qml</file>
+		<file>Application/Blocks/Auth/Controls/HeaderNavigateItem.qml</file>
+		<file>Application/Blocks/Auth/Controls/Inputs/CaptchaInput.qml</file>
+		<file>Application/Blocks/Auth/Controls/Inputs/LoginInput.qml</file>
+		<file>Application/Blocks/Auth/Controls/Inputs/PasswordInput.qml</file>
+		<file>Application/Blocks/Auth/Controls/LicenseText.qml</file>
+		<file>Application/Blocks/Auth/Controls/SupportButton.qml</file>
 		<file>Application/Blocks/Auth/Index.qml</file>
 		<file>Application/Blocks/Auth/LoginInput.qml</file>
 		<file>Application/Blocks/Auth/MessageBody.qml</file>
@@ -67,6 +74,7 @@
 		<file>Application/Blocks/SplashScreen/Background.qml</file>
 		<file>Application/Blocks/SplashScreen/UpdateManager.qml</file>
 		<file>Application/Bootstrap.qml</file>
+		<file>Application/Controls/AuxiliaryButton.qml</file>
 		<file>Application/Controls/CheckedButton.qml</file>
 		<file>Application/Controls/CheckedButtonStyle.qml</file>
 		<file>Application/Controls/ComboBox.qml</file>
@@ -75,6 +83,7 @@
 		<file>Application/Controls/ContentThinBorder.qml</file>
 		<file>Application/Controls/ContextMenuView.qml</file>
 		<file>Application/Controls/DelayedBinding.qml</file>
+		<file>Application/Controls/DownloadProgressBar.qml</file>
 		<file>Application/Controls/HiddenAppCloseButton.qml</file>
 		<file>Application/Controls/Input.qml</file>
 		<file>Application/Controls/InputWithError.qml</file>
@@ -82,10 +91,12 @@
 		<file>Application/Controls/MessagePopup/MessagePlayingRow.qml</file>
 		<file>Application/Controls/MessagePopup/MessageReceivedDelegate.qml</file>
 		<file>Application/Controls/MessagePopup/qmldir</file>
+		<file>Application/Controls/MinorButton.qml</file>
 		<file>Application/Controls/MouseClick.js</file>
 		<file>Application/Controls/MouseClick.qml</file>
 		<file>Application/Controls/Player.qml</file>
 		<file>Application/Controls/Player/Wrapper.qml</file>
+		<file>Application/Controls/PrimaryButton.qml</file>
 		<file>Application/Controls/qmldir</file>
 		<file>Application/Controls/ScrollArea.qml</file>
 		<file>Application/Controls/ScrollBar.qml</file>
@@ -208,7 +219,6 @@
 		<file>Application/Widgets/GameLoad/qmldir</file>
 		<file>Application/Widgets/GameLoad/View/GameLoadView.qml</file>
 		<file>Application/Widgets/GameLoad/View/ProgressWidget.qml</file>
-		<file>Application/Widgets/GameLoad/View/SplitterStyleColorsPrivate.qml</file>
 		<file>Application/Widgets/GameLoad/View/StatInfoElementBig.qml</file>
 		<file>Application/Widgets/GameLoad/View/StatInfoElementSmall.qml</file>
 		<file>Application/Widgets/GameLoad/View/TextButtonStyle.qml</file>
@@ -372,7 +382,6 @@
 		<file>Application/Widgets/PremiumShop/PluginContainer.qml</file>
 		<file>Application/Widgets/PremiumShop/PremiumShopModel.qml</file>
 		<file>Application/Widgets/PremiumShop/qmldir</file>
-		<file>Application/Widgets/PremiumShop/View/PayItem.qml</file>
 		<file>Application/Widgets/PremiumShop/View/PremiumShopView.qml</file>
 		<file>Application/Widgets/PromoCode/PluginContainer.qml</file>
 		<file>Application/Widgets/PromoCode/qmldir</file>

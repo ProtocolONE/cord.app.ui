@@ -1,5 +1,5 @@
 import QtQuick 1.1
-import GameNet.Controls 1.0
+import Application.Controls 1.0
 
 import "../../Core/Styles.js" as Styles
 
@@ -22,9 +22,8 @@ Form {
 
     signal clicked();
 
-    Button {
+    PrimaryButton {
         width: 200
-        height: 48
         text: qsTr("OK_BUTTON_LABEL");
         onClicked: root.clicked();
     }

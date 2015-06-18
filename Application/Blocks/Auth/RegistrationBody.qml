@@ -11,6 +11,7 @@
 import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
+import Application.Controls 1.0
 
 import "../../Core/Authorization.js" as Authorization
 import "../../Core/App.js" as App
@@ -165,13 +166,11 @@ Form {
             }
         }
 
-
-
         Item {
             width: parent.width
             height: 48
 
-            Button {
+            PrimaryButton {
                 width: 200
                 height: parent.height
                 inProgress: d.inProgress

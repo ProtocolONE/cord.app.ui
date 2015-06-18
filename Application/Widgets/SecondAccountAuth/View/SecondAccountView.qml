@@ -15,6 +15,7 @@ import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 
 import Application.Blocks.Auth 1.0
+import Application.Controls 1.0
 
 import "../../../Core/Authorization.js" as Authorization
 import "../../../Core/App.js" as App
@@ -43,20 +44,14 @@ WidgetView {
     Item {
         anchors {fill: parent; margins: 10; topMargin: 22 }
 
-        Button {
+        AuxiliaryButton {
             id: addAccountButton
 
             visible: opacity > 0
             opacity: !User.isSecondAuthorized() ? 1 : 0
-
             width: parent.width
             height: 42
             anchors.bottom: parent.bottom
-            style {
-                normal: Styles.style.auxiliaryButtonNormal
-                hover: Styles.style.auxiliaryButtonHover
-            }
-            textColor: Styles.style.lightText
             text: qsTr("PREMIUM_ADD_ACCOUNT")
             analytics { page: '/SecondAccountAuth/'; category: 'Auth'; action: 'add account'}
             onClicked: Popup.show('SecondAccountAuth', 'SecondAccountAuthView')
@@ -104,19 +99,12 @@ WidgetView {
                 }
             }
 
-            Button {
+            AuxiliaryButton {
                 id: playSecondAccount
 
                 height: 42
                 width: parent.width
                 anchors.bottom: parent.bottom
-
-                style {
-                    normal: Styles.style.auxiliaryButtonNormal
-                    hover: Styles.style.auxiliaryButtonHover
-                    disabled: Styles.style.auxiliaryButtonDisabled
-                }
-                textColor: Styles.style.secondAccountPlayButtonText
                 text: qsTr("SECOND_GAME_BLOCK_PREMIUM_PLAY");
                 enabled: !!App.currentRunningMainService() && !App.currentRunningSecondService()
                 analytics {

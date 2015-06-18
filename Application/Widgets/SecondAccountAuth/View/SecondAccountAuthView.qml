@@ -26,7 +26,8 @@ PopupBase {
     id: root
 
     title: qsTr("SECOND_ACCOUNT_ACTIVATION_TITLE")
-    implicitWidth: 540
+
+    defaultTitleColor: Styles.style.popupText
 
     QtObject {
         id: d
@@ -93,111 +94,102 @@ PopupBase {
         }
     }
 
-    Item {
-        width: root.width
-        height: 433
+    Column {
+        id: formContainer
 
-        Item {
-            id: authContainer
+        anchors {
+            left: parent.left
+            right: parent.right
+        }
 
-            anchors {
-                fill: parent
-                leftMargin: 20
-                rightMargin: 20
-                topMargin: -20
+        AuthBody {
+            id: auth
+
+            visible: false
+            onFooterPrimaryButtonClicked:  root.state = "registration"
+            onCodeRequired: {
+                codeForm.codeSended = false;
+                root.state = "code"
             }
+            onError: d.showError(message);
+            loginSuggestion: d.loginSuggestion();
 
-            Switcher {
-                id: centralSwitcher
-
-                anchors.fill: parent
-
-                AuthBody {
-                    id: auth
-
-                    anchors.fill: parent
-                    onFooterPrimaryButtonClicked:  authContainer.state = "registration"
-                    onCodeRequired: {
-                        codeForm.codeSended = false;
-                        authContainer.state = "code"
-                    }
-                    onError: d.showError(message);
-                    loginSuggestion: d.loginSuggestion();
-
-                    onAuthDone: {
-                        d.authSuccess(userId, appKey, cookie, remember, auth.login);
-                        if (!remember) {
-                            auth.login = "";
-                        }
-                    }
-                    vkButtonInProgress: d.vkAuthInProgress
-                    onFooterVkClicked: d.startVkAuth();
-                }
-
-                RegistrationBody {
-                    id: registration
-
-                    width: parent.width
-                    height: 385
-                    onFooterPrimaryButtonClicked:  authContainer.state = "auth"
-                    onError: d.showError(message);
-                    onAuthDone: d.authSuccess(userId, appKey, cookie, true, registration.login);
-                    vkButtonInProgress: d.vkAuthInProgress
-                    onFooterVkClicked: d.startVkAuth();
-                }
-
-                CodeBody {
-                    id: codeForm
-
-                    anchors.fill: parent
-                    login: auth.login
-                    onCancel: authContainer.state = "auth"
-                    onSuccess: authContainer.state = "auth"
-                    vkButtonInProgress: d.vkAuthInProgress
-                    onFooterVkClicked: d.startVkAuth();
-                }
-
-                MessageBody {
-                    id: messageBody
-
-                    property string backState
-
-                    anchors.fill: parent
-                    onClicked: authContainer.state = messageBody.backState;
+            onAuthDone: {
+                d.authSuccess(userId, appKey, cookie, remember, auth.login);
+                if (!remember) {
+                    auth.login = "";
                 }
             }
+            vkButtonInProgress: d.vkAuthInProgress
+            onFooterVkClicked: d.startVkAuth();
+        }
 
-            state: "auth"
-            states: [
-                State {
-                    name: "auth"
+        RegistrationBody {
+            id: registration
 
-                    StateChangeScript {
-                        script: centralSwitcher.switchTo(auth);
-                    }
-                },
-                State {
-                    name: "registration"
+            visible: false
+            onFooterPrimaryButtonClicked:  root.state = "auth"
+            onError: d.showError(message);
+            onAuthDone: d.authSuccess(userId, appKey, cookie, true, registration.login);
+            vkButtonInProgress: d.vkAuthInProgress
+            onFooterVkClicked: d.startVkAuth();
+        }
 
-                    StateChangeScript {
-                        script: centralSwitcher.switchTo(registration);
-                    }
-                },
-                State {
-                    name: "code"
+        CodeBody {
+            id: codeForm
 
-                    StateChangeScript {
-                        script: centralSwitcher.switchTo(codeForm);
-                    }
-                },
-                State {
-                    name: "message"
+            visible: false
+            login: auth.login
+            onCancel: root.state = "auth"
+            onSuccess: root.state = "auth"
+            vkButtonInProgress: d.vkAuthInProgress
+            onFooterVkClicked: d.startVkAuth();
+        }
 
-                    StateChangeScript {
-                        script: centralSwitcher.switchTo(messageBody);
-                    }
-                }
-            ]
+        MessageBody {
+            id: messageBody
+
+            property string backState
+
+            visible: false
+            onClicked: root.state = messageBody.backState;
         }
     }
+
+    state: "auth"
+    states: [
+        State {
+            name :"Initial"
+            PropertyChanges {target: auth; visible: false}
+            PropertyChanges {target: registration; visible: false}
+            PropertyChanges {target: codeForm; visible: false}
+            PropertyChanges {target: messageBody; visible: false}
+        },
+        State {
+            name: "auth"
+            extend: "Initial"
+            PropertyChanges {target: auth; visible: true}
+            StateChangeScript {
+                script: auth.forceActiveFocus();
+            }
+        },
+        State {
+            name: "registration"
+            extend: "Initial"
+            PropertyChanges {target: registration; visible: true}
+            StateChangeScript {
+                script: registration.forceActiveFocus();
+            }
+        },
+        State {
+            name: "code"
+            extend: "Initial"
+            PropertyChanges {target: codeForm; visible: true}
+        },
+        State {
+            name: "message"
+            extend: "Initial"
+            PropertyChanges {target: messageBody; visible: true}
+        }
+    ]
 }

@@ -10,6 +10,7 @@
 
 import QtQuick 1.1
 import GameNet.Controls 1.0
+import Application.Controls 1.0
 
 import "../Core/Styles.js" as Styles
 
@@ -57,14 +58,10 @@ Item {
         anchors.fill: parent
         spacing: 4
 
-        ProgressBar {
+        DownloadProgressBar {
             id: progressBar
 
             height: 4
-            style {
-                background: Styles.style.downloadStatusProgressBackground
-                line: Styles.style.downloadStatusProgressLine
-            }
             animated: true
             anchors { left: parent.left; right: parent.right}
             progress: serviceItem ? serviceItem.progress : 75

@@ -16,3 +16,5 @@ ContentStroke 1.0 ContentStroke.qml
 ContentThinBorder 1.0 ContentThinBorder.qml
 PrimaryButton 1.0 PrimaryButton.qml
 MinorButton 1.0 MinorButton.qml
+AuxiliaryButton 1.0 AuxiliaryButton.qml
+DownloadProgressBar 1.0 DownloadProgressBar.qml

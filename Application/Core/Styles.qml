@@ -29,45 +29,6 @@ Item {
     property color trayPopupPlayText: '#8c9fc1'
     property color trayPopupText: '#ffffff'
 
-    property color secondAccountBaseBackground: "#082135"
-    property color secondAccountAddAccountBackground: "#082135"
-    property color secondAccountAddAccountButtonHormal: "#1ABC9C"
-    property color secondAccountAddAccountButtonHover: "#019074"
-    property color secondAccountAddAccountButtonText: "#FFFFFF"
-    property color secondAccountAuthedBackground: "#253149"
-    property color secondAccountBackground: "#253149"
-    property color secondAccountTitle: "#597082"
-    property color secondAccountNickname: "#ffffff"
-    property color secondAccountPlayButtonNormal: "#1ABC9C"
-    property color secondAccountPlayButtonHover: "#019074"
-    property color secondAccountPlayButtonDisabled: "#888888"
-    property color secondAccountPlayButtonText: "#FFFFFF"
-
-    property color secondAccountPopupAuthDelimiter: "#CCCCCC"
-    property color secondAccountPopupAuthTitleText: "#363636"
-    property color secondAccountPopupAuthSubTitleText: "#66758F"
-
-    //MESSAGE BOX (ALERT ADAPTER WIDGET)
-    property color messageBoxShadowBorder: "#111111"
-    property color messageBoxBackground: "#027aca"
-    property color messageBoxHeaderText: "#fafafa"
-    property color messageBoxText: "#fafafa"
-    property color messageBoxPositiveButtonNormal: "#1abc9c"
-    property color messageBoxPositiveButtonHover: "#47c9af"
-    property color messageBoxNegativeButtonNormal: "#cccccc"
-    property color messageBoxNegativeButtonHover: "#ffffff"
-
-    //DOWNLOAD STATUS BLOCK
-    property color downloadStatusProgressBackground: "#0d5043"
-    property color downloadStatusProgressLine: "#35cfb1"
-    property color downloadStatusText: "#eff0f0"
-
-    //  GAME UNINSTALLWIDGET
-    property color gameUninstallWidgetBackground: "#00000000"
-    property color gameUninstallWidgetBorder: "#e1e5e8"
-    property color gameUninstallWidgetProgressBackground: "#0d5144"
-    property color gameUninstallWidgetProgressLine: "#32cfb2"
-
     // SETTINGS
     property color settingsBackground: '#fafafa'
     property color settingsTitleText: '#343537'
@@ -203,6 +164,10 @@ Item {
     property color popupTitleText: "#ff4f02"
     property color popupText: "#7c99a9"
     property color popupSplitter: "#ffffff"
+
+    //Progress bar control
+    property color downloadProgressBackground: "#0d5043"
+    property color downloadProgressLine: "#35cfb1"
 
     // End of GameNet 3.4
 

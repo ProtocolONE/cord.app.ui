@@ -11,6 +11,7 @@
 import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
+import Application.Controls 1.0
 
 import "../../Core/Authorization.js" as Authorization
 import "../../Core/restapi.js" as RestApi
@@ -299,7 +300,7 @@ Form {
                 onToggled: AuthHelper.rememberAccount = rememberAuth.checked;
             }
 
-            Button {
+            PrimaryButton {
                 width: 170
                 height: parent.height
                 anchors.right: parent.right

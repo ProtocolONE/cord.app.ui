@@ -3,6 +3,7 @@ import QtQuick 1.1
 
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
+import Application.Controls 1.0
 
 import "../../../Core/Styles.js" as Styles
 import "../../../Core/moment.js" as Moment
@@ -52,7 +53,7 @@ Item {
             anchors.fill: parent
             hoverEnabled: true
 
-            Button {
+            PrimaryButton {
                 visible: mouser.containsMouse
                 anchors.centerIn: parent
                 width: 220
@@ -77,14 +78,10 @@ Item {
             }
         }
 
-        ProgressBar {
+        DownloadProgressBar {
             y: 170
             anchors { left: parent.left; right: parent.right; leftMargin: 15; rightMargin: 15;}
             height: 4
-            style {
-                background: Styles.style.downloadStatusProgressBackground
-                line: Styles.style.downloadStatusProgressLine
-            }
             animated: true
             width: parent.width
             progress: pack.progress * 100
@@ -96,7 +93,7 @@ Item {
             y: 175
             visible: isLoading
             font { family: 'Arial'; pixelSize: 13 }
-            color: Styles.style.downloadStatusText
+            color: Styles.style.lightText
             text: getText();
             smooth: true
 
@@ -116,7 +113,7 @@ Item {
             visible: !isLoading && mouser.containsMouse
 
             font { family: 'Arial'; pixelSize: 13 }
-            color: Styles.style.downloadStatusText
+            color: Styles.style.lightText
             text: qsTr("THEME_ABOUT")
                 .arg(model.name)
                 .arg(Moment.moment(model.updateDate, "DD.MM.YYYY HH:mm:ss").fromNow())

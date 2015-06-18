@@ -49,7 +49,6 @@ Column {
     Row {
         width: parent.width
         height: 50
-        spacing: 0
 
         property int itemWidth: parent.width / 3
 

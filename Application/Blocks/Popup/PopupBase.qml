@@ -23,16 +23,6 @@ WidgetView {
     implicitHeight: allContent.height + 30
     clip: true
 
-    FontLoader {
-        name: "Open Sans Light";
-        source: installPath + "Assets/Fonts/OpenSansLight.ttf"
-    }
-
-    FontLoader {
-        name: "Open Sans Regular";
-        source: installPath + "Assets/Fonts/OpenSansRegular.ttf"
-    }
-
     default property alias data: container.data
     property alias title: titleText.text
 
@@ -76,7 +66,7 @@ WidgetView {
                 }
                 width: parent.width
                 font {family: 'Open Sans Light'; pixelSize: 30}
-                color: Styles.style.popupTitleText
+                color: defaultTitleColor
                 elide: Text.ElideRight
                 smooth: true
                 text: "Title"
