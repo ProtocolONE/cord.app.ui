@@ -3422,7 +3422,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>MONEY_TOTAL %1</source>
-        <translation type="obsolete">Итоговая стоимость: &lt;font color=#f77960&gt;%1&lt;/font&gt; GN</translation>
+        <translation type="obsolete">Итоговая стоимость: &lt;font color=#e4c85f&gt;%1&lt;/font&gt;GN</translation>
     </message>
     <message>
         <source>ACCEPT_BUY</source>
@@ -4046,7 +4046,7 @@ Please try again later.</source>
     <name>PayItem</name>
     <message>
         <source>ONE_DAY_PREMIUM_TRADIO_TEXT</source>
-        <translation>1 день</translation>
+        <translation type="vanished">1 день</translation>
     </message>
 </context>
 <context>
@@ -4082,7 +4082,7 @@ Please try again later.</source>
     <name>Popup</name>
     <message>
         <source>POPUP_HELP_HINT_TEXT</source>
-        <translation>Кликая в любое место в синей зоне или на крестик, ты можешь свернуть окно и продолжить читать любые новости и изучать информацию об играх </translation>
+        <translation type="vanished">Кликая в любое место в синей зоне или на крестик, ты можешь свернуть окно и продолжить читать любые новости и изучать информацию об играх </translation>
     </message>
 </context>
 <context>
@@ -4162,7 +4162,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
-        <translation>Расширенный аккаунт GameNet - возможность играть двумя аккаунтами одновременно в игры BS.ru, Aika 2 и Reborn. Мы постоянно добавляем в расширенный аккаунт новые приятные бонусы. &lt;a href=&quot;bonus&quot;&gt;Подробности здесь.&lt;/a&gt;</translation>
+        <translation>Расширенный аккаунт GameNet - возможность играть двумя аккаунтами одновременно в игры BS.ru, Aika 2 и Reborn. Мы постоянно добавляем в расширенный аккаунт новые приятные бонусы. &lt;a style=&quot;color: #2d98db&quot;href=&quot;bonus&quot;&gt;Узнайте больше.&lt;/a&gt;</translation>
     </message>
     <message>
         <source>NOT_ENOUGH_MONEY</source>
@@ -4174,7 +4174,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>MONEY_TOTAL %1</source>
-        <translation>Итоговая стоимость: &lt;font color=#f77960&gt;%1&lt;/font&gt; GN</translation>
+        <translation>Итоговая стоимость: &lt;font color=#e4c85f&gt;%1&lt;/font&gt; GN</translation>
     </message>
     <message>
         <source>ACCEPT_BUY</source>
@@ -4186,7 +4186,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>TITLE_PREMIUM_ACCOUNT_CONTINUE_ACCOUNT_LABEL</source>
-        <translation>Продлите действие расширенного аккаунта:</translation>
+        <translation>Продлите расширенный аккаунт:</translation>
     </message>
 </context>
 <context>

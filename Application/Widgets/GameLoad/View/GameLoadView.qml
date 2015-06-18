@@ -11,8 +11,10 @@ import QtQuick 1.1
 import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 import Application.Blocks.Popup 1.0
+import Application.Controls 1.0
 
 import "../../../Core/App.js" as App
+import "../../../Core/Styles.js" as Styles
 import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 PopupBase {
@@ -39,7 +41,7 @@ PopupBase {
         root.isPause = !root.isPause;
     }
 
-    implicitWidth: 630
+    implicitWidth: Math.max(innerWidget.width + defaultMargins * 2, 630)
     title: qsTr("GAME_LOAD_VIEW_HEADER_TEXT").arg(App.currentGame().name)
 
     Connections {
@@ -61,170 +63,124 @@ PopupBase {
         root.isPause = (root.gameItem.status === 'Paused');
     }
 
-    Item {
-        width: root.width
-        height: parent.height
+    Column {
+        id: centerBlock
+
+        spacing: 20
+
+        anchors {
+            left: parent.left
+            right: parent.right
+        }
 
         Column {
-            anchors {
-                fill: parent
-                margins: 20
-                topMargin: 45
-            }
+           width: parent.width
+           spacing: 10
 
-            Item {
-                id: centerBlock
+           Text {
+               font {family: "Arial"; pixelSize: 14}
+               smooth: true
+               color: defaultTextColor
+               text: model.headerText
+           }
 
-                width: parent.width
+           Row {
+               width: parent.width
+               spacing: 6
 
-                Text {
-                    font {
-                        family: "Arial"
-                        pixelSize: 14
-                    }
-                    anchors {
-                        left: parent.left
-                        top: parent.top
-                        topMargin: 15
-                    }
+               Item {
+                   id: progressBarContainer
 
-                    smooth: true
-                    color: defaultTextColor
-                    text: model.headerText
-                }
+                   height: 22
+                   width: parent.width - 100
 
-                Rectangle {
-                    width: 500
-                    height: 22
-                    color: '#00000000'
-                    border { color: '#e1e5e8' }
+                   ContentThinBorder{}
 
-                    anchors {
-                        left: parent.left
-                        top: parent.top
-                        topMargin: 40
-                    }
+                   ProgressBar {
+                       anchors {
+                           fill: parent
+                           margins: 6
+                       }
+                       style {
+                           background: "#0d5144"
+                           line: '#32cfb2'
+                       }
+                       progress: model.progress
+                   }
+               }
 
-                    ProgressBar {
-                        anchors {
-                            fill: parent
-                            margins: 6
-                        }
-                        style: ProgressBarStyleColors {
-                            background: "#0d5144"
-                            line: '#32cfb2'
-                        }
-
-                        progress: model.progress
-                    }
-
-                    TextButton {
-                        anchors {
-                            left: parent.right
-                            leftMargin: 7
-                            top: parent.top
-                            topMargin: 3
-                        }
-
-                        text: !root.isPause ? qsTr("GAME_LOAD_PAUSE") : qsTr("GAME_LOAD_CONTINUE")
-                        fontSize: 14
-                        style: TextButtonStyle {}
-                        onClicked: root.pause();
-                    }
-                }
-
-                TextButton {
-                    id: showStatButton
-
-                    anchors {
-                        left: parent.left
-                        top: parent.top
-                        topMargin: 81
-                    }
-
-                    text: qsTr("SHOW_STATISTICS")
-                    fontSize: 14
-                    style: TextButtonStyle {}
-
-                    analytics: GoogleAnalyticsEvent {
-                        page: '/GameLoad/'
-                        category: 'Loading game ' + root.gameItem.gaName
-                        action: 'Show game loading details'
-                    }
-
-                    onClicked: stateGroup.state = "Detailed";
-                }
-
-                ProgressWidget {
-                    id: progressWidget
-
-                    totalWantedDone: model.totalWantedDone
-                    totalWanted: model.totalWanted
-                    directTotalDownload: model.directTotalDownload
-                    peerTotalDownload: model.peerTotalDownload
-                    payloadTotalDownload: model.payloadTotalDownload
-                    peerPayloadDownloadRate: model.peerPayloadDownloadRate
-                    payloadDownloadRate: model.payloadDownloadRate
-                    directPayloadDownloadRate: model.directPayloadDownloadRate
-                    payloadUploadRate: model.payloadUploadRate
-                    totalPayloadUpload: model.totalPayloadUpload
-
-                    anchors {
-                        left: parent.left
-                        top: parent.top
-                        topMargin: 83
-                    }
-                }
-
-
-                PopupHorizontalSplit {
-                    anchors {
-                        left: parent.left
-                        right: parent.right
-                        bottom: parent.bottom
-                    }
-                }
-
-                Item {
-                    anchors {
-                        top: parent.bottom
-                        topMargin: 20
-                    }
-                    width: 590
-                    height: 150
-
-                    WidgetContainer {
-                        anchors.fill: parent
-                        widget: root.gameItem.widgets.gameDownloading
-                        visible: widget
-                    }
-                }
-            }
+               TextButton {
+                   anchors {
+                       baseline: progressBarContainer.bottom
+                       baselineOffset: -6
+                   }
+                   width: 100
+                   text: !root.isPause ? qsTr("GAME_LOAD_PAUSE") : qsTr("GAME_LOAD_CONTINUE")
+                   fontSize: 14
+                   style: TextButtonStyle {}
+                   onClicked: root.pause();
+               }
+           }
         }
 
-        StateGroup {
-            id: stateGroup
+        TextButton {
+            id: showStatButton
 
-            state: 'Normal'
-
-            states: [
-                State {
-                    name: "Normal"
-                    when: stateGroup.state == "Normal" || root.visible == false
-                    PropertyChanges { target: centerBlock; height: 115 }
-                    PropertyChanges { target: root; implicitHeight: 360 }
-                    PropertyChanges { target: progressWidget; visible: false }
-                    PropertyChanges { target: showStatButton; visible: true }
-                },
-                State {
-                    name: "Detailed"
-                    when: stateGroup.state == "Detailed"
-                    PropertyChanges { target: centerBlock; height: 255 }
-                    PropertyChanges { target: root; implicitHeight: 502 }
-                    PropertyChanges { target: progressWidget; visible: true }
-                    PropertyChanges { target: showStatButton; visible: false }
-                }
-            ]
+            text: qsTr("SHOW_STATISTICS")
+            fontSize: 14
+            style: TextButtonStyle {}
+            analytics {
+                page: '/GameLoad/'
+                category: 'Loading game ' + root.gameItem.gaName
+                action: 'Show game loading details'
+            }
+            onClicked: stateGroup.state = "Detailed";
         }
+
+        ProgressWidget {
+            id: progressWidget
+
+            totalWantedDone: model.totalWantedDone
+            totalWanted: model.totalWanted
+            directTotalDownload: model.directTotalDownload
+            peerTotalDownload: model.peerTotalDownload
+            payloadTotalDownload: model.payloadTotalDownload
+            peerPayloadDownloadRate: model.peerPayloadDownloadRate
+            payloadDownloadRate: model.payloadDownloadRate
+            directPayloadDownloadRate: model.directPayloadDownloadRate
+            payloadUploadRate: model.payloadUploadRate
+            totalPayloadUpload: model.totalPayloadUpload
+        }
+
+        PopupHorizontalSplit {
+            visible: showStatButton.visible
+        }
+
+        WidgetContainer {
+            id: innerWidget
+
+            widget: root.gameItem.widgets.gameDownloading
+            visible: widget
+        }
+    }
+
+    StateGroup {
+        id: stateGroup
+
+        state: 'Normal'
+        states: [
+            State {
+                name: "Normal"
+                when: stateGroup.state == "Normal" || root.visible == false
+                PropertyChanges { target: progressWidget; visible: false }
+                PropertyChanges { target: showStatButton; visible: true }
+            },
+            State {
+                name: "Detailed"
+                when: stateGroup.state == "Detailed"
+                PropertyChanges { target: progressWidget; visible: true }
+                PropertyChanges { target: showStatButton; visible: false }
+            }
+        ]
     }
 }

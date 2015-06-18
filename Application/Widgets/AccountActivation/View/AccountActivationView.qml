@@ -106,13 +106,10 @@ PopupBase {
         }
     }
 
-
     Text {
         anchors {
             left: parent.left
-            leftMargin: 20
             right: parent.right
-            rightMargin: 20
         }
         font {
             family: 'Arial'
@@ -125,7 +122,6 @@ PopupBase {
     }
 
     PopupHorizontalSplit {
-        width: root.width
     }
 
     Item {
@@ -133,9 +129,7 @@ PopupBase {
 
         anchors {
             left: parent.left
-            leftMargin: 20
             right: parent.right
-            rightMargin: 20
         }
         height: childrenRect.height
 
@@ -168,55 +162,45 @@ PopupBase {
         }
     }
 
-    Item {
+    Row {
+        spacing: 10
         anchors {
             left: parent.left
-            leftMargin: 20
             right: parent.right
-            rightMargin: 20
         }
-        height: childrenRect.height
 
-        Row {
-            spacing: 20
+        PrimaryButton {
+            id: requestCodeButton
 
-            Button {
-                id: requestCodeButton
+            width: 200
+            height: 48
+            enabled: phone.text.length > 0 && stateGroup.state == "RequestCode"
+            text: qsTr("BUTTON_GET_CODE")
 
-                width: 200
-                height: 48
-                enabled: phone.text.length > 0 && stateGroup.state == "RequestCode"
-                text: qsTr("BUTTON_GET_CODE")
-
-                analytics: GoogleAnalyticsEvent {
-                    page: "/AccountActivation/"
-                    category: "Auth"
-                    action: "Request phone code"
-                }
-                onClicked: d.requestActivationCode();
+            analytics {
+                page: "/AccountActivation/"
+                category: "Auth"
+                action: "Request phone code"
             }
+            onClicked: d.requestActivationCode();
+        }
 
-            ErrorContainer {
-                id: requestCodeError
+        ErrorContainer {
+            id: requestCodeError
 
-                width: 350
-                height: 48
-            }
+            width: parent.width - requestCodeButton.width - parent.spacing
+            height: 48
         }
     }
 
-    PopupHorizontalSplit {
-        width: root.width
-    }
+    PopupHorizontalSplit {}
 
     Item {
         id: step2
 
         anchors {
             left: parent.left
-            leftMargin: 20
             right: parent.right
-            rightMargin: 20
         }
         height: childrenRect.height
 
@@ -252,45 +236,37 @@ PopupBase {
         }
     }
 
-    PopupHorizontalSplit {
-        width: root.width
-    }
+    PopupHorizontalSplit {}
 
-    Item {
+    Row {
+        spacing: 10
         anchors {
             left: parent.left
-            leftMargin: 20
             right: parent.right
-            rightMargin: 20
         }
-        height: childrenRect.height
 
-        Row {
-            spacing: 20
+        PrimaryButton {
+            id: validateCodeButton
 
-            Button {
-                id: validateCodeButton
+            width: 200
+            height: 48
+            enabled: code.text.length > 0 && stateGroup.state == "ValidateCode"
+            text: qsTr("BUTTON_CODE_CONFIRM")
 
-                width: 200
-                height: 48
-                enabled: code.text.length > 0 && stateGroup.state == "ValidateCode"
-                text: qsTr("BUTTON_CODE_CONFIRM")
-
-                analytics: GoogleAnalyticsEvent {
-                    page: "/AccountActivation/"
-                    category: "Auth"
-                    action: "Validate phone code"
-                }
-
-                onClicked: d.validateActivationCode();
+            analytics: GoogleAnalyticsEvent {
+                page: "/AccountActivation/"
+                category: "Auth"
+                action: "Validate phone code"
             }
 
-            ErrorContainer {
-                id: validateCodeError
+            onClicked: d.validateActivationCode();
+        }
 
-                width: 350
-                height: 48
-            }
+        ErrorContainer {
+            id: validateCodeError
+
+            width: parent.width - validateCodeButton.width - parent.spacing
+            height: 48
         }
     }
 

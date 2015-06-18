@@ -26,6 +26,7 @@ ErrorContainer {
     property alias readOnly: input.readOnly
     property alias error: input.error
     property alias validator: input.validator
+    property alias maximumLength: input.maximumLength
 
     signal validate(string value)
     signal textChanged()

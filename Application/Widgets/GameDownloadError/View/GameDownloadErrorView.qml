@@ -12,7 +12,7 @@ import QtQuick 1.1
 import Tulip 1.0
 
 import Application.Blocks.Popup 1.0
-import GameNet.Controls 1.0
+import Application.Controls 1.0
 
 import "../../../Core/App.js" as App
 
@@ -26,15 +26,13 @@ PopupBase {
     }
 
     title: qsTr("GAME_DOWNLOAD_ERROR_TITLE")
-    width: 850
+    width: internalContainer.width + defaultMargins * 2
     clip: true
 
     Text {
         anchors {
             left: parent.left
-            leftMargin: 20
             right: parent.right
-            rightMargin: 20
         }
         wrapMode: Text.WordWrap
         text: qsTr("GAME_DOWNLOAD_ERROR_TEXT")
@@ -45,25 +43,14 @@ PopupBase {
         color: '#5c6d7d'
     }
 
-    PopupHorizontalSplit {
-        width: root.width
-    }
-
     Row {
-        spacing: 20
-        anchors {
-            left: parent.left
-            leftMargin: 20
-        }
+        id: internalContainer
 
-        Button {
-            id: playRetryButton
+        spacing: 10
 
-            width: 290
-            height: 48
+        PrimaryButton {
             text: qsTr("BUTTON_RETRY_PLAY")
-
-            analytics: GoogleAnalyticsEvent {
+            analytics {
                 page: "/GameDownloadError/"
                 category: "Game " + gameItem.gaName
                 action: "Retry button clicked"
@@ -78,33 +65,22 @@ PopupBase {
             }
         }
 
-        Button {
-            width: 220
-            height: 48
+        MinorButton {
             text: qsTr("BUTTON_RESTART_APPLICATION")
-
-            analytics: GoogleAnalyticsEvent {
+            analytics {
                 page: "/game/" + gameItem.gaName
                 category: "Game " + gameItem.gaName
                 action: "Restart button clicked"
             }
-
-
             onClicked: {
                 App.restartApplication();
                 root.close();
             }
         }
 
-        Button {
-            id: openSupportButton
-
-            width: 260
-            height: 48
-
+        MinorButton {
             text: qsTr("BUTTON_NOTIFY_SUPPORT")
-
-            analytics: GoogleAnalyticsEvent {
+            analytics {
                 page: "/game/" + gameItem.gaName
                 category: "Game " + gameItem.gaName
                 action: "Support button clicked"
@@ -116,5 +92,4 @@ PopupBase {
             }
         }
     }
-
 }

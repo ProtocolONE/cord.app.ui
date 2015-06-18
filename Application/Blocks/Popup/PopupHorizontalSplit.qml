@@ -9,15 +9,15 @@
 ****************************************************************************/
 
 import QtQuick 1.1
-import GameNet.Controls 1.0
+import Application.Controls 1.0
 
 import "../../Core/Styles.js" as Styles
 
-HorizontalSplit {
+Rectangle {
     width: parent.width
-
-    style: SplitterStyleColors {
-        main: Qt.darker(Styles.style.popupBackground, Styles.style.darkerFactor)
-        shadow: Qt.lighter(Styles.style.popupBackground, Styles.style.lighterFactor)
-    }
+    height: 1
+    color: Styles.style.popupSplitter
+    opacity: 0.1
 }
+
+

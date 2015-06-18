@@ -12,9 +12,7 @@ import QtQuick 1.1
 import Tulip 1.0
 
 import Application.Blocks.Popup 1.0
-
-import GameNet.Components.Widgets 1.0
-import GameNet.Controls 1.0
+import Application.Controls 1.0
 
 import "../../../Core/App.js" as App
 import "../../../Core/Popup.js" as Popup
@@ -23,56 +21,37 @@ PopupBase {
     id: root
 
     title: qsTr("USER_LOST_NICK_NAME_TITLE")
-    width: 670
+    width: 730
     clip: true
 
-    Item {
-        id: body
+    Row {
+        spacing: 20
+        width: parent.width
 
-        anchors {
-            left: parent.left
-            leftMargin: 20
-            right: parent.right
-            rightMargin: 20
+        Image {
+            id: nickNameLostImage
+            source: installPath + "Assets/Images/Application/Widgets/NicknameLost/who.png"
         }
-        width: root.width - 40
-        height: childrenRect.height
 
-        Row {
-            spacing: 20
-
-            Image {
-                source: installPath + "Assets/Images/Application/Widgets/NicknameLost/who.png"
+        Text {
+            font {
+                family: 'Arial'
+                pixelSize: 14
             }
-
-            Text {
-                width: 400
-                font {
-                    family: 'Arial'
-                    pixelSize: 14
-                }
-                color: defaultTextColor
-                smooth: true
-                wrapMode: Text.WordWrap
-                text: qsTr("USER_LOST_NICKNAME_BODY_TEXT")
-            }
-
+            width: parent.width - nickNameLostImage.width + parent.spacing
+            color: defaultTextColor
+            smooth: true
+            wrapMode: Text.WordWrap
+            text: qsTr("USER_LOST_NICKNAME_BODY_TEXT")
         }
     }
 
-    PopupHorizontalSplit {
-        width: root.width
-    }
+    PopupHorizontalSplit{}
 
-    Button {
+    PrimaryButton {
         id: activateButton
 
         width: 200
-        height: 48
-        anchors {
-            left: parent.left
-            leftMargin: 20
-        }
         text: qsTr("USER_LOST_NICKNAME_ENTER_BUTTON_TEXT")
         onClicked: {
             Popup.show('NicknameEdit', '');

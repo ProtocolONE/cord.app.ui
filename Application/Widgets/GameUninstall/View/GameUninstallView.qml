@@ -25,7 +25,6 @@ PopupBase {
     property variant gameItem
 
     title: qsTr("UNINSTALL_TITLE").arg(root.gameItem ? root.gameItem.name : "");
-    height: 175
     clip: true
 
     Component.onCompleted: {
@@ -68,65 +67,37 @@ PopupBase {
         }
     }
 
-    Item {
-        width: root.width
-        height: parent.height
-
-        Column {
-            anchors {
-                fill: parent
-                margins: 20
-                topMargin: 45
-            }
-
-            Item {
-                id: centerBlock
-
-                width: parent.width
-
-                Text {
-                    font {
-                        family: "Arial"
-                        pixelSize: 14
-                    }
-                    anchors {
-                        left: parent.left
-                        top: parent.top
-                        topMargin: 15
-                    }
-
-                    smooth: true
-                    color: defaultTextColor
-                    text: d.getStatusText();
-                }
-
-                Rectangle {
-                    width: parent.width
-                    height: 22
-                    color: Styles.style.gameUninstallWidgetBackground
-                    border { color: Styles.style.gameUninstallWidgetBorder }
-
-                    anchors {
-                        top: parent.top
-                        topMargin: 40
-                    }
-
-                    ProgressBar {
-                        anchors {
-                            fill: parent
-                            margins: 6
-                        }
-                        style {
-                            background: Styles.style.gameUninstallWidgetProgressBackground
-                            line: Styles.style.gameUninstallWidgetProgressLine
-                        }
-
-                        progress: root.gameItem ? root.gameItem.progress : 0
-                    }
-
-                }
-            }
+    Text {
+        font {
+            family: "Arial"
+            pixelSize: 15
         }
+        smooth: true
+        color: defaultTextColor
+        text: d.getStatusText();
+    }
+
+    Rectangle {
+        id: progressBarBackgrount
+
+        width: parent.width
+        height: 22
+        color: "#00000000"
+        opacity: Styles.style.blockInnerOpacity
+        border { color: Styles.style.light }
+    }
+
+    ProgressBar {
+        anchors {
+            fill: progressBarBackgrount
+            margins: 6
+        }
+        style {
+            background: Styles.style.gameUninstallWidgetProgressBackground
+            line: Styles.style.gameUninstallWidgetProgressLine
+        }
+
+        progress: root.gameItem ? root.gameItem.progress : 0
     }
 
     Timer {

@@ -49,13 +49,6 @@ Item {
         property variant widgetView
         property int popupId
 
-        function tryShowHelp() {
-            var isFirstShow = Settings.value("qml/core/popup/", "isHelpShowed", 0) == 0;
-            if (isFirstShow) {
-                showHelp.start();
-            }
-        }
-
         function privateClose() {
             //Clean up here
             firstContainer.clear();
@@ -66,8 +59,6 @@ Item {
         id: hideWidgetAnimation
 
         PropertyAction { target: outerMouser; property: "visible"; value: false }
-        PropertyAction { target: helpImage; property: "visible"; value: false }
-
         ParallelAnimation {
             PropertyAnimation { target: firstContainer; property: "opacity"; from: 1; to: 0; duration: 200 }
             PropertyAnimation { target: substrate; property: "opacity"; from: 1; to: 0; duration: 200 }
@@ -97,8 +88,6 @@ Item {
             PropertyAnimation { target: firstContainer; property: "opacity"; from: 0; to: 1; duration: 200 }
             PropertyAnimation { target: substrate; property: "opacity"; from: 0; to: 1; duration: 200 }
         }
-
-        ScriptAction { script: d.tryShowHelp(); }
         PropertyAction { target: outerMouser; property: "visible"; value: true }
     }
 
@@ -125,7 +114,7 @@ Item {
         id: substrate
 
         anchors.centerIn: parent
-        color: '#f0f5f8'
+        color: '#071928'
 
         width: firstContainer.width
         height: firstContainer.height
@@ -163,63 +152,11 @@ Item {
         }
     }
 
-    Image {
-        id: closeButton
-
-        function getTopMargin() {
-            var topSpacing = Math.floor((root.height - firstContainer.height)/2) - 35;
-            return topSpacing >= 0 ? -35 : 0;
-        }
-
-        anchors { left: firstContainer.right; top: firstContainer.top; leftMargin: 20; topMargin: getTopMargin()}
-        source: installPath + '/Assets/Images/Application/Core/Popup/close.png'
-
-        CursorMouseArea {
-            anchors.fill: parent
-            hoverEnabled: true
-            acceptedButtons: Qt.NoButton
-        }
-    }
-
-    Image {
-        id: helpImage
-
-        anchors { left: closeButton.left; top: closeButton.top; leftMargin: -25; topMargin: -40}
-        source: installPath + '/Assets/Images/Application/Core/Popup/popupInfoHelpText.png'
-
-        SequentialAnimation {
-            id: showHelp
-
-            onCompleted: Settings.setValue("qml/core/popup/", "isHelpShowed", 1);
-
-            PauseAnimation { duration: 1000 }
-            PropertyAction { target: helpImage; property: "visible"; value: true }
-            PropertyAnimation { target: helpImage; property: "opacity"; from: 0; to: 1; duration: 150 }
-        }
-
-        Text {
-            anchors {
-                left: parent.left
-                top: parent.bottom
-                leftMargin: 15
-            }
-
-            text: qsTr("POPUP_HELP_HINT_TEXT")
-            width: 158
-            height: 150
-            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-
-            font { family: 'Arial'; pixelSize: 12 }
-            color: '#89bd5f'
-        }
-    }
-
     transitions: [
         Transition {
             from: "*"
             to: "open"
 
-            PropertyAction { target: helpImage; property: "visible"; value: false }
             SequentialAnimation {
                 PropertyAction { target: root; property: "visible"; value: true }
                 PropertyAnimation { target: root; property: "opacity"; duration: 150 }
@@ -234,8 +171,6 @@ Item {
                 PropertyAction { target: outerMouser; property: "visible"; value: false }
                 PropertyAnimation { target: root; property: "opacity"; duration: 150 }
                 PropertyAction { target: root; property: "visible"; value: false }
-                PropertyAction { target: helpImage; property: "visible"; value: false }
-
                 ScriptAction {
                     script: d.privateClose()
                 }

@@ -39,37 +39,23 @@ PopupBase {
     clip: true
 
     Item {
-        id: body
-        anchors {
-            left: parent.left
-            leftMargin: 20
-        }
-        width: root.width - 40
+        width: parent.width
         height: childrenRect.height
 
         InputWithError {
             id: promoCode
 
-            width: body.width
+            width: parent.width
             icon: installPath + "Assets/Images/Application/Widgets/PromoCode/promo.png"
             showLanguage: true
             placeholder: qsTr("PROMO_CODE_PLACEHOLDER")
         }
     }
 
-    PopupHorizontalSplit {
-        width: root.width
-    }
-
-    Button {
+    PrimaryButton {
         id: activateButton
 
-        width: 200
-        height: 48
-        anchors {
-            left: parent.left
-            leftMargin: 20
-        }
+        width: Math.max(implicitWidth, 200)
         text: qsTr("ACIVATE_BUTTON_CAPTION")
         enabled: promoCode.text.length > 0
         onClicked: {

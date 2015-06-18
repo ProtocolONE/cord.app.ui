@@ -24,7 +24,6 @@ Rectangle {
     // Initialization
 
     Component.onCompleted: {
-        Settings.setValue("qml/core/popup/", "isHelpShowed", 0);
         Popup.init(popupLayer);
     }
 
@@ -36,6 +35,7 @@ Rectangle {
             RestApiJs.Core.setAppKey("86c558d41c1ae4eafc88b529e12650b884d674f5");
 
             manager.registerWidget('Application.Widgets.NicknameEdit');
+            manager.registerWidget('Application.Widgets.NicknameReminder');
             manager.init();
         }
     }
@@ -67,6 +67,13 @@ Rectangle {
                 console.log("Opened popupId: " + Popup.show('NicknameEdit'));
             }
         }
+    }
+
+    Button {
+        x: 10
+        y: 10
+        text: 'NicknameReminder'
+        onClicked: Popup.show('NicknameReminder');
     }
 
     Item {

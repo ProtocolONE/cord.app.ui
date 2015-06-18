@@ -23,10 +23,6 @@ Item {
     property color focusOverlay: "#bdbdbd"
     property real focusOverlayOpacity: 0.15
 
-    property color popupBackground: "#F0F5F8"
-    property color popupTitleText: "#343537"
-    property color popupText: "#343537"
-
     property color trayPopupBackground: '#475671'
     property color trayPopupBackgroundBorder: '#303947'
     property color trayPopupTextHeader: '#97aacd'
@@ -64,16 +60,6 @@ Item {
     property color gameInfoBackground: "#001825"
     property color gameInfoImageBackground: '#001825'
     property color gameInfoAboutText: "#000000"
-
-    //MESSAGE BOX (ALERT ADAPTER WIDGET)
-    property color messageBoxShadowBorder: "#111111"
-    property color messageBoxBackground: "#027aca"
-    property color messageBoxHeaderText: "#fafafa"
-    property color messageBoxText: "#fafafa"
-    property color messageBoxPositiveButtonNormal: "#1abc9c"
-    property color messageBoxPositiveButtonHover: "#47c9af"
-    property color messageBoxNegativeButtonNormal: "#cccccc"
-    property color messageBoxNegativeButtonHover: "#ffffff"
 
     //DOWNLOAD STATUS BLOCK
     property color downloadStatusProgressBackground: "#0d5043"
@@ -226,6 +212,11 @@ Item {
     property color auxiliaryButtonHover: "#019074"
     property color auxiliaryButtonDisabled: "#888888"
 
+    property color minorBottonNormal: "#02141d"
+    property color minorBottonHover: "#020e15"
+    property color minorBottonDisabled: "#031824"
+    property color minorBottonActive: "#02141d"
+
     property color errorButtonNormal: "#cc0000"
     property color errorButtonHover: "#ee0000"
 
@@ -272,6 +263,20 @@ Item {
     property color inputError: "#FF3b30"
     property color inputPlaceholder: "#a1c1d2"
     property color inputText: "#363636"
+
+    //MESSAGE BOX (ALERT ADAPTER WIDGET)
+    property color messageBoxBorder: "#ffdd82"
+    property color messageBoxBackground: "#031d2b"
+    property color messageBoxHeaderText: "#ff4f02"
+    property color messageBoxText: "#7c99a9"
+
+    //POPUP BOX (GENERIC COLORS)
+    property color popupBorder: "#ffdd82"
+    property color popupBackground: "#031d2b"
+    property color popupTitleText: "#ff4f02"
+    property color popupText: "#7c99a9"
+    property color popupSplitter: "#ffffff"
+
     // End of GameNet 3.4
 
     //PRIVATE PART

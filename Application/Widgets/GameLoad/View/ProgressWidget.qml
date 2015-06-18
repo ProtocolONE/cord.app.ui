@@ -23,7 +23,7 @@ Column {
     property string totalPayloadUpload
 
     spacing: 12
-    width: 590
+    width: parent.width
 
     function downloadStatusText() {
         return qsTr("DOWNLOAD_STATUS_TEXT").arg(d.calcDimension(totalWantedDone)).
@@ -49,9 +49,12 @@ Column {
     Row {
         width: parent.width
         height: 50
+        spacing: 0
+
+        property int itemWidth: parent.width / 3
 
         StatInfoElementBig {
-            width: 200
+            width: parent.itemWidth
             height: parent.height
 
             infoText: qsTr("DOWNLOAD_COMPLETE_FROM_TO")
@@ -59,20 +62,18 @@ Column {
                                                                     arg(d.calcDimension(totalWanted)).
                                                                     arg(totalWanted == 0 || totalWantedDone == 0 ? 0 :
                                                                     Math.round(100 / totalWanted * totalWantedDone));
-
         }
 
         StatInfoElementBig {
-            width: 200
+            width: parent.itemWidth
             height: parent.height
 
             infoText: qsTr("DOWNLOAD_COMPLETE_TOTAL")
             detailedText: d.calcDimension(payloadTotalDownload)
-
         }
 
         StatInfoElementBig {
-            width: 190
+            width: parent.itemWidth
             height: parent.height
 
             infoText: qsTr("DOWNLOAD_SPEED_TOTAL")
@@ -86,22 +87,24 @@ Column {
         height: 91
         columns: 2
 
+        property int itemWidth: parent.width / 2
+
         StatInfoElementSmall {
-            width: 294
+            width: parent.itemWidth
             height: 30
 
             infoText: qsTr("DOWNLOAD_PEER_DOWNLOAD_TOTAL")
             detailedText: d.calcDimension(peerTotalDownload)
         }
         StatInfoElementSmall {
-            width: 294
+            width: parent.itemWidth
             height: 30
 
             infoText: qsTr("DOWNLOAD_PEER_DOWNLOAD_SPEED")
             detailedText: qsTr('%1/seconds').arg(d.calcDimension(peerPayloadDownloadRate));
         }
         StatInfoElementSmall {
-            width: 294
+            width: parent.itemWidth
             height: 30
 
             infoText: qsTr("DOWNLOAD_PEER_DIRECT_TOTAL")
@@ -109,21 +112,21 @@ Column {
         }
 
         StatInfoElementSmall {
-            width: 294
+            width: parent.itemWidth
             height: 30
 
             infoText: qsTr("DOWNLOAD_PEER_DIRECT_SPEED")
             detailedText: qsTr('%1/seconds').arg(d.calcDimension(directPayloadDownloadRate));
         }
         StatInfoElementSmall {
-            width: 294
+            width: parent.itemWidth
             height: 30
 
             infoText: qsTr("DOWNLOAD_PEER_UPLOAD_TOTAL")
             detailedText: d.calcDimension(totalPayloadUpload)
         }
         StatInfoElementSmall {
-            width: 294
+            width: parent.itemWidth
             height: 30
 
             infoText: qsTr("DOWNLOAD_PEER_UPLOAD_SPEED")

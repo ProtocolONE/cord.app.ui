@@ -8,14 +8,21 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 import QtQuick 1.1
+import Application.Controls 1.0
 
-Rectangle {
+import "../../../Core/Styles.js" as Styles
 
+Item {
     property alias infoText: infoTextElement.text
     property alias detailedText: detailedTextElement.text
 
-    border { color: '#dee2e5' }
-    color: '#00000000'
+    ContentThinBorder {
+        anchors {
+            fill: parent
+            bottomMargin: 0
+            rightMargin: 0
+        }
+    }
 
     Text {
         id: infoTextElement
@@ -31,7 +38,7 @@ Rectangle {
             pixelSize: 12
         }
 
-        color: '#606e7b'
+        color: Styles.style.popupText
     }
 
     Text {
@@ -48,6 +55,6 @@ Rectangle {
             pixelSize: 12
         }
 
-        color: '#fa6956'
+        color: Styles.style.lightText
     }
 }

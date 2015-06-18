@@ -1,7 +1,5 @@
 import QtQuick 1.1
-import GameNet.Controls 1.0
-
-import "../../../Core/Styles.js" as Styles
+import Application.Controls 1.0
 
 Item {
     id: root
@@ -13,32 +11,11 @@ Item {
     property int buttonId
     signal buttonClick(int button)
 
-    Rectangle {
-        id: spliterButtons
-
-        color: '#cccccc'
-        height: parent.height
-        width: 1
-        anchors {
-            left: parent.left
-            bottom: parent.bottom
-        }
-    }
-
-    TextButton {
+    MinorButton {
         id: button
 
-        anchors {
-            left: parent.left
-            leftMargin: 30
-            verticalCenter: parent.verticalCenter
-        }
-
+        height: parent.height
         onClicked: root.buttonClick(buttonId);
-        style {
-            normal: Styles.style.messageBoxNegativeButtonNormal
-            hover: Styles.style.messageBoxNegativeButtonHover
-        }
         fontSize: 14
     }
 }

@@ -22,8 +22,8 @@ import "./AlertAdapter.js" as AlertAdapter
 WidgetView {
     id: alertModule
 
-    width: 130 + Math.max(controlRowId.width, 460)
-    height: 170 + Math.max(mainAlertText.height, 60)
+    width: 130 + Math.max(controlRowId.width, 510)
+    height: 50 + 30 + Math.max(mainAlertText.height, infoImage.height) + 30 + controlRowId.height + 30
 
     Connections {
         target: model
@@ -139,92 +139,77 @@ WidgetView {
             source: installPath + "Assets/Images/Application/Widgets/AlertAdapter/shadow.png";
             smooth: true
         }
-
-        Rectangle { anchors.fill: parent; color: Styles.style.messageBoxShadowBorder }
     }
 
     Rectangle {
         color: Styles.style.messageBoxBackground
-        width: parent.width
+        anchors.fill: parent
+        border.color: Styles.style.messageBoxBorder
+    }
+
+    Column {
+        anchors {
+            left: parent.left
+            right: parent.right
+            margins: 50
+        }
         height: parent.height
+        spacing: 30
 
-        Text {
-            id: headerText
-
+        Item {
+            height: 50
             anchors {
-                top: parent.top
-                topMargin: 20
-                left: parent.left
-                leftMargin: 20
-            }
-            width: parent.width - 40
-            font { family: "Arial"; pixelSize: 20 }
-            elide: Text.ElideRight
-            color: Styles.style.messageBoxHeaderText
-            smooth: true
-        }
-
-        Rectangle {
-            anchors {
-                top: parent.top
-                topMargin: 55
-            }
-            width: parent.width
-            height: 1
-            color: Qt.lighter(Styles.style.messageBoxBackground, Styles.style.lighterFactor)
-        }
-
-        Text {
-            id: mainAlertText
-
-            anchors {
-                baseline: parent.top
-                baselineOffset: 85
                 left: parent.left
                 right: parent.right
-                rightMargin: 20
-                leftMargin: 72
             }
 
-            font { family: "Arial"; pixelSize: 14 }
-            wrapMode: Text.Wrap
-            color: Styles.style.messageBoxText
-            smooth: true
-            textFormat: Text.RichText
-            onLinkActivated: AppJs.openExternalUrl(link)
+            Text {
+                id: headerText
+
+                anchors {
+                    baseline: parent.top
+                    baselineOffset: 50
+                }
+                width: parent.width
+                font { family: "Arial"; pixelSize: 20 }
+                elide: Text.ElideRight
+                color: Styles.style.messageBoxHeaderText
+                smooth: true
+                text: "this fix qml bug with empty Text tag dimensions"
+            }
         }
 
-        Image {
+        Row {
+            spacing: 10
             anchors {
                 left: parent.left
-                top: mainAlertText.top
-                leftMargin: 20
+                right: parent.right
             }
 
-            source: installPath + '/Assets/Images/Application/Widgets/AlertAdapter/info.png'
+            Image {
+                id: infoImage
+
+                source: installPath + '/Assets/Images/Application/Widgets/AlertAdapter/info.png'
+            }
+
+            Text {
+                id: mainAlertText
+
+                width: parent.width - infoImage.width
+                font { family: "Arial"; pixelSize: 14 }
+                wrapMode: Text.Wrap
+                color: Styles.style.messageBoxText
+                smooth: true
+                textFormat: Text.RichText
+                onLinkActivated: App.openExternalUrl(link)
+            }
         }
 
         Row {
             id: controlRowId
 
-            spacing: 50
+            spacing: 10
             height: 47
-            anchors {
-                bottom: parent.bottom
-                left: parent.left
-                margins: 20
-                leftMargin: 70
-            }
-        }
-
-        Rectangle {
-            anchors {
-                bottom: parent.bottom
-                bottomMargin: 88
-            }
-            width: parent.width
-            height: 1
-            color: Qt.lighter(Styles.style.messageBoxBackground, Styles.style.lighterFactor)
         }
     }
 }

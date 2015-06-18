@@ -10,7 +10,6 @@
 import QtQuick 1.1
 import Application.Blocks.Popup 1.0
 
-import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 
 import "../../../Core/App.js" as App
@@ -20,6 +19,8 @@ PopupBase {
     id: root
 
     property variant gameItem
+
+    width: Math.max(implicitWidth, internalContainer.width + defaultMargins * 2)
 
     title: qsTr("GAME_EXECUTING_HEADER").arg(root.gameItem.name)
 
@@ -36,14 +37,10 @@ PopupBase {
         }
     }
 
-    Item {
-        width: 630
-        height: childrenRect.height
+    WidgetContainer {
+        id: internalContainer
 
-        WidgetContainer {
-            anchors.horizontalCenter: parent.horizontalCenter
-            widget: gameItem.widgets.gameStarting
-            visible: widget
-        }
+        widget: gameItem.widgets.gameStarting
+        visible: widget
     }
 }

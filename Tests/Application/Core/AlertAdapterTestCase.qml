@@ -64,9 +64,7 @@ Item {
 
     // Initialization
     Component.onCompleted: {
-        AppJs.activateGame(AppJs.serviceItemByGameId("92"));
-
-        Settings.setValue("qml/core/popup/", "isHelpShowed", 0);
+        App.activateGame(App.serviceItemByGameId("92"));
         Popup.init(popupLayer);
         MessageBox.init(messageboxLayer);
     }

@@ -35,12 +35,8 @@ PopupBase {
     clip: true
 
     Item {
-        width: 500
+        width: parent.width
         height: 68
-        anchors {
-            left: parent.left
-            leftMargin: 20
-        }
 
         Text {
             width: parent.width
@@ -60,7 +56,7 @@ PopupBase {
             property string bestPath: App.getExpectedInstallPath(currentGame.serviceId)
 
             y: 22
-            width: root.width - 40
+            width: parent.width
             height: 48
             path: installationPath.bestPath
             readOnly: true
@@ -82,10 +78,6 @@ PopupBase {
         id: desktopShortcut
 
         width: 300
-        anchors {
-            left: parent.left
-            leftMargin: 20
-        }
         fontSize: 15
         checked: true
         text: qsTr("CREATE_DESKTOP_SHORTCUT")
@@ -99,10 +91,6 @@ PopupBase {
         id: startMenuShortcut
 
         width: 300
-        anchors {
-            left: parent.left
-            leftMargin: 20
-        }
         fontSize: 15
         checked: true
         text: qsTr("CREATE_STARTMENU_SHORTCUT")
@@ -119,8 +107,6 @@ PopupBase {
         Text {
             width: parent.width
             anchors {
-                left: parent.left
-                leftMargin: 20
                 bottom: parent.bottom
             }
             text: qsTr("LICENSE_TIP")
@@ -133,11 +119,9 @@ PopupBase {
         }
     }
 
-    PopupHorizontalSplit {
-        width: root.width
-    }
+    PopupHorizontalSplit {}
 
-    Button {
+    PrimaryButton {
         id: installButton
 
         ShakeAnimation {
@@ -145,7 +129,7 @@ PopupBase {
 
             target: installButton
             property: "anchors.leftMargin"
-            from: 20
+            from: 0
             shakeValue: 2
             shakeTime: 120
         }
@@ -162,7 +146,7 @@ PopupBase {
         height: 48
         anchors {
             left: parent.left
-            leftMargin: 20
+            leftMargin: 0
         }
         text: qsTr("INSTALL_BUTTON_CAPTION")
         onClicked: {

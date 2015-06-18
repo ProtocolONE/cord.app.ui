@@ -33,6 +33,9 @@ Rectangle {
 
     color: control.style.normal
 
+    implicitWidth: 25 + buttonText.width + 25
+    implicitHeight: 48
+
     Behavior on color {
         PropertyAnimation { duration: 250 }
     }
@@ -46,6 +49,7 @@ Rectangle {
             family: "Arial"
             pixelSize: 16
         }
+        text: " "
     }
 
     AnimatedImage {

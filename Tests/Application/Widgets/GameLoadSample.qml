@@ -21,14 +21,14 @@ Rectangle {
     height: 600
     color: '#EEEEEE'
 
-    // Initialization
-    Component.onCompleted: {
-        Popup.init(popupLayer);
-    }
+    Component.onCompleted: Popup.init(popupLayer);
 
     RequestServices {
         onReady: {
-            App.activateGame(App.serviceItemByGameId("92"));
+            var serviceItem = App.serviceItemByGameId("92");
+            serviceItem.statusText = "Sample text";
+
+            App.activateGame(serviceItem);
         }
     }
 
@@ -37,8 +37,7 @@ Rectangle {
 
         Component.onCompleted: {
             manager.registerWidget('Application.Widgets.GameAdBanner');
-            manager.registerWidget('Application.Widgets.GameInfo');
-            manager.registerWidget('Application.Widgets.GameExecuting');
+            manager.registerWidget('Application.Widgets.GameLoad');
             manager.init();
 
             //  stub
@@ -65,14 +64,13 @@ Rectangle {
             source: installPath + '/Tests/Assets/main_07.png'
         }
 
-
         Button {
             x: 10
             y: 98
             width: 160
             height: 36
             text: 'Начать игру'
-            onClicked: Popup.show('GameExecuting');
+            onClicked: Popup.show('GameLoad');
         }
    }
 

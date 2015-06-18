@@ -13,25 +13,22 @@ import QtQuick 1.1
 import Application.Controls 1.0
 import Application.Blocks.Popup 1.0
 
-import GameNet.Controls 1.0
-
 import "../../../Core/App.js" as App
 import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 PopupBase {
     id: root
 
-    width: 670
-    title:  qsTr("PUBLIC_TEST_TITLE")
+    width: 740
+    title: qsTr("PUBLIC_TEST_TITLE")
     clip: true
 
     Text {
         anchors {
             left: parent.left
-            leftMargin: 20
             right: parent.right
-            rightMargin: 20
         }
+
         wrapMode: Text.WordWrap
         text: qsTr("PUBLIC_TEST_TEXT")
         font {
@@ -41,59 +38,36 @@ PopupBase {
         color: defaultTextColor
     }
 
-    PopupHorizontalSplit {
-        width: root.width
-    }
-
     Row {
-        spacing: 20
-        anchors {
-            left: parent.left
-            leftMargin: 20
-        }
+        spacing: 10
 
-        Button {
-            id: notifySupportButton
-
-            width: 190
-            height: 48
+        PrimaryButton {
             text: qsTr("BUTTON_NOTIFY_SUPPORT")
-            analytics: GoogleAnalyticsEvent {
+            analytics {
                 page: '/PublicTest'
                 category: 'Public Test'
                 action: 'support'
             }
-
             onClicked: App.openExternalUrl("https://support.gamenet.ru/kb");
         }
 
-        Button {
-            id: stopTestingButton
-
-            width: 300
-            height: 48
+        MinorButton {
             text: qsTr("BUTTON_STOP_TESTING")
-            analytics: GoogleAnalyticsEvent {
+            analytics {
                 page: '/PublicTest'
                 category: 'Public Test'
                 action: 'switch version'
             }
-
             onClicked: App.switchClientVersion();
         }
 
-        Button {
-            id: closeButton
-
-            width: 100
-            height: 48
+        MinorButton {
             text: qsTr("BUTTON_CLOSE")
-            analytics: GoogleAnalyticsEvent {
+            analytics {
                 page: '/PublicTest'
                 category: 'Public Test'
                 action: 'close'
             }
-
             onClicked: root.close();
         }
     }

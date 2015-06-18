@@ -22,7 +22,6 @@ Rectangle {
     // Initialization
 
     Component.onCompleted: {
-        Settings.setValue("qml/core/popup/", "isHelpShowed", 0);
         Popup.init(popupLayer);
     }
 

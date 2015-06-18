@@ -11,6 +11,7 @@
 import QtQuick 1.1
 import Tulip 1.0
 import Application.Blocks.Popup 1.0
+import Application.Controls 1.0
 import GameNet.Controls 1.0
 
 import "../../../Core/App.js" as App
@@ -28,25 +29,29 @@ PopupBase {
 
         anchors {
             left: parent.left
-            leftMargin: 20
             right: parent.right
-            rightMargin: 20
         }
-        width: root.width - 40
         height: childrenRect.height
 
         Row {
             spacing: 20
+            anchors {
+                left: parent.left
+                right: parent.right
+            }
 
             Image {
+                id: gameFailedImage
+
                 source: installPath + "Assets/Images/Application/Widgets/GameFailed/gameFailed.png"
             }
 
             Column {
+                width: parent.width - parent.spacing - gameFailedImage.width
                 spacing: 20
 
                 Text {
-                    width: 400
+                    width: parent.width
                     font {
                         family: 'Arial'
                         pixelSize: 14
@@ -58,7 +63,7 @@ PopupBase {
                 }
 
                 Text {
-                    width: 400
+                    width: parent.width
                     font {
                         family: 'Arial'
                         pixelSize: 14
@@ -72,23 +77,10 @@ PopupBase {
         }
     }
 
-    PopupHorizontalSplit {
-        width: root.width
-    }
-
     Row {
-        spacing: 20
-        anchors {
-            left: parent.left
-            leftMargin: 20
-        }
+        spacing: 10
 
-        Button {
-            id: needSupportButton
-
-            width: 300
-            height: 48
-
+        PrimaryButton {
             text: qsTr("GAME_FAILED_BUTTON_SUPPORT")
             onClicked: {
                 App.openExternalUrl("https://support.gamenet.ru/kb");
@@ -97,12 +89,7 @@ PopupBase {
             }
         }
 
-        Button {
-            id: cancelButton
-
-            width: 200
-            height: 48
-
+        MinorButton {
             text: qsTr("GAME_FAILED_BUTTON_CLOSE")
             onClicked: {
                 Marketing.send(Marketing.ProblemAfterGameStart, root.currentItem.serviceId, { action: "close" } );
@@ -110,5 +97,4 @@ PopupBase {
             }
         }
     }
-
 }
