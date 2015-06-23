@@ -19,67 +19,67 @@ import "../../../Application/Core/TrayPopup.js" as TrayPopup
 import "../../../Application/Core/restapi.js" as RestApi
 
 Rectangle {
-    width: 1200
-    height: 800
+    width: 1000
+    height: 600
     color: '#EEEEEE'
 
     property string popupSize;
 
-    Row {
+    Column {
         spacing: 10
 
-        Button {
-            width: 100
-            height: 30
-            text: 'Big'
-            onClicked: {
-                popupSize = 'big';
-                manager.setupMockForRestApiPopups();
-                manager.show();
+        Row {
+            spacing: 10
+
+            Button {
+                text: 'Big'
+                onClicked: {
+                    popupSize = 'big';
+                    manager.show();
+                }
+            }
+
+            Button {
+                text: 'Small'
+                onClicked: {
+                    popupSize = 'small';
+                    manager.show();
+                }
+            }
+
+            Button {
+                text: 'License Reminder'
+                onClicked: manager.show();
             }
         }
 
-        Button {
-            width: 100
-            height: 30
-            text: 'Small'
-            onClicked: {
-                popupSize = 'small';
-                manager.setupMockForRestApiPopups();
-                manager.show();
+        Row {
+            spacing: 10
+
+            Button {
+                text: 'Service Installed'
+                onClicked: {
+                    App.serviceInstalled({serviceId: '300003010000000000'});
+                }
             }
-        }
 
+            Button {
+                text: 'Service Started'
+                onClicked: {
+                    App.serviceStarted({serviceId: '300003010000000000'});
+                }
+            }
 
-        Button {
-            width: 200
-            height: 30
-            text: 'License Reminder'
-            onClicked: {
-                manager.setupMockForLicenseReminder();
-                manager.show();
+            Button {
+                text: 'Service Finished'
+                onClicked: {
+                    App.serviceFinished({serviceId: '300003010000000000'});
+                }
             }
         }
     }
 
-    WidgetManager {
-        id: manager
-
-        function setupMockForLicenseReminder() {
-            Settings.setValue("qml/features/SilentMode", "showDate", 0);
-            App.installDate = function() {
-                return +new Date()/1000 - 86400 * 14;
-            }
-
-            App.isAnyLicenseAccepted = function() {
-                return false;
-            }
-
-            App.isWindowVisible = function() {
-                return false;
-            }
-        }
-
+    RequestServices {
         function setupMockForRestApiPopups() {
             RestApi.Games.getAnnouncement = function(fn) {
                 fn({
@@ -101,17 +101,48 @@ Rectangle {
             }
         }
 
-        function show() {
+        onReady: {
+
+            setupMockForRestApiPopups();
+            TrayPopup.init();
+
             manager.registerWidget('Application.Widgets.Announcements');
             manager.init();
+
+            manager.show();
+
+        }
+    }
+
+    WidgetManager {
+        id: manager
+
+        function setupMockForLicenseReminder() {
+            Settings.remove("qml/Announcements2/reminderNeverExecute/300003010000000000/", "showDate");
+            Settings.setValue("qml/features/SilentMode", "showDate", 0);
+
+            App.installDate = function() {
+                return +new Date()/1000 - 86400 * 14;
+            }
+
+            App.isAnyLicenseAccepted = function() {
+                return false;
+            }
+
+            App.isWindowVisible = function() {
+                return false;
+            }
+        }
+
+        function show() {
+            setupMockForLicenseReminder();
+
 
             //Look at Application.Widgets.Announcements Component.onCompleted callback
             var widgetModel = manager.getWidgetByName('Announcements').model;
             widgetModel._lastShownPopupDate = 0;
-        }
 
-        Component.onCompleted: {
-            TrayPopup.init()
+            App.authDone('fakeId', 'fakeAppKey');
         }
     }
 }

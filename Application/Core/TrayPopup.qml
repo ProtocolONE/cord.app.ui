@@ -21,13 +21,13 @@ Window {
     }
 
     x: Desktop.primaryScreenAvailableGeometry.width - width + Desktop.primaryScreenAvailableGeometry.x - spacing
-    y: Desktop.primaryScreenAvailableGeometry.height - height + Desktop.primaryScreenAvailableGeometry.y - spacing
+    y: Desktop.primaryScreenAvailableGeometry.y
 
     flags: Qt.Window | Qt.FramelessWindowHint | Qt.Tool | Qt.WindowMinimizeButtonHint
            | Qt.WindowMaximizeButtonHint | Qt.WindowSystemMenuHint | Qt.WindowStaysOnTopHint
 
     width: popupColumn.width
-    height: 800
+    height: Desktop.primaryScreenAvailableGeometry.height
     deleteOnClose: false
     visible: popupColumn.children.length > 0
     topMost: true
