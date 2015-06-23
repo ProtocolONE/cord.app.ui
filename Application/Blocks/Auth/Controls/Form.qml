@@ -36,6 +36,7 @@ FocusScope {
             bottom: footer.top
         }
         spacing: 15
+        z: 1
 
         Item {
             id: titleItem

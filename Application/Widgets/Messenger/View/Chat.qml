@@ -31,6 +31,12 @@ WidgetView {
             return;
         }
 
+        // INFO Небольшой хак из-за старнной инициализации
+        // высоты при старте приложения
+        if (root.height <= 0) {
+            return;
+        }
+
         var minimumY = root.height - 250,
             maximumY = root.height - 78;
 
@@ -43,9 +49,7 @@ WidgetView {
         }
     }
 
-    implicitWidth: parent.width
-    implicitHeight: parent.height
-
+    anchors.fill: parent
     visible: MessengerJs.userSelected()
 
     onVisibleChanged: root.recheckInputSize();

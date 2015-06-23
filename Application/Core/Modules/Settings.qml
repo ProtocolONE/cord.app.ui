@@ -6,8 +6,11 @@ Item {
        return Settings.value(path, key, value);
     }
 
-    function setValue(path, key, value)
-    {
+    function setValue(path, key, value) {
+        if (!path || !key) {
+            console.log('Settings failed', path, key);
+        }
+
         return Settings.setValue(path, key, value);
     }
 }

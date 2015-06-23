@@ -12,7 +12,4 @@ Item {
         anchors.fill: parent
     }
 
-    SettingsLayer {
-        anchors.fill: parent
-    }
 }

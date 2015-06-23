@@ -13,14 +13,13 @@ import Tulip 1.0
 Item {
     id: root
 
-
     property bool enabled: true
     property int currentIndex: 0
     property int dropDownSize: -1
     property ListModel model: ListModel {}
 
-    property int fontSize: 16
-    property variant style: ComboBoxStyle {}
+    property int fontSize: 15
+    property ComboBoxStyle style: ComboBoxStyle {}
     property string icon
 
     property alias listBlock: listBlock
@@ -92,8 +91,8 @@ Item {
         id: controlBorder
 
         anchors { fill: parent; margins: 1 }
-        color: "#FFFFFF"
-        border { width: 2; color: style.normal }
+        color: root.style.background
+        border { width: 2; color: root.style.background }
 
         Behavior on border.color {
             ColorAnimation { duration: 300 }
@@ -121,12 +120,12 @@ Item {
             width: control.width
             height: control.height
 
-            Rectangle {
+            Item {
                 id: iconContainer
 
                 width: root.icon != "" ? parent.height : 0
                 height: root.icon != "" ? parent.height : 0
-                color: "#FFFFFF"
+
                 anchors {
                     left: parent.left
                     verticalCenter: parent.verticalCenter
@@ -171,12 +170,11 @@ Item {
                 }
             }
 
-            Rectangle {
+            Item {
                 id: showListButton
 
                 width: parent.height
                 height: parent.height
-                color: "#FFFFFF"
                 anchors {
                     right: parent.right
                     verticalCenter: parent.verticalCenter
@@ -187,6 +185,7 @@ Item {
 
                     anchors.centerIn: parent
                     source: installPath + "Assets/Images/GameNet/Controls/ComboBox/down_n.png"
+                    rotation: listContainer.controlVisible ? 180 : 0
                 }
             }
         }
@@ -194,6 +193,7 @@ Item {
         CursorMouseArea {
             id: mouseArea
 
+            enabled: root.enabled
             cursor: CursorArea.PointingHandCursor
             hoverEnabled: true
             anchors.fill: parent
@@ -218,8 +218,8 @@ Item {
         height: listContainer.controlVisible ? listView.height + 4 : 0
 
         Rectangle {
-            anchors { fill: parent; margins: 1}
-            color: "#FFFFFF"
+            anchors { fill: parent; margins: 1 }
+            color: root.style.background
             border {
                 color: root.style.active
                 width: 2
@@ -256,7 +256,9 @@ Item {
                 model: root.model
 
                 delegate: Rectangle {
-                    color: delegateArea.containsMouse ? "#FFCC00" : "#FFFFFF"
+                    color: delegateArea.containsMouse
+                           ? root.style.selectHover
+                           : root.style.background
                     width: control.width
                     height: control.height
 
@@ -270,8 +272,8 @@ Item {
                         }
                         elide: Text.ElideRight
                         text: qsTr(model.text)
-                        color: '#66758F'
-                        font { family: 'Arial'; pixelSize: 16 }
+                        color: root.style.normal
+                        font { family: 'Arial'; pixelSize: root.fontSize }
                     }
 
                     MouseArea {
@@ -296,13 +298,14 @@ Item {
                     rightMargin: 1
                 }
                 height: listView.height
-                width: 10
+                width: 6
                 listView: listView
                 cursorMaxHeight: listView.height
-                visible: (root.dropDownSize > 0) && (listView.model.count > root.dropDownSize)
                 cursorMinHeight: 50
+                visible: (root.dropDownSize > 0) && (listView.model.count > root.dropDownSize)
                 color: style.scrollBarCursor
                 cursorColor: style.scrollBarCursorHover
+                cursorRadius: 4
             }
         }
 
@@ -342,49 +345,24 @@ Item {
         states: [
             State {
                 name: ""
-                PropertyChanges { target: controlBorder; border.color: style.normal }
+                PropertyChanges { target: controlBorder; border.color: root.style.background }
                 PropertyChanges { target: placeholderText; color: root.style.normal }
                 PropertyChanges { target: showListButtonImage; source: installPath + "Assets/Images/GameNet/Controls/ComboBox/down_n.png" }
             },
             State {
                 name: "Active"
-                when: inputBehavior.activeFocus || listContainer.controlVisible
-                PropertyChanges { target: controlBorder; border.color: style.active }
-                PropertyChanges { target: placeholderText; color: root.style.active }
-                PropertyChanges { target: showListButtonImage; source: installPath + "Assets/Images/GameNet/Controls/ComboBox/down_a.png" }
-            },
-            State {
-                name: "Hover"
                 when: mouseArea.containsMouse || listContainer.controlVisible
-                PropertyChanges { target: controlBorder; border.color: style.active }
+                PropertyChanges { target: controlBorder; border.color: root.style.active }
                 PropertyChanges { target: placeholderText; color: root.style.active }
                 PropertyChanges { target: showListButtonImage; source: installPath + "Assets/Images/GameNet/Controls/ComboBox/down_a.png" }
-
             },
             State {
                 name: "Disabled"
                 when: !root.enabled
-                PropertyChanges { target: controlBorder; border.color: style.disabled }
-                PropertyChanges { target: placeholderText; color: style.disabled }
+                PropertyChanges { target: controlBorder; border.color: root.style.disabled }
+                PropertyChanges { target: placeholderText; color: root.style.disabled }
                 PropertyChanges { target: iconImage; opacity: 0.2 }
-            },
-            State {
-                name: "ErrorNormal"
-                when: inputBehavior.error
-                PropertyChanges { target: controlBorder; border.color: style.error }
-                PropertyChanges { target: placeholderText; color: style.error }
-            },
-            State {
-                name: "ErrorActive"
-                when: inputBehavior.activeFocus && inputBehavior.error
-                PropertyChanges { target: controlBorder; border.color: style.hover }
-                PropertyChanges { target: placeholderText; color: style.hover }
-            },
-            State {
-                name: "ErrorHover"
-                when: mouseArea.containsMouse && inputBehavior.error
-                PropertyChanges { target: controlBorder; border.color: style.hover }
-                PropertyChanges { target: placeholderText; color: style.hover }
+                PropertyChanges { target: listContainer; controlVisible: false }
             }
         ]
     }

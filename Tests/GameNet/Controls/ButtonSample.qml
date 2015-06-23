@@ -14,7 +14,7 @@ import GameNet.Controls 1.0
 Rectangle {
     id: root
 
-    color: "#DDDDDD"
+    color: "#002336"
     width: 800
     height: 600
 
@@ -61,7 +61,76 @@ Rectangle {
                 hover: "#3670DC"
                 disabled: "#3498db"
             }
+
+            Rectangle {
+                anchors {
+                    fill: parent
+                }
+                color: "red"
+                opacity: 0.2
+            }
         }
+
+        TextButton {
+            text: "Text button"
+            toolTip: "Text button tooltip"
+            style: ButtonStyleColors {
+                normal: "#3498db"
+                hover: "#3670DC"
+                disabled: "#3498db"
+            }
+
+            Rectangle {
+                anchors {
+                    fill: parent
+                }
+                color: "red"
+                opacity: 0.2
+            }
+        }
+
+        TextButton {
+            width: 200
+            icon: installPath + "/Assets/Images/Application/Blocks/Auth/support.png"
+            text: "Multi line Text button example with really long text"
+            toolTip: "Text button tooltip"
+            style: ButtonStyleColors {
+                normal: "#3498db"
+                hover: "#3670DC"
+                disabled: "#3498db"
+            }
+
+            Rectangle {
+                anchors {
+                    fill: parent
+                }
+                color: "red"
+                opacity: 0.2
+            }
+        }
+
+        TextButton {
+            width: 200
+            layoutDirection: Qt.RightToLeft
+            icon: installPath + "/Assets/Images/Application/Blocks/Auth/support.png"
+            text: "Multi line Text button example with really long text"
+            toolTip: "Text button tooltip"
+            style: ButtonStyleColors {
+                normal: "#3498db"
+                hover: "#3670DC"
+                disabled: "#3498db"
+            }
+
+            Rectangle {
+                anchors {
+                    fill: parent
+                }
+                color: "red"
+                opacity: 0.2
+            }
+        }
+
+
 
         ImageButton {
             width: 40
@@ -81,14 +150,17 @@ Rectangle {
 
         CheckBox {
             //width: 300
-            height: 16
+            //height: 16
 
             text: "Check box"
             toolTip: "CheckBox button tooltip"
-            style: ButtonStyleColors {
-                normal: "#1ADC9C"
-                hover: "#019074"
-                disabled: "#1ADC9C"
+            style {
+                normal: "#7e8f9e"
+                hover: "#a1c1d2"
+                disabled: "#7e8f9e"
+
+                active: "#31bca0"
+                activeHover: "#3cccb6"
             }
         }
 

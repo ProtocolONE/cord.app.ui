@@ -29,22 +29,6 @@ Item {
     property color trayPopupPlayText: '#8c9fc1'
     property color trayPopupText: '#ffffff'
 
-    // SETTINGS
-    property color settingsBackground: '#fafafa'
-    property color settingsTitleText: '#343537'
-    property color settingsCaptionText: '#FFFFFF'
-    property color settingsCategoryButtonNormal: "#3498BD"
-    property color settingsCategoryButtonHover: "#3670DC"
-    property color settingsCategoryButtonActive: "#000000"
-    property color settingsSpecialButtonNormal: "#1ADC9C"
-    property color settingsSpecialButtonHover: "#019074"
-    property color settingsSpecialButtonDisabled: "#FF4F02"
-    property color settingsControlNormal: "#1ADC9C"
-    property color settingsControlHover: "#019074"
-    property color settingsControlDisabled: "#FF4F02"
-    property color settingsButtonNormal: "#3498BD"
-    property color settingsButtonHover: "#3670DC"
-
     // Images header
     property string headerGameNetLogo: "Assets/Images/Application/Blocks/Header/GamenetLogo.png"
     property string headerAllGames: "Assets/Images/Application/Blocks/Header/AllGames.png"
@@ -87,16 +71,29 @@ Item {
     property color auxiliaryButtonHover: "#019074"
     property color auxiliaryButtonDisabled: "#888888"
 
-    property color minorBottonNormal: "#02141d"
-    property color minorBottonHover: "#020e15"
-    property color minorBottonDisabled: "#031824"
-    property color minorBottonActive: "#02141d"
+    property color minorButtonNormal: "#02141d"
+    property color minorButtonHover: "#020e15"
+    property color minorButtonDisabled: "#031824"
+    property color minorButtonActive: "#02141d"
 
     property color errorButtonNormal: "#cc0000"
     property color errorButtonHover: "#ee0000"
 
     property color checkedButtonActive: "#31bca0"
     property color checkedButtonInactive: "#24475a"
+
+    property color radioButtonNormal: "#7e8f9e"
+    property color radioButtonHover: "#a1c1d2"
+    property color radioButtonDisabled: "#031824"
+    property color radioButtonActive: "#fada66"
+    property color radioButtonActiveHover: "#FDEDB3"
+
+    property color checkboxNormal: "#7e8f9e"
+    property color checkboxHover: "#a1c1d2"
+    property color checkboxDisabled: "#7e8f9e"
+    property color checkboxActive: "#31bca0"
+    property color checkboxActiveHover: "#3cccb6"
+
 
     property color lightText: '#FFFFFF'
     property color titleText: '#45bef6'
@@ -113,7 +110,6 @@ Item {
     property color fieldText: "#363636"
 
     // Базовый фон самого рута приложения
-    //property color applicationBackground: "red" //"#002336"
     property color applicationBackground: "#002336" // bg
     property color contentBackground: "#031d2b" // bg_blue​
     property color contentBackgroundDark: "#00111A" // bg_darkblue
@@ -137,7 +133,6 @@ Item {
     property color gameGridHightlight: '#dec37b'
     property color gameGridProgress: "#1abc9c"
 
-
     // Если будет использоваться еще, то вероятно переименовать:
     property color searchBorder: "#3498db"
 
@@ -151,6 +146,15 @@ Item {
     property color inputError: "#FF3b30"
     property color inputPlaceholder: "#a1c1d2"
     property color inputText: "#363636"
+
+    property color comboboxBackground: "#FFFFFF"
+    property color comboboxNormal: "#363636"
+    property color comboboxHover: "#3498db"
+    property color comboboxActive: "#3498db"
+    property color comboboxDisabled: "#66758F"
+    property color comboboxSelectHover: "#EBEBEB"
+    property color comboboxScrollBarCursor: "#00000000"
+    property color comboboxScrollBarCursorHover: '#95999b'
 
     //MESSAGE BOX (ALERT ADAPTER WIDGET)
     property color messageBoxBorder: "#ffdd82"

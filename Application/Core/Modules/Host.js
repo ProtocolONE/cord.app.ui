@@ -298,7 +298,7 @@ function gameSettingsModelInstance() {
         return proxyInst.gameSettingsModelInstance();
     }
 
-    return null;
+    return createObject('./Mocks/GameSettingsMock.qml');
 }
 
 function setTaskbarIcon(source) {

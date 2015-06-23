@@ -1,0 +1,4 @@
+module Application.Widgets.ApplicationSettings
+PluginContainer 1.0 PluginContainer.qml 
+ApplicationSettingsView 1.0 View/ApplicationSettingsView.qml
+ApplicationSettingsModel 1.0 ApplicationSettingsModel.qml

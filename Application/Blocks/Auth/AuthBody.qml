@@ -10,7 +10,9 @@
 
 import QtQuick 1.1
 import Tulip 1.0
+
 import GameNet.Controls 1.0
+
 import Application.Controls 1.0
 
 import "../../Core/Authorization.js" as Authorization
@@ -187,6 +189,7 @@ Form {
         Column {
             spacing: 24
             width: parent.width
+            z: 1
 
             LoginInput {
                 id: loginInput
@@ -251,7 +254,6 @@ Form {
                         bottom: parent.top
                         bottomMargin: 5
                     }
-                    height: 15
                     text: qsTr("AUTH_BODY_AMNESIA_TEXT")
 
                     fontSize: 12
@@ -288,15 +290,9 @@ Form {
                     left: parent.left
                     verticalCenter: parent.verticalCenter
                 }
-                height: 20
                 checked: AuthHelper.rememberAccount != undefined ? AuthHelper.rememberAccount : true
                 text: qsTr("AUTH_BODY_REMEMBER_TEXT")
                 enabled: !d.inProgress
-                fontSize: 14
-                style  {
-                    normal: Styles.style.auxiliaryButtonNormal
-                    hover: Styles.style.auxiliaryButtonHover
-                }
                 onToggled: AuthHelper.rememberAccount = rememberAuth.checked;
             }
 

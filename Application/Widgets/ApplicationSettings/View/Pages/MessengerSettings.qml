@@ -11,14 +11,13 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
 
-import Application.Controls 1.0 as ApplicationControls
-import Application.Blocks.Settings 1.0
+import Application.Controls 1.0
 
-import "../../../Core/App.js" as App
+import "../../../../Core/App.js" as App
 
-import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
-import "../../../../GameNet/Components/Widgets/WidgetManager.js" as WidgetManager
-import "../../../Widgets/Messenger/Models/Settings.js" as MessengerSettings
+import "../../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../../../GameNet/Components/Widgets/WidgetManager.js" as WidgetManager
+import "../../../Messenger/Models/Settings.js" as MessengerSettings
 
 Item {
     id: root
@@ -75,7 +74,6 @@ Item {
     }
 
     Column {
-        x: 30
         width: parent.width
         spacing: 15
 
@@ -85,12 +83,16 @@ Item {
             spacing: 10
 
             SettingsCaption {
-                y: 9
+                anchors.verticalCenter: parent.verticalCenter
                 width: 215
+                font {
+                    pixelSize: 14
+                }
+
                 text: qsTr("MESSENGER_HISTORY_SAVE_COMBOBOX_TITLE")
             }
 
-            ApplicationControls.ComboBox {
+            ComboBox {
                 id: messengerHistoryInterval
 
                 width: 200
@@ -110,11 +112,10 @@ Item {
                 }
             }
 
-            SettingsButton {
+            MinorButton {
                 width: 180
                 height: 40
 
-                fontSize: 14
                 text: qsTr("HISTORY_CLEAR_BUTTON")
                 onClicked: {
                     var widget = WidgetManager.getWidgetByName('Messenger');
@@ -129,12 +130,15 @@ Item {
             spacing: 10
 
             SettingsCaption {
-                y: 9
+                anchors.verticalCenter: parent.verticalCenter
                 width: 215
                 text: qsTr("MESSENGER_OPEN_CHAT_TITLE")
+                font {
+                    pixelSize: 14
+                }
             }
 
-            ApplicationControls.ComboBox {
+            ComboBox {
                 id: messengerOverlayHotkey
 
                 width: 200
@@ -147,18 +151,23 @@ Item {
             }
         }
 
-        SettingsCheckBox {
+        CheckBox {
             id: messengerShowChatOverlayNotify
 
-            fontSize: 15
             text: qsTr("MESSENGER_SHOW_CHAT_NOTIFY_IN_OVERLAY")
+        }
+
+        Item {
+            width: 10
+            height: 10
         }
 
         SettingsCaption {
             text: qsTr("MESSENGER_SEND_ACTION_TITLE")
+            font.pixelSize: 14
         }
 
-        SettingsRadioButton {
+        RadioButton {
             id: sendOnEnter
 
             property int optionValue: MessengerSettings.SendShortCut.Enter
@@ -168,7 +177,7 @@ Item {
             onClicked: d.currentSendOption = optionValue;
         }
 
-        SettingsRadioButton {
+        RadioButton {
             id: sendOnCtrlEnter
 
             property int optionValue: MessengerSettings.SendShortCut.CtrlEnter
@@ -178,7 +187,7 @@ Item {
             onClicked: d.currentSendOption = optionValue;
         }
 
-        SettingsRadioButton {
+        RadioButton {
             id: sendOnButton
 
             property int optionValue: MessengerSettings.SendShortCut.ButtonOnly

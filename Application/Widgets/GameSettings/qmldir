@@ -1,0 +1,4 @@
+module Application.Widgets.GameSettings
+PluginContainer 1.0 PluginContainer.qml 
+GameSettingsView 1.0 View/GameSettingsView.qml
+GameSettingsModel 1.0 GameSettingsModel.qml

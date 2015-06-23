@@ -36,7 +36,6 @@ Item {
     }
 
     Image {
-        visible: root.selectedGamePage
         anchors.fill: parent
         source: !!root.currentGame ? root.currentGame.backgroundInApp : ""
         fillMode: Image.PreserveAspectCrop
@@ -47,7 +46,6 @@ Item {
         target: App.signalBus()
         onNavigate: {
             console.log("onNavigate: " + link);
-
             switch (link) {
                 case 'ApplicationSettings':
                 case 'GameSettings': {
@@ -197,7 +195,7 @@ Item {
                                 return;
                             }
 
-                            App.navigate('GameSettings');
+                            Popup.show('GameSettings');
                             break;
                         case 'AboutGame':
                             widgetContent.sourceComponent = aboutGameCmp;

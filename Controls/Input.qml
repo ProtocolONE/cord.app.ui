@@ -21,7 +21,7 @@ Item {
     property alias echoMode: inputBehavior.echoMode
     property bool showCapslock: true
     property bool showLanguage: true
-    property variant typeahead: TypeaheadBehaviour {}
+    property TypeaheadBehaviour typeahead: TypeaheadBehaviour {}
     property alias suggestionsVisible: suggestionsContainer.controlVisible
 
     property alias language: inputBehavior.language

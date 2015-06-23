@@ -9,13 +9,20 @@
 ****************************************************************************/
 import QtQuick 1.1
 
-Text {
+Item {
     id: control
 
     property alias analytics: buttonBehavior.analytics
     property bool checkable: false
     property bool checked: false
-    property alias fontSize: control.font.pixelSize
+    property alias enabled: buttonBehavior.enabled
+    property alias text: textItem.text
+    property alias fontSize: textItem.font.pixelSize
+    property alias font: textItem.font
+
+    property alias layoutDirection: controlRow.layoutDirection
+    property alias icon: iconImage.source
+
     property alias toolTip: buttonBehavior.toolTip
     property alias tooltipPosition: buttonBehavior.tooltipPosition
     property alias tooltipGlueCenter: buttonBehavior.tooltipGlueCenter
@@ -26,15 +33,60 @@ Text {
     signal pressed(variant mouse)
     signal clicked(variant mouse)
 
-    color: control.style.normal
-    smooth: true
-    font {
-        family: "Arial"
-        pixelSize: 16
+    implicitHeight: Math.max(textItem.height, iconImage.hasIcon ? iconImage.height : 0)
+    implicitWidth: mathTextItem.width + (iconImage.hasIcon ? 30 : 0)
+
+    Row {
+        id: controlRow
+
+        anchors.fill: parent
+        spacing: 7
+
+        Item {
+            width: visible ? 20 : 0
+            height: 20
+            anchors.verticalCenter: parent.verticalCenter
+            visible: iconImage.hasIcon
+
+            Image {
+                id: iconImage
+
+                property bool hasIcon: iconImage.source != ""
+
+                anchors.centerIn: parent
+            }
+        }
+
+        Text {
+            id: textItem
+
+            color: control.style.normal
+            smooth: true
+            anchors.verticalCenter: parent.verticalCenter
+            font {
+                family: "Arial"
+                pixelSize: 16
+            }
+
+            text: " "
+            width: control.width - (iconImage.hasIcon ? 30 : 0)
+            wrapMode: Text.WordWrap
+
+            Behavior on color {
+                PropertyAnimation { duration: 250 }
+            }
+        }
     }
 
-    Behavior on color {
-        PropertyAnimation { duration: 250 }
+    // INFO по умолчанию считаем кнопку однострочной и считаем ее размер из размера текст.
+    // Но если задать фиксированную ширину кнопки, то она станет мультистрочной, ишрина текста
+    // будет расчитывать из размера контрола. Этот текст позволяет реализовать эту логику.
+    Text {
+        id: mathTextItem
+
+        text: textItem.text
+        font: textItem.font
+        visible: false
     }
 
     ButtonBehavior {
@@ -52,22 +104,22 @@ Text {
         states: [
             State {
                 name: ""
-                PropertyChanges { target: control; color: control.style.normal}
+                PropertyChanges { target: textItem; color: control.style.normal }
             },
             State {
                 name: "Hover"
                 when: buttonBehavior.containsMouse
-                PropertyChanges { target: control; color: control.style.hover; font.underline: true}
+                PropertyChanges { target: textItem; color: control.style.hover; font.underline: true }
             },
             State {
                 name: "Disabled"
                 when: !control.enabled
-                PropertyChanges { target: control; color: control.style.disabled; opacity: 0.2}
+                PropertyChanges { target: textItem; color: control.style.disabled }
             },
             State {
                 name: "Selected"
                 when: control.checked
-                PropertyChanges { target: control; color: control.style.active; }
+                PropertyChanges { target: textItem; color: control.style.active; }
             }
 
         ]

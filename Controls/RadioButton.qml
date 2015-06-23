@@ -29,51 +29,64 @@ Item {
     signal clicked(variant mouse)
     signal toggled(bool isChecked)
 
-    implicitHeight: 16
-    implicitWidth: childrenRect.width
+    implicitHeight: 18
+    implicitWidth: 18 + 10 + controlText.width
+
+    QtObject {
+        id: d
+
+        property color contentColor: control.checked
+                                     ? control.style.active
+                                     : control.style.normal
+
+        Behavior on contentColor {
+            ColorAnimation { duration: 125 }
+        }
+    }
 
     Row {
         id: row
 
         anchors.verticalCenter: parent.verticalCenter
-        spacing: 5
+        spacing: 10
 
         Item {
-            width: 20
-            height: 20
+            width: 18
+            height: 18
 
-            Image {
-                id: checkBox
-
-                source: checked ?
-                            installPath + "Assets/Images/GameNet/Controls/RadioButton/normal_checked.png" :
-                            installPath + "Assets/Images/GameNet/Controls/RadioButton/normal_unchecked.png"
+            Rectangle {
                 anchors.centerIn: parent
-                fillMode: Image.PreserveAspectFit
+                radius: parent.width / 2
+                width: parent.width - 2
+                height: parent.height - 2
+
+                color: "#00000000"
+                smooth: true
+                border {
+                    width: 2
+                    color: d.contentColor
+                }
             }
 
-            Image {
-                id: checkMark
-
+            Rectangle {
                 anchors.centerIn: parent
+                radius: 3
+                width: 6
+                height: 6
+                smooth: true
+                color: d.contentColor
                 visible: control.checked
-                source: installPath + "Assets/Images/GameNet/Controls/CheckBox/Check.png"
-                fillMode: Image.PreserveAspectFit
             }
         }
 
         Text {
             id: controlText
 
-            color: control.style.normal
+            color: d.contentColor
             anchors.verticalCenter: parent.verticalCenter
             font {
                 family: "Arial"
-                pixelSize: 16
-            }
-
-            Behavior on color {
-                PropertyAnimation { duration: 250 }
+                pixelSize: 14
             }
         }
     }
@@ -93,36 +106,33 @@ Item {
         states: [
             State {
                 name: ""
+
                 PropertyChanges {
-                    target: checkBox
-                    source: checked ?
-                                installPath + "Assets/Images/GameNet/Controls/RadioButton/normal_checked.png" :
-                                installPath + "Assets/Images/GameNet/Controls/RadioButton/normal_unchecked.png"
+                    target: d
+                    contentColor: control.checked
+                                  ? control.style.active
+                                  : control.style.normal
                 }
-                PropertyChanges { target: controlText; color: control.style.normal}
             },
             State {
                 name: "Hover"
                 when: buttonBehavior.containsMouse
+
                 PropertyChanges {
-                    target: checkBox
-                    source: checked ?
-                                installPath + "Assets/Images/GameNet/Controls/RadioButton/hover_checked.png" :
-                                installPath + "Assets/Images/GameNet/Controls/RadioButton/hover_unchecked.png"
+                    target: d
+                    contentColor: control.checked
+                                  ? control.style.activeHover
+                                  : control.style.hover
                 }
-                PropertyChanges { target: controlText; color: control.style.hover; font.underline: true}
             },
             State {
                 name: "Disabled"
                 when: !control.enabled
+
                 PropertyChanges {
-                    target: checkBox
-                    source: checked ?
-                                installPath + "Assets/Images/GameNet/Controls/RadioButton/normal_checked.png" :
-                                installPath + "Assets/Images/GameNet/Controls/RadioButton/normal_unchecked.png"
-                    opacity: 0.2
+                    target: d
+                    contentColor: control.style.disabled
                 }
-                PropertyChanges { target: controlText; color: control.style.disabled; opacity: 0.2}
             }
         ]
     }

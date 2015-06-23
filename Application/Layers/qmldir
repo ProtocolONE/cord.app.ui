@@ -1,4 +1,3 @@
 module Application.Layers
 BaseLayer 1.0 BaseLayer.qml
 ChatLayer 1.0 ChatLayer.qml
-SettingsLayer 1.0 SettingsLayer.qml

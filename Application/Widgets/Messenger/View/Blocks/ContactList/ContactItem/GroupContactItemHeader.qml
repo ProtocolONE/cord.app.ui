@@ -77,6 +77,7 @@ Item {
             id: occupantView
 
             height: parent.height
+            width: Math.floor((root.width - 247) / 54)*54 - 6
         }
     }
 

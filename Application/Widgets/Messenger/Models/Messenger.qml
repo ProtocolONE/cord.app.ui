@@ -696,6 +696,10 @@ Item {
                 return MessengerPrivateJs.unreadMessageCountMap;
             }
 
+            if (!myUser.jid) {
+                return {};
+            }
+
             var storedUsers = {},
                 settingsValue = Settings.value('qml/messenger/unreadmessage/', myUser.jid, "{}");
 

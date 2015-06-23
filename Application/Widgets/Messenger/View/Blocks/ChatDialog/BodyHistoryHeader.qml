@@ -75,7 +75,6 @@ Item {
                 }
 
                 delegate: TextButton {
-                    color: Styles.style.infoText
                     font {
                         family: "Arial"
                         pixelSize: 12

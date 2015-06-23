@@ -25,7 +25,6 @@ Row {
     TextButton {
         id: footerButtonText
 
-        height: 25
         font { family: "Open Sans Regular"; pixelSize: 15 }
         style {
             normal: Styles.style.linkText

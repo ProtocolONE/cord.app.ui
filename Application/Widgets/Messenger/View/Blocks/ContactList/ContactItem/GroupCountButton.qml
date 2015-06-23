@@ -56,11 +56,6 @@ Item {
                 return root.count + " " + template;
             }
 
-            anchors {
-                baseline: parent.bottom
-                baselineOffset: -4
-            }
-
             font {
                 family: "Arial"
                 pixelSize: 12
@@ -72,9 +67,7 @@ Item {
                 disabled: Styles.style.textBase
             }
 
-            color: Styles.style.textBase
             text: groupCountText.countText()
-            elide: Text.ElideRight
             onClicked: root.clicked();
         }
 

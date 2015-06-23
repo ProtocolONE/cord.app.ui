@@ -189,6 +189,7 @@ Item {
         states: [
             State {
                 name :"Initial"
+                PropertyChanges { target: formContainer; visible: true }
                 PropertyChanges {target: auth; visible: false}
                 PropertyChanges {target: registration; visible: false}
                 PropertyChanges {target: codeForm; visible: false}
@@ -223,7 +224,8 @@ Item {
             },
             State {
                 name: "serviceLoading"
-                PropertyChanges { target: serviceLoading; visible: true}
+                PropertyChanges { target: formContainer; visible: false }
+                PropertyChanges { target: serviceLoading; visible: true }
                 StateChangeScript {
                     script: serviceLoading.requestServices();
                 }

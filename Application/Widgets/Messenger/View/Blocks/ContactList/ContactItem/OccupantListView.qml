@@ -21,6 +21,7 @@ ListView {
         return Messenger.userPresenceState(user) || "";
     }
 
+    clip: true
     implicitWidth: 9*(48+6) - 6
     spacing: 6
     interactive: false

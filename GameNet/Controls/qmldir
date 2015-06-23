@@ -4,6 +4,7 @@ ButtonBehavior 1.0 ButtonBehavior.qml
 ButtonStyleColors 1.0 ButtonStyleColors.qml
 ButtonStyleImages 1.0 ButtonStyleImages.qml
 CheckBox 1.0 CheckBox.qml
+ComboBoxStyle 1.0 ComboBoxStyle.qml
 ComboBox 1.0 ComboBox.qml
 CursorMouseArea 1.0 CursorMouseArea.qml
 ErrorContainer 1.0 ErrorContainer.qml

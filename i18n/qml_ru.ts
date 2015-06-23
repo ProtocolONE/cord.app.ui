@@ -322,6 +322,37 @@
     </message>
 </context>
 <context>
+    <name>ApplicationSettingsView</name>
+    <message>
+        <source>APPLICATION_SETTINGS_TITLE</source>
+        <translation>Настройки приложения GameNet</translation>
+    </message>
+    <message>
+        <source>GENERAL_TAB</source>
+        <translation>Основные</translation>
+    </message>
+    <message>
+        <source>DOWNLOADS_TAB</source>
+        <translation>Загрузка</translation>
+    </message>
+    <message>
+        <source>NOTIFICATIONS_TAB</source>
+        <translation>Уведомления</translation>
+    </message>
+    <message>
+        <source>MESSENGER_TAB</source>
+        <translation>Чат</translation>
+    </message>
+    <message>
+        <source>RESTORE_SETTINGS</source>
+        <translation>Загрузить настройки по умолчанию</translation>
+    </message>
+    <message>
+        <source>SAVE_BUTTON_LABEL</source>
+        <translation>Сохранить настройки</translation>
+    </message>
+</context>
+<context>
     <name>Auth</name>
     <message>
         <source>Login</source>
@@ -2054,11 +2085,11 @@ Please try again later.</source>
     <name>GameGeneralSettings</name>
     <message>
         <source>BUTTON_CREATE_DESKTOP_SHORTCUT</source>
-        <translation>Ярлык на рабочем столе</translation>
+        <translation>Создать ярлык на рабочем столе</translation>
     </message>
     <message>
         <source>BUTTON_CREATE_START_MENU_SHORTCUT</source>
-        <translation>Ярлык в меню пуск</translation>
+        <translation>Создать ярлык в меню пуск</translation>
     </message>
     <message>
         <source>GAME_INSTALL_PATH</source>
@@ -2368,7 +2399,54 @@ Please try again later.</source>
     <name>GameSettings</name>
     <message>
         <source>GAME_SETTINGS_TITLE</source>
-        <translation>Настройки игры %1</translation>
+        <translation type="vanished">Настройки игры %1</translation>
+    </message>
+    <message>
+        <source>FOLDERS_TAB</source>
+        <translation type="vanished">Папки</translation>
+    </message>
+    <message>
+        <source>OVERLAY_TAB</source>
+        <translation type="vanished">Оверлей</translation>
+    </message>
+    <message>
+        <source>CONTROLS_TAB</source>
+        <translation type="vanished">Управление</translation>
+    </message>
+    <message>
+        <source>UNINSTALL_GAME</source>
+        <translation type="vanished">Удалить</translation>
+    </message>
+    <message>
+        <source>RESTORE_CLIENT</source>
+        <translation type="vanished">Восстановить клиент</translation>
+    </message>
+    <message>
+        <source>OK_BUTTON_LABEL</source>
+        <translation type="obsolete">Ок</translation>
+    </message>
+    <message>
+        <source>SAVE_BUTTON_LABEL</source>
+        <translation type="vanished">Сохранить</translation>
+    </message>
+    <message>
+        <source>CLOSE_BUTTON_LABEL</source>
+        <translation type="vanished">Закрыть</translation>
+    </message>
+    <message>
+        <source>APPLICATION_SETTINGS_TITLE</source>
+        <translation type="obsolete">Настройки приложения GameNet</translation>
+    </message>
+</context>
+<context>
+    <name>GameSettingsView</name>
+    <message>
+        <source>GAME_LOAD_VIEW_HEADER_TEXT</source>
+        <translation type="obsolete">Загрузка %1</translation>
+    </message>
+    <message>
+        <source>APPLICATION_SETTINGS_TITLE</source>
+        <translation type="obsolete">Настройки приложения GameNet</translation>
     </message>
     <message>
         <source>FOLDERS_TAB</source>
@@ -2379,28 +2457,28 @@ Please try again later.</source>
         <translation>Оверлей</translation>
     </message>
     <message>
-        <source>CONTROLS_TAB</source>
-        <translation type="vanished">Управление</translation>
-    </message>
-    <message>
         <source>UNINSTALL_GAME</source>
         <translation>Удалить</translation>
     </message>
     <message>
         <source>RESTORE_CLIENT</source>
-        <translation>Восстановить клиент</translation>
-    </message>
-    <message>
-        <source>OK_BUTTON_LABEL</source>
-        <translation type="obsolete">Ок</translation>
+        <translation>Восстановить</translation>
     </message>
     <message>
         <source>SAVE_BUTTON_LABEL</source>
-        <translation>Сохранить</translation>
+        <translation>Сохранить настройки</translation>
     </message>
     <message>
         <source>CLOSE_BUTTON_LABEL</source>
-        <translation>Закрыть</translation>
+        <translation type="obsolete">Закрыть</translation>
+    </message>
+    <message>
+        <source>GAME_SETTINGS_TITLE</source>
+        <translation>Настройки игры %1</translation>
+    </message>
+    <message>
+        <source>RESTORE_CLIENT_TOOLTIP</source>
+        <translation>Нажми, если у тебя возникли сложности с запуском игры. Мы проверим и исправим файлы игры.</translation>
     </message>
 </context>
 <context>
@@ -2902,6 +2980,14 @@ Please try again later.</source>
         <source>CHANGE_APPLICATION_AREA</source>
         <translation>Для применения изменений необходимо перезапустить GameNet</translation>
     </message>
+    <message>
+        <source>APPLICATION_SETTINGS_STYLE_CAPTION</source>
+        <translation>Тема оформления:</translation>
+    </message>
+    <message>
+        <source>APPLICATION_SETTINGS_LANGUAGE_CAPTION</source>
+        <translation>Язык интерфейса:</translation>
+    </message>
 </context>
 <context>
     <name>Group</name>
@@ -2933,15 +3019,15 @@ Please try again later.</source>
     <name>GroupCountButton</name>
     <message>
         <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_SINGLE</source>
-        <translation type="unfinished">участник</translation>
+        <translation>участник</translation>
     </message>
     <message>
         <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_DOUBLE</source>
-        <translation type="unfinished">участника</translation>
+        <translation>участника</translation>
     </message>
     <message>
         <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_MULTIPLE</source>
-        <translation type="unfinished">участников</translation>
+        <translation>участников</translation>
     </message>
 </context>
 <context>
@@ -4362,7 +4448,7 @@ Please try again later.</source>
     <name>PublicTestButton</name>
     <message>
         <source>PUBLIC_TEST_TOOLTIP</source>
-        <translation>Вы приняли участие в тестировании новых функций клиента GameNet. Нажмите, чтобы узнать подробности.</translation>
+        <translation type="vanished">Вы приняли участие в тестировании новых функций клиента GameNet. Нажмите, чтобы узнать подробности.</translation>
     </message>
 </context>
 <context>
@@ -4947,6 +5033,13 @@ Please try again later.</source>
     <message>
         <source>BUTTON_SET_PATH</source>
         <translation type="obsolete">Выбрать</translation>
+    </message>
+</context>
+<context>
+    <name>SettingsCaption</name>
+    <message>
+        <source>APPLICATION_SETTINGS_STYLE_CAPTION</source>
+        <translation type="unfinished">Тема оформления:</translation>
     </message>
 </context>
 <context>

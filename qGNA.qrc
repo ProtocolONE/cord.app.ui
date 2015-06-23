@@ -1,7 +1,6 @@
 ﻿<RCC>
 	<qresource prefix="/">
 		<file>Application/Blocks/ApplicationFocus.qml</file>
-		<file>Application/Blocks/ApplicationSettings.qml</file>
 		<file>Application/Blocks/AppScreen.qml</file>
 		<file>Application/Blocks/Auth/AnimatedBackground/Index.qml</file>
 		<file>Application/Blocks/Auth/AnimatedBackground/LightningBackground.qml</file>
@@ -42,7 +41,6 @@
 		<file>Application/Blocks/GameMenu/GameMenuItem.qml</file>
 		<file>Application/Blocks/GameMenu/qmldir</file>
 		<file>Application/Blocks/GamePopup.qml</file>
-		<file>Application/Blocks/GameSettings.qml</file>
 		<file>Application/Blocks/Header/Header.qml</file>
 		<file>Application/Blocks/Header/HeaderButton.qml</file>
 		<file>Application/Blocks/Header/HeaderControlButton.qml</file>
@@ -51,23 +49,6 @@
 		<file>Application/Blocks/Popup/PopupHorizontalSplit.qml</file>
 		<file>Application/Blocks/Popup/qmldir</file>
 		<file>Application/Blocks/qmldir</file>
-		<file>Application/Blocks/Settings/Application/DownloadSettings.qml</file>
-		<file>Application/Blocks/Settings/Application/GeneralSettings.qml</file>
-		<file>Application/Blocks/Settings/Application/MessengerSettings.qml</file>
-		<file>Application/Blocks/Settings/Application/NotificationSettings.qml</file>
-		<file>Application/Blocks/Settings/Application/qmldir</file>
-		<file>Application/Blocks/Settings/Game/GameControlSettings.qml</file>
-		<file>Application/Blocks/Settings/Game/GameGeneralSettings.qml</file>
-		<file>Application/Blocks/Settings/Game/GameOverlaySettings.qml</file>
-		<file>Application/Blocks/Settings/Game/qmldir</file>
-		<file>Application/Blocks/Settings/qmldir</file>
-		<file>Application/Blocks/Settings/SettingsButton.qml</file>
-		<file>Application/Blocks/Settings/SettingsCaption.qml</file>
-		<file>Application/Blocks/Settings/SettingsCheckBox.qml</file>
-		<file>Application/Blocks/Settings/SettingsRadioButton.qml</file>
-		<file>Application/Blocks/Settings/SettingsSpecialButton.qml</file>
-		<file>Application/Blocks/Settings/SettingsTextButton.qml</file>
-		<file>Application/Blocks/Settings/SettingsVerticalSplit.qml</file>
 		<file>Application/Blocks/ShakeAnimation.qml</file>
 		<file>Application/Blocks/SocialNet.qml</file>
 		<file>Application/Blocks/SplashScreen.qml</file>
@@ -75,6 +56,7 @@
 		<file>Application/Blocks/SplashScreen/UpdateManager.qml</file>
 		<file>Application/Bootstrap.qml</file>
 		<file>Application/Controls/AuxiliaryButton.qml</file>
+		<file>Application/Controls/CheckBox.qml</file>
 		<file>Application/Controls/CheckedButton.qml</file>
 		<file>Application/Controls/CheckedButtonStyle.qml</file>
 		<file>Application/Controls/ComboBox.qml</file>
@@ -98,8 +80,13 @@
 		<file>Application/Controls/Player/Wrapper.qml</file>
 		<file>Application/Controls/PrimaryButton.qml</file>
 		<file>Application/Controls/qmldir</file>
+		<file>Application/Controls/RadioButton.qml</file>
 		<file>Application/Controls/ScrollArea.qml</file>
 		<file>Application/Controls/ScrollBar.qml</file>
+		<file>Application/Controls/SettingsCaption.qml</file>
+		<file>Application/Controls/SettingsTextButton.qml</file>
+		<file>Application/Controls/TextButton.qml</file>
+		<file>Application/Controls/TrayPopupBase.qml</file>
 		<file>Application/Core/App.js</file>
 		<file>Application/Core/App.qml</file>
 		<file>Application/Core/Authorization.js</file>
@@ -111,6 +98,7 @@
 		<file>Application/Core/Modules/ApplicationStatistic.qml</file>
 		<file>Application/Core/Modules/Host.js</file>
 		<file>Application/Core/Modules/Host.qml</file>
+		<file>Application/Core/Modules/Mocks/GameSettingsMock.qml</file>
 		<file>Application/Core/Modules/Overlay.js</file>
 		<file>Application/Core/Modules/Service.js</file>
 		<file>Application/Core/Modules/ServiceHandleModel.js</file>
@@ -135,7 +123,6 @@
 		<file>Application/Layers/Private/AboutGame.qml</file>
 		<file>Application/Layers/Private/MainGamePage.qml</file>
 		<file>Application/Layers/qmldir</file>
-		<file>Application/Layers/SettingsLayer.qml</file>
 		<file>Application/Models/GamesListModel.qml</file>
 		<file>Application/qmldir</file>
 		<file>Application/Widgets/AccountActivation/PluginContainer.qml</file>
@@ -169,6 +156,14 @@
 		<file>Application/Widgets/Announcements/BigAnnounceWindow.qml</file>
 		<file>Application/Widgets/Announcements/PluginContainer.qml</file>
 		<file>Application/Widgets/Announcements/qmldir</file>
+		<file>Application/Widgets/ApplicationSettings/ApplicationSettingsModel.qml</file>
+		<file>Application/Widgets/ApplicationSettings/PluginContainer.qml</file>
+		<file>Application/Widgets/ApplicationSettings/qmldir</file>
+		<file>Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml</file>
+		<file>Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml</file>
+		<file>Application/Widgets/ApplicationSettings/View/Pages/GeneralSettings.qml</file>
+		<file>Application/Widgets/ApplicationSettings/View/Pages/MessengerSettings.qml</file>
+		<file>Application/Widgets/ApplicationSettings/View/Pages/NotificationSettings.qml</file>
 		<file>Application/Widgets/AutoRefreshCookie/AutoRefreshCookie.qml</file>
 		<file>Application/Widgets/AutoRefreshCookie/PluginContainer.qml</file>
 		<file>Application/Widgets/AutoRefreshCookie/qmldir</file>
@@ -221,7 +216,6 @@
 		<file>Application/Widgets/GameLoad/View/ProgressWidget.qml</file>
 		<file>Application/Widgets/GameLoad/View/StatInfoElementBig.qml</file>
 		<file>Application/Widgets/GameLoad/View/StatInfoElementSmall.qml</file>
-		<file>Application/Widgets/GameLoad/View/TextButtonStyle.qml</file>
 		<file>Application/Widgets/GameNews/GameNewsModel.qml</file>
 		<file>Application/Widgets/GameNews/PluginContainer.qml</file>
 		<file>Application/Widgets/GameNews/qmldir</file>
@@ -229,6 +223,13 @@
 		<file>Application/Widgets/GameNews/View/NewsDelegate.qml</file>
 		<file>Application/Widgets/GameNews/View/NewsMyGames.qml</file>
 		<file>Application/Widgets/GameNews/View/NewsSingleGame.qml</file>
+		<file>Application/Widgets/GameSettings/GameSettingsModel.qml</file>
+		<file>Application/Widgets/GameSettings/PluginContainer.qml</file>
+		<file>Application/Widgets/GameSettings/qmldir</file>
+		<file>Application/Widgets/GameSettings/View/GameSettingsView.qml</file>
+		<file>Application/Widgets/GameSettings/View/Pages/GameControlSettings.qml</file>
+		<file>Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml</file>
+		<file>Application/Widgets/GameSettings/View/Pages/GameOverlaySettings.qml</file>
 		<file>Application/Widgets/GameUninstall/GameUninstallModel.qml</file>
 		<file>Application/Widgets/GameUninstall/PluginContainer.qml</file>
 		<file>Application/Widgets/GameUninstall/qmldir</file>

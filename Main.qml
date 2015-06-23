@@ -109,6 +109,8 @@ Rectangle {
             manager.registerWidget('Application.Widgets.ServiceLockConnector');
             manager.registerWidget('Application.Widgets.GameUninstall');
             manager.registerWidget('Application.Widgets.DetailedUserInfo');
+            manager.registerWidget('Application.Widgets.GameSettings');
+            manager.registerWidget('Application.Widgets.ApplicationSettings');
 
             if (GoogleAnalyticsHelper.winVersion() > 0x0030) {
                 //INFO Available in Vista+

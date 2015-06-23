@@ -101,7 +101,6 @@ Item {
 
                 TextButton {
                     width: parent.width - 40
-                    height: 16
 
                     text: qsTr("WEB_SEARCH_ADD_CONTACT") // "Добавить в контакты"
                     fontSize: 11
@@ -132,6 +131,7 @@ Item {
             topMargin: 49
         }
         spacing: 3
+        clip: true
 
         Text {
             font {

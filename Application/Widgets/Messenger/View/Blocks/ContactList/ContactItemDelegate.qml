@@ -436,6 +436,7 @@ Item {
         GroupContactItemHeader {
             id: groupContactHeaderInstance
 
+            anchors.fill: parent
             occupantModel: occupantSortModel;// d.unsortedParticipants()
             onGroupButtonClicked: {
                 if (Messenger.editGroupModel().isActive()) {
@@ -459,6 +460,7 @@ Item {
         id: groupEditHeaderChatContactItem
 
         GroupEditHeader {
+            anchors.fill: parent
             occupantModel: Messenger.editGroupModel().occupants()
             title: Messenger.editGroupModel().groupTitle();
             onGroupButtonClicked: {

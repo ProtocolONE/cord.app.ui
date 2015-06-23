@@ -5,10 +5,10 @@ import "../Core/Styles.js" as Styles
 
 Button {
     style {
-        normal: Styles.style.minorBottonNormal
-        hover: Styles.style.minorBottonHover
-        disabled: Styles.style.minorBottonDisabled
-        active: Styles.style.minorBottonActive
+        normal: Styles.style.minorButtonNormal
+        hover: Styles.style.minorButtonHover
+        disabled: Styles.style.minorButtonDisabled
+        active: Styles.style.minorButtonActive
     }
     textColor: Styles.style.infoText
 }

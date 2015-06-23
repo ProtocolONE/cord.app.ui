@@ -18,3 +18,8 @@ PrimaryButton 1.0 PrimaryButton.qml
 MinorButton 1.0 MinorButton.qml
 AuxiliaryButton 1.0 AuxiliaryButton.qml
 DownloadProgressBar 1.0 DownloadProgressBar.qml
+RadioButton 1.0 RadioButton.qml
+CheckBox 1.0 CheckBox.qml
+TextButton 1.0 TextButton.qml
+SettingsCaption 1.0 SettingsCaption.qml
+SettingsTextButton 1.0 SettingsTextButton.qml

@@ -1,9 +1,13 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
 
+import "../../../Application/Core/Styles.js" as Styles
+
 Rectangle {
     width: 600
     height: 400
+
+    color: "#002336"
 
     //  HACK: эмулируем сигнал для того чтобы ловить клик вне выпадающего списка
     //  в отладке из QtCreator
@@ -25,8 +29,9 @@ Rectangle {
         x: 150
         y: 100
         z: 100
+        dropDownSize: 5
 
-        icon: installPath + "Assets/Images/Pages/ApplicationSettings/language.png"
+        icon: installPath + "Assets/Images/Application/Blocks/ApplicationSettings/language.png"
         model: ListModel {
             ListElement {
                 value: "ru"
@@ -43,9 +48,89 @@ Rectangle {
                 icon: "Samples/images/language.png"
                 text: "Espanol"
             }
+            ListElement {
+                value: "sp"
+                icon: "Samples/images/language.png"
+                text: "Espanol"
+            }
+            ListElement {
+                value: "sp"
+                icon: "Samples/images/language.png"
+                text: "Espanol"
+            }
+            ListElement {
+                value: "sp"
+                icon: "Samples/images/language.png"
+                text: "Espanol"
+            }
+            ListElement {
+                value: "sp"
+                icon: "Samples/images/language.png"
+                text: "Espanol"
+            }
+            ListElement {
+                value: "sp"
+                icon: "Samples/images/language.png"
+                text: "Espanol"
+            }
+            ListElement {
+                value: "sp"
+                icon: "Samples/images/language.png"
+                text: "Espanol"
+            }
+            ListElement {
+                value: "sp"
+                icon: "Samples/images/language.png"
+                text: "Espanol"
+            }
+            ListElement {
+                value: "sp"
+                icon: "Samples/images/language.png"
+                text: "Espanol"
+            }
+            ListElement {
+                value: "sp"
+                icon: "Samples/images/language.png"
+                text: "Espanol"
+            }
+            ListElement {
+                value: "sp"
+                icon: "Samples/images/language.png"
+                text: "Espanol"
+            }
+            ListElement {
+                value: "sp"
+                icon: "Samples/images/language.png"
+                text: "Espanol"
+            }
+            ListElement {
+                value: "sp"
+                icon: "Samples/images/language.png"
+                text: "Espanol"
+            }
+            ListElement {
+                value: "sp"
+                icon: "Samples/images/language.png"
+                text: "Espanol"
+            }
+            ListElement {
+                value: "sp"
+                icon: "Samples/images/language.png"
+                text: "Espanol"
+            }
+        }
+
+        style {
+            background: Styles.style.comboboxBackground
+            normal: Styles.style.comboboxNormal
+            hover: Styles.style.comboboxHover
+            active: Styles.style.comboboxActive
+            disabled: Styles.style.comboboxDisabled
+            selectHover: Styles.style.comboboxSelectHover
+            scrollBarCursor: Styles.style.comboboxScrollBarCursor
+            scrollBarCursorHover: Styles.style.comboboxScrollBarCursorHover
         }
     }
-
 
     ComboBox {
         id: speedComboBox
@@ -56,6 +141,7 @@ Rectangle {
         y: 160
         z: 50
 
+        enabled: false
         model: ListModel {
             ListElement {
                 value: 0

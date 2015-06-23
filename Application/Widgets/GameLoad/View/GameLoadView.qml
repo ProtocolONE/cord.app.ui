@@ -107,14 +107,9 @@ PopupBase {
                }
 
                TextButton {
-                   anchors {
-                       baseline: progressBarContainer.bottom
-                       baselineOffset: -6
-                   }
                    width: 100
                    text: !root.isPause ? qsTr("GAME_LOAD_PAUSE") : qsTr("GAME_LOAD_CONTINUE")
                    fontSize: 14
-                   style: TextButtonStyle {}
                    onClicked: root.pause();
                }
            }
@@ -125,7 +120,6 @@ PopupBase {
 
             text: qsTr("SHOW_STATISTICS")
             fontSize: 14
-            style: TextButtonStyle {}
             analytics {
                 page: '/GameLoad/'
                 category: 'Loading game ' + root.gameItem.gaName
