@@ -126,40 +126,17 @@ WidgetView {
                 spacing: 10
 
                 GameItem {
-                    gameItem: root.gameItem ? App.serviceItemByServiceId(App.currentGame().maintenanceProposal1) : null
+                    currentGameItem: root.gameItem
+                    maintenanceGameItem: App.serviceItemByServiceId(root.gameItem ?
+                                                         root.gameItem.maintenanceProposal1 : '')
 
-                    onActivate: {
-                        App.activateGameByServiceId(serviceItem.serviceId);
-                        App.navigate('mygame');
-
-                        if (serviceItem.gameType === "browser") {
-                            App.downloadButtonStart(serviceItem.serviceId);
-                        }
-
-                        GoogleAnalytics.trackEvent('/Maintenance/',
-                                    'Game ' + root.gameItem.gaName,
-                                    'Activate Maintenance Proposal 1',
-                                    'MaintenanceView');
-                    }
                 }
 
                 GameItem {
-                    gameItem: root.gameItem ? App.serviceItemByServiceId(App.currentGame().maintenanceProposal2) : null
+                    currentGameItem: root.gameItem
+                    maintenanceGameItem: App.serviceItemByServiceId(root.gameItem ?
+                                                         root.gameItem.maintenanceProposal2 : '')
 
-                    onActivate: {
-                        App.activateGameByServiceId(serviceItem.serviceId);
-                        App.navigate('mygame');
-
-                        if (serviceItem.gameType === "browser") {
-                            App.downloadButtonStart(serviceItem.serviceId);
-                        }
-
-                        GoogleAnalytics.trackEvent('/Maintenance/',
-                                    'Game ' + root.gameItem.gaName,
-                                    'Activate Maintenance Proposal 2',
-                                    'MaintenanceView');
-
-                    }
                 }
             }
         }

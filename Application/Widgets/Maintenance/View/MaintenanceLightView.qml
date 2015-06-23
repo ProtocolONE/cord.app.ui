@@ -169,21 +169,29 @@ WidgetView {
                 CursorMouseArea {
                     anchors { fill: parent }
                     onClicked: {
+                        var currentGame = root.gameItem;
+                        var proposalGameItem = proposalRect.proposalGameItem;
+
+                        if (!currentGame) {
+                            return;
+                        }
+
+                        if (!proposalGameItem) {
+                            return;
+                        }
+
+                        App.activateGameByServiceId(proposalGameItem.serviceId);
                         App.navigate('mygame');
 
-                        if (proposalRect.proposalGameItem) {
-                            var serviceId = proposalRect.proposalGameItem.serviceId;
-                            App.activateGameByServiceId(serviceId);
-
-                            if (proposalRect.proposalGameItem.gameType === "browser") {
-                                App.downloadButtonStart(serviceId);
-                            }
+                        if (proposalGameItem.gameType === "browser") {
+                            App.downloadButtonStart(proposalGameItem.serviceId);
                         }
 
                         GoogleAnalytics.trackEvent('/Maintenance/',
-                                                   'Game ' + root.gameItem.gaName,
-                                                   'Activate Game ' + proposalRect.proposalGameItem.gaName,
-                                                   'MaintenanceLightView');
+                                               'Game ' + currentGame.gaName,
+                                               'Activate Game ' + proposalGameItem.gaName,
+                                               'MaintenanceLightView');
+
                     }
                 }
 
