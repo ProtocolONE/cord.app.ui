@@ -40,6 +40,11 @@ WidgetView {
         var minimumY = root.height - 250,
             maximumY = root.height - 78;
 
+        // INFO в оверлее этот код выполняется раньше, чем загрузка настройки
+        if (separator.y == 0) {
+            separator.y = root.model.settings.chatBodyHeight;
+        }
+
         if (separator.y < minimumY) {
             separator.y = minimumY;
             root.model.settings.chatBodyHeight = separator.y;
@@ -130,7 +135,7 @@ WidgetView {
         }
 
         onReleased: model.settings.chatBodyHeight = separator.y;
-        Component.onCompleted: separator.y = model.settings.chatBodyHeight;
+        Component.onCompleted: separator.y = root.model.settings.chatBodyHeight;
     }
 
     SmilesBlock.SmileButton {

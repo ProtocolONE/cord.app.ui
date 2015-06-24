@@ -39,15 +39,7 @@ PopupBase {
     title: qsTr("APPLICATION_SETTINGS_TITLE")
     width: 900
     defaultBackgroundColor: Styles.style.applicationBackground
-
-    Connections {
-        target: App.signalBus();
-        onNavigate: {
-            if (link === "ApplicationSettings") {
-                root.reloadSettings();
-            }
-        }
-    }
+    Component.onCompleted: root.reloadSettings();
 
     Item {
         width: parent.width - 1 + root.defaultMargins
