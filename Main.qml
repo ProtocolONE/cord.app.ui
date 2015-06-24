@@ -112,7 +112,7 @@ Rectangle {
             manager.registerWidget('Application.Widgets.GameSettings');
             manager.registerWidget('Application.Widgets.ApplicationSettings');
 
-            if (GoogleAnalyticsHelper.winVersion() > 0x0030) {
+            if (GoogleAnalyticsHelper.winVersion() > 0x0080) {
                 //INFO Available in Vista+
                 manager.registerWidget('Application.Widgets.Themes');
             }
