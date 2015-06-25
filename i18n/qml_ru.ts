@@ -3859,6 +3859,14 @@ Please try again later.</source>
         <source>MESSENGER_SHOW_CHAT_NOTIFY_IN_OVERLAY</source>
         <translation>Показывать уведомление о новых сообщениях в игре</translation>
     </message>
+    <message>
+        <source>INFO_CAPTION</source>
+        <translation>Внимание</translation>
+    </message>
+    <message>
+        <source>CONFIRM_CLEAR_HISTORY</source>
+        <translation>Вы уверены, что хотите очистить историю?</translation>
+    </message>
 </context>
 <context>
     <name>MaintenanceModel</name>

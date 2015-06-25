@@ -219,11 +219,6 @@ function gamePlayingByUser(item) {
 
 function clearHistory() {
     _modelInstance.clearHistory();
-
-    for (var i = 0; i < users().count; ++i) {
-        var actualUser = users().get(i);
-        actualUser.messages.clear();
-    }
 }
 
 function getPlayingContactsModel() {

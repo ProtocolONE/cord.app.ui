@@ -45,11 +45,18 @@ var ConversationStorage = {
             ')',
             'CREATE INDEX IF NOT EXISTS IDX_Conversation_TS ON Conversation(chatName)',
          ]);
+
+        // It's time to clear messages older than this._historySaveDuration
+        this.setHistorySaveInterval(this._historySaveDuration);
     },
 
     setHistorySaveInterval: function(value) {
         this._historySaveDuration = value;
         if (typeof this._historySaveDuration !== 'number') {
+            return;
+        }
+
+        if (!this._db) {
             return;
         }
 

@@ -13,7 +13,8 @@ import GameNet.Controls 1.0
 
 import Application.Controls 1.0
 
-import "../../../../Core/App.js" as App
+import "../../../Core/App.js" as App
+import "../../../Core/MessageBox.js" as MessageBox
 
 import "../../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../../../../../GameNet/Components/Widgets/WidgetManager.js" as WidgetManager
@@ -118,8 +119,14 @@ Item {
 
                 text: qsTr("HISTORY_CLEAR_BUTTON")
                 onClicked: {
-                    var widget = WidgetManager.getWidgetByName('Messenger');
-                    widget.model.clearHistory();
+                    MessageBox.show(qsTr("INFO_CAPTION"), qsTr("CONFIRM_CLEAR_HISTORY"),
+                        MessageBox.button['Yes'] | MessageBox.button['Cancel'],
+                        function(result) {
+                            if (result == MessageBox.button['Yes']) {
+                                var widget = WidgetManager.getWidgetByName('Messenger');
+                                widget.model.clearHistory();
+                            }
+                        });
                 }
             }
         }

@@ -173,6 +173,11 @@ function setHistorySaveInterval(value) {
 
 function clearHistory() {
     ConversationStorage.clear();
+
+    _ref.keys().forEach(function(jid) {
+        var conversation = create(jid);
+        conversation.clearMessages();
+    });
 }
 
 function isGroupJid(jid) {

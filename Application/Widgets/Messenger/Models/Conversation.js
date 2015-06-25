@@ -226,6 +226,10 @@ var Conversation = function(item, model, jabber, myJid) {
         item.messages.remove(msg.index);
     }
 
+    this.clearMessages = function() {
+        item.messages.clear();
+    }
+
     this.changeState = function(from, state) {
         this.state = state;
 
@@ -241,5 +245,4 @@ var Conversation = function(item, model, jabber, myJid) {
             }
         }
     }
-
 }
