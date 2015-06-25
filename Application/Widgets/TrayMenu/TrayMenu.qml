@@ -19,6 +19,7 @@ import "../../Core/App.js" as App
 import "../../Core/Styles.js" as Styles
 import "../../Core/User.js" as User
 import "../../Core/MessageBox.js" as MessageBox
+import "../../Core/Popup.js" as Popup
 import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetModel {
@@ -48,7 +49,7 @@ WidgetModel {
         case 'Settings': {
             GoogleAnalytics.trackEvent('/Tray', 'Navigation', 'Switch To Settings');
             App.activateWindow();
-            App.navigate('ApplicationSettings');
+            Popup.show('ApplicationSettings');
         }
         break;
         case 'Quit': {

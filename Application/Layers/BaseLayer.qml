@@ -47,7 +47,12 @@ Item {
         onNavigate: {
             console.log("onNavigate: " + link);
             switch (link) {
-                case 'ApplicationSettings':
+                case 'ApplicationSettings':{
+                    // INFO Приходит сигнал из mainWindow по клику в таскбар
+                    Popup.show('ApplicationSettings');
+                    GoogleAnalytics.trackPageView('/' + link);
+                    return;
+                }
                 case 'GameSettings': {
                     GoogleAnalytics.trackPageView('/' + link);
                     return;
