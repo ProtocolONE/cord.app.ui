@@ -257,11 +257,6 @@ Form {
                     text: qsTr("AUTH_BODY_AMNESIA_TEXT")
 
                     fontSize: 12
-                    style {
-                        normal: Styles.style.linkText
-                        hover: Styles.style.linkText
-                    }
-
                     onClicked: AppProxy.openExternalUrl("https://gamenet.ru/restore/?login=" + d.login);
                 }
             }

@@ -1,5 +1,7 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
+import Application.Controls 1.0
+
 import "../../../../../Core/Styles.js" as Styles
 
 Item {
@@ -106,12 +108,6 @@ Item {
                     fontSize: 11
 
                     visible: !root.isInContacts
-                    style {
-                        normal: Styles.style.linkText
-                        hover: Styles.style.linkText
-                        disabled: Styles.style.linkText
-                    }
-
                     font.family: 'Tahoma'
                     onClicked: root.requestAddToContact();
                 }

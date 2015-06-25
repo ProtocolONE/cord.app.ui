@@ -1,5 +1,5 @@
 import QtQuick 1.1
-import GameNet.Controls 1.0
+import Application.Controls 1.0
 
 import "../../../Core/Styles.js" as Styles
 
@@ -23,10 +23,6 @@ Column {
     TextButton {
         font { pixelSize: 11 }
         text: qsTr("REGISTER_BODY_LICENSE_PART2")
-        style {
-            normal: Styles.style.linkText
-            hover: Styles.style.linkText
-        }
         onClicked: root.clicked()
     }
 }

@@ -10,9 +10,11 @@
 
 import QtQuick 1.1
 import Tulip 1.0
+
+import GameNet.Controls 1.0
+
 import Application.Blocks.Popup 1.0
 import Application.Controls 1.0
-import GameNet.Controls 1.0
 
 import "../../../Core/App.js" as App
 

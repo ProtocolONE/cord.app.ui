@@ -139,12 +139,6 @@ Form {
                 text: qsTr("CODE_BODY_CANCEL_BUTTON")
 
                 anchors.verticalCenter: parent.verticalCenter
-                style {
-                    normal: Styles.style.linkText
-                    hover: Styles.style.linkText
-                    disabled: Styles.style.linkText
-                }
-
                 onClicked: root.cancel();
             }
         }

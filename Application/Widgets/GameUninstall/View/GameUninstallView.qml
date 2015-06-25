@@ -10,11 +10,11 @@
 
 import QtQuick 1.1
 
+import GameNet.Controls 1.0
+
 import Application.Blocks 1.0
 import Application.Blocks.Popup 1.0
 import Application.Controls 1.0
-
-import GameNet.Controls 1.0
 
 import "../../../Core/App.js" as App
 import "../../../Core/Styles.js" as Styles
@@ -77,22 +77,26 @@ PopupBase {
         text: d.getStatusText();
     }
 
-    Rectangle {
-        id: progressBarBackgrount
-
+    Item {
         width: parent.width
         height: 22
-        color: "#00000000"
-        opacity: Styles.style.blockInnerOpacity
-        border { color: Styles.style.light }
-    }
 
-    DownloadProgressBar {
-        anchors {
-            fill: progressBarBackgrount
-            margins: 6
+        Rectangle {
+            id: progressBarBackgrount
+
+            anchors.fill: parent
+            color: "#00000000"
+            opacity: Styles.style.blockInnerOpacity
+            border { color: Styles.style.light }
         }
-        progress: root.gameItem ? root.gameItem.progress : 0
+
+        DownloadProgressBar {
+            anchors {
+                fill: parent
+                margins: 6
+            }
+            progress: root.gameItem ? root.gameItem.progress : 0
+        }
     }
 
     Timer {

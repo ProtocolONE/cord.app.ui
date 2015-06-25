@@ -14,6 +14,7 @@ import GameNet.Controls 1.0
 import Application.Blocks.Popup 1.0
 import Application.Controls 1.0
 
+import "../../../Core/Styles.js" as Styles
 import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 PopupBase {
@@ -60,7 +61,7 @@ PopupBase {
 
             if (error != "") {
                 nickName.errorMessage = error;
-                nickName.style.text = "#FF2E44";
+                nickName.style.text = Styles.style.inputError;
                 nickName.error = true;
             }
         }
@@ -72,7 +73,7 @@ PopupBase {
         onTechNameError: {
             if (error != "") {
                 techName.errorMessage = error;
-                techName.style.text = "#FF2E44";
+                techName.style.text = Styles.style.inputError;
                 techName.error = true;
                 d.needGenerateTechName = true;
             }

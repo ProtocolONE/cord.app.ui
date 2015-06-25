@@ -1,10 +1,11 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
+import GameNet.Components.Widgets 1.0
+
 import Application.Controls 1.0
 import Application.Blocks 1.0
 import Application.Blocks.Header 1.0
 import Application.Blocks.GameMenu 1.0
-import GameNet.Components.Widgets 1.0
 
 import "./Private"
 import "../../Application/Core/App.js" as App
@@ -40,6 +41,7 @@ Item {
         source: !!root.currentGame ? root.currentGame.backgroundInApp : ""
         fillMode: Image.PreserveAspectCrop
         smooth: true
+        visible: root.selectedGamePage
     }
 
     Connections {

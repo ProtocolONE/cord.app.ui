@@ -1,5 +1,5 @@
 import QtQuick 1.1
-import GameNet.Controls 1.0
+import Application.Controls 1.0
 
 import "../../../Core/Styles.js" as Styles
 
@@ -26,10 +26,6 @@ Row {
         id: footerButtonText
 
         font { family: "Open Sans Regular"; pixelSize: 15 }
-        style {
-            normal: Styles.style.linkText
-            hover: Styles.style.linkText
-        }
         onClicked: root.clicked()
     }
 }

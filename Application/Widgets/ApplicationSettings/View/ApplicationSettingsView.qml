@@ -15,8 +15,6 @@ import "../../../Core/MessageBox.js" as MessageBox
 PopupBase {
     id: root
 
-    signal close()
-
     function reloadSettings() {
         try {
             generalSettingsPage.load();

@@ -10,13 +10,14 @@
 
 import QtQuick 1.1
 
+import GameNet.Controls 1.0
+
 import Application.Blocks 1.0
 import Application.Blocks.Popup 1.0
 import Application.Controls 1.0
 
-import GameNet.Controls 1.0
-
 import "../../../Core/App.js" as App
+import "../../../Core/Styles.js" as Styles
 
 PopupBase {
     id: root
@@ -45,7 +46,7 @@ PopupBase {
                 family: 'Arial'
                 pixelSize: 16
             }
-            color: '#5c6d7d'
+            color: defaultTextColor
             smooth: true
             text: qsTr("DESTINATION_FOLDER_CAPTION")
         }
@@ -81,10 +82,6 @@ PopupBase {
         fontSize: 15
         checked: true
         text: qsTr("CREATE_DESKTOP_SHORTCUT")
-        style: ButtonStyleColors {
-            normal: "#1ABC9C"
-            hover: "#019074"
-        }
     }
 
     CheckBox {
@@ -94,10 +91,6 @@ PopupBase {
         fontSize: 15
         checked: true
         text: qsTr("CREATE_STARTMENU_SHORTCUT")
-        style: ButtonStyleColors {
-            normal: "#1ABC9C"
-            hover: "#019074"
-        }
     }
 
     Item {
@@ -114,7 +107,7 @@ PopupBase {
                 family: 'Arial'
                 pixelSize: 12
             }
-            color: '#5c6d7d'
+            color: defaultTextColor
             onLinkActivated: App.openExternalUrl(currentGame.licenseUrl)
         }
     }

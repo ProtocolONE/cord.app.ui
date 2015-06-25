@@ -33,6 +33,12 @@ WidgetView {
     height: User.isSecondAuthorized() ? 120 : 90
     clip: true
 
+    CursorMouseArea {
+        cursor: CursorArea.ArrowCursor
+        anchors.fill: parent
+        acceptedButtons: Qt.RightButton | Qt.LeftButton
+    }
+
     Text {
         x: 14
         y: 10

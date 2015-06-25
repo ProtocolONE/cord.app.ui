@@ -29,8 +29,6 @@ PopupBase {
     property variant currentGame: model.currentGame
     property variant gameSettingsModelInstance: App.gameSettingsModelInstance() || {}
 
-    signal close();
-
     defaultMargins: 44
     width: 740
     title: qsTr("GAME_SETTINGS_TITLE").arg(App.currentGame().name)

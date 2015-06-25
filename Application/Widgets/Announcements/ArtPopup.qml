@@ -11,14 +11,15 @@
 import QtQuick 1.1
 import Tulip 1.0
 
-import Application.Controls 1.0
 import GameNet.Controls 1.0
+
+import Application.Controls 1.0 as AppControls
 
 import "../../Core/App.js" as App
 import "../../Core/Styles.js" as Styles
 
-TrayPopupBase {
-    id: root
+AppControls.TrayPopupBase {
+    id: popUp
 
     signal closeButtonClicked();
     signal playClicked();

@@ -40,7 +40,7 @@ PopupBase {
             family: 'Arial'
             pixelSize: 15
         }
-        color: '#5c6d7d'
+        color: defaultTextColor
     }
 
     Row {
