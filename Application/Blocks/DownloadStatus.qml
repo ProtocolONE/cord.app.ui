@@ -85,16 +85,14 @@ Item {
                 smooth: true
 
                 onPaintedWidthChanged: {
-                    if (text.paintedWidth > root.width) {
-                        if (!scrollAnimation.running) {
-                            scrollAnimation.start();
-                        }
-                        return;
-                    }
-
                     if (scrollAnimation.running) {
                         scrollAnimation.stop();
                         text.x = 0;
+                    }
+
+                    if (text.paintedWidth > root.width) {
+                        scrollAnimation.frame = 0;
+                        scrollAnimation.start();
                     }
                 }
             }
