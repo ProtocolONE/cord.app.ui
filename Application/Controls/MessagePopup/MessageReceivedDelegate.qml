@@ -49,7 +49,7 @@ Item {
 
                 Image {
                     anchors.verticalCenter: parent.verticalCenter
-                    source: avatar
+                    source: delegate.avatar
                     width: 24
                     height: 24
                     cache: true
@@ -59,7 +59,7 @@ Item {
             }
 
             Text {
-                text: nickname
+                text: delegate.nickname
                 color: Styles.style.trayPopupTextHeader
                 width: 182
                 elide: Text.ElideRight

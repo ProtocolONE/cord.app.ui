@@ -63,6 +63,10 @@ WidgetModel {
         return MessengerJs.isSelectedUser(user)
     }
 
+    function getUser(jid) {
+        return MessengerJs.getUser(jid);
+    }
+
     Connections {
         target: App.signalBus();
         onAuthDone: {

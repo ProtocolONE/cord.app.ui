@@ -46,10 +46,8 @@ TrayPopupBase {
                              from: from,
                              body: body,
                              messageDate: messageDate,
-                             avatar: avatar,
-                             nickname: nickname,
                              showAvatarAndNickname: lastMessageFrom !== from,
-                             maximumHeight: -1
+                             maximumHeight: -1                             
                          });
 
         if (listViewMessage.calcHeight() > maximumListViewHeight) {
@@ -74,7 +72,11 @@ TrayPopupBase {
                 return MessengerJs.getGroupTitle({jid: from});
             }
 
-            return user.nickname;
+            if (user.nickname) {
+                return user.nickname;
+            }
+
+            return from;
         }
 
         function getAvatar(from) {
@@ -194,8 +196,8 @@ TrayPopupBase {
                                                            smileResolver: EmojiOne.ns.toImage,
                                                            serviceResolver: App.serviceItemByServiceId
                                                        })
-                        avatar: model.avatar
-                        nickname: model.nickname
+                        avatar: d.getAvatar(model.from)
+                        nickname: d.getNickname(model.from)
                         showAvatarAndNickname: model.showAvatarAndNickname
 
                         maximumHeight: model.maximumHeight
