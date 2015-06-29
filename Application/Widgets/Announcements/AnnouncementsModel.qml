@@ -257,6 +257,8 @@ WidgetModel {
         Settings.setValue("qml/Announcements2/reminderNeverExecute/" + serviceId + "/", "showDate", now);
 
         var gameItem = App.serviceItemByServiceId(serviceId);
+
+        PopupHelper.hidePopup('gameInstalledAnnounce' + serviceId);
         PopupHelper.showPopup(artPopupComponent,
                               {
                                   popupType: "reminderNeverExecute",
