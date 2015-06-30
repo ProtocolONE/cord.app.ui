@@ -21,10 +21,20 @@ import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 WidgetModel {
     id: premiumNotifier
 
+    settings: WidgetSettings {
+        namespace: 'PremiumNotifier'
+
+        property bool premiumExpiredNotification: true
+    }
+
     Connections {
         target: App.signalBus()
 
         onPremiumExpired: {
+            if (!premiumNotifier.settings.premiumExpiredNotification) {
+                return;
+            }
+
             var gameItem = App.serviceItemByServiceId(0),
                 popUpOptions = {
                     gameItem: gameItem,

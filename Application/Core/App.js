@@ -128,7 +128,6 @@ function isAnyServiceLocked() {
     return false;
 }
 
-
 function activateGame(item) {
     _previousGame = gamesListModel.currentGameItem;
     gamesListModel.currentGameItem = item;
@@ -280,3 +279,4 @@ function isMainServiceCanBeStarted(item) {
 
     return true;
 }
+

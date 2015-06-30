@@ -39,7 +39,32 @@ WidgetModel {
     signal gameAcceptLicenseClicked(string serviceId);
     signal gameMissLicenseClicked(string serviceId);
 
+    settings: WidgetSettings {
+        namespace: 'Announcements'
+
+        property int bigAnnouncementStopDate: 0
+        property int smallAnnouncementStopDate: 0
+        property bool showGameInstallNoExecuteReminder: true
+    }
+
     Component.onCompleted: _lastShownPopupDate = + (new Date());
+
+    function checkIsAnnouncementBlocked(announceItem) {
+        if (!announceItem) {
+            return false;
+        }
+
+        var blockDate = 0,
+            now = Math.floor(+(Date.now()) / 1000);
+
+        if (announceItem.size === "small") {
+            blockDate = announcements.settings.smallAnnouncementStopDate;
+        } else if (announceItem.size === "big") {
+            blockDate = announcements.settings.bigAnnouncementStopDate;
+        }
+
+        return blockDate >= (now - 2592000) && blockDate <= now;
+    }
 
     function showGameInstalledAnnounce(serviceId) {
         if (AnnouncementsHelper.isAnyGameStarted()) {
@@ -174,6 +199,10 @@ WidgetModel {
                 continue;
             }
 
+            if (announcements.checkIsAnnouncementBlocked(announce)) {
+                continue;
+            }
+
             var id = announce.id;
             var startDate = +(new Date(parseInt(announce.startTime, 10) * 1000)),
                 endDate = +(new Date(parseInt(announce.endTime, 10) * 1000));
@@ -204,6 +233,10 @@ WidgetModel {
 
             var announce = AnnouncementsHelper.announceList[index];
             if (!announce) {
+                continue;
+            }
+
+            if (announcements.checkIsAnnouncementBlocked(announce)) {
                 continue;
             }
 
@@ -271,6 +304,10 @@ WidgetModel {
     }
 
     function showNextReminder() {
+        if (!announcements.settings.showGameInstallNoExecuteReminder) {
+            return;
+        }
+
         var services = App.getRegisteredServices()
             , serviceId
             , installDate
@@ -415,7 +452,7 @@ WidgetModel {
         onServiceFinished: gameClosedCallback(gameItem.serviceId)
         onServiceInstalled: {
             if (!App.isWindowVisible()) {
-                showGameInstalledAnnounce(gameItem.serviceId);
+                announcements.showGameInstalledAnnounce(gameItem.serviceId);
             }
         }
     }

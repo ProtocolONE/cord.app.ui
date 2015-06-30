@@ -104,7 +104,7 @@ WidgetModel {
                 if (MaintenanceModel.showMaintenanceEnd[index]) {
                     delete MaintenanceModel.showMaintenanceEnd[index];
 
-                    if (!mainWindow.visible && MaintenanceModel.isShowEndPopup()) {
+                    if (!App.isWindowVisible() && MaintenanceModel.isShowEndPopup()) {
                         root.showPopupGameMaintenanceEnd(index);
                     }
                 }

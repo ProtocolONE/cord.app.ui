@@ -15,6 +15,8 @@ import "../../../Core/MessageBox.js" as MessageBox
 PopupBase {
     id: root
 
+    property string paramHash: ""
+
     function reloadSettings() {
         try {
             generalSettingsPage.load();
@@ -24,6 +26,9 @@ PopupBase {
         } catch (e) {
             console.log(e)
         }
+
+        var params = root.getMarketingsParams();
+        root.paramHash = JSON.stringify(params);
     }
 
     function resetSettings() {
@@ -31,6 +36,40 @@ PopupBase {
         downloadSettingsPage.reset();
         notificationSettingsPage.reset();
         messengerSettingsPage.reset();
+    }
+
+    function save() {
+        try {
+            generalSettingsPage.save();
+            downloadSettingsPage.save();
+            notificationSettingsPage.save();
+            messengerSettingsPage.save();
+        } catch (e) {
+            console.log(e);
+        }
+
+        root.sendMarketings();
+        root.close();
+    }
+
+    function getMarketingsParams() {
+        var result = {};
+        generalSettingsPage.setMarketingsParams(result);
+        downloadSettingsPage.setMarketingsParams(result);
+        notificationSettingsPage.setMarketingsParams(result);
+        messengerSettingsPage.setMarketingsParams(result);
+        return result;
+    }
+
+    function sendMarketings() {
+        var params = root.getMarketingsParams();
+        var paramHash = JSON.stringify(params);
+        if (root.paramHash == paramHash) {
+            return;
+        }
+
+        params.userId = User.userId();
+        Marketing.send(Marketing.ApplicationSettingsChanged, "0", params);
     }
 
     defaultMargins: 44
@@ -181,19 +220,7 @@ PopupBase {
 
                 width: 210
                 text: qsTr("SAVE_BUTTON_LABEL")
-
-                onClicked: {
-                    try {
-                        generalSettingsPage.save();
-                        downloadSettingsPage.save();
-                        notificationSettingsPage.save();
-                        messengerSettingsPage.save();
-                    } catch (e) {
-                        console.log(e);
-                    }
-
-                    root.close();
-                }
+                onClicked: root.save();
             }
         }
     }

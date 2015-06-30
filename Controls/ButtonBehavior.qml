@@ -35,6 +35,7 @@ Item {
     signal exited()
     signal pressed(variant mouse)
     signal clicked(variant mouse)
+    signal doubleClicked(variant mouse);
 
     onCheckableChanged: {
         if (!checkable) {
@@ -61,13 +62,6 @@ Item {
                 if (behavior.checkable) {
                     behavior.checked = !behavior.checked;
                 }
-                if (behavior.analytics && behavior.analytics.isValid()) {
-                    GoogleAnalytics.trackEvent(behavior.analytics.page,
-                                               behavior.analytics.category,
-                                               behavior.analytics.action,
-                                               behavior.analytics.label);
-                }
-                behavior.clicked(mouse);
             }
         }
         onEntered: {
@@ -78,5 +72,18 @@ Item {
             behavior.buttonPressed = false;
         }
         onCanceled: behavior.buttonPressed = false;
+        onDoubleClicked: behavior.doubleClicked(mouse);
+
+        onClicked: {
+            if (behavior.enabled) {
+                if (behavior.analytics && behavior.analytics.isValid()) {
+                    GoogleAnalytics.trackEvent(behavior.analytics.page,
+                                               behavior.analytics.category,
+                                               behavior.analytics.action,
+                                               behavior.analytics.label);
+                }
+                behavior.clicked(mouse);
+            }
+        }
     }
 }

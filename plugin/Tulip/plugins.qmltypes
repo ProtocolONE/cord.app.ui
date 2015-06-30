@@ -105,7 +105,8 @@ Module {
                 "ThettaSendInfoFail": 2756,
                 "ServiceUninstalledFromOS": 2762,
                 "ServiceUninstalledFromUI": 2763,
-                "ThettaPatternFound": 2766
+                "ThettaPatternFound": 2766,
+                "ApplicationSettingsChanged": 2768
             }
         }
         Enum {

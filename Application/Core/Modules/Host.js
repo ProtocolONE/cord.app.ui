@@ -11,6 +11,8 @@
 
 var proxyInst = createObject('./Host.qml');
 
+var mainWindowMock;
+
 function createObject(path) {
     var component = Qt.createComponent(path);
     if (component.status != 1) {
@@ -258,7 +260,11 @@ function mainWindowInstance() {
         return proxyInst.mainWindowInstance();
     }
 
-    return null;
+    if (!mainWindowMock) {
+        mainWindowMock = createObject('./Mocks/MainWindowMock.qml')
+    }
+
+    return mainWindowMock;
 }
 
 function messageBoxInstance() {
@@ -282,7 +288,7 @@ function settingsViewModelInstance() {
         return proxyInst.settingsViewModelInstance();
     }
 
-    return null;
+    return createObject('./Mocks/ApplicationSettingsMock.qml');
 }
 
 function licenseModelInstance() {

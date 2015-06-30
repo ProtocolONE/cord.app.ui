@@ -45,12 +45,14 @@ Item {
 
         messengerOverlayHotkey.currentIndex = overlayChatOpenHotkey;
         messengerShowChatOverlayNotify.checked = overlaySettings.messengerShowChatOverlayNotify;
+        receivedMsgEnabled.checked = settings.messengerReceivedMessage; //copy of value, use Binding for 2 way bind
     }
 
     function save() {
         var settings = WidgetManager.getWidgetSettings('Messenger');
         settings.sendAction = d.currentSendOption;
         settings.historySaveInterval = messengerHistoryInterval.getValue(messengerHistoryInterval.currentIndex);
+        settings.messengerReceivedMessage = receivedMsgEnabled.checked;
         settings.save();
 
         var overlaySettings = WidgetManager.getWidgetSettings('Overlay');
@@ -66,6 +68,12 @@ Item {
         messengerHistoryInterval.currentIndex = messengerHistoryInterval.findValue("0");
         messengerOverlayHotkey.currentIndex = overlayChatOpenHotkey;
         messengerShowChatOverlayNotify.checked = true;
+        receivedMsgEnabled.checked = true;
+    }
+
+    function setMarketingsParams(params) {
+        params.maintenanceEnd = WidgetManager.getWidgetSettings('Messenger').messengerReceivedMessage ? "1" : "0";
+        return params;
     }
 
     QtObject {
@@ -156,6 +164,12 @@ Item {
                     append(JSON.stringify({key: Qt.Key_Tab, modifiers: Qt.ControlModifier, name: "Ctrl + Tab"}), "Ctrl + Tab");
                 }
             }
+        }
+
+        CheckBox {
+            id: receivedMsgEnabled
+
+            text: qsTr("CHECKBOX_NOTIFICATION_MESSANGER_RECEIVED_MESSAGE")
         }
 
         CheckBox {

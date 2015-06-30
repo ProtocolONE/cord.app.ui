@@ -2,6 +2,7 @@ import QtQuick 1.1
 
 Item {
     default property alias data: column.data
+    property alias allwaysShown: scrollBar.allwaysShown
 
     function scrollToBegin() {
         flickable.contentY = 0;
@@ -29,6 +30,8 @@ Item {
     }
 
     ScrollBar {
+        id: scrollBar
+
         flickable: flickable
         anchors {
             right: parent.right

@@ -252,6 +252,13 @@
     </message>
 </context>
 <context>
+    <name>AnnouncementsDesignSample</name>
+    <message>
+        <source>Чтобы открыть чат GameNet используете хоткей %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AnnouncementsModel</name>
     <message>
         <source>ANNOUNCE_GAME_INSTALLED_MESSAGE</source>
@@ -926,7 +933,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>AUTH_BODY_SUB_TITLE</source>
-        <translation type="unfinished">Авторизация в приложении учётной записью GameNet</translation>
+        <translation>Авторизация в приложении учётной записью GameNet</translation>
     </message>
 </context>
 <context>
@@ -3367,11 +3374,11 @@ Please try again later.</source>
     <name>LicenseText</name>
     <message>
         <source>REGISTER_BODY_LICENSE_PART1</source>
-        <translation type="unfinished">Фактом регистрации вы соглашаетесь с условиями</translation>
+        <translation>Фактом регистрации вы соглашаетесь с условиями</translation>
     </message>
     <message>
         <source>REGISTER_BODY_LICENSE_PART2</source>
-        <translation type="unfinished">пользовательского соглашения</translation>
+        <translation>пользовательского соглашения</translation>
     </message>
 </context>
 <context>
@@ -3867,6 +3874,10 @@ Please try again later.</source>
         <source>CONFIRM_CLEAR_HISTORY</source>
         <translation>Вы уверены, что хотите очистить историю?</translation>
     </message>
+    <message>
+        <source>CHECKBOX_NOTIFICATION_MESSANGER_RECEIVED_MESSAGE</source>
+        <translation>Показывать уведомление, когда мне приходит сообщение</translation>
+    </message>
 </context>
 <context>
     <name>MaintenanceModel</name>
@@ -4134,11 +4145,59 @@ Please try again later.</source>
     <name>NotificationSettings</name>
     <message>
         <source>CHECKBOX_NOTIFICATION_MAINTENANCE_END</source>
-        <translation>Оповещать об окончании технических работ</translation>
+        <translation>Закончились технические работы</translation>
     </message>
     <message>
         <source>CHECKBOX_NOTIFICATION_MESSANGER_RECEIVED_MESSAGE</source>
-        <translation>Показывать уведомление, когда мне приходит сообщение</translation>
+        <translation type="vanished">Показывать уведомление, когда мне приходит сообщение</translation>
+    </message>
+    <message>
+        <source>APPLICATION_SETTINGS_NOTIFICATION_GENERAL_TITLE</source>
+        <translation>Я хочу чтобы приложение GameNet напоминало мне когда:</translation>
+    </message>
+    <message>
+        <source>CHECKBOX_NOTIFICATION_GAME_UPDATE_FINISHED</source>
+        <translation>Игра готова к запуску после обновления или установки</translation>
+    </message>
+    <message>
+        <source>CHECKBOX_NOTIFICATION_GAMENET_PREMIUM_FINISHED</source>
+        <translation>Заканчивается срок действия расширенного аккаунта</translation>
+    </message>
+    <message>
+        <source>CHECKBOX_NOTIFICATION_GAME_NEVER_STARTED_REMINDER</source>
+        <translation>Я установил игру, но ни разу её не запускал</translation>
+    </message>
+    <message>
+        <source>APPLICATION_SETTINGS_NOTIFICATION_IMPORTANT_TITLE</source>
+        <translation>Важная информация</translation>
+    </message>
+    <message>
+        <source>APPLICATION_SETTINGS_NOTIFICATION_BIG_ANNOUNCEMENT_TITLE</source>
+        <translation>О срочных новостях и выходе новых игр:</translation>
+    </message>
+    <message>
+        <source>APPLICATION_SETTINGS_NOTIFICATION_BIG_ANNOUNCEMENT_SHOW_ALWAYS</source>
+        <translation>уведомлять всегда</translation>
+    </message>
+    <message>
+        <source>APPLICATION_SETTINGS_NOTIFICATION_BIG_ANNOUNCEMENT_SKIP_MONTH</source>
+        <translation>приостановить на 1 месяц</translation>
+    </message>
+    <message>
+        <source>APPLICATION_SETTINGS_NOTIFICATION_SMALL_ANNOUNCEMENT_TITLE</source>
+        <translation>О других важных новостях GameNet:</translation>
+    </message>
+    <message>
+        <source>APPLICATION_SETTINGS_NOTIFICATION_SMALL_ANNOUNCEMENT_SHOW_ALWAYS</source>
+        <translation>уведомлять всегда</translation>
+    </message>
+    <message>
+        <source>APPLICATION_SETTINGS_NOTIFICATION_SMALL_ANNOUNCEMENT_SKIP_MONTH</source>
+        <translation>приостановить на 1 месяц</translation>
+    </message>
+    <message>
+        <source>APPLICATION_SETTINGS_NOTIFICATION_IMPORTANT_DESCRIPTION</source>
+        <translation>Создавая равные возможности для всех игроков, мы хотели бы доносить информацию, которая может быть вам важна и полезна, с помощью уведомлений в приложении. Вы можете приостановить получение таких уведомлений.</translation>
     </message>
 </context>
 <context>
