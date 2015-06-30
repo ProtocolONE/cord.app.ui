@@ -80,6 +80,24 @@ function showPopup(component, context, itemId) {
     return object;
 }
 
+function hidePopup(popupId) {
+    var popupObject;
+    for (var object in shownObject) {
+        if (!shownObject.hasOwnProperty(object))
+            continue;
+
+        if (shownObject[object].id == popupId) {
+            popupObject = shownObject[object];
+            break;
+        }
+    }
+
+    if (popupObject) {
+        popupObject.closeFunction();
+        destroy(popupObject);
+    }
+}
+
 function destroy(destroyedObject) {
     delete shownObject[destroyedObject];
     popupCount--;
