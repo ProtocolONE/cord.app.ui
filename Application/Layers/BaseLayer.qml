@@ -41,7 +41,14 @@ Item {
         source: !!root.currentGame ? root.currentGame.backgroundInApp : ""
         fillMode: Image.PreserveAspectCrop
         smooth: true
-        visible: root.selectedGamePage
+        visible: opacity > 0
+        opacity: root.selectedGamePage ? 1 : 0
+
+        Behavior on opacity {
+            NumberAnimation {
+                duration: 500
+            }
+        }
     }
 
     Connections {

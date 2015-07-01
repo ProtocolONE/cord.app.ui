@@ -17,12 +17,6 @@ WidgetView {
     width: 770
     height: 570
 
-    Rectangle {
-        anchors.fill: parent
-        opacity: Styles.style.baseBackgroundOpacity
-        color: Styles.style.contentBackgroundLight
-    }
-
     ScrollArea {
         anchors{
             fill: parent
