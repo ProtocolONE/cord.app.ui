@@ -15,11 +15,6 @@ import "App.js" as App
 Item {
     id: root
 
-    //BASE
-    property real darkerFactor: 1.2
-    property real lighterFactor: 1.2
-    property color base: "#092135"
-
     property color focusOverlay: "#bdbdbd"
     property real focusOverlayOpacity: 0.15
 
@@ -95,7 +90,6 @@ Item {
     property color checkboxDisabled: "#7e8f9e"
     property color checkboxActive: "#31bca0"
     property color checkboxActiveHover: "#3cccb6"
-
 
     property color lightText: '#FFFFFF'
     property color titleText: '#45bef6'
@@ -185,7 +179,7 @@ Item {
     property string currentStyle
     property alias settingsModel: data
 
-    property int version: 1
+    property int version: 2
 
     function setCurrentStyle(value) {
         if (value !== currentStyle) {

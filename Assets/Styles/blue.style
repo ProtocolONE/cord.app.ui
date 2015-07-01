@@ -1,7 +1,7 @@
 ﻿{
     "id": "mainStyle",
     "default": true,
-    "version": 1,
+    "version": 2,
     "name": {
         "ru": "Синяя тема оформления",
         "en": "Blue skin" 
@@ -13,13 +13,14 @@
         }
     ],
     "styles": {
-        "base": "#092135",
-        "focusOverlay": "#bdbdbd",
-        "trayPopupBackground": "#475671",
-        "trayPopupBackgroundBorder": "#303947",
-        "trayPopupTextHeader": "#97aacd",
-        "trayPopupPlayText": "#8c9fc1",
-        "trayPopupText": "#ffffff",
+         "focusOverlay": "#bdbdbd",
+        "trayPopupBackground": "#00111A",
+        "trayPopupHeaderBackground": "#c44b33",
+        "trayPopupButtonNormal": "#c44b33",
+        "trayPopupButtonHover": "#e94d2f",
+        "trayPopupTextHeader": "#a1c1d2",
+        "trayPopupPlayText": "#a1c1d2",
+        "trayPopupText": "#FFFFFF",
         "light": "#FFFFFF",
         "dark": "#000000",
         "primaryButtonNormal": "#ff4f02",
