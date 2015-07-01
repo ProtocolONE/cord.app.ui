@@ -37,7 +37,7 @@ Item {
             id: popupColumn
 
             anchors.top: parent.bottom
-            width: 250
+            width: 240
             spacing: 10
             transform: Rotation { angle: 180 }
 
