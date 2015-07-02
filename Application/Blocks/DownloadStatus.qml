@@ -27,6 +27,8 @@ Item {
 
     height: 36
 
+    onWidthChanged: text.updateScrollAnimation()
+
     QtObject {
         id: d
 
@@ -84,17 +86,20 @@ Item {
                 text: d.getStatusText();
                 smooth: true
 
-                onPaintedWidthChanged: {
+                function updateScrollAnimation() {
                     if (scrollAnimation.running) {
                         scrollAnimation.stop();
                         text.x = 0;
                     }
 
                     if (text.paintedWidth > root.width) {
+                        text.x = 0;
                         scrollAnimation.frame = 0;
                         scrollAnimation.start();
                     }
                 }
+
+                onPaintedWidthChanged: updateScrollAnimation()
             }
 
             Timer {
