@@ -143,11 +143,7 @@ Rectangle {
         ListView {
             id: bigSmilePanel
 
-            anchors {
-                fill: parent
-                leftMargin: 1
-            }
-
+            anchors.fill: parent
             orientation: ListView.Horizontal
             interactive: false
 
@@ -336,8 +332,6 @@ Rectangle {
         }
     }
 
-
-
     Item { // close button
         height: 34
         width: height
@@ -348,7 +342,7 @@ Rectangle {
 
             anchors.centerIn: parent
 
-            source: installPath + "Assets/Images/Application/Widgets/Messenger/Smile/cross.png"
+            source: installPath + Styles.style.messengerChatClose
             opacity: closeMouseArea.containsMouse ? 1 : 0.7
 
         }

@@ -11,6 +11,8 @@ import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
 
+import "../../../Core/Styles.js" as Styles
+
 Item {
     id: root
 
@@ -71,7 +73,7 @@ Item {
                 id: iconImage
 
                 anchors.centerIn: parent
-                source: installPath + "Assets/Images/Application/Widgets/AccountActivation/phone_plus.png"
+                source: installPath + Styles.style.accountActivationPhoneIcon
             }
 
             MouseArea {

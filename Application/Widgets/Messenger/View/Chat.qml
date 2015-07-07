@@ -72,6 +72,14 @@ WidgetView {
         opacity: 1
     }
 
+    Rectangle {
+        x: -1
+        height: parent.height
+        width: 1
+        color: Styles.style.contentBackgroundDark
+        opacity: Styles.style.baseBackgroundOpacity
+    }
+
     ChatDialog.Header {
         id: header
     }

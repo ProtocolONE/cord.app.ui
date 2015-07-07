@@ -1,5 +1,6 @@
 import QtQuick 1.1
 import GameNet.Controls 1.0
+import Application.Controls 1.0
 import "../../../../../Core/restapi.js" as RestApi
 import "../../../../../Core/Styles.js" as Styles
 import "../../../../../Core/App.js" as App
@@ -156,12 +157,21 @@ NavigatableContactList {
     implicitWidth: 228
     implicitHeight: 400
 
-    Image {
-        anchors.centerIn: parent
-
-        source: d.imageRoot + "EmptyContactInfo/background.png"
-        opacity: Styles.style.baseBackgroundOpacity
+    Item {
+        anchors.fill: parent
         visible: listView.count == 0
+
+        Image {
+            width: parent.width
+            opacity: Styles.style.baseBackgroundOpacity
+            source: installPath + "/Assets/Images/Application/Widgets/Messenger/EmptyContactInfo/background.png"
+        }
+
+        Rectangle {
+            anchors.fill: parent
+            opacity: 0.65
+            color: Styles.style.contentBackgroundDark
+        }
     }
 
     Item {

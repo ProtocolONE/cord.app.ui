@@ -50,7 +50,7 @@ Image {
         height: parent.height
         wrapMode: Text.WordWrap
 
-        color: Styles.style.lightText
+        color: "#FFFFFF"
         font {
             bold: true
             pixelSize: 10

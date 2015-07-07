@@ -20,7 +20,7 @@ Row {
     Text {
         id: bigText
 
-        color:  Styles.style.bannerInfoText
+        color:  Styles.style.premiumInfoText
         font { pixelSize: 20 }
     }
 

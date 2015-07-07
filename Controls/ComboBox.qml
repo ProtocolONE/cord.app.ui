@@ -92,7 +92,7 @@ Item {
 
         anchors { fill: parent; margins: 1 }
         color: root.style.background
-        border { width: 2; color: root.style.background }
+        border { width: 2; color: root.style.normal }
 
         Behavior on border.color {
             ColorAnimation { duration: 300 }
@@ -161,7 +161,7 @@ Item {
                             right: parent.right
                             verticalCenter: parent.verticalCenter
                         }
-                        color: root.style.normal
+                        color: root.style.text
                         elide: Text.ElideRight
                         font { family: "Arial"; pixelSize: root.fontSize }
                         text: (root.model.count > 0 && root.currentIndex >= 0) ?
@@ -272,7 +272,7 @@ Item {
                         }
                         elide: Text.ElideRight
                         text: qsTr(model.text)
-                        color: root.style.normal
+                        color: root.style.text
                         font { family: 'Arial'; pixelSize: root.fontSize }
                     }
 
@@ -345,8 +345,8 @@ Item {
         states: [
             State {
                 name: ""
-                PropertyChanges { target: controlBorder; border.color: root.style.background }
-                PropertyChanges { target: placeholderText; color: root.style.normal }
+                PropertyChanges { target: controlBorder; border.color: root.style.normal }
+                PropertyChanges { target: placeholderText; color: root.style.text }
                 PropertyChanges { target: showListButtonImage; source: installPath + "Assets/Images/GameNet/Controls/ComboBox/down_n.png" }
             },
             State {

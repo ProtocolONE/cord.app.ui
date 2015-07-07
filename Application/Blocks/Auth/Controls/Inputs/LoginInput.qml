@@ -9,7 +9,7 @@
 ****************************************************************************/
 import QtQuick 1.1
 import GameNet.Controls 1.0
-import Application.Controls 1.0 as AppControls
+import Application.Controls 1.0
 
 import "../../../../Core/App.js" as App
 import "../../../../Core/Styles.js" as Styles
@@ -41,10 +41,10 @@ Item {
     Column {
         anchors.fill: parent
 
-        AppControls.Input {
+        Input {
             id: input
 
-            icon: installPath + "Assets/Images/GameNet/Controls/Input/email.png"
+            icon: installPath + Styles.style.inputEmailIcon
             width: parent.width
             height: 48
             language: App.keyboardLayout()
@@ -55,17 +55,6 @@ Item {
 
             typeahead: TypeaheadBehaviour {
                 dictionary: []
-            }
-
-            style {
-                normal: Styles.style.inputNormal
-                hover: Styles.style.inputHover
-                active: Styles.style.inputActive
-                disabled: Styles.style.inputDisabled
-                error: Styles.style.inputError
-                placeholder: Styles.style.inputPlaceholder
-                text: Styles.style.inputText
-                background: Styles.style.inputBackground
             }
         }
 

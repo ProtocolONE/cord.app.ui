@@ -120,7 +120,7 @@ Form {
                 width: parent.width
                 height: 48
                 placeholder: qsTr("CODE_BODY_CODE_INPUT_PLACEHOLDER")
-                icon: installPath + "Assets/Images/GameNet/Controls/Input/password.png"
+                icon: installPath + Styles.style.inputPasswordIcon
             }
         }
 

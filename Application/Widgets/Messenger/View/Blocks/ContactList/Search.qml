@@ -49,8 +49,9 @@ FocusScope {
             height: 32
             boldBorder: true
             onClicked: searchContactItem.localSearch = !searchContactItem.localSearch;
-            icon: (installPath + "Assets/Images/Application/Widgets/Messenger/")
-                    + (searchContactItem.localSearch ? "localSearch.png" : "webSearch.png")
+            icon: installPath + (searchContactItem.localSearch
+                                 ? Styles.style.messengerLocalSearchIcon
+                                 : Styles.style.messengerWebSearchIcon)
 
             StateGroup {
                 states: [
@@ -98,7 +99,7 @@ FocusScope {
             height: parent.height
             width: parent.width - 42
 
-            icon: installPath + "/Assets/Images/Application/Widgets/Messenger/chat_search.png"
+            icon: installPath + Styles.style.messengerChatSearchIcon
             clearOnEsc: true
             placeholder: localSearch ? qsTr("MESSENGER_SEARCH_FRIEND_PLACE_HOLDER") :
                                        qsTr("MESSENGER_WEB_SEARCH_PLACE_HOLDER")

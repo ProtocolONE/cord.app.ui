@@ -149,7 +149,7 @@ Item {
                             }
 
                             height: 12
-                            color: Qt.darker(Styles.style.textTime, mouser.containsMouse ? 1.5: 0)
+                            color: Qt.darker(Styles.style.chatInactiveText, mouser.containsMouse ? 1.5: 0)
 
                             font { family: 'Arial'; pixelSize: 12 }
 

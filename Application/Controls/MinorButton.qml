@@ -10,5 +10,5 @@ Button {
         disabled: Styles.style.minorButtonDisabled
         active: Styles.style.minorButtonActive
     }
-    textColor: Styles.style.infoText
+    textColor: Styles.style.minorButtonText
 }

@@ -99,8 +99,8 @@ WidgetView {
         }
 
         styleImages {
-            normal: installPath + 'Assets/Images/Application/Core/Popup/close.png'
-            hover: installPath + 'Assets/Images/Application/Core/Popup/close_hover.png'
+            normal: installPath + Styles.style.popupCloseIcon
+            hover: installPath + Styles.style.popupCloseIcon.replace('.png', '_hover.png')
         }
         onClicked: root.close()
     }

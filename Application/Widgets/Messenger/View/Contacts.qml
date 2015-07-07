@@ -146,7 +146,7 @@ WidgetView {
 
                                     width: 32
                                     height: 22
-                                    icon: d.imageRoot + "groupIcon.png"
+                                    icon: installPath + Styles.style.messengerGroupIcon
                                     checked: MessengerJs.editGroupModel().isActive()
 
                                     anchors {

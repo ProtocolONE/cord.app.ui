@@ -43,6 +43,7 @@ WidgetModel {
             return a.showOrder - b.showOrder;
         });
 
+        list.clear();
         themes.forEach(function(e) {
             list.append(e);
         });

@@ -73,7 +73,7 @@ Item {
                 topMargin: 12
             }
 
-            source: installPath + "/Assets/Images/Application/Widgets/Messenger/close_chat.png"
+            source: installPath + Styles.style.messengerChatClose
         }
     }
 }

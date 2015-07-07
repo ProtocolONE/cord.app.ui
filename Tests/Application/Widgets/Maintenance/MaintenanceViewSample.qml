@@ -12,11 +12,17 @@ import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
 import "../../../../Application/Core/App.js" as App
+import "../../../../Application/Core/Styles.js" as Styles
 
 Rectangle {
     width: 800
     height: 800
     color: '#cccccc'
+
+    Component.onCompleted:  {
+        Styles.init();
+        Styles.setCurrentStyle("green")
+    }
 
     WidgetManager {
         id: manager

@@ -32,6 +32,9 @@ Item {
     property string headerMyGames: "Assets/Images/Application/Blocks/Header/MyGames.png"
     property string headerSupport: "Assets/Images/Application/Blocks/Header/Support.png"
     property string headerThemes: "Assets/Images/Application/Blocks/Header/Themes.png"
+    property string headerClose: "Assets/Images/Application/Blocks/Header/Close.png"
+    property string headerLogout: "Assets/Images/Application/Blocks/Header/Logout.png"
+    property string headerSettings: "Assets/Images/Application/Blocks/Header/Settings.png"
 
     // Images game menu
     property string gameMenuNewsIcon: "Assets/Images/Application/Blocks/GameMenu/News.png"
@@ -43,6 +46,39 @@ Item {
     property string gameMenuExtendedAccIcon: "Assets/Images/Application/Blocks/GameMenu/Accounts.png"
     property string gameMenuAccessIcon: "Assets/Images/Application/Blocks/GameMenu/Access.png" //INFO GN-8631
 
+    property string popupCloseIcon: "Assets/Images/Application/Core/Popup/close.png"
+
+    property string accountActivationLockIcon: "Assets/Images/Application/Widgets/AccountActivation/lock.png"
+    property string accountActivationPhoneIcon: "Assets/Images/Application/Widgets/AccountActivation/phone_plus.png"
+
+    property string applicationSettingsStyleIcon: "Assets/Images/Application/Widgets/ApplicationSettings/style.png"
+    property string applicationSettingsLanguageIcon: "Assets/Images/Application/Widgets/ApplicationSettings/language.png"
+    property string applicationSettingsDefaultSettingsIcon: "Assets/Images/Application/Widgets/ApplicationSettings/defaultSettings.png"
+
+    property string messengerChatSearchIcon: "Assets/Images/Application/Widgets/Messenger/chat_search.png"
+    property string messengerChatClose: "Assets/Images/Application/Widgets/Messenger/close_chat.png"
+    property string messengerGroupIcon: "Assets/Images/Application/Widgets/Messenger/groupIcon.png"
+    property string messengerHeaderGroupIcon: "Assets/Images/Application/Widgets/Messenger/ContactItem/editGroupChatIcon.png"
+    property string messengerNotificationsIcon: "Assets/Images/Application/Widgets/Messenger/notifications.png"
+    property string messengerSearchCloseIcon: "Assets/Images/Application/Widgets/Messenger/searchClose.png"
+    property string messengerSmileButtonIcon: "Assets/Images/Application/Widgets/Messenger/smileButton.png"
+    property string messengerLocalSearchIcon: "Assets/Images/Application/Widgets/Messenger/localSearch.png"
+    property string messengerWebSearchIcon: "Assets/Images/Application/Widgets/Messenger/webSearch.png"
+
+    property string secondAccountAuthLogoutIcon: "Assets/Images/Application/Widgets/SecondAccountAuth/logout.png"
+
+    property string userProfilePremiumIcon: "Assets/Images/Application/Widgets/UserProfile/premium.png"
+    property string promoCodeIcon: "Assets/Images/Application/Widgets/PromoCode/promo.png"
+    property string nicknameEditIcon: "Assets/Images/Application/Widgets/NicknameEdit/nickname.png"
+
+    //GameNet Input
+    property string inputCaptchaIcon: "Assets/Images/GameNet/Controls/Input/captcha.png"
+    property string inputEmailIcon: "Assets/Images/GameNet/Controls/Input/email.png"
+    property string inputPasswordIcon: "Assets/Images/GameNet/Controls/Input/password.png"
+    property string inputUpdateIcon: "Assets/Images/GameNet/Controls/Input/update.png"
+
+    property string allGamesDropDown: "Assets/Images/Application/Widgets/AllGames/crossButton.png"
+
     // GameNet 3.4
     property double baseBackgroundOpacity: 0.75
     property double darkBackgroundOpacity: 0.90
@@ -53,10 +89,8 @@ Item {
 
     property color primaryButtonNormal: '#ff4f02'
     property color primaryButtonHover: '#ff6102'
-
-    property color checkedButtonActive: "#31bca0"
-    property color checkedButtonInactive: "#24475a"
-
+    property color primaryButtonDisabled: '#888888'
+    property color primaryButtonText: "#FFFFFF"
     property color primaryBorder: "#FFDD82"
 
     property color primaryButtonNormal: '#ff4f02'
@@ -67,11 +101,13 @@ Item {
     property color auxiliaryButtonNormal: "#1ABC9C"
     property color auxiliaryButtonHover: "#019074"
     property color auxiliaryButtonDisabled: "#888888"
+    property color auxiliaryButtonText: "#FFFFFF"
 
     property color minorButtonNormal: "#02141d"
     property color minorButtonHover: "#020e15"
     property color minorButtonDisabled: "#031824"
     property color minorButtonActive: "#02141d"
+    property color minorButtonText: "#7e8f9e"
 
     property color errorButtonNormal: "#cc0000"
     property color errorButtonHover: "#ee0000"
@@ -92,18 +128,20 @@ Item {
     property color checkboxActiveHover: "#3cccb6"
 
     property color lightText: '#FFFFFF'
-    property color titleText: '#45bef6'
-    property color infoText: '#7e8f9e'
+    property color titleText: '#45bef6' // title
+    property color infoText: '#7e8f9e' // info
     property color textBase: '#a1c1d2' // text
-    property color textAttention: '#ff4f02'
+    property color textAttention: '#ff4f02' // popup_title
     property color textTime: '#577889' // chat_time
-    property color menuText: "#FFFFFF"
-    property color mainMenuText: "#FFFFFF"
-    property color chatInactiveText: "#577889"
-    property color bannerInfoText: "#FFDD82"
-    property color chatButtonText: "#FFFFFF"
-    property color linkText: "#45bef6"
-    property color fieldText: "#363636"
+    property color menuText: "#FFFFFF" // menu
+    property color mainMenuText: "#FFFFFF" // main_menu
+    property color chatInactiveText: "#577889" // chat_inactive
+    property color bannerTitleText: "#FFFFFF" //banner_title
+    property color bannerInfoText: "#FFDD82" // big_banner_info, banner_info
+    property color chatButtonText: "#FFFFFF" // chat_btn
+    property color linkText: "#45bef6" // link
+    property color fieldText: "#363636" // field
+    property color premiumInfoText: "#FFDD82" //premium_info
 
     // Базовый фон самого рута приложения
     property color applicationBackground: "#002336"
@@ -120,6 +158,7 @@ Item {
     property color messengerContactPresenceOnline: "#1ABC9C"
     property color messengerContactPresenceDnd: "#FFCC00"
     property color messengerContactPresenceOffline: "#CCCCCC"
+    property color messengerContactUnreadContact: "#FFDD82"
 
     property color messengerRecentContactsUnreadIcon: "#189A19"
 
@@ -145,11 +184,12 @@ Item {
     property color inputText: "#363636"
 
     property color comboboxBackground: "#FFFFFF"
-    property color comboboxNormal: "#363636"
+    property color comboboxNormal: "#ffffff"
     property color comboboxHover: "#3498db"
     property color comboboxActive: "#3498db"
     property color comboboxDisabled: "#66758F"
     property color comboboxSelectHover: "#EBEBEB"
+    property color comboboxText: "#363636"
     property color comboboxScrollBarCursor: "#00000000"
     property color comboboxScrollBarCursorHover: '#95999b'
 
@@ -326,8 +366,8 @@ Item {
             });
 
             blendProperties.forEach(function(field) {
-                tmpSourceColors[field] = hexToRgb(root[field]);
-                tmpTargetColors[field] = hexToRgb(styleList[currentStyle][field]);
+                tmpSourceColors[field] = hexToRgba(root[field]);
+                tmpTargetColors[field] = hexToRgba(styleList[currentStyle][field]);
             });
 
             sourceColors = tmpSourceColors;
@@ -337,12 +377,24 @@ Item {
             blendTimer.start();
         }
 
-        function hexToRgb(hex) {
-            var bigint = parseInt(hex.toString().replace('#',''), 16);
-            var r = (bigint >> 16) & 255;
-            var g = (bigint >> 8) & 255;
-            var b = bigint & 255;
-            return [r , g, b];
+        function hexToRgba(hex) {
+            var value = hex.toString().replace('#','')
+                , a = 255
+                , offset = 0
+                , r
+                , g
+                , b;
+
+            if (value.length === 8) {
+                a = parseInt(value.substring(0, 2), 16);
+                offset = 2;
+            }
+
+            r = parseInt(value.substring(0 + offset, 2 + offset), 16);
+            g = parseInt(value.substring(2 + offset, 4 + offset), 16);
+            b = parseInt(value.substring(4 + offset, 6 + offset), 16);
+
+            return [r, g, b, a];
         }
 
         onTriggered: {
@@ -353,7 +405,8 @@ Item {
                 var currentR = sourceColor[0] + (targetColor[0] - sourceColor[0]) * delta;
                 var currentG = sourceColor[1] + (targetColor[1] - sourceColor[1]) * delta;
                 var currentB = sourceColor[2] + (targetColor[2] - sourceColor[2]) * delta;
-                var color = Qt.rgba(currentR / 255, currentG / 255, currentB / 255, 1.0);
+                var currentA = sourceColor[3] + (targetColor[3] - sourceColor[3]) * delta;
+                var color = Qt.rgba(currentR / 255, currentG / 255, currentB / 255, currentA / 255);
 
                 root[field] = color;
             });

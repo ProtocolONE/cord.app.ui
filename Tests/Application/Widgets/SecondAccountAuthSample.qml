@@ -9,6 +9,7 @@ import Application 1.0
 import  "../../../Application/Core/Popup.js" as Popup
 import  "../../../Application/Core/App.js" as App
 import  "../../../Application/Core/User.js" as User
+import  "../../../Application/Core/Styles.js" as Styles
 
 Rectangle {
     id: root
@@ -17,6 +18,11 @@ Rectangle {
     height: 600
     color: '#AAAAAA'
 
+    Component.onCompleted: {
+        Styles.init();
+        Styles.setCurrentStyle('greenStyle');
+    }
+
     WidgetManager {
         id: manager
 
@@ -24,6 +30,8 @@ Rectangle {
             manager.registerWidget('Application.Widgets.SecondAccountAuth');
             manager.registerWidget('Application.Widgets.PremiumShop');
             manager.init();
+
+
         }
     }
 

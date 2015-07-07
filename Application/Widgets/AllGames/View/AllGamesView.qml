@@ -55,8 +55,8 @@ WidgetView {
                     serviceItemGrid: item,
                     serviceId: item.serviceId,
                     x: (item.col - 1) * 257,
-                    y: (item.row - 1) * 101,
-                    width: (item.width * 254) + (item.width - 1) * 2,
+                    y: (item.row - 1) * 100,
+                    width: (item.width * 255) + (item.width - 1) * 2,
                     height: (item.height * 98) + (item.height - 1) * 2
                 };
 
@@ -105,9 +105,7 @@ WidgetView {
         }
     }
 
-    Rectangle {
-        anchors.fill: parent
-        color: Styles.style.contentBackgroundDark
+    ContentBackground {
     }
 
     Component {
@@ -129,9 +127,15 @@ WidgetView {
             id: baseArea
 
             width: parent.width
-            height: 398
+            height: 400
             visible: height > 0
-            clip: height < 398 ? true : false
+            clip: height < 400 ? true : false
+
+            Rectangle {
+                anchors.fill: parent
+                opacity: 0.75
+                color: Styles.style.contentBackgroundDark
+            }
 
             Behavior on height {
                 PropertyAnimation {
@@ -213,7 +217,7 @@ WidgetView {
         states: [
             State {
                 name: "Normal"
-                PropertyChanges { target: baseArea; height: 398 }
+                PropertyChanges { target: baseArea; height: 400 }
                 PropertyChanges { target: allGamesButon; iconRotation: 0 }
                 PropertyChanges { target: gameListPage; visible: false }
                 PropertyChanges { target: gameListPage; opacity: 0 }

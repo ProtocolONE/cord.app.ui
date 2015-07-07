@@ -14,6 +14,7 @@ ComboBox {
         active: Styles.style.comboboxActive
         disabled: Styles.style.comboboxDisabled
         selectHover: Styles.style.comboboxSelectHover
+        text: Styles.style.comboboxText
         scrollBarCursor: Styles.style.comboboxScrollBarCursor
         scrollBarCursorHover: Styles.style.comboboxScrollBarCursorHover
     }

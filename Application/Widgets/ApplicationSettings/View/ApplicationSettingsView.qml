@@ -204,7 +204,7 @@ PopupBase {
                 }
 
                 onClicked: root.resetSettings();
-                icon: installPath + "Assets/Images/Application/Widgets/ApplicationSettings/defaultSettings.png"
+                icon: installPath + Styles.style.applicationSettingsDefaultSettingsIcon
             }
 
             PrimaryButton {

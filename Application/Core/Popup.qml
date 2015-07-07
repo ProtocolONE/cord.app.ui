@@ -14,6 +14,8 @@ import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
 import "../../GameNet/Controls/Tooltip.js" as Tooltip
+import "../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../Core/Styles.js" as Styles
 
 Item {
     id: root
@@ -94,7 +96,7 @@ Item {
     Rectangle {
         anchors.fill: parent
         opacity: 0.9
-        color: '#071928'
+        color: Styles.style.applicationBackground
     }
 
     CursorMouseArea {

@@ -20,7 +20,7 @@ Item {
             leftMargin: 8
             verticalCenter: parent.verticalCenter
         }
-        source: installPath + "Assets/Images/Application/Blocks/Header/GamenetLogo.png"
+        source: installPath + Styles.style.headerGameNetLogo
     }
 
     ImageButton {
@@ -29,8 +29,8 @@ Item {
         anchors { right: parent.right; verticalCenter: parent.verticalCenter }
         style {normal: "#00000000"; hover: "#00000000"; disabled: "#00000000"}
         styleImages {
-            normal: installPath + "Assets/Images/Application/Blocks/Header/Close.png"
-            hover: installPath + "Assets/Images/Application/Blocks/Header/Close_hover.png"
+            normal: installPath + Styles.style.headerClose
+            hover: installPath + Styles.style.headerClose.replace('.png', 'Hover.png')
         }
         toolTip: qsTr("HEADER_BUTTON_CLOSE")
         tooltipGlueCenter: true

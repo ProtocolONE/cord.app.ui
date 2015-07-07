@@ -99,9 +99,9 @@ WidgetView {
                     anchors { verticalCenter: parent.verticalCenter; right: parent.right }
                     style { normal: "#00000000"; hover: "#00000000"; disabled: "#00000000"}
                     styleImages {
-                        normal: installPath + "/Assets/Images/Application/Widgets/SecondAccountAuth/logout.png"
-                        hover: installPath + "/Assets/Images/Application/Widgets/SecondAccountAuth/logout_hover.png"
-                        disabled: installPath + "/Assets/Images/Application/Widgets/SecondAccountAuth/logout.png"
+                        normal: installPath + Styles.style.secondAccountAuthLogoutIcon
+                        hover: installPath + Styles.style.secondAccountAuthLogoutIcon.replace('.png', '_hover.png')
+                        disabled: installPath + Styles.style.secondAccountAuthLogoutIcon
                     }
                     analytics {
                         category: 'SecondAccountAuth';

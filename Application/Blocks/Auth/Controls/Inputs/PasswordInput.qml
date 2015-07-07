@@ -10,6 +10,7 @@
 import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
+import Application.Controls 1.0
 
 import "../../../../Core/App.js" as App
 import "../../../../Core/Styles.js" as Styles
@@ -38,6 +39,7 @@ Item {
 
     Column {
         anchors.fill: parent
+
         Input {
             id: control
 
@@ -51,18 +53,7 @@ Item {
 
             onTabPressed: root.tabPressed();
             onBackTabPressed: root.backTabPressed();
-
-            style {
-                normal: Styles.style.inputNormal
-                hover: Styles.style.inputHover
-                active: Styles.style.inputActive
-                disabled: Styles.style.inputDisabled
-                error: Styles.style.inputError
-                placeholder: Styles.style.inputPlaceholder
-                text: Styles.style.inputText
-                background: Styles.style.inputBackground
-            }
-            icon: installPath + "Assets/Images/GameNet/Controls/Input/password.png"
+            icon: installPath + Styles.style.inputPasswordIcon
         }
 
         ErrorContainer {

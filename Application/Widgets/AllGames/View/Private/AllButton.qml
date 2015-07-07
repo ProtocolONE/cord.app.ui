@@ -32,7 +32,7 @@ Item {
 
         Text {
             text: qsTr("ALL_GAMES_GRID_TITLE_TEXT")
-            color: mouseArea.containsMouse ? Styles.style.bannerInfoText :
+            color: mouseArea.containsMouse ? Styles.style.premiumInfoText :
                                              Styles.style.textAttention
             font {
                 pixelSize: 16
@@ -44,7 +44,7 @@ Item {
             id: crossImage
 
             anchors.verticalCenter: parent.verticalCenter
-            source: installPath + 'Assets/Images/Application/Widgets/AllGames/crossButton.png'
+            source: installPath + Styles.style.allGamesDropDown
             transform: Rotation {
                 origin {
                   x: crossImage.width / 2

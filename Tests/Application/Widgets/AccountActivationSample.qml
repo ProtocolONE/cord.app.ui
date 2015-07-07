@@ -11,6 +11,8 @@ import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
+
+import "../../../Application/Core/Styles.js" as Styles
 import "../../../Application/Core/Popup.js" as Popup
 import "../../../Application/Core/restapi.js" as RestApiJs
 
@@ -22,6 +24,9 @@ Rectangle {
     // Initialization
 
     Component.onCompleted: {
+        Styles.init();
+        Styles.setCurrentStyle('mainStyle');
+
         Popup.init(popupLayer);
     }
 

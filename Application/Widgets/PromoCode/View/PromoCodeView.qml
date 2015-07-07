@@ -16,6 +16,7 @@ import Application.Controls 1.0
 import Application.Blocks.Popup 1.0
 
 import "../../../Core/App.js" as App
+import "../../../Core/Styles.js" as Styles
 import "../../../Core/restapi.js" as RestApi
 
 import "../../../../GameNet/Core/Analytics.js" as Ga
@@ -40,7 +41,7 @@ PopupBase {
             id: promoCode
 
             width: parent.width
-            icon: installPath + "Assets/Images/Application/Widgets/PromoCode/promo.png"
+            icon: installPath + Styles.style.promoCodeIcon
             showLanguage: true
             placeholder: qsTr("PROMO_CODE_PLACEHOLDER")
         }

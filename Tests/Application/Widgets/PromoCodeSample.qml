@@ -13,6 +13,7 @@ import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 import "../../../Application/Core/Popup.js" as Popup
 import "../../../Application/Core/restapi.js" as RestApiJs
+import "../../../Application/Core/Styles.js" as Styles
 
 Rectangle {
     width: 1000
@@ -22,6 +23,8 @@ Rectangle {
     // Initialization
 
     Component.onCompleted: {
+        Styles.init();
+        Styles.setCurrentStyle('sand');
         Popup.init(popupLayer);
     }
 

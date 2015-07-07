@@ -19,6 +19,7 @@ import GameNet.Controls 1.0
 import "../../../Application/Core/App.js" as App
 import "../../../Application/Core/Popup.js" as Popup
 import "../../../Application/Core/MessageBox.js" as MessageBoxJs
+import "../../../Application/Core/Styles.js" as Styles
 import "../../../GameNet/Controls/Tooltip.js" as Tooltip
 
 Rectangle {
@@ -27,6 +28,8 @@ Rectangle {
     color: '#EEEEEE'
 
     Component.onCompleted: {
+        Styles.init();
+        Styles.setCurrentStyle('sand');
         Popup.init(popupLayer);
         MessageBoxJs.init(messageboxLayer);
         Tooltip.init(tooltipLayer);

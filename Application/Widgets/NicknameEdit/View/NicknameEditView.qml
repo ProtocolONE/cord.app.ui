@@ -121,7 +121,7 @@ PopupBase {
             left: parent.left
             right: parent.right
         }
-        icon: installPath + "Assets/Images/Application/Widgets/NicknameEdit/nickname.png"
+        icon: installPath + Styles.style.nicknameEditIcon
         showLanguage: true
         maximumLength: 25
         placeholder: qsTr("YOUR_NICKNAME_PLACEHOLDER")

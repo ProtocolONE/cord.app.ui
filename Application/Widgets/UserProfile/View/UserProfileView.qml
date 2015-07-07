@@ -184,7 +184,7 @@ WidgetView {
                             anchors.centerIn: parent
                             text: qsTr("PROFILE_ADD_MONEY_TEXT")
 
-                            color: Styles.style.bannerInfoText
+                            color: Styles.style.premiumInfoText
                             font.pixelSize: 12
                         }
 
@@ -245,11 +245,10 @@ WidgetView {
                         }
 
                         styleImages: ButtonStyleImages {
-                            property string active: installPath + 'Assets/images/Application/Widgets/UserProfile/premium_active.png'
-
-                            normal: User.isPremium() ? active :
-                                                       installPath + 'Assets/images/Application/Widgets/UserProfile/premium.png'
-                            hover: installPath + 'Assets/images/Application/Widgets/UserProfile/premium_hover.png'
+                            normal: User.isPremium()
+                                    ? installPath + Styles.style.userProfilePremiumIcon.replace('.png', '_active.png')
+                                    : installPath + Styles.style.userProfilePremiumIcon
+                            hover: installPath + Styles.style.userProfilePremiumIcon.replace('.png', '_hover.png')
                             disabled: normal
                         }
                         onClicked: {
@@ -297,7 +296,7 @@ WidgetView {
                                 NicknameEdit {
                                     width: 150 - 30
                                     height: 18
-                                    color: root.nicknameValid ? Styles.style.mainMenuText :
+                                    color: root.nicknameValid ? Styles.style.menuText :
                                                                 Styles.style.infoText
 
                                     nickname: root.nicknameValid ? model.nickname : qsTr("NO_NICKNAME")

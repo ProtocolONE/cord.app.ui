@@ -9,5 +9,5 @@ Button {
         hover: Styles.style.auxiliaryButtonHover
         disabled: Styles.style.auxiliaryButtonDisabled    
     }
-    textColor: Styles.style.lightText
+    textColor: Styles.style.auxiliaryButtonText
 }

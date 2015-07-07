@@ -53,7 +53,7 @@ Rectangle {
 
     Component.onCompleted: {
         Styles.init();
-        Styles.setCurrentStyle('mainStyle');
+        Styles.setCurrentStyle('sand');
         TrayPopup.init();
         root.initEmojiOne();
         ContexMenu.init(contextMenuLayer);

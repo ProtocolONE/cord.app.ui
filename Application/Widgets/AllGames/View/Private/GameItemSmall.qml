@@ -183,7 +183,7 @@ Column {
 
         text: root.serviceItem ? root.serviceItem.name : ''
         elide: Text.ElideRight
-        color: root.selected ? Styles.style.bannerInfoText :
+        color: root.selected ? Styles.style.premiumInfoText :
                                Styles.style.lightText
         font.pixelSize: 12
     }

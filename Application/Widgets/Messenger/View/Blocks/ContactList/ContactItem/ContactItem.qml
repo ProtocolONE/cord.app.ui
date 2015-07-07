@@ -158,7 +158,7 @@ Item {
 
                             function getTextColor() {
                                 if (root.isUnreadMessages) {
-                                    return Styles.style.bannerInfoText;
+                                    return Styles.style.messengerContactUnreadContact;
                                 }
 
                                 return Styles.style.menuText;
@@ -221,7 +221,7 @@ Item {
                             }
 
                             text: root.unreadMessageCount > 99 ? "99+" : root.unreadMessageCount
-                            color: Styles.style.bannerInfoText
+                            color: Styles.style.messengerContactUnreadContact
                             font {
                                 pixelSize: 12
                                 family: "Arial"

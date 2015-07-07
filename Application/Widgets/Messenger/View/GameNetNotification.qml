@@ -32,9 +32,9 @@ WidgetView {
         toolTip: qsTr("MESSANGER_GAMENET_NOTIFICATION_TOOLTIP") //"Уведомения от GameNet"
         style { normal: "#00000000"; hover: "#00000000"; disabled: "#00000000"}
         styleImages {
-            normal: installPath + "Assets/Images/Application/Widgets/Messenger/notifications.png"
-            hover: installPath + "Assets/Images/Application/Widgets/Messenger/notifications_hover.png"
-            disabled: installPath + "Assets/Images/Application/Widgets/Messenger/notifications.png"
+            normal: installPath + Styles.style.messengerNotificationsIcon
+            hover: installPath + Styles.style.messengerNotificationsIcon.replace('.png', '_hover.png')
+            disabled: installPath + Styles.style.messengerNotificationsIcon
         }
         onClicked: MessengerJs.selectUser(root.user)
 

@@ -10,6 +10,8 @@
 import QtQuick 1.1
 import Tulip 1.0
 
+import Application.Controls 1.0
+
 import "../../../../../Core/Styles.js" as Styles
 
 Item {
@@ -20,9 +22,15 @@ Item {
     anchors.fill: parent
 
     Image {
-        anchors.centerIn: parent
+        width: parent.width
         opacity: Styles.style.baseBackgroundOpacity
         source: installPath + "/Assets/Images/Application/Widgets/Messenger/EmptyContactInfo/background.png"
+    }
+
+    Rectangle {
+        anchors.fill: parent
+        opacity: 0.65
+        color: Styles.style.contentBackgroundDark
     }
 
     Image {

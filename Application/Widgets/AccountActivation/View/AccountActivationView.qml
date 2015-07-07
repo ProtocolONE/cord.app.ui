@@ -18,6 +18,7 @@ import Application.Blocks.Popup 1.0
 
 import "../../../Core/restapi.js" as RestApiJs
 import "../../../Core/App.js" as App
+import "../../../Core/Styles.js" as Styles
 
 PopupBase {
     id: root
@@ -226,7 +227,7 @@ PopupBase {
             }
 
             width: body.width
-            icon: installPath + "Assets/Images/Application/Widgets/AccountActivation/lock.png"
+            icon: installPath + Styles.style.accountActivationLockIcon
             readOnly: validateCodeButton.inProgress
             validator: RegExpValidator { regExp: /[0-9]{,10}/ }
             placeholder: qsTr("PLACEHOLDER_ACTIVATION_CODE_INPUT")

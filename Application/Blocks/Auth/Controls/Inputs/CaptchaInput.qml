@@ -11,6 +11,7 @@
 import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
+import Application.Controls 1.0
 
 import "../../../../Core/Authorization.js" as Authorization
 import "../../../../Core/Styles.js" as Styles
@@ -49,22 +50,11 @@ Item {
             width: parent.width
             showCapslock: false
             showLanguage: false
-            icon: installPath + "Assets/Images/GameNet/Controls/Input/captcha.png"
+            icon: installPath + Styles.style.inputCaptchaIcon
 
             placeholder: qsTr("CAPTCHA_INPUT_PLACEHOLDER")
             onTabPressed: root.tabPressed();
             onBackTabPressed: root.backTabPressed();
-
-            style {
-                normal: Styles.style.inputNormal
-                hover: Styles.style.inputHover
-                active: Styles.style.inputActive
-                disabled: Styles.style.inputDisabled
-                error: Styles.style.inputError
-                placeholder: Styles.style.inputPlaceholder
-                text: Styles.style.inputText
-                background: Styles.style.inputBackground
-            }
 
             Row {
                 anchors {
@@ -101,8 +91,8 @@ Item {
                     }
 
                     styleImages {
-                        normal: installPath + "Assets/Images/GameNet/Controls/Input/update.png"
-                        hover: installPath + "Assets/Images/GameNet/Controls/Input/update_hover.png"
+                        normal: installPath + Styles.style.inputUpdateIcon //"Assets/Images/GameNet/Controls/Input/update.png"
+                        hover: installPath + Styles.style.inputUpdateIcon.replace('.png', '_hover.png') //"Assets/Images/GameNet/Controls/Input/update_hover.png"
                     }
 
                     onClicked: root.refresh();

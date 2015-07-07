@@ -85,7 +85,7 @@ Item {
 
         anchors { fill: parent; margins: 1 }
         color: style.background
-        border { width: 2; color: style.background }
+        border { width: 2; color: style.normal }
 
         Behavior on border.color {
             ColorAnimation { duration: 250 }
@@ -542,8 +542,8 @@ Item {
         states: [
             State {
                 name: ""
-                PropertyChanges { target: controlBorder; border.color: style.background }
-                PropertyChanges { target: inputBehavior; color: style.normal }
+                PropertyChanges { target: controlBorder; border.color: style.normal }
+                PropertyChanges { target: inputBehavior; color: style.text }
             },
             State {
                 name: "Active"

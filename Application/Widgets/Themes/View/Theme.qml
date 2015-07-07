@@ -97,7 +97,7 @@ Item {
             y: 175
             visible: isLoading
             font { family: 'Arial'; pixelSize: 13 }
-            color: Styles.style.lightText
+            color: Styles.style.bannerInfoText
             text: getText();
             smooth: true
 
@@ -117,7 +117,7 @@ Item {
             visible: !isLoading && mouser.containsMouse
 
             font { family: 'Arial'; pixelSize: 13 }
-            color: Styles.style.lightText
+            color: Styles.style.bannerInfoText
             text: qsTr("THEME_ABOUT")
                 .arg(model.name)
                 .arg(Moment.moment(model.updateDate, "DD.MM.YYYY HH:mm:ss").fromNow())

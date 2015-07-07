@@ -150,7 +150,7 @@ Item {
                         anchors.fill: parent
 
                         styleImages {
-                            normal: installPath + "Assets/Images/closeButton.png"
+                            normal: installPath + Styles.style.messengerChatClose
                         }
 
                         opacity: containsMouse ? 1 : 0.5

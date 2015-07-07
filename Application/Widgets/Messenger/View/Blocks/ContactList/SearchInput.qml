@@ -115,7 +115,7 @@ Item {
                     verticalCenter: parent.verticalCenter
                 }
 
-                color: Styles.style.textTime
+                color: Styles.style.textBase
                 elide: Text.ElideRight
                 font { family: "Arial"; pixelSize: 12 }
 
@@ -125,7 +125,7 @@ Item {
             InputBehaviour {
                 id: inputBehavior
 
-                color: Styles.style.chatButtonText
+                color: Styles.style.textBase
                 fontSize: 12
                 anchors {
                     left: parent.left
@@ -191,9 +191,9 @@ Item {
             verticalCenter: parent.verticalCenter
         }
 
-        source: clearMouseArea.containsMouse ?
-                    installPath + 'Assets/Images/Application/Widgets/Messenger/searchCloseHover.png' :
-                    installPath + 'Assets/Images/Application/Widgets/Messenger/searchClose.png'
+        source: clearMouseArea.containsMouse
+                ? installPath + Styles.style.messengerSearchCloseIcon.replace('.png', 'Hover.png')
+                : installPath + Styles.style.messengerSearchCloseIcon
 
         opacity: root.text === "" ? 0 : 1
 

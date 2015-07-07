@@ -18,7 +18,7 @@ Column {
 
     Text {
         font { family: 'Open Sans Regular'; pixelSize: 24 }
-        color: Styles.style.menuText
+        color: Styles.style.bannerTitleText
         text: serviceItem ? serviceItem.name : 'name'
     }
 
