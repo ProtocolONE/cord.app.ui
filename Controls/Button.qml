@@ -104,6 +104,11 @@ Rectangle {
         anchors.fill: parent
         visible: control.enabled && !control.inProgress
 
+        analytics {
+            category: 'button'
+            action: 'click'
+        }
+
         onEntered: control.entered();
         onExited: control.exited();
         onPressed: control.pressed(mouse);

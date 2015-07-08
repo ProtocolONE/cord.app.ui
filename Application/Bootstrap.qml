@@ -25,9 +25,10 @@ import "Core/TrayPopup.js" as TrayPopup
 import "Core/EmojiOne.js" as EmojiOne
 import "Core/moment.js" as Moment
 
-import "../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../GameNet/Controls/Tooltip.js" as Tooltip
 import "../GameNet/Controls/ContextMenu.js" as ContexMenu
+
+import "../GameNet/Core/Analytics.js" as Ga
 
 Item {
     id: root
@@ -38,10 +39,6 @@ Item {
 
     function init() {
         var mainWindowInstance = App.mainWindowInstance();
-        var options = {
-            desktop: Desktop.screenWidth + 'x' + Desktop.screenHeight,
-            defaultApiUrl: 'https://gnapi.com:8443/restapi'
-        };
 
         Host.hwidChanged.connect(function(result) {
             var mid = Marketing.mid();
@@ -52,17 +49,13 @@ Item {
 
         Host.hwid(true);
 
-        console.log('GameNet Application version ' + App.fileVersion() + ' starting up');
-        console.log('Desktop', options.desktop);
-
         Styles.init();
-
         Moment.moment.lang(App.language());
 
+        initGoogleAnalytics();
         initEmojiOne();
-        initRestApi(options);
-        initGoogleAnalytics(options);
-        initAdditionalLayers(options);
+        initRestApi('https://gnapi.com:8443/restapi');
+        initAdditionalLayers();
 
         if (mainWindowInstance) {
             mainWindowInstance.leftMousePress.connect(function(x,y) {
@@ -126,6 +119,45 @@ Item {
         }
     }
 
+    function initGoogleAnalytics() {
+        var cid = Settings.value('GoogleAnalytics', 'cid'),
+            desktop = Desktop.screenWidth + 'x' + Desktop.screenHeight,
+            viewport = Desktop.availableWidth + 'x' + Desktop.availableHeight,
+            version = App.fileVersion();
+
+        if (!cid) {
+            cid = Uuid.create().substr(1, 36); //INFO Удаляем скобки из строки уида
+            Settings.setValue('GoogleAnalytics', 'cid', cid);
+        }
+
+        console.log("\nAnalytics starting up\n");
+        console.log('GameNet Application version: ' + version);
+        console.log('CID', cid);
+        console.log('Desktop', desktop);
+
+        Ga.setTrackingId('UA-19398372-80');
+        Ga.setClientId(cid);
+        Ga.setUserAgent('GameNet/' + version + ' ' + GoogleAnalyticsHelper.systemVersion());
+
+        Ga.setApplicationName('GameNet');
+        Ga.setApplicationVersion(version);
+        Ga.setApplicationId('vabanaul.gamenet');
+        Ga.setApplicationInstallerId('vabanaul.gamenet');
+
+        Ga.setUserLanguage(GoogleAnalyticsHelper.systemLanguage());
+        Ga.setScreenResolution(desktop);
+        Ga.setViewportSize(viewport);
+        Ga.setOs(GoogleAnalyticsHelper.systemVersion());
+        Ga.setSampling(0.2);
+
+        var mid = Marketing.mid();
+        if (mid) {
+            Ga.setMid(mid);
+        }
+
+        Ga.startSession();
+    }
+
     function initEmojiOne() {
         if (App.isQmlViewer()) {
             EmojiOne.ns.imagePathPNG = (installPath + 'Develop/Assets/Smiles/').replace("file:///", ""); // Debug for QmlViewer
@@ -139,7 +171,7 @@ Item {
         EmojiOne.ns.addedImageProps = '"width"= "20" height"="20"'
     }
 
-    function initAdditionalLayers(options) {
+    function initAdditionalLayers() {
         ContexMenu.init(contextMenuLayer);
         Popup.init(popupLayer);
         MessageBox.init(messageLayer);
@@ -147,8 +179,8 @@ Item {
         Tooltip.init(tooltipLayer);        
     }
 
-    function initRestApi(options) {
-        var url = Settings.value('qGNA/restApi', 'url', options.defaultApiUrl);
+    function initRestApi(defaultApiUrl) {
+        var url = Settings.value('qGNA/restApi', 'url', defaultApiUrl);
 
         console.log('RestApi use', url);
         RestApi.Core.setup({
@@ -168,33 +200,6 @@ Item {
 
                                }
                            });
-    }
-
-    function initGoogleAnalytics(options) {
-        var gaSettings = {
-            accountId: "UA-35280627-5",
-            saveSettings: Settings.setValue,
-            loadSettings: Settings.value,
-            desktop: options.desktop,
-            systemVersion: GoogleAnalyticsHelper.systemVersion(),
-            globalLocale: GoogleAnalyticsHelper.systemLanguage(),
-            applicationVersion: App.fileVersion()
-        };
-
-        GoogleAnalytics.init(gaSettings);
-
-        var mid = Marketing.mid();
-        if (!mid) {
-            return;
-        }
-
-        RestApi.Marketing.getMidDetails(mid, function(response) {
-            var midDescription = (response.agentId || "")
-                    + '-' + (response.company || "")
-                    + '-' + (response.urlId || "");
-
-            GoogleAnalytics.setMidDescription(midDescription);
-        });
     }
 
     function resetCredential() {
@@ -285,13 +290,10 @@ Item {
         onLogoutDone: {
             App.setGlobalState('Authorization');
             TrayPopup.closeAll();
-            GoogleAnalytics.userId = null;
         }
 
         onAuthDone: {
             root.setAuthInfo(userId, appKey, cookie);
-            GoogleAnalytics.userId = userId;
-            GoogleAnalytics.activate();
             App.setGlobalState('Application');
         }
 

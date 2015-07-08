@@ -53,6 +53,9 @@ PopupBase {
 
         width: 200
         text: qsTr("USER_LOST_NICKNAME_ENTER_BUTTON_TEXT")
+        analytics {
+            category: 'NicknameReminder'
+        }
         onClicked: {
             Popup.show('NicknameEdit', '');
             root.close();

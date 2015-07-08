@@ -14,10 +14,11 @@ import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 import Application.Blocks 1.0
 
+import "../../GameNet/Core/Analytics.js" as Ga
+
 import "../Core/App.js" as App
 import "../Core/Styles.js" as Styles
 import "../Core/Popup.js" as Popup
-import "../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "./GameInstallBlock"
 
 Item {
@@ -55,8 +56,7 @@ Item {
                 break;
             default:
                 App.downloadButtonStart(root.gameItem.serviceId);
-                GoogleAnalytics.trackEvent('/game/' + root.gameItem.gaName,
-                                           'Game ' + root.gameItem.gaName, 'Play', 'Big Green');
+                Ga.trackEvent('GameInstallBlock', 'play', root.gameItem.gaName);
             }
         }
 

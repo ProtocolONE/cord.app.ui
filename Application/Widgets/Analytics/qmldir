@@ -1,0 +1,3 @@
+module Application.Widgets.Analytics
+PluginContainer 1.0 PluginContainer.qml 
+Analytics 1.0 Analytics.qml

@@ -4,12 +4,12 @@ import Tulip 1.0
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
+import "../../../../../../GameNet/Controls/ContextMenu.js" as ContextMenu
+import "../../../../../../GameNet/Core/Analytics.js" as Ga
+
 import "../../../../../Core/App.js" as App
 import "../../../../../Core/Styles.js" as Styles
 import "../../../../../Core/MessageBox.js" as MessageBox
-
-import "../../../../../../GameNet/Controls/ContextMenu.js" as ContextMenu
-import "../../../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 import "../../../Models/Messenger.js" as Messenger
 
@@ -38,9 +38,7 @@ Item {
                 break;
             }
 
-            GoogleAnalytics.trackEvent('/GroupEditView',
-                                      'MouseRightClick',
-                                      action);
+            Ga.trackEvent('Messanger GroupEditView', 'context menu click', action);
         }
 
         function showInformation(user) {
@@ -180,9 +178,9 @@ Item {
                 boldBorder: true
 
                 analytics {
-                    page: "/GroupEditView"
-                    category: "Clicked"
-                    action: "SaveGroup"
+                    category: "Messanger GroupEditView"
+                    action: "submit"
+                    label: "Save Group"
                 }
 
                 text: qsTr("GROUP_EDIT_SAVE_CHANGE") // "Сохранить группу"

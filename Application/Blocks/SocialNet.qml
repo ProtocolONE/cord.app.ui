@@ -11,7 +11,8 @@ import QtQuick 1.1
 import GameNet.Controls 1.0
 
 import "../Core/App.js" as App
-import "../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+
+import "../../GameNet/Core/Analytics.js" as Ga
 
 Item {
     id: root
@@ -85,9 +86,17 @@ Item {
                     onClicked: {
                         App.openExternalUrl(link);
 
-                        GoogleAnalytics.trackEvent('/game/' + root.gameItem.gaName,
-                                                   'SocialNet',
-                                                   'Open link ' + link);
+                        var nameMap = {
+                            'fb' : 'facebook',
+                            'vk' : 'vkontakte',
+                            'yt' : 'youtube',
+                            'ok' : 'odnoklassniki',
+                            'gp' : 'google plus',
+                            'tw' : 'twitter',
+                            'mm' : 'moy mir'
+                        };
+
+                        Ga.trackSocial('outer link', nameMap[id], link);
                     }
                 }
             }

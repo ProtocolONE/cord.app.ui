@@ -22,7 +22,6 @@ import "../../../Core/App.js" as App
 import "../../../Core/Styles.js" as Styles
 import "../../../Core/User.js" as User
 import "../../../Core/Popup.js" as Popup
-import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetView {
     id: root
@@ -59,7 +58,10 @@ WidgetView {
             height: 42
             anchors.bottom: parent.bottom
             text: qsTr("PREMIUM_ADD_ACCOUNT")
-            analytics { page: '/SecondAccountAuth/'; category: 'Auth'; action: 'add account'}
+            analytics {
+                category: 'SecondAccountAuth';
+                label: 'Add second account'
+            }
             onClicked: Popup.show('SecondAccountAuth', 'SecondAccountAuthView')
 
             Behavior on opacity {
@@ -101,7 +103,10 @@ WidgetView {
                         hover: installPath + "/Assets/Images/Application/Widgets/SecondAccountAuth/logout_hover.png"
                         disabled: installPath + "/Assets/Images/Application/Widgets/SecondAccountAuth/logout.png"
                     }
-                    analytics {page: '/SecondAccountAuth'; category: 'Auth'; action: 'logout second'}
+                    analytics {
+                        category: 'SecondAccountAuth';
+                        label: 'Logout second account'
+                    }
                 }
             }
 
@@ -114,10 +119,9 @@ WidgetView {
                 text: qsTr("SECOND_GAME_BLOCK_PREMIUM_PLAY");
                 enabled: !!App.currentRunningMainService() && !App.currentRunningSecondService()
                 analytics {
-                    page: '/SecondAccountAuth'
-                    category: 'Auth'
-                    action: 'play second'
-                    label: root.gameItem ? 'game: ' + root.gameItem.serviceId : ""
+                    category: 'SecondAccountAuth'
+                    action: 'play'
+                    label: root.gameItem ? root.gameItem.gaName : ""
                 }
                 onClicked: {
                     App.executeSecondService(root.gameItem.serviceId, User.secondUserId() , User.secondAppKey());

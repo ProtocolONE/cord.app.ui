@@ -29,6 +29,12 @@ Item {
             checked: false
             onClicked: root.clicked();
             icon: installPath + "Assets/Images/Application/Widgets/Messenger/ContactItem/groupCountIcon.png"
+            analytics {
+                category: "Messenger GroupHeader"
+                action: "toggle"
+                label: "OpenGroupEdit"
+                value: checked|0
+            }
         }
 
         TextButton {

@@ -179,9 +179,9 @@ PopupBase {
             text: qsTr("BUTTON_GET_CODE")
 
             analytics {
-                page: "/AccountActivation/"
-                category: "Auth"
-                action: "Request phone code"
+                category: "AccountActivation"
+                action: "submit"
+                label: "Request phone code"
             }
             onClicked: d.requestActivationCode();
         }
@@ -254,10 +254,10 @@ PopupBase {
             enabled: code.text.length > 0 && stateGroup.state == "ValidateCode"
             text: qsTr("BUTTON_CODE_CONFIRM")
 
-            analytics: GoogleAnalyticsEvent {
-                page: "/AccountActivation/"
-                category: "Auth"
-                action: "Validate phone code"
+            analytics {
+                category: "AccountActivation"
+                action: "submit"
+                label: "Validate phone code"
             }
 
             onClicked: d.validateActivationCode();

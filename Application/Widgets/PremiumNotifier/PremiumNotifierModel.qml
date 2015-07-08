@@ -13,10 +13,11 @@ import Application.Blocks 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
+import "../../../GameNet/Core/Analytics.js" as Ga
+
 import "../../Core/App.js" as App
 import "../../Core/TrayPopup.js" as TrayPopup
 import "../../Core/Popup.js" as Popup
-import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetModel {
     id: premiumNotifier
@@ -43,6 +44,7 @@ WidgetModel {
                 };
 
             TrayPopup.showPopup(premiumExpiredPopup, popUpOptions, 'premiumExpiredNotification');
+            Ga.trackEvent('Announcement PremiumExpired', 'show');
         }
     }
 
@@ -55,17 +57,11 @@ WidgetModel {
             onPlayClicked: {
                 App.activateWindow();
                 Popup.show('PremiumShop');
-                GoogleAnalytics.trackEvent('/announcement/premiumExpired', 'Announcement', 'Action on Announcement');
+
+                Ga.trackEvent('Announcement PremiumExpired', 'buy');
             }
-            onAnywhereClicked: {
-                GoogleAnalytics.trackEvent('/announcement/premiumExpired', 'Announcement', 'Miss Click On Announcement');
-            }
-            onCloseButtonClicked: {
-                GoogleAnalytics.trackEvent('/announcement/premiumExpired', 'Announcement', 'Close Announcement');
-            }
-            Component.onCompleted: {
-                GoogleAnalytics.trackEvent('/announcement/premiumExpired', 'Announcement', 'Close Announcement');
-            }
+            onAnywhereClicked: Ga.trackEvent('Announcement PremiumExpired', 'miss click');
+            onCloseButtonClicked: Ga.trackEvent('Announcement PremiumExpired', 'close');
         }
     }
 }

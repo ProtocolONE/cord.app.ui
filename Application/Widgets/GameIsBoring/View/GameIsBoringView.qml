@@ -108,6 +108,10 @@ PopupBase {
     MinorButton {
         width: 200
         text: qsTr("GAME_FAILED_BUTTON_CLOSE")
+        analytics {
+            category: 'GameIsBoring'
+            label: 'Close'
+        }
         onClicked: {
             Marketing.send(Marketing.NotLikeTheGame, root.currentItem.serviceId, { serviceId: 0 });
             root.close();

@@ -174,10 +174,9 @@ Item {
             enabled: App.isMainServiceCanBeStarted(root.serviceItem)
 
             analytics {
-                page: '/AllGames'
-                category: 'Game ' + root.serviceItem.gaName
-                action: 'Play'
-                label: 'GameItem'
+                category: 'AllGames Item'
+                action: 'play'
+                label: root.serviceItem.gaName
             }
 
             style {

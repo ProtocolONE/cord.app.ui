@@ -13,7 +13,7 @@ import Tulip 1.0
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
-import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../GameNet/Core/Analytics.js" as Ga
 
 import "../../../Application/Core/Authorization.js" as Authorization
 import "../../../Application/Core/User.js" as User
@@ -130,9 +130,9 @@ Item {
                 }
                 onFooterPrimaryButtonClicked: {
                     if (!auth.inProgress) {
-                         GoogleAnalytics.trackEvent('/Auth', 'Auth', 'Switch To Registration');
-                         auth.password = "";
-                         authContainer.state = "registration";
+                        Ga.trackEvent('Auth', 'click', 'Switch To Registration')
+                        auth.password = "";
+                        authContainer.state = "registration";
                     }
                 }
 
@@ -156,9 +156,9 @@ Item {
 
                 onFooterPrimaryButtonClicked: {
                     if (!registration.inProgress) {
-                         GoogleAnalytics.trackEvent('/Auth', 'Auth', 'Switch To Login');
-                         registration.password = "";
-                         authContainer.state = "auth";
+                        Ga.trackEvent('Auth', 'click', 'Switch To Login')
+                        registration.password = "";
+                        authContainer.state = "auth";
                      }
                 }
                 onFooterVkClicked: d.startVkAuth()
@@ -290,7 +290,7 @@ Item {
                 d.showError(qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR"));
             });
 
-            GoogleAnalytics.trackEvent('/Auth', 'Auth', 'Vk Login');
+            Ga.trackEvent('Auth', 'click', 'Vk Login')
         }
 
         function loginSuggestion() {

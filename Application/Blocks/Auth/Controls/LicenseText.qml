@@ -24,5 +24,10 @@ Column {
         font { pixelSize: 11 }
         text: qsTr("REGISTER_BODY_LICENSE_PART2")
         onClicked: root.clicked()
+        analytics {
+            category: 'Auth'
+            action: 'outer link'
+            label: 'License'
+        }
     }
 }

@@ -18,4 +18,12 @@ QtObject {
     signal serviceFinished(string service, int serviceState);
     signal serviceInstalled(string serviceId);
     signal wrongCredential(string userId);
+
+    signal navigate(string name);
+    signal leftMousePress(int x, int y);
+    signal leftMouseRelease(int x, int y);
+    signal selectService();
+    signal needPakkanenVerification();
+    signal restartUIRequest();
+    signal shutdownUIRequest();
 }

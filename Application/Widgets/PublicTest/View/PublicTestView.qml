@@ -14,7 +14,6 @@ import Application.Controls 1.0
 import Application.Blocks.Popup 1.0
 
 import "../../../Core/App.js" as App
-import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 PopupBase {
     id: root
@@ -44,9 +43,9 @@ PopupBase {
         PrimaryButton {
             text: qsTr("BUTTON_NOTIFY_SUPPORT")
             analytics {
-                page: '/PublicTest'
-                category: 'Public Test'
-                action: 'support'
+                category: 'PublicTest'
+                action: 'outer link'
+                label: 'Support'
             }
             onClicked: App.openExternalUrl("https://support.gamenet.ru/kb");
         }
@@ -54,9 +53,8 @@ PopupBase {
         MinorButton {
             text: qsTr("BUTTON_STOP_TESTING")
             analytics {
-                page: '/PublicTest'
-                category: 'Public Test'
-                action: 'switch version'
+                category: 'PublicTest'
+                label: 'Switch version'
             }
             onClicked: App.switchClientVersion();
         }
@@ -64,9 +62,8 @@ PopupBase {
         MinorButton {
             text: qsTr("BUTTON_CLOSE")
             analytics {
-                page: '/PublicTest'
-                category: 'Public Test'
-                action: 'close'
+                category: 'PublicTest'
+                label: 'Close'
             }
             onClicked: root.close();
         }

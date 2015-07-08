@@ -58,6 +58,10 @@ Item {
                 anchors.centerIn: parent
                 width: 220
                 height: 30
+                analytics {
+                    category: 'Themes'
+                    label: downloaded ? 'Install' : 'Load and install'
+                }
                 text: downloaded
                       ? qsTr("THEME_INSTALL")
                       : qsTr("THEME_LOAD_AND_INSTALL")

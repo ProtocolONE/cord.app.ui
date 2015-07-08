@@ -3,11 +3,11 @@ import Application.Controls 1.0
 
 CheckedButton {
     analytics {
-        page: '/Chat'
-        category: "GroupHeader"
-        action: "OpenGroupEdit"
+        category: "Messenger GroupHeader"
+        action: "toggle"
+        label: "OpenGroupEdit"
+        value: checked|0
     }
-
     implicitWidth: 48
     implicitHeight: 48
     boldBorder: true

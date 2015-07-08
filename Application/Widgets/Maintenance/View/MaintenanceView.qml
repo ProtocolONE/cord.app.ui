@@ -15,7 +15,6 @@ import GameNet.Controls 1.0
 import Application.Controls 1.0
 
 import "../../../Core/App.js" as App
-import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../../../Core/Styles.js" as Styles
 
 WidgetView {
@@ -136,7 +135,6 @@ WidgetView {
                     currentGameItem: root.gameItem
                     maintenanceGameItem: App.serviceItemByServiceId(root.gameItem ?
                                                          root.gameItem.maintenanceProposal2 : '')
-
                 }
             }
         }

@@ -20,7 +20,8 @@ import "../../Core/Styles.js" as Styles
 import "../../Core/User.js" as User
 import "../../Core/MessageBox.js" as MessageBox
 import "../../Core/Popup.js" as Popup
-import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+
+import "../../../GameNet/Core/Analytics.js" as Ga
 
 WidgetModel {
     id: root
@@ -32,27 +33,24 @@ WidgetModel {
 
     function menuClick(name) {
         switch(name) {
-        case 'Profile': {
-            GoogleAnalytics.trackEvent('/Tray', 'Open External Link', 'User Profile');
-
+        case 'Profile':
             var userId = User.getTechName() == undefined ? User.userId() : User.getTechName();
-
             App.openProfile(userId);
-            break;
-        }
-        case 'Balance': {
-            GoogleAnalytics.trackEvent('/Tray', 'Open External Link', 'Money');
 
-            App.openExternalUrlWithAuth("https://gamenet.ru/money/")
+            Ga.trackEvent('Tray', 'outer link', 'Profile');
             break;
-        }
-        case 'Settings': {
-            GoogleAnalytics.trackEvent('/Tray', 'Navigation', 'Switch To Settings');
+        case 'Balance':
+            App.openExternalUrlWithAuth("https://gamenet.ru/money/")
+
+            Ga.trackEvent('Tray', 'outer link', 'Money');
+            break;
+        case 'Settings':
             App.activateWindow();
             Popup.show('ApplicationSettings');
-        }
-        break;
-        case 'Quit': {
+
+            Ga.trackEvent('Tray', 'click', 'ApplicationSettings');
+            break;
+        case 'Quit':
             var services = Object.keys(App.runningService).filter(function(e) {
                 var obj = App.serviceItemByServiceId(e);
                 return obj.gameType != 'browser';
@@ -76,11 +74,10 @@ WidgetModel {
                             });
             break;
         }
-        }
     }
 
     function quitTrigger() {
-        GoogleAnalytics.trackEvent('/Tray', 'Application', 'Quit');
+        Ga.trackEvent('Tray', 'click', 'Quit');
         App.exitApplication();
     }
 

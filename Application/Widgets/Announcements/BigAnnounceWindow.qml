@@ -14,9 +14,10 @@ import Tulip 1.0
 import GameNet.Controls 1.0
 import Application.Blocks 1.0
 
+import "../../../GameNet/Core/Analytics.js" as Ga
+
 import "../../Core/App.js" as App
 import "../../Core/User.js" as User
-import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 Window {
     id: bigAnnounceWindow
@@ -62,8 +63,7 @@ Window {
                        { type: "announcementBig", id: bigAnnounceWindow.announceItem.id, userId: User.userId() });
 
         var gameItem = App.serviceItemByServiceId(bigAnnounceWindow.announceItem.serviceId);
-        GoogleAnalytics.trackEvent('/announcement/big/' + bigAnnounceWindow.announceItem.id,
-                                   'Announcement', 'Show Announcement', gameItem.gaName);
+        Ga.trackEvent('Announcement Big ' + bigAnnounceWindow.announceItem.id, 'show', gameItem.gaName);
     }
 
     function close() {
@@ -75,7 +75,7 @@ Window {
         bigAnnounceWindow.announceCloseClick(bigAnnounceWindow.announceItem);
 
         var gameItem = App.serviceItemByServiceId(bigAnnounceWindow.announceItem.serviceId);
-        GoogleAnalytics.trackEvent('/announcement/big/' + bigAnnounceWindow.announceItem.id, 'Announcement', 'Close Announcement', gameItem.gaName);
+        Ga.trackEvent('Announcement Big ' + bigAnnounceWindow.announceItem.id, 'close', gameItem.gaName);
     }
 
 
@@ -189,8 +189,8 @@ Window {
                             announcements.announceActionClick(bigAnnounceWindow.announceItem);
 
                             var gameItem = App.serviceItemByServiceId(bigAnnounceWindow.announceItem.serviceId);
-                            GoogleAnalytics.trackEvent('/announcement/big/' + bigAnnounceWindow.announceItem.id,
-                                                       'Announcement', 'Action on Announcement', gameItem.gaName);
+                            Ga.trackEvent(
+                                'Announcement Big ' + bigAnnounceWindow.announceItem.id, 'action', gameItem.gaName);
                         }
                     }
                 }

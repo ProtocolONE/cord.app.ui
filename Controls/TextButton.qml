@@ -94,6 +94,11 @@ Item {
 
         anchors.fill: parent
 
+        analytics {
+            category: 'text button'
+            action: 'click'
+        }
+
         onEntered: control.entered();
         onExited: control.exited();
         onPressed: control.pressed(mouse);

@@ -17,7 +17,8 @@ import Application.Blocks.Popup 1.0
 
 import "../../../Core/App.js" as App
 import "../../../Core/restapi.js" as RestApi
-import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+
+import "../../../../GameNet/Core/Analytics.js" as Ga
 
 PopupBase {
     id: root
@@ -26,13 +27,6 @@ PopupBase {
 
     Component.onCompleted: {
         root.gameItem = App.currentGame();
-        sendGoogleStat('show');
-    }
-
-    function sendGoogleStat(action) {
-        if (root.gameItem) {
-            GoogleAnalytics.trackEvent('/game/' + root.gameItem.gaName, 'PromoKey', action);
-        }
     }
 
     title: qsTr("PROMO_CODE_TITLE")
@@ -58,10 +52,14 @@ PopupBase {
         width: Math.max(implicitWidth, 200)
         text: qsTr("ACIVATE_BUTTON_CAPTION")
         enabled: promoCode.text.length > 0
+        analytics {
+            category: 'PromoCode'
+            action: 'submit'
+            label: root.gameItem ? root.gameItem.gaName : null
+        }
+
         onClicked: {
             activateButton.inProgress = true;
-
-            root.sendGoogleStat('Activate');
 
             RestApi.User.activatePromoKey(
                         promoCode.text,
@@ -89,6 +87,8 @@ PopupBase {
                             activateButton.inProgress = false;
                             promoCode.errorMessage = qsTr("UNKNOWN_PROMO_VALIDATION_ERROR");
                             promoCode.error = true;
+
+                            Ga.trackException(promoCode.errorMessage, false);
                         });
         }
     }

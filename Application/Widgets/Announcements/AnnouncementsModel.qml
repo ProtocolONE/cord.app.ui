@@ -15,11 +15,12 @@ import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 import Application.Blocks 1.0
 
+import "../../../GameNet/Core/Analytics.js" as Ga
+
 import "../../Core/TrayPopup.js" as PopupHelper
 import "../../Core/restapi.js" as RestApi
 import "../../Core/App.js" as App
 import "../../Core/User.js" as User
-import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 import "./AnnouncementsModel.js" as AnnouncementsHelper
 
@@ -71,13 +72,13 @@ WidgetModel {
             return;
         }
 
-        Marketing.send(Marketing.AnnouncementShown, serviceId, { type: "installedGame", userId: User.userId()});
+        Marketing.send(Marketing.AnnouncementShown, serviceId, { type: "InstalledGame", userId: User.userId()});
 
         var gameItem = App.serviceItemByServiceId(serviceId);
 
         PopupHelper.showPopup(artPopupComponent,
                               {
-                                  popupType: "installedGame",
+                                  popupType: "InstalledGame",
                                   serviceId: serviceId,
                                   gameItem: gameItem,
                                   message: qsTr("ANNOUNCE_GAME_INSTALLED_MESSAGE"),
@@ -85,8 +86,7 @@ WidgetModel {
                                   messageFontSize: 16
                               }, 'gameInstalledAnnounce' + serviceId);
 
-        GoogleAnalytics.trackEvent('/announcement/installedGame/' + serviceId,
-                                   'Announcement', 'Show Announcement', gameItem.gaName);
+        Ga.trackEvent('Announcement InstalledGame', 'show', gameItem.gaName);
     }
 
     function gameStartedCallback(serviceId) {
@@ -138,8 +138,7 @@ WidgetModel {
                                   announceItem: announceItem
                               }, 'announce' + announceItem.id);
 
-        GoogleAnalytics.trackEvent('/announcement/small/' + announceItem.id,
-                                   'Announcement', 'Show Announcement', gameItem.gaName);
+        Ga.trackEvent('Announcement Small ' + announceItem.id, 'show', gameItem.gaName);
     }
 
     function isAnnounceValid(announce) {
@@ -167,8 +166,7 @@ WidgetModel {
         bigAnnounceWindow.visible = true
 
         var gameItem = App.serviceItemByServiceId(announceItem.serviceId);
-        GoogleAnalytics.trackEvent('/announcement/big/' + announceItem.id,
-                                   'Announcement', 'Show Announcement', gameItem.gaName);
+        Ga.trackEvent('Announcement Big ' + announceItem.id, 'show', gameItem.gaName);
     }
 
     function showAnnouncement(announceItem) {
@@ -294,7 +292,7 @@ WidgetModel {
         PopupHelper.hidePopup('gameInstalledAnnounce' + serviceId);
         PopupHelper.showPopup(artPopupComponent,
                               {
-                                  popupType: "reminderNeverExecute",
+                                  popupType: "ReminderNeverExecute",
                                   gameItem: gameItem,
                                   serviceId: serviceId,
                                   buttonCaption: buttonText,
@@ -595,20 +593,20 @@ WidgetModel {
 
             onPlayClicked: {
                 announcements.gameAcceptLicenseClicked(popUp.gameItem.serviceId);
-                GoogleAnalytics.trackEvent(popUp.page, 'Announcement', 'Action on Announcement', gameItem.gaName);
+                Ga.trackEvent(popUp.page, 'Announcement SilentModeRemider', 'action', gameItem.gaName);
             }
 
             onAnywhereClicked: {
                 announcements.gameMissLicenseClicked(popUp.gameItem.serviceId);
-                GoogleAnalytics.trackEvent(popUp.page, 'Announcement', 'Miss Click On Announcement', gameItem.gaName);
+                Ga.trackEvent(popUp.page, 'Announcement SilentModeRemider', 'miss click', gameItem.gaName);
             }
 
             onCloseButtonClicked: {
-                GoogleAnalytics.trackEvent(popUp.page, 'Announcement', 'Close Announcement', gameItem.gaName);
+                Ga.trackEvent(popUp.page, 'Announcement SilentModeRemider', 'close', gameItem.gaName);
             }
 
             Component.onCompleted: {
-                GoogleAnalytics.trackEvent(page, 'Announcement', 'Show Announcement', gameItem.gaName);
+                Ga.trackEvent(page, 'Announcement SilentModeRemider', 'show', gameItem.gaName);
             }
         }
     }
@@ -625,9 +623,9 @@ WidgetModel {
                 Marketing.send(Marketing.AnnouncementActionClicked,
                                announceItem.serviceId,
                                { type: "announcementSmall", id: announceItem.id, userId: User.userId() });
+
                 var gameItem = App.serviceItemByServiceId(announceItem.serviceId);
-                GoogleAnalytics.trackEvent('/announcement/small/' + announceItem.id,
-                                           'Announcement', 'Action on Announcement', gameItem.gaName);
+                Ga.trackEvent('Announcement Small ' + announceItem.id, 'action', gameItem.gaName);
             }
 
             Connections {
@@ -658,9 +656,7 @@ WidgetModel {
                 announcements.missClicked(announceItem.serviceId);
 
                 var gameItem = App.serviceItemByServiceId(announceItem.serviceId);
-                GoogleAnalytics.trackEvent('/announcement/small/' + announceItem.id,
-                                           'Announcement', 'Miss Click On Announcement', gameItem.gaName);
-
+                Ga.trackEvent('Announcement Small ' + announceItem.id, 'miss click', gameItem.gaName);
             }
 
             onPlayClicked: {
@@ -675,11 +671,13 @@ WidgetModel {
                 announcements.announceCloseClick(announceItem);
 
                 var gameItem = App.serviceItemByServiceId(announceItem.serviceId);
-                GoogleAnalytics.trackEvent('/announcement/small/' + announceItem.id,
-                                           'Announcement', 'Close Announcement', gameItem.gaName);
+                Ga.trackEvent('Announcement Small ' + announceItem.id, 'close', gameItem.gaName);
             }
 
-            Component.onCompleted: GoogleAnalytics.trackEvent('/announcement/small/' + announceItem.id, 'Announcement', 'Show Announcement', gameItem.gaName);
+            Component.onCompleted: {
+                var gameItem = App.serviceItemByServiceId(announceItem.serviceId);
+                Ga.trackEvent('Announcement Small ' + announceItem.id, 'show', gameItem.gaName);
+            }
 
         }
     }
@@ -697,8 +695,7 @@ WidgetModel {
                 Marketing.send(Marketing.AnnouncementActionClicked, serviceId, { type: popupType, userId: User.userId() });
 
                 var gameItem = App.serviceItemByServiceId(serviceId);
-                GoogleAnalytics.trackEvent('/announcement/'+ popupType +'/' + serviceId,
-                                           'Announcement', 'Action on Announcement', gameItem.gaName);
+                Ga.trackEvent('Announcement '+ popupType, 'action', gameItem.gaName);
             }
 
             Connections {
@@ -716,16 +713,14 @@ WidgetModel {
                 announcements.missClicked(serviceId);
 
                 var gameItem = App.serviceItemByServiceId(serviceId);
-                GoogleAnalytics.trackEvent('/announcement/'+ popupType +'/' + serviceId,
-                                           'Announcement', 'Miss Click On Announcement', gameItem.gaName);
+                Ga.trackEvent('Announcement '+ popupType, 'miss click', gameItem.gaName);
             }
 
             onCloseButtonClicked: {
                 Marketing.send(Marketing.AnnouncementClosedClicked, serviceId, { type: popupType, userId: User.userId() });
 
                 var gameItem = App.serviceItemByServiceId(serviceId);
-                GoogleAnalytics.trackEvent('/announcement/'+ popupType +'/' + serviceId,
-                                           'Announcement', 'Close Announcement', gameItem.gaName);
+                Ga.trackEvent('Announcement '+ popupType, 'close', gameItem.gaName);
             }
 
             onPlayClicked: {
@@ -734,11 +729,7 @@ WidgetModel {
             }
 
             Component.onCompleted: {
-                GoogleAnalytics.trackEvent(
-                            '/announcement/'+ popupType +'/' + serviceId,
-                            'Announcement',
-                            'Show Announcement',
-                            remindGameItemPopup.gameItem.gaName);
+                Ga.trackEvent('Announcement '+ popupType, 'show', remindGameItemPopup.gameItem.gaName);
                 Marketing.send(Marketing.AnnouncementShown, serviceId, { type: popupType, userId: User.userId() });
             }
         }

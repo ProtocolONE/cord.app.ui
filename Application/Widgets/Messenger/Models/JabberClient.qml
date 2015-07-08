@@ -11,7 +11,8 @@ import QtQuick 1.1
 import QXmpp 1.0
 import Tulip 1.0
 
-import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../../GameNet/Core/Analytics.js" as Ga
+
 import "../../../Core/moment.js" as Moment
 import "User.js" as User
 
@@ -202,7 +203,7 @@ QXmppClient {
             || (xmppClient.failCount === 14); // 340 секунд - это уже недопустимо.
 
         if (shoudlTrackConnectionFail) {
-            GoogleAnalytics.trackEvent('/jabber/0.2/', 'Error', 'Code ' + code, "Try count" + xmppClient.failCount);
+            Ga.trackException('Jabber error: Code ' + code + " Try count " + xmppClient.failCount, false);
         }
     }
 

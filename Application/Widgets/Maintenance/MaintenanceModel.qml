@@ -12,9 +12,10 @@ import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 
+import "../../../GameNet/Core/Analytics.js" as Ga
+
 import "../../Core/restapi.js" as RestApi
-import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
-import "../../Core/TrayPopup.js" as PopupHelper
+import "../../Core/TrayPopup.js" as TrayPopup
 import "../../Core/App.js" as App
 
 import "MaintenanceModel.js" as MaintenanceModel
@@ -59,9 +60,8 @@ WidgetModel {
             message: qsTr('POPUP_MAINTENANCE_END_AND_READY_TO_START')
         };
 
-        PopupHelper.showPopup(gameMaintenanceEndPopUp, popUpOptions, 'gameMaintenanceEndShow' + serviceId);
-        GoogleAnalytics.trackEvent('/announcement/gameMaintenanceEndShow/' + gameItem.serviceId,
-                                   'Announcement', 'Show Announcement', gameItem.gaName);
+        TrayPopup.showPopup(gameMaintenanceEndPopUp, popUpOptions, 'gameMaintenanceEndShow' + serviceId);
+        Ga.trackEvent('Announcement GameMaintenanceEndShow', 'show', gameItem.gaName);
     }
 
     function update(schedule) {

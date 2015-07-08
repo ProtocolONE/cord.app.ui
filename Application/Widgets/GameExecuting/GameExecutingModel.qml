@@ -19,7 +19,6 @@ import "../../Core/restapi.js" as RestApi
 import "../../Core/TrayPopup.js" as TrayPopup
 import "../../Core/MessageBox.js" as MessageBox
 import "../../Core/User.js" as User
-import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetModel {
     id: root
@@ -77,9 +76,7 @@ WidgetModel {
             App.navigate("mygame");
         }
 
-        onNeedPakkanenVerification: {
-            Popup.show('AccountActivation');
-        }
+        onNeedPakkanenVerification: Popup.show('AccountActivation');
     }
 
     Connections {

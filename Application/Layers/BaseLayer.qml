@@ -14,8 +14,6 @@ import "../../Application/Core/User.js" as User
 import "../../Application/Core/Popup.js" as Popup
 import "../../Application/Core/Styles.js" as Styles
 
-import "../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
-
 Item {
     id: root
 
@@ -54,16 +52,13 @@ Item {
     Connections {
         target: App.signalBus()
         onNavigate: {
-            console.log("onNavigate: " + link);
             switch (link) {
                 case 'ApplicationSettings':{
                     // INFO Приходит сигнал из mainWindow по клику в таскбар
                     Popup.show('ApplicationSettings');
-                    GoogleAnalytics.trackPageView('/' + link);
                     return;
                 }
                 case 'GameSettings': {
-                    GoogleAnalytics.trackPageView('/' + link);
                     return;
                 }
 
@@ -170,8 +165,6 @@ Item {
                 if (!root.hasCurrentGame) {
                     return;
                 }
-
-                GoogleAnalytics.trackPageView('/game/' + root.currentGame.gaName);
 
                 if (!App.isServiceInstalled(root.currentGame.serviceId)) {
                     gameMenu.pageClicked('AboutGame');

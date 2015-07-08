@@ -9,7 +9,8 @@
 ****************************************************************************/
 import QtQuick 1.1
 
-import "../Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../Core/Analytics.js" as Ga
+
 Item {
 
     id: behavior
@@ -76,11 +77,9 @@ Item {
 
         onClicked: {
             if (behavior.enabled) {
-                if (behavior.analytics && behavior.analytics.isValid()) {
-                    GoogleAnalytics.trackEvent(behavior.analytics.page,
-                                               behavior.analytics.category,
-                                               behavior.analytics.action,
-                                               behavior.analytics.label);
+                var analytics = behavior.analytics;
+                if (analytics && analytics.isValid()) {
+                    Ga.trackEvent(analytics.category, analytics.action, analytics.label, analytics.value);
                 }
                 behavior.clicked(mouse);
             }

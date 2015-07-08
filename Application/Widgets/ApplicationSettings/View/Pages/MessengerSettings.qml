@@ -13,11 +13,10 @@ import GameNet.Controls 1.0
 
 import Application.Controls 1.0
 
-import "../../../Core/App.js" as App
-import "../../../Core/MessageBox.js" as MessageBox
-
-import "../../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../../../../../GameNet/Components/Widgets/WidgetManager.js" as WidgetManager
+
+import "../../../../Core/App.js" as App
+import "../../../../Core/MessageBox.js" as MessageBox
 import "../../../Messenger/Models/Settings.js" as MessengerSettings
 
 Item {
@@ -135,6 +134,10 @@ Item {
                                 widget.model.clearHistory();
                             }
                         });
+                }
+                analytics {
+                    category: 'ApplicationSettings'
+                    label: 'Clear history'
                 }
             }
         }

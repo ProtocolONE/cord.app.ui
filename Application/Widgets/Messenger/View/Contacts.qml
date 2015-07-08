@@ -156,9 +156,10 @@ WidgetView {
                                     }
 
                                     analytics {
-                                        page: '/ContactList'
-                                        category: "EditGroup"
-                                        action: "OpenGroupEdit"
+                                        category: "Messenger EditGroup"
+                                        action: 'toggle'
+                                        label: "OpenGroupEdit"
+                                        value: checked|0
                                     }
 
                                     onClicked: {

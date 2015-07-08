@@ -11,14 +11,15 @@
 import QtQuick 1.1
 
 import "../Core/App.js" as App
-import "../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+
+import "../../GameNet/Core/Analytics.js" as Ga
 
 MouseArea {
     width: 20
     height: 20
 
     onDoubleClicked: {
-        GoogleAnalytics.trackEvent('/Tray', 'Application', 'Quit', 'TopLeft');
+        Ga.trackEvent('HiddenAppClose', 'click', 'Quit');
         App.exitApplication();
     }
 }

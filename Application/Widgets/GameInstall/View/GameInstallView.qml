@@ -137,6 +137,11 @@ PopupBase {
 
         width: 200
         height: 48
+        analytics {
+            category: 'GameInstall'
+            action: 'play'
+            label: root.currentGame.gaName
+        }
         anchors {
             left: parent.left
             leftMargin: 0

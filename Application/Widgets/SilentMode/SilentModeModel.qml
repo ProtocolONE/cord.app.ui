@@ -16,7 +16,8 @@ import GameNet.Controls 1.0
 
 import "../../Core/App.js" as App
 import "../../Core/TrayPopup.js" as TrayPopup
-import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+
+import "../../../GameNet/Core/Analytics.js" as Ga
 
 WidgetModel {
     id: root
@@ -38,6 +39,7 @@ WidgetModel {
             };
 
             TrayPopup.showPopup(gameDownloadingPopup, popUpOptions, 'gameDownloading' + gameItem.serviceId);
+            Ga.trackEvent('Announcement GameDownloading', 'show', gameItem.gaName);
         }
     }
 
@@ -48,10 +50,10 @@ WidgetModel {
             id: popUp
 
             onPlayClicked: {
-                GoogleAnalytics.trackEvent('/announcement/silentmode', 'Announcement', 'Play');
+                Ga.trackEvent('Announcement GameDownloading', 'play', gameItem.gaName);
             }
             onCloseButtonClicked: {
-                GoogleAnalytics.trackEvent('/announcement/silentmode', 'Announcement', 'Close');
+                Ga.trackEvent('Announcement GameDownloading', 'close', gameItem.gaName);
             }
         }
     }

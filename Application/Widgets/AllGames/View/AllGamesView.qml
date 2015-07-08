@@ -19,7 +19,7 @@ import Application.Blocks.Popup 1.0
 import "../../../Core/App.js" as App
 import "../../../Core/Styles.js" as Styles
 
-import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../../GameNet/Core/Analytics.js" as Ga
 
 import "Private" as Private
 
@@ -148,12 +148,10 @@ WidgetView {
                 horizontalCenter: parent.horizontalCenter
                 horizontalCenterOffset: 8
             }
-            onClicked: {
-                GoogleAnalytics.trackEvent('/AllGames',
-                                           'Navigation',
-                                           'Switch to All games');
 
-                stateGroup.state === 'Normal' ? stateGroup.state = 'AllGames' : stateGroup.state = 'Normal'
+            onClicked: {
+                stateGroup.state = (stateGroup.state === 'Normal') ? 'Opened' : 'Normal'
+                Ga.trackEvent('AllGames', 'toggle', 'State ' + stateGroup.state)
             }
 
             Behavior on iconRotation {
@@ -186,9 +184,7 @@ WidgetView {
             }
 
             onClicked: {
-                GoogleAnalytics.trackEvent('/AllGames',
-                                           'Navigation',
-                                           'Switch To Game ' + serviceItem.gaName);
+                Ga.trackEvent('AllGames Opened', 'click', serviceItem.gaName, 0);
             }
         }
 
@@ -205,9 +201,7 @@ WidgetView {
             }
 
             onClicked: {
-                GoogleAnalytics.trackEvent('/AllGames',
-                                           'Navigation',
-                                           'Switch To Game ' + serviceItem.gaName);
+                Ga.trackEvent('AllGames Normal', 'click', serviceItem.gaName, 1);
             }
         }
     }
@@ -226,7 +220,7 @@ WidgetView {
                 PropertyChanges { target: gameList; opacity: 1 }
             },
             State {
-                name: "AllGames"
+                name: "Opened"
                 PropertyChanges { target: baseArea; height: 0 }
                 PropertyChanges { target: allGamesButon; iconRotation: 190 }
                 PropertyChanges { target: gameListPage; visible: true }

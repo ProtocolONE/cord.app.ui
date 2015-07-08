@@ -103,7 +103,6 @@ Item {
         id: buttonBehavior
 
         anchors.fill: parent
-
         onClicked: {
             control.clicked(mouse);
             control.checked = !control.checked;

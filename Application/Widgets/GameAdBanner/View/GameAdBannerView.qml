@@ -13,9 +13,10 @@ import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
+import "../../../../GameNet/Core/Analytics.js" as Ga
+
 import "../../../Core/App.js" as App
 import "GameAdBannerView.js" as GameAdBannerView
-import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetView {
     id: root
@@ -157,11 +158,7 @@ WidgetView {
             }
 
             App.openExternalUrlWithAuth(GameAdBannerView.filtered[root.index].link);
-
-            GoogleAnalytics.trackEvent("/game/" + currentGameItem.gaName,
-                                       "GameAdBanner",
-                                       "Game advertisement clicked",
-                                       contentSwitcher.currentItem.bannerId);
+            Ga.trackEvent("GameAdBanner", "click", contentSwitcher.currentItem.bannerId);
         }
 
         //  HACK: работает только когда MouseArea (и соответственно контролы) лежат друг в друге
@@ -178,7 +175,6 @@ WidgetView {
             }
 
             analytics {
-                page: currentGameItem ? "/game/" + currentGameItem.gaName : ''
                 category: "GameAdBanner"
                 action: "LeftArrow"
                 label: contentSwitcher.currentItem.bannerId
@@ -220,7 +216,6 @@ WidgetView {
             }
 
             analytics {
-                page: currentGameItem ? "/game/" + currentGameItem.gaName : ''
                 category: "GameAdBanner"
                 action: "RightArrow"
                 label: contentSwitcher.currentItem.bannerId
@@ -287,11 +282,7 @@ WidgetView {
                     anchors.fill: parent
                     onClicked: {
                         root.switchToIndex(index);
-
-                        GoogleAnalytics.trackEvent("/game/" + currentGameItem.gaName,
-                                                   "GameAdBanner",
-                                                   "PillClick",
-                                                   "" + index);
+                        Ga.trackEvent("GameAdBanner", "pill " + index, currentGameItem.gaName)
                     }
                 }
             }

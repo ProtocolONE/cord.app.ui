@@ -283,9 +283,8 @@ NavigatableContactList {
                 }
 
                 analytics {
-                    page: "/messenger"
-                    category: "WebSearch"
-                    action: "OpenDetailedUserInfo"
+                    category: "Messenger WebSearch"
+                    label: "OpenDetailedUserInfo"
                 }
 
                 styleImages {

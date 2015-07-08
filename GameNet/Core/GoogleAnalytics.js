@@ -1,5 +1,9 @@
 .pragma library
 
+console.log(
+    "\n\nWARNIN! Google Analytics `GA` deprecated! Use `Measure Protocol` defined in GameNet\Core\Analytics.js\n\n"
+);
+
 var prestartQueue = [];
 var activated = false;
 
@@ -40,7 +44,7 @@ function initSampling() {
 
 function save(key, value) {
     if (!saveSettings) {
-        console.log('GoogleAnalytics Save function is not defined')
+        console.log('Google Analytics Save function is not defined')
         return;
     }
 
@@ -49,7 +53,7 @@ function save(key, value) {
 
 function load(key, defaultValue) {
     if (!loadSettings) {
-        console.log('GoogleAnalytics Load function is not defined')
+        console.log('Google Analytics Load function is not defined')
         return defaultValue;
     }
 

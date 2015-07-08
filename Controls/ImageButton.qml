@@ -82,6 +82,10 @@ Item {
 
         anchors.fill: parent
 
+        analytics {
+            category: 'image button'
+            action: 'click'
+        }
         onEntered: control.entered();
         onExited: control.exited();
         onPressed: control.pressed(mouse);

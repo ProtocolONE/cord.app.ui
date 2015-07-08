@@ -15,7 +15,6 @@ import GameNet.Components.JobWorker 1.0
 
 import "./UserModels" as UserModels
 
-import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../../../../GameNet/Core/Strings.js" as StringHelper
 
 import "../../../Core/moment.js" as Moment

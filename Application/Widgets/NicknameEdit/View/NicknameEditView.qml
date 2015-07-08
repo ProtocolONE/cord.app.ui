@@ -15,7 +15,6 @@ import Application.Blocks.Popup 1.0
 import Application.Controls 1.0
 
 import "../../../Core/Styles.js" as Styles
-import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 PopupBase {
     id: root
@@ -237,9 +236,9 @@ PopupBase {
             model.saveTechName(techName.text);
         }
         analytics {
-            page: 'NicknameEdit'
-            category: 'Auth'
-            action: 'Save nickname'
+            category: 'NicknameEdit'
+            action: 'submit'
+            value: 'Save nickname'
         }
     }
 }

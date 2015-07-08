@@ -34,7 +34,10 @@ Item {
         }
         toolTip: qsTr("HEADER_BUTTON_CLOSE")
         tooltipGlueCenter: true
-        analytics { page: '/Header/AuthScreen'; category: 'Navigation'; action: 'Close application' }
+        analytics {
+            category: 'Auth';
+            label: 'Header Close'
+        }
         onClicked: App.hideMainWindow();
     }
 

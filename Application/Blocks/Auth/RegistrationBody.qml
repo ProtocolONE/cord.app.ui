@@ -179,9 +179,9 @@ Form {
                 onClicked: d.register();
                 font {family: "Open Sans Regular"; pixelSize: 15}
                 analytics {
-                   page: '/Auth'
-                   category: 'RegistrationBody'
-                   action: 'Register button pressed'
+                   category: 'Auth Registration'
+                   action: 'submit'
+                   label: 'Register'
                 }
             }
 

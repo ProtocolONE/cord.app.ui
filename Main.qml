@@ -72,6 +72,7 @@ Rectangle {
         id: manager
 
         Component.onCompleted: {
+            manager.registerWidget('Application.Widgets.Analytics');
             manager.registerWidget('Application.Widgets.AllGames');
             manager.registerWidget('Application.Widgets.AlertAdapter');
             manager.registerWidget('Application.Widgets.Facts');
@@ -84,6 +85,7 @@ Rectangle {
             manager.registerWidget('Application.Widgets.TaskBar');
             manager.registerWidget('Application.Widgets.TaskList');
             manager.registerWidget('Application.Widgets.TrayMenu');
+
             manager.registerWidget('Application.Widgets.UserProfile');
             manager.registerWidget('Application.Widgets.AutoRefreshCookie');
             manager.registerWidget('Application.Widgets.DownloadManagerConnector');
@@ -125,7 +127,6 @@ Rectangle {
         onHideMainWindow: hideAnimation.start();
 
         onSetGlobalState: {
-            console.log('onSetGlobalState', name);
             root.state = name;
 
             switcher.source = (name == 'Loading') ? "../../Application/Blocks/SplashScreen.qml" :

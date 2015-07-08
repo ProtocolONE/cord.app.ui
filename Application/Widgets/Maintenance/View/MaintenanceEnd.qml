@@ -11,15 +11,15 @@
 import QtQuick 1.1
 import Application.Blocks 1.0
 
-import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../../GameNet/Core/Analytics.js" as Ga
+
 import "../../../Core/App.js" as App
 
 GamePopup {
     id: popUp
 
     function gaEvent(name) {
-        GoogleAnalytics.trackEvent('/announcement/gameMaintenanceEndShow/' + gameItem.serviceId,
-                                   'Announcement', name, gameItem.gaName);
+        Ga.trackEvent('Announcement GgameMaintenanceEndShow', name, gameItem.gaName);
     }
 
     Connections {
@@ -31,10 +31,10 @@ GamePopup {
         }
     }
 
-    onAnywhereClicked: gaEvent('Miss Click On Announcement')
-    onCloseButtonClicked: gaEvent('Close Announcement')
+    onAnywhereClicked: gaEvent('miss click')
+    onCloseButtonClicked: gaEvent('close')
     onPlayClicked: {
-        gaEvent('Action on Announcement');
+        gaEvent('play');
         App.activateWindow();
         App.activateGame(gameItem);
         App.executeService(gameItem.serviceId);

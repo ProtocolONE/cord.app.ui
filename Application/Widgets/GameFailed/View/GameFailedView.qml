@@ -84,6 +84,11 @@ PopupBase {
 
         PrimaryButton {
             text: qsTr("GAME_FAILED_BUTTON_SUPPORT")
+            analytics {
+                category: 'GameFailed'
+                action: 'outer link'
+                label: 'Support'
+            }
             onClicked: {
                 App.openExternalUrl("https://support.gamenet.ru/kb");
                 Marketing.send(Marketing.ProblemAfterGameStart, root.currentItem.serviceId, { action: "support" } );
@@ -93,6 +98,10 @@ PopupBase {
 
         MinorButton {
             text: qsTr("GAME_FAILED_BUTTON_CLOSE")
+            analytics {
+                category: 'GameFailed'
+                label: 'Close'
+            }
             onClicked: {
                 Marketing.send(Marketing.ProblemAfterGameStart, root.currentItem.serviceId, { action: "close" } );
                 root.close();

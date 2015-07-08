@@ -26,5 +26,9 @@ Form {
         width: 200
         text: qsTr("OK_BUTTON_LABEL");
         onClicked: root.clicked();
+        analytics {
+            category: 'Auth Message'
+            label: 'Close'
+        }
     }
 }

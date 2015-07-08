@@ -13,7 +13,6 @@ import Application.Blocks.Popup 1.0
 import GameNet.Components.Widgets 1.0
 
 import "../../../Core/App.js" as App
-import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 PopupBase {
     id: root

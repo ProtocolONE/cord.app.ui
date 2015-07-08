@@ -80,8 +80,8 @@ PopupBase {
                      checked: root.state === "GeneralPage"
                      text: qsTr("FOLDERS_TAB")
                      analytics {
-                        page: '/GameSettings'
-                        action: 'Switch to GeneralPage'
+                         category: 'GameSettings'
+                         label: 'GeneralPage'
                      }
 
                      onClicked: root.state = "GeneralPage";
@@ -92,8 +92,8 @@ PopupBase {
                      text: qsTr("OVERLAY_TAB")
                      visible: !!root.currentGame && root.currentGame.hasOverlay
                      analytics {
-                        page: '/GameSettings'
-                        action: 'Switch to OverlayPage'
+                         category: 'GameSettings'
+                         label: 'OverlayPage'
                      }
                      onClicked: root.state = "OverlayPage";
                 }
@@ -102,9 +102,8 @@ PopupBase {
                     text: qsTr("UNINSTALL_GAME")
 
                     analytics {
-                        page: '/GameSettings'
-                        category: 'Uninstall'
-                        action: 'Uninstall client'
+                        category: 'GameSettings'
+                        label: 'Uninstall'
                     }
 
                     onClicked: App.uninstallRequested(root.currentGame.serviceId);
@@ -113,9 +112,8 @@ PopupBase {
                 SettingsTextButton {
                     text: qsTr("RESTORE_CLIENT")
                     analytics {
-                        page: '/GameSettings'
-                        category: 'Settings'
-                        action: 'Restore client'
+                        category: 'GameSettings'
+                        label: 'Restore client'
                     }
                     onClicked: {
                         root.gameSettingsModelInstance.restoreClient();
@@ -134,7 +132,7 @@ PopupBase {
                      checked: root.state === "ControlPage"
                      text: qsTr("CONTROLS_TAB")
                      analytics {
-                        page: '/GameSettings'
+                        category: 'GameSettings'
                         action: 'Switch to ControlPage'
                      }
                      onClicked: root.state = "ControlPage";
@@ -178,6 +176,11 @@ PopupBase {
                 anchors {
                     right: parent.right
                     bottom: parent.bottom
+                }
+
+                analytics {
+                    category: 'GameSettings'
+                    label: 'Save'
                 }
 
                 width: 210

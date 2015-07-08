@@ -51,9 +51,8 @@ PopupBase {
         PrimaryButton {
             text: qsTr("BUTTON_RETRY_PLAY")
             analytics {
-                page: "/GameDownloadError/"
-                category: "Game " + gameItem.gaName
-                action: "Retry button clicked"
+                category: "GameDownloadError"
+                label: "Retry"
             }
 
             onClicked: {
@@ -68,9 +67,8 @@ PopupBase {
         MinorButton {
             text: qsTr("BUTTON_RESTART_APPLICATION")
             analytics {
-                page: "/game/" + gameItem.gaName
-                category: "Game " + gameItem.gaName
-                action: "Restart button clicked"
+                category: "GameDownloadError"
+                label: "Restart"
             }
             onClicked: {
                 App.restartApplication();
@@ -81,9 +79,9 @@ PopupBase {
         MinorButton {
             text: qsTr("BUTTON_NOTIFY_SUPPORT")
             analytics {
-                page: "/game/" + gameItem.gaName
-                category: "Game " + gameItem.gaName
-                action: "Support button clicked"
+                category: "GameDownloadError"
+                action: 'outer link'
+                label: "Support"
             }
 
             onClicked: {

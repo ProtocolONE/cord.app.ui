@@ -13,8 +13,9 @@ import GameNet.Components.Widgets 1.0
 import "../Models/Messenger.js" as MessengerJs
 import "../../../Core/App.js" as App
 import "../../../Core/TrayPopup.js" as TrayPopup
-import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "./Popups.js" as Popups
+
+import "../../../../GameNet/Core/Analytics.js" as Ga
 
 Item {
     property bool enabled: true
@@ -41,7 +42,7 @@ Item {
             }
             Popups.objects[from].addMessage(message.from, body, message);
 
-            GoogleAnalytics.trackEvent('Messenger', 'NewMessagePopup', 'show', 'App');
+            Ga.trackEvent('Messenger Popup', 'show', 'MessageReveived');
         }
     }
 
@@ -55,11 +56,11 @@ Item {
             onClosed: delete Popups.objects[jid];
 
             onCloseButtonClicked: {
-                GoogleAnalytics.trackEvent('Messenger', 'NewMessagePopup', 'closeButton', 'App');
+                Ga.trackEvent('Messenger Popup', 'close', 'MessageReveived');
             }
 
             onTimeoutClosed: {
-                GoogleAnalytics.trackEvent('Messenger', 'NewMessagePopup', 'timeoutDestroy', 'App');
+                Ga.trackEvent('Messenger Popup', 'timeout', 'MessageReveived');
             }
 
             onAnywhereClicked: {
@@ -68,7 +69,7 @@ Item {
                 App.activateWindow();
                 MessengerJs.selectUser(user)
 
-                GoogleAnalytics.trackEvent('Messenger', 'NewMessagePopup', 'anywhereClicked', 'App');
+                Ga.trackEvent('Messenger Popup', 'miss click', 'MessageReveived');
             }
         }
     }

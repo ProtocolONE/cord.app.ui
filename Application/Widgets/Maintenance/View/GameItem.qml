@@ -2,10 +2,10 @@ import QtQuick 1.1
 import GameNet.Controls 1.0 as Controls
 import Application.Controls 1.0
 
+import "../../../../GameNet/Core/Analytics.js" as Ga
+
 import "../../../Core/Styles.js" as Styles
 import "../../../Core/App.js" as App
-import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
-
 
 Image {
     id: root
@@ -63,10 +63,7 @@ Image {
                 App.downloadButtonStart(proposalGameItem.serviceId);
             }
 
-            GoogleAnalytics.trackEvent('/Maintenance/',
-                                   'Game ' + gameItem.gaName,
-                                   'Activate Game ' + proposalGameItem.gaName,
-                                   'MaintenanceLightView');
+            Ga.trackEvent('Maintenance', 'play', proposalGameItem.gaName);
         }
     }
 }

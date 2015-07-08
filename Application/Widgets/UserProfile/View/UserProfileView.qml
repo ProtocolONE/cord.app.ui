@@ -21,7 +21,7 @@ import "../../../Core/User.js" as User
 import "../../../Core/Styles.js" as Styles
 
 import "../../../../GameNet/Controls/ContextMenu.js" as ContextMenu
-import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../../GameNet/Core/Analytics.js" as Ga
 
 WidgetView {
     id: root
@@ -54,9 +54,7 @@ WidgetView {
                 break;
             }
 
-            GoogleAnalytics.trackEvent('/UserProfile',
-                                      'MouseRightClick',
-                                      action);
+            Ga.trackEvent('UserProfile', 'context menu click', action);
         }
 
         function fillContextMenu(menu) {
@@ -256,10 +254,7 @@ WidgetView {
                         }
                         onClicked: {
                             Popup.show('PremiumShop', 'PremiumShopView')
-
-                            GoogleAnalytics.trackEvent('/UserProfile',
-                                                       'UserProfileView',
-                                                       'ShowPremiumPopup');
+                            Ga.trackEvent('UserProfile', 'click', 'Premium Shop');
                         }
                     }
 
@@ -314,9 +309,7 @@ WidgetView {
                                             d.openProfile()
                                         }
 
-                                        GoogleAnalytics.trackEvent('/UserProfile',
-                                                                   'UserProfileView',
-                                                                   'nickname clicked');
+                                        Ga.trackEvent('UserProfile', 'click', 'nickname');
                                     }
                                 }
 

@@ -15,9 +15,10 @@ import GameNet.Components.Widgets 1.0
 
 import Application.Controls 1.0
 
+import "../../../../GameNet/Core/Analytics.js" as Ga
+
 import "../../../Core/App.js" as App
 import "../../../Core/Styles.js" as Styles
-import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 WidgetView {
     id: root
@@ -259,10 +260,9 @@ WidgetView {
                         hover: previousButton.styleImages.normal
                         disabled: previousButton.styleImages.normal
                     }
-                    analytics: GoogleAnalyticsEvent {
-                        page: '/GameInfo/' + (root.gameItem ? root.gameItem.gaName : '')
-                        category: 'PreviousButton'
-                        action: 'Click'
+                    analytics {
+                        category: 'GameInfo'
+                        action: 'LeftArrow'
                         label: previewListModel.count > 0 ? previewListModel.get(d.index).preview : ''
                     }
 
@@ -302,9 +302,8 @@ WidgetView {
                     }
 
                     analytics {
-                        page: '/GameInfo/' + (root.gameItem ? root.gameItem.gaName : '')
-                        category: 'NextButton'
-                        action: 'Click'
+                        category: 'GameInfo'
+                        action: 'RightArrow'
                         label: previewListModel.count > 0 ? previewListModel.get(d.index).preview : ''
                     }
 
@@ -402,10 +401,7 @@ WidgetView {
                         height: 60
 
                         onClicked: {
-                            GoogleAnalytics.trackEvent('/GameInfo/' + root.gameItem.gaName,
-                                                       "MiniImage",
-                                                       "Click",
-                                                       preview);
+                            Ga.trackEvent('GameInfo', 'preview click', preview);
                             d.changeIndex(index);
                         }
                     }

@@ -15,8 +15,9 @@ import GameNet.Controls 1.0
 
 import Application.Controls 1.0
 
+import "../../../../GameNet/Core/Analytics.js" as Ga
+
 import "../../../Core/App.js" as App
-import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../../../Core/Styles.js" as Styles
 
 WidgetView {
@@ -187,14 +188,9 @@ WidgetView {
                             App.downloadButtonStart(proposalGameItem.serviceId);
                         }
 
-                        GoogleAnalytics.trackEvent('/Maintenance/',
-                                               'Game ' + currentGame.gaName,
-                                               'Activate Game ' + proposalGameItem.gaName,
-                                               'MaintenanceLightView');
-
+                        Ga.trackEvent('Maintenance Light', 'play', proposalGameItem.gaName);
                     }
                 }
-
             }
         }
     }

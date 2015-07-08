@@ -15,7 +15,7 @@ import GameNet.Controls 1.0
 import Application.Controls 1.0
 
 import "../../../../../../GameNet/Core/lodash.js" as Lodash
-import "../../../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../../../../GameNet/Core/Analytics.js" as Ga
 import "../../../../../../GameNet/Controls/ContextMenu.js" as ContextMenu
 
 import "../../../../../Core/moment.js" as Moment
@@ -172,9 +172,7 @@ Item {
 
             ContextMenu.hide();
 
-            GoogleAnalytics.trackEvent('/ContactItem',
-                                      'MouseRightClick',
-                                      action);
+            Ga.trackEvent('Messanger ContactItem', 'context menu click', action);
         }
 
         function destroyRoom(user) {

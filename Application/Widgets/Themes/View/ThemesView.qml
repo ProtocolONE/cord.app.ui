@@ -9,7 +9,7 @@ import Application.Controls 1.0
 import "../../../Core/Styles.js" as Styles
 import "../../../Core/moment.js" as Moment
 
-import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../../GameNet/Core/Analytics.js" as Ga
 
 WidgetView {
     id: root
@@ -54,11 +54,11 @@ WidgetView {
                 onClicked: {
                     if (delegate.downloaded) {
                         delegate.install();
-                        GoogleAnalytics.trackEvent('/Themes', 'Install', model.name);
+                        Ga.trackEvent('Themes', 'Install', model.name);
                     } else {
                         delegate.download();
                         view.lastClickedIndex = index;
-                        GoogleAnalytics.trackEvent('/Themes', 'Download', model.name);
+                        Ga.trackEvent('Themes', 'Download', model.name);
                     }
                 }
             }

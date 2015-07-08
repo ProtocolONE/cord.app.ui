@@ -87,6 +87,10 @@ Form {
                     width: 240
                     text: qsTr("CODE_BODY_SEND_BY_MAIL")
                     onClicked: d.getCode('email');
+                    analytics {
+                        category: 'Auth Code'
+                        label: 'Send Code By Email'
+                    }
                 }
 
                 AuxiliaryButton {
@@ -94,6 +98,10 @@ Form {
                     width: 240
                     text: qsTr("CODE_BODY_SEND_BY_SMS")
                     onClicked: d.getCode('sms');
+                    analytics {
+                        category: 'Auth Code'
+                        label: 'Send Code By Sms'
+                    }
                 }
             }
 
@@ -124,6 +132,11 @@ Form {
             PrimaryButton {
                 width: 200
                 height: parent.height
+                analytics {
+                    category: 'Auth Code'
+                    label: 'Confirm code'
+                }
+
                 text: qsTr("CODE_BODY_CONFIRM_BUTTON")
                 enabled: root.codeSended
                 onClicked: d.unblock();
@@ -140,6 +153,10 @@ Form {
 
                 anchors.verticalCenter: parent.verticalCenter
                 onClicked: root.cancel();
+                analytics {
+                    category: 'Auth Code'
+                    label: 'Code Cancel'
+                }
             }
         }
     }

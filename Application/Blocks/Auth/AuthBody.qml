@@ -256,6 +256,11 @@ Form {
                     }
                     text: qsTr("AUTH_BODY_AMNESIA_TEXT")
 
+                    analytics {
+                        category: 'Auth'
+                        action: 'outer link'
+                        label: 'Restore password'
+                    }
                     fontSize: 12
                     onClicked: AppProxy.openExternalUrl("https://gamenet.ru/restore/?login=" + d.login);
                 }
@@ -300,9 +305,8 @@ Form {
                 inProgress: d.inProgress
                 onClicked: d.genericAuth();
                 analytics {
-                   page: '/Auth'
-                   category: 'AuthBody'
-                   action: 'Login button pressed'
+                   category: 'Auth'
+                   label: 'Login button pressed'
                 }
             }
         }

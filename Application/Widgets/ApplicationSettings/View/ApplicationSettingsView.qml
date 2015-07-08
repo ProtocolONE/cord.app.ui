@@ -103,8 +103,7 @@ PopupBase {
                     checked: root.state === "GeneralPage"
                     text: qsTr("GENERAL_TAB")
                     analytics {
-                        page: '/ApplicationSettings'
-                        category: "Settings"
+                        category: 'ApplicationSettings'
                         action: 'Switch to GeneralPage'
                     }
                     onClicked: root.state = "GeneralPage";
@@ -114,8 +113,7 @@ PopupBase {
                     checked: root.state === "DownloadsPage"
                     text: qsTr("DOWNLOADS_TAB")
                     analytics {
-                        page: '/ApplicationSettings'
-                        category: "Settings"
+                        category: 'ApplicationSettings'
                         action: 'Switch to DownloadsPage'
                     }
                     onClicked: root.state = "DownloadsPage";
@@ -125,8 +123,7 @@ PopupBase {
                     checked: root.state === "NotificationsPage"
                     text: qsTr("NOTIFICATIONS_TAB")
                     analytics {
-                        page: '/ApplicationSettings'
-                        category: "Settings"
+                        category: 'ApplicationSettings'
                         action: 'Switch to NotificationPage'
                     }
                     onClicked: root.state = "NotificationsPage";
@@ -136,8 +133,7 @@ PopupBase {
                     checked: root.state === "MessengerPage"
                     text: qsTr("MESSENGER_TAB")
                     analytics {
-                        page: '/ApplicationSettings'
-                        category: "Settings"
+                        category: 'ApplicationSettings'
                         action: 'Switch to MessengerPage'
                     }
                     onClicked: root.state = "MessengerPage";
@@ -203,9 +199,8 @@ PopupBase {
                 }
                 text: qsTr("RESTORE_SETTINGS")
                 analytics {
-                    page: '/ApplicationSettings'
-                    category: 'Settings'
-                    action: 'Restore default settings'
+                    category: 'ApplicationSettings'
+                    label: 'Restore default'
                 }
 
                 onClicked: root.resetSettings();
@@ -216,6 +211,10 @@ PopupBase {
                 anchors {
                     right: parent.right
                     bottom: parent.bottom
+                }
+                analytics {
+                    category: 'ApplicationSettings'
+                    label: 'Save'
                 }
 
                 width: 210

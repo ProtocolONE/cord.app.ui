@@ -13,9 +13,10 @@ import GameNet.Components.Widgets 1.0
 import Application.Blocks.Popup 1.0
 import Application.Controls 1.0
 
+import "../../../../GameNet/Core/Analytics.js" as Ga
+
 import "../../../Core/App.js" as App
 import "../../../Core/Styles.js" as Styles
-import "../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 PopupBase {
     id: root
@@ -28,14 +29,10 @@ PopupBase {
     onPause: {
         if (root.isPause) {
             App.downloadButtonStart(root.gameItem.serviceId);
-
-            GoogleAnalytics.trackEvent('/game/' + root.gameItem.gaName,
-                                       'Game ' + root.gameItem.gaName, 'Play', 'Big Green');
+            Ga.trackEvent('GameLoad', 'play', root.gameItem.gaName);
         } else {
             App.downloadButtonPause(root.gameItem.serviceId);
-
-            GoogleAnalytics.trackEvent('/game/' + root.gameItem.gaName,
-                                       'Game ' + root.gameItem.gaName, 'Pause', 'Big Green');
+            Ga.trackEvent('GameLoad', 'pause', root.gameItem.gaName);
         }
 
         root.isPause = !root.isPause;
@@ -121,9 +118,9 @@ PopupBase {
             text: qsTr("SHOW_STATISTICS")
             fontSize: 14
             analytics {
-                page: '/GameLoad/'
-                category: 'Loading game ' + root.gameItem.gaName
-                action: 'Show game loading details'
+                category: 'GameLoad'
+                action: 'details'
+                label: root.gameItem.gaName
             }
             onClicked: stateGroup.state = "Detailed";
         }

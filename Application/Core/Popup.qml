@@ -14,11 +14,11 @@ import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
 import "../../GameNet/Controls/Tooltip.js" as Tooltip
-import "../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
 Item {
     id: root
 
+    signal open(string widgetName, string widgetView, int popupId)
     signal close(int popupId)
 
     property alias isShown: root.visible
@@ -35,7 +35,7 @@ Item {
         d.popupId = popupId;
 
         firstContainer.force(d.widgetName, d.widgetView);
-        GoogleAnalytics.trackPageView('/' + widgetName + '/' + widgetView || '');
+        root.open(d.widgetName, d.widgetView, d.popupId);
     }
 
     anchors.fill: parent
