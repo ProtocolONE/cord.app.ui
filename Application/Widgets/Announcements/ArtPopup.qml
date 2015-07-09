@@ -101,18 +101,11 @@ AppControls.TrayPopupBase {
 
                 Image {
                     width: 238
-                    height: 288
+                    height: 308
+                    asynchronous: true
+                    fillMode: Image.Stretch
                     smooth: true
                     source: gameItem.imagePopupArt
-                }
-
-                Image {
-                    id: gradient
-
-                    y: 97
-                    width: 238
-                    height: 210
-                    source: installPath + "Assets/Images/Application/Widgets/Announcements/gradient.png"
                 }
 
                 Text {

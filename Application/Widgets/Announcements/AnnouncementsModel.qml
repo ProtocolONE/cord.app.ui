@@ -134,6 +134,7 @@ WidgetModel {
                               {
                                   gameItem: gameItem,
                                   message: announceItem.text,
+                                  image: announceItem.image,
                                   buttonCaption: announceItem.textOnButton,
                                   announceItem: announceItem
                               }, 'announce' + announceItem.id);

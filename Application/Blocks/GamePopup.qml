@@ -10,13 +10,14 @@ TrayPopupBase {
 
     property variant gameItem
     property string message
+    property string image
     property string buttonCaption: qsTr("PLAY_NOW") // "Играть"
 
     signal closeButtonClicked()
     signal playClicked()
 
     width: 240
-    height: 247
+    height: 28 +  content.height
 
     Rectangle {
         anchors.fill: parent
@@ -79,18 +80,12 @@ TrayPopupBase {
             }
 
             Rectangle {
+                id: content
+
                 width: parent.width
-                height: 219
-                color: Styles.style.trayPopupHeaderBackground
-
-                Image {
-                    id: gradient
-
-                    anchors.bottom: parent.bottom
-                    width: 238
-                    height: 210
-                    source: installPath + "Assets/Images/Application/Blocks/gradient.png"
-                }
+                height: root.image ? externalImage.height : 220;
+                color: Styles.style.trayPopupBackground
+                clip: true
 
                 Image {
                     anchors {
@@ -99,6 +94,19 @@ TrayPopupBase {
                         horizontalCenter: parent.horizontalCenter
                     }
                     source: gameItem.imageLogoSmall
+                    visible: !root.image
+                }
+
+                Image {
+                    id: externalImage
+
+                    asynchronous: true
+                    cache: false
+                    fillMode: Image.Stretch
+                    width: 238
+                    height: Math.max(220, Math.min(308, externalImage.sourceSize.height));
+                    source: root.image
+                    visible: root.image
                 }
 
                 Text {

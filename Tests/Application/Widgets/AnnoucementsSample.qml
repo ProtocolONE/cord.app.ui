@@ -162,7 +162,7 @@ Rectangle {
                                 id: Math.random(),
                                 serviceId: '300003010000000000',
                                 size: popupSize,
-                                image: 'http://yandex.ru/images/today?size=1920x1080',
+                                image: 'https://images.gamenet.ru/pics/app/service/1418914233742.png',
                                 buttonColor: 1,
                                 text: 'Hello',
                                 textOnButton: 'Play',
