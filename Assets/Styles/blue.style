@@ -148,6 +148,7 @@
         "messengerSmileButtonIcon": "Assets/Images/Application/Widgets/Messenger/smileButton.png",
         "messengerLocalSearchIcon": "Assets/Images/Application/Widgets/Messenger/localSearch.png",
         "messengerWebSearchIcon": "Assets/Images/Application/Widgets/Messenger/webSearch.png",
+        "messengerGroupCountIcon": "Assets/Images/Application/Widgets/Messenger/ContactItem/groupCountIcon.png",
         "secondAccountAuthLogoutIcon": "Assets/Images/Application/Widgets/SecondAccountAuth/logout.png",
         "userProfilePremiumIcon": "Assets/Images/Application/Widgets/UserProfile/premium.png",
         "promoCodeIcon": "Assets/Images/Application/Widgets/PromoCode/promo.png",

@@ -64,6 +64,7 @@ Item {
     property string messengerSmileButtonIcon: "Assets/Images/Application/Widgets/Messenger/smileButton.png"
     property string messengerLocalSearchIcon: "Assets/Images/Application/Widgets/Messenger/localSearch.png"
     property string messengerWebSearchIcon: "Assets/Images/Application/Widgets/Messenger/webSearch.png"
+    property string messengerGroupCountIcon: "Assets/Images/Application/Widgets/Messenger/ContactItem/groupCountIcon.png"
 
     property string secondAccountAuthLogoutIcon: "Assets/Images/Application/Widgets/SecondAccountAuth/logout.png"
 
