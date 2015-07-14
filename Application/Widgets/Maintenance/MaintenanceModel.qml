@@ -178,7 +178,7 @@ WidgetModel {
                 return;
             }
 
-            root.gameItem.ignoreMaintenance = !root.gameItem.ignoreMaintenance;
+            currentGame.ignoreMaintenance = !currentGame.ignoreMaintenance;
         }
     }
 }
