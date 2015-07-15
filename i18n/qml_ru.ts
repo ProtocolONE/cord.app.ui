@@ -897,7 +897,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>AUTH_BODY_LOGIN_PLACEHOLDER</source>
-        <translation>Введите адресс почты</translation>
+        <translation>Введите адрес почты</translation>
     </message>
     <message>
         <source>AUTH_BODY_PASSWORD_PLACEHOLDER</source>
