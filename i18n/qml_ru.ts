@@ -1028,7 +1028,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>UPDATE_FOUND_MESSAGE</source>
-        <translation>Доступно новое обновление. Необходимо перезапустить приложение.</translation>
+        <translation>Будет устновлено обновление приложения GameNet. Необходимо перезапустить приложение.</translation>
     </message>
 </context>
 <context>
