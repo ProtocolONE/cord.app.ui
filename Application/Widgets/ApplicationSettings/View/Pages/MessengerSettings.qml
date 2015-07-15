@@ -71,7 +71,8 @@ Item {
     }
 
     function setMarketingsParams(params) {
-        params.maintenanceEnd = WidgetManager.getWidgetSettings('Messenger').messengerReceivedMessage ? "1" : "0";
+        params.incomingMessage = WidgetManager.getWidgetSettings('Messenger').messengerReceivedMessage ? "1" : "0";
+        params.incomingMessageInGame = WidgetManager.getWidgetSettings('Overlay').messengerShowChatOverlayNotify ? "1" : "0";
         return params;
     }
 
