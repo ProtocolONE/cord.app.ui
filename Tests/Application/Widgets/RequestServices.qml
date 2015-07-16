@@ -1,9 +1,7 @@
-import QtQuick 1.1
+import QtQuick 2.4
 
-import "../../../GameNet/Core/RestApi.js" as RestApiG
-
-import "../../../Application/Core/restapi.js" as RestApi
-import "../../../Application/Core/App.js" as App
+import GameNet.Core 1.0
+import Application.Core 1.0
 
 Item {
     id: d
@@ -18,7 +16,7 @@ Item {
     function requestServices() {
         RestApi.Service.getUi(function(result) {
             App.fillGamesModel(result);
-            App.setGlobalState("Authorization");
+            SignalBus.setGlobalState("Authorization");
 
             d.ready();
         }, function(result) {
@@ -43,11 +41,9 @@ Item {
     }
 
     function authDone(userId, appKey) {
-        RestApiG.Core.setUserId(userId);
-        RestApiG.Core.setAppKey(appKey);
         RestApi.Core.setUserId(userId);
         RestApi.Core.setAppKey(appKey);
 
-        App.authDone(userId, appKey);
+        SignalBus.authDone(userId, appKey, "");
     }
 }

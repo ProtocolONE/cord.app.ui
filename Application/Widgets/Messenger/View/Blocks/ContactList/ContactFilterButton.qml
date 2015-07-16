@@ -1,7 +1,7 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 
-import "../../../../../Core/Styles.js" as Styles
+import Application.Core.Styles 1.0
 
 Button {
     id: allButton
@@ -15,7 +15,7 @@ Button {
         disabled: "#00000000"
     }
 
-    textColor: enabled ? Styles.style.chatInactiveText : Styles.style.menuText
+    textColor: enabled ? Styles.chatInactiveText : Styles.menuText
     fontSize: 12
 
     Behavior on textColor {
@@ -25,7 +25,7 @@ Button {
     Rectangle {
         visible: parent.enabled
         anchors.fill: parent
-        color: parent.containsMouse ? Styles.style.dark : Styles.style.contentBackgroundLight
+        color: parent.containsMouse ? Styles.dark : Styles.contentBackgroundLight
         opacity: parent.containsMouse ? 0.15 : 0.3
         radius: 1
 

@@ -1,10 +1,4 @@
 module Tulip
 plugin QmlExtensionX86
-plugin QmlViewerDevHelperX86
-plugin QmlOverlayX86
-
-
-
-
-
-
+typeinfo plugins.qmltypes
+designersupported

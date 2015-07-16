@@ -1,6 +1,7 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import Application.Controls 1.0
-import "../../../../../../Core/Styles.js" as Styles
+import Application.Core.Styles 1.0
+
 CheckedButton {
     analytics {
         category: "Messenger GroupHeader"
@@ -12,5 +13,5 @@ CheckedButton {
     implicitHeight: 48
     boldBorder: true
     checked: false
-    icon: installPath + Styles.style.messengerHeaderGroupIcon
+    icon: installPath + Styles.messengerHeaderGroupIcon
 }

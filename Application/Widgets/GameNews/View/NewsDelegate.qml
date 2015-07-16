@@ -8,15 +8,12 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
 
-import "../../../Core/App.js" as App
-import "../../../Core/moment.js" as Moment
-import "../../../Core/Styles.js" as Styles
-
-import "../../../../GameNet/Core/Analytics.js" as Ga
-import "../../../../GameNet/Core/Strings.js" as Strings
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: delegate
@@ -59,7 +56,7 @@ Item {
         Rectangle {
             height: 1
             width: parent.width
-            color: Styles.style.light
+            color: Styles.light
             visible: shouldShowDelimited
             opacity: 0.15
         }
@@ -104,7 +101,7 @@ Item {
                         family: 'Arial'
                         pixelSize: 12
                     }
-                    color: Styles.style.textAttention
+                    color: Styles.textAttention
                     text: commentCount
                 }
             }
@@ -129,7 +126,7 @@ Item {
                         Text {
                             height: 12
                             text: App.serviceItemByGameId(gameId) ? App.serviceItemByGameId(gameId).name : ''
-                            color: Qt.darker(Styles.style.textTime, mouser.containsMouse ? 1.5: 0)
+                            color: Qt.darker(Styles.textTime, mouser.containsMouse ? 1.5: 0)
                             font { family: 'Arial'; pixelSize: 12 }
                             visible: !root.isSingleMode
 
@@ -149,7 +146,7 @@ Item {
                             }
 
                             height: 12
-                            color: Qt.darker(Styles.style.chatInactiveText, mouser.containsMouse ? 1.5: 0)
+                            color: Qt.darker(Styles.chatInactiveText, mouser.containsMouse ? 1.5: 0)
 
                             font { family: 'Arial'; pixelSize: 12 }
 
@@ -163,7 +160,7 @@ Item {
                         height: 23
                         width: parent.width - 30
                         text: title
-                        color: Qt.darker(Styles.style.titleText, mouser.containsMouse ? 1.5: 0)
+                        color: Qt.darker(Styles.titleText, mouser.containsMouse ? 1.5: 0)
                         elide: Text.ElideRight
                         font { family: 'Open Sans Light'; pixelSize: 20; bold: false }
 
@@ -175,8 +172,8 @@ Item {
 
                 Text {
                     function clearText(text) {
-                        var tmp = Strings.stripTags(text);
-                        tmp = Strings.htmlDecode(tmp);
+                        var tmp = StringHelper.stripTags(text);
+                        tmp = StringHelper.htmlDecode(tmp);
 
                         return tmp.replace(/\s+/g, ' ').trim();
                     }
@@ -188,7 +185,7 @@ Item {
                     elide: Text.ElideRight
                     maximumLineCount: 4
                     clip: true
-                    color: Qt.darker(Styles.style.infoText, mouser.containsMouse ? 1.5: 0)
+                    color: Qt.darker(Styles.infoText, mouser.containsMouse ? 1.5: 0)
                     font { family: 'Arial'; pixelSize: 13 }
                     lineHeight: 20
                     lineHeightMode: Text.FixedHeight

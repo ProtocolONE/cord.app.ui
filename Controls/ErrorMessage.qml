@@ -7,7 +7,7 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 
 Rectangle {
     id: control
@@ -21,7 +21,7 @@ Rectangle {
     Text {
         id: errorText
 
-        wrapMode: Text.WordWrap
+        wrapMode: Text.Wrap
 
         anchors {
             left: parent.left

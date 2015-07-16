@@ -1,7 +1,7 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Components.Widgets 1.0
 
-import "../../Core/App.js" as App
+import Application.Core 1.0
 import "TaskBar.js" as TaskBar
 
 WidgetModel {
@@ -19,7 +19,7 @@ WidgetModel {
     }
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
 
         onProgressChanged: {
             TaskBar.updateProgress(gameItem);

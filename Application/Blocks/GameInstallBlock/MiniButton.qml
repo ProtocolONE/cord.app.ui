@@ -1,7 +1,8 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 
-import "../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: miniButtonBlock
@@ -22,8 +23,8 @@ Item {
              height: 16
 
              color: miniButtonBlock.containsMouse
-                    ? Styles.style.primaryButtonHover
-                    : Styles.style.primaryButtonNormal
+                    ? Styles.primaryButtonHover
+                    : Styles.primaryButtonNormal
 
              visible: miniButtonImage.source !== ''
 
@@ -40,7 +41,7 @@ Item {
             font { family: 'Arial'; pixelSize: 12 }
             smooth: true
             opacity: 0.5
-            color: Styles.style.textBase
+            color: Styles.textBase
          }
     }
 }

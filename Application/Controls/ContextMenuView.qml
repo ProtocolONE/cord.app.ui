@@ -1,7 +1,8 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 import Tulip 1.0
-import "../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Rectangle {
     id: root
@@ -19,7 +20,7 @@ Rectangle {
 
     width: actionListView.width + 14
     height: actionModel.count * 28 + 14 + (actionModel.count == 0 ? 2 : 0)
-    color: Styles.style.popupBlockBackground
+    color: Styles.popupBlockBackground
 
     ListModel {
         id: actionModel
@@ -56,7 +57,7 @@ Rectangle {
 
                 Rectangle {
                     anchors.fill: parent
-                    color: Styles.style.applicationBackground
+                    color: Styles.applicationBackground
                     visible: actionMouser.containsMouse
                 }
 
@@ -71,8 +72,8 @@ Rectangle {
 
                     opacity: actionMouser.containsMouse ? 1 : 0.5
                     color: actionMouser.containsMouse
-                           ? Styles.style.chatButtonText
-                           : Styles.style.textBase
+                           ? Styles.chatButtonText
+                           : Styles.textBase
 
                     font {
                         pixelSize: 12

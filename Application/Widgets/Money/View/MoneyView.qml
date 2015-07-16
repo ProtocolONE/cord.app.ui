@@ -8,15 +8,13 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 import QtWebKit 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
+import Application.Core 1.0
 
-import "../../../Core/App.js" as AppJs
-import "../../../Core/User.js" as UserJs
-import "../../../Core/restapi.js" as RestApiJs
 import "./Money.js" as MoneyJs
 
 WidgetView {
@@ -88,7 +86,7 @@ WidgetView {
             }
 
             function getMoneyUrl() {
-                return UserJs.getUrlWithCookieAuth("https://www.gamenet.ru/money");
+                return User.getUrlWithCookieAuth("https://www.gamenet.ru/money");
             }
 
             function urlEncondingHack(url) {
@@ -177,8 +175,8 @@ WidgetView {
                         left: parent.left
                         right: parent.right
                         leftMargin: 38
-                        rightMargin: 10
-                        top: parent.top;
+                        rightMargin: 9
+                        top: parent.top
                         topMargin: 6
 
                     }
@@ -287,7 +285,7 @@ WidgetView {
                     newWindowParent: rootRect
 
                     onPaymentResponse: {
-                        UserJs.refreshBalance();
+                        User.refreshBalance();
                         root.closeWidget();
                     }
                 }

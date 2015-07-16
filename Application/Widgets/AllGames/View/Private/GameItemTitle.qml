@@ -8,8 +8,9 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
-import "../../../../Core/Styles.js" as Styles
+import QtQuick 2.4
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Column {
     spacing: 2
@@ -18,13 +19,13 @@ Column {
 
     Text {
         font { family: 'Open Sans Regular'; pixelSize: 24 }
-        color: Styles.style.bannerTitleText
+        color: Styles.bannerTitleText
         text: serviceItem ? serviceItem.name : 'name'
     }
 
     Text {
         font { family: 'Open Sans Regular'; pixelSize: 12 }
-        color: Styles.style.bannerInfoText
+        color: Styles.bannerInfoText
         text: serviceItem ? serviceItem.shortDescription : 'shortDescription'
     }
 }

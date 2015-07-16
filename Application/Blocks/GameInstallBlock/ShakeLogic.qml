@@ -1,21 +1,22 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import Application.Blocks 1.0
 
-import "../../Core/App.js" as App
+import Application.Core.Settings 1.0
+import Application.Core 1.0
 
 Item {
     property alias target: shakeAnimation.target
     property bool enabled: false
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
         onNavigate: {
             var needShake = (link == 'mygame' && from == 'GameItem')
                 && !enabled
-                && !App.isAppSettingsEnabled("qml/installBlock/", "shakeAnimationShown", false);
+                && !AppSettings.isAppSettingsEnabled("qml/installBlock/", "shakeAnimationShown", false);
 
             if (needShake) {
-                App.setAppSettingsValue("qml/installBlock/", "shakeAnimationShown", true);
+                AppSettings.setAppSettingsValue("qml/installBlock/", "shakeAnimationShown", true);
                 shakeAnimationTimer.start();
             }
         }

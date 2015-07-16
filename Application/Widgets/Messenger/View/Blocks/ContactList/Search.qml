@@ -8,12 +8,13 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
-import GameNet.Controls 1.0
-import Application.Controls 1.0
+import QtQuick 2.4
 
-import "../../../../../Core/Styles.js" as Styles
-import "../../../../../../GameNet/Controls/Tooltip.js" as Tooltip
+import GameNet.Controls 1.0
+
+import Application.Controls 1.0
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 FocusScope {
     id: searchContactItem
@@ -28,7 +29,7 @@ FocusScope {
         id: background
 
         anchors.fill: parent
-        color: Styles.style.contentBackgroundLight
+        color: Styles.contentBackgroundLight
         opacity: 0.15
     }
 
@@ -50,8 +51,8 @@ FocusScope {
             boldBorder: true
             onClicked: searchContactItem.localSearch = !searchContactItem.localSearch;
             icon: installPath + (searchContactItem.localSearch
-                                 ? Styles.style.messengerLocalSearchIcon
-                                 : Styles.style.messengerWebSearchIcon)
+                                 ? Styles.messengerLocalSearchIcon
+                                 : Styles.messengerWebSearchIcon)
 
             StateGroup {
                 states: [
@@ -99,7 +100,7 @@ FocusScope {
             height: parent.height
             width: parent.width - 42
 
-            icon: installPath + Styles.style.messengerChatSearchIcon
+            icon: installPath + Styles.messengerChatSearchIcon
             clearOnEsc: true
             placeholder: localSearch ? qsTr("MESSENGER_SEARCH_FRIEND_PLACE_HOLDER") :
                                        qsTr("MESSENGER_WEB_SEARCH_PLACE_HOLDER")

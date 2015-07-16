@@ -1,7 +1,8 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 
-import "../../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -20,8 +21,8 @@ Item {
         }
 
         visible: mouseArea.containsMouse
-        color: Styles.style.light
-        opacity: Styles.style.blockInnerOpacity
+        color: Styles.light
+        opacity: Styles.blockInnerOpacity
     }
 
     Row {
@@ -32,8 +33,8 @@ Item {
 
         Text {
             text: qsTr("ALL_GAMES_GRID_TITLE_TEXT")
-            color: mouseArea.containsMouse ? Styles.style.premiumInfoText :
-                                             Styles.style.textAttention
+            color: mouseArea.containsMouse ? Styles.premiumInfoText :
+                                             Styles.textAttention
             font {
                 pixelSize: 16
                 family: "Open Sans Light"
@@ -44,7 +45,7 @@ Item {
             id: crossImage
 
             anchors.verticalCenter: parent.verticalCenter
-            source: installPath + Styles.style.allGamesDropDown
+            source: installPath + Styles.allGamesDropDown
             transform: Rotation {
                 origin {
                   x: crossImage.width / 2

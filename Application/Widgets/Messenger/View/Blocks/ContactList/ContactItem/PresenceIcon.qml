@@ -7,8 +7,8 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
-import "../../../../../../Core/Styles.js" as Styles
+import QtQuick 2.4
+import Application.Core.Styles 1.0
 
 Rectangle {
     id: root
@@ -19,14 +19,14 @@ Rectangle {
         switch(status) {
         case "online":
         case "chat":
-            return Styles.style.messengerContactPresenceOnline;
+            return Styles.messengerContactPresenceOnline;
         case "dnd":
         case "away":
         case "xa":
-            return Styles.style.messengerContactPresenceDnd;
+            return Styles.messengerContactPresenceDnd;
         case "offline":
         default:
-            return Styles.style.messengerContactPresenceOffline;
+            return Styles.messengerContactPresenceOffline;
         }
     }
 

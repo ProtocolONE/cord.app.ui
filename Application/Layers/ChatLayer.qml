@@ -1,12 +1,12 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
 import "../../Application/Widgets/Messenger/Models/Messenger.js" as MessengerJs
-import "../Core/Styles.js" as Styles
-import "../Core/App.js" as App
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -21,7 +21,11 @@ Item {
         id: d
 
         property bool isChatOpen: MessengerJs.userSelected()
-        property bool isDetailedInfoOpened: userInfo.viewInstance.isOpened();
+        property bool isDetailedInfoOpened: d.isOpened()
+
+        function isOpened() {
+            return userInfo.viewInstance.isOpened ? userInfo.viewInstance.isOpened() : false;
+        }
     }
 
     WidgetContainer {
@@ -31,16 +35,16 @@ Item {
     }
 
     Rectangle {
-        color: Styles.style.contentBackgroundDark
-        opacity: Styles.style.darkBackgroundOpacity
+        color: Styles.contentBackgroundDark
+        opacity: Styles.darkBackgroundOpacity
         visible: d.isDetailedInfoOpened
         anchors.fill: parent
 
         CursorMouseArea {
             anchors.fill: parent
             hoverEnabled: true
-            cursor: CursorArea.ArrowCursor
-            onClicked: App.closeDetailedUserInfo();
+            cursor: Qt.ArrowCursor
+            onClicked: SignalBus.closeDetailedUserInfo();
         }
     }
 
@@ -57,4 +61,5 @@ Item {
         widget: 'DetailedUserInfo'
         view: 'DetailedUserInfoView'
     }
+
 }

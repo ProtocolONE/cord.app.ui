@@ -8,11 +8,11 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 
-import "../../Core/User.js" as User
-import "../../Core/restapi.js" as RestApiJs
+import Application.Core 1.0
 
 WidgetModel {
     id: root
@@ -59,7 +59,7 @@ WidgetModel {
             return;
         }
 
-        RestApiJs.User.validateNickname(encodeURIComponent(nickName),
+        RestApi.User.validateNickname(encodeURIComponent(nickName),
                                         function(response) {
                                             if (response.hasOwnProperty('error')){
                                                 var error = response.error;
@@ -98,7 +98,7 @@ WidgetModel {
             return;
         }
 
-        RestApiJs.User.validateTechNickname(encodeURIComponent(techName),
+        RestApi.User.validateTechNickname(encodeURIComponent(techName),
                                             function(response) {
                                                 if (response.hasOwnProperty('error')){
                                                     var error = response.error;
@@ -136,7 +136,7 @@ WidgetModel {
             return;
         }
 
-        RestApiJs.User.saveNickname(nickName,
+        RestApi.User.saveNickname(nickName,
                                     function(response) {
                                         if (response.hasOwnProperty('error')){
                                             var error = response.error;
@@ -170,7 +170,7 @@ WidgetModel {
             return;
         }
 
-        RestApiJs.User.saveTechNickname(techName,
+        RestApi.User.saveTechNickname(techName,
                                         function(response) {
                                             if (response.hasOwnProperty('error')){
                                                 var error = response.error;

@@ -7,13 +7,12 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
 import "../../../Models/Messenger.js" as MessengerJs
-import "../../../../../Core/Styles.js" as Styles
 
 NavigatableContactList {
     id: root
@@ -84,7 +83,7 @@ NavigatableContactList {
         }
 
         currentIndex: -1
-        highlightMoveSpeed: 1000
+        highlightMoveVelocity: 1000
         boundsBehavior: Flickable.StopAtBounds
         onCountChanged: currentIndex = -1;
         delegate: ContactItemDelegate {

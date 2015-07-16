@@ -8,7 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
 import GameNet.Controls 1.0
@@ -17,17 +17,17 @@ import GameNet.Components.Widgets 1.0
 import Application.Blocks.Auth 1.0
 import Application.Blocks.Popup 1.0
 
-import "../../../Core/Authorization.js" as Authorization
-import "../../../Core/App.js" as App
-import "../../../Core/Styles.js" as Styles
-import "../../../Core/User.js" as User
+import Application.Core 1.0
+import Application.Core.Styles 1.0
+import Application.Core.Authorization 1.0
+import Application.Core.Settings 1.0
 
 PopupBase {
     id: root
 
     title: qsTr("SECOND_ACCOUNT_ACTIVATION_TITLE")
 
-    defaultTitleColor: Styles.style.popupText
+    defaultTitleColor: Styles.popupText
 
     QtObject {
         id: d
@@ -36,11 +36,11 @@ PopupBase {
         property bool vkAuthInProgress: false
 
         function startVkAuth() {
-            App.setGlobalProgressVisible(true);
+            SignalBus.setGlobalProgressVisible(true, 0);
             d.vkAuthInProgress = true;
 
             Authorization.loginByVk(root, function(error, response) {
-                App.setGlobalProgressVisible(false);
+                SignalBus.setGlobalProgressVisible(false, 0);
                 d.vkAuthInProgress = false;
 
                 if (Authorization.isSuccess(error)) {
@@ -64,7 +64,7 @@ PopupBase {
         function loginSuggestion() {
             var logins = {};
             try {
-                logins = JSON.parse(Settings.value("qml/auth/", "authedLogins", "{}"));
+                logins = JSON.parse(AppSettings.value("qml/auth/", "authedLogins", "{}"));
             } catch (e) {
             }
 
@@ -74,7 +74,7 @@ PopupBase {
         function saveAuthorizedLogins(login) {
             var currentValue = d.loginSuggestion();
             currentValue[login] = +new Date();
-            Settings.setValue("qml/auth/" , "authedLogins", JSON.stringify(currentValue));
+            AppSettings.setValue("qml/auth/" , "authedLogins", JSON.stringify(currentValue));
             auth.loginSuggestion = currentValue;
         }
 
@@ -87,7 +87,7 @@ PopupBase {
                     }
                 }
 
-                App.secondAuthDone(userId, appKey, cookie);
+                SignalBus.secondAuthDone(userId, appKey, cookie);
             }
 
             root.close();

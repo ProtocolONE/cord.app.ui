@@ -1,5 +1,7 @@
-import QtQuick 1.1;
-import Tulip 1.0;
+import QtQuick 2.4
+import QtQuick.Window 2.2
+
+import Tulip 1.0
 import QXmpp 1.0
 
 import GameNet.Controls 1.0
@@ -34,7 +36,10 @@ Item {
 
     Shortcut {
         key: "Ctrl+Shift+L"
-        onActivated: content.sourceComponent = windowCmp
+        onActivated: {
+         console.log('--------------------------------------------- ')
+            content.sourceComponent = windowCmp
+        }
     }
 
     Component {
@@ -47,7 +52,7 @@ Item {
             height: Desktop.screenHeight - 50
             visible: true
 
-            onBeforeClosed: content.sourceComponent = null;
+            onClosing: content.sourceComponent = null;
 
             Connections {
                 target: logModel

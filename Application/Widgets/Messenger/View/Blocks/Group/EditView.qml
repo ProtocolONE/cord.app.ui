@@ -1,15 +1,12 @@
-import QtQuick 1.1
+import QtQuick 2.4
 
 import Tulip 1.0
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
 import Application.Controls 1.0
-
-import "../../../../../../GameNet/Controls/ContextMenu.js" as ContextMenu
-import "../../../../../../GameNet/Core/Analytics.js" as Ga
-
-import "../../../../../Core/App.js" as App
-import "../../../../../Core/Styles.js" as Styles
-import "../../../../../Core/MessageBox.js" as MessageBox
+import Application.Core 1.0
+import Application.Core.Styles 1.0
+import Application.Core.MessageBox 1.0
 
 import "../../../Models/Messenger.js" as Messenger
 
@@ -43,7 +40,7 @@ Item {
 
         function showInformation(user) {
             var item = Messenger.getUser(user.jid);
-            App.openDetailedUserInfo({
+            SignalBus.openDetailedUserInfo({
                                         userId: item.userId,
                                         nickname: item.nickname,
                                         status: item.presenceState
@@ -62,8 +59,8 @@ Item {
             var nickName = Messenger.getNickname(user);
             MessageBox.show(qsTr("MESSENGER_CHANGE_OWNER_ALERT_TITLE"),
                             qsTr("MESSENGER_CHANGE_OWNER_ALERT_BODY").arg(nickName),
-                            MessageBox.button.Ok | MessageBox.button.Cancel, function(result) {
-                                if (result != MessageBox.button.Ok) {
+                            MessageBox.button.ok | MessageBox.button.cancel, function(result) {
+                                if (result != MessageBox.button.ok) {
                                     return;
                                 }
 
@@ -83,7 +80,7 @@ Item {
     }
 
     CursorMouseArea {
-        cursor: CursorArea.ArrowCursor
+        cursor: Qt.ArrowCursor
         anchors.fill: parent
         hoverEnabled: true
     }
@@ -115,8 +112,8 @@ Item {
                 placeholder: qsTr("GROUP_EDIT_TOPIC_PLACEHOLDER") // "Название группы"
                 fontSize: 12
                 style {
-                    placeholder: Styles.style.textBase
-                    text: Styles.style.chatButtonText
+                    placeholder: Styles.textBase
+                    text: Styles.chatButtonText
                 }
             }
 

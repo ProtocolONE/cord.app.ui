@@ -1,10 +1,10 @@
-import QtQuick 1.1
+import QtQuick 2.4
 
 import GameNet.Components.Widgets 1.0
 
 import Application.Controls 1.0
 
-import "../../Core/Styles.js" as Styles
+import Application.Core 1.0
 
 Item {
     width: container.width + 2

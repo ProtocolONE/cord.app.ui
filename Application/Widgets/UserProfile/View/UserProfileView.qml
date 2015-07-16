@@ -8,20 +8,17 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
 import Tulip 1.0
 
-import "../../../Core/App.js" as App
-import "../../../Core/Popup.js" as Popup
-import "../../../Core/User.js" as User
-import "../../../Core/Styles.js" as Styles
-
-import "../../../../GameNet/Controls/ContextMenu.js" as ContextMenu
-import "../../../../GameNet/Core/Analytics.js" as Ga
+import Application.Core 1.0
+import Application.Core.Styles 1.0
+import Application.Core.Popup 1.0
 
 WidgetView {
     id: root
@@ -80,7 +77,7 @@ WidgetView {
         }
 
         function showInformation() {
-            App.openDetailedUserInfo({
+            SignalBus.openDetailedUserInfo({
                                         userId: User.userId(),
                                         nickname: User.getNickname(),
                                         status: "online"
@@ -101,7 +98,7 @@ WidgetView {
 
         anchors.fill: parent
         hoverEnabled: true
-        cursor: CursorArea.ArrowCursor
+        cursor: Qt.ArrowCursor
         acceptedButtons: Qt.RightButton
         onClicked: {
             ContextMenu.show(mouse, rootMouse, userProfileContextMenuComponent, { });
@@ -116,7 +113,7 @@ WidgetView {
 
                 Rectangle {
                     anchors.fill: parent
-                    color: Styles.style.light
+                    color: Styles.light
                     opacity: 0.15
                 }
 
@@ -143,13 +140,13 @@ WidgetView {
                             Text {
                                 id: baseText
 
-                                color: Styles.style.textBase
+                                color: Styles.textBase
                                 font { family: "Arial"; pixelSize: 12 }
                                 text: qsTr("GAMENET_BALANCE")
                             }
 
                             Text {
-                                color: Styles.style.menuText
+                                color: Styles.menuText
                                 font { family: "Arial"; pixelSize: 12 }
                                 text: model.balance
                             }
@@ -160,7 +157,7 @@ WidgetView {
                             }
 
                             Text {
-                                color: Styles.style.chatInactiveText
+                                color: Styles.chatInactiveText
                                 font { family: "Arial"; pixelSize: 12 }
                                 text: qsTr("PROFILE_MONEY_TEXT")
                                 visible: (x + width + topRow.spacing) < topItem.width
@@ -174,7 +171,7 @@ WidgetView {
 
                         Rectangle {
                             anchors.fill: parent
-                            color: Styles.style.light
+                            color: Styles.light
                             opacity: addMoneyMouseArea.containsMouse
                                     ? 0.25
                                     : 0.10
@@ -184,7 +181,7 @@ WidgetView {
                             anchors.centerIn: parent
                             text: qsTr("PROFILE_ADD_MONEY_TEXT")
 
-                            color: Styles.style.premiumInfoText
+                            color: Styles.premiumInfoText
                             font.pixelSize: 12
                         }
 
@@ -246,9 +243,9 @@ WidgetView {
 
                         styleImages: ButtonStyleImages {
                             normal: User.isPremium()
-                                    ? installPath + Styles.style.userProfilePremiumIcon.replace('.png', '_active.png')
-                                    : installPath + Styles.style.userProfilePremiumIcon
-                            hover: installPath + Styles.style.userProfilePremiumIcon.replace('.png', '_hover.png')
+                                    ? installPath + Styles.userProfilePremiumIcon.replace('.png', '_active.png')
+                                    : installPath + Styles.userProfilePremiumIcon
+                            hover: installPath + Styles.userProfilePremiumIcon.replace('.png', '_hover.png')
                             disabled: normal
                         }
                         onClicked: {
@@ -296,8 +293,8 @@ WidgetView {
                                 NicknameEdit {
                                     width: 150 - 30
                                     height: 18
-                                    color: root.nicknameValid ? Styles.style.menuText :
-                                                                Styles.style.infoText
+                                    color: root.nicknameValid ? Styles.menuText :
+                                                                Styles.infoText
 
                                     nickname: root.nicknameValid ? model.nickname : qsTr("NO_NICKNAME")
                                     tooltip: root.nicknameValid ? qsTr("YOUR_NICKNAME") : qsTr("SET_NICKNAME")
@@ -330,7 +327,7 @@ WidgetView {
 
                                         Text {
                                             text: qsTr("PROFILE_CHOISE_NICKNAME")
-                                            color: Styles.style.textBase
+                                            color: Styles.textBase
                                             font.pixelSize: 12
                                         }
                                     }
@@ -362,7 +359,7 @@ WidgetView {
 
                                         Text {
                                             text: qsTr("PROFILE_CONFIRM_LOGIN")
-                                            color: Styles.style.textBase
+                                            color: Styles.textBase
                                             font.pixelSize: 12
                                         }
                                     }
@@ -393,14 +390,14 @@ WidgetView {
                                         Text {
                                             anchors.verticalCenter: parent.verticalCenter
                                             text: User.getLevel()
-                                            color: Styles.style.textBase
+                                            color: Styles.textBase
                                             font.pixelSize: 12
                                         }
 
                                         Text {
                                             anchors.verticalCenter: parent.verticalCenter
                                             text: qsTr("PROFILE_LEVEL_TEXT")
-                                            color: Styles.style.textBase
+                                            color: Styles.textBase
                                             font.pixelSize: 12
                                         }
                                     }

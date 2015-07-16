@@ -24,7 +24,8 @@ function RoomParticipants(jabber, messenger) {
 
     function appendParticipant(user, rawOccupant) {
         debug('[RoomParticipants] append', JSON.stringify(rawOccupant))
-        user.participants.append(rawOccupant);
+       // HACK !!!! надо раскомменьтирвоать но сейчас не работает
+        //user.participants.append(rawOccupant);
     }
 
     function findOccupant(user, jid) {
@@ -88,7 +89,8 @@ function RoomParticipants(jabber, messenger) {
 
         // UNDONE sort occupants;
 
-        user.participants.clear();
+        // HACK !!!!! вернуть
+        //user.participants.clear();
         occupants.forEach(function(occupant) {
             appendParticipant(user, occupant);
         });

@@ -7,11 +7,12 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 import GameNet.Controls 1.0
 
-import "../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Button {
     id: root
@@ -47,7 +48,7 @@ Button {
         Text {
             id: captionText
 
-            color: Styles.style.mainMenuText
+            color: Styles.mainMenuText
             font { family: "Arial"; pixelSize: 16 }
             anchors.verticalCenter: parent.verticalCenter
         }

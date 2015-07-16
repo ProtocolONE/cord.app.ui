@@ -7,14 +7,13 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
 
-import "../../../../../Core/Styles.js" as Styles
-import "../../../../../Core/App.js" as App
-import "../../../../../Core/EmojiOne.js" as EmojiOne
-import "../../../../../Core/StringHelper.js" as StringHelper
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -97,8 +96,8 @@ Item {
                     anchors.fill: parent
 
                     color: root.isSelfMessage ?
-                               Styles.style.light :
-                               Styles.style.contentBackgroundLight
+                               Styles.light :
+                               Styles.contentBackgroundLight
 
                     opacity: root.isSelfMessage ? 0.15 : 0.08
 
@@ -147,7 +146,7 @@ Item {
                     Text {
                         id: nicknameText
 
-                        color: Styles.style.menuText
+                        color: Styles.menuText
 
                         font {
                             family: "Arial"
@@ -169,13 +168,13 @@ Item {
                         readOnly: true
                         selectByMouse: true
                         textFormat: TextEdit.RichText
-                        text: StringHelper.prepareText(root.body, {
-                                                           hyperLinkStyle: Styles.style.linkText,
+                        text: AppStringHelper.prepareText(root.body, {
+                                                           hyperLinkStyle: Styles.linkText,
                                                            smileResolver: EmojiOne.ns.toImage,
                                                            serviceResolver: App.serviceItemByServiceId
                                                        })
 
-                        color: root.isSelfMessage ? Styles.style.chatButtonText : Styles.style.textBase
+                        color: root.isSelfMessage ? Styles.chatButtonText : Styles.textBase
                         font {
                             family: "Arial"
                             pixelSize: 12
@@ -203,7 +202,7 @@ Item {
                     leftMargin: 12
                 }
 
-                color: Styles.style.textTime
+                color: Styles.textTime
 
                 font {
                     family: "Arial"

@@ -1,4 +1,4 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import Application.Blocks 1.0
 
 Rectangle {

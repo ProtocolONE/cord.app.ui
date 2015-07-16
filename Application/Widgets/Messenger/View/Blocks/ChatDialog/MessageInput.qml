@@ -7,18 +7,19 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
-import "../../../../../Core/App.js" as App
-import "../../../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
+
 import "../../../Models/Messenger.js" as MessengerJs
 import "../../../Models/Settings.js" as Settings
 
-import "../../../../../Core/EmojiOne.js" as EmojiOne
 
 FocusScope {
     id: root
@@ -201,7 +202,7 @@ FocusScope {
     Rectangle { // split sign
         width: 4
         height: 4
-        border { color: Styles.style.light }
+        border { color: Styles.light }
         opacity: 0.35
         color: '#00000000'
         radius: 2
@@ -225,7 +226,7 @@ FocusScope {
 
             Rectangle {
                 anchors.fill: parent
-                color: Styles.style.dark
+                color: Styles.dark
                 opacity: 0.2
             }
 
@@ -290,7 +291,7 @@ FocusScope {
                                     family: "Arial"
                                 }
 
-                                color: Styles.style.chatButtonText
+                                color: Styles.chatButtonText
                                 onCursorRectangleChanged: inputFlick.ensureVisible(cursorRectangle);
 
                                 Keys.onEnterPressed: {
@@ -408,9 +409,11 @@ FocusScope {
                     scrollbarWidth: 5
                 }
 
-                CursorArea {
+                MouseArea {
                     anchors.fill: parent
-                    cursor: CursorArea.IBeamCursor
+
+                    acceptedButtons: Qt.NoButton
+                    cursorShape: Qt.IBeamCursor
                 }
             }
 
@@ -453,7 +456,7 @@ FocusScope {
 
                     anchors.horizontalCenter: parent.horizontalCenter
 
-                    color: Styles.style.textBase
+                    color: Styles.textBase
                     text: getText()
                 }
             }

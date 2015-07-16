@@ -1,8 +1,8 @@
-import QtQuick 1.1
-import "../Core/Styles.js" as Styles
+import QtQuick 2.4
+import Application.Core.Styles 1.0
 
 Rectangle {
     anchors.fill: parent
-    color: Styles.style.contentBackground
-    opacity: Styles.style.baseBackgroundOpacity
+    color: Styles.contentBackground
+    opacity: Styles.baseBackgroundOpacity
 }

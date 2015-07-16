@@ -64,6 +64,7 @@ namespace Build_Fix_CreateComponent_Qrc_Bug
                 .Where(s => s.EndsWith(".qml") || s.EndsWith(".js"))
                 .ToArray();
 
+/*
             foreach (var filename in filenames)
             {
                 string qrcPath = Path.GetDirectoryName(filename)
@@ -80,6 +81,8 @@ namespace Build_Fix_CreateComponent_Qrc_Bug
                     File.WriteAllText(filename, res);  
                 }
             }
+*/
+
 /*
             foreach (var filename in filenames)
             {

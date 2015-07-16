@@ -49,21 +49,21 @@ _private = {
     },
 
     onUpdateAvatar: function(vcard) {
-        //console.log('---------- ', JSON.stringify(vcard), vcard.nickName)
+        //console.log('---------- onUpdateAvatar', JSON.stringify(vcard, null, 2))
         var item = _messenger.getUser(vcard.from);
         if (!item.isValid()) {
             return;
         }
 
-        if (vcard.extra) {
-            if (vcard.extra.PHOTOURL) {
-                item.avatar = vcard.extra.PHOTOURL + "?width=44";
-            }
-        }
-
-        if (!item.avatar) {
+        if (vcard.extra && vcard.extra.PHOTOURL) {
+            item.avatar = vcard.extra.PHOTOURL + "?width=44";
+        } else {
             item.avatar = _options.defaultAvatarPath + _private.getDefaultAvatar();
         }
+
+//        if (!item.avatar) {
+//            item.avatar = _options.defaultAvatarPath + _private.getDefaultAvatar();
+//        }
 
         var oldNickName = item.nickname;
         var newNickName = vcard.nickName || oldNickName || "";

@@ -1,3 +1,4 @@
 module QXmpp
 plugin qxmpp-declarative
-
+typeinfo plugins.qmltypes
+designersupported

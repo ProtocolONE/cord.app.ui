@@ -8,7 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import "./Popup.js" as TrayPopup
 
 Item {
@@ -74,7 +74,7 @@ Item {
         to: 0.2
         duration: 100
         running: false
-        onCompleted: {
+        onStopped: {
             destroyTimer.stop();
             TrayPopup.destroy(popupItem);
             popupItem.closed();

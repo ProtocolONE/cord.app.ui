@@ -1,9 +1,9 @@
-import QtQuick 1.1
+import QtQuick 2.4
 
 import GameNet.Controls 1.0
-import Application.Controls 1.0
 
-import "../../../../../../Core/Styles.js" as Styles
+import Application.Controls 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -22,7 +22,7 @@ Item {
             fill: parent
             margins: 1
         }
-        color: Styles.style.dark
+        color: Styles.dark
         opacity: 0.2
         visible: root.isActive
     }
@@ -33,7 +33,7 @@ Item {
             topMargin: 1
             bottomMargin: 1
         }
-        color: Styles.style.light
+        color: Styles.light
         opacity: 0.1
         visible: mouseArea.containsMouse
     }

@@ -8,17 +8,10 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
-//  INFO: закоментированно, потому что при таком подключении файл ToolTip.js выполняется 2 раза,
-//  несмотря на то, что объявлен как .pragma library
-//  Судя по всему есть некоторый баг в Qt, который в таком случаем воспринимает импорты как разные.
-//  Поэтому импорт сделан не через qmldir (см ниже)
-//import GameNet.Controls 1.0
-
-import "../../../Gamenet/Controls"
-import "../../../Gamenet/Controls/Tooltip.js" as Tooltip
+import GameNet.Controls 1.0
 
 Item {
     width: 1000

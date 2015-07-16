@@ -8,11 +8,12 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
-import "../../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Column {
     id: root
@@ -65,7 +66,7 @@ Column {
             property int offsetDuration: 0
 
             font { family: 'Arial'; pixelSize: 12 }
-            color: Styles.style.lightText
+            color: Styles.lightText
             text: d.getStatusText();
             smooth: true
         }

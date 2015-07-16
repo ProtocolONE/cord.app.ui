@@ -1,0 +1,2 @@
+module Application.Core.Settings
+singleton AppSettings 1.0 Settings.qml

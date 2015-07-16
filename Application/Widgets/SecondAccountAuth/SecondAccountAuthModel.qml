@@ -8,13 +8,12 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
 import GameNet.Components.Widgets 1.0
 
-import "../../Core/App.js" as App
-import "../../Core/User.js" as User
+import Application.Core 1.0
 
 WidgetModel {
     id: root
@@ -34,11 +33,11 @@ WidgetModel {
             return;
         }
 
-        App.secondAuthDone(savedAuth.userId, savedAuth.appKey, savedAuth.cookie);
+        SignalBus.secondAuthDone(savedAuth.userId, savedAuth.appKey, savedAuth.cookie);
     }
 
    Connections {
-       target: App.signalBus()
+       target: SignalBus
 
        onAuthDone: root.autoLogin();
        onLogoutRequest: root.secondLogout();

@@ -29,16 +29,13 @@ function createRawUser(jid, nickname) {
         inputMessage: "",
         avatar: "",
         lastActivity: 0,
-        isGamenet: false,
         lastTalkDate: 0,
         online: false,
         playingGame: "",
         inContacts: false,
         isGroupChat: false,
         participants: [],
-        subscription: 0,
-        __lastActivityRequested: false,
-        __vCardRequested: false,
+        subscription: 0
     };
 
     return result;
@@ -56,15 +53,12 @@ function createRawGroupChat(roomJid, nickname) {
         inputMessage: "",
         avatar: "",
         lastActivity: 0,
-        isGamenet: false,
         lastTalkDate: 0,
         online: false,
         playingGame: "",
         inContacts: false,
         isGroupChat: true,
-        participants: [],
-        __lastActivityRequested: false,
-        __vCardRequested: false
+        participants: []
     };
 
     return result;
@@ -75,7 +69,6 @@ function createGamenetUser() {
     obj.jid = getGamenetUserJid();
     obj.userId = "";
     obj.presenceState = "online";
-    obj.isGamenet = true;
     obj.online = true;
     return obj;
 }
@@ -104,6 +97,10 @@ function User(item, model, jabber) {
 
     var defSetter = function(field) {
         self.__defineSetter__(field, function(value) {
+             if (field =="avatar") {
+                 console.log('---- set avatar ', self.jid, value);
+             }
+
              model.setPropertyById(self.jid, field, value);
         });
     }
@@ -111,13 +108,6 @@ function User(item, model, jabber) {
     var defGetSet = function(field) {
         defGetter(field);
         defSetter(field);
-    }
-
-    function warmUpVCard() {
-        if (!_item.__vCardRequested && jabber.isConnected()) {
-            _model.setPropertyById(self.jid, '__vCardRequested', true);
-            jabber.vcardManager.requestVCard(self.jid);
-        }
     }
 
     this.__defineGetter__("jid", function() {
@@ -148,7 +138,6 @@ function User(item, model, jabber) {
     defGetSet("playingGame");
     defGetSet("inContacts");
 
-    defGetter("isGamenet");
     defGetter("isGroupChat");
 
     defGetSet("subscription");
@@ -162,19 +151,13 @@ function User(item, model, jabber) {
     });
 
     this.__defineGetter__("avatar", function() {
-        warmUpVCard()
-
+        jabber.requestVcard(_item.jid);
         return _item.avatar;
     });
     defSetter("avatar");
 
     this.__defineGetter__("lastActivity", function() {
-        if (!_item.__lastActivityRequested) {
-            _model.setPropertyById(self.jid, '__lastActivityRequested', true);
-            var value = jabber.getLastActivity(self.jid);
-            self.lastActivity = value;
-        }
-
+        jabber.getLastActivity(self.jid);
         return _item.lastActivity;
     });
     defSetter("lastActivity");
@@ -249,7 +232,6 @@ function GroupChat(item, model, jabber) {
     defGetSet("inContacts");
 
     defGetter("online");
-    defGetter("isGamenet");
     defGetter("isGroupChat");
 
     this.__defineGetter__("hasUnreadMessage", function() {

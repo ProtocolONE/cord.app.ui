@@ -1,10 +1,9 @@
-import QtQuick 1.1
+import QtQuick 2.4
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
 import GameNet.Components.JobWorker 1.0
 
-import "../../../../../GameNet/Core/lodash.js" as Lodash
-import "../../../../../GameNet/Core/RestApi.js" as RestApi
-import "../../../../Core/App.js" as App
+import Application.Core 1.0
 
 import "../User.js" as UserJs
 import "./PlayingGame.js" as Js
@@ -64,21 +63,25 @@ Item {
                 , modelUser
                 , playingGame
                 , gameItem
-                , gameName;
+                , gameName
+                , keys
+            ;
 
-            for (i = 0; i < usersModel.count; ++i) {
-                modelUser = usersModel.get(i);
+            keys = usersModel.keys();
+            for (i in keys) {
+                jid = keys[i];
+                modelUser = usersModel.get(jid);
+
                 if (!UserJs.isOnline(modelUser.presenceState) || UserJs.isGameNet(modelUser) || !modelUser.inContacts) {
-                    continue;
+                    return;
                 }
 
                 playingGame = modelUser.playingGame || "";
                 if (!playingGame || !App.serviceExists(playingGame)) {
-                    continue;
+                    return;
                 }
 
                 gameItem = App.serviceItemByServiceId(playingGame);
-                jid = modelUser.jid;
 
                 usersMap[jid] = {
                     nickname: modelUser.nickname.toLowerCase(),
@@ -87,6 +90,28 @@ Item {
 
                 users.push(jid);
             }
+
+//            for (i = 0; i < usersModel.count; ++i) {
+//                modelUser = usersModel.get(i);
+//                if (!UserJs.isOnline(modelUser.presenceState) || UserJs.isGameNet(modelUser) || !modelUser.inContacts) {
+//                    continue;
+//                }
+
+//                playingGame = modelUser.playingGame || "";
+//                if (!playingGame || !App.serviceExists(playingGame)) {
+//                    continue;
+//                }
+
+//                gameItem = App.serviceItemByServiceId(playingGame);
+//                jid = modelUser.jid;
+
+//                usersMap[jid] = {
+//                    nickname: modelUser.nickname.toLowerCase(),
+//                    gameName: gameItem.name.toLowerCase()
+//                };
+
+//                users.push(jid);
+//            }
         }
 
         function fillEmptyModel(usersMap, users) {
@@ -187,7 +212,12 @@ Item {
                 , nickname
                 , index;
 
+
             gameItem = App.serviceItemByServiceId(user.playingGame);
+            if (!gameItem) {
+                console.log('unknown playing game', user.playingGame)
+            }
+
             gameName = gameItem.name.toLowerCase();
             nickname = user.nickname.toLowerCase();
 
@@ -344,7 +374,7 @@ Item {
     }
 
     Connections {
-        target: App.signalBus();
+        target: SignalBus;
 
         onServiceStarted: {
             var info = {

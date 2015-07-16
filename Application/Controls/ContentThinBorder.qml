@@ -1,18 +1,13 @@
-import QtQuick 1.1
-import "../Core/Styles.js" as Styles
+import QtQuick 2.4
+import Application.Core.Styles 1.0
 
 Rectangle {
-    anchors {
-        fill: parent
-        bottomMargin: 1
-        rightMargin: 1
-    }
-
+    anchors.fill: parent
     color: "#00000000"
-    opacity: Styles.style.blockInnerOpacity
+    opacity: Styles.blockInnerOpacity
 
     border {
         width: 1
-        color: Styles.style.light
+        color: Styles.light
     }
 }

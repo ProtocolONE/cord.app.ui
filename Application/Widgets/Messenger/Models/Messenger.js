@@ -123,12 +123,14 @@ function userPlayingGame(user) {
 }
 
 function userPresenceState(user) {
-    var data = getUser(user.jid);
-    if (!data.isValid()) {
-        return;
-    }
+    return _modelInstance.userPresenceState(user.jid);
 
-    return data.presenceState;
+//    var data = getUser(user.jid);
+//    if (!data.isValid()) {
+//        return;
+//    }
+
+//    return data.presenceState;
 }
 
 function isSelectedUser(user) {
@@ -164,12 +166,7 @@ function isSelectedGamenet() {
 }
 
 function isGamenetUser(item) {
-    var user = getUser(item.jid);
-    if (!user.isValid()) {
-        return false;
-    }
-
-    return user.isGamenet;
+    return _modelInstance.isGamenetUser(item.jid);
 }
 
 function isConnecting() {

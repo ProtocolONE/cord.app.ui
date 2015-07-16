@@ -1,7 +1,8 @@
-import QtQuick 1.1
+import QtQuick 2.4
 
-import "../../Core/Styles.js" as Styles
-import "../../Core/moment.js" as Moment
+import GameNet.Core 1.0
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: delegate
@@ -60,7 +61,7 @@ Item {
 
             Text {
                 text: delegate.nickname
-                color: Styles.style.trayPopupTextHeader
+                color: Styles.trayPopupTextHeader
                 width: 182
                 elide: Text.ElideRight
                 anchors.verticalCenter: parent.verticalCenter
@@ -78,7 +79,7 @@ Item {
                 Text {
                     y: 3
                     text: Moment.moment(date).format("HH:mm")
-                    color: Styles.style.trayPopupTextHeader
+                    color: Styles.trayPopupTextHeader
                     elide: Text.ElideRight
                     wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                     font { pixelSize: 10; family: "Arial"}
@@ -100,7 +101,7 @@ Item {
 
                 text: getText()
 
-                color: Styles.style.trayPopupText
+                color: Styles.trayPopupText
                 textFormat: Text.RichText
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 font { pixelSize: 12; family: "Arial"}

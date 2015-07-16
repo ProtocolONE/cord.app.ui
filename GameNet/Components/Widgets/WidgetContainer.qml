@@ -8,7 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import "WidgetManager.js" as WidgetManager
 
 FocusScope {
@@ -19,7 +19,7 @@ FocusScope {
     property string widget: ''
     property string view: ''
 
-    property alias viewInstance: d.viewObj //@readonly
+    readonly property alias viewInstance: d.viewObj //@readonly
 
     onViewChanged: delayedUpdate.restart()
     onWidgetChanged: delayedUpdate.restart()
@@ -35,7 +35,6 @@ FocusScope {
         }
 
         if (d.viewObj) {
-            d.viewObj.clear();
             d.viewObj.destroy();
         }
     }
@@ -53,7 +52,7 @@ FocusScope {
             d.ignoreUpdate = false;
         }
 
-        d.updateView();
+        delayedUpdate.restart();
     }
 
     Timer {
@@ -61,12 +60,17 @@ FocusScope {
 
         interval: 0
         triggeredOnStart: false
-        onTriggered: d.updateView()
+        onTriggered: {
+            d.updateView()
+        }
     }
 
     Connections {
         target: WidgetManager._internal.getPrivateWrapper()
-        onWidgetsReady: d.updateView()
+        onWidgetsReady: {
+            delayedUpdate.restart();
+        }
+
     }
 
     QtObject {
@@ -88,7 +92,6 @@ FocusScope {
             d.viewObj = (root.view !== '')
                 ? WidgetManager.createNamedView(root.widget, root.view, root)
                 : WidgetManager.createView(root.widget, root);
-
             root.viewReady();
         }
     }

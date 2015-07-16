@@ -8,22 +8,15 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
-import Tulip 1.0
+import QtQuick 2.4
 
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
 import Application.Controls 1.0
-
-import "../../../../../../GameNet/Core/lodash.js" as Lodash
-import "../../../../../../GameNet/Core/Analytics.js" as Ga
-import "../../../../../../GameNet/Controls/ContextMenu.js" as ContextMenu
-
-import "../../../../../Core/moment.js" as Moment
-import "../../../../../Core/MessageBox.js" as MessageBox
-import "../../../../../Core/App.js" as App
+import Application.Core 1.0
+import Application.Core.MessageBox 1.0
 
 import "../../../Models/Messenger.js" as Messenger
-import "../../../Models/User.js" as User
 
 import "./ContactItem"
 
@@ -188,8 +181,8 @@ Item {
 
             MessageBox.show(qsTr("MESSENGER_DESTROY_ROOM_ALERT_TITLE"),
                             qsTr("MESSENGER_DESTROY_ROOM_ALERT_BODY"),
-                            MessageBox.button.Ok | MessageBox.button.Cancel, function(result) {
-                                if (result != MessageBox.button.Ok) {
+                            MessageBox.button.ok | MessageBox.button.cancel, function(result) {
+                                if (result != MessageBox.button.ok) {
                                     return;
                                 }
 
@@ -287,7 +280,7 @@ Item {
 
         function showInformation(user) {
             var item = Messenger.getUser(user.jid);
-            App.openDetailedUserInfo({
+            SignalBus.openDetailedUserInfo({
                                         userId: item.userId,
                                         nickname: item.nickname,
                                         status: item.presenceState
@@ -329,6 +322,7 @@ Item {
             userId: d.userId()
             onClicked:  {
                 if (!Messenger.editGroupModel().isActive()) {
+                    console.log('+++++ ', avatar)
                     root.select()
                     return;
                 }
@@ -367,7 +361,6 @@ Item {
         ContactItem {
             id: groupContactInstance
 
-            anchors.fill: parent
             avatar: d.imageRoot + 'groupChatAvatar.png';
             status: d.status()
             presenceStatus: d.presenceStatus()
@@ -460,7 +453,7 @@ Item {
         GroupEditHeader {
             anchors.fill: parent
             occupantModel: Messenger.editGroupModel().occupants()
-            title: Messenger.editGroupModel().groupTitle();
+           // title: Messenger.editGroupModel().groupTitle();
             onGroupButtonClicked: {
                 Messenger.editGroupModel().close();
             }

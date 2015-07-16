@@ -11,7 +11,7 @@
 ** @since: 2.0
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 
 Loader {
     signal failed();

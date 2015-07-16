@@ -1,9 +1,9 @@
-import QtQuick 1.1
-import Tulip 1.0
-import GameNet.Controls 1.0
-import Application.Controls 1.0
+import QtQuick 2.4
 
-import "../../../../../Core/Styles.js" as Styles
+import GameNet.Controls 1.0
+
+import Application.Controls 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -26,7 +26,7 @@ Item {
     }
 
     Text {
-        color: Styles.style.textBase
+        color: Styles.textBase
         text: root.text
         font.pixelSize: 14
 
@@ -40,6 +40,6 @@ Item {
     CursorMouseArea {
         anchors.fill: parent
         hoverEnabled: true
-        cursor: CursorArea.ArrowCursor
+        cursor: Qt.ArrowCursor
     }
 }

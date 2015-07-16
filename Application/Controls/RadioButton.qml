@@ -1,14 +1,15 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 
-import "../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 RadioButton {
     style {
-        normal: Styles.style.radioButtonNormal
-        hover: Styles.style.radioButtonHover
-        active: Styles.style.radioButtonActive
-        activeHover: Styles.style.radioButtonActiveHover
-        disabled: Styles.style.radioButtonDisabled
+        normal: Styles.radioButtonNormal
+        hover: Styles.radioButtonHover
+        active: Styles.radioButtonActive
+        activeHover: Styles.radioButtonActiveHover
+        disabled: Styles.radioButtonDisabled
     }
 }

@@ -9,10 +9,12 @@
 ****************************************************************************/
 
 import Tulip 1.0
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Components.Widgets 1.0
 
-import "../../Core/App.js" as App
+import Application.Core 1.0
+import Application.Models 1.0
+
 import "TaskList.js" as TaskListJs
 
 WidgetModel {
@@ -21,23 +23,23 @@ WidgetModel {
     function applyTaskList() {
         var elem
             , i
-            , installDir = installPath.replace("file:///", "")
-            , model = App.gamesListModel;
+            , installDir = installPath.replace("file:///", "");
 
         TaskList.removeAll();
 
-        for (i = 0; i < model.count; i++) {
-            elem = model.get(i);
+        var iconPath = StandardPaths.writableLocation(StandardPaths.DataLocation) + "/icons/";
+        for (i = 0; i < Games.count; i++) {
+            elem = Games.get(i);
 
             if (elem.gameType != "standalone") {
                 continue;
             }
 
-            var categoryId = (App.isServiceInstalled(elem.serviceId) || !!TaskListJs.installedServices[elem.serviceId]) ?
+            var categoryId = (ApplicationStatistic.isServiceInstalled(elem.serviceId) || !!TaskListJs.installedServices[elem.serviceId]) ?
                                 TaskListJs.installedCategory : TaskListJs.notInstalledCategory;
 
             TaskList.addItem(categoryId,
-                             installDir + "Assets/Images/icons/" + elem.serviceId + ".ico",
+                             iconPath + elem.serviceId + ".ico",
                              elem.name,
                              "",
                              "startservice/" + elem.serviceId);
@@ -70,7 +72,7 @@ WidgetModel {
     }
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
         onExitApplication: root.clear()
         onAuthDone: root.applyTaskList();
     }

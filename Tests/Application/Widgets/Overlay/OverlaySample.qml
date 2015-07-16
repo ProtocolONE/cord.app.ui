@@ -7,14 +7,15 @@
 //** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 //** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 //****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
 import Application.Controls 1.0
 
-import "../../../../Application/Core/App.js" as App
+import Application.Core 1.0
+import Application.Core.Settings 1.0
 
 Rectangle {
     id: root
@@ -84,7 +85,7 @@ Rectangle {
             manager.registerWidget('Application.Widgets.Overlay');
             manager.init();
 
-            App.setSettingsValue('gameExecutor/serviceInfo/' + serviceId + "/",
+            AppSettings.setValue('gameExecutor/serviceInfo/' + serviceId + "/",
                                  "overlayEnabled", 1);
 
             App.isPublicVersion = function() {
@@ -103,8 +104,8 @@ Rectangle {
         interval: 3000
         repeat: false
         onTriggered: {
-            App.serviceStarted(App.serviceItemByGameId("71"));
-            //App.navigate("gogamenetmoney");
+            SignalBus.serviceStarted(App.serviceItemByGameId("71"));
+            //SignalBus.navigate("gogamenetmoney", '');
         }
     }
 }

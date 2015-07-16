@@ -1,9 +1,9 @@
-import QtQuick 1.1
+import QtQuick 2.4
 
 import Tulip 1.0
 import GameNet.Controls 1.0
 
-import "../../../../../Core/Styles.js" as Styles
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -44,7 +44,7 @@ Item {
 
         Rectangle {
             anchors.fill: parent
-            color: Styles.style.light
+            color: Styles.light
             opacity: 0.1
             visible: parent.containsMouse
         }
@@ -100,7 +100,7 @@ Item {
 
                         width: parent.width
                         elide: Text.ElideRight
-                        color: Styles.style.menuText
+                        color: Styles.menuText
 
                         font {
                             pixelSize: 14
@@ -116,7 +116,7 @@ Item {
                     Text {
                         id: statusText
 
-                        color: Styles.style.textBase
+                        color: Styles.textBase
                         width: parent.width
                         elide: Text.ElideRight
                         opacity: 0.5
@@ -150,7 +150,7 @@ Item {
                         anchors.fill: parent
 
                         styleImages {
-                            normal: installPath + Styles.style.messengerChatClose
+                            normal: installPath + Styles.messengerChatClose
                         }
 
                         opacity: containsMouse ? 1 : 0.5

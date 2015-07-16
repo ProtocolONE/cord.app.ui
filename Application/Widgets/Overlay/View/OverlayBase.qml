@@ -1,11 +1,8 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 
-import "../../../../GameNet/Components/Widgets/WidgetManager.js" as WidgetManager
-
-import "../../../Core/User.js" as User
-import "../../../Core/App.js" as App
+import Application.Core 1.0
 
 import "./Chat"
 
@@ -54,7 +51,7 @@ Overlay {
     }
 
     Connections {
-        target: User.getInstance()
+        target: User
 
         onBalanceChanged: {
             over.sendMessage("custom.accountFunding", JSON.stringify({amount: balance}));

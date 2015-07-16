@@ -7,20 +7,18 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 import QXmpp 1.0
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
 import GameNet.Components.JobWorker 1.0
+import GameNet.Components.ItemModel 1.0
+
+import Application.Core 1.0
+import Application.Core.Settings 1.0
 
 import "./UserModels" as UserModels
-
-import "../../../../GameNet/Core/Strings.js" as StringHelper
-
-import "../../../Core/moment.js" as Moment
-import "../../../Core/MessageBox.js" as MessageBox
-import "../../../Core/App.js" as App
-import "../../../Core/User.js" as User
 
 import "MessengerPrivate.js" as MessengerPrivateJs
 import "User.js" as UserJs
@@ -112,10 +110,10 @@ Item {
     }
 
     function init() {
-        LoggerPlugin.init(xmppClient);
+        //LoggerPlugin.init(xmppClient);
 
         Smiles.init(xmppClient);
-        Events.init(xmppClient, App.signalBus());
+        Events.init(xmppClient, SignalBus);
 
         Bookmarks.init(xmppClient, root);
         Autojoin.init(xmppClient, root);
@@ -281,6 +279,7 @@ Item {
 
         var defaultAvatar = (installPath + "/Assets/Images/Application/Widgets/Messenger/defaultAvatar.png");
         var data = root.getUser(item.jid);
+
         if (!data.isValid()) {
             return defaultAvatar;
         }
@@ -289,17 +288,33 @@ Item {
     }
 
     function getNickname(item) {
-        if (!root.connected) {
-            return "";
-        }
+//        if (!root.connected) {
+//            return "";
+//        }
+
+//        if (usersModel.contains(item.jid)) {
+//            return usersModel.getById(item.jid).nickname;
+//        }
 
         var user = getUser(item.jid);
         if (!user || !user.isValid()) {
             return "";
         }
 
+        //return user.nickname;
         return user.nickname || item.jid;
+
+        //return "empty";
     }
+
+    function userPresenceState(jid) {
+        if (usersModel.contains(jid)) {
+            return usersModel.getById(jid).presenceState;
+        }
+
+        return "offline";
+    }
+
 
     function getFullStatusMessage(user) {
         var item;
@@ -342,13 +357,12 @@ Item {
         return data.lastActivity || 0;
     }
 
-    function isSelectedGamenet() {
-        var item = root.selectedUser();
-        if (!item.isValid()) {
-            return false;
-        }
+    function isGamenetUser(jid) {
+        return jid == UserJs.getGamenetUserJid();
+    }
 
-        return item.isGamenet;
+    function isSelectedGamenet() {
+        return root.selectedJid == UserJs.getGamenetUserJid();
     }
 
     function getGamenetUser() {
@@ -580,17 +594,19 @@ Item {
             groups = xmppClient.rosterManager.getGroups(fullJid);
 
             nickname = xmppClient.rosterManager.getNickname(fullJid) || externalNickName;
-            groups = xmppClient.rosterManager.getGroups(fullJid);
+            //groups = xmppClient.rosterManager.getGroups(fullJid);
             subscription = xmppClient.rosterManager.getSubscription(bareJid);
 
             unreadMessageUsersMap = d.unreadMessageUsers();
-            groups = groups.filter(function(e) {
-                return !!e;
-            });
+//            groups = groups.filter(function(e) {
+//                return !!e;
+//            });
 
             if (!usersModel.contains(bareJid)) {
+                rawUser = UserJs.createRawUser(fullJid, "");
+
                 rawUser = UserJs.createRawUser(fullJid, nickname || "");
-                rawUser.groups = groups.map(function(g){ return {name: g}; });
+          //      rawUser.groups = groups.map(function(g){ return {name: g}; });
                 rawUser.lastTalkDate = d.getUserTalkDate(rawUser);
                 rawUser.subscription = subscription;
                 rawUser.inContacts = (subscription == QXmppRosterManager.Both);
@@ -601,7 +617,7 @@ Item {
             // INFO Никнейм из вкарда мы берем теперь только в крайнем случаи
             // Основным никнеймом считаетеся никнейм из ростера
             item = root.getUser(fullJid);
-            item.groups = groups;
+            //item.groups = groups;
 
             // UNDONE set other properties
             if (unreadMessageUsersMap.hasOwnProperty(item.jid)) {
@@ -673,7 +689,7 @@ Item {
             MessengerPrivateJs.lastTalkDateMap[user.jid] = now;
             authedUserId = root.authedUser().userId;
 
-            Settings.setValue(
+            AppSettings.setValue(
                         'qml/messenger/recentconversation/' + authedUserId,
                         'lastTalkDate',
                         JSON.stringify(MessengerPrivateJs.lastTalkDateMap));
@@ -682,7 +698,7 @@ Item {
         }
 
         function loadUserTalkDate(userId) {
-            var loadString = Settings.value('qml/messenger/recentconversation/' + userId, 'lastTalkDate', "{}");
+            var loadString = AppSettings.value('qml/messenger/recentconversation/' + userId, 'lastTalkDate', "{}");
             try {
                 MessengerPrivateJs.lastTalkDateMap = JSON.parse(loadString);
             } catch(e) {
@@ -700,7 +716,7 @@ Item {
             }
 
             var storedUsers = {},
-                settingsValue = Settings.value('qml/messenger/unreadmessage/', myUser.jid, "{}");
+                settingsValue = AppSettings.value('qml/messenger/unreadmessage/', myUser.jid, "{}");
 
             try {
                 storedUsers = JSON.parse(settingsValue);
@@ -721,7 +737,7 @@ Item {
                 storedUsers[jid] = {count: count};
             }
 
-            Settings.setValue('qml/messenger/unreadmessage/', myUser.jid, JSON.stringify(storedUsers));
+            AppSettings.setValue('qml/messenger/unreadmessage/', myUser.jid, JSON.stringify(storedUsers));
 
             MessengerPrivateJs.unreadMessageCountMap = storedUsers;
         }
@@ -752,13 +768,49 @@ Item {
         }
     }
 
-    ExtendedListModel {
+//    ExtendedListModel {
+//        id: usersModel
+
+//        idProperty: "jid"
+//    }
+
+    ItemModel {
         id: usersModel
 
-        idProperty: "jid"
+        indexProperty: "jid"
+        prototype: usersModelComponent
+        notifableProperty: ["nickname", "presenceState", "lastActivity"]
+        onPropertyChanged: {
+            console.log("usersModel proerpty changed ", id, key)
+        }
     }
 
-    User {
+    Component {
+        id: usersModelComponent
+
+        QtObject {
+            property string userId: ""
+            property string jid: ""
+            property variant groups
+
+            property string nickname: ""
+            property int unreadMessageCount: 0
+            property string statusMessage: ""
+            property string presenceState: ""
+            property string inputMessage: ""
+            property string avatar: ""
+            property int lastActivity: 0
+            property int lastTalkDate: 0
+            //property bool online: true по факту вычисляемы параметр по presenceState
+            property string playingGame: ""
+            property bool inContacts: false
+            property bool isGroupChat: false
+            property variant participants
+            property int subscription: 0
+        }
+    }
+
+    MessengerAuthedUser {
         id: myUser
     }
 
@@ -886,7 +938,7 @@ Item {
     }
 
     Connections {
-        target: User.getInstance()
+        target: User
         onNicknameChanged: {
             var user = root.authedUser();
             user.nickname = User.getNickname();
@@ -894,7 +946,7 @@ Item {
     }
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
         onLogoutDone: {
             myUser.avatar = '';
             xmppClient.failCount = 0;

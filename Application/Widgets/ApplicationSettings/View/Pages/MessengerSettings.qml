@@ -8,15 +8,14 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
+import GameNet.Components.Widgets 1.0
 
 import Application.Controls 1.0
+import Application.Core 1.0
+import Application.Core.MessageBox 1.0
 
-import "../../../../../GameNet/Components/Widgets/WidgetManager.js" as WidgetManager
-
-import "../../../../Core/App.js" as App
-import "../../../../Core/MessageBox.js" as MessageBox
 import "../../../Messenger/Models/Settings.js" as MessengerSettings
 
 Item {
@@ -128,9 +127,9 @@ Item {
                 text: qsTr("HISTORY_CLEAR_BUTTON")
                 onClicked: {
                     MessageBox.show(qsTr("INFO_CAPTION"), qsTr("CONFIRM_CLEAR_HISTORY"),
-                        MessageBox.button['Yes'] | MessageBox.button['Cancel'],
+                        MessageBox.button.yes | MessageBox.button.cancel,
                         function(result) {
-                            if (result == MessageBox.button['Yes']) {
+                            if (result == MessageBox.button.yes) {
                                 var widget = WidgetManager.getWidgetByName('Messenger');
                                 widget.model.clearHistory();
                             }

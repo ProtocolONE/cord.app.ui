@@ -8,13 +8,12 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 
 import "../../Core/Popup.js" as TrayPopup
 import "./Popups.js" as Popups
-
-import "../../../../../GameNet/Core/Analytics.js" as Ga
 
 Item {
     id: root

@@ -7,7 +7,7 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 
 Item {
@@ -43,14 +43,26 @@ Item {
 
     implicitHeight: 31
 
+    function getControlState() {
+        if (!control.enabled) {
+            return 'Disabled';
+        }
+
+        if (control.inProgress) {
+            return 'InProgress';
+        }
+
+        if (control.checked) {
+            return control.containsMouse ? 'CheckedHover' : 'CheckedNormal';
+        }
+
+        return control.containsMouse ? 'Hover' : 'Normal';
+    }
+
     Rectangle {
         id: background
 
-        anchors {
-            fill: parent
-            margins: 1
-        }
-
+        anchors.fill: parent
         opacity: 1
         color: control.style.active
 
@@ -69,6 +81,7 @@ Item {
 
         Image {
             id: image
+
             anchors.verticalCenter: parent.verticalCenter
         }
 
@@ -92,14 +105,7 @@ Item {
 
         property bool boldBorder: control.boldBorder & control.checked & control.enabled
 
-        anchors {
-            fill: parent
-            rightMargin: 1
-            bottomMargin: 1
-            leftMargin: borderRect.boldBorder ? 1 : 0
-            topMargin: borderRect.boldBorder ? 1 : 0
-        }
-
+        anchors.fill: parent
         color: "#00000000"
         border {
             width: borderRect.boldBorder ? 2 : 1
@@ -123,21 +129,7 @@ Item {
     }
 
     StateGroup {
-        state: function() {
-            if (!control.enabled) {
-                return 'Disabled';
-            }
-
-            if (control.inProgress) {
-                return 'InProgress';
-            }
-
-            if (control.checked) {
-                return control.containsMouse ? 'CheckedHover' : 'CheckedNormal';
-            }
-
-            return control.containsMouse ? 'Hover' : 'Normal';
-        }()
+        state: control.getControlState()
 
         states: [
             State {

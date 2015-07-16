@@ -66,6 +66,7 @@
 		<file>Application/Controls/ContextMenuView.qml</file>
 		<file>Application/Controls/DelayedBinding.qml</file>
 		<file>Application/Controls/DownloadProgressBar.qml</file>
+		<file>Application/Controls/DragWindowArea.qml</file>
 		<file>Application/Controls/HiddenAppCloseButton.qml</file>
 		<file>Application/Controls/Input.qml</file>
 		<file>Application/Controls/InputWithError.qml</file>
@@ -92,33 +93,33 @@
 		<file>Application/Core/Authorization.js</file>
 		<file>Application/Core/Authorization/Vk.qml</file>
 		<file>Application/Core/EmojiOne.js</file>
-		<file>Application/Core/MessageBox.js</file>
-		<file>Application/Core/MessageBox.qml</file>
-		<file>Application/Core/Modules/ApplicationStatistic.js</file>
+		<file>Application/Core/MessageBox/MessageBox.js</file>
+		<file>Application/Core/MessageBox/MessageBox.qml</file>
+		<file>Application/Core/MessageBox/MessageBoxButtons.qml</file>
+		<file>Application/Core/MessageBox/qmldir</file>
 		<file>Application/Core/Modules/ApplicationStatistic.qml</file>
-		<file>Application/Core/Modules/Host.js</file>
-		<file>Application/Core/Modules/Host.qml</file>
+		<file>Application/Core/Modules/ApplicationStatisticPrivate.qml</file>
 		<file>Application/Core/Modules/Mocks/ApplicationSettingsMock.qml</file>
 		<file>Application/Core/Modules/Mocks/GameSettingsMock.qml</file>
 		<file>Application/Core/Modules/Mocks/MainWindowMock.qml</file>
-		<file>Application/Core/Modules/Overlay.js</file>
-		<file>Application/Core/Modules/Service.js</file>
-		<file>Application/Core/Modules/ServiceHandleModel.js</file>
 		<file>Application/Core/Modules/ServiceHandleModel.qml</file>
-		<file>Application/Core/Modules/Settings.js</file>
-		<file>Application/Core/Modules/Settings.qml</file>
-		<file>Application/Core/Modules/SignalBus.js</file>
+		<file>Application/Core/Modules/ServiceHandleModelPrivate.qml</file>
 		<file>Application/Core/Modules/SignalBus.qml</file>
 		<file>Application/Core/moment.js</file>
-		<file>Application/Core/Popup.js</file>
-		<file>Application/Core/Popup.qml</file>
+		<file>Application/Core/Popup/Popup.js</file>
+		<file>Application/Core/Popup/Popup.qml</file>
+		<file>Application/Core/Popup/qmldir</file>
+		<file>Application/Core/qmldir</file>
 		<file>Application/Core/restapi.js</file>
+		<file>Application/Core/RootWindow/qmldir</file>
+		<file>Application/Core/RootWindow/RootWindow.qml</file>
+		<file>Application/Core/Settings/qmldir</file>
+		<file>Application/Core/Settings/Settings.qml</file>
 		<file>Application/Core/StringHelper.js</file>
-		<file>Application/Core/Styles.js</file>
-		<file>Application/Core/Styles.qml</file>
+		<file>Application/Core/Styles/qmldir</file>
+		<file>Application/Core/Styles/Styles.qml</file>
 		<file>Application/Core/TrayPopup.js</file>
 		<file>Application/Core/TrayPopup.qml</file>
-		<file>Application/Core/User.js</file>
 		<file>Application/Core/User.qml</file>
 		<file>Application/Layers/BaseLayer.qml</file>
 		<file>Application/Layers/ChatLayer.qml</file>
@@ -126,6 +127,7 @@
 		<file>Application/Layers/Private/MainGamePage.qml</file>
 		<file>Application/Layers/qmldir</file>
 		<file>Application/Models/GamesListModel.qml</file>
+		<file>Application/Models/qmldir</file>
 		<file>Application/qmldir</file>
 		<file>Application/Widgets/AccountActivation/PluginContainer.qml</file>
 		<file>Application/Widgets/AccountActivation/qmldir</file>
@@ -266,6 +268,7 @@
 		<file>Application/Widgets/Messenger/Models/Message.js</file>
 		<file>Application/Widgets/Messenger/Models/Messenger.js</file>
 		<file>Application/Widgets/Messenger/Models/Messenger.qml</file>
+		<file>Application/Widgets/Messenger/Models/MessengerAuthedUser.qml</file>
 		<file>Application/Widgets/Messenger/Models/MessengerPrivate.js</file>
 		<file>Application/Widgets/Messenger/Models/MetaStorage.js</file>
 		<file>Application/Widgets/Messenger/Models/Migrations/History.qml</file>
@@ -273,7 +276,6 @@
 		<file>Application/Widgets/Messenger/Models/Settings.js</file>
 		<file>Application/Widgets/Messenger/Models/Storage.qml</file>
 		<file>Application/Widgets/Messenger/Models/User.js</file>
-		<file>Application/Widgets/Messenger/Models/User.qml</file>
 		<file>Application/Widgets/Messenger/Models/UserModels/AllContacts.js</file>
 		<file>Application/Widgets/Messenger/Models/UserModels/AllContacts.qml</file>
 		<file>Application/Widgets/Messenger/Models/UserModels/PlayingGame.js</file>

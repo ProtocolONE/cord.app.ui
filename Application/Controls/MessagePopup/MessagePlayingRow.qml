@@ -1,7 +1,7 @@
-import QtQuick 1.1
+import QtQuick 2.4
 
-import "../../Core/Styles.js" as Styles
-import "../../Core/App.js" as App
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Row {
     id: root
@@ -20,7 +20,7 @@ Row {
         text: qsTr("PLAYING_GAME_MESSANGE_TEXT").arg(root.playingGameServiceId != '' ?
                                                          App.serviceItemByServiceId(root.playingGameServiceId).name :
                                                          '')
-        color: Styles.style.trayPopupPlayText
+        color: Styles.trayPopupPlayText
         elide: Text.ElideRight
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         maximumLineCount: 3

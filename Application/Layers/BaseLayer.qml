@@ -1,18 +1,15 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 
+import Application.Core 1.0
+import Application.Core.Popup 1.0
 import Application.Controls 1.0
 import Application.Blocks 1.0
 import Application.Blocks.Header 1.0
 import Application.Blocks.GameMenu 1.0
 
 import "./Private"
-import "../../Application/Core/App.js" as App
-import "../../Application/Core/TrayPopup.js" as TrayPopup
-import "../../Application/Core/User.js" as User
-import "../../Application/Core/Popup.js" as Popup
-import "../../Application/Core/Styles.js" as Styles
 
 Item {
     id: root
@@ -25,13 +22,14 @@ Item {
     implicitHeight: 600
 
     Component.onCompleted: {
+
         if (App.startingService() != '0') {
             App.activateGame(App.serviceItemByServiceId(App.startingService()));
-            App.navigate("mygame");
+            SignalBus.navigate("mygame", "");
             return;
         }
 
-        App.navigate("allgame");
+        SignalBus.navigate("allgame", "");
     }
 
     Image {
@@ -50,7 +48,7 @@ Item {
     }
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
         onNavigate: {
             switch (link) {
                 case 'ApplicationSettings':{
@@ -88,7 +86,7 @@ Item {
         Header {
             width: parent.width
             height: 30
-            onSwitchTo: App.navigate(page);
+            onSwitchTo: SignalBus.navigate(page, "");
         }
 
         Row {
@@ -166,7 +164,7 @@ Item {
                     return;
                 }
 
-                if (!App.isServiceInstalled(root.currentGame.serviceId)) {
+                if (!ApplicationStatistic.isServiceInstalled(root.currentGame.serviceId)) {
                     gameMenu.pageClicked('AboutGame');
                 } else {
                     gameMenu.pageClicked('News');
@@ -213,6 +211,7 @@ Item {
                     }
                 }
             }
+
         }
     }
 

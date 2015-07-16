@@ -1,8 +1,8 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import Application.Blocks 1.0
 import GameNet.Controls 1.0
 
-import "../../../Application/Core/App.js" as App
+import Application.Core 1.0
 import "../Widgets"
 
 Rectangle {
@@ -81,7 +81,7 @@ Rectangle {
                 var item = App.serviceItemByServiceId(root.serviceId);
                 item.status = "Downloading";
                 item.statusText = qsTr("Загрузка игры 1956,35 из 3347,21");
-                App.updateProgress(item);
+                SignalBus.progressChanged(item);
             }
         }
         Button {
@@ -112,8 +112,10 @@ Rectangle {
                   var item = App.serviceItemByServiceId(root.serviceId);
                   item.status = "Starting";
                   item.statusText = "Подготовка к запуску";
-                  App.serviceStarted(item);
-                  App.runningService[serviceId] = 1;
+                  SignalBus.serviceStarted(item);
+
+                  App.serviceStarted(serviceId) // fail
+                  //App.runningService[serviceId] = 1;
             }
         }
         Button {

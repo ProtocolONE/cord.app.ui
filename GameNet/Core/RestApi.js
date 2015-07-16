@@ -636,7 +636,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.148.9f5b03de941df9da38cd981c754bf2f978a9641e",
+    version: "1.0.150.765efd67b47873235b8de88cb0788d9bc3369511",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',
@@ -816,7 +816,14 @@ var Service = function() {
 Service.getServices = function(sessionId, successCallback, failedCallback) {
     Core.execute('service.getServices', { sessionId : sessionId }, true, successCallback, failedCallback);
 };
-var Social = function() {
+
+Service.getUi = function(successCallback, failedCallback) {
+    Core.execute('service.getUi', {}, false, successCallback, failedCallback);
+};
+
+Service.getGrid = function(successCallback, failedCallback) {
+    Core.execute('service.getGrid', {}, true, successCallback, failedCallback);
+};var Social = function() {
 };
 
 Social.sendInvite = function(friendId, successCallback, failedCallback) {

@@ -1,9 +1,9 @@
-import QtQuick 1.1
-import "../Core/Styles.js" as Styles
+import QtQuick 2.4
+import Application.Core.Styles 1.0
 
 Rectangle {
     implicitWidth: 1
     implicitHeight: 1
-    color: Styles.style.light
-    opacity: Styles.style.blockInnerOpacity
+    color: Styles.light
+    opacity: Styles.blockInnerOpacity
 }

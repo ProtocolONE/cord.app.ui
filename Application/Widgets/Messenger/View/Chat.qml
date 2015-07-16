@@ -7,19 +7,20 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
 import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
+
 import Application.Controls 1.0
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 import "./Blocks/ChatDialog" as ChatDialog
 import "./Blocks/ChatDialog/Smile" as SmilesBlock
 
 import "../Models/Messenger.js" as MessengerJs
-import "../../../Core/App.js" as App
-import "../../../Core/Styles.js" as Styles
 
 import "./Blocks/Group" as GroupBlock
 
@@ -76,8 +77,8 @@ WidgetView {
         x: -1
         height: parent.height
         width: 1
-        color: Styles.style.contentBackgroundDark
-        opacity: Styles.style.baseBackgroundOpacity
+        color: Styles.contentBackgroundDark
+        opacity: Styles.baseBackgroundOpacity
     }
 
     ChatDialog.Header {
@@ -133,7 +134,7 @@ WidgetView {
         height: 8
 
         acceptedButtons: Qt.LeftButton
-        cursor: CursorArea.SizeVerCursor
+        cursor: Qt.SizeVerCursor
         visible: messageInput.visible
         drag {
             target: separator
@@ -172,7 +173,7 @@ WidgetView {
             onCloseRequest: MessengerJs.setSmilePanelVisible(false);
 
             Connections {
-                target: App.signalBus()
+                target: SignalBus
                 onLeftMousePress: {
                     var posInItem = smilePanel.mapFromItem(rootItem, x, y);
                     var contains = posInItem.x >= 0 && posInItem.y >=0

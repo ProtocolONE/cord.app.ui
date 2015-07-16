@@ -1,18 +1,20 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Components.Widgets 1.0
 import GameNet.Components.JobWorker 1.0
 import GameNet.Controls 1.0
 
 import Application.Controls 1.0
 
-import "../../../Application/Core/Styles.js" as Styles
+import Application.Core 1.0
+
+import Dev 1.0
 
 Rectangle {
     id: root
 
     width: 1000
     height: 600
-    color: Styles.style.applicationBackground
+    color: Styles.applicationBackground
 
     Grid {
         spacing: 10
@@ -25,6 +27,7 @@ Rectangle {
             height: 50
 
             onClicked: checked = !checked
+
         }
 
         CheckedButton {

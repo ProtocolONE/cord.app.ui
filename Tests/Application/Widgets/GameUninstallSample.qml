@@ -7,14 +7,15 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
+import Dev 1.0
 import Tulip 1.0
 
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
-import "../../../Application/Core/App.js" as App
-import "../../../Application/Core/Popup.js" as Popup
+import Application.Core 1.0
+import Application.Core.Popup 1.0
 
 Rectangle {
     width: 1000
@@ -62,15 +63,15 @@ Rectangle {
 
         function uninstallStarted() {
             d.statusText = "Подготовка в удалению игры " + d.name;
-            App.uninstallStarted(d.serviceId);
+            SignalBus.uninstallStarted(d.serviceId);
         }
         function uninstallProgressChanged(progress) {
             d.progress = progress;
             d.statusText = "Удаление файлов игры " + d.name;
-            App.uninstallProgressChanged(d.serviceId, progress);
+            SignalBus.uninstallProgressChanged(d.serviceId, progress);
         }
         function uninstallFinished() {
-            App.uninstallFinished(d.serviceId);
+            SignalBus.uninstallFinished(d.serviceId);
         }
     }
 

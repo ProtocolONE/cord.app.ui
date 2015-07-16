@@ -1,14 +1,15 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 
-import "../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Button {
     style {
-        normal: Styles.style.minorButtonNormal
-        hover: Styles.style.minorButtonHover
-        disabled: Styles.style.minorButtonDisabled
-        active: Styles.style.minorButtonActive
+        normal: Styles.minorButtonNormal
+        hover: Styles.minorButtonHover
+        disabled: Styles.minorButtonDisabled
+        active: Styles.minorButtonActive
     }
-    textColor: Styles.style.minorButtonText
+    textColor: Styles.minorButtonText
 }

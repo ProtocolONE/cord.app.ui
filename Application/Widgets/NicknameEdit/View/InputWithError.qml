@@ -7,10 +7,11 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 
-import "../../../Core/Styles.js" as Style
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 ErrorContainer {
     id: root
@@ -33,8 +34,8 @@ ErrorContainer {
     error: input.error
 
     style {
-        text: Style.style.errorContainerText
-        background: Style.style.errorContainerBackground
+        text: Styles.errorContainerText
+        background: Styles.errorContainerBackground
     }
 
     onFocusChanged: {

@@ -7,15 +7,15 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
 import GameNet.Controls 1.0
 import Application.Blocks 1.0
 import Application.Controls 1.0
 
-import "../../../../../Application/Core/App.js" as App
-import "../../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -35,7 +35,7 @@ Item {
     property bool selected: mouseArea.containsMouse || startButton.containsMouse
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
 
         onProgressChanged: {
             if (serviceItem.serviceId != gameItem.serviceId) {
@@ -100,7 +100,7 @@ Item {
 
             onClicked: {
                 App.activateGameByServiceId(serviceItem.serviceId);
-                App.navigate('mygame', 'GameItem');
+                SignalBus.navigate('mygame', 'GameItem');
                 root.clicked(serviceItem);
             }
         }
@@ -121,7 +121,7 @@ Item {
 
             Rectangle {
                 anchors.fill: parent
-                color: Styles.style.popupBlockBackground
+                color: Styles.popupBlockBackground
                 opacity: root.selected || stateGroup.state == 'Downloading' ? 0.77 : 0
                 z: informationContent.isSmall() && stateGroup.state != 'Downloading' ? 1 : 0
 
@@ -151,11 +151,11 @@ Item {
 
         Rectangle {
             border {
-                color: Styles.style.gameGridHightlight
+                color: Styles.gameGridHightlight
                 width: 4
             }
             color: '#00000000'
-            anchors { fill: parent }
+            anchors.fill: parent
             opacity: root.selected ? 1 : 0
 
             Behavior on opacity {
@@ -180,14 +180,14 @@ Item {
             }
 
             style {
-                normal: Styles.style.primaryButtonNormal
-                hover: Styles.style.primaryButtonHover
-                disabled: Styles.style.primaryButtonDisabled
+                normal: Styles.primaryButtonNormal
+                hover: Styles.primaryButtonHover
+                disabled: Styles.primaryButtonDisabled
             }
 
             onClicked: {
                 App.activateGameByServiceId(root.serviceItem.serviceId);
-                App.navigate('mygame', 'GameItem');
+                SignalBus.navigate('mygame', 'GameItem');
                 App.downloadButtonStart(serviceItem.serviceId);
             }
 

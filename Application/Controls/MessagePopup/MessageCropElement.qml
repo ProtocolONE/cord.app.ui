@@ -1,6 +1,7 @@
-import QtQuick 1.1
+import QtQuick 2.4
 
-import "../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Item {
     height: 10
@@ -14,21 +15,21 @@ Item {
         spacing: 5
 
         Rectangle {
-            color: Styles.style.trayPopupTextHeader
+            color: Styles.trayPopupTextHeader
             width: 5
             height: width
             radius: height / 2
         }
 
         Rectangle {
-            color: Styles.style.trayPopupTextHeader
+            color: Styles.trayPopupTextHeader
             width: 5
             height: width
             radius: height / 2
         }
 
         Rectangle {
-            color: Styles.style.trayPopupTextHeader
+            color: Styles.trayPopupTextHeader
             width: 5
             height: width
             radius: height / 2

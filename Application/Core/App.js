@@ -9,274 +9,84 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-/**
- * App.js is an facade object for c++ host application proxy, qml signalbus object.
- */
 var indexToGameItem = {},
     gameIdToGameItem = {},
     serviceIdToGameItemIdex = {},
     serviceStartButtonClicked = {},
     servicesGrid,
-    authAccepted = false,
-    count = 0,
-    clientWidth = 1000,
-    clientHeight = 600;
+    _previousGame,
+    runningService = {};
 
-/**
- * Import modules
- */
-Qt.include('./Modules/SignalBus.js');
-Qt.include('./Modules/Host.js');
-Qt.include('./Modules/Settings.js');
-Qt.include('./Modules/Overlay.js');
-Qt.include('./Modules/ServiceHandleModel.js');
-Qt.include('./Modules/ApplicationStatistic.js');
-Qt.include('./Modules/Service.js');
+function createService(data) {
+    var item = {},
+        properties,
+        urlProps;
 
-var gamesListModel = initModel(),
-    _gamesListModelList,
-    _previousGame = gamesListModel.currentGameItem;
-
-function initModel() {
-    var component = Qt.createComponent('../Models/GamesListModel.qml');
-
-    if (component.status != 1) {
-        console.log('FATAL: error loading model:', component.errorString());
+    if (!data || !data.hasOwnProperty("serviceId")) {
         return null;
     }
 
-    _gamesListModelList = component.createObject(null);
-    if (!_gamesListModelList) {
-        console.log('FATAL: error creating model');
-        return null;
-    }
+    // Internal item properties
+    item.maintenance = false;
+    item.maintenanceInterval = 0;
+    item.allreadyDownloaded = false;
+    item.progress = -1;
+    item.isInstalled = false;
+    item.status = "Normal";
+    item.statusText = "";
+    item.menu = [];
+    item.currentMenuIndex = 1;
+    item.widgets = {};
 
-    return _gamesListModelList;
-}
+    // External item properties
+    item.gameId = data.gameId || 0;
+    item.serviceId = data.serviceId || '';
+    item.name = data.name || '';
+    item.gaName = data.gaName || '';
+    item.gameType = data.gameType || '';
+    item.genre = data.genre || '';
+    item.imageSmall = data.imageSmall || '';
+    item.imageHorizontalSmall = data.imageHorizontalSmall || '';
+    item.imageLogoSmall = data.imageLogoSmall || '';
+    item.imagePopupArt = data.imagePopupArt || '';
+    item.maintenanceProposal1 = data.maintenanceProposal1 || '';
+    item.maintenanceProposal2 = data.maintenanceProposal2 || '';
+    item.logoText = data.logoText || '';
+    item.aboutGame = data.aboutGame || '';
+    item.miniToolTip = data.miniToolTip || '';
+    item.shortDescription = data.shortDescription || '';
+    item.secondAllowed = !!data.secondAllowed;
+    item.widgetList = data.widgetList || '';
+    item.isPublishedInApp = !!data.isPublishedInApp;
+    item.iconInApp = data.iconInApp || '';
+    item.typeShortcut = data.typeShortcut || '';
+    item.sortPositionInApp = data.sortPositionInApp || 0;
+    item.genrePosition = parseInt(data.genrePosition) | 0;
+    item.hasOverlay = !!data.hasOverlay;
+    item.socialNet = data.socialNet || '';
+    item.isRunnable = !!data.isRunnable;
+    item.backgroundInApp = data.backgroundInApp || '';
 
-function getGames() {
-    return gamesListModel;
-}
+    urlProps = [
+                'guideUrl',
+                //'blogUrl', // https://jira.gamenet.ru:8443/browse/QGNA-1264
+                'licenseUrl',
+            ];
 
-function fillGamesModel(data) {
-        var i,
-            item,
-            last,
-            isGameNetItem,
-            isItemShouldBeShown;
-
-        count = data.length;
-
-        _gamesListModelList.clear();
-
-        for (i = 0; i < count; ++i) {
-            item = createService(data[i]);
-
-            if (!item) {
-                 continue;
-            }
-
-            isGameNetItem = (item.serviceId == '0');
-            isItemShouldBeShown = isPrivateTestVersion() || item.isPublishedInApp || isGameNetItem;
-
-            if (!isItemShouldBeShown) {
-                 continue;
-            }
-
-            _gamesListModelList.fillMenu(item);
-            _gamesListModelList.append(item);
-
-            last = _gamesListModelList.count - 1;
-            indexToGameItem[i] = _gamesListModelList.get(last);
-            gameIdToGameItem[item.gameId] = _gamesListModelList.get(last);
-            serviceIdToGameItemIdex[item.serviceId] = i;
+    Object.keys(urlProps).forEach(function(e){
+        var prop = urlProps[e];
+        if (data.hasOwnProperty(prop) && !!data[prop]) {
+            item[prop] = 'https://gamenet.ru' + data[prop];
         }
-}
+    });
 
-function currentRunningMainService() {
-    var serviceItem;
-    for (var i = 0; i < gamesListModel.count; i++) {
-        serviceItem = gamesListModel.get(i);
-
-        if (serviceItem.status === "Started" || serviceItem.status === "Starting") {
-            return serviceItem.serviceId;
-        }
-    }
-}
-
-function currentRunningSecondService() {
-    var serviceItem;
-    for (var i = 0; i < gamesListModel.count; i++) {
-        serviceItem = gamesListModel.get(i);
-
-        if (serviceItem.secondStatus === "Started" || serviceItem.secondStatus === "Starting") {
-            return serviceItem.serviceId;
-        }
-    }
-}
-
-function isAnyServiceLocked() {
-    var serviceItem;
-    for (var i = 0; i < gamesListModel.count; i++) {
-        serviceItem = gamesListModel.get(i);
-
-        if (serviceItem.locked) {
-            return true;
-        }
+    try {
+        item.widgets = JSON.parse('{' + item.widgetList + '}');
+    } catch(e) {
+        item.widgets = {};
     }
 
-    return false;
+    return item;
 }
 
-function activateGame(item) {
-    _previousGame = gamesListModel.currentGameItem;
-    gamesListModel.currentGameItem = item;
-}
-
-function previousGame(item) {
-    return _previousGame;
-}
-
-function activateGameByServiceId(serviceId) {
-    var item = serviceItemByServiceId(serviceId);
-
-    if (!item)
-        return;
-
-    activateGame(item);
-}
-
-function currentGame() {
-    return gamesListModel.currentGameItem;
-}
-
-function serviceItemByIndex(index) {
-    return indexToGameItem[index];
-}
-
-function serviceItemByGameId(gameId) {
-    return gameIdToGameItem[gameId];
-}
-
-function serviceItemByServiceId(serviceId) {
-    var index = indexByServiceId(serviceId)
-    return index != undefined ? indexToGameItem[index] : undefined;
-}
-
-function indexByServiceId(serviceId) {
-    return serviceIdToGameItemIdex[serviceId];
-}
-
-function serviceExists(serviceId) {
-    return serviceIdToGameItemIdex.hasOwnProperty(serviceId);
-}
-
-function gameExists(gameId) {
-    return gameIdToGameItem.hasOwnProperty(gameId);
-}
-
-function startingService() {
-    var serviceId = startingServiceUnsafe();
-    return serviceExists(serviceId) ? serviceId : "0";
-}
-
-/**
- * Application specific functions
- */
-function replenishAccount() {
-    openExternalUrlWithAuth("https://gamenet.ru/money/");
-}
-
-var runningService = {},
-    runningSecondService = {};
-
-function isAnySecondServiceRunning() {
-    return _signalBusInst.isAnySecondServiceRunning;
-}
-
-function secondServiceStarted(service) {
-    runningSecondService[service] = 1;
-    _signalBusInstance.isAnySecondServiceRunning = true;
-}
-
-function secondServiceFinished(service) {
-    delete runningSecondService[service];
-    _signalBusInstance.isAnySecondServiceRunning = Object.keys(runningSecondService).length > 0;
-}
-
-function getRegisteredServices() {
-    return Object.keys(serviceIdToGameItemIdex);
-}
-
-function isMyGamesEnabled() {
-    var count = 0;
-
-    if (Object.keys(serviceStartButtonClicked).length >= 2) {
-        return true;
-    }
-
-    for (var i = 0; i < gamesListModel.count; ++i) {
-        var item = gamesListModel.get(i);
-
-        if (isShownInMyGames(item.serviceId)) {
-            count ++;
-        }
-
-        if (count >= 2) {
-            return true;
-        }
-    }
-
-    return false;
-}
-
-function isShownInMyGames(serviceId) {
-    if (serviceStartButtonClicked[serviceId]) {
-        return true;
-    }
-
-    return settingsValue("gameInstallBlock/serviceStartButtonOnceClicked", serviceId, 0) == 1;
-}
-
-function setShowInMyGames(serviceId, value) {
-    if (value && !serviceStartButtonClicked.hasOwnProperty(serviceId)) {
-        setSettingsValue("gameInstallBlock/serviceStartButtonOnceClicked", serviceId, 1);
-        serviceStartButtonClicked[serviceId] = true;
-        serviceUpdated(serviceItemByServiceId(serviceId));
-    }
-
-    if (!value && serviceStartButtonClicked.hasOwnProperty(serviceId)) {
-        setSettingsValue("gameInstallBlock/serviceStartButtonOnceClicked", serviceId, 0);
-        delete serviceStartButtonClicked[serviceId];
-        serviceUpdated(serviceItemByServiceId(serviceId));
-    }
-}
-
-function isMainServiceCanBeStarted(item) {
-    if (!item) {
-        return false;
-    }
-
-    if (item.gameType == "browser") {
-        return true;
-    }
-
-    if (isAnyServiceLocked()) {
-        return false;
-    }
-
-    var currentMainRunning = currentRunningMainService(),
-        currentSecondRunning = currentRunningSecondService();
-
-    if (currentMainRunning ||
-       (currentSecondRunning && currentSecondRunning != item.serviceId)) {
-        return false;
-    }
-
-    if (item.status === "Uninstalling") {
-        return false;
-    }
-
-    return true;
-}
 

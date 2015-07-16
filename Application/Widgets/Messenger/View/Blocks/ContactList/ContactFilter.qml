@@ -1,8 +1,5 @@
-import QtQuick 1.1
-import GameNet.Controls 1.0
+import QtQuick 2.4
 import Application.Controls 1.0
-
-import "../../../../../Core/Styles.js" as Styles
 
 Item {
     id: root

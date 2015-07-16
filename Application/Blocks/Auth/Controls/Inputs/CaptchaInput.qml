@@ -8,13 +8,14 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
-import "../../../../Core/Authorization.js" as Authorization
-import "../../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Authorization 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -50,7 +51,7 @@ Item {
             width: parent.width
             showCapslock: false
             showLanguage: false
-            icon: installPath + Styles.style.inputCaptchaIcon
+            icon: installPath + Styles.inputCaptchaIcon
 
             placeholder: qsTr("CAPTCHA_INPUT_PLACEHOLDER")
             onTabPressed: root.tabPressed();
@@ -91,8 +92,8 @@ Item {
                     }
 
                     styleImages {
-                        normal: installPath + Styles.style.inputUpdateIcon //"Assets/Images/GameNet/Controls/Input/update.png"
-                        hover: installPath + Styles.style.inputUpdateIcon.replace('.png', '_hover.png') //"Assets/Images/GameNet/Controls/Input/update_hover.png"
+                        normal: installPath + Styles.inputUpdateIcon //"Assets/Images/GameNet/Controls/Input/update.png"
+                        hover: installPath + Styles.inputUpdateIcon.replace('.png', '_hover.png') //"Assets/Images/GameNet/Controls/Input/update_hover.png"
                     }
 
                     onClicked: root.refresh();

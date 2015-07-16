@@ -8,15 +8,15 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
 import GameNet.Controls 1.0
 
 import Application.Controls 1.0 as AppControls
 
-import "../../Core/App.js" as App
-import "../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 AppControls.TrayPopupBase {
     id: popUp
@@ -34,7 +34,7 @@ AppControls.TrayPopupBase {
 
     Rectangle {
         anchors.fill: parent
-        color: Styles.style.trayPopupBackground
+        color: Styles.trayPopupBackground
 
         Column {
             spacing: 1
@@ -47,7 +47,7 @@ AppControls.TrayPopupBase {
                 width: parent.width
                 height: 25
 
-                color: Styles.style.trayPopupHeaderBackground
+                color: Styles.trayPopupHeaderBackground
 
                 Image {
                     anchors {
@@ -125,7 +125,7 @@ AppControls.TrayPopupBase {
                         family: "Arial"
                         pixelSize: 15
                     }
-                    color: Styles.style.trayPopupText
+                    color: Styles.trayPopupText
                     horizontalAlignment: Text.AlignHCenter
                 }
 
@@ -142,8 +142,8 @@ AppControls.TrayPopupBase {
                     }
 
                     style {
-                        normal: Styles.style.trayPopupButtonNormal
-                        hover:  Styles.style.trayPopupButtonHover
+                        normal: Styles.trayPopupButtonNormal
+                        hover:  Styles.trayPopupButtonHover
                     }
 
                     height: 44

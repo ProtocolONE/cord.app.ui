@@ -11,7 +11,7 @@
 ** @since: 2.0
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 
 Item {
     id: root
@@ -90,7 +90,7 @@ Item {
             root.tempItem = null;
             root.opacity = 1;
 
-            var point = root.item.mapToItem(root.parent, 0, 0),
+            var point = root.item.mapToItem(root.parent, 0.0, 0.0),
                     leftCheck = (point.x + root.width) < root.parent.width,
                     topCheck = (point.y - root.height - arrow.height) > 0,
                     topAlign = point.y + root.height < root.parent.height;
@@ -127,7 +127,7 @@ Item {
                 break;
             }
 
-            var offset = root.item.mapToItem(root, 0, 0);
+            var offset = root.item.mapToItem(root, 0.0, 0.0);
             if (root.tooltipGlueCenter) {
                 if (root.tooltipPosition == 'E' || root.tooltipPosition == 'W') {
                     arrow.margin = root.item.height / 2 - arrow.width / 2;

@@ -1,6 +1,6 @@
-import QtQuick 1.1
+import QtQuick 2.4
 
-import "../../../../Core/App.js" as App
+import Application.Core 1.0
 
 Item {
     id: root
@@ -24,7 +24,7 @@ Item {
         if (serviceMatch) {
             serviceId = serviceMatch[1];
             if (App.serviceExists(serviceId)) {
-                App.selectService(serviceId);
+                SignalBus.selectService(serviceId);
                 App.downloadButtonStart(serviceId);
             }
             return;

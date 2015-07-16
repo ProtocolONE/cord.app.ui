@@ -8,14 +8,14 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
 import Application.Controls 1.0
 
-import "../../../Core/App.js" as App
-import "../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 WidgetView {
     id: root
@@ -37,9 +37,9 @@ WidgetView {
             height: 130
 
             Rectangle {
-                anchors { fill: parent; margins: 1 }
+                anchors.fill: parent
                 color: "#00000000"
-                border { color: Styles.style.textAttention; width: 2 }
+                border { color: Styles.textAttention; width: 2 }
             }
 
             Text {
@@ -49,7 +49,7 @@ WidgetView {
                     horizontalCenter: parent.horizontalCenter
                 }
                 text: qsTr("MAINTENANCE_LABEL")
-                color: Styles.style.lightText
+                color: Styles.lightText
                 font { pixelSize: 14 }
             }
 
@@ -66,7 +66,7 @@ WidgetView {
             Text {
                 anchors { baseline: parent.top; baselineOffset: 75; horizontalCenter: parent.horizontalCenter }
                 text: qsTr("MAINTENANCE_LABEL_END")
-                color: Styles.style.textBase
+                color: Styles.textBase
                 font { pixelSize: 14 }
             }
 
@@ -113,7 +113,7 @@ WidgetView {
                 height: 35
 
                 text: qsTr("MAINTENANCE_PROPOSAL_GAME_TEXT").arg(root.gameItem ? root.gameItem.name : "")
-                color: Styles.style.textBase
+                color: Styles.textBase
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 font { family: 'Arial'; pixelSize: 16 }
             }

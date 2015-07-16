@@ -8,11 +8,12 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 
 import "SplashScreen"
-import "../Core/App.js" as App
+import Application.Core 1.0
+import Application.Controls 1.0
 
 Item {
     id: loadScreen
@@ -114,7 +115,7 @@ Item {
     SequentialAnimation {
         id: closeAnimation
 
-        onCompleted: App.updateFinished()
+        onStopped : SignalBus.updateFinished()
 
         PropertyAction { target: closeMouseBlocker; property: "visible"; value: true }
         PauseAnimation { duration: 2000 }
@@ -123,19 +124,12 @@ Item {
         PauseAnimation { duration: 200 }
     }
 
-    MouseArea {
+    DragWindowArea {
         id: closeMouseBlocker
 
         anchors.fill: parent
         hoverEnabled: true
         visible: false
-
-        onPressed: App.backgroundMousePressed(mouseX, mouseY);
-        onPositionChanged: {
-            if (pressedButtons & Qt.LeftButton === Qt.LeftButton) {
-                App.backgroundMousePositionChanged(mouseX, mouseY);
-            }
-        }
     }
 }
 

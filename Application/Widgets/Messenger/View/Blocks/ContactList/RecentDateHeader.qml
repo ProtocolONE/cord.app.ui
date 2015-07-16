@@ -7,10 +7,8 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
-import Tulip 1.0
-
-import "../../../../../Core/Styles.js" as Styles
+import QtQuick 2.4
+import Application.Core.Styles 1.0
 
 Item {
     property alias caption: captionText.text
@@ -32,7 +30,7 @@ Item {
             pixelSize: 12
         }
 
-        color: Styles.style.chatInactiveText
+        color: Styles.chatInactiveText
     }
 
     Rectangle {
@@ -45,6 +43,6 @@ Item {
         }
 
         opacity: 0.2
-        color: Styles.style.light
+        color: Styles.light
     }
 }

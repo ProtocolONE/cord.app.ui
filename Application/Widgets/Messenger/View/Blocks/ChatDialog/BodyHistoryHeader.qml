@@ -1,11 +1,9 @@
-import QtQuick 1.1
+import QtQuick 2.4
 
-import GameNet.Controls 1.0
 import Application.Controls 1.0
+import Application.Core.Styles 1.0
 
-import "../../../../../Core/Styles.js" as Styles
 import "../../../Models/Messenger.js" as MessengerJs
-import "../../../../../Core/moment.js" as Moment
 
 Item {
     id: root
@@ -30,7 +28,7 @@ Item {
 
             Text {
                 text: qsTr("BODY_HISTORY_HEADER_TITLE")
-                color: Styles.style.infoText
+                color: Styles.infoText
                 font {
                     family: "Arial"
                     pixelSize: 12
@@ -82,9 +80,9 @@ Item {
                     text: qsTr(textValue)
                     onClicked: root.queryMore(model.number, model.name);
                     style {
-                        normal: Styles.style.infoText
-                        hover: Styles.style.textBase
-                        disabled: Styles.style.infoText
+                        normal: Styles.infoText
+                        hover: Styles.textBase
+                        disabled: Styles.infoText
                     }
                 }
             }

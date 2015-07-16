@@ -1,15 +1,14 @@
-import QtQuick 1.1
+import QtQuick 2.4
+import Dev 1.0
 import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
 import Application.Blocks 1.0
 import Application 1.0
-
-import  "../../../Application/Core/Popup.js" as Popup
-import  "../../../Application/Core/App.js" as App
-import  "../../../Application/Core/User.js" as User
-import  "../../../Application/Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Popup 1.0
+import Application.Core.Styles 1.0
 
 Rectangle {
     id: root
@@ -36,7 +35,7 @@ Rectangle {
     }
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
 
         onSecondAuthDone: {
             console.log('--- Second auth done ', userId, appKey, cookie)
@@ -79,7 +78,7 @@ Rectangle {
     }
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
 
         onAuthDone: {
             swicher.sourceComponent = emptyComp;
@@ -124,7 +123,7 @@ Rectangle {
                         height: 30
                         text: "Logout Base " + User.getNickname();
 
-                        onClicked: App.logoutRequest();
+                        onClicked: SignalBus.logoutRequest();
                     }
 
                     Button {
@@ -133,7 +132,7 @@ Rectangle {
                         height: 30
                         text: "Logout Second " + User.getSecondNickname();
 
-                        onClicked: App.logoutSecondRequest();
+                        onClicked: SignalBus.logoutSecondRequest();
                     }
 
                     Button {

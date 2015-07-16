@@ -7,14 +7,14 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
+import Dev 1.0
 import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
-import "../../../Application/Core/App.js" as App
-import "../../../Application/Core/TrayPopup.js" as TrayPopup
-import "../../../Application/Core/Popup.js" as Popup
+import Application.Core 1.0
+import Application.Core.Popup 1.0
 
 Rectangle {
     width: 1000
@@ -36,7 +36,6 @@ Rectangle {
             manager.registerWidget('Application.Widgets.PremiumShop');
             manager.init();
 
-            TrayPopup.init();
             Popup.init(popupLayer);
             emulateTimer.start();
         }
@@ -48,7 +47,7 @@ Rectangle {
         interval: 2000
         repeat: false
         onTriggered: {
-            App.premiumExpired();
+            SignalBus.premiumExpired();
         }
 	}
 }

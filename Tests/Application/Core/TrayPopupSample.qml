@@ -8,14 +8,13 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
-import Application.Blocks 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
-import "../../../Application/Core/App.js" as AppJs
-import "../../../Application/Core/TrayPopup.js" as TrayPopup
+import Application.Blocks 1.0
+import Application.Core 1.0
 
 Item {
     width: 1000
@@ -25,8 +24,7 @@ Item {
         id: manager
 
         Component.onCompleted: {
-            TrayPopup.init();
-            AppJs.activateGame(AppJs.serviceItemByGameId("92"));
+            App.activateGame(App.serviceItemByGameId("92"));
             showPopupTimer.start();
         }
     }
@@ -37,7 +35,7 @@ Item {
         repeat: false
         interval: 2000
         onTriggered:  {
-            var gameItem = AppJs.serviceItemByGameId("92");
+            var gameItem = App.serviceItemByGameId("92");
             var popUpOptions;
 
             popUpOptions = {

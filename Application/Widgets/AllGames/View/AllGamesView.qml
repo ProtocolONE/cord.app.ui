@@ -8,18 +8,17 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 
 import Application.Controls 1.0
 import Application.Blocks.Popup 1.0
 
-import "../../../Core/App.js" as App
-import "../../../Core/Styles.js" as Styles
-
-import "../../../../GameNet/Core/Analytics.js" as Ga
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 import "Private" as Private
 
@@ -30,13 +29,28 @@ WidgetView {
     implicitHeight: 570
 
     Component.onCompleted: d.fillGrid();
-    onVisibleChanged: stateGroup.state = 'Normal';
+
+    onVisibleChanged: {
+        if (!d) { // unbelivable....
+            return;
+        }
+
+        d.rootVisibleChanged()
+    }
 
     QtObject {
         id: d
 
+        function rootVisibleChanged() {
+            if (!root || !root.visible) {
+                return;
+            }
+
+            stateGroup.state = 'Normal';
+        }
+
         function fillGrid() {
-            var grid = App.servicesGrid,
+            var grid = App.serviceGrid(),
                     services,
                     index = 0,
                     gameListServices,
@@ -74,8 +88,8 @@ WidgetView {
                 var a = App.serviceItemByServiceId(_a),
                     b = App.serviceItemByServiceId(_b);
 
-                var isAinstalled = App.isServiceInstalled(a.serviceId),
-                    isBinstalled = App.isServiceInstalled(b.serviceId);
+                var isAinstalled = ApplicationStatistic.isServiceInstalled(a.serviceId),
+                    isBinstalled = ApplicationStatistic.isServiceInstalled(b.serviceId);
 
                 if (isAinstalled == isBinstalled) {
                     return (a.sortPositionInApp < b.sortPositionInApp) ? -1 :
@@ -134,7 +148,7 @@ WidgetView {
             Rectangle {
                 anchors.fill: parent
                 opacity: 0.75
-                color: Styles.style.contentBackgroundDark
+                color: Styles.contentBackgroundDark
             }
 
             Behavior on height {
@@ -165,7 +179,7 @@ WidgetView {
         }
 
         Connections {
-            target: App.signalBus()
+            target: SignalBus
 
             onNavigate: {
                 if (link !== 'allgame' || stateGroup.state === 'Normal') {

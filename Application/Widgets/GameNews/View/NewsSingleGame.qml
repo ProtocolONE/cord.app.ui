@@ -1,9 +1,10 @@
-import QtQuick 1.1
+import QtQuick 2.4
+import QtQuick.XmlListModel 2.0
 
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
-import "../../../Core/App.js" as App
+import Application.Core 1.0
 
 WidgetView {
     id: root

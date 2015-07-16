@@ -1,8 +1,8 @@
-import QtQuick 1.1
+import QtQuick 2.4
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 
-import "../../Core/App.js" as App
-import "../../Core/restapi.js" as RestApi
+import Application.Core 1.0
 
 WidgetModel {
     id: root
@@ -10,7 +10,7 @@ WidgetModel {
     signal openMoneyOverlay();
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
         onNavigate: {
             if (link == 'gogamenetmoney') {
                 RestApi.Billing.isInGameRefillAvailable(function(response) {

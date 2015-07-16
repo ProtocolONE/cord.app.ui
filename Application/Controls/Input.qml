@@ -1,25 +1,24 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
-
-import "../Core/App.js" as App
-import "../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Input {
     id: root
 
     style {
-        normal: Styles.style.inputNormal
-        hover: Styles.style.inputHover
-        active: Styles.style.inputActive
-        disabled: Styles.style.inputDisabled
-        error: Styles.style.inputError
-        placeholder: Styles.style.inputPlaceholder
-        text: Styles.style.inputText
-        background: Styles.style.inputBackground
+        normal: Styles.inputNormal
+        hover: Styles.inputHover
+        active: Styles.inputActive
+        disabled: Styles.inputDisabled
+        error: Styles.inputError
+        placeholder: Styles.inputPlaceholder
+        text: Styles.inputText
+        background: Styles.inputBackground
     }
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
         onLeftMousePress: {
             var posInItem = root.mapFromItem(rootItem, x, y);
             if (!root.isMouseInside(posInItem.x, posInItem.y)) {

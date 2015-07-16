@@ -8,15 +8,17 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
+
+import Dev 1.0
 
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 import Tests.Application.Core.Fixtures.Popup.Sample 1.0
-import "../../../Application/Core/App.js" as AppJs
-import "../../../Application/Core/Popup.js" as Popup
-import "../../../Application/Core/MessageBox.js" as MessageBox
+import Application.Core 1.0
+import Application.Core.MessageBox 1.0
+import Application.Core.Popup 1.0
 
 Item {
     width: 1000
@@ -85,7 +87,7 @@ Item {
                 console.log("Show MBox 1");
                 MessageBox.show("Электросталилетейный завод, череззаборногузадерищенко",
                                 "This property holds whether the animation is currently paused. The paused property can be set to declaratively control whether or not an animation is paused. Animations can also be paused and resumed imperatively. This property holds whether the animation is currently paused. The paused property can be set to declaratively control whether or not an animation is paused. Animations can also be paused and resumed imperatively.",
-                                       MessageBox.button.Ok | MessageBox.button.Help | MessageBox.button.No, function(result) {
+                                       MessageBox.button.ok | MessageBox.button.help | MessageBox.button.no, function(result) {
 
                                            console.log('MBox 1 result', result);
                 });
@@ -100,7 +102,7 @@ Item {
 
             onClicked: MessageBox.show("Название диалогового окна",
                                        "Какой то очень длинный длинный текст раз два три четыре, я ты он она, вместе дружная семья!",
-                                       MessageBox.button["Ok"], function(result) {
+                                       MessageBox.button["ok"], function(result) {
             });
         }
 
@@ -112,7 +114,7 @@ Item {
 
             onClicked: MessageBox.show("этот очень замечательный заголовок",
                                        "Какой то очень длинный длинный текст раз два три четыре, я ты он она, вместе дружная семья!",
-                                       MessageBox.button["Ok"] | MessageBox.button["Cancel"] | MessageBox.button["Yes"], function(result) {
+                                       MessageBox.button["ok"] | MessageBox.button["cancel"] | MessageBox.button["yes"], function(result) {
             });
         }
 

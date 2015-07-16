@@ -1,7 +1,10 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 
-import "../../../Application/Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
+
+import Dev 1.0
 
 Rectangle {
     width: 600
@@ -31,7 +34,7 @@ Rectangle {
         z: 100
         dropDownSize: 5
 
-        icon: installPath + "Assets/Images/Application/Blocks/ApplicationSettings/language.png"
+        icon: installPath + "Assets/Images/Application/Widgets/ApplicationSettings/language.png"
         model: ListModel {
             ListElement {
                 value: "ru"
@@ -41,94 +44,94 @@ Rectangle {
             ListElement {
                 value: "en"
                 icon: "Samples/images/language.png"
-                text: "English"
+                text: "English1"
             }
             ListElement {
                 value: "sp"
                 icon: "Samples/images/language.png"
-                text: "Espanol"
+                text: "Espanol2"
             }
             ListElement {
                 value: "sp"
                 icon: "Samples/images/language.png"
-                text: "Espanol"
+                text: "Espanol3"
             }
             ListElement {
                 value: "sp"
                 icon: "Samples/images/language.png"
-                text: "Espanol"
+                text: "Espanol4"
             }
             ListElement {
                 value: "sp"
                 icon: "Samples/images/language.png"
-                text: "Espanol"
+                text: "Espanol5"
             }
             ListElement {
                 value: "sp"
                 icon: "Samples/images/language.png"
-                text: "Espanol"
+                text: "Espanol6"
             }
             ListElement {
                 value: "sp"
                 icon: "Samples/images/language.png"
-                text: "Espanol"
+                text: "Espanol7"
             }
             ListElement {
                 value: "sp"
                 icon: "Samples/images/language.png"
-                text: "Espanol"
+                text: "Espanol8"
             }
             ListElement {
                 value: "sp"
                 icon: "Samples/images/language.png"
-                text: "Espanol"
+                text: "Espanol9"
             }
             ListElement {
                 value: "sp"
                 icon: "Samples/images/language.png"
-                text: "Espanol"
+                text: "Espanol10"
             }
             ListElement {
                 value: "sp"
                 icon: "Samples/images/language.png"
-                text: "Espanol"
+                text: "Espanol11"
             }
             ListElement {
                 value: "sp"
                 icon: "Samples/images/language.png"
-                text: "Espanol"
+                text: "Espanol12"
             }
             ListElement {
                 value: "sp"
                 icon: "Samples/images/language.png"
-                text: "Espanol"
+                text: "Espanol13"
             }
             ListElement {
                 value: "sp"
                 icon: "Samples/images/language.png"
-                text: "Espanol"
+                text: "Espanol14"
             }
             ListElement {
                 value: "sp"
                 icon: "Samples/images/language.png"
-                text: "Espanol"
+                text: "Espanol15"
             }
             ListElement {
                 value: "sp"
                 icon: "Samples/images/language.png"
-                text: "Espanol"
+                text: "Espanol16"
             }
         }
 
         style {
-            background: Styles.style.comboboxBackground
-            normal: Styles.style.comboboxNormal
-            hover: Styles.style.comboboxHover
-            active: Styles.style.comboboxActive
-            disabled: Styles.style.comboboxDisabled
-            selectHover: Styles.style.comboboxSelectHover
-            scrollBarCursor: Styles.style.comboboxScrollBarCursor
-            scrollBarCursorHover: Styles.style.comboboxScrollBarCursorHover
+            background: Styles.comboboxBackground
+            normal: Styles.comboboxNormal
+            hover: Styles.comboboxHover
+            active: Styles.comboboxActive
+            disabled: Styles.comboboxDisabled
+            selectHover: Styles.comboboxSelectHover
+            scrollBarCursor: Styles.comboboxScrollBarCursor
+            scrollBarCursorHover: Styles.comboboxScrollBarCursorHover
         }
     }
 
@@ -141,7 +144,7 @@ Rectangle {
         y: 160
         z: 50
 
-        enabled: false
+        enabled: true
         model: ListModel {
             ListElement {
                 value: 0

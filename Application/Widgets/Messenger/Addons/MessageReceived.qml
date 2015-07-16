@@ -1,16 +1,15 @@
-import QtQuick 1.1
+import QtQuick 2.4
 
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
+
 import Application.Controls 1.0
 import Application.Controls.MessagePopup 1.0
-
-import "../../../Core/App.js" as App
-import "../../../Core/Styles.js" as Styles
-import "../../../Core/moment.js" as Moment
-import "../../../Core/EmojiOne.js" as EmojiOne
-import "../../../Core/StringHelper.js" as StringHelper
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 import "../Models/Messenger.js" as MessengerJs
+import "./MessageReceived.js" as Js
 
 TrayPopupBase {
     id: root
@@ -51,7 +50,7 @@ TrayPopupBase {
                          });
 
         if (listViewMessage.calcHeight() > maximumListViewHeight) {
-            lastDelegateHeight = listViewMessage.delegateHeights[listViewMessage.count - 1];
+            lastDelegateHeight = Js.delegateHeights[listViewMessage.count - 1];
             maximumHeight = maximumListViewHeight - (listViewMessage.calcHeight() - lastDelegateHeight);
 
             listModel.setProperty(listViewMessage.count - 1, 'maximumHeight', maximumHeight);
@@ -86,7 +85,7 @@ TrayPopupBase {
 
     Rectangle {
         anchors.fill: parent
-        color: Styles.style.trayPopupBackground
+        color: Styles.trayPopupBackground
 
         Column {
             spacing: 1
@@ -99,7 +98,7 @@ TrayPopupBase {
                 width: parent.width
                 height: 25
 
-                color: Styles.style.trayPopupHeaderBackground
+                color: Styles.trayPopupHeaderBackground
 
                 Image {
                     anchors {
@@ -154,20 +153,16 @@ TrayPopupBase {
                 ListView {
                     id: listViewMessage
 
-                    property variant delegateHeights: {}
-
                     function refreshHeight() {
                         listViewMessage.height = calcHeight() + 1;
                     }
-
-                    onDelegateHeightsChanged: refreshHeight();
 
                     function calcHeight() {
                         var result = 0
                         , i;
 
-                        for (i in listViewMessage.delegateHeights) {
-                            result += listViewMessage.delegateHeights[i];
+                        for (i in Js.delegateHeights) {
+                            result += Js.delegateHeights[i];
                         }
 
                         return Math.max(40, result);
@@ -191,8 +186,8 @@ TrayPopupBase {
                     delegate: MessageReceivedDelegate {
                         externalMaximumHeight: model.maximumHeight || -1
                         date: model.messageDate
-                        body: StringHelper.prepareText(model.body, {
-                                                           hyperLinkStyle: Styles.style.messengerChatDialogHyperlinkColor,
+                        body: AppStringHelper.prepareText(model.body, {
+                                                           hyperLinkStyle: Styles.messengerChatDialogHyperlinkColor,
                                                            smileResolver: EmojiOne.ns.toImage,
                                                            serviceResolver: App.serviceItemByServiceId
                                                        })
@@ -205,9 +200,8 @@ TrayPopupBase {
                         width: listViewMessage.width
 
                         onHeightChanged: {
-                            var tmp = listViewMessage.delegateHeights;
-                            tmp[index] = height;
-                            listViewMessage.delegateHeights = tmp;
+                            Js.delegateHeights[index] = height;
+                            listViewMessage.refreshHeight();
                         }
 
                         onLinkActivated: {
@@ -250,6 +244,6 @@ TrayPopupBase {
             margins: 1
             bottom: parent.bottom
         }
-        color: Styles.style.trayPopupHeaderBackground
+        color: Styles.trayPopupHeaderBackground
     }
 }

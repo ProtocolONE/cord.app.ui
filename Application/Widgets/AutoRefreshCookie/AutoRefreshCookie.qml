@@ -8,12 +8,13 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 
-import "../../Core/User.js" as User
-import "../../Core/Authorization.js" as Authorization
+import Application.Core 1.0
+import Application.Core.Settings 1.0
+import Application.Core.Authorization 1.0
 
 WidgetModel {
 
@@ -27,7 +28,7 @@ WidgetModel {
                 return;
             }
 
-            var lastRefresh = Settings.value("qml/auth/", "refreshDate", -1);
+            var lastRefresh = AppSettings.value("qml/auth/", "refreshDate", -1);
             var currentDate = Math.floor(+new Date() / 1000);
 
             if (lastRefresh != -1 && (currentDate - lastRefresh < 432000)) {
@@ -42,7 +43,7 @@ WidgetModel {
                                 response.cookie,
                                 User.isGuest());
 
-                    Settings.setValue("qml/auth/", "refreshDate", currentDate);
+                    AppSettings.setValue("qml/auth/", "refreshDate", currentDate);
                 }
             })
         }

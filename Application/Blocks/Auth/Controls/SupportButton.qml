@@ -1,7 +1,8 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 
-import "../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Button {
     width: 32
@@ -27,7 +28,7 @@ Button {
                 Text {
                     anchors.centerIn: parent
                     text: qsTr("AUTH_SUPPORT_BUTTON_TEXT")
-                    color: Styles.style.lightText
+                    color: Styles.lightText
                     font {
                         family: "Arial"
                         pixelSize: 14
@@ -39,7 +40,7 @@ Button {
         Rectangle {
             width: parent.width
             height: 1
-            color: Styles.style.light
+            color: Styles.light
             opacity: 0.2
         }
 

@@ -1,16 +1,14 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 import GameNet.Controls 1.0
 
 import Application.Blocks.Popup 1.0
 import Application.Controls 1.0
 
+import Application.Core 1.0
+import Application.Core.Styles 1.0
+
 import "Pages"
-import "../../../Core/App.js" as App
-import "../../../Core/Popup.js" as Popup
-import "../../../Core/Styles.js" as Styles
-import "../../../Core/User.js" as User
-import "../../../Core/MessageBox.js" as MessageBox
 
 PopupBase {
     id: root
@@ -75,7 +73,7 @@ PopupBase {
     defaultMargins: 44
     title: qsTr("APPLICATION_SETTINGS_TITLE")
     width: 900
-    defaultBackgroundColor: Styles.style.applicationBackground
+    defaultBackgroundColor: Styles.applicationBackground
     Component.onCompleted: root.reloadSettings();
 
     Item {
@@ -92,7 +90,7 @@ PopupBase {
 
             Rectangle {
                 anchors.fill: parent
-                color: Styles.style.contentBackground
+                color: Styles.contentBackground
             }
 
             Column {
@@ -204,7 +202,7 @@ PopupBase {
                 }
 
                 onClicked: root.resetSettings();
-                icon: installPath + Styles.style.applicationSettingsDefaultSettingsIcon
+                icon: installPath + Styles.applicationSettingsDefaultSettingsIcon
             }
 
             PrimaryButton {

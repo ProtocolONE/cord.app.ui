@@ -1,15 +1,14 @@
-import QtQuick 1.1
+import QtQuick 2.4
 
 import Tulip 1.0
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
-import "../../../../../../Core/App.js" as App
-import "../../../../../../Core/EmojiOne.js" as EmojiOne
-import "../../../../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 import "../../../../Plugins/Smiles/Smiles.js" as Smiles
-
 import "./SmilesPack.js" as SmilesPack
 
 Rectangle {
@@ -20,7 +19,7 @@ Rectangle {
 
     width: 254
     height: 294
-    color: Styles.style.popupBlockBackground
+    color: Styles.popupBlockBackground
     Component.onCompleted: d.init();
 
     QtObject {
@@ -55,7 +54,7 @@ Rectangle {
             if (App.isQmlViewer()) {
                 item.imageSource = 'file:///' + src; // For Debug QmlViewer
             } else {
-                item.imageSource = src.replace(':/', 'qrc:///');
+                item.imageSource = src;
             }
 
             return item;
@@ -119,7 +118,7 @@ Rectangle {
         width: 12
         height: 12
         rotation: 45
-        color: Styles.style.popupBlockBackground
+        color: Styles.popupBlockBackground
 
         ContentStroke {
             width: parent.width
@@ -203,7 +202,7 @@ Rectangle {
 
         Rectangle {
             anchors.fill: parent
-            color: Styles.style.dark
+            color: Styles.dark
             opacity: 0.2
         }
 
@@ -342,7 +341,7 @@ Rectangle {
 
             anchors.centerIn: parent
 
-            source: installPath + Styles.style.messengerChatClose
+            source: installPath + Styles.messengerChatClose
             opacity: closeMouseArea.containsMouse ? 1 : 0.7
 
         }

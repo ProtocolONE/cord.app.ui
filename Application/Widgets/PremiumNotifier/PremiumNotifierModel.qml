@@ -7,17 +7,16 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
-import Application.Blocks 1.0
+
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
-import "../../../GameNet/Core/Analytics.js" as Ga
-
-import "../../Core/App.js" as App
-import "../../Core/TrayPopup.js" as TrayPopup
-import "../../Core/Popup.js" as Popup
+import Application.Blocks 1.0
+import Application.Core 1.0
+import Application.Core.Popup 1.0
 
 WidgetModel {
     id: premiumNotifier
@@ -29,7 +28,7 @@ WidgetModel {
     }
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
 
         onPremiumExpired: {
             if (!premiumNotifier.settings.premiumExpiredNotification) {

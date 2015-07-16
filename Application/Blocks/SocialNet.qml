@@ -7,12 +7,11 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
 
-import "../Core/App.js" as App
-
-import "../../GameNet/Core/Analytics.js" as Ga
+import Application.Core 1.0
 
 Item {
     id: root

@@ -7,27 +7,21 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
+
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Components.JobWorker 1.0
 import GameNet.Controls 1.0
 
+import Dev 1.0
+
 import Application.Controls 1.0
+import Application.Core 1.0
+import Application.Core.Styles 1.0
+import Application.Core.MessageBox 1.0
 
-import "../../../Application/Core/App.js" as App
-import "../../../Application/Core/TrayPopup.js" as TrayPopup
 import "../../../Application/Widgets/Messenger/Models/Messenger.js" as MessengerJs
-import "../../../Application/Core/moment.js" as Moment
-import "../../../Application/Core/Styles.js" as Styles
-import "../../../Application/Core/restapi.js" as RestApi
-import "../../../Application/Core/EmojiOne.js" as EmojiOne
-import "../../../Application/Core/User.js" as UserJs
-import "../../../Application/Core/MessageBox.js" as MessageBox
-
-import "../../../GameNet/Core/lodash.js" as Lodash
-import "../../../GameNet/Core/RestApi.js" as RestApiG
-import "../../../GameNet/Controls/Tooltip.js" as Tooltip
-import "../../../GameNet/Controls/ContextMenu.js" as ContexMenu
 
 import "../../../Application/Widgets/Messenger/View/Styles"
 
@@ -49,14 +43,13 @@ Rectangle {
 
     width: 1000
     height: 600
-    color: Styles.style.applicationBackground
+    color: Styles.applicationBackground
 
     Component.onCompleted: {
         Styles.init();
         Styles.setCurrentStyle('sand');
-        TrayPopup.init();
         root.initEmojiOne();
-        ContexMenu.init(contextMenuLayer);
+        ContextMenu.init(contextMenuLayer);
         Tooltip.init(tooltipLayer);
         Moment.moment.lang('ru');
 
@@ -72,7 +65,7 @@ Rectangle {
         function requestServices() {
             RestApi.Service.getUi(function(result) {
                 App.fillGamesModel(result);
-                App.setGlobalState("Authorization");
+                SignalBus.setGlobalState("Authorization");
             }, function(result) {
                 console.log('get services error', result);
                 retryTimer.start();
@@ -95,12 +88,10 @@ Rectangle {
         }
 
         function authDone(userId, appKey) {
-            RestApiG.Core.setUserId(userId);
-            RestApiG.Core.setAppKey(appKey);
             RestApi.Core.setUserId(userId);
             RestApi.Core.setAppKey(appKey);
 
-            App.authDone(userId, appKey);
+            SignalBus.authDone(userId, appKey, "");
         }
     }
 
@@ -210,7 +201,7 @@ Rectangle {
             width: 100
             height: 30
             text: 'Logout'
-            onClicked: App.logoutDone();
+            onClicked: SignalBus.logoutDone();
         }
 
         Button {
@@ -227,7 +218,7 @@ Rectangle {
             onClicked: {
                 var game = App.serviceItemByGameId("71");
                 game.status = "Started";
-                App.serviceStarted(game);
+                SignalBus.serviceStarted(game);
             }
         }
 
@@ -238,7 +229,7 @@ Rectangle {
             onClicked: {
                 var game = App.serviceItemByGameId("71");
                 game.status = "Normal";
-                App.serviceFinished(game);
+                SignalBus.serviceFinished(game);
             }
         }
     }

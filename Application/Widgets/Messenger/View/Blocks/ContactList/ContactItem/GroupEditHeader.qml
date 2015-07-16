@@ -7,10 +7,10 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
-import "../../../../../../Core/Styles.js" as Styles
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -53,7 +53,7 @@ Item {
                     pixelSize: 14
                 }
 
-                color: Styles.style.menuText
+                color: Styles.menuText
                 // INFO Этот хак чинит проблему с уползанием текста, когда текст пустой
                 text: root.title ? root.title : "  "
                 elide: Text.ElideRight

@@ -1,8 +1,12 @@
-import QtQuick 1.1
-import QtWebKit 1.0
-import Tulip 1.0
+import QtQuick 2.4
+import QtQuick.Window 2.2
 
-import '../restapi.js' as RestApi
+import QtWebEngine 1.1
+import QtWebEngine.experimental 1.0
+
+import GameNet.Core 1.0
+
+import Tulip 1.0
 
 Window {
     id: window
@@ -19,13 +23,7 @@ Window {
     }
 
     function clearCookies() {
-        WebViewHelper.setCookiesFromUrl('', 'https://vk.com')
-        WebViewHelper.setCookiesFromUrl('', 'https://login.vk.com')
-        WebViewHelper.setCookiesFromUrl('', 'http://gamenet.ru')
-        WebViewHelper.setCookiesFromUrl('', 'http://www.gamenet.ru')
-        WebViewHelper.setCookiesFromUrl('', 'https://gamenet.ru')
-        WebViewHelper.setCookiesFromUrl('', 'https://www.gamenet.ru')
-        WebViewHelper.setCookiesFromUrl('', 'https://gnlogin.ru')
+        browser.profile.updateCookie();
     }
 
     width: 640
@@ -34,28 +32,36 @@ Window {
     title: qsTr('WINDOW_TITLE_VK_AUTH')
     flags: Qt.Tool | Qt.WindowStaysOnTopHint
     modality: Qt.ApplicationModal
-    onBeforeClosed: clearCookies();
+    onClosing: window.clearCookies();
 
-    WebView {
+    WebEngineView {
         id: browser
 
         signal loadFailedFixed();
 
-        anchors.fill: parent
-        preferredWidth: parent.width
-        preferredHeight: parent.height
-        settings {
-            javascriptEnabled: true
-            autoLoadImages: true
-            localContentCanAccessRemoteUrls: true
-            localStorageDatabaseEnabled: true
-            offlineStorageDatabaseEnabled: false
-            offlineWebApplicationCacheEnabled: false
+        profile {
+            httpUserAgent: "GNA"
+            offTheRecord: true
+            persistentCookiesPolicy: WebEngineProfile.NoPersistentCookies
         }
 
-        Component.onCompleted: window.clearCookies();
-        onLoadFailed: loadFailTimer.start();
-        onLoadStarted: loadFailTimer.stop();
+        anchors.fill: parent
+
+        Component.onCompleted: {
+            window.clearCookies();
+        }
+
+        onLoadingChanged: {
+            if (loadRequest.status == WebEngineView.LoadStartedStatus) {
+                loadFailTimer.stop();
+                return
+            }
+
+            if (loadRequest.status == WebEngineView.LoadFailedStatus) {
+                loadFailTimer.start();
+                return;
+            }
+        }
 
         Timer {
             id: loadFailTimer

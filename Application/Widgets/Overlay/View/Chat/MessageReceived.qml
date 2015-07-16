@@ -7,19 +7,19 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
+
 import Application.Controls 1.0
 import Application.Controls.MessagePopup 1.0
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 import "../../Core" as OverlayCore
+import "./MessageReceived.js" as Js
 
-import "../../../../Core/App.js" as App
-import "../../../../Core/Styles.js" as Styles
-import "../../../../Core/moment.js" as Moment
-import "../../../../Core/EmojiOne.js" as EmojiOne
-import "../../../../Core/StringHelper.js" as StringHelper
 
 OverlayCore.PopupBase {
     id: root
@@ -64,7 +64,7 @@ OverlayCore.PopupBase {
                          });
 
         if (listViewMessage.calcHeight() > maximumListViewHeight) {
-            lastDelegateHeight = listViewMessage.delegateHeights[listViewMessage.count - 1];
+            lastDelegateHeight = Js.delegateHeights[listViewMessage.count - 1];
             maximumHeight = maximumListViewHeight - (listViewMessage.calcHeight() - lastDelegateHeight);
 
             listModel.setProperty(listViewMessage.count - 1, 'maximumHeight', maximumHeight);
@@ -95,7 +95,7 @@ OverlayCore.PopupBase {
 
     Rectangle {
         anchors.fill: parent
-        color: Styles.style.trayPopupBackground
+        color: Styles.trayPopupBackground
 
         Column {
             spacing: 1
@@ -108,7 +108,7 @@ OverlayCore.PopupBase {
                 width: parent.width
                 height: 25
 
-                color: Styles.style.trayPopupHeaderBackground
+                color: Styles.trayPopupHeaderBackground
 
                 Image {
                     anchors {
@@ -163,20 +163,16 @@ OverlayCore.PopupBase {
                 ListView {
                     id: listViewMessage
 
-                    property variant delegateHeights: {}
-
                     function refreshHeight() {
                         listViewMessage.height = calcHeight() + 1;
                     }
-
-                    onDelegateHeightsChanged: refreshHeight();
 
                     function calcHeight() {
                         var result = 0,
                             i;
 
-                        for (i in listViewMessage.delegateHeights) {
-                            result += listViewMessage.delegateHeights[i];
+                        for (i in Js.delegateHeights) {
+                            result += Js.delegateHeights[i];
                         }
 
                         return Math.max(40, result);
@@ -200,8 +196,8 @@ OverlayCore.PopupBase {
                     delegate: MessageReceivedDelegate {
                         externalMaximumHeight: model.maximumHeight || -1
                         date: model.messageDate
-                        body: StringHelper.prepareText(model.body, {
-                                                           hyperLinkStyle: Styles.style.messengerChatDialogHyperlinkColor,
+                        body: AppStringHelper.prepareText(model.body, {
+                                                           hyperLinkStyle: Styles.messengerChatDialogHyperlinkColor,
                                                            smileResolver: EmojiOne.ns.toImage,
                                                            serviceResolver: App.serviceItemByServiceId
                                                        })
@@ -214,9 +210,8 @@ OverlayCore.PopupBase {
                         width: listViewMessage.width
 
                         onHeightChanged: {
-                            var tmp = listViewMessage.delegateHeights;
-                            tmp[index] = height;
-                            listViewMessage.delegateHeights = tmp;
+                            Js.delegateHeights[index] = height;
+                            listViewMessage.refreshHeight();
                         }
                     }
                 }
@@ -254,6 +249,6 @@ OverlayCore.PopupBase {
             margins: 1
             bottom: parent.bottom
         }
-        color: Styles.style.trayPopupHeaderBackground
+        color: Styles.trayPopupHeaderBackground
     }
 }

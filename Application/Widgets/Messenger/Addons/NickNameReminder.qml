@@ -1,10 +1,10 @@
-import QtQuick 1.1
+import QtQuick 2.4
+
+import Application.Core 1.0
+import Application.Core.Popup 1.0
 
 import "../Models/Messenger.js" as MessengerJs
 
-import "../../../Core/App.js" as App
-import "../../../Core/User.js" as User
-import "../../../Core/Popup.js" as Popup
 
 Item {
     id: root
@@ -27,7 +27,7 @@ Item {
     }
 
     Connections {
-        target: App.signalBus();
+        target: SignalBus
 
         onLogoutDone: root.isShown = false;
     }

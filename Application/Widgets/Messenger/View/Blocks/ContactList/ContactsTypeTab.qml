@@ -1,9 +1,10 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
 import GameNet.Controls 1.0
 import Application.Controls 1.0
-import "../../../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -33,7 +34,7 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-        color: Styles.style.dark
+        color: Styles.dark
         opacity: button.containsMouse ? 0.15 : 0.3
         visible: !root.selected
 
@@ -47,8 +48,8 @@ Item {
 
         anchors.centerIn: parent
         color: root.selected
-               ? Styles.style.menuText
-               : Styles.style.chatInactiveText
+               ? Styles.menuText
+               : Styles.chatInactiveText
         font {
             family: "Arial"
             pixelSize: 14

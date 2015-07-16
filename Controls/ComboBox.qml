@@ -7,7 +7,7 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
 Item {
@@ -90,7 +90,7 @@ Item {
     Rectangle {
         id: controlBorder
 
-        anchors { fill: parent; margins: 1 }
+        anchors.fill: parent
         color: root.style.background
         border { width: 2; color: root.style.normal }
 
@@ -194,7 +194,7 @@ Item {
             id: mouseArea
 
             enabled: root.enabled
-            cursor: CursorArea.PointingHandCursor
+            cursor: Qt.PointingHandCursor
             hoverEnabled: true
             anchors.fill: parent
             acceptedButtons: Qt.LeftButton
@@ -206,7 +206,7 @@ Item {
         }
     }
 
-    Item {
+    Rectangle {
         id: listBlock
 
         anchors {
@@ -217,13 +217,10 @@ Item {
         width: root.width
         height: listContainer.controlVisible ? listView.height + 4 : 0
 
-        Rectangle {
-            anchors { fill: parent; margins: 1 }
-            color: root.style.background
-            border {
-                color: root.style.active
-                width: 2
-            }
+        color: root.style.background
+        border {
+            color: root.style.active
+            width: 2
         }
 
         Behavior on height {
@@ -238,6 +235,7 @@ Item {
             property bool controlVisible: false
 
             opacity: 0
+            visible: opacity > 0
             width: control.width
             height: listView.height
             anchors { fill: parent; margins: 2 }

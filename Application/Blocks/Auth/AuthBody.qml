@@ -8,17 +8,15 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
 import GameNet.Controls 1.0
+import GameNet.Core 1.0
 
 import Application.Controls 1.0
-
-import "../../Core/Authorization.js" as Authorization
-import "../../Core/restapi.js" as RestApi
-import "../../Core/App.js" as AppProxy
-import "../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Authorization 1.0
 
 import "./AuthBody.js" as AuthHelper
 
@@ -71,7 +69,7 @@ Form {
         }
 
         function genericAuth() {
-            if (d.inProgress || !AppProxy.authAccepted) {
+            if (d.inProgress || !App.authAccepted) {
                 return;
             }
 
@@ -179,7 +177,7 @@ Form {
             captchInput.source = Authorization.getCaptchaImageSource(d.login);
         }
 
-        onInProgressChanged: AppProxy.setGlobalProgressVisible(d.inProgress);
+        onInProgressChanged: SignalBus.setGlobalProgressVisible(d.inProgress, 0);
     }
 
     Column {
@@ -262,7 +260,7 @@ Form {
                         label: 'Restore password'
                     }
                     fontSize: 12
-                    onClicked: AppProxy.openExternalUrl("https://gamenet.ru/restore/?login=" + d.login);
+                    onClicked: App.openExternalUrl("https://gamenet.ru/restore/?login=" + d.login);
                 }
             }
 

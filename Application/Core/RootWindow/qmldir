@@ -1,0 +1,2 @@
+module Application.Core.RootWindow
+singleton RootWindow 1.0 RootWindow.qml

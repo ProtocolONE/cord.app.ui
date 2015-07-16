@@ -1,12 +1,13 @@
-import QtQuick 1.1
-import "../Core/Styles.js" as Styles
+import QtQuick 2.4
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Item {
     Rectangle {
         anchors.fill: parent
 
-        color: Styles.style.focusOverlay
-        opacity: Qt.application.active ? 0 : Styles.style.focusOverlayOpacity
+        color: Styles.focusOverlay
+        opacity: Qt.application.active ? 0 : Styles.focusOverlayOpacity
 
         Behavior on opacity {
             PropertyAnimation { duration: 75 }

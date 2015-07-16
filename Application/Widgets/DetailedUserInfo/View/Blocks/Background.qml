@@ -8,13 +8,14 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Application.Controls 1.0
-import "../../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Rectangle {
     anchors.fill: parent
-    color: Styles.style.popupBlockBackground
+    color: Styles.popupBlockBackground
 
     ContentThinBorder {}
 

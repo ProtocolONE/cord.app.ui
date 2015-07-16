@@ -1,12 +1,13 @@
 import Tulip 1.0
-import QtQuick 1.1
+import QtQuick 2.4
 
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
-import Application.Controls 1.0
 
-import "../../../Core/Styles.js" as Styles
-import "../../../Core/moment.js" as Moment
+import Application.Controls 1.0
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -37,10 +38,10 @@ Item {
 
         Rectangle {
             anchors.fill: parent
-            anchors.margins: 1
+
             border {
                 width: 2
-                color: Styles.style.primaryBorder
+                color: Styles.primaryBorder
             }
             color: "#00000000"
             visible: mouser.containsMouse
@@ -74,7 +75,7 @@ Item {
             y: 15
             width: 30
             height: 30
-            color: downloaded ? Styles.style.checkedButtonActive : Styles.style.primaryButtonNormal
+            color: downloaded ? Styles.checkedButtonActive : Styles.primaryButtonNormal
 
             Image {
                 source: imagePath + (downloaded ? 'ready.png' :'download.png')
@@ -97,7 +98,7 @@ Item {
             y: 175
             visible: isLoading
             font { family: 'Arial'; pixelSize: 13 }
-            color: Styles.style.bannerInfoText
+            color: Styles.bannerInfoText
             text: getText();
             smooth: true
 
@@ -117,7 +118,7 @@ Item {
             visible: !isLoading && mouser.containsMouse
 
             font { family: 'Arial'; pixelSize: 13 }
-            color: Styles.style.bannerInfoText
+            color: Styles.bannerInfoText
             text: qsTr("THEME_ABOUT")
                 .arg(model.name)
                 .arg(Moment.moment(model.updateDate, "DD.MM.YYYY HH:mm:ss").fromNow())

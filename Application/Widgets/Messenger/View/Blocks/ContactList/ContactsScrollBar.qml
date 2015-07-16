@@ -1,7 +1,6 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
-
-import "../../../../../Core/Styles.js" as Styles
+import Application.Core.Styles 1.0
 import "../../../Models/Messenger.js" as Messenger
 
 ListViewScrollBar {
@@ -13,7 +12,7 @@ ListViewScrollBar {
     cursorMinHeight: 50
     cursorRadius: 4
     color: "#00000000"
-    cursorColor: Styles.style.contentBackgroundLight
+    cursorColor: Styles.contentBackgroundLight
     cursorOpacity: 0.1
     onMovingChanged: Messenger.setHeavyInteraction(moving)
 }

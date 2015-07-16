@@ -1,4 +1,2 @@
 module Application
-typeinfo application.qmltypes
 Bootstrap 1.0 Bootstrap.qml
-App 1.0 Core/App.js

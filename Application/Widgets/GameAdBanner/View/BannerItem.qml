@@ -8,10 +8,11 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 
-import "../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -37,8 +38,8 @@ Item {
 
             width: contentText.width
             height: contentText.lineCount > 1 ? 60: 40
-            color: Styles.style.contentBackground
-            opacity: Styles.style.baseBackgroundOpacity
+            color: Styles.contentBackground
+            opacity: Styles.baseBackgroundOpacity
         }
 
         Text {
@@ -52,7 +53,7 @@ Item {
             }
             wrapMode: Text.WordWrap
             opacity: 0.8
-            color: Styles.style.textBase
+            color: Styles.textBase
             font { family: "Arial"; pixelSize: 20 }
             lineHeightMode: Text.FixedHeight
             lineHeight: 22

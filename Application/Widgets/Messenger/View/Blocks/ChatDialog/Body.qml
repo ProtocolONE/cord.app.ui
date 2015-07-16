@@ -7,16 +7,15 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
 import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
-import Application.Controls 1.0
 
-import "../../../../../Core/App.js" as App
-import "../../../../../Core/Styles.js" as Styles
-import "../../../../../Core/moment.js" as Moment
+import Application.Controls 1.0
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 import "../../../Models/Messenger.js" as MessengerJs
 
@@ -163,7 +162,7 @@ Item {
         cursorMinHeight: 50
         cursorRadius: 4
         color: "#00000000"
-        cursorColor: Styles.style.contentBackgroundLight
+        cursorColor: Styles.contentBackgroundLight
         cursorOpacity: 0.1
         onScrolling: BodyJs.saveScroll(user.jid, index, mode);
     }
@@ -176,7 +175,7 @@ Item {
     }
 
     Connections {
-        target: App.signalBus();
+        target: SignalBus
         onLogoutDone: BodyJs.resetSavedScroll();
     }
 }

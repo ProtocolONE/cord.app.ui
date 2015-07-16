@@ -8,12 +8,12 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 
-import "../../Core/restapi.js" as RestApi
 import "GameInfoModel.js" as GameInfoModel
-import "../../Core/App.js" as App
+import Application.Core 1.0
 
 WidgetModel {
     id: root
@@ -50,7 +50,16 @@ WidgetModel {
                 return e.category.id == shownCategoryId;
             });
 
-            GameInfoModel.allInfo[gameId] = data[0].media;
+            GameInfoModel.allInfo[gameId] = data[0].media.map(function(e) {
+                return {
+                    "id": e.id|0,
+                    "category": e.category|0,
+                    "type": e.type|0,
+                    "index": e.index|0,
+                    "preview": e.preview || "",
+                    "source": e.source || ""
+                };
+            });
 
             root.infoChanged();
         }, function() {

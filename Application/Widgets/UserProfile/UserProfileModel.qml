@@ -8,19 +8,19 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Components.Widgets 1.0
-import "../../Core/User.js" as UserJs
+import Application.Core 1.0
 
 WidgetModel {
     id: root
 
-    property bool isPremium: UserJs.isPremium()
-    property bool isLoginConfirmed: UserJs.isLoginConfirmed()
-    property int premiumDuration: UserJs.getPremiumDuration()
-    property int balance: UserJs.getBalance()
+    property bool isPremium: User.isPremium()
+    property bool isLoginConfirmed: User.isLoginConfirmed()
+    property int premiumDuration: User.getPremiumDuration()
+    property int balance: User.getBalance()
 
-    property string nickname: UserJs.getNickname()
-    property string level: UserJs.getLevel()
-    property string avatarMedium: UserJs.getAvatarMedium()
+    property string nickname: User.getNickname()
+    property string level: User.getLevel()
+    property string avatarMedium: User.getAvatarMedium()
 }

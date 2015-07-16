@@ -7,7 +7,7 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 
 Rectangle {
     id: control
@@ -36,6 +36,18 @@ Rectangle {
     implicitWidth: 25 + buttonText.width + 25
     implicitHeight: 48
 
+    function getControlState() {
+        if (!control.enabled) {
+            return 'Disabled';
+        }
+
+        if (control.inProgress) {
+            return 'InProgress';
+        }
+
+        return control.containsMouse ? 'Hover' : 'Normal';
+    }
+
     Behavior on color {
         PropertyAnimation { duration: 250 }
     }
@@ -62,17 +74,7 @@ Rectangle {
     }
 
     StateGroup {
-        state: function() {
-            if (!control.enabled) {
-                return 'Disabled';
-            }
-
-            if (control.inProgress) {
-                return 'InProgress';
-            }
-
-            return control.containsMouse ? 'Hover' : 'Normal';
-        }()
+        state: control.getControlState()
 
         states: [
             State {

@@ -23,3 +23,4 @@ CheckBox 1.0 CheckBox.qml
 TextButton 1.0 TextButton.qml
 SettingsCaption 1.0 SettingsCaption.qml
 SettingsTextButton 1.0 SettingsTextButton.qml
+DragWindowArea 1.0 DragWindowArea.qml

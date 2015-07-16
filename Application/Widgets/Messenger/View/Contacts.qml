@@ -7,7 +7,7 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
 import GameNet.Components.Widgets 1.0
@@ -16,8 +16,8 @@ import Application.Controls 1.0
 
 import "../Models/Messenger.js" as MessengerJs
 import "./Blocks/ContactList"
-import "../../../Core/Styles.js" as Styles
-import "../../../../Application/Core/App.js" as App
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 WidgetView {
     id: root
@@ -146,7 +146,7 @@ WidgetView {
 
                                     width: 32
                                     height: 22
-                                    icon: installPath + Styles.style.messengerGroupIcon
+                                    icon: installPath + Styles.messengerGroupIcon
                                     checked: MessengerJs.editGroupModel().isActive()
 
                                     anchors {
@@ -224,6 +224,7 @@ WidgetView {
                                 : ""
 
                     opacity: (root.isSearching && searchContactItem.localSearch) ? 1 : 0
+                    visible: opacity > 0
                     anchors.fill: parent
                     onUserClicked: searchContactItem.searchText = "";
 

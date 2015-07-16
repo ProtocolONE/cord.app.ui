@@ -1,9 +1,11 @@
-import QtQuick 1.1
+import QtQuick 2.4
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
+
 import Application.Controls 1.0
-import "../../../../../Core/restapi.js" as RestApi
-import "../../../../../Core/Styles.js" as Styles
-import "../../../../../Core/App.js" as App
+import Application.Core 1.0
+import Application.Core.Styles 1.0
+
 import "../../../Models/Messenger.js" as MessengerJs
 
 NavigatableContactList {
@@ -163,14 +165,14 @@ NavigatableContactList {
 
         Image {
             width: parent.width
-            opacity: Styles.style.baseBackgroundOpacity
+            opacity: Styles.baseBackgroundOpacity
             source: installPath + "/Assets/Images/Application/Widgets/Messenger/EmptyContactInfo/background.png"
         }
 
         Rectangle {
             anchors.fill: parent
             opacity: 0.65
-            color: Styles.style.contentBackgroundDark
+            color: Styles.contentBackgroundDark
         }
     }
 
@@ -232,7 +234,7 @@ NavigatableContactList {
         anchors.fill: parent
 
         visible: root.searchText.length > 0
-        highlightMoveSpeed: 1000
+        highlightMoveVelocity: 1000
         boundsBehavior: Flickable.StopAtBounds
         currentIndex: -1
         onCountChanged: currentIndex = -1;
@@ -247,6 +249,26 @@ NavigatableContactList {
                 return user.jid == MessengerJs.userIdToJid(model.gamenetid);
             }
 
+//            function internalIsInContact(m) {
+
+//                console.log (m.gamenetid)
+//                //var j = MessengerJs.userIdToJid(model.gamenetid);
+//                //var j = "400001000002212660@qj.gamenet.ru";
+//                var j = m.gamenetid + "@qj.gamenet.ru";
+//                var users = MessengerJs.users();
+
+//                if (!users.contains(j)) {
+//                    return false;
+//                }
+
+//                console.log (j, users.contains(j));
+//                // UNDON осчтановился тут
+
+//                //var u = MessengerJs.getUser(j);
+//                //return MessengerJs.getUser(j).inContacts
+//                return true//u.inContacts;
+//            }
+
             width: listView.width
             isHighlighted: listView.currentIndex === index;
             isActive: isSelected();
@@ -256,6 +278,7 @@ NavigatableContactList {
             charsText: model.charsText
 
             isInContacts: MessengerJs.getUser(MessengerJs.userIdToJid(model.gamenetid)).inContacts
+            //isInContacts: internalIsInContact(model)
             inviteMaximumLimitSended: model.inviteMaximumLimitSended
             onClicked: {
                 listView.currentIndex = index;
@@ -302,7 +325,7 @@ NavigatableContactList {
                    hover: d.imageRoot + "ContactItem/infoIconHover.png"
                 }
 
-                onClicked: App.openDetailedUserInfo({
+                onClicked: SignalBus.openDetailedUserInfo({
                                                         userId: model.gamenetid,
                                                         nickname: model.nickname,
                                                         status: "",

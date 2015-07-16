@@ -1,6 +1,7 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
-import "../../../../../../Core/Styles.js" as Styles
+import Application.Core.Styles 1.0
+
 ImageButton {
     id: root
 
@@ -13,8 +14,8 @@ ImageButton {
     }
 
     styleImages {
-        normal: installPath + Styles.style.messengerSmileButtonIcon
-        hover: installPath + Styles.style.messengerSmileButtonIcon.replace('.png', 'Hover.png')
-        disabled: installPath + Styles.style.messengerSmileButtonIcon
+        normal: installPath + Styles.messengerSmileButtonIcon
+        hover: installPath + Styles.messengerSmileButtonIcon.replace('.png', 'Hover.png')
+        disabled: installPath + Styles.messengerSmileButtonIcon
     }
 }

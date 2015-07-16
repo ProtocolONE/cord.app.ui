@@ -7,7 +7,8 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
+import QtMultimedia 5.4
 import Tulip 1.0
 
 Item {
@@ -83,7 +84,7 @@ Item {
     Rectangle {
         id: controlBorder
 
-        anchors { fill: parent; margins: 1 }
+        anchors.fill: parent
         color: style.background
         border { width: 2; color: style.normal }
 
@@ -92,13 +93,19 @@ Item {
         }
     }
 
+    SoundEffect {
+        id: errorSound
+
+        source: installPath + "Assets/Sounds/Controls/error.wav"
+    }
+
     MouseArea {
         id: mouseArea
 
         anchors { fill: parent; margins: 2 }
         hoverEnabled: true
         onClicked: inputBehavior.forceActiveFocus();
-
+        cursorShape: Qt.IBeamCursor
 
         Rectangle {
             id: controlIcon
@@ -132,7 +139,7 @@ Item {
 
                 anchors.fill: parent
                 onClicked: root.iconClicked();
-                cursor: CursorArea.ArrowCursor
+                cursor: Qt.ArrowCursor
                 visible: mouseArea.containsMouse
             }
         }
@@ -146,6 +153,8 @@ Item {
                 verticalCenter: parent.verticalCenter
             }
             height: parent.height
+
+            clip: true
 
             Item {
                 anchors.fill: parent
@@ -261,7 +270,9 @@ Item {
 
                     if (event.key >= Qt.Key_Space && event.key <= Qt.Key_AsciiTilde) {
                         if (text.length >= root.maximumLength) {
-                            QMultimedia.playSound(installPath + "Assets/Sounds/GameNet/Controls/error.wav");
+                            if (!errorSound.playing) {
+                                errorSound.play();
+                            }
                             return;
                         }
                     }
@@ -279,21 +290,13 @@ Item {
 
         }
 
-        CursorArea {
-            cursor: CursorArea.IBeamCursor
-            height: parent.height
-            anchors {
-                left: controlIcon.right
-                right: iconContainer.left
-            }
-        }
-
         Item {
             id: iconContainer
 
             anchors.right: parent.right
             width: (capslockIcon.visible ? capslockIcon.width : 0)
                    + (languageIcon.visible ? languageIcon.width : 0)
+                   + (eyeIcon.visible ? eyeIcon.width : 0)
 
             height: parent.height
 
@@ -312,8 +315,8 @@ Item {
                     Text {
                         id: languageText
 
-                        color: "#FF6555"
-                        font { family: "Arial"; pixelSize: 20; capitalization: Font.AllUppercase }
+                        color: root.style.placeholder
+                        font { family: "Arial"; pixelSize: 14; capitalization: Font.AllUppercase }
                         visible: false
                         anchors.centerIn: parent
                     }
@@ -383,6 +386,8 @@ Item {
                 }
 
                 Item {
+                    id: eyeIcon
+
                     width: visible ? height : 0
                     height: parent.height
                     visible: root.passwordType === true && root.text.length
@@ -396,6 +401,7 @@ Item {
 
                     CursorMouseArea {
                         id: eyeMouser
+
                         anchors.fill: parent
                     }
                 }
@@ -403,12 +409,7 @@ Item {
         }
     }
 
-    MouseArea {
-        anchors.fill: parent
-        acceptedButtons: Qt.NoButton
-    }
-
-    Item {
+    Rectangle {
         id: suggestionsBorder
 
         anchors {
@@ -421,13 +422,10 @@ Item {
         height: suggestionsView.height + 4
         visible: root.isSuggestionsContainerVisible()
 
-        Rectangle {
-            anchors { fill: parent; margins: 1 }
-            color: style.background
-            border {
-                color: root.style.active
-                width: 2
-            }
+        color: style.background
+        border {
+            color: root.style.active
+            width: 2
         }
 
         Item {

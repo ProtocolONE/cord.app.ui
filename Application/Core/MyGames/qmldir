@@ -1,0 +1,2 @@
+module Application.Core.MyGames
+singleton MyGames 1.0 MyGames.qml

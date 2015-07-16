@@ -7,13 +7,13 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
 import GameNet.Controls 1.0
 
-import "../../../../../../Core/Styles.js" as Styles
-import "../../../../../../Core/App.js" as App
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 import "../../Group" as GroupEdit
 
@@ -23,6 +23,7 @@ Item {
     property string userId: ""
     property alias nickname : nicknameText.text
     property alias avatar: avatarImage.source
+
     property string status: ""
     property string extendedStatus: ""
     property alias presenceStatus: presenceIcon.status
@@ -48,7 +49,7 @@ Item {
     Rectangle {
         visible: root.isCurrent
         anchors.fill: parent
-        color: Styles.style.light
+        color: Styles.light
         opacity: 0.10
     }
 
@@ -67,18 +68,13 @@ Item {
     }
 
     Rectangle {
-        anchors {
-            fill: parent
-            rightMargin: 1
-        }
-
+        anchors.fill: parent
         color: "#00000000"
-
         smooth: false
         opacity: 0.25
         border {
             width: 1
-            color: Styles.style.light
+            color: Styles.light
         }
         visible: root.isHighlighted
     }
@@ -158,10 +154,10 @@ Item {
 
                             function getTextColor() {
                                 if (root.isUnreadMessages) {
-                                    return Styles.style.messengerContactUnreadContact;
+                                    return Styles.messengerContactUnreadContact;
                                 }
 
-                                return Styles.style.menuText;
+                                return Styles.menuText;
                             }
 
                             anchors.left: parent.left
@@ -184,7 +180,7 @@ Item {
 
                             visible: false
                             height: 20
-                            color: Styles.style.menuText
+                            color: Styles.menuText
 
                             font {
                                 family: "Arial"
@@ -221,7 +217,7 @@ Item {
                             }
 
                             text: root.unreadMessageCount > 99 ? "99+" : root.unreadMessageCount
-                            color: Styles.style.messengerContactUnreadContact
+                            color: Styles.messengerContactUnreadContact
                             font {
                                 pixelSize: 12
                                 family: "Arial"
@@ -258,7 +254,7 @@ Item {
                                         ? root.extendedStatus
                                         : root.status
 
-                                color: Styles.style.textBase
+                                color: Styles.textBase
                                 opacity: 0.5
                                 font {
                                     family: "Arial"

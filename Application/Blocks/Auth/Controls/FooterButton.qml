@@ -1,7 +1,8 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import Application.Controls 1.0
 
-import "../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Row {
     id: root
@@ -18,7 +19,7 @@ Row {
     Text {
         id: footerItemText
 
-        color: Styles.style.lightText
+        color: Styles.lightText
         font { family: "Open Sans Regular"; pixelSize: 15 }
     }
 

@@ -8,10 +8,8 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
-import GameNet.Controls 1.0
-
-import "../../../../Core/Styles.js" as Styles
+import QtQuick 2.4
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -20,7 +18,7 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-        color: Styles.style.trayPopupBackground
+        color: Styles.trayPopupBackground
 
         Column {
             spacing: 1
@@ -33,7 +31,7 @@ Item {
                 width: parent.width
                 height: 25
 
-                color: Styles.style.trayPopupHeaderBackground
+                color: Styles.trayPopupHeaderBackground
 
                 Image {
                     anchors {
@@ -65,7 +63,7 @@ Item {
                     }
 
                     text: model.body
-                    color: Styles.style.trayPopupText
+                    color: Styles.trayPopupText
                     wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                     font {
                         pixelSize: 13
@@ -73,7 +71,6 @@ Item {
                     }
                 }
             }
-
         }
     }
 
@@ -84,7 +81,7 @@ Item {
             margins: 1
             bottom: parent.bottom
         }
-        color: Styles.style.trayPopupHeaderBackground
+        color: Styles.trayPopupHeaderBackground
     }
 }
 

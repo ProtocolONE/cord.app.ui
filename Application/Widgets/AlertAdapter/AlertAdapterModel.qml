@@ -8,15 +8,13 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0 as Controls
 
-import "../../Core/App.js" as App
-import "../../Core/Popup.js" as Popup
-import "../../Core/MessageBox.js" as MessageBox
-import "../../Core/restapi.js" as RestApi
+import Application.Core 1.0
+import Application.Core.MessageBox 1.0
 
 WidgetModel {
     id: root
@@ -30,26 +28,26 @@ WidgetModel {
         MessageBox.registerModel(root);
 
         var result = {};
-        result[MessageBox.button['Ok']] = qsTr("OK");
-        result[MessageBox.button['Save']] = qsTr("Save");
-        result[MessageBox.button['SaveAll']] = qsTr("SaveAll");
-        result[MessageBox.button['Open']] = qsTr("Open");
-        result[MessageBox.button['Yes']] = qsTr("Yes");
-        result[MessageBox.button['YesToAll']] = qsTr("YesToAll");
-        result[MessageBox.button['No']] = qsTr("No");
-        result[MessageBox.button['NoToAll']] = qsTr("NoToAll");
-        result[MessageBox.button['Abort']] = qsTr("Abort");
-        result[MessageBox.button['Retry']] = qsTr("Retry");
-        result[MessageBox.button['Ignore']] = qsTr("Ignore");
-        result[MessageBox.button['Close']] = qsTr("Close");
-        result[MessageBox.button['Cancel']] = qsTr("Cancel");
-        result[MessageBox.button['Discard']] = qsTr("Discard");
-        result[MessageBox.button['Help']] = qsTr("Help");
-        result[MessageBox.button['Apply']] = qsTr("Apply");
-        result[MessageBox.button['Reset']] = qsTr("Reset");
-        result[MessageBox.button['RestoreDefaults']] = qsTr("RestoreDefaults");
+        result[MessageBox.button['ok']] = qsTr("OK");
+        result[MessageBox.button['save']] = qsTr("Save");
+        result[MessageBox.button['saveAll']] = qsTr("SaveAll");
+        result[MessageBox.button['open']] = qsTr("Open");
+        result[MessageBox.button['yes']] = qsTr("Yes");
+        result[MessageBox.button['yesToAll']] = qsTr("YesToAll");
+        result[MessageBox.button['no']] = qsTr("No");
+        result[MessageBox.button['noToAll']] = qsTr("NoToAll");
+        result[MessageBox.button['abort']] = qsTr("Abort");
+        result[MessageBox.button['retry']] = qsTr("Retry");
+        result[MessageBox.button['ignore']] = qsTr("Ignore");
+        result[MessageBox.button['close']] = qsTr("Close");
+        result[MessageBox.button['cancel']] = qsTr("Cancel");
+        result[MessageBox.button['discard']] = qsTr("Discard");
+        result[MessageBox.button['help']] = qsTr("Help");
+        result[MessageBox.button['apply']] = qsTr("Apply");
+        result[MessageBox.button['reset']] = qsTr("Reset");
+        result[MessageBox.button['restoreDefaults']] = qsTr("RestoreDefaults");
 
-        MessageBox.buttonNames = result;
+        MessageBox.setButtonNames(result);
     }
 
     function activate(message) {

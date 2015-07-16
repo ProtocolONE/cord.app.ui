@@ -7,7 +7,7 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
 Item {
@@ -69,7 +69,7 @@ Item {
     CursorMouseArea {
         id: cursorArea
 
-        cursor: CursorArea.DefaultCursor
+        cursor: Qt.ArrowCursor
         anchors.fill: parent
         onClicked: root.clicked();
     }

@@ -8,17 +8,15 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 import Application.Blocks 1.0
 
-import "../../Core/App.js" as App
-import "../../Core/Popup.js" as Popup
-import "../../Core/restapi.js" as RestApi
-import "../../Core/TrayPopup.js" as TrayPopup
-import "../../Core/MessageBox.js" as MessageBox
-import "../../Core/User.js" as User
+import Application.Core 1.0
+import Application.Core.Popup 1.0
+import Application.Core.MessageBox 1.0
 
 WidgetModel {
     id: root
@@ -45,11 +43,11 @@ WidgetModel {
 
         gameItem.status = "Starting";
         gameItem.statusText = qsTr("TEXT_PROGRESSBAR_STARTING_STATE")
-        App.updateProgress(gameItem);
+        SignalBus.progressChanged(gameItem);
     }
 
     Connections {
-        target: Popup.signalBus()
+        target: Popup
         onClose: {
             if (root.internalPopupId !== popupId) {
                 return;
@@ -63,17 +61,17 @@ WidgetModel {
             var gameItem = App.serviceItemByServiceId(executeServiceDelay.serviceId);
             gameItem.status = "Normal";
             gameItem.statusText = '';
-            App.updateProgress(gameItem);
+            SignalBus.progressChanged(gameItem);
         }
     }
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
 
         onSelectService: {
             //TODO Вероятно эта логика должна быть вынесена в какое-то другое место. Более "высокое".
             App.activateGameByServiceId(serviceId);
-            App.navigate("mygame");
+            SignalBus.navigate("mygame", "");
         }
 
         onNeedPakkanenVerification: Popup.show('AccountActivation');
@@ -89,18 +87,15 @@ WidgetModel {
 
             if (service == "30000000000" && serviceState == 100500) {
                 App.activateGameByServiceId(service);
-                App.navigate('mygame', 'GameItem');
+                SignalBus.navigate('mygame', 'GameItem');
 
                 MessageBox.show(
                             qsTr("Вам нужен ключ доступа"),
                             qsTr("Скачать клиент игры могут только участники F&F-теста. Если у вас есть ключ доступа, нажмите \"Да\"."),
-                            MessageBox.button.Yes | MessageBox.button.No,
+                            MessageBox.button.yes | MessageBox.button.no,
                             function(result) {
                                 console.log(result)
-                                if (result == 16384) {
-                                    //INFO Думаете магия? Кто-то проебался и колбек деоргается восем не с
-                                    //теми аргументами, как обещано в справке - обещали f(id, button), но по факту не
-                                    //то. Исправят тут https://jira.gamenet.ru:8443/browse/QGNA-1044
+                                if (result == MessageBox.button.yes) {
                                     Popup.show('PromoCode');
                                 }
                             });
@@ -122,7 +117,7 @@ WidgetModel {
         property variant startTime
 
         function showCats(serviceId) {
-            var total = App.executeGameTotalCount(serviceId);
+            var total = ApplicationStatistic.executeGameTotalCount(serviceId);
             return total <= 2;
         }
 
@@ -196,7 +191,7 @@ WidgetModel {
                 gameItem.status = "Started";
             }
 
-            App.updateProgress(gameItem);
+            SignalBus.progressChanged(gameItem);
         }
     }
 }

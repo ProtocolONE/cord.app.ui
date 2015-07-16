@@ -8,31 +8,28 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 import GameNet.Controls 1.0
 
 import Application.Blocks.Popup 1.0
 import Application.Controls 1.0
+import Application.Core 1.0
+import Application.Core.Styles 1.0
+import Application.Core.Popup 1.0
 
 import "Pages"
-
-import "../../../Core/App.js" as App
-import "../../../Core/Popup.js" as Popup
-import "../../../Core/Styles.js" as Styles
-import "../../../Core/User.js" as User
-import "../../../Core/MessageBox.js" as MessageBox
 
 PopupBase {
     id: root
 
-    property variant currentGame: model.currentGame
+    property variant currentGame: model ? model.currentGame : null
     property variant gameSettingsModelInstance: App.gameSettingsModelInstance() || {}
 
     defaultMargins: 44
     width: 740
     title: qsTr("GAME_SETTINGS_TITLE").arg(App.currentGame().name)
-    defaultBackgroundColor: Styles.style.applicationBackground
+    defaultBackgroundColor: Styles.applicationBackground
 
     onClose: {
         try {
@@ -45,7 +42,7 @@ PopupBase {
     }
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
         ignoreUnknownSignals: true
 
         onUninstallStarted: {
@@ -69,7 +66,7 @@ PopupBase {
 
             Rectangle {
                 anchors.fill: parent
-                color: Styles.style.contentBackground
+                color: Styles.contentBackground
             }
 
             Column {
@@ -106,7 +103,7 @@ PopupBase {
                         label: 'Uninstall'
                     }
 
-                    onClicked: App.uninstallRequested(root.currentGame.serviceId);
+                    onClicked: SignalBus.uninstallRequested(root.currentGame.serviceId);
                 }
 
                 SettingsTextButton {
@@ -118,7 +115,7 @@ PopupBase {
                     onClicked: {
                         root.gameSettingsModelInstance.restoreClient();
                         root.currentGame.status = 'Normal';
-                        App.navigate("mygame");
+                        SignalBus.navigate("mygame", '');
                         Popup.show('GameLoad');
                         root.close();
                     }

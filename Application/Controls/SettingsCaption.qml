@@ -1,5 +1,5 @@
-import QtQuick 1.1
-import "../Core/Styles.js" as Styles
+import QtQuick 2.4
+import Application.Core.Styles 1.0
 
 Text {
     width: parent.width
@@ -10,5 +10,5 @@ Text {
         pixelSize: 12
     }
 
-    color: Styles.style.infoText
+    color: Styles.infoText
 }

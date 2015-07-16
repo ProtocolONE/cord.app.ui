@@ -7,21 +7,18 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 import Application.Blocks.Popup 1.0
 import Application.Controls 1.0
-
-import "../../../../GameNet/Core/Analytics.js" as Ga
-
-import "../../../Core/App.js" as App
-import "../../../Core/Styles.js" as Styles
+import Application.Core 1.0
 
 PopupBase {
     id: root
 
-    property variant gameItem: model.currentGame
+    property variant gameItem: model ? model.currentGame : null
     property bool isPause: false
 
     signal pause();
@@ -42,7 +39,7 @@ PopupBase {
     title: qsTr("GAME_LOAD_VIEW_HEADER_TEXT").arg(App.currentGame().name)
 
     Connections {
-        target: mainWindow
+        target: App.mainWindowInstance()
 
         ignoreUnknownSignals: true
         onDownloaderFinished: {
@@ -78,7 +75,7 @@ PopupBase {
                font {family: "Arial"; pixelSize: 14}
                smooth: true
                color: defaultTextColor
-               text: model.headerText
+               text: model ? model.headerText : ""
            }
 
            Row {
@@ -99,7 +96,7 @@ PopupBase {
                            margins: 6
                        }
 
-                       progress: model.progress
+                       progress: model ? model.progress : 0
                    }
                }
 
@@ -120,7 +117,7 @@ PopupBase {
             analytics {
                 category: 'GameLoad'
                 action: 'details'
-                label: root.gameItem.gaName
+                label: root.gameItem ? root.gameItem.gaName : ""
             }
             onClicked: stateGroup.state = "Detailed";
         }
@@ -128,16 +125,16 @@ PopupBase {
         ProgressWidget {
             id: progressWidget
 
-            totalWantedDone: model.totalWantedDone
-            totalWanted: model.totalWanted
-            directTotalDownload: model.directTotalDownload
-            peerTotalDownload: model.peerTotalDownload
-            payloadTotalDownload: model.payloadTotalDownload
-            peerPayloadDownloadRate: model.peerPayloadDownloadRate
-            payloadDownloadRate: model.payloadDownloadRate
-            directPayloadDownloadRate: model.directPayloadDownloadRate
-            payloadUploadRate: model.payloadUploadRate
-            totalPayloadUpload: model.totalPayloadUpload
+            totalWantedDone: model ? model.totalWantedDone : 0
+            totalWanted: model ? model.totalWanted : 0
+            directTotalDownload: model ? model.directTotalDownload : 0
+            peerTotalDownload: model ? model.peerTotalDownload : 0
+            payloadTotalDownload: model ? model.payloadTotalDownload : 0
+            peerPayloadDownloadRate: model ? model.peerPayloadDownloadRate : 0
+            payloadDownloadRate: model ? model.payloadDownloadRate : 0
+            directPayloadDownloadRate: model ? model.directPayloadDownloadRate : 0
+            payloadUploadRate: model ? model.payloadUploadRate : 0
+            totalPayloadUpload: model ? model.totalPayloadUpload : 0
         }
 
         PopupHorizontalSplit {
@@ -147,7 +144,7 @@ PopupBase {
         WidgetContainer {
             id: innerWidget
 
-            widget: root.gameItem.widgets.gameDownloading
+            widget: root.gameItem ? root.gameItem.widgets.gameDownloading : ""
             visible: widget
         }
     }

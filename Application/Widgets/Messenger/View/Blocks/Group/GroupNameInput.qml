@@ -7,12 +7,14 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
+import QtMultimedia 5.4
+
 import Tulip 1.0
 
 import GameNet.Controls 1.0
 import Application.Controls 1.0
-import "../../../../../Core/Styles.js" as Styles
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -40,11 +42,17 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-        color: Styles.style.dark
+        color: Styles.dark
         opacity: 0.2
     }
 
     ContentThinBorder {}
+
+    SoundEffect {
+        id: errorSound
+
+        source: installPath + "Assets/Sounds/Controls/error.wav"
+    }
 
     MouseArea {
         id: mouseArea
@@ -63,6 +71,7 @@ Item {
             }
 
             height: parent.height
+            clip: true
 
             Text {
                 id: placeholderText
@@ -82,6 +91,7 @@ Item {
             InputBehaviour {
                 id: inputBehavior
 
+                maximumLength: 30
                 color: style.text
                 fontSize: root.fontSize
                 anchors {
@@ -112,7 +122,9 @@ Item {
 
                     if (event.key >= Qt.Key_Space && event.key <= Qt.Key_AsciiTilde) {
                         if (text.length >= root.maximumLength) {
-                            QMultimedia.playSound(installPath + "Assets/Sounds/GameNet/Controls/error.wav");
+                            if (!errorSound.playing) {
+                                errorSound.play();
+                            }
                             return;
                         }
                     }
@@ -123,10 +135,10 @@ Item {
                 }
             }
 
-            CursorArea {
-                cursor: CursorArea.IBeamCursor
+            MouseArea {
+                cursorShape: Qt.IBeamCursor
                 anchors.fill: parent
-                height: parent.height
+                acceptedButtons: Qt.NoButton
             }
         }
     }

@@ -8,7 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
 import GameNet.Controls 1.0
@@ -17,11 +17,10 @@ import GameNet.Components.Widgets 1.0
 import Application.Blocks.Auth 1.0
 import Application.Controls 1.0
 
-import "../../../Core/Authorization.js" as Authorization
-import "../../../Core/App.js" as App
-import "../../../Core/Styles.js" as Styles
-import "../../../Core/User.js" as User
-import "../../../Core/Popup.js" as Popup
+import Application.Core 1.0
+import Application.Core.Styles 1.0
+import Application.Core.Popup 1.0
+import Application.Core.Authorization 1.0
 
 WidgetView {
     id: root
@@ -33,7 +32,7 @@ WidgetView {
     clip: true
 
     CursorMouseArea {
-        cursor: CursorArea.ArrowCursor
+        cursor: Qt.ArrowCursor
         anchors.fill: parent
         acceptedButtons: Qt.RightButton | Qt.LeftButton
     }
@@ -42,7 +41,7 @@ WidgetView {
         x: 14
         y: 10
         text: qsTr("SECOND_GAME_BLOCK_PREMIUM_TITLE")
-        color: Styles.style.infoText
+        color: Styles.infoText
         font {family: 'Arial'; pixelSize: 12}
     }
 
@@ -86,7 +85,7 @@ WidgetView {
                     x: 4
                     text: User.getSecondNickname()
                     width: 180
-                    color: Styles.style.lightText
+                    color: Styles.lightText
                     elide: Text.ElideRight
                     font {family: 'Arial'; pixelSize: 12}
                     clip: true
@@ -95,13 +94,13 @@ WidgetView {
                 ImageButton {
                     width: 24
                     height: 24
-                    onClicked: App.logoutSecondRequest();
+                    onClicked: SignalBus.logoutSecondRequest();
                     anchors { verticalCenter: parent.verticalCenter; right: parent.right }
                     style { normal: "#00000000"; hover: "#00000000"; disabled: "#00000000"}
                     styleImages {
-                        normal: installPath + Styles.style.secondAccountAuthLogoutIcon
-                        hover: installPath + Styles.style.secondAccountAuthLogoutIcon.replace('.png', '_hover.png')
-                        disabled: installPath + Styles.style.secondAccountAuthLogoutIcon
+                        normal: installPath + Styles.secondAccountAuthLogoutIcon
+                        hover: installPath + Styles.secondAccountAuthLogoutIcon.replace('.png', '_hover.png')
+                        disabled: installPath + Styles.secondAccountAuthLogoutIcon
                     }
                     analytics {
                         category: 'SecondAccountAuth';

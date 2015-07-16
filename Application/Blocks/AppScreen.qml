@@ -1,4 +1,4 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import Application.Layers 1.0
 
 Item {

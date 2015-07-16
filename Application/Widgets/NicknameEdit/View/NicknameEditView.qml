@@ -7,14 +7,15 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
 import Application.Blocks.Popup 1.0
 import Application.Controls 1.0
 
-import "../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 PopupBase {
     id: root
@@ -60,7 +61,7 @@ PopupBase {
 
             if (error != "") {
                 nickName.errorMessage = error;
-                nickName.style.text = Styles.style.inputError;
+                nickName.style.text = Styles.inputError;
                 nickName.error = true;
             }
         }
@@ -72,7 +73,7 @@ PopupBase {
         onTechNameError: {
             if (error != "") {
                 techName.errorMessage = error;
-                techName.style.text = Styles.style.inputError;
+                techName.style.text = Styles.inputError;
                 techName.error = true;
                 d.needGenerateTechName = true;
             }
@@ -113,39 +114,48 @@ PopupBase {
         color: root.defaultTextColor
     }
 
-    InputWithError {
-        id: nickName
-
-        focus: true
+    Item {
         anchors {
             left: parent.left
             right: parent.right
         }
-        icon: installPath + Styles.style.nicknameEditIcon
-        showLanguage: true
-        maximumLength: 25
-        placeholder: qsTr("YOUR_NICKNAME_PLACEHOLDER")
 
-        onTextChanged: {
-            d.nickNameOk = false;
+        height: nickName.height
 
-            if (!d.nickNameLowBoundReached && nickName.text.length > 4) {
-                d.nickNameLowBoundReached = true;
+        InputWithError {
+            id: nickName
+
+            focus: true
+            anchors {
+                left: parent.left
+                right: parent.right
             }
+            icon: installPath + Styles.nicknameEditIcon
+            showLanguage: true
+            maximumLength: 25
+            placeholder: qsTr("YOUR_NICKNAME_PLACEHOLDER")
 
-            if (d.needGenerateTechName) {
-                //   хак нужен чтбы различать - нагенерили или ввели вручную
-                d.generatingTechName = true;
-                techName.text = model.generateTechNick(nickName.text);
-                d.generatingTechName = false;
-            }
-        }
-        onValidate: {
-            if (!d.nickNameLowBoundReached) {
-                return;
-            }
+            onTextChanged: {
+                d.nickNameOk = false;
 
-            model.validateNickName(nickName.text);
+                if (!d.nickNameLowBoundReached && nickName.text.length > 4) {
+                    d.nickNameLowBoundReached = true;
+                }
+
+                if (d.needGenerateTechName) {
+                    //   хак нужен чтбы различать - нагенерили или ввели вручную
+                    d.generatingTechName = true;
+                    techName.text = model.generateTechNick(nickName.text);
+                    d.generatingTechName = false;
+                }
+            }
+            onValidate: {
+                if (!d.nickNameLowBoundReached) {
+                    return;
+                }
+
+                model.validateNickName(nickName.text);
+            }
         }
 
         Image {
@@ -205,18 +215,18 @@ PopupBase {
             onValidate: {
                 model.validateTechName(value);
             }
+        }
 
-            Image {
-                width: 30
-                height: 30
-                fillMode: Image.PreserveAspectFit
-                visible: d.techNameOk
-                source: installPath + "Assets/Images/Application/Widgets/NicknameEdit/ok.png"
-                anchors {
-                    right: parent.right
-                    rightMargin: 5
-                    verticalCenter: parent.verticalCenter
-                }
+        Image {
+            width: 30
+            height: 30
+            fillMode: Image.PreserveAspectFit
+            visible: d.techNameOk
+            source: installPath + "Assets/Images/Application/Widgets/NicknameEdit/ok.png"
+            anchors {
+                right: parent.right
+                rightMargin: 5
+                verticalCenter: parent.verticalCenter
             }
         }
     }
@@ -226,7 +236,7 @@ PopupBase {
 
         width: 200
         text: qsTr("SAVE_BUTTON_CAPTION")
-        enabled: (model.nickNameValid && model.techNameValid)
+        enabled: (model && model.nickNameValid && model.techNameValid)
         onClicked: {
             nickName.readOnly = true;
             techName.readOnly = true;

@@ -7,7 +7,7 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 
 Item {
     id: control
@@ -56,7 +56,7 @@ Item {
             Rectangle {
                 id: checkboxBorder
 
-                anchors { fill: parent; margins: 1 }
+                anchors.fill: parent
                 color: "#00FFFFFF"
                 opacity: 1
                 visible: opacity > 0

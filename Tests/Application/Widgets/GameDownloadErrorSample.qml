@@ -8,13 +8,15 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
+import Dev 1.0
+
 import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 import Application.Blocks 1.0
-
-import "../../../Application/Core/Popup.js" as PopupJs
+import Application.Core 1.0
+import Application.Core.Popup 1.0
 
 Rectangle {
     width: 1000
@@ -28,7 +30,7 @@ Rectangle {
             manager.registerWidget('Application.Widgets.GameDownloadError');
             manager.init();
 
-            PopupJs.init(popupLayer);
+            Popup.init(popupLayer);
         }
     }
 
@@ -58,7 +60,7 @@ Rectangle {
             width: 300
             height: 40
             text: "Show Error"
-            onClicked: PopupJs.show("GameDownloadError")
+            onClicked: Popup.show("GameDownloadError")
         }
 
         Rectangle {

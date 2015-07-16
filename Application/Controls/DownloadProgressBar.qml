@@ -1,11 +1,11 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 
-import "../Core/Styles.js" as Styles
+import Application.Core.Styles 1.0
 
 ProgressBar {
     style {
-        background: Styles.style.downloadProgressBackground
-        line: Styles.style.downloadProgressLine
+        background: Styles.downloadProgressBackground
+        line: Styles.downloadProgressLine
     }
 }

@@ -1,7 +1,7 @@
-import QtQuick 1.1
+import QtQuick 2.4
 
-import "../../../../../Core/Styles.js" as Styles
-import "../../../../../Core/moment.js" as Moment
+import GameNet.Core 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -20,8 +20,8 @@ Item {
             rightMargin: 10
             topMargin: 16
         }
-        color: Styles.style.light
-        opacity: Styles.style.blockInnerOpacity
+        color: Styles.light
+        opacity: Styles.blockInnerOpacity
     }
 
     Text {
@@ -44,7 +44,7 @@ Item {
 
         anchors.centerIn: parent
 
-        color: Styles.style.textTime
+        color: Styles.textTime
         font {
             family: "Arial"
             pixelSize: 12
@@ -52,7 +52,6 @@ Item {
         }
         text: infoMessage.dateText(+root.sectionProperty)
     }
-
 
     Rectangle {
         height: 1
@@ -64,7 +63,7 @@ Item {
             rightMargin: 12
             topMargin: 16
         }
-        color: Styles.style.light
-        opacity: Styles.style.blockInnerOpacity
+        color: Styles.light
+        opacity: Styles.blockInnerOpacity
     }
 }

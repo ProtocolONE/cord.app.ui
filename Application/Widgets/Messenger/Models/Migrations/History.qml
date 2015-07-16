@@ -1,6 +1,5 @@
-import QtQuick 1.1
-import QXmpp 1.0
-import Tulip 1.0
+import QtQuick 2.4
+import Application.Core.Settings 1.0
 
 Item {
     id: root
@@ -11,20 +10,20 @@ Item {
             storyBoard = [];
 
         try {
-            var jidList = JSON.parse(Settings.value(rootPath, 'jids' , '[]'));
+            var jidList = JSON.parse(AppSettings.value(rootPath, 'jids' , '[]'));
         } catch (e) {
             return [];
         }
 
         try {
-            var dayList = JSON.parse(Settings.value(rootPath, 'days' , '[]'));
+            var dayList = JSON.parse(AppSettings.value(rootPath, 'days' , '[]'));
         } catch(e) {
             dayList = [];
         }
 
         dayList.forEach(function(day){
             try {
-                var history = JSON.parse(Settings.value(rootPath + '/' + day, 'history' , '{}'));
+                var history = JSON.parse(AppSettings.value(rootPath + '/' + day, 'history' , '{}'));
             } catch(e) {
                 history = [];
             }
@@ -36,6 +35,6 @@ Item {
     }
 
     function clear(jid) {
-        Settings.remove('qml/messenger/history/' + jid, '');
+        AppSettings.remove('qml/messenger/history/' + jid, '');
     }
 }

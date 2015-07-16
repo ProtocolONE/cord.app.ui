@@ -7,10 +7,9 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Application.Controls 1.0
-
-import "../../../Core/Styles.js" as Styles
+import Application.Core.Styles 1.0
 
 Item  {
     property alias infoText: infoTextElement.text
@@ -38,7 +37,7 @@ Item  {
             pixelSize: 12
         }
 
-        color: Styles.style.popupText
+        color: Styles.popupText
     }
 
     Text {
@@ -55,6 +54,6 @@ Item  {
             pixelSize: 12
         }
 
-        color: Styles.style.lightText
+        color: Styles.lightText
     }
 }

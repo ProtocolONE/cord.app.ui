@@ -1,9 +1,9 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
-import "../Core/Styles.js" as Styles
-
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Button {
     id: root
@@ -22,7 +22,7 @@ Button {
 
     Rectangle {
         anchors.fill: parent
-        color: Styles.style.contentBackgroundLight
+        color: Styles.contentBackgroundLight
         opacity: 0.15
         visible: root.checked
     }
@@ -42,7 +42,7 @@ Button {
         }
 
         font { family: "Open Sans Regular"; pixelSize: 15 }
-        color: root.checked ? Styles.style.lightText : Styles.style.infoText
+        color: root.checked ? Styles.lightText : Styles.infoText
     }
 }
 

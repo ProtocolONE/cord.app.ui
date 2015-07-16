@@ -1,8 +1,8 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
-
+import GameNet.Core 1.0
+import Application.Core.Settings 1.0
 import "./SmilesPrivate.js" as Smiles
-import "../../../../Core/EmojiOne.js" as EmojiOne
 
 Item {
 
@@ -67,14 +67,14 @@ Item {
             return Smiles.mostUsedSmilesMap[b] - Smiles.mostUsedSmilesMap[a];
         });
 
-        Settings.setValue('qml/messenger/mostUsedSmilesMap/', jid, JSON.stringify(Smiles.mostUsedSmilesMap));
-        Settings.setValue('qml/messenger/recentSmilesList/', jid, JSON.stringify(Smiles.recentSmilesList));
-        Settings.setValue('qml/messenger/sortedRecentSmiles/', jid, JSON.stringify(Smiles.sortedRecentSmiles));
+        AppSettings.setValue('qml/messenger/mostUsedSmilesMap/', jid, JSON.stringify(Smiles.mostUsedSmilesMap));
+        AppSettings.setValue('qml/messenger/recentSmilesList/', jid, JSON.stringify(Smiles.recentSmilesList));
+        AppSettings.setValue('qml/messenger/sortedRecentSmiles/', jid, JSON.stringify(Smiles.sortedRecentSmiles));
     }
 
     function loadRecentSmiles(jid) {
         try {
-            Smiles.mostUsedSmilesMap = JSON.parse(Settings.value('qml/messenger/mostUsedSmilesMap/',
+            Smiles.mostUsedSmilesMap = JSON.parse(AppSettings.value('qml/messenger/mostUsedSmilesMap/',
                                                                              jid,
                                                                              "{}"));
         } catch (e) {
@@ -82,7 +82,7 @@ Item {
         }
 
         try {
-            Smiles.sortedRecentSmiles = JSON.parse(Settings.value('qml/messenger/sortedRecentSmiles/',
+            Smiles.sortedRecentSmiles = JSON.parse(AppSettings.value('qml/messenger/sortedRecentSmiles/',
                                                                              jid,
                                                                              "[]"));
         } catch (e) {
@@ -90,7 +90,7 @@ Item {
         }
 
         try {
-            Smiles.recentSmilesList = JSON.parse(Settings.value('qml/messenger/recentSmilesList/',
+            Smiles.recentSmilesList = JSON.parse(AppSettings.value('qml/messenger/recentSmilesList/',
                                                                              jid,
                                                                              "[]"));
         } catch (e) {

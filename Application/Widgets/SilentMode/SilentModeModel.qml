@@ -8,16 +8,15 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
-import Application.Blocks 1.0
+
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
-import "../../Core/App.js" as App
-import "../../Core/TrayPopup.js" as TrayPopup
-
-import "../../../GameNet/Core/Analytics.js" as Ga
+import Application.Blocks 1.0
+import Application.Core 1.0
 
 WidgetModel {
     id: root
@@ -59,7 +58,7 @@ WidgetModel {
     }
 
     Connections {
-        target: App.signalBus();
+        target: SignalBus;
 
         onServiceInstalled: {
             if (!App.isWindowVisible()) {
@@ -71,11 +70,11 @@ WidgetModel {
         }
 
         onDownloaderStarted: {
-            var isInstalled = App.isServiceInstalled(gameItem.serviceId);
+            var isInstalled = ApplicationStatistic.isServiceInstalled(gameItem.serviceId);
 
             if (App.isSilentMode() && !isInstalled) {
                 d.showPopupGameDownloading(gameItem);
-                App.hideMainWindow();
+                SignalBus.hideMainWindow();
             }
         }
     }

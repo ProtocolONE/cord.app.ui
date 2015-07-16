@@ -8,8 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
-import Tulip 1.0
+import QtQuick 2.4
 
 Item {
     id: root
@@ -45,13 +44,7 @@ Item {
 
         anchors.fill: parent
         hoverEnabled: true
-
-        CursorArea {
-            id: mouseCursor
-
-            anchors.fill: parent
-            cursor: CursorArea.ArrowCursor
-        }
+        cursorShape: Qt.ArrowCursor
     }
 
     StateGroup {
@@ -87,14 +80,21 @@ Item {
                     ScriptAction {
                         script: {
                             // INFO этот трюк ресетит курсор
-                            mouseCursor.cursor = CursorArea.PointingHandCursor;
-                            mouseCursor.cursor = CursorArea.ArrowCursor;
+                            // UPDATE 22.07.2015 этот трюк больше не работает, и нет решения.
+                            // mouse.cursorShape = Qt.PointingHandCursor;
+                            // mouse.cursorShape = Qt.ArrowCursor;
                             root.forceActiveFocus();
                         }
                     }
 
                     PauseAnimation { duration: root.interval }
-                    NumberAnimation { target: back; property: "opacity"; duration: 3000; to: root.maxOpacity; easing.type: Easing.InOutQuad }
+                    NumberAnimation {
+                        target: back;
+                        property: "opacity";
+                        duration: 3000;
+                        to: root.maxOpacity;
+                        easing.type: Easing.InOutQuad
+                    }
                 }
             }
         ]

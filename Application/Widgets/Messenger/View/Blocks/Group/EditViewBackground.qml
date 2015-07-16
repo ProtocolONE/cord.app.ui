@@ -1,6 +1,6 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import Application.Controls 1.0
-import "../../../../../Core/Styles.js" as Styles
+import Application.Core.Styles 1.0
 
 Item { // background
     anchors.fill: parent
@@ -11,7 +11,7 @@ Item { // background
             topMargin: 12
         }
 
-        color: Styles.style.popupBlockBackground
+        color: Styles.popupBlockBackground
     }
 
     ContentThinBorder {
@@ -28,7 +28,7 @@ Item { // background
 
         rotation: 45
         transformOrigin: Item.TopLeft
-        color: Styles.style.popupBlockBackground
+        color: Styles.popupBlockBackground
         width: 19
         height: 19
 
@@ -41,6 +41,4 @@ Item { // background
             y: 1
         }
     }
-
-
 }

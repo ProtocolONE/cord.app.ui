@@ -8,13 +8,13 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0 as Controls
 
-import "../../../Core/MessageBox.js" as MessageBox
-import "../../../Core/App.js" as App
-import "../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
+import Application.Core.MessageBox 1.0
 
 import "./AlertAdapter.js" as AlertAdapter
 
@@ -42,7 +42,7 @@ WidgetView {
             mainAlertText.text = message.text;
             headerText.text = message.message;
 
-            for (var button in MessageBox.buttonNames) {
+            for (var button in MessageBox.buttonNames()) {
                 if ((message.buttons & button) == button) {
                     if (d.isPositiveButton(button)) {
                         ++buttonCount;
@@ -51,7 +51,7 @@ WidgetView {
                 }
             }
 
-            for (var button in MessageBox.buttonNames) {
+            for (var button in MessageBox.buttonNames()) {
                 if ((message.buttons & button) == button) {
                     if (!d.isPositiveButton(button)) {
                         ++buttonCount;
@@ -61,7 +61,7 @@ WidgetView {
             }
 
             if (buttonCount == 0) {
-                d.addButton(positiveButton, MessageBox.button.Ok);
+                d.addButton(positiveButton, MessageBox.button.ok);
             }
         }
     }
@@ -72,7 +72,7 @@ WidgetView {
         function addButton(component, button) {
             var obj = component.createObject(controlRowId);
 
-            obj.text = MessageBox.buttonNames[button];
+            obj.text = MessageBox.buttonNames()[button];
             obj.buttonId = button;
 
             obj.buttonClick.connect(function(button) {
@@ -84,10 +84,10 @@ WidgetView {
 
         function isPositiveButton(button) {
             switch (+button) {
-            case MessageBox.button.Cancel:
-            case MessageBox.button.Discard:
-            case MessageBox.button.No:
-            case MessageBox.button.NoToAll:
+            case MessageBox.button.cancel:
+            case MessageBox.button.discard:
+            case MessageBox.button.no:
+            case MessageBox.button.noToAll:
                 return false;
             }
 
@@ -142,9 +142,9 @@ WidgetView {
     }
 
     Rectangle {
-        color: Styles.style.messageBoxBackground
+        color: Styles.messageBoxBackground
         anchors.fill: parent
-        border.color: Styles.style.messageBoxBorder
+        border.color: Styles.messageBoxBorder
     }
 
     Column {
@@ -173,7 +173,7 @@ WidgetView {
                 width: parent.width
                 font { family: "Arial"; pixelSize: 20 }
                 elide: Text.ElideRight
-                color: Styles.style.messageBoxHeaderText
+                color: Styles.messageBoxHeaderText
                 smooth: true
                 text: "this fix qml bug with empty Text tag dimensions"
             }
@@ -198,7 +198,7 @@ WidgetView {
                 width: parent.width - infoImage.width
                 font { family: "Arial"; pixelSize: 14 }
                 wrapMode: Text.Wrap
-                color: Styles.style.messageBoxText
+                color: Styles.messageBoxText
                 smooth: true
                 textFormat: Text.RichText
                 onLinkActivated: App.openExternalUrl(link)

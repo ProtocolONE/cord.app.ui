@@ -8,18 +8,16 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
 
 import Application.Controls 1.0
 import Application.Blocks.Popup 1.0
 
-import "../../../Core/App.js" as App
-import "../../../Core/Styles.js" as Styles
-import "../../../Core/restapi.js" as RestApi
-
-import "../../../../GameNet/Core/Analytics.js" as Ga
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 PopupBase {
     id: root
@@ -41,7 +39,7 @@ PopupBase {
             id: promoCode
 
             width: parent.width
-            icon: installPath + Styles.style.promoCodeIcon
+            icon: installPath + Styles.promoCodeIcon
             showLanguage: true
             placeholder: qsTr("PROMO_CODE_PLACEHOLDER")
         }

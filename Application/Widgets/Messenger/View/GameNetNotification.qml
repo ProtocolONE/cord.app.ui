@@ -7,13 +7,14 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 
 import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 
+import Application.Core.Styles 1.0
+
 import "../Models/Messenger.js" as MessengerJs
-import "../../../Core/Styles.js" as Styles
 
 WidgetView {
     id: root
@@ -32,9 +33,9 @@ WidgetView {
         toolTip: qsTr("MESSANGER_GAMENET_NOTIFICATION_TOOLTIP") //"Уведомения от GameNet"
         style { normal: "#00000000"; hover: "#00000000"; disabled: "#00000000"}
         styleImages {
-            normal: installPath + Styles.style.messengerNotificationsIcon
-            hover: installPath + Styles.style.messengerNotificationsIcon.replace('.png', '_hover.png')
-            disabled: installPath + Styles.style.messengerNotificationsIcon
+            normal: installPath + Styles.messengerNotificationsIcon
+            hover: installPath + Styles.messengerNotificationsIcon.replace('.png', '_hover.png')
+            disabled: installPath + Styles.messengerNotificationsIcon
         }
         onClicked: MessengerJs.selectUser(root.user)
 
@@ -55,12 +56,12 @@ WidgetView {
         width: 14
         height: 14
         radius: 7
-        color: Styles.style.primaryButtonNormal
+        color: Styles.primaryButtonNormal
         visible: root.unreadMessageCount > 0
 
         Text {
             text: root.unreadMessageCount
-            color: Styles.style.menuText
+            color: Styles.menuText
             anchors.centerIn: parent
         }
 

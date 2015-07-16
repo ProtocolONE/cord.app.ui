@@ -7,16 +7,14 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
-import GameNet.Controls 1.0 as Controls
 
-import "../../Core/App.js" as App
-import "../../Core/Popup.js" as Popup
-
-import "../../../GameNet/Core/Analytics.js" as Ga
+import Application.Core 1.0
+import Application.Core.Popup 1.0
 
 WidgetModel {
     id: root
@@ -35,7 +33,7 @@ WidgetModel {
     }
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
         ignoreUnknownSignals: true
 
         onNavigate: {
@@ -65,7 +63,7 @@ WidgetModel {
     }
 
     Connections {
-        target: Popup.signalBus()
+        target: Popup
         ignoreUnknownSignals: true
 
         onOpen: {

@@ -1,10 +1,8 @@
-import QtQuick 1.1
-import Tulip 1.0
+import QtQuick 2.4
 
 import GameNet.Controls 1.0
 import Application.Controls 1.0
-
-import "../../../../../../Core/Styles.js" as Styles
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -28,7 +26,13 @@ Item {
             height: 16
             checked: false
             onClicked: root.clicked();
-            icon: installPath + Styles.style.messengerGroupCountIcon
+            icon: installPath + Styles.messengerGroupCountIcon
+            analytics {
+                category: "Messenger GroupHeader"
+                action: "toggle"
+                label: "OpenGroupEdit"
+                value: checked|0
+            }
         }
 
         TextButton {
@@ -62,9 +66,9 @@ Item {
             }
 
             style {
-                normal: Styles.style.textBase
-                hover: Styles.style.menuText
-                disabled: Styles.style.textBase
+                normal: Styles.textBase
+                hover: Styles.menuText
+                disabled: Styles.textBase
             }
 
             text: groupCountText.countText()

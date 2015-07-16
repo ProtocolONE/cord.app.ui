@@ -8,18 +8,15 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 
-import "../../../GameNet/Core/Analytics.js" as Ga
-
-import "../../Core/restapi.js" as RestApi
-import "../../Core/TrayPopup.js" as TrayPopup
-import "../../Core/App.js" as App
+import Application.Core 1.0
+import Application.Core.Settings 1.0
 
 import "MaintenanceModel.js" as MaintenanceModel
-
 import "View" as View
 
 WidgetModel {
@@ -104,7 +101,7 @@ WidgetModel {
                 if (MaintenanceModel.showMaintenanceEnd[index]) {
                     delete MaintenanceModel.showMaintenanceEnd[index];
 
-                    if (!App.isWindowVisible() && MaintenanceModel.isShowEndPopup()) {
+                    if (!App.isWindowVisible() && AppSettings.isAppSettingsEnabled('notifications', 'maintenanceEndPopup', true)) {
                         root.showPopupGameMaintenanceEnd(index);
                     }
                 }

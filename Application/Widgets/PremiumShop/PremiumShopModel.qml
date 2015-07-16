@@ -8,11 +8,11 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
-import "../../Core/restapi.js" as RestApi
-import "../../Core/User.js" as User
-import "../../Core/MessageBox.js" as MessageBox
+import Application.Core 1.0
+import Application.Core.MessageBox 1.0
 
 WidgetModel {
     id: root
@@ -100,13 +100,13 @@ WidgetModel {
 
             MessageBox.show(qsTr("PREMIUM_BUY_SUCCESS_CAPTION").arg(days),
                             qsTr("PREMIUM_SHOP_BUY_SUCCESS_DETAILS"),
-                            MessageBox.button.Ok);
+                            MessageBox.button.ok);
         }
 
         function showError(message) {
             MessageBox.show(qsTr("PREMIUM_BUY_ERROR_CAPTION"),
                             message || qsTr("PREMIUM_SHOP_DETAILS_ERROR_UNKNOWN"),
-                            MessageBox.button.Ok, function(result) {
+                            MessageBox.button.ok, function(result) {
                                 root.inProgress = false;
                             });
         }

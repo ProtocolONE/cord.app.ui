@@ -8,10 +8,9 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Components.Widgets 1.0
-import "../../Core/restapi.js" as RestApi
-import "../../Core/App.js" as App
+import GameNet.Core 1.0
 
 WidgetModel {
     id: rootModel

@@ -8,16 +8,14 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
+import QtQuick.Window 2.2
 
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
 import Application.Blocks 1.0
-
-import "../../../GameNet/Core/Analytics.js" as Ga
-
-import "../../Core/App.js" as App
-import "../../Core/User.js" as User
+import Application.Core 1.0
 
 Window {
     id: bigAnnounceWindow
@@ -55,7 +53,6 @@ Window {
     y: Desktop.primaryScreenAvailableGeometry.y + (Desktop.primaryScreenAvailableGeometry.height - height) / 2
 
     flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
-    deleteOnClose: false
 
     function sendAnnouncementActionClicked() {
         Marketing.send(Marketing.AnnouncementActionClicked,
@@ -91,7 +88,7 @@ Window {
         }
     }
 
-    onBeforeClosed: bigAnnounceWindow.close();
+    onClosing: bigAnnounceWindow.close();
 
     Item {
         anchors.fill: parent
@@ -200,8 +197,6 @@ Window {
         Rectangle {
             anchors {
                 fill: parent
-                rightMargin: 1
-                bottomMargin: 1
             }
 
             color: "#00000000"

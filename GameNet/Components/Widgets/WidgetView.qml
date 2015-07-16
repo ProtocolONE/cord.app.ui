@@ -8,7 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import "WidgetManager.js" as WidgetManager
 
 FocusScope {
@@ -17,9 +17,9 @@ FocusScope {
     signal close();
 
     property string __modelReference
-    property variant model: WidgetManager._internal.getModelByReference(__modelReference)
+    property variant model
 
-    function clear() {
+    Component.onDestruction: {
         var shouldDeleteModel = root.model
                 && __modelReference !== ''
                 && (root.__modelReference.indexOf('id_persist') === -1);
@@ -28,4 +28,5 @@ FocusScope {
             root.model.destroy();
         }
     }
+
 }

@@ -1,10 +1,11 @@
-import QtQuick 1.1
+import QtQuick 2.4
 
 import Tulip 1.0
 import GameNet.Controls 1.0
 
 import "../../../Models/Messenger.js" as Messenger
-import "../../../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -20,7 +21,7 @@ Item {
         visible: !root.checked
 
         Rectangle {
-            color: Styles.style.dark
+            color: Styles.dark
             opacity: 0.68
             anchors.fill: parent
         }
@@ -29,14 +30,11 @@ Item {
             color: "#00000000"
             anchors {
                 fill: parent
-                leftMargin: 8
-                topMargin: 8
-                rightMargin: 9
-                bottomMargin: 9
+                margins: 8
             }
 
             border {
-                color: Styles.style.light
+                color: Styles.light
                 width: 1
             }
 
@@ -49,7 +47,7 @@ Item {
         visible: root.checked
 
         Rectangle {
-            color: Styles.style.checkedButtonActive
+            color: Styles.checkedButtonActive
             opacity: 0.68
             anchors.fill: parent
         }
@@ -65,20 +63,16 @@ Item {
 
             Rectangle {
                 anchors.fill: parent
-                color: Styles.style.dark
+                color: Styles.dark
                 opacity: 0.50
             }
 
             Rectangle {
                 color: "#00000000"
-                anchors {
-                    fill: parent
-                    rightMargin: 1
-                    bottomMargin: 1
-                }
+                anchors.fill: parent
 
                 border {
-                    color: Styles.style.checkedButtonActive
+                    color: Styles.checkedButtonActive
                     width: 1
                 }
             }

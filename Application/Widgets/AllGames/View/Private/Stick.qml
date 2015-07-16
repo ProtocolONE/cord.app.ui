@@ -1,6 +1,6 @@
-import QtQuick 1.1
+import QtQuick 2.4
 
-import "../../../../Core/Styles.js" as Styles
+import Application.Core 1.0
 
 Image {
     id: root

@@ -12,11 +12,10 @@ mkdir %BUILD_PATH%
 
 for /f %%i in ("%0") do set CUR_PATH=%%~dpi
 
-call "%CUR_PATH%GenerateQrc.bat"  >> qrc_build.log
-
 xcopy %CUR_PATH%*.* %BUILD_PATH% /S /E /H /R /Y /EXCLUDE:%CUR_PATH%build_exclude.txt  >> qrc_build.log
-            
-call %CUR_PATH%build_fix_cc.cmd %BUILD_PATH%  >> qrc_build.log
+
+call "%BUILD_PATH%\GenerateQrc.cmd"  >> qrc_build.log
+@rem call "%BUILD_PATH%\build_fix_cc.cmd" %BUILD_PATH%  >> qrc_build.log
                                   
 %QTDIR%\bin\rcc.exe -compress 3 -threshold 4 -binary  "%BUILD_PATH%\qGNA.qrc" -o "%BUILD_PATH%\qGNA.tmp"
 if %errorlevel% neq 0 goto rccFailed
@@ -47,6 +46,6 @@ echo RCC Failed: %ERRORLEVEL%
 echo ============
 exit /B 1
 
-
-
 :end
+
+exit /B 0

@@ -7,11 +7,10 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+pragma Singleton
+import QtQuick 2.4
 
 QtObject {
-    property bool isAnySecondServiceRunning
-
     signal updateFinished();
 
     signal authDone(string userId, string appKey, string cookie);
@@ -27,30 +26,25 @@ QtObject {
     signal setGlobalState(string name);
     signal setGlobalProgressVisible(bool value, int timeout);
 
-    signal backgroundMousePressed(int mouseX, int mouseY);
-    signal backgroundMousePositionChanged(int mouseX, int mouseY);
     signal progressChanged(variant gameItem);
 
-    signal openPurchaseOptions(variant purchaseOptions);
-    signal openBuyGamenetPremiumPage();
     signal premiumExpired();
 
     signal hideMainWindow();
     signal exitApplication();
+
     signal serviceInstalled(variant gameItem);
     signal serviceStarted(variant gameItem);
     signal serviceFinished(variant gameItem);
     signal serviceUpdated(variant gameItem);
+
     signal downloaderStarted(variant gameItem);
     signal navigate(string link, string from);
-    signal publicTestIconClicked();
-    signal balanceChanged(int amount);
     signal needPakkanenVerification();
     signal selectService(string serviceId);
 
     signal leftMousePress(variant rootItem, int x, int y);
     signal leftMouseRelease(variant rootItem, int x, int y);
-    signal settingsChange(string path, string key, string value);
 
     signal setTrayIcon(string source);
     signal setAnimatedTrayIcon(string source);

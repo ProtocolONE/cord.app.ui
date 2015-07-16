@@ -8,13 +8,12 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 
-import "../../Core/App.js" as App
-import "../../Core/User.js" as User
-import "../../Core/MessageBox.js" as MessageBox
+import Application.Core 1.0
+import Application.Core.MessageBox 1.0
 
 WidgetModel {
     id: root
@@ -29,11 +28,11 @@ WidgetModel {
                 return;
             }
 
-            var isInstalled = App.isServiceInstalled(serviceId);
+            var isInstalled = ApplicationStatistic.isServiceInstalled(serviceId);
             if (!isInstalled) {
                 MessageBox.show(qsTr("WARNING_UNINSTALL_NOT_INSTALLED_TITLE"),
                                 qsTr("WARNING_UNINSTALL_NOT_INSTALLED_MESSAGE").arg(item.name),
-                                MessageBox.button.Ok);
+                                MessageBox.button.ok);
                 App.cancelServiceUninstall(serviceId);
                 return;
             }
@@ -41,7 +40,7 @@ WidgetModel {
             if (item.status === "Uninstalling") {
                 MessageBox.show(qsTr("WARNING_UNINSTALL_INPROGRESS_TITLE"),
                                 qsTr("WARNING_UNINSTALL_INPROGRESS_MESSAGE").arg(item.name),
-                                MessageBox.button.Ok);
+                                MessageBox.button.ok);
               App.cancelServiceUninstall(serviceId);
               return;
             }
@@ -49,15 +48,15 @@ WidgetModel {
             if (item.status === "Downloading" || item.status === "Paused") {
                 MessageBox.show(qsTr("WARNING_GAME_ISDOWNLOADING_TITLE"),
                                 qsTr("WARNING_GAME_ISDOWNLOADING_MESSAGE").arg(item.name),
-                                MessageBox.button.Ok);
+                                MessageBox.button.ok);
                 App.cancelServiceUninstall(serviceId);
                 return;
             }
 
-            if (App.runningService[serviceId]) {
+            if (App.isServiceRunning(serviceId)) {
                 MessageBox.show(qsTr("WARNING_GAME_ISRUNNING_TITLE"),
                                 qsTr("WARNING_GAME_ISRUNNING_MESSAGE").arg(item.name),
-                                MessageBox.button.Ok);
+                                MessageBox.button.ok);
                 App.cancelServiceUninstall(serviceId);
                 return;
             }
@@ -65,9 +64,9 @@ WidgetModel {
 
             MessageBox.show(qsTr("WARNING_QUESTION_TITLE"),
                             qsTr("WARNING_QUESTION_MESSAGE").arg(item.name),
-                            MessageBox.button.Yes | MessageBox.button.No,
+                            MessageBox.button.yes | MessageBox.button.no,
                             function(result) {
-                                if (result == MessageBox.button.Yes) {
+                                if (result == MessageBox.button.yes) {
                                     if (fromOs) {
                                         Marketing.send(Marketing.ServiceUninstalledFromOS, serviceId, {userId: User.userId()});
                                     } else {
@@ -89,7 +88,7 @@ WidgetModel {
     }
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
         ignoreUnknownSignals: true
 
         onUninstallStarted: {

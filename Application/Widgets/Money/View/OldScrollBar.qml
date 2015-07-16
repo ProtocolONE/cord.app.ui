@@ -8,7 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 import GameNet.Controls 1.0
 
@@ -269,7 +269,11 @@ Rectangle {
 
             Behavior on opacity { NumberAnimation { duration: 200 }}
 
-            CursorArea { anchors.fill: parent }
+            MouseArea {
+                cursorShape: Qt.ArrowCursor
+                anchors.fill: parent
+                acceptedButtons: Qt.NoButton
+            }
 
             onYChanged: {
                 if ( downFastScrollAnimation.running && navigationRectangle.y >= fastScrollMouseArea.mouseY - (height/2) )

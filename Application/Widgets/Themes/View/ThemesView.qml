@@ -1,15 +1,12 @@
 import Tulip 1.0
-import QtQuick 1.1
+import QtQuick 2.4
 
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
 import Application.Controls 1.0
-
-import "../../../Core/Styles.js" as Styles
-import "../../../Core/moment.js" as Moment
-
-import "../../../../GameNet/Core/Analytics.js" as Ga
+import Application.Core 1.0
 
 WidgetView {
     id: root
@@ -64,4 +61,6 @@ WidgetView {
             }
         }
     }
+
+
 }

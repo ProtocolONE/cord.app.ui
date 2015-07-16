@@ -8,7 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 
 import GameNet.Controls 1.0
 
@@ -16,8 +16,8 @@ import Application.Blocks 1.0
 import Application.Blocks.Popup 1.0
 import Application.Controls 1.0
 
-import "../../../Core/App.js" as App
-import "../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 PopupBase {
     id: root
@@ -32,7 +32,7 @@ PopupBase {
     }
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
 
         ignoreUnknownSignals: true
 
@@ -86,8 +86,8 @@ PopupBase {
 
             anchors.fill: parent
             color: "#00000000"
-            opacity: Styles.style.blockInnerOpacity
-            border { color: Styles.style.light }
+            opacity: Styles.blockInnerOpacity
+            border { color: Styles.light }
         }
 
         DownloadProgressBar {

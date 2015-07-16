@@ -1,10 +1,10 @@
-import QtQuick 1.1
+import QtQuick 2.4
 
 import GameNet.Controls 1.0
 import Tulip 1.0
 
-import "../../../../Core/App.js" as App
-import "../../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Column {
     id: root
@@ -21,7 +21,7 @@ Column {
     spacing: 11
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
 
         onProgressChanged: {
             if (serviceItem.serviceId != gameItem.serviceId) {
@@ -76,7 +76,7 @@ Column {
 
             onClicked: {
                 App.activateGameByServiceId(serviceItem.serviceId);
-                App.navigate('mygame', 'GameItem');
+                SignalBus.navigate('mygame', 'GameItem');
                 root.clicked(serviceItem);
             }
         }
@@ -88,7 +88,7 @@ Column {
 
             Rectangle {
                 anchors.fill: parent
-                color: Styles.style.popupBlockBackground
+                color: Styles.popupBlockBackground
                 opacity: root.selected ? 0.8 : 0
 
                 Behavior on opacity {
@@ -116,14 +116,14 @@ Column {
             }
 
             style {
-                normal: Styles.style.primaryButtonNormal
-                hover: Styles.style.primaryButtonHover
-                disabled: Styles.style.primaryButtonDisabled
+                normal: Styles.primaryButtonNormal
+                hover: Styles.primaryButtonHover
+                disabled: Styles.primaryButtonDisabled
             }
 
             onClicked: {
                 App.activateGameByServiceId(root.serviceItem.serviceId);
-                App.navigate('mygame', 'GameItem');
+                SignalBus.navigate('mygame', 'GameItem');
                 App.downloadButtonStart(serviceItem.serviceId);
             }
 
@@ -140,7 +140,7 @@ Column {
             Rectangle {
                 anchors.fill: parent
                 opacity: 0.74
-                color: Styles.style.popupBlockBackground
+                color: Styles.popupBlockBackground
             }
 
             Rectangle {
@@ -148,14 +148,14 @@ Column {
                 width: parent.width
                 height: (root.serviceItem.progress / 100) * parent.height
 
-                color: Styles.style.gameGridProgress
+                color: Styles.gameGridProgress
                 opacity: 0.5
             }
         }
 
         Rectangle {
             border {
-                color: Styles.style.gameGridHightlight
+                color: Styles.gameGridHightlight
                 width: 4
             }
             color: '#00000000'
@@ -174,7 +174,7 @@ Column {
             anchors.centerIn: parent
             text: root.serviceItem.progress + '%'
             font.pixelSize: 16
-            color: Styles.style.lightText
+            color: Styles.lightText
         }
     }
 
@@ -183,8 +183,8 @@ Column {
 
         text: root.serviceItem ? root.serviceItem.name : ''
         elide: Text.ElideRight
-        color: root.selected ? Styles.style.premiumInfoText :
-                               Styles.style.lightText
+        color: root.selected ? Styles.premiumInfoText :
+                               Styles.lightText
         font.pixelSize: 12
     }
 

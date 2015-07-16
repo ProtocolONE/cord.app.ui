@@ -7,17 +7,15 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
-import "../../../Core/App.js" as App
-import "../../../Core/restapi.js" as RestApi
-import "../../../Core/moment.js" as Moment
-import "../../../Core/Styles.js" as Styles
-import "../../../../GameNet/Core/lodash.js" as Lodash
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 import "./Blocks"
 
@@ -266,20 +264,20 @@ WidgetView {
             switch(status) {
             case "online":
             case "chat":
-                return Styles.style.messengerContactPresenceOnline;
+                return Styles.messengerContactPresenceOnline;
             case "dnd":
             case "away":
             case "xa":
-                return Styles.style.messengerContactPresenceDnd;
+                return Styles.messengerContactPresenceDnd;
             case "offline":
             default:
-                return Styles.style.messengerContactPresenceOffline;
+                return Styles.messengerContactPresenceOffline;
             }
         }
     }
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
         onOpenDetailedUserInfo: d.open(opt);
         onCloseDetailedUserInfo: d.close();
     }
@@ -311,7 +309,7 @@ WidgetView {
             from: 0
             to: 1
 
-            onCompleted: mainInfoItem.progressBar = mainInfoItem.progress
+            onStopped: mainInfoItem.progressBar = mainInfoItem.progress
         }
 
         Item { // Body
@@ -376,7 +374,7 @@ WidgetView {
 
                 opacity: (d.loading || d.isError) ? 1 : 0
                 visible: opacity > 0
-                color: Styles.style.popupBlockBackground
+                color: Styles.popupBlockBackground
 
                 Wait {
                     id: waitProgres
@@ -395,7 +393,7 @@ WidgetView {
                         verticalCenter: parent.verticalCenter
                     }
 
-                    color: Styles.style.lightText
+                    color: Styles.lightText
                     text: d.errorMessage
                     visible: !d.loading && d.isError
                     wrapMode: Text.WordWrap

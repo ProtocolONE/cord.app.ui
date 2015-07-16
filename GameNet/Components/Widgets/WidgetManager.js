@@ -242,7 +242,11 @@ function WidgetManager() {
             throw new Error(comp.errorString());
         }
 
-        return comp.createObject(parentObj || _globalParent || _private, {__modelReference: modelReference});
+        return comp.createObject(parentObj || _globalParent || _private,
+                                 {
+                                     model: _internal.getModelByReference(modelReference),
+                                     __modelReference: modelReference
+                                 });
     }
 }
 

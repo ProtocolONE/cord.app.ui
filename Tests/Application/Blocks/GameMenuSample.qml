@@ -1,4 +1,4 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
 import GameNet.Components.Widgets 1.0
@@ -8,12 +8,12 @@ import Application.Blocks.GameMenu 1.0 as GameMenu
 import Application 1.0
 
 
-import "../../../Application/Core/Styles.js" as Styles
+import Application.Core 1.0
 
 Rectangle {
     id: root
 
-    color: Styles.style.applicationBackground
+    color: Styles.applicationBackground
     width: 1000
     height: 600
 

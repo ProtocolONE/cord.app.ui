@@ -1,10 +1,11 @@
-import QtQuick 1.1
+import QtQuick 2.4
 
-import QtQuick 1.1
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
-import "../../../Application/Core/TrayPopup.js" as TrayPopup
+import Application.Core 1.0
+import Dev 1.0
+
 import "../../../Application/Blocks"
 import "../../../Application/Widgets/Announcements"
 
@@ -18,10 +19,6 @@ Rectangle {
     height: 600
 
     color: "#DDDDDD"
-
-    Component.onCompleted: {
-        TrayPopup.init();
-    }
 
     function getGameItem() {
         //  BS

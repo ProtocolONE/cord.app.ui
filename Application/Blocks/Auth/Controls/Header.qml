@@ -1,17 +1,15 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 import Application.Controls 1.0
-
-import "../../../Core/Styles.js"  as Styles
-import "../../../Core/App.js" as App
-
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 Item {
     id: root
 
     implicitHeight: 30
 
     ContentBackground {
-        color: Styles.style.contentBackgroundDark
+        color: Styles.contentBackgroundDark
     }
 
     Image {
@@ -20,7 +18,7 @@ Item {
             leftMargin: 8
             verticalCenter: parent.verticalCenter
         }
-        source: installPath + Styles.style.headerGameNetLogo
+        source: installPath + Styles.headerGameNetLogo
     }
 
     ImageButton {
@@ -29,8 +27,8 @@ Item {
         anchors { right: parent.right; verticalCenter: parent.verticalCenter }
         style {normal: "#00000000"; hover: "#00000000"; disabled: "#00000000"}
         styleImages {
-            normal: installPath + Styles.style.headerClose
-            hover: installPath + Styles.style.headerClose.replace('.png', 'Hover.png')
+            normal: installPath + Styles.headerClose
+            hover: installPath + Styles.headerClose.replace('.png', 'Hover.png')
         }
         toolTip: qsTr("HEADER_BUTTON_CLOSE")
         tooltipGlueCenter: true
@@ -38,7 +36,7 @@ Item {
             category: 'Auth';
             label: 'Header Close'
         }
-        onClicked: App.hideMainWindow();
+        onClicked: SignalBus.hideMainWindow();
     }
 
     Row {
@@ -59,8 +57,8 @@ Item {
                ? qsTr("REGISTRATION_NAVIGATE_CREATE_ACCOUNT_TEXT")
                : qsTr("AUTHORIZATION_NAVIGATE_LOGIN_ACCOUNT_TEXT")
 
-            borderColor: Styles.style.checkedButtonActive
-            textColor: Styles.style.lightText
+            borderColor: Styles.checkedButtonActive
+            textColor: Styles.lightText
         }
 
         Image {
@@ -84,8 +82,8 @@ Item {
             num: '2'
             text: playText()
             disabled: true
-            borderColor: Styles.style.lightText
-            textColor: Styles.style.lightText
+            borderColor: Styles.lightText
+            textColor: Styles.lightText
         }
     }
 }

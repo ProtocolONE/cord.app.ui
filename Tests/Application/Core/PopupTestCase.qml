@@ -8,16 +8,15 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 import Tests.Application.Core.Fixtures.Popup.Sample 1.0
 
-import "../../../Application/Core/MessageBox.js" as MessageBox
-import "../../../Application/Core/Popup.js" as Popup
-import "../../../Application/Core/App.js" as AppJs
-
+import Application.Core 1.0
+import Application.Core.MessageBox 1.0
+import Application.Core.Popup 1.0
 
 Item {
     width: 1000
@@ -120,7 +119,7 @@ Item {
 
             onClicked: MessageBox.show("этот очень замечательный заголовок",
                                         "Какой то очень длинный длинный текст раз два три четыре, я ты он она, вместе дружная семья!",
-                                        MessageBox.button["Ok"] | MessageBox.button["Cancel"] | MessageBox.button["Yes"], function(result) {
+                                        MessageBox.button["ok"] | MessageBox.button["cancel"] | MessageBox.button["yes"], function(result) {
              });
 
         }

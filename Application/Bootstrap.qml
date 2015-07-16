@@ -8,27 +8,19 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
+
 import Application.Blocks 1.0
-
-import "Core/App.js" as App
-import "Core/Styles.js" as Styles
-import "Core/User.js" as User
-import "Core/restapi.js" as RestApi
-import "Core/Authorization.js" as Authorization
-import "Core/Popup.js" as Popup
-import "Core/MessageBox.js" as MessageBox
-import "Core/TrayPopup.js" as TrayPopup
-import "Core/EmojiOne.js" as EmojiOne
-import "Core/moment.js" as Moment
-
-import "../GameNet/Controls/Tooltip.js" as Tooltip
-import "../GameNet/Controls/ContextMenu.js" as ContexMenu
-
-import "../GameNet/Core/Analytics.js" as Ga
+import Application.Core 1.0
+import Application.Core.Settings 1.0
+import Application.Core.Styles 1.0
+import Application.Core.Popup 1.0
+import Application.Core.MessageBox 1.0
+import Application.Core.Authorization 1.0
 
 Item {
     id: root
@@ -50,6 +42,7 @@ Item {
         Host.hwid(true);
 
         Styles.init();
+
         Moment.moment.lang(App.language());
 
         initGoogleAnalytics();
@@ -59,38 +52,38 @@ Item {
 
         if (mainWindowInstance) {
             mainWindowInstance.leftMousePress.connect(function(x,y) {
-                App.leftMousePress(root, x, y);
+                SignalBus.leftMousePress(root, x, y);
             });
 
             mainWindowInstance.leftMouseRelease.connect(function(x,y) {
-                App.leftMouseRelease(root, x, y);
+                SignalBus.leftMouseRelease(root, x, y);
             });
 
             mainWindowInstance.selectService.connect(function(serviceId) {
                 if (!App.serviceExists(serviceId)) {
-                    App.navigate('allgame')
+                    SignalBus.navigate('allgame', '')
                     return;
                 }
 
-                App.selectService(serviceId);
+                SignalBus.selectService(serviceId);
             });
 
             mainWindowInstance.needPakkanenVerification.connect(function() {
-                App.needPakkanenVerification();
+                SignalBus.needPakkanenVerification();
             });
 
             mainWindowInstance.restartUIRequest.connect(function() {
                 if (!App.isWindowVisible()) {
-                    App.beforeCloseUI();
+                    SignalBus.beforeCloseUI();
                     mainWindowInstance.restartUISlot(true);
                     return;
                 }
 
                 MessageBox.show(qsTr("INFO_CAPTION"),
                                 qsTr("UPDATE_FOUND_MESSAGE"),
-                                MessageBox.button.Ok,
+                                MessageBox.button.ok,
                                 function(result) {
-                                    App.beforeCloseUI();
+                                    SignalBus.beforeCloseUI();
                                     mainWindowInstance.restartUISlot(false);
                                 });
             });
@@ -101,17 +94,17 @@ Item {
                                         App.isAnyServiceLocked();
 
                 if (!anyGameRunning) {
-                   App.beforeCloseUI();
+                   SignalBus.beforeCloseUI();
                    mainWindowInstance.shutdownUISlot();
                    return;
                 }
 
                 MessageBox.show(qsTr("CLOSE_APP_CAPTION"),
                     qsTr("CLOSE_APP_TEXT"),
-                    MessageBox.button.Ok | MessageBox.button.Cancel,
+                    MessageBox.button.ok | MessageBox.button.cancel,
                     function(result) {
-                        if (result == MessageBox.button.Ok) {
-                            App.beforeCloseUI();
+                        if (result == MessageBox.button.ok) {
+                            SignalBus.beforeCloseUI();
                             mainWindowInstance.shutdownUISlot();
                         }
                     });
@@ -120,14 +113,14 @@ Item {
     }
 
     function initGoogleAnalytics() {
-        var cid = Settings.value('GoogleAnalytics', 'cid'),
+        var cid = AppSettings.value('GoogleAnalytics', 'cid'),
             desktop = Desktop.screenWidth + 'x' + Desktop.screenHeight,
             viewport = Desktop.availableWidth + 'x' + Desktop.availableHeight,
             version = App.fileVersion();
 
         if (!cid) {
             cid = Uuid.create().substr(1, 36); //INFO Удаляем скобки из строки уида
-            Settings.setValue('GoogleAnalytics', 'cid', cid);
+            AppSettings.setValue('GoogleAnalytics', 'cid', cid);
         }
 
         console.log("\nAnalytics starting up\n");
@@ -162,7 +155,7 @@ Item {
         if (App.isQmlViewer()) {
             EmojiOne.ns.imagePathPNG = (installPath + 'Develop/Assets/Smiles/').replace("file:///", ""); // Debug for QmlViewer
         } else {
-            EmojiOne.ns.imagePathPNG = ':/Develop/Assets/Smiles/';
+            EmojiOne.ns.imagePathPNG = 'qrc:///Develop/Assets/Smiles/';
         }
 
         EmojiOne.ns.ascii = true;
@@ -172,15 +165,14 @@ Item {
     }
 
     function initAdditionalLayers() {
-        ContexMenu.init(contextMenuLayer);
+        ContextMenu.init(contextMenuLayer);
         Popup.init(popupLayer);
         MessageBox.init(messageLayer);
-        TrayPopup.init();
-        Tooltip.init(tooltipLayer);        
+        Tooltip.init(tooltipLayer);
     }
 
     function initRestApi(defaultApiUrl) {
-        var url = Settings.value('qGNA/restApi', 'url', defaultApiUrl);
+        var url = AppSettings.value('qGNA/restApi', 'url', defaultApiUrl);
 
         console.log('RestApi use', url);
         RestApi.Core.setup({
@@ -207,16 +199,18 @@ Item {
     }
 
     function setAuthInfo(userId, appKey, cookie) {
-        Settings.setValue("qml/auth/", "authDone", 1);
+        AppSettings.setValue("qml/auth/", "authDone", 1);
         App.authSuccessSlot(userId, appKey, cookie);
         User.setCredential(userId, appKey, cookie);
     }
 
     function requestServices() {
+        retryTimer.count += 1;
+
         RestApi.Service.getUi(function(result) {
             App.fillGamesModel(result);
-            App.servicesLoaded();
-            App.setGlobalState("Authorization");
+            SignalBus.servicesLoaded();
+            SignalBus.setGlobalState("Authorization");
         }, function(result) {
             console.log('get services error', result);
             retryTimer.start();
@@ -231,7 +225,6 @@ Item {
         function getInterval() {
           var timeout = [5, 10, 15, 20, 60];
           var index = (retryTimer.count >= timeout.length) ? (timeout.length - 1) : retryTimer.count;
-          retryTimer.count += 1;
           return timeout[index] * 1000;
         }
 
@@ -276,7 +269,7 @@ Item {
     }
 
     Connections {
-        target: App.signalBus();
+        target: SignalBus
 
         ignoreUnknownSignals: true
 
@@ -284,17 +277,17 @@ Item {
             App.logout();
             root.resetCredential();
             App.activateGame();
-            App.logoutDone();
+            SignalBus.logoutDone();
         }
 
         onLogoutDone: {
-            App.setGlobalState('Authorization');
+            SignalBus.setGlobalState('Authorization');
             TrayPopup.closeAll();
         }
 
         onAuthDone: {
             root.setAuthInfo(userId, appKey, cookie);
-            App.setGlobalState('Application');
+            SignalBus.setGlobalState('Application');
         }
 
         onSetGlobalProgressVisible: {
@@ -306,16 +299,16 @@ Item {
             root.requestServices();
         }
 
-        onLeftMousePress: ContexMenu.clicked(rootItem, x, y);
-        onNavigate: ContexMenu.hide();
+        onLeftMousePress: ContextMenu.clicked(rootItem, x, y);
+        onNavigate: ContextMenu.hide();
     }
 
     Connections {
         target: App.mainWindowInstance()
-        onNavigate: App.navigate(page);
+        onNavigate: SignalBus.navigate(page, '');
         onWrongCredential: {
             if (userId === User.userId()) {
-                App.logoutRequest()
+                SignalBus.logoutRequest()
             }
         }
     }
@@ -340,11 +333,11 @@ Item {
                 return;
             }
 
-            if (App.settingsValue("numConnectionFix", "done", 0) == 1) {
+            if (AppSettings.value("numConnectionFix", "done", 0) == 1) {
                 return;
             }
 
-            App.setSettingsValue("numConnectionFix", "done", 1);
+            AppSettings.setValue("numConnectionFix", "done", 1);
             settings.numConnections = 200;
         }
     }

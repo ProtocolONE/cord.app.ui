@@ -8,19 +8,15 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 import Application.Blocks 1.0
-
-import "../../../GameNet/Core/Analytics.js" as Ga
-
-import "../../Core/TrayPopup.js" as PopupHelper
-import "../../Core/restapi.js" as RestApi
-import "../../Core/App.js" as App
-import "../../Core/User.js" as User
+import Application.Core 1.0
+import Application.Core.Settings 1.0
 
 import "./AnnouncementsModel.js" as AnnouncementsHelper
 
@@ -76,7 +72,7 @@ WidgetModel {
 
         var gameItem = App.serviceItemByServiceId(serviceId);
 
-        PopupHelper.showPopup(artPopupComponent,
+        TrayPopup.showPopup(artPopupComponent,
                               {
                                   popupType: "InstalledGame",
                                   serviceId: serviceId,
@@ -90,8 +86,8 @@ WidgetModel {
     }
 
     function gameStartedCallback(serviceId) {
-        Settings.setValue("qml/Announcements/", "AnyGameStarted", 1);
-        Settings.setValue("qml/Announcements2/reminderExecuteLongAgo/" + serviceId + "/", "showDate", "");
+        AppSettings.setValue("qml/Announcements/", "AnyGameStarted", 1);
+        AppSettings.setValue("qml/Announcements2/reminderExecuteLongAgo/" + serviceId + "/", "showDate", "");
         AnnouncementsHelper.onGameStarted();
         logicTimer.stop();
         internalGameStarted(serviceId);
@@ -105,23 +101,23 @@ WidgetModel {
     }
 
     function getShownDate(announceId) {
-        return parseInt(Settings.value("qml/Announcements2/" + announceId + "/", "showDate", ""), 10);
+        return parseInt(AppSettings.value("qml/Announcements2/" + announceId + "/", "showDate", ""), 10);
     }
 
     function setShownDate(announceId, date) {
-        Settings.setValue("qml/Announcements2/" + announceId + "/", "showDate", date);
+        AppSettings.setValue("qml/Announcements2/" + announceId + "/", "showDate", date);
     }
 
     function getReminderNeverExecuteShowDate(serviceId) {
-        return parseInt(Settings.value("qml/Announcements2/reminderNeverExecute/" + serviceId + "/", "showDate", ""), 10);
+        return parseInt(AppSettings.value("qml/Announcements2/reminderNeverExecute/" + serviceId + "/", "showDate", ""), 10);
     }
 
     function isClosedProperly(announceId) {
-        return Settings.value("qml/Announcements2/" + announceId + "/", "closedRight", "") == 1;
+        return AppSettings.value("qml/Announcements2/" + announceId + "/", "closedRight", "") == 1;
     }
 
     function setClosedProperly(announceId, isClosedRight) {
-        Settings.setValue("qml/Announcements2/" + announceId + "/", "closedRight", isClosedRight ? 1 : 0);
+        AppSettings.setValue("qml/Announcements2/" + announceId + "/", "closedRight", isClosedRight ? 1 : 0);
     }
 
     function showSmallAnnouncement(announceItem) {
@@ -130,7 +126,7 @@ WidgetModel {
                        { type: "announcementSmall", id: announceItem.id, userId: User.userId() });
 
         var gameItem = App.serviceItemByServiceId(announceItem.serviceId);
-        PopupHelper.showPopup(announceGameItemPopUp,
+        TrayPopup.showPopup(announceGameItemPopUp,
                               {
                                   gameItem: gameItem,
                                   message: announceItem.text,
@@ -286,12 +282,12 @@ WidgetModel {
 
     function showReminderNeverExecute(serviceId, message, buttonText) {
         var now = +(new Date());
-        Settings.setValue("qml/Announcements2/reminderNeverExecute/" + serviceId + "/", "showDate", now);
+        AppSettings.setValue("qml/Announcements2/reminderNeverExecute/" + serviceId + "/", "showDate", now);
 
         var gameItem = App.serviceItemByServiceId(serviceId);
 
-        PopupHelper.hidePopup('gameInstalledAnnounce' + serviceId);
-        PopupHelper.showPopup(artPopupComponent,
+        TrayPopup.hidePopup('gameInstalledAnnounce' + serviceId);
+        TrayPopup.showPopup(artPopupComponent,
                               {
                                   popupType: "ReminderNeverExecute",
                                   gameItem: gameItem,
@@ -317,7 +313,7 @@ WidgetModel {
 
         for (var i = 0, len = services.length; i < len; ++i) {
             serviceId = services[i];
-            installDate = +(App.gameInstallDate(serviceId));
+            installDate = +(ApplicationStatistic.gameInstallDate(serviceId));
             if (!installDate) {
                 continue;
             }
@@ -325,7 +321,7 @@ WidgetModel {
             timeFromInstall = now - installDate;
             elapsedDays = getDays(timeFromInstall);
 
-            lastExecuteDate = +(App.gameLastExecutionTime(serviceId));
+            lastExecuteDate = +(ApplicationStatistic.gameLastExecutionTime(serviceId));
             if (!lastExecuteDate) {
                 checkReminderNeverExecute(serviceId, elapsedDays)
             }
@@ -446,7 +442,7 @@ WidgetModel {
     }
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
         onServiceStarted: gameStartedCallback(gameItem.serviceId)
         onServiceFinished: gameClosedCallback(gameItem.serviceId)
         onServiceInstalled: {
@@ -471,18 +467,18 @@ WidgetModel {
                 return;
             }
 
-            App.selectService(serviceId);
+            SignalBus.selectService(serviceId);
             App.activateWindow();
             App.downloadButtonStart(serviceId);
         }
 
         onMissClicked: {
-            App.selectService(serviceId);
+            SignalBus.selectService(serviceId);
             App.activateWindow();
         }
 
         onGameAcceptLicenseClicked: {
-            App.selectService(serviceId);
+            SignalBus.selectService(serviceId);
 
             var item = App.serviceItemByServiceId(serviceId);
             if (App.isAnyLicenseAccepted() || !item || item.gameType != "standalone") {
@@ -499,14 +495,14 @@ WidgetModel {
         }
 
         onGameMissLicenseClicked: {
-            App.selectService(serviceId);
+            SignalBus.selectService(serviceId);
             var item = App.serviceItemByServiceId(serviceId);
             if (App.isAnyLicenseAccepted() || !item || item.gameType != "standalone") {
                 App.activateWindow();
                 return;
             }
 
-            App.selectService(serviceId);
+            SignalBus.selectService(serviceId);
             App.activateWindow();
         }
 
@@ -518,17 +514,17 @@ WidgetModel {
 
         function setNoLicenseRemindShown() {
             var today = Qt.formatDate(new Date(), "yyyy-MM-dd");
-            Settings.setValue("qml/features/SilentMode", "showDate", today);
+            AppSettings.setValue("qml/features/SilentMode", "showDate", today);
         }
 
         function isNoLicenseRemindShownToday() {
             var today = Qt.formatDate(new Date(), "yyyy-MM-dd");
-            var showDate = Settings.value("qml/features/SilentMode", "showDate", 0);
+            var showDate = AppSettings.value("qml/features/SilentMode", "showDate", 0);
             return (today == showDate);
         }
 
         function shouldNoLicenseRemind() {
-            var installDate = App.installDate();
+            var installDate = ApplicationStatistic.installDate();
             if (!installDate) {
                 return false;
             }
@@ -556,10 +552,10 @@ WidgetModel {
 
             d.setNoLicenseRemindShown();
 
-            var installDate = App.installDate(),
+            var installDate = ApplicationStatistic.installDate(),
                 currentDate = Math.floor((+ new Date()) / 1000);
 
-            var serviceId = App.installWithService();
+            var serviceId = ApplicationStatistic.installWithService();
             if (serviceId == "0") {
                 serviceId = "300012010000000000"
             }
@@ -580,7 +576,7 @@ WidgetModel {
                 message: qsTr("SILENT_REMIND_POPUP_MESSAGE").arg(gameItem.licenseUrl),
             };
 
-            PopupHelper.showPopup(artNoLicenseRemind, popUpOptions, 'silentModeRemider' + serviceId);
+            TrayPopup.showPopup(artNoLicenseRemind, popUpOptions, 'silentModeRemider' + serviceId);
         }
     }
 
@@ -746,7 +742,7 @@ WidgetModel {
     }
 
     Connections {
-        target: App.signalBus();
+        target: SignalBus
         onAuthDone: refreshTimer.restart();
         onLogoutDone: {
             logicTimer.stop();

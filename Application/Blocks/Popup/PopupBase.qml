@@ -8,18 +8,16 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 
 import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 
 import Application.Controls 1.0
-
-import "../../Core/Styles.js" as Styles
+import Application.Core.Styles 1.0
 
 WidgetView {
     id: root
-
     implicitWidth: 630
     implicitHeight: allContent.height + 30
     clip: true
@@ -28,17 +26,17 @@ WidgetView {
     property alias title: titleText.text
 
     property int defaultMargins: 50
-    property color defaultBorderColor: Styles.style.popupBorder
-    property color defaultBackgroundColor: Styles.style.popupBackground
-    property color defaultTitleColor: Styles.style.popupTitleText
-    property color defaultTextColor: Styles.style.popupText
+    property color defaultBorderColor: Styles.popupBorder
+    property color defaultBackgroundColor: Styles.popupBackground
+    property color defaultTitleColor: Styles.popupTitleText
+    property color defaultTextColor: Styles.popupText
 
     Rectangle {
         anchors.fill: parent
         color: defaultBackgroundColor
         border {
             color: defaultBorderColor
-            width: 2 //INFO Визуально он однопиксельный, т.к. clip у родителя. Иначе нужно мучаться с отступами
+            width: 1
         }
     }
 
@@ -66,7 +64,7 @@ WidgetView {
                     baselineOffset: 50
                 }
                 width: parent.width
-                font {family: 'Open Sans Light'; pixelSize: 30}
+                font { family: 'Open Sans Light'; pixelSize: 30 }
                 color: defaultTitleColor
                 elide: Text.ElideRight
                 smooth: true
@@ -99,8 +97,8 @@ WidgetView {
         }
 
         styleImages {
-            normal: installPath + Styles.style.popupCloseIcon
-            hover: installPath + Styles.style.popupCloseIcon.replace('.png', '_hover.png')
+            normal: installPath + Styles.popupCloseIcon
+            hover: installPath + Styles.popupCloseIcon.replace('.png', '_hover.png')
         }
         onClicked: root.close()
     }

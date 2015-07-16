@@ -1,14 +1,14 @@
-import QtQuick 1.1
+import QtQuick 2.4
 
 import GameNet.Controls 1.0
-import "../Core/Styles.js" as Styles
+import Application.Core.Styles 1.0
 
 CheckBox {
     style {
-        normal: Styles.style.checkboxNormal
-        hover: Styles.style.checkboxHover
-        disabled: Styles.style.checkboxNormal
-        active: Styles.style.checkboxActive
-        activeHover: Styles.style.checkboxActiveHover
+        normal: Styles.checkboxNormal
+        hover: Styles.checkboxHover
+        disabled: Styles.checkboxNormal
+        active: Styles.checkboxActive
+        activeHover: Styles.checkboxActiveHover
     }
 }

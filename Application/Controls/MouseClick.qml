@@ -8,13 +8,13 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import "MouseClick.js" as Js
-import "../Core/App.js" as App
+import Application.Core 1.0
 
 Item {
     Connections {
-        target: App.signalBus()
+        target: SignalBus
 
         onLeftMousePress: {
             var obj = Js.widgets();

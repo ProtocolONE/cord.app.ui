@@ -7,14 +7,14 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
-import "../../../../Core/App.js" as App
-import "../../../../Core/restapi.js" as RestApi
-import "../../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -159,7 +159,7 @@ Item {
                     family: "Arial"
                     pixelSize: 12
                 }
-                color: Styles.style.lightText
+                color: Styles.lightText
             }
         }
     }
@@ -189,7 +189,7 @@ Item {
                         pixelSize: 14
                     }
 
-                    color: Styles.style.lightText
+                    color: Styles.lightText
                     visible: !!text
                 }
 
@@ -202,7 +202,7 @@ Item {
                         pixelSize: 12
                     }
 
-                    color: Styles.style.textBase
+                    color: Styles.textBase
                     visible: !!text
                 }
 
@@ -215,7 +215,7 @@ Item {
                         pixelSize: 12
                     }
 
-                    color: Styles.style.textBase
+                    color: Styles.textBase
                     visible: !!text
                 }
             }
@@ -249,7 +249,7 @@ Item {
                                 pixelSize: 12
                             }
 
-                            color: Styles.style.lightText
+                            color: Styles.lightText
                             text: root.level
                         }
 
@@ -259,7 +259,7 @@ Item {
                                 pixelSize: 12
                             }
 
-                            color: Styles.style.textBase
+                            color: Styles.textBase
                             text: qsTr("DETAILED_USER_INFO_MAIN_INFO_LEVEL") // " уровень"
                         }
                     }
@@ -275,8 +275,8 @@ Item {
                         width: 100
                         height: 2
                         style {
-                            background: Styles.style.applicationBackground
-                            line: Styles.style.detailedUserInfoMainInfoLevelProgressLine
+                            background: Styles.applicationBackground
+                            line: Styles.detailedUserInfoMainInfoLevelProgressLine
                         }
                     }
                 }
@@ -301,7 +301,7 @@ Item {
                                 pixelSize: 12
                             }
 
-                            color: Styles.style.lightText
+                            color: Styles.lightText
                             text: root.rating
 
                             CursorMouseArea {
@@ -317,7 +317,7 @@ Item {
                                 pixelSize: 12
                             }
 
-                            color: Styles.style.textBase
+                            color: Styles.textBase
                             text: qsTr("DETAILED_USER_INFO_MAIN_INFO_RATING") // " место"
                         }
                     }
@@ -339,7 +339,7 @@ Item {
                         pixelSize: 12
                     }
 
-                    color: Styles.style.textBase
+                    color: Styles.textBase
                     textFormat: Text.RichText
                     text: qsTr("DETAILED_USER_INFO_MAIN_INFO_ACHIEVEMENT") // "Награды и достижения "
                 }
@@ -351,7 +351,7 @@ Item {
                     }
 
                     textFormat: Text.RichText
-                    color: Styles.style.textBase
+                    color: Styles.textBase
                     text: "("
                 }
 
@@ -361,7 +361,7 @@ Item {
                         pixelSize: 12
                     }
 
-                    color: Styles.style.lightText
+                    color: Styles.lightText
                     textFormat: Text.RichText
                     text: root.countAchievements
 
@@ -379,7 +379,7 @@ Item {
                         pixelSize: 12
                     }
 
-                    color: Styles.style.textBase
+                    color: Styles.textBase
                     textFormat: Text.RichText
                     text: ")"
                 }
@@ -415,7 +415,7 @@ Item {
                     CursorMouseArea {
                         hoverEnabled: true
                         anchors.fill: parent
-                        cursor: CursorArea.ArrowCursor
+                        cursor: Qt.ArrowCursor
                         toolTip: ("%1 (%2)\n%3").arg(model.title).arg(model.level).arg(model.description)
                     }
                 }

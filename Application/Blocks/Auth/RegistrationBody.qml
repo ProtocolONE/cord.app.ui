@@ -8,14 +8,14 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 import GameNet.Controls 1.0
-import Application.Controls 1.0
+import GameNet.Core 1.0
 
-import "../../Core/Authorization.js" as Authorization
-import "../../Core/App.js" as App
-import "../../Core/Styles.js" as Styles
+import Application.Controls 1.0
+import Application.Core 1.0
+import Application.Core.Authorization 1.0
 
 import "./Controls"
 import "./Controls/Inputs"
@@ -98,7 +98,7 @@ Form {
         function auth(login, password) {
             Authorization.loginByGameNet(login, password, function(error, response) {
                 d.inProgress = false;
-                App.setGlobalProgressVisible(false);
+                SignalBus.setGlobalProgressVisible(false, 0);
 
                 if (Authorization.isSuccess(error)) {
                     root.authDone(response.userId, response.appKey, response.cookie);
@@ -122,7 +122,7 @@ Form {
             });
         }
 
-        onInProgressChanged: App.setGlobalProgressVisible(d.inProgress);
+        onInProgressChanged: SignalBus.setGlobalProgressVisible(d.inProgress, 0);
     }
 
     Column {

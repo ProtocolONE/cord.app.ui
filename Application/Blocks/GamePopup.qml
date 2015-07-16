@@ -1,9 +1,10 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
-import "../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 TrayPopupBase {
     id: root
@@ -21,7 +22,7 @@ TrayPopupBase {
 
     Rectangle {
         anchors.fill: parent
-        color: Styles.style.trayPopupBackground
+        color: Styles.trayPopupBackground
 
         Column {
             spacing: 1
@@ -33,7 +34,7 @@ TrayPopupBase {
             Rectangle {
                 width: parent.width
                 height: 25
-                color: Styles.style.trayPopupHeaderBackground
+                color: Styles.trayPopupHeaderBackground
 
                 Image {
                     anchors {
@@ -84,7 +85,7 @@ TrayPopupBase {
 
                 width: parent.width
                 height: root.image ? externalImage.height : 220;
-                color: Styles.style.trayPopupBackground
+                color: Styles.trayPopupBackground
                 clip: true
 
                 Image {
@@ -127,7 +128,7 @@ TrayPopupBase {
                         pixelSize: 15
                     }
                     text: root.message
-                    color: Styles.style.trayPopupText
+                    color: Styles.trayPopupText
                     horizontalAlignment: Text.AlignHCenter
                 }
 
@@ -144,8 +145,8 @@ TrayPopupBase {
                     }
 
                     style {
-                        normal: Styles.style.trayPopupButtonNormal
-                        hover:  Styles.style.trayPopupButtonHover
+                        normal: Styles.trayPopupButtonNormal
+                        hover:  Styles.trayPopupButtonHover
                     }
 
                     text: root.buttonCaption

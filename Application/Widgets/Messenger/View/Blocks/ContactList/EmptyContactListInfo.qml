@@ -7,12 +7,8 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
-import Tulip 1.0
-
-import Application.Controls 1.0
-
-import "../../../../../Core/Styles.js" as Styles
+import QtQuick 2.4
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -23,14 +19,14 @@ Item {
 
     Image {
         width: parent.width
-        opacity: Styles.style.baseBackgroundOpacity
+        opacity: Styles.baseBackgroundOpacity
         source: installPath + "/Assets/Images/Application/Widgets/Messenger/EmptyContactInfo/background.png"
     }
 
     Rectangle {
         anchors.fill: parent
         opacity: 0.65
-        color: Styles.style.contentBackgroundDark
+        color: Styles.contentBackgroundDark
     }
 
     Image {

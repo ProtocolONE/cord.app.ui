@@ -7,10 +7,11 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
-import "../../../../Core/Styles.js" as Styles
-import "../../../../Core/App.js" as App
+import Application.Core 1.0
+import Application.Core.Styles 1.0
+
 
 Rectangle {
     property alias name: targetNickname.text
@@ -18,7 +19,7 @@ Rectangle {
 
     implicitWidth: parent.width
     implicitHeight: 35
-    color: Styles.style.applicationBackground
+    color: Styles.applicationBackground
 
     Row {
         anchors {
@@ -41,7 +42,7 @@ Rectangle {
         Text {
             id: targetNickname
 
-            color: Styles.style.lightText
+            color: Styles.lightText
             anchors.verticalCenter: parent.verticalCenter
         }
     }
@@ -61,11 +62,11 @@ Rectangle {
         }
 
         styleImages {
-            normal: installPath + Styles.style.messengerChatClose
+            normal: installPath + Styles.messengerChatClose
         }
 
         opacity: containsMouse ? 1 : 0.5
-        onClicked: App.closeDetailedUserInfo()
+        onClicked: SignalBus.closeDetailedUserInfo()
 
         Behavior on opacity {
             NumberAnimation {

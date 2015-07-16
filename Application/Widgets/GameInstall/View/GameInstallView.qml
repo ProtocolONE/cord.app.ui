@@ -8,16 +8,14 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 
 import GameNet.Controls 1.0
 
 import Application.Blocks 1.0
 import Application.Blocks.Popup 1.0
 import Application.Controls 1.0
-
-import "../../../Core/App.js" as App
-import "../../../Core/Styles.js" as Styles
+import Application.Core 1.0
 
 PopupBase {
     id: root
@@ -25,7 +23,7 @@ PopupBase {
     property variant currentGame
     property alias createDesktopShortcut: desktopShortcut.checked
     property alias createStartMenuShortcut: startMenuShortcut.checked
-    property variant gameSettingsModelInstance: App.gameSettingsModelInstance() || {}
+    property variant gameSettingsModelInstance: App.gameSettingsModelInstance()
 
     Component.onCompleted: {
         root.currentGame = App.currentGame();

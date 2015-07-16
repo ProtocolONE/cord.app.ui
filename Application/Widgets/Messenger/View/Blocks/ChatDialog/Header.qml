@@ -7,18 +7,16 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
 import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
-import Application.Controls 1.0
 
-import "../../../../../Core/App.js" as App
-import "../../../../../Core/moment.js" as Moment
-import "../../../../../Core/Styles.js" as Styles
+import Application.Controls 1.0
+import Application.Core.Styles 1.0
+
 import "../../../Models/Messenger.js" as MessengerJs
-import "../../../Models/User.js" as User
 
 import "../ContactList" as ContactList
 
@@ -30,7 +28,7 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-        color: Styles.style.contentBackgroundLight
+        color: Styles.contentBackgroundLight
         opacity: 0.15
     }
 
@@ -73,7 +71,7 @@ Item {
                 topMargin: 12
             }
 
-            source: installPath + Styles.style.messengerChatClose
+            source: installPath + Styles.messengerChatClose
         }
     }
 }

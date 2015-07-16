@@ -9,7 +9,7 @@ function init(jabber) {
 
     console.log('[Logger] Init module connections');
 
-    _modelComponent = Qt.createComponent('../Plugins/Logger/Logger.qml');
+    _modelComponent = Qt.createComponent('./Logger.qml');
     if (_modelComponent.status !== 1) {
          throw new Error('Can\'t create Logger.qml'+ _modelComponent.errorString());
     }

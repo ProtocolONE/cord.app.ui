@@ -8,8 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
-import "WidgetManager.js" as WidgetManager
+import QtQuick 2.4
 
 Item {
     property string name

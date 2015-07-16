@@ -1,0 +1,9 @@
+module Application.Core
+singleton App 1.0 App.qml
+singleton SignalBus 1.0 Modules/SignalBus.qml
+singleton ApplicationStatistic 1.0 Modules/ApplicationStatistic.qml
+singleton ServiceHandleModel 1.0 Modules/ServiceHandleModel.qml
+singleton TrayPopup 1.0 TrayPopup.qml
+singleton User 1.0 User.qml
+AppStringHelper 1.0 StringHelper.js
+

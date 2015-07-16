@@ -7,10 +7,13 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
-import "../../../Application/Core/App.js" as App
+
+import Dev 1.0
+
+import Application.Core 1.0
 
 Rectangle {
     width: 1000
@@ -24,7 +27,7 @@ Rectangle {
             manager.registerWidget('Application.Widgets.UserProfile');
             manager.init();
 
-            App.authDone("400001000092302250", "86c558d41c1ae4eafc88b529e12650b884d674f5");
+            SignalBus.authDone("400001000092302250", "86c558d41c1ae4eafc88b529e12650b884d674f5");
         }
     }
 

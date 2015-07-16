@@ -8,15 +8,15 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Application.Controls 1.0
 
-import "../../Core/Styles.js" as Styles
+import Application.Core.Styles 1.0
 Rectangle {
 
     width: parent.width
     height: 1
-    color: Styles.style.popupSplitter
+    color: Styles.popupSplitter
     opacity: 0.1
 }
 

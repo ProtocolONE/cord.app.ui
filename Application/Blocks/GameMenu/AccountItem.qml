@@ -1,10 +1,10 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
-import "../../Core/App.js" as App
-import "../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -22,14 +22,14 @@ Item {
 
     AccountItemBottom {
         visible: root.activated
-        color: Styles.style.contentBackground
+        color: Styles.contentBackground
     }
 
     GameMenuItem {
         y: 1
         anchors {left: parent.left; right: parent.right; leftMargin: 1; rightMargin: 1}
         text: qsTr("GAME_MENU_SPECIAL_BUTTON_ACCOUNTS")
-        icon: installPath + Styles.style.gameMenuExtendedAccIcon
+        icon: installPath + Styles.gameMenuExtendedAccIcon
         activeOpacity: activated ? 0 : 0.3
         onClicked: root.activated = !root.activated;
     }

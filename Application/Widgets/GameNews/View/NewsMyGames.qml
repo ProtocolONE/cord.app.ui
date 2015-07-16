@@ -1,10 +1,13 @@
-import QtQuick 1.1
+import QtQuick 2.4
+import QtQuick.XmlListModel 2.0
+
 import Tulip 1.0
 
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
-import "../../../Core/App.js" as App
+import Application.Core 1.0
+import Application.Core.MyGames 1.0
 
 WidgetView {
     id: root
@@ -19,7 +22,7 @@ WidgetView {
 
             if (item &&
                 item.enabled &&
-                App.isShownInMyGames(item.serviceId)) {
+                MyGames.isShownInMyGames(item.serviceId)) {
                 if (result == '-1') {
                     result = 'gameId=' + item.gameId;
                 } else {
@@ -32,7 +35,7 @@ WidgetView {
     }
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
 
         onServiceUpdated: root.filterGameId = serviceList();
     }

@@ -1,11 +1,8 @@
-import QtQuick 1.1
-import GameNet.Controls 1.0 as Controls
+import QtQuick 2.4
+import GameNet.Core 1.0
 import Application.Controls 1.0
-
-import "../../../../GameNet/Core/Analytics.js" as Ga
-
-import "../../../Core/Styles.js" as Styles
-import "../../../Core/App.js" as App
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Image {
     id: root
@@ -37,12 +34,13 @@ Image {
             }
 
             text: root.maintenanceGameItem ? root.maintenanceGameItem.name : ""
-            color: Styles.style.menuText
+            color: Styles.menuText
             font { family: 'Arial'; pixelSize: 14 }
         }
     }
 
-    Controls.CursorMouseArea {
+    MouseArea {
+        cursorShape: Qt.PointingHandCursor
         anchors.fill: parent
         onClicked: {
             var currentGame = root.currentGameItem;
@@ -57,7 +55,7 @@ Image {
             }
 
             App.activateGameByServiceId(proposalGameItem.serviceId);
-            App.navigate('mygame');
+            SignalBus.navigate('mygame', '');
 
             if (proposalGameItem.gameType === "browser") {
                 App.downloadButtonStart(proposalGameItem.serviceId);

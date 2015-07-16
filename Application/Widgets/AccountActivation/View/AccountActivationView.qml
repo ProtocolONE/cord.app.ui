@@ -8,17 +8,17 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 
 import Application.Controls 1.0
 import Application.Blocks.Popup 1.0
 
-import "../../../Core/restapi.js" as RestApiJs
-import "../../../Core/App.js" as App
-import "../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 PopupBase {
     id: root
@@ -36,7 +36,7 @@ PopupBase {
         function requestActivationCode() {
             requestCodeButton.inProgress = true;
 
-            RestApiJs.User.sendMobileActivationCode(
+            RestApi.User.sendMobileActivationCode(
                         phone.text,
                         function(response) {
                             requestCodeButton.inProgress = false;
@@ -72,7 +72,7 @@ PopupBase {
         function validateActivationCode() {
             validateCodeButton.inProgress = true;
 
-            RestApiJs.User.validateMobileActivationCode(
+            RestApi.User.validateMobileActivationCode(
                         code.text,
                         function(response) {
                             validateCodeButton.inProgress = false;
@@ -227,7 +227,7 @@ PopupBase {
             }
 
             width: body.width
-            icon: installPath + Styles.style.accountActivationLockIcon
+            icon: installPath + Styles.accountActivationLockIcon
             readOnly: validateCodeButton.inProgress
             validator: RegExpValidator { regExp: /[0-9]{,10}/ }
             placeholder: qsTr("PLACEHOLDER_ACTIVATION_CODE_INPUT")

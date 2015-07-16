@@ -1,7 +1,8 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 
-import "../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 /**
 Форма дял окон авторизации. Содержит заголовок и подзаголовок (поясняющий текст) и единый футер для всех страниц. При
@@ -46,7 +47,7 @@ FocusScope {
             Text {
                 text: root.title
                 font { family: "Open Sans Light"; pixelSize: 36 }
-                color: Styles.style.textAttention
+                color: Styles.textAttention
                 anchors{
                     baseline: parent.top
                     baselineOffset: 50
@@ -70,7 +71,7 @@ FocusScope {
 
                 width: parent.width
                 text: root.subTitle
-                color: Styles.style.infoText
+                color: Styles.infoText
 
                 font { family: "Open Sans Regular"; pixelSize: 15 }
                 wrapMode: Text.WordWrap

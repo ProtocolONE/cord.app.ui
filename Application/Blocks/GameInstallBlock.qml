@@ -8,17 +8,16 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 import Application.Blocks 1.0
+import Application.Core 1.0
+import Application.Core.Popup 1.0
+import Application.Core.Styles 1.0
 
-import "../../GameNet/Core/Analytics.js" as Ga
-
-import "../Core/App.js" as App
-import "../Core/Styles.js" as Styles
-import "../Core/Popup.js" as Popup
 import "./GameInstallBlock"
 
 Item {
@@ -68,9 +67,9 @@ Item {
             visible: true
             enabled: App.isMainServiceCanBeStarted(root.gameItem)
             style {
-                normal: stateGroup.state == 'Error' ? Styles.style.errorButtonNormal : Styles.style.primaryButtonNormal
-                hover: stateGroup.state == 'Error' ? Styles.style.errorButtonHover : Styles.style.primaryButtonHover
-                disabled: Styles.style.primaryButtonDisabled
+                normal: stateGroup.state == 'Error' ? Styles.errorButtonNormal : Styles.primaryButtonNormal
+                hover: stateGroup.state == 'Error' ? Styles.errorButtonHover : Styles.primaryButtonHover
+                disabled: Styles.primaryButtonDisabled
             }
             onClicked: d.processClick()
 
@@ -97,7 +96,7 @@ Item {
             height: 21
             width: parent.width
             textOpacity: 0.5
-            textColor: Styles.style.textBase
+            textColor: Styles.textBase
             spacing: 5
             serviceItem: root.gameItem
         }

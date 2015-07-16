@@ -8,13 +8,13 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
-import "../../Core/Authorization.js" as Authorization
-import "../../Core/App.js" as App
-import "../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Authorization 1.0
+import Application.Core.Styles 1.0
 
 import "./Controls"
 import "./Controls/Inputs"
@@ -41,9 +41,9 @@ Form {
         id: d
 
         function getCode(method) {
-            App.setGlobalProgressVisible(true);
+            SignalBus.setGlobalProgressVisible(true, 0);
             Authorization.sendUnblockCode(root.login, method, function(result, response) {
-                App.setGlobalProgressVisible(false);
+                SignalBus.setGlobalProgressVisible(false, 0);
 
                 if (Authorization.isSuccess(result)) {
                     requestError.error = false;
@@ -56,9 +56,9 @@ Form {
         }
 
         function unblock() {
-            App.setGlobalProgressVisible(true);
+            SignalBus.setGlobalProgressVisible(true, 0);
             Authorization.unblock(root.login, codeInput.text, function(result, response) {
-                App.setGlobalProgressVisible(false);
+                SignalBus.setGlobalProgressVisible(false, 0);
 
                 if (Authorization.isSuccess(result)) {
                     root.success();
@@ -120,7 +120,7 @@ Form {
                 width: parent.width
                 height: 48
                 placeholder: qsTr("CODE_BODY_CODE_INPUT_PLACEHOLDER")
-                icon: installPath + Styles.style.inputPasswordIcon
+                icon: installPath + Styles.inputPasswordIcon
             }
         }
 

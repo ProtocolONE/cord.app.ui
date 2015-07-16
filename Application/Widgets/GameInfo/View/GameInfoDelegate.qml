@@ -1,4 +1,4 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
@@ -29,10 +29,7 @@ Item {
     }
 
     Rectangle {
-        anchors {
-            fill: parent
-            margins: 1
-        }
+        anchors.fill: parent
         border {
             color: '#e1c376'
             width: 2

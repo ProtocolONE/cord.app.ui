@@ -8,12 +8,13 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
+import QtQuick 2.4
+
 import Tulip 1.0
-import QtQuick 1.1
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 
-import "../../Core/App.js" as App
-import "../../Core/restapi.js" as RestApi
+import Application.Core 1.0
 
 WidgetModel {
     id: root
@@ -21,7 +22,7 @@ WidgetModel {
     property alias dataModel: list
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
         onAuthDone: {
             console.log('Query themes');
             RestApi.Core.execute('games.getThemes', {}, false, dataReceived, errorOccured);

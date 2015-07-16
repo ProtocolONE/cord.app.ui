@@ -1,0 +1,2 @@
+module Application.Core.Popup
+singleton Popup 1.0 Popup.qml

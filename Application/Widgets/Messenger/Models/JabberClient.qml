@@ -7,14 +7,13 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import QXmpp 1.0
 import Tulip 1.0
+import GameNet.Core 1.0
+import Application.Core.Settings 1.0
 
-import "../../../../GameNet/Core/Analytics.js" as Ga
-
-import "../../../Core/moment.js" as Moment
-import "User.js" as User
+import "User.js" as UserJs
 
 import "JabberClient.js" as Js
 
@@ -71,8 +70,10 @@ QXmppClient {
     }
 
     function getLastActivity(jid) {
-        xmppClient.lastActivityManager.requestLastActivity(jid);
-        return Js.lastActivityCache[jid] || 0;
+        if (!Js.lastActivityCacheQueue.hasOwnProperty(jid)) {
+            xmppClient.lastActivityManager.requestLastActivity(jid);
+            Js.lastActivityCacheQueue[jid] = 1;
+        }
     }
 
     function processLastActiviteResponse(lastActivity) {
@@ -91,7 +92,7 @@ QXmppClient {
             return;
         }
 
-        jid = User.jidWithoutResource(lastActivity.from);
+        jid = UserJs.jidWithoutResource(lastActivity.from);
         Js.lastActivityCache[jid] = date;
         autoSaveDelay.restart();
         xmppClient.lastActivityUpdated(jid, date);
@@ -128,7 +129,7 @@ QXmppClient {
     }
 
     function invite(roomJid, jid, reason) {
-        var bareJid = User.jidWithoutResource(jid)
+        var bareJid = UserJs.jidWithoutResource(jid)
         xmppClient.mucManager.sendInvitationMediated(roomJid, jid, reason || "");
     }
 
@@ -145,17 +146,31 @@ QXmppClient {
     }
 
     function serverUrl() {
-        return User.serverUrl;
+        return UserJs.serverUrl;
     }
 
     function conferenceUrl() {
-        return User.conferenceUrl();
+        return UserJs.conferenceUrl();
+    }
+
+    function requestVcard(jid) {
+        if (Js.vcardQueue.hasOwnProperty(jid)) {
+            return;
+        }
+
+        if (xmppClient.vcardManager.requestVCard(jid)) {
+            Js.vcardQueue[jid] = 1;
+        }
+    }
+
+    onDisconnected: {
+        Js.vcardQueue = {};
     }
 
     Component.onCompleted: {
         var cache;
         try {
-            cache = JSON.parse(Settings.value('qml/messenger/cache/', 'lastActivity' , '{}'));
+            cache = JSON.parse(AppSettings.value('qml/messenger/cache/', 'lastActivity' , '{}'));
         } catch(e) {
             cache = {};
         }
@@ -216,7 +231,7 @@ QXmppClient {
         id: autoSaveDelay
 
         interval: 5000
-        onTriggered: Settings.setValue('qml/messenger/cache/', 'lastActivity' , JSON.stringify(Js.lastActivityCache));
+        onTriggered: AppSettings.setValue('qml/messenger/cache/', 'lastActivity' , JSON.stringify(Js.lastActivityCache));
     }
 
     Connections {

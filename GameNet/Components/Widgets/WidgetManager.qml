@@ -8,7 +8,9 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+pragma Singleton
+
+import QtQuick 2.4
 import "WidgetManager.js" as WidgetManager
 
 /**
@@ -33,4 +35,9 @@ Item {
     function init(parent) {
         WidgetManager.init(parent || root);
     }
+
+    function getWidgetSettings(name) {
+        return WidgetManager.getWidgetSettings(name);
+    }
+
 }

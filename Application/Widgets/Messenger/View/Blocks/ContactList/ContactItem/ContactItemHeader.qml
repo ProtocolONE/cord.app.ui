@@ -7,13 +7,13 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
 import GameNet.Controls 1.0
 
-import "../../../../../../Core/Styles.js" as Styles
-import "../../../../../../Core/App.js" as App
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -118,7 +118,7 @@ Item {
 
                         height: 20
                         width: parent.width
-                        color: Styles.style.menuText
+                        color: Styles.menuText
                         elide: Text.ElideRight
                         textFormat: Text.PlainText
 
@@ -157,7 +157,7 @@ Item {
                             width: parent.width - 4 - 22
                             text: root.status
 
-                            color: Styles.style.textBase
+                            color: Styles.textBase
                             opacity: 0.5
                             font {
                                 family: "Arial"

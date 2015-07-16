@@ -8,20 +8,20 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
+import QtQuick.Window 2.2
+
 import Tulip 1.0
 
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
+
 import Application.Controls 1.0
-
-import "../../Core/App.js" as App
-import "../../Core/Styles.js" as Styles
-import "../../Core/User.js" as User
-import "../../Core/MessageBox.js" as MessageBox
-import "../../Core/Popup.js" as Popup
-
-import "../../../GameNet/Core/Analytics.js" as Ga
+import Application.Core 1.0
+import Application.Core.Styles 1.0
+import Application.Core.MessageBox 1.0
+import Application.Core.Popup 1.0
 
 WidgetModel {
     id: root
@@ -51,7 +51,7 @@ WidgetModel {
             Ga.trackEvent('Tray', 'click', 'ApplicationSettings');
             break;
         case 'Quit':
-            var services = Object.keys(App.runningService).filter(function(e) {
+            var services = Object.keys(App.getRunningServices()).filter(function(e) {
                 var obj = App.serviceItemByServiceId(e);
                 return obj.gameType != 'browser';
             }), firstGame;
@@ -65,8 +65,8 @@ WidgetModel {
 
             MessageBox.show(qsTr("CLOSE_APP_TOOLTIP_MESSAGE"),
                             qsTr("CLOSE_APP_TOOLTIP_MESSAGE_DESC").arg(firstGame.name),
-                            MessageBox.button.Ok | MessageBox.button.Cancel, function(result) {
-                                if (result != MessageBox.button.Ok) {
+                            MessageBox.button.ok | MessageBox.button.cancel, function(result) {
+                                if (result != MessageBox.button.ok) {
                                     return;
                                 }
 
@@ -78,7 +78,7 @@ WidgetModel {
 
     function quitTrigger() {
         Ga.trackEvent('Tray', 'click', 'Quit');
-        App.exitApplication();
+        SignalBus.exitApplication();
     }
 
     function setTrayIcon(source) {
@@ -109,7 +109,7 @@ WidgetModel {
     }
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
 
         onSetTrayIcon: {
             root.setTrayIcon(source);
@@ -138,7 +138,7 @@ WidgetModel {
         property int _mouseY
 
         function activateWindow() {
-            App.trayIconClicked();
+            SignalBus.trayIconClicked();
             App.activateWindow();
         }
 
@@ -155,14 +155,12 @@ WidgetModel {
             window.y = (mouseY + window.height > yLimit) ? (yLimit - window.height - space) : mouseY
 
             window.visible = true;
-            window.activate();
         }
 
         function hide() {
             window.visible = false;
         }
 
-        deleteOnClose: false
         flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Popup
 
         width: 180
@@ -178,7 +176,7 @@ WidgetModel {
         }
 
         visible: false
-        topMost: true
+        color: "#00000000"
 
         Rectangle {
             height: isFullMenu ? parent.height - 2 : 63 - 2
@@ -190,14 +188,13 @@ WidgetModel {
                 margins: 1
             }
 
-            opacity: Styles.style.darkBackgroundOpacity
-            color: Styles.style.contentBackground
+            opacity: Styles.darkBackgroundOpacity
+            color: Styles.contentBackground
 
             Rectangle {
                 width: parent.width
-                height: parent.height
-                opacity: Styles.style.darkBackgroundOpacity
-                color: Styles.style.contentBackgroundLight
+                height: 32
+                color: Styles.trayMenuHeaderBackground
 
                 Rectangle {
                     id: menuHeader
@@ -283,12 +280,11 @@ WidgetModel {
                         MouseArea {
                             id: mouseArea
 
-                            hoverEnabled: true
-                            anchors { fill: parent }
-                            onClicked: {
-                                root.menuClick(name);
-                                window.hide();
-                            }
+                        Text {
+                            anchors { verticalCenter: parent.verticalCenter }
+                            font { family: "Arial"; bold: true; pixelSize: 13 }
+                            color: Styles.menuText
+                            text: qsTr(label)
                         }
                     }
 
@@ -328,7 +324,7 @@ WidgetModel {
         Rectangle {
             color: "#00000000"
             border {
-                color: Styles.style.trayMenuBorder
+                color: Styles.trayMenuBorder
                 width: 1
             }
 
@@ -337,8 +333,7 @@ WidgetModel {
                 fill: parent
                 //  HACK: минимальная высота окна должна быть >= 69
                 //      из-за этого делаем сдвиг
-                topMargin: isFullMenu ? 1 : 6
-                margins: 1
+                topMargin: isFullMenu ? 0 : 6
             }
         }
     }

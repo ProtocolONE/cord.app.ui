@@ -8,10 +8,11 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 
-import "../../Core/restapi.js" as RestApiJs
+import Application.Core 1.0
 import "FactsModel.js" as FactsModel
 
 WidgetModel {
@@ -30,7 +31,7 @@ WidgetModel {
         repeat: true
         triggeredOnStart: true
         onTriggered: {
-            RestApiJs.Games.getFacts(function(response) {
+            RestApi.Games.getFacts(function(response) {
                 if (!response.hasOwnProperty('facts')) {
                     return;
                 }

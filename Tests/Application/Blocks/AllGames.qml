@@ -1,9 +1,10 @@
-import QtQuick 1.1
+import QtQuick 2.4
+import Dev 1.0
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 
-import "../../../Application/Core/App.js" as App
-import "../../../Application/Core/restapi.js" as RestApi
+import Application.Core 1.0
 
 Item {
     id: root
@@ -23,7 +24,7 @@ Item {
 
     function requestGrid() {
         RestApi.Service.getGrid(function(result) {
-            App.servicesGrid = result;
+            App.setServiceGrid(result);
             root.finished();
         }, function(result) {
             console.log('Get services grid error');

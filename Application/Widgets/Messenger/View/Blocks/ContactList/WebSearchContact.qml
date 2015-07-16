@@ -1,8 +1,9 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
-import "../../../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -36,7 +37,7 @@ Item {
             leftMargin: 2
             rightMargin: 7
         }
-        color: Styles.style.light
+        color: Styles.light
         opacity: 0.1
         visible: root.isActive
     }
@@ -44,10 +45,7 @@ Item {
     Rectangle {
         anchors {
             fill: parent
-            topMargin: 1
-            leftMargin: 3
-            rightMargin: 9
-            bottomMargin: 2
+            rightMargin: 6
         }
 
         color: "#00000000"
@@ -55,7 +53,7 @@ Item {
         opacity: 0.25
         border {
             width: 1
-            color: Styles.style.light
+            color: Styles.light
         }
         visible: root.isHighlighted
     }
@@ -98,7 +96,7 @@ Item {
                     width: parent.width - 40
                     elide: Text.ElideRight
                     text: root.nickname
-                    color: Styles.style.menuText
+                    color: Styles.menuText
                 }
 
                 TextButton {
@@ -137,7 +135,7 @@ Item {
             text: root.charsText
             wrapMode: Text.WordWrap
             width: parent.width
-            color: Styles.style.textBase
+            color: Styles.textBase
         }
     }
 

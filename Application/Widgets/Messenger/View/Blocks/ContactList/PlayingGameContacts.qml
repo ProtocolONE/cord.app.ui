@@ -7,12 +7,9 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
-import Tulip 1.0
-import GameNet.Controls 1.0
-import Application.Controls 1.0
+import QtQuick 2.4
+import Application.Core.Styles 1.0
 
-import "../../../../../Core/Styles.js" as Styles
 import "../../../Models/Messenger.js" as Messenger
 
 Item {
@@ -50,7 +47,7 @@ Item {
 
         text: qsTr("MESSENGER_PLAYING_CONTACTS_EMPTY_INFO")
         wrapMode: Text.Wrap
-        color: Styles.style.textBase
+        color: Styles.textBase
         font {
             family: "Arial"
             pixelSize: 14

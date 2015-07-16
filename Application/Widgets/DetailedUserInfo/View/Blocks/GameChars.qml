@@ -7,15 +7,13 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
 import Tulip 1.0
 
-import "../../../../Core/App.js" as App
-import "../../../../Core/moment.js" as Moment
-import "../../../../Core/Styles.js" as Styles
-
-import "../../../../../GameNet/Core/lodash.js" as Lodash
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -73,11 +71,15 @@ Item {
                 .sortByAll(['isFriend', 'level'])
                 .reverse()
                 .value()
-                .forEach(charsModel.append);
+                .forEach(d.appendToModel);
         }
 
         function lastPlayed() {
             return Moment.moment(root.played*1000).fromNow()
+        }
+
+        function appendToModel(value) {
+            charsModel.append(value);
         }
     }
 
@@ -115,8 +117,8 @@ Item {
                     toolTip: qsTr("DETAILED_USER_INFO_GAME_CHARS_GAME_TOOLTIP")
                     onClicked: {
                         App.activateGame(App.serviceItemByGameId(root.gameId))
-                        App.navigate('mygame', 'GameItem');
-                        App.closeDetailedUserInfo();
+                        SignalBus.navigate('mygame', 'GameItem');
+                        SignalBus.closeDetailedUserInfo();
                     }
                 }
             }
@@ -152,7 +154,7 @@ Item {
                                 width: 6
                                 height: 6
                                 radius: 3
-                                color: Styles.style.detailedUserInfoGameCharsPlayingIcon
+                                color: Styles.detailedUserInfoGameCharsPlayingIcon
                                 visible: root.isPlayingNow
                             }
                         }
@@ -173,7 +175,7 @@ Item {
                                     pixelSize: 14
                                 }
 
-                                color: Styles.style.lightText
+                                color: Styles.lightText
                             }
                         }
 
@@ -197,7 +199,7 @@ Item {
                                     pixelSize: 11
                                 }
 
-                                color: Styles.style.textBase
+                                color: Styles.textBase
                             }
                         }
                     }
@@ -218,7 +220,7 @@ Item {
                                 leftMargin: 16
                             }
 
-                            color: Styles.style.applicationBackground
+                            color: Styles.applicationBackground
                             opacity: 0.5
 
                             Row {
@@ -232,7 +234,7 @@ Item {
                                     height: parent.height
 
                                     Text {
-                                        color: Styles.style.textBase
+                                        color: Styles.textBase
                                         font {
                                             pixelSize: 10
                                             capitalization: Font.AllUppercase
@@ -247,7 +249,7 @@ Item {
                                     height: parent.height
 
                                     Text {
-                                        color: Styles.style.textBase
+                                        color: Styles.textBase
                                         font {
                                             pixelSize: 10
                                             capitalization: Font.AllUppercase
@@ -262,7 +264,7 @@ Item {
                                     height: parent.height
 
                                     Text {
-                                        color: Styles.style.textBase
+                                        color: Styles.textBase
                                         font {
                                             pixelSize: 10
                                             capitalization: Font.AllUppercase
@@ -316,8 +318,8 @@ Item {
 
                                     Text {
                                         color: model.isFriend
-                                               ? Styles.style.detailedUserInfoGameCharsTableFriendText
-                                               : Styles.style.lightText
+                                               ? Styles.detailedUserInfoGameCharsTableFriendText
+                                               : Styles.lightText
                                         font {
                                             pixelSize: 12
                                         }
@@ -337,18 +339,18 @@ Item {
                                         function getText() {
                                             return "<span style='color: " +
                                                     (model.isFriend
-                                                        ? Styles.style.detailedUserInfoGameCharsTableFriendText
-                                                        : Styles.style.lightText)
+                                                        ? Styles.detailedUserInfoGameCharsTableFriendText
+                                                        : Styles.lightText)
                                                     + "'>" + model.level + " <span style='color: " +
                                                     (model.isFriend
-                                                     ? Styles.style.detailedUserInfoGameCharsTableFriendText
-                                                     : Styles.style.textBase) +
+                                                     ? Styles.detailedUserInfoGameCharsTableFriendText
+                                                     : Styles.textBase) +
                                                     "'>" + model.className + "</span></span>";
                                         }
 
                                         color: model.isFriend
-                                               ? Styles.style.detailedUserInfoGameCharsTableFriendText
-                                               : Styles.style.lightText
+                                               ? Styles.detailedUserInfoGameCharsTableFriendText
+                                               : Styles.lightText
                                         font {
                                             pixelSize: 12
                                         }
@@ -363,8 +365,8 @@ Item {
 
                                     Text {
                                         color: model.isFriend
-                                               ? Styles.style.detailedUserInfoGameCharsTableFriendText
-                                               : Styles.style.lightText
+                                               ? Styles.detailedUserInfoGameCharsTableFriendText
+                                               : Styles.lightText
                                         font {
                                             pixelSize: 12
                                         }
@@ -376,7 +378,7 @@ Item {
 
                             CursorMouseArea {
                                 anchors.fill: parent
-                                cursor: CursorArea.ArrowCursor
+                                cursor: Qt.ArrowCursor
                                 toolTip:
                                     qsTr("DETAILED_USER_INFO_GAME_CHARS_CHAR_TOOLTIP_1").arg(model.name)
                                         + (model.guildName ?
@@ -398,7 +400,7 @@ Item {
                 anchors.bottom: parent.bottom
                 width: parent.width
                 height: 1
-                color: Styles.style.applicationBackground
+                color: Styles.applicationBackground
             }
         }
     }

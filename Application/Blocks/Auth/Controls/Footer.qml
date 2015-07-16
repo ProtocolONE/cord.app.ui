@@ -1,8 +1,9 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
-import "../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -67,7 +68,7 @@ Item {
                     Text {
                         id: vkCaption
                         text: qsTr("VK_LOGIN_BUTTON_TEXT")
-                        color: Styles.style.lightText
+                        color: Styles.lightText
                         visible: !root.vkButtonInProgress
                         font { pixelSize: 15; family: "Open Sans Regular" }
                         anchors {

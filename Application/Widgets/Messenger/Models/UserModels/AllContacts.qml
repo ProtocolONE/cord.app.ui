@@ -7,19 +7,18 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
 import GameNet.Components.JobWorker 1.0
 
 import Application.Controls 1.0
-
-import "../../../../../GameNet/Core/lodash.js" as Lodash
-import "../../../../Core/Styles.js" as Styles
+import Application.Core 1.0
 
 
-import "../User.js" as User
+import "../User.js" as UserJs
 
 import "./AllContacts.js" as Js
 
@@ -94,23 +93,42 @@ Item {
             var usersModel = root.messenger.getUsersModel()
                 , i
                 , jid
-                , modelUser;
+                , modelUser
+            ;
 
-            for (i = 0; i < usersModel.count; ++i) {
-                modelUser = usersModel.get(i);
-                if (User.isGameNet(modelUser) || !modelUser.inContacts) {
+            var keys = usersModel.keys();
+            for (i in keys) {
+                jid = keys[i];
+                modelUser = usersModel.get(jid);
+
+                if (UserJs.isGameNet(modelUser) || !modelUser.inContacts) {
                     continue;
                 }
 
-                jid = modelUser.jid;
                 usersMap[jid] = {
-                    online: User.isOnline(modelUser.presenceState),
+                    online: UserJs.isOnline(modelUser.presenceState),
                     nickname: modelUser.nickname.toLowerCase(),
                     lastActivity: messenger.getUser(jid).lastActivity
                 };
 
                 users.push(jid);
             }
+
+//            for (i = 0; i < usersModel.count; ++i) {
+//                modelUser = usersModel.get(i);
+//                if (UserJs.isGameNet(modelUser) || !modelUser.inContacts) {
+//                    continue;
+//                }
+
+//                jid = modelUser.jid;
+//                usersMap[jid] = {
+//                    online: UserJs.isOnline(modelUser.presenceState),
+//                    nickname: modelUser.nickname.toLowerCase(),
+//                    lastActivity: messenger.getUser(jid).lastActivity
+//                };
+
+//                users.push(jid);
+//            }
         }
 
         function clearModel() {

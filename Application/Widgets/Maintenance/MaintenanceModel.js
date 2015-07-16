@@ -9,16 +9,6 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-Qt.include('./../../Core/App.js');
-
 var schedule = {},
     updatedService = {},
     showMaintenanceEnd = {};
-
-function isShowEndPopup() {
-    return isAppSettingsEnabled('notifications', 'maintenanceEndPopup', true);
-}
-
-function setShowEndPopup(value) {
-    setAppSettingsValue('notifications', 'maintenanceEndPopup', value);
-}

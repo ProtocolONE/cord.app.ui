@@ -1,9 +1,9 @@
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
 
 import GameNet.Components.Widgets 1.0
 
-import "../../../Application/Core/App.js" as App
+import Application.Core 1.0
 import "./Core/Popup.js" as TrayPopup
 
 WidgetModel {
@@ -20,7 +20,7 @@ WidgetModel {
     height: 800
 
     Connections {
-        target: App.signalBus()
+        target: SignalBus
 
         onServiceStarted: {
             d.createOverlay(gameItem.serviceId);
@@ -56,8 +56,6 @@ WidgetModel {
 
             function finishCreation() {
                 if (component.status === Component.Ready) {
-                    var signalBusInstance = App.signalBus();
-
                     var overlayInstance = component.createObject(root,
                                                                  {
                                                                      width: 1024,
@@ -71,13 +69,13 @@ WidgetModel {
 
                     var serviceFinishCallback = function(gameItem) {
                         if (service == gameItem.serviceId) {
-                            signalBusInstance.serviceFinished.disconnect(serviceFinishCallback);
+                            SignalBus.serviceFinished.disconnect(serviceFinishCallback);
                             overlayInstance.destroy();
                             App.setOverlayEnabled(false);
                         }
                     }
 
-                    signalBusInstance.serviceFinished.connect(serviceFinishCallback);
+                    SignalBus.serviceFinished.connect(serviceFinishCallback);
 
                     overlayInstance.beforeClosed.connect(function() {
                         overlayInstance.destroy();

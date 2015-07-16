@@ -7,19 +7,17 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 
 import Tulip 1.0
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
 import "."
-import "../../../../Core/restapi.js" as RestApi
-import "../../../../Core/App.js" as App
-import "../../../../Core/Styles.js" as Styles
-
-import "../../../../../GameNet/Core/lodash.js" as Lodash
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -73,8 +71,8 @@ Item {
                 template = translate['textMultiple'];
             }
 
-            return template.arg(Styles.style.textBase + "")
-                .arg(Styles.style.lightText + "").arg(root.gameCount);
+            return template.arg(Styles.textBase + "")
+                .arg(Styles.lightText + "").arg(root.gameCount);
         }
 
         function isPlaying(gameId) {

@@ -8,23 +8,32 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
+import QtQuick.Window 2.2
+
 import Tulip 1.0
 
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
-import "../../../Application/Core/App.js" as App
-import "../../../Application/Core/TrayPopup.js" as TrayPopup
-import "../../../Application/Core/restapi.js" as RestApi
-import "../../../Application/Core/Popup.js" as Popup
-import "../../../Application/Core/Styles.js" as Styles
+import Dev 1.0
+
+import Application.Core 1.0
+import Application.Core.Settings 1.0
+import Application.Core.Popup 1.0
+import Application.Core.Styles 1.0
+
 import "../../../Application/Widgets/Maintenance/MaintenanceModel.js" as MaintenanceModel
 
-Rectangle {
+Window {
     width: 1000
     height: 600
     color: '#EEEEEE'
+
+    onClosing: {
+        Qt.quit();
+    }
 
     Component.onCompleted: {
         Styles.init();
@@ -52,13 +61,13 @@ Rectangle {
         MaintenanceModel.showMaintenanceEnd['300012010000000000'] = 1;
         MaintenanceModel.showMaintenanceEnd['300009010000000000'] = 1;
 
-        App.isWindowVisible = function() {
-            return false;
-        }
+//        App.isWindowVisible = function() {
+//            return false;
+//        }
 
-        App.isAnyLicenseAccepted = function() {
-            return false;
-        }
+//        App.isAnyLicenseAccepted = function() {
+//            return false;
+//        }
     }
 
     property string popupSize: 'small'
@@ -108,7 +117,7 @@ Rectangle {
                 text: 'Service Installed'
                 onClicked: {
                     manager.setupMockForLicenseReminder();
-                    App.serviceInstalled({serviceId: '300003010000000000'});
+                    SignalBus.serviceInstalled({serviceId: '300003010000000000'});
                 }
             }
 
@@ -116,7 +125,7 @@ Rectangle {
                 text: 'Service Started'
                 onClicked: {
                     manager.setupMockForLicenseReminder();
-                    App.serviceStarted({serviceId: '300003010000000000'});
+                    SignalBus.serviceStarted({serviceId: '300003010000000000'});
                 }
             }
 
@@ -124,7 +133,7 @@ Rectangle {
                 text: 'Service Finished'
                 onClicked: {
                     manager.setupMockForLicenseReminder();
-                    App.serviceFinished({serviceId: '300003010000000000'});
+                    SignalBus.serviceFinished({serviceId: '300003010000000000'});
                 }
             }
 
@@ -140,7 +149,7 @@ Rectangle {
                 text: 'Premium expired'
                 onClicked: {
                     manager.setupMockForLicenseReminder();
-                    App.premiumExpired();
+                    SignalBus.premiumExpired();
                 }
             }
         }
@@ -176,9 +185,7 @@ Rectangle {
         }
 
         onReady: {
-
             setupMockForRestApiPopups();
-            TrayPopup.init();
 
             manager.registerWidget('Application.Widgets.Announcements');
             manager.registerWidget('Application.Widgets.ApplicationSettings');
@@ -200,17 +207,13 @@ Rectangle {
         id: manager
 
         function setupMockForLicenseReminder() {
-            Settings.remove("qml/Announcements2/reminderNeverExecute/300003010000000000/", "showDate");
-            Settings.setValue("qml/features/SilentMode", "showDate", 0);
-            App.setSettingsValue("GameDownloader/300003010000000000/", "installDate", Math.floor((+Date.now() / 1000)) - 604810);
+            AppSettings.remove("qml/Announcements2/reminderNeverExecute/300003010000000000/", "showDate");
+            AppSettings.setValue("qml/features/SilentMode", "showDate", 0);
+            AppSettings.setValue("GameDownloader/300003010000000000/", "installDate", Math.floor((+Date.now() / 1000)) - 604810);
 
-            App.installDate = function() {
-                return +new Date()/1000 - 86400 * 14;
-            }
-
-
-
-
+//            ApplicationStatistic.installDate = function() {
+//                return +new Date()/1000 - 86400 * 14;
+//            }
         }
 
         function show() {
@@ -222,7 +225,7 @@ Rectangle {
             var widgetModel = manager.getWidgetByName('Announcements').model;
             widgetModel._lastShownPopupDate = 0;
 
-            App.authDone('fakeId', 'fakeAppKey');
+            SignalBus.authDone('fakeId', 'fakeAppKey', "");
         }
     }
 

@@ -1,4 +1,4 @@
-import QtQuick 1.1
+import QtQuick 2.4
 
 Rectangle {
     Component.onDestruction: console.log('---- Source 2 destroyed')

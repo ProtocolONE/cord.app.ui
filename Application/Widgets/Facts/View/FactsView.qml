@@ -8,13 +8,13 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 
 import GameNet.Components.Widgets 1.0
 import Application.Controls 1.0
 
-import "../../../Core/App.js" as App
-import "../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 import "FactsView.js" as FactsView
 
 WidgetView {
@@ -83,7 +83,7 @@ WidgetView {
         anchors.fill: parent
 
         opacity: 0.15
-        color: Styles.style.light
+        color: Styles.light
     }
 
     Row {
@@ -100,7 +100,7 @@ WidgetView {
 
             anchors.verticalCenter: textRow.verticalCenter
             opacity: 0.8
-            color: Styles.style.textAttention
+            color: Styles.textAttention
             font { family: "Open Sans Light"; pixelSize: 30 }
         }
 
@@ -109,7 +109,7 @@ WidgetView {
 
             anchors.verticalCenter: textRow.verticalCenter
             opacity: 0.8
-            color: Styles.style.lightText
+            color: Styles.lightText
             font { family: "Open Sans Light"; pixelSize: 20 }
         }
     }

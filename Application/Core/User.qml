@@ -7,49 +7,29 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
+pragma Singleton
 
-import QtQuick 1.1
-import "App.js" as AppJs
-import "restapi.js" as RestApiJs
+import QtQuick 2.4
+import GameNet.Core 1.0
+import Application.Core 1.0
 
 Item {
     id: root
 
     property int premiumExpiredNotificationTimeout: 3600000
 
-    property string userId
-    property string appKey
-    property string cookie
-
-    property bool isPremium: false
-    property bool isLoginConfirmed: false
-    property int premiumDuration: 0
-    property int balance: 0
-
-    property string nickname
-    property string nametech
-
-    property string level
-    property string avatarLarge
-    property string avatarMedium
-    property string avatarSmall
-
-    property bool guest: false
-
-    property string secondNickname
-    property string secondUserId
-    property string secondAppKey
-    property string secondCookie
+    signal nicknameChanged();
+    signal balanceChanged();
 
     function refreshUserInfo() {
-        RestApiJs.User.getProfile(root.userId, function(response) {
+        RestApi.User.getProfile(d.userId, function(response) {
             if (!response || !response.userInfo || response.userInfo.length < 1) {
                 return;
             }
 
             var info = response.userInfo[0].shortInfo;
             setUserInfo(info);
-            root.level = response.userInfo[0].experience.level;
+            d.level = response.userInfo[0].experience.level;
             //mainAuthModule.updateGuestStatus(info.guest || "0");
         }, function() {});
 
@@ -61,64 +41,214 @@ Item {
 
     function refreshPremium() {
         premiumDurationTimer.stop();
-        RestApiJs.Premium.getStatus(function(response) {
+        RestApi.Premium.getStatus(function(response) {
             var duration = response ? (response.duration | 0) : 0;
             if (duration > 0) {
-                root.isPremium = true;
-                root.premiumDuration = duration;
+                d.isPremium = true;
+                d.premiumDuration = duration;
                 premiumExpiredTimer.stop();
                 premiumDurationTimer.start();
             } else {
-                root.isPremium = false;
-                root.premiumDuration = 0;
+                d.isPremium = false;
+                d.premiumDuration = 0;
             }
 
         }, function(error) {
-            root.isPremium = false;
-            root.premiumDuration = 0;
+            d.isPremium = false;
+            d.premiumDuration = 0;
         })
     }
 
     function refreshBalance() {
-        RestApiJs.User.getBalance(function(response) {
+        RestApi.User.getBalance(function(response) {
             if (response.error) {
                 return;
             }
 
             if (response && response.speedyInfo) {
-                root.balance = response.speedyInfo.balance || "0";
+                d.balance = response.speedyInfo.balance || "0";
             }
 
         }, function() {});
     }
 
     function setUserInfo(userInfo) {
-        root.nickname = userInfo.nickname;
-        root.nametech = userInfo.nametech;
-        root.avatarLarge = userInfo.avatarLarge;
-        root.avatarMedium = userInfo.avatarMedium;
-        root.avatarSmall = userInfo.avatarSmall;
-        root.guest = (userInfo.guest == 1);
-        root.isLoginConfirmed = (userInfo.loginConfirmed || false);
+        d.nickname = userInfo.nickname;
+        d.nametech = userInfo.nametech;
+        d.avatarLarge = userInfo.avatarLarge;
+        d.avatarMedium = userInfo.avatarMedium;
+        d.avatarSmall = userInfo.avatarSmall;
+        d.guest = (userInfo.guest == 1);
+        d.isLoginConfirmed = (userInfo.loginConfirmed || false);
     }
 
     function reset() {
-        root.userId = "";
-        root.appKey = "";
-        root.cookie = "";
-        root.isPremium = false;
-        root.premiumDuration = 0;
-        root.balance = 0;
-        root.nickname = "";
-        root.nametech = "";
-        root.level = "";
-        root.avatarLarge = "";
-        root.avatarMedium = "";
-        root.avatarSmall = "";
+        d.userId = "";
+        d.appKey = "";
+        d.cookie = "";
+        d.isPremium = false;
+        d.premiumDuration = 0;
+        d.balance = 0;
+        d.nickname = "";
+        d.nametech = "";
+        d.level = "";
+        d.avatarLarge = "";
+        d.avatarMedium = "";
+        d.avatarSmall = "";
+    }
+
+    function setCredential(userId, appKey, cookie) {
+        d.userId = userId;
+        d.appKey = appKey;
+        d.cookie = cookie;
+    }
+
+    function userId() {
+        return d.userId;
+    }
+
+    function appKey() {
+        return d.appKey;
+    }
+
+    function cookie() {
+        return d.cookie;
+    }
+
+    function isAuthorized() {
+        return !!userId() && !!appKey() && !!cookie();
+    }
+
+    function isPremium() {
+        return d.isPremium;
+    }
+
+    function isLoginConfirmed() {
+        return d.isLoginConfirmed;
+    }
+
+    function getPremiumDuration() {
+        return d.premiumDuration;
+    }
+
+    function getBalance() {
+        return d.balance;
+    }
+
+    function setNickname(value) {
+        d.nickname = value;
+    }
+
+    function getNickname() {
+        return d.nickname;
+    }
+
+    function setTechname(value) {
+        d.nametech = value;
+    }
+
+    function getTechName() {
+        return d.nametech;
+    }
+
+    function getLevel() {
+        return d.level;
+    }
+
+    function getAvatarLarge() {
+        return d.avatarLarge;
+    }
+
+    function getAvatarMedium() {
+        return d.avatarMedium;
+    }
+
+    function getAvatarSmall() {
+        return d.avatarSmall;
+    }
+
+    function isGuest() {
+        return d.guest;
+    }
+
+    function getUrlWithCookieAuth(url) {
+        return d.cookie
+                ? 'https://gnlogin.ru/?auth=' + d.cookie + '&rp=' + encodeURIComponent(url)
+                : url;
+    }
+
+    function setSecondCredential(userId, appKey, cookie) {
+        d.secondUserId = userId;
+        d.secondAppKey = appKey;
+        d.secondCookie = cookie;
+    }
+
+    function resetSecond() {
+        setSecondCredential('', '', '');
+        d.secondNickname = "";
+    }
+
+    function secondUserId() {
+        return d.secondUserId;
+    }
+
+    function secondAppKey() {
+        return d.secondAppKey;
+    }
+
+    function secondCookie() {
+        return d.secondCookie;
+    }
+
+    function getSecondNickname() {
+        return d.secondNickname;
+    }
+
+    function isSecondAuthorized() {
+        return !!secondUserId() && !!secondAppKey() && !!secondCookie();
+    }
+
+    function isNicknameValid() {
+        return getNickname().indexOf('@') == -1;
+    }
+
+    QtObject {
+        id: d
+
+        property string userId
+        property string appKey
+        property string cookie
+
+        property bool isPremium: false
+        property bool isLoginConfirmed: false
+        property int premiumDuration: 0
+        property int balance: 0
+
+        property string nickname
+        property string nametech
+
+        property string level
+        property string avatarLarge
+        property string avatarMedium
+        property string avatarSmall
+
+        property bool guest: false
+
+        property string secondNickname
+        property string secondUserId
+        property string secondAppKey
+        property string secondCookie
     }
 
     Connections {
-        target: AppJs.signalBus();
+        target: d
+
+        onBalanceChanged: root.balanceChanged();
+        onNicknameChanged: root.nicknameChanged();
+    }
+
+    Connections {
+        target: SignalBus
 
         onLogoutRequest: {
             root.reset();
@@ -127,25 +257,25 @@ Item {
         onProfileUpdated: refreshUserInfo();
 
         onAuthDone: {
-            root.userId = userId;
-            root.appKey = appKey;
-            root.cookie = cookie;
+            d.userId = userId;
+            d.appKey = appKey;
+            d.cookie = cookie;
 
             refreshUserInfo();
        }
 
        onSecondAuthDone: {
-           root.secondUserId = userId;
-           root.secondAppKey = appKey;
-           root.secondCookie = cookie;
+           d.secondUserId = userId;
+           d.secondAppKey = appKey;
+           d.secondCookie = cookie;
 
-           RestApiJs.User.getProfile(root.secondUserId, function(response) {
+           RestApi.User.getProfile(d.secondUserId, function(response) {
                if (!response || !response.userInfo || response.userInfo.length < 1) {
                    return;
                }
 
                var info = response.userInfo[0].shortInfo;
-               root.secondNickname = info.nickname;
+               d.secondNickname = info.nickname;
            }, function() {});
        }
     }
@@ -158,16 +288,16 @@ Item {
         triggeredOnStart: false
         repeat: true
         onTriggered: {
-            var duration = root.premiumDuration - 60;
+            var duration = d.premiumDuration - 60;
             if (duration <= 0) {
-                if(root.premiumDuration > 0) {
+                if(d.premiumDuration > 0) {
                     premiumExpiredTimer.start();
                 }
-                root.premiumDuration = 0;
-                root.isPremium = false;
+                d.premiumDuration = 0;
+                d.isPremium = false;
                 root.refreshPremium();
             } else {
-                root.premiumDuration = duration;
+                d.premiumDuration = duration;
             }
         }
     }
@@ -176,7 +306,7 @@ Item {
         id: premiumExpiredTimer
 
         interval: premiumExpiredNotificationTimeout
-        onTriggered: AppJs.premiumExpired();
+        onTriggered: SignalBus.premiumExpired();
     }
 
     Timer {
@@ -190,7 +320,7 @@ Item {
 
         onTriggered: {
             balanceTimer.tickCount++;
-            if ((AppJs.isWindowVisible() && balanceTimer.tickCount >= 2) || balanceTimer.tickCount >= 5) {
+            if ((App.isWindowVisible() && balanceTimer.tickCount >= 2) || balanceTimer.tickCount >= 5) {
                 balanceTimer.tickCount = 0;
                 refreshBalance();
             }

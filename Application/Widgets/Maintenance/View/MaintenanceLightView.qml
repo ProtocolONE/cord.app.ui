@@ -8,17 +8,15 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
 import Application.Controls 1.0
-
-import "../../../../GameNet/Core/Analytics.js" as Ga
-
-import "../../../Core/App.js" as App
-import "../../../Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Styles 1.0
 
 WidgetView {
     id: root
@@ -49,9 +47,9 @@ WidgetView {
                 height: 90
 
                 Rectangle {
-                    anchors { fill: parent; margins: 1 }
+                    anchors.fill: parent
                     color: "#00000000"
-                    border { color: Styles.style.textAttention; width: 2 }
+                    border { color: Styles.textAttention; width: 2 }
                 }
 
                 Text {
@@ -61,7 +59,7 @@ WidgetView {
                     }
 
                     text: qsTr("MAINTENANCE_LIGHT_LABEL")
-                    color: Styles.style.lightText
+                    color: Styles.lightText
                     font { pixelSize: 14 }
                     width: parent.width
                     wrapMode: Text.WrapAtWordBoundaryOrAnywhere
@@ -151,7 +149,7 @@ WidgetView {
                             width: parent.width
                             text: qsTr("MAINTENANCE_LIGHT_PROSOSAL_START_TEXT").arg(proposalRect.proposalGameItem ?
                                                                                         proposalRect.proposalGameItem.miniToolTip : '')
-                            color: Styles.style.textBase
+                            color: Styles.textBase
                             font { family: 'Arial'; pixelSize: 14 }
                             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                         }
@@ -161,7 +159,7 @@ WidgetView {
                                 bottom: parent.bottom
                             }
                             text: proposalRect.proposalGameItem ? proposalRect.proposalGameItem.name : ''
-                            color: Styles.style.menuText
+                            color: Styles.menuText
                             font { family: 'Arial'; pixelSize: 18 }
                         }
                     }
@@ -182,7 +180,7 @@ WidgetView {
                         }
 
                         App.activateGameByServiceId(proposalGameItem.serviceId);
-                        App.navigate('mygame');
+                        SignalBus.navigate('mygame', '');
 
                         if (proposalGameItem.gameType === "browser") {
                             App.downloadButtonStart(proposalGameItem.serviceId);

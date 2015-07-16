@@ -8,17 +8,16 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
+
 import Application.Controls 1.0
-
-import "../../../GameNet/Core/Analytics.js" as Ga
-
-import "../../../Application/Core/Authorization.js" as Authorization
-import "../../../Application/Core/User.js" as User
-import "../../../Application/Core/App.js" as App
-import "../../../Application/Core/Styles.js" as Styles
+import Application.Core 1.0
+import Application.Core.Settings 1.0
+import Application.Core.Styles 1.0
+import Application.Core.Authorization 1.0
 
 import "./Controls"
 import "./Controls/Inputs"
@@ -60,8 +59,8 @@ Item {
         width: authContainer.width + 1
         height: authContainer.height + 1
         color: "#00000000"
-        border.color: Styles.style.light
-        opacity: Styles.style.blockInnerOpacity
+        border.color: Styles.light
+        opacity: Styles.blockInnerOpacity
     }
 
     Item {
@@ -237,8 +236,8 @@ Item {
         width: parent.width -1
         height: parent.height -1
         color: "#00000000"
-        border.color: Styles.style.light
-        opacity: Styles.style.blockInnerOpacity
+        border.color: Styles.light
+        opacity: Styles.blockInnerOpacity
     }
 
     ServiceLoading {
@@ -246,7 +245,7 @@ Item {
 
         visible: false
         anchors.fill: parent
-        onFinished: App.authDone(userId, appKey, cookie);
+        onFinished: SignalBus.authDone(userId, appKey, cookie);
     }
 
     QtObject {
@@ -255,8 +254,8 @@ Item {
         property bool vkAuthInProgress: false
 
         function isAnyAuthorizationWasDone() {
-            var refreshDate = Settings.value("qml/auth/", "refreshDate", -1),
-                authDone = Settings.value("qml/auth/", "authDone", 0);
+            var refreshDate = AppSettings.value("qml/auth/", "refreshDate", -1),
+                authDone = AppSettings.value("qml/auth/", "authDone", 0);
             return refreshDate > 0 || authDone == 1;
         }
 
@@ -296,7 +295,7 @@ Item {
         function loginSuggestion() {
             var logins = {};
             try {
-                logins = JSON.parse(Settings.value("qml/auth/", "authedLogins", "{}"));
+                logins = JSON.parse(AppSettings.value("qml/auth/", "authedLogins", "{}"));
             } catch (e) {
             }
 
@@ -306,7 +305,7 @@ Item {
         function saveAuthorizedLogins(login) {
             var currentValue = d.loginSuggestion();
             currentValue[login] = +new Date();
-            Settings.setValue("qml/auth/" , "authedLogins", JSON.stringify(currentValue));
+            AppSettings.setValue("qml/auth/" , "authedLogins", JSON.stringify(currentValue));
             auth.loginSuggestion = currentValue;
         }
 
@@ -338,7 +337,7 @@ Item {
                             startingServiceId = App.startingService() || "0";
 
                         if (startingServiceId == "0") {
-                            startingServiceId = App.installWithService();
+                            startingServiceId = ApplicationStatistic.installWithService();
                         }
 
                         auth.login(App.serviceItemByServiceId(startingServiceId).gameId, function(code, response) {
@@ -363,7 +362,7 @@ Item {
                 savedAuth.guest = true;
             }
 
-            var lastRefresh = Settings.value("qml/auth/", "refreshDate", -1);
+            var lastRefresh = AppSettings.value("qml/auth/", "refreshDate", -1);
             var currentDate = Math.floor(+new Date() / 1000);
 
             if (lastRefresh != -1 && (currentDate - lastRefresh < 432000)) {
@@ -373,7 +372,7 @@ Item {
 
             Authorization.refreshCookie(savedAuth.userId, savedAuth.appKey, function(error, response) {
                if (Authorization.isSuccess(error)) {
-                   Settings.setValue("qml/auth/", "refreshDate", currentDate);
+                   AppSettings.setValue("qml/auth/", "refreshDate", currentDate);
                    CredentialStorage.save(
                                savedAuth.userId,
                                savedAuth.appKey,
@@ -386,6 +385,6 @@ Item {
            })
         }
 
-        onVkAuthInProgressChanged: App.setGlobalProgressVisible(d.vkAuthInProgress);
+        onVkAuthInProgressChanged: SignalBus.setGlobalProgressVisible(d.vkAuthInProgress, 0);
     }
 }

@@ -7,12 +7,11 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
-import Tulip 1.0
+import QtQuick 2.4
+import QtMultimedia 5.4
 
 import GameNet.Controls 1.0
-
-import "../../../../../Core/Styles.js" as Styles
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -39,7 +38,7 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-        color: Styles.style.dark
+        color: Styles.dark
         opacity: 0.3
         visible: mouseArea.containsMouse || clearMouseArea.containsMouse
     }
@@ -47,18 +46,20 @@ Item {
     Rectangle {
         id: controlBorder
 
-        anchors {
-            fill: parent
-            rightMargin: 1
-            bottomMargin: 1
-        }
+        anchors.fill: parent
         color: "#00000000"
         radius: 1
-        border { width: 1; color: Styles.style.searchBorder }
+        border { width: 1; color: Styles.searchBorder }
 
         Behavior on border.color {
             ColorAnimation { duration: 300 }
         }
+    }
+
+    SoundEffect {
+        id: errorSound
+
+        source: installPath + "Assets/Sounds/Controls/error.wav"
     }
 
     MouseArea {
@@ -92,7 +93,7 @@ Item {
 
                 anchors.fill: parent
                 onClicked: root.iconClicked();
-                cursor: CursorArea.ArrowCursor
+                cursor: Qt.ArrowCursor
                 visible: mouseArea.containsMouse
             }
         }
@@ -115,7 +116,7 @@ Item {
                     verticalCenter: parent.verticalCenter
                 }
 
-                color: Styles.style.textBase
+                color: Styles.textBase
                 elide: Text.ElideRight
                 font { family: "Arial"; pixelSize: 12 }
 
@@ -125,7 +126,7 @@ Item {
             InputBehaviour {
                 id: inputBehavior
 
-                color: Styles.style.textBase
+                color: Styles.textBase
                 fontSize: 12
                 anchors {
                     left: parent.left
@@ -155,7 +156,9 @@ Item {
 
                     if (event.key >= Qt.Key_Space && event.key <= Qt.Key_AsciiTilde) {
                         if (text.length >= root.maximumLength) {
-                            QMultimedia.playSound(installPath + "Assets/Sounds/GameNet/Controls/error.wav");
+                            if (!errorSound.playing) {
+                                errorSound.play();
+                            }
                             return;
                         }
                     }
@@ -167,13 +170,14 @@ Item {
             }
         }
 
-        CursorArea {
-            cursor: CursorArea.IBeamCursor
+        MouseArea {
+            cursorShape: Qt.IBeamCursor
             anchors {
                 left: controlIcon.right
                 right: parent.right
             }
             height: parent.height
+            acceptedButtons: Qt.NoButton
         }
     }
 
@@ -192,8 +196,8 @@ Item {
         }
 
         source: clearMouseArea.containsMouse
-                ? installPath + Styles.style.messengerSearchCloseIcon.replace('.png', 'Hover.png')
-                : installPath + Styles.style.messengerSearchCloseIcon
+                ? installPath + Styles.messengerSearchCloseIcon.replace('.png', 'Hover.png')
+                : installPath + Styles.messengerSearchCloseIcon
 
         opacity: root.text === "" ? 0 : 1
 

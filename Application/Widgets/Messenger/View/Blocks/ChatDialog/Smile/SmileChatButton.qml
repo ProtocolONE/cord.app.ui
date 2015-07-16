@@ -1,8 +1,6 @@
-import QtQuick 1.1
-import Tulip 1.0
+import QtQuick 2.4
 import GameNet.Controls 1.0
-
-import "../../../../../../Core/Styles.js" as Styles
+import Application.Core.Styles 1.0
 
 Item {
     id: rootButton
@@ -16,16 +14,11 @@ Item {
     height: 30
 
     Rectangle {
-        anchors {
-            fill: parent
-            rightMargin: 1
-            bottomMargin: 1
-        }
-
+        anchors.fill: parent
         color: "#00000000"
         border {
             width: 1
-            color: Styles.style.checkedButtonActive
+            color: Styles.checkedButtonActive
         }
         visible: mouseArea.containsMouse
     }
@@ -46,7 +39,7 @@ Item {
         id: mouseArea
 
         toolTip: rootButton.shortname
-        cursor: CursorArea.ArrowCursor
+        cursor: Qt.ArrowCursor
         hoverEnabled: true
         anchors.fill: parent
         onClicked: rootButton.clicked();

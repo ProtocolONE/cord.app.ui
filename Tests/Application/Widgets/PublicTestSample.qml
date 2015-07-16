@@ -7,13 +7,14 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
+import Dev 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
-import "../../../Application/Core/App.js" as AppJs
-import "../../../Application/Core/Popup.js" as PopupJs
-import "../../../Application/Core/MessageBox.js" as MessageBoxJs
+import Application.Core 1.0
+import Application.Core.MessageBox 1.0
+import Application.Core.Popup 1.0
 
 Rectangle {
     width: 1000
@@ -28,8 +29,8 @@ Rectangle {
             manager.registerWidget('Application.Widgets.PublicTest');
             manager.init();
 
-            PopupJs.init(popupLayer);
-            MessageBoxJs.init(messageboxLayer);
+            Popup.init(popupLayer);
+            MessageBox.init(messageboxLayer);
         }
     }
 
@@ -66,14 +67,6 @@ Rectangle {
         height: 30
 
         text: "Не хочу тестировать!"
-        onClicked: AppJs.publicTestIconClicked();
-    }
-
-    Connections {
-        target: AppJs.signalBus()
-
-        onPublicTestIconClicked: {
-            PopupJs.show("PublicTest");
-        }
+        onClicked: Popup.show("PublicTest");
     }
 }

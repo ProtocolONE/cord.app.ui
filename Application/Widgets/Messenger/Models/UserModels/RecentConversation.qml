@@ -7,17 +7,16 @@
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
-import QtQuick 1.1
+import QtQuick 2.4
 import Tulip 1.0
+
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
+
 import Application.Controls 1.0
+import Application.Core 1.0
 
-import "../../../../../GameNet/Core/lodash.js" as Lodash
-import "../../../../../Application/Core/moment.js" as Moment
-
-import "../../../../Core/Styles.js" as Styles
-
-import "../User.js" as User
+import "../User.js" as UserJs
 
 import "./RecentConversation.js" as Js
 
@@ -109,13 +108,17 @@ Item {
                 , lastTalkDate
                 , now = Moment.moment()
                 , longAgo = Moment.moment().subtract('days', 7)
-                , last;
+                , last
+                , keys;
 
-            for (i = 0; i < usersModel.count; ++i) {
-                modelUser = usersModel.get(i)
+            keys = usersModel.keys();
+            for (i in keys) {
+                jid = keys[i];
+                modelUser = usersModel.get(jid);
+
                 lastTalkDate = modelUser.lastTalkDate || 0;
-                if (lastTalkDate == 0 || User.isGameNet(modelUser)) {
-                    continue;
+                if (lastTalkDate == 0 || UserJs.isGameNet(modelUser)) {
+                    return;
                 }
 
                 last = Moment.moment(lastTalkDate);
@@ -128,6 +131,24 @@ Item {
 
                 users.push(jid);
             }
+
+//            for (i = 0; i < usersModel.count; ++i) {
+//                modelUser = usersModel.get(i)
+//                lastTalkDate = modelUser.lastTalkDate || 0;
+//                if (lastTalkDate == 0 || UserJs.isGameNet(modelUser)) {
+//                    continue;
+//                }
+
+//                last = Moment.moment(lastTalkDate);
+//                jid = modelUser.jid;
+
+//                usersMap[jid] = {
+//                    lastTalkDate: lastTalkDate,
+//                    date: (now.diff(last, 'days') > 7 ? 'LongAgo' : last.format('DD.MM.YYYY'))
+//                };
+
+//                users.push(jid);
+//            }
         }
 
         function updateToday() {
@@ -205,7 +226,7 @@ Item {
         function talkDateChanged(userId) {
             var user = messenger.getUser(userId);
 
-            if (User.isGameNet(user)) {
+            if (UserJs.isGameNet(user)) {
                 return;
             }
 
