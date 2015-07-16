@@ -238,7 +238,7 @@ PopupBase {
         analytics {
             category: 'NicknameEdit'
             action: 'submit'
-            value: 'Save nickname'
+            label: 'Save nickname'
         }
     }
 }

@@ -98,7 +98,9 @@
 		<file>Application/Core/Modules/ApplicationStatistic.qml</file>
 		<file>Application/Core/Modules/Host.js</file>
 		<file>Application/Core/Modules/Host.qml</file>
+		<file>Application/Core/Modules/Mocks/ApplicationSettingsMock.qml</file>
 		<file>Application/Core/Modules/Mocks/GameSettingsMock.qml</file>
+		<file>Application/Core/Modules/Mocks/MainWindowMock.qml</file>
 		<file>Application/Core/Modules/Overlay.js</file>
 		<file>Application/Core/Modules/Service.js</file>
 		<file>Application/Core/Modules/ServiceHandleModel.js</file>
@@ -150,6 +152,9 @@
 		<file>Application/Widgets/AllGames/View/Private/GameList.qml</file>
 		<file>Application/Widgets/AllGames/View/Private/GameListPage.qml</file>
 		<file>Application/Widgets/AllGames/View/Private/Stick.qml</file>
+		<file>Application/Widgets/Analytics/Analytics.qml</file>
+		<file>Application/Widgets/Analytics/PluginContainer.qml</file>
+		<file>Application/Widgets/Analytics/qmldir</file>
 		<file>Application/Widgets/Announcements/AnnouncementsModel.js</file>
 		<file>Application/Widgets/Announcements/AnnouncementsModel.qml</file>
 		<file>Application/Widgets/Announcements/ArtPopup.qml</file>
@@ -477,6 +482,7 @@
 		<file>GameNet/Controls/VerticalSplit.qml</file>
 		<file>GameNet/Controls/Wait.qml</file>
 		<file>GameNet/Controls/WebImage.qml</file>
+		<file>GameNet/Core/Analytics.js</file>
 		<file>GameNet/Core/GoogleAnalytics.js</file>
 		<file>GameNet/Core/lodash.js</file>
 		<file>GameNet/Core/RestApi.js</file>
