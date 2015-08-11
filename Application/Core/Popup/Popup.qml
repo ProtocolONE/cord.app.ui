@@ -113,7 +113,6 @@ Item {
         PropertyAction { target: outerMouser; property: "visible"; value: false }
         ParallelAnimation {
             PropertyAnimation { target: firstContainer; property: "opacity"; from: 1; to: 0; duration: 200 }
-            PropertyAnimation { target: substrate; property: "opacity"; from: 1; to: 0; duration: 200 }
         }
 
         ScriptAction {
@@ -138,7 +137,6 @@ Item {
 
         ParallelAnimation {
             PropertyAnimation { target: firstContainer; property: "opacity"; from: 0; to: 1; duration: 200 }
-            PropertyAnimation { target: substrate; property: "opacity"; from: 0; to: 1; duration: 200 }
         }
         PropertyAction { target: outerMouser; property: "visible"; value: true }
     }
@@ -162,28 +160,12 @@ Item {
         }
     }
 
-    Rectangle {
-        id: substrate
-
+    CursorMouseArea {
         anchors.centerIn: parent
-        color: '#071928'
-
         width: firstContainer.width
         height: firstContainer.height
-
-        Behavior on width {
-             NumberAnimation { duration: 125 }
-        }
-
-        Behavior on height {
-             NumberAnimation { duration: 125 }
-        }
-
-        CursorMouseArea {
-            anchors.fill: parent
-            hoverEnabled: true
-            cursor: Qt.ArrowCursor
-        }
+        hoverEnabled: true
+        cursor: Qt.ArrowCursor
     }
 
     WidgetContainer {
