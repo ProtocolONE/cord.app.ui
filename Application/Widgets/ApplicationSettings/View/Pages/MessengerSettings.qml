@@ -173,11 +173,17 @@ Item {
             id: receivedMsgEnabled
 
             text: qsTr("CHECKBOX_NOTIFICATION_MESSANGER_RECEIVED_MESSAGE")
+            onToggled: {
+                if (!checked) {
+                    messengerShowChatOverlayNotify.checked = false;
+                }
+            }
         }
 
         CheckBox {
             id: messengerShowChatOverlayNotify
 
+            enabled: receivedMsgEnabled.checked
             text: qsTr("MESSENGER_SHOW_CHAT_NOTIFY_IN_OVERLAY")
         }
 
