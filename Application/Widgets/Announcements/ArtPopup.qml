@@ -127,6 +127,12 @@ AppControls.TrayPopupBase {
                     }
                     color: Styles.trayPopupText
                     horizontalAlignment: Text.AlignHCenter
+
+                    MouseArea {
+                        anchors.fill: parent
+                        cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
+                        acceptedButtons: Qt.NoButton
+                    }
                 }
 
                 Button {

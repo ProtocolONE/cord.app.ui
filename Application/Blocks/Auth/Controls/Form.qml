@@ -80,6 +80,12 @@ FocusScope {
                     baselineOffset: 15
                 }
                 smooth: true
+
+                MouseArea {
+                    anchors.fill: parent
+                    cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
+                    acceptedButtons: Qt.NoButton
+                }
             }
         }
 
