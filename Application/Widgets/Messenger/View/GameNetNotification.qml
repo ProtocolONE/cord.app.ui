@@ -20,7 +20,15 @@ WidgetView {
     id: root
 
     property variant user: MessengerJs.getGamenetUser();
-    property variant unreadMessageCount: user ? user.unreadMessageCount : 0
+    property variant unreadMessageCount: getMessageCount()
+
+    function getMessageCount() {
+        if (!user) {
+            return 0;
+        }
+
+        return user.unreadMessageCount < 10 ? user.unreadMessageCount : '9+';
+    }
 
     implicitWidth: parent.width
     implicitHeight: parent.height
