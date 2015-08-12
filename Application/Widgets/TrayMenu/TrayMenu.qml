@@ -288,12 +288,11 @@ WidgetModel {
                         }
                     }
 
-                    model: ListModel {
-                        ListElement {
-                            name: 'Profile'
-                            icon: 'profile.png'
-                            iconActive: 'profileActive.png'
-                            label: QT_TR_NOOP("MENU_ITEM_PROFILE")
+                        hoverEnabled: true
+                        anchors { fill: parent }
+                        onClicked: {
+                            window.hide();
+                            root.menuClick(name);
                         }
 
                         ListElement {

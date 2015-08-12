@@ -33,6 +33,8 @@ Item {
     }
 
     function activateWidget(widgetName, widgetView, popupId) {
+
+
         Tooltip.releaseAll();
 
         d.widgetName = widgetName;
@@ -110,7 +112,6 @@ Item {
     SequentialAnimation {
         id: hideWidgetAnimation
 
-        PropertyAction { target: outerMouser; property: "visible"; value: false }
         ParallelAnimation {
             PropertyAnimation { target: firstContainer; property: "opacity"; from: 1; to: 0; duration: 200 }
         }
@@ -119,6 +120,7 @@ Item {
             script: {
                 firstContainer.clear();
                 firstContainer.reset();
+                outerMouserLockTimer.stop();
             }
         }
 
@@ -135,10 +137,13 @@ Item {
     SequentialAnimation {
         id: showWidgetAnimation
 
+        PropertyAction { target: outerMouser; property: "locked"; value: true }
         ParallelAnimation {
             PropertyAnimation { target: firstContainer; property: "opacity"; from: 0; to: 1; duration: 200 }
         }
-        PropertyAction { target: outerMouser; property: "visible"; value: true }
+        ScriptAction {
+            script: outerMouserLockTimer.restart();
+        }
     }
 
     Rectangle {
@@ -147,25 +152,41 @@ Item {
         color: Styles.applicationBackground
     }
 
-    CursorMouseArea {
+    MouseArea {
         id: outerMouser
 
-        visible: false
+        property bool locked: true
+
         anchors.fill: parent
         hoverEnabled: true
-        cursor: Qt.ArrowCursor
+        cursorShape: Qt.ArrowCursor
         onClicked: {
+            if (locked) {
+                return;
+            }
+
+            locked = true;
             d.widgetName = '';
             hideWidgetAnimation.start();
         }
+
+        Timer {
+            id: outerMouserLockTimer
+
+            interval: 250
+            running: false
+            repeat: false
+            onTriggered: outerMouser.locked = false;
+        }
     }
 
-    CursorMouseArea {
+    MouseArea {
         anchors.centerIn: parent
         width: firstContainer.width
         height: firstContainer.height
         hoverEnabled: true
-        cursor: Qt.ArrowCursor
+        cursorShape: Qt.ArrowCursor
+        visible: firstContainer.opacity > 0
     }
 
     WidgetContainer {
@@ -193,8 +214,7 @@ Item {
 
             SequentialAnimation {
                 PropertyAction { target: root; property: "visible"; value: true }
-                PropertyAnimation { target: root; property: "opacity"; duration: 150 }
-                PropertyAction { target: outerMouser; property: "visible"; value: true }
+                PropertyAnimation { target: root; property: "opacity"; duration: 150 }                
             }
         },
         Transition {
@@ -202,12 +222,12 @@ Item {
             to: "close"
 
             SequentialAnimation {
-                PropertyAction { target: outerMouser; property: "visible"; value: false }
                 PropertyAnimation { target: root; property: "opacity"; duration: 150 }
-                PropertyAction { target: root; property: "visible"; value: false }
                 ScriptAction {
                     script: d.privateClose()
                 }
+                PropertyAction { target: outerMouser; property: "locked"; value: true }
+                PropertyAction { target: root; property: "visible"; value: false }
             }
         }
     ]
