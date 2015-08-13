@@ -10,6 +10,7 @@ QtObject {
     function switchGame(serviceId) {
     }
 
+
     function createShortcutOnDesktop(serviceId) {
         console.log('[GameSettings] createShortcutOnDesktop', serviceId)
     }
@@ -22,7 +23,15 @@ QtObject {
         return true;
     }
 
-    function restoreClient()  {
+    function restoreClient() {
+        console.log('[GameSettings] restoreClient')
+    }
 
+    function setOverlayEnabled(serviceId, value) {
+        console.log('[GameSettings] setOverlayEnabled', serviceId, value)
+    }
+
+    function submitSettings() {
+           console.log('[GameSettings] submitSettings')
     }
 }

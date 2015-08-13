@@ -54,7 +54,7 @@ PopupBase {
 
     Item {
         width: parent.width - 1 + root.defaultMargins
-        height: 340
+        height: 440
         anchors {
             left: parent.left
             leftMargin: - root.defaultMargins + 1
@@ -82,6 +82,17 @@ PopupBase {
                      }
 
                      onClicked: root.state = "GeneralPage";
+                }
+
+                SettingsTextButton {
+                     checked: root.state === "ControlPage"
+                     text: qsTr("Игровые настройки")
+                     visible: !!root.currentGame && root.currentGame.serviceId == '30000000000'
+                     analytics {
+                        category: 'GameSettings'
+                        action: 'ControlPage'
+                     }
+                     onClicked: root.state = "ControlPage";
                 }
 
                 SettingsTextButton {
@@ -123,18 +134,6 @@ PopupBase {
                     toolTip: qsTr("RESTORE_CLIENT_TOOLTIP")
                     tooltipPosition: "E"
                 }
-
-                /*
-                SettingsTextButton {
-                     checked: root.state === "ControlPage"
-                     text: qsTr("CONTROLS_TAB")
-                     analytics {
-                        category: 'GameSettings'
-                        action: 'Switch to ControlPage'
-                     }
-                     onClicked: root.state = "ControlPage";
-                }
-                */
             }
         }
 
@@ -166,6 +165,7 @@ PopupBase {
                     id: controlSettingsPage
 
                     anchors.fill: parent
+                    currentItem: root.currentGame
                 }
             }
 

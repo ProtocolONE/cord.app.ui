@@ -168,7 +168,7 @@
 <context>
     <name>AnnouncementsDesignSample</name>
     <message>
-        <location filename="../Tests/Application/Widgets/AnnouncementsDesignSample.qml" line="167"/>
+        <location filename="../Tests/Application/Widgets/AnnouncementsDesignSample.qml" line="168"/>
         <source>Чтобы открыть чат GameNet используете хоткей %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -176,34 +176,34 @@
 <context>
     <name>AnnouncementsModel</name>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="79"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="80"/>
         <source>ANNOUNCE_GAME_INSTALLED_MESSAGE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="80"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="81"/>
         <source>ANNOUNCE_GAME_INSTALLED_BUTTON</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="341"/>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="354"/>
-        <source>REMINDER_NEVER_PLAYED_MESSAGE</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="342"/>
         <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="355"/>
+        <source>REMINDER_NEVER_PLAYED_MESSAGE</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="343"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="356"/>
         <source>REMINDER_NEVER_PLAYED_BUTTON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="574"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="575"/>
         <source>SILENT_REMIND_POPUP_BUTTON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="575"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="576"/>
         <source>SILENT_REMIND_POPUP_MESSAGE</source>
         <translation></translation>
     </message>
@@ -249,104 +249,187 @@
 <context>
     <name>AuthBody</name>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="42"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="41"/>
         <source>AUTH_BODY_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="43"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="42"/>
         <source>AUTH_BODY_SUB_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="47"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="46"/>
         <source>AUTH_BODY_REGISTER_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="48"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="47"/>
         <source>AUTH_BODY_REGISTER_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="78"/>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="213"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="77"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="212"/>
         <source>REGISTER_FAIL_LOGIN_TOO_LONG</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="112"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="111"/>
         <source>AUTH_BODY_CAPTCHA_FAILED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="132"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="131"/>
         <source>AUTH_FAIL_GAMENET_UNAVAILABLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="137"/>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="162"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="136"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="161"/>
         <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="143"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="142"/>
         <source>AUTH_FAIL_MESSAGE_ACCOUNT_NOT_EXISTS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="149"/>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="161"/>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="164"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="148"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="160"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="163"/>
         <source>AUTH_FAIL_MESSAGE_WRONG</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="158"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="157"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="163"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="162"/>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="205"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="204"/>
         <source>AUTH_BODY_LOGIN_PLACEHOLDER</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="242"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="241"/>
         <source>AUTH_BODY_PASSWORD_PLACEHOLDER</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="256"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="255"/>
         <source>AUTH_BODY_AMNESIA_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="293"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="292"/>
         <source>AUTH_BODY_REMEMBER_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="302"/>
+        <location filename="../Application/Blocks/Auth/AuthBody.qml" line="301"/>
         <source>AUTH_BODY_LOGIN_BUTTON</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
+    <name>BlackDesert</name>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BlackDesert.qml" line="189"/>
+        <source>Качество графики</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BlackDesert.qml" line="198"/>
+        <source>Очень высоко</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BlackDesert.qml" line="199"/>
+        <source>Высоко</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BlackDesert.qml" line="200"/>
+        <source>Выше среднего</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BlackDesert.qml" line="201"/>
+        <source>Средне</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BlackDesert.qml" line="202"/>
+        <source>Низко</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BlackDesert.qml" line="203"/>
+        <source>Очень низко</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BlackDesert.qml" line="204"/>
+        <source>Режим оптимизации</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BlackDesert.qml" line="214"/>
+        <source>Разрешение экрана</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BlackDesert.qml" line="230"/>
+        <source>Тип экрана</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BlackDesert.qml" line="240"/>
+        <source>Оконный без рамки</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BlackDesert.qml" line="241"/>
+        <source>Оконный</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BlackDesert.qml" line="239"/>
+        <source>Полноэкранный</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BlackDesert.qml" line="249"/>
+        <source>Включить звуковые эффекты</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BlackDesert.qml" line="255"/>
+        <source>Включить музыку</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BlackDesert.qml" line="261"/>
+        <source>Включить звуки окружения</source>
         <translation></translation>
     </message>
 </context>
 <context>
     <name>Body</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="142"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="141"/>
         <source>MESSAGE_BODY_SUBSCRIPTION_INVITE_ACCEPTED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="143"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="142"/>
         <source>MESSAGE_BODY_SUBSCRIPTION_INVITE_DECLINED</source>
         <translation type="unfinished"></translation>
     </message>
@@ -354,32 +437,32 @@
 <context>
     <name>BodyHistoryHeader</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="34"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="30"/>
         <source>BODY_HISTORY_HEADER_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="55"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="51"/>
         <source>YESTERDAY_HISTORY_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="60"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="56"/>
         <source>WEEK_HISTORY_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="65"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="61"/>
         <source>TWO_WEEKS_HISTORY_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="70"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="66"/>
         <source>MONTH_HISTORY_MONTH</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="75"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml" line="71"/>
         <source>MONTH_HISTORY_BEGINNING</source>
         <translation type="unfinished"></translation>
     </message>
@@ -387,17 +470,17 @@
 <context>
     <name>BodySection</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodySection.qml" line="36"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodySection.qml" line="35"/>
         <source>CHAT_HISTORY_BODY_TODAY_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodySection.qml" line="40"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodySection.qml" line="39"/>
         <source>CHAT_HISTORY_BODY_YESTERDAY_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodySection.qml" line="43"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/BodySection.qml" line="42"/>
         <source>CHAT_BODY_DATE_FORMAT</source>
         <translation></translation>
     </message>
@@ -405,22 +488,22 @@
 <context>
     <name>Bootstrap</name>
     <message>
-        <location filename="../Application/Bootstrap.qml" line="83"/>
+        <location filename="../Application/Bootstrap.qml" line="82"/>
         <source>INFO_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Bootstrap.qml" line="84"/>
+        <location filename="../Application/Bootstrap.qml" line="83"/>
         <source>UPDATE_FOUND_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Bootstrap.qml" line="103"/>
+        <location filename="../Application/Bootstrap.qml" line="102"/>
         <source>CLOSE_APP_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Bootstrap.qml" line="104"/>
+        <location filename="../Application/Bootstrap.qml" line="103"/>
         <source>CLOSE_APP_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -487,12 +570,12 @@
 <context>
     <name>ContactFilter</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactFilter.qml" line="21"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactFilter.qml" line="18"/>
         <source>CONTACT_FILTER_ALL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactFilter.qml" line="36"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactFilter.qml" line="33"/>
         <source>CONTACT_FILTER_IN_GAME</source>
         <translation type="unfinished"></translation>
     </message>
@@ -500,43 +583,43 @@
 <context>
     <name>ContactItemDelegate</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="183"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="182"/>
         <source>MESSENGER_DESTROY_ROOM_ALERT_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="184"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="183"/>
         <source>MESSENGER_DESTROY_ROOM_ALERT_BODY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="515"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="514"/>
         <source>CONTACT_CONTEXT_MENU_DESTROY_ROOM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="520"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="519"/>
         <source>CONTACT_CONTEXT_MENU_LEAVE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="525"/>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="546"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="524"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="545"/>
         <source>CONTACT_CONTEXT_MENU_RENAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="540"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="539"/>
         <source>CONTACT_CONTEXT_MENU_INFORAMTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="551"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="550"/>
         <source>CONTACT_CONTEXT_MENU_DELETE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="556"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="555"/>
         <source>CONTACT_CONTEXT_MENU_ADD_CONTACT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -571,12 +654,12 @@
 <context>
     <name>ContactsTypeTabs</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml" line="49"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml" line="46"/>
         <source>CONTACT_LIST_TABS_CONTACTS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml" line="59"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml" line="56"/>
         <source>CONTACT_LIST_TABS_RECENT</source>
         <translation></translation>
     </message>
@@ -779,17 +862,17 @@
 <context>
     <name>EmptyContactListInfo</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="42"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="38"/>
         <source>EMPTY_CONTACT_LIST_FIND_USER</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="63"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="59"/>
         <source>EMPTY_CONTACT_LIST_FIND_USER_WEB_SEARCH</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="84"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml" line="80"/>
         <source>EMPTY_CONTACT_LIST_CONTACT_FILTER</source>
         <translation></translation>
     </message>
@@ -1123,22 +1206,22 @@
 <context>
     <name>GameLoadView</name>
     <message>
-        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="40"/>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="39"/>
         <source>GAME_LOAD_VIEW_HEADER_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="106"/>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="105"/>
         <source>GAME_LOAD_PAUSE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="106"/>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="105"/>
         <source>GAME_LOAD_CONTINUE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="116"/>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="115"/>
         <source>SHOW_STATISTICS</source>
         <translation></translation>
     </message>
@@ -1146,7 +1229,7 @@
 <context>
     <name>GameNetNotification</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/GameNetNotification.qml" line="33"/>
+        <location filename="../Application/Widgets/Messenger/View/GameNetNotification.qml" line="41"/>
         <source>MESSANGER_GAMENET_NOTIFICATION_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1170,17 +1253,22 @@
 <context>
     <name>GameSettingsView</name>
     <message>
-        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="30"/>
+        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="31"/>
         <source>GAME_SETTINGS_TITLE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="77"/>
+        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="78"/>
         <source>FOLDERS_TAB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="88"/>
+        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="89"/>
+        <source>Игровые настройки</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="100"/>
         <source>OVERLAY_TAB</source>
         <translation></translation>
     </message>
@@ -1190,22 +1278,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="98"/>
+        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="110"/>
         <source>UNINSTALL_GAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="109"/>
+        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="121"/>
         <source>RESTORE_CLIENT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="122"/>
+        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="134"/>
         <source>RESTORE_CLIENT_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="183"/>
+        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="184"/>
         <source>SAVE_BUTTON_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1390,17 +1478,17 @@
 <context>
     <name>GroupCountButton</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupCountButton.qml" line="46"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupCountButton.qml" line="43"/>
         <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_SINGLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupCountButton.qml" line="47"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupCountButton.qml" line="44"/>
         <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_DOUBLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupCountButton.qml" line="48"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupCountButton.qml" line="45"/>
         <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_MULTIPLE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1477,12 +1565,12 @@
 <context>
     <name>Index</name>
     <message>
-        <location filename="../Application/Blocks/Auth/Index.qml" line="284"/>
+        <location filename="../Application/Blocks/Auth/Index.qml" line="285"/>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/Index.qml" line="288"/>
+        <location filename="../Application/Blocks/Auth/Index.qml" line="289"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
         <translation></translation>
     </message>
@@ -1683,17 +1771,17 @@
 <context>
     <name>Messenger</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="323"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="324"/>
         <source>MESSENGER_CONTACT_ITEM_PLAYING_STATUS_INFO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="336"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="337"/>
         <source>LAST_ACTIVITY_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="560"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="561"/>
         <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
         <translation></translation>
     </message>
@@ -1761,27 +1849,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/MessengerSettings.qml" line="181"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/MessengerSettings.qml" line="187"/>
         <source>MESSENGER_SHOW_CHAT_NOTIFY_IN_OVERLAY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/MessengerSettings.qml" line="190"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/MessengerSettings.qml" line="196"/>
         <source>MESSENGER_SEND_ACTION_TITLE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/MessengerSettings.qml" line="199"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/MessengerSettings.qml" line="205"/>
         <source>MESSENGER_SEND_ON_ENTER</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/MessengerSettings.qml" line="209"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/MessengerSettings.qml" line="215"/>
         <source>MESSENGER_SEND_ON_CTRL_ENTER</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/MessengerSettings.qml" line="219"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/MessengerSettings.qml" line="225"/>
         <source>MESSENGER_SEND_ON_BUTTON</source>
         <translation></translation>
     </message>
@@ -1824,17 +1912,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="128"/>
+        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="136"/>
         <source>YOUR_NICKNAME_PLACEHOLDER</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="201"/>
+        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="210"/>
         <source>PROFILE_LINK_PLACEHOLDER</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="229"/>
+        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="238"/>
         <source>SAVE_BUTTON_CAPTION</source>
         <translation></translation>
     </message>
@@ -1842,17 +1930,17 @@
 <context>
     <name>NicknameReminderView</name>
     <message>
-        <location filename="../Application/Widgets/NicknameReminder/View/NicknameReminderView.qml" line="23"/>
+        <location filename="../Application/Widgets/NicknameReminder/View/NicknameReminderView.qml" line="21"/>
         <source>USER_LOST_NICK_NAME_TITLE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/NicknameReminder/View/NicknameReminderView.qml" line="45"/>
+        <location filename="../Application/Widgets/NicknameReminder/View/NicknameReminderView.qml" line="43"/>
         <source>USER_LOST_NICKNAME_BODY_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/NicknameReminder/View/NicknameReminderView.qml" line="55"/>
+        <location filename="../Application/Widgets/NicknameReminder/View/NicknameReminderView.qml" line="53"/>
         <source>USER_LOST_NICKNAME_ENTER_BUTTON_TEXT</source>
         <translation></translation>
     </message>
@@ -1928,7 +2016,7 @@
 <context>
     <name>PlayingGameContacts</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/PlayingGameContacts.qml" line="52"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/PlayingGameContacts.qml" line="48"/>
         <source>MESSENGER_PLAYING_CONTACTS_EMPTY_INFO</source>
         <translation></translation>
     </message>
@@ -2185,7 +2273,7 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/RecentConversation.qml" line="67"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/RecentConversation.qml" line="62"/>
         <source>MESSENGER_RECENT_CONTACTS_EMPTY_INFO</source>
         <translation></translation>
     </message>
@@ -2299,22 +2387,22 @@
 <context>
     <name>SecondAccountView</name>
     <message>
-        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="44"/>
+        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="43"/>
         <source>SECOND_GAME_BLOCK_PREMIUM_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="60"/>
+        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="59"/>
         <source>PREMIUM_ADD_ACCOUNT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="119"/>
+        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="118"/>
         <source>SECOND_GAME_BLOCK_PREMIUM_PLAY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="134"/>
+        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountView.qml" line="133"/>
         <source>SECOND_GAME_BLOCK_PREMIUM_PLAY_TULTIP</source>
         <translation></translation>
     </message>
@@ -2484,22 +2572,22 @@
 <context>
     <name>TaskList</name>
     <message>
-        <location filename="../Application/Widgets/TaskList/TaskList.qml" line="47"/>
+        <location filename="../Application/Widgets/TaskList/TaskList.qml" line="48"/>
         <source>TASK_LIST_SETTING</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TaskList/TaskList.qml" line="48"/>
+        <location filename="../Application/Widgets/TaskList/TaskList.qml" line="49"/>
         <source>TASK_LIST_QUIT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TaskList/TaskList.qml" line="80"/>
+        <location filename="../Application/Widgets/TaskList/TaskList.qml" line="81"/>
         <source>TASK_LIST_ALL_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TaskList/TaskList.qml" line="81"/>
+        <location filename="../Application/Widgets/TaskList/TaskList.qml" line="82"/>
         <source>TASK_LIST_MORE_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2545,22 +2633,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="290"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="288"/>
         <source>MENU_ITEM_PROFILE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="297"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="295"/>
         <source>MENU_ITEM_MONEY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="304"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="302"/>
         <source>MENU_ITEM_SETTINGS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="311"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="309"/>
         <source>MENU_ITEM_QUIT</source>
         <translation></translation>
     </message>
@@ -2710,7 +2798,7 @@
 <context>
     <name>qGNA_Main</name>
     <message>
-        <location filename="../Application/Core/Authorization/Vk.qml" line="37"/>
+        <location filename="../Application/Core/Authorization/Vk.qml" line="32"/>
         <source>WINDOW_TITLE_VK_AUTH</source>
         <translation></translation>
     </message>
@@ -2746,7 +2834,7 @@
 <context>
     <name>WebSearchContact</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml" line="108"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml" line="105"/>
         <source>WEB_SEARCH_ADD_CONTACT</source>
         <translation type="unfinished"></translation>
     </message>

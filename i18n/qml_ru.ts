@@ -255,7 +255,7 @@
     <name>AnnouncementsDesignSample</name>
     <message>
         <source>Чтобы открыть чат GameNet используете хоткей %1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -948,6 +948,73 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>BlackDesert</name>
+    <message>
+        <source>Качество графики</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Очень высоко</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Высоко</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Выше среднего</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Средне</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Низко</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Очень низко</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Режим оптимизации</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Разрешение экрана</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Полноэкранный</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Включить звуковые эффекты</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Включить музыку</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Включить звуки окружения</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Тип экрана</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Оконный без рамки</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Оконный</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Body</name>
     <message>
         <source>CHAT_HISTORY_BODY_TODAY_TEXT</source>
@@ -1490,7 +1557,7 @@ Please try again later.</source>
     <name>ContactItemHeader</name>
     <message>
         <source>CONTACT_ITEM_NICKNAME_TOOLTIP</source>
-        <translation type="unfinished">Кликните, чтобы перейти к профилю %1</translation>
+        <translation>Кликните, чтобы перейти к профилю %1</translation>
     </message>
 </context>
 <context>
@@ -2486,6 +2553,10 @@ Please try again later.</source>
     <message>
         <source>RESTORE_CLIENT_TOOLTIP</source>
         <translation>Нажми, если у тебя возникли сложности с запуском игры. Мы проверим и исправим файлы игры.</translation>
+    </message>
+    <message>
+        <source>Игровые настройки</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

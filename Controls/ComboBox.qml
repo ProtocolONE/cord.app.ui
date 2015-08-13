@@ -27,6 +27,8 @@ Item {
 
     property bool preventDefault: false
 
+    implicitHeight: 40
+
     function append(value, text, icon) {
         root.model.append({"value": value, "text": text, "icon": icon})
     }
