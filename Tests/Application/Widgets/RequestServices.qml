@@ -6,10 +6,15 @@ import Application.Core 1.0
 Item {
     id: d
 
+    property string userId: "400001000002837740"
+    property string appKey: "e46bbb8616670c79dabaa963f0d29fe08d100685"
+
     signal ready();
 
     Component.onCompleted: {
-        d.authDone('400001000002837740', 'e46bbb8616670c79dabaa963f0d29fe08d100685'); // gna4@unit.test
+        User.reset();
+
+        d.authDone(userId, appKey); // gna4@unit.test
         d.requestServices();
     }
 

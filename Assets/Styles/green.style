@@ -132,7 +132,7 @@
         "gameMenuForumIcon": "Assets/Images/Styles/green/Application/Blocks/GameMenu/Forum.png",
         "gameMenuSettingsIcon": "Assets/Images/Styles/green/Application/Blocks/GameMenu/Settings.png",
         "gameMenuExtendedAccIcon": "Assets/Images/Styles/green/Application/Blocks/GameMenu/Accounts.png",
-        "gameMenuAccessIcon": "Assets/Images/Styles/green/Application/Blocks/GameMenu/Access.png",
+        "gameMenuPremiumIcon": "Assets/Images/Styles/green/Application/Blocks/GameMenu/Access.png",
         "popupCloseIcon": "Assets/Images/Styles/green/Application/Core/Popup/close.png",
         "accountActivationLockIcon": "Assets/Images/Styles/green/Application/Widgets/AccountActivation/lock.png",
         "accountActivationPhoneIcon": "Assets/Images/Styles/green/Application/Widgets/AccountActivation/phone_plus.png",

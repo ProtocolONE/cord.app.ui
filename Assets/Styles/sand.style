@@ -132,7 +132,7 @@
         "gameMenuForumIcon": "Assets/Images/Styles/sand/Application/Blocks/GameMenu/Forum.png",
         "gameMenuSettingsIcon": "Assets/Images/Styles/sand/Application/Blocks/GameMenu/Settings.png",
         "gameMenuExtendedAccIcon": "Assets/Images/Styles/sand/Application/Blocks/GameMenu/Accounts.png",
-        "gameMenuAccessIcon": "Assets/Images/Styles/sand/Application/Blocks/GameMenu/Access.png",
+        "gameMenuPremiumIcon": "Assets/Images/Styles/sand/Application/Blocks/GameMenu/Access.png",
         "popupCloseIcon": "Assets/Images/Styles/sand/Application/Core/Popup/close.png",
         "accountActivationLockIcon": "Assets/Images/Styles/sand/Application/Widgets/AccountActivation/lock.png",
         "accountActivationPhoneIcon": "Assets/Images/Styles/sand/Application/Widgets/AccountActivation/phone_plus.png",

@@ -78,6 +78,7 @@ Rectangle {
         WidgetManager.registerWidget('Application.Widgets.DetailedUserInfo');
         WidgetManager.registerWidget('Application.Widgets.GameSettings');
         WidgetManager.registerWidget('Application.Widgets.ApplicationSettings');
+        WidgetManager.registerWidget('Application.Widgets.PremiumServer');
 
         if (GoogleAnalyticsHelper.winVersion() > 0x0080) {
             //INFO Available in Vista+

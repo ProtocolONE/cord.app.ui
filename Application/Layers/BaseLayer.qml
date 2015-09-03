@@ -4,6 +4,7 @@ import GameNet.Components.Widgets 1.0
 
 import Application.Core 1.0
 import Application.Core.Popup 1.0
+import Application.Core.MessageBox 1.0
 import Application.Controls 1.0
 import Application.Blocks 1.0
 import Application.Blocks.Header 1.0
@@ -56,10 +57,10 @@ Item {
                     Popup.show('ApplicationSettings');
                     return;
                 }
+                case 'PremiumServer':
                 case 'GameSettings': {
                     return;
                 }
-
                 case "mygame": {
                     root.selectedGamePage = true;
                     centralBlockLoader.sourceComponent = gamePageBlock;
@@ -202,6 +203,21 @@ Item {
 
                             Popup.show('GameSettings');
                             break;
+                        case 'PremiumServer':
+                            if (!root.selectedGamePage) {
+                                console.log('Fail to open PremiumServer popup');
+                                return;
+                            }
+
+                            if (User.hasUnlimitedSubscription(root.currentGame.serviceId)) {
+                                MessageBox.show(
+                                            qsTr("Доступ к премиум-серверу"),
+                                            qsTr("Доступ на премиум-сервер открыт Вам навсегда"),
+                                            MessageBox.button.ok);
+                            } else {
+                                Popup.show('PremiumServer');
+                            }
+                            break;
                         case 'AboutGame':
                             widgetContent.sourceComponent = aboutGameCmp;
                             break;
@@ -211,7 +227,6 @@ Item {
                     }
                 }
             }
-
         }
     }
 

@@ -14,6 +14,7 @@ import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
 import Application.Core 1.0
+import Application.Core.Popup 1.0
 
 Rectangle {
     width: 1200

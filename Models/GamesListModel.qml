@@ -90,5 +90,14 @@ ListModel {
                                 page: "GameSettings",
                             });
         }
+
+        if (element.hasPremiumServer) {
+            root.appendMenuItem(element.menu,
+                            {
+                                icon: 'gameMenuPremiumIcon',
+                                text: qsTr("Доступ"),
+                                page: "PremiumServer",
+                            });
+        }
     }
 }

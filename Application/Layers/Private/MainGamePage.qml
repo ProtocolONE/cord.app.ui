@@ -16,8 +16,16 @@ ScrollArea {
                  && root.currentGame.maintenance
                  && root.currentGame.allreadyDownloaded
 
-        widget: 'Maintenance'
+        widget: visible ? 'Maintenance' : ''
         view: 'MaintenanceLightView'
+    }
+
+    WidgetContainer {
+        visible: root.hasCurrentGame
+            && root.currentGame.hasPremiumServer
+
+        widget: visible ? 'PremiumServer' : ''
+        view: 'PremiumServerLineView'
     }
 
     WidgetContainer {

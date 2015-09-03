@@ -66,6 +66,13 @@ function createService(data) {
     item.socialNet = data.socialNet || '';
     item.isRunnable = !!data.isRunnable;
     item.backgroundInApp = data.backgroundInApp || '';
+    item.hasPremiumServer = false;
+
+    if (item.gameId == 1021) {
+        //HACK Use this hack due have just one game (BlackDesert) with that feature.
+        //INFO Should be enabled after 05.10.2015 (pre launche obt)
+        //item.hasPremiumServer = true;
+    }
 
     urlProps = [
                 'guideUrl',

@@ -856,7 +856,7 @@ User.getSpeedyInfo = function(successCallback, failedCallback) {
 };
 
 User.getProfile = function(profiles, successCallback, failedCallback) {
-    Core.execute('user.getProfile', {profileId: profiles, shortInfo: 1, achievements: 1}, true, successCallback, failedCallback);
+    Core.execute('user.getProfile', {profileId: profiles, shortInfo: 1, achievements: 1, subscriptions: 1}, true, successCallback, failedCallback);
 };
 
 User.getPlayedInfo = function(profiles, successCallback, failedCallback) {

@@ -1,0 +1,5 @@
+module Application.Widgets.PremiumServer
+PluginContainer 1.0 PluginContainer.qml 
+PremiumServerPopupView 1.0 View/PremiumServerPopupView.qml
+PremiumServerLineView 1.0 View/PremiumServerLineView.qml
+PremiumServerModel 1.0 PremiumServerModel.qml 

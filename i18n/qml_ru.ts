@@ -946,6 +946,18 @@ Please try again later.</source>
         <source>MY_GAMES_MENU_NEWS</source>
         <translation type="vanished">Общая лента новостей</translation>
     </message>
+    <message>
+        <source>Доступ к премиум-серверу</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>У вас неограниченный доступ к премиум серверу.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Доступ к премиум серверу навсегда</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BlackDesert</name>
@@ -2793,7 +2805,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_MENU_GAME_SETTINGS_TEXT</source>
-        <translation>Настройки игры</translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <source>LOGO_BD</source>
@@ -2822,6 +2834,10 @@ Please try again later.</source>
     <message>
         <source>GAME_DA_MINI_DESC</source>
         <translation type="vanished">Мифическая игра</translation>
+    </message>
+    <message>
+        <source>Доступ</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4337,6 +4353,119 @@ Please try again later.</source>
     <message>
         <source>PREMIUM_EXPIRED_MESSAGE</source>
         <translation>Действие расширенного аккаунта закончилось.</translation>
+    </message>
+</context>
+<context>
+    <name>PremiumServerLineView</name>
+    <message>
+        <source>Продлить доступ</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Нажмите, чтобы активировать доступ на премиум сервер игры</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>У вас нет доступа к премиум серверу</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Доступ к премиум серверу навсегда</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Доступ к премиум серверу истекает сегодня</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>день</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>дня</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>дней</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Доступ к премиум серверу истекает через &lt;span style=&quot;font-size: 14px;&quot;&gt;%1&lt;/span&gt; %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Доступ к премиум серверу закончился &lt;span style=&quot;font-size: 14px;&quot;&gt;%1&lt;/span&gt; %2 назад</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PremiumServerModel</name>
+    <message>
+        <source>Восстановить</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Доступ к премиум серверу приостановлен</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PremiumServerPopupView</name>
+    <message>
+        <source>Доступ к премиум-серверу</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Упс! Что-то пошло не так...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Произошла ошибка в процессе покупки. Пожалуйста, попробуйте позже.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Премиум сервер — место развития и сражений для тех, кто ценит комфорт в игре и атмосферу закрытого сообщества.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Осталось: %1 %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>день</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>дня</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>дней</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Получите доступ к премиум серверу:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Продлите доступ к премиум серверу:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>На счету недостаточно GN-монет</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Пополнить счет</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Итоговая стоимость: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Подтвердите покупку</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

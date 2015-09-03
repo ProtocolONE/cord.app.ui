@@ -48,7 +48,7 @@ Item {
     property string gameMenuForumIcon: "Assets/Images/Application/Blocks/GameMenu/Forum.png"
     property string gameMenuSettingsIcon: "Assets/Images/Application/Blocks/GameMenu/Settings.png"
     property string gameMenuExtendedAccIcon: "Assets/Images/Application/Blocks/GameMenu/Accounts.png"
-    property string gameMenuAccessIcon: "Assets/Images/Application/Blocks/GameMenu/Access.png" //INFO GN-8631
+    property string gameMenuPremiumIcon: "Assets/Images/Application/Blocks/GameMenu/Access.png"
 
     property string popupCloseIcon: "Assets/Images/Application/Core/Popup/close.png"
 

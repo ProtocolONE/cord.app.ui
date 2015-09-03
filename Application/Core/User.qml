@@ -10,33 +10,64 @@
 pragma Singleton
 
 import QtQuick 2.4
+
 import GameNet.Core 1.0
+import GameNet.Controls 1.0
+
 import Application.Core 1.0
 
 Item {
     id: root
 
     property int premiumExpiredNotificationTimeout: 3600000
+    property variant lastUpdated: 0
 
     signal nicknameChanged();
     signal balanceChanged();
+    signal subscriptionsChanged();
 
     function refreshUserInfo() {
         RestApi.User.getProfile(d.userId, function(response) {
             if (!response || !response.userInfo || response.userInfo.length < 1) {
                 return;
             }
-
-            var info = response.userInfo[0].shortInfo;
-            setUserInfo(info);
+            setUserInfo(response.userInfo[0].shortInfo);
+            setUserSubscriptions(response.userInfo[0].subscriptions);
             d.level = response.userInfo[0].experience.level;
-            //mainAuthModule.updateGuestStatus(info.guest || "0");
+            root.lastUpdated = Date.now();
         }, function() {});
 
         refreshPremium();
         premiumDurationTimer.start();
         refreshBalance();
         balanceTimer.start();
+    }
+
+    function setUserSubscriptions(data) {
+        var wasUpdated = false;
+
+        data.filter(function(e){
+            return e.dueDate !== null;
+        }).map(function(e) {
+            if (serviceSubscriptions.contains(e.serviceId)) {
+                if (e.dueDate != serviceSubscriptions.getPropertyById(e.serviceId, "dueDate")) {
+                    serviceSubscriptions.setPropertyById(e.serviceId, "dueDate", e.dueDate);
+                    wasUpdated = true;
+                }
+            } else {
+                serviceSubscriptions.append({
+                    serviceId: e.serviceId,
+                    gameId: e.gameId,
+                    createDate: e.createDate,
+                    dueDate: e.dueDate
+                });
+                wasUpdated = true;
+            }
+        });
+
+        if (wasUpdated) {
+            root.subscriptionsChanged();
+        }
     }
 
     function refreshPremium() {
@@ -95,6 +126,7 @@ Item {
         d.avatarLarge = "";
         d.avatarMedium = "";
         d.avatarSmall = "";
+        serviceSubscriptions.clear();
     }
 
     function setCredential(userId, appKey, cookie) {
@@ -212,6 +244,23 @@ Item {
         return getNickname().indexOf('@') == -1;
     }
 
+    function getSubscriptions() {
+        return serviceSubscriptions;
+    }
+
+    function getSubscriptionRemainTime(serviceId) {
+        var subsrc = serviceSubscriptions.getById(serviceId),
+            q = balanceTimer.tickCount && root.lastUpdated;
+
+        return subsrc
+            ? Moment.moment(subsrc.dueDate).diff(new Date(), 'days')
+            : null;
+    }
+
+    function hasUnlimitedSubscription(serviceId) {
+        return (getSubscriptionRemainTime(serviceId)|0) > 365 * 100;
+    }
+
     QtObject {
         id: d
 
@@ -238,6 +287,12 @@ Item {
         property string secondUserId
         property string secondAppKey
         property string secondCookie
+    }
+
+    ExtendedListModel {
+        id: serviceSubscriptions
+
+        idProperty: "serviceId"
     }
 
     Connections {
@@ -319,10 +374,12 @@ Item {
         repeat: true
 
         onTriggered: {
-            balanceTimer.tickCount++;
-            if ((App.isWindowVisible() && balanceTimer.tickCount >= 2) || balanceTimer.tickCount >= 5) {
+            var localTick = balanceTimer.tickCount + 1;
+            if ((App.isWindowVisible() && localTick >= 2) || localTick >= 5) {
                 balanceTimer.tickCount = 0;
                 refreshBalance();
+            } else {
+                balanceTimer.tickCount++;
             }
         }
     }
