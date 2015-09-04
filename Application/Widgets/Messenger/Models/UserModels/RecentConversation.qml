@@ -112,13 +112,14 @@ Item {
                 , keys;
 
             keys = usersModel.keys();
+
             for (i in keys) {
                 jid = keys[i];
                 modelUser = usersModel.get(jid);
 
                 lastTalkDate = modelUser.lastTalkDate || 0;
                 if (lastTalkDate == 0 || UserJs.isGameNet(modelUser)) {
-                    return;
+                    continue;
                 }
 
                 last = Moment.moment(lastTalkDate);

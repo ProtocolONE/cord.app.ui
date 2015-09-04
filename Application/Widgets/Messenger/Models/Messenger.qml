@@ -37,7 +37,9 @@ import "../Plugins/Topic/Topic.js" as Topic
 import "../Plugins/RoomParticipants/RoomParticipants.js" as RoomParticipants
 import "../Plugins/ChatCommands/ChatCommands.js" as ChatCommands
 import "../Plugins/Logger/Logger.js" as LoggerPlugin
-import "../Plugins/Subscription/Subscription.js" as Subscription
+
+import Application.Widgets.Messenger.Models.Managers 1.0
+import Application.Widgets.Messenger.Plugins.Subscription 1.0
 
 import "../Plugins/MessageUrlHandler"
 
@@ -61,7 +63,9 @@ Item {
 
     signal selectedUserChanged();
     signal messageReceived(string from, string body, variant message);
+    signal carbonMessageReceived(string to);
 
+    signal beforeConnect(string bareJid);
     signal connectedToServer();
 
     signal talkDateChanged(string jid);
@@ -128,6 +132,7 @@ Item {
         });
 
         ConversationManager.init(xmppClient, conversationModel, root);
+        RecentConversations.init(xmppClient, conversationModel, root);
 
         return {
             client: xmppClient,
@@ -175,10 +180,9 @@ Item {
         options.resource = "QGNA_" + currentTime.toString() + Math.floor(Math.random() * 100);
         options.streamManagementMode = 1;
 
-        d.loadUserTalkDate(myUser.userId);
-
         root.connecting = true;
 
+        root.beforeConnect(jid);
         xmppClient.connectToServerEx(jid, password, options);
     }
 
@@ -607,7 +611,7 @@ Item {
 
                 rawUser = UserJs.createRawUser(fullJid, nickname || "");
           //      rawUser.groups = groups.map(function(g){ return {name: g}; });
-                rawUser.lastTalkDate = d.getUserTalkDate(rawUser);
+                rawUser.lastTalkDate = RecentConversations.getUserTalkDate(rawUser);
                 rawUser.subscription = subscription;
                 rawUser.inContacts = (subscription == QXmppRosterManager.Both);
 
@@ -629,7 +633,7 @@ Item {
 
         function appendGroudUser(fullJid, externalNickName) {
             var rawUser = UserJs.createRawGroupChat(fullJid, externalNickName || "");
-            rawUser.lastTalkDate = d.getUserTalkDate(rawUser);
+            rawUser.lastTalkDate = RecentConversations.getUserTalkDate(rawUser);
             usersModel.append(rawUser);
         }
 
@@ -662,47 +666,6 @@ Item {
 
             if (!user.online) {
                 xmppClient.lastActivityManager.requestLastActivity(user.jid);
-            }
-        }
-
-        function updateUserTalkDateHandler(jid) {
-            var item = root.getUser(jid);
-            d.updateUserTalkDate(item);
-        }
-
-        function updateUserTalkDate(user) {
-            if (!user.isValid()) {
-                return;
-            }
-
-            var lastDate = Moment.moment(user.lastTalkDate).format('DD.MM.YYYY'),
-                    nowDate = Moment.moment().format('DD.MM.YYYY'),
-                    authedUserId;
-
-            if (lastDate === nowDate) {
-                return;
-            }
-
-            var now = Date.now();
-            user.lastTalkDate = now;
-
-            MessengerPrivateJs.lastTalkDateMap[user.jid] = now;
-            authedUserId = root.authedUser().userId;
-
-            AppSettings.setValue(
-                        'qml/messenger/recentconversation/' + authedUserId,
-                        'lastTalkDate',
-                        JSON.stringify(MessengerPrivateJs.lastTalkDateMap));
-
-            root.talkDateChanged(user.jid);
-        }
-
-        function loadUserTalkDate(userId) {
-            var loadString = AppSettings.value('qml/messenger/recentconversation/' + userId, 'lastTalkDate', "{}");
-            try {
-                MessengerPrivateJs.lastTalkDateMap = JSON.parse(loadString);
-            } catch(e) {
-                MessengerPrivateJs.lastTalkDateMap = {};
             }
         }
 
@@ -742,13 +705,6 @@ Item {
             MessengerPrivateJs.unreadMessageCountMap = storedUsers;
         }
 
-        function getUserTalkDate(user) {
-            if (!MessengerPrivateJs.lastTalkDateMap.hasOwnProperty(user.jid)) {
-                return 0;
-            }
-
-            return MessengerPrivateJs.lastTalkDateMap[user.jid] || 0;
-        }
 
         function getCurrentStatus() {
             if (root.connected) {
@@ -799,8 +755,8 @@ Item {
             property string presenceState: ""
             property string inputMessage: ""
             property string avatar: ""
-            property int lastActivity: 0
-            property int lastTalkDate: 0
+            property variant lastActivity: 0
+            property variant lastTalkDate: 0
             //property bool online: true по факту вычисляемы параметр по presenceState
             property string playingGame: ""
             property bool inContacts: false
@@ -849,8 +805,6 @@ Item {
             } else {
                 root.messageRead(user.jid);
             }
-
-            d.updateUserTalkDate(user);
             root.messageReceived(user.jid, message.body, message);
         }
 
@@ -895,8 +849,7 @@ Item {
                 return;
             }
 
-            user = root.getUser(message.to);
-            d.updateUserTalkDate(user);
+            root.carbonMessageReceived(message.to);
         }
 
         onMessageReceivedEx: {
@@ -914,7 +867,6 @@ Item {
                 root.messageRead(user.jid);
             }
 
-            d.updateUserTalkDate(user);
             root.messageReceived(user.jid, message.body, message);
         }
 
@@ -925,8 +877,6 @@ Item {
         }
 
         onPresenceReceived: d.updatePresence(presence);
-        onInputStatusSending: d.updateUserTalkDateHandler(jid)
-        onMessageSending: d.updateUserTalkDateHandler(jid)
     }
 
     Timer {

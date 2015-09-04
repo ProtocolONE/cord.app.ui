@@ -1,0 +1,2 @@
+module Application.Widgets.Messenger.Plugins.Subscription
+singleton Subscription 1.0 Subscription.qml
