@@ -29,6 +29,11 @@ Rectangle {
         Styles.setCurrentStyle('mainStyle');
 
         Popup.init(popupLayer);
+
+        RestApi.Core.setUserId("400001000092302250");
+        RestApi.Core.setAppKey("86c558d41c1ae4eafc88b529e12650b884d674f5");
+        WidgetManager.registerWidget('Application.Widgets.AccountActivation');
+        WidgetManager.init();
     }
 
     RequestServices {
@@ -37,17 +42,6 @@ Rectangle {
             serviceItem.statusText = "Sample text";
 
             App.activateGame(serviceItem);
-        }
-    }
-
-    WidgetManager {
-        id: manager
-
-        Component.onCompleted: {
-            RestApi.Core.setUserId("400001000092302250");
-            RestApi.Core.setAppKey("86c558d41c1ae4eafc88b529e12650b884d674f5");
-            manager.registerWidget('Application.Widgets.AccountActivation');
-            manager.init();
         }
     }
 

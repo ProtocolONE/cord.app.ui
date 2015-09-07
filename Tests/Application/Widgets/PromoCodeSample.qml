@@ -37,16 +37,8 @@ Rectangle {
             App.activateGame(App.serviceItemByGameId("92"));
             RestApi.Core.setUserId("400001000092302250");
             RestApi.Core.setAppKey("86c558d41c1ae4eafc88b529e12650b884d674f5");
-            manager.registerWidget('Application.Widgets.PromoCode');
-            manager.init();
-        }
-    }
-
-    WidgetManager {
-        id: manager
-
-        Component.onCompleted: {
-
+            WidgetManager.registerWidget('Application.Widgets.PromoCode');
+            WidgetManager.init();
         }
     }
 
