@@ -104,7 +104,7 @@ Item {
                 id: mouseArea
 
                 height: parent.height
-                width: row.width
+                width: row.childrenRect.width
 
                 drag {
                     target: parent
@@ -122,25 +122,17 @@ Item {
 
                 height: parent.height
 
-                Column {
-                    width: 230
+                WidgetContainer {
                     height: parent.height
-
-                    WidgetContainer {
-                        height: parent.height
-                        width: 230
-                        widget: 'Messenger'
-                        view: 'Contacts'
-                    }
+                    width: 230
+                    widget: 'Messenger'
+                    view: 'Contacts'
                 }
 
-                Item {
+                Row {
                     height: parent.height
-                    width: 590
 
                     WidgetContainer {
-                        id: dialog
-
                         height: parent.height
                         width: 590
                         widget: 'Messenger'
@@ -149,10 +141,6 @@ Item {
                     }
 
                     WidgetContainer {
-                        id: userInfo
-
-                        height: parent.height
-                        width: 353
                         widget: 'DetailedUserInfo'
                         view: 'DetailedUserInfoView'
                     }

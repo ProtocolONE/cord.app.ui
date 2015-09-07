@@ -55,9 +55,6 @@ Item {
             left: parent.left
             bottom: parent.bottom
         }
-
-        height: parent.height
-        width: 353
         widget: 'DetailedUserInfo'
         view: 'DetailedUserInfoView'
     }

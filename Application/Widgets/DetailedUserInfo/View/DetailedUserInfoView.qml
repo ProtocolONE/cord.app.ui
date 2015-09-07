@@ -22,8 +22,10 @@ import "./Blocks"
 WidgetView {
     id: root
 
-    anchors.fill: parent
     visible: d.opened
+
+    implicitWidth: 353
+    implicitHeight: parent.height
 
     function isOpened() {
         return d.opened;
