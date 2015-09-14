@@ -4613,7 +4613,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>DOWNLOAD_PEER_UPLOAD_TOTAL %1</source>
-        <translation type="obsolete">Отправленно: %1</translation>
+        <translation type="obsolete">Отправлено: %1</translation>
     </message>
     <message>
         <source>DOWNLOAD_PEER_DOWNLOAD_SPEED %1</source>
