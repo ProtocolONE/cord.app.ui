@@ -4720,11 +4720,11 @@ Please try again later.</source>
     <name>PromoCodeView</name>
     <message>
         <source>PROMO_CODE_TITLE</source>
-        <translation>Активация промо-кода</translation>
+        <translation type="vanished">Активация промо-кода</translation>
     </message>
     <message>
         <source>PROMO_CODE_PLACEHOLDER</source>
-        <translation>Введи промо-код</translation>
+        <translation type="vanished">Введи промо-код</translation>
     </message>
     <message>
         <source>ACIVATE_BUTTON_CAPTION</source>
@@ -4733,6 +4733,26 @@ Please try again later.</source>
     <message>
         <source>UNKNOWN_PROMO_VALIDATION_ERROR</source>
         <translation>Возникла ошибка в процессе активации промо-кода. Попробуйте позже.</translation>
+    </message>
+    <message>
+        <source>Активация ключа</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Введите ключ из набора раннего доступа - это позволит начать игру за несколько дней до запуска. &lt;a style=&apos;color: %1&apos; href=&apos;http://go.gamenet.ru/a/233/335/&apos;&gt;&quot;Получить ключ&quot;&lt;/a&gt;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Введите ключ из набора раннего доступа - это позволит начать игру за несколько дней до запуска, 12 октября. &lt;a style=&apos;color: %1&apos; href=&apos;http://go.gamenet.ru/a/233/335/&apos;&gt;&quot;Получить ключ&quot;&lt;/a&gt;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Внимание! Вход в игру ограничен до 12 октября. Чтобы начать игру сейчас, введите ключ из набора раннего доступа. &lt;a style=&apos;color: %1&apos; href=&apos;http://go.gamenet.ru/a/233/335/&apos;&gt;&quot;Получить ключ&quot;&lt;/a&gt;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Введите ключ</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5818,6 +5838,13 @@ Please try again later.</source>
     <message>
         <source>AUTH_SUPPORT_BUTTON_TEXT</source>
         <translation type="unfinished">Задать вопрос</translation>
+    </message>
+</context>
+<context>
+    <name>SupportIcon</name>
+    <message>
+        <source>Нажмите, чтобы перейти на сайт службы поддержки и сообщить об ошибке.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

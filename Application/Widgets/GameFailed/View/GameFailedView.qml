@@ -90,7 +90,7 @@ PopupBase {
                 label: 'Support'
             }
             onClicked: {
-                App.openExternalUrl("https://support.gamenet.ru/kb");
+                App.openSupportUrl("/kb");
                 Marketing.send(Marketing.ProblemAfterGameStart, root.currentItem.serviceId, { action: "support" } );
                 root.close();
             }

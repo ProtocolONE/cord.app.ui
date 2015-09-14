@@ -96,3 +96,15 @@ function createService(data) {
 }
 
 
+function openSupportUrl(returnPath) {
+    //id=10 это хардкоженная переменная, которую можно получить только после
+    //установки плагина авторизации GameNet в DeskPro.
+
+    var uri = 'https://gnlogin.ru/integrations/deskpro/?id=10';
+    if (returnPath) {
+        uri += '&return=' + encodeURIComponent(returnPath);
+    }
+
+    openExternalUrlWithAuth(uri);
+}
+

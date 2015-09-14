@@ -153,6 +153,7 @@
         "userProfilePremiumIcon": "Assets/Images/Application/Widgets/UserProfile/premium.png",
         "promoCodeIcon": "Assets/Images/Application/Widgets/PromoCode/promo.png",
         "nicknameEditIcon": "Assets/Images/Application/Widgets/NicknameEdit/nickname.png",
+        "supportIcon": "Assets/Images/Application/Blocks/bug.png",
         "inputCaptchaIcon": "Assets/Images/GameNet/Controls/Input/captcha.png",
         "inputEmailIcon": "Assets/Images/GameNet/Controls/Input/email.png",
         "inputPasswordIcon": "Assets/Images/GameNet/Controls/Input/password.png",

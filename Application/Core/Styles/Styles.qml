@@ -76,6 +76,8 @@ Item {
     property string promoCodeIcon: "Assets/Images/Application/Widgets/PromoCode/promo.png"
     property string nicknameEditIcon: "Assets/Images/Application/Widgets/NicknameEdit/nickname.png"
 
+    property string supportIcon: "Assets/Images/Application/Blocks/bug.png"
+
     //GameNet Input
     property string inputCaptchaIcon: "Assets/Images/GameNet/Controls/Input/captcha.png"
     property string inputEmailIcon: "Assets/Images/GameNet/Controls/Input/email.png"

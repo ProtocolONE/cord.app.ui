@@ -50,7 +50,7 @@ Item {
     SupportButton {
         anchors { verticalCenter: parent.verticalCenter; right: parent.right }
         visible: !root.serviceLoading
-        onClicked: App.openExternalUrl("https://support.gamenet.ru/kb");
+        onClicked: App.openSupportUrl("/kb");
     }
 
     Rectangle {

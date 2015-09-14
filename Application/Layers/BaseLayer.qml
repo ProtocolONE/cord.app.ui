@@ -176,6 +176,12 @@ Item {
                 anchors {right: parent.right; top: parent.top; topMargin: 8}
             }
 
+            SupportIcon {
+                anchors {right: parent.right; top: parent.top; topMargin: 420}
+                visible: root.currentGame && root.currentGame.supportId
+                onClicked: App.openSupportUrl('/new-ticket?set_dep_id=' + root.currentGame.supportId)
+            }
+
             Loader {
                 id: widgetContent
 

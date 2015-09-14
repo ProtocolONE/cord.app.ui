@@ -153,6 +153,7 @@
         "userProfilePremiumIcon": "Assets/Images/Styles/sand/Application/Widgets/UserProfile/premium.png",
         "promoCodeIcon": "Assets/Images/Styles/sand/Application/Widgets/PromoCode/promo.png",
         "nicknameEditIcon": "Assets/Images/Styles/sand/Application/Widgets/NicknameEdit/nickname.png",
+        "supportIcon": "Assets/Images/Styles/sand/Application/Blocks/bug.png",
         "inputCaptchaIcon": "Assets/Images/Styles/sand/GameNet/Controls/Input/captcha.png",
         "inputEmailIcon": "Assets/Images/Styles/sand/GameNet/Controls/Input/email.png",
         "inputPasswordIcon": "Assets/Images/Styles/sand/GameNet/Controls/Input/password.png",

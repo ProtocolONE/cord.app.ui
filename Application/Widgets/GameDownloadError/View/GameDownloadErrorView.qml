@@ -86,7 +86,7 @@ PopupBase {
 
             onClicked: {
                 root.close();
-                App.openExternalUrl("https://support.gamenet.ru/kb");
+                App.openSupportUrl("/kb");
             }
         }
     }
