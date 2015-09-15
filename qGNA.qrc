@@ -54,6 +54,7 @@
 		<file>Application/Blocks/SplashScreen.qml</file>
 		<file>Application/Blocks/SplashScreen/Background.qml</file>
 		<file>Application/Blocks/SplashScreen/UpdateManager.qml</file>
+		<file>Application/Blocks/SupportIcon.qml</file>
 		<file>Application/Bootstrap.qml</file>
 		<file>Application/Controls/AuxiliaryButton.qml</file>
 		<file>Application/Controls/CheckBox.qml</file>
@@ -98,10 +99,14 @@
 		<file>Application/Core/MessageBox/MessageBoxButtons.qml</file>
 		<file>Application/Core/MessageBox/qmldir</file>
 		<file>Application/Core/Modules/ApplicationStatistic.qml</file>
-		<file>Application/Core/Modules/ApplicationStatisticPrivate.qml</file>
+		<file>Application/Core/Modules/Host.js</file>
+		<file>Application/Core/Modules/Host.qml</file>
 		<file>Application/Core/Modules/Mocks/ApplicationSettingsMock.qml</file>
 		<file>Application/Core/Modules/Mocks/GameSettingsMock.qml</file>
 		<file>Application/Core/Modules/Mocks/MainWindowMock.qml</file>
+		<file>Application/Core/Modules/Overlay.js</file>
+		<file>Application/Core/Modules/Service.js</file>
+		<file>Application/Core/Modules/ServiceHandleModel.js</file>
 		<file>Application/Core/Modules/ServiceHandleModel.qml</file>
 		<file>Application/Core/Modules/ServiceHandleModelPrivate.qml</file>
 		<file>Application/Core/Modules/SignalBus.qml</file>
