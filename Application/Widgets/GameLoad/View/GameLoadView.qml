@@ -14,6 +14,7 @@ import GameNet.Components.Widgets 1.0
 import Application.Blocks.Popup 1.0
 import Application.Controls 1.0
 import Application.Core 1.0
+import Application.Core.MessageBox 1.0
 
 PopupBase {
     id: root
@@ -68,45 +69,68 @@ PopupBase {
         }
 
         Column {
-           width: parent.width
-           spacing: 10
+            width: parent.width
+            spacing: 10
 
-           Text {
-               font {family: "Arial"; pixelSize: 14}
-               smooth: true
-               color: defaultTextColor
-               text: model ? model.headerText : ""
-           }
+            Text {
+                font {family: "Arial"; pixelSize: 14}
+                smooth: true
+                color: defaultTextColor
+                text: model ? model.headerText : ""
+            }
 
-           Row {
-               width: parent.width
-               spacing: 6
+            Row {
+                width: parent.width
+                spacing: 6
 
-               Item {
-                   id: progressBarContainer
+                Item {
+                    id: progressBarContainer
 
-                   height: 22
-                   width: parent.width - 100
+                    height: 22
+                    width: parent.width - pauseButton.width - (cancelButton.visible ? cancelButton.width : 0)- 12
 
-                   ContentThinBorder{}
+                    ContentThinBorder{}
 
-                   DownloadProgressBar {
-                       anchors {
-                           fill: parent
-                           margins: 6
-                       }
+                    DownloadProgressBar {
+                        anchors {
+                            fill: parent
+                            margins: 6
+                        }
 
-                       progress: model ? model.progress : 0
-                   }
-               }
+                        progress: model ? model.progress : 0
+                    }
+                }
 
-               TextButton {
-                   width: 100
-                   text: !root.isPause ? qsTr("GAME_LOAD_PAUSE") : qsTr("GAME_LOAD_CONTINUE")
-                   fontSize: 14
-                   onClicked: root.pause();
-               }
-           }
+                TextButton {
+                    id: pauseButton
+
+                    text: !root.isPause ? qsTr("GAME_LOAD_PAUSE") : qsTr("GAME_LOAD_CONTINUE")
+                    fontSize: 14
+                    onClicked: root.pause();
+                }
+
+                TextButton {
+                    id: cancelButton
+
+                    visible: root.isPause
+                    text: qsTr("Отменить")
+                    fontSize: 14
+                    onClicked: {
+                        MessageBox.show(
+                            qsTr("Отмена загрузки игры %1").arg(root.gameItem.name),
+                            qsTr("Вы уверены, что хотите отменить загрузку игры?"),
+                            MessageBox.button.yes | MessageBox.button.no,
+                            function(result) {
+                                if (result != MessageBox.button.yes) {
+                                    return;
+                                }
+                                SignalBus.cancelDownload(root.gameItem);
+                                Ga.trackEvent('GameLoad', 'cancel', root.gameItem.gaName);
+                                root.close();
+                            });
+                    }
+                }
+            }
         }
 
         TextButton {

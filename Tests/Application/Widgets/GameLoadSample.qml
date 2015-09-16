@@ -17,6 +17,7 @@ import GameNet.Controls 1.0
 
 import Application.Core 1.0
 import Application.Core.Popup 1.0
+import Application.Core.MessageBox 1.0
 
 Rectangle {
     width: 1000
@@ -25,9 +26,11 @@ Rectangle {
 
     Component.onCompleted: {
         Popup.init(popupLayer);
+        MessageBox.init(messageBoxLayer)
 
         WidgetManager.registerWidget('Application.Widgets.GameAdBanner');
         WidgetManager.registerWidget('Application.Widgets.GameLoad');
+        WidgetManager.registerWidget('Application.Widgets.AlertAdapter');
         WidgetManager.init();
     }
 
@@ -72,5 +75,12 @@ Rectangle {
 
         anchors.fill: parent
         z: 2
+    }
+
+    Item {
+        id: messageBoxLayer
+
+        anchors.fill: parent
+        z: 3
     }
 }

@@ -51,6 +51,8 @@ Rectangle {
         WidgetManager.registerWidget('Application.Widgets.UserProfile');
         WidgetManager.registerWidget('Application.Widgets.AutoRefreshCookie');
         WidgetManager.registerWidget('Application.Widgets.DownloadManagerConnector');
+        WidgetManager.registerWidget('Application.Widgets.RememberGameDownloading');
+
         WidgetManager.registerWidget('Application.Widgets.GameNews');
         WidgetManager.registerWidget('Application.Widgets.GameLoad');
 

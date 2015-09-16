@@ -37,6 +37,7 @@ QtObject {
     signal serviceStarted(variant gameItem);
     signal serviceFinished(variant gameItem);
     signal serviceUpdated(variant gameItem);
+    signal serviceCanceled(variant gameItem)
 
     signal downloaderStarted(variant gameItem);
     signal navigate(string link, string from);
@@ -64,4 +65,8 @@ QtObject {
     signal servicesLoaded();
 
     signal beforeCloseUI();
+
+    function cancelDownload(gameItem) {
+        serviceCanceled(gameItem);
+    }
 }

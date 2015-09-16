@@ -1,0 +1,3 @@
+module Application.Widgets.RememberGameDownloading
+PluginContainer 1.0 PluginContainer.qml 
+RememberGameDownloading 1.0 RememberGameDownloading.qml

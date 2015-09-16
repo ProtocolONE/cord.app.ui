@@ -15,6 +15,10 @@ Item {
     signal windowDeactivated();
     signal windowActivated();
 
+    signal downloadButtonPause(string serviceId);
+    signal downloadButtonStart(string serviceId);
+    signal executeService(string serviceId);
+
     signal downloaderStarted(string service, int startType);
     signal downloaderFinished(string service);
     signal downloaderStopped(string service);

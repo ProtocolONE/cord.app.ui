@@ -1,0 +1,8 @@
+module Application.Widgets.Messenger.Models
+singleton RecentConversations 1.0 RecentConversations.qml
+AccountManager 1.0 AccountManager.qml
+GroupEditModel 1.0 GroupEditModel.qml
+JabberClient 1.0 JabberClient.qml
+Messenger 1.0 Messenger.qml
+MessengerAuthedUser 1.0 MessengerAuthedUser.qml
+Storage 1.0 Storage.qml

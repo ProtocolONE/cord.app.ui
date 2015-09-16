@@ -34,7 +34,7 @@ Item {
     signal clicked(variant mouse)
 
     implicitHeight: Math.max(textItem.height, iconImage.hasIcon ? iconImage.height : 0)
-    implicitWidth: mathTextItem.width + (iconImage.hasIcon ? 30 : 0)
+    implicitWidth: mathTextItem.contentWidth + (iconImage.hasIcon ? 30 : 0)
 
     Row {
         id: controlRow
