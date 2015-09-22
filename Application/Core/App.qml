@@ -144,8 +144,12 @@ Item {
         mainWindowInstance().openExternalUrlWithAuth(url);
     }
 
-    function openProfile(userId) {
-        openExternalUrlWithAuth("https://gamenet.ru/users/" + userId + "/");
+    function openProfile(userId, action) {
+        var uri = "https://gamenet.ru/users/" + userId + "/";
+        if (action) {
+            uri += '?action=' + action;
+        }
+        openExternalUrlWithAuth(uri);
     }
 
     function openExternalUrl(url) {

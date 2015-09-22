@@ -38,7 +38,7 @@ PopupBase {
     title: qsTr("Доступ к премиум-серверу")
 
     function getItems() {
-        RestApi.Core.execute('subscription.P2PList', {serviceId: root.serviceId}, true, function(response) {
+        RestApi.Core.execute('service.getItems', {serviceId: root.serviceId, type: 3}, true, function(response) {
             response.sort(function(a, b) {
                 return a.cost - b.cost;
             });

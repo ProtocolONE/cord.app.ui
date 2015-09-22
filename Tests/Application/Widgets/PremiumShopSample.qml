@@ -12,17 +12,20 @@ import Dev 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
+import Application.Core.MessageBox 1.0
+
 Rectangle {
     width: 1000
     height: 600
     color: '#AAAAAA'
 
-    WidgetManager {
-        id: manager
+    RequestServices {
+        onReady: {
+            WidgetManager.registerWidget('Application.Widgets.PremiumShop');
+            WidgetManager.registerWidget('Application.Widgets.AlertAdapter');
+            WidgetManager.init();
 
-        Component.onCompleted: {
-            manager.registerWidget('Application.Widgets.PremiumShop');
-            manager.init();
+            MessageBox.init(messageBoxLayer);
         }
     }
 
@@ -33,4 +36,11 @@ Rectangle {
         height: 375
         widget: 'PremiumShop'
     }
+
+    Item {
+        id: messageBoxLayer
+
+        anchors.fill: parent
+    }
+
 }

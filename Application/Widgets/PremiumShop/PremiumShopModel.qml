@@ -24,93 +24,54 @@ WidgetModel {
     signal modelChanged();
     signal purchaseCompleted();
 
-    function buy(optionId, days) {
+    function buy(optionId) {
         root.inProgress = true;
-        RestApi.Premium.purchase(optionId,
-                                 function(response) {
-                                     d.purchaseComplete(response, days);
-                                 },
-                                 function(response) {
-                                     root.inProgress = false;
-                                     d.showError();
-                                 });
+        RestApi.Billing.purchaseItem(0, optionId, 1, root.purchaseComplete, root.showError);
+    }
+
+    function purchaseComplete(response) {
+        root.inProgress = false;
+        if (response && response.error) {
+            root.showError(response.error.message);
+            return;
+        }
+
+        root.purchaseCompleted();
+        User.refreshBalance();
+        User.refreshPremium();
+
+        MessageBox.show(qsTr("Расширенный аккаунт активирован"),
+                        qsTr("PREMIUM_SHOP_BUY_SUCCESS_DETAILS"),
+                        MessageBox.button.ok);
+    }
+
+    function showError(message) {
+        root.inProgress = false;
+        MessageBox.show(qsTr("PREMIUM_BUY_ERROR_CAPTION"),
+                        message || qsTr("PREMIUM_SHOP_DETAILS_ERROR_UNKNOWN"),
+                        MessageBox.button.ok, function(result) {
+                            root.inProgress = false;
+                        });
     }
 
     function refreshModel() {
-        var i;
+        RestApi.Core.execute('service.getItems', {serviceId: 0, type: 13}, true, function(response) {
+            response.sort(function(a, b) {
+                return a.cost - b.cost;
+            });
 
-        RestApi.Premium.getGrid(function(response) {
             root.premiumModel.clear();
+            optionsModel.clear();
 
-            var max = response && response[0] ? response[0].price : 0,
-                index = 0;
+            response.forEach(function(e) {
+                optionsModel.append({id: String(e.id), name: e.name, cost: e.cost|0});
+            });
 
-            for (i = 0; i < response.length; i++) {
-                d.addOption(response[i].gridId, response[i].days, response[i].price);
-                if (response[i].price > max) {
-                    index = i;
-                    max = response[i].price;
-                }
-            }
-
-            root.defaultIndex = index;
+            root.defaultIndex = response.length - 1;
             root.modelChanged();
         }, function(response) {
             root.modelChanged();
         });
-    }
-
-    QtObject {
-        id: d
-
-        function addOption(optId, daysCount, optionPrice) {
-            optionsModel.append(
-                        {
-                            optionId: optId,
-                            label: d.makeDays(daysCount),
-                            price: optionPrice,
-                            days: daysCount
-                        });
-        }
-
-        function makeDays(daysCount) {
-            var resultStr;
-            var map = {
-                0: qsTr('PREMIUM_SHOP_DAYS_OTHER'),
-                1: qsTr('PREMIUM_SHOP_DAYS_1'),
-                2: qsTr('PREMIUM_SHOP_DAYS_2_4'),
-                3: qsTr('PREMIUM_SHOP_DAYS_2_4'),
-                4: qsTr('PREMIUM_SHOP_DAYS_2_4'),
-            };
-
-            resultStr = map[daysCount] || map[0];
-            return resultStr.arg(daysCount);
-        }
-
-        function purchaseComplete(response, days) {
-            root.inProgress = false;
-            if (response && response.error) {
-                d.showError(response.error.message);
-                return;
-            }
-
-            root.purchaseCompleted();
-            User.refreshBalance();
-            User.refreshPremium();
-
-            MessageBox.show(qsTr("PREMIUM_BUY_SUCCESS_CAPTION").arg(days),
-                            qsTr("PREMIUM_SHOP_BUY_SUCCESS_DETAILS"),
-                            MessageBox.button.ok);
-        }
-
-        function showError(message) {
-            MessageBox.show(qsTr("PREMIUM_BUY_ERROR_CAPTION"),
-                            message || qsTr("PREMIUM_SHOP_DETAILS_ERROR_UNKNOWN"),
-                            MessageBox.button.ok, function(result) {
-                                root.inProgress = false;
-                            });
-        }
-
     }
 
     ListModel {

@@ -341,19 +341,13 @@
 <context>
     <name>BaseLayer</name>
     <message>
-        <location filename="../Application/Layers/BaseLayer.qml" line="213"/>
-        <location filename="../Application/Layers/BaseLayer.qml" line="219"/>
+        <location filename="../Application/Layers/BaseLayer.qml" line="214"/>
         <source>Доступ к премиум-серверу</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Layers/BaseLayer.qml" line="214"/>
-        <source>У вас неограниченный доступ к премиум серверу.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Layers/BaseLayer.qml" line="220"/>
-        <source>Доступ к премиум серверу навсегда</source>
+        <location filename="../Application/Layers/BaseLayer.qml" line="215"/>
+        <source>Доступ на премиум-сервер открыт Вам навсегда</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1225,22 +1219,37 @@
 <context>
     <name>GameLoadView</name>
     <message>
-        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="39"/>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="40"/>
         <source>GAME_LOAD_VIEW_HEADER_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="105"/>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="107"/>
         <source>GAME_LOAD_PAUSE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="105"/>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="107"/>
         <source>GAME_LOAD_CONTINUE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="115"/>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="116"/>
+        <source>Отменить</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="120"/>
+        <source>Отмена загрузки игры %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="121"/>
+        <source>Вы уверены, что хотите отменить загрузку игры?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="139"/>
         <source>SHOW_STATISTICS</source>
         <translation></translation>
     </message>
@@ -1795,17 +1804,17 @@
 <context>
     <name>Messenger</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="341"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="345"/>
         <source>MESSENGER_CONTACT_ITEM_PLAYING_STATUS_INFO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="354"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="358"/>
         <source>LAST_ACTIVITY_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="577"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="581"/>
         <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
         <translation></translation>
     </message>
@@ -2114,12 +2123,12 @@
 <context>
     <name>PremiumServerModel</name>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/PremiumServerModel.qml" line="65"/>
+        <location filename="../Application/Widgets/PremiumServer/PremiumServerModel.qml" line="76"/>
         <source>Восстановить</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/PremiumServerModel.qml" line="66"/>
+        <location filename="../Application/Widgets/PremiumServer/PremiumServerModel.qml" line="77"/>
         <source>Доступ к премиум серверу приостановлен</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2200,39 +2209,22 @@
 <context>
     <name>PremiumShopModel</name>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="79"/>
-        <source>PREMIUM_SHOP_DAYS_OTHER</source>
-        <translation></translation>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="43"/>
+        <source>Расширенный аккаунт активирован</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="80"/>
-        <source>PREMIUM_SHOP_DAYS_1</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="81"/>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="82"/>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="83"/>
-        <source>PREMIUM_SHOP_DAYS_2_4</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="101"/>
-        <source>PREMIUM_BUY_SUCCESS_CAPTION</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="102"/>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="44"/>
         <source>PREMIUM_SHOP_BUY_SUCCESS_DETAILS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="107"/>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="50"/>
         <source>PREMIUM_BUY_ERROR_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="108"/>
+        <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="51"/>
         <source>PREMIUM_SHOP_DETAILS_ERROR_UNKNOWN</source>
         <translation></translation>
     </message>
@@ -2245,7 +2237,7 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="104"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="103"/>
         <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
         <translation></translation>
     </message>
@@ -2421,17 +2413,17 @@
 <context>
     <name>RecentConversation</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/UserModels/RecentConversation.qml" line="180"/>
+        <location filename="../Application/Widgets/Messenger/Models/UserModels/RecentConversation.qml" line="181"/>
         <source>RECENTCONVERSATION_TODAY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/UserModels/RecentConversation.qml" line="184"/>
+        <location filename="../Application/Widgets/Messenger/Models/UserModels/RecentConversation.qml" line="185"/>
         <source>RECENTCONVERSATION_YESTERDAY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/UserModels/RecentConversation.qml" line="188"/>
+        <location filename="../Application/Widgets/Messenger/Models/UserModels/RecentConversation.qml" line="189"/>
         <source>RECENTCONVERSATION_LONGAGO</source>
         <translation></translation>
     </message>
@@ -2714,12 +2706,12 @@
 <context>
     <name>Subscription</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Plugins/Subscription/Subscription.js" line="20"/>
+        <location filename="../Application/Widgets/Messenger/Plugins/Subscription/Subscription.qml" line="28"/>
         <source>MESSAGE_BODY_SUBSCRIPTION_INVITE_APPROVED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Plugins/Subscription/Subscription.js" line="25"/>
+        <location filename="../Application/Widgets/Messenger/Plugins/Subscription/Subscription.qml" line="33"/>
         <source>MESSENGER_SUBSCRIPTION_REQUEST_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>

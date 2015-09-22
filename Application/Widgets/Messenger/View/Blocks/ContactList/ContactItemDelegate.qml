@@ -161,6 +161,9 @@ Item {
             case "addContact":
                 Messenger.addContact(user.jid)
                 break;
+            case "giftExtendedAccount":
+                App.openProfile(Messenger.jidToUser(user.jid), 'gift');
+                break;
             }
 
             ContextMenu.hide();
@@ -539,6 +542,11 @@ Item {
                     options.push({
                                      name: qsTr("CONTACT_CONTEXT_MENU_INFORAMTION"),// "Информация",
                                      action: "information"
+                                 });
+
+                    options.push({
+                                     name: qsTr("Подарить расширенный аккаунт"),
+                                     action: "giftExtendedAccount"
                                  });
 
                     if (item.inContacts) {

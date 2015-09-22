@@ -951,11 +951,7 @@ Please try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>У вас неограниченный доступ к премиум серверу.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Доступ к премиум серверу навсегда</source>
+        <source>Доступ на премиум-сервер открыт Вам навсегда</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2451,6 +2447,18 @@ Please try again later.</source>
     <message>
         <source>GAME_LOAD_VIEW_HEADER_TEXT</source>
         <translation>Загрузка %1</translation>
+    </message>
+    <message>
+        <source>Отменить</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Отмена загрузки игры %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Вы уверены, что хотите отменить загрузку игры?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4488,15 +4496,15 @@ Please try again later.</source>
     </message>
     <message>
         <source>PREMIUM_SHOP_DAYS_OTHER</source>
-        <translation>%1 дней</translation>
+        <translation type="vanished">%1 дней</translation>
     </message>
     <message>
         <source>PREMIUM_SHOP_DAYS_1</source>
-        <translation>%1 день</translation>
+        <translation type="vanished">%1 день</translation>
     </message>
     <message>
         <source>PREMIUM_SHOP_DAYS_2_4</source>
-        <translation>%1 дня</translation>
+        <translation type="vanished">%1 дня</translation>
     </message>
     <message>
         <source>PREMIUM_SHOP_DETAILS_ERROR_UNKNOWN</source>
@@ -4512,11 +4520,15 @@ Please try again later.</source>
     </message>
     <message>
         <source>PREMIUM_BUY_SUCCESS_CAPTION</source>
-        <translation>Расширенный аккаунт активирован на %1 дней</translation>
+        <translation type="vanished">Расширенный аккаунт активирован на %1 дней</translation>
     </message>
     <message>
         <source>PREMIUM_BUY_ERROR_CAPTION</source>
         <translation>Упс! Что-то пошло не так...</translation>
+    </message>
+    <message>
+        <source>Расширенный аккаунт активирован</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
