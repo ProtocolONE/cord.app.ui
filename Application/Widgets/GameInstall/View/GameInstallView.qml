@@ -27,6 +27,7 @@ PopupBase {
 
     Component.onCompleted: {
         root.currentGame = App.currentGame();
+        root.gameSettingsModelInstance.switchGame(root.currentGame.serviceId);
     }
 
     title: qsTr("INSTALL_VIEW_TITLE").arg(currentGame.name)
@@ -60,11 +61,13 @@ PopupBase {
             path: installationPath.bestPath
             readOnly: true
             onBrowseClicked: {
+                gameSettingsModelConnection.target = gameSettingsModelInstance;
                 gameSettingsModelInstance.browseInstallPath(installationPath.bestPath);
             }
 
             Connections {
-                target: gameSettingsModelInstance
+                id: gameSettingsModelConnection
+
                 ignoreUnknownSignals: true
                 onInstallPathChanged: {
                     installationPath.bestPath = gameSettingsModelInstance.installPath;
@@ -158,8 +161,6 @@ PopupBase {
             }
 
             App.acceptFirstLicense(currentGame.serviceId);
-
-            gameSettingsModelInstance.switchGame(currentGame.serviceId);
 
             if (desktopShortcut.checked) {
                 gameSettingsModelInstance.createShortcutOnDesktop(currentGame.serviceId);
