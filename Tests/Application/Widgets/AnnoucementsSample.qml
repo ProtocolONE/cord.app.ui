@@ -187,23 +187,20 @@ Window {
         onReady: {
             setupMockForRestApiPopups();
 
-            manager.registerWidget('Application.Widgets.Announcements');
-            manager.registerWidget('Application.Widgets.ApplicationSettings');
-            manager.registerWidget('Application.Widgets.Messenger');
-            manager.registerWidget('Application.Widgets.Overlay');
-            manager.registerWidget('Application.Widgets.DownloadManagerConnector');
-            manager.registerWidget('Application.Widgets.PremiumNotifier');
-            manager.registerWidget('Application.Widgets.Maintenance');
-            manager.init();
-
-
-
+            WidgetManager.registerWidget('Application.Widgets.Announcements');
+            WidgetManager.registerWidget('Application.Widgets.ApplicationSettings');
+            WidgetManager.registerWidget('Application.Widgets.Messenger');
+            WidgetManager.registerWidget('Application.Widgets.Overlay');
+            WidgetManager.registerWidget('Application.Widgets.DownloadManagerConnector');
+            WidgetManager.registerWidget('Application.Widgets.PremiumNotifier');
+            WidgetManager.registerWidget('Application.Widgets.Maintenance');
+            WidgetManager.init();
             //manager.show();
 
         }
     }
 
-    WidgetManager {
+    Item {
         id: manager
 
         function setupMockForLicenseReminder() {
@@ -222,7 +219,7 @@ Window {
 
 
             //Look at Application.Widgets.Announcements Component.onCompleted callback
-            var widgetModel = manager.getWidgetByName('Announcements').model;
+            var widgetModel = WidgetManager.getWidgetByName('Announcements').model;
             widgetModel._lastShownPopupDate = 0;
 
             SignalBus.authDone('fakeId', 'fakeAppKey', "");

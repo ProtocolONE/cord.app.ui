@@ -52,7 +52,15 @@ Window {
     x: Desktop.primaryScreenAvailableGeometry.x + (Desktop.primaryScreenAvailableGeometry.width - width) / 2
     y: Desktop.primaryScreenAvailableGeometry.y + (Desktop.primaryScreenAvailableGeometry.height - height) / 2
 
-    flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
+    flags: Qt.FramelessWindowHint
+    modality: Qt.WindowModal
+
+    property bool isAppActive: Qt.application.active
+    onIsAppActiveChanged: {
+        if (isAppActive) {
+            bigAnnounceWindow.requestActivate();
+        }
+    }
 
     function sendAnnouncementActionClicked() {
         Marketing.send(Marketing.AnnouncementActionClicked,
