@@ -91,10 +91,10 @@ function startOfDay(value) {
 
 function createRawMessage(from, isStatus, body, date, id, type) {
     var result = {
-        id: id || "_",
+        id: String(id || "_"),
         jid: from,
         text: body || "",
-        date: date || Date.now(),
+        date: +(date || Date.now()),
         isStatusMessage: isStatus,
         day: startOfDay(date),
         type: type || "text"

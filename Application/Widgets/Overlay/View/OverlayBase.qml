@@ -1,5 +1,6 @@
 import QtQuick 2.4
-import Tulip 1.0
+//import Tulip 1.0
+import Tulip.Overlay 1.0
 import GameNet.Components.Widgets 1.0
 
 import Application.Core 1.0
@@ -11,11 +12,8 @@ import "OverlayBase.js" as OverlayBase
 Overlay {
     id: over
 
-    flags: Qt.Window | Qt.Tool | Qt.FramelessWindowHint
     width: 1024
     height: 1024
-    x: 10
-    y: 10
     visible: true
 
     inputCapture: Overlay.MouseAndKeyboard
@@ -23,16 +21,15 @@ Overlay {
 
     drawFps: false
     opacity: 1
-
     onGameInit: {
         console.log('Overlay game init ', width, height);
         over.width = width;
         over.height = height;
 
-        if (width < browserRoot.width ||
-            height < browserRoot.height) {
-            App.setOverlayEnabled(false);
-        }
+//        if (width < browserRoot.width ||
+//            height < browserRoot.height) {
+//            App.setOverlayEnabled(false);
+//        }
 
         var messenger = WidgetManager.getWidgetByName('Messenger');
         if (messenger) {
@@ -58,19 +55,20 @@ Overlay {
         }
     }
 
-    WidgetContainer {
-        id: browserRoot
+// INFO Выклюено ибо не используется. Если надо будет включить, необходимо будет заменить браузер под капотом.
+//    WidgetContainer {
+//        id: browserRoot
 
-        property bool viewVisible: viewInstance.visible
+//        property bool viewVisible: viewInstance.visible
 
-        widget: 'Money'
-        width: 1002
-        height: 697
-        anchors.centerIn: parent
-        onViewVisibleChanged: {
-            over.setBlockInput('money', (viewVisible ? Overlay.MouseAndKeyboard : Overlay.None));
-        }
-    }
+//        widget: 'Money'
+//        width: 1002
+//        height: 697
+//        anchors.centerIn: parent
+//        onViewVisibleChanged: {
+//            over.setBlockInput('money', (viewVisible ? Overlay.MouseAndKeyboard : Overlay.None));
+//        }
+//    }
 
     Loader {
         id: loader
@@ -112,13 +110,13 @@ Overlay {
 
     // Попробуем таймер для проверки работает ли вообще репейнт на ноуте.
     // Хак работает - решить оставить ли его
-    Timer {
-        id: timerRepaint
+//    Timer {
+//        id: timerRepaint
 
-        interval: 1000
-        running: true
-        repeat: true
-        onTriggered: over.repaint();
-    }
+//        interval: 1000
+//        running: true
+//        repeat: true
+//        onTriggered: over.repaint();
+//    }
 }
 

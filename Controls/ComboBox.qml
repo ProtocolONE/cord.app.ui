@@ -89,6 +89,28 @@ Item {
         root.model.setProperty(index, "text", text);
     }
 
+    function isMouseInside(x, y) {
+        var translatedCoords;
+
+        translatedCoords = controlBorder.mapFromItem(root, x, y);
+        if (translatedCoords.x > 0 && translatedCoords.x < controlBorder.width &&
+                translatedCoords.y > 0 && translatedCoords.y < controlBorder.height) {
+            return true;
+        }
+
+        if (!root.listContainer.controlVisible) {
+            return false;
+        }
+
+        translatedCoords = listBlock.mapFromItem(root, x, y);
+        if (translatedCoords.x > 0 && translatedCoords.x < listBlock.width &&
+                translatedCoords.y > 0 && translatedCoords.y < listBlock.height) {
+            return true;
+        }
+
+        return false;
+    }
+
     Rectangle {
         id: controlBorder
 

@@ -43,14 +43,14 @@ Rectangle {
 //        }
 //    }
 
-    WidgetManager {
+    Item {
         id: manager
 
         Component.onCompleted: {
-            manager.registerWidget('Application.Widgets.ApplicationSettings');
-            manager.registerWidget('Application.Widgets.AlertAdapter');
+            WidgetManager.registerWidget('Application.Widgets.ApplicationSettings');
+            WidgetManager.registerWidget('Application.Widgets.AlertAdapter');
 
-            manager.init();
+            WidgetManager.init();
 
             //  stub
             App.executeService = function(serviceId) {

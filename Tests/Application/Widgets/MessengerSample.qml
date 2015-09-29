@@ -56,6 +56,13 @@ Rectangle {
         MessageBox.init(messageLayer);
 
         d.initRestApi();
+
+        WidgetManager.registerWidget('Application.Widgets.UserProfile');
+        WidgetManager.registerWidget('Application.Widgets.Messenger');
+        WidgetManager.registerWidget('Application.Widgets.DetailedUserInfo');
+        WidgetManager.registerWidget('Application.Widgets.AlertAdapter');
+        WidgetManager.init();
+
         //MessengerJs.selectUser({ jid:  "qwe" })
     }
 
@@ -238,18 +245,6 @@ Rectangle {
         id: worker
 
         interval: 100
-    }
-
-    WidgetManager {
-        id: manager
-
-        Component.onCompleted: {
-            manager.registerWidget('Application.Widgets.UserProfile');
-            manager.registerWidget('Application.Widgets.Messenger');
-            manager.registerWidget('Application.Widgets.DetailedUserInfo');
-            manager.registerWidget('Application.Widgets.AlertAdapter');
-            manager.init();
-        }
     }
 
     Item {

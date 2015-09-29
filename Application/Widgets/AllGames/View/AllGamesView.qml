@@ -194,6 +194,7 @@ WidgetView {
             id: gameList
 
             width: parent.width
+            visible: opacity > 0
 
             Behavior on opacity {
                 PropertyAnimation {
@@ -211,6 +212,8 @@ WidgetView {
 
             width: parent.width
             height: 570
+
+            visible: opacity > 0
 
             Behavior on opacity {
                 PropertyAnimation {

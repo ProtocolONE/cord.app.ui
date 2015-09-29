@@ -94,7 +94,6 @@ WidgetModel {
                             qsTr("Скачать клиент игры могут только участники F&F-теста. Если у вас есть ключ доступа, нажмите \"Да\"."),
                             MessageBox.button.yes | MessageBox.button.no,
                             function(result) {
-                                console.log(result)
                                 if (result == MessageBox.button.yes) {
                                     Popup.show('PromoCode');
                                 }

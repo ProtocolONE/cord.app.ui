@@ -110,7 +110,7 @@ Item {
     }
 
     function init() {
-        //LoggerPlugin.init(xmppClient);
+        LoggerPlugin.init(xmppClient);
 
         Smiles.init(xmppClient);
         Events.init(xmppClient, SignalBus);

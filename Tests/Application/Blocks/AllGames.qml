@@ -43,12 +43,12 @@ Item {
         allWidget.force('AllGames','AllGamesView');
     }
 
-    WidgetManager {
+    Item {
         id: manager
 
         Component.onCompleted: {
-            manager.registerWidget('Application.Widgets.AllGames');
-            manager.init();
+            WidgetManager.registerWidget('Application.Widgets.AllGames');
+            WidgetManager.init();
         }
     }
 

@@ -59,9 +59,7 @@ WidgetModel {
                     var overlayInstance = component.createObject(root,
                                                                  {
                                                                      width: 1024,
-                                                                     height: 1024,
-                                                                     x: -20000,
-                                                                     y: -20000
+                                                                     height: 1024
                                                                  });
                     overlayInstance.init();
                     overlayInstance.forceActiveFocus();

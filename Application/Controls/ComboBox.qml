@@ -21,24 +21,11 @@ ComboBox {
 
     Connections {
         target: SignalBus
-        onLeftMouseRelease: {
-            if (root.listContainer.controlVisible) {
-                root.preventDefault = true;
+        onLeftMousePress: {
+            var posInItem = root.mapFromItem(rootItem, x, y);
+            if (!root.isMouseInside(posInItem.x, posInItem.y)) {
                 root.listContainer.controlVisible = false;
-                restoreDefaultTimer.restart();
             }
-        }
-    }
-
-    //  HACK: таймер нужен для предотвращения срабатывания обработчика
-    //  внутри ComboBox
-    Timer {
-        id: restoreDefaultTimer
-
-        interval: 1
-        repeat: false
-        onTriggered: {
-            root.preventDefault = false;
         }
     }
 }

@@ -21,6 +21,7 @@ TextInput {
     signal keyPressed(variant keyEvent)
     signal focusLost()
 
+    clip: true
     font { family: "Arial"; pixelSize: inputBehavior.fontSize }
     selectByMouse: true
     onFocusChanged: {

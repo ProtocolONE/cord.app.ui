@@ -92,6 +92,7 @@ function RoomCreate(jabber, messenger) {
         jabber.discoveryManager.requestItems(jabber.conferenceUrl());
     });
 
+    // INFO этот код позволяет подключиться к всем доступным комнатам
     jabber.discoveryManager.itemsReceived.connect(function(items) {
         debug('DiscoveryManager itemsReceived');
         items.items.forEach(function(room) {
@@ -99,13 +100,6 @@ function RoomCreate(jabber, messenger) {
             debug(room.jid);
         });
     });
-
-// INFO этот код позволяет подключиться к всем доступным комнатам
-//    _jabber.discoveryManager.itemsReceived.connect(function(items) {
-//        items.items.forEach(function(room) {
-//            _jabber.joinRoom(room.jid);
-//        });
-//    });
 
     jabber.mucManager.roomCreated.connect(onRoomCreated);
     jabber.mucManager.joined.connect(onJoinRoom);

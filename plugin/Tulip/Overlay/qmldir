@@ -1,0 +1,2 @@
+module Tulip.Overlay
+plugin QmlOverlayX86 
