@@ -26,8 +26,7 @@ WidgetView {
         if (!user) {
             return 0;
         }
-
-        return user.unreadMessageCount < 10 ? user.unreadMessageCount : '9+';
+        return user.unreadMessageCount;
     }
 
     implicitWidth: parent.width
@@ -68,7 +67,7 @@ WidgetView {
         visible: root.unreadMessageCount > 0
 
         Text {
-            text: root.unreadMessageCount
+            text: root.unreadMessageCount < 10 ? root.unreadMessageCount : '9+';
             color: Styles.menuText
             anchors.centerIn: parent
         }
