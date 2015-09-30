@@ -1560,6 +1560,10 @@ Please try again later.</source>
         <source>CONTACT_CONTEXT_MENU_ADD_CONTACT</source>
         <translation>Добавить в контакты</translation>
     </message>
+    <message>
+        <source>Подарить расширенный аккаунт</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ContactItemHeader</name>
@@ -2401,7 +2405,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>DOWNLOAD_PEER_UPLOAD_TOTAL</source>
-        <translation type="obsolete">Отправленно:</translation>
+        <translation type="obsolete">Отправлено:</translation>
     </message>
     <message>
         <source>DOWNLOAD_PEER_UPLOAD_SPEED</source>
