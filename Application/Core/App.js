@@ -70,8 +70,7 @@ function createService(data) {
 
     if (item.gameId == 1021) {
         //HACK Use this hack due have just one game (BlackDesert) with that feature.
-        //INFO Should be enabled after 05.10.2015 (pre launche obt)
-        //item.hasPremiumServer = true;
+        item.hasPremiumServer = true;
     }
 
     urlProps = [
