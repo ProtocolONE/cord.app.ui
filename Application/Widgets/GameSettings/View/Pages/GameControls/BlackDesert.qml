@@ -41,8 +41,8 @@ Item {
         settings.enableMusic = enableMusic.checked|0;
         settings.enableEnvSound = enableEnvSound.checked|0;
 
-        Object.keys(settings).forEach(function(e) {
-            content += e + "=" + settings[e] + "\r\n";
+        getSaveOrder().forEach(function(e) {
+            content += e + " = " + settings[e] + "\r\n";
         });
 
         try {
@@ -111,6 +111,65 @@ Item {
         settings = obj;
     }
 
+    function getSaveOrder() {
+        return [
+            'version',
+            'adaptor',
+            'windowed',
+            'width',
+            'height',
+            'graphicOption',
+            'graphicUltra',
+            'dof',
+            'antiAliasing',
+            'SSAO',
+            'Tessellation',
+            'postFilter',
+            'characterEffect',
+            'lensBlood',
+            'bloodEffect',
+            'textureQuality',
+            'gamma',
+            'contrast',
+            'cameraLUTFilter',
+            'fov',
+            'enableOVR',
+            'enableSimpleUI',
+            'showSkillCmd',
+            'enableSound',
+            'enableMusic',
+            'enableEnvSound',
+            'masterVolume',
+            'fxVolume',
+            'envVolume',
+            'voiceVolume',
+            'musicVolume',
+            'hitFxVolume',
+            'otherPlayerVolume',
+            'hitFxWeight',
+            'cameraEffectMaster',
+            'cameraShakePower',
+            'cameraFovPower',
+            'cameraTranslatePower',
+            'motionBlurPower',
+            'upscaleEnable',
+            'sleepModeEnable',
+            'cropModeEnable',
+            'cropModeScaleX',
+            'cropModeScaleY',
+            'screenShotFormat',
+            'useNearestEffectOnly',
+            'useSelfPlayerOnlyLantern',
+            'useSelfPlayerEffectOnly',
+            'uiScale',
+            'showComboGuide',
+            'selfPlayerNameTagVisible',
+            'otherPlayerNameTagVisible',
+            'partyPlayerNameTagVisible',
+            'guildPlayerNameTagVisible'
+        ];
+    }
+
     function getDefaultTemplate() {
         return {
             version: "4",
@@ -158,7 +217,8 @@ Item {
             cropModeScaleX: "1.00",
             cropModeScaleY: "0.80",
             screenShotFormat: "1",
-            useSelfPlayerOnlyEffect: "1",
+            useNearestEffectOnly: "0",
+            useSelfPlayerEffectOnly: "1",
             useSelfPlayerOnlyLantern: "0",
             uiScale:  "1.00",
             showComboGuide: "0",
