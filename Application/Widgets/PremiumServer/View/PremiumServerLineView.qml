@@ -103,6 +103,11 @@ WidgetView {
                         .arg(plural);
                 }
 
+                if (localDuration === 1) {
+                    anchors.baselineOffset = 4;
+                    return qsTr("Доступ к премиум серверу закончился сегодня");
+                }
+
                 return qsTr("Доступ к премиум серверу закончился <span style=\"font-size: 14px;\">%1</span> %2 назад")
                     .arg(localDuration)
                     .arg(plural);

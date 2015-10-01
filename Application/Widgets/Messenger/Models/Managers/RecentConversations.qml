@@ -16,8 +16,6 @@ Item {
     property variant messenger;
     property variant jabber;
 
-    signal talkDateChanged(string jid);
-
     function init(jabber, extendedListModel, messenger) {
         console.log('[Recent Conversations] Init');
         root.messenger = messenger;
@@ -54,9 +52,6 @@ Item {
 
         MessengerPrivateJs.lastTalkDateMap[user.jid] = now;
         storage.saveData(user.jid, now);
-
-        messenger.talkDateChanged(user.jid);
-        root.talkDateChanged(user.jid);
     }
 
     RecentConversationsStorage {

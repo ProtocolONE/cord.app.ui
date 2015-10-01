@@ -253,12 +253,12 @@ Item {
             q = balanceTimer.tickCount && root.lastUpdated;
 
         return subsrc
-            ? Moment.moment(subsrc.dueDate).diff(new Date(), 'days')
+            ? Moment.moment(subsrc.dueDate).diff(Moment.moment().startOf('day'), 'days')
             : null;
     }
 
     function hasUnlimitedSubscription(serviceId) {
-        return (getSubscriptionRemainTime(serviceId)|0) > 365 * 100;
+        return (getSubscriptionRemainTime(serviceId)|0) > 365 * 30;
     }
 
     QtObject {

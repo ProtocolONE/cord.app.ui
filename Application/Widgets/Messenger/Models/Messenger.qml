@@ -735,8 +735,12 @@ Item {
 
         indexProperty: "jid"
         prototype: usersModelComponent
-        notifableProperty: ["nickname", "presenceState", "lastActivity"]
+        notifableProperty: ["nickname", "presenceState", "lastActivity", "lastTalkDate"]
         onPropertyChanged: {
+            switch (key) {
+                case "lastTalkDate": root.talkDateChanged(id); break;
+            }
+
             console.log("usersModel proerpty changed ", id, key)
         }
     }

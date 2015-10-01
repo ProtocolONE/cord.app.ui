@@ -49,7 +49,7 @@ WidgetModel {
         interval = Moment.moment()
             .add(minDuration, 'days')
             .endOf('day')
-            .add(1, 'minute')
+            .add(10, 'seconds')
             .diff(Date.now(), 'milliseconds');
 
         if (interval <= 2147483647) {
@@ -68,7 +68,6 @@ WidgetModel {
     Timer {
         id: subscrTimer
 
-        running: false
         repeat: false
         onTriggered: {
             var popUpOptions = {
@@ -77,6 +76,7 @@ WidgetModel {
                 message: qsTr("Доступ к премиум серверу приостановлен")
             };
 
+            User.refreshUserInfo();
             TrayPopup.showPopup(premiumServerExpiredPopup, popUpOptions, 'premiumServerExpiredNotification');
             Ga.trackEvent('Announcement PremiumServerExpired', 'show');
         }
