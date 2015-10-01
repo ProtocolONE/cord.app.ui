@@ -187,6 +187,7 @@ Item {
         hoverEnabled: true
         cursorShape: Qt.ArrowCursor
         visible: firstContainer.opacity > 0
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
     }
 
     WidgetContainer {

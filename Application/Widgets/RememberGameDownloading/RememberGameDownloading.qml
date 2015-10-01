@@ -29,14 +29,14 @@ WidgetModel {
                 return;
             }
 
-            var serviceId = Settings.value('RememberGameDownloading', 'service');
+            var serviceId = AppSettings.value('RememberGameDownloading', 'service');
             if (serviceId && App.serviceExists(serviceId) && !ApplicationStatistic.isServiceInstalled(serviceId)) {
                 App.downloadButtonStart(serviceId);
             }
             root.isFirstRun = false;
         }
-        onServiceCanceled: Settings.setValue('RememberGameDownloading', 'service', false);
-        onServiceInstalled: Settings.setValue('RememberGameDownloading', 'service', false);
-        onServiceStarted: Settings.setValue('RememberGameDownloading', 'service', gameItem.serviceId);
+        onServiceCanceled: AppSettings.setValue('RememberGameDownloading', 'service', false);
+        onServiceInstalled: AppSettings.setValue('RememberGameDownloading', 'service', false);
+        onServiceStarted: AppSettings.setValue('RememberGameDownloading', 'service', gameItem.serviceId);
     }
 }

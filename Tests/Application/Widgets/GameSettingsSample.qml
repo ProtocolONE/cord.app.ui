@@ -70,17 +70,17 @@ Rectangle {
         }
     }
 
-    WidgetManager {
+    Item {
         id: manager
 
         Component.onCompleted: {
-            manager.registerWidget('Application.Widgets.GameSettings');
-            manager.registerWidget('Application.Widgets.GameAdBanner');
-            manager.registerWidget('Application.Widgets.GameLoad');
-            manager.registerWidget('Application.Widgets.GameUninstall');
-            manager.registerWidget('Application.Widgets.AlertAdapter');
+            WidgetManager.registerWidget('Application.Widgets.GameSettings');
+            WidgetManager.registerWidget('Application.Widgets.GameAdBanner');
+            WidgetManager.registerWidget('Application.Widgets.GameLoad');
+            WidgetManager.registerWidget('Application.Widgets.GameUninstall');
+            WidgetManager.registerWidget('Application.Widgets.AlertAdapter');
 
-            manager.init();
+            WidgetManager.init();
 
             //  stub
             App.executeService = function(serviceId) {

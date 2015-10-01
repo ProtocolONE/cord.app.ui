@@ -175,7 +175,15 @@ WidgetModel {
             moveToTray(_mouseX, _mouseY);
         }
 
+        onActiveChanged: {
+            if (!active) {
+                hide();
+            }
+
+        }
+
         visible: false
+
         color: "#00000000"
 
         Rectangle {

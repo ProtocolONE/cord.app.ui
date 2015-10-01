@@ -245,6 +245,20 @@ Rectangle {
                 SignalBus.serviceFinished(game);
             }
         }
+
+       Button {
+           width: 100
+           height: 30
+           text: 'Test '
+           onClicked: {
+               var q = "GameNet";
+                MessengerJs.instance().messageReceived(q, "Добро пожаловать в GameNet", {
+                                                           from: q,
+                                                           body: "Добро пожаловать в GameNet"
+                                                       });
+           }
+
+       }
     }
 
     JobWorker {
