@@ -1603,6 +1603,21 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>Conversation</name>
+    <message>
+        <source>MESSAGE_STATE_COMPOSING</source>
+        <translation type="unfinished">Набирает сообщение...</translation>
+    </message>
+    <message>
+        <source>MESSAGE_STATE_PAUSED</source>
+        <translation type="unfinished">Прекратил набор сообщения</translation>
+    </message>
+    <message>
+        <source>MESSAGE_STATE_INACTIVE</source>
+        <translation type="unfinished">Отошел</translation>
+    </message>
+</context>
+<context>
     <name>DetailedUserInfoView</name>
     <message>
         <source>DETAILED_USER_INFO_MAIN_INFO_IN_GAMENET_SINCE</source>
@@ -3824,15 +3839,15 @@ Please try again later.</source>
     <name>Message</name>
     <message>
         <source>MESSAGE_STATE_COMPOSING</source>
-        <translation>Набирает сообщение...</translation>
+        <translation type="vanished">Набирает сообщение...</translation>
     </message>
     <message>
         <source>MESSAGE_STATE_PAUSED</source>
-        <translation>Прекратил набор сообщения</translation>
+        <translation type="vanished">Прекратил набор сообщения</translation>
     </message>
     <message>
         <source>MESSAGE_STATE_INACTIVE</source>
-        <translation>Отошел</translation>
+        <translation type="vanished">Отошел</translation>
     </message>
 </context>
 <context>

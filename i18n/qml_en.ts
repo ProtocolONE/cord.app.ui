@@ -683,6 +683,24 @@
     </message>
 </context>
 <context>
+    <name>Conversation</name>
+    <message>
+        <location filename="../Application/Widgets/Messenger/Models/Conversation.js" line="20"/>
+        <source>MESSAGE_STATE_COMPOSING</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/Models/Conversation.js" line="24"/>
+        <source>MESSAGE_STATE_PAUSED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/Models/Conversation.js" line="28"/>
+        <source>MESSAGE_STATE_INACTIVE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DetailedUserInfoView</name>
     <message>
         <location filename="../Application/Widgets/DetailedUserInfo/View/DetailedUserInfoView.qml" line="222"/>
@@ -1746,24 +1764,6 @@
     <message>
         <location filename="../Application/Widgets/Maintenance/View/MaintenanceView.qml" line="115"/>
         <source>MAINTENANCE_PROPOSAL_GAME_TEXT</source>
-        <translation></translation>
-    </message>
-</context>
-<context>
-    <name>Message</name>
-    <message>
-        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="109"/>
-        <source>MESSAGE_STATE_COMPOSING</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="113"/>
-        <source>MESSAGE_STATE_PAUSED</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/Messenger/Models/Message.js" line="117"/>
-        <source>MESSAGE_STATE_INACTIVE</source>
         <translation></translation>
     </message>
 </context>

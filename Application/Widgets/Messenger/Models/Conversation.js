@@ -14,6 +14,23 @@ function createConversationModel(id, type) {
     }
 }
 
+function stateMessage(state) {
+    var result = "";
+    if (state === MessageState.Composing) {
+        result = qsTranslate("Conversation", "MESSAGE_STATE_COMPOSING");
+    }
+
+    if (state === MessageState.Paused) {
+        result = qsTranslate("Conversation", "MESSAGE_STATE_PAUSED");
+    }
+
+    if (state === MessageState.Inactive) {
+        result = qsTranslate("Conversation", "MESSAGE_STATE_INACTIVE");
+    }
+
+    return result;
+}
+
 var Conversation = function(item, model, jabber, myJid) {
     var self = this;
 

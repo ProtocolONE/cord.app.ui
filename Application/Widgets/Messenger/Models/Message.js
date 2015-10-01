@@ -103,23 +103,6 @@ function createRawMessage(from, isStatus, body, date, id, type) {
     return result;
 }
 
-function stateMessage(state) {
-    var result = "";
-    if (state === MessageState.Composing) {
-        result = qsTr("MESSAGE_STATE_COMPOSING");
-    }
-
-    if (state === MessageState.Paused) {
-        result = qsTr("MESSAGE_STATE_PAUSED");
-    }
-
-    if (state === MessageState.Inactive) {
-        result = qsTr("MESSAGE_STATE_INACTIVE");
-    }
-
-    return result;
-}
-
 function canShowState(state) {
     var result = (state === MessageState.Composing)
         || (state === MessageState.Paused)
