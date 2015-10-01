@@ -157,6 +157,7 @@ Item {
 
         property bool locked: true
 
+        acceptedButtons: Qt.AllButtons
         anchors.fill: parent
         hoverEnabled: true
         cursorShape: Qt.ArrowCursor
