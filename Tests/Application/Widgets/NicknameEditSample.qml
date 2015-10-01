@@ -23,25 +23,17 @@ Rectangle {
     height: 600
     color: '#AAAAAA'
 
-    // Initialization
-
     Component.onCompleted: {
         Styles.init();
         Styles.setCurrentStyle('sand');
         Popup.init(popupLayer);
-    }
 
-    WidgetManager {
-        id: manager
+        RestApi.Core.setUserId("400001000142709890");
+        RestApi.Core.setAppKey("66a7e3447e6bef9b852a96c4d9ac800f226e4976");
 
-        Component.onCompleted: {
-            RestApi.Core.setUserId("400001000089963870");
-            RestApi.Core.setAppKey("eb295784bf007c9a19f68b680dad16fd94ca6285");
-
-            manager.registerWidget('Application.Widgets.NicknameEdit');
-            manager.registerWidget('Application.Widgets.NicknameReminder');
-            manager.init();
-        }
+        WidgetManager.registerWidget('Application.Widgets.NicknameEdit');
+        WidgetManager.registerWidget('Application.Widgets.NicknameReminder');
+        WidgetManager.init();
     }
 
     Connections {

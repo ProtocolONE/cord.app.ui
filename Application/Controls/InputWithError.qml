@@ -25,7 +25,6 @@ ErrorContainer {
     property alias placeholder: input.placeholder
     property alias text: input.text
     property alias readOnly: input.readOnly
-    property alias error: input.error
     property alias validator: input.validator
     property alias maximumLength: input.maximumLength
 
@@ -36,7 +35,6 @@ ErrorContainer {
     signal backTabPressed()
 
     implicitWidth: parent.width
-    error: input.error
 
     style {
         text: Styles.errorContainerText

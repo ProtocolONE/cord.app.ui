@@ -1915,19 +1915,11 @@
 <context>
     <name>NicknameEditModel</name>
     <message>
-        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="70"/>
-        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="87"/>
-        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="147"/>
-        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="160"/>
+        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="42"/>
+        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="59"/>
+        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="81"/>
+        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="94"/>
         <source>VALIDATE_NICK_NAME_DEFAULT_ERROR</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="109"/>
-        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="126"/>
-        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="181"/>
-        <location filename="../Application/Widgets/NicknameEdit/NicknameEditModel.qml" line="194"/>
-        <source>VALIDATE_TECH_NAME_DEFAULT_ERROR</source>
         <translation></translation>
     </message>
 </context>
@@ -1939,28 +1931,22 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="69"/>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="82"/>
+        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="65"/>
         <source>NICKNAME_OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="109"/>
+        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="84"/>
         <source>NO_NICKNAME_TIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="136"/>
+        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="111"/>
         <source>YOUR_NICKNAME_PLACEHOLDER</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="210"/>
-        <source>PROFILE_LINK_PLACEHOLDER</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="238"/>
+        <location filename="../Application/Widgets/NicknameEdit/View/NicknameEditView.qml" line="146"/>
         <source>SAVE_BUTTON_CAPTION</source>
         <translation></translation>
     </message>

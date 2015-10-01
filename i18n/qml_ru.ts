@@ -4173,7 +4173,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>VALIDATE_TECH_NAME_DEFAULT_ERROR</source>
-        <translation>GameNet недоступен, невозможно проверить ссылку.</translation>
+        <translation type="vanished">GameNet недоступен, невозможно проверить ссылку.</translation>
     </message>
 </context>
 <context>
@@ -4192,7 +4192,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>PROFILE_LINK_PLACEHOLDER</source>
-        <translation>ссылка на твой профиль</translation>
+        <translation type="vanished">ссылка на твой профиль</translation>
     </message>
     <message>
         <source>SAVE_BUTTON_CAPTION</source>

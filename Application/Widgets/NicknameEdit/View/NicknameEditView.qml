@@ -23,7 +23,7 @@ PopupBase {
     property alias nickname: nickName.text
 
     function checkAndFinish() {
-        if (d.nickNameSaved && d.techNameSaved) {
+        if (d.nickNameSaved) {
             root.save();
         }
     }
@@ -37,14 +37,10 @@ PopupBase {
 
         property bool nickNameLowBoundReached: false
         property bool nickNameOk: false
-        property bool techNameOk: false
         property bool nickNameSaved: false
-        property bool techNameSaved: false
-        property bool needGenerateTechName: true
-        property bool generatingTechName: false
 
         function tryClose() {
-            if (d.nickNameSaved && d.techNameSaved) {
+            if (d.nickNameSaved) {
                 root.close();
             }
         }
@@ -61,8 +57,8 @@ PopupBase {
 
             if (error != "") {
                 nickName.errorMessage = error;
-                nickName.style.text = Styles.inputError;
                 nickName.error = true;
+                nickName.style.text = Styles.inputError;
             }
         }
         onNickNameOk: {
@@ -70,30 +66,9 @@ PopupBase {
             nickName.error = false;
             d.nickNameOk = true;
         }
-        onTechNameError: {
-            if (error != "") {
-                techName.errorMessage = error;
-                techName.style.text = Styles.inputError;
-                techName.error = true;
-                d.needGenerateTechName = true;
-            }
-        }
-        onTechNameOk: {
-            techName.errorMessage = qsTr("NICKNAME_OK");
-            techName.error = false;
-            d.techNameOk = true;
-            if (techName.manuallyEdited) {
-                d.needGenerateTechName = false;
-            }
-        }
+
         onNickNameSaved: {
             d.nickNameSaved = true;
-
-            d.tryClose();
-        }
-        onTechNameSaved: {
-            d.techNameSaved = true;
-
             d.tryClose();
         }
     }
@@ -138,22 +113,14 @@ PopupBase {
             onTextChanged: {
                 d.nickNameOk = false;
 
-                if (!d.nickNameLowBoundReached && nickName.text.length > 4) {
+                if (!d.nickNameLowBoundReached && nickName.text.length > 3) {
                     d.nickNameLowBoundReached = true;
-                }
-
-                if (d.needGenerateTechName) {
-                    //   хак нужен чтбы различать - нагенерили или ввели вручную
-                    d.generatingTechName = true;
-                    techName.text = model.generateTechNick(nickName.text);
-                    d.generatingTechName = false;
                 }
             }
             onValidate: {
                 if (!d.nickNameLowBoundReached) {
                     return;
                 }
-
                 model.validateNickName(nickName.text);
             }
         }
@@ -172,78 +139,17 @@ PopupBase {
         }
     }
 
-    Item {
-        anchors {
-            left: parent.left
-            right: parent.right
-        }
-
-        height: techName.height
-
-        Input {
-            style {
-                normal: "#FFFFFF"
-                hover: "#FFFFFF"
-                active: "#FFFFFF"
-                disabled: "#FFFFFF"
-            }
-            width: 240
-            height: 48
-            enabled: false
-            showCapslock: false
-            showLanguage: false
-            placeholder: "https://www.gamenet.ru/users/"
-        }
-
-        InputWithError {
-            id: techName
-
-            property bool manuallyEdited: false
-
-            anchors {
-                left: parent.left
-                leftMargin: 240
-                right: parent.right
-            }
-
-            maximumLength: 32
-            placeholder: qsTr("PROFILE_LINK_PLACEHOLDER")
-            onTextChanged: {
-                manuallyEdited = !d.generatingTechName;
-                d.techNameOk = false;
-            }
-            onValidate: {
-                model.validateTechName(value);
-            }
-        }
-
-        Image {
-            width: 30
-            height: 30
-            fillMode: Image.PreserveAspectFit
-            visible: d.techNameOk
-            source: installPath + "Assets/Images/Application/Widgets/NicknameEdit/ok.png"
-            anchors {
-                right: parent.right
-                rightMargin: 5
-                verticalCenter: parent.verticalCenter
-            }
-        }
-    }
-
     PrimaryButton {
         id: saveButton
 
         width: 200
         text: qsTr("SAVE_BUTTON_CAPTION")
-        enabled: (model && model.nickNameValid && model.techNameValid)
+        enabled: model && model.nickNameValid
         onClicked: {
             nickName.readOnly = true;
-            techName.readOnly = true;
             saveButton.inProgress = true;
 
             model.saveNickName(nickName.text);
-            model.saveTechName(techName.text);
         }
         analytics {
             category: 'NicknameEdit'
