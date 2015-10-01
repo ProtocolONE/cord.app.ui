@@ -4670,7 +4670,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>DOWNLOAD_PEER_UPLOAD_TOTAL</source>
-        <translation>Отправленно:</translation>
+        <translation>Отправлено:</translation>
     </message>
     <message>
         <source>DOWNLOAD_COMPLETED_TEXT</source>

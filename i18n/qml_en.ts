@@ -1254,7 +1254,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="139"/>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="141"/>
         <source>SHOW_STATISTICS</source>
         <translation></translation>
     </message>
@@ -2793,22 +2793,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="288"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="296"/>
         <source>MENU_ITEM_PROFILE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="295"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="303"/>
         <source>MENU_ITEM_MONEY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="302"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="310"/>
         <source>MENU_ITEM_SETTINGS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="309"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="317"/>
         <source>MENU_ITEM_QUIT</source>
         <translation></translation>
     </message>

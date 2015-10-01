@@ -124,6 +124,8 @@ PopupBase {
                                 if (result != MessageBox.button.yes) {
                                     return;
                                 }
+                                root.gameItem.status = "Normal";
+                                root.gameItem.statusText = '';
                                 SignalBus.cancelDownload(root.gameItem);
                                 Ga.trackEvent('GameLoad', 'cancel', root.gameItem.gaName);
                                 root.close();
