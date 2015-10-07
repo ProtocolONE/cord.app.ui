@@ -125,6 +125,20 @@ Item {
                 }
             }
         }
+
+        ContentStroke {
+            anchors.bottom: parent.bottom
+            width: parent.width
+        }
+
+        ContentStroke {
+            anchors {
+                top: parent.top
+                topMargin: 30
+                right: parent.right
+                bottom: parent.bottom
+            }
+        }
     }
 
     Component {
