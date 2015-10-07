@@ -57,6 +57,7 @@ Item {
         }
         widget: 'DetailedUserInfo'
         view: 'DetailedUserInfoView'
+        height: parent.height
     }
 
 }

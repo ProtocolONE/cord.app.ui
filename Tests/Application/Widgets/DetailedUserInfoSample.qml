@@ -71,12 +71,12 @@ Item {
         color: "black"
     }
 
-    WidgetManager {
+    Item {
         id: manager
 
         Component.onCompleted: {
-            manager.registerWidget('Application.Widgets.DetailedUserInfo');
-            manager.init();
+            WidgetManager.registerWidget('Application.Widgets.DetailedUserInfo');
+            WidgetManager.init();
         }
     }
 

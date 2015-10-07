@@ -141,6 +141,7 @@ Item {
                     }
 
                     WidgetContainer {
+                        height: parent.height
                         widget: 'DetailedUserInfo'
                         view: 'DetailedUserInfoView'
                     }

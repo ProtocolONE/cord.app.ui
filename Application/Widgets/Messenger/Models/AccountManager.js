@@ -49,7 +49,6 @@ _private = {
     },
 
     onUpdateAvatar: function(vcard) {
-        //console.log('---------- onUpdateAvatar', JSON.stringify(vcard, null, 2))
         var item = _messenger.getUser(vcard.from);
         if (!item.isValid()) {
             return;
