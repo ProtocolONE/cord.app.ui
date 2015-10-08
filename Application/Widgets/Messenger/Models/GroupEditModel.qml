@@ -70,7 +70,8 @@ Item {
         , jid
         , occupantItem
         , selfJid
-        , selfRawOccupant;
+        , selfRawOccupant
+        , participants;
 
         root.topic = room.nickname;
         selfJid = messenger.authedUser().jid;
@@ -79,16 +80,16 @@ Item {
 
         occupantsModel.append(selfRawOccupant);
 
-        for (var i = 0; i < room.participants.count; ++i) {
-            occupantItem = room.participants.get(i);
-            jid = occupantItem.jid
-            if (jid === selfJid) {
+        participants = room.participants;
+        participants.keys().forEach(function(participantId) {
+            occupantItem = participants.get(participantId);
+            if (participantId === selfJid) {
                 d.owner = (occupantItem.affiliation === "owner");
-                occupantsModel.setPropertyById(jid, "affiliation", occupantItem.affiliation);
+                occupantsModel.setPropertyById(participantId, "affiliation", occupantItem.affiliation);
             } else {
-                occupantsModel.append(d.rawOccupant(jid, occupantItem.affiliation, false));
+                occupantsModel.append(d.rawOccupant(participantId, occupantItem.affiliation, false));
             }
-        }
+        });
 
         // INFO Может упасть, если что смотреть как формируется модель для шапки групповый чатов.
         occupantsModel.sort(d.sort);
@@ -192,7 +193,7 @@ Item {
                 jid: jid,
                 affiliation: affiliation || "member",
                 canDelete: (canDelete !== undefined) ? canDelete : true,
-                                                       self: false
+                self: false
             }
         }
 
@@ -229,7 +230,8 @@ Item {
                 , roomUser
                 , jabber = root.messenger.getJabberClient()
                 , i
-                , occupantJid;
+                , participants
+                , toRemove = [];
 
             roomUser = root.messenger.getUser(root.targetJid);
 
@@ -237,22 +239,27 @@ Item {
                 jabber.setRoomTopic(root.targetJid, root.topic)
             }
 
-            for(i = roomUser.participants.count-1; i >= 0; --i) {
-                occupantJid = roomUser.participants.get(i).jid;
-                if (!occupantsModel.contains(occupantJid)) {
-                    jabber.mucManager.setPermission(root.targetJid, occupantJid, 'none');
-                    roomUser.participants.remove(i);
+            participants = roomUser.participants;
+
+            participants.keys().forEach(function(participantId) {
+                if (!occupantsModel.contains(participantId)) {
+                    jabber.mucManager.setPermission(root.targetJid, participantId, 'none');
+                    toRemove.push(participantId);
                 } else {
-                    currentUsers[occupantJid] = 1;
+                    currentUsers[participantId] = 1;
                 }
-            }
+            });
 
             occupantsModel.forEachId(function(item) {
                 if (!currentUsers.hasOwnProperty(item)) {
                     jabber.mucManager.sendInvitationMediated(root.targetJid, item, "");
-                    roomUser.participants.append(OccupantJs.createRawOccupant(item));
+                    participants.append(OccupantJs.createRawOccupant(item));
                 }
             });
+
+            toRemove.forEach(participants.remove);
+
+            root.messenger.participantsChanged(root.targetJid);
         }
 
         function sort(a, b) {
