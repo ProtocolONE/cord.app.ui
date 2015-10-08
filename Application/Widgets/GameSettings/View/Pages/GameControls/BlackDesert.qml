@@ -15,7 +15,7 @@ Item {
 
     Component.onCompleted: {
         var resolutions = Desktop.availableResolutions().filter(function(e){
-            return e.width >= 800 && e.height >= 600;
+            return e.width >= 1280 && e.height >= 720;
         });
 
         resolutions.sort(function(a, b) {
