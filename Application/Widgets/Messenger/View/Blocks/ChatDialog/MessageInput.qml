@@ -59,11 +59,14 @@ FocusScope {
         messengerInput.cursorPosition = oldCursorPosition + 1;
     }
 
+    function getPlainTextLength() {
+        return TextDocumentHelper.stripHtml(messengerInput.text).length;
+    }
+
     QtObject {
         id: d
 
         property string activeStatus: "Active"
-        property string plainText: TextDocumentHelper.stripHtml(messengerInput.text)
 
         function getPlainText() {
             var temporaryModifiedImgTag,
@@ -149,12 +152,13 @@ FocusScope {
         }
 
         function updateUserSelectedText() {
-            var user = MessengerJs.previousUser();
+            var user = MessengerJs.previousUser(),
+                plainLenth = getPlainTextLength();
 
             if (user.isValid()) {
                 d.setActiveStatus(user, "Active");
 
-                if (d.plainText.length > 0) {
+                if (plainLenth > 0) {
                     user.inputMessage = messengerInput.text;
                 }
             }
@@ -163,7 +167,7 @@ FocusScope {
             if (user.isValid()) {
                 messengerInput.text = user.inputMessage;
                 user.inputMessage = "";
-                messengerInput.cursorPosition = d.plainText.length;
+                messengerInput.cursorPosition = plainLenth;
             }
         }
 
@@ -361,8 +365,10 @@ FocusScope {
                                 Keys.onEscapePressed: root.closeDialogPressed();
 
                                 onTextChanged: {
+                                    var plainLength = getPlainTextLength();
+
                                     composingTimer.count = 0;
-                                    if (d.plainText.length <= 0) {
+                                    if (plainLength <= 0) {
                                         d.setActiveStatus(MessengerJs.selectedUser(), "Active");
                                         composingTimer.stop();
                                     } else {
