@@ -71,8 +71,9 @@ Item {
     signal talkDateChanged(string jid);
     signal onlineStatusChanged(string jid);
     signal lastActivityChanged(string jid);
-
     signal nicknameChanged(string jid);
+    signal participantsChanged(string jid);
+
     signal rosterReceived();
 
     signal messageLinkActivated(variant user, string link);
@@ -193,6 +194,7 @@ Item {
 
         xmppClient.disconnectFromServer();
         root.connected = false;
+        root.connecting = false;
         root.contactReceived = false;
 
         myUser.reset();
@@ -292,9 +294,9 @@ Item {
     }
 
     function getNickname(item) {
-//        if (!root.connected) {
-//            return "";
-//        }
+        if (!root.connected) {
+            return "";
+        }
 
 //        if (usersModel.contains(item.jid)) {
 //            return usersModel.getById(item.jid).nickname;
@@ -433,7 +435,8 @@ Item {
         var tmp = []
             , i
             , item = root.getUser(user.jid)
-            , occupant;
+            , occupant
+            , keys;
 
         if (!item.isValid() || !item.isGroupChat) {
             return "";
@@ -443,10 +446,14 @@ Item {
             return item.nickname;
         }
 
-        for(i = 0; i < item.participants.count; ++i) {
-            occupant = root.getUser(item.participants.get(i).jid);
-            tmp.push(occupant.nickname);
-        }
+        keys = item.participants.keys();
+
+        keys.forEach(function(k) {
+            occupant = root.getUser(k);
+            if (occupant.nickname) {
+                tmp.push(occupant.nickname);
+            }
+        });
 
         return tmp.join(", ");
     }
@@ -514,10 +521,6 @@ Item {
         function updateNickname(fullJid, user, externalNickName) {
             var nickname = xmppClient.rosterManager.getNickname(fullJid) || externalNickName;
             user.nickname = nickname || user.nickname || "";
-
-            if (user.isNicknameChanged()) {
-                root.nicknameChanged(user.jid);
-            }
         }
 
         function updateSubscription(user) {
@@ -598,19 +601,14 @@ Item {
             groups = xmppClient.rosterManager.getGroups(fullJid);
 
             nickname = xmppClient.rosterManager.getNickname(fullJid) || externalNickName;
-            //groups = xmppClient.rosterManager.getGroups(fullJid);
             subscription = xmppClient.rosterManager.getSubscription(bareJid);
 
             unreadMessageUsersMap = d.unreadMessageUsers();
-//            groups = groups.filter(function(e) {
-//                return !!e;
-//            });
 
             if (!usersModel.contains(bareJid)) {
                 rawUser = UserJs.createRawUser(fullJid, "");
 
                 rawUser = UserJs.createRawUser(fullJid, nickname || "");
-          //      rawUser.groups = groups.map(function(g){ return {name: g}; });
                 rawUser.lastTalkDate = RecentConversations.getUserTalkDate(rawUser);
                 rawUser.subscription = subscription;
                 rawUser.inContacts = (subscription == QXmppRosterManager.Both);
@@ -621,7 +619,6 @@ Item {
             // INFO Никнейм из вкарда мы берем теперь только в крайнем случаи
             // Основным никнеймом считаетеся никнейм из ростера
             item = root.getUser(fullJid);
-            //item.groups = groups;
 
             // UNDONE set other properties
             if (unreadMessageUsersMap.hasOwnProperty(item.jid)) {
@@ -647,25 +644,25 @@ Item {
                 return;
             }
 
-            var oldOnline = user.online;
-            if (user.presenceState !== presence.type) {
-                user.presenceState = presence.type;
+            // INFO чую теперь нельзя проверять перед присвоением, что свойство поменялось, ибо оно может
+            // меняться сейчас в отложенном коде, и тут снвоа вернется в первоначальное состояние.
+            user.presenceState = presence.type;
+            user.statusMessage = presence.status;
+        }
+
+        function presenceChanged(jid, oldValue, newValue) {
+            var onlineOld = UserJs.isOnline(oldValue);
+            var onlineNew = UserJs.isOnline(newValue);
+            if (onlineOld == onlineNew)  {
+                return;
             }
 
-            if (user.statusMessage !== presence.status) {
-                user.statusMessage = presence.status;
-            }
+            root.onlineStatusChanged(jid);
 
-            if (user.online !== oldOnline) {
-                root.onlineStatusChanged(user.jid);
-                if (!user.online) {
-                    var conf = getConversation(user.jid);
-                    conf.changeState(presence.from, MessageJs.Active);
-                }
-            }
-
-            if (!user.online) {
-                xmppClient.lastActivityManager.requestLastActivity(user.jid);
+            if (!onlineNew) {
+                var conf = getConversation(jid);
+                conf.changeState(jid, MessageJs.Active);
+                xmppClient.requestLastActivityAsync(jid, true);
             }
         }
 
@@ -739,34 +736,19 @@ Item {
         onPropertyChanged: {
             switch (key) {
                 case "lastTalkDate": root.talkDateChanged(id); break;
+                case "nickname": root.nicknameChanged(id); break;
+                case "lastActivity": root.lastActivityChanged(id); break;
+                case "presenceState": d.presenceChanged(id, oldValue, newValue); break;
             }
 
-            console.log("usersModel proerpty changed ", id, key)
+            console.log("usersModel property changed ", id, key, oldValue, newValue);
         }
     }
 
     Component {
         id: usersModelComponent
 
-        QtObject {
-            property string userId: ""
-            property string jid: ""
-            property variant groups
-
-            property string nickname: ""
-            property int unreadMessageCount: 0
-            property string statusMessage: ""
-            property string presenceState: ""
-            property string inputMessage: ""
-            property string avatar: ""
-            property variant lastActivity: 0
-            property variant lastTalkDate: 0
-            //property bool online: true по факту вычисляемы параметр по presenceState
-            property string playingGame: ""
-            property bool inContacts: false
-            property bool isGroupChat: false
-            property variant participants
-            property int subscription: 0
+        UserModelItem {
         }
     }
 
@@ -810,6 +792,31 @@ Item {
                 root.messageRead(user.jid);
             }
             root.messageReceived(user.jid, message.body, message);
+        }
+
+        function requestLastActivityAsync(jid, force) {
+            if (!force && xmppClient.isLastActivityRequested(jid)) {
+                return;
+            }
+
+            worker.pushOnce(new MessengerPrivateJs.RequestLastActivity({
+                                                           jid: jid,
+                                                           jabber: xmppClient,
+                                                           messenger: root,
+                                                           force: force
+                                                       }));
+        }
+
+        function requestVCardAsync(jid) {
+            if (xmppClient.isVcardRequested(jid)) {
+                return;
+            }
+
+            worker.pushOnce(new MessengerPrivateJs.RequestVcard({
+                                                           jid: jid,
+                                                           jabber: xmppClient,
+                                                           messenger: root
+                                                       }));
         }
 
         onStreamManagementResumed: {
@@ -877,7 +884,6 @@ Item {
         onLastActivityUpdated: {
             var user = root.getUser(jid);
             user.lastActivity = timestamp;
-            root.lastActivityChanged(user.jid);
         }
 
         onPresenceReceived: d.updatePresence(presence);

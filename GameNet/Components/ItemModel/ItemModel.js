@@ -4,6 +4,8 @@ var model = {}
     , notifableProperty = {};
 
 var SetPropertyJob = function(id, key, value, itemModel) {
+    this.uniqueId = "setProperty" + id + key;
+
     this.id = id;
     this.key = key;
     this.value = value;
@@ -13,10 +15,12 @@ var SetPropertyJob = function(id, key, value, itemModel) {
         if (model.hasOwnProperty(this.id)) {
             var item = model[this.id];
             if (item[this.key] != this.value) {
+                var oldValue = item[this.key];
+                var newValue = this.value;
                 item[this.key] = this.value;
 
                 if (notifableProperty.hasOwnProperty(this.key)) {
-                    this.itemModel.propertyChanged(this.id, this.key);
+                    this.itemModel.propertyChanged(this.id, this.key, oldValue, newValue);
                 }
             }
         }

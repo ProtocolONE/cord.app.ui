@@ -46,12 +46,6 @@ Rectangle {
     color: Styles.applicationBackground
 
     Component.onCompleted: {
-        WidgetManager.registerWidget('Application.Widgets.UserProfile');
-        WidgetManager.registerWidget('Application.Widgets.Messenger');
-        WidgetManager.registerWidget('Application.Widgets.DetailedUserInfo');
-        WidgetManager.registerWidget('Application.Widgets.AlertAdapter');
-        WidgetManager.init();
-
         Styles.init();
         Styles.setCurrentStyle('sand');
         root.initEmojiOne();

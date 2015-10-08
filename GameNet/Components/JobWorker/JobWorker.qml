@@ -11,53 +11,42 @@ Item {
     property bool managed: true
     property bool paused: false
 
+    // With uniqueId add or replace job.
+    // Without uniqueId simple add job to queue.
     function push(job) {
-        if (!job
-           || !job.hasOwnProperty('execute')
-           || typeof job['execute'] !== 'function') {
-            return;
+        Js.push(job);
+        if (root.managed) {
+            worker.start();
         }
+    }
 
-        Js.jobs.push(job);
+    // With uniqueId add only one job with same id.
+    // Without uniqueId simple add job to queue.
+    function pushOnce(job) {
+        Js.pushOnce(job);
         if (root.managed) {
             worker.start();
         }
     }
 
     function clear() {
-        Js.jobs = [];
+        Js.clear();
     }
 
     QtObject {
         id: d
 
-        function hasJobs() {
-            return Js.jobs.length > 0;
-        }
-
-        function currentJob() {
-            if (Js.jobs.length > 0) {
-                return Js.jobs[0];
-            }
-
-            return null;
-        }
-
-        function popJob() {
-            Js.jobs.shift();
-            if (root.managed && Js.jobs.length === 0) {
-                worker.stop();
-            }
-        }
-
         function processJob() {
-            var job = d.currentJob();
+            var job = Js.currentJob();
             if (!job) {
                 return;
             }
 
             if (job.execute()) {
-                d.popJob();
+                Js.popJob();
+                if (root.managed && !Js.hasJobs()) {
+                    worker.stop();
+                }
             }
         }
     }

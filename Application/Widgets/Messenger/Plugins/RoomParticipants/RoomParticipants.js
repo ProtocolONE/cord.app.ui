@@ -22,28 +22,13 @@ function RoomParticipants(jabber, messenger) {
         }
     }
 
-    function appendParticipant(user, rawOccupant) {
-        debug('[RoomParticipants] append', JSON.stringify(rawOccupant))
-       // HACK !!!! надо раскомменьтирвоать но сейчас не работает
-        //user.participants.append(rawOccupant);
-    }
-
-    function findOccupant(user, jid) {
-        for (var i = 0; i < user.participants.count; ++i) {
-            if (user.participants.get(i).jid == jid) {
-                return i;
-            }
-        }
-
-        return -1;
-    }
-
     function onParticipantPermissions(roomJid, jid, permissions) {
         var bareJid
             , user
             , inRoom
-            , index
-            , rawOccupant;
+            , rawOccupant
+            , participants
+            , occupantExist;
 
         debug('[RoomParticipants] onParticipantPermissions', roomJid, jid, JSON.stringify(permissions));
 
@@ -51,21 +36,27 @@ function RoomParticipants(jabber, messenger) {
         bareJid = jidWithoutResource(permissions.jid || jabber.mucManager.participantFullJid(roomJid, jid));
 
         inRoom = permissions.affiliation !== "none" && permissions.affiliation !== "outcast";
-        index = findOccupant(user, bareJid);
+        participants = user.participants;
+
+        occupantExist = participants.contains(bareJid);
 
         if (inRoom) {
-            if (index === -1) { // append new occupant
+            if (occupantExist) { // append new occupant
                 rawOccupant = createRawOccupant(bareJid);
                 rawOccupant.affiliation = permissions.affiliation;
-                appendParticipant(user, rawOccupant)
+
+                debug('[RoomParticipants] append', JSON.stringify(rawOccupant))
+                participants.append(rawOccupant);
+                messenger.participantsChanged(user.jid);
             } else {
-                user.participants.setProperty(index, "affiliation", permissions.affiliation);
+                participants.setProperty(bareJid, "affiliation", permissions.affiliation);
             }
             return;
         }
 
-        if (index !== -1) { // remove from room
-            user.participants.remove(index);
+        if (occupantExist) { // remove from room
+            participants.remove(bareJid);
+            messenger.participantsChanged(user.jid);
         }
     }
 
@@ -73,8 +64,10 @@ function RoomParticipants(jabber, messenger) {
         var user
             , rawOccupant
             , inRoom
-            , occupants;
+            , occupants
+            , participants;
         user = messenger.getUser(roomJid);
+        participants = user.participants;
 
         occupants = permissions.reduce(function(acc, mucItem) {
             inRoom = mucItem.affiliation !== "none" && mucItem.affiliation !== "outcast";
@@ -87,13 +80,14 @@ function RoomParticipants(jabber, messenger) {
             return acc;
         }, []) || [];
 
-        // UNDONE sort occupants;
+        participants.clear();
 
-        // HACK !!!!! вернуть
-        //user.participants.clear();
         occupants.forEach(function(occupant) {
-            appendParticipant(user, occupant);
+            debug('[RoomParticipants] append', JSON.stringify(occupant))
+            participants.append(occupant);
         });
+
+        messenger.participantsChanged(user.jid);
     }
 
     function onJoined(roomJid) {

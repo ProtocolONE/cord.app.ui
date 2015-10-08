@@ -91,9 +91,9 @@
 		<file>Application/Controls/TrayPopupBase.qml</file>
 		<file>Application/Core/App.js</file>
 		<file>Application/Core/App.qml</file>
-		<file>Application/Core/Authorization.js</file>
+		<file>Application/Core/Authorization/Authorization.js</file>
+		<file>Application/Core/Authorization/qmldir</file>
 		<file>Application/Core/Authorization/Vk.qml</file>
-		<file>Application/Core/EmojiOne.js</file>
 		<file>Application/Core/MessageBox/MessageBox.js</file>
 		<file>Application/Core/MessageBox/MessageBox.qml</file>
 		<file>Application/Core/MessageBox/MessageBoxButtons.qml</file>
@@ -110,12 +110,13 @@
 		<file>Application/Core/Modules/ServiceHandleModel.qml</file>
 		<file>Application/Core/Modules/ServiceHandleModelPrivate.qml</file>
 		<file>Application/Core/Modules/SignalBus.qml</file>
-		<file>Application/Core/moment.js</file>
+		<file>Application/Core/MyGames/MyGames.js</file>
+		<file>Application/Core/MyGames/MyGames.qml</file>
+		<file>Application/Core/MyGames/qmldir</file>
 		<file>Application/Core/Popup/Popup.js</file>
 		<file>Application/Core/Popup/Popup.qml</file>
 		<file>Application/Core/Popup/qmldir</file>
 		<file>Application/Core/qmldir</file>
-		<file>Application/Core/restapi.js</file>
 		<file>Application/Core/RootWindow/qmldir</file>
 		<file>Application/Core/RootWindow/RootWindow.qml</file>
 		<file>Application/Core/Settings/qmldir</file>
@@ -239,6 +240,7 @@
 		<file>Application/Widgets/GameSettings/PluginContainer.qml</file>
 		<file>Application/Widgets/GameSettings/qmldir</file>
 		<file>Application/Widgets/GameSettings/View/GameSettingsView.qml</file>
+		<file>Application/Widgets/GameSettings/View/Pages/GameControls/BlackDesert.qml</file>
 		<file>Application/Widgets/GameSettings/View/Pages/GameControlSettings.qml</file>
 		<file>Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml</file>
 		<file>Application/Widgets/GameSettings/View/Pages/GameOverlaySettings.qml</file>
@@ -255,6 +257,7 @@
 		<file>Application/Widgets/Maintenance/View/MaintenanceLightView.qml</file>
 		<file>Application/Widgets/Maintenance/View/MaintenanceView.qml</file>
 		<file>Application/Widgets/Maintenance/View/TimeTextLabel.qml</file>
+		<file>Application/Widgets/Messenger/Addons/MessageReceived.js</file>
 		<file>Application/Widgets/Messenger/Addons/MessageReceived.qml</file>
 		<file>Application/Widgets/Messenger/Addons/NickNameReminder.qml</file>
 		<file>Application/Widgets/Messenger/Addons/Notifications.qml</file>
@@ -270,6 +273,9 @@
 		<file>Application/Widgets/Messenger/Models/Helpers/TimeHelper.js</file>
 		<file>Application/Widgets/Messenger/Models/JabberClient.js</file>
 		<file>Application/Widgets/Messenger/Models/JabberClient.qml</file>
+		<file>Application/Widgets/Messenger/Models/Managers/qmldir</file>
+		<file>Application/Widgets/Messenger/Models/Managers/RecentConversations.qml</file>
+		<file>Application/Widgets/Messenger/Models/Managers/RecentConversationsStorage.qml</file>
 		<file>Application/Widgets/Messenger/Models/Message.js</file>
 		<file>Application/Widgets/Messenger/Models/Messenger.js</file>
 		<file>Application/Widgets/Messenger/Models/Messenger.qml</file>
@@ -278,9 +284,11 @@
 		<file>Application/Widgets/Messenger/Models/MetaStorage.js</file>
 		<file>Application/Widgets/Messenger/Models/Migrations/History.qml</file>
 		<file>Application/Widgets/Messenger/Models/Occupant.js</file>
+		<file>Application/Widgets/Messenger/Models/qmldir</file>
 		<file>Application/Widgets/Messenger/Models/Settings.js</file>
 		<file>Application/Widgets/Messenger/Models/Storage.qml</file>
 		<file>Application/Widgets/Messenger/Models/User.js</file>
+		<file>Application/Widgets/Messenger/Models/UserModelItem.qml</file>
 		<file>Application/Widgets/Messenger/Models/UserModels/AllContacts.js</file>
 		<file>Application/Widgets/Messenger/Models/UserModels/AllContacts.qml</file>
 		<file>Application/Widgets/Messenger/Models/UserModels/PlayingGame.js</file>
@@ -301,7 +309,9 @@
 		<file>Application/Widgets/Messenger/Plugins/Smiles/Smiles.js</file>
 		<file>Application/Widgets/Messenger/Plugins/Smiles/Smiles.qml</file>
 		<file>Application/Widgets/Messenger/Plugins/Smiles/SmilesPrivate.js</file>
+		<file>Application/Widgets/Messenger/Plugins/Subscription/qmldir</file>
 		<file>Application/Widgets/Messenger/Plugins/Subscription/Subscription.js</file>
+		<file>Application/Widgets/Messenger/Plugins/Subscription/Subscription.qml</file>
 		<file>Application/Widgets/Messenger/Plugins/Topic/Topic.js</file>
 		<file>Application/Widgets/Messenger/qmldir</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.js</file>
@@ -366,7 +376,6 @@
 		<file>Application/Widgets/NicknameEdit/NicknameEditModel.qml</file>
 		<file>Application/Widgets/NicknameEdit/PluginContainer.qml</file>
 		<file>Application/Widgets/NicknameEdit/qmldir</file>
-		<file>Application/Widgets/NicknameEdit/View/InputWithError.qml</file>
 		<file>Application/Widgets/NicknameEdit/View/NicknameEditView.qml</file>
 		<file>Application/Widgets/NicknameReminder/PluginContainer.qml</file>
 		<file>Application/Widgets/NicknameReminder/qmldir</file>
@@ -379,6 +388,7 @@
 		<file>Application/Widgets/Overlay/qmldir</file>
 		<file>Application/Widgets/Overlay/View/Chat/Chat.qml</file>
 		<file>Application/Widgets/Overlay/View/Chat/ChatNotify.qml</file>
+		<file>Application/Widgets/Overlay/View/Chat/MessageReceived.js</file>
 		<file>Application/Widgets/Overlay/View/Chat/MessageReceived.qml</file>
 		<file>Application/Widgets/Overlay/View/Chat/PopupHelper.qml</file>
 		<file>Application/Widgets/Overlay/View/Chat/Popups.js</file>
@@ -392,6 +402,11 @@
 		<file>Application/Widgets/PremiumNotifier/PluginContainer.qml</file>
 		<file>Application/Widgets/PremiumNotifier/PremiumNotifierModel.qml</file>
 		<file>Application/Widgets/PremiumNotifier/qmldir</file>
+		<file>Application/Widgets/PremiumServer/PluginContainer.qml</file>
+		<file>Application/Widgets/PremiumServer/PremiumServerModel.qml</file>
+		<file>Application/Widgets/PremiumServer/qmldir</file>
+		<file>Application/Widgets/PremiumServer/View/PremiumServerLineView.qml</file>
+		<file>Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml</file>
 		<file>Application/Widgets/PremiumShop/PluginContainer.qml</file>
 		<file>Application/Widgets/PremiumShop/PremiumShopModel.qml</file>
 		<file>Application/Widgets/PremiumShop/qmldir</file>
@@ -402,6 +417,9 @@
 		<file>Application/Widgets/PublicTest/PluginContainer.qml</file>
 		<file>Application/Widgets/PublicTest/qmldir</file>
 		<file>Application/Widgets/PublicTest/View/PublicTestView.qml</file>
+		<file>Application/Widgets/RememberGameDownloading/PluginContainer.qml</file>
+		<file>Application/Widgets/RememberGameDownloading/qmldir</file>
+		<file>Application/Widgets/RememberGameDownloading/RememberGameDownloading.qml</file>
 		<file>Application/Widgets/SecondAccountAuth/PluginContainer.qml</file>
 		<file>Application/Widgets/SecondAccountAuth/qmldir</file>
 		<file>Application/Widgets/SecondAccountAuth/SecondAccountAuthModel.qml</file>
@@ -434,6 +452,9 @@
 		<file>Application/Widgets/UserProfile/UserProfileModel.qml</file>
 		<file>Application/Widgets/UserProfile/View/NicknameEdit.qml</file>
 		<file>Application/Widgets/UserProfile/View/UserProfileView.qml</file>
+		<file>GameNet/Components/ItemModel/ItemModel.js</file>
+		<file>GameNet/Components/ItemModel/ItemModel.qml</file>
+		<file>GameNet/Components/ItemModel/qmldir</file>
 		<file>GameNet/Components/JobWorker/JobWorker.js</file>
 		<file>GameNet/Components/JobWorker/JobWorker.qml</file>
 		<file>GameNet/Components/JobWorker/qmldir</file>
@@ -490,12 +511,17 @@
 		<file>GameNet/Controls/Wait.qml</file>
 		<file>GameNet/Controls/WebImage.qml</file>
 		<file>GameNet/Core/Analytics.js</file>
+		<file>GameNet/Core/EmojiOne.js</file>
 		<file>GameNet/Core/GoogleAnalytics.js</file>
 		<file>GameNet/Core/lodash.js</file>
+		<file>GameNet/Core/moment.js</file>
+		<file>GameNet/Core/qmldir</file>
 		<file>GameNet/Core/RestApi.js</file>
 		<file>GameNet/Core/Strings.js</file>
 		<file>Main.qml</file>
 		<file>plugin/QXmpp/qmldir</file>
+		<file>plugin/Tulip/Overlay/qmldir</file>
 		<file>plugin/Tulip/qmldir</file>
+		<file>ZTest.qml</file>
 	</qresource>
 </RCC>

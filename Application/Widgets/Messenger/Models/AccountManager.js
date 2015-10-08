@@ -67,9 +67,10 @@ _private = {
         var oldNickName = item.nickname;
         var newNickName = vcard.nickName || oldNickName || "";
 
+        // INFO Тут при асинхронной работе походу будет проблема с переименоваными контактми
+        // Если проверка будет до того как примениться сеттер для ника из ростера то он перепишется на вкардовый.
         if (!oldNickName && !!newNickName) {
             item.nickname = newNickName;
-            _messenger.nicknameChanged(item.jid);
         }
 
     }

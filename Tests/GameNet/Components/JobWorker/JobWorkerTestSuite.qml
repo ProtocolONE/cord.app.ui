@@ -150,6 +150,127 @@ Rectangle {
                 }
             }
         }
+
+        Rectangle {
+            id: uniquePushTest
+
+            width: 350
+            height: 150
+            color: "gray"
+
+            function singleUniqueJob(id, text) {
+                var item = {};
+                item.worker = uniqueWorker;
+                item.workerName = uniqueWorker.objectName
+                item.x = 5;
+                item.start = Date.now();
+                item.uniqueId = id;
+                item.execute = function() {
+                    this.worker.statusText = "X: " + this.x + " Start at " + this.start + " Id: " + id + " Text:" + text;
+                    console.log(Date.now(), this.workerName, this.x, this.start, id, text);
+                    this.x--;
+                    return this.x === 0;
+                }
+
+                return item;
+            }
+
+
+            JobWorker {
+                id: uniqueWorker
+
+                property string statusText: ""
+
+                objectName: "Unique worker"
+                interval: 500
+            }
+
+            Column {
+                anchors { fill: parent; margins: 7 }
+
+                Row {
+                    width: parent.width
+                    height: 70
+                    spacing: 5
+
+                    Column {
+                        width: 50
+                        spacing: 5
+
+                        Button {
+                            width: 50
+                            height: 30
+                            text: 'Start'
+                            onClicked: uniqueWorker.running = true;
+                        }
+
+                        Button {
+                            width: 50
+                            height: 30
+                            text: 'Stop'
+                            onClicked: uniqueWorker.running = false;
+                        }
+                    }
+
+                    Column {
+                        width: 100
+                        spacing: 5
+
+                        Button {
+                            width: 100
+                            height: 30
+                            text: 'Push AA'
+                            onClicked: uniqueWorker.push(uniquePushTest.singleUniqueJob("JobA", "AAA"));
+                        }
+
+
+                        Button {
+                            width: 100
+                            height: 30
+                            text: 'Push AB'
+                            onClicked: uniqueWorker.push(uniquePushTest.singleUniqueJob("JobA", "BBB"));
+                        }
+                    }
+
+                    Column {
+                        width: 100
+                        spacing: 5
+
+                        Button {
+                            width: 100
+                            height: 30
+                            text: 'Push UA'
+                            onClicked: uniqueWorker.pushOnce(uniquePushTest.singleUniqueJob("JobU", "AAA"));
+                        }
+
+                        Button {
+                            width: 100
+                            height: 30
+                            text: 'Push UB'
+                            onClicked: uniqueWorker.pushOnce(uniquePushTest.singleUniqueJob("JobU", "BBB"));
+                        }
+                    }
+                }
+
+                Rectangle {
+                    width: 50
+                    height: 50
+                    color: uniqueWorker.running ? "green" : "red"
+
+                    Text {
+                        color: uniqueWorker.running ? "orange" : "chartreuse"
+                        text: uniqueWorker.running ? "running" : "stopped"
+                        anchors.centerIn: parent
+                    }
+                }
+
+                Text {
+                    width: parent.width
+                    height: 30
+                    text: uniqueWorker.running ? uniqueWorker.statusText : "stopped"
+                }
+            }
+        }
     }
 
 }

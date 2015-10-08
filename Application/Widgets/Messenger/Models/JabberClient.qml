@@ -69,8 +69,12 @@ QXmppClient {
         xmppClient.sendMessage(jid, messageMap);
     }
 
-    function getLastActivity(jid) {
-        if (!Js.lastActivityCacheQueue.hasOwnProperty(jid)) {
+    function isLastActivityRequested(jid) {
+        return Js.lastActivityCacheQueue.hasOwnProperty(jid);
+    }
+
+    function getLastActivity(jid, force) {
+        if (force || !Js.lastActivityCacheQueue.hasOwnProperty(jid)) {
             xmppClient.lastActivityManager.requestLastActivity(jid);
             Js.lastActivityCacheQueue[jid] = 1;
         }
@@ -153,6 +157,10 @@ QXmppClient {
         return UserJs.conferenceUrl();
     }
 
+    function isVcardRequested(jid) {
+        return Js.vcardQueue.hasOwnProperty(jid);
+    }
+
     function requestVcard(jid) {
         if (Js.vcardQueue.hasOwnProperty(jid)) {
             return;
@@ -165,6 +173,7 @@ QXmppClient {
 
     onDisconnected: {
         Js.vcardQueue = {};
+        Js.lastActivityCacheQueue = {};
     }
 
     Component.onCompleted: {

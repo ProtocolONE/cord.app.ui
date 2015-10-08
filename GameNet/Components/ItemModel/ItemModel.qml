@@ -15,7 +15,7 @@ Item {
     property variant notifableProperty: [] // string or array of strings
 
     signal sourceChanged();
-    signal propertyChanged(string id, string key);
+    signal propertyChanged(string id, string key, variant oldValue, variant newValue);
 
     Component.onDestruction: {
         d.clearModel()
@@ -54,6 +54,7 @@ Item {
         worker.clear();
         Js.model = {};
         Js.count = 0;
+        Js.invalidated = false;
         d.invalidate();
     }
 

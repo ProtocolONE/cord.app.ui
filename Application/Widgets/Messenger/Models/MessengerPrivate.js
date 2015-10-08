@@ -66,3 +66,22 @@ function ClearUsersModel(opt) {
     }
 }
 
+function RequestVcard(opt) {
+    this.uniqueId = "RequestVcard" + opt.jid;
+    this.execute = function() {
+        if (opt.messenger.connected) {
+            opt.jabber.requestVcard(opt.jid);
+        }
+        return true;
+    }
+}
+
+function RequestLastActivity(opt) {
+    this.uniqueId = "RequestLastActivity" + opt.jid;
+    this.execute = function() {
+        if (opt.messenger.connected) {
+            opt.jabber.getLastActivity(opt.jid, opt.force);
+        }
+        return true;
+    }
+}

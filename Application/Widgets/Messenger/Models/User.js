@@ -34,7 +34,6 @@ function createRawUser(jid, nickname) {
         playingGame: "",
         inContacts: false,
         isGroupChat: false,
-        participants: [],
         subscription: 0
     };
 
@@ -57,8 +56,7 @@ function createRawGroupChat(roomJid, nickname) {
         online: false,
         playingGame: "",
         inContacts: false,
-        isGroupChat: true,
-        participants: []
+        isGroupChat: true
     };
 
     return result;
@@ -83,8 +81,6 @@ function User(item, model, jabber) {
         self = this,
         message;
 
-    var nicknameChanged = false;
-
     var defGetter = function(field) {
         self.__defineGetter__(field, function() {
             if (!_item) {
@@ -97,10 +93,6 @@ function User(item, model, jabber) {
 
     var defSetter = function(field) {
         self.__defineSetter__(field, function(value) {
-             if (field =="avatar") {
-                 console.log('---- set avatar ', self.jid, value);
-             }
-
              model.setPropertyById(self.jid, field, value);
         });
     }
@@ -122,11 +114,14 @@ function User(item, model, jabber) {
         return jidToUser(_item.jid);
     });
 
-    defGetter("nickname");
+    this.__defineGetter__("nickname", function() {
+        jabber.requestVCardAsync(_item.jid);
+        return _item.nickname;
+    });
+
     this.__defineSetter__("nickname", function(value) {
         if (value != item.nickname) {
             model.setPropertyById(self.jid, "nickname", value);
-            nicknameChanged = true;
         }
     });
 
@@ -151,13 +146,13 @@ function User(item, model, jabber) {
     });
 
     this.__defineGetter__("avatar", function() {
-        jabber.requestVcard(_item.jid);
+        jabber.requestVCardAsync(_item.jid);
         return _item.avatar;
     });
     defSetter("avatar");
 
     this.__defineGetter__("lastActivity", function() {
-        jabber.getLastActivity(self.jid);
+        jabber.requestLastActivityAsync(self.jid);
         return _item.lastActivity;
     });
     defSetter("lastActivity");
@@ -180,10 +175,6 @@ function User(item, model, jabber) {
 
     this.isValid = function() {
         return !!_item && !!_model;
-    }
-
-    this.isNicknameChanged = function() {
-        return nicknameChanged;
     }
 }
 
@@ -266,14 +257,7 @@ function GroupChat(item, model, jabber) {
 
 
     this.__defineGetter__("participants", function() {
-        return _item.participants;
-    });
-
-    this.__defineSetter__("participants", function(val) {
-        _item.participants.clear();
-        val.forEach(function (g) {
-            _item.participants.append(g);
-        });
+        return _item.participants();
     });
 
     this.isValid = function() {
