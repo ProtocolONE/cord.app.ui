@@ -32,20 +32,22 @@ Item {
         if (!user.jid) {
             return;
         }
-
         messageList.model = MessengerJs.getConversation(user.jid).messages;
     }
 
     ListView {
         id: messageList
 
-        property bool isFirstPass: true
+        property bool isFirstPass: false
 
         cacheBuffer: 100
         boundsBehavior: Flickable.StopAtBounds
         interactive: true
 
-        onModelChanged: messageList.isFirstPass = true;
+        onModelChanged: {
+            messageList.isFirstPass = true;
+            messageList.scrollCheck();
+        }
 
         function scrollCheck() {
             if (messageList.isFirstPass && BodyJs.hasSavedScroll(user.jid))  {

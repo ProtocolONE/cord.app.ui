@@ -325,7 +325,6 @@ Item {
             userId: d.userId()
             onClicked:  {
                 if (!Messenger.editGroupModel().isActive()) {
-                    console.log('+++++ ', avatar)
                     root.select()
                     return;
                 }
