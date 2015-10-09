@@ -27,8 +27,16 @@ function show(mouse, mouseArea, component, options) {
     }
 
     point = mouseArea.mapToItem(_layer, mouse.x, mouse.y);
-    _instance.x = (point.x + _instance.width) > _layer.width ? (_layer.width - _instance.width - 10) : point.x;
-    _instance.y = (point.y + _instance.height) > _layer.height ? (_layer.height - _instance.height - 10) : point.y;
+
+    function update() {
+        _instance.x = (point.x + _instance.width) > _layer.width ? (_layer.width - _instance.width - 10) : point.x;
+        _instance.y = (point.y + _instance.height) > _layer.height ? (_layer.height - _instance.height - 10) : point.y;
+    }
+
+    update();
+    _instance.widthChanged.connect(update);
+    _instance.heightChanged.connect(update);
+
 }
 
 function clicked(root, globalX, globalY) {
