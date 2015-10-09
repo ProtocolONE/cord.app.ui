@@ -238,10 +238,6 @@ function getStatus() {
     return _modelInstance.currentStatus;
 }
 
-function getUserGroups(user) {
-    return _modelInstance.getUserGroups(user);
-}
-
 function setHeavyInteraction(value) {
     _modelInstance.heavyInteraction = value;
 }

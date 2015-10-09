@@ -49,18 +49,10 @@ TrayPopupBase {
                              maximumHeight: -1                             
                          });
 
-        if (listViewMessage.calcHeight() > maximumListViewHeight) {
-            lastDelegateHeight = Js.delegateHeights[listViewMessage.count - 1];
-            maximumHeight = maximumListViewHeight - (listViewMessage.calcHeight() - lastDelegateHeight);
-
-            listModel.setProperty(listViewMessage.count - 1, 'maximumHeight', maximumHeight);
-            root.isCropped = true;
-        }
-
     }
 
     width: 240
-    height: Math.max(newHeight, 92)
+    height: (listViewMessage.count == 0 && !playingRow.visible) ? 0 : Math.max(newHeight, 92)
 
     QtObject {
         id: d
@@ -181,6 +173,21 @@ TrayPopupBase {
 
                     model: ListModel {
                         id: listModel
+                    }
+
+                    onCountChanged: {
+                        var messageDate = Date.now(),
+                                lastDelegateHeight,
+                                maximumHeight,
+                                maximumListViewHeight = 200 - (playingRow.visible ? playingRow.height + 12 : 0);
+                        var listViewMessageCalcHeight = listViewMessage.calcHeight();
+                        if (listViewMessageCalcHeight > maximumListViewHeight) {
+                            lastDelegateHeight = Js.delegateHeights[listViewMessage.count - 1];
+                            maximumHeight = maximumListViewHeight - (listViewMessageCalcHeight - lastDelegateHeight);
+
+                            listModel.setProperty(listViewMessage.count - 1, 'maximumHeight', maximumHeight);
+                            root.isCropped = true;
+                        }
                     }
 
                     delegate: MessageReceivedDelegate {

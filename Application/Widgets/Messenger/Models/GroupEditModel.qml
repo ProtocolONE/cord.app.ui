@@ -45,6 +45,8 @@ Item {
         }
         d.active = false;
 
+        occupantsModel.clear();
+
         if (d.isCreateNew()) {
             if (d.lastActiveContact) {
                 root.messenger.selectUser({jid: d.lastActiveContact})

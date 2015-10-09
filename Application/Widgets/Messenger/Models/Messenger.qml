@@ -236,11 +236,6 @@ Item {
         return ConversationManager.create(id);
     }
 
-    function getUserGroups(user) {
-        var u = root.getUser(user.jid);
-        return u.isValid() ? u.groups : [];
-    }
-
     function isSelectedUser(user) {
         return user.jid === root.selectedJid;
     }
@@ -298,19 +293,12 @@ Item {
             return "";
         }
 
-//        if (usersModel.contains(item.jid)) {
-//            return usersModel.getById(item.jid).nickname;
-//        }
-
         var user = getUser(item.jid);
         if (!user || !user.isValid()) {
             return "";
         }
 
-        //return user.nickname;
         return user.nickname || item.jid;
-
-        //return "empty";
     }
 
     function userPresenceState(jid) {

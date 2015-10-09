@@ -52,7 +52,9 @@ Item {
             keepIfActive: true
             destroyInterval: 12000
 
-            onClosed: delete Popups.objects[jid];
+            onClosed: {
+                delete Popups.objects[jid];
+            }
 
             onCloseButtonClicked: {
                 Ga.trackEvent('Messenger Popup', 'close', 'MessageReveived');
