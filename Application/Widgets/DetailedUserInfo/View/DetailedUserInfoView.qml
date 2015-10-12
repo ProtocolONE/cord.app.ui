@@ -24,7 +24,7 @@ WidgetView {
 
     visible: d.opened
 
-    implicitWidth: 353
+    implicitWidth: visible ? 353: 0
     implicitHeight: parent.height
 
     function isOpened() {

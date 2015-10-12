@@ -38,7 +38,7 @@ WidgetModel {
         onServiceCanceled: AppSettings.setValue('RememberGameDownloading', 'service', false);
         onServiceInstalled: AppSettings.setValue('RememberGameDownloading', 'service', false);
         onServiceStarted: {
-            if (serviceItem.gameType != 'standalone') {
+            if (gameItem.gameType != 'standalone') {
                 return;
             }
             AppSettings.setValue('RememberGameDownloading', 'service', gameItem.serviceId);

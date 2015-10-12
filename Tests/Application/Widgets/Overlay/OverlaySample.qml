@@ -9,6 +9,7 @@
 //****************************************************************************/
 import QtQuick 2.4
 import Tulip 1.0
+import Dev 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
@@ -26,7 +27,7 @@ Rectangle {
 
     RequestServices {
         onReady: {
-            App.setSettingsValue('gameExecutor/serviceInfo/' + serviceId + "/",
+            AppSettings.setValue('gameExecutor/serviceInfo/' + serviceId + "/",
                                  "overlayEnabled", 1);
 
             var serviceId = App.serviceItemByGameId("71").serviceId;
@@ -34,20 +35,20 @@ Rectangle {
         }
     }
 
-    WidgetManager {
+    Item {
         id: manager
 
         Component.onCompleted: {
             Shell.execute(installPath + "Tests/Application/Widgets/Overlay/Tools/NormalWayIntegration.exe", ["-width", "1920", "-height", "1080"]);
 
-            manager.registerWidget('Application.Widgets.UserProfile');
-            manager.registerWidget('Application.Widgets.Messenger');
-            manager.registerWidget('Application.Widgets.DetailedUserInfo');
-            manager.registerWidget('Application.Widgets.AlertAdapter');
+            WidgetManager.registerWidget('Application.Widgets.UserProfile');
+            WidgetManager.registerWidget('Application.Widgets.Messenger');
+            WidgetManager.registerWidget('Application.Widgets.DetailedUserInfo');
+            WidgetManager.registerWidget('Application.Widgets.AlertAdapter');
 
-            manager.registerWidget('Application.Widgets.Money');
-            manager.registerWidget('Application.Widgets.Overlay');
-            manager.init();
+            WidgetManager.registerWidget('Application.Widgets.Money');
+            WidgetManager.registerWidget('Application.Widgets.Overlay');
+            WidgetManager.init();
 
             App.isPublicVersion = function() {
                 return true;

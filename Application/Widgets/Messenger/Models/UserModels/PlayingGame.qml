@@ -73,15 +73,18 @@ Item {
                 modelUser = usersModel.get(jid);
 
                 if (!UserJs.isOnline(modelUser.presenceState) || UserJs.isGameNet(modelUser) || !modelUser.inContacts) {
-                    return;
+                    continue;
                 }
 
                 playingGame = modelUser.playingGame || "";
                 if (!playingGame || !App.serviceExists(playingGame)) {
-                    return;
+                    continue;
                 }
 
                 gameItem = App.serviceItemByServiceId(playingGame);
+                if (!gameItem) {
+                    continue;
+                }
 
                 usersMap[jid] = {
                     nickname: modelUser.nickname.toLowerCase(),
