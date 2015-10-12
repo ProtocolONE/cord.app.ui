@@ -34,7 +34,7 @@ PopupBase {
 
     property bool inProgress: false
 
-    implicitWidth: 630
+    implicitWidth: 830
     title: qsTr("Доступ к премиум-серверу")
 
     function getItems() {
@@ -206,7 +206,7 @@ PopupBase {
                     ListView {
                         id: listView
 
-                        width: 250
+                        width: 430
                         height: model ? (30 * model.count + (model.count === 0 ? 1 : 0)) : 0
                         interactive: false
                         currentIndex: 0
@@ -226,7 +226,7 @@ PopupBase {
                     Rectangle {
                         id: notEnoughMoneyBlock
 
-                        width: 305
+                        width: 285
                         height: listView.height + 20
 
                         color: '#ffcc01' //INFO Это кастомный блок.
