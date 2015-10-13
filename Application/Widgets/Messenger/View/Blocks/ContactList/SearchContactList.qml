@@ -54,6 +54,10 @@ NavigatableContactList {
         }
 
         MessengerJs.eachUser(function(user) {
+            if (!user.inContacts) {
+                return;
+            }
+
             if (0 !== user.nickname.toLowerCase().indexOf(filterText)) {
                 return;
             }

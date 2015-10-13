@@ -192,7 +192,7 @@ Item {
 
             SupportIcon {
                 anchors {right: parent.right; top: parent.top; topMargin: 420}
-                visible: !!root.currentGame && root.currentGame.supportId
+                visible: !!root.currentGame && !!root.currentGame.supportId
                 onClicked: App.openSupportUrl('/new-ticket?set_dep_id=' + root.currentGame.supportId)
             }
 
