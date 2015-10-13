@@ -51,6 +51,7 @@ QXmppClient {
 
     function connectToServerEx(jid, password, params) {
         xmppClient.myJid = jid;
+
         var config = xmppClient.configuration;
         config.jid = jid;
         config.password = password;
