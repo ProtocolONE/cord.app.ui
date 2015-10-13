@@ -37,11 +37,15 @@ WidgetModel {
         }
         onServiceCanceled: AppSettings.setValue('RememberGameDownloading', 'service', false);
         onServiceInstalled: AppSettings.setValue('RememberGameDownloading', 'service', false);
-        onServiceStarted: {
-            if (gameItem.gameType != 'standalone') {
-                return;
-            }
+        onDownloaderStarted: {
             AppSettings.setValue('RememberGameDownloading', 'service', gameItem.serviceId);
         }
+    }
+
+    Connections {
+        target: App.mainWindowInstance()
+
+        ignoreUnknownSignals: true
+        onDownloaderFinished: AppSettings.setValue('RememberGameDownloading', 'service', false);
     }
 }
