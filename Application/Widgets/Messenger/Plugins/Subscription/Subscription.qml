@@ -20,10 +20,11 @@ Item {
 
         function processSubcribe(bareJid, reason) {
             debug('[Subscription] processSubcribe ', bareJid, reason);
-            var conversation = messenger.getConversation(bareJid);
-            var user = messenger.getUser(bareJid);
+            var conversation = messenger.getConversation(bareJid)
+                , user
+                , subscription = jabber.rosterManager.getSubscription(bareJid);
 
-            if (user.subscription == QXmppRosterManager.To) {
+            if (subscription == QXmppRosterManager.To) {
                 rosterManager.acceptSubscription(bareJid, "");
                 var msg = qsTr("MESSAGE_BODY_SUBSCRIPTION_INVITE_APPROVED");
                 conversation.appendMessage(bareJid, msg, Date.now(), Date.now(), "invite")
@@ -46,6 +47,7 @@ Item {
 
             conversation.appendMessage(bareJid, tmpMessage.body, Date.now(), Date.now(), "invite")
 
+            user = messenger.getUser(bareJid);
             if (privateObj.needIncrementUnread(user)) {
                 user.unreadMessageCount += 1;
                 privateObj.setUnreadMessageForUser(user.jid, user.unreadMessageCount);

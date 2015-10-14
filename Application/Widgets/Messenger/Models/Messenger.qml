@@ -309,7 +309,6 @@ Item {
         return "offline";
     }
 
-
     function getFullStatusMessage(user) {
         var item;
         if (!user) {
@@ -513,12 +512,8 @@ Item {
 
         function updateSubscription(user) {
             var subscription = xmppClient.rosterManager.getSubscription(user.jid);
-
-            if (subscription !== user.subscription) {
-                user.subscription = subscription;
-                user.inContacts = (subscription == QXmppRosterManager.Both);
-                usersModel.sourceChanged();
-            }
+            user.subscription = subscription;
+            user.inContacts = (subscription == QXmppRosterManager.Both);
         }
 
         function rosterReceivedCb() {
@@ -720,13 +715,21 @@ Item {
 
         indexProperty: "jid"
         prototype: usersModelComponent
-        notifableProperty: ["nickname", "presenceState", "lastActivity", "lastTalkDate"]
+        notifableProperty: ["nickname", "presenceState", "lastActivity", "lastTalkDate", "inContacts"]
         onPropertyChanged: {
             switch (key) {
                 case "lastTalkDate": root.talkDateChanged(id); break;
                 case "nickname": root.nicknameChanged(id); break;
                 case "lastActivity": root.lastActivityChanged(id); break;
                 case "presenceState": d.presenceChanged(id, oldValue, newValue); break;
+                case "inContacts": {
+                    if (root.contactReceived) {
+                        // INFO заставляем пересчитаться контакт листы на изменении inConacts, но только после
+                        // того как получим список контактов
+                        usersModel.sourceChanged();
+                    }
+                    break;
+                }
             }
 
             console.log("usersModel property changed ", id, key, oldValue, newValue);
