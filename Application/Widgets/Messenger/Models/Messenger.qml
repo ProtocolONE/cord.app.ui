@@ -73,6 +73,7 @@ Item {
     signal lastActivityChanged(string jid);
     signal nicknameChanged(string jid);
     signal participantsChanged(string jid);
+    signal playingGameChanged(string jid);
 
     signal rosterReceived();
 
@@ -715,7 +716,8 @@ Item {
 
         indexProperty: "jid"
         prototype: usersModelComponent
-        notifableProperty: ["nickname", "presenceState", "lastActivity", "lastTalkDate", "inContacts"]
+        notifableProperty: ["nickname", "presenceState", "lastActivity", "lastTalkDate", "inContacts"
+                            ,"playingGame"]
         onPropertyChanged: {
             switch (key) {
                 case "lastTalkDate": root.talkDateChanged(id); break;
@@ -730,6 +732,8 @@ Item {
                     }
                     break;
                 }
+
+                case "playingGame": root.playingGameChanged(id); break;
             }
 
             console.log("usersModel property changed ", id, key, oldValue, newValue);

@@ -51,7 +51,21 @@ QXmppClient {
 
     function connectToServerEx(jid, password, params) {
         xmppClient.myJid = jid;
-        xmppClient.connectToServer(jid, password, params);
+        var config = xmppClient.configuration;
+        config.jid = jid;
+        config.password = password;
+        if (params.hasOwnProperty('resource')) {
+            config.resource = params.resource;
+        }
+
+        if (params.hasOwnProperty('streamManagementMode')) {
+            config.streamManagementMode = params.streamManagementMode;
+        }
+
+        config.keepAliveInterval = 120;
+        config.keepAliveTimeout = 120;
+
+        xmppClient.connectUsingConfiguration();
     }
 
     function sendMessageEx(jid, message) {

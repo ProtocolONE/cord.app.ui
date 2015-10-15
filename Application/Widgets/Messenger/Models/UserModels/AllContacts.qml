@@ -69,6 +69,7 @@ Item {
                 , insertIndex;
 
             d.build(usersMap, users);
+
             currentIndex = d.findUser(jid);
 
             if (currentIndex < 0) {
@@ -99,36 +100,21 @@ Item {
             var keys = usersModel.keys();
             for (i in keys) {
                 jid = keys[i];
-                modelUser = usersModel.get(jid);
+                modelUser = messenger.getUser(jid);
 
                 if (UserJs.isGameNet(modelUser) || !modelUser.inContacts) {
                     continue;
                 }
 
                 usersMap[jid] = {
-                    online: UserJs.isOnline(modelUser.presenceState),
+                    online: modelUser.online,
                     nickname: modelUser.nickname.toLowerCase(),
-                    lastActivity: messenger.getUser(jid).lastActivity
+                    lastActivity: modelUser.lastActivity,
+                    isGroupChat: modelUser.isGroupChat
                 };
 
                 users.push(jid);
             }
-
-//            for (i = 0; i < usersModel.count; ++i) {
-//                modelUser = usersModel.get(i);
-//                if (UserJs.isGameNet(modelUser) || !modelUser.inContacts) {
-//                    continue;
-//                }
-
-//                jid = modelUser.jid;
-//                usersMap[jid] = {
-//                    online: UserJs.isOnline(modelUser.presenceState),
-//                    nickname: modelUser.nickname.toLowerCase(),
-//                    lastActivity: messenger.getUser(jid).lastActivity
-//                };
-
-//                users.push(jid);
-//            }
         }
 
         function clearModel() {
@@ -151,6 +137,12 @@ Item {
         }
 
         function usersSortFunction(usersMap, a, b) {
+            var val1, val2;
+
+            if (!usersMap.hasOwnProperty(a) || !usersMap.hasOwnProperty(b)) {
+                return -1;
+            }
+
             var online1 = usersMap[a].online;
             var online2 = usersMap[b].online;
 
@@ -159,6 +151,33 @@ Item {
             }
 
             if (!online1 && online2) {
+                return 1;
+            }
+
+            if (online1) {
+
+                var group1 = usersMap[a].isGroupChat;
+                var group2 = usersMap[b].isGroupChat;
+
+                if (group1 && !group2) {
+                    return -1;
+                }
+
+                if (!group1 && group2) {
+                    return 1;
+                }
+
+                val1 = usersMap[a].nickname;
+                val2 = usersMap[b].nickname;
+
+                if (val1 === val2) {
+                    return 0;
+                }
+
+                if (val1 < val2) {
+                    return -1;
+                }
+
                 return 1;
             }
 
@@ -173,8 +192,8 @@ Item {
                 return 1;
             }
 
-            var val1 = usersMap[a].nickname;
-            var val2 = usersMap[b].nickname;
+            val1 = usersMap[a].nickname;
+            val2 = usersMap[b].nickname;
 
             if (val1 === val2) {
                 return 0;

@@ -222,7 +222,10 @@ function GroupChat(item, model, jabber) {
     defGetSet("playingGame");
     defGetSet("inContacts");
 
-    defGetter("online");
+    this.__defineGetter__("online", function() {
+        return isOnline(self.presenceState);
+    });
+
     defGetter("isGroupChat");
 
     this.__defineGetter__("hasUnreadMessage", function() {

@@ -93,28 +93,6 @@ Item {
 
                 users.push(jid);
             }
-
-//            for (i = 0; i < usersModel.count; ++i) {
-//                modelUser = usersModel.get(i);
-//                if (!UserJs.isOnline(modelUser.presenceState) || UserJs.isGameNet(modelUser) || !modelUser.inContacts) {
-//                    continue;
-//                }
-
-//                playingGame = modelUser.playingGame || "";
-//                if (!playingGame || !App.serviceExists(playingGame)) {
-//                    continue;
-//                }
-
-//                gameItem = App.serviceItemByServiceId(playingGame);
-//                jid = modelUser.jid;
-
-//                usersMap[jid] = {
-//                    nickname: modelUser.nickname.toLowerCase(),
-//                    gameName: gameItem.name.toLowerCase()
-//                };
-
-//                users.push(jid);
-//            }
         }
 
         function fillEmptyModel(usersMap, users) {
@@ -307,11 +285,18 @@ Item {
                 }
             }
 
-            if (serviceId === currentPlayingGame) {
-                return;
-            }
-
             user.playingGame = serviceId;
+        }
+
+        function playingGameChagned(jid)  {
+            var  user
+                , serviceId = ""
+                , index
+                , insertIndex
+            ;
+
+            user = messenger.getUser(jid);
+            serviceId = user.playingGame;
 
             if (!serviceId) {
                 d.removeUser(jid);
@@ -367,6 +352,7 @@ Item {
         onRosterReceived: d.rosterReceived();
         onOnlineStatusChanged: d.onlineChanged(jid);
         onConnectedToServer: d.shouldResendGamingInfo = true;
+        onPlayingGameChanged: d.playingGameChagned(jid);
     }
 
     Connections {
