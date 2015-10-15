@@ -183,7 +183,8 @@ Item {
                 Text {
                     id: fioline
 
-                    width: parent.width
+                    width: parent.width - 10
+                    elide: Text.ElideRight
                     font {
                         family: "Arial"
                         pixelSize: 14

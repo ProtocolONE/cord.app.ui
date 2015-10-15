@@ -42,6 +42,8 @@ Rectangle {
         Text {
             id: targetNickname
 
+            elide: Text.ElideRight
+            width: parent.width
             color: Styles.lightText
             anchors.verticalCenter: parent.verticalCenter
         }
