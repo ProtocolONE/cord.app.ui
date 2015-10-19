@@ -944,11 +944,9 @@ ProviderVk.prototype.loginTitleChanged = function(title, callback) {
 
     currentUri = new Uri(this.browser.webView.url);
 
-    if ('access_denied' === currentUri.getQueryParamValue('error')) {
-        this.browser.destroy();
-        callback(Result.Cancel);
-        return;
-    }
+User.getProfile = function(profiles, successCallback, failedCallback) {
+    Core.execute('user.getProfile', {profileId: profiles, shortInfo: 1, achievements: 1, subscriptions: 1}, true, successCallback, failedCallback);
+};
 
     if ('1' === titleUri.getQueryParamValue('isBlocked')) {
         this.browser.destroy();

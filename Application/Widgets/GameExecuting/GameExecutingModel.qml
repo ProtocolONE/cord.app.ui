@@ -14,21 +14,40 @@ import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 import Application.Blocks 1.0
 
-import Application.Core 1.0
-import Application.Core.Popup 1.0
-import Application.Core.MessageBox 1.0
+import "../../Core/App.js" as App
+import "../../Core/Popup.js" as Popup
+import "../../Core/restapi.js" as RestApi
+import "../../Core/TrayPopup.js" as TrayPopup
+import "../../Core/MessageBox.js" as MessageBox
+import "../../Core/User.js" as User
+import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
+import "../../../GameNet/Components/Widgets/WidgetManager.js" as WidgetManager
 
 WidgetModel {
     id: root
 
+    signal closeView();
+
     property int internalPopupId: -1
+    property int internalP2PCancelRequestPopupId: -1
 
     function startExecuting(serviceId) {
         var gameItem = App.serviceItemByServiceId(serviceId);
         executeServiceDelay.serviceId = serviceId;
 
+        if (serviceId === "30000000000") {
+            var subsriptionRemainTime = User.getSubscriptionRemainTime(serviceId);
+            if (subsriptionRemainTime > 0) {
+                p2pCancelRequestConnection.target = WidgetManager.getWidgetByName('P2PCancelRequest').model;
+                root.internalP2PCancelRequestPopupId = Popup.show('P2PCancelRequest');
+                root.closeView();
+                return;
+            }
+        }
+
         if (gameItem.checkNicknameBeforeStart && !User.isNicknameValid()) {
             root.internalPopupId = Popup.show('NicknameEdit');
+            root.closeView();
             return;
         }
 
@@ -39,6 +58,7 @@ WidgetModel {
     function executeGame(serviceId) {
         var gameItem = App.serviceItemByServiceId(serviceId);
         root.internalPopupId = -1;
+        root.internalP2PCancelRequestPopupId = -1;
         executeServiceDelay.start();
 
         gameItem.status = "Starting";
@@ -47,7 +67,25 @@ WidgetModel {
     }
 
     Connections {
-        target: Popup
+        id: p2pCancelRequestConnection
+
+        ignoreUnknownSignals: true
+        onLicenseAccepted: {
+            RestApi.Core.execute('user.acceptLicense', { serviceId : executeServiceDelay.serviceId, licenseId: "1" },
+                                 true, function(response) {
+                                     User.refreshUserInfo();
+                                 });
+
+            root.executeGame(executeServiceDelay.serviceId);
+        }
+
+        onLicenseSkipped: {
+            root.executeGame(executeServiceDelay.serviceId);
+        }
+    }
+
+    Connections {
+        target: Popup.signalBus()
         onClose: {
             if (root.internalPopupId !== popupId) {
                 return;
@@ -101,7 +139,6 @@ WidgetModel {
                 return;
             }
             //--------------------------------------------------------------
-
             if (serviceState !== RestApi.Error.SERVICE_AUTHORIZATION_IMPOSSIBLE) {
                 return;
             }

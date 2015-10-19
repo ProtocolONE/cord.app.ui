@@ -399,6 +399,10 @@
 		<file>Application/Widgets/Overlay/View/Games/Reborn.qml</file>
 		<file>Application/Widgets/Overlay/View/OverlayBase.js</file>
 		<file>Application/Widgets/Overlay/View/OverlayBase.qml</file>
+		<file>Application/Widgets/P2PCancelRequest/P2PCancelRequestModel.qml</file>
+		<file>Application/Widgets/P2PCancelRequest/PluginContainer.qml</file>
+		<file>Application/Widgets/P2PCancelRequest/qmldir</file>
+		<file>Application/Widgets/P2PCancelRequest/View/P2PCancelRequestView.qml</file>
 		<file>Application/Widgets/PremiumNotifier/PluginContainer.qml</file>
 		<file>Application/Widgets/PremiumNotifier/PremiumNotifierModel.qml</file>
 		<file>Application/Widgets/PremiumNotifier/qmldir</file>

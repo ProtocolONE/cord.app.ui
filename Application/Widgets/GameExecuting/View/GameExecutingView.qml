@@ -25,12 +25,27 @@ PopupBase {
 
     Component.onCompleted: {
         root.gameItem = App.currentGame();
-        model.startExecuting(root.gameItem.serviceId)
+        hack1.start()
+    }
+
+
+    // INFO Так как мы хотим в методе startExecuting показать новые попапы,
+    // то этот метод надо вызхвать чуть попозже, когда этот попап доинициализируется.
+    // Иначе закрытие обработает не корретно.
+    Timer {
+        id: hack1
+
+        running: false
+        repeat: false
+        interval: 10
+        onTriggered: model.startExecuting(root.gameItem.serviceId)
     }
 
     Timer {
         interval: 5000
-        running: root.visible && root.model.internalPopupId == -1
+        running: root.visible
+                 && root.model.internalPopupId == -1
+                 && root.model.internalP2PCancelRequestPopupId == -1
         onTriggered: {
             root.close();
         }
@@ -41,5 +56,10 @@ PopupBase {
 
         widget: gameItem.widgets.gameStarting
         visible: widget
+    }
+
+    Connections {
+        target: root.model
+        onCloseView: root.close();
     }
 }

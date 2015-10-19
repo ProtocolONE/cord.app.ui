@@ -3,6 +3,7 @@ import QtQuick 2.4
 Item {
     default property alias data: column.data
     property alias allwaysShown: scrollBar.allwaysShown
+    property alias scrollbarWidth: scrollBar.scrollbarWidth
 
     function scrollToBegin() {
         flickable.contentY = 0;

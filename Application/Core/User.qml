@@ -9,15 +9,18 @@
 ****************************************************************************/
 pragma Singleton
 
-import QtQuick 2.4
+import QtQuick 1.1
 
-import GameNet.Core 1.0
+import "App.js" as AppJs
+import "restapi.js" as RestApiJs
+import "../Core/moment.js" as Moment
+
 import GameNet.Controls 1.0
-
-import Application.Core 1.0
 
 Item {
     id: root
+
+    signal subscriptionsChanged();
 
     property int premiumExpiredNotificationTimeout: 3600000
     property variant lastUpdated: 0
@@ -31,10 +34,13 @@ Item {
             if (!response || !response.userInfo || response.userInfo.length < 1) {
                 return;
             }
-            setUserInfo(response.userInfo[0].shortInfo);
+
+            var info = response.userInfo[0].shortInfo;
+            setUserInfo(info);
             setUserSubscriptions(response.userInfo[0].subscriptions);
-            d.level = response.userInfo[0].experience.level;
-            root.lastUpdated = Date.now();
+            root.level = response.userInfo[0].experience.level;
+
+            //mainAuthModule.updateGuestStatus(info.guest || "0");
         }, function() {});
 
         refreshPremium();
@@ -46,9 +52,21 @@ Item {
     function setUserSubscriptions(data) {
         var wasUpdated = false;
 
-        data.filter(function(e){
+        serviceSubscriptions.clear();
+        data.filter(function(e) {
+            // HACK
+//            if (e.serviceId == "30000000000") {
+//                return true;
+//            }
+
             return e.dueDate !== null;
         }).map(function(e) {
+                    // HACK
+//                    if (e.serviceId == "30000000000") {
+//                        e.dueDate = Moment.moment().add(7, 'days');
+//                    }
+
+
             if (serviceSubscriptions.contains(e.serviceId)) {
                 if (e.dueDate != serviceSubscriptions.getPropertyById(e.serviceId, "dueDate")) {
                     serviceSubscriptions.setPropertyById(e.serviceId, "dueDate", e.dueDate);
@@ -114,135 +132,21 @@ Item {
     }
 
     function reset() {
-        d.userId = "";
-        d.appKey = "";
-        d.cookie = "";
-        d.isPremium = false;
-        d.premiumDuration = 0;
-        d.balance = 0;
-        d.nickname = "";
-        d.nametech = "";
-        d.level = "";
-        d.avatarLarge = "";
-        d.avatarMedium = "";
-        d.avatarSmall = "";
+        root.userId = "";
+        root.appKey = "";
+        root.cookie = "";
+        root.isPremium = false;
+        root.premiumDuration = 0;
+        root.balance = 0;
+        root.nickname = "";
+        root.nametech = "";
+        root.level = "";
+        root.avatarLarge = "";
+        root.avatarMedium = "";
+        root.avatarSmall = "";
         serviceSubscriptions.clear();
     }
 
-    function setCredential(userId, appKey, cookie) {
-        d.userId = userId;
-        d.appKey = appKey;
-        d.cookie = cookie;
-    }
-
-    function userId() {
-        return d.userId;
-    }
-
-    function appKey() {
-        return d.appKey;
-    }
-
-    function cookie() {
-        return d.cookie;
-    }
-
-    function isAuthorized() {
-        return !!userId() && !!appKey() && !!cookie();
-    }
-
-    function isPremium() {
-        return d.isPremium;
-    }
-
-    function isLoginConfirmed() {
-        return d.isLoginConfirmed;
-    }
-
-    function getPremiumDuration() {
-        return d.premiumDuration;
-    }
-
-    function getBalance() {
-        return d.balance;
-    }
-
-    function setNickname(value) {
-        d.nickname = value;
-    }
-
-    function getNickname() {
-        return d.nickname;
-    }
-
-    function setTechname(value) {
-        d.nametech = value;
-    }
-
-    function getTechName() {
-        return d.nametech;
-    }
-
-    function getLevel() {
-        return d.level;
-    }
-
-    function getAvatarLarge() {
-        return d.avatarLarge;
-    }
-
-    function getAvatarMedium() {
-        return d.avatarMedium;
-    }
-
-    function getAvatarSmall() {
-        return d.avatarSmall;
-    }
-
-    function isGuest() {
-        return d.guest;
-    }
-
-    function getUrlWithCookieAuth(url) {
-        return d.cookie
-                ? 'https://gnlogin.ru/?auth=' + d.cookie + '&rp=' + encodeURIComponent(url)
-                : url;
-    }
-
-    function setSecondCredential(userId, appKey, cookie) {
-        d.secondUserId = userId;
-        d.secondAppKey = appKey;
-        d.secondCookie = cookie;
-    }
-
-    function resetSecond() {
-        setSecondCredential('', '', '');
-        d.secondNickname = "";
-    }
-
-    function secondUserId() {
-        return d.secondUserId;
-    }
-
-    function secondAppKey() {
-        return d.secondAppKey;
-    }
-
-    function secondCookie() {
-        return d.secondCookie;
-    }
-
-    function getSecondNickname() {
-        return d.secondNickname;
-    }
-
-    function isSecondAuthorized() {
-        return !!secondUserId() && !!secondAppKey() && !!secondCookie();
-    }
-
-    function isNicknameValid() {
-        return getNickname().indexOf('@') == -1;
-    }
 
     function getSubscriptions() {
         return serviceSubscriptions;
@@ -261,33 +165,6 @@ Item {
         return (getSubscriptionRemainTime(serviceId)|0) > 365 * 30;
     }
 
-    QtObject {
-        id: d
-
-        property string userId
-        property string appKey
-        property string cookie
-
-        property bool isPremium: false
-        property bool isLoginConfirmed: false
-        property int premiumDuration: 0
-        property int balance: 0
-
-        property string nickname
-        property string nametech
-
-        property string level
-        property string avatarLarge
-        property string avatarMedium
-        property string avatarSmall
-
-        property bool guest: false
-
-        property string secondNickname
-        property string secondUserId
-        property string secondAppKey
-        property string secondCookie
-    }
 
     ExtendedListModel {
         id: serviceSubscriptions

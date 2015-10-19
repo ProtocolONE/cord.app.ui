@@ -1,0 +1,4 @@
+module Application.Widgets.PremiumShop
+PluginContainer 1.0 PluginContainer.qml 
+PremiumShopView 1.0 View/PremiumShopView.qml
+PremiumShopModel 1.0 PremiumShopModel.qml 

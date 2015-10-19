@@ -31,6 +31,13 @@ WidgetView {
     property color defaultTitleColor: Styles.popupTitleText
     property color defaultTextColor: Styles.popupText
 
+    // Блокируем клики сквозь виджеты. надеюсь ничего не сломается
+    MouseArea {
+        anchors.fill: parent
+        acceptedButtons: Qt.AllButtons
+        hoverEnabled: true
+    }
+
     Rectangle {
         anchors.fill: parent
         color: defaultBackgroundColor

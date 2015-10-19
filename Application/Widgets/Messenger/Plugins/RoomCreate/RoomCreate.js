@@ -92,7 +92,9 @@ function RoomCreate(jabber, messenger) {
         jabber.discoveryManager.requestItems(jabber.conferenceUrl());
     });
 
-    // INFO этот код позволяет подключиться к всем доступным комнатам
+// INFO 21.10.2015 Отключил для проверки нагрузки mod_muc на бою. 
+// Основную работу с комнатами должны делать закладки.
+/*
     jabber.discoveryManager.itemsReceived.connect(function(items) {
         debug('DiscoveryManager itemsReceived');
         items.items.forEach(function(room) {
@@ -100,6 +102,7 @@ function RoomCreate(jabber, messenger) {
             debug(room.jid);
         });
     });
+*/
 
     jabber.mucManager.roomCreated.connect(onRoomCreated);
     jabber.mucManager.joined.connect(onJoinRoom);

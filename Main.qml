@@ -118,6 +118,67 @@ Rectangle {
         NumberAnimation { target: root; property: "opacity"; from: 0; to: 1;  duration: 750 }
     }
 
+    MouseArea {
+        anchors.fill: parent
+        onPressed: dragWindowPressed(mouseX,mouseY);
+        onReleased: dragWindowReleased(mouseX,mouseY);
+        onPositionChanged: dragWindowPositionChanged(mouseX,mouseY);
+    }
+
+    WidgetManager {
+        id: manager
+
+        Component.onCompleted: {
+            manager.registerWidget('Application.Widgets.AllGames');
+            manager.registerWidget('Application.Widgets.AlertAdapter');
+            manager.registerWidget('Application.Widgets.Facts');
+            manager.registerWidget('Application.Widgets.GameAdBanner');
+            manager.registerWidget('Application.Widgets.GameInfo');
+            manager.registerWidget('Application.Widgets.GameInstall');
+            manager.registerWidget('Application.Widgets.Maintenance');
+            manager.registerWidget('Application.Widgets.Messenger');
+            manager.registerWidget('Application.Widgets.PremiumShop');
+            manager.registerWidget('Application.Widgets.TaskBar');
+            manager.registerWidget('Application.Widgets.TaskList');
+            manager.registerWidget('Application.Widgets.TrayMenu');
+            manager.registerWidget('Application.Widgets.UserProfile');
+            manager.registerWidget('Application.Widgets.AutoRefreshCookie');
+            manager.registerWidget('Application.Widgets.DownloadManagerConnector');
+            manager.registerWidget('Application.Widgets.GameNews');
+            manager.registerWidget('Application.Widgets.GameLoad');
+            manager.registerWidget('Application.Widgets.GameExecuting');
+            manager.registerWidget('Application.Widgets.GameFailed');
+            manager.registerWidget('Application.Widgets.GameIsBoring');
+            manager.registerWidget('Application.Widgets.PromoCode');
+            manager.registerWidget('Application.Widgets.NicknameEdit');
+            manager.registerWidget('Application.Widgets.AccountActivation');
+            manager.registerWidget('Application.Widgets.Announcements');
+            manager.registerWidget('Application.Widgets.PublicTest');
+            manager.registerWidget('Application.Widgets.SecondAccountAuth');
+            manager.registerWidget('Application.Widgets.GameDownloadError');
+            /*
+              //INFO Disabled in 3.4
+              manager.registerWidget('Application.Widgets.MyGamesMenu');
+            */
+            manager.registerWidget('Application.Widgets.NicknameReminder');
+            manager.registerWidget('Application.Widgets.Overlay');
+            manager.registerWidget('Application.Widgets.Money');
+            manager.registerWidget('Application.Widgets.PremiumNotifier');
+            manager.registerWidget('Application.Widgets.ServiceLockConnector');
+            manager.registerWidget('Application.Widgets.GameUninstall');
+            manager.registerWidget('Application.Widgets.DetailedUserInfo');
+            manager.registerWidget('Application.Widgets.GameSettings');
+            manager.registerWidget('Application.Widgets.ApplicationSettings');
+
+            if (GoogleAnalyticsHelper.winVersion() > 0x0080) {
+                //INFO Available in Vista+
+                manager.registerWidget('Application.Widgets.Themes');
+            }
+
+            manager.registerWidget('Application.Widgets.P2PCancelRequest');
+        }
+    }
+
     Connections {
         target: SignalBus
 
