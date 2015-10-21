@@ -30,7 +30,7 @@ Rectangle {
 
     function initEmojiOne() {
         if (App.isQmlViewer()) {
-            EmojiOne.ns.imagePathPNG = (installPath + 'Develop/Assets/Smiles/').replace("file:///", ""); // Debug for QmlViewer
+            EmojiOne.ns.imagePathPNG = (installPath + 'Develop/Assets/Smiles/'); // Debug for QmlViewer
         } else {
             EmojiOne.ns.imagePathPNG = ':/Develop/Assets/Smiles/';
         }

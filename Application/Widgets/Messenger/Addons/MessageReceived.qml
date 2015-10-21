@@ -19,59 +19,74 @@ TrayPopupBase {
     property string jid
     property string playingGameServiceId: MessengerJs.userPlayingGame(root)
     property int newHeight: bodyItem.height + 60 + (playingRow.visible ? playingRow.height : 0)
-    property bool isCropped: false
+
+    property variant lastItem;
 
     function addMessage(from, body, message) {
-        var messageDate = Date.now(),
-                lastDelegateHeight,
-                maximumHeight,
-                maximumListViewHeight = 200 - (playingRow.visible ? playingRow.height + 12 : 0);
-
-        var lastMessageFrom = listModel.count > 0 ? listModel.get(listModel.count - 1).from : "";
-        var avatar = d.getAvatar(from);
-        var nickname = d.getNickname(from);
-
         root.restartDestroyTimer();
 
-        if (root.isCropped) {
+        if (bodyItem.isCropped) {
             return;
         }
 
+        var lastMessageFrom = lastItem ? lastItem.from : "";
+        var messageDate = Date.now();
         if (data.stamp != "Invalid Date") {
             messageDate = +(Moment.moment(data.stamp));
         }
 
-        listModel.append({
+        var item = tst.createObject(messageContainer, {
                              from: from,
                              body: body,
                              messageDate: messageDate,
-                             showAvatarAndNickname: lastMessageFrom !== from,
-                             maximumHeight: -1                             
+                             showAvatarAndNickname: lastMessageFrom !== from
                          });
 
+        lastItem = item;
     }
 
     width: 240
-    height: (listViewMessage.count == 0 && !playingRow.visible) ? 0 : Math.max(newHeight, 92)
+    height: Math.max(newHeight, 92)
 
-    QtObject {
-        id: d
+    Component {
+        id: tst
 
-        function getNickname(from) {
-            var user = MessengerJs.getUser(from);
-            if (user.isGroupChat) {
-                return MessengerJs.getGroupTitle({jid: from});
+        MessageReceivedDelegate {
+            property string from
+            property string body
+            property variant messageDate
+
+            function getNickname(from) {
+                var user = MessengerJs.getUser(from);
+                if (user.isGroupChat) {
+                    return MessengerJs.getGroupTitle({jid: from});
+                }
+
+                if (user.nickname) {
+                    return user.nickname;
+                }
+
+                return from;
             }
 
-            if (user.nickname) {
-                return user.nickname;
+            function getAvatar(from) {
+                return MessengerJs.userAvatar({jid: from});
             }
 
-            return from;
-        }
+            date: messageDate
+            bodyText: AppStringHelper.prepareText(body, {
+                                               hyperLinkStyle: Styles.messengerChatDialogHyperlinkColor,
+                                               smileResolver: EmojiOne.ns.toImage,
+                                               serviceResolver: App.serviceItemByServiceId
+                                           })
+            avatar: getAvatar(from)
+            nickname: getNickname(from)
+            width: parent.width
 
-        function getAvatar(from) {
-            return MessengerJs.userAvatar({jid: from});
+            onLinkActivated: {
+                MessengerJs.instance().messageLinkActivated({jid: root.jid}, link);
+                root.forceDestroy();
+            }
         }
     }
 
@@ -139,26 +154,18 @@ TrayPopupBase {
             Item {
                 id: bodyItem
 
+                property bool isCropped: messageContainer.childrenRect.height > maxContainerHeight
+                property int cropItemHeight: isCropped ? 10 : 0;
+                property int maxContainerHeight: 200
+
                 width: parent.width
-                height: listViewMessage.height + 12
+                height: Math.min(messageContainer.height + cropItemHeight, maxContainerHeight)
 
-                ListView {
-                    id: listViewMessage
+                Column {
+                    id: messageContainer
 
-                    function refreshHeight() {
-                        listViewMessage.height = calcHeight() + 1;
-                    }
-
-                    function calcHeight() {
-                        var result = 0
-                        , i;
-
-                        for (i in Js.delegateHeights) {
-                            result += Js.delegateHeights[i];
-                        }
-
-                        return Math.max(40, result);
-                    }
+                    clip: true
+                    height: Math.min(childrenRect.height, bodyItem.maxContainerHeight - bodyItem.cropItemHeight)
 
                     anchors {
                         left: parent.left
@@ -168,64 +175,16 @@ TrayPopupBase {
                         leftMargin: 10
                         rightMargin: 10
                     }
-
-                    interactive: false
-
-                    model: ListModel {
-                        id: listModel
-                    }
-
-                    onCountChanged: {
-                        var messageDate = Date.now(),
-                                lastDelegateHeight,
-                                maximumHeight,
-                                maximumListViewHeight = 200 - (playingRow.visible ? playingRow.height + 12 : 0);
-                        var listViewMessageCalcHeight = listViewMessage.calcHeight();
-                        if (listViewMessageCalcHeight > maximumListViewHeight) {
-                            lastDelegateHeight = Js.delegateHeights[listViewMessage.count - 1];
-                            maximumHeight = maximumListViewHeight - (listViewMessageCalcHeight - lastDelegateHeight);
-
-                            listModel.setProperty(listViewMessage.count - 1, 'maximumHeight', maximumHeight);
-                            root.isCropped = true;
-                        }
-                    }
-
-                    delegate: MessageReceivedDelegate {
-                        externalMaximumHeight: model.maximumHeight || -1
-                        date: model.messageDate
-                        body: AppStringHelper.prepareText(model.body, {
-                                                           hyperLinkStyle: Styles.messengerChatDialogHyperlinkColor,
-                                                           smileResolver: EmojiOne.ns.toImage,
-                                                           serviceResolver: App.serviceItemByServiceId
-                                                       })
-                        avatar: d.getAvatar(model.from)
-                        nickname: d.getNickname(model.from)
-                        showAvatarAndNickname: model.showAvatarAndNickname
-
-                        maximumHeight: model.maximumHeight
-
-                        width: listViewMessage.width
-
-                        onHeightChanged: {
-                            Js.delegateHeights[index] = height;
-                            listViewMessage.refreshHeight();
-                        }
-
-                        onLinkActivated: {
-                            MessengerJs.instance().messageLinkActivated({jid: root.jid}, link);
-                            root.forceDestroy();
-                        }
-                    }
                 }
 
                 MessageCropElement {
                     anchors {
-                        top: listViewMessage.bottom
+                        top: messageContainer.bottom
                         topMargin: 12
                         horizontalCenter: parent.horizontalCenter
                     }
 
-                    visible: root.isCropped
+                    visible: bodyItem.isCropped
                 }
             }
         }

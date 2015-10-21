@@ -13,24 +13,12 @@ Item {
     property int externalMaximumHeight
     property int maximumHeight
     property variant date
-    property string body
+    property string bodyText
 
     signal linkActivated(string link);
 
     height: contentColumn.height
     clip: true
-
-    onExternalMaximumHeightChanged: {
-        if (externalMaximumHeight < 0) {
-            return;
-        }
-
-        if (externalMaximumHeight < 16) {
-            delegate.visible = false;
-            delegate.height = 0;
-            return;
-        }
-    }
 
     Column {
         id: contentColumn
@@ -91,15 +79,7 @@ Item {
 
                 width: 182
 
-                function getText() {
-                    if (delegate.externalMaximumHeight > 0) {
-                        return '<table cellspacing="0" height="' + delegate.externalMaximumHeight + '"><tbody><tr ><td width="' + mainText.width + '" align="left">' + delegate.body + '</td></tr></tbody></table>'
-                    }
-
-                    return '<table cellspacing="0"><tbody><tr><td width="' + mainText.width + '" align="left">' + delegate.body + '</td></tr></tbody></table>'
-                }
-
-                text: getText()
+                text: delegate.bodyText
 
                 color: Styles.trayPopupText
                 textFormat: Text.RichText
