@@ -32,6 +32,8 @@ OverlayCore.PopupBase {
     property string playingGameServiceId: messenger.userPlayingGame(root)
     property int newHeight: bodyItem.height + 60 + (playingRow.visible ? playingRow.height : 0)
 
+    property variant lastItem;
+
     function addMessage(from, body, message) {
         root.restartDestroyTimer();
         if (bodyItem.isCropped) {
