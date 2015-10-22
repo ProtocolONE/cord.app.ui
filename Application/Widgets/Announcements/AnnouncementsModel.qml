@@ -51,16 +51,13 @@ WidgetModel {
             return false;
         }
 
-        var blockDate = 0,
-            now = Math.floor(+(Date.now()) / 1000);
-
         if (announceItem.size === "small") {
-            blockDate = announcements.settings.smallAnnouncementStopDate;
+            return announcements.settings.smallAnnouncementStopDate > 0;
         } else if (announceItem.size === "big") {
-            blockDate = announcements.settings.bigAnnouncementStopDate;
+            return announcements.settings.bigAnnouncementStopDate > 0;
         }
 
-        return blockDate >= (now - 2592000) && blockDate <= now;
+        return false;
     }
 
     function showGameInstalledAnnounce(serviceId) {
