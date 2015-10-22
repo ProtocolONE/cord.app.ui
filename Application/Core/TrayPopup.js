@@ -1,5 +1,4 @@
-.pragma library
-
 var popupCount = 0,
     maxPopupItem = 3,
-    shownObject = {};
+    shownObject = {},
+    items = []; // popup array from old to new

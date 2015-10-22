@@ -10,93 +10,110 @@
 
 import QtQuick 2.4
 import Application.Core 1.0
+import QtQuick.Window 2.2
 
 Item {
     id: popupItem
+
+    default property alias data: container.data
 
     property alias containsMouse: mouseArea.containsMouse
     property bool isShown: false
     property bool keepIfActive: false
     property int destroyInterval: 0
 
-    signal anywhereClicked()
-    signal closed()
-    signal timeoutClosed();
+    property bool _closed: false
+
+    signal anywhereClicked() // killed by forceDestroy or anyware clicked
+    signal closed() // emited when popup closed but still visible
+    signal timeoutClosed(); // killed by timeout
+
 
     function restartDestroyTimer() {
         destroyTimer.restart();
     }
 
     function shadowDestroy() {
-        closeAnimation.start();
-    }
+        if (popupItem._closed) {
+            return;
+        }
 
-    function startFadeIn() {
-        fadeInAnimation.start();
+        popupItem._closed = true;
+        destroyTimer.stop();
+        popupItem.closed();
     }
 
     function forceDestroy() {
-        destroyTimer.stop();
+        if (popupItem._closed) {
+            return;
+        }
+
         popupItem.anywhereClicked();
         popupItem.shadowDestroy();
     }
 
-    opacity: 0
-    transform: [
-        Rotation { angle: 180 },
-        Translate { y: height }
-    ]
+    function timeoutDestroy() {
+        if (popupItem._closed) {
+            return;
+        }
 
+        popupItem.timeoutClosed();
+        popupItem.shadowDestroy();
+    }
+
+    opacity: 0
     width: 240
     height: 92
-
-    SequentialAnimation {
-        id: fadeInAnimation
-
-        running: true
-
-        PauseAnimation { duration: 200 }
-        PropertyAnimation {
-            target: popupItem
-            property: "opacity"
-            from: 0.1
-            to: 1
-            duration: 150
-        }
-    }
-
-    PropertyAnimation {
-        id: closeAnimation
-        target: popupItem
-        property: "opacity"
-        from: 1
-        to: 0.2
-        duration: 100
-        running: false
-        onStopped: {
-            destroyTimer.stop();
-            TrayPopup.destroyItem(popupItem);
-            popupItem.closed();
-            popupItem.destroy();
-        }
-    }
-
-    MouseArea {
-        id: mouseArea
-
-        hoverEnabled: true
-        anchors.fill: parent
-        onClicked: if (!closeAnimation.running) popupItem.forceDestroy();
-    }
 
     Timer {
         id: destroyTimer
 
         running: destroyInterval > 0 && isShown && (keepIfActive ? !containsMouse : true)
         interval: destroyInterval
-        onTriggered: {
-            popupItem.timeoutClosed();
-            popupItem.shadowDestroy();
+        onTriggered: popupItem.timeoutDestroy()
+    }
+
+    Window {
+        id: window
+
+        color: "#00000000"
+        visible: popupItem.visible
+        x: popupItem.x
+        y: popupItem.y
+        width: popupItem.width
+        height: popupItem.height
+        flags: Qt.Window | Qt.FramelessWindowHint | Qt.Tool | Qt.WindowMinimizeButtonHint
+               | Qt.WindowMaximizeButtonHint | Qt.WindowSystemMenuHint | Qt.WindowStaysOnTopHint
+
+        MouseArea {
+            id: mouseArea
+
+            hoverEnabled: true
+            anchors.fill: parent
+            onClicked: popupItem.forceDestroy();
+        }
+
+        Item {
+            id: container
+
+            opacity: popupItem.opacity
+
+            width: popupItem.width
+            height: popupItem.height
+
+            Behavior on height {
+                NumberAnimation {
+                    duration: 250
+                }
+            }
+        }
+
+        // block double close
+        MouseArea {
+            anchors.fill: parent
+            acceptedButtons: Qt.AllButtons
+            hoverEnabled: true
+            visible: popupItem._closed
         }
     }
 }

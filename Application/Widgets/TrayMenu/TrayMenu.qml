@@ -164,9 +164,7 @@ WidgetModel {
         flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Popup
 
         width: 180
-        //  HACK: минимальная высота окна должна быть >= 69
-        height: isFullMenu ? 34 + (28 + menuView.spacing) * 4 : 69
-
+        height: 34 + (28 + menuView.spacing) * (isFullMenu ? menuView.count : 1)
         onHeightChanged: {
             if (!visible) {
                 return;
@@ -187,7 +185,7 @@ WidgetModel {
         color: "#00000000"
 
         Rectangle {
-            height: isFullMenu ? parent.height - 2 : 63 - 2
+            height: parent.height - 2
 
             anchors {
                 left: parent.left
@@ -336,12 +334,7 @@ WidgetModel {
             }
 
             width: parent.width
-            anchors {
-                fill: parent
-                //  HACK: минимальная высота окна должна быть >= 69
-                //      из-за этого делаем сдвиг
-                topMargin: isFullMenu ? 0 : 6
-            }
+            anchors.fill: parent
         }
     }
 }

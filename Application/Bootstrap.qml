@@ -42,6 +42,7 @@ Item {
         Host.hwid(true);
 
         Styles.init();
+        TrayPopup.init(root);
 
         Moment.moment.lang(App.language());
 
