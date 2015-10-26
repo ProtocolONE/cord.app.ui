@@ -70,7 +70,7 @@ function createService(data) {
 
     if (item.gameId == 1021) {
         //HACK Use this hack due have just one game (BlackDesert) with that feature.
-        item.hasPremiumServer = true;
+        //item.hasPremiumServer = true;
     }
 
     urlProps = [

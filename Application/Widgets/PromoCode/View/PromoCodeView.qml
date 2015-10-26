@@ -31,34 +31,6 @@ PopupBase {
     title: qsTr("Активация ключа")
     clip: true
 
-    Text {
-        font {
-            family: 'Arial'
-            pixelSize: 14
-        }
-        visible: !!root.gameItem && (root.gameItem.serviceId == '30000000000')
-        width: parent.width
-        color: defaultTextColor
-        smooth: true
-        wrapMode: Text.WordWrap
-        textFormat: Text.RichText
-        text: (function() {
-            var currentDate = (Date.now()/1000)|0,
-                color = Styles.style.linkText.toString();
-
-            if (currentDate < 1443398400) { //28.09.2015
-                return qsTr("Введите ключ из набора раннего доступа - это позволит начать игру за несколько дней до запуска. <a style='color: %1' href='http://go.gamenet.ru/a/233/335/'>\"Получить ключ\"</a>.").arg(color);
-            }
-
-            if (currentDate < 1444003200) { //28.09.2015 -> 05.10.2015
-                return qsTr("Введите ключ из набора раннего доступа - это позволит начать игру за несколько дней до запуска, 12 октября. <a style='color: %1' href='http://go.gamenet.ru/a/233/335/'>\"Получить ключ\"</a>.").arg(color);
-            }
-
-            return qsTr("Внимание! Вход в игру ограничен до 12 октября. Чтобы начать игру сейчас, введите ключ из набора раннего доступа. <a style='color: %1' href='http://go.gamenet.ru/a/233/335/'>\"Получить ключ\"</a>.").arg(color);
-        })();
-        onLinkActivated: App.openExternalUrl(link)
-    }
-
     Item {
         width: parent.width
         height: childrenRect.height
