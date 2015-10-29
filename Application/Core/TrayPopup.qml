@@ -22,13 +22,6 @@ Item {
     property int spacing: 5
     property int itemSpacing: 10
 
-    // using for auto destroy when main window closed
-    property variant rootWindow
-
-    function init(rootWindow) {
-        root.rootWindow = rootWindow;
-    }
-
     function removeOldPopupItem() {
         var item, oldestTime = Infinity;
         for (var key in Js.shownObject) {
@@ -81,10 +74,14 @@ Item {
             removeOldPopupItem();
         }
 
+        if (!context) {
+            context = {};
+        }
+
         context.opacity = 0;
-        var object = component.createObject(root.rootWindow, context);
+        var object = component.createObject(null, context);
         var startY = trayWindow.height - object.height;
-        var objectContext = itemContext.createObject(root.rootWindow, { y: startY, x: 0, opacity: 0 });
+        var objectContext = itemContext.createObject(null, { y: startY, x: 0, opacity: 0 });
 
         objectContext.vanished.connect(function() {
             d.destroyItem(object);
