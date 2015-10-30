@@ -51,12 +51,7 @@ Rectangle {
                 , src = /<img.*?src="(.*?)"/.exec(shortSmile)[1];
 
             item.tag = shortName;
-            if (App.isQmlViewer()) {
-                item.imageSource = 'file:///' + src; // For Debug QmlViewer
-            } else {
-                item.imageSource = src;
-            }
-
+            item.imageSource = src;
             return item;
         }
 

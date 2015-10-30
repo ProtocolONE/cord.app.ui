@@ -68,9 +68,9 @@ OverlayCore.PopupBase {
             property variant messageDate
 
             function getNickname(from) {
-                var user = MessengerJs.getUser(from);
+                var user = root.messenger.getUser(from);
                 if (user.isGroupChat) {
-                    return MessengerJs.getGroupTitle({jid: from});
+                    return root.messenger.getGroupTitle({jid: from});
                 }
 
                 if (user.nickname) {
@@ -81,7 +81,7 @@ OverlayCore.PopupBase {
             }
 
             function getAvatar(from) {
-                return MessengerJs.userAvatar({jid: from});
+                return root.messenger.userAvatar({jid: from});
             }
 
             date: messageDate
@@ -95,7 +95,7 @@ OverlayCore.PopupBase {
             width: parent.width
 
             onLinkActivated: {
-                MessengerJs.instance().messageLinkActivated({jid: root.jid}, link);
+                root.messenger.signalBus().messageLinkActivated({jid: root.jid}, link);
                 root.anywhereClickDestroy();
             }
         }

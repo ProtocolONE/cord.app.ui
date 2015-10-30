@@ -12,6 +12,7 @@ import Tulip 1.0
 import Dev 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
+import GameNet.Core 1.0
 
 import Application.Controls 1.0
 
@@ -24,6 +25,19 @@ Rectangle {
     width: 800
     height: 800
     color: '#EEEEEE'
+
+    function initEmojiOne() {
+        if (App.isQmlViewer()) {
+            EmojiOne.ns.imagePathPNG = (installPath + 'Develop/Assets/Smiles/');//.replace("file:///", ""); // Debug for QmlViewer
+        } else {
+            EmojiOne.ns.imagePathPNG = 'qrc:///Develop/Assets/Smiles/';
+        }
+
+        EmojiOne.ns.ascii = true;
+        EmojiOne.ns.unicodeAlt = false;
+        EmojiOne.ns.cacheBustParam = "";
+        EmojiOne.ns.addedImageProps = '"width"= "20" height"="20"'
+    }
 
     RequestServices {
         onReady: {
@@ -50,9 +64,13 @@ Rectangle {
             WidgetManager.registerWidget('Application.Widgets.Overlay');
             WidgetManager.init();
 
-            App.isPublicVersion = function() {
-                return true;
-            }
+            root.initEmojiOne();
+
+            // INFO не работает
+//            App.isPublicVersion = function() {
+//                return true;
+//            }
+
         }
     }
 

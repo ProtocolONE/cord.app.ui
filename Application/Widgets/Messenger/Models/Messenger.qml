@@ -736,7 +736,7 @@ Item {
                 case "playingGame": root.playingGameChanged(id); break;
             }
 
-            console.log("usersModel property changed ", id, key, oldValue, newValue);
+            //console.log("usersModel property changed ", id, key, oldValue, newValue);
         }
     }
 

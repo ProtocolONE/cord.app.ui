@@ -158,7 +158,6 @@ Item {
         }
 
         function updateNotifableProperty() {
-            console.log(typeof root.notifableProperty)
             Js.notifableProperty = {};
             if (!root.notifableProperty) {
                 return;
