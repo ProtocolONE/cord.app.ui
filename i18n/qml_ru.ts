@@ -4295,7 +4295,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>APPLICATION_SETTINGS_NOTIFICATION_BIG_ANNOUNCEMENT_SKIP_MONTH</source>
-        <translation>приостановить на 1 месяц</translation>
+        <translation type="vanished">приостановить на 1 месяц</translation>
     </message>
     <message>
         <source>APPLICATION_SETTINGS_NOTIFICATION_SMALL_ANNOUNCEMENT_TITLE</source>
@@ -4307,11 +4307,22 @@ Please try again later.</source>
     </message>
     <message>
         <source>APPLICATION_SETTINGS_NOTIFICATION_SMALL_ANNOUNCEMENT_SKIP_MONTH</source>
-        <translation>приостановить на 1 месяц</translation>
+        <translation type="vanished">приостановить на 1 месяц</translation>
     </message>
     <message>
         <source>APPLICATION_SETTINGS_NOTIFICATION_IMPORTANT_DESCRIPTION</source>
         <translation>Создавая равные возможности для всех игроков, мы хотели бы доносить информацию, которая может быть вам важна и полезна, с помощью уведомлений в приложении. Вы можете приостановить получение таких уведомлений.</translation>
+    </message>
+    <message>
+        <source>не уведомлять</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>P2PCancelRequestView</name>
+    <message>
+        <source>Предложение об обмене</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4422,6 +4433,10 @@ Please try again later.</source>
     </message>
     <message>
         <source>Доступ к премиум серверу закончился &lt;span style=&quot;font-size: 14px;&quot;&gt;%1&lt;/span&gt; %2 назад</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Доступ к премиум серверу закончился сегодня</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4558,7 +4573,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
-        <translation>Расширенный аккаунт GameNet - возможность играть двумя аккаунтами одновременно в игры BS.ru, Aika 2 и Reborn. Мы постоянно добавляем в расширенный аккаунт новые приятные бонусы. &lt;a style=&quot;color: #2d98db&quot;href=&quot;bonus&quot;&gt;Узнайте больше.&lt;/a&gt;</translation>
+        <translation>Расширенный аккаунт GameNet - возможность играть двумя аккаунтами одновременно в игры Black Desert, BS.ru, Aika 2 и Reborn. Мы постоянно добавляем в расширенный аккаунт новые приятные бонусы. &lt;a style=&quot;color: #2d98db&quot;href=&quot;bonus&quot;&gt;Узнайте больше.&lt;/a&gt;</translation>
     </message>
     <message>
         <source>NOT_ENOUGH_MONEY</source>
@@ -4736,18 +4751,6 @@ Please try again later.</source>
     </message>
     <message>
         <source>Активация ключа</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Введите ключ из набора раннего доступа - это позволит начать игру за несколько дней до запуска. &lt;a style=&apos;color: %1&apos; href=&apos;http://go.gamenet.ru/a/233/335/&apos;&gt;&quot;Получить ключ&quot;&lt;/a&gt;.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Введите ключ из набора раннего доступа - это позволит начать игру за несколько дней до запуска, 12 октября. &lt;a style=&apos;color: %1&apos; href=&apos;http://go.gamenet.ru/a/233/335/&apos;&gt;&quot;Получить ключ&quot;&lt;/a&gt;.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Внимание! Вход в игру ограничен до 12 октября. Чтобы начать игру сейчас, введите ключ из набора раннего доступа. &lt;a style=&apos;color: %1&apos; href=&apos;http://go.gamenet.ru/a/233/335/&apos;&gt;&quot;Получить ключ&quot;&lt;/a&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
