@@ -96,7 +96,7 @@ OverlayCore.PopupBase {
 
             onLinkActivated: {
                 MessengerJs.instance().messageLinkActivated({jid: root.jid}, link);
-                root.forceDestroy();
+                root.anywhereClickDestroy();
             }
         }
     }

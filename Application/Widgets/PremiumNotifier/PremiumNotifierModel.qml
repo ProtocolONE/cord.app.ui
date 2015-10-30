@@ -61,6 +61,7 @@ WidgetModel {
             }
             onAnywhereClicked: Ga.trackEvent('Announcement PremiumExpired', 'miss click');
             onCloseButtonClicked: Ga.trackEvent('Announcement PremiumExpired', 'close');
+            onTimeoutClosed: Ga.trackEvent('Announcement PremiumExpired', 'timeout close');
         }
     }
 }

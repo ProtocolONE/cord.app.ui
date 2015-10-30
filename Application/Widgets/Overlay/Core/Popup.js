@@ -88,7 +88,7 @@ function showPopup(component, context, itemId) {
     shownObject[object] = {
         id: itemId,
         shownDate: +(new Date()),
-        closeFunction: object.forceDestroy,
+        closeFunction: object.anywhereClickDestroy,
         obj: object
     }
     popupCount++;

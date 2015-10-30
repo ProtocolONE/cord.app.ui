@@ -19,6 +19,8 @@ Item {
     property bool keepIfActive: false
     property int destroyInterval: 0
 
+    property bool _closed: false
+
     signal anywhereClicked()
     signal closed()
     signal timeoutClosed();
@@ -28,16 +30,31 @@ Item {
     }
 
     function shadowDestroy() {
+        if (popupItem._closed) {
+            return;
+        }
+
+        popupItem._closed = true;
+
         closeAnimation.start();
     }
 
-    function startFadeIn() {
-        fadeInAnimation.start();
-    }
+    function anywhereClickDestroy() {
+        if (popupItem._closed) {
+            return;
+        }
 
-    function forceDestroy() {
         destroyTimer.stop();
         popupItem.anywhereClicked();
+        popupItem.shadowDestroy();
+    }
+
+    function timeoutDestroy() {
+        if (popupItem._closed) {
+            return;
+        }
+
+        popupItem.timeoutClosed();
         popupItem.shadowDestroy();
     }
 
@@ -87,7 +104,7 @@ Item {
 
         hoverEnabled: true
         anchors.fill: parent
-        onClicked: if (!closeAnimation.running) popupItem.forceDestroy();
+        onClicked: popupItem.anywhereClickDestroy();
     }
 
     Timer {
@@ -95,9 +112,6 @@ Item {
 
         running: destroyInterval > 0 && isShown && (keepIfActive ? !containsMouse : true)
         interval: destroyInterval
-        onTriggered: {
-            popupItem.timeoutClosed();
-            popupItem.shadowDestroy();
-        }
+        onTriggered: popupItem.timeoutDestroy();
     }
 }

@@ -32,8 +32,6 @@ Item {
 
     property int fakePopupIndex: 0
 
-    Component.onCompleted: TrayPopup.rootWindow = root;
-
     RequestServices {
         onReady: {
             App.activateGame(App.serviceItemByGameId("92"));
@@ -141,10 +139,10 @@ Item {
         GamePopup {
             id: popUp
 
-            onPlayClicked: console.log('play clicked')
-            onCloseButtonClicked: console.log('close clicked')
-            onAnywhereClicked: console.log('anyware clicked')
-            onTimeoutClosed: console.log('timeoute closed')
+            onPlayClicked: console.log('GamePopup play clicked')
+            onCloseButtonClicked: console.log('GamePopup close clicked')
+            onAnywhereClicked: console.log('GamePopup anyware clicked')
+            onTimeoutClosed: console.log('GamePopup timeoute closed')
         }
     }
 

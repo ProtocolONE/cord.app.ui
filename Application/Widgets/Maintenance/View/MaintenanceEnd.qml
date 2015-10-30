@@ -31,6 +31,7 @@ GamePopup {
     }
 
     onAnywhereClicked: gaEvent('miss click')
+    onTimeoutClosed: gaEvent('timeout close')
     onCloseButtonClicked: gaEvent('close')
     onPlayClicked: {
         gaEvent('play');

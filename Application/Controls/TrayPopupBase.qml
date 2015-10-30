@@ -24,7 +24,7 @@ Item {
 
     property bool _closed: false
 
-    signal anywhereClicked() // killed by forceDestroy or anyware clicked
+    signal anywhereClicked() // killed by anywhereClickDestroy
     signal closed() // emited when popup closed but still visible
     signal timeoutClosed(); // killed by timeout
 
@@ -43,7 +43,7 @@ Item {
         popupItem.closed();
     }
 
-    function forceDestroy() {
+    function anywhereClickDestroy() {
         if (popupItem._closed) {
             return;
         }
@@ -90,7 +90,7 @@ Item {
 
             hoverEnabled: true
             anchors.fill: parent
-            onClicked: popupItem.forceDestroy();
+            onClicked: popupItem.anywhereClickDestroy();
         }
 
         Item {

@@ -100,7 +100,7 @@ Item {
         Js.shownObject[object] = {
             id: itemId,
             shownDate: +(Date.now()),
-            closeFunction: object.forceDestroy,
+            closeFunction: object.timeoutDestroy,
             obj: object,
             context: objectContext
         }

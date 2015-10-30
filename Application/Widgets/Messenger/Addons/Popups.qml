@@ -61,7 +61,7 @@ Item {
             }
 
             onTimeoutClosed: {
-                Ga.trackEvent('Messenger Popup', 'timeout', 'MessageReveived');
+                Ga.trackEvent('Messenger Popup', 'timeout close', 'MessageReveived');
             }
 
             onAnywhereClicked: {

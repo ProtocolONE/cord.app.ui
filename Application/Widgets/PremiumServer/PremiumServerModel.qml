@@ -95,6 +95,7 @@ WidgetModel {
             }
             onAnywhereClicked: Ga.trackEvent('Announcement PremiumServerExpired', 'miss click');
             onCloseButtonClicked: Ga.trackEvent('Announcement PremiumServerExpired', 'close');
+            onTimeoutClosed: Ga.trackEvent('Announcement PremiumServerExpired', 'timeout close');
             onClosed: root.update();
         }
     }

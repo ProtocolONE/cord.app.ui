@@ -599,6 +599,10 @@ WidgetModel {
                 Ga.trackEvent(popUp.page, 'Announcement SilentModeRemider', 'close', gameItem.gaName);
             }
 
+            onTimeoutClosed: {
+                Ga.trackEvent(popUp.page, 'Announcement SilentModeRemider', 'timeout close', gameItem.gaName);
+            }
+
             Component.onCompleted: {
                 Ga.trackEvent(page, 'Announcement SilentModeRemider', 'show', gameItem.gaName);
             }
@@ -644,10 +648,9 @@ WidgetModel {
 
                 if (announceItem.url) {
                     announcements.announceActionClick(announceItem);
-                    return;
+                } else {
+                    announcements.missClicked(announceItem.serviceId);
                 }
-
-                announcements.missClicked(announceItem.serviceId);
 
                 var gameItem = App.serviceItemByServiceId(announceItem.serviceId);
                 Ga.trackEvent('Announcement Small ' + announceItem.id, 'miss click', gameItem.gaName);
@@ -666,6 +669,11 @@ WidgetModel {
 
                 var gameItem = App.serviceItemByServiceId(announceItem.serviceId);
                 Ga.trackEvent('Announcement Small ' + announceItem.id, 'close', gameItem.gaName);
+            }
+
+            onTimeoutClosed: {
+                var gameItem = App.serviceItemByServiceId(announceItem.serviceId);
+                Ga.trackEvent('Announcement Small ' + announceItem.id, 'timeout close', gameItem.gaName);
             }
 
             Component.onCompleted: {
@@ -720,6 +728,11 @@ WidgetModel {
             onPlayClicked: {
                 remindGameItemPopup.sendAnnouncementActionClicked();
                 announcements.gamePlayClicked(serviceId);
+            }
+
+            onTimeoutClosed: {
+                var gameItem = App.serviceItemByServiceId(serviceId);
+                Ga.trackEvent('Announcement '+ popupType, 'timeout close', gameItem.gaName);
             }
 
             Component.onCompleted: {
