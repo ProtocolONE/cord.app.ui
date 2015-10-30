@@ -368,7 +368,7 @@ WidgetView {
                                         width: row1.width
                                         height: row1.height
                                         toolTip: qsTr("PROFILE_CONFIRM_LOGIN_TULTIP")
-                                        onClicked: App.openExternalUrlWithAuth("https://gamenet.ru/security/#confirm-email");
+                                        onClicked: App.openExternalUrlWithAuth("https://gamenet.ru/security/confirm-email");
                                         acceptedButtons: Qt.LeftButton
                                     }
                                 }
