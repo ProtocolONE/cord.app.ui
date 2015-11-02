@@ -50,7 +50,7 @@ Item {
     }
 
     function activateWindow() {
-        fakeMainWindowsInstance.windowActivated();
+        //fakeMainWindowsInstance.windowActivated();
     }
 
     function setServiceInstallPath(serviceId, path) {

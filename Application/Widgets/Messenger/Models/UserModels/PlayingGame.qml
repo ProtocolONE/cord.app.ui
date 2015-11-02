@@ -229,6 +229,7 @@ Item {
 
         function onlineChanged(jid) {
             var user = root.messenger.getUser(jid)
+                , insertIndex
                 , index
                 , playingGame;
 
@@ -238,11 +239,23 @@ Item {
                     return;
                 }
 
-                index = d.findInsertIndexNoMap(jid);
-                Js.sortedUsers.splice(index, 0, jid);
-                proxyModel.insert(index, {
-                                      jid: jid
-                                  });
+                index = d.findUser(jid);
+                if (index !== -1) {
+                    Js.sortedUsers.splice(index, 1);
+                }
+
+                insertIndex = d.findInsertIndexNoMap(jid);
+                Js.sortedUsers.splice(insertIndex, 0, jid);
+
+                if (index !== insertIndex) {
+                    if (index !== -1) {
+                        proxyModel.move(index, insertIndex, 1);
+                    } else {
+                        proxyModel.insert(insertIndex, {
+                                              jid: jid
+                                          });
+                    }
+                }
 
             } else {
                 index = d.findUser(jid);
