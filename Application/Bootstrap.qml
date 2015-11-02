@@ -300,6 +300,8 @@ Item {
 
         onLeftMousePress: ContextMenu.clicked(rootItem, x, y);
         onNavigate: ContextMenu.hide();
+        onApplicationActivated: App.updateKeyboardLayout(); // INFO сигнал перенесли из приложения в qml
+
     }
 
     Connections {

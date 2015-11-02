@@ -10,7 +10,9 @@
 pragma Singleton
 import QtQuick 2.4
 
-QtObject {
+Item {
+    id: root
+
     signal updateFinished();
 
     signal authDone(string userId, string appKey, string cookie);
@@ -66,7 +68,33 @@ QtObject {
 
     signal beforeCloseUI();
 
+    signal applicationActivated();
+    signal applicationDeactivated();
+
     function cancelDownload(gameItem) {
         serviceCanceled(gameItem);
+    }
+
+    Item {
+        id: applicationStateHandler
+
+        property int oldApplicationState: -1
+
+        Connections {
+            target: Qt.application
+
+            onStateChanged: {
+                var oldActive = applicationStateHandler.oldApplicationState === Qt.ApplicationActive;
+                var newActive = Qt.application.state === Qt.ApplicationActive;
+                applicationStateHandler.oldApplicationState = Qt.application.state;
+                if (oldActive != newActive) {
+                    if (newActive) {
+                        root.applicationActivated();
+                    } else {
+                        root.applicationDeactivated();
+                    }
+                }
+            }
+        }
     }
 }

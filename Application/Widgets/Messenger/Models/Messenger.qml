@@ -910,9 +910,9 @@ Item {
     }
 
     Connections {
-        target: App.mainWindowInstance()
+        target: SignalBus
 
-        onWindowActivated: {
+        onApplicationActivated: {
             resetUnreadDelay.resetForJid = root.selectedJid;
             resetUnreadDelay.restart();
         }

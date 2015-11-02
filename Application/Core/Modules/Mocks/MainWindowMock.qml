@@ -12,8 +12,6 @@ Item {
     signal leftMouseRelease(int globalX, int globalY);
 
     signal closeMainWindow();
-    signal windowDeactivated();
-    signal windowActivated();
 
     signal downloadButtonPause(string serviceId);
     signal downloadButtonStart(string serviceId);

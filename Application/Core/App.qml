@@ -192,6 +192,13 @@ Item {
         }
     }
 
+    function updateKeyboardLayout() {
+        try {
+            return keyboardHook.update();
+        } catch(e) {
+        }
+    }
+
     function language() {
         return mainWindowInstance().language;
     }
