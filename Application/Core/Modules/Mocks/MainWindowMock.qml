@@ -34,6 +34,7 @@ Item {
     signal needPakkanenVerification();
     signal restartUIRequest();
     signal shutdownUIRequest();
+    signal additionalResourcesReady();
 
     signal hide();
 

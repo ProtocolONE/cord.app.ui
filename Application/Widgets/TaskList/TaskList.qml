@@ -69,6 +69,10 @@ WidgetModel {
             TaskListJs.installedServices[service] = 1;
             applyTaskList();
         }
+
+        onAdditionalResourcesReady: {
+            applyTaskList();
+        }
     }
 
     Connections {
