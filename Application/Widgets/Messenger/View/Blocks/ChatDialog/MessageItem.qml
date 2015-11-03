@@ -67,6 +67,7 @@ Item {
                 }
 
                 CursorMouseArea {
+                    visible: parent.needDraw
                     anchors.fill: parent
                     onClicked: root.userClicked();
                 }
