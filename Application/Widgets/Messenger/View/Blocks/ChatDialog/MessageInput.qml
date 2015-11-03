@@ -191,10 +191,11 @@ FocusScope {
         function canSendMessage() {
             return MessengerJs.getStatus() === MessengerJs.ROSTER_RECEIVED
                 && !MessengerJs.editGroupModel().isActive()
+                && !MessengerJs.isSelectedGamenet();
         }
 
         function canEditMessage() {
-            return !MessengerJs.editGroupModel().isActive();
+            return !MessengerJs.editGroupModel().isActive() && !MessengerJs.isSelectedGamenet();
         }
     }
 
