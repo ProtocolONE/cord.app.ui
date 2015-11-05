@@ -79,7 +79,6 @@ PopupBase {
             right: parent.right
         }
 
-        height: 30
         wrapMode: Text.WordWrap
         text: qsTr("NO_NICKNAME_TIP")
         font {
