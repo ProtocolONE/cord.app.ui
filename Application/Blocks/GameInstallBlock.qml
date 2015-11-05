@@ -86,6 +86,7 @@ Item {
             height: 21
             visible: false
             containsMouse: mouser.containsMouse
+            enabled: App.isMainServiceCanBeStarted(root.gameItem)
         }
 
         DownloadStatus {
@@ -107,6 +108,7 @@ Item {
             anchors.fill: parent
             visible: !button.visible
             onClicked: d.processClick();
+            enabled: App.isMainServiceCanBeStarted(root.gameItem)
         }
     }
 

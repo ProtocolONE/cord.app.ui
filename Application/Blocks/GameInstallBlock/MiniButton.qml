@@ -22,9 +22,12 @@ Item {
              width: 16
              height: 16
 
-             color: miniButtonBlock.containsMouse
-                    ? Styles.primaryButtonHover
-                    : Styles.primaryButtonNormal
+             color:
+                 miniButtonBlock.enabled ?
+                    miniButtonBlock.containsMouse
+                        ? Styles.primaryButtonHover
+                        : Styles.primaryButtonNormal
+                    : Styles.primaryButtonDisabled
 
              visible: miniButtonImage.source !== ''
 
