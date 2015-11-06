@@ -75,7 +75,7 @@ function Message(model, index) {
         this.isStatusMessage = false;
         this.date = date || Date.now();
         this.text = body;
-        _model.setProperty(_index, 'id', id || "_");
+        _model.setProperty(_index, 'id', String(id || "_"));
     }
 }
 

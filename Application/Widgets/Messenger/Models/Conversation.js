@@ -192,7 +192,7 @@ var Conversation = function(item, model, jabber, myJid) {
             date = Date.now();
             message.stamp = date;
         } else {
-            date = message.stamp;
+            date = +(message.stamp);
         }
 
         if (this.type === 3 && !hasStamp) {
@@ -208,7 +208,7 @@ var Conversation = function(item, model, jabber, myJid) {
         }
 
         if (hasStamp) {
-            this.query(message.stamp, date/1000|0);
+            this.query(+(message.stamp), date/1000|0);
         }
 
         return newMessage
