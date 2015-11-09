@@ -552,7 +552,7 @@ http.request = function(options, callback) {
 }
 
 //Replaced during CI build
-var authVersion = "2.0.39.ac313be24ea64659b590784c28ff62c5b8522ed2"
+var authVersion = "2.0.42.07beb44ec7979313e28b0eb26605a7e162e9b70d"
     , _gnLoginUrl = 'https://gnlogin.ru'
     , _gnLoginTitleApiUrl = 'gnlogin.ru'
     , _hwid
@@ -908,7 +908,7 @@ ProviderVk.prototype.login = function(callback) {
         self.browser.webView.loadFailedFixed.connect(function() { self.loadFailed(callback); });
         self.browser.webView.titleChanged.connect(function(title) { self.loginTitleChanged(title, callback); });
         self.browser.webView.urlChanged.connect(function(url) { self.urlChanged(url, callback); });
-        self.browser.webView.url = self.getUrl('qGNA=1');
+        self.browser.webView.url = self.getUrl();
         self.browser.closing.connect(function() { callback(Result.Cancel); });
     });
 };
@@ -954,6 +954,10 @@ User.getProfile = function(profiles, successCallback, failedCallback) {
         return;
     }
 
+    if (!this.browser.webView.isLoaded) {
+        return;
+    }
+
     userId = titleUri.getQueryParamValue('userId');
     appKey = titleUri.getQueryParamValue('appKey');
     cookie = titleUri.getQueryParamValue('ga');
@@ -980,6 +984,10 @@ ProviderVk.prototype.linkTitleChanged = function(title, callback) {
     if ('access_denied' === currentUri.getQueryParamValue('error')) {
         this.browser.destroy();
         callback(Result.Cancel);
+        return;
+    }
+
+    if (!this.browser.webView.isLoaded) {
         return;
     }
 
