@@ -8,6 +8,8 @@ import Application.Core.Styles 1.0
 Item {
     id: root
 
+    property bool opened: false
+
     signal clicked(variant serviceItem)
 
     function update() {
@@ -49,7 +51,27 @@ Item {
         });
     }
 
+    onOpenedChanged: {
+        if (!opened) {
+            content.visible = false;
+        } else {
+            deleayShow.restart()
+        }
+    }
+
+    Timer {
+        id: deleayShow
+
+        repeat: false
+        interval: 100
+        running: false
+        onTriggered: content.visible = root.opened;
+    }
+
     Item {
+        id: content
+
+        visible: false
         anchors { fill: parent; margins: 16; bottomMargin: 50 }
         clip: true
 

@@ -239,6 +239,7 @@ WidgetView {
                 PropertyChanges { target: gameListPage; visible: false }
                 PropertyChanges { target: gameListPage; opacity: 0 }
                 PropertyChanges { target: gameList; opacity: 1 }
+                PropertyChanges { target: gameListPage; opened: false }
             },
             State {
                 name: "Opened"
@@ -247,6 +248,7 @@ WidgetView {
                 PropertyChanges { target: gameListPage; visible: true }
                 PropertyChanges { target: gameListPage; opacity: 1 }
                 PropertyChanges { target: gameList; opacity: 0 }
+                PropertyChanges { target: gameListPage; opened: true }
             }
         ]
     }
