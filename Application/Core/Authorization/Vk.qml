@@ -93,9 +93,10 @@ Window {
         height: 30
         anchors {
             right: parent.right
+            rightMargin: 15
             top: parent.top
+            topMargin: 9
         }
-
         style {normal: "#00000000"; hover: "#00000000"; disabled: "#00000000"}
         styleImages {
             normal: installPath + Styles.headerClose

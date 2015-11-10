@@ -9,12 +9,15 @@ Column {
 
     height: 48
     width: 280
-    spacing: 5
 
     signal clicked();
 
+    Item {
+        width: 1
+        height: 10
+    }
+
     Text {
-        anchors { baseline: parent.top; baselineOffset: 20 }
         width: parent.width
         font {family: "Arial"; pixelSize: 11}
         color: Styles.infoText
