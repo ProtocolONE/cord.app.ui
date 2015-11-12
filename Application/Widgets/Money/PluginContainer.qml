@@ -13,7 +13,10 @@ import GameNet.Components.Widgets 1.0
 
 PluginContainer {
     name: "Money"
-    view: "MoneyView"
+
+    // INFO Disabled in 3.5 Не используется на текущий момент и не переведено на новый браузер
+    //view: "MoneyView"
+
     model: "MoneyModel"
     singletonModel: true
 }

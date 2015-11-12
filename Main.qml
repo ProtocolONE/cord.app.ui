@@ -72,8 +72,7 @@ Rectangle {
         */
         WidgetManager.registerWidget('Application.Widgets.NicknameReminder');
         WidgetManager.registerWidget('Application.Widgets.Overlay');
-        // INFO Disabled in 3.5 Не используется на текущий момент и не переведено на новый браузер
-        //WidgetManager.registerWidget('Application.Widgets.Money');
+        WidgetManager.registerWidget('Application.Widgets.Money');
         WidgetManager.registerWidget('Application.Widgets.PremiumNotifier');
         WidgetManager.registerWidget('Application.Widgets.ServiceLockConnector');
         WidgetManager.registerWidget('Application.Widgets.GameUninstall');
