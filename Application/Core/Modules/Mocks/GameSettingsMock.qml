@@ -34,4 +34,13 @@ QtObject {
     function submitSettings() {
            console.log('[GameSettings] submitSettings')
     }
+
+    function isPrefer32Bit(serviceId) {
+        return true;
+    }
+
+    function setPrefer32Bit(serviceId, value) {
+        console.log('[GameSettings] setPrefer32Bit', serviceId, value)
+    }
+
 }

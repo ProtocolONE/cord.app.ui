@@ -3,15 +3,20 @@ import Tulip 1.0
 
 import GameNet.Core 1.0
 import GameNet.Controls 1.0
+
 import Application.Controls 1.0
+import Application.Core 1.0
 
 Item {
     id: settingsPageRoot
 
+    property variant gameSettingsModelInstance: App.gameSettingsModelInstance()
     property variant availableResolutions
     property variant settings
     property string settingsPath: StandardPaths.writableLocation(StandardPaths.DocumentsLocation)
                                   + '/Black Desert/GameOption.txt'
+
+    property string serviceId: "30000000000"
 
     Component.onCompleted: {
         var resolutions = Desktop.availableResolutions().filter(function(e){
@@ -32,6 +37,8 @@ Item {
     function save() {
         var content = '',
             bytesWriten = -1;
+
+        root.gameSettingsModelInstance.setPrefer32Bit(settingsPageRoot.serviceId, force32bitClient.checked);
 
         settings.width = availableResolutions[resolutionsBox.currentIndex].width|0;
         settings.height = availableResolutions[resolutionsBox.currentIndex].height|0;
@@ -59,6 +66,9 @@ Item {
         var content,
             tmpIndex,
             obj = {};
+
+        force32bitClient.checked = root.gameSettingsModelInstance.isPrefer32Bit(settingsPageRoot.serviceId);
+
 
         if (!FileSystem.exists(settingsPath)) {
             console.log('File not exists')
@@ -238,7 +248,7 @@ Item {
         }
 
         Column {
-            spacing: 20
+            spacing: 18
             width: parent.width - 30
 
             Column {
@@ -319,6 +329,13 @@ Item {
                 id: enableEnvSound
 
                 text: qsTr("Включить звуки окружения")
+            }
+
+            CheckBox {
+                id: force32bitClient
+
+                visible: GoogleAnalyticsHelper.systemVersion().indexOf('WOW64') != -1
+                text: qsTr("Запускать 32-х битный клиент")
             }
         }
     }
