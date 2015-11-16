@@ -1021,6 +1021,10 @@ Please try again later.</source>
         <source>Оконный</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Запускать 32-х битный клиент</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Body</name>
@@ -1741,6 +1745,26 @@ Please try again later.</source>
     <message>
         <source>PARTICIPATE_SEEDING</source>
         <translation>Участвовать в раздаче игр</translation>
+    </message>
+    <message>
+        <source>Профиль скачивания</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Скачивать с максимальной производительностью</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Использовать как можно меньше памяти</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Использовать минимальные количество ресурсов</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Выберите как должно вести себя приложение во время скачивания игр - использовать все доступные на вашем компьютере ресурсы или уменьшить скорость скачивая, используя меньше памяти или ресурсов процессора.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

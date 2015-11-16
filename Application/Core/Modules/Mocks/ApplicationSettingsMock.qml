@@ -10,6 +10,7 @@ QtObject {
     property string incomingPort: "11888"
     property string numConnections: "200"
     property bool seedEnabled: true
+    property int torrentProfile: 1
 
     property int autoStart: 2
 
