@@ -15,4 +15,5 @@ PluginContainer {
     name: "ApplicationSettings"
     model: "ApplicationSettingsModel"
     view: "ApplicationSettingsView"
+    singletonModel: true
 }

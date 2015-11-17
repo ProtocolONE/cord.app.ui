@@ -49,17 +49,7 @@ Rectangle {
         Component.onCompleted: {
             WidgetManager.registerWidget('Application.Widgets.ApplicationSettings');
             WidgetManager.registerWidget('Application.Widgets.AlertAdapter');
-
             WidgetManager.init();
-
-            //  stub
-            App.executeService = function(serviceId) {
-                console.log("App::executeService() called: " + serviceId);
-            }
-
-            App.gameSettingsModelInstance = function() {
-                return fakeGameSettingsModelInstance;
-            }
         }
     }
 

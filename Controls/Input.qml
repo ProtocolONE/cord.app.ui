@@ -19,6 +19,7 @@ Item {
     property alias text: inputBehavior.text
     property alias placeholder: placeholderText.text
     property alias maximumLength: inputBehavior.maximumLength
+    property alias horizontalAlignment: inputBehavior.horizontalAlignment
     property alias echoMode: inputBehavior.echoMode
     property bool showCapslock: true
     property bool showLanguage: true
@@ -43,6 +44,8 @@ Item {
 
     property bool clearOnEsc: false
     property bool passwordType: false
+
+    readonly property bool inputFocus: inputBehavior.focus
 
     signal iconClicked()
     signal enterPressed()
