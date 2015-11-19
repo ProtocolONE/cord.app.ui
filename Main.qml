@@ -89,6 +89,7 @@ Rectangle {
 
     DragWindowArea {
         anchors.fill: parent
+        rootWindow: RootWindow.rootWindow
     }
 
     ParallelAnimation {

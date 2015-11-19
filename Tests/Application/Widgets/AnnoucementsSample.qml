@@ -232,5 +232,12 @@ Window {
         anchors.fill: parent
         z: 2
     }
+
+    Connections { // прогрев статуса установки
+        target: App.mainWindowInstance()
+        onDownloaderFinished: {
+            App.executeService(service);
+        }
+    }
 }
 

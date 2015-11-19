@@ -149,18 +149,7 @@ WidgetModel {
     }
 
     function showBigAnnouncement(announceItem) {
-        Marketing.send(Marketing.AnnouncementShown,
-                       announceItem.serviceId,
-                       { type: "announcementBig", id: announceItem.id, userId: User.userId() });
-
-        bigAnnounceWindow.imageUrl = announceItem.image;
-        bigAnnounceWindow.announceItem = announceItem;
-        bigAnnounceWindow.buttonMessage = announceItem.textOnButton;
-        bigAnnounceWindow.buttonStyle = announceItem.buttonColor;
-        bigAnnounceWindow.visible = true
-
-        var gameItem = App.serviceItemByServiceId(announceItem.serviceId);
-        Ga.trackEvent('Announcement Big ' + announceItem.id, 'show', gameItem.gaName);
+        bigAnnounceWindow.show(announceItem);
     }
 
     function showAnnouncement(announceItem) {
@@ -778,11 +767,81 @@ WidgetModel {
     BigAnnounceWindow {
         id: bigAnnounceWindow
 
+        function show(announceItem) {
+            Marketing.send(Marketing.AnnouncementShown,
+                           announceItem.serviceId,
+                           { type: "announcementBig", id: announceItem.id, userId: User.userId() });
+
+            bigAnnounceWindow.imageUrl = announceItem.image;
+            bigAnnounceWindow.announceItem = announceItem;
+            bigAnnounceWindow.buttonMessage = announceItem.textOnButton;
+            bigAnnounceWindow.buttonStyle = announceItem.buttonColor;
+            bigAnnounceWindow.visible = true
+
+            var gameItem = App.serviceItemByServiceId(announceItem.serviceId);
+            Ga.trackEvent('Announcement Big ' + announceItem.id, 'show', gameItem.gaName);
+        }
+
+        function internalGameStarted(serviceId) {
+            if (!bigAnnounceWindow.visible) {
+                return;
+            }
+
+            if (!bigAnnounceWindow.announceItem || !bigAnnounceWindow.announceItem.serviceId) {
+                return;
+            }
+
+            if (serviceId == bigAnnounceWindow.announceItem.serviceId && !bigAnnounceWindow.announceItem.url) {
+                bigAnnounceWindow.visible = false;
+
+                Marketing.send(Marketing.AnnouncementActionClicked,
+                               bigAnnounceWindow.announceItem.serviceId,
+                               { type: "announcementBig", id: bigAnnounceWindow.announceItem.id, userId: User.userId() });
+
+                var gameItem = App.serviceItemByServiceId(bigAnnounceWindow.announceItem.serviceId);
+                Ga.trackEvent('Announcement Big ' + bigAnnounceWindow.announceItem.id, 'action', gameItem.gaName);
+
+                announcements.announceCloseClick(announceItem)
+            }
+        }
+
         Connections {
             target: announcements
             onInternalGameStarted: bigAnnounceWindow.internalGameStarted(serviceId)
         }
 
-        onAnnounceCloseClick: announcements.announceCloseClick(announceItem)
+        onAnnounceClosed: {
+            if (!bigAnnounceWindow.visible) {
+                return;
+            }
+
+            bigAnnounceWindow.visible = false;
+
+            Marketing.send(Marketing.AnnouncementClosedClicked,
+                           bigAnnounceWindow.announceItem.serviceId,
+                           { type: "announcementBig", id: bigAnnounceWindow.announceItem.id, userId: User.userId() });
+
+            announcements.announceCloseClick(announceItem)
+
+            var gameItem = App.serviceItemByServiceId(bigAnnounceWindow.announceItem.serviceId);
+            Ga.trackEvent('Announcement Big ' + bigAnnounceWindow.announceItem.id, 'close', gameItem.gaName);
+        }
+
+        onAnnounceActionClicked: {
+            if (!bigAnnounceWindow.visible) {
+                return;
+            }
+
+            bigAnnounceWindow.visible = false;
+
+            Marketing.send(Marketing.AnnouncementActionClicked,
+                           bigAnnounceWindow.announceItem.serviceId,
+                           { type: "announcementBig", id: bigAnnounceWindow.announceItem.id, userId: User.userId() });
+
+            announcements.announceActionClick(bigAnnounceWindow.announceItem);
+
+            var gameItem = App.serviceItemByServiceId(bigAnnounceWindow.announceItem.serviceId);
+            Ga.trackEvent('Announcement Big ' + bigAnnounceWindow.announceItem.id, 'action', gameItem.gaName);
+        }
     }
 }

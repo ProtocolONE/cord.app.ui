@@ -14,8 +14,18 @@ Item {
     signal closeMainWindow();
 
     signal downloadButtonPause(string serviceId);
-    signal downloadButtonStart(string serviceId);
-    signal executeService(string serviceId);
+
+    function downloadButtonStart(serviceId) {
+        console.log("downloadButtonStart", serviceId);
+        downloaderStarted(serviceId, 0);
+        downloaderFinished(serviceId);
+    }
+
+    function executeService(serviceId) {
+        console.log("executeService", serviceId);
+        serviceStarted(serviceId);
+        serviceFinished(serviceId, 0);
+    }
 
     signal downloaderStarted(string service, int startType);
     signal downloaderFinished(string service);

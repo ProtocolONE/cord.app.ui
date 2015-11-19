@@ -16,6 +16,7 @@ import GameNet.Core 1.0
 import GameNet.Controls 1.0
 import Application.Blocks 1.0
 import Application.Core 1.0
+import Application.Controls 1.0
 
 Window {
     id: bigAnnounceWindow
@@ -25,7 +26,8 @@ Window {
     property int buttonStyle: 1
     property alias buttonMessage: windowAnnounceButtonText.text
 
-    signal announceCloseClick(variant announceItem);
+    signal announceClosed(variant announceItem);
+    signal announceActionClicked(variant announceItem);
 
     property Gradient hoverGradientStyle1: Gradient {
         GradientStop { position: 0; color: "#257f02" }
@@ -55,48 +57,18 @@ Window {
     flags: Qt.FramelessWindowHint
     modality: Qt.WindowModal
 
-    property bool isAppActive: Qt.application.active
-    onIsAppActiveChanged: {
-        if (isAppActive) {
-            bigAnnounceWindow.requestActivate();
-        }
+    onClosing: bigAnnounceWindow.announceClosed(bigAnnounceWindow.announceItem);
+
+    DragWindowArea {
+        anchors.fill: parent
+        rootWindow: bigAnnounceWindow
     }
 
-    function sendAnnouncementActionClicked() {
-        Marketing.send(Marketing.AnnouncementActionClicked,
-                       bigAnnounceWindow.announceItem.serviceId,
-                       { type: "announcementBig", id: bigAnnounceWindow.announceItem.id, userId: User.userId() });
+    Connections {
+        target: SignalBus
 
-        var gameItem = App.serviceItemByServiceId(bigAnnounceWindow.announceItem.serviceId);
-        Ga.trackEvent('Announcement Big ' + bigAnnounceWindow.announceItem.id, 'show', gameItem.gaName);
+        onApplicationActivated: bigAnnounceWindow.requestActivate();
     }
-
-    function close() {
-        Marketing.send(Marketing.AnnouncementClosedClicked,
-                       bigAnnounceWindow.announceItem.serviceId,
-                       { type: "announcementBig", id: bigAnnounceWindow.announceItem.id, userId: User.userId() });
-
-        bigAnnounceWindow.visible = false;
-        bigAnnounceWindow.announceCloseClick(bigAnnounceWindow.announceItem);
-
-        var gameItem = App.serviceItemByServiceId(bigAnnounceWindow.announceItem.serviceId);
-        Ga.trackEvent('Announcement Big ' + bigAnnounceWindow.announceItem.id, 'close', gameItem.gaName);
-    }
-
-
-    function internalGameStarted(serviceId) {
-        if (!bigAnnounceWindow.announceItem || !bigAnnounceWindow.announceItem.serviceId) {
-            return;
-        }
-
-        if (serviceId == bigAnnounceWindow.announceItem.serviceId && !bigAnnounceWindow.announceItem.url) {
-            bigAnnounceWindow.sendAnnouncementActionClicked();
-            announcements.setClosedProperly(bigAnnounceWindow.announceItem.id, true);
-            bigAnnounceWindow.visible = false;
-        }
-    }
-
-    onClosing: bigAnnounceWindow.close();
 
     Item {
         anchors.fill: parent
@@ -173,7 +145,9 @@ Window {
                                              : bigAnnounceWindow.normalGradientStyle2
 
                     anchors { fill: parent; margins: 2 }
-                    gradient: windowAnnounceButtonMouser.containsMouse ? windowAnnounceButton.hover : windowAnnounceButton.normal
+                    gradient: windowAnnounceButtonMouser.containsMouse
+                              ? windowAnnounceButton.hover
+                              : windowAnnounceButton.normal
 
                     Text {
                         id: windowAnnounceButtonText
@@ -188,15 +162,7 @@ Window {
 
                         anchors.fill: parent
                         hoverEnabled: true
-                        onClicked: {
-                            bigAnnounceWindow.sendAnnouncementActionClicked();
-                            bigAnnounceWindow.visible = false
-                            announcements.announceActionClick(bigAnnounceWindow.announceItem);
-
-                            var gameItem = App.serviceItemByServiceId(bigAnnounceWindow.announceItem.serviceId);
-                            Ga.trackEvent(
-                                'Announcement Big ' + bigAnnounceWindow.announceItem.id, 'action', gameItem.gaName);
-                        }
+                        onClicked: bigAnnounceWindow.announceActionClicked(bigAnnounceWindow.announceItem);
                     }
                 }
             }
