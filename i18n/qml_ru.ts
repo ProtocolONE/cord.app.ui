@@ -1759,7 +1759,7 @@ Please try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Использовать минимальные количество ресурсов</source>
+        <source>Использовать минимальное количество ресурсов</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
