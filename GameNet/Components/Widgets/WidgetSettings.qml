@@ -56,6 +56,14 @@ QtObject {
         __properties.forEach(function(field) {
             var value = root.value(field, undefined);
             if (value !== undefined) {
+                switch (typeof root[field]) {
+                case 'boolean':
+                    value = (value === "true" || value === 1 || value === true);
+                    break;
+                case 'number':
+                    value = Number(value);
+                    break;
+                }
                 root[field] = value;
             }
         });
