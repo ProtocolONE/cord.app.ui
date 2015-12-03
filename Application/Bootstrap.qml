@@ -185,7 +185,7 @@ Item {
                                        console.log('RestApi generic error', code, message);
 
                                        if (User.isAuthorized()) {
-                                        App.logoutRequest();
+                                           SignalBus.logoutRequest();
                                        }
                                    }
 
