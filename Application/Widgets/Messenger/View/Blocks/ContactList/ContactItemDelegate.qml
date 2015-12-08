@@ -230,9 +230,9 @@ Item {
 
         function dump(user) {
             var item = Messenger.users().getById(user.jid);
-            console.log('[ContextMenu] Dump\n', JSON.stringify(item, null, 2));
+            console.log('[ContextMenu] Dump\n');
             for (var i = 0; i < item.participants.count; ++i) {
-                console.log(JSON.stringify(item.participants.get(i), null, 2))
+                console.log(JSON.stringify(item.participants.getByIndex(i), null, 2))
             }
         }
     }
@@ -369,7 +369,7 @@ Item {
                 var keys = participants.keys();
                 var tmp = [];
                 keys.forEach(function(k) {
-                    var q = participants.get(k);
+                    var q = participants.getById(k);
                     tmp.push({
                                  jid: q.jid,
                                  presenceState: q.presenceState,
@@ -497,9 +497,8 @@ Item {
 //                                           name: "Dump Group",
 //                                       });
 
-
-                    for(i = 0; i < item.participants.count; ++i) {
-                        var occupant = item.participants.get(i);
+                    for(i = 0; i < item.participants.count(); ++i) {
+                        var occupant = item.participants.getByIndex(i);
                         if (occupant.jid == selfJid) {
                             isOwner = (occupant.affiliation === "owner");
                             break;

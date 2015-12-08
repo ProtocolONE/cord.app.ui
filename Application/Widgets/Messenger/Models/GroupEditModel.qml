@@ -84,7 +84,7 @@ Item {
 
         participants = room.participants;
         participants.keys().forEach(function(participantId) {
-            occupantItem = participants.get(participantId);
+            occupantItem = participants.getById(participantId);
             if (participantId === selfJid) {
                 d.owner = (occupantItem.affiliation === "owner");
                 occupantsModel.setPropertyById(participantId, "affiliation", occupantItem.affiliation);

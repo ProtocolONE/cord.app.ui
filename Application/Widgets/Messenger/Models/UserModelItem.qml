@@ -69,7 +69,16 @@ Item {
             }
 
             function get(jid) {
+                console.log('WARNING! Using deprecated method UserModelItem.get(index), use getByIndex instead')
+                return participantsModel.get(jid);
+            }
+
+            function getById(jid) {
                 return participantsModel.getById(jid);
+            }
+
+            function getByIndex(i) {
+                return participantsModel.get(i);
             }
 
             ExtendedListModel {
