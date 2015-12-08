@@ -37,6 +37,7 @@ Rectangle {
         WidgetManager.registerWidget('Application.Widgets.Analytics');
         WidgetManager.registerWidget('Application.Widgets.AllGames');
         WidgetManager.registerWidget('Application.Widgets.AlertAdapter');
+        WidgetManager.registerWidget('Application.Widgets.AutoMinimize');
         WidgetManager.registerWidget('Application.Widgets.Facts');
         WidgetManager.registerWidget('Application.Widgets.GameAdBanner');
         WidgetManager.registerWidget('Application.Widgets.GameInfo');

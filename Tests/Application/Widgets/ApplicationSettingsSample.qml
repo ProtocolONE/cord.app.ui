@@ -48,6 +48,7 @@ Rectangle {
 
         Component.onCompleted: {
             WidgetManager.registerWidget('Application.Widgets.ApplicationSettings');
+            WidgetManager.registerWidget('Application.Widgets.AutoMinimize');
             WidgetManager.registerWidget('Application.Widgets.AlertAdapter');
             WidgetManager.init();
         }
