@@ -148,6 +148,8 @@ Item {
                         id: nicknameText
 
                         color: Styles.menuText
+                        width: parent.width
+                        elide: Text.ElideRight
 
                         font {
                             family: "Arial"
