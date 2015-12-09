@@ -1708,27 +1708,27 @@ Please try again later.</source>
     </message>
     <message>
         <source>SPEED_50</source>
-        <translation>50 КБайт/с</translation>
+        <translation type="vanished">50 КБайт/с</translation>
     </message>
     <message>
         <source>SPEED_200</source>
-        <translation>200 КБайт/с</translation>
+        <translation type="vanished">200 КБайт/с</translation>
     </message>
     <message>
         <source>SPEED_500</source>
-        <translation>500 КБайт/с</translation>
+        <translation type="vanished">500 КБайт/с</translation>
     </message>
     <message>
         <source>SPEED_1000</source>
-        <translation>1000 КБайт/с</translation>
+        <translation type="vanished">1000 КБайт/с</translation>
     </message>
     <message>
         <source>SPEED_2000</source>
-        <translation>2000 КБайт/с</translation>
+        <translation type="vanished">2000 КБайт/с</translation>
     </message>
     <message>
         <source>SPEED_5000</source>
-        <translation>5000 КБайт/с</translation>
+        <translation type="vanished">5000 КБайт/с</translation>
     </message>
     <message>
         <source>INCOMING_PORT</source>
@@ -1763,7 +1763,27 @@ Please try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Выберите как должно вести себя приложение во время скачивания игр - использовать все доступные на вашем компьютере ресурсы или уменьшить скорость скачивая, используя меньше памяти или ресурсов процессора.</source>
+        <source>%1 КБайт/с</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Скорость загрузки в КБайт/с</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Скорость отдачи в КБайт/с</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Выберите как должно вести себя приложение во время скачивания игр - использовать все доступные на вашем компьютере ресурсы или уменьшить скорость скачивания, используя меньше памяти или ресурсов процессора.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Экспертная настройка системы скачивания</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Выберите, если хотите указать произвольные значения для ограничения скорости загрузки и отдачи клиента.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3132,6 +3152,10 @@ Please try again later.</source>
     <message>
         <source>APPLICATION_SETTINGS_LANGUAGE_CAPTION</source>
         <translation>Язык интерфейса:</translation>
+    </message>
+    <message>
+        <source>Сворачивать приложение при запуске игры</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
