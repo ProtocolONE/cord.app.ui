@@ -58,6 +58,10 @@ TrayPopupBase {
 
             function getNickname(from) {
                 var user = MessengerJs.getUser(from);
+                if (!user.isValid()) {
+                    return from;
+                }
+
                 if (user.isGroupChat) {
                     return MessengerJs.getGroupTitle({jid: from});
                 }
