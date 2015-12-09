@@ -19,13 +19,16 @@ import Application.Core.Styles 1.0
 WidgetView {
     id: root
     implicitWidth: 630
-    implicitHeight: allContent.height + 30
+    implicitHeight: allContent.height + defaultImplicitHeightAddition
     clip: true
 
     default property alias data: container.data
     property alias title: titleText.text
 
+    property int defaultSpacing: 30
     property int defaultMargins: 50
+    property int defaultImplicitHeightAddition: 30
+
     property color defaultBorderColor: Styles.popupBorder
     property color defaultBackgroundColor: Styles.popupBackground
     property color defaultTitleColor: Styles.popupTitleText
@@ -57,7 +60,7 @@ WidgetView {
             margins: defaultMargins
         }
 
-        spacing: 30
+        spacing: defaultSpacing
 
         Item {
             width: parent.width

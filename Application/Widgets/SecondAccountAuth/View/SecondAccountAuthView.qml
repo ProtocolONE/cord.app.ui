@@ -28,6 +28,8 @@ PopupBase {
     title: qsTr("SECOND_ACCOUNT_ACTIVATION_TITLE")
 
     defaultTitleColor: Styles.popupText
+    defaultSpacing: 0
+    defaultImplicitHeightAddition: 10
 
     QtObject {
         id: d
