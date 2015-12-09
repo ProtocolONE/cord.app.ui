@@ -21,10 +21,15 @@ WidgetModel {
     Connections {
         target: SignalBus
 
-        onProgressChanged: {
+        function update(gameItem){
             TaskBar.updateProgress(gameItem);
             App.updateProgressEx(TaskBar.getOverallProgress(), TaskBar.getOverallStatus());
         }
+
+        onDownloaderStarted: update(gameItem)
+        onServiceCanceled: update(gameItem)
+        onServiceInstalled: update(gameItem)
+        onProgressChanged: update(gameItem)
 
         onUnreadContactsChanged: {
             if (contacts == 0) {

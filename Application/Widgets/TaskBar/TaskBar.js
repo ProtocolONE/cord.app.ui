@@ -22,8 +22,9 @@ function updateProgress(gameItem) {
     if (!activeServices[serviceId] && !gameItem.allreadyDownloaded) {
         activeServices[serviceId] = gameItem;
     } else {
-        if (gameItem.status === 'Starting' && gameItem.allreadyDownloaded)
+        if ((gameItem.status === 'Starting' && gameItem.allreadyDownloaded) || gameItem.status === 'Normal') {
             delete activeServices[serviceId];
+        }
     }
 
     for (var curServiceId in activeServices) {
@@ -49,6 +50,7 @@ function updateProgress(gameItem) {
     } else {
         overallStatus = "Normal";
     }
+
     overallProgress = curProgress/totalProgress * 100;
 }
 
