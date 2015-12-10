@@ -170,6 +170,11 @@ PopupBase {
             }
 
             PrimaryButton {
+                function isRunning() {
+                    return root.currentGame
+                            && (root.currentGame.status === "Starting" || root.currentGame.status === "Started");
+                }
+
                 anchors {
                     right: parent.right
                     bottom: parent.bottom
@@ -183,6 +188,7 @@ PopupBase {
                 width: 210
                 text: qsTr("SAVE_BUTTON_LABEL")
 
+                enabled: !isRunning()
                 onClicked: {
                     try {
                         generalSettingsPage.save();
