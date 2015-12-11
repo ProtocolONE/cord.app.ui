@@ -307,8 +307,9 @@ Item {
     function userPresenceState(jid) {
         if (usersModel.contains(jid)) {
             return usersModel.getById(jid).presenceState;
+        } else if (jid == myUser.jid) {
+            return myUser.presenceState;
         }
-
         return "offline";
     }
 

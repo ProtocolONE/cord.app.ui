@@ -55,7 +55,9 @@ WidgetView {
         }
     }
 
-    anchors.fill: parent
+    implicitWidth: parent ? parent.width : 0
+    implicitHeight: parent ? parent.height : 0
+
     visible: MessengerJs.userSelected()
 
     onVisibleChanged: root.recheckInputSize();

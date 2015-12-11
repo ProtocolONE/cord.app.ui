@@ -129,7 +129,7 @@ Item {
 
         Ga.setTrackingId('UA-19398372-80');
         Ga.setClientId(cid);
-        Ga.setUserAgent('GameNet/' + version + ' ' + GoogleAnalyticsHelper.systemVersion());
+        Ga.setUserAgent('Mozilla/5.0 ' + GoogleAnalyticsHelper.systemVersion());
 
         Ga.setApplicationName('GameNet');
         Ga.setApplicationVersion(version);
