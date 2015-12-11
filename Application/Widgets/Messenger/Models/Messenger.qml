@@ -80,6 +80,8 @@ Item {
     signal messageLinkActivated(variant user, string link);
     signal messageRead(string jid);
 
+    signal recentConversationsReady(variant jids);
+
     Component.onCompleted: {
         var rosterManager = xmppClient.rosterManager;
 
@@ -916,6 +918,11 @@ Item {
             resetUnreadDelay.resetForJid = root.selectedJid;
             resetUnreadDelay.restart();
         }
+    }
+
+    Connections {
+        target: RecentConversations
+        onReady: root.recentConversationsReady(jids);
     }
 
     Timer {

@@ -16,6 +16,8 @@ Item {
     property variant messenger;
     property variant jabber;
 
+    signal ready(variant jids);
+
     function init(jabber, extendedListModel, messenger) {
         console.log('[Recent Conversations] Init');
         root.messenger = messenger;
@@ -66,6 +68,8 @@ Item {
 
             storage.initDb(bareJid);
             MessengerPrivateJs.lastTalkDateMap = storage.loadData();
+
+            root.ready(Object.keys(MessengerPrivateJs.lastTalkDateMap));
         }
         onMessageReceived: updateUserTalkDateByJid(from)
         onCarbonMessageReceived: updateUserTalkDateByJid(to)

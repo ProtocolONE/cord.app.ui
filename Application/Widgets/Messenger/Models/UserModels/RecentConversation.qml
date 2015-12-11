@@ -52,14 +52,14 @@ Item {
             proxyModel.clear();
         }
 
-        function updateModel() {
+        function updateModel(jids) {
             var usersMap = {}
                 , users = []
                 , i
                 , usersToInsert
                 , usersToRemove;
 
-            d.build(usersMap, users);
+            d.build(usersMap, users, jids);
 
             if (users.length === 0) {
                 d.clearModel()
@@ -100,7 +100,7 @@ Item {
             }
         }
 
-        function build(usersMap, users) {
+        function build(usersMap, users, keys) {
             var usersModel = messenger.getUsersModel()
                 , i
                 , jid
@@ -108,10 +108,9 @@ Item {
                 , lastTalkDate
                 , now = Moment.moment()
                 , longAgo = Moment.moment().subtract('days', 7)
-                , last
-                , keys;
+                , last;
 
-            keys = usersModel.keys();
+            keys = keys || usersModel.keys();
 
             for (i in keys) {
                 jid = keys[i];
@@ -132,24 +131,6 @@ Item {
 
                 users.push(jid);
             }
-
-//            for (i = 0; i < usersModel.count; ++i) {
-//                modelUser = usersModel.get(i)
-//                lastTalkDate = modelUser.lastTalkDate || 0;
-//                if (lastTalkDate == 0 || UserJs.isGameNet(modelUser)) {
-//                    continue;
-//                }
-
-//                last = Moment.moment(lastTalkDate);
-//                jid = modelUser.jid;
-
-//                usersMap[jid] = {
-//                    lastTalkDate: lastTalkDate,
-//                    date: (now.diff(last, 'days') > 7 ? 'LongAgo' : last.format('DD.MM.YYYY'))
-//                };
-
-//                users.push(jid);
-//            }
         }
 
         function updateToday() {
@@ -294,6 +275,14 @@ Item {
     Connections {
         target: messenger
         onTalkDateChanged: d.talkDateChanged(jid);
+        onRecentConversationsReady: {
+            jids.forEach(function(e) {
+                //INFO Force to add user in user list
+                messenger.getUser(e);
+            });
+
+            d.updateModel(jids);
+        }
     }
 
     Timer {
