@@ -72,7 +72,7 @@ Item {
         id: content
 
         visible: false
-        anchors { fill: parent; margins: 16; bottomMargin: 50 }
+        anchors { fill: parent; margins: 16; topMargin: 0; bottomMargin: 50 }
         clip: true
 
         Flickable {
@@ -87,7 +87,7 @@ Item {
 
                 width: parent.width
                 onHeightChanged: flickable.contentHeight = height;
-                spacing: 26
+                spacing: 16
             }
         }
     }
@@ -111,7 +111,7 @@ Item {
 
             property string genre
 
-            spacing: 14
+            spacing: 10
             width: parent.width
 
             Item {
