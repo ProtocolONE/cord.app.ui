@@ -154,7 +154,6 @@ Item {
         if (!data.isValid()) {
             return false;
         }
-
         return data.unreadMessageCount > 0;
     }
 
@@ -670,7 +669,6 @@ Item {
             } catch(e) {
                 storedUsers = {};
             }
-
             MessengerPrivateJs.unreadMessageCountMap = storedUsers;
 
             return storedUsers;
@@ -719,8 +717,10 @@ Item {
 
         indexProperty: "jid"
         prototype: usersModelComponent
-        notifableProperty: ["nickname", "presenceState", "lastActivity", "lastTalkDate", "inContacts"
-                            ,"playingGame"]
+        notifableProperty: [
+            "nickname", "presenceState", "lastActivity", "lastTalkDate", "inContacts",
+            "playingGame", "unreadMessageCount"
+        ]
         onPropertyChanged: {
             switch (key) {
                 case "lastTalkDate": root.talkDateChanged(id); break;
@@ -735,7 +735,7 @@ Item {
                     }
                     break;
                 }
-
+                case "unreadMessageCount": d.setUnreadMessageForUser(id, newValue);
                 case "playingGame": root.playingGameChanged(id); break;
             }
 
@@ -782,10 +782,10 @@ Item {
 
         function newGroupMessageReceived(roomJid, message) {
             var user;
+
             user = root.getUser(message.to);
             if (d.needIncrementUnread(user)) {
-                user.unreadMessageCount += 1;
-                d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
+                usersModel.incrementProperty(user.jid, 'unreadMessageCount', 1);
             } else {
                 root.messageRead(user.jid);
             }
@@ -951,8 +951,8 @@ Item {
 
             user.unreadMessageCount = 0;
             root.messageRead(user.jid);
-            d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
 
+            d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
             resetUnreadDelay.resetForJid = "";
         }
     }

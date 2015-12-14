@@ -97,7 +97,15 @@ Item {
             return;
         }
 
-        worker.push(new Js.SetPropertyJob(id, key, value, root));;
+        worker.push(new Js.SetPropertyJob(id, key, value, root));
+    }
+
+    function incrementProperty(id, key, value) {
+        if (!Js.model.hasOwnProperty(id)) {
+            return;
+        }
+
+        worker.push(new Js.IncrementPropertyJob(id, key, value, root));
     }
 
     function setPropertyById(id, key, value) { // UNDONE оставился для совместимости

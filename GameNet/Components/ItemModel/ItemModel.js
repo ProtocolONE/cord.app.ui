@@ -29,6 +29,30 @@ var SetPropertyJob = function(id, key, value, itemModel) {
     }
 }
 
+var IncrementPropertyJob = function(id, key, value, itemModel) {
+    this.id = id;
+    this.key = key;
+    this.value = value;
+    this.itemModel = itemModel;
+
+    this.execute = function() {
+        if (model.hasOwnProperty(this.id)) {
+            var item = model[this.id],
+                newValue = item[this.key] + this.value;
+
+            if (newValue != item[this.key]) {
+                var oldValue = item[this.key];
+                item[this.key] = newValue;
+                if (notifableProperty.hasOwnProperty(this.key)) {
+                    this.itemModel.propertyChanged(this.id, this.key, oldValue, newValue);
+                }
+            }
+        }
+
+        return true;
+    }
+}
+
 var Invalidate = function(root) {
     var target = root;
     this.execute = function() {

@@ -116,6 +116,10 @@ Item {
                 jid = keys[i];
                 modelUser = usersModel.get(jid);
 
+                if (!modelUser) {
+                    continue;
+                }
+
                 lastTalkDate = modelUser.lastTalkDate || 0;
                 if (lastTalkDate == 0 || UserJs.isGameNet(modelUser)) {
                     continue;

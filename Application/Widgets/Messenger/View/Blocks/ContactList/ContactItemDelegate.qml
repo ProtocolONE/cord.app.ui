@@ -298,6 +298,8 @@ Item {
             status: d.status()
             presenceStatus: d.presenceStatus()
             isUnreadMessages: !root.isCurrent && d.hasUnreadMessages();
+            unreadMessageCount: d.unreadMessagesCount()
+
             isCurrent: d.isCurrent()
             isHighlighted: root.isHighlighted
             userId: d.userId()
