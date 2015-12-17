@@ -13,17 +13,33 @@ WidgetModel {
         property bool minimizeOnStart: true
     }
 
+    function isBrowserGame(service) {
+        var item = App.serviceItemByServiceId(service);
+        if (!item || item.gameType == "browser") {
+            return true;
+        }
+        return false;
+    }
+
     Connections {
         target: App.mainWindowInstance()
         ignoreUnknownSignals: true
 
         onServiceStarted: {
+            if (isBrowserGame(service)) {
+                return;
+            }
+
             if (App.isWindowVisible() && rootSettings.minimizeOnStart) {
                 App.hide();
             }
         }
 
         onServiceFinished: {
+            if (isBrowserGame(service)) {
+                return;
+            }
+
             if (!App.isWindowVisible() && rootSettings.minimizeOnStart) {
                 App.activateWindow();
             }
