@@ -29,21 +29,10 @@ WidgetModel {
     signal closeView();
 
     property int internalPopupId: -1
-    property int internalP2PCancelRequestPopupId: -1
 
     function startExecuting(serviceId) {
         var gameItem = App.serviceItemByServiceId(serviceId);
         executeServiceDelay.serviceId = serviceId;
-
-        if (serviceId === "30000000000") {
-            var subsriptionRemainTime = User.getSubscriptionRemainTime(serviceId);
-            if (subsriptionRemainTime > 0) {
-                p2pCancelRequestConnection.target = WidgetManager.getWidgetByName('P2PCancelRequest').model;
-                root.internalP2PCancelRequestPopupId = Popup.show('P2PCancelRequest');
-                root.closeView();
-                return;
-            }
-        }
 
         if (gameItem.checkNicknameBeforeStart && !User.isNicknameValid()) {
             root.internalPopupId = Popup.show('NicknameEdit');
@@ -58,7 +47,6 @@ WidgetModel {
     function executeGame(serviceId) {
         var gameItem = App.serviceItemByServiceId(serviceId);
         root.internalPopupId = -1;
-        root.internalP2PCancelRequestPopupId = -1;
         executeServiceDelay.start();
 
         gameItem.status = "Starting";
@@ -67,25 +55,7 @@ WidgetModel {
     }
 
     Connections {
-        id: p2pCancelRequestConnection
-
-        ignoreUnknownSignals: true
-        onLicenseAccepted: {
-            RestApi.Core.execute('user.acceptLicense', { serviceId : executeServiceDelay.serviceId, licenseId: "1" },
-                                 true, function(response) {
-                                     User.refreshUserInfo();
-                                 });
-
-            root.executeGame(executeServiceDelay.serviceId);
-        }
-
-        onLicenseSkipped: {
-            root.executeGame(executeServiceDelay.serviceId);
-        }
-    }
-
-    Connections {
-        target: Popup.signalBus()
+        target: Popup
         onClose: {
             if (root.internalPopupId !== popupId) {
                 return;
