@@ -125,6 +125,7 @@
         "headerClose": "Assets/Images/Styles/sand/Application/Blocks/Header/Close.png",
         "headerLogout": "Assets/Images/Styles/sand/Application/Blocks/Header/Logout.png",
         "headerSettings": "Assets/Images/Styles/sand/Application/Blocks/Header/Settings.png",
+        "headerRewards": "Assets/Images/Styles/sand/Application/Blocks/Header/Rewards.png",
         "gameMenuNewsIcon": "Assets/Images/Styles/sand/Application/Blocks/GameMenu/News.png",
         "gameMenuAboutIcon": "Assets/Images/Styles/sand/Application/Blocks/GameMenu/About.png",
         "gameMenuBlogIcon": "Assets/Images/Styles/sand/Application/Blocks/GameMenu/Blog.png",

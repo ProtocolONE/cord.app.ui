@@ -35,7 +35,7 @@ namespace Test_QrcGenerator
     ""styles"": {
 ";
 
-            string sourceData = File.ReadAllText(@"..\Application\Core\Styles.qml");
+            string sourceData = File.ReadAllText(@"..\Application\Core\Styles\Styles.qml");
             MatchCollection matches = Regex.Matches(sourceData, "property color (.+?): [\"'](.+)[\"']");
 
             for (int i = 0; i < matches.Count; i++)

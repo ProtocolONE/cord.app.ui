@@ -125,6 +125,7 @@
         "headerClose": "Assets/Images/Styles/green/Application/Blocks/Header/Close.png",
         "headerLogout": "Assets/Images/Styles/green/Application/Blocks/Header/Logout.png",
         "headerSettings": "Assets/Images/Styles/green/Application/Blocks/Header/Settings.png",
+        "headerRewards": "Assets/Images/Styles/green/Application/Blocks/Header/Rewards.png",
         "gameMenuNewsIcon": "Assets/Images/Styles/green/Application/Blocks/GameMenu/News.png",
         "gameMenuAboutIcon": "Assets/Images/Styles/green/Application/Blocks/GameMenu/About.png",
         "gameMenuBlogIcon": "Assets/Images/Styles/green/Application/Blocks/GameMenu/Blog.png",
