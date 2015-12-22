@@ -232,7 +232,7 @@ Item {
                             if (User.hasUnlimitedSubscription(root.currentGame.serviceId)) {
                                 MessageBox.show(
                                             qsTr("Доступ к премиум-серверу"),
-                                            qsTr("Доступ на премиум-сервер открыт Вам навсегда"),
+                                            qsTr("Доступ на премиум-сервер открыт Вам на весь период времени, в течение которого Администрация осуществляет поддержку и обеспечивает функционирование специально выделенных серверов игры."),
                                             MessageBox.button.ok);
                             } else {
                                 Popup.show('PremiumServer');

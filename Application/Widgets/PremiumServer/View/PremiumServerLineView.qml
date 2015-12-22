@@ -88,7 +88,7 @@ WidgetView {
                     plural;
 
                 if (root.unlimitAccess) {
-                    return qsTr("Доступ к премиум серверу навсегда");
+                    return qsTr("Вам не требуется продливать доступ к премиум серверу");
                 }
 
                 if (root.duration === 0) {

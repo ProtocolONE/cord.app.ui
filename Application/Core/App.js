@@ -70,14 +70,16 @@ function createService(data) {
 
     if (item.gameId == 1021) {
         //HACK Use this hack due have just one game (BlackDesert) with that feature.
-        item.hasPremiumServer = true;
+        if (Date.now() > 1451480400000) {
+            item.hasPremiumServer = true;
+        }
     }
 
     urlProps = [
-                'guideUrl',
-                //'blogUrl', // https://jira.gamenet.ru:8443/browse/QGNA-1264
-                'licenseUrl',
-            ];
+        'guideUrl',
+        //'blogUrl', // https://jira.gamenet.ru:8443/browse/QGNA-1264
+        'licenseUrl',
+    ];
 
     Object.keys(urlProps).forEach(function(e){
         var prop = urlProps[e];
