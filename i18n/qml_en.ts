@@ -347,7 +347,7 @@
     </message>
     <message>
         <location filename="../Application/Layers/BaseLayer.qml" line="235"/>
-        <source>Доступ на премиум-сервер открыт Вам навсегда</source>
+        <source>Доступ на премиум-сервер открыт Вам на весь период времени, в течение которого Администрация осуществляет поддержку и обеспечивает функционирование специально выделенных серверов игры.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -611,38 +611,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="511"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="513"/>
         <source>CONTACT_CONTEXT_MENU_DESTROY_ROOM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="516"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="518"/>
         <source>CONTACT_CONTEXT_MENU_LEAVE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="521"/>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="547"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="523"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="549"/>
         <source>CONTACT_CONTEXT_MENU_RENAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="536"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="538"/>
         <source>CONTACT_CONTEXT_MENU_INFORAMTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="541"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="543"/>
         <source>Подарить расширенный аккаунт</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="552"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="554"/>
         <source>CONTACT_CONTEXT_MENU_DELETE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="557"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="559"/>
         <source>CONTACT_CONTEXT_MENU_ADD_CONTACT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1023,17 +1023,17 @@
 <context>
     <name>GameExecutingModel</name>
     <message>
-        <location filename="../Application/Widgets/GameExecuting/GameExecutingModel.qml" line="61"/>
+        <location filename="../Application/Widgets/GameExecuting/GameExecutingModel.qml" line="49"/>
         <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameExecuting/GameExecutingModel.qml" line="127"/>
+        <location filename="../Application/Widgets/GameExecuting/GameExecutingModel.qml" line="97"/>
         <source>Вам нужен ключ доступа</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameExecuting/GameExecutingModel.qml" line="128"/>
+        <location filename="../Application/Widgets/GameExecuting/GameExecutingModel.qml" line="98"/>
         <source>Скачать клиент игры могут только участники F&amp;F-теста. Если у вас есть ключ доступа, нажмите &quot;Да&quot;.</source>
         <translation></translation>
     </message>
@@ -1362,7 +1362,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="184"/>
+        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="189"/>
         <source>SAVE_BUTTON_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1576,7 +1576,7 @@
     <name>Header</name>
     <message>
         <location filename="../Application/Blocks/Auth/Controls/Header.qml" line="33"/>
-        <location filename="../Application/Blocks/Header/Header.qml" line="181"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="178"/>
         <source>HEADER_BUTTON_CLOSE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1616,27 +1616,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="154"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="139"/>
+        <source>Награды</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Header/Header.qml" line="151"/>
         <source>HEADER_BUTTON_SUPPORT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="195"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="192"/>
         <source>HEADER_BUTTON_SETTINGS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="209"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="206"/>
         <source>HEADER_BUTTON_LOGOUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="221"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="218"/>
         <source>LOGOUT_ALERT_HEADER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="222"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="219"/>
         <source>LOGOUT_ALERT_BODY</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1832,17 +1837,17 @@
 <context>
     <name>Messenger</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="335"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="337"/>
         <source>MESSENGER_CONTACT_ITEM_PLAYING_STATUS_INFO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="348"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="350"/>
         <source>LAST_ACTIVITY_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="568"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="570"/>
         <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
         <translation></translation>
     </message>
@@ -2104,7 +2109,7 @@
     </message>
     <message>
         <location filename="../Application/Widgets/PremiumServer/View/PremiumServerLineView.qml" line="91"/>
-        <source>Доступ к премиум серверу навсегда</source>
+        <source>Вам не требуется продлевать доступ к премиум серверу</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2174,57 +2179,57 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="136"/>
-        <source>Премиум сервер — место развития и сражений для тех, кто ценит комфорт в игре и атмосферу закрытого сообщества.</source>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="139"/>
+        <source>Премиум сервер — место развития и сражений для тех, кто ценит комфорт в игре и атмосферу закрытого сообщества. &lt;a href=&apos;http://go.gamenet.ru/a/19/379/gna&apos;&gt;Узнать, что входит в комплект набора Премиум-доступа&lt;/a&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="145"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="154"/>
         <source>Осталось: %1 %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="147"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="156"/>
         <source>день</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="147"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="156"/>
         <source>дня</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="147"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="156"/>
         <source>дней</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="190"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="199"/>
         <source>Получите доступ к премиум серверу:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="191"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="200"/>
         <source>Продлите доступ к премиум серверу:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="255"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="264"/>
         <source>На счету недостаточно GN-монет</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="275"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="284"/>
         <source>Пополнить счет</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="291"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="300"/>
         <source>Итоговая стоимость: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="312"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="321"/>
         <source>Подтвердите покупку</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2436,17 +2441,17 @@
 <context>
     <name>RecentConversation</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/UserModels/RecentConversation.qml" line="181"/>
+        <location filename="../Application/Widgets/Messenger/Models/UserModels/RecentConversation.qml" line="166"/>
         <source>RECENTCONVERSATION_TODAY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/UserModels/RecentConversation.qml" line="185"/>
+        <location filename="../Application/Widgets/Messenger/Models/UserModels/RecentConversation.qml" line="170"/>
         <source>RECENTCONVERSATION_YESTERDAY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/UserModels/RecentConversation.qml" line="189"/>
+        <location filename="../Application/Widgets/Messenger/Models/UserModels/RecentConversation.qml" line="174"/>
         <source>RECENTCONVERSATION_LONGAGO</source>
         <translation></translation>
     </message>
@@ -2552,12 +2557,12 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="56"/>
+        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="58"/>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="60"/>
+        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="62"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
         <translation></translation>
     </message>

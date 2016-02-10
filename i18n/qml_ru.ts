@@ -951,7 +951,7 @@ Please try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Доступ на премиум-сервер открыт Вам навсегда</source>
+        <source>Доступ на премиум-сервер открыт Вам на весь период времени, в течение которого Администрация осуществляет поддержку и обеспечивает функционирование специально выделенных серверов игры.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3363,6 +3363,10 @@ Please try again later.</source>
         <source>PUBLIC_TEST_TOOLTIP</source>
         <translation type="unfinished">Вы приняли участие в тестировании новых функций клиента GameNet. Нажмите, чтобы узнать подробности.</translation>
     </message>
+    <message>
+        <source>Награды</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Home</name>
@@ -4456,10 +4460,6 @@ Please try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Доступ к премиум серверу навсегда</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Доступ к премиум серверу истекает сегодня</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4487,6 +4487,10 @@ Please try again later.</source>
         <source>Доступ к премиум серверу закончился сегодня</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Вам не требуется продлевать доступ к премиум серверу</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PremiumServerModel</name>
@@ -4511,10 +4515,6 @@ Please try again later.</source>
     </message>
     <message>
         <source>Произошла ошибка в процессе покупки. Пожалуйста, попробуйте позже.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Премиум сервер — место развития и сражений для тех, кто ценит комфорт в игре и атмосферу закрытого сообщества.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4555,6 +4555,10 @@ Please try again later.</source>
     </message>
     <message>
         <source>Подтвердите покупку</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Премиум сервер — место развития и сражений для тех, кто ценит комфорт в игре и атмосферу закрытого сообщества. &lt;a href=&apos;http://go.gamenet.ru/a/19/379/gna&apos;&gt;Узнать, что входит в комплект набора Премиум-доступа&lt;/a&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
