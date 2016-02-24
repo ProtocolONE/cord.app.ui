@@ -136,7 +136,7 @@ PopupBase {
         linkColor: Styles.linkText
         onLinkActivated: App.openExternalUrl(link)
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-        text: qsTr("Премиум сервер — место развития и сражений для тех, кто ценит комфорт в игре и атмосферу закрытого сообщества. <a href='http://go.gamenet.ru/a/19/379/gna'>Узнать, что входит в комплект набора Премиум-доступа</a>.")
+        text: qsTr("Премиум сервер — место развития и сражений для тех, кто ценит комфорт в игре и атмосферу закрытого сообщества.")
 
         MouseArea {
             anchors.fill: parent
