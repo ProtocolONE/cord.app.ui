@@ -552,7 +552,7 @@ http.request = function(options, callback) {
 }
 
 //Replaced during CI build
-var authVersion = "2.0.43.32ff2bb12793ce4deb18928cd7c3e21ccf8e1e95"
+var authVersion = "2.0.44.886eb7d570822e933d4e3a8ff96031ec19c8f6dc"
     , _gnLoginUrl = 'https://gnlogin.ru'
     , _gnLoginTitleApiUrl = 'gnlogin.ru'
     , _hwid
@@ -662,9 +662,13 @@ function register(login, password, callback) {
         .addQueryParam('mid', _mid)
         .addQueryParam('hwid', _hwid)
         .addQueryParam('login', login)
-        .addQueryParam('password', password);
+        .addQueryParam('password', encodeURIComponent(password));
 
-    http.request(request, function(response) {
+    var options = {
+        method: "post",
+        uri: request
+    };
+    http.request(options, function(response) {
         _private.jsonCredentialCallback(response, callback);
     });
 }
@@ -679,7 +683,7 @@ function register(login, password, callback) {
 function loginByGameNet(login, password, callback) {
     var request = new Uri(_gnLoginUrl)
         .addQueryParam('login', login)
-        .addQueryParam('passhash', password)
+        .addQueryParam('passhash', encodeURIComponent(password))
         .addQueryParam('hwid', _hwid)
         .addQueryParam('new', 1)
         .addQueryParam('json', 1);
@@ -688,7 +692,12 @@ function loginByGameNet(login, password, callback) {
         request.addQueryParam('captcha', _captcha);
     }
 
-    http.request(request, function(response) {
+    var options = {
+        method: "post",
+        uri: request
+    };
+
+    http.request(options, function(response) {
         _captcha = '';
         _private.jsonCredentialCallback(response, callback);
     });
@@ -809,9 +818,14 @@ ProviderGuest.prototype.confirm = function(userId, appKey, login, password, call
         .addQueryParam('userId', userId)
         .addQueryParam('appKey', appKey)
         .addQueryParam('login', login)
-        .addQueryParam('password', password);
+        .addQueryParam('password', encodeURIComponent(password));
 
-    http.request(request, function(response) {
+    var options = {
+        method: "post",
+        uri: request
+    };
+    
+    http.request(options, function(response) {
         _private.jsonCredentialCallback(response, callback);
     });
 };
