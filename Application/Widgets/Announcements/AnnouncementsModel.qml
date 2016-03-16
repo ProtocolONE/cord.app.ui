@@ -46,6 +46,10 @@ WidgetModel {
 
     Component.onCompleted: _lastShownPopupDate = + (new Date());
 
+    function isAnyGamePreventShowMe() {
+        return null !== App.findServiceByStatus(['Started', 'Starting', 'Downloading']);
+    }
+
     function checkIsAnnouncementBlocked(announceItem) {
         if (!announceItem) {
             return false;
@@ -61,7 +65,7 @@ WidgetModel {
     }
 
     function showGameInstalledAnnounce(serviceId) {
-        if (AnnouncementsHelper.isAnyGameStarted()) {
+        if (announcements.isAnyGamePreventShowMe()) {
             return;
         }
 
@@ -85,14 +89,12 @@ WidgetModel {
     function gameStartedCallback(serviceId) {
         AppSettings.setValue("qml/Announcements/", "AnyGameStarted", 1);
         AppSettings.setValue("qml/Announcements2/reminderExecuteLongAgo/" + serviceId + "/", "showDate", "");
-        AnnouncementsHelper.onGameStarted();
         logicTimer.stop();
         internalGameStarted(serviceId);
     }
 
     function gameClosedCallback() {
-        AnnouncementsHelper.onGameClosed();
-        if (!AnnouncementsHelper.isAnyGameStarted()) {
+        if (!announcements.isAnyGamePreventShowMe()) {
             logicTick();
         }
     }
@@ -387,7 +389,7 @@ WidgetModel {
     function logicTick() {
         logicTimer.stop();
 
-        if (AnnouncementsHelper.isAnyGameStarted()) {
+        if (announcements.isAnyGamePreventShowMe()) {
             return;
         }
 

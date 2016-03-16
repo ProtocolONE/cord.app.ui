@@ -322,26 +322,30 @@ Item {
         }
     }
 
-    function currentRunningMainService() {
-        var serviceItem;
+    function findServiceByStatus(status, checkSecond) {
+        var serviceItem,
+            prop = checkSecond ? 'secondStatus' : 'status';
+
         for (var i = 0; i < Games.count; i++) {
             serviceItem = Games.get(i);
-
-            if (serviceItem.status === "Started" || serviceItem.status === "Starting") {
+            if (status.indexOf(serviceItem[checkSecond]) !== -1) {
                 return serviceItem.serviceId;
             }
         }
+        return null;
+    }
+
+    function currentRunningMainService() {
+        return findServiceByStatus(["Started", "Starting"]);
     }
 
     function currentRunningSecondService() {
-        var serviceItem;
-        for (var i = 0; i < Games.count; i++) {
-            serviceItem = Games.get(i);
+        return findServiceByStatus(["Started", "Starting"], true);
+    }
 
-            if (serviceItem.secondStatus === "Started" || serviceItem.secondStatus === "Starting") {
-                return serviceItem.serviceId;
-            }
-        }
+    function isAnyServiceStarted() {
+        return currentRunningMainService()
+            || currentRunningSecondService();
     }
 
     function isAnyServiceLocked() {
