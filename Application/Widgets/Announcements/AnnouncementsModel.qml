@@ -44,7 +44,11 @@ WidgetModel {
         property bool showGameInstallNoExecuteReminder: true
     }
 
-    Component.onCompleted: _lastShownPopupDate = + (new Date());
+    Component.onCompleted: updateLastShownPopupDate();
+
+    function updateLastShownPopupDate() {
+        announcements._lastShownPopupDate = + (new Date());
+    }
 
     function isAnyGamePreventShowMe() {
         return null !== App.findServiceByStatus(['Started', 'Starting', 'Downloading']);
@@ -744,7 +748,10 @@ WidgetModel {
 
     Connections {
         target: SignalBus
-        onAuthDone: refreshTimer.restart();
+        onAuthDone: {
+            updateLastShownPopupDate();
+            refreshTimer.restart();
+        }
         onLogoutDone: {
             logicTimer.stop();
             refreshTimer.stop();
