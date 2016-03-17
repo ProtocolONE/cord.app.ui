@@ -22,8 +22,24 @@ Item {
     }
 
     Image {
+        id: lockImage
+
         anchors{ left: parent.left; bottom: parent.bottom; margins: 10 }
         source: installPath + "Assets/Images/Application/Blocks/ApplicationFocus/lock.png"
+        opacity: Qt.application.active ? 0 : 0.75
+        visible: opacity > 0
+
+        Behavior on opacity {
+            PropertyAnimation { duration: 75 }
+        }
+    }
+
+    Image {
+        property variant currentGame: App.currentGame()
+
+        anchors{ left: lockImage.right; bottom: parent.bottom; margins: 10 }
+
+        source: currentGame ? currentGame.imageLogoSmall : ''
         opacity: Qt.application.active ? 0 : 0.75
         visible: opacity > 0
 
