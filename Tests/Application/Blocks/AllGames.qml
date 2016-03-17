@@ -33,6 +33,7 @@ Item {
     }
 
     Component.onCompleted: {
+        User.setCredential('400001000000065690', 'cd34fe488b93d254243fa2754e86df8ffbe382b9', '');
         RestApi.Core.setUserId('400001000000065690');
         RestApi.Core.setAppKey('cd34fe488b93d254243fa2754e86df8ffbe382b9');
 

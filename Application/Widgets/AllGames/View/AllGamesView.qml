@@ -51,10 +51,10 @@ WidgetView {
 
         function fillGrid() {
             var grid = App.serviceGrid(),
-                    services,
-                    index = 0,
-                    gameListServices,
-                    gridServices = {};
+                suggestedUserGames,
+                otherSuggestedGames,
+
+                gridServices = {};
 
             Object.keys(grid).forEach(function(e){
                 var item = grid[e];
@@ -62,59 +62,73 @@ WidgetView {
                 if (!App.serviceItemByServiceId(item.serviceId)) {
                     return;
                 }
-
-                var itemProperties = {
-                    source: item.image,
-                    serviceItem: App.serviceItemByServiceId(item.serviceId),
-                    serviceItemGrid: item,
-                    serviceId: item.serviceId,
-                    x: (item.col - 1) * 257,
-                    y: (item.row - 1) * 100,
-                    width: (item.width * 255) + (item.width - 1) * 2,
-                    height: (item.height * 98) + (item.height - 1) * 2
-                };
-
-                var comp = itemComponent.createObject(baseArea, itemProperties);
+                itemComponent.createObject(baseArea,
+                                           {
+                                               source: item.image,
+                                               serviceItem: App.serviceItemByServiceId(item.serviceId),
+                                               serviceItemGrid: item,
+                                               serviceId: item.serviceId,
+                                               x: (item.col - 1) * 257,
+                                               y: (item.row - 1) * 100,
+                                               width: (item.width * 255) + (item.width - 1) * 2,
+                                               height: (item.height * 98) + (item.height - 1) * 2
+                                           });
                 gridServices[item.serviceId] = 1;
             });
 
-            services = App.getRegisteredServices().filter(function(e){
-                if (gridServices.hasOwnProperty(e) ||  e == "0") {
-                    return false;
-                }
+            //INFO https://jira.gamenet.ru/browse/QGNA-1513
 
-                return true;
-            }).sort(function(_a, _b) {
-                var a = App.serviceItemByServiceId(_a),
-                    b = App.serviceItemByServiceId(_b);
-
-                var isAinstalled = ApplicationStatistic.isServiceInstalled(a.serviceId),
-                    isBinstalled = ApplicationStatistic.isServiceInstalled(b.serviceId);
-
-                if (isAinstalled == isBinstalled) {
-                    return (a.sortPositionInApp < b.sortPositionInApp) ? -1 :
-                           (a.sortPositionInApp > b.sortPositionInApp) ? 1 : 0;
-                }
-
-                return (isAinstalled < isBinstalled) ? -1 : 1;
-
-            }).slice(0, 7);
-
-            gameListServices = services;
-
-            while (gameListServices.length < 7) {
-                var s = grid[index++].serviceId;
-                if (s == "0") {
-                    continue;
-                }
-
-                gameListServices.push(s);
+            function notInUpperGrid(item) {
+                return !gridServices.hasOwnProperty(item.serviceId);
             }
 
-            gameList.model = gameListServices.map(function(e){
-                return {serviceId: e};
-            });
+            function buildButtonGameList(response) {
+                function parseResponse(response) {
+                    if (!response.hasOwnProperty('userInfo') || !response.userInfo[0]) {
+                        return [];
+                    };
 
+                    //INFO We should take one game with most played time and 2 games sorted by last played time. If
+                    //error or empty data we should return games sorted priority from admin.
+                    var games = Lodash._.chain(response.userInfo[0].games.lastPlayList)
+                        .map(function(e){
+                            return e.serviceId = App.serviceItemByGameId(e.gameId).serviceId, e;
+                        })
+                        .filter(notInUpperGrid)
+                        .sortByAll(['totalTime'])
+                        .reverse()
+                        .value();
+
+                    var topGameByTime = games.shift();
+
+                    var resultGames = [topGameByTime.serviceId];
+                    var gamesByLastPlayTime = Lodash._.chain(games)
+                        .sortByAll(['time'])
+                        .reverse()
+                        .slice(0, 2)
+                        .map('serviceId')
+                        .value();
+
+                    return resultGames.concat(gamesByLastPlayTime);
+                }
+
+                suggestedUserGames = parseResponse(response);
+                otherSuggestedGames = Lodash._.chain(App.getRegisteredServices())
+                    .map(App.serviceItemByServiceId)
+                    .sortByAll('sortPositionInApp')
+                    .filter(function(e){
+                        return !gridServices.hasOwnProperty(e.serviceId)
+                            && e.serviceId != "0"
+                            && suggestedUserGames.indexOf(e.serviceId) === -1;
+                    })
+                    .slice(0, 7 - suggestedUserGames.length)
+                    .map('serviceId')
+                    .value();
+
+                gameList.model = suggestedUserGames.concat(otherSuggestedGames)
+            }
+
+            RestApi.User.getPlayedInfo([User.userId()], buildButtonGameList, buildButtonGameList);
             gameListPage.update();
         }
     }

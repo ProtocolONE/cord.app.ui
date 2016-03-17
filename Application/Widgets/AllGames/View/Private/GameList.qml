@@ -26,7 +26,7 @@ Item {
         orientation: ListView.Horizontal
 
         delegate: GameItemSmall {
-            serviceId: listView.model[index].serviceId
+            serviceId: listView.model[index]
             onClicked: root.clicked(serviceItem)
         }
 
