@@ -99,6 +99,10 @@ WidgetView {
                         .reverse()
                         .value();
 
+                    if (games.length === 0) {
+                        return [];
+                    }
+
                     var topGameByTime = games.shift();
 
                     var resultGames = [topGameByTime.serviceId];
