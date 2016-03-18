@@ -275,7 +275,7 @@ Item {
         onLogoutRequest: {
             App.logout();
             root.resetCredential();
-            App.activateGame();
+            App.resetGame();
             SignalBus.logoutDone();
         }
 

@@ -68,10 +68,12 @@ Item {
                 case "allgame": {
                     centralBlockLoader.sourceComponent = allGames;
                     root.selectedGamePage = false;
+                    App.resetGame();
                 } break;
                 case "themes": {
                     centralBlockLoader.sourceComponent = themes;
                     root.selectedGamePage = false;
+                    App.resetGame();
                 } break;
 
                 default: {

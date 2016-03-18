@@ -366,6 +366,10 @@ Item {
         Games.currentGameItem = item;
     }
 
+    function resetGame() {
+        activateGame(null)
+    }
+
     function previousGame(item) {
         return Js._previousGame;
     }
