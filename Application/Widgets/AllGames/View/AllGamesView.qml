@@ -77,11 +77,6 @@ WidgetView {
             });
 
             //INFO https://jira.gamenet.ru/browse/QGNA-1513
-
-            function notInUpperGrid(item) {
-                return !gridServices.hasOwnProperty(item.serviceId);
-            }
-
             function buildButtonGameList(response) {
                 function parseResponse(response) {
                     if (!response.hasOwnProperty('userInfo') || !response.userInfo[0]) {
@@ -92,9 +87,13 @@ WidgetView {
                     //error or empty data we should return games sorted priority from admin.
                     var games = Lodash._.chain(response.userInfo[0].games.lastPlayList)
                         .map(function(e){
-                            return e.serviceId = App.serviceItemByGameId(e.gameId).serviceId, e;
+                            var item = App.serviceItemByGameId(e.gameId);
+                            return e.serviceId = (item ? item.serviceId : -1), e;
                         })
-                        .filter(notInUpperGrid)
+                        .filter(function(e){
+                            return e.serviceId !== -1
+                                && !gridServices.hasOwnProperty(e.serviceId)
+                        })
                         .sortByAll(['totalTime'])
                         .reverse()
                         .value();
