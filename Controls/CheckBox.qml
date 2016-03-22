@@ -17,6 +17,8 @@ Item {
     property alias enabled: buttonBehavior.enabled
     property alias text: controlText.text
     property alias fontSize: controlText.font.pixelSize
+    property alias containsMouse: buttonBehavior.containsMouse
+
     property bool checked: false
 
     property alias toolTip: buttonBehavior.toolTip

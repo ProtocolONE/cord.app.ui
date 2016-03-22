@@ -12,8 +12,9 @@ import QtQuick 2.4
 import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 
-import "GameInfoModel.js" as GameInfoModel
 import Application.Core 1.0
+
+import "GameInfoModel.js" as GameInfoModel
 
 WidgetModel {
     id: root
@@ -37,29 +38,38 @@ WidgetModel {
                 return;
             }
 
-            var shownCategoryId;
-
-            Object.keys(response.gallery).forEach(function(e) {
-                var item = response.gallery[e].category;
-                if (item.name == "Скриншоты") {
-                    shownCategoryId = item.id;
-                }
+            var galleries = Object.keys(response.gallery).map(function(e) {
+                //INFO Due to php realization of serialization `getGallery` response could be object with one key if
+                //we have just one gallery. So make small trick to remove this issue.
+                return response.gallery[e];
             });
 
-            var data = response.gallery.filter(function(e) {
-                return e.category.id == shownCategoryId;
-            });
+            if (galleries.length > 1) {
+                galleries = galleries.filter(function(e) {
+                    return e.category.name == "Скриншоты";
+                });
+            }
 
-            GameInfoModel.allInfo[gameId] = data[0].media.map(function(e) {
-                return {
-                    "id": e.id|0,
-                    "category": e.category|0,
-                    "type": e.type|0,
-                    "index": e.index|0,
-                    "preview": e.preview || "",
-                    "source": e.source || ""
-                };
-            });
+            GameInfoModel.allInfo[gameId] = Lodash._.chain(galleries[0].media)
+                .filter(function(e) {
+                    var type = e.type|0;
+                    return type === 0 || (type === 1 && !!e.rawSource);
+                })
+                .map(function(e) {
+                    var type = e.type|0;
+                    return {
+                        "id": e.id|0,
+                        "category": e.category|0,
+                        "type": type,
+                        "index": e.index|0,
+                        "preview": e.preview || "",
+                        "source": type === 0 ? (e.source || "") : (e.rawSource || ""),
+                    }
+                })
+                .sortBy('type')
+                .reverse()
+                .sortBy('index')
+                .value();
 
             root.infoChanged();
         }, function() {

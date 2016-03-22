@@ -24,3 +24,4 @@ TextButton 1.0 TextButton.qml
 SettingsCaption 1.0 SettingsCaption.qml
 SettingsTextButton 1.0 SettingsTextButton.qml
 DragWindowArea 1.0 DragWindowArea.qml
+VideoPlayer 1.0 VideoPlayer.qml

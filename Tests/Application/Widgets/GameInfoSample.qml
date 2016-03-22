@@ -19,23 +19,21 @@ Rectangle {
     height: 800
     color: '#cccccc'
 
-    WidgetManager {
-        id: manager
+    Component.onCompleted:  {
+        WidgetManager.registerWidget('Application.Widgets.Facts');
+        WidgetManager.registerWidget('Application.Widgets.GameInfo');
+        WidgetManager.init();
+    }
 
-        Component.onCompleted: {
-            manager.registerWidget('Application.Widgets.GameInfo');
-            manager.registerWidget('Application.Widgets.Facts');
-            manager.init();
-            App.activateGame(App.serviceItemByGameId("92"));
+    RequestServices {
+        onReady: {
+            App.activateGame(App.serviceItemByGameId("1067"));
         }
     }
 
     WidgetContainer {
         x: 50
         y: 50
-
-        width: 590
-        height: 100
         widget: 'GameInfo'
     }
 
@@ -61,6 +59,16 @@ Rectangle {
             text: "Activate 71 (BS)"
             onClicked: {
                 App.activateGame(App.serviceItemByGameId("71"));
+            }
+        }
+
+        Button {
+            width: 200
+            height: 30
+
+            text: "Activate 1067 (IS Defense)"
+            onClicked: {
+                App.activateGame(App.serviceItemByGameId("1067"));
             }
         }
     }

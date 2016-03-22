@@ -18,23 +18,16 @@ import Application.Controls 1.0
 
 import Application.Core 1.0
 import Application.Core.Styles 1.0
-
+import Application.Core.Settings 1.0
 
 WidgetView {
     id: root
 
-    property int rotationTimeout: 5000
     property variant gameItem: App.currentGame()
 
     onGameItemChanged: {
-        if (gameItem && model) {
-            model.refreshGallery(gameItem.gameId);
-        }
-    }
-
-    Component.onCompleted: {
-        if (gameItem && model) {
-            model.refreshGallery(gameItem.gameId);
+        if (gameItem) {
+            updateGallery.restart()
         }
     }
 
@@ -43,17 +36,29 @@ WidgetView {
             return;
         }
 
+        var autoPlay = AppSettings.isAppSettingsEnabled('gameInfo', 'autoPlay', true),
+            items = model.getGallery(gameItem.gameId),
+            index = 0,
+            i;
+
         previewListModel.clear();
-        d.index = 0;
-
-        var items = model.getGallery(gameItem.gameId);
-
-        for (var i = 0; i < items.length; i++){
-            var newData = items[i];
-            newData.index = i;
-
-            previewListModel.append(newData);
+        for (i = 0; i < items.length; i++){
+            items[i].index = i;
+            previewListModel.append(items[i]);
         }
+
+        if (items[0].type === 1 && autoPlay == false) {
+            for (i = 1; i < items.length; i++){
+                if (items[i].type === 0) {
+                    index = i;
+                    break;
+                }
+            }
+        }
+
+
+        d.index = index;
+        listView.forceLayout();
 
         if (previewListModel.count > 0) {
             d.switchAnimation();
@@ -65,16 +70,22 @@ WidgetView {
 
     clip: true
 
+    Timer {
+        id: updateGallery
+
+        interval: 0
+        onTriggered: model.refreshGallery(gameItem.gameId);
+    }
+
     Connections {
         target: model
-
         onInfoChanged: update();
     }
 
     QtObject {
         id: d
 
-        property int index: 0
+        property int index
 
         onIndexChanged: listView.currentIndex = index;
 
@@ -116,11 +127,9 @@ WidgetView {
         }
 
         function switchAnimation() {
-            showNextTimer.stop();
             if (listView.currentItem) {
                 listView.currentItem.moveToItem();
             }
-            contentSwitcher.opacity = 1;
             contentSwitcher.switchToNext();
         }
     }
@@ -149,10 +158,50 @@ WidgetView {
                     hoverEnabled: true
                 }
 
-                Switcher {
+                Item {
                     id: contentSwitcher
 
-                    property variant currentItem: content1
+                    width: parent.width
+                    height: parent.height
+
+                    WebImage {
+                        id: content
+
+                        anchors.fill: parent
+                        cache: false
+                        asynchronous: true
+                    }
+
+                    VideoPlayer {
+                        id: video
+
+                        anchors.fill: parent
+                        onAutoPlayChanged: AppSettings.setAppSettingsValue('gameInfo', 'autoPlay', video.autoPlay|0)
+                        onVolumeChanged: AppSettings.setAppSettingsValue('gameInfo', 'volume', video.volume)
+                        Component.onCompleted: {
+                            var volume = AppSettings.appSettingsValue('gameInfo', 'volume', -1);
+                            video.volume = (volume === -1) ? 1.0 : volume;
+                            video.autoPlay = AppSettings.isAppSettingsEnabled('gameInfo', 'autoPlay', 1);
+                        }
+                    }
+
+                    Image {
+                        id: image
+
+                        anchors.fill: parent
+                        opacity: 0
+                        visible: opacity > 0
+                    }
+
+                    NumberAnimation {
+                        id: transition
+
+                        target: image
+                        property: 'opacity'
+                        from: 1
+                        to: 0
+                        duration: 250
+                    }
 
                     function switchToNext() {
                         var nextItem = previewListModel.get(d.index);
@@ -160,62 +209,23 @@ WidgetView {
                             return;
                         }
 
-                        if (currentItem === content1) {
-                            content2.source = nextItem.source;
-                            switchTo(content2);
-                            currentItem = content2;
-                            noInetTimeout.restart();
-                        } else {
-                            content1.source = nextItem.source;
-                            switchTo(content1);
-                            currentItem = content1;
-                            noInetTimeout.restart();
-                        }
-                    }
+                        contentSwitcher.grabToImage(function(result) {
+                            image.source = result.url;
 
-                    anchors.fill: parent
-
-                    Timer {
-                        id: noInetTimeout
-
-                        running: false
-                        interval: 5000
-                        repeat: false
-                        onTriggered: {
-                            if (contentSwitcher.currentItem.progress == 0) {
-                                showNextTimer.restart();
+                            if (nextItem.type === 0) {
+                                content.source = nextItem.source;
+                                content.visible = true;
+                                video.source = '';
+                                video.visible = false;
+                            } else {
+                                video.source = nextItem.source;
+                                video.visible = true;
+                                content.source = '';
+                                content.visible = false;
                             }
-                        }
-                    }
-
-                    WebImage {
-                        id: content1
-
-                        width: parent.width
-                        height: parent.height
-                        cache: false
-                        asynchronous: true
-
-                        onStatusChanged: {
-                            if (content1.status == Image.Ready) {
-                                showNextTimer.restart();
-                            }
-                        }
-                    }
-
-                    WebImage {
-                        id: content2
-
-                        width: parent.width
-                        height: parent.height
-                        cache: false
-                        asynchronous: true
-
-                        onStatusChanged: {
-                            if (content2.status == Image.Ready) {
-                                showNextTimer.restart();
-                            }
-                        }
+                            transition.start()
+                        },
+                        Qt.size(image.width, image.height))
                     }
                 }
 
@@ -239,18 +249,10 @@ WidgetView {
                     id: previousButton
 
                     width: edgeLeftImage.width
-                    height: parent.height
-                    anchors {
-                        verticalCenter: parent.verticalCenter
-                        left: parent.left
-                    }
+                    height: parent.height - 120
                     imageAnchors.horizontalCenterOffset: -4
-
-                    style {
-                        normal: "#00000000"
-                        hover: "#00000000"
-                        disabled: "#00000000"
-                    }
+                    anchors {verticalCenter: parent.verticalCenter; left: parent.left}
+                    style {normal: "#00000000"; hover: "#00000000"; disabled: "#00000000"}
                     styleImages {
                         normal: previousButton.containsMouse || hoverArea.containsMouse ?
                                     installPath + 'Assets/images/Application/Widgets/GameInfo/leftArrowHover.png' :
@@ -265,32 +267,19 @@ WidgetView {
                     analytics {
                         category: 'GameInfo'
                         action: 'LeftArrow'
-                        label: previewListModel.count > 0 ? previewListModel.get(d.index).preview : ''
                     }
 
-                    onClicked: {
-                        showNextTimer.stop();
-                        d.decrementIndex();
-                    }
+                    onClicked: d.decrementIndex();
                 }
 
                 ImageButton {
                     id: nextButton
 
                     width: edgeRightImage.width
-                    height: parent.height
-                    anchors {
-                        verticalCenter: parent.verticalCenter
-                        right: parent.right
-                    }
-
+                    height: parent.height - 120
+                    anchors {verticalCenter: parent.verticalCenter; right: parent.right}
                     imageAnchors.horizontalCenterOffset: 4
-                    style {
-                        normal: "#00000000"
-                        hover: "#00000000"
-                        disabled: "#00000000"
-                    }
-
+                    style {normal: "#00000000"; hover: "#00000000"; disabled: "#00000000"}
                     styleImages {
                         normal: nextButton.containsMouse || hoverArea.containsMouse ?
                                     installPath + 'Assets/images/Application/Widgets/GameInfo/rightArrowHover.png' :
@@ -306,13 +295,9 @@ WidgetView {
                     analytics {
                         category: 'GameInfo'
                         action: 'RightArrow'
-                        label: previewListModel.count > 0 ? previewListModel.get(d.index).preview : ''
                     }
 
-                    onClicked: {
-                        showNextTimer.stop();
-                        d.incrementIndex();
-                    }
+                    onClicked: d.incrementIndex();
                 }
 
                 WidgetContainer {
@@ -353,6 +338,7 @@ WidgetView {
                     }
                 }
 
+
                 ListView {
                     id: listView
 
@@ -368,15 +354,18 @@ WidgetView {
                         }
                     }
 
-                    interactive: false
-                    orientation: ListView.Horizontal
-
                     model: ListModel {
                         id: previewListModel
                     }
 
-                    spacing: 2
+                    interactive: false
+                    orientation: ListView.Horizontal
 
+                    onCurrentIndexChanged: {
+                        previousButton.analytics.label = currentItem.preview || '';
+                        nextButton.analytics.label = currentItem.preview || '';
+                    }
+                    spacing: 2
                     delegate: GameInfoDelegate {
                         function moveToItem() {
                             if (index == listView.count - 1) {
@@ -452,14 +441,5 @@ WidgetView {
             leftMargin: 10
             rightMargin: 10
         }
-    }
-
-    Timer {
-        id: showNextTimer
-
-        repeat: true
-        interval: root.rotationTimeout
-        triggeredOnStart: false
-        onTriggered: d.incrementIndex();
     }
 }
