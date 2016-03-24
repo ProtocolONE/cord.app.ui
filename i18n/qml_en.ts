@@ -176,34 +176,34 @@
 <context>
     <name>AnnouncementsModel</name>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="77"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="85"/>
         <source>ANNOUNCE_GAME_INSTALLED_MESSAGE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="78"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="86"/>
         <source>ANNOUNCE_GAME_INSTALLED_BUTTON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="328"/>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="341"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="334"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="347"/>
         <source>REMINDER_NEVER_PLAYED_MESSAGE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="329"/>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="342"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="335"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="348"/>
         <source>REMINDER_NEVER_PLAYED_BUTTON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="561"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="567"/>
         <source>SILENT_REMIND_POPUP_BUTTON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="562"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="568"/>
         <source>SILENT_REMIND_POPUP_MESSAGE</source>
         <translation></translation>
     </message>
@@ -341,12 +341,12 @@
 <context>
     <name>BaseLayer</name>
     <message>
-        <location filename="../Application/Layers/BaseLayer.qml" line="234"/>
+        <location filename="../Application/Layers/BaseLayer.qml" line="236"/>
         <source>Доступ к премиум-серверу</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Layers/BaseLayer.qml" line="235"/>
+        <location filename="../Application/Layers/BaseLayer.qml" line="237"/>
         <source>Доступ на премиум-сервер открыт Вам на весь период времени, в течение которого Администрация осуществляет поддержку и обеспечивает функционирование специально выделенных серверов игры.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2180,7 +2180,7 @@
     </message>
     <message>
         <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="139"/>
-        <source>Премиум сервер — место развития и сражений для тех, кто ценит комфорт в игре и атмосферу закрытого сообщества. &lt;a href=&apos;http://go.gamenet.ru/a/19/379/gna&apos;&gt;Узнать, что входит в комплект набора Премиум-доступа&lt;/a&gt;.</source>
+        <source>Премиум сервер — место развития и сражений для тех, кто ценит комфорт в игре и атмосферу закрытого сообщества.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2987,7 +2987,15 @@
     </message>
 </context>
 <context>
-    <name>qGNA_Main</name>
+    <name>VideoManagement</name>
+    <message>
+        <location filename="../Application/Controls/VideoPlayer/VideoManagement.qml" line="65"/>
+        <source>Автоматическое воспроизведение</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Vk</name>
     <message>
         <location filename="../Application/Core/Authorization/Vk.qml" line="39"/>
         <source>WINDOW_TITLE_VK_AUTH</source>

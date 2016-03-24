@@ -885,7 +885,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
-        <translation>Ваш аккаунт заблокирован. Для получения более подробной информации обратитесь в службу поддержки http://support.gamenet.ru</translation>
+        <translation>Ваш аккаунт заблокирован. Для получения более подробной информации обратитесь в &lt;a href=&quot;http://support.gamenet.ru&quot;&gt;службу поддержки&lt;/a&gt;. Подробности в &lt;a href=&quot;https://support.gamenet.ru/kb/articles/899&quot;&gt;KB-899&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>AUTH_FAIL_GAMENET_UNAVAILABLE</source>
@@ -3441,7 +3441,7 @@ Please try again later.</source>
     <name>Index</name>
     <message>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
-        <translation>Учётная запись заблокирована. Если вы считаете, что так не должно быть, обратитесь в &lt;a href=&quot;http://support.gamenet.ru&quot;&gt;&lt;font color=&apos;#d8e5d4&apos;&gt;службу поддержки&lt;/font&gt;&lt;/a&gt;.  </translation>
+        <translation>Ваш аккаунт заблокирован. Для получения более подробной информации обратитесь в &lt;a href=&quot;http://support.gamenet.ru&quot;&gt;службу поддержки&lt;/a&gt;. Подробности в &lt;a href=&quot;https://support.gamenet.ru/kb/articles/899&quot;&gt;KB-899&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
@@ -4558,7 +4558,7 @@ Please try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Премиум сервер — место развития и сражений для тех, кто ценит комфорт в игре и атмосферу закрытого сообщества. &lt;a href=&apos;http://go.gamenet.ru/a/19/379/gna&apos;&gt;Узнать, что входит в комплект набора Премиум-доступа&lt;/a&gt;.</source>
+        <source>Премиум сервер — место развития и сражений для тех, кто ценит комфорт в игре и атмосферу закрытого сообщества.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5182,7 +5182,7 @@ Please try again later.</source>
     <name>SecondAccountAuthView</name>
     <message>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
-        <translation></translation>
+        <translation>Ваш аккаунт заблокирован. Для получения более подробной информации обратитесь в &lt;a href=&quot;http://support.gamenet.ru&quot;&gt;службу поддержки&lt;/a&gt;. Подробности в &lt;a href=&quot;https://support.gamenet.ru/kb/articles/899&quot;&gt;KB-899&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
@@ -6130,6 +6130,13 @@ Please try again later.</source>
     <message>
         <source>USER_PROFILE_CONTEXT_MENU_MONEY</source>
         <translation>Пополнить счет</translation>
+    </message>
+</context>
+<context>
+    <name>VideoManagement</name>
+    <message>
+        <source>Автоматическое воспроизведение</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
