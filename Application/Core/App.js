@@ -15,7 +15,8 @@ var indexToGameItem = {},
     serviceStartButtonClicked = {},
     servicesGrid,
     _previousGame,
-    runningService = {};
+    runningService = {},
+    sellItems = {};
 
 function createService(data) {
     var item = {},
@@ -68,6 +69,10 @@ function createService(data) {
     item.backgroundInApp = data.backgroundInApp || '';
     item.hasPremiumServer = false;
 
+    // standalone properties
+    item.isStandalone = !!data.isStandalone;
+    item.isClosedBeta = !!data.isClosedBeta;
+
     if (item.gameId == 1021) {
         //HACK Use this hack due have just one game (BlackDesert) with that feature.
         if (Date.now() > 1451480400000) {
@@ -76,6 +81,7 @@ function createService(data) {
     }
 
     urlProps = [
+        'mainUrl',
         'guideUrl',
         //'blogUrl', // https://jira.gamenet.ru:8443/browse/QGNA-1264
         'licenseUrl',
@@ -85,6 +91,8 @@ function createService(data) {
         var prop = urlProps[e];
         if (data.hasOwnProperty(prop) && !!data[prop]) {
             item[prop] = 'https://gamenet.ru' + data[prop];
+        } else {
+            item[prop] = '';
         }
     });
 

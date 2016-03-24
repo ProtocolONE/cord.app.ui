@@ -10,9 +10,11 @@
 
 import QtQuick 2.4
 import Tulip 1.0
+
 import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
+
 import Application.Blocks 1.0
 import Application.Core 1.0
 import Application.Core.Popup 1.0
@@ -27,6 +29,12 @@ Item {
     height: 60
 
     property variant gameItem: App.currentGame()
+
+    property bool isStandalone: gameItem && gameItem.isStandalone
+    property bool isClosedBeta: gameItem && gameItem.isClosedBeta
+    property bool hasSellsItem: gameItem && gameItem.hasSellsItem
+    property bool userHasSubscription: gameItem && User.hasBoughtStandaloneGame(gameItem.serviceId)
+    property string cost: gameItem && gameItem.cost
 
     Item {
         id: d
@@ -44,6 +52,17 @@ Item {
             App.activateGameByServiceId(root.gameItem.serviceId);
 
             switch (stateGroup.state) {
+            case 'StandAlone_hasNotSellItem':
+                App.openExternalUrlWithAuth(root.gameItem.mainUrl)
+                break;
+
+            case 'StandAlone_hasSellItem_userNotBought':
+                SignalBus.buyGame(root.gameItem.serviceId);
+                break;
+
+            case 'StandAlone_closebeta_hasSellItem_userBought':
+                break;
+
             case 'Error':
                 Popup.show('GameDownloadError');
                 break;
@@ -133,6 +152,28 @@ Item {
                 PropertyChanges {target: miniButton; visible: true}
                 PropertyChanges {target: downloadStatus; visible: true}
             },
+
+            State {
+                name: 'StandAlone_hasNotSellItem'
+                extend: 'OnlyBigButton'
+                when: root.gameItem && root.isStandalone && !root.hasSellsItem
+                PropertyChanges { target: button; text: qsTr("Скоро") }
+            },
+
+            State {
+                name: 'StandAlone_hasSellItem_userNotBought'
+                extend: 'OnlyBigButton'
+                when: root.gameItem && root.isStandalone && root.hasSellsItem && !root.userHasSubscription
+                PropertyChanges { target: button; text: qsTr("%1 ₽").arg(root.cost) }
+            },
+
+            State {
+                name: 'StandAlone_closebeta_hasSellItem_userBought'
+                extend: 'OnlyBigButton'
+                when: root.gameItem && root.isStandalone && root.isClosedBeta && root.hasSellsItem && root.userHasSubscription
+                PropertyChanges {target: button; text: qsTr("Оплачено")}
+            },
+
             State {
                 name: 'NonRunnableGame'
                 extend: 'OnlyBigButton'

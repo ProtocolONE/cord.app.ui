@@ -9,6 +9,7 @@ QtObject {
     property int uploadSpeed: 150
     property string incomingPort: "11888"
     property string numConnections: "200"
+    property string updateArea: "tst"
     property bool seedEnabled: true
     property int torrentProfile: 1
 

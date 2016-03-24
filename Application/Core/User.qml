@@ -51,15 +51,9 @@ Item {
 
     function setUserSubscriptions(data) {
         var wasUpdated = false;
-
-        serviceSubscriptions.clear();
         data.filter(function(e) {
-            // HACK
-//            if (e.serviceId == "30000000000") {
-//                return true;
-//            }
-
-            return e.dueDate !== null;
+            var service = App.serviceItemByServiceId(e.serviceId)
+            return e.dueDate !== null || (service && service.isStandalone);
         }).map(function(e) {
                     // HACK
 //                    if (e.serviceId == "30000000000") {
@@ -165,6 +159,15 @@ Item {
         return (getSubscriptionRemainTime(serviceId)|0) > 365 * 30;
     }
 
+    function hasBoughtStandaloneGame(serviceId) {
+        var result = serviceSubscriptions.contains(serviceId),
+            q = balanceTimer.tickCount && root.lastUpdated;
+
+        return result;
+    }
+
+    QtObject {
+        id: d
 
     ExtendedListModel {
         id: serviceSubscriptions

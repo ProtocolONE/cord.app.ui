@@ -1118,38 +1118,53 @@
 <context>
     <name>GameInstallBlock</name>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="140"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="160"/>
+        <source>Скоро</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="167"/>
+        <source>%1 ₽</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="174"/>
+        <source>Оплачено</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="181"/>
         <source>ABOUT_PLAY_NOT_INSTALLED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="146"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="187"/>
         <source>BUTTON_PLAY_NOT_INSTALLED</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="172"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="213"/>
         <source>BUTTON_PLAY_ERROR_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="178"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="219"/>
         <source>BUTTON_PLAY_ON_PAUSED_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="185"/>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="186"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="226"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="227"/>
         <source>BUTTON_UNINSTALLING_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="193"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="234"/>
         <source>BUTTON_PLAY_ON_DETAILS_STATE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/GameInstallBlock.qml" line="200"/>
+        <location filename="../Application/Blocks/GameInstallBlock.qml" line="241"/>
         <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1234,12 +1249,27 @@
 <context>
     <name>GameItem</name>
     <message>
-        <location filename="../Application/Widgets/AllGames/View/Private/GameItem.qml" line="173"/>
+        <location filename="../Application/Widgets/AllGames/View/Private/GameItem.qml" line="46"/>
+        <source>Скоро</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AllGames/View/Private/GameItem.qml" line="50"/>
+        <source>%1 ₽</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AllGames/View/Private/GameItem.qml" line="54"/>
+        <source>Оплачено</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AllGames/View/Private/GameItem.qml" line="58"/>
         <source>START_GAME_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AllGames/View/Private/GameItem.qml" line="173"/>
+        <location filename="../Application/Widgets/AllGames/View/Private/GameItem.qml" line="58"/>
         <source>ABOUT_GAME_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1247,12 +1277,27 @@
 <context>
     <name>GameItemSmall</name>
     <message>
-        <location filename="../Application/Widgets/AllGames/View/Private/GameItemSmall.qml" line="108"/>
+        <location filename="../Application/Widgets/AllGames/View/Private/GameItemSmall.qml" line="30"/>
+        <source>Скоро</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AllGames/View/Private/GameItemSmall.qml" line="34"/>
+        <source>%1 ₽</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AllGames/View/Private/GameItemSmall.qml" line="38"/>
+        <source>Оплачено</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AllGames/View/Private/GameItemSmall.qml" line="42"/>
         <source>START_GAME_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AllGames/View/Private/GameItemSmall.qml" line="108"/>
+        <location filename="../Application/Widgets/AllGames/View/Private/GameItemSmall.qml" line="42"/>
         <source>ABOUT_GAME_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2700,6 +2745,44 @@
     <message>
         <location filename="../Application/Widgets/AllGames/View/Private/Stick.qml" line="33"/>
         <source>GAME_NEW_STICK</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StandaloneGameShopView</name>
+    <message>
+        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="96"/>
+        <source>Что-то пошло не так</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="72"/>
+        <source>Покупка </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="216"/>
+        <source>С Вашего счета будет списано:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="227"/>
+        <source>%1 GN-монет</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="257"/>
+        <source>У меня: %1 GN-монет</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="260"/>
+        <source>Оплатить %1 GN-монет</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="291"/>
+        <source>Лицензионное соглашение</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

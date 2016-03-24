@@ -34,6 +34,53 @@ Item {
 
     property bool selected: mouseArea.containsMouse || startButton.containsMouse
 
+    property bool isStandalone: serviceItem && serviceItem.isStandalone
+    property bool isClosedBeta: serviceItem && serviceItem.isClosedBeta
+    property bool hasSellsItem: serviceItem && serviceItem.hasSellsItem
+    property bool userHasSubscription: serviceItem && User.hasBoughtStandaloneGame(serviceItem.serviceId)
+    property string cost: serviceItem && serviceItem.cost
+
+    function buttonText() {
+        if (root.isStandalone) {
+            if (!root.hasSellsItem) {
+                return qsTr("Скоро")
+            }
+
+            if (!root.userHasSubscription) {
+                return qsTr("%1 ₽").arg(root.cost);
+            }
+
+            if (root.isClosedBeta && root.hasSellsItem && root.userHasSubscription) {
+                return qsTr("Оплачено");
+            }
+        }
+
+        return root.serviceItem.isRunnable ? qsTr("START_GAME_BUTTON") : qsTr("ABOUT_GAME_BUTTON");
+    }
+
+    function buttonClicked() {
+        App.activateGameByServiceId(root.serviceItem.serviceId);
+        SignalBus.navigate('mygame', 'GameItem');
+
+        if (root.isStandalone) {
+            if (!root.hasSellsItem) {
+                App.openExternalUrlWithAuth(root.serviceItem.mainUrl);
+                return;
+            }
+
+            if (!root.userHasSubscription) {
+                SignalBus.buyGame(root.serviceItem.serviceId);
+                return;
+            }
+
+            if (root.isClosedBeta && root.hasSellsItem && root.userHasSubscription) {
+                return;
+            }
+        }
+
+        App.downloadButtonStart(root.serviceItem.serviceId);
+    }
+
     Connections {
         target: SignalBus
 
@@ -170,7 +217,7 @@ Item {
             height: 32
             anchors.centerIn: parent
             opacity: root.selected ? 1 : 0
-            text: root.serviceItem.isRunnable ? qsTr("START_GAME_BUTTON") : qsTr("ABOUT_GAME_BUTTON")
+            text: root.buttonText()
             enabled: App.isMainServiceCanBeStarted(root.serviceItem)
 
             analytics {
@@ -185,11 +232,7 @@ Item {
                 disabled: Styles.primaryButtonDisabled
             }
 
-            onClicked: {
-                App.activateGameByServiceId(root.serviceItem.serviceId);
-                SignalBus.navigate('mygame', 'GameItem');
-                App.downloadButtonStart(serviceItem.serviceId);
-            }
+            onClicked: root.buttonClicked();
 
             Behavior on opacity {
                 PropertyAnimation { duration: 200 }

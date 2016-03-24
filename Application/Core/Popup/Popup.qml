@@ -33,8 +33,6 @@ Item {
     }
 
     function activateWidget(widgetName, widgetView, popupId) {
-
-
         Tooltip.releaseAll();
 
         d.widgetName = widgetName;
@@ -92,7 +90,6 @@ Item {
     visible: false
 
     onClose: root.refresh();
-
 
     QtObject {
         id: d

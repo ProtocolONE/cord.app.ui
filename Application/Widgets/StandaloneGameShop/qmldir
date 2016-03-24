@@ -1,0 +1,4 @@
+module Application.Widgets.StandaloneGameShop
+PluginContainer 1.0 PluginContainer.qml 
+StandaloneGameShopView 1.0 View/StandaloneGameShopView.qml
+StandaloneGameShopModel 1.0 StandaloneGameShopModel.qml 

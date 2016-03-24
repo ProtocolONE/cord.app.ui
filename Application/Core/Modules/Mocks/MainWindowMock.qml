@@ -24,7 +24,21 @@ Item {
     function executeService(serviceId) {
         console.log("executeService", serviceId);
         serviceStarted(serviceId);
-        serviceFinished(serviceId, 0);
+
+        fakeGameExitTimeout.serviceId = serviceId;
+        fakeGameExitTimeout.restart();
+    }
+
+    Timer {
+        id: fakeGameExitTimeout
+
+        property string serviceId
+        interval: 5000
+        repeat: false
+        onTriggered: {
+            serviceFinished(serviceId, 0);
+            fakeMainWindowsInstance.activateWindow();
+        }
     }
 
     signal downloaderStarted(string service, int startType);
@@ -47,6 +61,7 @@ Item {
     signal additionalResourcesReady();
 
     signal hide();
+    signal windowActivated();
 
     function openExternalUrl(url) {
         Qt.openUrlExternally(url);
@@ -61,7 +76,7 @@ Item {
     }
 
     function activateWindow() {
-        //fakeMainWindowsInstance.windowActivated();
+        fakeMainWindowsInstance.windowActivated();
     }
 
     function setServiceInstallPath(serviceId, path) {

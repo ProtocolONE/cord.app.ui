@@ -2,6 +2,8 @@ pragma Singleton
 
 import QtQuick 2.4
 
+import GameNet.Core 1.0
+
 import Application.Models 1.0
 import Application.Core.Settings 1.0
 
@@ -312,6 +314,17 @@ Item {
                 continue;
             }
 
+            var sellItems = data[i].sellsStandaloneItems;
+            if (!(sellItems instanceof Array)) {
+                sellItems = [];
+            }
+
+            sellItems = Lodash._.filter(sellItems, "isActive", true);
+            Js.sellItems[item.serviceId] = sellItems;
+
+            item.hasSellsItem = sellItems.length > 0;
+            item.cost = gameCost(item.serviceId);
+
             Games.fillMenu(item);
             Games.append(item);
 
@@ -320,6 +333,16 @@ Item {
             Js.gameIdToGameItem[item.gameId] = Games.get(last);
             Js.serviceIdToGameItemIdex[item.serviceId] = i;
         }
+    }
+
+    function gameCost(serviceId) {
+        var sellItems = sellItemByServiceId(serviceId);
+        var sellItem = Lodash._.find(sellItems, 'isActive');
+        if (sellItem) {
+            return sellItem.cost;
+        }
+
+        return 0;
     }
 
     function findServiceByStatus(status, checkSecond) {
@@ -457,5 +480,25 @@ Item {
 
     function isServiceRunning(serviceId) {
         return !!Js.runningService[serviceId];
+    }
+
+    function openSupportUrl(returnPath) {
+        //id=10 это хардкоженная переменная, которую можно получить только после
+        //установки плагина авторизации GameNet в DeskPro.
+
+        var uri = 'https://gnlogin.ru/integrations/deskpro/?id=10';
+        if (returnPath) {
+            uri += '&return=' + encodeURIComponent(returnPath);
+        }
+
+        openExternalUrlWithAuth(uri);
+    }
+
+    function sellItemByServiceId(serviceId) {
+        if (!Js.sellItems.hasOwnProperty(serviceId)) {
+            return [];
+        }
+
+        return Js.sellItems[serviceId];
     }
 }

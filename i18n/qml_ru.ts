@@ -2298,6 +2298,22 @@ Please try again later.</source>
         <source>BUTTON_UNINSTALLING_STATE</source>
         <translation>Удаление игры</translation>
     </message>
+    <message>
+        <source>ABOUT_PLAY_NOT_INSTALLED</source>
+        <translation>Подробнее</translation>
+    </message>
+    <message>
+        <source>Скоро</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 ₽</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Оплачено</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>GameInstallBlockSample</name>
@@ -2404,6 +2420,18 @@ Please try again later.</source>
         <source>ABOUT_GAME_BUTTON</source>
         <translation>Об игре</translation>
     </message>
+    <message>
+        <source>Скоро</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 ₽</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Оплачено</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>GameItemSmall</name>
@@ -2422,6 +2450,18 @@ Please try again later.</source>
     <message>
         <source>ABOUT_GAME_BUTTON</source>
         <translation>Об игре</translation>
+    </message>
+    <message>
+        <source>Скоро</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 ₽</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Оплачено</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5845,6 +5885,41 @@ Please try again later.</source>
     <message>
         <source>TEXT_VERSION</source>
         <translation>Версия %1</translation>
+    </message>
+</context>
+<context>
+    <name>StandaloneGameShopView</name>
+    <message>
+        <source>Что-то пошло не так</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Покупка </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>С Вашего счета будет списано:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 GN-монет</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>У меня: %1 GN-монет</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Оплатить %1 GN-монет</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LICENSE_TIP</source>
+        <translation type="obsolete">Нажимая &quot;Установить&quot;, ты соглашаешься с &lt;a href=&apos;http://&apos;&gt;&lt;font style=&apos;text-decoration: none;&apos; color=&apos;#1ABC9C&apos;&gt;условиями лицензионного соглашения&lt;/font&gt;&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>Лицензионное соглашение</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

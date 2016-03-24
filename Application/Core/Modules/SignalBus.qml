@@ -71,6 +71,8 @@ Item {
     signal applicationActivated();
     signal applicationDeactivated();
 
+    signal buyGame(string serviceId);
+
     function cancelDownload(gameItem) {
         serviceCanceled(gameItem);
     }
