@@ -15,14 +15,11 @@ import GameNet.Core 1.0
 WidgetModel {
     id: rootModel
 
-    property string newsXml
+    property variant news
 
     function reloadNews() {
-        RestApi.Wall.getNewsXml(function(news) {
-            if (news) {
-                rootModel.newsXml = news;
-            }
-
+        RestApi.Core.execute('wall.getNews', {format: 'json'}, false, function(news) {
+            rootModel.news = news;
         }, function(){});
     }
 

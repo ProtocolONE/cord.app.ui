@@ -16,7 +16,6 @@ PluginContainer {
     model: "GameNewsModel"
     view: [
         {name: 'NewsSingleGame', source: 'NewsSingleGame', byDefault: true},
-        {name: 'NewsMyGames', source: 'NewsMyGames'}
     ]
     singletonModel: true
 }

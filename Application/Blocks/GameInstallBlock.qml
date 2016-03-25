@@ -34,7 +34,7 @@ Item {
     property bool isClosedBeta: gameItem && gameItem.isClosedBeta
     property bool hasSellsItem: gameItem && gameItem.hasSellsItem
     property bool userHasSubscription: gameItem && User.hasBoughtStandaloneGame(gameItem.serviceId)
-    property string cost: gameItem && gameItem.cost
+    property string cost: (gameItem && gameItem.cost) || ""
 
     Item {
         id: d

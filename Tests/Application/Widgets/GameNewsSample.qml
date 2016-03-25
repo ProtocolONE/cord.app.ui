@@ -20,16 +20,15 @@ Rectangle {
     height: 800
     color: '#002336'
 
-    WidgetManager {
-        id: manager
+    Component.onCompleted: {
+        Moment.moment.lang('ru');
 
-        Component.onCompleted: {
-            Moment.moment.lang('ru');
+        WidgetManager.registerWidget('Application.Widgets.GameNews')
+        WidgetManager.init()
+    }
 
-            manager.registerWidget('Application.Widgets.GameNews')
-            manager.init()
-            App.activateGame(App.serviceItemByGameId("92"))
-        }
+    RequestServices {
+        onReady: App.activateGame(App.serviceItemByGameId("1067"))
     }
 
     Column {
