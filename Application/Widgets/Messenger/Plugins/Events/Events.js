@@ -16,6 +16,9 @@ function init(jabber, signalBus) {
         case 'profileUpdated':
             _signalBus.profileUpdated();
             break;
+        case 'updateServices':
+            _signalBus.requestUpdateService();
+            break;
         default:
             console.log('[Events] Unhandled event received ' + event.name);
         }

@@ -73,6 +73,8 @@ Item {
 
     signal buyGame(string serviceId);
 
+    signal requestUpdateService();
+
     function cancelDownload(gameItem) {
         serviceCanceled(gameItem);
     }

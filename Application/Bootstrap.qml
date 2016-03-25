@@ -71,22 +71,7 @@ Item {
                 SignalBus.needPakkanenVerification();
             });
 
-            mainWindowInstance.restartUIRequest.connect(function() {
-                if (!App.isWindowVisible()) {
-                    SignalBus.beforeCloseUI();
-                    mainWindowInstance.restartUISlot(true);
-                    return;
-                }
-
-                MessageBox.show(qsTr("INFO_CAPTION"),
-                                qsTr("UPDATE_FOUND_MESSAGE"),
-                                MessageBox.button.ok,
-                                function(result) {
-                                    SignalBus.beforeCloseUI();
-                                    mainWindowInstance.restartUISlot(false);
-                                });
-            });
-
+            mainWindowInstance.restartUIRequest.connect(root.restartRequest);
             mainWindowInstance.shutdownUIRequest.connect(function() {
                 var anyGameRunning = App.currentRunningMainService() ||
                                         App.currentRunningSecondService() ||
@@ -216,6 +201,22 @@ Item {
         });
     }
 
+    function restartRequest() {
+        if (!App.isWindowVisible()) {
+            SignalBus.beforeCloseUI();
+            mainWindowInstance.restartUISlot(true);
+            return;
+        }
+
+        MessageBox.show(qsTr("INFO_CAPTION"),
+                        qsTr("UPDATE_FOUND_MESSAGE"),
+                        MessageBox.button.ok,
+                        function(result) {
+                            SignalBus.beforeCloseUI();
+                            mainWindowInstance.restartUISlot(false);
+                        });
+    }
+
     Timer {
         id: retryTimer
 
@@ -302,6 +303,44 @@ Item {
         onNavigate: ContextMenu.hide();
         onApplicationActivated: App.updateKeyboardLayout(); // INFO сигнал перенесли из приложения в qml
 
+        onRequestUpdateService: updateService.updateRequired();
+    }
+
+    Item {
+        id: updateService
+
+        property bool needRestart: false
+
+        function isAnyGamePreventShowMe() {
+            return null !== App.findServiceByStatus(['Started', 'Starting', 'Downloading']);
+        }
+
+        function updateRequired() {
+            if (!updateService.isAnyGamePreventShowMe()) {
+                root.restartRequest();
+                return;
+            }
+
+            updateService.needRestart = true;
+        }
+
+        function recheckUpdateRequired() {
+            if (!updateService.needRestart) {
+                return;
+            }
+
+            updateService.updateRequired();
+        }
+
+        Connections {
+            target: App.mainWindowInstance()
+
+            onServiceFinished: updateService.recheckUpdateRequired();
+            onSecondServiceFinished: updateService.recheckUpdateRequired();
+            onDownloaderStopped: updateService.recheckUpdateRequired();
+            onDownloaderFailed: updateService.recheckUpdateRequired();
+            onDownloaderFinished: updateService.recheckUpdateRequired();
+        }
     }
 
     Connections {
@@ -323,7 +362,6 @@ Item {
         name: "Open Sans Regular";
         source: installPath + "Assets/Fonts/OpenSansRegular.ttf"
     }
-
 
     QtObject {
         id: numConnectionFix
