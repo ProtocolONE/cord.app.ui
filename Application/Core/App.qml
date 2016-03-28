@@ -351,7 +351,7 @@ Item {
 
         for (var i = 0; i < Games.count; i++) {
             serviceItem = Games.get(i);
-            if (status.indexOf(serviceItem[checkSecond]) !== -1) {
+            if (status.indexOf(serviceItem[prop]) !== -1) {
                 return serviceItem.serviceId;
             }
         }
