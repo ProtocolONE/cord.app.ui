@@ -202,6 +202,11 @@ Item {
     }
 
     function restartRequest() {
+        var mainWindowInstance = App.mainWindowInstance();
+        if (!mainWindowInstance) {
+            return;
+        }
+
         if (!App.isWindowVisible()) {
             SignalBus.beforeCloseUI();
             mainWindowInstance.restartUISlot(true);
