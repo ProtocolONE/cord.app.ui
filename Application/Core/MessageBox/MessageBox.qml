@@ -61,8 +61,11 @@ Item {
     function registerModel(model) {
         Js._model = model;
         Js._model.callback.connect(function(button) {
-            if (Js._currentWidget.callback) {
-                Js._currentWidget.callback(button);
+            var callback = Js._currentWidget.callback;
+
+            Js._currentWidget = null;
+            if (callback) {
+                callback(button);
             }
             refresh();
         });
@@ -70,7 +73,7 @@ Item {
 
     function show(message, text, buttons, callback) {
         Js._queue.push({id: Js._messageId++, message: message, text: text, buttons: buttons, callback: callback});
-        if (!root.isShown) {
+        if (!root.isShown && !Js._currentWidget) {
             refresh();
         }
     }
@@ -115,7 +118,7 @@ Item {
             PropertyAnimation { target: substrate; property: "opacity"; from: 1; to: 0; duration: 250 }
         }
 
-        ScriptAction { script: container.clear(); }
+        ScriptAction { script: container.clear() }
 
         onStopped: container.force(d.widgetName, d.widgetView);
     }
@@ -246,7 +249,10 @@ Item {
                 PropertyAction { target: root; property: "visible"; value: false }
 
                 ScriptAction {
-                    script: d.privateClose()
+                    script: {
+                        d.privateClose()
+                        root.refresh();
+                    }
                 }
             }
         }

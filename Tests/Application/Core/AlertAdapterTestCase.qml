@@ -20,23 +20,27 @@ import Application.Core 1.0
 import Application.Core.MessageBox 1.0
 import Application.Core.Popup 1.0
 
+import "../Widgets"
+
 Item {
     width: 1000
     height: 599
 
-    WidgetManager {
-        id: manager
-
-        Component.onCompleted: {
-            manager.registerWidget('Application.Widgets.Maintenance');
-            manager.registerWidget('Application.Widgets.AlertAdapter');
-            manager.registerWidget('Application.Widgets.Facts');
-            manager.registerWidget('Tests.Application.Core.Fixtures.Popup.Sample');
-
-            manager.init();
-
-            AppJs.activateGame(AppJs.serviceItemByGameId("92"));
+    RequestServices {
+        onReady: {
+            App.activateGame(App.serviceItemByGameId("92"));
         }
+    }
+
+    Component.onCompleted: {
+        WidgetManager.registerWidget('Application.Widgets.Maintenance');
+        WidgetManager.registerWidget('Application.Widgets.AlertAdapter');
+        WidgetManager.registerWidget('Application.Widgets.Facts');
+        WidgetManager.registerWidget('Tests.Application.Core.Fixtures.Popup.Sample');
+        WidgetManager.init();
+
+        Popup.init(popupLayer);
+        MessageBox.init(messageboxLayer);
     }
 
     Item {
@@ -64,18 +68,26 @@ Item {
         z: 3
     }
 
-    // Initialization
-    Component.onCompleted: {
-        App.activateGame(App.serviceItemByGameId("92"));
-        Popup.init(popupLayer);
-        MessageBox.init(messageboxLayer);
-    }
-
     // Test Buttons
     Row {
         z: 3
 
         spacing: 3
+
+        Button {
+            width: 100
+            height: 30
+
+            text: "MBox 0"
+
+            onClicked: {
+                console.log("Show MBox 0");
+
+                MessageBox.show("title", "message", MessageBox.button["ok"], function() {
+                    MessageBox.show("title 2", "Tresumed imperatively.");
+                });
+            }
+        }
 
         Button {
             width: 100
