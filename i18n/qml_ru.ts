@@ -5894,10 +5894,6 @@ Please try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Покупка </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>С Вашего счета будет списано:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5919,6 +5915,10 @@ Please try again later.</source>
     </message>
     <message>
         <source>Лицензионное соглашение</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Покупка %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -242,7 +242,6 @@
 		<file>Application/Widgets/GameNews/qmldir</file>
 		<file>Application/Widgets/GameNews/View/BaseView.qml</file>
 		<file>Application/Widgets/GameNews/View/NewsDelegate.qml</file>
-		<file>Application/Widgets/GameNews/View/NewsMyGames.qml</file>
 		<file>Application/Widgets/GameNews/View/NewsSingleGame.qml</file>
 		<file>Application/Widgets/GameSettings/GameSettingsModel.qml</file>
 		<file>Application/Widgets/GameSettings/PluginContainer.qml</file>
@@ -443,6 +442,10 @@
 		<file>Application/Widgets/SilentMode/PluginContainer.qml</file>
 		<file>Application/Widgets/SilentMode/qmldir</file>
 		<file>Application/Widgets/SilentMode/SilentModeModel.qml</file>
+		<file>Application/Widgets/StandaloneGameShop/PluginContainer.qml</file>
+		<file>Application/Widgets/StandaloneGameShop/qmldir</file>
+		<file>Application/Widgets/StandaloneGameShop/StandaloneGameShopModel.qml</file>
+		<file>Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml</file>
 		<file>Application/Widgets/TaskBar/PluginContainer.qml</file>
 		<file>Application/Widgets/TaskBar/qmldir</file>
 		<file>Application/Widgets/TaskBar/TaskBar.js</file>

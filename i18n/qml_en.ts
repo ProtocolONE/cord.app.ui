@@ -506,22 +506,22 @@
 <context>
     <name>Bootstrap</name>
     <message>
-        <location filename="../Application/Bootstrap.qml" line="81"/>
+        <location filename="../Application/Bootstrap.qml" line="216"/>
         <source>INFO_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Bootstrap.qml" line="82"/>
+        <location filename="../Application/Bootstrap.qml" line="217"/>
         <source>UPDATE_FOUND_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Bootstrap.qml" line="101"/>
+        <location filename="../Application/Bootstrap.qml" line="86"/>
         <source>CLOSE_APP_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Bootstrap.qml" line="102"/>
+        <location filename="../Application/Bootstrap.qml" line="87"/>
         <source>CLOSE_APP_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2757,31 +2757,31 @@
     </message>
     <message>
         <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="72"/>
-        <source>Покупка </source>
+        <source>Покупка %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="216"/>
+        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="213"/>
         <source>С Вашего счета будет списано:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="227"/>
+        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="224"/>
         <source>%1 GN-монет</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="257"/>
+        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="254"/>
         <source>У меня: %1 GN-монет</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="260"/>
+        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="257"/>
         <source>Оплатить %1 GN-монет</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="291"/>
+        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="288"/>
         <source>Лицензионное соглашение</source>
         <translation type="unfinished"></translation>
     </message>
