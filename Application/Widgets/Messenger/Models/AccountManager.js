@@ -60,18 +60,6 @@ _private = {
             item.avatar = _options.defaultAvatarPath + _private.getDefaultAvatar();
         }
 
-//        if (!item.avatar) {
-//            item.avatar = _options.defaultAvatarPath + _private.getDefaultAvatar();
-//        }
-
-        var oldNickName = item.nickname;
-        var newNickName = vcard.nickName || oldNickName || "";
-
-        // INFO Тут при асинхронной работе походу будет проблема с переименоваными контактми
-        // Если проверка будет до того как примениться сеттер для ника из ростера то он перепишется на вкардовый.
-        if (!oldNickName && !!newNickName) {
-            item.nickname = newNickName;
-        }
-
+        item.vcardNickname = vcard.nickName || "";
     }
 };

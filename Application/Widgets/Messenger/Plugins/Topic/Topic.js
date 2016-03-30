@@ -23,6 +23,6 @@ function init(jabber, messenger) {
         }
 
         user = _messenger.getUser(roomJid);
-        user.nickname = message.subject;
+        user.rosterNickname = message.subject;
     });
 }

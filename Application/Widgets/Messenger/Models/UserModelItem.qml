@@ -9,8 +9,9 @@ Item {
     property string jid: ""
     property variant groups
 
-    property string nickname: ""
+    readonly property string nickname: rosterNickname || vcardNickname || jid
     property string vcardNickname: ""
+    property string rosterNickname: ""
     property int unreadMessageCount: 0
     property string statusMessage: ""
     property string presenceState: ""

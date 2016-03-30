@@ -22,7 +22,9 @@ function createRawUser(jid, nickname) {
         userId: jidToUser(jid),
         jid: jidWithoutResource(jid),
         groups: [],
-        nickname: nickname,
+        nickname: "",
+        vcardNickname: "",
+        rosterNickname: nickname,
         unreadMessageCount: 0,
         statusMessage: "",
         presenceState: "",
@@ -45,7 +47,9 @@ function createRawGroupChat(roomJid, nickname) {
         userId: "",
         jid: jidWithoutResource(roomJid),
         groups: [],
-        nickname: nickname,
+        nickname: "",
+        vcardNickname: "",
+        rosterNickname: nickname,
         unreadMessageCount: 0,
         statusMessage: "",
         presenceState: "",
@@ -120,9 +124,7 @@ function User(item, model, jabber) {
     });
 
     this.__defineSetter__("nickname", function(value) {
-        if (value != item.nickname) {
-            model.setPropertyById(self.jid, "nickname", value);
-        }
+        throw new Error("Nickname is read only property");
     });
 
     defGetSet("statusMessage");
@@ -136,6 +138,8 @@ function User(item, model, jabber) {
     defGetter("isGroupChat");
 
     defGetSet("subscription");
+    defGetSet("vcardNickname");
+    defGetSet("rosterNickname");
 
     this.__defineGetter__("online", function() {
         return isOnline(self.presenceState);
@@ -221,6 +225,8 @@ function GroupChat(item, model, jabber) {
     defGetSet("lastTalkDate");
     defGetSet("playingGame");
     defGetSet("inContacts");
+    defGetSet("vcardNickname");
+    defGetSet("rosterNickname");
 
     this.__defineGetter__("online", function() {
         return isOnline(self.presenceState);

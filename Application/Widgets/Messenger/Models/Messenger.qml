@@ -510,7 +510,7 @@ Item {
 
         function updateNickname(fullJid, user, externalNickName) {
             var nickname = xmppClient.rosterManager.getNickname(fullJid) || externalNickName;
-            user.nickname = nickname || user.nickname || "";
+            user.rosterNickname = nickname || "";
         }
 
         function updateSubscription(user) {
@@ -532,6 +532,7 @@ Item {
 
             var user1 = root.getUser(user);
             d.updateSubscription(user1);
+            d.updateNickname(user, user1)
         }
 
         function rosterReceived() {
@@ -592,8 +593,6 @@ Item {
             unreadMessageUsersMap = d.unreadMessageUsers();
 
             if (!usersModel.contains(bareJid)) {
-                rawUser = UserJs.createRawUser(fullJid, "");
-
                 rawUser = UserJs.createRawUser(fullJid, nickname || "");
                 rawUser.lastTalkDate = RecentConversations.getUserTalkDate(rawUser);
                 rawUser.subscription = subscription;
@@ -610,8 +609,6 @@ Item {
             if (unreadMessageUsersMap.hasOwnProperty(item.jid)) {
                 item.unreadMessageCount = unreadMessageUsersMap[item.jid].count;
             }
-
-            d.updateNickname(fullJid, item, externalNickName);
         }
 
         function appendGroudUser(fullJid, externalNickName) {
@@ -718,13 +715,14 @@ Item {
         indexProperty: "jid"
         prototype: usersModelComponent
         notifableProperty: [
-            "nickname", "presenceState", "lastActivity", "lastTalkDate", "inContacts",
-            "playingGame", "unreadMessageCount"
+            "rosterNickname", "presenceState", "lastActivity", "lastTalkDate", "inContacts",
+            "playingGame", "unreadMessageCount", "vcardNickname",
         ]
         onPropertyChanged: {
             switch (key) {
                 case "lastTalkDate": root.talkDateChanged(id); break;
-                case "nickname": root.nicknameChanged(id); break;
+                case "rosterNickname": root.nicknameChanged(id); break;
+                case "vcardNickname": root.nicknameChanged(id); break;
                 case "lastActivity": root.lastActivityChanged(id); break;
                 case "presenceState": d.presenceChanged(id, oldValue, newValue); break;
                 case "inContacts": {
