@@ -74,8 +74,8 @@ Rectangle {
         Component.onCompleted: {
             RestApi.Core.setup({
                                    lang: 'ru',
-                                   url: "http://api.tkachenko.dev/restapi"
-                                   //url: 'https://gnapi.com:8443/restapi'
+                                   //url: "http://api.tkachenko.dev/restapi"
+                                   url: 'https://gnapi.com:8443/restapi'
                                });
 
             WidgetManager.registerWidget('Application.Widgets.StandaloneGameShop');
@@ -86,7 +86,7 @@ Rectangle {
             Popup.init(popupLayer);
             MessageBox.init(messageBoxLayer);
 
-            Authorization._gnLoginUrl = 'http://gnlogin.tkachenko.dev';
+            //Authorization._gnLoginUrl = 'http://gnlogin.tkachenko.dev';
             genericAuth('gna@unit.test', '123456', initManager.authDone);
         }
     }

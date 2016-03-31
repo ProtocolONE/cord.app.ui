@@ -533,6 +533,118 @@ Module {
         Signal { name: "pressedAndHold" }
     }
     Component {
+        name: "SslWebSocket"
+        prototype: "QObject"
+        exports: ["SslWebSocket 1.0"]
+        exportMetaObjectRevisions: [0]
+        Enum {
+            name: "Status"
+            values: {
+                "Connecting": 0,
+                "Open": 1,
+                "Closing": 2,
+                "Closed": 3,
+                "Error": 4
+            }
+        }
+        Property { name: "url"; type: "QUrl" }
+        Property { name: "status"; type: "Status"; isReadonly: true }
+        Property { name: "errorString"; type: "string"; isReadonly: true }
+        Property { name: "active"; type: "bool" }
+        Signal {
+            name: "textMessageReceived"
+            Parameter { name: "message"; type: "string" }
+        }
+        Signal {
+            name: "statusChanged"
+            Parameter { name: "status"; type: "Status" }
+        }
+        Signal {
+            name: "activeChanged"
+            Parameter { name: "isActive"; type: "bool" }
+        }
+        Signal {
+            name: "errorStringChanged"
+            Parameter { name: "errorString"; type: "string" }
+        }
+        Method {
+            name: "sendTextMessage"
+            type: "qlonglong"
+            Parameter { name: "message"; type: "string" }
+        }
+    }
+    Component {
+        name: "SslWebSocketServer"
+        prototype: "QObject"
+        exports: ["SslWebSocketServer 1.0"]
+        exportMetaObjectRevisions: [0]
+        Enum {
+            name: "SslMode"
+            values: {
+                "SecureMode": 0,
+                "NonSecureMode": 1
+            }
+        }
+        Property { name: "url"; type: "QUrl"; isReadonly: true }
+        Property { name: "host"; type: "string" }
+        Property { name: "port"; type: "int" }
+        Property { name: "name"; type: "string" }
+        Property { name: "errorString"; type: "string"; isReadonly: true }
+        Property { name: "listen"; type: "bool" }
+        Property { name: "accept"; type: "bool" }
+        Property { name: "ssl"; type: "SslMode" }
+        Property { name: "sslCertificate"; type: "string" }
+        Property { name: "sslKey"; type: "string" }
+        Signal {
+            name: "clientConnected"
+            Parameter { name: "webSocket"; type: "SslWebSocket"; isPointer: true }
+        }
+        Signal {
+            name: "errorStringChanged"
+            Parameter { name: "errorString"; type: "string" }
+        }
+        Signal {
+            name: "urlChanged"
+            Parameter { name: "url"; type: "QUrl" }
+        }
+        Signal {
+            name: "portChanged"
+            Parameter { name: "port"; type: "int" }
+        }
+        Signal {
+            name: "nameChanged"
+            Parameter { name: "name"; type: "string" }
+        }
+        Signal {
+            name: "hostChanged"
+            Parameter { name: "host"; type: "string" }
+        }
+        Signal {
+            name: "listenChanged"
+            Parameter { name: "listen"; type: "bool" }
+        }
+        Signal {
+            name: "acceptChanged"
+            Parameter { name: "accept"; type: "bool" }
+        }
+        Signal {
+            name: "sslChanged"
+            Parameter { name: "ssl"; type: "SslWebSocketServer::SslMode" }
+        }
+        Signal {
+            name: "sslCertificateChanged"
+            Parameter { name: "certificate"; type: "string" }
+        }
+        Signal {
+            name: "sslKeyChanged"
+            Parameter { name: "key"; type: "string" }
+        }
+        Method {
+            name: "updateSsl"
+            Parameter { name: "obj"; type: "QObject"; isPointer: true }
+        }
+    }
+    Component {
         name: "StandardPaths"
         prototype: "QObject"
         exports: ["StandardPaths 1.0"]
@@ -617,6 +729,10 @@ Module {
         Method { name: "removeAllTasks" }
         Method { name: "removeAll" }
         Method { name: "apply" }
+        Method {
+            name: "setJumpList"
+            Parameter { name: "value"; type: "QVariantList" }
+        }
     }
     Component {
         name: "TextDocumentHelper"
