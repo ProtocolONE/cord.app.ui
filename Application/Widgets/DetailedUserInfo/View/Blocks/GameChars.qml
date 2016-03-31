@@ -364,6 +364,9 @@ Item {
                                     height: parent.height
 
                                     Text {
+                                        width: parent.width
+                                        elide: Text.ElideRight
+
                                         color: model.isFriend
                                                ? Styles.detailedUserInfoGameCharsTableFriendText
                                                : Styles.lightText
