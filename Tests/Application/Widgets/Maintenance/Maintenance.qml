@@ -13,11 +13,14 @@ import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
 import Application.Core 1.0
+import "../"
 
 Rectangle {
     width: 800
     height: 800
     color: '#5a5a5a'
+
+    property variant currentGame: App.currentGame()
 
     Component.onCompleted: {
         RestApi.Games.getMaintenance = function(callback) {
@@ -30,21 +33,31 @@ Rectangle {
 
                          "300009010000000000":
                              {"id":"300009010000000000",
-                                 "startTime": (+new Date() - 1) / 1000,
-                                 "endTime": (+new Date() + 28000) / 1000
+                                 "startTime": (+new Date() - 16400000) / 1000,
+                                 "endTime": (+new Date() + 16400000) / 1000
                           }
                      }});
         };
-
-        App.activateGameByServiceId("300012010000000000");
     }
 
-    WidgetManager {
-        id: manager
+    onCurrentGameChanged: {
+        mainContainer.model.clear()
+        mainContainer2.model.clear()
 
-        Component.onCompleted: {
-            manager.registerWidget('Application.Widgets.Maintenance');
-            manager.init();
+        if (!currentGame) {
+            return;
+        }
+
+        mainContainer.model.append({widgetName: 'Maintenance', widgetView: 'MaintenanceView', serviceId: currentGame.serviceId });
+        mainContainer2.model.append({widgetName: 'Maintenance', widgetView: 'MaintenanceLightView', serviceId: currentGame.serviceId });
+    }
+
+    RequestServices {
+        onReady: {
+            WidgetManager.registerWidget('Application.Widgets.Maintenance');
+            WidgetManager.init();
+
+            App.activateGameByServiceId("300012010000000000");
         }
     }
 
@@ -104,30 +117,6 @@ Rectangle {
             text: "Activate Reborn"
             onClicked: {
                 App.activateGameByServiceId("300012010000000000");
-            }
-        }
-    }
-
-    Connections {
-        target: SignalBus
-
-        onGameMaintenanceStart: {
-            console.log('onGameMaintenanceStart', serviceId);
-            mainContainer.model.append({widgetName: 'Maintenance', widgetView: 'MaintenanceView', serviceId: serviceId });
-            mainContainer2.model.append({widgetName: 'Maintenance', widgetView: 'MaintenanceLightView', serviceId: serviceId });
-        }
-
-        onGameMaintenanceEnd: {
-            console.log('onGameMaintenanceEnd', serviceId);
-            for (var i = 0; i < mainContainer.model.count; ++i) {
-                var obj = mainContainer.model.get(i);
-                if (obj.serviceId == serviceId) {
-                    mainContainer.model.remove(i);
-                    mainContainer2.model.remove(i);
-                    return;
-                }
-
-                console.log(obj, obj.serviceId);
             }
         }
     }

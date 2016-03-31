@@ -62,7 +62,7 @@ WidgetModel {
     }
 
     function update(schedule) {
-        var currentTime = +new Date(),
+        var currentTime = maintCheck.getTime(),
             startTime,
             endTime,
             multiplier,
@@ -138,6 +138,12 @@ WidgetModel {
     Timer {
         id: maintCheck
 
+        property int diff: 0
+
+        function getTime() {
+            return Date.now() + maintCheck.diff;
+        }
+
         function rand(min, max) {
             return min + (Math.random() * (max - min)) | 0;
         }
@@ -148,12 +154,22 @@ WidgetModel {
         triggeredOnStart: true
         onTriggered: {
             RestApi.Games.getMaintenance(function(response) {
-                                             if (!response.hasOwnProperty('schedule')) {
-                                                 return;
-                                             }
+                if (!response.hasOwnProperty('schedule')) {
+                    return;
+                }
 
-                                             update(response.schedule);
-                                         });
+                RestApi.Core.execute('misc.getTime', {}, false, function(data) {
+                    var time;
+                    if (data.hasOwnProperty('atom')) {
+                        time = Moment.moment(new Date(data.atom));
+                        maintCheck.diff = Moment.moment.duration(time.diff(new Date())).asMilliseconds();
+                    }
+
+                    update(response.schedule);
+                }, function(){
+                    update(response.schedule);
+                });
+            });
         }
     }
 
