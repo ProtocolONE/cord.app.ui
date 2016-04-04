@@ -432,8 +432,8 @@ Item {
             return "";
         }
 
-        if (item.nickname) {
-            return item.nickname;
+        if (item.rosterNickname) {
+            return item.rosterNickname;
         }
 
         keys = item.participants.keys();
