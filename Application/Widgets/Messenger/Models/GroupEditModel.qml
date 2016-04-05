@@ -75,7 +75,7 @@ Item {
         , selfRawOccupant
         , participants;
 
-        root.topic = room.nickname;
+        root.topic = room.rosterNickname;
         selfJid = messenger.authedUser().jid;
         selfRawOccupant = d.rawOccupant(selfJid, "member");
         selfRawOccupant.self = true;
