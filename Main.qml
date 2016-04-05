@@ -236,4 +236,10 @@ Rectangle {
     StateGroup {
         id: globalState
     }
+
+    Version {
+        id: verFile
+
+        Component.onCompleted: console.log("QML version is " + verFile.version);
+    }
 }

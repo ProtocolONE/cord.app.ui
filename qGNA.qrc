@@ -537,5 +537,8 @@
 		<file>plugin/QXmpp/qmldir</file>
 		<file>plugin/Tulip/Overlay/qmldir</file>
 		<file>plugin/Tulip/qmldir</file>
+		<file>qwebchannel.js</file>
+		<file>Version.qml</file>
+		<file>ZTest.qml</file>
 	</qresource>
 </RCC>
