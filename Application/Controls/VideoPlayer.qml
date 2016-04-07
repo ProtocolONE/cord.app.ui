@@ -16,13 +16,16 @@ import "./VideoPlayer"
 Item {
     id: root
 
-    implicitWidth: 590
-    implicitHeight: 330
-
     property alias source: video.source
     property alias autoPlay: playPauseControl.autoPlay
     property alias volume: playPauseControl.volume
 
+    function pause() {
+        video.pause();
+    }
+
+    implicitWidth: 590
+    implicitHeight: 330
     clip: true
 
     Rectangle {

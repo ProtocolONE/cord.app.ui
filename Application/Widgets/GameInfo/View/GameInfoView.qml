@@ -175,6 +175,12 @@ WidgetView {
                     VideoPlayer {
                         id: video
 
+                        Connections {
+                            target: SignalBus
+                            onServiceStarted: video.pause();
+                            onHideMainWindow: video.pause();
+                        }
+
                         anchors.fill: parent
                         onAutoPlayChanged: AppSettings.setAppSettingsValue('gameInfo', 'autoPlay', video.autoPlay|0)
                         onVolumeChanged: AppSettings.setAppSettingsValue('gameInfo', 'volume', video.volume)
