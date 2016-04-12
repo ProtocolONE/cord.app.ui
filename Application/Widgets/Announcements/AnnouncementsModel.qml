@@ -69,10 +69,6 @@ WidgetModel {
     }
 
     function showGameInstalledAnnounce(serviceId) {
-        if (announcements.isAnyGamePreventShowMe()) {
-            return;
-        }
-
         Marketing.send(Marketing.AnnouncementShown, serviceId, { type: "InstalledGame", userId: User.userId()});
 
         var gameItem = App.serviceItemByServiceId(serviceId);
