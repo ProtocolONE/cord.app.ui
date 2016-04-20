@@ -552,7 +552,7 @@ http.request = function(options, callback) {
 }
 
 //Replaced during CI build
-var authVersion = "2.0.44.886eb7d570822e933d4e3a8ff96031ec19c8f6dc"
+var authVersion = "2.0.45.eb17973c2c7fff8d22be7aee9b4183e8e0ccda58"
     , _gnLoginUrl = 'https://gnlogin.ru'
     , _gnLoginTitleApiUrl = 'gnlogin.ru'
     , _hwid
@@ -623,10 +623,10 @@ function sendUnblockCode(login, method, callback) {
  * Generate new cookie string by given userId and appKey.
  */
 function refreshCookie(userId, appKey, callback) {
-    var request = new Uri(_gnLoginUrl)
+    var request = new Uri(_gnLoginUrl + '/internals/refreshCookie/')
         .addQueryParam('refreshCookie', '1')
         .addQueryParam('userId', userId)
-        .addQueryParam('appKey', appKey);
+        .addQueryParam('appKey', Qt.md5(appKey + 'EqVGL86ahyzADHEextuEFqHJ'));
 
     http.request(request, function(response) {
         _private.jsonCredentialCallback(response, callback);
