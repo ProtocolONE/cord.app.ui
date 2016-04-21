@@ -112,7 +112,7 @@ jfHFNaWGV390aeecxcy7HTU=
         property string description
         property string textAfterBuy
 
-        property string webSocketSalt: "Iq!ZXVrRP6AIPrPv}B*B"
+        property string webSocketSalt: "g;c.TUsn/V=>:Q-d;Ay{"
 
         function init(serviceId) {
             var service = App.serviceItemByServiceId(serviceId);
