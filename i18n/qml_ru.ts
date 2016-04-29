@@ -4642,7 +4642,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>PREMIUM_SHOP_BUY_SUCCESS_DETAILS</source>
-        <translation>Чтобы запустить второе окно игры BS.ru, Reborn или Aika2 нажмите «Добавить аккаунт» и авторизуйтесь вторым аккаунтом. Запуск игры под вторым аккаунтом происходит по кнопке «Начать игру» в блоке дополнительного аккаунта и доступен после запуска игры под основным аккаунтом.&lt;br&gt;Приятной игры.</translation>
+        <translation>Чтобы запустить второе окно игры BS.ru, Reborn, Black Desert, Titan Siege или Aika2 нажмите «Добавить аккаунт» и авторизуйтесь вторым аккаунтом. Запуск игры под вторым аккаунтом происходит по кнопке «Начать игру» в блоке дополнительного аккаунта и доступен после запуска игры под основным аккаунтом.&lt;br&gt;Приятной игры.</translation>
     </message>
     <message>
         <source>PREMIUM_BUY_SUCCESS_CAPTION</source>
