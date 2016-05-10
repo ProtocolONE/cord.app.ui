@@ -80,6 +80,9 @@ FocusScope {
                     baselineOffset: 15
                 }
                 smooth: true
+                textFormat: Text.StyledText
+                linkColor: Styles.linkText
+                onLinkActivated: App.openExternalUrl(link)
 
                 MouseArea {
                     anchors.fill: parent

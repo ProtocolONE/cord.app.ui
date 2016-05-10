@@ -38,6 +38,16 @@ Form {
     signal error(string message);
     signal authDone(string userId, string appKey, string cookie, bool remember);
 
+    function showCaptcha() {
+        d.captchaRequired = true;
+        d.refreshCaptcha();
+    }
+
+    function setLogin(login) {
+        root.login = login;
+        loginInput.suggestionsVisible = false;
+    }
+
     title: qsTr("AUTH_BODY_TITLE")
     subTitle: qsTr("AUTH_BODY_SUB_TITLE")
 

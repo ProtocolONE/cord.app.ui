@@ -31,6 +31,8 @@ Form {
 
     signal error(string message);
     signal authDone(string userId, string appKey, string cookie);
+    signal codeRequired();
+    signal captchaRequired();
 
     title: qsTr("REGISTER_BODY_TITLE")
     subTitle: qsTr("REGISTER_BODY_SUB_TITLE")
@@ -43,7 +45,6 @@ Form {
 
     Keys.onTabPressed: loginInput.forceActiveFocus()
     Component.onCompleted: loginInput.focus = true
-
 
     QtObject {
         id: d
@@ -81,6 +82,23 @@ Form {
                 if (!response) {
                     root.error(qsTr("REGISTER_FAIL_GAMENET_UNAVAILABLE"));
                     return;
+                }
+
+                var errorCode = response.code;
+
+                if (errorCode == -1) {//BAD_CAPTCHA
+                   root.captchaRequired();
+                   return;
+                }
+
+                if (errorCode == -2) {//BLOCKED_AUTH
+                   root.error(qsTr("AUTH_FAIL_ACCOUNT_BLOCKED"));
+                   return;
+                }
+
+                if (errorCode == -3) {//TEMPORARY_BLOCKED_AUTH
+                   root.codeRequired();
+                   return;
                 }
 
                 if (response.message.login) {

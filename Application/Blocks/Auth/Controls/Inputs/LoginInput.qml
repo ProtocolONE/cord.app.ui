@@ -25,6 +25,7 @@ Item {
     property alias errorMessage: errorContainer.errorMessage
     property alias typeahead: input.typeahead
     property alias maximumLength: input.maximumLength
+    property alias suggestionsVisible: input.suggestionsVisible
 
     signal tabPressed()
     signal backTabPressed()

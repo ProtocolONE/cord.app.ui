@@ -162,6 +162,20 @@ Item {
                 }
                 onFooterVkClicked: d.startVkAuth()
                 vkButtonInProgress: d.vkAuthInProgress
+
+                onCaptchaRequired: {
+                    auth.setLogin(registration.login);
+                    registration.password = "";
+                    authContainer.state = "auth";
+                    auth.showCaptcha();
+                }
+
+                onCodeRequired: {
+                    auth.setLogin(registration.login);
+                    registration.login = "";
+                    codeForm.codeSended = false;
+                    authContainer.state = "code"
+                }
             }
 
             CodeBody {

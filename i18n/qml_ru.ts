@@ -5147,6 +5147,10 @@ Please try again later.</source>
         <source>REGISTER_FAIL_LOGIN_TOO_LONG</source>
         <translation>Длина адреса электронной почты не должна превышать 254 символов.</translation>
     </message>
+    <message>
+        <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
+        <translation type="unfinished">Учётная запись заблокирована. Если вы считаете, что так не должно быть, обратитесь в службу поддержки &lt;a href=&quot;http://support.gamenet.ru&quot;&gt;службу поддержки&lt;/a&gt;.</translation>
+    </message>
 </context>
 <context>
     <name>RoatateNews</name>

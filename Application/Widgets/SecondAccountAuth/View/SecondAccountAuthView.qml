@@ -135,6 +135,20 @@ PopupBase {
             onAuthDone: d.authSuccess(userId, appKey, cookie, true, registration.login);
             vkButtonInProgress: d.vkAuthInProgress
             onFooterVkClicked: d.startVkAuth();
+
+            onCaptchaRequired: {
+                auth.setLogin(registration.login);
+                registration.password = "";
+                root.state = "auth";
+                auth.showCaptcha();
+            }
+
+            onCodeRequired: {
+                auth.setLogin(registration.login);
+                registration.login = "";
+                codeForm.codeSended = false;
+                root.state = "code"
+            }
         }
 
         CodeBody {
