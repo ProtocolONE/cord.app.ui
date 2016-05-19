@@ -366,6 +366,19 @@ Item {
         return findServiceByStatus(["Started", "Starting"], true);
     }
 
+    function getServicesWithExtendedAccountedSupport() {
+        var ret = [],
+            serviceItem;
+
+        for (var i = 0; i < Games.count; i++) {
+            serviceItem = Games.get(i);
+            if (serviceItem.secondAllowed) {
+                ret.push(serviceItem);
+            }
+        }
+        return ret;
+    }
+
     function isAnyServiceStarted() {
         return currentRunningMainService()
             || currentRunningSecondService();

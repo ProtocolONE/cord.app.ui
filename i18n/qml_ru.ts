@@ -4642,7 +4642,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>PREMIUM_SHOP_BUY_SUCCESS_DETAILS</source>
-        <translation>Чтобы запустить второе окно игры BS.ru, Reborn, Black Desert, Titan Siege или Aika2 нажмите «Добавить аккаунт» и авторизуйтесь вторым аккаунтом. Запуск игры под вторым аккаунтом происходит по кнопке «Начать игру» в блоке дополнительного аккаунта и доступен после запуска игры под основным аккаунтом.&lt;br&gt;Приятной игры.</translation>
+        <translation type="vanished">Чтобы запустить второе окно игры BS.ru, Reborn, Black Desert, Titan Siege или Aika2 нажмите «Добавить аккаунт» и авторизуйтесь вторым аккаунтом. Запуск игры под вторым аккаунтом происходит по кнопке «Начать игру» в блоке дополнительного аккаунта и доступен после запуска игры под основным аккаунтом.&lt;br&gt;Приятной игры.</translation>
     </message>
     <message>
         <source>PREMIUM_BUY_SUCCESS_CAPTION</source>
@@ -4656,6 +4656,10 @@ Please try again later.</source>
         <source>Расширенный аккаунт активирован</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Чтобы запустить второе окно игры %1 нажмите «Добавить аккаунт» и авторизуйтесь вторым аккаунтом. Запуск игры под вторым аккаунтом происходит по кнопке «Начать игру» в блоке дополнительного аккаунта и доступен после запуска игры под основным аккаунтом.&lt;/br&gt;Приятной игры.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PremiumShopView</name>
@@ -4665,7 +4669,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>PREMIUM_ACCOUNT_TEXT_MAIN</source>
-        <translation>Расширенный аккаунт GameNet - возможность играть двумя аккаунтами одновременно в игры Black Desert, BS.ru, Aika 2, Titan Siege и Reborn. Мы постоянно добавляем в расширенный аккаунт новые приятные бонусы. &lt;a style=&quot;color: #2d98db&quot;href=&quot;bonus&quot;&gt;Узнайте больше.&lt;/a&gt;</translation>
+        <translation type="vanished">Расширенный аккаунт GameNet - возможность играть двумя аккаунтами одновременно в игры Black Desert, BS.ru, Aika 2, Titan Siege и Reborn. Мы постоянно добавляем в расширенный аккаунт новые приятные бонусы. &lt;a style=&quot;color: #2d98db&quot;href=&quot;bonus&quot;&gt;Узнайте больше.&lt;/a&gt;</translation>
     </message>
     <message>
         <source>NOT_ENOUGH_MONEY</source>
@@ -4690,6 +4694,10 @@ Please try again later.</source>
     <message>
         <source>TITLE_PREMIUM_ACCOUNT_CONTINUE_ACCOUNT_LABEL</source>
         <translation>Продлите расширенный аккаунт:</translation>
+    </message>
+    <message>
+        <source>Расширенный аккаунт GameNet - возможность играть двумя аккаунтами одновременно в игры %1. Мы постоянно добавляем в расширенный аккаунт новые приятные бонусы. &lt;a href=&quot;bonus&quot;&gt;Подробности здесь.&lt;/a&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

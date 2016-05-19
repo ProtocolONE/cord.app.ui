@@ -20,6 +20,13 @@ WidgetModel {
     property alias premiumModel: optionsModel
     property int defaultIndex: -1
     property bool inProgress: false
+    property string supportedGames: (function(){
+        return App.getServicesWithExtendedAccountedSupport()
+            .map(function(e) {
+                return e.name;
+            }).join(', ');
+    })();
+
 
     signal modelChanged();
     signal purchaseCompleted();
@@ -41,7 +48,7 @@ WidgetModel {
         User.refreshPremium();
 
         MessageBox.show(qsTr("Расширенный аккаунт активирован"),
-                        qsTr("PREMIUM_SHOP_BUY_SUCCESS_DETAILS"),
+                        qsTr("Чтобы запустить второе окно игры %1 нажмите «Добавить аккаунт» и авторизуйтесь вторым аккаунтом. Запуск игры под вторым аккаунтом происходит по кнопке «Начать игру» в блоке дополнительного аккаунта и доступен после запуска игры под основным аккаунтом.</br>Приятной игры.").arg(root.supportedGames),
                         MessageBox.button.ok);
     }
 
