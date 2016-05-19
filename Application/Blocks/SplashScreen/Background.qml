@@ -21,6 +21,9 @@ Item {
     width: 1000
     height: 600
 
+    property bool showBack: false
+    property string infoText: ""
+
     signal animationFinished();
 
     function start() {
@@ -28,6 +31,11 @@ Item {
     }
 
     property string defaultPath: installPath + "/Assets/Images/Application/Blocks/SplashScreen/"
+
+    Rectangle {
+        anchors.fill: parent
+        color: '#021F2D'
+    }
 
     SequentialAnimation {
         id: startAnimation
@@ -60,6 +68,7 @@ Item {
 
         property int frame: 0
 
+        visible: root.showBack
         anchors.fill: parent
         onBeforeUpdate: {
             var mouse = MouseCursor.mousePos();
@@ -339,13 +348,27 @@ Item {
         }
     }
 
-    Image {
-        id: logo
-
-        opacity: 0
-        asynchronous: true
-        cache: false
+    Column {
         anchors.centerIn: parent
-        source: defaultPath + "01_logo.png"
+
+        Image {
+            id: logo
+
+            opacity: 0
+            asynchronous: true
+            cache: false
+            source: defaultPath + "01_logo.png"
+        }
+
+        Text {
+            visible: text !== ""
+            text: root.infoText
+            color: "#FFFFFF"
+            anchors.horizontalCenter: parent.horizontalCenter
+            textFormat: Text.StyledText
+            linkColor: "#177FDC"
+            onLinkActivated: App.openExternalUrl(url);
+            font { family: "Segoe UI Light"; pixelSize: 18; }
+        }
     }
 }

@@ -15,6 +15,7 @@ import QtQuick 2.4
 import qGNA.Library 1.0
 
 import Application.Core 1.0
+import GameNet.Core 1.0
 
 Item {
     id: rootItem
@@ -24,6 +25,7 @@ Item {
     signal statusChanged(string msg);
     signal progressChanged(int progress);
     signal finished();
+    signal globalMaintenance(bool status, string text);
 
     onFinished: d.isFinished = true;
 
@@ -70,12 +72,40 @@ Item {
         onTriggered: rootItem.statusChanged(qsTr("RETRY_CHECKING_UPDATE")) // Retry checking for updates...
     }
 
+    Timer {
+        id: globalMaintetanceCheck
+
+        interval: 300000
+        running: true
+        repeat: true
+        triggeredOnStart: true
+        onTriggered: {
+            RestApi.http.request("https://gnapi.com/status.json", function(data){
+                var message,
+                    obj;
+
+                if (data.status != 200){
+                    rootItem.globalMaintenance(false, "")
+                    globalMaintetanceCheck.stop();
+                    return;
+                }
+
+                try {
+                    obj = JSON.parse(data.body);
+                    message = obj.message;
+                } catch (e) {
+                    message = qsTr("Упс, кажется у нас идут плановые технические работы.");
+                }
+                rootItem.globalMaintenance(true, message);
+            })
+        }
+    }
+
     Connections {
         target: App.mainWindowInstance()
 
         onInitCompleted: {
             d.finished();
-
             console.log('onInitCompleted finished signal');
         }
     }

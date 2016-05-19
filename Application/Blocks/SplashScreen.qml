@@ -13,6 +13,7 @@ import GameNet.Controls 1.0
 
 import "SplashScreen"
 import Application.Core 1.0
+import Application.Core.Styles 1.0
 import Application.Controls 1.0
 
 Item {
@@ -71,6 +72,10 @@ Item {
             onStatusChanged: d.updateText = msg
             onProgressChanged: d.progress = progress
             onFinished: d.updateManagerFinished()
+            onGlobalMaintenance: {
+                background.showBack = !status;
+                background.infoText = text;
+            }
         }
     }
 
