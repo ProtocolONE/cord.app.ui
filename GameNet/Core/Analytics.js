@@ -178,13 +178,11 @@ function setEncoding(value) {
 }
 
 function setOs(value) {
-    __params['cd1'] = 'OS';
-    __params['cm1'] = value;
+    __params['cd1'] = value;
 }
 
 function setMid(value) {
-    __params['cd2'] = 'Mid';
-    __params['cm2'] = value;
+    __params['cd2'] = value;
 }
 
 /**
