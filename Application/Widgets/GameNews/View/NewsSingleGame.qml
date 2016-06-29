@@ -40,7 +40,7 @@ WidgetView {
                 e.announcement = root.cleanString(e.announcement);
                 return e;
             })
-            .sortByAll('time')
+            .sortByAll(['isSticky', 'time'])
             .reverse()
             .value();
 
