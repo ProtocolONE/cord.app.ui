@@ -1618,6 +1618,58 @@
     </message>
 </context>
 <context>
+    <name>GuestConfirmBody</name>
+    <message>
+        <location filename="../Application/Blocks/Auth/GuestConfirmBody.qml" line="36"/>
+        <source>CONFIRM_GUEST_BODY_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/GuestConfirmBody.qml" line="37"/>
+        <source>CONFIRM_GUEST_BODY_SUB_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/GuestConfirmBody.qml" line="79"/>
+        <location filename="../Application/Blocks/Auth/GuestConfirmBody.qml" line="155"/>
+        <source>REGISTER_FAIL_LOGIN_TOO_LONG</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/GuestConfirmBody.qml" line="102"/>
+        <source>REGISTER_FAIL_GAMENET_UNAVAILABLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/GuestConfirmBody.qml" line="109"/>
+        <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/GuestConfirmBody.qml" line="149"/>
+        <source>REGISTER_BODY_LOGIN_PLACEHOLDER</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/GuestConfirmBody.qml" line="167"/>
+        <source>REGISTER_BODY_PASSWORD_PLACEHOLDER</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/GuestConfirmBody.qml" line="186"/>
+        <source>REGISTER_BODY_REGISTER_BUTTON</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GuestConfirmView</name>
+    <message>
+        <location filename="../Application/Widgets/GuestConfirm/View/GuestConfirmView.qml" line="26"/>
+        <source>CONFIRM_GUEST_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Header</name>
     <message>
         <location filename="../Application/Blocks/Auth/Controls/Header.qml" line="33"/>
@@ -2724,18 +2776,18 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <location filename="../Application/Blocks/SplashScreen.qml" line="39"/>
+        <location filename="../Application/Blocks/SplashScreen.qml" line="40"/>
         <source>TEXT_INITIALIZATION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/SplashScreen.qml" line="43"/>
-        <location filename="../Application/Blocks/SplashScreen.qml" line="112"/>
+        <location filename="../Application/Blocks/SplashScreen.qml" line="44"/>
+        <location filename="../Application/Blocks/SplashScreen.qml" line="117"/>
         <source>TEXT_STARTING_APPLICATION</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/SplashScreen.qml" line="102"/>
+        <location filename="../Application/Blocks/SplashScreen.qml" line="107"/>
         <source>TEXT_VERSION</source>
         <translation></translation>
     </message>
@@ -2935,32 +2987,37 @@
 <context>
     <name>UpdateManager</name>
     <message>
-        <location filename="../Application/Blocks/SplashScreen/UpdateManager.qml" line="44"/>
+        <location filename="../Application/Blocks/SplashScreen/UpdateManager.qml" line="46"/>
         <source>CHECK_UPDATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/SplashScreen/UpdateManager.qml" line="46"/>
+        <location filename="../Application/Blocks/SplashScreen/UpdateManager.qml" line="48"/>
         <source>LOAD_UPDATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/SplashScreen/UpdateManager.qml" line="70"/>
+        <location filename="../Application/Blocks/SplashScreen/UpdateManager.qml" line="72"/>
         <source>RETRY_CHECKING_UPDATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/SplashScreen/UpdateManager.qml" line="105"/>
+        <location filename="../Application/Blocks/SplashScreen/UpdateManager.qml" line="97"/>
+        <source>Упс, кажется у нас идут плановые технические работы.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/SplashScreen/UpdateManager.qml" line="135"/>
         <source>LOAD_UPDATE_RETRY_WARNING</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/SplashScreen/UpdateManager.qml" line="117"/>
+        <location filename="../Application/Blocks/SplashScreen/UpdateManager.qml" line="147"/>
         <source>UPDATE_ERROR_NOT_ENOUGH_SPACE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/SplashScreen/UpdateManager.qml" line="126"/>
+        <location filename="../Application/Blocks/SplashScreen/UpdateManager.qml" line="156"/>
         <source>UPDATE_ERROR</source>
         <translation></translation>
     </message>
@@ -2968,87 +3025,102 @@
 <context>
     <name>UserProfileView</name>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="60"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="61"/>
         <source>USER_PROFILE_CONTEXT_MENU_INFORAMTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="66"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="67"/>
         <source>USER_PROFILE_CONTEXT_MENU_PROFILE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="71"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="72"/>
         <source>USER_PROFILE_CONTEXT_MENU_MONEY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="145"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="93"/>
+        <source>Мы рекомендуем завершить регистрацию, чтобы не потерять прогресс в играх.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="150"/>
         <source>GAMENET_BALANCE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="162"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="167"/>
         <source>PROFILE_MONEY_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="182"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="187"/>
         <source>PROFILE_ADD_MONEY_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="193"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="198"/>
         <source>PROFILE_ADD_MONEY_TULTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="219"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="224"/>
         <source>ADVANCED_ACCOUNT_HINT_IN_DAYS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="221"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="226"/>
         <source>ADVANCED_ACCOUNT_HINT_TODAY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="235"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="240"/>
         <source>PREMIUM_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="236"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="241"/>
         <source>PROFILE_EXTENDED_ACCOUNT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="274"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="279"/>
         <source>YOUR_AVATAR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="299"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="311"/>
+        <source>Гость</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="348"/>
+        <source>Завершить регистрацию</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="312"/>
         <source>NO_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="300"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="314"/>
         <source>YOUR_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="300"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="314"/>
         <source>SET_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="329"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="380"/>
         <source>PROFILE_CHOISE_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="338"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="389"/>
         <source>PROFILE_CHOISE_NICKNAME_TULTIP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3056,7 +3128,7 @@
 <context>
     <name>Vk</name>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="361"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="412"/>
         <source>PROFILE_CONFIRM_LOGIN</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3064,12 +3136,12 @@
 <context>
     <name>qGNA_Main</name>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="370"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="421"/>
         <source>PROFILE_CONFIRM_LOGIN_TULTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="399"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="450"/>
         <source>PROFILE_LEVEL_TEXT</source>
         <translation type="unfinished"></translation>
     </message>

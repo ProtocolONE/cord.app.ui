@@ -25,6 +25,7 @@ WidgetView {
 
     property bool nicknameValid: model.nickname.indexOf('@') == -1
     property bool isLoginConfirmed: model.isLoginConfirmed
+    property bool isGuest: model.isGuest
 
     implicitWidth: 230
     implicitHeight: 92
@@ -86,6 +87,10 @@ WidgetView {
 
         function openProfile() {
             App.openExternalUrlWithAuth(d.getGameNetProfileUrl());
+        }
+
+        function guestTooltip() {
+            return qsTr("Мы рекомендуем завершить регистрацию, чтобы не потерять прогресс в играх.");
         }
     }
 
@@ -271,10 +276,17 @@ WidgetView {
                             CursorMouseArea {
                                 anchors.fill: parent
                                 hoverEnabled: true
-                                toolTip: qsTr("YOUR_AVATAR")
+                                toolTip: root.isGuest ? d.guestTooltip() : qsTr("YOUR_AVATAR")
                                 tooltipGlueCenter: true
                                 acceptedButtons: Qt.LeftButton
-                                onClicked: App.openExternalUrlWithAuth('https://gamenet.ru/edit/#edit-avatar')
+                                onClicked: {
+                                    if (root.isGuest) {
+                                        Popup.show('GuestConfirm');
+                                        return;
+                                    }
+
+                                    App.openExternalUrlWithAuth('https://gamenet.ru/edit/#edit-avatar')
+                                }
                             }
                         }
 
@@ -296,9 +308,21 @@ WidgetView {
                                     color: root.nicknameValid ? Styles.menuText :
                                                                 Styles.infoText
 
-                                    nickname: root.nicknameValid ? model.nickname : qsTr("NO_NICKNAME")
-                                    tooltip: root.nicknameValid ? qsTr("YOUR_NICKNAME") : qsTr("SET_NICKNAME")
+                                    nickname: root.nicknameValid
+                                              ? model.nickname
+                                              : root.isGuest ? qsTr("Гость")
+                                                             : qsTr("NO_NICKNAME")
+
+                                    tooltip: root.nicknameValid
+                                             ? qsTr("YOUR_NICKNAME")
+                                             : root.isGuest ? d.guestTooltip()
+                                                            :  qsTr("SET_NICKNAME")
                                     onNicknameClicked: {
+                                        if (root.isGuest) {
+                                            Popup.show('GuestConfirm');
+                                            return;
+                                        }
+
                                         if (!nicknameValid) {
                                             Popup.show('NicknameEdit');
                                         } else {
@@ -306,6 +330,38 @@ WidgetView {
                                         }
 
                                         Ga.trackEvent('UserProfile', 'click', 'nickname');
+                                    }
+                                }
+
+                                Item {
+                                    width: parent.width
+                                    height: 20
+
+                                    visible: root.state === 'Guest'
+
+                                    Row {
+                                        id: rowGuest
+
+                                        height: parent.height
+                                        spacing: 5
+
+                                        Image {
+                                            source: installPath  + "Assets/Images/Application/Widgets/UserProfile/attention.png"
+                                        }
+
+                                        Text {
+                                            text: qsTr("Завершить регистрацию")
+                                            color: Styles.textBase
+                                            font.pixelSize: 12
+                                        }
+                                    }
+
+                                    CursorMouseArea {
+                                        width: rowGuest.width
+                                        height: rowGuest.height
+                                        toolTip: d.guestTooltip()
+                                        onClicked: Popup.show('GuestConfirm');
+                                        acceptedButtons: Qt.LeftButton
                                     }
                                 }
 
@@ -435,6 +491,7 @@ WidgetView {
     }
 
     states: [
+        State { name: 'Guest'; when: root.isGuest},
         State { name: 'DefaultNickname'; when: !root.nicknameValid},
         State { name: 'ConfirmEmail'; when: root.nicknameValid && !root.isLoginConfirmed},
         State { name: 'Normal'; when: root.nicknameValid && root.isLoginConfirmed}

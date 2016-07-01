@@ -63,6 +63,8 @@ Item {
     signal hide();
     signal windowActivated();
 
+    signal authGuestConfirmRequest(string serviceId);
+
     function openExternalUrl(url) {
         Qt.openUrlExternally(url);
     }

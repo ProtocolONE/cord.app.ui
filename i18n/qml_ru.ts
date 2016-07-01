@@ -3255,6 +3255,64 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>GuestConfirmBody</name>
+    <message>
+        <source>CONFIRM_GUEST_BODY_TITLE</source>
+        <translation>Завершить регистрацию</translation>
+    </message>
+    <message>
+        <source>CONFIRM_GUEST_BODY_SUB_TITLE</source>
+        <translation>Регистрация бесплатна и не займет много вашего времени</translation>
+    </message>
+    <message>
+        <source>REGISTER_FAIL_LOGIN_TOO_LONG</source>
+        <translation>Длина адреса электронной почты не должна превышать 254 символов.</translation>
+    </message>
+    <message>
+        <source>REGISTER_FAIL_GAMENET_UNAVAILABLE</source>
+        <translation>Вероятно, по нашей вине и мы работаем над скорейшим устранением этой проблемы. Но, возможно, это ваше интернет-соединение. Пожалуйста, на всякий случай проверьте ваше соединение.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
+        <translation>Учётная запись заблокирована. Если вы считаете, что так не должно быть, обратитесь в &lt;a href=&quot;http://support.gamenet.ru&quot;&gt;&lt;font color=&apos;#d8e5d4&apos;&gt;службу поддержки&lt;/font&gt;&lt;/a&gt;.  </translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
+        <translation type="vanished">GameNet недоступен. Попробуйте авторизоваться позже.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_WRONG</source>
+        <translation type="vanished">Неправильный логин или пароль</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
+        <translation type="vanished">Неправильный формат электронной почты. Проверьте правильность ввода.</translation>
+    </message>
+    <message>
+        <source>REGISTER_BODY_LOGIN_PLACEHOLDER</source>
+        <translation>Твоя почта (будет скрыта)</translation>
+    </message>
+    <message>
+        <source>REGISTER_BODY_PASSWORD_PLACEHOLDER</source>
+        <translation>Придумай пароль (от 6 символов)</translation>
+    </message>
+    <message>
+        <source>REGISTER_BODY_REGISTER_BUTTON</source>
+        <translation>Зарегистрироваться</translation>
+    </message>
+</context>
+<context>
+    <name>GuestConfirmView</name>
+    <message>
+        <source>SECOND_ACCOUNT_ACTIVATION_TITLE</source>
+        <translation type="obsolete">Дополнительный аккаунт</translation>
+    </message>
+    <message>
+        <source>CONFIRM_GUEST_TITLE</source>
+        <translation>Гостевой аккаунт</translation>
+    </message>
+</context>
+<context>
     <name>Guide</name>
     <message>
         <source>BUTTON_PREV</source>
@@ -6100,6 +6158,10 @@ Please try again later.</source>
         <source>UPDATE_ERROR_NOT_ENOUGH_SPACE</source>
         <translation>Недостаточно места на диске</translation>
     </message>
+    <message>
+        <source>Упс, кажется у нас идут плановые технические работы.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UserInfo</name>
@@ -6217,6 +6279,18 @@ Please try again later.</source>
     <message>
         <source>USER_PROFILE_CONTEXT_MENU_MONEY</source>
         <translation>Пополнить счет</translation>
+    </message>
+    <message>
+        <source>Завершить регистрацию</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Гость</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Мы рекомендуем завершить регистрацию, чтобы не потерять прогресс в играх.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

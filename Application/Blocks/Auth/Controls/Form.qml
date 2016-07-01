@@ -5,7 +5,7 @@ import Application.Core 1.0
 import Application.Core.Styles 1.0
 
 /**
-Форма дял окон авторизации. Содержит заголовок и подзаголовок (поясняющий текст) и единый футер для всех страниц. При
+Форма для окон авторизации. Содержит заголовок и подзаголовок (поясняющий текст) и единый футер для всех страниц. При
 изменении высоты произвольного контента расширяется снизу вверх.
 */
 FocusScope {
@@ -25,7 +25,7 @@ FocusScope {
     signal footerVkClicked();
 
     //Не используйте childRect - он не пересчитывает при изменении visibily элементов в Column/Row
-    implicitHeight: contentData.height + footerItem.height
+    implicitHeight: contentData.height + (footerItem.visible ? footerItem.height : 0)
     implicitWidth: parent.width
 
     Column {

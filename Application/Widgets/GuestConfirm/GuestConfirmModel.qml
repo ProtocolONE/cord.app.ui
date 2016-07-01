@@ -9,20 +9,28 @@
 ****************************************************************************/
 
 import QtQuick 2.4
+import Tulip 1.0
+
 import GameNet.Components.Widgets 1.0
+
 import Application.Core 1.0
+import Application.Core.Popup 1.0
 
 WidgetModel {
     id: root
 
-    property bool isPremium: User.isPremium()
-    property bool isLoginConfirmed: User.isLoginConfirmed()
-    property int premiumDuration: User.getPremiumDuration()
-    property int balance: User.getBalance()
+    property string serviceId: ""
 
-    property string nickname: User.getNickname()
-    property string level: User.getLevel()
-    property string avatarMedium: User.getAvatarMedium()
+    Connections {
+        target: App.mainWindowInstance()
+        onAuthGuestConfirmRequest: {
+            root.serviceId = serviceId;
 
-    property bool isGuest: User.isGuest()
+            if (!User.isGuest()) {
+                return;
+            }
+
+            Popup.show('GuestConfirm');
+        }
+    }
 }

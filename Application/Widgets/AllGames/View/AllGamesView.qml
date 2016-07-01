@@ -88,11 +88,14 @@ WidgetView {
                     var games = Lodash._.chain(response.userInfo[0].games.lastPlayList)
                         .map(function(e){
                             var item = App.serviceItemByGameId(e.gameId);
-                            return e.serviceId = (item ? item.serviceId : -1), e;
+                            e.serviceId = (item ? item.serviceId : -1);
+                            e.isStandalone = item.isStandalone;
+                            return e;
                         })
                         .filter(function(e){
                             return e.serviceId !== -1
                                 && !gridServices.hasOwnProperty(e.serviceId)
+                                && !e.isStandalone
                         })
                         .sortByAll(['totalTime'])
                         .reverse()
@@ -122,13 +125,14 @@ WidgetView {
                     .filter(function(e){
                         return !gridServices.hasOwnProperty(e.serviceId)
                             && e.serviceId != "0"
+                            && !e.isStandalone
                             && suggestedUserGames.indexOf(e.serviceId) === -1;
                     })
                     .slice(0, 7 - suggestedUserGames.length)
                     .map('serviceId')
                     .value();
 
-                gameList.model = suggestedUserGames.concat(otherSuggestedGames)
+                gameList.model = suggestedUserGames.concat(otherSuggestedGames);
             }
 
             RestApi.User.getPlayedInfo([User.userId()], buildButtonGameList, buildButtonGameList);
