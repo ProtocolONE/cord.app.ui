@@ -360,6 +360,8 @@ Item {
                                 return;
                             }
 
+                            Marketing.send(Marketing.GuestAccountRequest, startingServiceId, { userId: response.userId });
+
                             CredentialStorage.saveGuest(response.userId, response.appKey, response.cookie, true);
                             CredentialStorage.save(response.userId, response.appKey, response.cookie, true);
                             d.startLoadingServices(response.userId, response.appKey, response.cookie);

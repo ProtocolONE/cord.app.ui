@@ -95,6 +95,7 @@ Form {
                              if (Authorization.isSuccess(error)) {
                                  d.saveAuthorizedLogins(d.login);
                                  root.authDone(response.userId, response.appKey, response.cookie);
+                                 Marketing.send(Marketing.GuestAccountConfirm, "0", { userId: response.userId });
                                  return;
                              }
 
