@@ -36,75 +36,81 @@ PopupBase {
         function requestActivationCode() {
             requestCodeButton.inProgress = true;
 
-            RestApi.User.sendMobileActivationCode(
-                        phone.text,
-                        function(response) {
-                            requestCodeButton.inProgress = false;
+            function processResponse(response) {
+                requestCodeButton.inProgress = false;
 
-                            if (response.result === 1) {
-                                phone.error = false;
-                                requestCodeError.error = false;
-                                stateGroup.state = "ValidateCode";
-                                code.forceActiveFocus();
-                                return;
-                            }
+                if (response.result === 1) {
+                    phone.error = false;
+                    requestCodeError.error = false;
+                    stateGroup.state = "ValidateCode";
+                    code.forceActiveFocus();
+                    return;
+                }
 
-                            if (response.error) {
-                                phone.error = true;
-                                requestCodeError.error = true;
+                if (response.error) {
+                    phone.error = true;
+                    requestCodeError.error = true;
 
-                                if (response.error.message != "") {
-                                    requestCodeError.errorMessage = response.error.message;
-                                } else {
-                                    requestCodeError.errorMessage = qsTr("ACCOUNT_ACTIVATION_PHONE_NOT_FOUND");
-                                }
-                            }
-                        },
-                        function(response) {
-                            requestCodeButton.inProgress = false;
+                    if (response.error.message != "") {
+                        requestCodeError.errorMessage = response.error.message;
+                    } else {
+                        requestCodeError.errorMessage = qsTr("ACCOUNT_ACTIVATION_PHONE_NOT_FOUND");
+                    }
+                }
+            };
 
-                            phone.error = true;
-                            requestCodeError.error = true;
-                            requestCodeError.errorMessage = qsTr("ACCOUNT_ACTIVATION_PHONE_NOT_FOUND");
-                        });
+            function processError(response) {
+                requestCodeButton.inProgress = false;
+
+                phone.error = true;
+                requestCodeError.error = true;
+                requestCodeError.errorMessage = qsTr("ACCOUNT_ACTIVATION_PHONE_NOT_FOUND");
+            };
+
+            RestApi.User.sendMobileActivationCode(phone.text, processResponse, processError);
         }
 
         function validateActivationCode() {
             validateCodeButton.inProgress = true;
 
-            RestApi.User.validateMobileActivationCode(
-                        code.text,
-                        function(response) {
-                            validateCodeButton.inProgress = false;
+            function processResponse(response) {
+                validateCodeButton.inProgress = false;
 
-                            if (response.result === 1) {
-                                code.error = false;
-                                validateCodeError.error = false;
-                                if (d.requestServiceId) {
-                                    App.downloadButtonStart(d.requestServiceId);
-                                }
-                                root.close();
-                                return;
-                            }
+                if (response.result === 1) {
+                    code.error = false;
+                    validateCodeError.error = false;
+                    if (d.requestServiceId) {
+                        App.downloadButtonStart(d.requestServiceId);
+                    }
+                    root.close();
+                    return;
+                }
 
 
-                            if (response.error) {
-                                code.error = true;
-                                validateCodeError.error = true;
-                                if (response.error.message != "") {
-                                    validateCodeError.errorMessage = response.error.message;
-                                } else {
-                                    validateCodeError.errorMessage = qsTr("ACCOUNT_ACTIVATION_ERROR");
-                                }
-                            }
-                        },
-                        function(response) {
-                            validateCodeButton.inProgress = false;
+                if (response.error) {
+                    code.error = true;
+                    validateCodeError.error = true;
+                    if (response.error.message != "") {
+                        validateCodeError.errorMessage = response.error.message;
+                    } else {
+                        validateCodeError.errorMessage = qsTr("ACCOUNT_ACTIVATION_ERROR");
+                    }
 
-                            code.error = true;
-                            validateCodeError.error = true;
-                            validateCodeError.errorMessage = qsTr("ACCOUNT_ACTIVATION_ERROR");
-                        });
+                    if (response.error.code == 134) {
+                        stateGroup.state = "RequestCode";
+                        phone.forceActiveFocus();
+                    }
+                }
+            };
+
+            function processError(response) {
+                validateCodeButton.inProgress = false;
+                code.error = true;
+                validateCodeError.error = true;
+                validateCodeError.errorMessage = qsTr("ACCOUNT_ACTIVATION_ERROR");
+            }
+
+            RestApi.User.validateMobileActivationCode(code.text, processResponse, processError);
         }
     }
 
