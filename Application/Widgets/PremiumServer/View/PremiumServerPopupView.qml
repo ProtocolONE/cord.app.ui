@@ -146,6 +146,32 @@ PopupBase {
     }
 
     Text {
+        anchors {
+            left: parent.left
+            right: parent.right
+        }
+
+        font {
+            family: 'Arial'
+            pixelSize: 14
+        }
+
+        color: defaultTextColor
+        smooth: true
+        textFormat: Text.StyledText
+        linkColor: Styles.linkText
+        onLinkActivated: App.openExternalUrl(link)
+        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+        text: qsTr("Обратите внимание: перенос персонажей между серверами не осуществляется. Персонаж доступен только на том сервере, на котором он создан.")
+
+        MouseArea {
+            anchors.fill: parent
+            cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
+            acceptedButtons: Qt.NoButton
+        }
+    }
+
+    Text {
         function getText() {
             if (root.remainTime <= 0) {
                 return "";

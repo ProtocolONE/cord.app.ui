@@ -9,49 +9,49 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="59"/>
-        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="68"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="57"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="67"/>
         <source>ACCOUNT_ACTIVATION_PHONE_NOT_FOUND</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="97"/>
-        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="106"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="96"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="110"/>
         <source>ACCOUNT_ACTIVATION_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="123"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="129"/>
         <source>ACCOUNT_ACTIVATION_TIP</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="147"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="153"/>
         <source>FIRST_STEP_TIP</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="159"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="165"/>
         <source>PLACEHOLDER_PHONE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="180"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="186"/>
         <source>BUTTON_GET_CODE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="218"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="224"/>
         <source>SECOND_STEP_TIP</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="233"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="239"/>
         <source>PLACEHOLDER_ACTIVATION_CODE_INPUT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="256"/>
+        <location filename="../Application/Widgets/AccountActivation/View/AccountActivationView.qml" line="262"/>
         <source>BUTTON_CODE_CONFIRM</source>
         <translation></translation>
     </message>
@@ -2281,52 +2281,57 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="154"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="165"/>
+        <source>Обратите внимание: перенос персонажей между серверами не осуществляется. Персонаж доступен только на том сервере, на котором он создан.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="180"/>
         <source>Осталось: %1 %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="156"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="182"/>
         <source>день</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="156"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="182"/>
         <source>дня</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="156"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="182"/>
         <source>дней</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="199"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="225"/>
         <source>Получите доступ к премиум серверу:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="200"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="226"/>
         <source>Продлите доступ к премиум серверу:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="264"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="290"/>
         <source>На счету недостаточно GN-монет</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="284"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="310"/>
         <source>Пополнить счет</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="300"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="326"/>
         <source>Итоговая стоимость: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="321"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="347"/>
         <source>Подтвердите покупку</source>
         <translation type="unfinished"></translation>
     </message>

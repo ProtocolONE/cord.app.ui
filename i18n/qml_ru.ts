@@ -4657,7 +4657,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>Премиум сервер — место развития и сражений для тех, кто ценит комфорт в игре и атмосферу закрытого сообщества.</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Обратите внимание: перенос персонажей между серверами не осуществляется. Персонаж доступен только на том сервере, на котором он создан.</source>
+        <translation></translation>
     </message>
 </context>
 <context>
