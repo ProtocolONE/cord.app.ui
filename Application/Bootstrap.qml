@@ -47,6 +47,11 @@ Item {
         initGoogleAnalytics();
         initEmojiOne();
         initRestApi('https://gnapi.com:8443/restapi');
+
+        // INFO Debug Auth for stage
+        //initRestApi('http://api.sabirov.dev');
+        //Authorization._gnLoginUrl = 'http://gnlogin.sabirov.dev';
+
         initAdditionalLayers();
 
         if (mainWindowInstance) {
