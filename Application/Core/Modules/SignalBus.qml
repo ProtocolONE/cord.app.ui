@@ -41,6 +41,8 @@ Item {
     signal serviceUpdated(variant gameItem);
     signal serviceCanceled(variant gameItem)
 
+    signal silentModeShowLicenseAnnouncement(string serviceId);
+
     signal downloaderStarted(variant gameItem);
     signal navigate(string link, string from);
     signal needPakkanenVerification();

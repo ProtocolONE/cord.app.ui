@@ -174,6 +174,14 @@ Item {
         mainWindowInstance().downloadButtonPause(serviceId);
     }
 
+    function forceDownload(serviceId) {
+        mainWindowInstance().forceDownload(serviceId);
+    }
+
+    function isLicenseAccepted(serviceId) {
+        return mainWindowInstance().isLicenseAccepted(serviceId);
+    }
+
     function executeService(serviceId) {
         return mainWindowInstance().executeService(serviceId);
     }

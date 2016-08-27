@@ -60,14 +60,14 @@ WidgetModel {
     Connections {
         target: SignalBus;
 
-        onServiceInstalled: {
-            if (!App.isWindowVisible()) {
-                if (App.isSilentMode()) {
-                    delayedActivateApp.activateServiceId = gameItem.serviceId;
-                    delayedActivateApp.start();
-                }
-            }
-        }
+//        onServiceInstalled: {
+//            if (!App.isWindowVisible()) {
+//                if (App.isSilentMode()) {
+//                    delayedActivateApp.activateServiceId = gameItem.serviceId;
+//                    delayedActivateApp.start();
+//                }
+//            }
+//        }
 
         onDownloaderStarted: {
             var isInstalled = ApplicationStatistic.isServiceInstalled(gameItem.serviceId);

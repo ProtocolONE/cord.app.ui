@@ -127,6 +127,9 @@ AppControls.TrayPopupBase {
                     }
                     color: Styles.trayPopupText
                     horizontalAlignment: Text.AlignHCenter
+                    onLinkActivated: {
+                        App.openExternalUrlWithAuth(link)
+                    }
 
                     MouseArea {
                         anchors.fill: parent

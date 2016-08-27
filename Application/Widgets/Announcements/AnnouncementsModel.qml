@@ -434,9 +434,17 @@ WidgetModel {
         onServiceStarted: gameStartedCallback(gameItem.serviceId)
         onServiceFinished: gameClosedCallback(gameItem.serviceId)
         onServiceInstalled: {
-            if (!App.isWindowVisible()) {
+            if (!App.isWindowVisible() && !App.isSilentMode()) {
                 announcements.showGameInstalledAnnounce(gameItem.serviceId);
             }
+        }
+
+        onSilentModeShowLicenseAnnouncement : {
+            if (App.isLicenseAccepted(serviceId)) {
+                return;
+            }
+
+            d.showArtNoLicenseRemind(serviceId);
         }
     }
 
@@ -548,6 +556,10 @@ WidgetModel {
                 serviceId = "300012010000000000"
             }
 
+            d.showArtNoLicenseRemind(serviceId);
+        }
+
+        function showArtNoLicenseRemind(serviceId) {
             var gameItem = App.serviceItemByServiceId(serviceId),
                 popUpOptions;
 

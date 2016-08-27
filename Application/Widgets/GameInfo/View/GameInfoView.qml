@@ -41,6 +41,10 @@ WidgetView {
             index = 0,
             i;
 
+        if (App.isSilentMode()) {
+            autoPlay = false;
+        }
+
         previewListModel.clear();
         for (i = 0; i < items.length; i++){
             items[i].index = i;

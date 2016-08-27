@@ -83,6 +83,7 @@ Rectangle {
         WidgetManager.registerWidget('Application.Widgets.PremiumServer');
         WidgetManager.registerWidget('Application.Widgets.StandaloneGameShop');
         WidgetManager.registerWidget('Application.Widgets.GuestConfirm');
+        WidgetManager.registerWidget('Application.Widgets.SilentMode');
 
         if (GoogleAnalyticsHelper.winVersion() > 0x0080) {
             //INFO Available in Vista+
