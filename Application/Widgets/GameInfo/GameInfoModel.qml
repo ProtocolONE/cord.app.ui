@@ -50,6 +50,10 @@ WidgetModel {
                 });
             }
 
+            if (galleries.length == 0) {
+                return;
+            }
+
             GameInfoModel.allInfo[gameId] = Lodash._.chain(galleries[0].media)
                 .filter(function(e) {
                     var type = e.type|0;

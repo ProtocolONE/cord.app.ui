@@ -86,7 +86,10 @@ WidgetView {
                     //INFO We should take one game with most played time and 2 games sorted by last played time. If
                     //error or empty data we should return games sorted priority from admin.
                     var games = Lodash._.chain(response.userInfo[0].games.lastPlayList)
-                        .map(function(e){
+                        .filter(function(e) {
+                            return !!App.serviceItemByGameId(e.gameId);
+                        })
+                        .map(function(e) {
                             var item = App.serviceItemByGameId(e.gameId);
                             e.serviceId = (item ? item.serviceId : -1);
                             e.isStandalone = item.isStandalone;
