@@ -22,7 +22,7 @@ FocusScope {
 
     signal footerPrimaryButtonClicked();
     signal footerGuestButtonClicked();
-    signal footerVkClicked();
+    signal footerOAuthClicked(string network);
 
     //Не используйте childRect - он не пересчитывает при изменении visibily элементов в Column/Row
     implicitHeight: contentData.height + (footerItem.visible ? footerItem.height : 0)
@@ -120,7 +120,7 @@ FocusScope {
         title: footer.title
         text: footer.text
         guestMode: footer.guestMode
-        onOpenVkAuth: root.footerVkClicked();
+        onOpenOAuth: root.footerOAuthClicked(network);
         onClicked: root.footerPrimaryButtonClicked()
         onGuestClicked: root.footerGuestButtonClicked()
     }

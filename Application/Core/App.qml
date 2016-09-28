@@ -21,6 +21,8 @@ Item {
     property int clientWidth: 1000
     property int clientHeight: 600
 
+    signal openAuthUrlRequest(string url)
+
     MainWindowMock {
         id: mainWindowMock
     }
@@ -143,7 +145,7 @@ Item {
     }
 
     function openExternalUrlWithAuth(url) {
-        mainWindowInstance().openExternalUrlWithAuth(url);
+        root.openAuthUrlRequest(url)
     }
 
     function openProfile(userId, action) {

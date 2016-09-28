@@ -14,7 +14,7 @@ Item {
     property alias text: primaryTextButton.text
     property bool guestMode
 
-    signal openVkAuth();
+    signal openOAuth(string network);
     signal clicked();
     signal guestClicked();
 
@@ -26,58 +26,51 @@ Item {
         opacity: 0.25
     }
 
+
+
     Row {
         spacing: 10
         anchors { left: parent.left; top: parent.top; topMargin: 22 }
 
+        Text {
+            y: 6
+            text: qsTr("Войти с помощью")
+            color: Styles.lightText
+            font { pixelSize: 14 }
+        }
+
         Button {
             id: vkButton
 
-            width: height + vkCaption.width + 21
+            width: height
             height: 48
 
             //INFO Стили кнопки "ВКонтакте" не должны настраиваться
             style {
-                normal: "#379adb"
-                hover: "#379adb"
+                normal: "#507299"
+                hover: "#507299"
             }
-            onClicked: root.openVkAuth();
+            onClicked: root.openOAuth('vk');
 
-            Row {
-                anchors.fill: parent
+            Image {
+                anchors.centerIn: parent
+                source: installPath +'Assets/Images/Application/Blocks/Auth/vkLogo.png'
+            }
+        }
 
-                Item {
-                    width: 48
-                    height: 48
+        Button {
+            onClicked: root.openOAuth('ok');
+            width: height
+            height: 48
 
-                    Rectangle {
-                        anchors.fill: parent
-                        color: "#2174c7"
-                    }
+            style {
+                normal: "#F58220"
+                hover: "#F58220"
+            }
 
-                    Image {
-                        anchors.centerIn: parent
-                        source: installPath +'Assets/Images/Application/Blocks/Auth/vkLogo.png'
-                    }
-                }
-
-                Item {
-                    width: vkCaption.width + 20
-                    height: parent.height
-
-                    Text {
-                        id: vkCaption
-                        text: qsTr("VK_LOGIN_BUTTON_TEXT")
-                        color: Styles.lightText
-                        visible: !root.vkButtonInProgress
-                        font { pixelSize: 15; family: "Open Sans Regular" }
-                        anchors {
-                            verticalCenter: parent.verticalCenter
-                            left: parent.left
-                            leftMargin: 10
-                        }
-                    }
-                }
+            Image {
+                anchors.centerIn: parent
+                source: installPath +'Assets/Images/Application/Blocks/Auth/okLogo.png'
             }
         }
     }

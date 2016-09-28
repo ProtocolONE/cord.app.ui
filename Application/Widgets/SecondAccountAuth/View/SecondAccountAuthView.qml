@@ -37,30 +37,52 @@ PopupBase {
         property string savePrefix: "second_"
         property bool vkAuthInProgress: false
 
-        function startVkAuth() {
+        function startOAuth(network) {
+            var authFunction, gaMarker;
+
+            switch(network) {
+            case 'ok': {
+                authFunction = Authorization.loginByOk;
+                gaMarker = 'Ok Login'
+                break;
+                }
+            case 'vk': {
+                authFunction = Authorization.loginByVk;
+                gaMarker = 'Vk Login'
+                break;
+                }
+            default: {
+                console.log("Warning. Unknown social network", network);
+                return;
+            }
+            }
+
             SignalBus.setGlobalProgressVisible(true, 0);
             d.vkAuthInProgress = true;
 
-            Authorization.loginByVk(root, function(error, response) {
-                SignalBus.setGlobalProgressVisible(false, 0);
-                d.vkAuthInProgress = false;
+            function oAuthResultCallback(error, response) {
+                            SignalBus.setGlobalProgressVisible(false, 0);
+                            d.vkAuthInProgress = false;
 
-                if (Authorization.isSuccess(error)) {
-                    d.authSuccess(response.userId, response.appKey, response.cookie, true);
-                    return;
-                }
+                            if (Authorization.isSuccess(error)) {
+                                d.authSuccess(response.userId, response.appKey, response.cookie, true);
+                                return;
+                            }
 
-                if (error === Authorization.Result.Cancel) {
-                    return;
-                }
+                            if (error === Authorization.Result.Cancel) {
+                                return;
+                            }
 
-                if (error === Authorization.Result.ServiceAccountBlocked) {
-                    d.showError(qsTr("AUTH_FAIL_ACCOUNT_BLOCKED"));
-                    return;
-                }
+                            if (error === Authorization.Result.ServiceAccountBlocked) {
+                                d.showError(qsTr("AUTH_FAIL_ACCOUNT_BLOCKED"));
+                                return;
+                            }
 
-                d.showError(qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR"));
-            });
+                            d.showError(qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR"));
+                        }
+
+            authFunction(root, oAuthResultCallback);
+            Ga.trackEvent('SecondAuth', 'click', gaMarker)
         }
 
         function loginSuggestion() {
@@ -123,7 +145,7 @@ PopupBase {
                 }
             }
             vkButtonInProgress: d.vkAuthInProgress
-            onFooterVkClicked: d.startVkAuth();
+            onFooterOAuthClicked: d.startOAuth(network);
         }
 
         RegistrationBody {
@@ -134,7 +156,7 @@ PopupBase {
             onError: d.showError(message);
             onAuthDone: d.authSuccess(userId, appKey, cookie, true, registration.login);
             vkButtonInProgress: d.vkAuthInProgress
-            onFooterVkClicked: d.startVkAuth();
+            onFooterOAuthClicked: d.startOAuth(network);
 
             onCaptchaRequired: {
                 auth.setLogin(registration.login);
@@ -159,7 +181,7 @@ PopupBase {
             onCancel: root.state = "auth"
             onSuccess: root.state = "auth"
             vkButtonInProgress: d.vkAuthInProgress
-            onFooterVkClicked: d.startVkAuth();
+            onFooterOAuthClicked: d.startOAuth(network);
         }
 
         MessageBody {

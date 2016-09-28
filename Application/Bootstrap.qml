@@ -49,11 +49,11 @@ Item {
         initRestApi('https://gnapi.com:8443/restapi');
 
         // INFO Debug Auth for stage
-        //initRestApi('http://api.sabirov.dev');
-        //Authorization._gnLoginUrl = 'http://gnlogin.sabirov.dev';
+//        initRestApi('http://api.sabirov.dev');
+//        Authorization._gnLoginUrl = 'http://gnlogin.sabirov.dev';
+//        Authorization._gnLoginTitleApiUrl = 'gnlogin.sabirov.dev';
 
         initAdditionalLayers();
-
         if (mainWindowInstance) {
             mainWindowInstance.leftMousePress.connect(function(x,y) {
                 SignalBus.leftMousePress(root, x, y);
@@ -388,6 +388,26 @@ Item {
 
             AppSettings.setValue("numConnectionFix", "done", 1);
             settings.numConnections = 200;
+        }
+    }
+
+    Connections {
+        target: App
+        ignoreUnknownSignals: true
+
+        onOpenAuthUrlRequest: {
+            //console.log('Open auth url request', url)
+            var authUrl = "https://gnlogin.ru/?auth=" + User.cookie() + "&rp=" + encodeURIComponent(url)
+
+//            RestApi.Core.execute('user.getChars',
+//                                 {
+//                                     targetId: userId
+//                                 },
+//                                 true,
+//                                 d.parseChars, d.parseChars);
+
+
+            App.openExternalUrl(authUrl);
         }
     }
 }

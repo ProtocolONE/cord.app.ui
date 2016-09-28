@@ -136,7 +136,7 @@ Item {
                 }
 
                 onFooterGuestButtonClicked: loadGuest()
-                onFooterVkClicked: d.startVkAuth()
+                onFooterOAuthClicked: d.startOAuth(network)
                 loginSuggestion: d.loginSuggestion()
                 vkButtonInProgress: d.vkAuthInProgress
             }
@@ -160,7 +160,7 @@ Item {
                         authContainer.state = "auth";
                      }
                 }
-                onFooterVkClicked: d.startVkAuth()
+                onFooterOAuthClicked: d.startOAuth(network)
                 vkButtonInProgress: d.vkAuthInProgress
 
                 onCaptchaRequired: {
@@ -185,7 +185,7 @@ Item {
                 login: auth.login
                 onCancel: authContainer.state = "auth"
                 onSuccess: authContainer.state = "auth"
-                onFooterVkClicked: d.startVkAuth()
+                onFooterOAuthClicked: d.startOAuth(network)
                 vkButtonInProgress: d.vkAuthInProgress
             }
 
@@ -279,31 +279,51 @@ Item {
             authContainer.state = "message";
         }
 
-        function startVkAuth() {
+        function startOAuth(network) {
+            var authFunction, gaMarker;
+
+            switch(network) {
+            case 'ok': {
+                authFunction = Authorization.loginByOk;
+                gaMarker = 'Ok Login'
+                break;
+                }
+            case 'vk': {
+                authFunction = Authorization.loginByVk;
+                gaMarker = 'Vk Login'
+                break;
+                }
+            default: {
+                console.log("Warning. Unknown social network", network);
+                return;
+            }
+            }
+
             d.vkAuthInProgress = true;
 
-            Authorization.loginByVk(root, function(error, response) {
-                d.vkAuthInProgress = false;
+            function oAuthResultCallback(error, response) {
+                            d.vkAuthInProgress = false;
 
-                if (Authorization.isSuccess(error)) {
-                    CredentialStorage.save(response.userId, response.appKey, response.cookie);
-                    d.startLoadingServices(response.userId, response.appKey, response.cookie);
-                    return;
-                }
+                            if (Authorization.isSuccess(error)) {
+                                CredentialStorage.save(response.userId, response.appKey, response.cookie);
+                                d.startLoadingServices(response.userId, response.appKey, response.cookie);
+                                return;
+                            }
 
-                if (error === Authorization.Result.Cancel) {
-                    return;
-                }
+                            if (error === Authorization.Result.Cancel) {
+                                return;
+                            }
 
-                if (error === Authorization.Result.ServiceAccountBlocked) {
-                    d.showError(qsTr("AUTH_FAIL_ACCOUNT_BLOCKED"));
-                    return;
-                }
+                            if (error === Authorization.Result.ServiceAccountBlocked) {
+                                d.showError(qsTr("AUTH_FAIL_ACCOUNT_BLOCKED"));
+                                return;
+                            }
 
-                d.showError(qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR"));
-            });
+                            d.showError(qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR"));
+                        }
 
-            Ga.trackEvent('Auth', 'click', 'Vk Login')
+            authFunction(root, oAuthResultCallback);
+            Ga.trackEvent('Auth', 'click', gaMarker)
         }
 
         function loginSuggestion() {
