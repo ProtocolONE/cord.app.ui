@@ -8,146 +8,85 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 import QtQuick 2.4
+
+import Dev 1.0
+
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
 import Application.Core 1.0
+import Application.Core.Styles 1.0
+
+import ".."
 
 Rectangle {
     width: 800
     height: 800
     color: '#cccccc'
 
+
+
     Component.onCompleted:  {
         Styles.init();
-        Styles.setCurrentStyle("sand")
-    }
+        Styles.setCurrentStyle("main")
 
-    WidgetManager {
-        id: manager
+        RestApi.Games.getMaintenance = function(callback) {
+            var schedule = {
+                    "300006010000000000": {
+                      "id": "300006010000000000",
+                      "startTime": 1436936400,
+                      "endTime": 1436950800,
 
-        function getGameData() {
-            return [{
-                "gameId": 1031,
-                "serviceId": "70000000000",
-                "name": "Морской Бой",
-                "gaName": "SeaFight",
-                "gameType":"browser",
-                "genre":"Браузерные игры",
-                "genreId":1,
-                "genrePosition":3,
-                "imageSmall":"https://images.gamenet.ru/pics/app/service/1423493068479.png",
-                "imageHorizontalSmall":"https://images.gamenet.ru/pics/app/service/1423493127302.png",
-                "imageLogoSmall":"https://images.gamenet.ru/pics/app/service/1423493136966.png",
-                "imagePopupArt":"https://images.gamenet.ru/pics/app/service/1423493145152.png",
-                "forumUrl":"https://forum.gamenet.ru/forumdisplay.php?f=489",
-                "guideUrl":"/games/seafight/guides/",
-                "blogUrl":"/games/seafight/blog/",
-                "licenseUrl":"/games/seafight/rules/",
-                "maintenanceProposal1":"300003010000000000",
-                "maintenanceProposal2":"90000000000",
-                "logoText":"logoText logoText",
-                "aboutGame":"О игре. О игре. О игре. О игре. О игре. О игре. О игре. О игре. О игре. О игре. О игре.",
-                "miniToolTip":"miniToolTip miniToolTip miniToolTip.",
-                "shortDescription":"Морские сражения",
-                "secondAllowed":false,
-                "widgetList":"\"gameDownloading\":\"GameAdBanner\",\"gameStarting\":\"GameAdBanner\",\"gameFailedFinish\":\"GameFailed\",\"gameBoredFinish\":\"GameIsBoring\",\"gameSuccessFinish\":\"\"",
-                "isPublishedInApp":true,
-                "isRunnable":true,
-                "iconInApp":null,
-                "typeShortcut":"",
-                "sortPositionInApp":7,
-                "hasOverlay":false,
-                "socialNet":[{"id":"vk","name":"VK","link":"https://vk.com/sea_battle_gamenet"},{"id":"fb","name":"Facebook","link":""},{"id":"ok","name":"?????????????","link":""},{"id":"mm","name":"??????","link":""},{"id":"gp","name":"Google+","link":""},{"id":"tw","name":"Twitter","link":""},{"id":"yt","name":"YouTube","link":""}],
-                "backgroundInApp":"https://images.gamenet.ru/pics/app/service/1433518954383.jpg"
-            }, {
-                "gameId":1033,
-                "serviceId":"90000000000",
-                "name":"Bleach",
-                "gaName":"Bleach",
-                "gameType":"browser",
-                "genre":"?????????? ????",
-                "genreId":1,
-                "genrePosition":3,
-                "imageSmall":"https://images.gamenet.ru/pics/app/service/1430300330909.png",
-                "imageHorizontalSmall":"https://images.gamenet.ru/pics/app/service/1430300373600.png",
-                "imageLogoSmall":"https://images.gamenet.ru/pics/app/service/1430300430950.png",
-                "imagePopupArt":"https://images.gamenet.ru/pics/app/service/1430300473473.png",
-                "forumUrl":"https://forum.gamenet.ru/forumdisplay.php?f=500",
-                "guideUrl":"/games/bleach/guides/",
-                "blogUrl":"/games/bleach/blog/",
-                "licenseUrl":"/games/bleach/rules/",
-                "maintenanceProposal1":"300003010000000000",
-                "maintenanceProposal2":"300012010000000000",
-                "logoText":"Bleach Bleach",
-                "aboutGame":"Bleach - Bleach Bleach Bleach RPG",
-                "miniToolTip": "Bleach Bleach Bleach",
-                "shortDescription":"Abracadabra",
-                "secondAllowed":false,
-                "widgetList":"\"gameDownloading\":\"GameAdBanner\",\"gameStarting\":\"GameAdBanner\",\"gameFailedFinish\":\"GameFailed\",\"gameBoredFinish\":\"GameIsBoring\",\"gameSuccessFinish\":\"\"",
-                "isPublishedInApp":true,
-                "isRunnable":true,
-                "iconInApp":null,
-                "typeShortcut":"new",
-                "sortPositionInApp":3,
-                "hasOverlay":false,
-                "socialNet":[{"id":"vk","name":"VK","link":"https://vk.com/bleach_gamenet"},{"id":"fb","name":"Facebook","link":""},{"id":"ok","name":"?????????????","link":""},{"id":"mm","name":"??????","link":""},{"id":"gp","name":"Google+","link":""},{"id":"tw","name":"Twitter","link":""},{"id":"yt","name":"YouTube","link":""}],
-                "backgroundInApp":"https://images.gamenet.ru/pics/app/service/1433518903634.jpg"
-            }, {
-                "gameId":71,
-                "serviceId":"300003010000000000",
-                "name":"BS.ru","gaName":"BloodAndSoul",
-                "gameType":"standalone",
-                "genre":"MMORPG",
-                "genreId":3,
-                "genrePosition":1,
-                "imageSmall":"https://images.gamenet.ru/pics/app/service/1421682897544.png",
-                "imageHorizontalSmall":"https://images.gamenet.ru/pics/app/service/1418739837872.png",
-                "imageLogoSmall":"https://images.gamenet.ru/pics/app/service/1418739840565.png",
-                "imagePopupArt":"https://images.gamenet.ru/pics/app/service/1418739843767.png",
-                "forumUrl":"https://forum.gamenet.ru/forumdisplay.php?f=4",
-                "guideUrl":"/games/bs/guides/","blogUrl":"/games/bs/blog/",
-                "licenseUrl":"/games/bs/rules/",
-                "maintenanceProposal1":"300002010000000000",
-                "maintenanceProposal2":"300012010000000000",
-                "logoText":"????????????? ??????? ????",
-                "aboutGame":"BS ? ???????????? ??????? ????, ?????????? ?????????????? ??????? ???????? ?????????, ?????? ? ????????? ?????????? ? ?????? ?????????? ??????, ??????????? ????? ??????, ??????? ?????, ???????? ??????? ? ???????????? ? ???? BS!","miniToolTip":"???? ???????? ??????-????, ?????? ????? ? ??????????? ???????????? ????????.","shortDescription":"????????????? ?????? ????",
-                "secondAllowed":true,
-                "widgetList":"\"gameDownloading\":\"GameAdBanner\",\"gameStarting\":\"GameAdBanner\",\"gameFailedFinish\":\"GameFailed\",\"gameBoredFinish\":\"GameIsBoring\",\"gameSuccessFinish\":\"\"",
-                "isPublishedInApp":true,
-                "isRunnable":true,
-                "iconInApp":"https://images.gamenet.ru/pics/app/service/1421926626182.ico",
-                "typeShortcut":"",
-                "sortPositionInApp":4,
-                "hasOverlay":true,
-                "socialNet":[{"id":"vk","name":"VK","link":"http://vk.com/bloodandsoul"},{"id":"fb","name":"Facebook","link":""},{"id":"ok","name":"?????????????","link":""},{"id":"mm","name":"??????","link":""},{"id":"gp","name":"Google+","link":""},{"id":"tw","name":"Twitter","link":""},{"id":"yt","name":"YouTube","link":"http://www.youtube.com/bloodandsoulru"}],
-                "backgroundInApp":"https://images.gamenet.ru/pics/app/service/1433518917211.jpg"
-            }];
+                    "title": "",// "Технические работы окончатся через gggg",
+                    "newsTitle": "", //"Заголовок новости",
+                    "newsLink":  "https://gamenet.ru/games/phantomers/post/1iorr7/",
+                    "newsText": "18 октября, с 8:00 до 12:00 часов по московскому времени серверы игры Phantomers будут остановлены для проведения плановых технических работ. В это время игра будет недоступна.
+    В ходе технических работ будет проведено обслуживание серверной части и программного обеспечения.
+    Приносим извинения за возможные неудобства.",
+                    "isSticky" : true
+                    }
+              };
+
+            var fakeEnd = ((Date.now()/1000)|0) + (100)*(24*3600) + (23)*3600 + (59)*60;
+            var fakeStart = ((Date.now()/1000)|0) + (-1)*3600;
+
+            console.log('fake time ', Date.now(),((Date.now()/1000)|0),  fakeStart, fakeEnd)
+
+            schedule["300006010000000000"].startTime = fakeStart;
+            schedule["300006010000000000"].endTime = fakeEnd;
+
+            console.log('FakeRestApiResponse:')
+            console.log(JSON.stringify(schedule, null ,2))
+
+            callback({schedule: schedule});
         }
 
-        Component.onCompleted: {
-            App.downloadButtonStart = function(serviceId) {
-                console.log(">>>>>>> downloadButtonStart: ", serviceId);
-            }
+        WidgetManager.registerWidget('Application.Widgets.Maintenance');
+        WidgetManager.init();
+    }
 
-            manager.registerWidget('Application.Widgets.Maintenance');
+    RequestServices {
+        onReady: {
+            SignalBus.servicesLoaded();
 
-            var gamesData = manager.getGameData();
-            App.fillGamesModel(gamesData);
-
-            manager.init();
-
-            App.activateGameByServiceId("70000000000");
+            var item = App.serviceItemByGameId("84");
+            console.log('//////', item.gameId)
+            App.activateGame(item);
+            widget.visible = true;
         }
     }
 
     WidgetContainer {
+        id: widget
+
         x: 50
         y: 50
 
+        visible: false
         width: 590
         height: 100
-        widget: 'Maintenance'
+        widget: visible ? 'Maintenance': ""
         view: 'MaintenanceLightView'
     }
 }

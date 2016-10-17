@@ -27,6 +27,22 @@ WidgetView {
     implicitWidth: 590
     implicitHeight: 112
 
+    QtObject {
+        id: d
+
+        property bool valid: root.gameItem && root.gameItem.maintenanceSettings
+
+        property string title: (d.valid ? root.gameItem.maintenanceSettings.title : "")
+                               || qsTr("MAINTENANCE_LIGHT_LABEL")
+
+        property string newsTitle: (d.valid ? root.gameItem.maintenanceSettings.newsTitle : "") || ""
+        property string newsText: (d.valid ? root.gameItem.maintenanceSettings.newsText : "") || ""
+        property string newsLink: (d.valid ? root.gameItem.maintenanceSettings.newsLink : "") || ""
+
+        property bool isNewsView: !!d.newsText && !!d.newsTitle
+        property bool hasLink: !!d.newsLink
+    }
+
     ContentBackground {}
 
     Item {
@@ -58,12 +74,14 @@ WidgetView {
                         baselineOffset: 22
                     }
 
-                    text: qsTr("MAINTENANCE_LIGHT_LABEL")
+                    text: d.title
                     color: Styles.lightText
                     font { pixelSize: 14 }
                     width: parent.width
                     wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                     horizontalAlignment: Text.AlignHCenter
+                    height: 36
+                    clip: true
                 }
 
                 ContentStroke {
@@ -94,8 +112,16 @@ WidgetView {
                         return value;
                     }
 
+                    property bool hasDay: Math.floor(root.interval / 3600) >= 24
+
                     TimeTextLabel {
-                        firstText: Math.floor(root.interval / 3600);
+                        visible: row.hasDay
+                        firstText: Math.floor(root.interval / 3600 / 24);
+                        secondText: qsTr("д.")
+                    }
+
+                    TimeTextLabel {
+                        firstText: Math.floor((root.interval % (3600*24))/ 3600);
                         secondText: qsTr("HOUR_MAINTENANCE_LABEL")
                     }
 
@@ -105,6 +131,7 @@ WidgetView {
                     }
 
                     TimeTextLabel {
+                        visible: !row.hasDay
                         firstText: row.format(root.interval % 60)
                         secondText: qsTr("SECONDS_MAINTENANCE_LABEL")
                     }
@@ -117,6 +144,7 @@ WidgetView {
 
                 width: 390
                 height: parent.height
+                visible: !d.isNewsView
 
                 ContentStroke {
                     anchors.fill: parent
@@ -163,6 +191,7 @@ WidgetView {
                             font { family: 'Arial'; pixelSize: 18 }
                         }
                     }
+
                 }
 
                 CursorMouseArea {
@@ -188,6 +217,54 @@ WidgetView {
 
                         Ga.trackEvent('Maintenance Light', 'play', proposalGameItem.gaName);
                     }
+                }
+            }
+
+            Item {
+                id: newsRect
+
+                width: 390
+                height: parent.height
+                visible: d.isNewsView
+                clip: true
+
+                Text {
+                    anchors {
+                        top: parent.top
+                        left: parent.left
+                        right: parent.right
+                    }
+
+                    width: parent.width
+                    text: d.newsTitle
+                    color: Qt.darker(Styles.titleText, mouser.containsMouse ? 1.5: 0)
+                    font { family: 'Arial'; pixelSize: 18 }
+                    wrapMode: Text.NoWrap
+                    clip: true
+                }
+
+                Text {
+                    anchors {
+                        fill: parent
+                        topMargin: 30
+                    }
+
+                    text: d.newsText
+                    color: Qt.darker(Styles.infoText, mouser.containsMouse ? 1.5: 0)
+                    font { family: 'Arial'; pixelSize: 13 }
+                    wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                    clip: true
+                    elide: Text.ElideRight
+                    lineHeight: 20
+                    lineHeightMode: Text.FixedHeight
+                }
+
+                CursorMouseArea {
+                    id: mouser
+
+                    visible: d.hasLink
+                    anchors { fill: parent; }
+                    onClicked: App.openExternalUrl(d.newsLink)
                 }
             }
         }

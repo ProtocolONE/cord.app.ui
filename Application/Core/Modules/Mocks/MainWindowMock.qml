@@ -125,10 +125,18 @@ Item {
     }
 
     function silent() {
-        return false;
+        return true;
     }
 
     function saveLanguage() {
 
+    }
+
+    function isLicenseAccepted(qwe) {
+        return false;
+    }
+
+    function acceptFirstLicense(qwe) {
+        console.log("accept lisence", qwe)
     }
 }

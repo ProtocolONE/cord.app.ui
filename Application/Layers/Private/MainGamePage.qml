@@ -14,7 +14,7 @@ ScrollArea {
     WidgetContainer {
         visible: root.hasCurrentGame
                  && root.currentGame.maintenance
-                 && root.currentGame.allreadyDownloaded
+                 && (root.currentGame.allreadyDownloaded || root.currentGame.maintenanceSettings.isSticky)
 
         widget: visible ? 'Maintenance' : ''
         view: 'MaintenanceLightView'

@@ -30,6 +30,14 @@ function createService(data) {
     // Internal item properties
     item.maintenance = false;
     item.maintenanceInterval = 0;
+    item.maintenanceSettings = {
+        "title": "",
+        "newsTitle": "",
+        "newsText": "",
+        "newsLink": "",
+        "isSticky": false
+    }
+
     item.allreadyDownloaded = false;
     item.progress = -1;
     item.isInstalled = false;

@@ -64,6 +64,8 @@ Item {
                 case "mygame": {
                     root.selectedGamePage = true;
                     centralBlockLoader.sourceComponent = gamePageBlock;
+                    centralBlockLoader.item.updateState();
+
                 } break;
                 case "allgame": {
                     centralBlockLoader.sourceComponent = allGames;
@@ -176,12 +178,14 @@ Item {
         Item {
             anchors.fill: parent
 
-            Component.onCompleted: {
+            function updateState() {
                 if (!root.hasCurrentGame) {
                     return;
                 }
 
-                if (!ApplicationStatistic.isServiceInstalled(root.currentGame.serviceId)) {
+                var showMaintainance = root.currentGame.allreadyDownloaded && root.currentGame.maintenance;
+
+                if (!ApplicationStatistic.isServiceInstalled(root.currentGame.serviceId) && !showMaintainance) {
                     gameMenu.pageClicked('AboutGame');
                 } else {
                     gameMenu.pageClicked('News');

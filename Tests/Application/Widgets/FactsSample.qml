@@ -21,13 +21,15 @@ Rectangle {
 
     color: '#002336'
 
-    WidgetManager {
-        id: manager
+//    WidgetManager {
+//        id: manager
 
-        Component.onCompleted: {
-            manager.registerWidget('Application.Widgets.Facts');
-            manager.init();
-        }
+
+//    }
+
+    Component.onCompleted: {
+        WidgetManager.registerWidget('Application.Widgets.Facts');
+        WidgetManager.init();
     }
 
     RequestServices {
@@ -44,6 +46,45 @@ Rectangle {
         x: 10
         y: 200
         spacing: 20
+
+        Button {
+            width: 200
+            height: 30
+
+            text: "TestBug"
+            onClicked: {
+                var a = '{
+                            "4294967294": { "id": "4294967294" },
+                            "4294967295": { "id": "4294967295" },
+                            "4294967296": { "id": "4294967296" },
+                            "4300000000": { "id": "4300000000" },
+                            "4563402752": { "id": "4563402752" },
+                            "68987912192": { "id": "68987912192" },
+                            "20000000000": { "id": "20000000000" },
+                            "30000000000": { "id": "30000000000" },
+                            "240000000000": { "id": "240000000000" },
+                            "370000000000": { "id": "370000000000" }
+                         }';
+                var s = JSON.parse(a);
+                for (var k in s) {
+                    console.log(typeof(k), typeof(s[k].id), k, s[k].id, k === s[k].id)
+                    if (k != s[k].id) {
+                        console.log("Bug ", k, s[k].id)
+                    }
+                }
+
+                var g = {};
+                var h = "240000000000";
+                g[h] = h + "BUG";
+                console.log(JSON.stringify(g, null, 2), h, g["3776798720"], g[h], g["240000000000"]
+                            , "240000000000" == "3776798720"
+                            , "240000000000" === "3776798720")
+
+
+                console.log("240000000000" == "3776798720", "240000000000" === "3776798720", "240000000000" === "3776798721")
+                console.log(JSON.stringify(s, null ,2));
+            }
+        }
 
         Button {
             width: 200

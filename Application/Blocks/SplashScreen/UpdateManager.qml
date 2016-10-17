@@ -84,7 +84,7 @@ Item {
                 var message,
                     obj;
 
-                if (data.status != 200){
+                if (data.status != 200) {
                     rootItem.globalMaintenance(false, "")
                     globalMaintetanceCheck.stop();
                     return;

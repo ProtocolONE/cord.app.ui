@@ -65,22 +65,32 @@ WidgetModel {
         var currentTime = maintCheck.getTime(),
             startTime,
             endTime,
-            multiplier,
             index,
+            index_fake,
             item,
             itemExist,
             nearestInterval = 2294967296;
 
         MaintenanceModel.schedule = {};
 
-        for (index in schedule) {
-            multiplier = schedule[index].hasOwnProperty('id') ? 1000 : 1;
-            endTime = schedule[index].endTime * multiplier;
+        // INFO В Qt/QML есть баг с храненим строковых ключей мап похожих на число. Они приводятся к int32
+        // и отбрасывается старший байт (5ый).
+        for (index_fake in schedule) {
+            index = schedule[index_fake].id;
+            endTime = schedule[index].endTime;
 
             item = App.serviceItemByServiceId(index);
             if (!item) {
                 continue;
             }
+
+            item.maintenanceSettings = {
+                    "title": schedule[index].title || "",
+                    "newsTitle": schedule[index].newsTitle || "",
+                    "newsText": schedule[index].newsText || "",
+                    "newsLink": schedule[index].newsLink || "",
+                    "isSticky": !!schedule[index].isSticky
+                }
 
             if (item.ignoreMaintenance) {
                 item.maintenance = false;
@@ -88,11 +98,7 @@ WidgetModel {
                 continue;
             }
 
-            startTime = schedule[index].startTime * multiplier;
-
-            //INFO maintenanceEndPause корректно отработает и выключился, потому, что будет вызван из maintCheck, т.о. состояние
-            //"паузы" после профилактики продлится минимум от получаса до 90 минут.
-            item.maintenanceEndPause = (currentTime >= startTime) && (currentTime < (endTime + (1800 * multiplier)));
+            startTime = schedule[index].startTime;
 
             if (endTime < currentTime) {
                 item.maintenance = false;
@@ -109,31 +115,56 @@ WidgetModel {
                 continue;
             }
 
-            MaintenanceModel.schedule[index] = {
-                startTime: startTime,
-                endTime: endTime
-            };
+            MaintenanceModel.schedule[index] = schedule[index]
 
             var maintenance = currentTime >= startTime && currentTime < endTime;
 
             item.maintenance = maintenance;
-            item.maintenanceInterval = Math.round((endTime - currentTime) / 1000);
+            item.maintenanceInterval = Math.round((endTime - currentTime));
 
             nearestInterval = Math.min(nearestInterval, startTime - currentTime);
         }
 
-        if (nearestInterval > maintCheck.interval) {
+        if ((nearestInterval*1000) > maintCheck.interval) {
             scheduleTick.stop();
             return;
         }
 
-        scheduleTick.interval = nearestInterval > 0 ? nearestInterval : 1000;
+        scheduleTick.interval = nearestInterval > 0 ? (nearestInterval*1000) : 1000;
         if (!scheduleTick.running) {
             scheduleTick.start();
         }
     }
 
-    Component.onCompleted: maintCheck.start();
+    function requestMaintenanceData() {
+        RestApi.Games.getMaintenance(function(response) {
+            if (!response.hasOwnProperty('schedule')) {
+                return;
+            }
+
+            RestApi.Core.execute('misc.getTime', {}, false, function(data) {
+                var time;
+                if (data.hasOwnProperty('atom')) {
+                    time = Moment.moment(new Date(data.atom));
+                    maintCheck.diff = Moment.moment.duration(time.diff(new Date())).asMilliseconds();
+                }
+
+                update(response.schedule);
+            }, function(){
+                update(response.schedule);
+            });
+        });
+    }
+
+    Connections {
+        target: SignalBus
+
+        ignoreUnknownSignals: true
+
+        onServicesLoaded: {
+            maintCheck.start();
+        }
+    }
 
     Timer {
         id: maintCheck
@@ -141,7 +172,7 @@ WidgetModel {
         property int diff: 0
 
         function getTime() {
-            return Date.now() + maintCheck.diff;
+            return (((Date.now() + maintCheck.diff) / 1000)|0) ;
         }
 
         function rand(min, max) {
@@ -153,23 +184,7 @@ WidgetModel {
         repeat: true
         triggeredOnStart: true
         onTriggered: {
-            RestApi.Games.getMaintenance(function(response) {
-                if (!response.hasOwnProperty('schedule')) {
-                    return;
-                }
-
-                RestApi.Core.execute('misc.getTime', {}, false, function(data) {
-                    var time;
-                    if (data.hasOwnProperty('atom')) {
-                        time = Moment.moment(new Date(data.atom));
-                        maintCheck.diff = Moment.moment.duration(time.diff(new Date())).asMilliseconds();
-                    }
-
-                    update(response.schedule);
-                }, function(){
-                    update(response.schedule);
-                });
-            });
+            requestMaintenanceData()
         }
     }
 
