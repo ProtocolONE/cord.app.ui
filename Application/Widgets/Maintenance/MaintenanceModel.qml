@@ -142,7 +142,7 @@ WidgetModel {
                 return;
             }
 
-            RestApi.Core.execute('misc.getTime', {}, false, function(data) {
+            RestApi.Misc.getTime(function(data) {
                 var time;
                 if (data.hasOwnProperty('atom')) {
                     time = Moment.moment(new Date(data.atom));

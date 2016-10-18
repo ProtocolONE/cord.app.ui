@@ -636,7 +636,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.150.765efd67b47873235b8de88cb0788d9bc3369511",
+    version: "1.0.155.c49b0a2c6286603ea017ec4e444f8a459cdb9334",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',
@@ -748,7 +748,8 @@ Billing.isInGameRefillAvailable = function(successCallback, failedCallback) {
     Core.execute('billing.isInGameRefillAvailable', {
         version: 1
     }, true, successCallback, failedCallback);
-};var Games = function() {
+};
+var Games = function() {
 };
 
 Games.getAnnouncement = function(successCallback, failedCallback) {
@@ -783,7 +784,13 @@ Games.getGallery = function(game, successCallback, failedCallback) {
             version: 1
         },
         false, successCallback, failedCallback);
-};var Marketing = function() {
+};
+
+Games.getThemes = function(successCallback, failedCallback) {
+    Core.execute('games.getThemes', {}, false, successCallback, failedCallback);
+};
+
+var Marketing = function() {
 };
 
 // Пока не работает на лайве
@@ -795,21 +802,22 @@ Marketing.getMidDetails = function(mid, successCallback, failedCallback) {
         successCallback,
         failedCallback);
 };
+/**
+ * Created by Ilya on 18.10.16.
+ */
+var Misc = function() {
+};
+
+Misc.getTime = function(successCallback, failedCallback) {
+    Core.execute('misc.getTime', {}, false, successCallback, failedCallback);
+};
+
 var Premium = function() {
 };
 
 Premium.getStatus = function(successCallback, failedCallback) {
     Core.execute('premium.getStatus', {version: 1}, true, successCallback, failedCallback);
 };
-
-Premium.getGrid = function(successCallback, failedCallback) {
-    Core.execute('premium.getGrid', {version: 1}, true, successCallback, failedCallback);
-};
-
-Premium.purchase = function(gridId, successCallback, failedCallback) {
-    Core.execute('premium.purchase', {version: 1, gridId: gridId}, true, successCallback, failedCallback);
-};
-
 var Service = function() {
 };
 
@@ -823,7 +831,19 @@ Service.getUi = function(successCallback, failedCallback) {
 
 Service.getGrid = function(successCallback, failedCallback) {
     Core.execute('service.getGrid', {}, true, successCallback, failedCallback);
-};var Social = function() {
+};
+
+Service.getItems = function(serviceId, type, successCallback, failedCallback) {
+    Core.execute('service.getItems', { serviceId: serviceId, type: type }, true, successCallback, failedCallback);
+};
+
+Service.getPromoKeysSettings = function(serviceId, successCallback, failedCallback) {
+    Core.execute('service.getPromoKeysSettings', { serviceId: serviceId }, false, successCallback, failedCallback);
+};
+
+
+
+var Social = function() {
 };
 
 Social.sendInvite = function(friendId, successCallback, failedCallback) {
@@ -844,7 +864,8 @@ Social.agreeInvite = function(friendId, successCallback, failedCallback) {
 
 Social.discardInvite = function(friendId, successCallback, failedCallback) {
     Core.execute('social.discardInvite', {friendId : friendId}, true, successCallback, failedCallback);
-};var User = function() {
+};
+var User = function() {
 };
 
 User.getMainInfo = function(successCallback, failedCallback) {
@@ -904,13 +925,17 @@ User.search = function(query, priorityForFriends, successCallback, failedCallbac
     Core.execute('user.search', { q : query, priorityForFriends: priorityForFriends }, true, successCallback, failedCallback);
 };
 
+User.getChars = function(userId, successCallback, failedCallback) {
+    Core.execute('user.getChars', { targetId: userId }, true, successCallback, failedCallback);
+};
 var Virality = function() {
 };
 
 //INFO Метод не может быть протестирован.
 Virality.linkAccount = function(code, vkReturnPath, successCallback, failedCallback) {
     Core.execute('virality.linkAccount', {code : code, vkReturnPath: vkReturnPath}, true, successCallback, failedCallback);
-};var Wall = function() {
+};
+var Wall = function() {
 };
 
 Wall.getNews = function(successCallback, failedCallback) {

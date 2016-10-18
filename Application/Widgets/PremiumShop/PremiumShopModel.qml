@@ -62,7 +62,7 @@ WidgetModel {
     }
 
     function refreshModel() {
-        RestApi.Core.execute('service.getItems', {serviceId: 0, type: 13}, true, function(response) {
+        RestApi.Service.getItems("0", 13, function(response) {
             response.sort(function(a, b) {
                 return a.cost - b.cost;
             });

@@ -552,7 +552,7 @@ http.request = function(options, callback) {
 }
 
 //Replaced during CI build
-var authVersion = "2.0.45.eb17973c2c7fff8d22be7aee9b4183e8e0ccda58"
+var authVersion = "2.0.46.1bd39a03eb097712b877b63ccf8ba16bbab9a2dd"
     , _gnLoginUrl = 'https://gnlogin.ru'
     , _gnLoginTitleApiUrl = 'gnlogin.ru'
     , _hwid

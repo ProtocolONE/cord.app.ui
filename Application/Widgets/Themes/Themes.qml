@@ -25,7 +25,7 @@ WidgetModel {
         target: SignalBus
         onAuthDone: {
             console.log('Query themes');
-            RestApi.Core.execute('games.getThemes', {}, false, dataReceived, errorOccured);
+            RestApi.Games.getThemes(dataReceived, errorOccured);
         }
     }
 

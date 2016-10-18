@@ -18,7 +18,7 @@ WidgetModel {
     property variant news
 
     function reloadNews() {
-        RestApi.Core.execute('wall.getNews', {format: 'json'}, false, function(news) {
+        RestApi.Wall.getNews( function(news) {
             rootModel.news = news;
         }, function(){});
     }

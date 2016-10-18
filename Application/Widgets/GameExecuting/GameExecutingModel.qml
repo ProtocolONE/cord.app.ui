@@ -89,26 +89,6 @@ WidgetModel {
         target: App.mainWindowInstance()
 
         onServiceFinished: {  // ввод промо кода
-            //--------------------------------------------------------------
-            //INFO Парни, этот код нужен ровно на 3 суток. Простите, за 100500 но очень не хочется добавлять сигнал
-            //отдельный чтобы его тут же удалить. https://jira.gamenet.ru:8443/browse/QGNA-1037
-
-            if (service == "30000000000" && serviceState == 100500) {
-                App.activateGameByServiceId(service);
-                SignalBus.navigate('mygame', 'GameItem');
-
-                MessageBox.show(
-                            qsTr("Вам нужен ключ доступа"),
-                            qsTr("Скачать клиент игры могут только участники F&F-теста. Если у вас есть ключ доступа, нажмите \"Да\"."),
-                            MessageBox.button.yes | MessageBox.button.no,
-                            function(result) {
-                                if (result == MessageBox.button.yes) {
-                                    Popup.show('PromoCode');
-                                }
-                            });
-                return;
-            }
-            //--------------------------------------------------------------
             if (serviceState !== RestApi.Error.SERVICE_AUTHORIZATION_IMPOSSIBLE) {
                 return;
             }

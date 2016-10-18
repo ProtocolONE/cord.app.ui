@@ -32,11 +32,7 @@ Item {
         d.clear();
 
         root.gameCount = root.lastPlayList.length
-        RestApi.Core.execute('user.getChars',
-                             {
-                                 targetId: userId
-                             },
-                             true, d.parseChars, d.parseChars);
+        RestApi.User.getChars(userId, d.parseChars, d.parseChars);
     }
 
     implicitWidth: parent.width
