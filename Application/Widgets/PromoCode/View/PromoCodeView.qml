@@ -168,7 +168,7 @@ PopupBase {
 
             visible: false
             width: Math.max(implicitWidth, 200)
-            text: qsTr("Получить доступ")
+            text: qsTr("Получить ключ")
             onClicked: {
                 App.openExternalUrlWithAuth(d.getPromoLink);
                 d.promocodeInputActive = true;

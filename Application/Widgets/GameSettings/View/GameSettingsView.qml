@@ -26,6 +26,20 @@ PopupBase {
     property variant currentGame: model ? model.currentGame : null
     property variant gameSettingsModelInstance: App.gameSettingsModelInstance() || {}
 
+    property variant gameWithSettings: [ "30000000000", "370000000000"]
+
+    function hasGameSettings(serviceId) {
+        var i;
+
+        for (i = 0; i < gameWithSettings.length; ++i) {
+            if (serviceId == gameWithSettings[i]) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     defaultMargins: 44
     width: 740
     title: qsTr("GAME_SETTINGS_TITLE").arg(App.currentGame().name)
@@ -87,7 +101,7 @@ PopupBase {
                 SettingsTextButton {
                      checked: root.state === "ControlPage"
                      text: qsTr("Игровые настройки")
-                     visible: !!root.currentGame && root.currentGame.serviceId == '30000000000'
+                     visible: !!root.currentGame && root.hasGameSettings(root.currentGame.serviceId)
                      analytics {
                         category: 'GameSettings'
                         action: 'ControlPage'

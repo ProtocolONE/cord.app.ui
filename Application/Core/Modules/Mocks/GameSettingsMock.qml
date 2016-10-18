@@ -4,12 +4,15 @@ QtObject {
     id: fakeGameSettingsModelInstance
 
     property bool hasDownloadPath: true
-    property string installPath: "C:\\Program Files (x86)\\QGNA\\Games"
-    property string downloadPath: "C:\\Program Files (x86)\\QGNA\\Downloads"
+
+    property string installPath: "D:/Games/BattleCarnival"
+    property string downloadPath: "D:/Games/BattleCarnival"
+
+    //property string installPath: "C:\\Program Files (x86)\\QGNA\\Games"
+    //property string downloadPath: "C:\\Program Files (x86)\\QGNA\\Downloads"
 
     function switchGame(serviceId) {
     }
-
 
     function createShortcutOnDesktop(serviceId) {
         console.log('[GameSettings] createShortcutOnDesktop', serviceId)
