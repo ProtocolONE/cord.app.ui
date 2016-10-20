@@ -91,6 +91,11 @@ PopupBase {
             d.loading = false;
         }
 
+        function activatePromoInput() {
+            promoCode.focus = true;
+            d.promocodeInputActive = true
+        }
+
     }
 
     title: qsTr("Активация ключа")
@@ -144,7 +149,7 @@ PopupBase {
             visible: false
             width: Math.max(implicitWidth, 200)
             text: qsTr("Ввести ключ")
-            onClicked: d.promocodeInputActive = true
+            onClicked: d.activatePromoInput();
         }
 
         PrimaryButton {
@@ -171,7 +176,7 @@ PopupBase {
             text: qsTr("Получить ключ")
             onClicked: {
                 App.openExternalUrlWithAuth(d.getPromoLink);
-                d.promocodeInputActive = true;
+                d.activatePromoInput();
             }
         }
 
