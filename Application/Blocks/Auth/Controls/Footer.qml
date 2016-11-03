@@ -43,7 +43,8 @@ Item {
             id: vkButton
 
             width: height
-            height: 48
+            height: 40
+            anchors.verticalCenter: parent.verticalCenter
 
             //INFO Стили кнопки "ВКонтакте" не должны настраиваться
             style {
@@ -61,7 +62,9 @@ Item {
         Button {
             onClicked: root.openOAuth('ok');
             width: height
-            height: 48
+            height: 40
+
+            anchors.verticalCenter: parent.verticalCenter
 
             style {
                 normal: "#F58220"
@@ -71,6 +74,24 @@ Item {
             Image {
                 anchors.centerIn: parent
                 source: installPath +'Assets/Images/Application/Blocks/Auth/okLogo.png'
+            }
+        }
+
+        Button {
+            onClicked: root.openOAuth('fb');
+            width: height
+            height: 40
+
+            anchors.verticalCenter: parent.verticalCenter
+
+            style {
+                normal: "#2a5ecd"
+                hover: "#2a5ecd"
+            }
+
+            Image {
+                anchors.centerIn: parent
+                source: installPath +'Assets/Images/Application/Blocks/Auth/facebookLogo.png'
             }
         }
     }

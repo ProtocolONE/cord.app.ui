@@ -552,7 +552,7 @@ http.request = function(options, callback) {
 }
 
 //Replaced during CI build
-var authVersion = "2.0.46.1bd39a03eb097712b877b63ccf8ba16bbab9a2dd"
+var authVersion = "2.0.48.e3c82eda161a09a6bf2ff3042d9e740d71e2bbf7"
     , _gnLoginUrl = 'https://gnlogin.ru'
     , _gnLoginTitleApiUrl = 'gnlogin.ru'
     , _hwid
@@ -735,6 +735,16 @@ function linkOkAccount(parent, callback) {
     auth.link(callback);
 }
 
+function loginByFb(parent, callback) {
+    var auth = new ProviderFb(parent);
+    auth.login(callback);
+}
+
+function linkFbAccount(parent, callback) {
+    var auth = new ProviderFb(parent);
+    auth.link(callback);
+}
+
 /**
  * Return True is given code is success code.
  *
@@ -846,6 +856,8 @@ var ProviderOAuth = function(parent, hwid) {
     this.scope = "Unknown";
     this.authHost = "Unknown";
     this.authProtocol = "https";
+    this.authPath = "/oauth/authorize";
+    this.displayParams = "mobile";
 
     this.redirectUrl = _gnLoginUrl + '/oauth';
     this.titleApiUrl = _gnLoginTitleApiUrl;
@@ -956,11 +968,11 @@ ProviderOAuth.prototype.getUrl = function(params) {
     uri = new Uri()
         .setProtocol(this.authProtocol)
         .setHost(this.authHost)
-        .setPath('/oauth/authorize')
+        .setPath(this.authPath)
         .addQueryParam('client_id', this.appId)
         .addQueryParam('response_type', 'code')
         .addQueryParam('scope', this.scope)
-        .addQueryParam('display', 'mobile')
+        .addQueryParam('display', this.displayParams)
         .addQueryParam('redirect_uri', encodeURIComponent(rp));
 
     return uri.toString();
@@ -1081,7 +1093,6 @@ var ProviderVk = function(parent, hwid) {
     this.authHost = "oauth.vk.com";
     this.authProtocol = "https";
 }
-
 _private.extend(ProviderVk, ProviderOAuth);
 
 var ProviderOk = function(parent, hwid) {
@@ -1094,3 +1105,16 @@ var ProviderOk = function(parent, hwid) {
     this.authProtocol = "https";
 }
 _private.extend(ProviderOk, ProviderOAuth);
+
+var ProviderFb = function(parent, hwid) {
+    ProviderFb.superclass.constructor.apply(this, arguments);
+
+    this.appId = "580128682172889";
+    this.networkId = "fb";
+    this.scope = "public_profile,email,user_birthday,user_location,user_friends";
+    this.authHost = "www.facebook.com";
+    this.authProtocol = "https";
+    this.authPath = "/v2.8/dialog/oauth";
+    this.displayParams = 'popup';
+}
+_private.extend(ProviderFb, ProviderOAuth);

@@ -293,6 +293,11 @@ Item {
                 gaMarker = 'Vk Login'
                 break;
                 }
+            case 'fb': {
+                authFunction = Authorization.loginByFb;
+                gaMarker = 'Fb Login'
+                break;
+                }
             default: {
                 console.log("Warning. Unknown social network", network);
                 return;
