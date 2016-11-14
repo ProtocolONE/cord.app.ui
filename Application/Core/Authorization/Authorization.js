@@ -552,7 +552,7 @@ http.request = function(options, callback) {
 }
 
 //Replaced during CI build
-var authVersion = "2.0.48.e3c82eda161a09a6bf2ff3042d9e740d71e2bbf7"
+var authVersion = "2.0.49.33df2341cbe34dc36ce1c5601c56fc8ee18ddc7a"
     , _gnLoginUrl = 'https://gnlogin.ru'
     , _gnLoginTitleApiUrl = 'gnlogin.ru'
     , _hwid
@@ -753,7 +753,6 @@ function linkFbAccount(parent, callback) {
 function isSuccess(code) {
     return Result.Success === code;
 }
-
 var _private = {
     remapErrorCode: function(code) {
         var map = {};
@@ -1100,7 +1099,7 @@ var ProviderOk = function(parent, hwid) {
 
     this.appId = 1248179200;
     this.networkId = "ok";
-    this.scope = "valuable_access,long_access_token";
+    this.scope = "valuable_access,get_email";
     this.authHost = "connect.ok.ru";
     this.authProtocol = "https";
 }
