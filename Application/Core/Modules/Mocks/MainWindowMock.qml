@@ -135,7 +135,7 @@ Item {
     }
 
     function isLicenseAccepted(qwe) {
-        return false;
+        return true;
     }
 
     function acceptFirstLicense(qwe) {

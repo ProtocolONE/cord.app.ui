@@ -136,9 +136,16 @@ WidgetModel {
         }
     }
 
-    function requestMaintenanceData() {
+    function requestMaintenanceData(cb) {
+        function callcb() {
+            if (cb) {
+                cb();
+            }
+        }
+
         RestApi.Games.getMaintenance(function(response) {
             if (!response.hasOwnProperty('schedule')) {
+                callcb();
                 return;
             }
 
@@ -150,8 +157,10 @@ WidgetModel {
                 }
 
                 update(response.schedule);
+                callcb();
             }, function(){
                 update(response.schedule);
+                callcb();
             });
         });
     }
