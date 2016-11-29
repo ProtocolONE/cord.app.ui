@@ -14,6 +14,7 @@ Item {
     signal closeMainWindow();
 
     signal downloadButtonPause(string serviceId);
+    signal showLicense(string serviceId);
 
     function downloadButtonStart(serviceId) {
         console.log("downloadButtonStart", serviceId);
@@ -140,5 +141,9 @@ Item {
 
     function acceptFirstLicense(qwe) {
         console.log("accept lisence", qwe)
+    }
+
+    function getExpectedInstallPath(qwe) {
+        return "D:\\Games\\BattleCarnival"
     }
 }

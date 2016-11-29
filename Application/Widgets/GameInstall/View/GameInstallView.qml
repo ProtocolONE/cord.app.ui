@@ -16,6 +16,7 @@ import Application.Blocks 1.0
 import Application.Blocks.Popup 1.0
 import Application.Controls 1.0
 import Application.Core 1.0
+import Application.Core.MessageBox 1.0
 
 PopupBase {
     id: root
@@ -33,6 +34,55 @@ PopupBase {
     title: qsTr("INSTALL_VIEW_TITLE").arg(currentGame.name)
     height: 375
     clip: true
+
+    QtObject {
+        id: d
+
+        property bool isBattleCarnival: !!root.currentGame && root.currentGame.serviceId == "370000000000"
+
+        function battleCarnivalHack() {
+            // INFO https://jira.gamenet.ru/browse/QGNA-1611
+            var newPath = gameSettingsModelInstance.installPath;
+            var validContactPattern = new RegExp("^[-0-9a-zA-Z:_()\\\\\/\. ]+$");
+            if (!validContactPattern.test(newPath)) {
+                console.log('Bad path', newPath);
+                installationPath.bestPath = d.getExepectedPath();
+                gameSettingsModelInstance.installPath = installationPath.bestPath;
+
+                MessageBox.show(qsTr("INFO_CAPTION"), qsTr("<p>В пути установки клиента обнаружены запрещенные символы. Это может привести к проблемам запуска игры. В пути установки клиента игры должны содержаться только латинские буквы и цифры. Подробнее в статье службы поддержки: <b><a href=\"https://support.gamenet.ru/kb/articles/1193-failed-to-load-file-data-meta-dat\">ссылка</a></b> </p>
+
+<p>Что делать?</p>
+
+<ul><li>Измените название папки, в которую установлена игра. Например, <br />C:\\Games\\BattleCarnival</li>
+<li>После этого измените путь установки игры в настройках приложения, слева от кнопки \"Начать игру\". Это необходимо сделать для того, чтобы не перекачивать клиент игры заново.</li>
+</ul>"),
+                                MessageBox.button.Ok,
+                                function(result) { });
+
+                return;
+            }
+
+            installationPath.bestPath = gameSettingsModelInstance.installPath;
+        }
+
+        function defaultBattleCarnival() {
+            var expected = App.getExpectedInstallPath(currentGame.serviceId);
+            var validContactPattern = new RegExp("^[-0-9a-zA-Z:_()\\\\\/\.]+$");
+            if (!validContactPattern.test(expected)) {
+                return App.getBestInstallPath(currentGame.serviceId);
+            }
+
+            return expected;
+        }
+
+        function getExepectedPath() {
+            if (d.isBattleCarnival) {
+                return d.defaultBattleCarnival();
+            }
+
+            return App.getExpectedInstallPath(currentGame.serviceId);
+        }
+    }
 
     Item {
         width: parent.width
@@ -53,7 +103,7 @@ PopupBase {
         PathInput {
             id: installationPath
 
-            property string bestPath: App.getExpectedInstallPath(currentGame.serviceId)
+            property string bestPath: d.getExepectedPath()
 
             y: 22
             width: parent.width
@@ -70,6 +120,13 @@ PopupBase {
 
                 ignoreUnknownSignals: true
                 onInstallPathChanged: {
+                    gameSettingsModelConnection.target = null;
+
+                    if (d.isBattleCarnival) {
+                        d.battleCarnivalHack();
+                        return;
+                    }
+
                     installationPath.bestPath = gameSettingsModelInstance.installPath;
                 }
             }

@@ -198,12 +198,12 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="563"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="575"/>
         <source>SILENT_REMIND_POPUP_BUTTON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="564"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="576"/>
         <source>SILENT_REMIND_POPUP_MESSAGE</source>
         <translation></translation>
     </message>
@@ -341,13 +341,66 @@
 <context>
     <name>BaseLayer</name>
     <message>
-        <location filename="../Application/Layers/BaseLayer.qml" line="236"/>
+        <location filename="../Application/Layers/BaseLayer.qml" line="240"/>
         <source>Доступ к премиум-серверу</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Layers/BaseLayer.qml" line="237"/>
+        <location filename="../Application/Layers/BaseLayer.qml" line="241"/>
         <source>Доступ на премиум-сервер открыт Вам на весь период времени, в течение которого Администрация осуществляет поддержку и обеспечивает функционирование специально выделенных серверов игры.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>BattleCarnival</name>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BattleCarnival.qml" line="155"/>
+        <source>Качество графики</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BattleCarnival.qml" line="164"/>
+        <source>Лучшее</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BattleCarnival.qml" line="165"/>
+        <source>Отличное</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BattleCarnival.qml" line="166"/>
+        <source>Хорошее</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BattleCarnival.qml" line="167"/>
+        <source>Среднее</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BattleCarnival.qml" line="168"/>
+        <source>Низкое</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BattleCarnival.qml" line="178"/>
+        <source>Разрешение экрана</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BattleCarnival.qml" line="194"/>
+        <source>Тип экрана</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BattleCarnival.qml" line="203"/>
+        <source>Полноэкранный</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/BattleCarnival.qml" line="204"/>
+        <source>Оконный</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -506,22 +559,22 @@
 <context>
     <name>Bootstrap</name>
     <message>
-        <location filename="../Application/Bootstrap.qml" line="220"/>
+        <location filename="../Application/Bootstrap.qml" line="221"/>
         <source>INFO_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Bootstrap.qml" line="221"/>
+        <location filename="../Application/Bootstrap.qml" line="222"/>
         <source>UPDATE_FOUND_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Bootstrap.qml" line="90"/>
+        <location filename="../Application/Bootstrap.qml" line="91"/>
         <source>CLOSE_APP_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Bootstrap.qml" line="91"/>
+        <location filename="../Application/Bootstrap.qml" line="92"/>
         <source>CLOSE_APP_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -721,48 +774,43 @@
 <context>
     <name>DownloadManagerConnector</name>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="43"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="46"/>
         <source>POPUP_PLAY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="44"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="47"/>
         <source>POPUP_READY_TO_START</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="84"/>
-        <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="107"/>
-        <source>STATE_PREPARE_UNINSTALL</source>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="86"/>
+        <source>Нажимая &quot;Да&quot;, Вы подтверждаете, что согласны с условиями &lt;a href=&quot;http://www.gamenet.ru/license&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Лицензионного соглашения GameNet&lt;/font&gt;&lt;/a&gt; и &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Игры&lt;/font&gt;&lt;/a&gt;&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="247"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="97"/>
+        <source>Внимание</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="165"/>
+        <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="317"/>
         <source>TEXT_PROGRESSBAR_REHASH_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="261"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="331"/>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="262"/>
-        <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="310"/>
-        <source>GAME_DOWNLOADER_ACCESS_REQUIRED_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="311"/>
-        <source>GAME_DOWNLOADER_ACCESS_REQUIRED_TEXT</source>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="332"/>
+        <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -934,17 +982,17 @@
 <context>
     <name>Footer</name>
     <message>
-        <location filename="../Application/Blocks/Auth/Controls/Footer.qml" line="70"/>
-        <source>VK_LOGIN_BUTTON_TEXT</source>
+        <location filename="../Application/Blocks/Auth/Controls/Footer.qml" line="37"/>
+        <source>Войти с помощью</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/Controls/Footer.qml" line="108"/>
+        <location filename="../Application/Blocks/Auth/Controls/Footer.qml" line="122"/>
         <source>LOGIN_BY_GUEST_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/Controls/Footer.qml" line="109"/>
+        <location filename="../Application/Blocks/Auth/Controls/Footer.qml" line="123"/>
         <source>LOGIN_BY_GUEST_BUTTON_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1027,16 +1075,6 @@
         <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
         <translation></translation>
     </message>
-    <message>
-        <location filename="../Application/Widgets/GameExecuting/GameExecutingModel.qml" line="97"/>
-        <source>Вам нужен ключ доступа</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/GameExecuting/GameExecutingModel.qml" line="98"/>
-        <source>Скачать клиент игры могут только участники F&amp;F-теста. Если у вас есть ключ доступа, нажмите &quot;Да&quot;.</source>
-        <translation></translation>
-    </message>
 </context>
 <context>
     <name>GameExecutingView</name>
@@ -1100,17 +1138,17 @@
 <context>
     <name>GameInfo</name>
     <message>
-        <location filename="../Application/Widgets/DetailedUserInfo/View/Blocks/GameInfo.qml" line="57"/>
+        <location filename="../Application/Widgets/DetailedUserInfo/View/Blocks/GameInfo.qml" line="53"/>
         <source>DETAILED_USER_INFO_GAME_CHARS_TITLE_SINGLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DetailedUserInfo/View/Blocks/GameInfo.qml" line="58"/>
+        <location filename="../Application/Widgets/DetailedUserInfo/View/Blocks/GameInfo.qml" line="54"/>
         <source>DETAILED_USER_INFO_GAME_CHARS_TITLE_DOUBLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DetailedUserInfo/View/Blocks/GameInfo.qml" line="59"/>
+        <location filename="../Application/Widgets/DetailedUserInfo/View/Blocks/GameInfo.qml" line="55"/>
         <source>DETAILED_USER_INFO_GAME_CHARS_TITLE_MULTIPLE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1183,34 +1221,63 @@
     </message>
 </context>
 <context>
+    <name>GameInstallModel</name>
+    <message>
+        <location filename="../Application/Widgets/GameInstall/GameInstallModel.qml" line="43"/>
+        <source>Нажимая &quot;Да&quot;, Вы подтверждаете, что согласны с условиями &lt;a href=&quot;http://www.gamenet.ru/license&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Лицензионного соглашения GameNet&lt;/font&gt;&lt;/a&gt; и &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Игры&lt;/font&gt;&lt;/a&gt;&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameInstall/GameInstallModel.qml" line="44"/>
+        <source>Внимание</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>GameInstallView</name>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="33"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="34"/>
         <source>INSTALL_VIEW_TITLE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="50"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="51"/>
+        <source>INFO_CAPTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="51"/>
+        <source>&lt;p&gt;В пути установки клиента обнаружены запрещенные символы. Это может привести к проблемам запуска игры. В пути установки клиента игры должны содержаться только латинские буквы и цифры. Подробнее в статье службы поддержки: &lt;b&gt;&lt;a href=&quot;https://support.gamenet.ru/kb/articles/1193-failed-to-load-file-data-meta-dat&quot;&gt;ссылка&lt;/a&gt;&lt;/b&gt; &lt;/p&gt;
+
+&lt;p&gt;Что делать?&lt;/p&gt;
+
+&lt;ul&gt;&lt;li&gt;Измените название папки, в которую установлена игра. Например, C:\Games\BattleCarnival&lt;/li&gt;
+&lt;li&gt;После этого измените путь установки игры в настройках приложения, слева от кнопки &quot;Начать игру&quot;. Это необходимо сделать для того, чтобы не перекачивать клиент игры заново.&lt;/li&gt;
+&lt;/ul&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="99"/>
         <source>DESTINATION_FOLDER_CAPTION</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="85"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="139"/>
         <source>CREATE_DESKTOP_SHORTCUT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="94"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="148"/>
         <source>CREATE_STARTMENU_SHORTCUT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="106"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="160"/>
         <source>LICENSE_TIP</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="156"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="210"/>
         <source>INSTALL_BUTTON_CAPTION</source>
         <translation></translation>
     </message>
@@ -1367,22 +1434,22 @@
 <context>
     <name>GameSettingsView</name>
     <message>
-        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="31"/>
+        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="45"/>
         <source>GAME_SETTINGS_TITLE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="78"/>
+        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="92"/>
         <source>FOLDERS_TAB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="89"/>
+        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="103"/>
         <source>Игровые настройки</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="100"/>
+        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="114"/>
         <source>OVERLAY_TAB</source>
         <translation></translation>
     </message>
@@ -1392,22 +1459,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="110"/>
+        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="124"/>
         <source>UNINSTALL_GAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="121"/>
+        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="135"/>
         <source>RESTORE_CLIENT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="134"/>
+        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="148"/>
         <source>RESTORE_CLIENT_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="189"/>
+        <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="203"/>
         <source>SAVE_BUTTON_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1746,12 +1813,12 @@
 <context>
     <name>Index</name>
     <message>
-        <location filename="../Application/Blocks/Auth/Index.qml" line="299"/>
+        <location filename="../Application/Blocks/Auth/Index.qml" line="323"/>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/Index.qml" line="303"/>
+        <location filename="../Application/Blocks/Auth/Index.qml" line="327"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
         <translation></translation>
     </message>
@@ -1821,27 +1888,32 @@
 <context>
     <name>MaintenanceLightView</name>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="61"/>
+        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="36"/>
         <source>MAINTENANCE_LIGHT_LABEL</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="99"/>
+        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="120"/>
+        <source>д.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="125"/>
         <source>HOUR_MAINTENANCE_LABEL</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="104"/>
+        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="130"/>
         <source>MINUTE_MAINTENANCE_LABEL</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="109"/>
+        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="136"/>
         <source>SECONDS_MAINTENANCE_LABEL</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="150"/>
+        <location filename="../Application/Widgets/Maintenance/View/MaintenanceLightView.qml" line="178"/>
         <source>MAINTENANCE_LIGHT_PROSOSAL_START_TEXT</source>
         <translation></translation>
     </message>
@@ -2092,6 +2164,14 @@
         <location filename="../Application/Widgets/NicknameReminder/View/NicknameReminderView.qml" line="53"/>
         <source>USER_LOST_NICKNAME_ENTER_BUTTON_TEXT</source>
         <translation></translation>
+    </message>
+</context>
+<context>
+    <name>NotAvailableSettings</name>
+    <message>
+        <location filename="../Application/Widgets/GameSettings/View/Pages/GameControls/NotAvailableSettings.qml" line="22"/>
+        <source>Настройки игры будут доступны после установки.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2491,23 +2571,58 @@
 <context>
     <name>PromoCodeView</name>
     <message>
-        <location filename="../Application/Widgets/PromoCode/View/PromoCodeView.qml" line="31"/>
+        <location filename="../Application/Widgets/PromoCode/View/PromoCodeView.qml" line="101"/>
         <source>Активация ключа</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PromoCode/View/PromoCodeView.qml" line="44"/>
+        <location filename="../Application/Widgets/PromoCode/View/PromoCodeView.qml" line="137"/>
         <source>Введите ключ</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PromoCode/View/PromoCodeView.qml" line="52"/>
+        <location filename="../Application/Widgets/PromoCode/View/PromoCodeView.qml" line="151"/>
+        <source>Ввести ключ</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PromoCode/View/PromoCodeView.qml" line="160"/>
         <source>ACIVATE_BUTTON_CAPTION</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PromoCode/View/PromoCodeView.qml" line="80"/>
-        <location filename="../Application/Widgets/PromoCode/View/PromoCodeView.qml" line="87"/>
+        <location filename="../Application/Widgets/PromoCode/View/PromoCodeView.qml" line="176"/>
+        <source>Получить ключ</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PromoCode/View/PromoCodeView.qml" line="188"/>
+        <source>Закрыть</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PromoCode/View/PromoCodeView.qml" line="204"/>
+        <source>На текущий момент игра недоступна.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PromoCode/View/PromoCodeView.qml" line="205"/>
+        <source>Следите за новостями.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PromoCode/View/PromoCodeView.qml" line="209"/>
+        <source>Закрытый доступ</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PromoCode/View/PromoCodeView.qml" line="210"/>
+        <source>Запуск игры возможен только при наличии промо ключа.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PromoCode/View/PromoCodeView.qml" line="64"/>
+        <location filename="../Application/Widgets/PromoCode/View/PromoCodeView.qml" line="71"/>
         <source>UNKNOWN_PROMO_VALIDATION_ERROR</source>
         <translation></translation>
     </message>
@@ -2664,12 +2779,12 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="58"/>
+        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="82"/>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="62"/>
+        <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="86"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
         <translation></translation>
     </message>

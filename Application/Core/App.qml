@@ -132,6 +132,10 @@ Item {
         return mainWindowInstance().getExpectedInstallPath(serviceId);
     }
 
+    function getBestInstallPath(serviceId) {
+       return mainWindowInstance().getBestInstallPath(serviceId);
+    }
+
     function fileVersion() {
         return mainWindowInstance().fileVersion;
     }

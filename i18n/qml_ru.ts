@@ -956,6 +956,49 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>BattleCarnival</name>
+    <message>
+        <source>Качество графики</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Лучшее</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Отличное</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Хорошее</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Среднее</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Низкое</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Разрешение экрана</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Тип экрана</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Полноэкранный</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Оконный</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>BlackDesert</name>
     <message>
         <source>Качество графики</source>
@@ -1678,11 +1721,27 @@ Please try again later.</source>
     </message>
     <message>
         <source>GAME_DOWNLOADER_ACCESS_REQUIRED_TITLE</source>
-        <translation>Вам нужен ключ доступа</translation>
+        <translation type="vanished">Вам нужен ключ доступа</translation>
     </message>
     <message>
         <source>GAME_DOWNLOADER_ACCESS_REQUIRED_TEXT</source>
-        <translation>Скачать клиент игры могут только участники тестирования. Если у вас есть ключ доступа, нажмите &quot;Да&quot;.</translation>
+        <translation type="vanished">Скачать клиент игры могут только участники тестирования. Если у вас есть ключ доступа, нажмите &quot;Да&quot;.</translation>
+    </message>
+    <message>
+        <source>STATE_UNINSTALLING</source>
+        <translation type="vanished">Удаление %1</translation>
+    </message>
+    <message>
+        <source>STATE_PREPARE_UNINSTALL</source>
+        <translation type="obsolete">Подготовка к удалению %1</translation>
+    </message>
+    <message>
+        <source>Нажимая &quot;Да&quot;, Вы подтверждаете, что согласны с условиями &lt;a href=&quot;http://www.gamenet.ru/license&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Лицензионного соглашения GameNet&lt;/font&gt;&lt;/a&gt; и &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Игры&lt;/font&gt;&lt;/a&gt;&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Внимание</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1993,7 +2052,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>VK_LOGIN_BUTTON_TEXT</source>
-        <translation>Войти через ВКонтакте</translation>
+        <translation type="vanished">Войти через ВКонтакте</translation>
     </message>
     <message>
         <source>LOGIN_BY_GUEST_TITLE</source>
@@ -2002,6 +2061,10 @@ Please try again later.</source>
     <message>
         <source>LOGIN_BY_GUEST_BUTTON_TEXT</source>
         <translation>Войди как гость</translation>
+    </message>
+    <message>
+        <source>Войти с помощью</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2187,14 +2250,6 @@ Please try again later.</source>
         <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
         <translation>Игра запускается</translation>
     </message>
-    <message>
-        <source>Вам нужен ключ доступа</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Скачать клиент игры могут только участники F&amp;F-теста. Если у вас есть ключ доступа, нажмите &quot;Да&quot;.</source>
-        <translation></translation>
-    </message>
 </context>
 <context>
     <name>GameExecutingView</name>
@@ -2350,6 +2405,17 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>GameInstallModel</name>
+    <message>
+        <source>Нажимая &quot;Да&quot;, Вы подтверждаете, что согласны с условиями &lt;a href=&quot;http://www.gamenet.ru/license&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Лицензионного соглашения GameNet&lt;/font&gt;&lt;/a&gt; и &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Игры&lt;/font&gt;&lt;/a&gt;&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Внимание</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>GameInstallView</name>
     <message>
         <source>INSTALL_VIEW_TITLE</source>
@@ -2374,6 +2440,20 @@ Please try again later.</source>
     <message>
         <source>INSTALL_BUTTON_CAPTION</source>
         <translation>Установить</translation>
+    </message>
+    <message>
+        <source>INFO_CAPTION</source>
+        <translation type="unfinished">Внимание</translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;В пути установки клиента обнаружены запрещенные символы. Это может привести к проблемам запуска игры. В пути установки клиента игры должны содержаться только латинские буквы и цифры. Подробнее в статье службы поддержки: &lt;b&gt;&lt;a href=&quot;https://support.gamenet.ru/kb/articles/1193-failed-to-load-file-data-meta-dat&quot;&gt;ссылка&lt;/a&gt;&lt;/b&gt; &lt;/p&gt;
+
+&lt;p&gt;Что делать?&lt;/p&gt;
+
+&lt;ul&gt;&lt;li&gt;Измените название папки, в которую установлена игра. Например, C:\Games\BattleCarnival&lt;/li&gt;
+&lt;li&gt;После этого измените путь установки игры в настройках приложения, слева от кнопки &quot;Начать игру&quot;. Это необходимо сделать для того, чтобы не перекачивать клиент игры заново.&lt;/li&gt;
+&lt;/ul&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3946,6 +4026,10 @@ Please try again later.</source>
         <source>MAINTENANCE_LIGHT_PROSOSAL_START_TEXT</source>
         <translation>Не теряй времени! %1</translation>
     </message>
+    <message>
+        <source>д.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MaintenanceModel</name>
@@ -4396,6 +4480,13 @@ Please try again later.</source>
     <message>
         <source>USER_LOST_NICKNAME_ENTER_BUTTON_TEXT</source>
         <translation type="obsolete">Ввести никнейм</translation>
+    </message>
+</context>
+<context>
+    <name>NotAvailableSettings</name>
+    <message>
+        <source>Настройки игры будут доступны после установки.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4917,6 +5008,34 @@ Please try again later.</source>
     </message>
     <message>
         <source>Введите ключ</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ввести ключ</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Получить ключ</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Закрыть</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>На текущий момент игра недоступна.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Следите за новостями.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Закрытый доступ</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Запуск игры возможен только при наличии промо ключа.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -46,4 +46,8 @@ QtObject {
         console.log('[GameSettings] setPrefer32Bit', serviceId, value)
     }
 
+    function browseInstallPath(qwe) {
+        installPath = "D:\\Games\\Привет _ BattleCarnival";
+    }
+
 }
