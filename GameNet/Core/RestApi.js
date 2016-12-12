@@ -636,7 +636,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.155.c49b0a2c6286603ea017ec4e444f8a459cdb9334",
+    version: "1.0.156.005275c199e906d07f960cbc7efcc5bcf0b9288e",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',
@@ -731,6 +731,13 @@ Core.prototype = {
         });
     }
 }
+
+var Auth = function() {
+};
+
+Auth.getRedirectToken = function(successCallback, failedCallback) {
+    Core.execute('auth.getRedirectToken', {}, true, successCallback, failedCallback);
+};
 
 var Billing = function() {
 };

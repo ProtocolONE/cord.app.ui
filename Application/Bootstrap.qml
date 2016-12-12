@@ -396,18 +396,22 @@ Item {
         ignoreUnknownSignals: true
 
         onOpenAuthUrlRequest: {
-            //console.log('Open auth url request', url)
-            var authUrl = "https://gnlogin.ru/?auth=" + User.cookie() + "&rp=" + encodeURIComponent(url)
+            var originalUrl = url; // исправляет удаление строки в колбеке рестапишного запроса
 
-//            RestApi.Core.execute('user.getChars',
-//                                 {
-//                                     targetId: userId
-//                                 },
-//                                 true,
-//                                 d.parseChars, d.parseChars);
+            function parseResp(resp) {
+                var authUrl = originalUrl;
+                try {
+                    if (!!resp && !!resp.token) {
+                        authUrl = "https://gnlogin.ru/redirect?userId=" + User.userId()
+                                + "&token="+ resp.token + "&url=" + encodeURIComponent(originalUrl)
+                    }
+                } catch(e) {
+                }
 
+                App.openExternalUrl(authUrl);
+            }
 
-            App.openExternalUrl(authUrl);
+            RestApi.Auth.getRedirectToken(parseResp, parseResp);
         }
     }
 }
