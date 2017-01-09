@@ -200,7 +200,7 @@ WidgetView {
                 wrapMode: Text.Wrap
                 color: Styles.messageBoxText
                 smooth: true
-                textFormat: Text.RichText
+                textFormat: Text.StyledText
                 linkColor: Styles.linkText
                 onLinkActivated: App.openExternalUrl(link)
             }

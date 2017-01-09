@@ -98,7 +98,7 @@ Item {
             onClicked: {
                 console.log("Show MBox 1");
                 MessageBox.show("Электросталилетейный завод, череззаборногузадерищенко",
-                                "This property holds whether the animation is currently paused. The paused property can be set to declaratively control whether or not an animation is paused. Animations can also be paused and resumed imperatively. This property holds whether the animation is currently paused. The paused property can be set to declaratively control whether or not an animation is paused. Animations can also be paused and resumed imperatively.",
+                                "<a href=\"http://ya.ru\">KB_495 </a> <br /> This property holds whether the animation is currently paused. The paused property can be set to declaratively control whether or not an animation is paused. Animations can also be paused and resumed imperatively. This property holds whether the animation is currently paused. The paused property can be set to declaratively control whether or not an animation is paused. Animations can also be paused and resumed imperatively.",
                                        MessageBox.button.ok | MessageBox.button.help | MessageBox.button.no, function(result) {
 
                                            console.log('MBox 1 result', result);
