@@ -18,9 +18,10 @@ Item {
 
         Object.keys(services).forEach(function(e){
             var item = App.serviceItemByServiceId(services[e]);
-            if (!item.genre) {
+            if (!item.genre || item.serviceId == "0") {
                 return;
             }
+
             if (!sortModel.hasOwnProperty(item.genre)) {
                 sortModel[item.genre] = [];
             }
