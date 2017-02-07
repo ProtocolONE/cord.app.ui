@@ -164,7 +164,7 @@ Item {
                 name: 'StandAlone_hasSellItem_userNotBought'
                 extend: 'OnlyBigButton'
                 when: root.gameItem && root.isStandalone && root.hasSellsItem && !root.userHasSubscription
-                PropertyChanges { target: button; text: qsTr("%1 ₽").arg(root.cost) }
+                PropertyChanges { target: button; text: qsTr("%1 GN").arg(root.cost) }
             },
 
             State {

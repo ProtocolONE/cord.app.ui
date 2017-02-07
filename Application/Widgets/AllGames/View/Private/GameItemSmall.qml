@@ -31,7 +31,7 @@ Column {
             }
 
             if (!root.userHasSubscription) {
-                return qsTr("%1 ₽").arg(root.cost);
+                return qsTr("%1 GN").arg(root.cost);
             }
 
             if (root.isClosedBeta && root.hasSellsItem && root.userHasSubscription) {
