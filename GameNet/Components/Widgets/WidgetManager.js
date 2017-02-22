@@ -201,6 +201,16 @@ function WidgetManager() {
         return model;
     }
 
+    this.hasWidgetByName = function(namePart) {
+        for (var widgetName in _widgets) {
+            if (widgetName.indexOf(namePart) !== -1) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     this.getWidgetByName = function(namePart) {
         for (var widgetName in _widgets) {
             if (widgetName.indexOf(namePart) !== -1) {
@@ -288,4 +298,8 @@ function getWidgetByName(name) {
 
 function getWidgetSettings(name) {
     return _internal.getSettings(name);
+}
+
+function hasWidgetByName(name) {
+    return _internal.hasWidgetByName(name);
 }

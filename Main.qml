@@ -85,6 +85,8 @@ Rectangle {
         WidgetManager.registerWidget('Application.Widgets.GuestConfirm');
         WidgetManager.registerWidget('Application.Widgets.SilentMode');
 
+        WidgetManager.registerWidget('Application.Widgets.P2PTransferRequest')
+
         if (GoogleAnalyticsHelper.winVersion() > 0x0080) {
             //INFO Available in Vista+
             WidgetManager.registerWidget('Application.Widgets.Themes');

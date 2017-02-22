@@ -29,10 +29,20 @@ WidgetModel {
     signal closeView();
 
     property int internalPopupId: -1
+    property int internalP2PTransferPopupId: -1
 
     function startExecuting(serviceId) {
         var gameItem = App.serviceItemByServiceId(serviceId);
         executeServiceDelay.serviceId = serviceId;
+
+        if (serviceId === "30000000000") {
+            var model = WidgetManager.getWidgetByName('P2PTransferRequest').model;
+            if (model) {
+                p2pTransferRequestConnection.target = model;
+                model.checkTransfer(serviceId);
+                return;
+            }
+        }
 
         if (gameItem.checkNicknameBeforeStart && !User.isNicknameValid()) {
             root.internalPopupId = Popup.show('NicknameEdit');
@@ -47,11 +57,33 @@ WidgetModel {
     function executeGame(serviceId) {
         var gameItem = App.serviceItemByServiceId(serviceId);
         root.internalPopupId = -1;
+        root.internalP2PTransferPopupId = -1;
         executeServiceDelay.start();
 
         gameItem.status = "Starting";
         gameItem.statusText = qsTr("TEXT_PROGRESSBAR_STARTING_STATE")
         SignalBus.progressChanged(gameItem);
+    }
+
+    Connections {
+        id: p2pTransferRequestConnection
+
+        ignoreUnknownSignals: true
+        onProceed: {
+            // INFO fast execute after P2PTransferPopup
+            executeServiceDelay.interval = 500;
+            root.executeGame(executeServiceDelay.serviceId);
+        }
+
+        onCheckLicensedResult: {
+            if (!shouldShow) {
+                root.executeGame(executeServiceDelay.serviceId);
+                return;
+            }
+
+            root.internalP2PTransferPopupId = Popup.show('P2PTransferRequest');
+            root.closeView();
+        }
     }
 
     Connections {
@@ -167,6 +199,8 @@ WidgetModel {
             if (!executeServiceDelay.serviceId) {
                 return;
             }
+
+            executeServiceDelay.interval = 5000;
 
             gameItem = App.serviceItemByServiceId(executeServiceDelay.serviceId);
             gameItem.statusText = '';

@@ -40,4 +40,8 @@ Item {
         return WidgetManager.getWidgetSettings(name);
     }
 
+    function hasWidgetByName(name) {
+        return WidgetManager.hasWidgetByName(name);
+    }
+
 }

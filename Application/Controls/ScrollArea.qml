@@ -5,6 +5,9 @@ Item {
     property alias allwaysShown: scrollBar.allwaysShown
     property alias scrollbarWidth: scrollBar.scrollbarWidth
 
+    property alias yPosition: flickable.yPosition
+    property alias heightRatio: flickable.heightRatio
+
     function scrollToBegin() {
         flickable.contentY = 0;
     }
@@ -15,6 +18,9 @@ Item {
 
         Flickable {
             id: flickable
+
+            property real yPosition : flickable.visibleArea.yPosition
+            property real heightRatio : flickable.visibleArea.heightRatio
 
             anchors { fill: parent }
             contentWidth: width

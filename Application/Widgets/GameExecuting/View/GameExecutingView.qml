@@ -45,6 +45,7 @@ PopupBase {
         interval: 5000
         running: root.visible
                  && root.model.internalPopupId == -1
+                 && root.model.internalP2PTransferPopupId == -1
 
         onTriggered: {
             root.close();
