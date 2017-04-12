@@ -46,10 +46,10 @@ PopupBase {
             optionsModel.clear();
             response.forEach(function(e){
                 optionsModel.append({
-                    id: String(e.id),
-                    name: e.name,
-                    cost: e.cost|0
-                });
+                                        id: String(e.id),
+                                        name: e.name,
+                                        cost: e.cost|0
+                                    });
             });
 
             listView.currentIndex = response.length - 1;
@@ -74,6 +74,7 @@ PopupBase {
 
     function buy(itemId) {
         root.inProgress = true;
+        console.log('Billing.purchaseItem', itemId);
         RestApi.Billing.purchaseItem(root.gameId, itemId, 1, purchaseComplete, showError);
     }
 
@@ -242,9 +243,8 @@ PopupBase {
                         id: listView
 
                         width: 430
-                        height: model ? (30 * model.count + (model.count === 0 ? 1 : 0)) : 0
+                        height: Math.max(model ? (30 * model.count + (model.count === 0 ? 1 : 0)) : 0, 90)
                         interactive: false
-                        currentIndex: 0
                         spacing: 15
 
                         onCurrentIndexChanged: notEnoughMoneyBlock.visible = false;
