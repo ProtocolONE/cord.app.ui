@@ -40,7 +40,7 @@ WidgetModel {
             Ga.trackEvent('Tray', 'outer link', 'Profile');
             break;
         case 'Balance':
-            App.openExternalUrlWithAuth("https://gamenet.ru/money/")
+            App.openExternalUrlWithAuth(Config.GnUrl.site("/money/"))
 
             Ga.trackEvent('Tray', 'outer link', 'Money');
             break;

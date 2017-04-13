@@ -70,7 +70,7 @@ WidgetModel {
     Connections {
         target: SignalBus
         onAuthDone: {
-            MessengerJs.connect("qj.gamenet.ru", userId, appKey);
+            MessengerJs.connect(Config.Jabber.server(), userId, appKey);
         }
 
         onLogoutDone: MessengerJs.disconnect();

@@ -23,9 +23,9 @@ WidgetModel {
                         return;
                     }
 
-                    App.openExternalUrlWithAuth("https://gamenet.ru/money/")
+                    App.openExternalUrlWithAuth(Config.GnUrl.site("/money/"));
                 }, function() {
-                    App.openExternalUrlWithAuth("https://gamenet.ru/money/");
+                    App.openExternalUrlWithAuth(Config.GnUrl.site("/money/"));
                 });
             }
         }

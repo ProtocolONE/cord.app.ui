@@ -142,6 +142,118 @@ Item {
     }
 
 
+    function userId() {
+        return d.userId;
+    }
+
+    function appKey() {
+        return d.appKey;
+    }
+
+    function cookie() {
+        return d.cookie;
+    }
+
+    function isAuthorized() {
+        return !!userId() && !!appKey() && !!cookie();
+    }
+
+    function isPremium() {
+        return d.isPremium;
+    }
+
+    function isLoginConfirmed() {
+        return d.isLoginConfirmed;
+    }
+
+    function getPremiumDuration() {
+        return d.premiumDuration;
+    }
+
+    function getBalance() {
+        return d.balance;
+    }
+
+    function setNickname(value) {
+        d.nickname = value;
+    }
+
+    function getNickname() {
+        return d.nickname;
+    }
+
+    function setTechname(value) {
+        d.nametech = value;
+    }
+
+    function getTechName() {
+        return d.nametech;
+    }
+
+    function getLevel() {
+        return d.level;
+    }
+
+    function getAvatarLarge() {
+        return d.avatarLarge;
+    }
+
+    function getAvatarMedium() {
+        return d.avatarMedium;
+    }
+
+    function getAvatarSmall() {
+        return d.avatarSmall;
+    }
+
+    function isGuest() {
+        return d.guest;
+    }
+
+    // INFO Этот метод лучше не использовать.
+    // По возможности надо использоваьт метод App.openExternalUrlWithAuth.
+    // В том методе не используется кука, что безопаснее.
+    function getUrlWithCookieAuth(url) {
+        return  d.cookie
+                ? Config.GnUrl.login("/?auth=") + d.cookie + '&rp=' + encodeURIComponent(url)
+                : url;
+    }
+
+    function setSecondCredential(userId, appKey, cookie) {
+        d.secondUserId = userId;
+        d.secondAppKey = appKey;
+        d.secondCookie = cookie;
+    }
+
+    function resetSecond() {
+        setSecondCredential('', '', '');
+        d.secondNickname = "";
+    }
+
+    function secondUserId() {
+        return d.secondUserId;
+    }
+
+    function secondAppKey() {
+        return d.secondAppKey;
+    }
+
+    function secondCookie() {
+        return d.secondCookie;
+    }
+
+    function getSecondNickname() {
+        return d.secondNickname;
+    }
+
+    function isSecondAuthorized() {
+        return !!secondUserId() && !!secondAppKey() && !!secondCookie();
+    }
+
+    function isNicknameValid() {
+        return getNickname().indexOf('@') == -1;
+    }
+
     function getSubscriptions() {
         return serviceSubscriptions;
     }

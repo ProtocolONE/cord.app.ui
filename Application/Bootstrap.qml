@@ -35,7 +35,14 @@ Item {
         Host.hwidChanged.connect(function(result) {
             var mid = Marketing.mid();
             console.log('Authorization use mid `' + mid + '`');
-            Authorization.setup({ mid: mid, hwid: encodeURIComponent(result)});
+            var authConfig = {
+                mid: mid,
+                hwid: encodeURIComponent(result),
+                gnLoginUrl: Config.GnUrl.login(),
+                titleApiUrl: (new RestApi.Uri(Config.GnUrl.login())).host(),
+            };
+
+            Authorization.setup(authConfig);
             App.authAccepted = true;
         })
 
@@ -44,9 +51,12 @@ Item {
         Styles.init();
         Moment.moment.lang(App.language());
 
+        Config.show();
+
         initGoogleAnalytics();
         initEmojiOne();
-        initRestApi('https://gnapi.com:8443/restapi');
+
+        initRestApi();
 
         // INFO Debug Auth for stage
 //        initRestApi('http://api.sabirov.dev');
@@ -160,8 +170,11 @@ Item {
         Tooltip.init(tooltipLayer);
     }
 
-    function initRestApi(defaultApiUrl) {
-        var url = AppSettings.value('qGNA/restApi', 'url', defaultApiUrl);
+    function initRestApi() {
+        var url = Config.GnUrl.api();
+        if (!Config.GnUrl.overrideApi()) {
+            url = AppSettings.value('qGNA/restApi', 'url', url);
+        }
 
         console.log('RestApi use', url);
         RestApi.Core.setup({
@@ -402,7 +415,7 @@ Item {
                 var authUrl = originalUrl;
                 try {
                     if (!!resp && !!resp.token) {
-                        authUrl = "https://gnlogin.ru/redirect?userId=" + User.userId()
+                        authUrl = Config.GnUrl.login("/redirect?userId=") + User.userId()
                                 + "&token="+ resp.token + "&url=" + encodeURIComponent(originalUrl)
                     }
                 } catch(e) {

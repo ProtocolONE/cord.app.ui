@@ -9,6 +9,8 @@ import GameNet.Controls 1.0
 import Application.Core 1.0
 import Application.Core.RootWindow 1.0
 
+import Application.Core.Authorization 1.0
+
 Window {
     id: root
 
@@ -23,6 +25,7 @@ Window {
            | Qt.WindowSystemMenuHint
 
     Component.onCompleted: {
+        Config.show();
         RootWindow.rootWindow = root;
     }
 
@@ -32,12 +35,17 @@ Window {
 
     Connections {
         target: App.mainWindowInstance()
-        onHide: root.hide()
+        //onHide: root.hide()
         onWindowActivated: root.show()
     }
 
     Main {
         id: main
     }
+
+//    Button {
+//        text: "test"
+//        onClicked: Authorization.test();
+//    }
 }
 

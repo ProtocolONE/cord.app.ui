@@ -37,7 +37,7 @@ Item {
     }
 
     function openNews(gameShortName, eventId) {
-        App.openExternalUrlWithAuth("https://gamenet.ru/games/" + gameShortName + "/post/" + eventId + "/");
+        App.openExternalUrlWithAuth(Config.GnUrl.site("/games/") + gameShortName + "/post/" + eventId + "/");
 
         Ga.trackEvent('GameNews', 'outer link', eventId);
     }

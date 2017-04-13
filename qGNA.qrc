@@ -23,6 +23,7 @@
 		<file>Application/Blocks/Auth/Controls/Inputs/PasswordInput.qml</file>
 		<file>Application/Blocks/Auth/Controls/LicenseText.qml</file>
 		<file>Application/Blocks/Auth/Controls/SupportButton.qml</file>
+		<file>Application/Blocks/Auth/GuestConfirmBody.qml</file>
 		<file>Application/Blocks/Auth/Index.qml</file>
 		<file>Application/Blocks/Auth/LoginInput.qml</file>
 		<file>Application/Blocks/Auth/MessageBody.qml</file>
@@ -99,6 +100,9 @@
 		<file>Application/Core/Authorization/Authorization.js</file>
 		<file>Application/Core/Authorization/qmldir</file>
 		<file>Application/Core/Authorization/Vk.qml</file>
+		<file>Application/Core/Config.debug.js</file>
+		<file>Application/Core/Config.js</file>
+		<file>Application/Core/Config.release.js</file>
 		<file>Application/Core/MessageBox/MessageBox.js</file>
 		<file>Application/Core/MessageBox/MessageBox.qml</file>
 		<file>Application/Core/MessageBox/MessageBoxButtons.qml</file>
@@ -247,7 +251,9 @@
 		<file>Application/Widgets/GameSettings/PluginContainer.qml</file>
 		<file>Application/Widgets/GameSettings/qmldir</file>
 		<file>Application/Widgets/GameSettings/View/GameSettingsView.qml</file>
+		<file>Application/Widgets/GameSettings/View/Pages/GameControls/BattleCarnival.qml</file>
 		<file>Application/Widgets/GameSettings/View/Pages/GameControls/BlackDesert.qml</file>
+		<file>Application/Widgets/GameSettings/View/Pages/GameControls/NotAvailableSettings.qml</file>
 		<file>Application/Widgets/GameSettings/View/Pages/GameControlSettings.qml</file>
 		<file>Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml</file>
 		<file>Application/Widgets/GameSettings/View/Pages/GameOverlaySettings.qml</file>
@@ -255,6 +261,10 @@
 		<file>Application/Widgets/GameUninstall/PluginContainer.qml</file>
 		<file>Application/Widgets/GameUninstall/qmldir</file>
 		<file>Application/Widgets/GameUninstall/View/GameUninstallView.qml</file>
+		<file>Application/Widgets/GuestConfirm/GuestConfirmModel.qml</file>
+		<file>Application/Widgets/GuestConfirm/PluginContainer.qml</file>
+		<file>Application/Widgets/GuestConfirm/qmldir</file>
+		<file>Application/Widgets/GuestConfirm/View/GuestConfirmView.qml</file>
 		<file>Application/Widgets/Maintenance/MaintenanceModel.js</file>
 		<file>Application/Widgets/Maintenance/MaintenanceModel.qml</file>
 		<file>Application/Widgets/Maintenance/PluginContainer.qml</file>

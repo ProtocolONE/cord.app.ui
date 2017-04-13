@@ -80,7 +80,7 @@ Item {
         repeat: true
         triggeredOnStart: true
         onTriggered: {
-            RestApi.http.request("https://gnapi.com/status.json", function(data){
+            RestApi.http.request(Config.GnUrl.statusUrl(), function(data) {
                 var message,
                     obj;
 

@@ -72,15 +72,15 @@ Item {
         property string friendRequestMessage: ""
 
         function openProfile() {
-            App.openExternalUrlWithAuth(('https://gamenet.ru/users/%1/').arg(d.urlId));
+            App.openExternalUrlWithAuth(Config.GnUrl.site(('/users/%1/').arg(d.urlId)));
         }
 
         function openRating() {
-            App.openExternalUrlWithAuth(('https://gamenet.ru/users/%1/ratings/').arg(d.urlId));
+            App.openExternalUrlWithAuth(Config.GnUrl.site(('/users/%1/ratings/').arg(d.urlId)));
         }
 
         function openAchievements() {
-            App.openExternalUrlWithAuth(('https://gamenet.ru/users/%1/achievements/').arg(d.urlId));
+            App.openExternalUrlWithAuth(Config.GnUrl.site(('/users/%1/achievements/').arg(d.urlId)));
         }
 
         function sendFriendRequest() {

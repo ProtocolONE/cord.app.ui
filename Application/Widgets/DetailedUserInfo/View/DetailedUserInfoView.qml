@@ -230,7 +230,7 @@ WidgetView {
 
             userInfo.achievements.forEach(function(a) {
                 mainInfoItem.appendAchievment({
-                                                  source: ("https://gamenet.ru/images/achievements/%1%2.png").arg(a.name).arg(a.level),
+                                                  source: Config.GnUrl.site(("/images/achievements/%1%2.png").arg(a.name).arg(a.level)),
                                                   title: a.title,
                                                   description: a.description,
                                                   level: a.level

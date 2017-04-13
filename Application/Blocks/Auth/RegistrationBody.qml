@@ -205,7 +205,7 @@ Form {
 
             LicenseText {
                 anchors.right: parent.right
-                onClicked: App.openExternalUrl("https://www.gamenet.ru/license");
+                onClicked: App.openExternalUrl(Config.GnUrl.site("/license"));
             }
         }
     }

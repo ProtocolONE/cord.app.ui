@@ -446,6 +446,11 @@ WidgetModel {
 
             d.showArtNoLicenseRemind(serviceId);
         }
+
+        onBuyGameCompleted: {
+            console.log('BuyGameCompleted ', serviceId);
+            d.showBuyGameCompletedPopup(serviceId, message);
+        }
     }
 
     Connections {
@@ -577,6 +582,19 @@ WidgetModel {
             };
 
             TrayPopup.showPopup(artNoLicenseRemind, popUpOptions, 'silentModeRemider' + serviceId);
+        }
+
+        function showBuyGameCompletedPopup(serviceId, message) {
+            var gameItem = App.serviceItemByServiceId(serviceId);
+            TrayPopup.showPopup(artPopupComponent,
+                                {
+                                    popupType: "BuyGameCompleted",
+                                    serviceId: serviceId,
+                                    gameItem: gameItem,
+                                    message: message || (qsTr("Поздравляем с покупкой ") + gameItem.name),
+                                    buttonCaption: qsTr("Играть"),
+                                    messageFontSize: 16
+                                }, 'buyGameCompletedAnnounce' + serviceId);
         }
     }
 

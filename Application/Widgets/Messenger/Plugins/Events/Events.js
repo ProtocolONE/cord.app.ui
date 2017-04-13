@@ -2,6 +2,7 @@ var _jabber = null,
     _signalBus;
 
 function init(jabber, signalBus) {
+    var args;
     if (_jabber !== null) {
         throw new Error('[Events] Already initialized');
     }
@@ -19,6 +20,11 @@ function init(jabber, signalBus) {
         case 'updateServices':
             _signalBus.requestUpdateService();
             break;
+        case 'buyGameCompleted': {
+            args = event.args || {};
+            _signalBus.buyGameCompleted(args.serviceId, args.message);
+            break;
+        }
         default:
             console.log('[Events] Unhandled event received ' + event.name);
         }

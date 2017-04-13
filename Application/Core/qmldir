@@ -6,4 +6,4 @@ singleton ServiceHandleModel 1.0 Modules/ServiceHandleModel.qml
 singleton TrayPopup 1.0 TrayPopup.qml
 singleton User 1.0 User.qml
 AppStringHelper 1.0 StringHelper.js
-
+Config 1.0 Config.js

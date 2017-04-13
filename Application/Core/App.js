@@ -9,6 +9,8 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
+Qt.include('Config.js');
+
 var indexToGameItem = {},
     gameIdToGameItem = {},
     serviceIdToGameItemIdex = {},
@@ -98,7 +100,7 @@ function createService(data) {
     Object.keys(urlProps).forEach(function(e){
         var prop = urlProps[e];
         if (data.hasOwnProperty(prop) && !!data[prop]) {
-            item[prop] = 'https://gamenet.ru' + data[prop];
+            item[prop] = GnUrl.site(data[prop]);
         } else {
             item[prop] = '';
         }

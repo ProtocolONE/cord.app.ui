@@ -9,7 +9,7 @@ import Application.Core.Settings 1.0
 
 import 'Modules/Mocks'
 import "./App.js" as Js
-
+import "./Config.js" as ConfigJs
 Item {
     id: root
 
@@ -153,10 +153,11 @@ Item {
     }
 
     function openProfile(userId, action) {
-        var uri = "https://gamenet.ru/users/" + userId + "/";
+        var uri = Config.GnUrl.site("/users/") + userId + "/";
         if (action) {
             uri += '?action=' + action;
         }
+
         openExternalUrlWithAuth(uri);
     }
 
@@ -438,7 +439,7 @@ Item {
     }
 
     function replenishAccount() {
-        openExternalUrlWithAuth("https://gamenet.ru/money/");
+        openExternalUrlWithAuth(ConfigJs.GnUrl.site("/money/"));
     }
 
     function isMainServiceCanBeStarted(item) {
@@ -513,7 +514,7 @@ Item {
         //id=10 это хардкоженная переменная, которую можно получить только после
         //установки плагина авторизации GameNet в DeskPro.
 
-        var uri = 'https://gnlogin.ru/integrations/deskpro/?id=10';
+        var uri = ConfigJs.GnUrl.login('/integrations/deskpro/?id=10');
         if (returnPath) {
             uri += '&return=' + encodeURIComponent(returnPath);
         }

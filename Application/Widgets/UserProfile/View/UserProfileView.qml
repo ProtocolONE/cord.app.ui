@@ -34,7 +34,7 @@ WidgetView {
         id: d
 
         function getGameNetProfileUrl() {
-            return "https://gamenet.ru/users/" + (User.getTechName() || User.userId()) + "/";
+            return Config.GnUrl.site("/users/" + (User.getTechName() || User.userId()) + "/");
         }
 
         function contextMenuClicked(action) {
@@ -285,7 +285,7 @@ WidgetView {
                                         return;
                                     }
 
-                                    App.openExternalUrlWithAuth('https://gamenet.ru/edit/#edit-avatar')
+                                    App.openExternalUrlWithAuth(Config.GnUrl.site('/edit/#edit-avatar'))
                                 }
                             }
                         }
@@ -424,7 +424,7 @@ WidgetView {
                                         width: row1.width
                                         height: row1.height
                                         toolTip: qsTr("PROFILE_CONFIRM_LOGIN_TULTIP")
-                                        onClicked: App.openExternalUrlWithAuth("https://gamenet.ru/security/confirm-email");
+                                        onClicked: App.openExternalUrlWithAuth(Config.GnUrl.site("/security/confirm-email"));
                                         acceptedButtons: Qt.LeftButton
                                     }
                                 }
