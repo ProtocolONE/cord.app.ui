@@ -90,7 +90,7 @@ PopupBase {
                 return;
             }
 
-            root.showError();
+            root.showError(response.message, response.code);
             return;
         }
 
@@ -100,8 +100,33 @@ PopupBase {
         root.close();
     }
 
-    function showError(message) {
+    function showError(message, code) {
         root.stopProgress();
+
+        if (code == -50 ||
+            code == -60 ||
+            code == -70 ||
+            code == -80) {
+            var text;
+            if (code == -50) {
+                text = qsTr("Нельзя приобрести доступ на премиум сервер");
+            }
+
+            if (code == -60) {
+                text = qsTr("Нельзя продлить доступ на премиум сервер");
+            }
+
+            if (code == -70) {
+                text = qsTr("Нельзя приобрести доступ на премиум сервер");
+            }
+
+            if (code == -80) {
+                text = qsTr("Нельзя приобрести больше одного товара в месяц");
+            }
+
+            MessageBox.show(qsTr("Невозможно купить"), text, MessageBox.button.ok);
+            return;
+        }
 
         MessageBox.show(qsTr("Упс! Что-то пошло не так..."),
                         message || qsTr("Произошла ошибка в процессе покупки. Пожалуйста, попробуйте позже."),
