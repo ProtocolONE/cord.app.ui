@@ -6,3 +6,4 @@ var _internal = {
     statusUrl: 'https://gnapi.com/status.json',
     jabberServer: 'qj.gamenet.ru'
 }
+

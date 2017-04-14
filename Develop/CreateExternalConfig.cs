@@ -24,12 +24,7 @@ namespace Test_QrcGenerator
                     .Where(f => f.EndsWith(".qml") || f.EndsWith(".js") || f.EndsWith("qmldir"))
                     .Select(p => p.Remove(0, targetDirectory.Length).Replace('\\', '/'))
                     .OrderBy(q => q)
-                    .Where(p2 => !p2.StartsWith("Tests/"))
-                    .Where(p2 => !p2.StartsWith("ExternalConfig/"))
-                    .Where(p2 => !p2.StartsWith("Develop/"))
-                    .Where(p2 => p2 != "QmlViewer.qml")
-                    .Where(p2 => p2 != "ZTest.qml")
-                    .Where(p2 => p2 != "plugin/Dev/qmldir")
+                    .Where(p2 => p2.StartsWith("ExternalConfig/"))
                     .Select(p1 => "<file>" + p1 + "</file>").Aggregate((s, s1) => s + "\r\n\t\t" + s1)
                 + "\r\n\t</qresource>\r\n</RCC>";
             }

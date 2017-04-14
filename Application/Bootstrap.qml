@@ -51,17 +51,12 @@ Item {
         Styles.init();
         Moment.moment.lang(App.language());
 
-        Config.show();
+        //Config.show();
 
         initGoogleAnalytics();
         initEmojiOne();
 
         initRestApi();
-
-        // INFO Debug Auth for stage
-//        initRestApi('http://api.sabirov.dev');
-//        Authorization._gnLoginUrl = 'http://gnlogin.sabirov.dev';
-//        Authorization._gnLoginTitleApiUrl = 'gnlogin.sabirov.dev';
 
         initAdditionalLayers();
         if (mainWindowInstance) {

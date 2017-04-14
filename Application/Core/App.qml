@@ -153,7 +153,7 @@ Item {
     }
 
     function openProfile(userId, action) {
-        var uri = Config.GnUrl.site("/users/") + userId + "/";
+        var uri = ConfigJs.GnUrl.site("/users/") + userId + "/";
         if (action) {
             uri += '?action=' + action;
         }

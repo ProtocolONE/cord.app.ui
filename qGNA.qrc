@@ -549,6 +549,5 @@
 		<file>plugin/Tulip/qmldir</file>
 		<file>qwebchannel.js</file>
 		<file>Version.qml</file>
-		<file>ZTest.qml</file>
 	</qresource>
 </RCC>
