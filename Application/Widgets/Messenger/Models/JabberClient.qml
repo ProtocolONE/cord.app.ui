@@ -23,6 +23,8 @@ QXmppClient {
     property int failCount: 0
     property string failDate: ""
     property string myJid: ""
+    property var myJPassword: ""
+    property var myJParams: ""
 
     property variant statesMap: {
         'Active': QXmppMessage.Active,
@@ -50,6 +52,11 @@ QXmppClient {
     signal inputStatusSending(string jid, variant message);
 
     function connectToServerEx(jid, password, params) {
+        console.log('connectEx to jabber ' + jid);
+
+        // Save to reconnect
+        xmppClient.myJPassword = password;
+        xmppClient.myJParams = params;
         xmppClient.myJid = jid;
 
         var config = xmppClient.configuration;
@@ -187,6 +194,7 @@ QXmppClient {
     }
 
     onDisconnected: {
+        console.log('onDisconnected from jabber');
         Js.vcardQueue = {};
         Js.lastActivityCacheQueue = {};
     }
@@ -217,13 +225,6 @@ QXmppClient {
     }
 
     onError: {
-        //if (error == XmppClient.SocketError) {
-        //  console.log("Error due to TCP socket.");
-        //} else if (error == XmppClient.KeepAliveError) {
-        //  console.log("Error due to no response to a keep alive.");
-        //} else if (error == XmppClient.XmppStreamError) {
-        //  console.log("Error due to XML stream.");
-        //}
         var today = Qt.formatDateTime(new Date(), "dd.MM.yyyy");
 
         if (xmppClient.failDate != today) {
@@ -244,6 +245,11 @@ QXmppClient {
         if (shoudlTrackConnectionFail) {
             Ga.trackException('Jabber error: Code ' + code + " Try count " + xmppClient.failCount, false);
         }
+
+        if (code == 3) { // XmppStreamError (Error due to XML stream)
+            console.log("Need self reconnect");
+            reconnectTimer.restart();
+	}
     }
 
     Connections {
@@ -261,5 +267,15 @@ QXmppClient {
     Connections {
         target: xmppClient.pepManager
         onGamingReceived: xmppClient.gamingInfoReceived(game);
+    }
+
+    Timer {
+        id: reconnectTimer
+        interval: 20000
+        repeat: false
+        onTriggered: {
+            console.log("Try to reconnect to Jabber");
+            xmppClient.connectToServerEx(xmppClient.myJid, xmppClient.myJPassword, xmppClient.myJParams);
+        }
     }
 }

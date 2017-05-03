@@ -167,6 +167,8 @@ Item {
     }
 
     function connect(server, userId, password) {
+
+        console.log('connect to jabber ' + server);
         d.serverUrl = server;
         UserJs.serverUrl = server;
         if (root.connecting || root.connected) {
@@ -190,6 +192,8 @@ Item {
     }
 
     function disconnect() {
+        console.log('disconnect from jabber');
+
         if (!root.connected && !root.connecting) {
             return;
         }
