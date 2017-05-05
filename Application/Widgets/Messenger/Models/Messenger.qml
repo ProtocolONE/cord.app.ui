@@ -215,6 +215,8 @@ Item {
         recentConversation.reset();
         conversationModel.clear();
 
+        MessengerPrivateJs.shortInfoQueue = {};
+
         // Очистка вынесеная в отложенный воркер, чтоб при логауте очистилась модель usersModel чуть позже,
         // иначе при биндинге UI пользователи снова докидываются в модель.
         worker.push(new MessengerPrivateJs.ClearUsersModel({ model: usersModel }));
@@ -502,6 +504,15 @@ Item {
         xmppClient.rosterManager.removeItem(user.jid);
     }
 
+    function isGameNetMember(user) {
+        var data = root.getUser(user.jid);
+        if (!data.isValid()) {
+            return false;
+        }
+
+        return !!data.isGameNetMember;
+    }
+
     onHistorySaveIntervalChanged: {
         ConversationManager.setHistorySaveInterval(historySaveInterval);
     }
@@ -705,6 +716,42 @@ Item {
 
             return !root.isSelectedUser(user) || allWindowsInactive;
         }
+
+        function isShortInfoRequested(jid) {
+            return MessengerPrivateJs.shortInfoQueue.hasOwnProperty(jid);
+        }
+
+        function requestShortInfo(jid) {
+            if (d.isShortInfoRequested(jid)) {
+                return;
+            }
+
+            var userId = root.jidToUser(jid);
+
+            RestApi.Core.execute('user.getProfile',
+                                 {
+                                     profileId: userId,
+                                     shortInfo: 1
+                                 },
+                                 true, d.shotInfoRequestCallback);
+        }
+
+        function shotInfoRequestCallback(response) {
+            try {
+                var userInfo = response.userInfo[0];
+                var groupMember = userInfo.shortInfo.groupMember || "";
+                var userId = userInfo.userId;
+                var jid = root.userIdToJid(userId);
+                var user = root.getUser(jid);
+                if (!user.isValid()) {
+                    return;
+                }
+
+                MessengerPrivateJs.shortInfoQueue[jid] = 1;
+                user.isGameNetMember = (Lodash._.indexOf(groupMember.split(','), 'labelInChat') !== -1);
+            } catch(e) {
+            }
+        }
     }
 
 //    ExtendedListModel {
@@ -742,6 +789,12 @@ Item {
             }
 
             //console.log("usersModel property changed ", id, key, oldValue, newValue);
+        }
+
+        onUpdatePropertyRequest: {
+            if (key == "isGameNetMember") {
+                d.requestShortInfo(id);
+            }
         }
     }
 

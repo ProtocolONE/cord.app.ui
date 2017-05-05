@@ -6,7 +6,7 @@ Qt.include("Config.release.js");
 
 try {
     // INFO - usefull for QmlViewer
-    //Qt.include('../../Develop/ExternalConfig/Config.js');
+    Qt.include('../../Develop/ExternalConfig/Config.js');
 } catch(e) {
 }
 

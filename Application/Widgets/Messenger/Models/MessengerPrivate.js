@@ -85,3 +85,5 @@ function RequestLastActivity(opt) {
         return true;
     }
 }
+
+var shortInfoQueue = {};

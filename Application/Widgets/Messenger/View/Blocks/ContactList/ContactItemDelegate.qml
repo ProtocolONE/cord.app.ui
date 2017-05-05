@@ -114,6 +114,14 @@ Item {
             return Messenger.jidToUser(root.user.jid);
         }
 
+        function isGameNetMember() {
+            if (!root.user) {
+                return false;
+            }
+
+            return Messenger.isGameNetMember(root.user)
+        }
+
         function getView() {
             var userItem;
             if (!root.user) {
@@ -337,6 +345,7 @@ Item {
             extendedStatus: ''
             presenceStatus: d.presenceStatus()
             userId: d.userId()
+            isGameNetMember: d.isGameNetMember()
 
             onGroupButtonClicked: {
                 if (Messenger.editGroupModel().isActive()) {

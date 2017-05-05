@@ -17,6 +17,8 @@ Item {
     signal sourceChanged();
     signal propertyChanged(string id, string key, variant oldValue, variant newValue);
 
+    signal updatePropertyRequest(string id, string key);
+
     Component.onDestruction: {
         d.clearModel()
     }

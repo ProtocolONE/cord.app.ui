@@ -1,12 +1,11 @@
 function getAltConfig() {
 	var _internal = {
-	    overrideApi: true,
-	    wwwUrl: 'http://www.sinichkin.dev',
-	    gnloginUrl: 'http://gnlogin.sinichkin.dev',
-	    apiUrl: 'http://api.sinichkin.dev/restapi',
-	    statusUrl: 'https://gnapi.com/status.json',
-	    jabberServer: 'j.gamenet.dev'
-        	, version: "123"
+        overrideApi: false,
+        wwwUrl: 'https://gamenet.ru',
+        gnloginUrl: 'https://gnlogin.ru',
+        apiUrl: 'https://gnapi.com:8443/restapi',
+        statusUrl: 'https://gnapi.com/status.json',
+        jabberServer: 'qj.gamenet.ru'
 	}
 
 	return _internal;

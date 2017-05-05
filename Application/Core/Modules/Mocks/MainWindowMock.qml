@@ -54,6 +54,9 @@ Item {
     signal serviceInstalled(string serviceId);
     signal wrongCredential(string userId);
 
+    signal secondServiceStarted(string service);
+    signal secondServiceFinished(string service, int serviceState);
+
     signal navigate(string page);
     signal selectService(string serviceId);
     signal needPakkanenVerification();

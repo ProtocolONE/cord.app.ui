@@ -27,6 +27,7 @@ Item {
     property alias presenceStatus: presenceIcon.status
 
     property string userId: ""
+    property alias isGameNetMember: shieldItem.visible
 
     signal nicknameClicked()
     signal clicked()
@@ -102,6 +103,8 @@ Item {
                 anchors.fill: parent
 
                 Item {
+                    id: nickRowItem
+
                     width: parent.width
                     height: nicknameText.height
                     clip: true
@@ -109,15 +112,14 @@ Item {
                     Text {
                         id: nicknameText
 
-                        anchors.left: parent.left
-
                         font {
                             family: "Arial"
                             pixelSize: 14
                         }
 
                         height: 20
-                        width: parent.width
+                        width: nickRowItem.width -
+                               (shieldItem.visible ? (shieldItem.width + 5) : 0)
                         color: Styles.menuText
                         elide: Text.ElideRight
                         textFormat: Text.PlainText
@@ -125,11 +127,51 @@ Item {
                         CursorMouseArea {
                             visible: !d.isGameNetUser
                             toolTip: qsTr("CONTACT_ITEM_NICKNAME_TOOLTIP").arg(nicknameText.text)
-                            width: parent.paintedWidth
-                            height: parent.height
+                            width: nickRowItem.paintedWidth
+                            height: nickRowItem.height
                             onClicked: root.nicknameClicked();
                         }
                     }
+
+                    Rectangle {
+                        id: shieldItem
+
+                        width: shieldItemText.width + 10
+                        height: 16
+                        color: "#FF4F02"
+
+                        anchors {
+                            left: parent.left
+                            leftMargin: nicknameText.paintedWidth + 5
+                        }
+
+                        Text {
+                            id: shieldItemText
+
+                            anchors {
+                                verticalCenter: parent.verticalCenter
+                                left: parent.left
+                                leftMargin: 5
+                            }
+
+                            color: "#F3DCA5"
+                            font {
+                                pixelSize: 12
+                                family: "Segoe UI"
+                                letterSpacing: -0.72
+                            }
+
+                            text: "GameNet"
+                        }
+
+                        CursorMouseArea {
+                            anchors.fill: parent
+                            toolTip: qsTr("Сотрудник GameNet")
+                            cursorShape: Qt.ArrowCursor
+                        }
+                    }
+
+
                 }
 
                 Item {

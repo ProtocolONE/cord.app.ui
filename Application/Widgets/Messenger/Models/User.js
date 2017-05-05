@@ -161,6 +161,12 @@ function User(item, model, jabber) {
     });
     defSetter("lastActivity");
 
+    this.__defineGetter__("isGameNetMember", function() {
+        _model.updatePropertyRequest(_item.jid, "isGameNetMember");
+        return _item.isGameNetMember;
+    });
+    defSetter("isGameNetMember");
+
     this.__defineGetter__("groups", function() {
         var result = [];
         for (var j = 0; j < _item.groups.count; j++) {

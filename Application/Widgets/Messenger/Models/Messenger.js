@@ -278,3 +278,7 @@ function removeContact(user) {
     _modelInstance.removeContact(user);
 }
 
+function isGameNetMember(user) {
+    return _modelInstance.isGameNetMember(user);
+}
+

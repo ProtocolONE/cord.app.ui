@@ -24,6 +24,7 @@ Item {
     property bool inContacts: false
     property bool isGroupChat: false
     property int subscription: 0
+    property bool isGameNetMember: false
 
     function participants() {
         return partisipantsLoader.item
