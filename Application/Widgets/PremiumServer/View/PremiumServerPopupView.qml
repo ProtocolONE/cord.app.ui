@@ -34,6 +34,8 @@ PopupBase {
 
     property bool inProgress: false
 
+    property bool shopDisabled: false
+
     implicitWidth: 830
     title: qsTr("Доступ к премиум-серверу")
 
@@ -138,6 +140,16 @@ PopupBase {
         root.serviceId = currentGame.serviceId;
         root.gameId = currentGame.gameId;
         root.remainTime = User.getSubscriptionRemainTime(currentGame.serviceId);
+
+        if (root.serviceId == "30000000000") {
+            var canBuy = User.hadSubscriptionsByService("30000000000");
+            if (!canBuy) {
+                console.log("Premium server shop disabled.");
+                root.shopDisabled = true;
+                return;
+            }
+        }
+
         root.getItems();
     }
 
@@ -146,6 +158,34 @@ PopupBase {
     }
 
     Text {
+        visible: root.shopDisabled
+        anchors {
+            left: parent.left
+            right: parent.right
+        }
+
+        font {
+            family: 'Arial'
+            pixelSize: 14
+        }
+
+        color: defaultTextColor
+        smooth: true
+        textFormat: Text.StyledText
+        linkColor: Styles.linkText
+        onLinkActivated: App.openExternalUrl(link)
+        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+        text: qsTr("Доступ на премиум сервер для новых пользователей временно недоступен.")
+
+        MouseArea {
+            anchors.fill: parent
+            cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
+            acceptedButtons: Qt.NoButton
+        }
+    }
+
+    Text {
+        visible: !root.shopDisabled
         anchors {
             left: parent.left
             right: parent.right
@@ -172,6 +212,7 @@ PopupBase {
     }
 
     Text {
+        visible: !root.shopDisabled
         anchors {
             left: parent.left
             right: parent.right
@@ -214,13 +255,15 @@ PopupBase {
         }
         font { family: "Arial"; pixelSize: 14 }
         text: getText()
-        visible: !!text.length
+        visible: !!text.length && !root.shopDisabled
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         color: defaultTextColor
         smooth: true
     }
 
     Column {
+        visible: !root.shopDisabled
+
         anchors {
             left: parent.left
             right: parent.right
@@ -348,6 +391,8 @@ PopupBase {
         height: 48
 
         Text {
+            visible: !root.shopDisabled
+
             text: qsTr('Итоговая стоимость: %1').arg(root.currentCost);
             color: root.defaultTextColor
             font {
@@ -367,6 +412,7 @@ PopupBase {
                 bottom: parent.bottom
             }
 
+            enabled: !root.shopDisabled
             visible: modelValid();
 
             text: qsTr('Подтвердите покупку')

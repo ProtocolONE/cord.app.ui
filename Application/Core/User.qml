@@ -278,6 +278,12 @@ Item {
         return result;
     }
 
+    function hadSubscriptionsByService(serviceId) {
+        var subscription = serviceSubscriptions.getById(serviceId);
+        var hadSubscruption = !!subscription && !!subscription.dueDate;
+        return hadSubscruption;
+    }
+
     QtObject {
         id: d
 

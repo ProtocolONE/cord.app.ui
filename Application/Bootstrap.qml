@@ -171,6 +171,10 @@ Item {
             url = AppSettings.value('qGNA/restApi', 'url', url);
         }
 
+        if (Config.GnUrl.debugApi()) {
+            RestApi.http.logRequest = true;
+        }
+
         console.log('RestApi use', url);
         RestApi.Core.setup({
                                lang: 'ru',

@@ -73,6 +73,15 @@ GnUrl.overrideApi = function () {
     return getConfig().overrideApi;
 }
 
+GnUrl.debugApi = function () {
+    if (debug) {
+        console.log('GnUrl.debugApi = ', !!getConfig().debugApi)
+    }
+
+    return !!getConfig().debugApi;
+}
+
+
 GnUrl.statusUrl = function () {
     if (debug) {
         console.log('GnUrl.statusUrl = ', getConfig().statusUrl)

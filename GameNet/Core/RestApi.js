@@ -512,6 +512,9 @@ Error.PAKKANEN_VK_LINK_AND_PHONE_VERIFICATION = 604;
 var http = function() {
 };
 
+// INFO debug output
+http.logRequest = false;
+
 http.request = function(options, callback) {
     var xhr = new XMLHttpRequest(),
         method = options.method || 'get',
@@ -535,6 +538,18 @@ http.request = function(options, callback) {
     xhr.onreadystatechange = function() {
         if (xhr.readyState !== 4) { // full body received
             return;
+        }
+
+        if (http.logRequest) {
+            // INFO debug output
+            var tmp = 'Request: ' + uri.toString();
+            try {
+                var debugResponseObject = JSON.parse(xhr.responseText);
+                tmp += '\nResponse: \n' + JSON.stringify(debugResponseObject, null, 2)
+            } catch(e) {
+                tmp += '\nResponse: \n' + xhr.responseText
+            }
+            console.log(tmp);
         }
 
         callback({status: xhr.status, header: xhr.getAllResponseHeaders(), body: xhr.responseText});
@@ -636,7 +651,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.156.005275c199e906d07f960cbc7efcc5bcf0b9288e",
+    version: "1.0.157.f8224667bbd25aa8ffc98b0329b25fd0f9e1f6f2",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',
@@ -934,6 +949,10 @@ User.search = function(query, priorityForFriends, successCallback, failedCallbac
 
 User.getChars = function(userId, successCallback, failedCallback) {
     Core.execute('user.getChars', { targetId: userId }, true, successCallback, failedCallback);
+};
+
+User.getCharsByGame = function(userId, gameId, successCallback, failedCallback) {
+    Core.execute('user.getChars', { targetId: userId, gameId: gameId }, true, successCallback, failedCallback);
 };
 var Virality = function() {
 };
