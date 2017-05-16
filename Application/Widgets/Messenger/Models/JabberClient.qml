@@ -248,6 +248,7 @@ QXmppClient {
 
         if (code == 3) { // XmppStreamError (Error due to XML stream)
             console.log("Need self reconnect");
+            xmppClient.disconnectFromServer();
             reconnectTimer.restart();
 	}
     }
