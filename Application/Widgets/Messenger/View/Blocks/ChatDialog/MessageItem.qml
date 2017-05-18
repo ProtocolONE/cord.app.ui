@@ -15,6 +15,8 @@ import GameNet.Controls 1.0
 import Application.Core 1.0
 import Application.Core.Styles 1.0
 
+import "../" as Blocks
+
 Item {
     id: root
 
@@ -144,19 +146,35 @@ Item {
                     }
 
                     //Header
-                    Text {
-                        id: nicknameText
-
-                        color: Styles.menuText
+                    Item  {
                         width: parent.width
-                        elide: Text.ElideRight
+                        height: nicknameText.height
+                        visible: !root.isSelfMessage && root.firstMessageInGroup
 
-                        font {
-                            family: "Arial"
-                            pixelSize: 14
+                        Text {
+                            id: nicknameText
+
+                            color: Styles.menuText
+
+                            width: parent.width -
+                                   (shieldItem.visible ? (shieldItem.width + 5) : 0)
+
+                            elide: Text.ElideRight
+
+                            font {
+                                family: "Arial"
+                                pixelSize: 14
+                            }
                         }
 
-                        visible: !root.isSelfMessage && root.firstMessageInGroup
+                        Blocks.GameNetShield {
+                            id: shieldItem
+
+                            anchors {
+                                left: parent.left
+                                leftMargin: nicknameText.paintedWidth + 5
+                            }
+                        }
                     }
 
                     TextEdit {

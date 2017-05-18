@@ -369,6 +369,7 @@
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Splash.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/GameNetShield.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/Group/EditCheckBox.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/Group/EditView.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/Group/EditViewBackground.qml</file>

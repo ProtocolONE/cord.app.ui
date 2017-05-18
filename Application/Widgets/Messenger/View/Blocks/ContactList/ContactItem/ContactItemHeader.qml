@@ -15,6 +15,8 @@ import GameNet.Controls 1.0
 import Application.Core 1.0
 import Application.Core.Styles 1.0
 
+import "../../" as Blocks
+
 Item {
     id: root
 
@@ -133,45 +135,14 @@ Item {
                         }
                     }
 
-                    Rectangle {
+                    Blocks.GameNetShield {
                         id: shieldItem
-
-                        width: shieldItemText.width + 10
-                        height: 16
-                        color: "#FF4F02"
 
                         anchors {
                             left: parent.left
                             leftMargin: nicknameText.paintedWidth + 5
                         }
-
-                        Text {
-                            id: shieldItemText
-
-                            anchors {
-                                verticalCenter: parent.verticalCenter
-                                left: parent.left
-                                leftMargin: 5
-                            }
-
-                            color: "#F3DCA5"
-                            font {
-                                pixelSize: 12
-                                family: "Segoe UI"
-                                letterSpacing: -0.72
-                            }
-
-                            text: "GameNet"
-                        }
-
-                        CursorMouseArea {
-                            anchors.fill: parent
-                            toolTip: qsTr("Сотрудник GameNet")
-                            cursorShape: Qt.ArrowCursor
-                        }
                     }
-
-
                 }
 
                 Item {
