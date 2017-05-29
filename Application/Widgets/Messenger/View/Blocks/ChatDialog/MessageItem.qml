@@ -29,6 +29,8 @@ Item {
     property bool isSelfMessage: false
     property bool firstMessageInGroup: false
 
+    property alias isGameNetMember: shieldItem.visible
+
     signal linkActivated(string link);
     signal userClicked();
 

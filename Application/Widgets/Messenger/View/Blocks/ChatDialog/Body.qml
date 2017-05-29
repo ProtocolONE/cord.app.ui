@@ -147,6 +147,8 @@ Item {
                     messageList.model.setProperty(index, 'text', message);
                 }
             }
+
+            isGameNetMember: MessengerJs.isGameNetMember(model);
         }
     }
 
