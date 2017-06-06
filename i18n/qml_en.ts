@@ -198,14 +198,24 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="575"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="580"/>
         <source>SILENT_REMIND_POPUP_BUTTON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="576"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="581"/>
         <source>SILENT_REMIND_POPUP_MESSAGE</source>
         <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="594"/>
+        <source>Поздравляем с покупкой </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="595"/>
+        <source>Играть</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -559,22 +569,22 @@
 <context>
     <name>Bootstrap</name>
     <message>
-        <location filename="../Application/Bootstrap.qml" line="221"/>
+        <location filename="../Application/Bootstrap.qml" line="233"/>
         <source>INFO_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Bootstrap.qml" line="222"/>
+        <location filename="../Application/Bootstrap.qml" line="234"/>
         <source>UPDATE_FOUND_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Bootstrap.qml" line="91"/>
+        <location filename="../Application/Bootstrap.qml" line="96"/>
         <source>CLOSE_APP_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Bootstrap.qml" line="92"/>
+        <location filename="../Application/Bootstrap.qml" line="97"/>
         <source>CLOSE_APP_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -654,48 +664,48 @@
 <context>
     <name>ContactItemDelegate</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="186"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="194"/>
         <source>MESSENGER_DESTROY_ROOM_ALERT_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="187"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="195"/>
         <source>MESSENGER_DESTROY_ROOM_ALERT_BODY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="513"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="522"/>
         <source>CONTACT_CONTEXT_MENU_DESTROY_ROOM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="518"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="527"/>
         <source>CONTACT_CONTEXT_MENU_LEAVE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="523"/>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="549"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="532"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="558"/>
         <source>CONTACT_CONTEXT_MENU_RENAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="538"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="547"/>
         <source>CONTACT_CONTEXT_MENU_INFORAMTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="543"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="552"/>
         <source>Подарить расширенный аккаунт</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="554"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="563"/>
         <source>CONTACT_CONTEXT_MENU_DELETE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="559"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="568"/>
         <source>CONTACT_CONTEXT_MENU_ADD_CONTACT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -703,8 +713,8 @@
 <context>
     <name>ContactItemHeader</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/ContactItemHeader.qml" line="78"/>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/ContactItemHeader.qml" line="139"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/ContactItemHeader.qml" line="79"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/ContactItemHeader.qml" line="131"/>
         <source>CONTACT_ITEM_NICKNAME_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -825,87 +835,93 @@
 <context>
     <name>DownloadSettings</name>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="149"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="151"/>
         <source>DOWNLOAD_LIMIT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="128"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="130"/>
         <source>SPEED_UNLIMITED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="129"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="131"/>
         <source>%1 КБайт/с</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="162"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="161"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="198"/>
+        <source>0 - Неограниченно</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="165"/>
         <source>Скорость загрузки в КБайт/с</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="181"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="188"/>
         <source>UPLOAD_LIMIT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="194"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="201"/>
         <source>Скорость отдачи в КБайт/с</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="220"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="231"/>
         <source>INCOMING_PORT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="241"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="252"/>
         <source>PORT_AUTO</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="258"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="269"/>
         <source>CONNECTION_COUNT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="281"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="292"/>
         <source>Профиль скачивания</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="293"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="304"/>
         <source>Скачивать с максимальной производительностью</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="294"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="305"/>
         <source>Использовать как можно меньше памяти</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="295"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="306"/>
         <source>Использовать минимальное количество ресурсов</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="308"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="319"/>
         <source>Выберите как должно вести себя приложение во время скачивания игр - использовать все доступные на вашем компьютере ресурсы или уменьшить скорость скачивания, используя меньше памяти или ресурсов процессора.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="326"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="337"/>
         <source>Экспертная настройка системы скачивания</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="343"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="354"/>
         <source>Выберите, если хотите указать произвольные значения для ограничения скорости загрузки и отдачи клиента.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="317"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="328"/>
         <source>PARTICIPATE_SEEDING</source>
         <translation></translation>
     </message>
@@ -1071,7 +1087,7 @@
 <context>
     <name>GameExecutingModel</name>
     <message>
-        <location filename="../Application/Widgets/GameExecuting/GameExecutingModel.qml" line="49"/>
+        <location filename="../Application/Widgets/GameExecuting/GameExecutingModel.qml" line="61"/>
         <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
         <translation></translation>
     </message>
@@ -1162,7 +1178,7 @@
     </message>
     <message>
         <location filename="../Application/Blocks/GameInstallBlock.qml" line="167"/>
-        <source>%1 ₽</source>
+        <source>%1 GN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1241,43 +1257,43 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="51"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="52"/>
         <source>INFO_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="51"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="52"/>
         <source>&lt;p&gt;В пути установки клиента обнаружены запрещенные символы. Это может привести к проблемам запуска игры. В пути установки клиента игры должны содержаться только латинские буквы и цифры. Подробнее в статье службы поддержки: &lt;b&gt;&lt;a href=&quot;https://support.gamenet.ru/kb/articles/1193-failed-to-load-file-data-meta-dat&quot;&gt;ссылка&lt;/a&gt;&lt;/b&gt; &lt;/p&gt;
 
 &lt;p&gt;Что делать?&lt;/p&gt;
 
-&lt;ul&gt;&lt;li&gt;Измените название папки, в которую установлена игра. Например, C:\Games\BattleCarnival&lt;/li&gt;
+&lt;ul&gt;&lt;li&gt;Измените название папки, в которую установлена игра. Например, &lt;br /&gt;C:\Games\BattleCarnival&lt;/li&gt;
 &lt;li&gt;После этого измените путь установки игры в настройках приложения, слева от кнопки &quot;Начать игру&quot;. Это необходимо сделать для того, чтобы не перекачивать клиент игры заново.&lt;/li&gt;
 &lt;/ul&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="99"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="100"/>
         <source>DESTINATION_FOLDER_CAPTION</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="139"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="142"/>
         <source>CREATE_DESKTOP_SHORTCUT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="148"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="151"/>
         <source>CREATE_STARTMENU_SHORTCUT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="160"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="163"/>
         <source>LICENSE_TIP</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="210"/>
+        <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="213"/>
         <source>INSTALL_BUTTON_CAPTION</source>
         <translation></translation>
     </message>
@@ -1322,7 +1338,7 @@
     </message>
     <message>
         <location filename="../Application/Widgets/AllGames/View/Private/GameItem.qml" line="50"/>
-        <source>%1 ₽</source>
+        <source>%1 GN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1350,7 +1366,7 @@
     </message>
     <message>
         <location filename="../Application/Widgets/AllGames/View/Private/GameItemSmall.qml" line="34"/>
-        <source>%1 ₽</source>
+        <source>%1 GN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1412,6 +1428,14 @@
     <message>
         <location filename="../Application/Widgets/Messenger/View/GameNetNotification.qml" line="40"/>
         <source>MESSANGER_GAMENET_NOTIFICATION_TOOLTIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GameNetShield</name>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/GameNetShield.qml" line="39"/>
+        <source>Сотрудник GameNet</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2006,17 +2030,17 @@
 <context>
     <name>Messenger</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="337"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="343"/>
         <source>MESSENGER_CONTACT_ITEM_PLAYING_STATUS_INFO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="350"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="356"/>
         <source>LAST_ACTIVITY_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="571"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="586"/>
         <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
         <translation></translation>
     </message>
@@ -2247,6 +2271,48 @@
     </message>
 </context>
 <context>
+    <name>P2PTransferRequestView</name>
+    <message>
+        <location filename="../Application/Widgets/P2PTransferRequest/View/P2PTransferRequestView.qml" line="38"/>
+        <source>Перенос персонажей с Премиум-сервера</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/P2PTransferRequest/View/P2PTransferRequestView.qml" line="70"/>
+        <source>Произошла ошибка. Попробуйте позже или обратитесь в службу поддержки.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/P2PTransferRequest/View/P2PTransferRequestView.qml" line="90"/>
+        <source>Для участия в трансфере необходимо покинуть гильдию на Премиум сервере.
+
+Персонаж &quot;%1&quot;, гильдия &quot;%2&quot;.
+
+Перезапустите игру через 2 часа после выхода из гильдии и примите предложении о переносе персонажей.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/P2PTransferRequest/View/P2PTransferRequestView.qml" line="157"/>
+        <source>Предлагаем вам перенести своих персонажей с Премиум-сервера и присоединиться к боевым товарищам на Эллиане. Перенос осуществляется на весьма выгодных и практичных условиях, которые мы, собственно, и приводим для ознакомления ниже. Если вы согласны с ними, нажмите &quot;Принять&quot;, и мы примем вашу заявку не перенос.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/P2PTransferRequest/View/P2PTransferRequestView.qml" line="233"/>
+        <source>Пропустить</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/P2PTransferRequest/View/P2PTransferRequestView.qml" line="243"/>
+        <source>Отмена</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/P2PTransferRequest/View/P2PTransferRequestView.qml" line="252"/>
+        <source>Принять</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PlayingGameContacts</name>
     <message>
         <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/PlayingGameContacts.qml" line="48"/>
@@ -2341,77 +2407,103 @@
 <context>
     <name>PremiumServerPopupView</name>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="38"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="40"/>
         <source>Доступ к премиум-серверу</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="105"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="114"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="122"/>
+        <source>Нельзя приобрести доступ на премиум сервер</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="118"/>
+        <source>Нельзя продлить доступ на премиум сервер</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="126"/>
+        <source>Нельзя приобрести больше одного товара в месяц</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="129"/>
+        <source>Невозможно купить</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="133"/>
         <source>Упс! Что-то пошло не так...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="106"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="134"/>
         <source>Произошла ошибка в процессе покупки. Пожалуйста, попробуйте позже.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="139"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="178"/>
+        <source>Доступ на премиум сервер для новых пользователей временно недоступен.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="205"/>
         <source>Премиум сервер — место развития и сражений для тех, кто ценит комфорт в игре и атмосферу закрытого сообщества.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="165"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="232"/>
         <source>Обратите внимание: перенос персонажей между серверами не осуществляется. Персонаж доступен только на том сервере, на котором он создан.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="180"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="247"/>
         <source>Осталось: %1 %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="182"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="249"/>
         <source>день</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="182"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="249"/>
         <source>дня</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="182"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="249"/>
         <source>дней</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="225"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="294"/>
         <source>Получите доступ к премиум серверу:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="226"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="295"/>
         <source>Продлите доступ к премиум серверу:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="290"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="358"/>
         <source>На счету недостаточно GN-монет</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="310"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="378"/>
         <source>Пополнить счет</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="326"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="396"/>
         <source>Итоговая стоимость: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="347"/>
+        <location filename="../Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml" line="418"/>
         <source>Подтвердите покупку</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2928,37 +3020,37 @@
 <context>
     <name>StandaloneGameShopView</name>
     <message>
-        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="161"/>
+        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="102"/>
         <source>Что-то пошло не так</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="137"/>
+        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="74"/>
         <source>Покупка %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="280"/>
+        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="155"/>
         <source>С Вашего счета будет списано:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="291"/>
+        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="166"/>
         <source>%1 GN-монет</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="321"/>
+        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="196"/>
         <source>У меня: %1 GN-монет</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="324"/>
+        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="199"/>
         <source>Оплатить %1 GN-монет</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="355"/>
+        <location filename="../Application/Widgets/StandaloneGameShop/View/StandaloneGameShopView.qml" line="230"/>
         <source>Лицензионное соглашение</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3102,6 +3194,14 @@
         <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="315"/>
         <source>MENU_ITEM_QUIT</source>
         <translation></translation>
+    </message>
+</context>
+<context>
+    <name>UnlimitedSpeedPlaceholder</name>
+    <message>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Controls/UnlimitedSpeedPlaceholder.qml" line="26"/>
+        <source>SPEED_UNLIMITED</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

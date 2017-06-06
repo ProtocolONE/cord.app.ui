@@ -47,6 +47,10 @@ Item {
 
     readonly property bool inputFocus: inputBehavior.focus
 
+    property alias toolTip: inputBehavior.toolTip
+    property alias tooltipPosition: inputBehavior.tooltipPosition
+    property alias tooltipGlueCenter: inputBehavior.tooltipGlueCenter
+
     signal iconClicked()
     signal enterPressed()
     signal tabPressed()

@@ -18,6 +18,10 @@ TextInput {
     property bool capsLock: false
     property bool error: false
 
+    property alias toolTip: mouseArea.toolTip
+    property alias tooltipPosition: mouseArea.tooltipPosition
+    property alias tooltipGlueCenter: mouseArea.tooltipGlueCenter
+
     signal keyPressed(variant keyEvent)
     signal focusLost()
 
@@ -34,7 +38,9 @@ TextInput {
         keyPressed(event);
     }
 
-    MouseArea {
+    CursorMouseArea {
+        id: mouseArea
+
         acceptedButtons: Qt.NoButton
         cursorShape: Qt.IBeamCursor
         anchors.fill: parent

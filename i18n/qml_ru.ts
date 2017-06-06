@@ -292,6 +292,14 @@
         <source>SILENT_REMIND_POPUP_MESSAGE</source>
         <translation>Нажимая &quot;Играть&quot;, Вы подтверждаете, что согласны с условиями &lt;a href=&quot;http://www.gamenet.ru/license&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Лицензионного соглашения GameNet&lt;/font&gt;&lt;/a&gt; и &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Игры&lt;/font&gt;&lt;/a&gt;</translation>
     </message>
+    <message>
+        <source>Поздравляем с покупкой </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Играть</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -1845,6 +1853,10 @@ Please try again later.</source>
         <source>Выберите, если хотите указать произвольные значения для ограничения скорости загрузки и отдачи клиента.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>0 - Неограниченно</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DownloadStatus</name>
@@ -2362,11 +2374,11 @@ Please try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 ₽</source>
+        <source>Оплачено</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Оплачено</source>
+        <source>%1 GN</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2450,7 +2462,7 @@ Please try again later.</source>
 
 &lt;p&gt;Что делать?&lt;/p&gt;
 
-&lt;ul&gt;&lt;li&gt;Измените название папки, в которую установлена игра. Например, C:\Games\BattleCarnival&lt;/li&gt;
+&lt;ul&gt;&lt;li&gt;Измените название папки, в которую установлена игра. Например, &lt;br /&gt;C:\Games\BattleCarnival&lt;/li&gt;
 &lt;li&gt;После этого измените путь установки игры в настройках приложения, слева от кнопки &quot;Начать игру&quot;. Это необходимо сделать для того, чтобы не перекачивать клиент игры заново.&lt;/li&gt;
 &lt;/ul&gt;</source>
         <translation type="unfinished"></translation>
@@ -2505,11 +2517,11 @@ Please try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 ₽</source>
+        <source>Оплачено</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Оплачено</source>
+        <source>%1 GN</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2536,11 +2548,11 @@ Please try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 ₽</source>
+        <source>Оплачено</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Оплачено</source>
+        <source>%1 GN</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2649,6 +2661,13 @@ Please try again later.</source>
     <message>
         <source>MESSANGER_GAMENET_NOTIFICATION_TOOLTIP</source>
         <translation>Уведомления от GameNet</translation>
+    </message>
+</context>
+<context>
+    <name>GameNetShield</name>
+    <message>
+        <source>Сотрудник GameNet</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4567,6 +4586,41 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>P2PTransferRequestView</name>
+    <message>
+        <source>Перенос персонажей с Премиум-сервера</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Произошла ошибка. Попробуйте позже или обратитесь в службу поддержки.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Для участия в трансфере необходимо покинуть гильдию на Премиум сервере.
+
+Персонаж &quot;%1&quot;, гильдия &quot;%2&quot;.
+
+Перезапустите игру через 2 часа после выхода из гильдии и примите предложении о переносе персонажей.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Предлагаем вам перенести своих персонажей с Премиум-сервера и присоединиться к боевым товарищам на Эллиане. Перенос осуществляется на весьма выгодных и практичных условиях, которые мы, собственно, и приводим для ознакомления ниже. Если вы согласны с ними, нажмите &quot;Принять&quot;, и мы примем вашу заявку не перенос.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Пропустить</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Отмена</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Принять</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Password</name>
     <message>
         <source>password</source>
@@ -4753,6 +4807,26 @@ Please try again later.</source>
     <message>
         <source>Обратите внимание: перенос персонажей между серверами не осуществляется. Персонаж доступен только на том сервере, на котором он создан.</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>Нельзя приобрести доступ на премиум сервер</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Нельзя продлить доступ на премиум сервер</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Нельзя приобрести больше одного товара в месяц</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Невозможно купить</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Доступ на премиум сервер для новых пользователей временно недоступен.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6253,6 +6327,13 @@ Please try again later.</source>
     <message>
         <source>CLOSE_APP_TOOLTIP_MESSAGE_DESC</source>
         <translation>Игра %1 будет закрыта вместе с приложением. Работа игры без приложения невозможна. Закрыть приложение и игру?</translation>
+    </message>
+</context>
+<context>
+    <name>UnlimitedSpeedPlaceholder</name>
+    <message>
+        <source>SPEED_UNLIMITED</source>
+        <translation type="unfinished">Неограниченно</translation>
     </message>
 </context>
 <context>
