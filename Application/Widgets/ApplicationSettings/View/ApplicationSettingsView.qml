@@ -66,7 +66,9 @@ PopupBase {
             return;
         }
 
+        params.downloadSettingsChanged = downloadSettingsPage.changed() ? "0" : "1"
         params.userId = User.userId();
+
         Marketing.send(Marketing.ApplicationSettingsChanged, "0", params);
     }
 

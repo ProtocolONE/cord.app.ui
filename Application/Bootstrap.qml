@@ -385,24 +385,6 @@ Item {
         source: installPath + "Assets/Fonts/OpenSansRegular.ttf"
     }
 
-    QtObject {
-        id: numConnectionFix
-
-        Component.onCompleted: {
-            var settings = App.settingsViewModelInstance();
-            if (!settings) {
-                return;
-            }
-
-            if (AppSettings.value("numConnectionFix", "done", 0) == 1) {
-                return;
-            }
-
-            AppSettings.setValue("numConnectionFix", "done", 1);
-            settings.numConnections = 200;
-        }
-    }
-
     Connections {
         target: App
         ignoreUnknownSignals: true
