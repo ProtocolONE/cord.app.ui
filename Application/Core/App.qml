@@ -439,7 +439,7 @@ Item {
     }
 
     function replenishAccount() {
-        openExternalUrlWithAuth(ConfigJs.GnUrl.site("/money/"));
+        openExternalUrlWithAuth(ConfigJs.GnUrl.site("/pay/"));
     }
 
     function isMainServiceCanBeStarted(item) {

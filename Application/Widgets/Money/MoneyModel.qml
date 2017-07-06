@@ -23,9 +23,9 @@ WidgetModel {
                         return;
                     }
 
-                    App.openExternalUrlWithAuth(Config.GnUrl.site("/money/"));
+                    App.openExternalUrlWithAuth(Config.GnUrl.site("/pay/"));
                 }, function() {
-                    App.openExternalUrlWithAuth(Config.GnUrl.site("/money/"));
+                    App.openExternalUrlWithAuth(Config.GnUrl.site("/pay/"));
                 });
             }
         }
