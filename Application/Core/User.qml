@@ -263,7 +263,7 @@ Item {
             q = balanceTimer.tickCount && root.lastUpdated;
 
         return subsrc
-            ? Moment.moment(subsrc.dueDate).diff(Moment.moment().startOf('day'), 'days')
+            ? Moment.moment(subsrc.dueDate).startOf('day').diff(Moment.moment().startOf('day'), 'days')
             : null;
     }
 
