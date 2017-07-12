@@ -85,7 +85,19 @@ Item {
     function refreshPremium() {
         premiumDurationTimer.stop();
         RestApi.Premium.getStatus(function(response) {
-            var duration = response ? (response.duration | 0) : 0;
+            response = response || {};
+
+            var duration = response.duration;
+            if (typeof duration === "undefined" || typeof duration === "boolean" ||duration === null) {
+                duration = 0;
+            } else {
+                duration = +duration;
+            }
+
+            if (duration > 3001 * 24*60*60) {
+                duration = 3001 * 24*60*60
+            }
+
             if (duration > 0) {
                 d.isPremium = true;
                 d.premiumDuration = duration;
