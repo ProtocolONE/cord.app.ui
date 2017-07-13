@@ -1089,7 +1089,7 @@ var ProviderVk = function(parent, hwid) {
 
     this.appId = 2452628;
     this.networkId = "vk";
-    this.scope = "friends,offline";
+    this.scope = "friends,offline,email";
     this.authHost = "oauth.vk.com";
     this.authProtocol = "https";
 }
