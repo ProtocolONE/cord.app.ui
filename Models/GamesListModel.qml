@@ -22,12 +22,13 @@ ListModel {
             text: '',
             page: '',
             link: false,
+            linkIcon: '',
             selectable: false,
             url: '',
         };
 
         var item = {};
-        ['icon', 'text', 'page', 'link', 'selectable', 'url'].forEach(function(e) {
+        ['icon', 'text', 'page', 'link', 'selectable', 'url', 'linkIcon'].forEach(function(e) {
             item[e] = option[e] || defaultObject[e];
         });
 
@@ -67,6 +68,7 @@ ListModel {
                                 {
                                     link: true,
                                     icon: 'gameMenuGuidesIcon',
+                                    linkIcon: 'linkIcon10',
                                     text: qsTr("GAME_MENU_GUIDES_TEXT"),
                                     url: element.guideUrl
                                 });

@@ -292,7 +292,21 @@ WidgetModel {
                             color: Styles.menuText
                             text: qsTr(label)
                         }
+
+                        Item {
+                            height: 28
+                            width: 30
+
+                            Image {
+                                anchors.centerIn: parent
+                                source: installPath + Styles.linkIcon10
+                                visible: iconLink
+                            }
+                        }
                     }
+
+                    MouseArea {
+                        id: mouseArea
 
                         hoverEnabled: true
                         anchors { fill: parent }
@@ -301,19 +315,22 @@ WidgetModel {
                             root.menuClick(name);
                         }
 
-                        ListElement {
-                            name: 'Balance'
-                            icon: 'balance.png'
-                            iconActive: 'balanceActive.png'
-                            label: QT_TR_NOOP("MENU_ITEM_MONEY")
-                        }
+                model: ListModel {
+                    ListElement {
+                        name: 'Profile'
+                        icon: 'profile.png'
+                        iconActive: 'profileActive.png'
+                        iconLink: true
+                        label: QT_TR_NOOP("MENU_ITEM_PROFILE")
+                    }
 
-                        ListElement {
-                            name: 'Settings'
-                            icon: 'settings.png'
-                            iconActive: 'settingsActive.png'
-                            label: QT_TR_NOOP("MENU_ITEM_SETTINGS")
-                        }
+                    ListElement {
+                        name: 'Balance'
+                        icon: 'balance.png'
+                        iconActive: 'balanceActive.png'
+                        iconLink: true
+                        label: QT_TR_NOOP("MENU_ITEM_MONEY")
+                    }
 
                         ListElement {
                             name: 'Quit'

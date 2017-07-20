@@ -183,11 +183,32 @@ WidgetView {
                         }
 
                         Text {
-                            anchors.centerIn: parent
+                            id: addMonyeText
+
+                            anchors {
+                                verticalCenter : parent.verticalCenter
+                                left: parent.left
+                                leftMargin: 5
+                            }
+
                             text: qsTr("PROFILE_ADD_MONEY_TEXT")
 
                             color: Styles.premiumInfoText
                             font.pixelSize: 12
+                        }
+
+                        Image {
+                            id: iconLink
+
+                            anchors {
+                                //verticalCenter: addMonyeText.verticalCenter
+                                bottom: addMonyeText.bottom
+                                left: addMonyeText.right
+                                leftMargin: 3
+                                bottomMargin: 2
+                            }
+
+                            source: installPath + Styles.linkIcon12
                         }
 
                         CursorMouseArea {

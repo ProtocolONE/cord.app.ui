@@ -156,16 +156,30 @@ Item {
                         }
                     }
 
-                    Text {
-                        height: 23
-                        width: parent.width - 30
-                        text: title
-                        color: Qt.darker(Styles.titleText, mouser.containsMouse ? 1.5: 0)
-                        elide: Text.ElideRight
-                        font { family: 'Open Sans Light'; pixelSize: 20; bold: false }
+                    Row {                        
+                        width: parent.width
+                        spacing: 5
 
-                        Behavior on color {
-                            ColorAnimation { duration: 200 }
+                        Text {
+                            height: 23
+                            text: title
+                            color: Qt.darker(Styles.titleText, mouser.containsMouse ? 1.5: 0)
+                            elide: Text.ElideRight
+                            font { family: 'Open Sans Light'; pixelSize: 20; bold: false }
+
+                            Behavior on color {
+                                ColorAnimation { duration: 200 }
+                            }
+                        }
+
+                        Image {
+                            id: iconLink
+
+                            anchors {
+                                bottom: parent.bottom
+                                bottomMargin: 2
+                            }
+                            source: installPath + Styles.linkIcon15
                         }
                     }
                 }

@@ -79,6 +79,11 @@ Item {
 
     property string supportIcon: "Assets/Images/Application/Blocks/bug.png"
 
+    //Link icons
+    property string linkIcon10: "Assets/Images/Application/Blocks/link10.png"
+    property string linkIcon12: "Assets/Images/Application/Blocks/link12.png"
+    property string linkIcon15: "Assets/Images/Application/Blocks/link15.png"
+
     //GameNet Input
     property string inputCaptchaIcon: "Assets/Images/GameNet/Controls/Input/captcha.png"
     property string inputEmailIcon: "Assets/Images/GameNet/Controls/Input/email.png"

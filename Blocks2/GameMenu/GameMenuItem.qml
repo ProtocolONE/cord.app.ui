@@ -11,6 +11,7 @@ Item {
 
     property alias text: caption.text
     property string icon
+    property string linkIcon
     property bool current: false
 
     property alias activeColor: background.color
@@ -49,6 +50,11 @@ Item {
 
         font { family: "Arial"; pixelSize: 14 }
         anchors {horizontalCenter: parent.horizontalCenter; bottom: parent.bottom; bottomMargin: 12}
+    }
+
+    Image {
+        source: root.linkIcon
+        anchors {left: caption.right; bottom: parent.bottom; bottomMargin: 14; leftMargin: 5}
     }
 
     CursorMouseArea {

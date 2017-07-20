@@ -18,6 +18,8 @@ Button {
     id: root
 
     property string icon
+    property string iconLink
+
     property alias text: captionText.text
 
     implicitWidth: icon.width + 10 + captionText.width + 40
@@ -32,7 +34,6 @@ Button {
     Row {
         anchors {
             fill: parent
-            leftMargin: 10
         }
         spacing: 10
 
@@ -45,12 +46,32 @@ Button {
                       root.icon
         }
 
-        Text {
-            id: captionText
+        Item {
 
-            color: Styles.mainMenuText
-            font { family: "Arial"; pixelSize: 16 }
+            width: parent.width - 25
+            height: parent.height
+
             anchors.verticalCenter: parent.verticalCenter
+
+            Text {
+                id: captionText
+
+                color: Styles.mainMenuText
+                font { family: "Arial"; pixelSize: 16 }
+                anchors.verticalCenter: parent.verticalCenter
+            }
+
+            Image {
+                id: iconLink
+
+                anchors {
+                    verticalCenter: parent.verticalCenter
+                    left: captionText.right
+                    leftMargin: 4
+                }
+
+                source: root.iconLink
+            }
         }
     }
 }
