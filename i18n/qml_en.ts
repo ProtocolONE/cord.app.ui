@@ -221,37 +221,37 @@
 <context>
     <name>ApplicationSettingsView</name>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="74"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="76"/>
         <source>APPLICATION_SETTINGS_TITLE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="102"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="104"/>
         <source>GENERAL_TAB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="112"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="114"/>
         <source>DOWNLOADS_TAB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="122"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="124"/>
         <source>NOTIFICATIONS_TAB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="132"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="134"/>
         <source>MESSENGER_TAB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="198"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="200"/>
         <source>RESTORE_SETTINGS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="219"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="221"/>
         <source>SAVE_BUTTON_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -784,42 +784,57 @@
 <context>
     <name>DownloadManagerConnector</name>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="46"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="41"/>
+        <source>%1 KiB</source>
+        <translation type="unfinished">%1 KiB</translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="45"/>
+        <source>%1 MiB</source>
+        <translation type="unfinished">%1 MiB</translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="48"/>
+        <source>%1 GiB</source>
+        <translation type="unfinished">%1 GiB</translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="62"/>
         <source>POPUP_PLAY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="47"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="63"/>
         <source>POPUP_READY_TO_START</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="86"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="102"/>
         <source>Нажимая &quot;Да&quot;, Вы подтверждаете, что согласны с условиями &lt;a href=&quot;http://www.gamenet.ru/license&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Лицензионного соглашения GameNet&lt;/font&gt;&lt;/a&gt; и &lt;a href=&quot;%1&quot;&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;Игры&lt;/font&gt;&lt;/a&gt;&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="97"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="113"/>
         <source>Внимание</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="165"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="181"/>
         <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="317"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="333"/>
         <source>TEXT_PROGRESSBAR_REHASH_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="331"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="347"/>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="332"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="348"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -835,93 +850,93 @@
 <context>
     <name>DownloadSettings</name>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="151"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="189"/>
         <source>DOWNLOAD_LIMIT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="130"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="168"/>
         <source>SPEED_UNLIMITED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="131"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="169"/>
         <source>%1 КБайт/с</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="161"/>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="198"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="199"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="236"/>
         <source>0 - Неограниченно</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="165"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="203"/>
         <source>Скорость загрузки в КБайт/с</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="188"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="226"/>
         <source>UPLOAD_LIMIT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="201"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="239"/>
         <source>Скорость отдачи в КБайт/с</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="231"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="269"/>
         <source>INCOMING_PORT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="252"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="290"/>
         <source>PORT_AUTO</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="269"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="307"/>
         <source>CONNECTION_COUNT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="292"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="330"/>
         <source>Профиль скачивания</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="304"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="342"/>
         <source>Скачивать с максимальной производительностью</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="305"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="343"/>
         <source>Использовать как можно меньше памяти</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="306"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="344"/>
         <source>Использовать минимальное количество ресурсов</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="319"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="357"/>
         <source>Выберите как должно вести себя приложение во время скачивания игр - использовать все доступные на вашем компьютере ресурсы или уменьшить скорость скачивания, используя меньше памяти или ресурсов процессора.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="337"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="375"/>
         <source>Экспертная настройка системы скачивания</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="354"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="392"/>
         <source>Выберите, если хотите указать произвольные значения для ограничения скорости загрузки и отдачи клиента.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="328"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml" line="366"/>
         <source>PARTICIPATE_SEEDING</source>
         <translation></translation>
     </message>
@@ -1607,37 +1622,37 @@
 <context>
     <name>GamesListModel</name>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="41"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="42"/>
         <source>GAME_MENU_NEWS_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="49"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="50"/>
         <source>GAME_MENU_ABOUT_GAME_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="59"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="60"/>
         <source>GAME_MENU_BLOG_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="70"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="72"/>
         <source>GAME_MENU_GUIDES_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="80"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="82"/>
         <source>GAME_MENU_FORUM_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="89"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="91"/>
         <source>GAME_MENU_GAME_SETTINGS_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Models/GamesListModel.qml" line="98"/>
+        <location filename="../Application/Models/GamesListModel.qml" line="100"/>
         <source>Доступ</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1764,7 +1779,7 @@
     <name>Header</name>
     <message>
         <location filename="../Application/Blocks/Auth/Controls/Header.qml" line="33"/>
-        <location filename="../Application/Blocks/Header/Header.qml" line="178"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="180"/>
         <source>HEADER_BUTTON_CLOSE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1804,32 +1819,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="139"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="140"/>
         <source>Награды</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="151"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="153"/>
         <source>HEADER_BUTTON_SUPPORT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="192"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="194"/>
         <source>HEADER_BUTTON_SETTINGS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="206"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="208"/>
         <source>HEADER_BUTTON_LOGOUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="218"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="220"/>
         <source>LOGOUT_ALERT_HEADER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="219"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="221"/>
         <source>LOGOUT_ALERT_BODY</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2544,32 +2559,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="127"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="128"/>
+        <source>Осталось более 2000 дней</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="129"/>
         <source>TITLE_PREMIUM_ACCOUNT_LEFT_TIME_LABEL</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="169"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="171"/>
         <source>TITLE_PREMIUM_ACCOUNT_CONTINUE_ACCOUNT_LABEL</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="234"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="236"/>
         <source>NOT_ENOUGH_MONEY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="264"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="266"/>
         <source>ADD_MONEY_BUTTON_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="280"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="282"/>
         <source>MONEY_TOTAL %1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="301"/>
+        <location filename="../Application/Widgets/PremiumShop/View/PremiumShopView.qml" line="303"/>
         <source>ACCEPT_BUY</source>
         <translation></translation>
     </message>
@@ -2583,18 +2603,18 @@
     </message>
     <message>
         <location filename="../Application/Widgets/GameLoad/View/ProgressWidget.qml" line="38"/>
-        <source>%1 KB</source>
-        <translation></translation>
+        <source>%1 KiB</source>
+        <translation type="unfinished">%1 KiB</translation>
     </message>
     <message>
         <location filename="../Application/Widgets/GameLoad/View/ProgressWidget.qml" line="42"/>
-        <source>%1 MB</source>
-        <translation></translation>
+        <source>%1 MiB</source>
+        <translation type="unfinished">%1 MiB</translation>
     </message>
     <message>
         <location filename="../Application/Widgets/GameLoad/View/ProgressWidget.qml" line="45"/>
-        <source>%1 GB</source>
-        <translation></translation>
+        <source>%1 GiB</source>
+        <translation type="unfinished">%1 GiB</translation>
     </message>
     <message>
         <location filename="../Application/Widgets/GameLoad/View/ProgressWidget.qml" line="59"/>
@@ -3176,22 +3196,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="294"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="307"/>
         <source>MENU_ITEM_PROFILE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="301"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="315"/>
         <source>MENU_ITEM_MONEY</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="308"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="322"/>
         <source>MENU_ITEM_SETTINGS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="315"/>
+        <location filename="../Application/Widgets/TrayMenu/TrayMenu.qml" line="329"/>
         <source>MENU_ITEM_QUIT</source>
         <translation></translation>
     </message>
@@ -3275,72 +3295,72 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="187"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="194"/>
         <source>PROFILE_ADD_MONEY_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="198"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="219"/>
         <source>PROFILE_ADD_MONEY_TULTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="224"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="245"/>
         <source>ADVANCED_ACCOUNT_HINT_IN_DAYS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="226"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="247"/>
         <source>ADVANCED_ACCOUNT_HINT_TODAY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="240"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="261"/>
         <source>PREMIUM_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="241"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="262"/>
         <source>PROFILE_EXTENDED_ACCOUNT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="279"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="300"/>
         <source>YOUR_AVATAR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="313"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="334"/>
         <source>Гость</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="353"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="374"/>
         <source>Завершить регистрацию</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="314"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="335"/>
         <source>NO_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="317"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="338"/>
         <source>YOUR_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="319"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="340"/>
         <source>SET_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="385"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="406"/>
         <source>PROFILE_CHOISE_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="394"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="415"/>
         <source>PROFILE_CHOISE_NICKNAME_TULTIP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3348,7 +3368,7 @@
 <context>
     <name>Vk</name>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="417"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="438"/>
         <source>PROFILE_CONFIRM_LOGIN</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3356,12 +3376,12 @@
 <context>
     <name>qGNA_Main</name>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="426"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="447"/>
         <source>PROFILE_CONFIRM_LOGIN_TULTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="455"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="476"/>
         <source>PROFILE_LEVEL_TEXT</source>
         <translation type="unfinished"></translation>
     </message>

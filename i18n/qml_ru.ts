@@ -1693,11 +1693,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
-        <translation>Обновление игры: %1 из %2 МБ</translation>
+        <translation>Обновление игры: %1 из %2</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
-        <translation>Загрузка игры: %1 из %2 МБ</translation>
+        <translation>Загрузка игры: %1 из %2</translation>
     </message>
     <message>
         <source>TEXT_PROGRESSBAR_STARTING_STATE</source>
@@ -1750,6 +1750,30 @@ Please try again later.</source>
     <message>
         <source>Внимание</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 KB</source>
+        <translation type="obsolete">%1 КБ</translation>
+    </message>
+    <message>
+        <source>%1 MB</source>
+        <translation type="obsolete">%1 МБ</translation>
+    </message>
+    <message>
+        <source>%1 GB</source>
+        <translation type="obsolete">%1 ГБ</translation>
+    </message>
+    <message>
+        <source>%1 KiB</source>
+        <translation>%1 КиБ</translation>
+    </message>
+    <message>
+        <source>%1 MiB</source>
+        <translation>%1 МиБ</translation>
+    </message>
+    <message>
+        <source>%1 GiB</source>
+        <translation>%1 ГиБ</translation>
     </message>
 </context>
 <context>
@@ -4926,6 +4950,10 @@ Please try again later.</source>
         <source>Расширенный аккаунт GameNet - возможность играть двумя аккаунтами одновременно в игры %1. Мы постоянно добавляем в расширенный аккаунт новые приятные бонусы. &lt;a href=&quot;bonus&quot;&gt;Подробности здесь.&lt;/a&gt;</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Осталось более 2000 дней</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ProgressWidget</name>
@@ -4971,15 +4999,15 @@ Please try again later.</source>
     </message>
     <message>
         <source>%1 KB</source>
-        <translation>%1 КБ</translation>
+        <translation type="vanished">%1 КБ</translation>
     </message>
     <message>
         <source>%1 MB</source>
-        <translation>%1 МБ</translation>
+        <translation type="vanished">%1 МБ</translation>
     </message>
     <message>
         <source>%1 GB</source>
-        <translation>%1 ГБ</translation>
+        <translation type="vanished">%1 ГБ</translation>
     </message>
     <message>
         <source>DOWNLOAD_INFO_CAPTION</source>
@@ -5056,6 +5084,18 @@ Please try again later.</source>
     <message>
         <source>DOWNLOAD_STATUS_TEXT</source>
         <translation>Идет загрузка игры: %1 из %2... </translation>
+    </message>
+    <message>
+        <source>%1 KiB</source>
+        <translation>%1 КиБ</translation>
+    </message>
+    <message>
+        <source>%1 MiB</source>
+        <translation>%1 МиБ</translation>
+    </message>
+    <message>
+        <source>%1 GiB</source>
+        <translation>%1 ГиБ</translation>
     </message>
 </context>
 <context>
