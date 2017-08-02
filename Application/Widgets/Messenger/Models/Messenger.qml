@@ -531,7 +531,7 @@ Item {
         function updateSubscription(user) {
             var subscription = xmppClient.rosterManager.getSubscription(user.jid);
             user.subscription = subscription;
-            user.inContacts = (subscription == QXmppRosterManager.Both);
+            user.inContacts = subscription === QXmppRosterManager.Both;
         }
 
         function rosterReceivedCb() {

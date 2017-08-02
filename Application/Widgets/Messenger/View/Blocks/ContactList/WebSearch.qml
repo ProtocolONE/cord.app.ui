@@ -249,25 +249,9 @@ NavigatableContactList {
                 return user.jid == MessengerJs.userIdToJid(model.gamenetid);
             }
 
-//            function internalIsInContact(m) {
-
-//                console.log (m.gamenetid)
-//                //var j = MessengerJs.userIdToJid(model.gamenetid);
-//                //var j = "400001000002212660@qj.gamenet.ru";
-//                var j = m.gamenetid + "@qj.gamenet.ru";
-//                var users = MessengerJs.users();
-
-//                if (!users.contains(j)) {
-//                    return false;
-//                }
-
-//                console.log (j, users.contains(j));
-//                // UNDON осчтановился тут
-
-//                //var u = MessengerJs.getUser(j);
-//                //return MessengerJs.getUser(j).inContacts
-//                return true//u.inContacts;
-//            }
+            function internalSubscrition(m) {
+                return MessengerJs.getUser(MessengerJs.userIdToJid(m.gamenetid)).subscription || 0;
+            }
 
             width: listView.width
             isHighlighted: listView.currentIndex === index;
@@ -276,9 +260,8 @@ NavigatableContactList {
             nickname: model.nickname || model.gamenetid
             avatar: model.avatar || listView.getDefaultAvatar(index)
             charsText: model.charsText
-
-            isInContacts: MessengerJs.getUser(MessengerJs.userIdToJid(model.gamenetid)).inContacts
-            //isInContacts: internalIsInContact(model)
+            subscrition: internalSubscrition(model)
+            contactSent: model.friendInviteSended
             inviteMaximumLimitSended: model.inviteMaximumLimitSended
             onClicked: {
                 listView.currentIndex = index;
@@ -287,6 +270,7 @@ NavigatableContactList {
 
             onRequestAddToContact: {
                 MessengerJs.addContact(MessengerJs.userIdToJid(model.gamenetid));
+                listViewModel.setProperty(model.index, 'friendInviteSended', true)
                 select();
             }
 

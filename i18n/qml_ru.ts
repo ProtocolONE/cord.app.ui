@@ -6592,6 +6592,10 @@ Please try again later.</source>
         <source>WEB_SEARCH_ADD_CONTACT</source>
         <translation>Добавить в контакты</translation>
     </message>
+    <message>
+        <source>WEB_SEARCH_ADD_CONTACT_SENT</source>
+        <translation>Запрос отправлен</translation>
+    </message>
 </context>
 <context>
     <name>WellcomeGuide</name>

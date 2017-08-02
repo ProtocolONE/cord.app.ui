@@ -3437,5 +3437,10 @@
         <source>WEB_SEARCH_ADD_CONTACT</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml" line="116"/>
+        <source>WEB_SEARCH_ADD_CONTACT_SENT</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

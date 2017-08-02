@@ -15,7 +15,8 @@ Item {
     property bool isActive
     property variant charsList
     property bool isHighlighted: false
-    property bool isInContacts: false
+    property int subscrition: 0
+    property bool contactSent: false
 
     property string nickname
     property string avatar
@@ -25,6 +26,10 @@ Item {
 
     implicitWidth: 78
     height: 57 + textInfoColumn.height
+
+    function isContactSent() {
+        return (root.subscrition == 2 || root.subscrition == 3) || contactSent;
+    }
 
     MouseArea {
         anchors.fill: parent
@@ -105,9 +110,22 @@ Item {
                     text: qsTr("WEB_SEARCH_ADD_CONTACT") // "Добавить в контакты"
                     fontSize: 11
 
-                    visible: !root.isInContacts
+                    visible: !root.isContactSent()
                     font.family: 'Tahoma'
-                    onClicked: root.requestAddToContact();
+                    onClicked: root.requestAddToContact()
+                }
+
+                Text {
+                    width: parent.width - 40
+
+                    text: qsTr("WEB_SEARCH_ADD_CONTACT_SENT") // "Запрос отправлен"
+                    color: Styles.menuText
+                    font {
+                        family: "Tahoma"
+                        pixelSize: 11
+                    }
+
+                    visible: root.isContactSent()
                 }
             }
         }
@@ -138,5 +156,4 @@ Item {
             color: Styles.textBase
         }
     }
-
 }
