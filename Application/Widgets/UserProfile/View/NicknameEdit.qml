@@ -23,14 +23,47 @@ Item {
 
     signal nicknameClicked()
 
-    Text {
-        id: nickText
+    Row {
 
+        spacing: 10
         anchors.fill: parent
-        font { family: "Arial"; pixelSize: 16 }
-        clip: true
-        elide: Text.ElideRight
+
+        Text {
+            id: nickText
+            font { family: "Arial"; pixelSize: 16 }
+            clip: true
+            elide: Text.ElideRight
+        }
+
+        Canvas {
+            id: triangleComponent
+            anchors.verticalCenter: parent.verticalCenter
+
+            // canvas size
+            width: 7
+            height: root.height / 2
+            // handler to override for drawing
+            onPaint: {
+                // get context to draw with
+                var ctx = getContext("2d")
+                // setup the fill
+                ctx.save();
+                ctx.fillStyle = "#FFFFFF"
+                // begin a new path to draw
+                ctx.beginPath()
+                ctx.globalAlpha = 0.25;
+                ctx.moveTo(0, 0)
+                ctx.lineTo(width, 0)
+                ctx.lineTo(width / 2, height)
+                // left line through path closing
+                ctx.closePath()
+                // fill using fill style
+                ctx.fill()
+                ctx.restore()
+            }
+        }
     }
+
 
     CursorMouseArea {
         id: cursorArea

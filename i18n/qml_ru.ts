@@ -3542,7 +3542,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>HEADER_BUTTON_LOGOUT</source>
-        <translation>Выйти</translation>
+        <translation type="vanished">Выйти</translation>
     </message>
     <message>
         <source>LAST_ACTIVITY_PLACEHOLDER</source>
@@ -3566,11 +3566,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>LOGOUT_ALERT_HEADER</source>
-        <translation>Внимание!</translation>
+        <translation type="vanished">Внимание!</translation>
     </message>
     <message>
         <source>LOGOUT_ALERT_BODY</source>
-        <translation>Все запущенные игры будут закрыты. Вы уверены, что хотите выйти?</translation>
+        <translation type="vanished">Все запущенные игры будут закрыты. Вы уверены, что хотите выйти?</translation>
     </message>
     <message>
         <source>AUTHORIZATION_NAVIGATE_LOGIN_ACCOUNT_TEXT</source>
@@ -3587,6 +3587,10 @@ Please try again later.</source>
     <message>
         <source>Награды</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>HEADER_BUTTON_COLLAPSE</source>
+        <translation>Скрыть приложение</translation>
     </message>
 </context>
 <context>
@@ -6535,6 +6539,18 @@ Please try again later.</source>
     <message>
         <source>Мы рекомендуем завершить регистрацию, чтобы не потерять прогресс в играх.</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LOGOUT_ALERT_HEADER</source>
+        <translation type="unfinished">Внимание!</translation>
+    </message>
+    <message>
+        <source>LOGOUT_ALERT_BODY</source>
+        <translation type="unfinished">Все запущенные игры будут закрыты. Вы уверены, что хотите выйти?</translation>
+    </message>
+    <message>
+        <source>USER_PROFILE_CONTEXT_MENU_LOGOUT</source>
+        <translation>Выйти</translation>
     </message>
 </context>
 <context>

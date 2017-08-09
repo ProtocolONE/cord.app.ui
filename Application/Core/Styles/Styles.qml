@@ -40,6 +40,7 @@ Item {
     property string headerLogout: "Assets/Images/Application/Blocks/Header/Logout.png"
     property string headerSettings: "Assets/Images/Application/Blocks/Header/Settings.png"
     property string headerRewards: "Assets/Images/Application/Blocks/Header/Rewards.png"
+    property string headerCollapse: "Assets/Images/Application/Blocks/Header/CollapseIcon.png"
 
     // Images game menu
     property string gameMenuNewsIcon: "Assets/Images/Application/Blocks/GameMenu/News.png"

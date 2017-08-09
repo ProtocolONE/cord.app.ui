@@ -1829,23 +1829,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="194"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="195"/>
+        <source>HEADER_BUTTON_COLLAPSE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Header/Header.qml" line="209"/>
         <source>HEADER_BUTTON_SETTINGS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="208"/>
-        <source>HEADER_BUTTON_LOGOUT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="220"/>
-        <source>LOGOUT_ALERT_HEADER</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="221"/>
-        <source>LOGOUT_ALERT_BODY</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3265,102 +3255,117 @@
 <context>
     <name>UserProfileView</name>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="61"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="77"/>
         <source>USER_PROFILE_CONTEXT_MENU_INFORAMTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="67"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="83"/>
         <source>USER_PROFILE_CONTEXT_MENU_PROFILE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="72"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="88"/>
         <source>USER_PROFILE_CONTEXT_MENU_MONEY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="93"/>
+        <source>USER_PROFILE_CONTEXT_MENU_LOGOUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="114"/>
         <source>Мы рекомендуем завершить регистрацию, чтобы не потерять прогресс в играх.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="150"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="171"/>
         <source>GAMENET_BALANCE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="167"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="188"/>
         <source>PROFILE_MONEY_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="194"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="215"/>
         <source>PROFILE_ADD_MONEY_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="219"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="239"/>
         <source>PROFILE_ADD_MONEY_TULTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="245"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="265"/>
         <source>ADVANCED_ACCOUNT_HINT_IN_DAYS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="247"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="267"/>
         <source>ADVANCED_ACCOUNT_HINT_TODAY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="261"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="281"/>
         <source>PREMIUM_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="262"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="282"/>
         <source>PROFILE_EXTENDED_ACCOUNT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="300"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="320"/>
         <source>YOUR_AVATAR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="334"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="354"/>
         <source>Гость</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="374"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="394"/>
         <source>Завершить регистрацию</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="335"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="355"/>
         <source>NO_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="338"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="59"/>
+        <source>LOGOUT_ALERT_HEADER</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="60"/>
+        <source>LOGOUT_ALERT_BODY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="358"/>
         <source>YOUR_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="340"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="360"/>
         <source>SET_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="406"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="426"/>
         <source>PROFILE_CHOISE_NICKNAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="415"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="435"/>
         <source>PROFILE_CHOISE_NICKNAME_TULTIP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3368,7 +3373,7 @@
 <context>
     <name>Vk</name>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="438"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="458"/>
         <source>PROFILE_CONFIRM_LOGIN</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3376,12 +3381,12 @@
 <context>
     <name>qGNA_Main</name>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="447"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="467"/>
         <source>PROFILE_CONFIRM_LOGIN_TULTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="476"/>
+        <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="496"/>
         <source>PROFILE_LEVEL_TEXT</source>
         <translation type="unfinished"></translation>
     </message>

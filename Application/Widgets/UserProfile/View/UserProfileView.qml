@@ -50,6 +50,22 @@ WidgetView {
             case "money":
                 App.replenishAccount();
                 break;
+            case "logout":
+                if (!App.currentRunningMainService() && !App.currentRunningSecondService()) {
+                        SignalBus.logoutRequest();
+                        return;
+                    }
+
+                    MessageBox.show(qsTr("LOGOUT_ALERT_HEADER"),
+                                    qsTr("LOGOUT_ALERT_BODY"),
+                                    MessageBox.button.ok | MessageBox.button.cancel, function(result) {
+                                        if (result != MessageBox.button.ok) {
+                                            return;
+                                        }
+
+                                        SignalBus.logoutRequest();
+                                    });
+                break;
             }
 
             Ga.trackEvent('UserProfile', 'context menu click', action);
@@ -71,6 +87,11 @@ WidgetView {
                 options.push({
                                  name: qsTr("USER_PROFILE_CONTEXT_MENU_MONEY"),// "Пополнить счет",
                                  action: "money"
+                             });
+
+                options.push({
+                                 name: qsTr("USER_PROFILE_CONTEXT_MENU_LOGOUT"),// "Выйти"
+                                 action: "logout"
                              });
             }
 
@@ -201,7 +222,6 @@ WidgetView {
                             id: iconLink
 
                             anchors {
-                                //verticalCenter: addMonyeText.verticalCenter
                                 bottom: addMonyeText.bottom
                                 left: addMonyeText.right
                                 leftMargin: 3
