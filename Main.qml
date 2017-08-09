@@ -87,6 +87,8 @@ Rectangle {
 
         WidgetManager.registerWidget('Application.Widgets.P2PTransferRequest')
 
+        //WidgetManager.registerWidget('Application.Widgets.AccountLogoutHelper');
+
         if (GoogleAnalyticsHelper.winVersion() > 0x0080) {
             //INFO Available in Vista+
             WidgetManager.registerWidget('Application.Widgets.Themes');
@@ -111,6 +113,16 @@ Rectangle {
 
         onStopped: {
             App.hide();
+            root.opacity = 1;
+        }
+        NumberAnimation { target: root; property: "opacity"; from: 1; to: 0;  duration: 250 }
+    }
+
+    ParallelAnimation {
+        id: collapseAnimation
+
+        onStopped: {
+            App.hideToTaskBar();
             root.opacity = 1;
         }
         NumberAnimation { target: root; property: "opacity"; from: 1; to: 0;  duration: 250 }
@@ -189,6 +201,7 @@ Rectangle {
         target: SignalBus
 
         onHideMainWindow: hideAnimation.start();
+        onCollapseMainWindow: collapseAnimation.start();
 
         onSetGlobalState: {
             globalState.state = name;

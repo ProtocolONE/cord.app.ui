@@ -140,6 +140,10 @@ Item {
         return mainWindowInstance().fileVersion;
     }
 
+    function hideToTaskBar() {
+        mainWindowInstance().hideToTaskBar();
+    }
+
     function hide() {
         mainWindowInstance().hide();
     }

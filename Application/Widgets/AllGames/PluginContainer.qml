@@ -14,6 +14,6 @@ import GameNet.Components.Widgets 1.0
 PluginContainer {
     name: "AllGames"
     view: "AllGamesView"
-	model: "AllGamesModel"
+    model: "AllGamesModel"
     singletonModel: true
 }

@@ -166,6 +166,19 @@
     </message>
 </context>
 <context>
+    <name>AllGamesView</name>
+    <message>
+        <location filename="../Application/Widgets/AllGames/View/AllGamesView.qml" line="223"/>
+        <source>LOGOUT_HELP_MESSAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/AllGames/View/AllGamesView.qml" line="236"/>
+        <source>LOGOUT_HELP_OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AnnouncementsDesignSample</name>
     <message>
         <location filename="../Tests/Application/Widgets/AnnouncementsDesignSample.qml" line="168"/>
@@ -1779,7 +1792,7 @@
     <name>Header</name>
     <message>
         <location filename="../Application/Blocks/Auth/Controls/Header.qml" line="33"/>
-        <location filename="../Application/Blocks/Header/Header.qml" line="180"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="184"/>
         <source>HEADER_BUTTON_CLOSE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1804,37 +1817,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="90"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="94"/>
         <source>PUBLIC_TEST_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="100"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="104"/>
         <source>HEADER_BUTTON_ALL_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="127"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="131"/>
         <source>HEADER_BUTTON_THEMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="140"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="144"/>
         <source>Награды</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="153"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="157"/>
         <source>HEADER_BUTTON_SUPPORT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="195"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="199"/>
         <source>HEADER_BUTTON_COLLAPSE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="209"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="213"/>
         <source>HEADER_BUTTON_SETTINGS</source>
         <translation type="unfinished"></translation>
     </message>

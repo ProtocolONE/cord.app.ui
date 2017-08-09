@@ -18,6 +18,7 @@ import Application.Controls 1.0
 import Application.Blocks.Popup 1.0
 
 import Application.Core 1.0
+import Application.Core.Settings 1.0
 import Application.Core.Styles 1.0
 
 import "Private" as Private
@@ -142,6 +143,115 @@ WidgetView {
             gameListPage.update();
         }
     }
+
+    Item {
+        id: logoutOverlay
+        z: 100
+        anchors.fill: parent
+
+        // Detect firsttime show
+        function isAppSettingsSet() {
+            return AppSettings.value("qGna", "isLogoutHelpShown", 0) == 1;
+        }
+
+        //Set property that we this widget was shown
+        function setAppsettings() {
+            AppSettings.setValue("qGna", "isLogoutHelpShown", 1);
+        }
+
+        visible: !logoutOverlay.isAppSettingsSet()
+
+        Rectangle {
+            anchors.fill: parent
+            opacity: 0.5
+            color: Styles.dark
+        }
+
+        Canvas {
+            id: arrowToNameEdit 
+
+            anchors.fill: parent
+
+            property int fromx : 70 
+            property int fromy : 110 
+            property int tox : 8 
+            property int toy : 80
+
+            onPaint: {
+                // get context to draw with
+                var ctx = getContext("2d")
+                ctx.save();
+                var headlen = 2;
+
+                var angle = Math.atan2(toy-fromy,tox-fromx);
+
+                //starting path of the arrow from the start square to the end square and drawing the stroke
+                ctx.beginPath();
+                ctx.moveTo(fromx, fromy);
+                ctx.lineTo(tox, toy);
+                ctx.strokeStyle = Styles.auxiliaryButtonNormal;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+
+                //starting a new path from the head of the arrow to one of the sides of the point
+                ctx.beginPath();
+                ctx.moveTo(tox, toy);
+                ctx.lineTo(tox-headlen*Math.cos(angle-Math.PI/7),toy-headlen*Math.sin(angle-Math.PI/7));
+
+                //path from the side point of the arrow, to the other side point
+                ctx.lineTo(tox-headlen*Math.cos(angle+Math.PI/7),toy-headlen*Math.sin(angle+Math.PI/7));
+
+                //path from the side point back to the tip of the arrow, and then again to the opposite side point
+                ctx.lineTo(tox, toy);
+                ctx.lineTo(tox-headlen*Math.cos(angle-Math.PI/7),toy-headlen*Math.sin(angle-Math.PI/7));
+
+                //draws the paths created above
+                ctx.strokeStyle = Styles.auxiliaryButtonNormal;
+                ctx.lineWidth = 3;
+                ctx.stroke();
+                ctx.fillStyle = Styles.auxiliaryButtonNormal;
+                ctx.fill();
+                ctx.restore()
+            }
+        }
+
+        Text {
+            x : 70
+            y : 112
+
+            text : qsTr("LOGOUT_HELP_MESSAGE")
+
+            font.pointSize: 10
+            color: Styles.auxiliaryButtonNormal
+        }
+
+        PrimaryButton {
+            x : 70
+            y : 150
+
+            width: 100
+            height : 40
+
+            text: qsTr("LOGOUT_HELP_OK")
+
+            enabled: !logoutOverlay.isAppSettingsSet()
+            onClicked: {
+                logoutOverlay.visible = false
+            }
+        }
+
+        MouseArea {
+            visible: parent.opacity > 0
+            anchors.fill: parent
+            hoverEnabled: true
+            preventStealing: true
+            onClicked : {
+                logoutOverlay.visible = false;
+                logoutOverlay.setAppsettings();
+            }
+        }
+    }
+
 
     ContentBackground {
     }

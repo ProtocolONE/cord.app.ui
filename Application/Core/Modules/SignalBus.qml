@@ -33,6 +33,7 @@ Item {
     signal premiumExpired();
 
     signal hideMainWindow();
+    signal collapseMainWindow();
     signal exitApplication();
 
     signal serviceInstalled(variant gameItem);

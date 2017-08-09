@@ -213,6 +213,17 @@
     </message>
 </context>
 <context>
+    <name>AllGamesView</name>
+    <message>
+        <source>LOGOUT_HELP_OK</source>
+        <translation>Понятно</translation>
+    </message>
+    <message>
+        <source>LOGOUT_HELP_MESSAGE</source>
+        <translation>Выход из аккаунта теперь тут,&lt;br&gt; около никнейма.</translation>
+    </message>
+</context>
+<context>
     <name>Announcements</name>
     <message>
         <source>ANNOUNCE_GAME_INSTALLED_MESSAGE</source>
@@ -6550,7 +6561,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>USER_PROFILE_CONTEXT_MENU_LOGOUT</source>
-        <translation>Выйти</translation>
+        <translation type="unfinished">Выйти из аккаунта</translation>
     </message>
 </context>
 <context>
