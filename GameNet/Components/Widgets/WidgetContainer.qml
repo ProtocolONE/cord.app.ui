@@ -9,6 +9,10 @@
 ****************************************************************************/
 
 import QtQuick 2.4
+
+import GameNet.Core 1.0
+import Application.Core 1.0
+
 import "WidgetManager.js" as WidgetManager
 
 FocusScope {
@@ -18,6 +22,7 @@ FocusScope {
 
     property string widget: ''
     property string view: ''
+    property string page: ''
 
     readonly property alias viewInstance: d.viewObj //@readonly
 
@@ -27,6 +32,10 @@ FocusScope {
 
     implicitWidth: childrenRect.width
     implicitHeight: childrenRect.height
+
+    function sendGoogleAnalalitics(category , action) {
+        Ga.trackEvent(category, action, "", "");
+    }
 
     function clear() {
         if (d.viewObj === root) {
@@ -44,11 +53,12 @@ FocusScope {
         root.view = '';
     }
 
-    function force(widgetName, widgetView) {
+    function force(widgetName, widgetView, widgetPage) {
         if (widgetName !== widget || view !== widgetView ) {
             d.ignoreUpdate = true;
             widget = widgetName;
             view = widgetView;
+            page = widgetPage;
             d.ignoreUpdate = false;
         }
 
@@ -92,6 +102,11 @@ FocusScope {
             d.viewObj = (root.view !== '')
                 ? WidgetManager.createNamedView(root.widget, root.view, root)
                 : WidgetManager.createView(root.widget, root);
+
+            if (root.page !== '') {
+                d.viewObj.navigateTo(root.page);
+            }
+
             root.viewReady();
         }
     }

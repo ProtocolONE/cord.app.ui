@@ -32,14 +32,15 @@ Item {
         root.state = "close";
     }
 
-    function activateWidget(widgetName, widgetView, popupId) {
+    function activateWidget(widgetName, widgetView, popupId, widgetPage) {
         Tooltip.releaseAll();
 
         d.widgetName = widgetName;
         d.widgetView = widgetView;
         d.popupId = popupId;
+        d.widgetPage = widgetPage;
 
-        firstContainer.force(d.widgetName, d.widgetView);
+        firstContainer.force(d.widgetName, d.widgetView, d.widgetPage);
         root.open(d.widgetName, d.widgetView, d.popupId);
     }
 
@@ -47,8 +48,8 @@ Item {
         root.parent = layer;
     }
 
-    function show(widgetName, view, priority) {
-       Js._queue.push({widgetName: widgetName, view: view || '', priority: priority || 0, popupId: ++d._internalPopupId});
+    function show(widgetName, view, priority, wpage) {
+       Js._queue.push({widgetName: widgetName, view: view || '', priority: priority || 0, popupId: ++d._internalPopupId, wpage : wpage || ''});
        Js._queue.sort(function(a, b){
             if (a.priority < b.priority) {
                 return 1;
@@ -74,7 +75,7 @@ Item {
 
         var _currentWidget = Js._queue.shift();
 
-        root.activateWidget(_currentWidget.widgetName, _currentWidget.view, _currentWidget.popupId);
+        root.activateWidget(_currentWidget.widgetName, _currentWidget.view, _currentWidget.popupId, _currentWidget.wpage);
     }
 
     function isPopupOpen() {
@@ -98,6 +99,8 @@ Item {
 
         property variant widgetName
         property variant widgetView
+        property variant widgetPage
+
         property int popupId
 
         function privateClose() {
@@ -203,6 +206,8 @@ Item {
             viewInstance.close.connect(function() {
                 root.close(d.popupId);
             });
+
+            firstContainer.sendGoogleAnalalitics(firstContainer.view, "show");            
         }
     }
 

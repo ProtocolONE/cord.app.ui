@@ -75,6 +75,10 @@ PopupBase {
         Marketing.send(Marketing.ApplicationSettingsChanged, "0", params);
     }
 
+    function navigateTo(pageName) {
+        root.state = pageName;
+    }
+
     defaultMargins: 44
     title: qsTr("APPLICATION_SETTINGS_TITLE")
     width: 900

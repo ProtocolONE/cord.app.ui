@@ -1454,39 +1454,55 @@
 <context>
     <name>GameLoadView</name>
     <message>
-        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="40"/>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="41"/>
         <source>GAME_LOAD_VIEW_HEADER_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="107"/>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="96"/>
+        <source>DOWNLOAD_INFO_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="102"/>
+        <source>DOWNLOAD_INFO_CHANGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="145"/>
         <source>GAME_LOAD_PAUSE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="107"/>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="145"/>
         <source>GAME_LOAD_CONTINUE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="116"/>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="154"/>
         <source>Отменить</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="120"/>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="158"/>
         <source>Отмена загрузки игры %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="121"/>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="159"/>
         <source>Вы уверены, что хотите отменить загрузку игры?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="141"/>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="179"/>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="235"/>
         <source>SHOW_STATISTICS</source>
         <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameLoad/View/GameLoadView.qml" line="242"/>
+        <source>HIDE_STATISTICS</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

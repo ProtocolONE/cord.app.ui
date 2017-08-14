@@ -79,7 +79,6 @@ Item {
         return AppSettings.value("gameExecutor/serviceInfo/" + serviceId + "/", "lastExecutionTime", "");
     }
 
-
     Loader {
         id: wrapper
 

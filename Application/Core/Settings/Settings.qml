@@ -32,10 +32,32 @@ Item {
     }
 
     function appSettingsValue(path, key, defaultValue) {
-        return  root.value(root.defaultNamespace + path, key, defaultValue|0);
+        return root.value(root.defaultNamespace + path, key, defaultValue|0);
     }
 
     function setAppSettingsValue(path, key, defaultValue) {
         return root.setValue(root.defaultNamespace + path, key, defaultValue);
     }
+
+    function hostSettingsValue(path, key, defaultValue) {
+        return Settings.valueHost(root.defaultNamespace + path, key, defaultValue|0);
+    }
+
+    function setRemoteValue(path, key, value) {
+        if (!path || !key) {
+            console.log('Settings failed', path, key);
+        }
+
+        wrapper.item.setValue(root.defaultNamespace + path, key, value);
+    }
+
+    function remoteVaule(path, key, defaultValue) {
+        return wrapper.item.value(root.defaultNamespace + path, key, defaultValue|0);
+    }
+
+    Loader {
+        id: wrapper
+
+        source: "./RemoteSettingsPrivare.qml"
+    }    
 }

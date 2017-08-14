@@ -12,9 +12,11 @@ import GameNet.Core 1.0
 import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 import Application.Blocks.Popup 1.0
+import Application.Core.Popup 1.0
 import Application.Controls 1.0
 import Application.Core 1.0
 import Application.Core.MessageBox 1.0
+import Application.Core.Settings 1.0
 
 PopupBase {
     id: root
@@ -71,6 +73,71 @@ PopupBase {
         Column {
             width: parent.width
             spacing: 10
+
+            Item {
+                id: downloadInfoBlock
+                property string abTest
+                property bool showFlag
+
+                function checkParamSet() {
+                    downloadInfoBlock.showFlag = false;
+                    downloadInfoBlock.abTest = AppSettings.remoteVaule("ABTestGroup", "QGNA1681", "error");
+                }
+
+                function needShow() {
+                    downloadInfoBlock.checkParamSet();
+                    if (downloadInfoBlock.abTest !== "error") {
+                        downloadInfoBlock.showFlag = downloadInfoBlock.abTest === "A" ? true : false;
+                    }
+                    return downloadInfoBlock.showFlag;
+                }
+
+                width: parent.width
+                height: 100
+
+                // A === 1
+                // B === 0
+
+                // A - show info block
+                // B - as usual
+
+                visible: downloadInfoBlock.needShow()
+
+                Row {
+                    spacing: 10
+
+                    Image {
+                        source: installPath +'Assets/Images/Application/Widgets/AlertAdapter/info.png'
+                    }
+
+                    Column {
+                        spacing: 20
+
+                        Text {
+                            font {family: "Arial"; pixelSize: 14}
+                            smooth: true
+                            color: defaultTextColor
+                            text: qsTr("DOWNLOAD_INFO_TEXT")
+                        }
+
+                        TextButton {
+                            id: netSettingsChange
+
+                            text: qsTr("DOWNLOAD_INFO_CHANGE")
+                            fontSize: 14
+                            onClicked: {
+                                Popup.show('ApplicationSettings', '', 0, 'DownloadsPage');
+                                Popup.refresh();
+                            }
+
+                            analytics {
+                                category: 'GameLoad'
+                                action: 'NetworkSettingsOn'
+                            }
+                        }
+                    }
+                }
+            }
 
             Text {
                 font {family: "Arial"; pixelSize: 14}
@@ -145,7 +212,16 @@ PopupBase {
                 action: 'details'
                 label: root.gameItem ? root.gameItem.gaName : ""
             }
-            onClicked: stateGroup.state = "Detailed";
+
+            onClicked: {
+
+                if (stateGroup.state === "Detailed") {
+                    stateGroup.state = "Normal";
+                } else {
+                    stateGroup.state = "Detailed";
+                }
+                
+            }
         }
 
         ProgressWidget {
@@ -183,14 +259,16 @@ PopupBase {
             State {
                 name: "Normal"
                 when: stateGroup.state == "Normal" || root.visible == false
+                PropertyChanges { target: downloadInfoBlock; visible: downloadInfoBlock.showFlag ? true : false }
                 PropertyChanges { target: progressWidget; visible: false }
-                PropertyChanges { target: showStatButton; visible: true }
+                PropertyChanges { target: showStatButton; text: qsTr("SHOW_STATISTICS") }
             },
             State {
                 name: "Detailed"
                 when: stateGroup.state == "Detailed"
+                PropertyChanges { target: downloadInfoBlock; visible: false }
                 PropertyChanges { target: progressWidget; visible: true }
-                PropertyChanges { target: showStatButton; visible: false }
+                PropertyChanges { target: showStatButton; text: qsTr("HIDE_STATISTICS") }
             }
         ]
     }

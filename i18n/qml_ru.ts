@@ -2723,6 +2723,18 @@ Please try again later.</source>
         <source>Вы уверены, что хотите отменить загрузку игры?</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>DOWNLOAD_INFO_TEXT</source>
+        <translation>Если во время загрузки игры у вас возникли проблемы со скоростью интернета, &lt;br&gt; попробуйте изменить настройки скачивания.</translation>
+    </message>
+    <message>
+        <source>DOWNLOAD_INFO_CHANGE</source>
+        <translation>Изменить настройки скачивания</translation>
+    </message>
+    <message>
+        <source>HIDE_STATISTICS</source>
+        <translation type="unfinished">Скрыть статистику</translation>
+    </message>
 </context>
 <context>
     <name>GameNetNotification</name>
