@@ -19,6 +19,8 @@ ImageButton {
 
     property variant gameItem
 
+    clip: true
+
     styleImages: ButtonStyleImages {
         normal: root.gameItem ? root.gameItem.imageHorizontalSmall : ""
         hover: root.gameItem ? root.gameItem.imageHorizontalSmall : ""
@@ -26,24 +28,30 @@ ImageButton {
     }
 
     Item {
-        height: 30
-        width: parent.width
-        anchors {
-            bottom: parent.bottom
-        }
         visible: containsMouse
+        width: parent.width
+        height: caption.height + 8
+        anchors.bottom: parent.bottom
 
         Rectangle {
-            opacity: 0.3
+            opacity: 0.5
             color: "#092135"
             anchors.fill: parent
         }
 
         Text {
+            id: caption
+
+            y: 4
             opacity: 0.8
             color: "#fafafa"
             font { family: "Arial"; pixelSize: 14 }
-            anchors.centerIn: parent
+
+            width: parent.width
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            wrapMode: Text.WordWrap
+
             text: root.gameItem ? qsTr("PROPOSAL_BUTTON_TEXT").arg(root.gameItem.name) : ""
         }
     }

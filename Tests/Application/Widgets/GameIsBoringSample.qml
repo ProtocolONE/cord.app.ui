@@ -25,18 +25,17 @@ Rectangle {
     // Initialization
     Component.onCompleted: {
         Popup.init(popupLayer);
+
+        WidgetManager.registerWidget('Application.Widgets.GameIsBoring');
+        WidgetManager.init();
     }
 
-    WidgetManager {
-        id: manager
-
-        Component.onCompleted: {
-            manager.registerWidget('Application.Widgets.GameIsBoring');
-            manager.init();
-
-            App.activateGame(App.serviceItemByGameId("92"));
+    RequestServices {
+            onReady: {
+                var model = WidgetManager.getWidgetByName("GameIsBoring").model
+                model.lastStoppedServiceId = "610000000000"
+            }
         }
-    }
 
     Item {
         id: baseLayer
