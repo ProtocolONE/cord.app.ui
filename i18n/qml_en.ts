@@ -168,12 +168,12 @@
 <context>
     <name>AllGamesView</name>
     <message>
-        <location filename="../Application/Widgets/AllGames/View/AllGamesView.qml" line="223"/>
+        <location filename="../Application/Widgets/AllGames/View/AllGamesView.qml" line="222"/>
         <source>LOGOUT_HELP_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/AllGames/View/AllGamesView.qml" line="236"/>
+        <location filename="../Application/Widgets/AllGames/View/AllGamesView.qml" line="235"/>
         <source>LOGOUT_HELP_OK</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1792,7 +1792,7 @@
     <name>Header</name>
     <message>
         <location filename="../Application/Blocks/Auth/Controls/Header.qml" line="33"/>
-        <location filename="../Application/Blocks/Header/Header.qml" line="184"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="180"/>
         <source>HEADER_BUTTON_CLOSE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1817,37 +1817,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="94"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="90"/>
         <source>PUBLIC_TEST_TOOLTIP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="104"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="100"/>
         <source>HEADER_BUTTON_ALL_GAMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="131"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="127"/>
         <source>HEADER_BUTTON_THEMES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="144"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="140"/>
         <source>Награды</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="157"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="153"/>
         <source>HEADER_BUTTON_SUPPORT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="199"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="195"/>
         <source>HEADER_BUTTON_COLLAPSE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Header/Header.qml" line="213"/>
+        <location filename="../Application/Blocks/Header/Header.qml" line="209"/>
         <source>HEADER_BUTTON_SETTINGS</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2311,7 +2311,7 @@
     </message>
     <message>
         <location filename="../Application/Widgets/P2PTransferRequest/View/P2PTransferRequestView.qml" line="157"/>
-        <source>Предлагаем вам перенести своих персонажей с Премиум-сервера и присоединиться к боевым товарищам на Эллиане. Перенос осуществляется на весьма выгодных и практичных условиях, которые мы, собственно, и приводим для ознакомления ниже. Если вы согласны с ними, нажмите &quot;Принять&quot;, и мы примем вашу заявку не перенос.</source>
+        <source>Предлагаем вам перенести своих персонажей с Премиум-сервера и присоединиться к боевым товарищам на Эллиане. Перенос осуществляется на весьма выгодных и практичных условиях, которые мы, собственно, и приводим для ознакомления ниже. Если вы согласны с ними, нажмите &quot;Принять&quot;, и мы примем вашу заявку на перенос.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3451,12 +3451,12 @@
 <context>
     <name>WebSearchContact</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml" line="105"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml" line="110"/>
         <source>WEB_SEARCH_ADD_CONTACT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml" line="116"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml" line="121"/>
         <source>WEB_SEARCH_ADD_CONTACT_SENT</source>
         <translation type="unfinished"></translation>
     </message>
