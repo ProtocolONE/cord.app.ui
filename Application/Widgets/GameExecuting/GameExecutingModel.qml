@@ -36,14 +36,14 @@ WidgetModel {
         executeServiceDelay.serviceId = serviceId;
 
         // INFO QGNA-1684 Включили 02.08.2017, выключить 16.08.2017
-        if (serviceId === "30000000000") {
-            var model = WidgetManager.getWidgetByName('P2PTransferRequest').model;
-            if (model) {
-                p2pTransferRequestConnection.target = model;
-                model.checkTransfer(serviceId);
-                return;
-            }
-        }
+//        if (serviceId === "30000000000") {
+//            var model = WidgetManager.getWidgetByName('P2PTransferRequest').model;
+//            if (model) {
+//                p2pTransferRequestConnection.target = model;
+//                model.checkTransfer(serviceId);
+//                return;
+//            }
+//        }
 
         if (gameItem.checkNicknameBeforeStart && !User.isNicknameValid()) {
             root.internalPopupId = Popup.show('NicknameEdit');
