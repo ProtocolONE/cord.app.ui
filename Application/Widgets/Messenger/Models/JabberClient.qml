@@ -193,6 +193,10 @@ QXmppClient {
         }
     }
 
+    function resetVcardCache(jid) {
+        delete Js.vcardQueue[jid];
+    }
+
     onDisconnected: {
         console.log('onDisconnected from jabber');
         Js.vcardQueue = {};

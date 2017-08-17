@@ -21,6 +21,7 @@ PopupBase {
             downloadSettingsPage.load();
             notificationSettingsPage.load();
             messengerSettingsPage.load();
+            blacklistPage.load();
         } catch (e) {
             console.log(e)
         }
@@ -34,6 +35,7 @@ PopupBase {
         downloadSettingsPage.reset();
         notificationSettingsPage.reset();
         messengerSettingsPage.reset();
+        blacklistPage.reset();
     }
 
     function save() {
@@ -42,6 +44,7 @@ PopupBase {
             downloadSettingsPage.save();
             notificationSettingsPage.save();
             messengerSettingsPage.save();
+            blacklistPage.save();
         } catch (e) {
             console.log(e);
         }
@@ -139,6 +142,16 @@ PopupBase {
                     onClicked: root.state = "MessengerPage";
                 }
 
+                SettingsTextButton {
+                    checked: root.state === "BlacklistPage"
+                    text: qsTr("Черный список")
+                    analytics {
+                        category: 'ApplicationSettings'
+                        action: 'Switch to BlacklistPage'
+                    }
+                    onClicked: root.state = "BlacklistPage";
+                }
+
             }
         }
 
@@ -175,6 +188,12 @@ PopupBase {
 
                 MessengerSettings {
                     id: messengerSettingsPage
+
+                    anchors.fill: parent
+                }
+
+                Blacklist {
+                    id: blacklistPage
 
                     anchors.fill: parent
                 }
@@ -256,6 +275,14 @@ PopupBase {
             StateChangeScript {
                 script: {
                     pageSwitcher.switchTo(messengerSettingsPage);
+                }
+            }
+        },
+        State {
+            name: "BlacklistPage"
+            StateChangeScript {
+                script: {
+                    pageSwitcher.switchTo(blacklistPage);
                 }
             }
         }

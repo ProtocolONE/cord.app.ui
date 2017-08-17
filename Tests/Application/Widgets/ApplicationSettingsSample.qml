@@ -13,6 +13,7 @@ import Tulip 1.0
 import Application 1.0
 import Dev 1.0
 
+import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 import GameNet.Controls 1.0
 
@@ -34,14 +35,14 @@ Rectangle {
         MessageBox.init(messageboxLayer);
     }
 
-//    RequestServices {
-//        onReady: {
-//            var serviceItem = App.serviceItemByGameId("71");
-//            serviceItem.statusText = "Sample text";
+    RequestServices {
+        onReady: {
+            var serviceItem = App.serviceItemByGameId("71");
+            serviceItem.statusText = "Sample text";
 
-//            App.activateGame(serviceItem);
-//        }
-//    }
+            App.activateGame(serviceItem);
+        }
+    }
 
     Item {
         id: manager
@@ -66,18 +67,26 @@ Rectangle {
         }
     }
 
-    Item {
+    Flow {
         id: baseLayer
 
         anchors.fill: parent
+        anchors.margins: 20
+        spacing: 20
 
         Button {
-            x: 10
-            y: 98
-            width: 160
-            height: 36
             text: 'Настройки Приложения'
             onClicked: Popup.show('ApplicationSettings');
+        }
+
+        Button {
+            text: "getIgnoreList"
+            onClicked: {
+
+                RestApi.User.getIgnoreList(function(res) {
+                    console.log('IgnoreList ', JSON.stringify(res, null, 2))
+                });
+            }
         }
    }
 

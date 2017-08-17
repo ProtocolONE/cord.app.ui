@@ -124,13 +124,6 @@ function userPlayingGame(user) {
 
 function userPresenceState(user) {
     return _modelInstance.userPresenceState(user.jid);
-
-//    var data = getUser(user.jid);
-//    if (!data.isValid()) {
-//        return;
-//    }
-
-//    return data.presenceState;
 }
 
 function isSelectedUser(user) {
@@ -281,4 +274,17 @@ function removeContact(user) {
 function isGameNetMember(user) {
     return _modelInstance.isGameNetMember(user);
 }
+
+function isUserBlocked(user) {
+    return _modelInstance.isUserBlocked(user);
+}
+
+function blockUser(user) {
+    _modelInstance.blockUser(user);
+}
+
+function unblockUser(user) {
+    _modelInstance.unblockUser(user);
+}
+
 

@@ -16,10 +16,11 @@ import GameNet.Controls 1.0
 
 import Dev 1.0
 
-import Application.Controls 1.0
 import Application.Core 1.0
+import Application.Controls 1.0
 import Application.Core.Styles 1.0
 import Application.Core.MessageBox 1.0
+import Application.Core.Popup 1.0
 
 import "../../../Application/Widgets/Messenger/Models/Messenger.js" as MessengerJs
 
@@ -51,6 +52,7 @@ Rectangle {
         root.initEmojiOne();
         ContextMenu.init(contextMenuLayer);
         Tooltip.init(tooltipLayer);
+        Popup.init(popupLayer);
         Moment.moment.lang('ru');
 
         MessageBox.init(messageLayer);
@@ -61,6 +63,16 @@ Rectangle {
         WidgetManager.registerWidget('Application.Widgets.Messenger');
         WidgetManager.registerWidget('Application.Widgets.DetailedUserInfo');
         WidgetManager.registerWidget('Application.Widgets.AlertAdapter');
+
+
+        WidgetManager.registerWidget('Application.Widgets.ApplicationSettings');
+        WidgetManager.registerWidget('Application.Widgets.AutoMinimize');
+        WidgetManager.registerWidget('Application.Widgets.AlertAdapter');
+        WidgetManager.registerWidget('Application.Widgets.Announcements');
+        WidgetManager.registerWidget('Application.Widgets.DownloadManagerConnector');
+        WidgetManager.registerWidget('Application.Widgets.PremiumNotifier');
+        WidgetManager.registerWidget('Application.Widgets.Overlay');
+
         WidgetManager.init();
 
         //MessengerJs.selectUser({ jid:  "qwe" })
@@ -298,6 +310,60 @@ Rectangle {
                         onClicked: startAuth();
                     }
 
+                    Button {
+                        height: 30
+                        text: 'Get blacklist'
+                        onClicked: {
+                            MessengerJs.instance().getJabberClient().blacklistManager.requestList();
+                            //400001000001709310@qj.gamenet.ru
+                        }
+                    }
+
+
+                    Button {
+                        height: 30
+                        text: 'Add to blacklist'
+                        onClicked: {
+
+                            MessengerJs.instance().getJabberClient().blacklistManager.blockUser('400001000001709310@qj.gamenet.ru');
+                            //400001000001709310@qj.gamenet.ru
+                        }
+                    }
+
+                    Button {
+                        height: 30
+                        text: 'Remove from blacklist'
+                        onClicked: {
+                            MessengerJs.instance().getJabberClient().blacklistManager.unblockUser('400001000001709310@qj.gamenet.ru');
+                            //400001000001709310@qj.gamenet.ru
+                        }
+                    }
+
+                    Button {
+                        height: 30
+                        text: 'Настройки Приложения'
+                        onClicked: Popup.show('ApplicationSettings');
+                    }
+
+                    Connections {
+                        target: MessengerJs.instance().getJabberClient().blacklistManager
+                        ignoreUnknownSignals: true
+
+                        onBlacklistReceived: {
+                            console.log('onBlocklistReceived');
+                            console.log(JSON.stringify(blacklist, null, 2));
+                        }
+
+                        onBlocked: {
+                            console.log('onBlocked');
+                            console.log(jid);
+                        }
+
+                        onUnblocked: {
+                            console.log('onUnblocked');
+                            console.log(jid);
+                        }
+                    }
                 }
             }
 
@@ -347,6 +413,13 @@ Rectangle {
     }
 
     Item {
+        id: popupLayer
+
+        anchors.fill: parent
+        z: 2
+    }
+
+    Item {
         id: contextMenuLayer
 
         anchors.fill: parent
@@ -363,5 +436,52 @@ Rectangle {
 
         anchors.fill: parent
     }
+
+//    Item {
+//        x: 200
+//        y: 200
+
+//        Rectangle {
+//            id: rect
+
+//            anchors.centerIn: parent
+
+//            width: 20
+//            height: width
+//            radius: width/2
+//            color: "yellow"
+
+//            ParallelAnimation {
+//                running: true
+//                loops: Animation.Infinite
+
+//                SequentialAnimation {
+//                    ColorAnimation { target: rect; property: "color"; to: "black"; duration: 1000 }
+//                    ColorAnimation { target: rect; property: "color"; to: "yellow"; duration: 1000 }
+//                }
+
+
+//                SequentialAnimation {
+//                    NumberAnimation {
+//                        target: rect
+//                        property: "width"
+//                        duration: 990
+//                        to: 4
+//                        easing.type: Easing.InOutBack
+//                    }
+
+//                    NumberAnimation {
+//                        target: rect
+//                        property: "width"
+//                        duration: 1000
+//                        to: 20
+//                        easing.type: Easing.InOutQuad
+//                    }
+//                }
+
+//            }
+
+//        }
+//    }
 
 }

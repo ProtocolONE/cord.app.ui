@@ -151,8 +151,10 @@ Module {
                 "ThettaSendInfoFail": 2756,
                 "ServiceUninstalledFromOS": 2762,
                 "ServiceUninstalledFromUI": 2763,
+                "ThettaWinKernelInfo": 2794,
                 "ThettaPatternFound": 2766,
-                "ApplicationSettingsChanged": 2768
+                "ApplicationSettingsChanged": 2768,
+                "FirstStartDownloadService": 2795
             }
         }
         Enum {
@@ -639,10 +641,6 @@ Module {
             name: "sslKeyChanged"
             Parameter { name: "key"; type: "string" }
         }
-        Method {
-            name: "updateSsl"
-            Parameter { name: "obj"; type: "QObject"; isPointer: true }
-        }
     }
     Component {
         name: "StandardPaths"
@@ -729,10 +727,6 @@ Module {
         Method { name: "removeAllTasks" }
         Method { name: "removeAll" }
         Method { name: "apply" }
-        Method {
-            name: "setJumpList"
-            Parameter { name: "value"; type: "QVariantList" }
-        }
     }
     Component {
         name: "TextDocumentHelper"

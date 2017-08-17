@@ -651,7 +651,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.157.f8224667bbd25aa8ffc98b0329b25fd0f9e1f6f2",
+    version: "1.0.158.181c52107fded0461dc8f8787c2a75b40a54cfa2",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',
@@ -953,6 +953,19 @@ User.getChars = function(userId, successCallback, failedCallback) {
 
 User.getCharsByGame = function(userId, gameId, successCallback, failedCallback) {
     Core.execute('user.getChars', { targetId: userId, gameId: gameId }, true, successCallback, failedCallback);
+};
+
+User.getIgnoreList = function(successCallback, failedCallback) {
+    Core.execute('user.getIgnoreList', { }, true, successCallback, failedCallback);
+};
+
+// target - Идентификатор, никнейм или ссылка на профиль игнорируемого пользователя
+User.addToIgnoreList = function(target, successCallback, failedCallback) {
+    Core.execute('user.addToIgnoreList', { target: target }, true, successCallback, failedCallback);
+};
+
+User.removeFromIgnoreList = function(targetId, successCallback, failedCallback) {
+    Core.execute('user.removeFromIgnoreList', { targetId: targetId }, true, successCallback, failedCallback);
 };
 var Virality = function() {
 };

@@ -41,6 +41,10 @@ Item {
         d.clearModel();
     }
 
+    function update() {
+        d.updateModel();
+    }
+
     QtObject {
         id: d
 
@@ -122,6 +126,10 @@ Item {
 
                 lastTalkDate = modelUser.lastTalkDate || 0;
                 if (lastTalkDate == 0 || UserJs.isGameNet(modelUser)) {
+                    continue;
+                }
+
+                if (messenger.isUserBlocked(modelUser)) {
                     continue;
                 }
 

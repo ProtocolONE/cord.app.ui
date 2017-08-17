@@ -5,10 +5,10 @@
 
 @set CoreArea=trunk
 @set SettingsArea=trunk
-@set GameNetQxmppArea=0.8.5
+@set GameNetQxmppArea=0.9.4
 @set OverlayArea=trunk
 @set QmlExtensionArea=trunk
-@set QxmppDeclarativeArea=1.1.4
+@set QxmppDeclarativeArea=1.4.0
 
 @rem @set plugindump=%QTDIR%\bin\qml1plugindump
 @set plugindump=%QTDIR%\bin\qmlplugindump.exe

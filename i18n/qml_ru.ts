@@ -377,6 +377,10 @@
         <source>SAVE_BUTTON_LABEL</source>
         <translation>Сохранить настройки</translation>
     </message>
+    <message>
+        <source>Черный список</source>
+        <translation type="unfinished">Черный список</translation>
+    </message>
 </context>
 <context>
     <name>Auth</name>
@@ -1089,6 +1093,27 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>Blacklist</name>
+    <message>
+        <source>Черный список</source>
+        <translation>Черный список</translation>
+    </message>
+    <message>
+        <source>Удалить пользователя из черного списка</source>
+        <translation>Удалить пользователя из черного списка</translation>
+    </message>
+    <message>
+        <source>BLOCK_USER_QUESTION_CAPTION</source>
+        <translation>%1</translation>
+    </message>
+    <message>
+        <source>BLOCK_USER_QUESTION_TEXT</source>
+        <translation>Вы действительно хотите блокировать %1? Блокированные пользователя не смогут связаться в вами и не будут показываться в вашем списке контакнтов. 
+
+ Разблокировать пользователя можно в подразделе &quot;Чат&quot; настроек приложения.</translation>
+    </message>
+</context>
+<context>
     <name>Body</name>
     <message>
         <source>CHAT_HISTORY_BODY_TODAY_TEXT</source>
@@ -1628,6 +1653,14 @@ Please try again later.</source>
     </message>
     <message>
         <source>Подарить расширенный аккаунт</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Заблокировать</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Разаблокировать</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

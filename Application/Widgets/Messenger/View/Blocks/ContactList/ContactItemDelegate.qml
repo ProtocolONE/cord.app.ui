@@ -12,6 +12,7 @@ import QtQuick 2.4
 
 import GameNet.Core 1.0
 import GameNet.Controls 1.0
+
 import Application.Controls 1.0
 import Application.Core 1.0
 import Application.Core.MessageBox 1.0
@@ -173,6 +174,12 @@ Item {
             case "giftExtendedAccount":
                 App.openProfile(Messenger.jidToUser(user.jid), 'gift');
                 break;
+            case "blockContact":
+                d.blockContact(user);
+                break;
+            case "unblockContact":
+                d.unblockContact(user);
+                break;
             }
 
             ContextMenu.hide();
@@ -234,6 +241,14 @@ Item {
 
         function rename(user) {
             d.startEditNickname(user.jid);
+        }
+
+        function blockContact(user) {
+            Messenger.blockUser(user);
+        }
+
+        function unblockContact(user) {
+            Messenger.unblockUser(user);
         }
 
         function dump(user) {
@@ -567,6 +582,18 @@ Item {
                         options.push({
                                          name: qsTr("CONTACT_CONTEXT_MENU_ADD_CONTACT"),// "Добавить в контакт",
                                          action: "addContact"
+                                     });
+                    }
+
+                    if (Messenger.isUserBlocked(item)) {
+                        options.push({
+                                         name: qsTr("Разблокировать"),
+                                         action: "unblockContact"
+                                     });
+                    } else {
+                        options.push({
+                                         name: qsTr("Заблокировать"),
+                                         action: "blockContact"
                                      });
                     }
 

@@ -234,37 +234,42 @@
 <context>
     <name>ApplicationSettingsView</name>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="76"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="79"/>
         <source>APPLICATION_SETTINGS_TITLE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="104"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="107"/>
         <source>GENERAL_TAB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="114"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="117"/>
         <source>DOWNLOADS_TAB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="124"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="127"/>
         <source>NOTIFICATIONS_TAB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="134"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="137"/>
         <source>MESSENGER_TAB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="200"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="147"/>
+        <source>Черный список</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="219"/>
         <source>RESTORE_SETTINGS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="221"/>
+        <location filename="../Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml" line="240"/>
         <source>SAVE_BUTTON_LABEL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -516,6 +521,29 @@
     </message>
 </context>
 <context>
+    <name>Blacklist</name>
+    <message>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/Blacklist.qml" line="93"/>
+        <source>Черный список</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/ApplicationSettings/View/Pages/Blacklist.qml" line="153"/>
+        <source>Удалить пользователя из черного списка</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/Plugins/Blacklist/Blacklist.qml" line="134"/>
+        <source>BLOCK_USER_QUESTION_CAPTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/Plugins/Blacklist/Blacklist.qml" line="135"/>
+        <source>BLOCK_USER_QUESTION_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Body</name>
     <message>
         <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="143"/>
@@ -677,49 +705,59 @@
 <context>
     <name>ContactItemDelegate</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="194"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="201"/>
         <source>MESSENGER_DESTROY_ROOM_ALERT_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="195"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="202"/>
         <source>MESSENGER_DESTROY_ROOM_ALERT_BODY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="522"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="537"/>
         <source>CONTACT_CONTEXT_MENU_DESTROY_ROOM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="527"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="542"/>
         <source>CONTACT_CONTEXT_MENU_LEAVE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="532"/>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="558"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="547"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="573"/>
         <source>CONTACT_CONTEXT_MENU_RENAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="547"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="562"/>
         <source>CONTACT_CONTEXT_MENU_INFORAMTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="552"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="567"/>
         <source>Подарить расширенный аккаунт</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="563"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="578"/>
         <source>CONTACT_CONTEXT_MENU_DELETE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="568"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="583"/>
         <source>CONTACT_CONTEXT_MENU_ADD_CONTACT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="590"/>
+        <source>Разаблокировать</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="595"/>
+        <source>Заблокировать</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2048,17 +2086,17 @@
 <context>
     <name>Messenger</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="343"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="345"/>
         <source>MESSENGER_CONTACT_ITEM_PLAYING_STATUS_INFO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="356"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="358"/>
         <source>LAST_ACTIVITY_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="586"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="612"/>
         <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
         <translation></translation>
     </message>

@@ -25,6 +25,7 @@ function createRawUser(jid, nickname) {
         nickname: "",
         vcardNickname: "",
         rosterNickname: nickname,
+        externalNickname: "",
         unreadMessageCount: 0,
         statusMessage: "",
         presenceState: "",
@@ -50,6 +51,7 @@ function createRawGroupChat(roomJid, nickname) {
         nickname: "",
         vcardNickname: "",
         rosterNickname: nickname,
+        externalNickname: "",
         unreadMessageCount: 0,
         statusMessage: "",
         presenceState: "",
@@ -140,6 +142,7 @@ function User(item, model, jabber) {
     defGetSet("subscription");
     defGetSet("vcardNickname");
     defGetSet("rosterNickname");
+    defGetSet("externalNickname");
 
     this.__defineGetter__("online", function() {
         return isOnline(self.presenceState);
@@ -233,6 +236,7 @@ function GroupChat(item, model, jabber) {
     defGetSet("inContacts");
     defGetSet("vcardNickname");
     defGetSet("rosterNickname");
+    defGetSet("externalNickname");
 
     this.__defineGetter__("online", function() {
         return isOnline(self.presenceState);

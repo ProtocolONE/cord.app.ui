@@ -189,7 +189,7 @@ Item {
 
         Item {
             width: 10
-            height: 10
+            height: 5
         }
 
         SettingsCaption {
@@ -227,4 +227,5 @@ Item {
             onClicked: d.currentSendOption = optionValue;
         }
     }
+
 }

@@ -40,6 +40,7 @@ import "../Plugins/Logger/Logger.js" as LoggerPlugin
 
 import Application.Widgets.Messenger.Models.Managers 1.0
 import Application.Widgets.Messenger.Plugins.Subscription 1.0
+import Application.Widgets.Messenger.Plugins.Blacklist 1.0
 
 import "../Plugins/MessageUrlHandler"
 
@@ -130,6 +131,7 @@ Item {
         RoomParticipants.init(xmppClient, root);
         ChatCommands.init(xmppClient);
         Subscription.init(xmppClient, root, d);
+        Blacklist.init(xmppClient, root);
 
         AccountManager.init(root, xmppClient, usersModel, {
             defaultAvatarPath: installPath + "/Assets/Images/Application/Widgets/Messenger/"
@@ -376,7 +378,7 @@ Item {
             return;
         }
 
-        if (!usersModel.contains(options.jid)) {
+        if (!usersModel.contains(options.jid) || !!options.nickname) {
             d.appendUser(options.jid, options.nickname);
         }
 
@@ -513,6 +515,30 @@ Item {
         return !!data.isGameNetMember;
     }
 
+    function isUserBlocked(user) {
+        if (!user || !user.jid) {
+            return false;
+        }
+
+        return Blacklist.isUserBlocked(user.jid);
+    }
+
+    function blockUser(user) {
+        if (!user || !user.jid) {
+            return;
+        }
+
+        Blacklist.blockUser(user);
+    }
+
+    function unblockUser(user) {
+        if (!user || !user.jid) {
+            return;
+        }
+
+        Blacklist.unblockUser(user);
+    }
+
     onHistorySaveIntervalChanged: {
         ConversationManager.setHistorySaveInterval(historySaveInterval);
     }
@@ -602,7 +628,8 @@ Item {
             nickname = xmppClient.rosterManager.getNickname(fullJid) || externalNickName;
             groups = xmppClient.rosterManager.getGroups(fullJid);
 
-            nickname = xmppClient.rosterManager.getNickname(fullJid) || externalNickName;
+            nickname = xmppClient.rosterManager.getNickname(fullJid) || "";
+
             subscription = xmppClient.rosterManager.getSubscription(bareJid);
 
             unreadMessageUsersMap = d.unreadMessageUsers();
@@ -612,6 +639,7 @@ Item {
                 rawUser.lastTalkDate = RecentConversations.getUserTalkDate(rawUser);
                 rawUser.subscription = subscription;
                 rawUser.inContacts = (subscription == QXmppRosterManager.Both);
+                rawUser.externalNickname = externalNickName;
 
                 usersModel.append(rawUser);
             }
@@ -619,6 +647,8 @@ Item {
             // INFO Никнейм из вкарда мы берем теперь только в крайнем случаи
             // Основным никнеймом считаетеся никнейм из ростера
             item = root.getUser(fullJid);
+
+            item.externalNickname = externalNickName || "";
 
             // UNDONE set other properties
             if (unreadMessageUsersMap.hasOwnProperty(item.jid)) {
@@ -753,12 +783,6 @@ Item {
             }
         }
     }
-
-//    ExtendedListModel {
-//        id: usersModel
-
-//        idProperty: "jid"
-//    }
 
     ItemModel {
         id: usersModel

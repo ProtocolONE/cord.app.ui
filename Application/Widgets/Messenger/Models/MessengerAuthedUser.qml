@@ -17,6 +17,8 @@ QtObject {
     property string nickname: ""
     property string vcardNickname: ""
     property string rosterNickname: ""
+    property string externalNickname: ""
+
     property string jid: ""
     property string userId: ""
     property int state: QXmppMessage.Active
