@@ -25,4 +25,6 @@ WidgetModel {
     property string avatarMedium: User.getAvatarMedium()
 
     property bool isGuest: User.isGuest()
+
+    property bool isPromoActionActive: User.isPromoActionActive()
 }

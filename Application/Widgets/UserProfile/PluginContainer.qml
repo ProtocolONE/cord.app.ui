@@ -13,7 +13,11 @@ import GameNet.Components.Widgets 1.0
 
 PluginContainer {
     name: "UserProfile"
-    view: "UserProfileView"
+    view: [
+        {name: 'UserProfileView', source: 'UserProfileView', byDefault: true},
+        {name: 'PromoActionIconView', source: 'PromoActionIconView'}
+    ]
+
     model: "UserProfileModel"
     singletonModel: true
 }

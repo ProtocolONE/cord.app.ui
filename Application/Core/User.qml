@@ -122,6 +122,7 @@ Item {
 
             if (response && response.speedyInfo) {
                 d.balance = response.speedyInfo.balance || "0";
+                d.isPromoActionActive = response.speedyInfo.mustGetDoubleCoins == 1;
             }
 
         }, function() {});
@@ -222,6 +223,10 @@ Item {
         return d.guest;
     }
 
+    function isPromoActionActive() {
+        return d.isPromoActionActive;
+    }
+
     // INFO Этот метод лучше не использовать.
     // По возможности надо использоваьт метод App.openExternalUrlWithAuth.
     // В том методе не используется кука, что безопаснее.
@@ -298,6 +303,33 @@ Item {
 
     QtObject {
         id: d
+
+        property string userId
+        property string appKey
+        property string cookie
+
+        property bool isPremium: false
+        property bool isLoginConfirmed: false
+        property int premiumDuration: 0
+        property int balance: 0
+
+        property string nickname
+        property string nametech
+
+        property string level
+        property string avatarLarge
+        property string avatarMedium
+        property string avatarSmall
+
+        property bool guest: false
+
+        property string secondNickname
+        property string secondUserId
+        property string secondAppKey
+        property string secondCookie
+
+        property bool isPromoActionActive: false
+    }
 
     ExtendedListModel {
         id: serviceSubscriptions

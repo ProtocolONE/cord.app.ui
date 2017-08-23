@@ -145,6 +145,16 @@ Item {
         }
     }
 
+    // INFO из-за перекрытия нескольких слоев/виджетов пришлось вытащить наружу.
+    WidgetContainer {
+        visible: User.isPromoActionActive()
+
+        widget: visible ? 'UserProfile' : ''
+        view: visible ? 'PromoActionIconView' : ''
+        x: 230
+        y: 31
+    }
+
     Component {
         id: allGames
 

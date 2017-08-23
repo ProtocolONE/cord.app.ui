@@ -27,6 +27,7 @@ WidgetView {
     property bool nicknameValid: model.nickname.indexOf('@') == -1
     property bool isLoginConfirmed: model.isLoginConfirmed
     property bool isGuest: model.isGuest
+    property bool isPromoActionActive: model.isPromoActionActive
 
     implicitWidth: 230
     implicitHeight: 92
@@ -265,7 +266,9 @@ WidgetView {
 
                             anchors.fill: parent
                             hoverEnabled: true
-                            toolTip: qsTr("PROFILE_ADD_MONEY_TULTIP")
+                            toolTip: isPromoActionActive ? qsTr("В два раза больше GN-монет за те же деньги")
+                                        : qsTr("PROFILE_ADD_MONEY_TULTIP")
+
                             tooltipGlueCenter: true
                             onClicked: {
                                 App.replenishAccount();
