@@ -174,6 +174,9 @@ function setHistorySaveInterval(value) {
 function clearHistory() {
     ConversationStorage.clear();
 
+    if (!_ref)
+        return;
+
     _ref.keys().forEach(function(jid) {
         var conversation = create(jid);
         conversation.clearMessages();
@@ -185,6 +188,9 @@ function isGroupJid(jid) {
 }
 
 function create(id) {
+    if (!_ref)
+        return;
+
     if (!_ref.contains(id)) {
         var type = isGroupJid(id) ? 3 : 2 // QXmppMessage.GroupChat || QXmppMessage.Chat
         _ref.append(createConversationModel(id, type));

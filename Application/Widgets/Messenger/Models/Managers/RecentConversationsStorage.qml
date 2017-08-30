@@ -70,5 +70,9 @@ Item {
 
         return ret;
     }
+
+    function clear() {
+        Ms.checkDataBaseResult(root.db.executeSql('DELETE FROM RecentConversations'));
+    }
 }
 

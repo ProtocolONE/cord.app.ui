@@ -399,6 +399,8 @@ Item {
 
     function clearHistory() {
         ConversationManager.clearHistory();
+        RecentConversations.clearHistory();
+        recentConversation.reset();
     }
 
     function getJabberClient() {

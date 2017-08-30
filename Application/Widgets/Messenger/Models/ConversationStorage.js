@@ -67,7 +67,18 @@ var ConversationStorage = {
     },
 
     clear: function() {
+
+        if (!this._db)
+            return;
+
         checkDataBaseResult(this._db.executeSql('DELETE FROM Messages'));
+        checkDataBaseResult(this._db.executeSql('DELETE FROM Conversation'));
+
+        var now = Date.now()/1000;
+        var query = "INSERT INTO Messages VALUES(NULL, 'history_separator', NULL, NULL, NULL, NULL, ?, NULL, NULL, NULL)";
+        var args = [now];
+
+        checkDataBaseResult(this._db.executeSql(query, args));
     },
 
     save: function(bareJid, message) {
@@ -90,6 +101,16 @@ var ConversationStorage = {
             //Return special case id value if message can`t be stored
             return crc;
         }
+
+        var result = this._db.executeSql(
+            "SELECT * FROM Messages WHERE chatName = ? AND timestamp >= ?",
+            ["history_separator", messageDate]
+        );
+
+        checkDataBaseResult(result);
+        console.log("result.rows.length: " + result.rows.length);
+        if (result.rows.length > 0)
+            return "";
 
         to = this._jidWithoutResource(message.to);
         from = this._jidWithoutResource(message.from||bareJid);
