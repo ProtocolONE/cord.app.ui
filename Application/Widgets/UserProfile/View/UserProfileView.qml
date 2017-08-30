@@ -44,6 +44,15 @@ WidgetView {
             case "information":
                 d.showInformation();
                 break;
+            case "setname":
+                Popup.show('NicknameEdit');
+                break;
+            case "confirmemail":
+                App.openExternalUrlWithAuth(Config.GnUrl.site("/security/confirm-email"));
+                break;
+            case "confirmguest":
+                Popup.show('GuestConfirm');
+                break;
             case "profile":
                 d.openProfile();
                 break;
@@ -78,7 +87,21 @@ WidgetView {
                              action: "information"
                          });
 
-            if (root.nicknameValid) {
+            if (!root.nicknameValid) {
+                options.push({
+                                 name: qsTr("USER_PROFILE_CONTEXT_MENU_NAME"),// "Задать никнейм",
+                                 action: "setname"
+                             });
+            }
+
+            if (root.state === 'ConfirmEmail') {
+                options.push({
+                                 name: qsTr("USER_PROFILE_CONTEXT_MENU_MAIL"),// "Подтвердить почту",
+                                 action: "confirmemail"
+                             });
+            }
+
+            if (!root.isGuest) {
                 options.push({
                                  name: qsTr("USER_PROFILE_CONTEXT_MENU_PROFILE"),// "Профиль",
                                  action: "profile"
@@ -89,11 +112,17 @@ WidgetView {
                                  action: "money"
                              });
 
+            } else {
                 options.push({
-                                 name: qsTr("USER_PROFILE_CONTEXT_MENU_LOGOUT"),// "Выйти"
-                                 action: "logout"
+                                 name: qsTr("USER_PROFILE_CONTEXT_MENU_GUEST_CONFIRM"),// "Подтвердить гостя",
+                                 action: "confirmguest"
                              });
             }
+
+            options.push({
+                            name: qsTr("USER_PROFILE_CONTEXT_MENU_LOGOUT"),// "Выйти"
+                            action: "logout"
+                        });
 
             menu.fill(options);
         }
@@ -125,10 +154,6 @@ WidgetView {
         anchors.fill: parent
         hoverEnabled: true
         cursor: Qt.ArrowCursor
-        acceptedButtons: Qt.RightButton
-        onClicked: {
-            ContextMenu.show(mouse, rootMouse, userProfileContextMenuComponent, { });
-        }
 
         Column {
             anchors.fill: parent
@@ -358,18 +383,9 @@ WidgetView {
                                              ? qsTr("YOUR_NICKNAME")
                                              : root.isGuest ? d.guestTooltip()
                                                             :  qsTr("SET_NICKNAME")
+
                                     onNicknameClicked: {
-                                        if (root.isGuest) {
-                                            Popup.show('GuestConfirm');
-                                            return;
-                                        }
-
-                                        if (!nicknameValid) {
-                                            Popup.show('NicknameEdit');
-                                        } else {
-                                            d.openProfile()
-                                        }
-
+                                        ContextMenu.show(mouse, area, userProfileContextMenuComponent, { });
                                         Ga.trackEvent('UserProfile', 'click', 'nickname');
                                     }
                                 }

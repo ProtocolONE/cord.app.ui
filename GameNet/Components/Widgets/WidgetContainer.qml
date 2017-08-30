@@ -58,7 +58,7 @@ FocusScope {
             d.ignoreUpdate = true;
             widget = widgetName;
             view = widgetView;
-            page = widgetPage;
+            page = widgetPage || '';
             d.ignoreUpdate = false;
         }
 

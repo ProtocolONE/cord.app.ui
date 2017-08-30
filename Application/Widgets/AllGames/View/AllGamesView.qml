@@ -163,8 +163,8 @@ WidgetView {
 
         Rectangle {
             anchors.fill: parent
-            opacity: 0.5
-            color: Styles.dark
+            opacity: 0.75
+            color: "#000000"
         }
 
         Canvas {

@@ -1660,7 +1660,7 @@ Please try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Разаблокировать</source>
+        <source>Разблокировать</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3590,7 +3590,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>HEADER_BUTTON_CLOSE</source>
-        <translation>Закрыть приложение</translation>
+        <translation>Закрыть приложение (останется в трее)</translation>
     </message>
     <message>
         <source>HEADER_BUTTON_SETTINGS</source>
@@ -3646,7 +3646,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>HEADER_BUTTON_COLLAPSE</source>
-        <translation>Скрыть приложение</translation>
+        <translation>Свернуть приложение</translation>
     </message>
 </context>
 <context>
@@ -6607,6 +6607,18 @@ Please try again later.</source>
     <message>
         <source>USER_PROFILE_CONTEXT_MENU_LOGOUT</source>
         <translation type="unfinished">Выйти из аккаунта</translation>
+    </message>
+    <message>
+        <source>USER_PROFILE_CONTEXT_MENU_NAME</source>
+        <translation>Задать никнейм</translation>
+    </message>
+    <message>
+        <source>USER_PROFILE_CONTEXT_MENU_MAIL</source>
+        <translation>Подтвердить почту</translation>
+    </message>
+    <message>
+        <source>USER_PROFILE_CONTEXT_MENU_GUEST_CONFIRM</source>
+        <translation>Подтвердить гостя</translation>
     </message>
 </context>
 <context>

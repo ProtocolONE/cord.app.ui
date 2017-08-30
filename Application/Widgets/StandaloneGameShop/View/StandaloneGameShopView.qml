@@ -76,7 +76,7 @@ PopupBase {
 
         function buy() {
             d.buyInProgress = true;
-            RestApi.Billing.purchaseItem(d.gameId, d.itemId, -1, d.directBuyResponse, d.directBuyResponse);
+            RestApi.Billing.purchaseItem(d.gameId, d.itemId, 1, d.directBuyResponse, d.directBuyResponse);
         }
 
         function directBuyResponse(response) {

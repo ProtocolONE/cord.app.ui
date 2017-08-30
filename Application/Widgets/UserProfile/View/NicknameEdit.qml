@@ -21,10 +21,13 @@ Item {
     property alias tooltip: cursorArea.toolTip
     property alias color: nickText.color
 
-    signal nicknameClicked()
+    signal nicknameClicked(var mouse, var area)
+
+    onColorChanged: {
+        triangleComponent.requestPaint()
+    }
 
     Row {
-
         spacing: 10
         anchors.fill: parent
 
@@ -32,7 +35,7 @@ Item {
             id: nickText
             font { family: "Arial"; pixelSize: 16 }
             clip: true
-            elide: Text.ElideRight
+            elide: Text.ElideRight            
         }
 
         Canvas {
@@ -48,7 +51,7 @@ Item {
                 var ctx = getContext("2d")
                 // setup the fill
                 ctx.save();
-                ctx.fillStyle = "#FFFFFF"
+                ctx.fillStyle = nickText.color
                 // begin a new path to draw
                 ctx.beginPath()
                 ctx.globalAlpha = 0.25;
@@ -64,17 +67,26 @@ Item {
         }
     }
 
+    states: [
+            State {
+                name: "wide nick"
+                when: nickText.text.length > 15
+                PropertyChanges {
+                    target: nickText
+                    width: 90
+                }
+            }
+    ]
 
     CursorMouseArea {
         id: cursorArea
 
-        acceptedButtons: Qt.LeftButton
         anchors.fill: parent
         hoverEnabled: true
         tooltipGlueCenter: false
         tooltipPosition: "N"
         onClicked: {
-            root.nicknameClicked()
+              root.nicknameClicked(mouse, cursorArea)
         }
     }
 }
