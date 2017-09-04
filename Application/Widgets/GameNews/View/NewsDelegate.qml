@@ -179,7 +179,7 @@ Item {
                                 bottom: parent.bottom
                                 bottomMargin: 2
                             }
-                            source: installPath + Styles.linkIcon15
+                            source: installPath + Styles.linkIconNews
                         }
                     }
                 }

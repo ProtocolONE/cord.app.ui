@@ -104,6 +104,10 @@ function unreadMessagesCount(user) {
     return _modelInstance.unreadMessagesCount(user);
 }
 
+function markAllMessagesRead() {
+    _modelInstance.markAllMessagesRead();
+}
+
 function userStatusMessage(user) {
     var data = getUser(user.jid);
     if (!data.isValid()) {

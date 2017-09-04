@@ -13,7 +13,8 @@ Rectangle {
         options.forEach(function(o) {
             actionModel.append({
                                    name: o.name || "",
-                                   action: o.action || ""
+                                   action: o.action || "",
+                                   iconLink: o.iconLink || ""
                                });
         });
     }
@@ -80,7 +81,19 @@ Rectangle {
                         family: "Arial"
                     }
 
+
                     text: qsTr(model.name)
+                }
+
+                Image {
+                    anchors {
+                        verticalCenter: parent.verticalCenter
+                        left: menuText.right
+                        leftMargin: 4
+                    }
+
+                    visible : model.iconLink !== ""
+                    source: installPath + model.iconLink
                 }
 
                 CursorMouseArea {

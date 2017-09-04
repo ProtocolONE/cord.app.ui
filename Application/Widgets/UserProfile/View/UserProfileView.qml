@@ -19,6 +19,7 @@ import Tulip 1.0
 import Application.Core 1.0
 import Application.Core.Styles 1.0
 import Application.Core.Popup 1.0
+import Application.Core.MessageBox 1.0
 
 WidgetView {
     id: root
@@ -97,19 +98,22 @@ WidgetView {
             if (root.state === 'ConfirmEmail') {
                 options.push({
                                  name: qsTr("USER_PROFILE_CONTEXT_MENU_MAIL"),// "Подтвердить почту",
-                                 action: "confirmemail"
+                                 action: "confirmemail",
+                                 iconLink : Styles.linkIconTray
                              });
             }
 
             if (!root.isGuest) {
                 options.push({
                                  name: qsTr("USER_PROFILE_CONTEXT_MENU_PROFILE"),// "Профиль",
-                                 action: "profile"
+                                 action: "profile",
+                                 iconLink : Styles.linkIconTray
                              });
 
                 options.push({
                                  name: qsTr("USER_PROFILE_CONTEXT_MENU_MONEY"),// "Пополнить счет",
-                                 action: "money"
+                                 action: "money",
+                                 iconLink : Styles.linkIconTray
                              });
 
             } else {

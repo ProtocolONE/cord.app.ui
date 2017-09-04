@@ -800,6 +800,11 @@
         <source>CONTACT_LIST_TABS_RECENT</source>
         <translation></translation>
     </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml" line="143"/>
+        <source>RECENT_CONTEXT_MENU_MARK_ALL_READ</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Conversation</name>

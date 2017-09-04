@@ -86,4 +86,17 @@ function RequestLastActivity(opt) {
     }
 }
 
+function MarkAllMessagesRead(opt) {
+    this.execute = function() {
+        var batchSize = 100;
+        var users = opt.users.slice(0, batchSize);
+        users.forEach(function(user) {
+            opt.callback(user);
+        });
+
+        opt.users.splice(0, batchSize);
+        return opt.users.length === 0;
+    }
+}
+
 var shortInfoQueue = {};

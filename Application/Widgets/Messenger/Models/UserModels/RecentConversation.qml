@@ -279,6 +279,10 @@ Item {
         }
     }
 
+    function getUsers() {
+        return Js.sortedUsers.slice();
+    }
+
     Connections {
         target: messenger.getUsersModel()
         onSourceChanged: d.updateModel();

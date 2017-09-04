@@ -10,6 +10,8 @@
 import QtQuick 2.4
 import Application.Core 1.0
 import Application.Core.Styles 1.0
+import Application.Controls 1.0
+import GameNet.Controls 1.0
 
 Item {
     id: root
@@ -21,6 +23,12 @@ Item {
 
     width: parent.width
     height: 20
+    signal markAllRead();
+
+    function contextMenuClicked(action) {
+        if (action === 'mark_all_read')
+            markAllRead();
+    }
 
     Connections {
         target: SignalBus
@@ -55,6 +63,18 @@ Item {
 
             text: qsTr("CONTACT_LIST_TABS_RECENT")
             onClicked: contactViewState.state = "RecentConversation"
+
+            CursorMouseArea {
+                id: recentMouse
+
+                anchors.fill: parent
+                hoverEnabled: true
+                cursor: Qt.ArrowCursor
+                acceptedButtons: Qt.RightButton
+                onClicked: {
+                    ContextMenu.show(mouse, recentMouse, recentContextMenu, { });
+                }
+            }
 
             Rectangle {
                 visible: root.recentUnreadedContacts > 0
@@ -106,5 +126,28 @@ Item {
                 }
             }
         ]
+    }
+
+    Component {
+        id: recentContextMenu
+
+        ContextMenuView {
+            id: contextMenu
+
+            onContextClicked: {
+                root.contextMenuClicked(action)
+                ContextMenu.hide();
+            }
+
+            Component.onCompleted: {
+                var options = [];
+                options.push({
+                                 name: qsTr("RECENT_CONTEXT_MENU_MARK_ALL_READ"),
+                                 action: "mark_all_read"
+                             });
+
+                fill(options);
+            }
+        }
     }
 }

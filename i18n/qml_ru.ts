@@ -1700,6 +1700,10 @@ Please try again later.</source>
         <source>CONTACT_LIST_TABS_RECENT</source>
         <translation>Разговоры</translation>
     </message>
+    <message>
+        <source>RECENT_CONTEXT_MENU_MARK_ALL_READ</source>
+        <translation>Пометить все как прочтенные</translation>
+    </message>
 </context>
 <context>
     <name>Conversation</name>

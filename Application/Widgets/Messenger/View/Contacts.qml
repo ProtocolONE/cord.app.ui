@@ -123,6 +123,7 @@ WidgetView {
                         width: parent.width
                         height: 38
                         recentUnreadedContacts: MessengerJs.getRecentConversationItem().unreadContactCount
+                        onMarkAllRead:MessengerJs.markAllMessagesRead()
                     }
 
                     Item {

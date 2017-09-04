@@ -168,6 +168,26 @@ Item {
         return data.unreadMessageCount;
     }
 
+    function markUserMessagesRead(jid) {
+        var data = root.getUser(jid);
+        if (!data.isValid()) {
+            return;
+        }
+
+        if (!data.unreadMessageCount && !data.hasUnreadMessage)
+            return;
+
+        data.unreadMessageCount = 0;
+        data.hasUnreadMessage = false;
+        d.setUnreadMessageForUser(data.jid, 0);
+        messageRead(data.jid);
+    }
+
+    function markAllMessagesRead() {
+        console.log("Mark all messages read");
+        worker.push(new MessengerPrivateJs.MarkAllMessagesRead({ users: recentConversation.getUsers(), callback: markUserMessagesRead }));
+    }
+
     function connect(server, userId, password) {
 
         console.log('connect to jabber ' + server);
