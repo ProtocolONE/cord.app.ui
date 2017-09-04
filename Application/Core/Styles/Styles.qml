@@ -81,9 +81,16 @@ Item {
     property string supportIcon: "Assets/Images/Application/Blocks/bug.png"
 
     //Link icons
-    property string linkIcon10: "Assets/Images/Application/Blocks/link10.png"
-    property string linkIcon12: "Assets/Images/Application/Blocks/link12.png"
-    property string linkIcon15: "Assets/Images/Application/Blocks/link15.png"
+    // Header & games list model link & tray
+    property string linkIconHeader: "Assets/Images/Application/Blocks/link14.png"
+    property string linkIconGames: "Assets/Images/Application/Blocks/link14.png"
+    property string linkIconTray: "Assets/Images/Application/Blocks/link14.png"
+    // User profile link
+    property string linkIconUserProfile: "Assets/Images/Application/Blocks/link12.png"
+    // News link
+    property string linkIconNews: "Assets/Images/Application/Blocks/link15.png"
+    // Ask link
+    property string linkIconAsk: "Assets/Images/Application/Blocks/link14_sign.png"
 
     //GameNet Input
     property string inputCaptchaIcon: "Assets/Images/GameNet/Controls/Input/captcha.png"

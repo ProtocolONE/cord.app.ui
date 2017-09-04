@@ -160,6 +160,12 @@
         "inputPasswordIcon": "Assets/Images/Styles/sand/GameNet/Controls/Input/password.png",
         "inputUpdateIcon": "Assets/Images/Styles/sand/GameNet/Controls/Input/update.png",
         "allGamesDropDown": "Assets/Images/Styles/sand/Application/Widgets/AllGames/crossButton.png",
-        "headerCollapse": "Assets/Images/Styles/sand/Application/Blocks/Header/CollapseIcon.png"
+        "headerCollapse": "Assets/Images/Styles/sand/Application/Blocks/Header/CollapseIcon.png",
+        "linkIconHeader": "Assets/Images/Styles/sand/Application/Blocks/link14_menu.png",
+        "linkIconGames": "Assets/Images/Styles/sand/Application/Blocks/link14.png",
+        "linkIconTray": "Assets/Images/Styles/sand/Application/Blocks/link14.png",
+        "linkIconUserProfile": "Assets/Images/Styles/sand/Application/Blocks/link12.png",
+        "linkIconNews": "Assets/Images/Application/Blocks/link15.png",
+        "linkIconAsk": "Assets/Images/Application/Blocks/link14_sign.png"
    }
 }

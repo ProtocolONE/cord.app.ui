@@ -68,7 +68,7 @@ ListModel {
                                 {
                                     link: true,
                                     icon: 'gameMenuGuidesIcon',
-                                    linkIcon: 'linkIcon10',
+                                    linkIcon: 'linkIconGames',
                                     text: qsTr("GAME_MENU_GUIDES_TEXT"),
                                     url: element.guideUrl
                                 });

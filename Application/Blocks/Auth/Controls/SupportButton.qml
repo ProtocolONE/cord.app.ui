@@ -6,7 +6,7 @@ import Application.Core.Styles 1.0
 
 Button {
     width: 32
-    height: 146
+    height: 160
     style {
         normal: "#ffae02"
         hover: "#ffcc02"
@@ -17,7 +17,17 @@ Button {
 
         Item {
             width: parent.width
-            height: parent.height - width - 1
+            height: 24
+
+            Image {
+                anchors.centerIn: parent
+                source: installPath + Styles.linkIconAsk
+            }
+        }    
+
+        Item {
+            width: parent.width
+            height: parent.height - width - 30
 
             Item {
                 anchors.centerIn: parent
@@ -39,7 +49,7 @@ Button {
 
         Rectangle {
             width: parent.width
-            height: 1
+            height: 5
             color: Styles.light
             opacity: 0.2
         }

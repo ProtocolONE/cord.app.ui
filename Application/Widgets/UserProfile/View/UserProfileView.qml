@@ -253,7 +253,7 @@ WidgetView {
                                 bottomMargin: 2
                             }
 
-                            source: installPath + Styles.linkIcon12
+                            source: installPath + Styles.linkIconUserProfile
                         }
 
                         CursorMouseArea {

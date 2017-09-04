@@ -299,7 +299,7 @@ WidgetModel {
 
                             Image {
                                 anchors.centerIn: parent
-                                source: installPath + Styles.linkIcon10
+                                source: installPath + Styles.linkIconTray
                                 visible: iconLink
                             }
                         }

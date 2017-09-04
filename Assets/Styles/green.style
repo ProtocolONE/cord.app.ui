@@ -160,6 +160,12 @@
         "inputPasswordIcon": "Assets/Images/GameNet/Controls/Input/password.png",
         "inputUpdateIcon": "Assets/Images/GameNet/Controls/Input/update.png",
         "allGamesDropDown": "Assets/Images/Application/Widgets/AllGames/crossButton.png",
-        "headerCollapse": "Assets/Images/Styles/green/Application/Blocks/Header/CollapseIcon.png"
+        "headerCollapse": "Assets/Images/Styles/green/Application/Blocks/Header/CollapseIcon.png",
+        "linkIconHeader": "Assets/Images/Application/Blocks/link14.png",
+        "linkIconGames": "Assets/Images/Application/Blocks/link14.png",
+        "linkIconTray": "Assets/Images/Application/Blocks/link14.png",
+        "linkIconUserProfile": "Assets/Images/Application/Blocks/link12.png",
+        "linkIconNews": "Assets/Images/Application/Blocks/link15.png",
+        "linkIconAsk": "Assets/Images/Application/Blocks/link14_sign.png"
    }
 }
