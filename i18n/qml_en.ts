@@ -797,17 +797,17 @@
 <context>
     <name>ContactsTypeTabs</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml" line="54"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml" line="56"/>
         <source>CONTACT_LIST_TABS_CONTACTS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml" line="64"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml" line="66"/>
         <source>CONTACT_LIST_TABS_RECENT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml" line="145"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml" line="147"/>
         <source>RECENT_CONTEXT_MENU_MARK_ALL_READ</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2126,17 +2126,17 @@
 <context>
     <name>Messenger</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="366"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="357"/>
         <source>MESSENGER_CONTACT_ITEM_PLAYING_STATUS_INFO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="379"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="370"/>
         <source>LAST_ACTIVITY_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="649"/>
+        <location filename="../Application/Widgets/Messenger/Models/Messenger.qml" line="624"/>
         <source>MESSENGER_GAMENET_USER_STATUS_MESSAGE</source>
         <translation></translation>
     </message>
@@ -2613,7 +2613,7 @@
     </message>
     <message>
         <location filename="../Application/Widgets/PremiumShop/PremiumShopModel.qml" line="51"/>
-        <source>Чтобы запустить второе окно игры %1 нажмите «Добавить аккаунт» и авторизуйтесь вторым аккаунтом. Запуск игры под вторым аккаунтом происходит по кнопке «Начать игру» в блоке дополнительного аккаунта и доступен после запуска игры под основным аккаунтом.&lt;/br&gt;Приятной игры.</source>
+        <source>Чтобы запустить второе окно игры %1 нажмите «Добавить аккаунт» и авторизуйтесь вторым аккаунтом. Запуск игры под вторым аккаунтом происходит по кнопке «Начать игру» в блоке дополнительного аккаунта и доступен после запуска игры под основным аккаунтом. &lt;/br&gt;Приятной игры.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
