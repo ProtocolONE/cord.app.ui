@@ -33,14 +33,14 @@ WidgetModel {
 
     function isLicenseCancelled() {
         return AppSettings.isAppSettingsEnabled(
-                    "P2PTransferRequest",
+                    "P2PTransferRequest_QGNA1698",
                     root.startingServiceId,
                     0);
     }
 
     function setLicenseCancelled() {
         AppSettings.setAppSettingsValue(
-                            "P2PTransferRequest",
+                            "P2PTransferRequest_QGNA1698",
                             root.startingServiceId,
                             1);
     }
