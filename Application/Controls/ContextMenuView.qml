@@ -93,7 +93,7 @@ Rectangle {
                     }
 
                     visible : model.iconLink !== ""
-                    source: installPath + model.iconLink
+                    source: visible ? (installPath + model.iconLink) : ""
                 }
 
                 CursorMouseArea {
