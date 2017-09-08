@@ -71,8 +71,11 @@ Item {
         return ret;
     }
 
-    function clear() {
-        Ms.checkDataBaseResult(root.db.executeSql('DELETE FROM RecentConversations'));
+    function clear(jid) {
+
+        if (jid)
+            Ms.checkDataBaseResult(root.db.executeSql('DELETE FROM RecentConversations WHERE jid = ?', [jid]));
+        else
+            Ms.checkDataBaseResult(root.db.executeSql('DELETE FROM RecentConversations'));
     }
 }
-

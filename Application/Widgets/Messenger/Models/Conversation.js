@@ -135,8 +135,7 @@ var Conversation = function(item, model, jabber, myJid) {
         if (this.type == 2) { // QXmppMessage.Chat
             var id = ConversationStorage.save(this.id, message);
             delete message.from;
-            if (id !== "")
-                this.appendMessage(_jid, message.body, time, id);
+            this.appendMessage(_jid, message.body, time, id);
         }
 
         jabber.sendMessageEx(this.id, message);
@@ -202,10 +201,8 @@ var Conversation = function(item, model, jabber, myJid) {
         } else {
             try {
                 id = ConversationStorage.save(this.id, message);
-                if (id !== "") {
-                    this.appendMessage(fromJid, message.body, date, id);
-                    newMessage = true;
-                }
+                this.appendMessage(fromJid, message.body, date, id);
+                newMessage = true;
             } catch(e) {
             }
         }

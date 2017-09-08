@@ -736,6 +736,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="559"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="584"/>
+        <source>CONTACT_CONTEXT_MENU_CLEAR_HISTORY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml" line="567"/>
         <source>Подарить расширенный аккаунт</source>
         <translation type="unfinished"></translation>

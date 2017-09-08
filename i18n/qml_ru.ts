@@ -1632,6 +1632,10 @@ Please try again later.</source>
         <translation>Посмотреть профиль</translation>
     </message>
     <message>
+        <source>CONTACT_CONTEXT_MENU_CLEAR_HISTORY</source>
+        <translation>Очистить историю</translation>
+    </message>
+    <message>
         <source>MESSENGER_DESTROY_ROOM_ALERT_TITLE</source>
         <translation>Внимание</translation>
     </message>

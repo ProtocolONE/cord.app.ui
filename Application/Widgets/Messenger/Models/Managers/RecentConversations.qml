@@ -56,8 +56,8 @@ Item {
         storage.saveData(user.jid, now);
     }
 
-    function clearHistory() {
-        storage.clear();
+    function clearHistory(jid) {
+        storage.clear(jid);
     }
 
     RecentConversationsStorage {

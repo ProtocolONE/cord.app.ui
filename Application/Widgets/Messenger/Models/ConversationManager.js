@@ -171,16 +171,21 @@ function setHistorySaveInterval(value) {
     ConversationStorage.setHistorySaveInterval(_private.getHistorySaveDuration(value));
 }
 
-function clearHistory() {
-    ConversationStorage.clear();
+function clearHistory(jid, group) {
+    ConversationStorage.clear(jid, group);
 
     if (!_ref)
         return;
 
-    _ref.keys().forEach(function(jid) {
+    if (jid) {
         var conversation = create(jid);
         conversation.clearMessages();
-    });
+    } else {
+        _ref.keys().forEach(function(jid) {
+            var conversation = create(jid);
+            conversation.clearMessages();
+        });
+    }
 }
 
 function isGroupJid(jid) {

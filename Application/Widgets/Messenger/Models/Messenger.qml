@@ -168,7 +168,7 @@ Item {
         return data.unreadMessageCount;
     }
 
-    function markUserMessagesRead(jid) {
+    function markUserMessagesRead(jid, soft) {
         var data = root.getUser(jid);
         if (!data.isValid()) {
             return;
@@ -179,6 +179,9 @@ Item {
 
         data.unreadMessageCount = 0;
         data.hasUnreadMessage = false;
+        if (soft)
+            return;
+
         d.setUnreadMessageForUser(data.jid, 0);
         messageRead(data.jid);
     }
@@ -417,7 +420,21 @@ Item {
         xmppClient.setGamingInfo(info);
     }
 
+    function clearUserHistory(user) {
+
+        markUserMessagesRead(user.jid, true);
+
+        var item = root.getUser(user.jid);
+        ConversationManager.clearHistory(user.jid, item.isGroupChat);
+        RecentConversations.clearHistory(user.jid);
+    }
+
     function clearHistory() {
+
+        recentConversation.getUsers().forEach(function(user) {
+            markUserMessagesRead(user, true);
+        });
+
         ConversationManager.clearHistory();
         RecentConversations.clearHistory();
         recentConversation.reset();

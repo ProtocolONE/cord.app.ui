@@ -66,19 +66,31 @@ var ConversationStorage = {
         );
     },
 
-    clear: function() {
+    clear: function(jid, group) {
 
         if (!this._db)
             return;
 
-        checkDataBaseResult(this._db.executeSql('DELETE FROM Messages'));
-        checkDataBaseResult(this._db.executeSql('DELETE FROM Conversation'));
+        var ts = (Date.now()/1000|0) - 100;
 
-        var now = Date.now()/1000;
-        var query = "INSERT INTO Messages VALUES(NULL, 'history_separator', NULL, NULL, NULL, NULL, ?, NULL, NULL, NULL)";
-        var args = [now];
+        if (jid) {
 
-        checkDataBaseResult(this._db.executeSql(query, args));
+            checkDataBaseResult(this._db.executeSql('DELETE FROM Messages WHERE chatName = ?', [jid]));
+            checkDataBaseResult(this._db.executeSql('DELETE FROM Conversation WHERE chatName = ?', [jid]));
+
+            if (group) {
+                checkDataBaseResult(this._db.executeSql("INSERT INTO Messages VALUES(NULL, ?, NULL, NULL, NULL, NULL, ?, NULL, NULL, NULL)",
+                    [jid, ts]));
+            }
+
+        } else {
+
+            checkDataBaseResult(this._db.executeSql('DELETE FROM Messages'));
+            checkDataBaseResult(this._db.executeSql('DELETE FROM Conversation'));
+
+            checkDataBaseResult(this._db.executeSql("INSERT INTO Messages VALUES(NULL, 'history_separator', NULL, NULL, NULL, NULL, ?, NULL, NULL, NULL)",
+                [ts]));
+        }
     },
 
     save: function(bareJid, message) {
@@ -102,16 +114,6 @@ var ConversationStorage = {
             return crc;
         }
 
-        var result = this._db.executeSql(
-            "SELECT * FROM Messages WHERE chatName = ? AND timestamp >= ?",
-            ["history_separator", messageDate]
-        );
-
-        checkDataBaseResult(result);
-        console.log("result.rows.length: " + result.rows.length);
-        if (result.rows.length > 0)
-            return "";
-
         to = this._jidWithoutResource(message.to);
         from = this._jidWithoutResource(message.from||bareJid);
 
@@ -124,9 +126,10 @@ var ConversationStorage = {
 
         return res.insertId;
     },
+
     query: function(id, from, to) {
         var result = this._db.executeSql(
-            "SELECT * FROM Messages WHERE chatName = ? AND timestamp >= ? AND timestamp <= ?",
+            "SELECT * FROM Messages WHERE chatName = ? AND timestamp >= ? AND timestamp <= ? AND body IS NOT NULL",
             [id, from, to]
         );
 
@@ -136,10 +139,11 @@ var ConversationStorage = {
 
     queryLastMessageDate: function(id) {
         var result = this._db.executeSql(
-            "SELECT MAX(timestamp) as `timestamp` FROM Messages WHERE chatName = ?", [id]
+            "SELECT MAX(timestamp) as `timestamp` FROM Messages WHERE chatName = ? OR chatName = 'history_separator'", [id]
         );
 
         checkDataBaseResult(result);
+        console.log("queryLastMessageDate for id: " + id + ", time: " + result.rows[0].timestamp);
         return result.rows[0].timestamp;
     },
 
@@ -153,8 +157,9 @@ var ConversationStorage = {
     },
 
     queryReadDate: function(bareJid) {
+        console.log("queryReadDate, bareJid: " + bareJid);
         var result = this._db.executeSql(
-            "SELECT timestamp FROM Conversation WHERE chatName = ?",
+            "SELECT timestamp FROM Conversation WHERE chatName = ? AND body IS NOT NULL",
             [bareJid]
         );
 

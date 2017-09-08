@@ -180,6 +180,9 @@ Item {
             case "unblockContact":
                 d.unblockContact(user);
                 break;
+            case "clearHistory":
+                d.clearHistory(user);
+                break;
             }
 
             ContextMenu.hide();
@@ -249,6 +252,10 @@ Item {
 
         function unblockContact(user) {
             Messenger.unblockUser(user);
+        }
+
+        function clearHistory(user) {
+            Messenger.clearUserHistory(user);
         }
 
         function dump(user) {
@@ -548,6 +555,11 @@ Item {
                                      action: "rename"
                                  });
 
+                    options.push({
+                                     name: qsTr("CONTACT_CONTEXT_MENU_CLEAR_HISTORY"),// "Очистить историю",
+                                     action: "clearHistory"
+                                 });
+
                     fill(options);
                 }
 
@@ -566,6 +578,11 @@ Item {
                     options.push({
                                      name: qsTr("Подарить расширенный аккаунт"),
                                      action: "giftExtendedAccount"
+                                 });
+
+                    options.push({
+                                     name: qsTr("CONTACT_CONTEXT_MENU_CLEAR_HISTORY"),// "Очистить историю",
+                                     action: "clearHistory"
                                  });
 
                     if (item.inContacts) {
@@ -589,7 +606,7 @@ Item {
                         options.push({
                                          name: qsTr("Разблокировать"),
                                          action: "unblockContact"
-                                     });
+                                    });
                     } else {
                         options.push({
                                          name: qsTr("Заблокировать"),

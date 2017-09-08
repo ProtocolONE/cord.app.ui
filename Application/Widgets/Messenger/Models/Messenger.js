@@ -291,4 +291,7 @@ function unblockUser(user) {
     _modelInstance.unblockUser(user);
 }
 
+function clearUserHistory(user) {
+    _modelInstance.clearUserHistory(user);
+}
 
