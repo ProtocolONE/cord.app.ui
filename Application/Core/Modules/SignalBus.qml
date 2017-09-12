@@ -81,6 +81,8 @@ Item {
     // INFO Jabber special message about standalone game.
     signal buyGameCompleted(string serviceId, string message);
 
+    signal startPromo(string serviceId);
+
     function cancelDownload(gameItem) {
         serviceCanceled(gameItem);
     }

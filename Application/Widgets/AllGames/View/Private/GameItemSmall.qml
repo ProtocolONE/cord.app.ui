@@ -71,6 +71,7 @@ Column {
         target: SignalBus
 
         onProgressChanged: {
+
             if (serviceItem.serviceId != gameItem.serviceId) {
                 return
             }
