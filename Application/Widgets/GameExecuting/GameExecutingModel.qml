@@ -31,9 +31,6 @@ WidgetModel {
     property int internalPopupId: -1
     property int internalP2PTransferPopupId: -1
 
-    property bool gameAccessRequired: false
-    property string serviceIdCheck: ''
-
     function startExecuting(serviceId) {
         var gameItem = App.serviceItemByServiceId(serviceId);
         executeServiceDelay.serviceId = serviceId;
@@ -62,18 +59,11 @@ WidgetModel {
         var gameItem = App.serviceItemByServiceId(serviceId);
         root.internalPopupId = -1;
         root.internalP2PTransferPopupId = -1;
-        root.gameAccessRequired = false;
-        root.serviceIdCheck = ''
         executeServiceDelay.start();
 
         gameItem.status = "Starting";
         gameItem.statusText = qsTr("TEXT_PROGRESSBAR_STARTING_STATE")
         SignalBus.progressChanged(gameItem);
-    }
-
-    function showPromo() {
-        root.gameAccessRequired = true;
-        root.internalPopupId = Popup.show('PromoCode');
     }
 
     Connections {
@@ -104,17 +94,12 @@ WidgetModel {
                 return;
             }
 
-            if (User.isNicknameValid() && !root.gameAccessRequired) {
+            if (User.isNicknameValid()) {
                 root.executeGame(executeServiceDelay.serviceId);
                 return;
             }
 
             var gameItem = App.serviceItemByServiceId(executeServiceDelay.serviceId);
-
-            if (typeof (gameItem) === 'undefined' && root.serviceIdCheck !== '') {
-                // Case of CheckDownload with closed beta flag
-                gameItem = App.serviceItemByServiceId(serviceIdCheck);                
-            }
 
             gameItem.status = "Normal";
             gameItem.statusText = '';
@@ -131,11 +116,6 @@ WidgetModel {
             SignalBus.navigate("mygame", "");
         }
 
-        onStartPromo: {
-            root.serviceIdCheck = serviceId
-            root.showPromo();
-        }
-
         onNeedPakkanenVerification: Popup.show('AccountActivation');
     }
 
@@ -147,7 +127,7 @@ WidgetModel {
                 return;
             }
 
-            root.showPromo();
+            Popup.show('PromoCode');
         }
     }
 
