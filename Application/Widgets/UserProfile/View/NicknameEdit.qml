@@ -27,12 +27,17 @@ Item {
         triangleComponent.requestPaint()
     }
 
-    Row {
-        spacing: 10
+    Item {
         anchors.fill: parent
 
         Text {
             id: nickText
+
+            height: root.height
+            width: 90
+
+            anchors.verticalCenter: parent.verticalCenter
+
             font { family: "Arial"; pixelSize: 16 }
             clip: true
             elide: Text.ElideRight            
@@ -41,6 +46,9 @@ Item {
         Canvas {
             id: triangleComponent
             anchors.verticalCenter: parent.verticalCenter
+
+            x: nickText.paintedWidth + 12
+            y: 2
 
             // canvas size
             width: 7
@@ -66,17 +74,6 @@ Item {
             }
         }
     }
-
-    states: [
-            State {
-                name: "wide nick"
-                when: nickText.text.length > 15
-                PropertyChanges {
-                    target: nickText
-                    width: 90
-                }
-            }
-    ]
 
     CursorMouseArea {
         id: cursorArea

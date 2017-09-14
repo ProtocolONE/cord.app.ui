@@ -156,12 +156,18 @@ Item {
                         }
                     }
 
-                    Row {                        
+                    Item {
+                        id: rootNewsHeader
+
                         width: parent.width
-                        spacing: 5
+                        height: newsHeader.height
 
                         Text {
+                            id: newsHeader
+                            anchors.verticalCenter: parent.verticalCenter
+
                             height: 23
+                            width: 355
                             text: title
                             color: Qt.darker(Styles.titleText, mouser.containsMouse ? 1.5: 0)
                             elide: Text.ElideRight
@@ -174,12 +180,18 @@ Item {
 
                         Image {
                             id: iconLink
+                            anchors.verticalCenter: parent.verticalCenter
 
-                            anchors {
-                                bottom: parent.bottom
-                                bottomMargin: 2
-                            }
+                            x: newsHeader.paintedWidth + 5
+                            y: 2
+
                             source: installPath + Styles.linkIconNews
+                        }
+
+                        CursorMouseArea {
+                            anchors.fill: parent
+                            toolTip: newsHeader.text
+                            hoverEnabled: newsHeader.truncated
                         }
                     }
                 }
