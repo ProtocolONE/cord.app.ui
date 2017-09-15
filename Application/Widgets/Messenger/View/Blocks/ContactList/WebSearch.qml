@@ -87,8 +87,7 @@ NavigatableContactList {
 
                 chars = chars.slice(0, 4).forEach(function(e){
 
-                    if (e.charlevel !== undefined && typeof e.charlevel !== 'string')
-                        e.charlevel = e.charlevel.toString();
+                    e.charlevel = (e.charlevel || "").toString(); 
 
                     var regexpString = "(" + d.splitSearch.join("|") + ")",
                         searchKeys = ['game', 'name', 'class', 'server'];
