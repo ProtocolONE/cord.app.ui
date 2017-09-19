@@ -86,7 +86,7 @@ PopupBase {
 
             onClicked: {
                 root.close();
-                App.openSupportUrl("/kb");
+                App.openSupportUrl("/kb/articles/783-view");
             }
         }
     }
