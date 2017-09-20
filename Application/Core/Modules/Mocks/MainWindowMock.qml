@@ -108,6 +108,10 @@ Item {
     function cancelServiceUninstall(serviceId) {
     }
 
+    function terminateGame(serviceId) {
+        console.log('Close game ', serviceId);
+    }
+
     function authSuccessSlot(userId, appKey, cookie) {
     }
 

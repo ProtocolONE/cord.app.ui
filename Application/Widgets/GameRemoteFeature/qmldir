@@ -1,0 +1,3 @@
+module Application.Widgets.GameRemoteFeature
+PluginContainer 1.0 PluginContainer.qml 
+GameRemoteFeature 1.0 GameRemoteFeature.qml

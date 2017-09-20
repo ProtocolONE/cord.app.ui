@@ -29,7 +29,6 @@ import "AccountManager.js" as AccountManager
 
 import "../Plugins/Smiles/Smiles.js" as Smiles
 import "../Plugins/Events/Events.js" as Events
-
 import "../Plugins/Bookmarks/Bookmarks.js" as Bookmarks
 import "../Plugins/AutoJoin/Autojoin.js" as Autojoin
 import "../Plugins/RoomCreate/RoomCreate.js" as RoomCreate
@@ -37,12 +36,11 @@ import "../Plugins/Topic/Topic.js" as Topic
 import "../Plugins/RoomParticipants/RoomParticipants.js" as RoomParticipants
 import "../Plugins/ChatCommands/ChatCommands.js" as ChatCommands
 import "../Plugins/Logger/Logger.js" as LoggerPlugin
+import "../Plugins/MessageUrlHandler"
 
 import Application.Widgets.Messenger.Models.Managers 1.0
 import Application.Widgets.Messenger.Plugins.Subscription 1.0
 import Application.Widgets.Messenger.Plugins.Blacklist 1.0
-
-import "../Plugins/MessageUrlHandler"
 
 Item {
     id: root

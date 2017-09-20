@@ -25,6 +25,11 @@ function init(jabber, signalBus) {
             _signalBus.buyGameCompleted(args.serviceId, args.message);
             break;
         }
+        case 'terminateGame': {
+            args = event.args || {};
+            _signalBus.terminateGame(args.serviceId || "", args.message || "");
+            break;
+        }
         default:
             console.log('[Events] Unhandled event received ' + event.name);
         }

@@ -300,6 +300,10 @@ Item {
         mainWindowInstance().cancelServiceUninstall(serviceId);
     }
 
+    function terminateGame(serviceId) {
+        mainWindowInstance().terminateGame(serviceId);
+    }
+
     function isQmlViewer() {
         try {
             return !mainWindow;

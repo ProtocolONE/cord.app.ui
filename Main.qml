@@ -86,6 +86,7 @@ Rectangle {
         WidgetManager.registerWidget('Application.Widgets.SilentMode');
 
         WidgetManager.registerWidget('Application.Widgets.P2PTransferRequest')
+        WidgetManager.registerWidget('Application.Widgets.GameRemoteFeature')
 
         //WidgetManager.registerWidget('Application.Widgets.AccountLogoutHelper');
 

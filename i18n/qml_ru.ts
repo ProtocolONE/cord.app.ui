@@ -2780,6 +2780,17 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>GameRemoteFeature</name>
+    <message>
+        <source>GAME_CONTROL_REMOTE_STOP</source>
+        <translation>Клиент игры %1 был закрыт в связи с нарушением. Для получения дополнительной информации Вы можете создать обращение в &lt;a href=&quot;https://support.gamenet.ru/new-ticket&quot;&gt;службу поддержки GameNet&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>INFO_CAPTION</source>
+        <translation>Внимание</translation>
+    </message>
+</context>
+<context>
     <name>GameSettings</name>
     <message>
         <source>GAME_SETTINGS_TITLE</source>
