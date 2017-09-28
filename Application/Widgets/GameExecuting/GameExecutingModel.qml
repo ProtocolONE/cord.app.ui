@@ -35,7 +35,7 @@ WidgetModel {
         var gameItem = App.serviceItemByServiceId(serviceId);
         executeServiceDelay.serviceId = serviceId;
 
-        // INFO QGNA-1698 Включили 06.09.2017, выключить 20.09.2017
+        // INFO QGNA-1709 Включили 28.09.2017, выключить 11.10.2017
 //        if (serviceId === "30000000000") {
 //            var model = WidgetManager.getWidgetByName('P2PTransferRequest').model;
 //            if (model) {
