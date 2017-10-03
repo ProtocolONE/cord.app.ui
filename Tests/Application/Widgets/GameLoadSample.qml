@@ -28,6 +28,14 @@ Rectangle {
         Popup.init(popupLayer);
         MessageBox.init(messageBoxLayer)
 
+        WidgetManager.registerWidget('Application.Widgets.ApplicationSettings');
+        WidgetManager.registerWidget('Application.Widgets.AutoMinimize');
+        WidgetManager.registerWidget('Application.Widgets.Announcements');
+        WidgetManager.registerWidget('Application.Widgets.DownloadManagerConnector');
+        WidgetManager.registerWidget('Application.Widgets.PremiumNotifier');
+        WidgetManager.registerWidget('Application.Widgets.Messenger');
+        WidgetManager.registerWidget('Application.Widgets.Overlay');
+
         WidgetManager.registerWidget('Application.Widgets.GameAdBanner');
         WidgetManager.registerWidget('Application.Widgets.GameLoad');
         WidgetManager.registerWidget('Application.Widgets.AlertAdapter');

@@ -76,32 +76,9 @@ PopupBase {
 
             Item {
                 id: downloadInfoBlock
-                property string abTest
-                property bool showFlag
-
-                function checkParamSet() {
-                    downloadInfoBlock.showFlag = false;
-                    downloadInfoBlock.abTest = AppSettings.remoteVaule("ABTestGroup", "QGNA1681", "error");
-                }
-
-                function needShow() {
-                    downloadInfoBlock.checkParamSet();
-                    if (downloadInfoBlock.abTest !== "error") {
-                        downloadInfoBlock.showFlag = downloadInfoBlock.abTest === "A" ? true : false;
-                    }
-                    return downloadInfoBlock.showFlag;
-                }
 
                 width: parent.width
                 height: 100
-
-                // A === 1
-                // B === 0
-
-                // A - show info block
-                // B - as usual
-
-                visible: downloadInfoBlock.needShow()
 
                 Row {
                     spacing: 10
@@ -259,7 +236,7 @@ PopupBase {
             State {
                 name: "Normal"
                 when: stateGroup.state == "Normal" || root.visible == false
-                PropertyChanges { target: downloadInfoBlock; visible: downloadInfoBlock.showFlag ? true : false }
+                PropertyChanges { target: downloadInfoBlock; visible: true }
                 PropertyChanges { target: progressWidget; visible: false }
                 PropertyChanges { target: showStatButton; text: qsTr("SHOW_STATISTICS") }
             },
