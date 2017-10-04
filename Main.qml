@@ -94,6 +94,8 @@ Rectangle {
             //INFO Available in Vista+
             WidgetManager.registerWidget('Application.Widgets.Themes');
         }
+
+        WidgetManager.registerWidget('Application.Widgets.Centrifugo')
     }
 
     DragWindowArea {

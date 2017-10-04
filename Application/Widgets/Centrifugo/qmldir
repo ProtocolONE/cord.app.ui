@@ -1,0 +1,3 @@
+module Application.Widgets.Centrifugo
+PluginContainer 1.0 PluginContainer.qml 
+CentrifugoModel 1.0 CentrifugoModel.qml

@@ -3,7 +3,7 @@
 /****************************************************************************
  ** This file is a part of Syncopate Limited GameNet Application or it parts.
  **
- ** Copyright (©) 2011 - 2012, Syncopate Limited and/or affiliates.
+ ** Copyright (�) 2011 - 2012, Syncopate Limited and/or affiliates.
  ** All rights reserved.
  **
  ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
@@ -651,7 +651,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.158.181c52107fded0461dc8f8787c2a75b40a54cfa2",
+    version: "1.0.159.5fd479b89710ea82f3e0bd3e4640fc9c9518f021",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',
@@ -754,6 +754,9 @@ Auth.getRedirectToken = function(successCallback, failedCallback) {
     Core.execute('auth.getRedirectToken', {}, true, successCallback, failedCallback);
 };
 
+Auth.getCentrifugoToken = function(timestamp, successCallback, failedCallback) {
+    Core.execute('auth.getCentrifugoToken', {timestamp:timestamp}, true, successCallback, failedCallback);
+};
 var Billing = function() {
 };
 
@@ -959,7 +962,7 @@ User.getIgnoreList = function(successCallback, failedCallback) {
     Core.execute('user.getIgnoreList', { }, true, successCallback, failedCallback);
 };
 
-// target - Идентификатор, никнейм или ссылка на профиль игнорируемого пользователя
+// target - �?дентификатор, никнейм или ссылка на профиль игнорируемого пользователя
 User.addToIgnoreList = function(target, successCallback, failedCallback) {
     Core.execute('user.addToIgnoreList', { target: target }, true, successCallback, failedCallback);
 };
