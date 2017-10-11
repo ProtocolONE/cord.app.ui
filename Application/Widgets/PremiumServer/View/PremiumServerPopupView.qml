@@ -141,14 +141,15 @@ PopupBase {
         root.gameId = currentGame.gameId;
         root.remainTime = User.getSubscriptionRemainTime(currentGame.serviceId);
 
-        if (root.serviceId == "30000000000") {
-            var canBuy = User.hadSubscriptionsByService("30000000000");
-            if (!canBuy) {
-                console.log("Premium server shop disabled.");
-                root.shopDisabled = true;
-                return;
-            }
-        }
+        // INFO GN-13377 разрешаем покупку, убрать 25.10.2017
+//        if (root.serviceId == "30000000000") {
+//            var canBuy = User.hadSubscriptionsByService("30000000000");
+//            if (!canBuy) {
+//                console.log("Premium server shop disabled.");
+//                root.shopDisabled = true;
+//                return;
+//            }
+//        }
 
         root.getItems();
     }
