@@ -141,7 +141,33 @@ PopupBase {
         root.gameId = currentGame.gameId;
         root.remainTime = User.getSubscriptionRemainTime(currentGame.serviceId);
 
-        // INFO GN-13377 разрешаем покупку, убрать 25.10.2017
+        if (root.serviceId == "30000000000") {
+            function checkLisenceResponseCb(response) {
+                if (!!!response || !response.hasOwnProperty("result")) {
+                    root.getItems();
+                    return;
+                }
+
+                if (response.result) {
+                    console.log("Premium server shop disabled. P2PTransferRequest accepted");
+                    root.shopDisabled = true;
+                    return;
+                }
+
+                root.getItems();
+            }
+
+            RestApi.Core.execute('user.isLicenseAccepted',
+                                 {
+                                     serviceId : "30000000000",
+                                     licenseId: "390" // INFO P2PTransferRequestModel
+                                 },
+                                 true, checkLisenceResponseCb, checkLisenceResponseCb);
+        } else {
+           root.getItems();
+        }
+
+        // INFO GN-13377 разрешаем покупку, убрать 25.10
 //        if (root.serviceId == "30000000000") {
 //            var canBuy = User.hadSubscriptionsByService("30000000000");
 //            if (!canBuy) {
@@ -151,7 +177,7 @@ PopupBase {
 //            }
 //        }
 
-        root.getItems();
+        //root.getItems();
     }
 
     ListModel {
@@ -176,7 +202,8 @@ PopupBase {
         linkColor: Styles.linkText
         onLinkActivated: App.openExternalUrl(link)
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-        text: qsTr("Доступ на премиум сервер для новых пользователей временно недоступен.")
+        //text: qsTr("Доступ на премиум сервер для новых пользователей временно недоступен.")
+        text: qsTr("Доступ на премиум сервер для пользователей совершивших трансфер на бесплатный сервер недоступен.")
 
         MouseArea {
             anchors.fill: parent
