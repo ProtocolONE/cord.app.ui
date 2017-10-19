@@ -18,6 +18,8 @@ Item {
     signal messageReceived(string channel, variant params);
     signal userMessageReceived(string channel, variant params);
 
+    signal beginReconnect(int tryCount);
+
     function connect(opt) {
         d.internalConnect(opt)
     }
@@ -351,6 +353,7 @@ Item {
                 console.log("[Centrifuge] reconnect after " + interval + " milliseconds");
                 reconnectTimer.interval = interval;
                 reconnectTimer.start();
+                root.beginReconnect(d.retries);
             } else {
                 reconnectTimer.stop();
                 root.disconnected();

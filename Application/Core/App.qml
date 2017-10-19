@@ -248,6 +248,10 @@ Item {
         mainWindowInstance().updateFinishedSlot();
     }
 
+    function updateArea() {
+        return settingsViewModelInstance().updateArea;
+    }
+
     function isPublicVersion() {
         return settingsViewModelInstance().updateArea === 'live';
     }
