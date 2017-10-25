@@ -141,6 +141,7 @@ PopupBase {
         root.gameId = currentGame.gameId;
         root.remainTime = User.getSubscriptionRemainTime(currentGame.serviceId);
 
+        // INFO GN-13377 27.10.2017 Оставил пока включенным
         if (root.serviceId == "30000000000") {
             function checkLisenceResponseCb(response) {
                 if (!!!response || !response.hasOwnProperty("result")) {
@@ -167,7 +168,6 @@ PopupBase {
            root.getItems();
         }
 
-        // INFO GN-13377 разрешаем покупку, убрать 25.10
 //        if (root.serviceId == "30000000000") {
 //            var canBuy = User.hadSubscriptionsByService("30000000000");
 //            if (!canBuy) {
@@ -177,7 +177,7 @@ PopupBase {
 //            }
 //        }
 
-        //root.getItems();
+//        root.getItems();
     }
 
     ListModel {
