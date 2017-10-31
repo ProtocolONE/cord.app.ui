@@ -45,6 +45,8 @@ Item {
     CursorMouseArea {
         id: mouser
 
+        property bool containsMouseEx: mouser.containsMouse || mouserHeader.containsMouse
+
         anchors { fill: parent; leftMargin: 10; rightMargin: 10; topMargin: shouldShowDelimited ? 9 : 0}
         onClicked: openNews(gameShortName, eventId);
     }
@@ -126,7 +128,7 @@ Item {
                         Text {
                             height: 12
                             text: App.serviceItemByGameId(gameId) ? App.serviceItemByGameId(gameId).name : ''
-                            color: Qt.darker(Styles.textTime, mouser.containsMouse ? 1.5: 0)
+                            color: Qt.darker(Styles.textTime, mouser.containsMouseEx ? 1.5: 0)
                             font { family: 'Arial'; pixelSize: 12 }
                             visible: !root.isSingleMode
 
@@ -146,7 +148,7 @@ Item {
                             }
 
                             height: 12
-                            color: Qt.darker(Styles.chatInactiveText, mouser.containsMouse ? 1.5: 0)
+                            color: Qt.darker(Styles.chatInactiveText, mouser.containsMouseEx ? 1.5: 0)
 
                             font { family: 'Arial'; pixelSize: 12 }
 
@@ -169,7 +171,7 @@ Item {
                             height: 23
                             width: 355
                             text: title
-                            color: Qt.darker(Styles.titleText, mouser.containsMouse ? 1.5: 0)
+                            color: Qt.darker(Styles.titleText, mouser.containsMouseEx ? 1.5: 0)
                             elide: Text.ElideRight
                             font { family: 'Open Sans Light'; pixelSize: 20; bold: false }
 
@@ -189,9 +191,12 @@ Item {
                         }
 
                         CursorMouseArea {
+                            id: mouserHeader
+
                             anchors.fill: parent
                             toolTip: newsHeader.text
                             hoverEnabled: newsHeader.truncated
+                            acceptedButtons: Qt.NoButton
                         }
                     }
                 }
@@ -211,7 +216,7 @@ Item {
                     elide: Text.ElideRight
                     maximumLineCount: 4
                     clip: true
-                    color: Qt.darker(Styles.infoText, mouser.containsMouse ? 1.5: 0)
+                    color: Qt.darker(Styles.infoText, mouser.containsMouseEx ? 1.5: 0)
                     font { family: 'Arial'; pixelSize: 13 }
                     lineHeight: 20
                     lineHeightMode: Text.FixedHeight
