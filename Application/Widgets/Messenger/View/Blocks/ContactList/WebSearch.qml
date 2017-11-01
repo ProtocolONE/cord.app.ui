@@ -67,6 +67,7 @@ NavigatableContactList {
         }
 
         function formatItem(item) {
+            var result = {};
             var charsText = d.getDefaultCharText(item),
                 chars;
 
@@ -87,7 +88,7 @@ NavigatableContactList {
 
                 chars = chars.slice(0, 4).forEach(function(e){
 
-                    e.charlevel = (e.charlevel || "").toString(); 
+                    e.charlevel = (e.charlevel || "").toString();
 
                     var regexpString = "(" + d.splitSearch.join("|") + ")",
                         searchKeys = ['game', 'name', 'class', 'server'];
@@ -118,17 +119,19 @@ NavigatableContactList {
                 });
             }
 
-            if (!item.hasOwnProperty('nickname')) {
-                item.nickname = '';
-            }
+            result.nickname = item.nickname || "";
+            result.gamenetid = item.gamenetid || "";
+            result.avatar = item.avatar || "";
+            result.gender = item.gender || "";
+            result.firstname = item.firstname || "";
+            result.lastname = item.lastname || "";
+            result.charsText = charsText;
+            result.isFriend = item.isFriend || false;
+            result.isPrivacyFilterActive = item.isPrivacyFilterActive || false;
+            result.friendInviteSended = false;
+            result.inviteMaximumLimitSended = false;
 
-            if (!item.hasOwnProperty('avatar')) {
-                item.avatar = '';
-            }
-
-            item.charsText = charsText;
-            item.friendInviteSended = false;
-            item.inviteMaximumLimitSended = false;
+            return result;
         }
     }
 
@@ -149,11 +152,12 @@ NavigatableContactList {
                                     return;
                                 }
 
-                                Object.keys(response).forEach(function(e) {
-                                    var item = response[e];
-                                    d.formatItem(item);
-                                    listViewModel.append(item);
+                                var viewMovel = response.map(function(item) {
+                                    var result =d.formatItem(item);
+                                    return result;
                                 });
+
+                                listViewModel.append(viewMovel);
                             });
     }
 
