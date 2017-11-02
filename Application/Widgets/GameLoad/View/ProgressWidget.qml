@@ -35,14 +35,14 @@ Column {
 
         function calcDimension(value) {
             if (value < 999900) {
-                return qsTr('%1 KiB').arg((value / 1024).toFixed(1));
+                return qsTr('%1 KB').arg((value / 1024).toFixed(1));
             }
 
             if (value < 999990000) {
-                return qsTr('%1 MiB').arg((value / 1048576).toFixed(1));
+                return qsTr('%1 MB').arg((value / 1048576).toFixed(1));
             }
 
-            return qsTr('%1 GiB').arg((value / 1073741824).toFixed(2));
+            return qsTr('%1 GB').arg((value / 1073741824).toFixed(2));
         }
     }
 
