@@ -50,7 +50,7 @@ WidgetView {
                 Popup.show('NicknameEdit');
                 break;
             case "confirmemail":
-                App.openExternalUrlWithAuth(Config.GnUrl.site("/security/confirm-email"));
+                App.openExternalUrlWithAuth(Config.GnUrl.site("/my-settings/email/"));
                 break;
             case "confirmguest":
                 Popup.show('GuestConfirm');
@@ -488,7 +488,7 @@ WidgetView {
                                         width: row1.width
                                         height: row1.height
                                         toolTip: qsTr("PROFILE_CONFIRM_LOGIN_TULTIP")
-                                        onClicked: App.openExternalUrlWithAuth(Config.GnUrl.site("/security/confirm-email"));
+                                        onClicked: App.openExternalUrlWithAuth(Config.GnUrl.site("/my-settings/email/"));
                                         acceptedButtons: Qt.LeftButton
                                     }
                                 }
