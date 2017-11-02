@@ -1816,16 +1816,16 @@ Please try again later.</source>
         <translation type="obsolete">%1 ГБ</translation>
     </message>
     <message>
-        <source>%1 KiB</source>
-        <translation>%1 КиБ</translation>
+        <source>%1 KB</source>
+        <translation>%1 КБ</translation>
     </message>
     <message>
-        <source>%1 MiB</source>
-        <translation>%1 МиБ</translation>
+        <source>%1 MB</source>
+        <translation>%1 МБ</translation>
     </message>
     <message>
-        <source>%1 GiB</source>
-        <translation>%1 ГиБ</translation>
+        <source>%1 GB</source>
+        <translation>%1 ГБ</translation>
     </message>
 </context>
 <context>
@@ -5175,16 +5175,16 @@ Please try again later.</source>
         <translation>Идет загрузка игры: %1 из %2... </translation>
     </message>
     <message>
-        <source>%1 KiB</source>
-        <translation>%1 КиБ</translation>
+        <source>%1 KB</source>
+        <translation>%1 КБ</translation>
     </message>
     <message>
-        <source>%1 MiB</source>
-        <translation>%1 МиБ</translation>
+        <source>%1 MB</source>
+        <translation>%1 МБ</translation>
     </message>
     <message>
-        <source>%1 GiB</source>
-        <translation>%1 ГиБ</translation>
+        <source>%1 GB</source>
+        <translation>%1 ГБ</translation>
     </message>
 </context>
 <context>

@@ -847,18 +847,18 @@
     <name>DownloadManagerConnector</name>
     <message>
         <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="41"/>
-        <source>%1 KiB</source>
-        <translation type="unfinished">%1 KiB</translation>
+        <source>%1 KB</source>
+        <translation type="unfinished">%1 KB</translation>
     </message>
     <message>
         <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="45"/>
-        <source>%1 MiB</source>
-        <translation type="unfinished">%1 MiB</translation>
+        <source>%1 MB</source>
+        <translation type="unfinished">%1 MB</translation>
     </message>
     <message>
         <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="48"/>
-        <source>%1 GiB</source>
-        <translation type="unfinished">%1 GiB</translation>
+        <source>%1 GB</source>
+        <translation type="unfinished">%1 GB</translation>
     </message>
     <message>
         <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="62"/>
@@ -2684,18 +2684,18 @@
     </message>
     <message>
         <location filename="../Application/Widgets/GameLoad/View/ProgressWidget.qml" line="38"/>
-        <source>%1 KiB</source>
-        <translation type="unfinished">%1 KiB</translation>
+        <source>%1 KB</source>
+        <translation type="unfinished">%1 KB</translation>
     </message>
     <message>
         <location filename="../Application/Widgets/GameLoad/View/ProgressWidget.qml" line="42"/>
-        <source>%1 MiB</source>
-        <translation type="unfinished">%1 MiB</translation>
+        <source>%1 MB</source>
+        <translation type="unfinished">%1 MB</translation>
     </message>
     <message>
         <location filename="../Application/Widgets/GameLoad/View/ProgressWidget.qml" line="45"/>
-        <source>%1 GiB</source>
-        <translation type="unfinished">%1 GiB</translation>
+        <source>%1 GB</source>
+        <translation type="unfinished">%1 GB</translation>
     </message>
     <message>
         <location filename="../Application/Widgets/GameLoad/View/ProgressWidget.qml" line="59"/>
