@@ -71,11 +71,13 @@ function Message(model, index) {
         _model.setProperty(_index, 'day', val);
     });
 
-    this.finishComposing = function(body, date, id) {
+    this.finishComposing = function(body, date, id, messageId) {
         this.isStatusMessage = false;
         this.date = date || Date.now();
         this.text = body;
         _model.setProperty(_index, 'id', String(id || "_"));
+        _model.setProperty(_index, 'messageId', String(messageId || ""));       
+        _model.setProperty(_index, 'edited', 0);
     }
 }
 
@@ -89,7 +91,8 @@ function startOfDay(value) {
     return +tmp;
 }
 
-function createRawMessage(from, isStatus, body, date, id, type) {
+function createRawMessage(from, isStatus, body, date, id, type, qxmppId, edited) {
+
     var result = {
         id: String(id || "_"),
         jid: from,
@@ -97,7 +100,9 @@ function createRawMessage(from, isStatus, body, date, id, type) {
         date: +(date || Date.now()),
         isStatusMessage: isStatus,
         day: startOfDay(date),
-        type: type || "text"
+        type: type || "text",
+        messageId: qxmppId || "",
+        edited: edited || 0
     };
 
     return result;

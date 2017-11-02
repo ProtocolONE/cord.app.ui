@@ -54,6 +54,9 @@ _private = {
             mucInvitationReason: message.mucInvitationReason,
             receiptId: message.receiptId,
             thread: message.thread,
+            id: message.id,
+            isReplaceMessage: message.isReplaceMessage,
+            replaceId: message.replaceId
         }
 
         return result;
@@ -78,7 +81,7 @@ function init(jabber, extendedListModel, messenger) {
     _jabber = jabber;
 
     _jabber.connected.connect(function() {
-        console.log('[Conversation] Init Conversation manager for ', _jabber.myJid);
+        //console.log('[Conversation] Init Conversation manager for ', _jabber.myJid);
 
         _jid = _jabber.myJid;
         _db = _modelInstance.getDb(_jid);
@@ -113,7 +116,7 @@ function init(jabber, extendedListModel, messenger) {
         }
 
         //INFO Debug purposes
-        //console.log('[Conversation] MessageReceived', JSON.stringify(message));
+        console.log('[Conversation] MessageReceived', JSON.stringify(message));
         conv = create(bareJid);
         tmpMessage = _private.wrapMessage(message);
         conv.receiveMessage(bareJid, tmpMessage);

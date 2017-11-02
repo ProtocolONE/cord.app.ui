@@ -16,6 +16,8 @@ var ConversationStorage = {
     init: function(db) {
         this._db = db;
 
+        console.log("ConversationStorage init");
+
         var meta = new MetaStorage(this._db, 'Messages');
         meta.migrate(0, 1, [
             "CREATE TABLE IF NOT EXISTS Messages(" +
@@ -28,13 +30,22 @@ var ConversationStorage = {
                 '`timestamp` INTEGER,' +
                 '`body` TEXT,' +
                 '`type` INTEGER,' +
-                '`crc`	TEXT,' +
+                '`crc`  TEXT,' +
                 'PRIMARY KEY(id),' +
                 'UNIQUE(crc)' +
             ')',
             'CREATE INDEX IF NOT EXISTS IDX_Messages_TS ON Messages(chatName, timestamp)',
             'CREATE INDEX IF NOT EXISTS IDX_Messages_Crc ON Messages(crc)'
          ]);
+
+        // Adding column - message id from xmpp generator
+
+        var metaStep = new MetaStorage(this._db, 'Messages');
+        metaStep.migrate(1, 2, [
+            "ALTER TABLE Messages ADD COLUMN `message_id` TEXT",
+            "ALTER TABLE Messages ADD COLUMN `edited` INTEGER DEFAULT 0",
+            ]            
+        );
 
         var metaConversation = new MetaStorage(this._db, 'Conversation');
         metaConversation.migrate(0, 1, [
@@ -79,7 +90,7 @@ var ConversationStorage = {
             checkDataBaseResult(this._db.executeSql('DELETE FROM Conversation WHERE chatName = ?', [jid]));
 
             if (group) {
-                checkDataBaseResult(this._db.executeSql("INSERT INTO Messages VALUES(NULL, ?, NULL, NULL, NULL, NULL, ?, NULL, NULL, NULL)",
+                checkDataBaseResult(this._db.executeSql("INSERT INTO Messages VALUES(NULL, ?, NULL, NULL, NULL, NULL, ?, NULL, NULL, NULL, NULL, NULL)",
                     [jid, ts]));
             }
 
@@ -88,7 +99,7 @@ var ConversationStorage = {
             checkDataBaseResult(this._db.executeSql('DELETE FROM Messages'));
             checkDataBaseResult(this._db.executeSql('DELETE FROM Conversation'));
 
-            checkDataBaseResult(this._db.executeSql("INSERT INTO Messages VALUES(NULL, 'history_separator', NULL, NULL, NULL, NULL, ?, NULL, NULL, NULL)",
+            checkDataBaseResult(this._db.executeSql("INSERT INTO Messages VALUES(NULL, 'history_separator', NULL, NULL, NULL, NULL, ?, NULL, NULL, NULL, NULL, NULL)",
                 [ts]));
         }
     },
@@ -118,8 +129,8 @@ var ConversationStorage = {
         from = this._jidWithoutResource(message.from||bareJid);
 
         // OR IGNORE
-        query = "INSERT INTO Messages VALUES(NULL, ?, ?, '', ?, '', ?, ?, ?, ?)";
-        args = [bareJid, from, to, messageDate, message.body, message.type, crc];
+        query = "INSERT INTO Messages VALUES(NULL, ?, ?, '', ?, '', ?, ?, ?, ?, ?, 0)";
+        args = [bareJid, from, to, messageDate, message.body, message.type, crc, message.messageId];
 
         res = this._db.executeSql(query, args);
         checkDataBaseResult(res);
@@ -165,6 +176,31 @@ var ConversationStorage = {
 
         checkDataBaseResult(result);
         return result.rows[0].timestamp * 1000;
-    }
+    },
 
+    updateMessage: function(replaceId, id, body) {
+        // Select old data
+
+        var qResult = this._db.executeSql(
+            "SELECT * FROM Messages WHERE message_id = ? AND body IS NOT NULL",
+            [replaceId]
+        );
+
+        checkDataBaseResult(qResult);
+
+        // Recalculate crc
+
+        var crc = Qt.md5(qResult.rows[0].fromJid + qResult.rows[0].toJid + body + qResult.rows[0].timestamp);
+
+        // Update all with new data
+
+        var result = this._db.executeSql(
+            "UPDATE Messages SET body = ?, message_id = ?, crc = ?, edited = 1 WHERE message_id = ?",
+            [body, id, crc, replaceId]
+        );
+
+        checkDataBaseResult(result);
+
+        return true;
+    }
 };

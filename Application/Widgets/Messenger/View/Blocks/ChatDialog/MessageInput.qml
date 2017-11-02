@@ -69,6 +69,14 @@ FocusScope {
         id: d
 
         property string activeStatus: "Active"
+        property int editMessageCounter: -1
+        property var messageModel
+        property string xmppId: ""
+
+        function userChanged() {
+            d.editMessageCounter = -1;
+            d.messageModel = MessengerJs.getConversation(MessengerJs.selectedUser().jid).messages;
+        }
 
         function getPlainText() {
             var temporaryModifiedImgTag,
@@ -135,10 +143,12 @@ FocusScope {
                 convertedText = TextDocumentHelper.stripHtml(convertedText);
 
                 MessengerJs.getConversation(MessengerJs.selectedUser().jid)
-                    .writeMessage(convertedText);
+                    .writeMessage(convertedText, d.xmppId);
 
                 messengerInput.text = "";
                 d.setActiveStatus(MessengerJs.selectedUser(), "Active");
+                d.editMessageCounter = -1;
+                d.xmppId = "";
             }
         }
 
@@ -203,7 +213,10 @@ FocusScope {
 
     Connections {
         target: MessengerJs.instance()
-        onSelectedUserChanged: d.updateUserSelectedText()
+        onSelectedUserChanged: {
+            d.updateUserSelectedText();
+            d.userChanged();
+        }
     }
 
     Rectangle { // split sign
@@ -285,6 +298,61 @@ FocusScope {
                                     root.insertText("<br />");
                                 }
 
+                                function dropCounter() {
+                                    // Check message cursor
+                                    if (d.editMessageCounter == -1) {
+                                        // Not inited cursor
+                                        d.editMessageCounter = d.messageModel.count - 1;
+                                    }
+                                }
+
+                                function isMessageTimeValid(messageItem) {
+                                    var result = false;
+
+                                    var diff = (Date.now() - messageItem.date)/1000;
+
+                                    if (diff <= 1800) { // 30 minutes to go
+                                        result = true;
+                                    }
+
+                                    return result;
+                                }
+
+                                function updateText(messageItem) {
+                                    d.xmppId = messageItem.messageId;
+                                    messengerInput.text = messageItem.text;
+                                }
+
+                                function getNextItem() {
+                                    var i;
+                                    var jabber = MessengerJs.instance().getJabberClient();
+
+                                    if (jabber === null)
+                                        return null;
+
+                                    for (i = d.editMessageCounter; i >= 0; i--) {
+                                        var messageItem = d.messageModel.get(i);
+
+                                        d.editMessageCounter--;
+
+                                        // Check message time
+                                        if (!isMessageTimeValid(messageItem)) {
+                                            break;
+                                        }
+
+                                        // Skip not sended with us
+                                        if (messageItem.jid !== jabber.myJid)
+                                            continue;
+
+                                        return messageItem;
+                                    }
+
+                                    // In case we iterated through all sended to us messages
+                                    d.editMessageCounter = -1;
+
+                                    return null;
+                                }
+
                                 width: inputFlick.width
                                 height: inputFlick.height
                                 focus: true
@@ -325,69 +393,87 @@ FocusScope {
 
                                 Keys.onEnterPressed: {
                                     switch (root.sendAction) {
-                                    case Settings.SendShortCut.CtrlEnter:
-                                    {
-                                        if (event.modifiers & Qt.ControlModifier) {
-                                            d.sendMessage();
-                                        } else {
-                                            messengerInput.appendNewLine();
+                                        case Settings.SendShortCut.CtrlEnter:
+                                        {
+                                            if (event.modifiers & Qt.ControlModifier) {
+                                                d.sendMessage();
+                                            } else {
+                                                messengerInput.appendNewLine();
+                                            }
+                                            event.accepted = true;
+                                            return;
                                         }
-                                        event.accepted = true;
-                                        return;
-                                    }
-                                    case Settings.SendShortCut.Enter:
-                                    {
-                                        if (event.modifiers === Qt.KeypadModifier) {
-                                            d.sendMessage();
-                                        } else {
-                                            messengerInput.appendNewLine();
+                                        case Settings.SendShortCut.Enter:
+                                        {
+                                            if (event.modifiers === Qt.KeypadModifier) {
+                                                d.sendMessage();
+                                            } else {
+                                                messengerInput.appendNewLine();
+                                            }
+                                            event.accepted = true;
+                                            return;
                                         }
-                                        event.accepted = true;
-                                        return;
+                                        case Settings.SendShortCut.ButtonOnly:
+                                        {
+                                            messengerInput.appendNewLine();
+                                            event.accepted = true;
+                                            return;
+                                        }
                                     }
-                                    case Settings.SendShortCut.ButtonOnly:
-                                    {
-                                        messengerInput.appendNewLine();
-                                        event.accepted = true;
-                                        return;
-                                    }
-                                    }
+
                                     event.accepted = false;
                                 }
 
                                 Keys.onReturnPressed: {
                                     switch (root.sendAction) {
-                                    case Settings.SendShortCut.CtrlEnter:
-                                    {
-                                        if (event.modifiers & Qt.ControlModifier) {
-                                            d.sendMessage();
-                                        } else {
-                                            messengerInput.appendNewLine();
+                                        case Settings.SendShortCut.CtrlEnter:
+                                        {
+                                            if (event.modifiers & Qt.ControlModifier) {
+                                                d.sendMessage();
+                                            } else {
+                                                messengerInput.appendNewLine();
+                                            }
+                                            event.accepted = true;
+                                            return;
                                         }
-                                        event.accepted = true;
-                                        return;
-                                    }
-                                    case Settings.SendShortCut.Enter:
-                                    {
-                                        if (event.modifiers === Qt.NoModifier) {
-                                            d.sendMessage();
-                                        } else {
-                                            messengerInput.appendNewLine();
+                                        case Settings.SendShortCut.Enter:
+                                        {
+                                            if (event.modifiers === Qt.NoModifier) {
+                                                d.sendMessage();
+                                            } else {
+                                                messengerInput.appendNewLine();
+                                            }
+                                            event.accepted = true;
+                                            return;
                                         }
-                                        event.accepted = true;
-                                        return;
-                                    }
-                                    case Settings.SendShortCut.ButtonOnly:
-                                    {
-                                        messengerInput.appendNewLine();
-                                        event.accepted = true;
-                                        return;
-                                    }
+                                        case Settings.SendShortCut.ButtonOnly:
+                                        {
+                                            messengerInput.appendNewLine();
+                                            event.accepted = true;
+                                            return;
+                                        }
                                     }
                                     event.accepted = false;
                                 }
 
                                 Keys.onEscapePressed: root.closeDialogPressed();
+
+                                Keys.onUpPressed: {
+                                    // Check model ok
+                                    if (!d.messageModel && d.messageModel.count == 0)
+                                        return;
+
+                                    // Drop cursor if needed
+                                    dropCounter();
+
+                                    var messageItem = getNextItem();
+
+                                    if (messageItem === null) {
+                                        return;
+                                    }
+
+                                    updateText(messageItem);                                    
+                                }
 
                                 onTextChanged: {
                                     var plainLength = getPlainTextLength();

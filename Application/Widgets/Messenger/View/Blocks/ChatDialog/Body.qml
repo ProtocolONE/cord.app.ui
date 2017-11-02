@@ -131,6 +131,7 @@ Item {
             date: Qt.formatDateTime(new Date(+model.date), "hh:mm")
             fulldate: Qt.formatDateTime(new Date(+model.date), "d MMMM yyyy, hh:mm")
             body: model.text
+            isReplacedMessage: model.edited === 1
 
             isStatusMessage: model.isStatusMessage
             onIsStatusMessageChanged: messageList.scrollCheck()

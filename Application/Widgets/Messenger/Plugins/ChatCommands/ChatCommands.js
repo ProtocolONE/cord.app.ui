@@ -14,6 +14,9 @@ function init(jabber) {
 
     function onCommand(jid, body) {
         var args = body.split(' ');
+
+        console.log("Command " + args[0]);
+
         switch(args[0]) {
           case '/topic':
               jabber.setRoomTopic(jid, args[1]);

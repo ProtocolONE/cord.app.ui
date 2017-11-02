@@ -29,6 +29,7 @@ Item {
     property bool isStatusMessage: false
     property bool isSelfMessage: false
     property bool firstMessageInGroup: false
+    property bool isReplacedMessage: false
 
     property alias isGameNetMember: shieldItem.visible
 
@@ -52,6 +53,8 @@ Item {
             height: 32
 
             Item {
+                id: avatarImageItem
+
                 property bool needDraw: !root.isSelfMessage && root.firstMessageInGroup
 
                 width: 32
@@ -69,6 +72,21 @@ Item {
                     width: 32
                     height: 32
                     visible: parent.needDraw
+                }
+
+                Image {
+
+                    width: 32
+                    height: 32
+
+                    anchors {
+                        right: parent.right
+                        top: parent.top
+                        rightMargin: 12
+                    }
+
+                    visible: avatarImageItem.needDraw && root.isReplacedMessage
+                    source: installPath + "Assets/Images/Application/Widgets/Messenger/edit_icon.png"
                 }
 
                 CursorMouseArea {
@@ -180,49 +198,62 @@ Item {
                         }
                     }
 
-                    TextEdit {
-                        id: messageBody
+                    Item {
+                        id: bodyWrapper
 
-                        anchors {
-                            left: parent.left
-                            right: parent.right
-                        }
+                        width: parent.width
+                        height: messageBody.height
 
-                        wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
-                        readOnly: true
-                        selectByMouse: true
-                        textFormat: TextEdit.RichText
-                        text: AppStringHelper.prepareText(root.body, {
-                                                           hyperLinkStyle: Styles.linkText,
-                                                           smileResolver: EmojiOne.ns.toImage,
-                                                           serviceResolver: App.serviceItemByServiceId
-                                                       })
+                        TextEdit {
+                            id: messageBody
 
-                        color: root.isSelfMessage ? Styles.chatButtonText : Styles.textBase
-                        font {
-                            family: "Arial"
-                            pixelSize: 12
-                            italic: root.isStatusMessage
-                        }
-
-                        onLinkActivated: root.linkActivated(link);
-
-                        Keys.onPressed: {
-                            if ((event.key === Qt.Key_Insert) && (event.modifiers === Qt.ControlModifier) ||
-                                (event.key === Qt.key_c) && (event.modifiers === Qt.ControlModifier)) {
-                                if (messageBody.selectedText.length > 0) {
-                                    var ftext = messageBody.getFormattedText(messageBody.selectionStart, messageBody.selectionEnd);
-                                    var text = TextDocumentHelper.stripHtml(EmojiOne.ns.htmlToShortname(ftext));
-                                    ClipboardAdapter.setQuote(text, root.nickname, root.fulldate);
-                                }
-                                event.accepted = true;
+                            anchors {
+                                left: parent.left
+                                right: parent.right
+                                rightMargin: 22
                             }
-                        }
-                        MouseArea {
-                              anchors.fill: parent
-                              cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
-                              acceptedButtons: Qt.NoButton
+
+                            wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
+                            readOnly: true
+                            selectByMouse: true
+                            textFormat: TextEdit.RichText
+                            text: AppStringHelper.prepareText(root.body, {
+                                                               hyperLinkStyle: Styles.linkText,
+                                                               smileResolver: EmojiOne.ns.toImage,
+                                                               serviceResolver: App.serviceItemByServiceId
+                                                           })
+
+                            color: root.isSelfMessage ? Styles.chatButtonText : Styles.textBase
+                            font {
+                                family: "Arial"
+                                pixelSize: 12
+                                italic: root.isStatusMessage
                             }
+
+                            onLinkActivated: root.linkActivated(link);
+
+                            MouseArea {
+                                  anchors.fill: parent
+                                  cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
+                                  acceptedButtons: Qt.NoButton
+                              }
+                        }
+
+                        Image {
+                            id: idEditIcon
+
+                            width: 16
+                            height: 16
+
+                            anchors {
+                                left: parent.right
+                                top: parent.top
+                                leftMargin: -15
+                            }
+
+                            visible: root.isReplacedMessage
+                            source: installPath + "Assets/Images/Application/Widgets/Messenger/edit_icon.png"
+                        }
                     }
                 }
             }

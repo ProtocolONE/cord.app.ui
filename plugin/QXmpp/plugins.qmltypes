@@ -399,6 +399,7 @@ Module {
         Method { name: "disconnectFromServer" }
         Method {
             name: "sendMessage"
+            type: "string"
             Parameter { name: "bareJid"; type: "string" }
             Parameter { name: "map"; type: "QVariantMap" }
         }
@@ -569,6 +570,7 @@ Module {
         }
         Property { name: "body"; type: "string"; isReadonly: true }
         Property { name: "isAttentionRequested"; type: "bool"; isReadonly: true }
+        Property { name: "isReplaceMessage"; type: "bool"; isReadonly: true }
         Property { name: "isReceiptRequested"; type: "bool"; isReadonly: true }
         Property { name: "mucInvitationJid"; type: "string"; isReadonly: true }
         Property { name: "mucInvitationPassword"; type: "string"; isReadonly: true }
@@ -578,6 +580,7 @@ Module {
         Property { name: "subject"; type: "string"; isReadonly: true }
         Property { name: "thread"; type: "string"; isReadonly: true }
         Property { name: "xhtml"; type: "string"; isReadonly: true }
+        Property { name: "replaceId"; type: "string"; isReadonly: true }
         Property { name: "state"; type: "QmlQXmppMessage::State"; isReadonly: true }
         Property { name: "type"; type: "QmlQXmppMessage::Type"; isReadonly: true }
         Property { name: "to"; type: "string"; isReadonly: true }

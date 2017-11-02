@@ -78,7 +78,7 @@ QXmppClient {
 
     function sendMessageEx(jid, message) {
         messageSending(jid, message);
-        xmppClient.sendMessage(jid, message);
+        return xmppClient.sendMessage(jid, message);
     }
 
     function sendInputStatus(jid, value) {
