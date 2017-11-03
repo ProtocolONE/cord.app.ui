@@ -165,6 +165,8 @@ Item {
 
                             Text {
                                 text: d.getGameName()
+                                width: parent.width;
+                                elide: Text.ElideRight
                                 anchors {
                                     baseline: parent.bottom
                                     baselineOffset: -6
@@ -176,6 +178,11 @@ Item {
                                 }
 
                                 color: Styles.lightText
+
+                                CursorMouseArea {
+                                    anchors.fill: parent
+                                    toolTip: d.getGameName()
+                                }
                             }
                         }
 
