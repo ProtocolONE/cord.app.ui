@@ -1805,27 +1805,15 @@ Please try again later.</source>
     </message>
     <message>
         <source>%1 KB</source>
-        <translation type="obsolete">%1 КБ</translation>
+        <translation type="unfinished">%1 КБ</translation>
     </message>
     <message>
         <source>%1 MB</source>
-        <translation type="obsolete">%1 МБ</translation>
+        <translation type="unfinished">%1 МБ</translation>
     </message>
     <message>
         <source>%1 GB</source>
-        <translation type="obsolete">%1 ГБ</translation>
-    </message>
-    <message>
-        <source>%1 KB</source>
-        <translation>%1 КБ</translation>
-    </message>
-    <message>
-        <source>%1 MB</source>
-        <translation>%1 МБ</translation>
-    </message>
-    <message>
-        <source>%1 GB</source>
-        <translation>%1 ГБ</translation>
+        <translation type="unfinished">%1 ГБ</translation>
     </message>
 </context>
 <context>
@@ -4937,7 +4925,7 @@ Please try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Доступ на премиум сервер для новых пользователей временно недоступен.</source>
+        <source>Доступ на премиум сервер для пользователей совершивших трансфер на бесплатный сервер недоступен.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5088,15 +5076,15 @@ Please try again later.</source>
     </message>
     <message>
         <source>%1 KB</source>
-        <translation type="vanished">%1 КБ</translation>
+        <translation>%1 КБ</translation>
     </message>
     <message>
         <source>%1 MB</source>
-        <translation type="vanished">%1 МБ</translation>
+        <translation>%1 МБ</translation>
     </message>
     <message>
         <source>%1 GB</source>
-        <translation type="vanished">%1 ГБ</translation>
+        <translation>%1 ГБ</translation>
     </message>
     <message>
         <source>DOWNLOAD_INFO_CAPTION</source>
@@ -5173,18 +5161,6 @@ Please try again later.</source>
     <message>
         <source>DOWNLOAD_STATUS_TEXT</source>
         <translation>Идет загрузка игры: %1 из %2... </translation>
-    </message>
-    <message>
-        <source>%1 KB</source>
-        <translation>%1 КБ</translation>
-    </message>
-    <message>
-        <source>%1 MB</source>
-        <translation>%1 МБ</translation>
-    </message>
-    <message>
-        <source>%1 GB</source>
-        <translation>%1 ГБ</translation>
     </message>
 </context>
 <context>
@@ -6648,6 +6624,10 @@ Please try again later.</source>
     <message>
         <source>USER_PROFILE_CONTEXT_MENU_GUEST_CONFIRM</source>
         <translation>Подтвердить гостя</translation>
+    </message>
+    <message>
+        <source>В два раза больше GN-монет за те же деньги</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
