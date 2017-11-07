@@ -182,6 +182,11 @@ Item {
                                 CursorMouseArea {
                                     anchors.fill: parent
                                     toolTip: d.getGameName()
+                                    onClicked: {
+                                        App.activateGame(App.serviceItemByGameId(root.gameId))
+                                        SignalBus.navigate('mygame', 'GameItem');
+                                        SignalBus.closeDetailedUserInfo();
+                                    }
                                 }
                             }
                         }
