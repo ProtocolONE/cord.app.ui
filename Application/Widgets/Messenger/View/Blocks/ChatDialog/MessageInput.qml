@@ -17,6 +17,8 @@ import Application.Controls 1.0
 import Application.Core 1.0
 import Application.Core.Styles 1.0
 
+import Tulip 1.0
+
 import "../../../Models/Messenger.js" as MessengerJs
 import "../../../Models/Settings.js" as Settings
 
@@ -298,6 +300,18 @@ FocusScope {
 
                                 color: Styles.chatButtonText
                                 onCursorRectangleChanged: inputFlick.ensureVisible(cursorRectangle);
+
+                                Keys.onPressed: {
+                                    if ((event.key === Qt.Key_Insert) && (event.modifiers === Qt.ShiftModifier) ||
+                                        (event.key === Qt.key_v) && (event.modifiers === Qt.ControlModifier)) {
+                                        if (messengerInput.canPaste && ClipboardAdapter.hasText()) {
+                                            if (messengerInput.selectionStart < messengerInput.selectionEnd)
+                                                messengerInput.remove(messengerInput.selectionStart, messengerInput.selectionEnd);
+                                            messengerInput.insert(messengerInput.selectionStart, AppStringHelper.escapeHtml(ClipboardAdapter.text()));
+                                        }
+                                        event.accepted = true;
+                                    }
+                                }
 
                                 Keys.onEnterPressed: {
                                     switch (root.sendAction) {

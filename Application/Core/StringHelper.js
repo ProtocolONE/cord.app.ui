@@ -46,8 +46,30 @@ function replaceNewLines(message) {
     return message.replace(/(?:\r\n|\r|\n)/g, '<br/>');
 }
 
+function escapeHtml(s) {
+    return s ? s.replace(
+        /[&<>'"]/g,
+        function (c, offset, str) {
+            if (c === "&") {
+                var substr = str.substring(offset, offset + 6);
+                if (/&(amp|lt|gt|apos|quot);/.test(substr)) {
+                    // already escaped, do not re-escape
+                    return c;
+                }
+            }
+            return "&" + {
+                "&": "amp",
+                "<": "lt",
+                ">": "gt",
+                "'": "apos",
+                '"': "quot"
+            }[c] + ";";
+        }
+    ) : "";
+}
+
 function prepareText(message, options) {
-    var text = stripTags(message);
+    var text = escapeHtml(message);
     text = options.smileResolver(text);
     text = replaceHyperlinks(text, options.hyperLinkStyle);
     text = replaceGameNetHyperlinks(text, true, options.serviceResolver, options.hyperLinkStyle);
