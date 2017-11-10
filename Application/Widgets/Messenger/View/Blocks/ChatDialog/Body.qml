@@ -129,6 +129,7 @@ Item {
             nickname: MessengerJs.getNickname(model)
             avatar: MessengerJs.userAvatar(model)
             date: Qt.formatDateTime(new Date(+model.date), "hh:mm")
+            fulldate: Qt.formatDateTime(new Date(+model.date), "d MMMM yyyy, hh:mm")
             body: model.text
 
             isStatusMessage: model.isStatusMessage

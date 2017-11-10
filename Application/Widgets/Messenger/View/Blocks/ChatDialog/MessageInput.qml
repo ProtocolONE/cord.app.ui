@@ -281,6 +281,7 @@ FocusScope {
                                 id: messengerInput
 
                                 function appendNewLine() {
+                                    //messengerInput.append("<br/>");
                                     root.insertText("<br />");
                                 }
 
@@ -304,10 +305,19 @@ FocusScope {
                                 Keys.onPressed: {
                                     if ((event.key === Qt.Key_Insert) && (event.modifiers === Qt.ShiftModifier) ||
                                         (event.key === Qt.key_v) && (event.modifiers === Qt.ControlModifier)) {
-                                        if (messengerInput.canPaste && ClipboardAdapter.hasText()) {
+                                        if (messengerInput.canPaste && (ClipboardAdapter.hasText() || ClipboardAdapter.hasQuote())) {
+
                                             if (messengerInput.selectionStart < messengerInput.selectionEnd)
                                                 messengerInput.remove(messengerInput.selectionStart, messengerInput.selectionEnd);
-                                            messengerInput.insert(messengerInput.selectionStart, AppStringHelper.escapeHtml(ClipboardAdapter.text()));
+
+                                            var text = "";
+
+                                            if (ClipboardAdapter.hasQuote())
+                                                text = ClipboardAdapter.quote();
+                                            else
+                                                text = AppStringHelper.escapeHtml(ClipboardAdapter.text());
+
+                                            messengerInput.insert(messengerInput.selectionStart, AppStringHelper.replaceNewLines(text));
                                         }
                                         event.accepted = true;
                                     }

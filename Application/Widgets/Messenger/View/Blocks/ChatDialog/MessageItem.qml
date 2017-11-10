@@ -22,6 +22,7 @@ Item {
 
     property alias nickname: nicknameText.text
     property alias date: dateText.text
+    property string fulldate
     property string body
     property alias avatar: avatarImage.source
 
@@ -206,11 +207,22 @@ Item {
 
                         onLinkActivated: root.linkActivated(link);
 
+                        Keys.onPressed: {
+                            if ((event.key === Qt.Key_Insert) && (event.modifiers === Qt.ControlModifier) ||
+                                (event.key === Qt.key_c) && (event.modifiers === Qt.ControlModifier)) {
+                                if (messageBody.selectedText.length > 0) {
+                                    var ftext = messageBody.getFormattedText(messageBody.selectionStart, messageBody.selectionEnd);
+                                    var text = TextDocumentHelper.stripHtml(EmojiOne.ns.htmlToShortname(ftext));
+                                    ClipboardAdapter.setQuote(text, root.nickname, root.fulldate);
+                                }
+                                event.accepted = true;
+                            }
+                        }
                         MouseArea {
                               anchors.fill: parent
                               cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
                               acceptedButtons: Qt.NoButton
-                          }
+                            }
                     }
                 }
             }

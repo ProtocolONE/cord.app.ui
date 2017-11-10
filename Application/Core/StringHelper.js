@@ -48,11 +48,11 @@ function replaceNewLines(message) {
 
 function escapeHtml(s) {
     return s ? s.replace(
-        /[&<>'"]/g,
+        /[&<>]/g,
         function (c, offset, str) {
             if (c === "&") {
                 var substr = str.substring(offset, offset + 6);
-                if (/&(amp|lt|gt|apos|quot);/.test(substr)) {
+                if (/&(amp|lt|gt);/.test(substr)) {
                     // already escaped, do not re-escape
                     return c;
                 }
@@ -60,17 +60,45 @@ function escapeHtml(s) {
             return "&" + {
                 "&": "amp",
                 "<": "lt",
-                ">": "gt",
-                "'": "apos",
-                '"': "quot"
+                ">": "gt"
             }[c] + ";";
         }
     ) : "";
 }
 
+function replaceQuote(message) {
+
+    var regExp = new RegExp(/\[quote([^\]]+)\]([\s\S]*?)\[\/quote\]/g);
+    var match = regExp.exec(message);
+    var result = message;
+
+    while (match != null) {
+
+        var text = match[2];
+        var author = "";
+        var date = "";
+
+        var quoteAuthor = match[1].match(/author\s*?=\s*?\"([^"]+)/);
+        if (quoteAuthor)
+            author = quoteAuthor[1];
+        var quoteDate = match[1].match(/date\s*?=\s*?\"([^"]+)/);
+        if (quoteDate)
+            date = quoteDate[1];
+
+        var newMessage = "<blockquote><i>" + text + "</i><br/><b>" +
+                author + "</b><span> </span><span style='color:blue'>" + date + "</span></blockquote>";
+
+        result = result.replace(match[0], newMessage);
+        match = regExp.exec(message);
+    }
+
+    return result;
+}
+
 function prepareText(message, options) {
     var text = escapeHtml(message);
     text = options.smileResolver(text);
+    text = replaceQuote(text);
     text = replaceHyperlinks(text, options.hyperLinkStyle);
     text = replaceGameNetHyperlinks(text, true, options.serviceResolver, options.hyperLinkStyle);
     text = replaceMessengerSubscriptionRequestLink(text, options.hyperLinkStyle);
