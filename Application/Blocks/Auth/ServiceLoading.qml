@@ -12,10 +12,10 @@ Item {
     property string userId
     property string appKey
     property string cookie
+    property bool anotherComputer
 
     function requestServices() {
         retryTimer.count += 1;
-
 
         RestApi.Core.setUserId(userId);
         RestApi.Core.setAppKey(appKey);

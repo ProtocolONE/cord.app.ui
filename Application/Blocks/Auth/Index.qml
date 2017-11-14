@@ -118,7 +118,7 @@ Item {
                 }
                 onError: d.showError(message);
                 onAuthDone: {
-                    d.startLoadingServices(userId, appKey, cookie);
+                    d.startLoadingServices(userId, appKey, cookie, !remember);
 
                     if (remember) {
                         CredentialStorage.save(userId, appKey, cookie, false);
@@ -259,7 +259,11 @@ Item {
 
         visible: false
         anchors.fill: parent
-        onFinished: SignalBus.authDone(userId, appKey, cookie);
+        onFinished: {
+            SignalBus.anotherComputerChanged(serviceLoading.anotherComputer)
+            SignalBus.authDone(userId, appKey, cookie);
+        }
+
     }
 
     QtObject {
@@ -348,10 +352,11 @@ Item {
             auth.loginSuggestion = currentValue;
         }
 
-        function startLoadingServices(userId, appKey, cookie) {
+        function startLoadingServices(userId, appKey, cookie, anotherComputer) {
             serviceLoading.userId = userId;
             serviceLoading.appKey = appKey;
             serviceLoading.cookie = cookie;
+            serviceLoading.anotherComputer = !!anotherComputer;
 
             authContainer.state = "serviceLoading";
         }

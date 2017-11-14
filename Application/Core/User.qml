@@ -301,6 +301,10 @@ Item {
         return hadSubscruption;
     }
 
+    function isAnotherComputer() {
+        return d.anotherComputer;
+    }
+
     QtObject {
         id: d
 
@@ -329,6 +333,8 @@ Item {
         property string secondCookie
 
         property bool isPromoActionActive: false
+
+        property bool anotherComputer: false
     }
 
     ExtendedListModel {
@@ -352,6 +358,10 @@ Item {
         }
 
         onProfileUpdated: refreshUserInfo();
+
+        onAnotherComputerChanged: {
+            d.anotherComputer = value;
+        }
 
         onAuthDone: {
             d.userId = userId;

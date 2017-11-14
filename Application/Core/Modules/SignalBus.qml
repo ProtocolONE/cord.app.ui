@@ -83,6 +83,8 @@ Item {
 
     signal terminateGame(string serviceId, string message);
 
+    signal anotherComputerChanged(bool value);
+
     function cancelDownload(gameItem) {
         serviceCanceled(gameItem);
     }

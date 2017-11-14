@@ -1,6 +1,7 @@
 module Application.Blocks
 AppScreen 1.0 AppScreen.qml
 AuthIndex 1.0 Auth/Index.qml
+AuthUrlSubscription 1.0 Auth/AuthUrlSubscription.qml
 DownloadStatus 1.0 DownloadStatus.qml
 FlowView 1.0 FlowView.qml
 GameInstallBlock 1.0 GameInstallBlock.qml
