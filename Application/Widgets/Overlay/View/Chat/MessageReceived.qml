@@ -88,7 +88,8 @@ OverlayCore.PopupBase {
             bodyText: AppStringHelper.prepareText(body, {
                                                hyperLinkStyle: Styles.messengerChatDialogHyperlinkColor,
                                                smileResolver: EmojiOne.ns.toImage,
-                                               serviceResolver: App.serviceItemByServiceId
+                                               serviceResolver: App.serviceItemByServiceId,
+                                               quoteAuthorColor: Styles.messengerQuoteAuthorColor
                                            })
             avatar: getAvatar(from)
             nickname: getNickname(from)

@@ -17,6 +17,27 @@ Module {
         Method { name: "getBrowserName"; type: "string" }
     }
     Component {
+        name: "ClipboardAdapter"
+        prototype: "QObject"
+        exports: ["ClipboardAdapter 1.0"]
+        isCreatable: false
+        exportMetaObjectRevisions: [0]
+        Method {
+            name: "setText"
+            Parameter { name: "text"; type: "string" }
+        }
+        Method { name: "hasText"; type: "bool" }
+        Method { name: "text"; type: "string" }
+        Method {
+            name: "setQuote"
+            Parameter { name: "text"; type: "string" }
+            Parameter { name: "author"; type: "string" }
+            Parameter { name: "date"; type: "string" }
+        }
+        Method { name: "hasQuote"; type: "bool" }
+        Method { name: "quote"; type: "string" }
+    }
+    Component {
         name: "FileSystem"
         prototype: "QObject"
         exports: ["FileSystem 1.0"]

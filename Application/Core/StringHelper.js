@@ -66,7 +66,7 @@ function escapeHtml(s) {
     ) : "";
 }
 
-function replaceQuote(message) {
+function replaceQuote(message, quoteAuthorColor) {
 
     var regExp = new RegExp(/\[quote([^\]]+)\]([\s\S]*?)\[\/quote\]/g);
     var match = regExp.exec(message);
@@ -86,7 +86,7 @@ function replaceQuote(message) {
             date = quoteDate[1];
 
         var newMessage = "<blockquote><i>" + text + "</i><br/><b>" +
-                author + "</b><span> </span><span style='color:blue'>" + date + "</span></blockquote>";
+                author + "</b><span> </span><span style='color:" + quoteAuthorColor + "'>" + date + "</span></blockquote>";
 
         result = result.replace(match[0], newMessage);
         match = regExp.exec(message);
@@ -98,7 +98,7 @@ function replaceQuote(message) {
 function prepareText(message, options) {
     var text = escapeHtml(message);
     text = options.smileResolver(text);
-    text = replaceQuote(text);
+    text = replaceQuote(text, options.quoteAuthorColor);
     text = replaceHyperlinks(text, options.hyperLinkStyle);
     text = replaceGameNetHyperlinks(text, true, options.serviceResolver, options.hyperLinkStyle);
     text = replaceMessengerSubscriptionRequestLink(text, options.hyperLinkStyle);

@@ -220,7 +220,8 @@ Item {
                             text: AppStringHelper.prepareText(root.body, {
                                                                hyperLinkStyle: Styles.linkText,
                                                                smileResolver: EmojiOne.ns.toImage,
-                                                               serviceResolver: App.serviceItemByServiceId
+                                                               serviceResolver: App.serviceItemByServiceId,
+                                                               quoteAuthorColor: Styles.messengerQuoteAuthorColor
                                                            })
 
                             color: root.isSelfMessage ? Styles.chatButtonText : Styles.textBase

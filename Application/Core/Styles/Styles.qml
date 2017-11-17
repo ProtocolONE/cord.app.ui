@@ -231,6 +231,9 @@ Item {
     property color downloadProgressBackground: "#0d5043"
     property color downloadProgressLine: "#35cfb1"
 
+    //Chart quote control
+    property color messengerQuoteAuthorColor: "#339cff"
+
     // End of GameNet 3.4
 
     //PRIVATE PART
