@@ -184,6 +184,8 @@ Item {
     property color messengerRecentContactsUnreadIcon: "#189A19"
     property color messengerQuoteAuthorColor: "#3399FF"
 
+    property color editMessageSelected: "#fff5df"
+
     property color detailedUserInfoGameCharsPlayingIcon: "#1abc9c"
     property color detailedUserInfoGameCharsTableFriendText: "#1abc9c"
     property color detailedUserInfoMainInfoLevelProgressLine: "#1abc9c"

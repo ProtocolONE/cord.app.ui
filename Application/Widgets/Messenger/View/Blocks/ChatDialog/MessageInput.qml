@@ -84,10 +84,13 @@ FocusScope {
         property int editMessageCounter: -1
         property var messageModel
         property string xmppId: ""
+        property bool isGroup: false
 
         function userChanged() {
             d.editMessageCounter = -1;
-            d.messageModel = MessengerJs.getConversation(MessengerJs.selectedUser().jid).messages;
+            var conversation = MessengerJs.getConversation(MessengerJs.selectedUser().jid);
+            d.messageModel = conversation.messages;
+            d.isGroup = conversation.type == 3;
         }
 
         function getPlainText() {
@@ -145,11 +148,42 @@ FocusScope {
             return i;
         }
 
+        function isModelValid() {
+            var result = true;
+
+            // Check model ok
+            if (!d.messageModel && d.messageModel.count == 0) {
+                result = false;
+            }
+
+            return result;
+        }
+
+        function getCurrentItem() {
+            var messageItem = d.messageModel.get(d.editMessageCounter);
+            return messageItem;
+        }
+
+        function clearInputHistory() {
+            if (d.editMessageCounter == -1) {
+                return;
+            }
+
+            // Check model ok
+            if (!d.isModelValid()) {
+                return;
+            }
+
+            var messageItem = getCurrentItem();
+            messageItem.editTmpMesage = "";
+        }
+
         function clearInput() {
             messengerInput.text = "";
             d.setActiveStatus(MessengerJs.selectedUser(), "Active");
             d.editMessageCounter = -1;
             d.xmppId = "";
+            editBackgroundColor.color = Styles.dark;
         }
 
         function setCurrentEditMessage(message) {
@@ -171,6 +205,7 @@ FocusScope {
                 MessengerJs.getConversation(MessengerJs.selectedUser().jid)
                     .writeMessage(convertedText, d.xmppId);
 
+                d.clearInputHistory();
                 d.clearInput();
             }
         }
@@ -268,6 +303,9 @@ FocusScope {
             width: parent.width - 98
 
             Rectangle {
+
+                id: editBackgroundColor
+
                 anchors.fill: parent
                 color: Styles.dark
                 opacity: 0.2
@@ -342,7 +380,14 @@ FocusScope {
 
                                 function updateText(messageItem) {
                                     d.xmppId = messageItem.messageId;
-                                    messengerInput.text = messageItem.text;
+
+                                    if (messageItem.editTmpMesage !== "") {
+                                        messengerInput.text = messageItem.editTmpMesage;
+                                    } else {
+                                        messengerInput.text = messageItem.text;
+                                    }
+
+                                    editBackgroundColor.color = Styles.editMessageSelected;
                                 }
 
                                 function getNextItem() {
@@ -373,6 +418,39 @@ FocusScope {
                                     d.editMessageCounter = -1;
 
                                     return null;
+                                }
+
+                                function updateTempInput() {
+                                    if (d.editMessageCounter == (d.messageModel.count - 1)) {
+                                        // Detect first up arrow
+                                        // Input in this case is empty
+                                        return;
+                                    }
+
+                                    var messageItem = d.messageModel.get(d.editMessageCounter + 1);
+
+                                    // Detect text change - if found then remember
+                                    var convertedText = EmojiOne.ns.htmlToShortname(messengerInput.text);
+                                    convertedText = TextDocumentHelper.stripHtml(convertedText);
+
+                                    if (convertedText !== "") {
+                                        if (convertedText !== messageItem.text) {
+                                            // Remeber current edit text
+                                            messageItem.editTmpMesage = convertedText;
+                                        }
+                                    }
+
+                                }
+
+                                function allowEditNext() {
+                                    var result = true;
+
+                                    if (messengerInput.cursorPosition != 0) {
+                                        messengerInput.cursorPosition = 0;
+                                        result = false;
+                                    }
+
+                                    return result;
                                 }
 
                                 width: inputFlick.width
@@ -414,6 +492,7 @@ FocusScope {
                                 }
 
                                 Keys.onEnterPressed: {
+
                                     switch (root.sendAction) {
                                         case Settings.SendShortCut.CtrlEnter:
                                         {
@@ -480,6 +559,7 @@ FocusScope {
 
                                 Keys.onEscapePressed: {
                                     if (d.xmppId !== "") {
+                                        d.clearInputHistory();
                                         d.clearInput();
                                         return;
                                     }
@@ -488,12 +568,22 @@ FocusScope {
                                 }
 
                                 Keys.onUpPressed: {
+                                    // Disable on group chats
+                                    if(d.isGroup)
+                                        return;
+
                                     // Check model ok
-                                    if (!d.messageModel && d.messageModel.count == 0)
+                                    if (!d.isModelValid())
                                         return;
 
                                     // Drop cursor if needed
                                     dropCounter();
+
+                                    // Check cursor position
+                                    if(!allowEditNext())
+                                        return;
+
+                                    updateTempInput();
 
                                     var messageItem = getNextItem();
 
@@ -501,7 +591,7 @@ FocusScope {
                                         return;
                                     }
 
-                                    updateText(messageItem);                                    
+                                    updateText(messageItem);
                                 }
 
                                 onTextChanged: {

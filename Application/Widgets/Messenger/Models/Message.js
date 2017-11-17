@@ -102,7 +102,8 @@ function createRawMessage(from, isStatus, body, date, id, type, qxmppId, edited)
         day: startOfDay(date),
         type: type || "text",
         messageId: qxmppId || "",
-        edited: edited || 0
+        edited: edited || 0,
+        editTmpMesage: ""
     };
 
     return result;

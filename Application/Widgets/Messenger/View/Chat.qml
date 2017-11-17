@@ -130,7 +130,7 @@ WidgetView {
 
         Connections {
             target: body
-            onMessageClicked : {
+            onEditMessage : {
                 messageInput.setMessage(message);
             }
             onMessageQuote : {

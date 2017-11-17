@@ -29,8 +29,7 @@ Item {
 
     property variant user: MessengerJs.selectedUser(MessengerJs.USER_INFO_JID)
 
-    signal messageClicked(variant message);
-    signal messageQuote(variant messageItem, variant message);
+    signal editMessage(variant message);
 
     onUserChanged: {
         if (!user.jid) {
@@ -40,14 +39,10 @@ Item {
     }
 
     function contextMenuClicked(messageItem, message, action) {
-        ContextMenu.hide();
-        switch(action) {
-        case "edit":
-            root.messageClicked(message);
-            break;
-        case "quote":
-            root.messageQuote(messageItem, message);
-            break;
+            switch(action) {
+            case "edit":
+                root.editMessage(message)
+                break;
         }
         Ga.trackEvent('MessageItem', 'context menu click', action);
     }
@@ -62,6 +57,7 @@ Item {
 
             onContextClicked: {
                 root.contextMenuClicked(messageItem, message, action)
+                ContextMenu.hide();
             }
 
             Component.onCompleted: {
