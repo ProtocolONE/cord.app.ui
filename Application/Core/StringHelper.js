@@ -66,6 +66,20 @@ function escapeHtml(s) {
     ) : "";
 }
 
+function removeQuote(message) {
+
+    var regExp = new RegExp(/\[quote([^\]]+)\]([\s\S]*?)\[\/quote\]/g);
+    var match = regExp.exec(message);
+    var result = message;
+
+    while (match != null) {
+        var text = match[2];
+        result = result.replace(match[0], text);
+        match = regExp.exec(message);
+    }
+    return result;
+}
+
 function replaceQuote(message, quoteAuthorColor) {
 
     var regExp = new RegExp(/\[quote([^\]]+)\]([\s\S]*?)\[\/quote\]/g);
@@ -79,11 +93,13 @@ function replaceQuote(message, quoteAuthorColor) {
         var date = "";
 
         var quoteAuthor = match[1].match(/author\s*?=\s*?\"([^"]+)/);
-        if (quoteAuthor)
+        if (quoteAuthor) {
             author = quoteAuthor[1];
+        }
         var quoteDate = match[1].match(/date\s*?=\s*?\"([^"]+)/);
-        if (quoteDate)
+        if (quoteDate) {
             date = quoteDate[1];
+        }
 
         var newMessage = "<blockquote><i>" + text + "</i><br/><b>" +
                 author + "</b><span> </span><span style='color:" + quoteAuthorColor + "'>" + date + "</span></blockquote>";

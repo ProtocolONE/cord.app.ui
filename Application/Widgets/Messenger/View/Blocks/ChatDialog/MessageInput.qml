@@ -69,6 +69,14 @@ FocusScope {
         d.setCurrentEditMessage(message);
     }
 
+    function setQuote(messageItem, message) {
+        var text = messageItem.getSelectedText();
+        if (text.length === 0)
+            text = AppStringHelper.removeQuote(message.text);
+        var quote = "[quote author=\"" + MessengerJs.getNickname(message) + "\" date=\"" + Qt.formatDateTime(new Date(message.date), "d MMMM yyyy, hh:mm") + "\"]" + AppStringHelper.replaceNewLines(text) + "[/quote]";
+        messengerInput.append(quote);
+    }
+
     QtObject {
         id: d
 
@@ -309,7 +317,6 @@ FocusScope {
                                 id: messengerInput
 
                                 function appendNewLine() {
-                                    //messengerInput.append("<br/>");
                                     root.insertText("<br />");
                                 }
 

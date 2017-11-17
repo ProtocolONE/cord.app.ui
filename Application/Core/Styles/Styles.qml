@@ -182,6 +182,7 @@ Item {
     property color messengerContactUnreadContact: "#FFDD82"
 
     property color messengerRecentContactsUnreadIcon: "#189A19"
+    property color messengerQuoteAuthorColor: "#3399FF"
 
     property color detailedUserInfoGameCharsPlayingIcon: "#1abc9c"
     property color detailedUserInfoGameCharsTableFriendText: "#1abc9c"
@@ -230,9 +231,6 @@ Item {
     //Progress bar control
     property color downloadProgressBackground: "#0d5043"
     property color downloadProgressLine: "#35cfb1"
-
-    //Chart quote control
-    property color messengerQuoteAuthorColor: "#3399ff"
 
     // End of GameNet 3.4
 

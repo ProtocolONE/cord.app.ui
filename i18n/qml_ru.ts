@@ -1139,6 +1139,10 @@ Please try again later.</source>
         <source>EDIT_ITEM_CONTEXT_MENU</source>
         <translation>Редактирование</translation>
     </message>
+    <message>
+        <source>QUOTE_ITEM_CONTEXT_MENU</source>
+        <translation>Цитировать</translation>
+    </message>
 </context>
 <context>
     <name>BodyHistoryHeader</name>

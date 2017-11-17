@@ -81,7 +81,7 @@
         "messengerContactPresenceOffline": "#CCCCCC",
         "messengerContactUnreadContact": "#FFDD82",
         "messengerRecentContactsUnreadIcon": "#189A19",
-        "messengerQuoteAuthorColor": "#3399ff",
+        "messengerQuoteAuthorColor": "#3399FF",
         "detailedUserInfoGameCharsPlayingIcon": "#1abc9c",
         "detailedUserInfoGameCharsTableFriendText": "#1abc9c",
         "detailedUserInfoMainInfoLevelProgressLine": "#1abc9c",

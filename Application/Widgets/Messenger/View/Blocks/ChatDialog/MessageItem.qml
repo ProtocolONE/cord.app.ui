@@ -39,6 +39,16 @@ Item {
     width: parent.width
     height: messageRow.height + messageRow.y
 
+    function getSelectedText() {
+        var text = '';
+        if (messageBody.selectedText.length > 0) {
+            var ftext = messageBody.getFormattedText(messageBody.selectionStart, messageBody.selectionEnd);
+            text = TextDocumentHelper.stripHtml(EmojiOne.ns.htmlToShortname(ftext));
+        }
+        return text;
+    }
+
+
     Row {
         id: messageRow
 
@@ -232,6 +242,17 @@ Item {
                             }
 
                             onLinkActivated: root.linkActivated(link);
+
+                            Keys.onPressed: {
+                                if ((event.key === Qt.Key_Insert) && (event.modifiers === Qt.ControlModifier) ||
+                                    (event.key === Qt.key_c) && (event.modifiers === Qt.ControlModifier)) {
+                                    var text = root.getSelectedText();
+                                    if (text.length > 0) {
+                                        ClipboardAdapter.setQuote(text, root.nickname, root.fulldate);
+                                    }
+                                    event.accepted = true;
+                                }
+                            }
 
                             MouseArea {
                                   anchors.fill: parent

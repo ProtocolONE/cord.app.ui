@@ -133,6 +133,9 @@ WidgetView {
             onMessageClicked : {
                 messageInput.setMessage(message);
             }
+            onMessageQuote : {
+                messageInput.setQuote(messageItem, message);
+            }
         }
     }
 

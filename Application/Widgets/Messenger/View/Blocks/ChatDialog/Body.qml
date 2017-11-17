@@ -10,6 +10,7 @@
 import QtQuick 2.4
 import Tulip 1.0
 
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 
@@ -29,6 +30,7 @@ Item {
     property variant user: MessengerJs.selectedUser(MessengerJs.USER_INFO_JID)
 
     signal messageClicked(variant message);
+    signal messageQuote(variant messageItem, variant message);
 
     onUserChanged: {
         if (!user.jid) {
@@ -37,12 +39,17 @@ Item {
         messageList.model = MessengerJs.getConversation(user.jid).messages;
     }
 
-    function contextMenuClicked(message, action) {
-            switch(action) {
-            case "edit":
-                root.messageClicked(message)
-                break;
+    function contextMenuClicked(messageItem, message, action) {
+        ContextMenu.hide();
+        switch(action) {
+        case "edit":
+            root.messageClicked(message);
+            break;
+        case "quote":
+            root.messageQuote(messageItem, message);
+            break;
         }
+        Ga.trackEvent('MessageItem', 'context menu click', action);
     }
 
     Component {
@@ -51,10 +58,10 @@ Item {
         ContextMenuView {
 
             property variant message
+            property variant messageItem
 
             onContextClicked: {
-                root.contextMenuClicked(message, action)
-                ContextMenu.hide();
+                root.contextMenuClicked(messageItem, message, action)
             }
 
             Component.onCompleted: {
@@ -62,6 +69,10 @@ Item {
                 options.push({
                                  name: qsTr("EDIT_ITEM_CONTEXT_MENU"),// "Редактирование",
                                  action: "edit"
+                             });
+                options.push({
+                                 name: qsTr("QUOTE_ITEM_CONTEXT_MENU"),// "Цитировать",
+                                 action: "quote"
                              });
 
                 fill(options);
@@ -190,8 +201,9 @@ Item {
 
             MouseArea {
                 anchors.fill: parent
+                acceptedButtons: Qt.RightButton
                 onClicked: {
-                    ContextMenu.show(mouse, messageItemId, modelItemContextMenu, { message: model });
+                    ContextMenu.show(mouse, messageItemId, modelItemContextMenu, { message: model, messageItem: messageItemId });
                 }
             }
         }
