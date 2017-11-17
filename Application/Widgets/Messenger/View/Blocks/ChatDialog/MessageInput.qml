@@ -65,6 +65,10 @@ FocusScope {
         return TextDocumentHelper.stripHtml(messengerInput.text).length;
     }
 
+    function setMessage(message) {
+        d.setCurrentEditMessage(message);
+    }
+
     QtObject {
         id: d
 
@@ -133,6 +137,20 @@ FocusScope {
             return i;
         }
 
+        function clearInput() {
+            messengerInput.text = "";
+            d.setActiveStatus(MessengerJs.selectedUser(), "Active");
+            d.editMessageCounter = -1;
+            d.xmppId = "";
+        }
+
+        function setCurrentEditMessage(message) {
+            messengerInput.text = message.text;
+            d.setActiveStatus(MessengerJs.selectedUser(), "Active");
+            d.xmppId = message.messageId;
+            d.editMessageCounter = -1;
+        }
+
         function sendMessage() {
             if (!d.canSendMessage()) {
                 return;
@@ -145,10 +163,7 @@ FocusScope {
                 MessengerJs.getConversation(MessengerJs.selectedUser().jid)
                     .writeMessage(convertedText, d.xmppId);
 
-                messengerInput.text = "";
-                d.setActiveStatus(MessengerJs.selectedUser(), "Active");
-                d.editMessageCounter = -1;
-                d.xmppId = "";
+                d.clearInput();
             }
         }
 
@@ -456,7 +471,14 @@ FocusScope {
                                     event.accepted = false;
                                 }
 
-                                Keys.onEscapePressed: root.closeDialogPressed();
+                                Keys.onEscapePressed: {
+                                    if (d.xmppId !== "") {
+                                        d.clearInput();
+                                        return;
+                                    }
+
+                                    root.closeDialogPressed();
+                                }
 
                                 Keys.onUpPressed: {
                                     // Check model ok

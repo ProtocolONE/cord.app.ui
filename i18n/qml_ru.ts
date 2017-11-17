@@ -1135,6 +1135,10 @@ Please try again later.</source>
         <source>MESSAGE_BODY_SUBSCRIPTION_INVITE_DECLINED</source>
         <translation type="unfinished">Вы отказали пользователю %1</translation>
     </message>
+    <message>
+        <source>EDIT_ITEM_CONTEXT_MENU</source>
+        <translation>Редактирование</translation>
+    </message>
 </context>
 <context>
     <name>BodyHistoryHeader</name>
@@ -2865,6 +2869,13 @@ Please try again later.</source>
     </message>
     <message>
         <source>Игровые настройки</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GameSurveyModel</name>
+    <message>
+        <source>Помочь продюсеру</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

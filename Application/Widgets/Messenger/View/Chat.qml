@@ -127,6 +127,13 @@ WidgetView {
                 }
             }
         }
+
+        Connections {
+            target: body
+            onMessageClicked : {
+                messageInput.setMessage(message);
+            }
+        }
     }
 
     CursorMouseArea {

@@ -28,11 +28,45 @@ Item {
 
     property variant user: MessengerJs.selectedUser(MessengerJs.USER_INFO_JID)
 
+    signal messageClicked(variant message);
+
     onUserChanged: {
         if (!user.jid) {
             return;
         }
         messageList.model = MessengerJs.getConversation(user.jid).messages;
+    }
+
+    function contextMenuClicked(message, action) {
+            switch(action) {
+            case "edit":
+                root.messageClicked(message)
+                break;
+        }
+    }
+
+    Component {
+        id: modelItemContextMenu
+
+        ContextMenuView {
+
+            property variant message
+
+            onContextClicked: {
+                root.contextMenuClicked(message, action)
+                ContextMenu.hide();
+            }
+
+            Component.onCompleted: {
+                var options = [];
+                options.push({
+                                 name: qsTr("EDIT_ITEM_CONTEXT_MENU"),// "Редактирование",
+                                 action: "edit"
+                             });
+
+                fill(options);
+            }
+        }
     }
 
     ListView {
@@ -125,6 +159,8 @@ Item {
         }
 
         delegate: MessageItem {
+            id: messageItemId
+
             width: root.width
             nickname: MessengerJs.getNickname(model)
             avatar: MessengerJs.userAvatar(model)
@@ -151,6 +187,13 @@ Item {
             }
 
             isGameNetMember: MessengerJs.isGameNetMember(model);
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    ContextMenu.show(mouse, messageItemId, modelItemContextMenu, { message: model });
+                }
+            }
         }
     }
 

@@ -546,12 +546,17 @@
 <context>
     <name>Body</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="143"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="63"/>
+        <source>EDIT_ITEM_CONTEXT_MENU</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="180"/>
         <source>MESSAGE_BODY_SUBSCRIPTION_INVITE_ACCEPTED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="144"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="181"/>
         <source>MESSAGE_BODY_SUBSCRIPTION_INVITE_DECLINED</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1098,37 +1103,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DetailedUserInfo/View/Blocks/GameChars.qml" line="195"/>
+        <location filename="../Application/Widgets/DetailedUserInfo/View/Blocks/GameChars.qml" line="207"/>
         <source>DETAILED_USER_INFO_GAME_CHARS_PLAYING_NOW</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DetailedUserInfo/View/Blocks/GameChars.qml" line="243"/>
+        <location filename="../Application/Widgets/DetailedUserInfo/View/Blocks/GameChars.qml" line="255"/>
         <source>DETAILED_USER_INFO_GAME_CHARS_COLUMN_NAME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DetailedUserInfo/View/Blocks/GameChars.qml" line="258"/>
+        <location filename="../Application/Widgets/DetailedUserInfo/View/Blocks/GameChars.qml" line="270"/>
         <source>DETAILED_USER_INFO_GAME_CHARS_COLUMN_LEVEL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DetailedUserInfo/View/Blocks/GameChars.qml" line="273"/>
+        <location filename="../Application/Widgets/DetailedUserInfo/View/Blocks/GameChars.qml" line="285"/>
         <source>DETAILED_USER_INFO_GAME_CHARS_COLUMN_SERVER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DetailedUserInfo/View/Blocks/GameChars.qml" line="386"/>
+        <location filename="../Application/Widgets/DetailedUserInfo/View/Blocks/GameChars.qml" line="398"/>
         <source>DETAILED_USER_INFO_GAME_CHARS_CHAR_TOOLTIP_1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DetailedUserInfo/View/Blocks/GameChars.qml" line="388"/>
+        <location filename="../Application/Widgets/DetailedUserInfo/View/Blocks/GameChars.qml" line="400"/>
         <source>DETAILED_USER_INFO_GAME_CHARS_CHAR_TOOLTIP_2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DetailedUserInfo/View/Blocks/GameChars.qml" line="389"/>
+        <location filename="../Application/Widgets/DetailedUserInfo/View/Blocks/GameChars.qml" line="401"/>
         <source>DETAILED_USER_INFO_GAME_CHARS_CHAR_TOOLTIP_2_NO_GUILD</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1645,6 +1650,14 @@
     </message>
 </context>
 <context>
+    <name>GameSurveyModel</name>
+    <message>
+        <location filename="../Application/Widgets/GameSurvey/GameSurveyModel.qml" line="187"/>
+        <source>Помочь продюсеру</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>GameUninstallModel</name>
     <message>
         <location filename="../Application/Widgets/GameUninstall/GameUninstallModel.qml" line="33"/>
@@ -1933,12 +1946,12 @@
 <context>
     <name>Index</name>
     <message>
-        <location filename="../Application/Blocks/Auth/Index.qml" line="323"/>
+        <location filename="../Application/Blocks/Auth/Index.qml" line="327"/>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/Index.qml" line="327"/>
+        <location filename="../Application/Blocks/Auth/Index.qml" line="331"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
         <translation></translation>
     </message>
@@ -2100,17 +2113,17 @@
 <context>
     <name>MessageInput</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="446"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="568"/>
         <source>MESSENGER_SEND_BUTTON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="454"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="576"/>
         <source>MESSENGER_SEND_BUTTON_MESSAGE_ENTER</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="456"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="578"/>
         <source>MESSENGER_SEND_BUTTON_MESSAGE_CTRL_ENTER</source>
         <translation></translation>
     </message>
