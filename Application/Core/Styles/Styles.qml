@@ -232,7 +232,7 @@ Item {
     property color downloadProgressLine: "#35cfb1"
 
     //Chart quote control
-    property color messengerQuoteAuthorColor: "#339cff"
+    property color messengerQuoteAuthorColor: "#3399ff"
 
     // End of GameNet 3.4
 
