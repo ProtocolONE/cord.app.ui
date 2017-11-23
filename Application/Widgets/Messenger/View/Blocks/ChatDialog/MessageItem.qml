@@ -246,6 +246,8 @@ Item {
                             Keys.onPressed: {
                                 if ((event.key === Qt.Key_Insert) && (event.modifiers === Qt.ControlModifier) ||
                                     (event.key === Qt.key_c) && (event.modifiers === Qt.ControlModifier)) {
+                                    var ftext = messageBody.getFormattedText(messageBody.selectionStart, messageBody.selectionEnd);
+
                                     var text = root.getSelectedText();
                                     if (text.length > 0) {
                                         ClipboardAdapter.setQuote(text, root.nickname, root.fulldate);

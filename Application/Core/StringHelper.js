@@ -1,5 +1,6 @@
 .pragma library
 Qt.include("../../GameNet/Core/Strings.js")
+Qt.include("./Quote.js")
 
 /**
  * Заменяет ссылку вида gamenet://startservice/<serviceId> на гиперссылку
@@ -66,55 +67,10 @@ function escapeHtml(s) {
     ) : "";
 }
 
-function removeQuote(message) {
-
-    var regExp = new RegExp(/\[quote([^\]]+)\]([\s\S]*?)\[\/quote\]/g);
-    var match = regExp.exec(message);
-    var result = message;
-
-    while (match != null) {
-        var text = match[2];
-        result = result.replace(match[0], text);
-        match = regExp.exec(message);
-    }
-    return result;
-}
-
-function replaceQuote(message, quoteAuthorColor) {
-
-    var regExp = new RegExp(/\[quote([^\]]+)\]([\s\S]*?)\[\/quote\]/g);
-    var match = regExp.exec(message);
-    var result = message;
-
-    while (match != null) {
-
-        var text = match[2];
-        var author = "";
-        var date = "";
-
-        var quoteAuthor = match[1].match(/author\s*?=\s*?\"([^"]+)/);
-        if (quoteAuthor) {
-            author = quoteAuthor[1];
-        }
-        var quoteDate = match[1].match(/date\s*?=\s*?\"([^"]+)/);
-        if (quoteDate) {
-            date = quoteDate[1];
-        }
-
-        var newMessage = "<blockquote><i>" + text + "</i><br/><b>" +
-                author + "</b><span> </span><span style='color:" + quoteAuthorColor + "'>" + date + "</span></blockquote>";
-
-        result = result.replace(match[0], newMessage);
-        match = regExp.exec(message);
-    }
-
-    return result;
-}
-
 function prepareText(message, options) {
     var text = escapeHtml(message);
     text = options.smileResolver(text);
-    text = replaceQuote(text, options.quoteAuthorColor);
+    text = quoteToHtml(text, options.quoteAuthorColor);
     text = replaceHyperlinks(text, options.hyperLinkStyle);
     text = replaceGameNetHyperlinks(text, true, options.serviceResolver, options.hyperLinkStyle);
     text = replaceMessengerSubscriptionRequestLink(text, options.hyperLinkStyle);

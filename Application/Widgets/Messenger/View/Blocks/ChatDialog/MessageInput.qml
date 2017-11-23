@@ -17,8 +17,6 @@ import Application.Controls 1.0
 import Application.Core 1.0
 import Application.Core.Styles 1.0
 
-import Tulip 1.0
-
 import "../../../Models/Messenger.js" as MessengerJs
 import "../../../Models/Settings.js" as Settings
 
@@ -69,12 +67,27 @@ FocusScope {
         d.setCurrentEditMessage(message);
     }
 
+    function makeQuoteMessage(message, clear) {
+
+        if (clear)
+            messengerInput.text = "";
+
+        var quoteProcessing = new Quote.QuoteProcessing(AppStringHelper.replaceNewLines(message), tempInput, function(text) {
+
+            if (messengerInput.selectionStart < messengerInput.selectionEnd) {
+                messengerInput.remove(messengerInput.selectionStart, messengerInput.selectionEnd);
+            }
+
+            messengerInput.insert(messengerInput.selectionStart, AppStringHelper.replaceNewLines(text));
+        }, { quoteAuthorColor: Styles.messengerQuoteAuthorColor });
+    }
+
     function setQuote(messageItem, message) {
         var text = messageItem.getSelectedText();
         if (text.length === 0)
-            text = AppStringHelper.removeQuote(message.text);
-        var quote = "[quote author=\"" + MessengerJs.getNickname(message) + "\" date=\"" + Qt.formatDateTime(new Date(message.date), "d MMMM yyyy, hh:mm") + "\"]" + AppStringHelper.replaceNewLines(text) + "[/quote]";
-        messengerInput.append(quote);
+            text = Quote.removeQuote(message.text);
+        var quote = Quote.makeQuote(text, MessengerJs.getNickname(message), Qt.formatDateTime(new Date(message.date), "d MMMM yyyy, hh:mm"));
+        makeQuoteMessage(quote + "\n\n", false);
     }
 
     QtObject {
@@ -187,7 +200,7 @@ FocusScope {
         }
 
         function setCurrentEditMessage(message) {
-            messengerInput.text = message.text;
+            makeQuoteMessage(message.text, true);
             d.setActiveStatus(MessengerJs.selectedUser(), "Active");
             d.xmppId = message.messageId;
             d.editMessageCounter = -1;
@@ -200,6 +213,7 @@ FocusScope {
 
             if (d.validateMessage(messengerInput.text)) {
                 var convertedText = EmojiOne.ns.htmlToShortname(messengerInput.text);
+                convertedText = Quote.htmlToQuote(convertedText);
                 convertedText = TextDocumentHelper.stripHtml(convertedText);
 
                 MessengerJs.getConversation(MessengerJs.selectedUser().jid)
@@ -352,6 +366,11 @@ FocusScope {
                             }
 
                             TextEdit {
+                                TextEdit {
+                                    id: tempInput
+                                    visible: false
+                                    textFormat: TextEdit.RichText
+                                }
                                 id: messengerInput
 
                                 function appendNewLine() {
@@ -382,9 +401,9 @@ FocusScope {
                                     d.xmppId = messageItem.messageId;
 
                                     if (messageItem.editTmpMesage !== "") {
-                                        messengerInput.text = messageItem.editTmpMesage;
+                                        makeQuoteMessage(messageItem.editTmpMesage, true);
                                     } else {
-                                        messengerInput.text = messageItem.text;
+                                        makeQuoteMessage(messageItem.text, true);
                                     }
 
                                     editBackgroundColor.color = Styles.editMessageSelected;
@@ -431,6 +450,7 @@ FocusScope {
 
                                     // Detect text change - if found then remember
                                     var convertedText = EmojiOne.ns.htmlToShortname(messengerInput.text);
+                                    convertedText = Quote.htmlToQuote(convertedText);
                                     convertedText = TextDocumentHelper.stripHtml(convertedText);
 
                                     if (convertedText !== "") {
@@ -475,17 +495,17 @@ FocusScope {
                                         (event.key === Qt.key_v) && (event.modifiers === Qt.ControlModifier)) {
                                         if (messengerInput.canPaste && (ClipboardAdapter.hasText() || ClipboardAdapter.hasQuote())) {
 
-                                            if (messengerInput.selectionStart < messengerInput.selectionEnd)
-                                                messengerInput.remove(messengerInput.selectionStart, messengerInput.selectionEnd);
+                                            if (ClipboardAdapter.hasQuote()) {
+                                                var quote = ClipboardAdapter.quote();
+                                                makeQuoteMessage(quote, false);
+                                            }
+                                            else {
+                                                if (messengerInput.selectionStart < messengerInput.selectionEnd)
+                                                    messengerInput.remove(messengerInput.selectionStart, messengerInput.selectionEnd);
 
-                                            var text = "";
-
-                                            if (ClipboardAdapter.hasQuote())
-                                                text = ClipboardAdapter.quote();
-                                            else
-                                                text = AppStringHelper.escapeHtml(ClipboardAdapter.text());
-
-                                            messengerInput.insert(messengerInput.selectionStart, AppStringHelper.replaceNewLines(text));
+                                                var text = AppStringHelper.escapeHtml(ClipboardAdapter.text());
+                                                messengerInput.insert(messengerInput.selectionStart, AppStringHelper.replaceNewLines(text));
+                                            }
                                         }
                                         event.accepted = true;
                                     }
