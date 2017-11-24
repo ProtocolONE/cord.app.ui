@@ -54,6 +54,7 @@ Item {
 
             property variant message
             property variant messageItem
+            property bool showEditButton: false
 
             onContextClicked: {
                 root.contextMenuClicked(messageItem, message, action)
@@ -62,10 +63,14 @@ Item {
 
             Component.onCompleted: {
                 var options = [];
+
+                if (showEditButton) {
                 options.push({
                                  name: qsTr("EDIT_ITEM_CONTEXT_MENU"),// "Редактирование",
                                  action: "edit"
                              });
+                }
+
                 options.push({
                                  name: qsTr("QUOTE_ITEM_CONTEXT_MENU"),// "Цитировать",
                                  action: "quote"
@@ -199,7 +204,10 @@ Item {
                 anchors.fill: parent
                 acceptedButtons: Qt.RightButton
                 onClicked: {
-                    ContextMenu.show(mouse, messageItemId, modelItemContextMenu, { message: model, messageItem: messageItemId });
+                    var jabber = MessengerJs.instance().getJabberClient();
+                    var selfMessage = model.jid === jabber.myJid;
+
+                    ContextMenu.show(mouse, messageItemId, modelItemContextMenu, { message: model, messageItem: messageItemId, showEditButton : selfMessage });
                 }
             }
         }
