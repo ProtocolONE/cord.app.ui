@@ -137,6 +137,11 @@ Item {
             return hitJid || hitDay;
         }
 
+        function isGroupChat() {
+            var conversation = MessengerJs.getConversation(MessengerJs.selectedUser().jid);
+            return conversation.type == 3;
+        }
+
         anchors {
             fill: parent
             rightMargin: 1
@@ -204,10 +209,9 @@ Item {
                 anchors.fill: parent
                 acceptedButtons: Qt.RightButton
                 onClicked: {
-                    var jabber = MessengerJs.instance().getJabberClient();
-                    var selfMessage = model.jid === jabber.myJid;
-
-                    ContextMenu.show(mouse, messageItemId, modelItemContextMenu, { message: model, messageItem: messageItemId, showEditButton : selfMessage });
+                    var isGroup = messageList.isGroupChat();
+                    var showFlag = !isGroup && messageItemId.isSelfMessage;
+                    ContextMenu.show(mouse, messageItemId, modelItemContextMenu, { message: model, messageItem: messageItemId, showEditButton : showFlag });
                 }
             }
         }

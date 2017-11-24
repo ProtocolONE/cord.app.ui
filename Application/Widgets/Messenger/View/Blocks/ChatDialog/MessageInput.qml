@@ -200,7 +200,11 @@ FocusScope {
         }
 
         function setCurrentEditMessage(message) {
-            makeQuoteMessage(message.text, true);
+            // Check message time
+            if (!messengerInput.isMessageTimeValid(message)) 
+                return;
+
+            messengerInput.text = message.text;
             d.setActiveStatus(MessengerJs.selectedUser(), "Active");
             d.xmppId = message.messageId;
             d.editMessageCounter = -1;
