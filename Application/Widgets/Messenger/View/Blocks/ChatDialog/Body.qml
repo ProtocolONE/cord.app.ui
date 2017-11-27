@@ -137,9 +137,16 @@ Item {
             return hitJid || hitDay;
         }
 
-        function isGroupChat() {
-            var conversation = MessengerJs.getConversation(MessengerJs.selectedUser().jid);
-            return conversation.type == 3;
+        function isMessageTimeValid(messageItem) {
+            var result = false;
+
+            var diff = (Date.now() - messageItem.date)/1000;
+
+            if (diff <= 1800) { // 30 minutes to go
+                result = true;
+            }
+
+            return result;
         }
 
         anchors {
@@ -209,8 +216,8 @@ Item {
                 anchors.fill: parent
                 acceptedButtons: Qt.RightButton
                 onClicked: {
-                    var isGroup = messageList.isGroupChat();
-                    var showFlag = !isGroup && messageItemId.isSelfMessage;
+                    var isGroup = MessengerJs.selectedUser().isGroupChat;
+                    var showFlag = !isGroup && messageItemId.isSelfMessage && messageList.isMessageTimeValid(model);
                     ContextMenu.show(mouse, messageItemId, modelItemContextMenu, { message: model, messageItem: messageItemId, showEditButton : showFlag });
                 }
             }
