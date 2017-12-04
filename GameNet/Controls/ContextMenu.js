@@ -1,7 +1,8 @@
 .pragma library
 
 var _layer = null,
-    _instance = null;
+    _instance = null,
+    _cancel = false;
 
 function init(layer) {
     _layer = layer;
@@ -10,6 +11,8 @@ function init(layer) {
 function show(mouse, mouseArea, component, options) {
     var point,
         isValid;
+
+    _cancel = false;
 
     isValid = mouse.hasOwnProperty('x')
         && mouse.hasOwnProperty('y')
@@ -24,6 +27,12 @@ function show(mouse, mouseArea, component, options) {
     _instance = component.createObject(_layer, options || {});
     if (!_instance) {
         throw new Error('FATAL: error creating context menu component - ' + component.errorString());
+    }
+
+    if (_cancel) {
+        hide();
+        console.log("Context menu is canceled by client");
+        return;
     }
 
     point = mouseArea.mapToItem(_layer, mouse.x, mouse.y);
@@ -62,4 +71,8 @@ function hide() {
         _instance.destroy();
     }
     _instance = null;
+}
+
+function cancel() {
+    _cancel = true;
 }

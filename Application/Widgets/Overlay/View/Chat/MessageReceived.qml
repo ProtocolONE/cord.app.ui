@@ -16,6 +16,7 @@ import Application.Controls 1.0
 import Application.Controls.MessagePopup 1.0
 import Application.Core 1.0
 import Application.Core.Styles 1.0
+import Application.Widgets.Messenger.Addons 1.0
 
 import "../../Core" as OverlayCore
 import "./MessageReceived.js" as Js
@@ -85,7 +86,7 @@ OverlayCore.PopupBase {
             }
 
             date: messageDate
-            bodyText: AppStringHelper.prepareText(body, {
+            bodyText: MessageHelper.prepareText(body, {
                                                hyperLinkStyle: Styles.messengerChatDialogHyperlinkColor,
                                                smileResolver: EmojiOne.ns.toImage,
                                                serviceResolver: App.serviceItemByServiceId,

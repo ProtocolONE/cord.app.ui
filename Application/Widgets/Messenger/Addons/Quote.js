@@ -11,6 +11,11 @@
 
 var _quoteCache = {};
 
+function clearQuoteCache() {
+    _quoteCache = [];
+}
+
+
 function MessageItem(isQoute, source) {
     this.isQuote = isQoute;
     this.source = source;
@@ -130,7 +135,7 @@ function makeQuoteImage(url) {
 
 function makeQuoteHtml(text, author, date, quoteAuthorColor) {
     return "<span style='padding-left:5px'><i>" + text + "</i><br/><b>" +
-            author + "</b><span> </span><span style='color:" + quoteAuthorColor + "'>" + date + "</span></span>";
+        author + "</b><span> </span><span style='color:" + quoteAuthorColor + "'>" + Qt.formatDateTime(new Date(+date), "d MMMM yyyy, hh:mm") + "</span></span>";
 }
 
 function quoteToHtml(message, quoteAuthorColor) {

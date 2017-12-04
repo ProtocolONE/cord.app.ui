@@ -960,6 +960,77 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>AuthSecurityCodeBody</name>
+    <message>
+        <source>AUTH_BODY_TITLE</source>
+        <translation type="unfinished">Вход в аккаунт</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_SUB_TITLE</source>
+        <translation type="unfinished">Авторизация в приложении учётной записью GameNet</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_REGISTER_TEXT</source>
+        <translation type="unfinished">Нет аккаунта?</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_REGISTER_BUTTON</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>REGISTER_FAIL_LOGIN_TOO_LONG</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_CAPTCHA_FAILED</source>
+        <translation type="unfinished">Неверно введен проверочный код</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_GAMENET_UNAVAILABLE</source>
+        <translation type="unfinished">Вероятно, по нашей вине и мы работаем над скорейшим устранением этой проблемы. Но, возможно, это ваше интернет-соединение. Пожалуйста, на всякий случай проверьте ваше соединение.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
+        <translation type="unfinished">Неправильный формат электронной почты. Проверьте правильность ввода.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_ACCOUNT_NOT_EXISTS</source>
+        <translation type="unfinished">Учётной записи с таким логином не существует.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_WRONG</source>
+        <translation type="unfinished">Неправильный логин или пароль</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
+        <translation type="unfinished">GameNet недоступен. Попробуйте авторизоваться позже.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_LOGIN_PLACEHOLDER</source>
+        <translation type="unfinished">Введите адрес почты или номер телефона</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_PASSWORD_PLACEHOLDER</source>
+        <translation type="unfinished">Введите пароль</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_AMNESIA_TEXT</source>
+        <translation type="unfinished">Забыли пароль?</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_REMEMBER_TEXT</source>
+        <translation type="unfinished">Запомнить меня</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_LOGIN_BUTTON</source>
+        <translation type="unfinished">Войти в аккаунт</translation>
+    </message>
+</context>
+<context>
     <name>BaseLayer</name>
     <message>
         <source>MY_GAMES_CAPTION_MENU</source>
@@ -1721,15 +1792,15 @@ Please try again later.</source>
     <name>Conversation</name>
     <message>
         <source>MESSAGE_STATE_COMPOSING</source>
-        <translation type="unfinished">Набирает сообщение...</translation>
+        <translation>Набирает сообщение...</translation>
     </message>
     <message>
         <source>MESSAGE_STATE_PAUSED</source>
-        <translation type="unfinished">Прекратил набор сообщения</translation>
+        <translation>Прекратил набор сообщения</translation>
     </message>
     <message>
         <source>MESSAGE_STATE_INACTIVE</source>
-        <translation type="unfinished">Отошел</translation>
+        <translation>Отошел</translation>
     </message>
 </context>
 <context>
@@ -4213,11 +4284,22 @@ Please try again later.</source>
     <name>MessageBody</name>
     <message>
         <source>MESSAGE_TITLE</source>
-        <translation type="unfinished">Что-то пошло не так</translation>
+        <translation>Что-то пошло не так</translation>
     </message>
     <message>
         <source>OK_BUTTON_LABEL</source>
         <translation>Ok</translation>
+    </message>
+</context>
+<context>
+    <name>MessageHelper</name>
+    <message>
+        <source>MESSENGER_SUBSCRIPTION_REQUEST_ACCEPT</source>
+        <translation>Согласиться</translation>
+    </message>
+    <message>
+        <source>MESSENGER_SUBSCRIPTION_REQUEST_DECLINE</source>
+        <translation>Отказаться</translation>
     </message>
 </context>
 <context>

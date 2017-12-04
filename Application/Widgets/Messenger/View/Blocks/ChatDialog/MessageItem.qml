@@ -14,6 +14,7 @@ import GameNet.Controls 1.0
 
 import Application.Core 1.0
 import Application.Core.Styles 1.0
+import Application.Widgets.Messenger.Addons 1.0
 
 import "../" as Blocks
 
@@ -227,7 +228,7 @@ Item {
                             readOnly: true
                             selectByMouse: true
                             textFormat: TextEdit.RichText
-                            text: AppStringHelper.prepareText(root.body, {
+                            text: MessageHelper.prepareText(root.body, {
                                                                hyperLinkStyle: Styles.linkText,
                                                                smileResolver: EmojiOne.ns.toImage,
                                                                serviceResolver: App.serviceItemByServiceId,

@@ -7,6 +7,7 @@ import Application.Controls 1.0
 import Application.Controls.MessagePopup 1.0
 import Application.Core 1.0
 import Application.Core.Styles 1.0
+import Application.Widgets.Messenger.Addons 1.0
 
 import "../Models/Messenger.js" as MessengerJs
 import "./MessageReceived.js" as Js
@@ -78,7 +79,7 @@ TrayPopupBase {
             }
 
             date: messageDate
-            bodyText: AppStringHelper.prepareText(body, {
+            bodyText: MessageHelper.prepareText(body, {
                                                hyperLinkStyle: Styles.messengerChatDialogHyperlinkColor,
                                                smileResolver: EmojiOne.ns.toImage,
                                                serviceResolver: App.serviceItemByServiceId,

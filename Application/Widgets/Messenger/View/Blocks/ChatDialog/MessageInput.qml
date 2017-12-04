@@ -16,6 +16,7 @@ import Application.Controls 1.0
 
 import Application.Core 1.0
 import Application.Core.Styles 1.0
+import Application.Widgets.Messenger.Addons 1.0
 
 import "../../../Models/Messenger.js" as MessengerJs
 import "../../../Models/Settings.js" as Settings
@@ -72,13 +73,17 @@ FocusScope {
         if (clear)
             messengerInput.text = "";
 
-        var quoteProcessing = new Quote.QuoteProcessing(AppStringHelper.replaceNewLines(message), tempInput, function(text) {
+        var quoteProcessing = new Quote.QuoteProcessing(MessageHelper.replaceNewLines(message), tempInput, function(text) {
 
             if (messengerInput.selectionStart < messengerInput.selectionEnd) {
                 messengerInput.remove(messengerInput.selectionStart, messengerInput.selectionEnd);
             }
 
-            messengerInput.insert(messengerInput.selectionStart, AppStringHelper.replaceNewLines(text));
+            if (!clear && messengerInput.selectionStart > 0) {
+                text = "\n" + text;
+            }
+
+            messengerInput.insert(messengerInput.selectionStart, MessageHelper.replaceNewLines(text));
         }, { quoteAuthorColor: Styles.messengerQuoteAuthorColor });
     }
 
@@ -86,7 +91,7 @@ FocusScope {
         var text = messageItem.getSelectedText();
         if (text.length === 0)
             text = Quote.removeQuote(message.text);
-        var quote = Quote.makeQuote(text, MessengerJs.getNickname(message), Qt.formatDateTime(new Date(message.date), "d MMMM yyyy, hh:mm"));
+        var quote = Quote.makeQuote(text, MessengerJs.getNickname(message), message.date);
         makeQuoteMessage(quote + "\n\n", false);
     }
 
@@ -197,6 +202,8 @@ FocusScope {
             d.editMessageCounter = -1;
             d.xmppId = "";
             editBackgroundColor.color = Styles.dark;
+
+            Quote.clearQuoteCache();
         }
 
         function setCurrentEditMessage(message) {
@@ -374,6 +381,7 @@ FocusScope {
                                     id: tempInput
                                     visible: false
                                     textFormat: TextEdit.RichText
+                                    color: Styles.chatButtonText
                                 }
                                 id: messengerInput
 
@@ -507,8 +515,8 @@ FocusScope {
                                                 if (messengerInput.selectionStart < messengerInput.selectionEnd)
                                                     messengerInput.remove(messengerInput.selectionStart, messengerInput.selectionEnd);
 
-                                                var text = AppStringHelper.escapeHtml(ClipboardAdapter.text());
-                                                messengerInput.insert(messengerInput.selectionStart, AppStringHelper.replaceNewLines(text));
+                                                var text = MessageHelper.escapeHtml(ClipboardAdapter.text());
+                                                messengerInput.insert(messengerInput.selectionStart, MessageHelper.replaceNewLines(text));
                                             }
                                         }
                                         event.accepted = true;

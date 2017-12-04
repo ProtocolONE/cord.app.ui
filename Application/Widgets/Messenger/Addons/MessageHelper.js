@@ -1,5 +1,5 @@
 .pragma library
-Qt.include("../../GameNet/Core/Strings.js")
+Qt.include("../../../../GameNet/Core/Strings.js")
 Qt.include("./Quote.js")
 
 /**

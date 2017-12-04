@@ -367,6 +367,98 @@
     </message>
 </context>
 <context>
+    <name>AuthSecurityCodeBody</name>
+    <message>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="51"/>
+        <source>AUTH_BODY_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="52"/>
+        <source>AUTH_BODY_SUB_TITLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="56"/>
+        <source>AUTH_BODY_REGISTER_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="57"/>
+        <source>AUTH_BODY_REGISTER_BUTTON</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="87"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="222"/>
+        <source>REGISTER_FAIL_LOGIN_TOO_LONG</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="121"/>
+        <source>AUTH_BODY_CAPTCHA_FAILED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="141"/>
+        <source>AUTH_FAIL_GAMENET_UNAVAILABLE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="146"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="171"/>
+        <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="152"/>
+        <source>AUTH_FAIL_MESSAGE_ACCOUNT_NOT_EXISTS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="158"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="170"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="173"/>
+        <source>AUTH_FAIL_MESSAGE_WRONG</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="167"/>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="172"/>
+        <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="214"/>
+        <source>AUTH_BODY_LOGIN_PLACEHOLDER</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="251"/>
+        <source>AUTH_BODY_PASSWORD_PLACEHOLDER</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="265"/>
+        <source>AUTH_BODY_AMNESIA_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="302"/>
+        <source>AUTH_BODY_REMEMBER_TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="311"/>
+        <source>AUTH_BODY_LOGIN_BUTTON</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>BaseLayer</name>
     <message>
         <location filename="../Application/Layers/BaseLayer.qml" line="250"/>
@@ -546,22 +638,22 @@
 <context>
     <name>Body</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="68"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="75"/>
         <source>EDIT_ITEM_CONTEXT_MENU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="72"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="82"/>
         <source>QUOTE_ITEM_CONTEXT_MENU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="190"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="219"/>
         <source>MESSAGE_BODY_SUBSCRIPTION_INVITE_ACCEPTED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="191"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml" line="220"/>
         <source>MESSAGE_BODY_SUBSCRIPTION_INVITE_DECLINED</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2116,19 +2208,32 @@
     </message>
 </context>
 <context>
+    <name>MessageHelper</name>
+    <message>
+        <location filename="../Application/Widgets/Messenger/Addons/MessageHelper.js" line="34"/>
+        <source>MESSENGER_SUBSCRIPTION_REQUEST_ACCEPT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Messenger/Addons/MessageHelper.js" line="34"/>
+        <source>MESSENGER_SUBSCRIPTION_REQUEST_DECLINE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MessageInput</name>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="583"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="708"/>
         <source>MESSENGER_SEND_BUTTON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="591"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="716"/>
         <source>MESSENGER_SEND_BUTTON_MESSAGE_ENTER</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="593"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ChatDialog/MessageInput.qml" line="718"/>
         <source>MESSENGER_SEND_BUTTON_MESSAGE_CTRL_ENTER</source>
         <translation></translation>
     </message>
@@ -3190,13 +3295,11 @@
 <context>
     <name>StringHelper</name>
     <message>
-        <location filename="../Application/Core/StringHelper.js" line="33"/>
         <location filename="../Application/Widgets/Overlay/View/Chat/StringHelper.js" line="32"/>
         <source>MESSENGER_SUBSCRIPTION_REQUEST_ACCEPT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Core/StringHelper.js" line="33"/>
         <location filename="../Application/Widgets/Overlay/View/Chat/StringHelper.js" line="32"/>
         <source>MESSENGER_SUBSCRIPTION_REQUEST_DECLINE</source>
         <translation type="unfinished"></translation>

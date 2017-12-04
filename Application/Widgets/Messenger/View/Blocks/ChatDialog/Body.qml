@@ -51,10 +51,12 @@ Item {
         id: modelItemContextMenu
 
         ContextMenuView {
+            id: itemContextMenu
 
             property variant message
             property variant messageItem
             property bool showEditButton: false
+            property bool showQuoteButton: false
 
             onContextClicked: {
                 root.contextMenuClicked(messageItem, message, action)
@@ -71,12 +73,20 @@ Item {
                              });
                 }
 
+                if (showQuoteButton) {
                 options.push({
                                  name: qsTr("QUOTE_ITEM_CONTEXT_MENU"),// "Цитировать",
                                  action: "quote"
                              });
+                }
 
-                fill(options);
+                if (options.length > 0) {
+                    fill(options);
+                }
+                else {
+                    ContextMenu.cancel();
+                }
+
             }
         }
     }
@@ -189,7 +199,7 @@ Item {
             nickname: MessengerJs.getNickname(model)
             avatar: MessengerJs.userAvatar(model)
             date: Qt.formatDateTime(new Date(+model.date), "hh:mm")
-            fulldate: Qt.formatDateTime(new Date(+model.date), "d MMMM yyyy, hh:mm")
+            fulldate: model.date
             body: model.text
             isReplacedMessage: model.edited === 1
 
@@ -218,7 +228,8 @@ Item {
                 onClicked: {
                     var isGroup = MessengerJs.selectedUser().isGroupChat;
                     var showFlag = !isGroup && messageItemId.isSelfMessage && messageList.isMessageTimeValid(model);
-                    ContextMenu.show(mouse, messageItemId, modelItemContextMenu, { message: model, messageItem: messageItemId, showEditButton : showFlag });
+                    var showQuoteFlag = !messageItemId.isStatusMessage;
+                    ContextMenu.show(mouse, messageItemId, modelItemContextMenu, { message: model, messageItem: messageItemId, showEditButton : showFlag, showQuoteButton :showQuoteFlag });
                 }
             }
         }
