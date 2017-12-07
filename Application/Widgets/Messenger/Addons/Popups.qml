@@ -27,6 +27,10 @@ Item {
             var user = {jid: from}
                 , id;
 
+            if (message.isReplaceMessage) {
+                return;
+            }
+
             if (App.isOverlayEnabled()) {
                 return;
             }

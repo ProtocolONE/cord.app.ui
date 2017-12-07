@@ -778,8 +778,12 @@ Item {
             }
         }
 		
-		function needIncrementUnread(user) {
+		function needIncrementUnread(user, message) {
             var allWindowsInactive = !App.overlayChatVisible() && !Qt.application.active;
+
+            if (message.isReplaceMessage) {
+                return false;
+            }
 
             return !root.isSelectedUser(user) || allWindowsInactive;
         }
@@ -900,7 +904,7 @@ Item {
             var user;
 
             user = root.getUser(message.to);
-            if (d.needIncrementUnread(user)) {
+            if (d.needIncrementUnread(user, message)) {
                 usersModel.incrementProperty(user.jid, 'unreadMessageCount', 1);
             } else {
                 root.messageRead(user.jid);
@@ -985,7 +989,7 @@ Item {
             }
 
             user = root.getUser(message.from);
-            if (d.needIncrementUnread(user)) {
+            if (d.needIncrementUnread(user, message)) {
                 user.unreadMessageCount += 1;
                 d.setUnreadMessageForUser(user.jid, user.unreadMessageCount);
             } else {

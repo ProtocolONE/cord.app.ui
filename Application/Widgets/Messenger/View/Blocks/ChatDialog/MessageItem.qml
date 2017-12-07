@@ -85,21 +85,6 @@ Item {
                     visible: parent.needDraw
                 }
 
-                Image {
-
-                    width: 32
-                    height: 32
-
-                    anchors {
-                        right: parent.right
-                        top: parent.top
-                        rightMargin: 12
-                    }
-
-                    visible: avatarImageItem.needDraw && root.isReplacedMessage
-                    source: installPath + "Assets/Images/Application/Widgets/Messenger/edit_icon.png"
-                }
-
                 CursorMouseArea {
                     visible: parent.needDraw
                     anchors.fill: parent
