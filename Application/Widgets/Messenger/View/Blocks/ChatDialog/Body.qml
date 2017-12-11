@@ -204,6 +204,7 @@ Item {
             isReplacedMessage: model.edited === 1
 
             isStatusMessage: model.isStatusMessage
+            isInviteMessage: model.type === "invite"
             onIsStatusMessageChanged: messageList.scrollCheck()
             isSelfMessage: messageList.isSelfMessageTest(model.jid)
             firstMessageInGroup: messageList.isSameJid(index, model.jid, model.day)
@@ -228,7 +229,7 @@ Item {
                 onClicked: {
                     var isGroup = MessengerJs.selectedUser().isGroupChat;
                     var showFlag = !isGroup && messageItemId.isSelfMessage && messageList.isMessageTimeValid(model);
-                    var showQuoteFlag = !messageItemId.isStatusMessage;
+                    var showQuoteFlag = !messageItemId.isStatusMessage && !messageItemId.isInviteMessage;
                     ContextMenu.show(mouse, messageItemId, modelItemContextMenu, { message: model, messageItem: messageItemId, showEditButton : showFlag, showQuoteButton :showQuoteFlag });
                 }
             }

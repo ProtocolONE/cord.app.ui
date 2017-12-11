@@ -70,7 +70,7 @@ function escapeHtml(s) {
 function prepareText(message, options) {
     var text = escapeHtml(message);
     text = options.smileResolver(text);
-    text = quoteToHtml(text, options.quoteAuthorColor);
+    text = quoteToHtml(text, options.quoteAuthorColor, options.installPath);
     text = replaceHyperlinks(text, options.hyperLinkStyle);
     text = replaceGameNetHyperlinks(text, true, options.serviceResolver, options.hyperLinkStyle);
     text = replaceMessengerSubscriptionRequestLink(text, options.hyperLinkStyle);

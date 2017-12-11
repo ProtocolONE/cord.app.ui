@@ -8,9 +8,7 @@
 		<file>Application/Blocks/Auth/AnimatedBackground/Sun.qml</file>
 		<file>Application/Blocks/Auth/AnimatedBackground/VkDoggy.qml</file>
 		<file>Application/Blocks/Auth/AuthBody.qml</file>
-		<file>Application/Blocks/Auth/AuthFormStyle.qml</file>
-		<file>Application/Blocks/Auth/AuthHelper.js</file>
-		<file>Application/Blocks/Auth/CaptchaInput.qml</file>
+		<file>Application/Blocks/Auth/AuthUrlSubscription.qml</file>
 		<file>Application/Blocks/Auth/CodeBody.qml</file>
 		<file>Application/Blocks/Auth/Controls/Footer.qml</file>
 		<file>Application/Blocks/Auth/Controls/FooterButton.qml</file>
@@ -129,8 +127,8 @@
 		<file>Application/Core/RootWindow/qmldir</file>
 		<file>Application/Core/RootWindow/RootWindow.qml</file>
 		<file>Application/Core/Settings/qmldir</file>
+		<file>Application/Core/Settings/RemoteSettingsPrivare.qml</file>
 		<file>Application/Core/Settings/Settings.qml</file>
-		<file>Application/Core/StringHelper.js</file>
 		<file>Application/Core/Styles/qmldir</file>
 		<file>Application/Core/Styles/Styles.qml</file>
 		<file>Application/Core/TrayPopup.js</file>
@@ -182,6 +180,8 @@
 		<file>Application/Widgets/ApplicationSettings/PluginContainer.qml</file>
 		<file>Application/Widgets/ApplicationSettings/qmldir</file>
 		<file>Application/Widgets/ApplicationSettings/View/ApplicationSettingsView.qml</file>
+		<file>Application/Widgets/ApplicationSettings/View/Controls/UnlimitedSpeedPlaceholder.qml</file>
+		<file>Application/Widgets/ApplicationSettings/View/Pages/Blacklist.qml</file>
 		<file>Application/Widgets/ApplicationSettings/View/Pages/DownloadSettings.qml</file>
 		<file>Application/Widgets/ApplicationSettings/View/Pages/GeneralSettings.qml</file>
 		<file>Application/Widgets/ApplicationSettings/View/Pages/MessengerSettings.qml</file>
@@ -192,6 +192,19 @@
 		<file>Application/Widgets/AutoRefreshCookie/AutoRefreshCookie.qml</file>
 		<file>Application/Widgets/AutoRefreshCookie/PluginContainer.qml</file>
 		<file>Application/Widgets/AutoRefreshCookie/qmldir</file>
+		<file>Application/Widgets/Centrifugo/CentrifugoModel.qml</file>
+		<file>Application/Widgets/Centrifugo/PluginContainer.qml</file>
+		<file>Application/Widgets/Centrifugo/qmldir</file>
+		<file>Application/Widgets/DetailedUserInfo/DetailedUserInfoModel.qml</file>
+		<file>Application/Widgets/DetailedUserInfo/PluginContainer.qml</file>
+		<file>Application/Widgets/DetailedUserInfo/qmldir</file>
+		<file>Application/Widgets/DetailedUserInfo/View/Blocks/Background.qml</file>
+		<file>Application/Widgets/DetailedUserInfo/View/Blocks/BlockHeader.qml</file>
+		<file>Application/Widgets/DetailedUserInfo/View/Blocks/GameChars.qml</file>
+		<file>Application/Widgets/DetailedUserInfo/View/Blocks/GameInfo.qml</file>
+		<file>Application/Widgets/DetailedUserInfo/View/Blocks/Header.qml</file>
+		<file>Application/Widgets/DetailedUserInfo/View/Blocks/MainInfo.qml</file>
+		<file>Application/Widgets/DetailedUserInfo/View/DetailedUserInfoView.qml</file>
 		<file>Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.js</file>
 		<file>Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml</file>
 		<file>Application/Widgets/DownloadManagerConnector/PluginContainer.qml</file>
@@ -247,6 +260,9 @@
 		<file>Application/Widgets/GameNews/View/BaseView.qml</file>
 		<file>Application/Widgets/GameNews/View/NewsDelegate.qml</file>
 		<file>Application/Widgets/GameNews/View/NewsSingleGame.qml</file>
+		<file>Application/Widgets/GameRemoteFeature/GameRemoteFeature.qml</file>
+		<file>Application/Widgets/GameRemoteFeature/PluginContainer.qml</file>
+		<file>Application/Widgets/GameRemoteFeature/qmldir</file>
 		<file>Application/Widgets/GameSettings/GameSettingsModel.qml</file>
 		<file>Application/Widgets/GameSettings/PluginContainer.qml</file>
 		<file>Application/Widgets/GameSettings/qmldir</file>
@@ -257,6 +273,9 @@
 		<file>Application/Widgets/GameSettings/View/Pages/GameControlSettings.qml</file>
 		<file>Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml</file>
 		<file>Application/Widgets/GameSettings/View/Pages/GameOverlaySettings.qml</file>
+		<file>Application/Widgets/GameSurvey/GameSurveyModel.qml</file>
+		<file>Application/Widgets/GameSurvey/PluginContainer.qml</file>
+		<file>Application/Widgets/GameSurvey/qmldir</file>
 		<file>Application/Widgets/GameUninstall/GameUninstallModel.qml</file>
 		<file>Application/Widgets/GameUninstall/PluginContainer.qml</file>
 		<file>Application/Widgets/GameUninstall/qmldir</file>
@@ -274,11 +293,14 @@
 		<file>Application/Widgets/Maintenance/View/MaintenanceLightView.qml</file>
 		<file>Application/Widgets/Maintenance/View/MaintenanceView.qml</file>
 		<file>Application/Widgets/Maintenance/View/TimeTextLabel.qml</file>
+		<file>Application/Widgets/Messenger/Addons/MessageHelper.js</file>
 		<file>Application/Widgets/Messenger/Addons/MessageReceived.js</file>
 		<file>Application/Widgets/Messenger/Addons/MessageReceived.qml</file>
 		<file>Application/Widgets/Messenger/Addons/NickNameReminder.qml</file>
 		<file>Application/Widgets/Messenger/Addons/Notifications.qml</file>
 		<file>Application/Widgets/Messenger/Addons/Popups.qml</file>
+		<file>Application/Widgets/Messenger/Addons/qmldir</file>
+		<file>Application/Widgets/Messenger/Addons/Quote.js</file>
 		<file>Application/Widgets/Messenger/Model.qml</file>
 		<file>Application/Widgets/Messenger/Models/AccountManager.js</file>
 		<file>Application/Widgets/Messenger/Models/AccountManager.qml</file>
@@ -314,6 +336,9 @@
 		<file>Application/Widgets/Messenger/Models/UserModels/RecentConversation.qml</file>
 		<file>Application/Widgets/Messenger/PluginContainer.qml</file>
 		<file>Application/Widgets/Messenger/Plugins/AutoJoin/Autojoin.js</file>
+		<file>Application/Widgets/Messenger/Plugins/Blacklist/Blacklist.js</file>
+		<file>Application/Widgets/Messenger/Plugins/Blacklist/Blacklist.qml</file>
+		<file>Application/Widgets/Messenger/Plugins/Blacklist/qmldir</file>
 		<file>Application/Widgets/Messenger/Plugins/Bookmarks/Bookmarks.js</file>
 		<file>Application/Widgets/Messenger/Plugins/ChatCommands/ChatCommands.js</file>
 		<file>Application/Widgets/Messenger/Plugins/Events/Events.js</file>
@@ -421,6 +446,10 @@
 		<file>Application/Widgets/P2PCancelRequest/PluginContainer.qml</file>
 		<file>Application/Widgets/P2PCancelRequest/qmldir</file>
 		<file>Application/Widgets/P2PCancelRequest/View/P2PCancelRequestView.qml</file>
+		<file>Application/Widgets/P2PTransferRequest/P2PTransferRequestModel.qml</file>
+		<file>Application/Widgets/P2PTransferRequest/PluginContainer.qml</file>
+		<file>Application/Widgets/P2PTransferRequest/qmldir</file>
+		<file>Application/Widgets/P2PTransferRequest/View/P2PTransferRequestView.qml</file>
 		<file>Application/Widgets/PremiumNotifier/PluginContainer.qml</file>
 		<file>Application/Widgets/PremiumNotifier/PremiumNotifierModel.qml</file>
 		<file>Application/Widgets/PremiumNotifier/qmldir</file>
@@ -477,7 +506,11 @@
 		<file>Application/Widgets/UserProfile/qmldir</file>
 		<file>Application/Widgets/UserProfile/UserProfileModel.qml</file>
 		<file>Application/Widgets/UserProfile/View/NicknameEdit.qml</file>
+		<file>Application/Widgets/UserProfile/View/PromoActionIconView.qml</file>
 		<file>Application/Widgets/UserProfile/View/UserProfileView.qml</file>
+		<file>GameNet/Components/Centrifugo/CentrifugoClient.js</file>
+		<file>GameNet/Components/Centrifugo/CentrifugoClient.qml</file>
+		<file>GameNet/Components/Centrifugo/qmldir</file>
 		<file>GameNet/Components/ItemModel/ItemModel.js</file>
 		<file>GameNet/Components/ItemModel/ItemModel.qml</file>
 		<file>GameNet/Components/ItemModel/qmldir</file>
@@ -548,7 +581,6 @@
 		<file>plugin/QXmpp/qmldir</file>
 		<file>plugin/Tulip/Overlay/qmldir</file>
 		<file>plugin/Tulip/qmldir</file>
-		<file>qwebchannel.js</file>
 		<file>Version.qml</file>
 	</qresource>
 </RCC>

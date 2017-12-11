@@ -93,7 +93,7 @@ QuoteProcessing.prototype.grabNextImage = function() {
         return;
     }
 
-    this.render.text = quoteToHtml(item.source, this.options.quoteAuthorColor);
+    this.render.text = "<p></p>" + quoteToHtml(item.source, this.options.quoteAuthorColor, this.options.installPath);
     var self = this;
 
     this.render.grabToImage(function(result) {
@@ -133,12 +133,14 @@ function makeQuoteImage(url) {
     return "<img src='" + url + "'></img>";
 }
 
-function makeQuoteHtml(text, author, date, quoteAuthorColor) {
-    return "<span style='padding-left:5px'><i>" + text + "</i><br/><b>" +
-        author + "</b><span> </span><span style='color:" + quoteAuthorColor + "'>" + Qt.formatDateTime(new Date(+date), "d MMMM yyyy, hh:mm") + "</span></span>";
+function makeQuoteHtml(text, author, date, quoteAuthorColor, installPath) {
+    return "<table><tr><td><img src='" + installPath + "/Assets/Images/Application/Widgets/Messenger/quote.ico'></td><td>" +
+        "<i>" + text + "</i><span> </span><img src='" + installPath + "/Assets/Images/Application/Widgets/Messenger/quote.ico'><br/><b>" +
+        author + "</b><span> </span><span style='color:" + quoteAuthorColor + "'>" + Qt.formatDateTime(new Date(+date), "d MMMM yyyy, hh:mm") +
+        "</span></td></tr><tr><td> </td><td> </td></tr></table>";
 }
 
-function quoteToHtml(message, quoteAuthorColor) {
+function quoteToHtml(message, quoteAuthorColor, installPath) {
 
     var regExp = new RegExp(/\[quote([^\]]+)\]([\s\S]*?)\[\/quote\]/g);
     var match = regExp.exec(message);
@@ -159,7 +161,7 @@ function quoteToHtml(message, quoteAuthorColor) {
             date = quoteDate[1];
         }
 
-        var newMessage = makeQuoteHtml(text, author, date, quoteAuthorColor);
+        var newMessage = makeQuoteHtml(text, author, date, quoteAuthorColor, installPath);
         result = result.replace(match[0], newMessage);
         match = regExp.exec(message);
     }

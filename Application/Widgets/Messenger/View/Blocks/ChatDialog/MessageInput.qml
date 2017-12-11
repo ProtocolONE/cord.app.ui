@@ -84,7 +84,7 @@ FocusScope {
             }
 
             messengerInput.insert(messengerInput.selectionStart, MessageHelper.replaceNewLines(text));
-        }, { quoteAuthorColor: Styles.messengerQuoteAuthorColor });
+        }, { quoteAuthorColor: Styles.messengerQuoteAuthorColor, installPath: installPath });
     }
 
     function setQuote(messageItem, message) {
@@ -504,12 +504,14 @@ FocusScope {
 
                                 Keys.onPressed: {
                                     if ((event.key === Qt.Key_Insert) && (event.modifiers === Qt.ShiftModifier) ||
-                                        (event.key === Qt.key_v) && (event.modifiers === Qt.ControlModifier)) {
+                                        (event.key === Qt.Key_V) && (event.modifiers === Qt.ControlModifier)) {
                                         if (messengerInput.canPaste && (ClipboardAdapter.hasText() || ClipboardAdapter.hasQuote())) {
 
                                             if (ClipboardAdapter.hasQuote()) {
                                                 var quote = ClipboardAdapter.quote();
-                                                makeQuoteMessage(quote, false);
+                                                makeQuoteMessage(quote + "\n\n", false);
+                                                Ga.trackEvent('MessageInput', 'quote', 'insert');
+
                                             }
                                             else {
                                                 if (messengerInput.selectionStart < messengerInput.selectionEnd)
@@ -624,6 +626,7 @@ FocusScope {
                                     }
 
                                     updateText(messageItem);
+                                    Ga.trackEvent('MessageInput', 'editMessage', 'edit');
                                 }
 
                                 onTextChanged: {

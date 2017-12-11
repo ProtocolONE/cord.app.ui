@@ -28,6 +28,7 @@ Item {
     property alias avatar: avatarImage.source
 
     property bool isStatusMessage: false
+    property bool isInviteMessage: false
     property bool isSelfMessage: false
     property bool firstMessageInGroup: false
     property bool isReplacedMessage: false
@@ -217,7 +218,8 @@ Item {
                                                                hyperLinkStyle: Styles.linkText,
                                                                smileResolver: EmojiOne.ns.toImage,
                                                                serviceResolver: App.serviceItemByServiceId,
-                                                               quoteAuthorColor: Styles.messengerQuoteAuthorColor
+                                                               quoteAuthorColor: Styles.messengerQuoteAuthorColor,
+                                                               installPath: installPath
                                                            })
 
                             color: root.isSelfMessage ? Styles.chatButtonText : Styles.textBase
@@ -231,14 +233,17 @@ Item {
 
                             Keys.onPressed: {
                                 if ((event.key === Qt.Key_Insert) && (event.modifiers === Qt.ControlModifier) ||
-                                    (event.key === Qt.key_c) && (event.modifiers === Qt.ControlModifier)) {
-                                    var ftext = messageBody.getFormattedText(messageBody.selectionStart, messageBody.selectionEnd);
+                                    (event.key === Qt.Key_C) && (event.modifiers === Qt.ControlModifier)) {
 
+                                    if (root.isStatusMessage || root.isInviteMessage)
+                                        return;
+
+                                    var ftext = messageBody.getFormattedText(messageBody.selectionStart, messageBody.selectionEnd);
                                     var text = root.getSelectedText();
                                     if (text.length > 0) {
                                         ClipboardAdapter.setQuote(text, root.nickname, root.fulldate);
+                                        event.accepted = true;
                                     }
-                                    event.accepted = true;
                                 }
                             }
 

@@ -10,6 +10,7 @@
 import QtQuick 2.4
 import Tulip 1.0
 
+import GameNet.Core 1.0
 import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
 
@@ -132,9 +133,12 @@ WidgetView {
             target: body
             onEditMessage : {
                 messageInput.setMessage(message);
+                Ga.trackEvent('ContextMenu', 'editMessage', 'edit');
             }
             onMessageQuote : {
                 messageInput.setQuote(messageItem, message);
+                messageInput.forceActiveFocus();
+                Ga.trackEvent('ContextMenu', 'quote', 'insert');
             }
         }
     }

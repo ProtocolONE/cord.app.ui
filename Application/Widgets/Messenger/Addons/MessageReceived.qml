@@ -83,7 +83,8 @@ TrayPopupBase {
                                                hyperLinkStyle: Styles.messengerChatDialogHyperlinkColor,
                                                smileResolver: EmojiOne.ns.toImage,
                                                serviceResolver: App.serviceItemByServiceId,
-                                               quoteAuthorColor: Styles.messengerQuoteAuthorColor
+                                               quoteAuthorColor: Styles.messengerQuoteAuthorColor,
+                                               installPath: installPath
                                            })
             avatar: getAvatar(from)
             nickname: getNickname(from)
