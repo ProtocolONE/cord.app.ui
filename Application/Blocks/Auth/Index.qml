@@ -112,6 +112,16 @@ Item {
                     d.startLoadingServices(guest.userId, guest.appKey, guest.cookie);
                 }
 
+                onSecurityCodeRequired: {
+                    authSecurityCodeBody.appCode = appCode;
+                    authSecurityCodeBody.login = auth.login;
+                    authSecurityCodeBody.password = auth.password;
+                    authSecurityCodeBody.captcha = auth.captcha;
+                    authSecurityCodeBody.remember = auth.remember;
+                    auth.password = "";
+                    authContainer.state = "securityCode";
+                }
+
                 onCodeRequired: {
                     codeForm.codeSended = false;
                     authContainer.state = "code"
@@ -178,6 +188,30 @@ Item {
                 }
             }
 
+            AuthSecurityCodeBody {
+                id: authSecurityCodeBody
+
+                visible: false
+
+                onCancel: {
+                    authContainer.state = "auth";
+                }
+                onError: {
+                    authContainer.state = "auth";
+                    d.showError(message);
+                }
+                onAuthDone: {
+                    d.startLoadingServices(userId, appKey, cookie, !remember);
+
+                    if (remember) {
+                        CredentialStorage.save(userId, appKey, cookie, false);
+                        d.saveAuthorizedLogins(auth.login);
+                    } else {
+                        auth.login = "";
+                    }
+                }
+            }
+
             CodeBody {
                 id: codeForm
 
@@ -207,6 +241,7 @@ Item {
                 PropertyChanges {target: registration; visible: false}
                 PropertyChanges {target: codeForm; visible: false}
                 PropertyChanges {target: messageBody; visible: false}
+                PropertyChanges {target: authSecurityCodeBody; visible: false}
             },
 
             State {
@@ -224,6 +259,11 @@ Item {
                 StateChangeScript {
                     script: registration.forceActiveFocus();
                 }
+            },
+            State {
+                name: "securityCode"
+                extend: "Initial"
+                PropertyChanges {target: authSecurityCodeBody; visible: true}
             },
             State {
                 name: "code"

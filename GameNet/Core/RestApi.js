@@ -3,7 +3,7 @@
 /****************************************************************************
  ** This file is a part of Syncopate Limited GameNet Application or it parts.
  **
- ** Copyright (©) 2011 - 2012, Syncopate Limited and/or affiliates.
+ ** Copyright (Â©) 2011 - 2012, Syncopate Limited and/or affiliates.
  ** All rights reserved.
  **
  ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
@@ -499,6 +499,10 @@ Error.PHONE_ALREADY_IN_USE = 127;
 Error.UNABLE_DELIVER_SMS = 128;
 Error.INVALID_PHONE_FORMAT = 129;
 Error.PHONE_BLOCKED = 130;
+Error.TFA_SMS_TIMEOUT_IS_NOT_EXPIRED = 136;
+Error.TFA_NEED_SMS_CODE = 137;
+Error.TFA_NEED_APP_CODE = 138;
+Error.TFA_INVALID_CODE = 139;
 Error.PARAMETER_MISSING = 200;
 Error.WRONG_AUTHTYPE = 201;
 Error.WRONG_SERVICEID = 202;
@@ -508,7 +512,6 @@ Error.PAKKANEN_PERMISSION_DENIED = 601;
 Error.PAKKANEN_VK_LINK = 602;
 Error.PAKKANEN_PHONE_VERIFICATION = 603;
 Error.PAKKANEN_VK_LINK_AND_PHONE_VERIFICATION = 604;
-
 var http = function() {
 };
 
@@ -651,7 +654,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.159.5fd479b89710ea82f3e0bd3e4640fc9c9518f021",
+    version: "1.0.175.95d04fea0b05b15deb0dc49c36adb461d6d6bc82",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',

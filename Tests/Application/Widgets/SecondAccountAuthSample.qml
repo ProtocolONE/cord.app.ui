@@ -20,18 +20,9 @@ Rectangle {
     Component.onCompleted: {
         Styles.init();
         Styles.setCurrentStyle('greenStyle');
-    }
-
-    WidgetManager {
-        id: manager
-
-        Component.onCompleted: {
-            manager.registerWidget('Application.Widgets.SecondAccountAuth');
-            manager.registerWidget('Application.Widgets.PremiumShop');
-            manager.init();
-
-
-        }
+        WidgetManager.registerWidget('Application.Widgets.SecondAccountAuth');
+        WidgetManager.registerWidget('Application.Widgets.PremiumShop');
+        WidgetManager.init();
     }
 
     Connections {

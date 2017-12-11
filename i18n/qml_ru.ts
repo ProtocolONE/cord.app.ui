@@ -962,32 +962,56 @@ Please try again later.</source>
 <context>
     <name>AuthSecurityCodeBody</name>
     <message>
-        <source>AUTH_BODY_TITLE</source>
+        <source>AUTH_SECCODE_BODY_TITLE</source>
         <translation type="unfinished">Вход в аккаунт</translation>
     </message>
     <message>
-        <source>AUTH_BODY_SUB_TITLE</source>
-        <translation type="unfinished">Авторизация в приложении учётной записью GameNet</translation>
+        <source>AUTH_APPCODE_BODY_SUB_TITLE</source>
+        <translation type="unfinished">На Вашем аккаунте подключена двухэтапная аутентификация. Введите код из мобильного приложения, СМС или одноразовый резервный код.</translation>
     </message>
     <message>
-        <source>AUTH_BODY_REGISTER_TEXT</source>
-        <translation type="unfinished">Нет аккаунта?</translation>
+        <source>AUTH_SMSCODE_BODY_SUB_TITLE</source>
+        <translation type="unfinished">На Вашем аккаунте подключена двухэтапная аутентификация. Введите код из СМС или одноразовый резервный код.</translation>
     </message>
     <message>
-        <source>AUTH_BODY_REGISTER_BUTTON</source>
-        <translation type="unfinished"></translation>
+        <source>AUTH_SMSCODE_BODY_SEND_BUTTON</source>
+        <translation type="unfinished">Отправить код подтверждения по СМС</translation>
     </message>
     <message>
-        <source>REGISTER_FAIL_LOGIN_TOO_LONG</source>
-        <translation type="unfinished"></translation>
+        <source>AUTH_SMSCODE_BODY_TIMEOUT_TEXT</source>
+        <translation type="unfinished">Код отправлен по СМС, повторная отправка возможна через &lt;b&gt;%1&lt;/b&gt; секунд</translation>
     </message>
     <message>
-        <source>AUTH_BODY_CAPTCHA_FAILED</source>
-        <translation type="unfinished">Неверно введен проверочный код</translation>
+        <source>AUTH_SECCODE_BODY_CODE_PLACEHOLDER</source>
+        <translation>Введите код</translation>
+    </message>
+    <message>
+        <source>AUTH_SECCODE_BODY_CONFIRM_BUTTON</source>
+        <translation>Подтвердить</translation>
+    </message>
+    <message>
+        <source>AUTH_SMS_TIMEOUT_IS_NOT_EXPIRED</source>
+        <translation>Вы только что отправляли код. Пожалуйста, немного подождите, если хотите отправить еще раз.</translation>
+    </message>
+    <message>
+        <source>AUTH_SECURITY_CODE_INVALID</source>
+        <translation>Некорректный код.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_GAMENET_UNKNOWN</source>
+        <translation>Непредвиденная ошибка, код: %1.</translation>
     </message>
     <message>
         <source>AUTH_FAIL_GAMENET_UNAVAILABLE</source>
         <translation type="unfinished">Вероятно, по нашей вине и мы работаем над скорейшим устранением этой проблемы. Но, возможно, это ваше интернет-соединение. Пожалуйста, на всякий случай проверьте ваше соединение.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
+        <translation type="unfinished">GameNet недоступен. Попробуйте авторизоваться позже.</translation>
+    </message>
+    <message>
+        <source>AUTH_FAIL_MESSAGE_WRONG</source>
+        <translation type="unfinished">Неправильный логин или пароль</translation>
     </message>
     <message>
         <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
@@ -998,36 +1022,12 @@ Please try again later.</source>
         <translation type="unfinished">Учётной записи с таким логином не существует.</translation>
     </message>
     <message>
-        <source>AUTH_FAIL_MESSAGE_WRONG</source>
-        <translation type="unfinished">Неправильный логин или пароль</translation>
-    </message>
-    <message>
-        <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
-        <translation type="unfinished">GameNet недоступен. Попробуйте авторизоваться позже.</translation>
-    </message>
-    <message>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>AUTH_BODY_LOGIN_PLACEHOLDER</source>
-        <translation type="unfinished">Введите адрес почты или номер телефона</translation>
-    </message>
-    <message>
-        <source>AUTH_BODY_PASSWORD_PLACEHOLDER</source>
-        <translation type="unfinished">Введите пароль</translation>
-    </message>
-    <message>
-        <source>AUTH_BODY_AMNESIA_TEXT</source>
-        <translation type="unfinished">Забыли пароль?</translation>
-    </message>
-    <message>
-        <source>AUTH_BODY_REMEMBER_TEXT</source>
-        <translation type="unfinished">Запомнить меня</translation>
-    </message>
-    <message>
-        <source>AUTH_BODY_LOGIN_BUTTON</source>
-        <translation type="unfinished">Войти в аккаунт</translation>
+        <source>AUTH_CANCEL_BUTTON</source>
+        <translation type="unfinished">Отмена</translation>
     </message>
 </context>
 <context>
@@ -4299,11 +4299,11 @@ Please try again later.</source>
     <name>MessageHelper</name>
     <message>
         <source>MESSENGER_SUBSCRIPTION_REQUEST_ACCEPT</source>
-        <translation>Согласиться</translation>
+        <translation type="unfinished">Согласиться</translation>
     </message>
     <message>
         <source>MESSENGER_SUBSCRIPTION_REQUEST_DECLINE</source>
-        <translation>Отказаться</translation>
+        <translation type="unfinished">Отказаться</translation>
     </message>
 </context>
 <context>
@@ -5764,6 +5764,17 @@ Please try again later.</source>
     </message>
 </context>
 <context>
+    <name>SecuritySettings</name>
+    <message>
+        <source>Черный список</source>
+        <translation type="unfinished">Черный список</translation>
+    </message>
+    <message>
+        <source>Удалить пользователя из черного списка</source>
+        <translation type="unfinished">Удалить пользователя из черного списка</translation>
+    </message>
+</context>
+<context>
     <name>SelectMw2Server</name>
     <message>
         <source>LABEL_SERVER_NAME</source>
@@ -6709,6 +6720,10 @@ Please try again later.</source>
     <message>
         <source>LOGOUT_ALERT_BODY</source>
         <translation type="unfinished">Все запущенные игры будут закрыты. Вы уверены, что хотите выйти?</translation>
+    </message>
+    <message>
+        <source>USER_PROFILE_CONTEXT_MENU_SECURITY</source>
+        <translation type="unfinished">Безопасность</translation>
     </message>
     <message>
         <source>USER_PROFILE_CONTEXT_MENU_LOGOUT</source>

@@ -40,6 +40,7 @@ Item {
                 hwid: encodeURIComponent(result),
                 gnLoginUrl: Config.GnUrl.login(),
                 titleApiUrl: (new RestApi.Uri(Config.GnUrl.login())).host(),
+                apiUrl: Config.GnUrl.api()
             };
 
             Authorization.setup(authConfig);

@@ -28,6 +28,8 @@ Form {
 
     property alias login: loginInput.text
     property alias password: passwordInput.text
+    property alias captcha: captchInput.text
+    property alias remember: rememberAuth.checked
     property alias loginSuggestion: loginSuggestion.dictionary
     property int loginMaxSize: 254
     property bool guestMode
@@ -35,6 +37,7 @@ Form {
     property alias inProgress: d.inProgress
 
     signal codeRequired();
+    signal securityCodeRequired(bool appCode);
     signal error(string message);
     signal authDone(string userId, string appKey, string cookie, bool remember);
 
@@ -108,7 +111,6 @@ Form {
             Authorization.loginByGameNet(d.login, password, function(error, response) {
                 d.inProgress = false;
 
-
                 if (Authorization.isSuccess(error)) {
                     d.authSuccess(response);
                     return;
@@ -116,19 +118,29 @@ Form {
 
                 if (error === Authorization.Result.CaptchaRequired) {
                     d.refreshCaptcha();
-                    passwordInput.forceActiveFocus();
                     if (d.captchaRequired) {
+                        passwordInput.forceActiveFocus();
                         captchInput.errorMessage = qsTr("AUTH_BODY_CAPTCHA_FAILED");
                         captchInput.error = true;
                         return;
                     }
 
+                    captchInput.forceActiveFocus();
+                    d.password = password;
                     d.captchaRequired = true;
                     return;
                 }
 
                 if (d.captchaRequired) {
                     d.refreshCaptcha();
+                }
+
+                if (error === Authorization.Result.SecuritySMSCodeRequired || error === Authorization.Result.SecurityAppCodeRequired) {
+
+                    d.password = password;
+                    d.captchaRequired = false;
+                    root.securityCodeRequired(error === Authorization.Result.SecurityAppCodeRequired);
+                    return;
                 }
 
                 if (error === Authorization.Result.CodeRequired) {

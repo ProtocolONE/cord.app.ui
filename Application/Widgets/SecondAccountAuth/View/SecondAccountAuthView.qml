@@ -136,6 +136,17 @@ PopupBase {
 
             visible: false
             onFooterPrimaryButtonClicked:  root.state = "registration"
+
+            onSecurityCodeRequired: {
+                authSecurityCodeBody.appCode = appCode;
+                authSecurityCodeBody.login = auth.login;
+                authSecurityCodeBody.password = auth.password;
+                authSecurityCodeBody.captcha = auth.captcha;
+                authSecurityCodeBody.remember = auth.remember;
+                auth.password = "";
+                root.state = "securityCode";
+            }
+
             onCodeRequired: {
                 codeForm.codeSended = false;
                 root.state = "code"
@@ -178,6 +189,26 @@ PopupBase {
             }
         }
 
+        AuthSecurityCodeBody {
+            id: authSecurityCodeBody
+
+            visible: false
+
+            onCancel: {
+                authContainer.state = "auth";
+            }
+            onError: {
+                authContainer.state = "auth";
+                d.showError(message);
+            }
+            onAuthDone: {
+                d.authSuccess(userId, appKey, cookie, remember, auth.login);
+                if (!remember) {
+                    auth.login = "";
+                }
+            }
+        }
+
         CodeBody {
             id: codeForm
 
@@ -207,6 +238,7 @@ PopupBase {
             PropertyChanges {target: registration; visible: false}
             PropertyChanges {target: codeForm; visible: false}
             PropertyChanges {target: messageBody; visible: false}
+            PropertyChanges {target: authSecurityCodeBody; visible: false}
         },
         State {
             name: "auth"
@@ -223,6 +255,11 @@ PopupBase {
             StateChangeScript {
                 script: registration.forceActiveFocus();
             }
+        },
+        State {
+            name: "securityCode"
+            extend: "Initial"
+            PropertyChanges {target: authSecurityCodeBody; visible: true}
         },
         State {
             name: "code"

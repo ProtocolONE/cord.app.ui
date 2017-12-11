@@ -61,6 +61,9 @@ WidgetView {
             case "money":
                 App.replenishAccount();
                 break;
+            case "security":
+                App.openExternalUrlWithAuth(Config.GnUrl.site("/my-settings/security/"));
+                break;
             case "logout":
                 if (!App.currentRunningMainService() && !App.currentRunningSecondService()) {
                         SignalBus.logoutRequest();
@@ -123,6 +126,11 @@ WidgetView {
                                  action: "confirmguest"
                              });
             }
+
+            options.push({
+                            name: qsTr("USER_PROFILE_CONTEXT_MENU_SECURITY"),// "Безопасность"
+                            action: "security"
+                        });
 
             options.push({
                             name: qsTr("USER_PROFILE_CONTEXT_MENU_LOGOUT"),// "Выйти"
