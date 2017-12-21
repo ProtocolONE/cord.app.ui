@@ -23,5 +23,14 @@ WidgetModel {
                         message || defaultMessage,
                         MessageBox.button.ok);
         }
+
+        onTerminateAllGame: {
+            App.terminateGame("");
+            var defaultMessage = qsTr("GAME_CONTROL_REMOTE_ALL_STOP");
+            MessageBox.show(
+                        qsTr("INFO_CAPTION"),
+                        message || defaultMessage,
+                        MessageBox.button.ok);
+        }
     }
 }

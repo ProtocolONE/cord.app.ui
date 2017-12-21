@@ -1659,7 +1659,13 @@
     </message>
     <message>
         <location filename="../Application/Widgets/GameRemoteFeature/GameRemoteFeature.qml" line="22"/>
+        <location filename="../Application/Widgets/GameRemoteFeature/GameRemoteFeature.qml" line="31"/>
         <source>INFO_CAPTION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/GameRemoteFeature/GameRemoteFeature.qml" line="29"/>
+        <source>GAME_CONTROL_REMOTE_ALL_STOP</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3657,12 +3663,12 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="199"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="195"/>
         <source>WEB_SEARCH_BUTTON_HELP_TEXT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="218"/>
+        <location filename="../Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml" line="214"/>
         <source>WEB_SEARCH_INPUT_HELP_TEXT</source>
         <translation></translation>
     </message>

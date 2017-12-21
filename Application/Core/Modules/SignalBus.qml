@@ -82,6 +82,7 @@ Item {
     signal buyGameCompleted(string serviceId, string message);
 
     signal terminateGame(string serviceId, string message);
+    signal terminateAllGame(string message);
 
     signal anotherComputerChanged(bool value);
 

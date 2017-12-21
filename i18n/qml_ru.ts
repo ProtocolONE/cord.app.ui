@@ -2856,6 +2856,10 @@ Please try again later.</source>
         <source>INFO_CAPTION</source>
         <translation>Внимание</translation>
     </message>
+    <message>
+        <source>GAME_CONTROL_REMOTE_ALL_STOP</source>
+        <translation>Доступ к играм заблокирован. Если вы считаете, что это ошибка, Вы можете создать обращение в &lt;a href=&quot;https://support.gamenet.ru/new-ticket&quot;&gt;службу поддержки GameNet&lt;/a&gt;</translation>
+    </message>
 </context>
 <context>
     <name>GameSettings</name>
