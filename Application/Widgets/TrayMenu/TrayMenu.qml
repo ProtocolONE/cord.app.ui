@@ -34,7 +34,10 @@ WidgetModel {
     function menuClick(name) {
         switch(name) {
         case 'Profile':
-            var userId = User.getTechName() == undefined ? User.userId() : User.getTechName();
+            var userId = !!!User.getTechName()
+                    ? User.userId()
+                    : User.getTechName();
+
             App.openProfile(userId);
 
             Ga.trackEvent('Tray', 'outer link', 'Profile');
