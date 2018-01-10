@@ -98,9 +98,11 @@ function createService(data) {
     ];
 
     Object.keys(urlProps).forEach(function(e){
-        var prop = urlProps[e];
+        var prop = urlProps[e], propValue;
         if (data.hasOwnProperty(prop) && !!data[prop]) {
-            item[prop] = GnUrl.site(data[prop]);
+            propValue = '' + data[prop];
+            item[prop] = (propValue.indexOf('//') != -1) ? propValue
+                                                         : GnUrl.site(propValue);
         } else {
             item[prop] = '';
         }
