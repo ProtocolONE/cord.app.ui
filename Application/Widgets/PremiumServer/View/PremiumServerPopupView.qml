@@ -203,7 +203,7 @@ PopupBase {
         onLinkActivated: App.openExternalUrl(link)
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         //text: qsTr("Доступ на премиум сервер для новых пользователей временно недоступен.")
-        text: qsTr("Доступ на премиум сервер для пользователей совершивших трансфер на бесплатный сервер недоступен.")
+        text: qsTr("Доступ на премиум сервер для пользователей, совершивших трансфер на бесплатный сервер, недоступен.")
 
         MouseArea {
             anchors.fill: parent

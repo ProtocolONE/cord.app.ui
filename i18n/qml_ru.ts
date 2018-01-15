@@ -5026,7 +5026,7 @@ Please try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Доступ на премиум сервер для пользователей совершивших трансфер на бесплатный сервер недоступен.</source>
+        <source>Доступ на премиум сервер для пользователей, совершивших трансфер на бесплатный сервер, недоступен.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5767,11 +5767,11 @@ Please try again later.</source>
     <name>SecuritySettings</name>
     <message>
         <source>Черный список</source>
-        <translation type="unfinished">Черный список</translation>
+        <translation type="obsolete">Черный список</translation>
     </message>
     <message>
         <source>Удалить пользователя из черного списка</source>
-        <translation type="unfinished">Удалить пользователя из черного списка</translation>
+        <translation type="obsolete">Удалить пользователя из черного списка</translation>
     </message>
 </context>
 <context>
