@@ -40,6 +40,7 @@ Form {
     subTitle: appCode ? qsTr("AUTH_SMSCODE_BODY_SUB_TITLE") : qsTr("AUTH_APPCODE_BODY_SUB_TITLE")
 
     onVisibleChanged: {
+        codeError.error = false;
         codeInput.text = "";
         if (root.visible && !root.appCode) {
             d.sendSMS();
