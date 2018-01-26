@@ -48,6 +48,7 @@ function createService(data) {
     item.menu = [];
     item.currentMenuIndex = 1;
     item.widgets = {};
+    item.recheck = false;
 
     // External item properties
     item.gameId = data.gameId || 0;
