@@ -190,7 +190,7 @@ WidgetView {
                         onVolumeChanged: AppSettings.setAppSettingsValue('gameInfo', 'volume', video.volume)
                         Component.onCompleted: {
                             var volume = AppSettings.appSettingsValue('gameInfo', 'volume', -1);
-                            video.volume = (volume === -1) ? 1.0 : volume;
+                            video.volume = (volume === -1) ? 0 : volume;
                             video.autoPlay = AppSettings.isAppSettingsEnabled('gameInfo', 'autoPlay', 1);
                         }
                     }
