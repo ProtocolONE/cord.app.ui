@@ -27,8 +27,9 @@ Item {
                 try {
                     if (!!resp && !!resp.token) {
                         authUrl = Config.GnUrl.login("/redirect?userId=") + User.userId();
-                        if (User.isAnotherComputer()) {
-                            authUrl += "&anotherComputer=1";
+
+                        if (!User.isAnotherComputer()) {
+                            authUrl += "&trustedLocation=1";
                         }
 
                         authUrl += "&token="+ resp.token + "&url=" + encodeURIComponent(originalUrl)
