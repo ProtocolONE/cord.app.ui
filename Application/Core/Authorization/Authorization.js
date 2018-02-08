@@ -556,7 +556,7 @@ http.request = function(options, callback) {
 }
 
 //Replaced during CI build
-var authVersion = "2.0.51.e83725cd6be0d59494b032d6ddd6af6105cd9853"
+var authVersion = "2.0.53.595af91a306d2105fc7019dae3766f59a237bdb2"
     , _gnLoginUrl = 'https://gnlogin.ru'
     , _gnLoginTitleApiUrl = 'gnlogin.ru'
     , _apiUrl = 'https://gnapi.com:8443/restapi'
@@ -696,15 +696,17 @@ function register(login, password, callback) {
  *
  * @param {string} login
  * @param {string} password
+ * @param {bool} remember
  * @param {function} callback
  */
-function loginByGameNet(login, password, callback) {
+function loginByGameNet(login, password, remember, callback) {
     var request = new Uri(_gnLoginUrl)
         .addQueryParam('login', login)
         .addQueryParam('passhash', encodeURIComponent(password))
         .addQueryParam('hwid', _hwid)
         .addQueryParam('new', 1)
-        .addQueryParam('json', 1);
+        .addQueryParam('json', 1)
+        .addQueryParam('trustedLocation', remember ? 1 : 0);
 
     if (_captcha) {
         request.addQueryParam('captcha', _captcha);

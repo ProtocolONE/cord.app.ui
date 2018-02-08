@@ -108,7 +108,7 @@ Form {
                 d.captcha = "";
             }
 
-            Authorization.loginByGameNet(d.login, password, function(error, response) {
+            Authorization.loginByGameNet(d.login, password, d.remember, function(error, response) {
                 d.inProgress = false;
 
                 if (Authorization.isSuccess(error)) {

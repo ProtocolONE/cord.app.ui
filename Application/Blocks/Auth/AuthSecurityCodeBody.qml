@@ -112,7 +112,7 @@ Form {
             Authorization.setCode2fa(d.code2fa);
             d.code2fa = "";
 
-            Authorization.loginByGameNet(root.login, root.password, function(error, response) {
+            Authorization.loginByGameNet(root.login, root.password, root.remember, function(error, response) {
 
                 d.inProgress = false;
                 codeInput.text = "";

@@ -44,7 +44,7 @@ Rectangle {
         }
 
         function genericAuth(login, password, done) {
-            Authorization.loginByGameNet(login, password, function(error, response) {
+            Authorization.loginByGameNet(login, password, false, function(error, response) {
                 if (!Authorization.isSuccess(error)) {
                     console.log('Auth failed!')
                     return;

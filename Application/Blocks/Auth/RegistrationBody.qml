@@ -114,7 +114,7 @@ Form {
         }
 
         function auth(login, password) {
-            Authorization.loginByGameNet(login, password, function(error, response) {
+            Authorization.loginByGameNet(login, password, true, function(error, response) {
                 d.inProgress = false;
                 SignalBus.setGlobalProgressVisible(false, 0);
 
