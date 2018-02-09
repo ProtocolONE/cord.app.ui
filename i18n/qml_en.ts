@@ -476,77 +476,77 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="69"/>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="126"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="70"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="127"/>
         <source>AUTH_SECURITY_CODE_INVALID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="75"/>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="132"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="76"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="133"/>
         <source>AUTH_SMS_TIMEOUT_IS_NOT_EXPIRED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="81"/>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="138"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="82"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="139"/>
         <source>AUTH_FAIL_GAMENET_UNAVAILABLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="85"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="86"/>
         <source>AUTH_FAIL_GAMENET_UNKNOWN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="143"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="144"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="146"/>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="150"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="147"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="151"/>
         <source>AUTH_FAIL_MESSAGE_WRONG</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="147"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="148"/>
         <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="148"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="149"/>
         <source>AUTH_FAIL_MESSAGE_ACCOUNT_NOT_EXISTS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="149"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="150"/>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="186"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="187"/>
         <source>AUTH_SECCODE_BODY_CODE_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="204"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="205"/>
         <source>AUTH_CANCEL_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="224"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="225"/>
         <source>AUTH_SECCODE_BODY_CONFIRM_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="96"/>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="246"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="97"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="247"/>
         <source>AUTH_SMSCODE_BODY_TIMEOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="253"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="254"/>
         <source>AUTH_SMSCODE_BODY_SEND_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1076,22 +1076,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="181"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="182"/>
         <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="334"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="339"/>
         <source>TEXT_PROGRESSBAR_REHASH_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="348"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="353"/>
         <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="349"/>
+        <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="354"/>
         <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
         <translation type="unfinished"></translation>
     </message>
