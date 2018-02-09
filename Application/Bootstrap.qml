@@ -43,6 +43,10 @@ Item {
                 apiUrl: Config.GnUrl.api()
             };
 
+            if (Config.GnUrl.debugApi()) {
+                authConfig.debug = true;
+            }
+
             Authorization.setup(authConfig);
             App.authAccepted = true;
         })

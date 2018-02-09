@@ -507,6 +507,9 @@ Error.PAKKANEN_VK_LINK_AND_PHONE_VERIFICATION = 604;
 var http = function() {
 };
 
+// INFO debug output
+http.logRequest = false;
+
 http.request = function(options, callback) {
     var xhr = new XMLHttpRequest(),
         method = options.method || 'get',
@@ -532,6 +535,17 @@ http.request = function(options, callback) {
             return;
         }
 
+        if (http.logRequest) {
+            // INFO debug output
+            var tmp = '[Auth]Request: ' + uri.toString();
+            try {
+                var debugResponseObject = JSON.parse(xhr.responseText);
+                tmp += '\n[Auth]Response: \n' + JSON.stringify(debugResponseObject, null, 2)
+            } catch(e) {
+                tmp += '\n[Auth]Response: \n' + xhr.responseText
+            }
+            console.log(tmp);
+        }
         callback({status: xhr.status, header: xhr.getAllResponseHeaders(), body: xhr.responseText});
     };
 
@@ -556,7 +570,7 @@ http.request = function(options, callback) {
 }
 
 //Replaced during CI build
-var authVersion = "2.0.53.595af91a306d2105fc7019dae3766f59a237bdb2"
+var authVersion = "2.0.55.aed67ecb3dd605cd9e16bb9543513899d0611b28"
     , _gnLoginUrl = 'https://gnlogin.ru'
     , _gnLoginTitleApiUrl = 'gnlogin.ru'
     , _apiUrl = 'https://gnapi.com:8443/restapi'
@@ -590,6 +604,10 @@ function setup(options) {
     _gnLoginUrl = options.gnLoginUrl || _gnLoginUrl;
     _gnLoginTitleApiUrl = options.titleApiUrl || _gnLoginTitleApiUrl;
     _apiUrl = options.apiUrl || _apiUrl;
+
+    if (options.debug) {
+        http.logRequest = true
+    }
 }
 
 /**

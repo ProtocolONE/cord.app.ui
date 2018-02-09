@@ -965,7 +965,7 @@ User.getIgnoreList = function(successCallback, failedCallback) {
     Core.execute('user.getIgnoreList', { }, true, successCallback, failedCallback);
 };
 
-// target - �?дентификатор, никнейм или ссылка на профиль игнорируемого пользователя
+// target - идентификатор, никнейм или ссылка на профиль игнорируемого пользователя
 User.addToIgnoreList = function(target, successCallback, failedCallback) {
     Core.execute('user.addToIgnoreList', { target: target }, true, successCallback, failedCallback);
 };
