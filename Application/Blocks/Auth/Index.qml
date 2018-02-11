@@ -186,6 +186,15 @@ Item {
                     codeForm.codeSended = false;
                     authContainer.state = "code"
                 }
+
+                onSecurityCodeRequired: {
+                    authSecurityCodeBody.appCode = appCode;
+                    authSecurityCodeBody.login = registration.login;
+                    authSecurityCodeBody.password = registration.password;
+                    authSecurityCodeBody.remember = true;
+                    registration.password = "";
+                    authContainer.state = "securityCode";
+                }
             }
 
             AuthSecurityCodeBody {

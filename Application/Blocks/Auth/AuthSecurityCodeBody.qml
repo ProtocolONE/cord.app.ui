@@ -37,7 +37,7 @@ Form {
     property bool appCode: false
 
     title: qsTr("AUTH_SECCODE_BODY_TITLE")
-    subTitle: appCode ? qsTr("AUTH_SMSCODE_BODY_SUB_TITLE") : qsTr("AUTH_APPCODE_BODY_SUB_TITLE")
+    subTitle: appCode ? qsTr("AUTH_APPCODE_BODY_SUB_TITLE") : qsTr("AUTH_SMSCODE_BODY_SUB_TITLE")
 
     onVisibleChanged: {
         codeError.error = false;

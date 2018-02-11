@@ -33,6 +33,7 @@ Form {
     signal authDone(string userId, string appKey, string cookie);
     signal codeRequired();
     signal captchaRequired();
+    signal securityCodeRequired(bool appCode);
 
     title: qsTr("REGISTER_BODY_TITLE")
     subTitle: qsTr("REGISTER_BODY_SUB_TITLE")
@@ -87,8 +88,8 @@ Form {
                 var errorCode = response.code;
 
                 if (errorCode == -1) {//BAD_CAPTCHA
-                   root.captchaRequired();
-                   return;
+                    root.captchaRequired();
+                    return;
                 }
 
                 if (errorCode == -2) {//BLOCKED_AUTH
@@ -99,6 +100,12 @@ Form {
                 if (errorCode == -3) {//TEMPORARY_BLOCKED_AUTH
                    root.codeRequired();
                    return;
+                }
+
+                if (errorCode === 4 || errorCode === 5) { //REQUIRED_2FA_SMS_CODE or REQUIRED_2FA_APP_CODE
+                    root.password = password;
+                    root.securityCodeRequired(errorCode === 5);
+                    return;
                 }
 
                 if (response.message.login) {
@@ -120,6 +127,12 @@ Form {
 
                 if (Authorization.isSuccess(error)) {
                     root.authDone(response.userId, response.appKey, response.cookie);
+                    return;
+                }
+
+                if (error === Authorization.Result.SecuritySMSCodeRequired || error === Authorization.Result.SecurityAppCodeRequired) {
+                    root.password = password;
+                    root.securityCodeRequired(error === Authorization.Result.SecurityAppCodeRequired);
                     return;
                 }
 
