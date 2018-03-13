@@ -975,11 +975,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>AUTH_SMSCODE_BODY_SEND_BUTTON</source>
-        <translation type="unfinished">Отправить код подтверждения по СМС</translation>
+        <translation>Отправить код по СМС</translation>
     </message>
     <message>
         <source>AUTH_SMSCODE_BODY_TIMEOUT_TEXT</source>
-        <translation type="unfinished">Код отправлен по СМС, повторная отправка возможна через &lt;b&gt;%1&lt;/b&gt; секунд</translation>
+        <translation>Код отправлен по СМС,&lt;br/&gt;повторная отправка возможна&lt;br/&gt;через &lt;b&gt;%1&lt;/b&gt; секунд</translation>
     </message>
     <message>
         <source>AUTH_SECCODE_BODY_CODE_PLACEHOLDER</source>

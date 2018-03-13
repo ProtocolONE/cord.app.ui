@@ -201,47 +201,12 @@ Form {
             width: parent.width
             height: 48
 
-            TextButton {
-                text: qsTr("AUTH_CANCEL_BUTTON")
-
-                width: 100
-                height: parent.height
-                anchors.right: parent.right
-                anchors.rightMargin: 200
-
-                font {family: "Open Sans Regular"; pixelSize: 15}
-                onClicked: root.cancel();
-                analytics {
-                    category: 'Auth security Code'
-                    label: 'Code cancel'
-                }
-            }
-
-            PrimaryButton {
-                width: 170
-                height: parent.height
-                anchors.right: parent.right
-
-                text: qsTr("AUTH_SECCODE_BODY_CONFIRM_BUTTON")
-                font {family: "Open Sans Regular"; pixelSize: 15}
-                inProgress: d.inProgress;
-                enabled: codeInput.text.length >= 6
-                onClicked: d.genericAuth();
-                analytics {
-                   category: 'Auth security code'
-                   label: 'Confirm security code'
-                }
-            }
-        }
-
-        Item {
-            width: parent.width
-            height: 50
-
             Text {
                 id: timeout
-                width: parent.width
+                width: 220
                 height: parent.height
+                wrapMode: Text.WordWrap
+                anchors.right: parent.left
                 visible: d.timeoutSMS != 0;
                 color: Styles.infoText
                 text: qsTr("AUTH_SMSCODE_BODY_TIMEOUT_TEXT").arg(d.timeoutSMS)
@@ -258,6 +223,38 @@ Form {
                 analytics {
                    category: 'Auth security code'
                    label: 'resend sms code'
+                }
+            }
+
+            TextButton {
+                text: qsTr("AUTH_CANCEL_BUTTON")
+
+                width: 80
+                height: parent.height
+                anchors.right: parent.right
+                anchors.rightMargin: 150
+
+                font {family: "Open Sans Regular"; pixelSize: 15}
+                onClicked: root.cancel();
+                analytics {
+                    category: 'Auth security Code'
+                    label: 'Code cancel'
+                }
+            }
+
+            PrimaryButton {
+                width: 150
+                height: parent.height
+                anchors.right: parent.right
+
+                text: qsTr("AUTH_SECCODE_BODY_CONFIRM_BUTTON")
+                font {family: "Open Sans Regular"; pixelSize: 15}
+                inProgress: d.inProgress;
+                enabled: codeInput.text.length >= 6
+                onClicked: d.genericAuth();
+                analytics {
+                   category: 'Auth security code'
+                   label: 'Confirm security code'
                 }
             }
         }

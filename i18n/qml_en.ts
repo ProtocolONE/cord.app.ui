@@ -530,23 +530,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="205"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="230"/>
         <source>AUTH_CANCEL_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="225"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="250"/>
         <source>AUTH_SECCODE_BODY_CONFIRM_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="97"/>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="247"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="212"/>
         <source>AUTH_SMSCODE_BODY_TIMEOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="254"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="219"/>
         <source>AUTH_SMSCODE_BODY_SEND_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
@@ -805,22 +805,22 @@
 <context>
     <name>Bootstrap</name>
     <message>
-        <location filename="../Application/Bootstrap.qml" line="234"/>
+        <location filename="../Application/Bootstrap.qml" line="238"/>
         <source>INFO_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Bootstrap.qml" line="235"/>
+        <location filename="../Application/Bootstrap.qml" line="239"/>
         <source>UPDATE_FOUND_MESSAGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Bootstrap.qml" line="97"/>
+        <location filename="../Application/Bootstrap.qml" line="101"/>
         <source>CLOSE_APP_CAPTION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Bootstrap.qml" line="98"/>
+        <location filename="../Application/Bootstrap.qml" line="102"/>
         <source>CLOSE_APP_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2142,12 +2142,12 @@
 <context>
     <name>Index</name>
     <message>
-        <location filename="../Application/Blocks/Auth/Index.qml" line="367"/>
+        <location filename="../Application/Blocks/Auth/Index.qml" line="376"/>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/Index.qml" line="371"/>
+        <location filename="../Application/Blocks/Auth/Index.qml" line="380"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
         <translation></translation>
     </message>
@@ -3109,69 +3109,69 @@
 <context>
     <name>RegistrationBody</name>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="37"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="38"/>
         <source>REGISTER_BODY_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="38"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="39"/>
         <source>REGISTER_BODY_SUB_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="42"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="43"/>
         <source>REGISTER_BODY_AUTH_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="43"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="44"/>
         <source>REGISTER_BODY_AUTH_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="66"/>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="165"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="67"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="178"/>
         <source>REGISTER_FAIL_LOGIN_TOO_LONG</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="83"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="84"/>
         <source>REGISTER_FAIL_GAMENET_UNAVAILABLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="95"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="96"/>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="129"/>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="132"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="142"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="145"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="134"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="147"/>
         <source>AUTH_FAIL_MESSAGE_WRONG</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="135"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="148"/>
         <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="159"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="172"/>
         <source>REGISTER_BODY_LOGIN_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="177"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="190"/>
         <source>REGISTER_BODY_PASSWORD_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="196"/>
+        <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="209"/>
         <source>REGISTER_BODY_REGISTER_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
