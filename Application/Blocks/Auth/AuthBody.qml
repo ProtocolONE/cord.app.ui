@@ -154,19 +154,19 @@ Form {
                     return;
                 }
 
-                if (response.code == RestApi.Error.INCORRECT_FORMAT_EMAIL) {
+                if (response.code === RestApi.Error.INCORRECT_FORMAT_EMAIL) {
                     loginInput.errorMessage = qsTr("AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT");
                     loginInput.error = true;
                     return;
                 }
 
-                if (response.code == RestApi.Error.ACCOUNT_NOT_EXISTS) {
+                if (response.code === RestApi.Error.ACCOUNT_NOT_EXISTS) {
                     loginInput.errorMessage = qsTr("AUTH_FAIL_MESSAGE_ACCOUNT_NOT_EXISTS");
                     loginInput.error = true;
                     return;
                 }
 
-                if (response.code == RestApi.Error.AUTHORIZATION_FAILED) {
+                if (response.code === RestApi.Error.AUTHORIZATION_FAILED) {
                     passwordInput.errorMessage = qsTr("AUTH_FAIL_MESSAGE_WRONG");
                     passwordInput.error = true;
                     loginInput.errorMessage = "";
@@ -310,7 +310,7 @@ Form {
                     left: parent.left
                     verticalCenter: parent.verticalCenter
                 }
-                checked: AuthHelper.rememberAccount != undefined ? AuthHelper.rememberAccount : true
+                checked: AuthHelper.rememberAccount !== undefined ? AuthHelper.rememberAccount : true
                 text: qsTr("AUTH_BODY_REMEMBER_TEXT")
                 enabled: !d.inProgress
                 onToggled: AuthHelper.rememberAccount = rememberAuth.checked;

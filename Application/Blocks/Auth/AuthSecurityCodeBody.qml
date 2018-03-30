@@ -35,6 +35,7 @@ Form {
     property string captcha
     property bool remember
     property bool appCode: false
+    property int bottomMargin: 160
 
     title: qsTr("AUTH_SECCODE_BODY_TITLE")
     subTitle: appCode ? qsTr("AUTH_APPCODE_BODY_SUB_TITLE") : qsTr("AUTH_SMSCODE_BODY_SUB_TITLE")
@@ -175,7 +176,6 @@ Form {
         spacing: 15
 
         Column {
-            spacing: 24
             width: parent.width
             z: 1
 
@@ -193,7 +193,7 @@ Form {
                 id: codeError
 
                 width: parent.width
-                height: 48
+                height: 16
             }
         }
 
@@ -203,10 +203,10 @@ Form {
 
             Text {
                 id: timeout
-                width: 220
+                width: parent.width
                 height: parent.height
                 wrapMode: Text.WordWrap
-                anchors.right: parent.left
+                anchors.left: parent.left
                 visible: d.timeoutSMS != 0;
                 color: Styles.infoText
                 text: qsTr("AUTH_SMSCODE_BODY_TIMEOUT_TEXT").arg(d.timeoutSMS)

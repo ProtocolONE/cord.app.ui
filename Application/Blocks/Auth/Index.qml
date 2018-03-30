@@ -273,6 +273,7 @@ Item {
                 name: "securityCode"
                 extend: "Initial"
                 PropertyChanges {target: authSecurityCodeBody; visible: true}
+                PropertyChanges {target: authContainer; anchors.bottomMargin: authSecurityCodeBody.bottomMargin}
             },
             State {
                 name: "code"

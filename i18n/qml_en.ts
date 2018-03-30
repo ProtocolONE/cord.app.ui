@@ -461,92 +461,92 @@
 <context>
     <name>AuthSecurityCodeBody</name>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="39"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="40"/>
         <source>AUTH_SECCODE_BODY_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="40"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="41"/>
         <source>AUTH_SMSCODE_BODY_SUB_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="40"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="41"/>
         <source>AUTH_APPCODE_BODY_SUB_TITLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="70"/>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="127"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="71"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="128"/>
         <source>AUTH_SECURITY_CODE_INVALID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="76"/>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="133"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="77"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="134"/>
         <source>AUTH_SMS_TIMEOUT_IS_NOT_EXPIRED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="82"/>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="139"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="83"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="140"/>
         <source>AUTH_FAIL_GAMENET_UNAVAILABLE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="86"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="87"/>
         <source>AUTH_FAIL_GAMENET_UNKNOWN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="144"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="145"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_ERROR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="147"/>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="151"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="148"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="152"/>
         <source>AUTH_FAIL_MESSAGE_WRONG</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="148"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="149"/>
         <source>AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="149"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="150"/>
         <source>AUTH_FAIL_MESSAGE_ACCOUNT_NOT_EXISTS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="150"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="151"/>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="187"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="188"/>
         <source>AUTH_SECCODE_BODY_CODE_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="230"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="231"/>
         <source>AUTH_CANCEL_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="250"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="251"/>
         <source>AUTH_SECCODE_BODY_CONFIRM_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="97"/>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="212"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="98"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="213"/>
         <source>AUTH_SMSCODE_BODY_TIMEOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="219"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="220"/>
         <source>AUTH_SMSCODE_BODY_SEND_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2142,12 +2142,12 @@
 <context>
     <name>Index</name>
     <message>
-        <location filename="../Application/Blocks/Auth/Index.qml" line="376"/>
+        <location filename="../Application/Blocks/Auth/Index.qml" line="377"/>
         <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/Index.qml" line="380"/>
+        <location filename="../Application/Blocks/Auth/Index.qml" line="381"/>
         <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
         <translation></translation>
     </message>

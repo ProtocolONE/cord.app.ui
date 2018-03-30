@@ -104,7 +104,7 @@ FocusScope {
 
         Item {
             width: 1
-            height: 5
+            height: 15
         }
     }
 
