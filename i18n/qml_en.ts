@@ -181,7 +181,7 @@
 <context>
     <name>AnnouncementsDesignSample</name>
     <message>
-        <location filename="../Tests/Application/Widgets/AnnouncementsDesignSample.qml" line="168"/>
+        <location filename="../Tests/Application/Widgets/AnnouncementsDesignSample.qml" line="171"/>
         <source>Чтобы открыть чат GameNet используете хоткей %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -189,44 +189,44 @@
 <context>
     <name>AnnouncementsModel</name>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="81"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="82"/>
         <source>ANNOUNCE_GAME_INSTALLED_MESSAGE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="82"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="83"/>
         <source>ANNOUNCE_GAME_INSTALLED_BUTTON</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="330"/>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="343"/>
-        <source>REMINDER_NEVER_PLAYED_MESSAGE</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="331"/>
         <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="344"/>
+        <source>REMINDER_NEVER_PLAYED_MESSAGE</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="332"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="345"/>
         <source>REMINDER_NEVER_PLAYED_BUTTON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="580"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="583"/>
         <source>SILENT_REMIND_POPUP_BUTTON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="581"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="584"/>
         <source>SILENT_REMIND_POPUP_MESSAGE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="594"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="597"/>
         <source>Поздравляем с покупкой </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="595"/>
+        <location filename="../Application/Widgets/Announcements/AnnouncementsModel.qml" line="598"/>
         <source>Играть</source>
         <translation type="unfinished"></translation>
     </message>

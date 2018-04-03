@@ -14,6 +14,7 @@ import Tulip 1.0
 import GameNet.Core 1.0
 import GameNet.Controls 1.0
 import GameNet.Components.Widgets 1.0
+
 import Application.Blocks 1.0
 import Application.Core 1.0
 import Application.Core.Settings 1.0
@@ -24,9 +25,11 @@ WidgetModel {
     id: announcements
 
     property variant _lastShownPopupDate: 0
-    property int normalPopupInerval: 1800000
-    property int reshowWrongClosedAnnounceInterval: 43200000
-    property int announceDyingInterval: 2100000
+
+    property int normalPopupInerval: 1800000 // 30 min
+    property int reshowWrongClosedAnnounceInterval: 43200000 // 12 hour
+    property int announceDyingInterval: 2100000 // 35 min
+    property int advertisementPopupInerval: 43200000 // 12 hour
 
     signal gamePlayClicked(string serviceId);
     signal openUrlRequest(string url);
@@ -99,6 +102,14 @@ WidgetModel {
         }
     }
 
+    function getAdShownDate() {
+        return parseInt(AppSettings.value("qml/Announcements2/advertisement/", "showDate", ""), 10);
+    }
+
+    function setAdShownDate(date) {
+        AppSettings.setValue("qml/Announcements2/advertisement/", "showDate", date);
+    }
+
     function getShownDate(announceId) {
         return parseInt(AppSettings.value("qml/Announcements2/" + announceId + "/", "showDate", ""), 10);
     }
@@ -159,6 +170,12 @@ WidgetModel {
             return;
         }
 
+        var now = (+new Date());
+
+        announcements.updateLastShownPopupDate();
+        announcements.setAdShownDate(now);
+        announcements.setShownDate(announceItem.id, now);
+
         if (announceItem.size === "small") {
             showSmallAnnouncement(announceItem);
         } else if (announceItem.size === "big") {
@@ -168,6 +185,7 @@ WidgetModel {
         }
     }
 
+    // INFO Disabled by QGNA-1752
     function checkAndShowDyingAnnouncements() {
         if (!AnnouncementsHelper.announceList)
             return;
@@ -204,60 +222,56 @@ WidgetModel {
         }
     }
 
+    function getNextAnnouncement() {
+        var now = +(new Date())
+
+        return Lodash._.chain(
+                    Lodash._.isArray(AnnouncementsHelper.announceList)
+                    ? AnnouncementsHelper.announceList
+                    : [])
+        .filter(function(e) {
+            if (!e) return false;
+
+            var startDate = +(new Date(parseInt(e.startTime, 10) * 1000)),
+                endDate = +(new Date(parseInt(e.endTime, 10) * 1000));
+
+            // Не активное: "протух" или "рано"
+            if (now < startDate || now > endDate)
+                return false;
+
+            // Запрещен в настройках показ такого типа анонсов или он был закрыт "правильно"
+            if (announcements.checkIsAnnouncementBlocked(e) || announcements.isClosedProperly(e.id))
+                return false;
+
+            return true;
+        })
+        .map(function(e) {
+            e.shownDate = announcements.getShownDate(e.id) || -1
+            return e;
+        })
+        .sortByAll(['shownDate','endTime'])
+        .first()
+        .value();
+    }
+
     function showNextAnnouncement() {
         var now = +(new Date()),
-            foundStartDate,
-            foundItem;
+            announce,
+            lastAdvertisementDate;
 
-        for (var index in AnnouncementsHelper.announceList) {
-            if (!AnnouncementsHelper.announceList.hasOwnProperty(index)) {
-                continue;
-            }
+        announce = announcements.getNextAnnouncement();
 
-            var announce = AnnouncementsHelper.announceList[index];
-            if (!announce) {
-                continue;
-            }
-
-            if (announcements.checkIsAnnouncementBlocked(announce)) {
-                continue;
-            }
-
-            var id = announce.id;
-            var startDate = +(new Date(parseInt(announce.startTime, 10) * 1000)),
-                endDate = +(new Date(parseInt(announce.endTime, 10) * 1000));
-
-            if (now < startDate || now > endDate) {
-                continue;
-            }
-
-            if (isClosedProperly(id)) {
-                continue;
-            }
-
-            var lastShownDate = getShownDate(id);
-            if (!lastShownDate) {
-                if (!foundItem || foundStartDate > startDate) {
-                    foundItem = announce;
-                    foundStartDate = startDate;
-                }
-
-                continue;
-            }
-
-            if ((now - lastShownDate) > reshowWrongClosedAnnounceInterval) {
-                if (!foundItem || foundStartDate > startDate) {
-                    foundItem = announce;
-                    foundStartDate = startDate;
-                }
-            }
+        if (!!!announce) {
+            return;
         }
 
-        if (foundItem) {
-            setShownDate(foundItem.id, now);
-            _lastShownPopupDate = now;
-            showAnnouncement(foundItem);
+        lastAdvertisementDate = announcements.getAdShownDate();
+
+        if ((now - lastAdvertisementDate) < announcements.advertisementPopupInerval) {
+            return;
         }
+
+        announcements.showAnnouncement(announce);
     }
 
     function getDays(timespan) {
@@ -348,42 +362,16 @@ WidgetModel {
 
     function getLogicTickInterval() {
         var now =  (+new Date());
+
+        // INFO Если показ был слишком давно, то покажем следующее через 30 минут,
+        // иначе через 30 минут от прошлого показа.
         var nextTick = (_lastShownPopupDate + normalPopupInerval) < now
                 ? now + normalPopupInerval
                 : _lastShownPopupDate + normalPopupInerval;
 
-        if (AnnouncementsHelper.announceList) {
-            for (var index in AnnouncementsHelper.announceList) {
-                if (!AnnouncementsHelper.announceList.hasOwnProperty(index)) {
-                    continue;
-                }
-
-                var announce = AnnouncementsHelper.announceList[index];
-                if (!announce) {
-                    continue;
-                }
-
-                var id = announce.id;
-                var startDate = +(new Date(parseInt(announce.startTime, 10) * 1000)),
-                    endDate = +(new Date(parseInt(announce.endTime, 10) * 1000));
-
-                // уже мертвое или не протухающее
-                if (endDate < now || endDate > now + announceDyingInterval) {
-                    continue;
-                }
-
-                if (!isAnnounceValid(announce)) {
-                    continue;
-                }
-
-                var currentNextTick = endDate - announceDyingInterval;
-                if (nextTick > currentNextTick) {
-                    nextTick = currentNextTick;
-                }
-            }
-        }
-
-        return Math.max(3000, nextTick - (+now));
+        // INFO если получился следующий показ раньше чем через 5 минут,
+        // то покажем через 5 минут.
+        return Math.max(300000, nextTick - (+now));
     }
 
     function logicTick() {
@@ -395,13 +383,15 @@ WidgetModel {
 
         d.noLicenseRemind();
 
-        checkAndShowDyingAnnouncements();
+        // INFO Disabled by QGNA-1752
+        // checkAndShowDyingAnnouncements();
+
         var now = +(new Date());
         if ((now - _lastShownPopupDate) > normalPopupInerval) {
             showNextAnnouncement();
         }
 
-        //Мы снова должны выполнить проверку, т.к. showNextAnnouncement модифицирует _lastShownPopupDate
+        // INFO Мы снова должны выполнить проверку, т.к. showNextAnnouncement модифицирует _lastShownPopupDate
         if ((now - _lastShownPopupDate) > normalPopupInerval) {
             showNextReminder();
         }
