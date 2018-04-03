@@ -129,7 +129,8 @@ WidgetView {
 
             options.push({
                             name: qsTr("USER_PROFILE_CONTEXT_MENU_SECURITY"),// "Безопасность"
-                            action: "security"
+                            action: "security",
+                            iconLink : Styles.linkIconTray
                         });
 
             options.push({
