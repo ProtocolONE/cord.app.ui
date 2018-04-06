@@ -45,7 +45,6 @@ function show(mouse, mouseArea, component, options) {
     update();
     _instance.widthChanged.connect(update);
     _instance.heightChanged.connect(update);
-
 }
 
 function clicked(root, globalX, globalY) {
@@ -62,7 +61,9 @@ function clicked(root, globalX, globalY) {
             && posInItem.y <= _instance.height;
 
     if (!contains) {
-        hide();
+        _instance.outerClicked(root, globalX, globalY)
+        if (_instance.canHide)
+            hide();
     }
 }
 
@@ -75,4 +76,8 @@ function hide() {
 
 function cancel() {
     _cancel = true;
+}
+
+function isShown() {
+    return _instance != null;
 }

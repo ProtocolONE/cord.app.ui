@@ -26,27 +26,16 @@ Rectangle {
     // Initialization
     Component.onCompleted: {
         Popup.init(popupLayer);
+
+        WidgetManager.registerWidget('Application.Widgets.GameAdBanner');
+        WidgetManager.registerWidget('Application.Widgets.GameInfo');
+        WidgetManager.registerWidget('Application.Widgets.GameExecuting');
+        WidgetManager.init();
     }
 
     RequestServices {
         onReady: {
             App.activateGame(App.serviceItemByGameId("92"));
-        }
-    }
-
-    WidgetManager {
-        id: manager
-
-        Component.onCompleted: {
-            manager.registerWidget('Application.Widgets.GameAdBanner');
-            manager.registerWidget('Application.Widgets.GameInfo');
-            manager.registerWidget('Application.Widgets.GameExecuting');
-            manager.init();
-
-            //  stub
-            App.executeService = function(serviceId) {
-                console.log("App::executeService() called: " + serviceId);
-            }
         }
     }
 

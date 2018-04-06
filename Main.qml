@@ -97,6 +97,7 @@ Rectangle {
 
         WidgetManager.registerWidget('Application.Widgets.Centrifugo')
         WidgetManager.registerWidget('Application.Widgets.GameSurvey');
+        WidgetManager.registerWidget('Application.Widgets.ResetPin');
     }
 
     DragWindowArea {

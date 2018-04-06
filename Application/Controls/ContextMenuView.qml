@@ -8,6 +8,9 @@ Rectangle {
     id: root
 
     signal contextClicked(string action);
+    signal outerClicked(variant root, int x, int y);
+
+    property bool canHide: true
 
     function fill(options) {
         options.forEach(function(o) {
@@ -51,6 +54,10 @@ Rectangle {
                     if (w > actionListView.width) {
                         actionListView.width = w;
                     }
+
+                    if (root.width > actionListView.width + 14) {
+                        actionListView.width = root.width - 14;
+                    }
                 }
 
                 width: actionListView.width
@@ -80,7 +87,6 @@ Rectangle {
                         pixelSize: 12
                         family: "Arial"
                     }
-
 
                     text: qsTr(model.name)
                 }

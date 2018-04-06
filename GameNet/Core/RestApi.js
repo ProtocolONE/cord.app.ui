@@ -820,6 +820,13 @@ Games.getThemes = function(successCallback, failedCallback) {
     Core.execute('games.getThemes', {}, false, successCallback, failedCallback);
 };
 
+Games.resetBlackDesertPin = function(code, successCallback, failedCallback) {
+    Core.execute('games.resetBlackDesertPin', {
+        code: code
+    },
+    true, successCallback, failedCallback);
+};
+
 var Marketing = function() {
 };
 
@@ -975,6 +982,19 @@ User.addToIgnoreList = function(target, successCallback, failedCallback) {
 User.removeFromIgnoreList = function(targetId, successCallback, failedCallback) {
     Core.execute('user.removeFromIgnoreList', { targetId: targetId }, true, successCallback, failedCallback);
 };
+
+User.getSMSCode = function(successCallback, failedCallback) {
+    Core.execute('user.send2FaKeyViaSms', { }, true, successCallback, failedCallback);
+};
+
+User.getRecoveryKeys = function(successCallback, failedCallback) {
+    Core.execute('user.get2FaRecoveryKeys', { }, true, successCallback, failedCallback);
+};
+
+User.get2FaStatus = function(successCallback, failedCallback) {
+    Core.execute('user.get2FaStatus', { }, true, successCallback, failedCallback);
+};
+
 var Virality = function() {
 };
 

@@ -223,7 +223,6 @@ Form {
             CheckBox {
                 id: rememberThisComputer
 
-                width: parent.width
                 height: parent.height
                 anchors.left: parent.left
 
@@ -250,7 +249,6 @@ Form {
             }
 
             TextButton {
-                width: parent.width
                 height: parent.height
                 visible: d.timeoutSMS == 0;
                 text: qsTr("AUTH_SMSCODE_BODY_SEND_BUTTON")

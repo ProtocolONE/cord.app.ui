@@ -54,6 +54,8 @@
         "checkboxDisabled": "#738f89",
         "checkboxActive": "#31bca0",
         "checkboxActiveHover": "#3cccb6",
+        "buttonSeparatorNormal": "#ffa881",
+        "buttonSeparatorDisabled": "#cccccc",
         "lightText": "#FFFFFF",
         "titleText": "#45bef6",
         "infoText": "#738f89",

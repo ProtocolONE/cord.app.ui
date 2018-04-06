@@ -148,6 +148,9 @@ Item {
     property color checkboxActive: "#31bca0"
     property color checkboxActiveHover: "#3cccb6"
 
+    property color buttonSeparatorNormal: "#ffa881"
+    property color buttonSeparatorDisabled: "#cccccc"
+
     property color lightText: '#FFFFFF'
     property color titleText: '#45bef6' // title
     property color infoText: '#7e8f9e' // info

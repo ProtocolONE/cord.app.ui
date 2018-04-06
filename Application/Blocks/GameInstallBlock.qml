@@ -19,6 +19,8 @@ import Application.Blocks 1.0
 import Application.Core 1.0
 import Application.Core.Popup 1.0
 import Application.Core.Styles 1.0
+import Application.Controls 1.0
+import Application.Core.MessageBox 1.0
 
 import "./GameInstallBlock"
 
@@ -39,9 +41,65 @@ Item {
     Item {
         id: d
 
+        property bool isBlackDesert: gameItem.gameId === 1021 // BlackDesert id
+
         anchors {
             fill: parent
             margins: 9
+        }
+
+        function outerMenuClicked(root, x, y) {
+
+            var posInItem = menuButton.mapFromItem(root, x, y);
+            var contains =  posInItem.x >= 0
+                    && posInItem.y >=0
+                    && posInItem.x <= menuButton.width
+                    && posInItem.y <= menuButton.height;
+
+            return contains;
+        }
+
+        function contextMenuClicked(action) {
+            ContextMenu.hide();
+
+            switch(action) {
+
+            case "reset":
+                Popup.show('ResetPin', 'ResetPinView');
+                break;
+            case "refresh":
+                root.gameItem.noRun = true;
+                root.gameItem.showInfo = true;
+                App.downloadButtonStart(root.gameItem.serviceId);
+                break;
+            case "restore":
+                App.gameSettingsModelInstance().switchGame(root.gameItem.serviceId);
+                App.gameSettingsModelInstance().restoreClient();
+                break;
+            }
+        }
+
+        function fillContextMenu(menu) {
+            var options = [];
+
+            if (d.isBlackDesert) {
+                options.push({
+                                 name: qsTr("PLAY_MENU_RESET_PIN"),
+                                 action: "reset"
+                             });
+            }
+
+            options.push({
+                             name: qsTr("PLAY_MENU_REFRESH"),
+                             action: "refresh"
+                         });
+
+            options.push({
+                             name: qsTr("PLAY_MENU_RESTORE"),
+                             action: "restore"
+                         });
+
+            menu.fill(options);
         }
 
         function processClick() {
@@ -81,7 +139,7 @@ Item {
         Button {
             id: button
 
-            width: parent.width
+            width: parent.width - (menuButton.visible ? menuButton.width + menuButtonSeparator.width : 0)
             height: parent.height
             visible: true
             enabled: App.isMainServiceCanBeStarted(root.gameItem)
@@ -91,10 +149,48 @@ Item {
                 disabled: Styles.primaryButtonDisabled
             }
             onClicked: d.processClick()
-
             ShakeLogic {
                 target: parent
                 enabled: ['Downloading', 'Starting', 'Error', 'Uninstalling'].indexOf(stateGroup.state) === -1
+            }
+        }
+
+        Rectangle {
+            id: menuButtonSeparator
+            width: 2
+            height: parent.height
+            color: button.enabled ? Styles.buttonSeparatorNormal : Styles.buttonSeparatorDisabled
+            anchors.right: menuButton.left
+            visible: menuButton.visible
+        }
+
+        ImageButton {
+            id: menuButton
+
+            width: 40
+            height: button.height
+            visible: button.visible && root.gameItem.gameType !== "browser" && ['Normal', 'Finished'].indexOf(stateGroup.state) !== -1
+            anchors.right: parent.right
+            enabled: button.enabled
+            style {
+                normal: button.style.normal
+                hover: button.style.hover
+                disabled: button.style.disabled
+            }
+            onClicked: {
+
+                if (ContextMenu.isShown()) {
+                    ContextMenu.hide();
+                    return;
+                }
+
+                if (d.isBlackDesert)
+                    ContextMenu.show({x:0, y:-100}, button, playContextMenuComponent, {});
+                else
+                    ContextMenu.show({x:0, y:-72}, button, playContextMenuComponent, {});
+            }
+            styleImages {
+                normal: stateGroup.imagePath + 'up_arrow.png'
             }
         }
 
@@ -241,6 +337,21 @@ Item {
                 PropertyChanges {target: button; text: qsTr("BUTTON_PLAY_DOWNLOADED_AND_READY_STATE")}
             }
         ]
+    }
+
+    Component {
+        id: playContextMenuComponent
+
+        ContextMenuView {
+            id: contextMenu
+            width: button.width + menuButtonSeparator.width + menuButton.width
+
+            onContextClicked: d.contextMenuClicked(action)
+            onOuterClicked:{
+                canHide = !d.outerMenuClicked(root, x, y);
+            }
+            Component.onCompleted: d.fillContextMenu(contextMenu);
+        }
     }
 }
 
