@@ -525,28 +525,28 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="188"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="187"/>
         <source>AUTH_SECCODE_BODY_CODE_PLACEHOLDER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="231"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="230"/>
         <source>AUTH_CANCEL_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="251"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="250"/>
         <source>AUTH_SECCODE_BODY_CONFIRM_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="98"/>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="213"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="212"/>
         <source>AUTH_SMSCODE_BODY_TIMEOUT_TEXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="220"/>
+        <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="219"/>
         <source>AUTH_SMSCODE_BODY_SEND_BUTTON</source>
         <translation type="unfinished"></translation>
     </message>

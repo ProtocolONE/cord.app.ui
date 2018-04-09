@@ -995,7 +995,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>AUTH_SECURITY_CODE_INVALID</source>
-        <translation>Ошибка! Неверный код</translation>
+        <translation>Ошибка! Неверный код.</translation>
     </message>
     <message>
         <source>AUTH_FAIL_GAMENET_UNKNOWN</source>

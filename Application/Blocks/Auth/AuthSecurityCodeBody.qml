@@ -62,7 +62,7 @@ Form {
                 d.inProgress = false;
 
                 if (Authorization.isSuccess(error)) {
-                    d.timeoutSMS = 60;
+                    timeout.text = qsTr("AUTH_SMSCODE_BODY_TIMEOUT_TEXT").arg(d.timeoutSMS = 60);
                     smsTimer.start();
                     return;
                 }
