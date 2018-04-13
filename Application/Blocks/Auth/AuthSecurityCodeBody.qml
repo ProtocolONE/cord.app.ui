@@ -34,8 +34,10 @@ Form {
     property string password
     property string captcha
     property bool remember
+    property string authToken
+    property string userId
     property bool appCode: false
-    property int bottomMargin: 160
+    property int bottomMargin: 140
 
     title: qsTr("AUTH_SECCODE_BODY_TITLE")
     subTitle: appCode ? qsTr("AUTH_APPCODE_BODY_SUB_TITLE") : qsTr("AUTH_SMSCODE_BODY_SUB_TITLE")
@@ -57,7 +59,7 @@ Form {
 
         function sendSMS() {
             d.inProgress = true;
-            Authorization.requestSMSCode(root.login, function(error, response) {
+            Authorization.requestSMSCode(root.login ? root.login : root.userId, root.login ? true : false, function(error, response) {
 
                 d.inProgress = false;
 
@@ -113,7 +115,7 @@ Form {
             Authorization.setCode2fa(d.code2fa);
             d.code2fa = "";
 
-            Authorization.loginByGameNet(root.login, root.password, root.remember, function(error, response) {
+            var authCallback = function(error, response) {
 
                 d.inProgress = false;
                 codeInput.text = "";
@@ -159,7 +161,12 @@ Form {
                 }
 
                 root.error(errorMessage);
-            });
+            };
+
+            if (root.authToken.length > 0 && root.userId.length > 0)
+                Authorization.requestValidateAuthToken(root.authToken, root.userId, rememberThisComputer.checked, authCallback);
+            else
+                Authorization.loginByGameNet(root.login, root.password, root.remember, authCallback);
         }
     }
 
@@ -194,6 +201,24 @@ Form {
 
                 width: parent.width
                 height: 16
+            }
+        }
+
+        Item {
+            width: parent.width
+            height: 24
+
+            CheckBox {
+                id: rememberThisComputer
+
+                width: parent.width
+                height: parent.height
+                anchors.left: parent.left
+
+                checked: false
+                text: qsTr("AUTH_BODY_REMEMBER_THIS_COMPUTER")
+                toolTip: qsTr("AUTH_BODY_REMEMBER_THIS_COMPUTER_TOOLTIP")
+                enabled: !d.inProgress
             }
         }
 

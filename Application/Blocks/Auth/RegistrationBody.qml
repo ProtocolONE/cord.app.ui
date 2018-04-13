@@ -25,6 +25,8 @@ Form {
 
     property alias login: loginInput.text
     property alias password: passwordInput.text
+    property string authToken
+    property string userId
     property int loginMaxSize: 254
 
     property alias inProgress: d.inProgress
@@ -103,6 +105,8 @@ Form {
                 }
 
                 if (errorCode === 4 || errorCode === 5) { //REQUIRED_2FA_SMS_CODE or REQUIRED_2FA_APP_CODE
+                    root.authToken = response.authToken ? response.authToken : "";
+                    root.userId = response.userId ? response.userId : "";
                     root.password = password;
                     root.securityCodeRequired(errorCode === 5);
                     return;
@@ -131,6 +135,8 @@ Form {
                 }
 
                 if (error === Authorization.Result.SecuritySMSCodeRequired || error === Authorization.Result.SecurityAppCodeRequired) {
+                    root.authToken = response.authToken ? response.authToken : "";
+                    root.userId = response.userId ? response.userId : "";
                     root.password = password;
                     root.securityCodeRequired(error === Authorization.Result.SecurityAppCodeRequired);
                     return;

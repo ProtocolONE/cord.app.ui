@@ -30,6 +30,8 @@ Form {
     property alias password: passwordInput.text
     property alias captcha: captchInput.text
     property alias remember: rememberAuth.checked
+    property string authToken
+    property string userId
     property alias loginSuggestion: loginSuggestion.dictionary
     property int loginMaxSize: 254
     property bool guestMode
@@ -137,6 +139,8 @@ Form {
 
                 if (error === Authorization.Result.SecuritySMSCodeRequired || error === Authorization.Result.SecurityAppCodeRequired) {
 
+                    root.authToken = response.authToken ? response.authToken : "";
+                    root.userId = response.userId ? response.userId : "";
                     d.password = password;
                     d.captchaRequired = false;
                     root.securityCodeRequired(error === Authorization.Result.SecurityAppCodeRequired);

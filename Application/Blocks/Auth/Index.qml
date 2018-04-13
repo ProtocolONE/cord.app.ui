@@ -118,6 +118,8 @@ Item {
                     authSecurityCodeBody.password = auth.password;
                     authSecurityCodeBody.captcha = auth.captcha;
                     authSecurityCodeBody.remember = auth.remember;
+                    authSecurityCodeBody.authToken = auth.authToken;
+                    authSecurityCodeBody.userId = auth.userId;
                     auth.password = "";
                     authContainer.state = "securityCode";
                 }
@@ -192,6 +194,8 @@ Item {
                     authSecurityCodeBody.login = registration.login;
                     authSecurityCodeBody.password = registration.password;
                     authSecurityCodeBody.remember = true;
+                    authSecurityCodeBody.authToken = registration.authToken;
+                    authSecurityCodeBody.userId = registration.userId;
                     registration.password = "";
                     authContainer.state = "securityCode";
                 }
@@ -364,8 +368,17 @@ Item {
                             d.vkAuthInProgress = false;
 
                             if (Authorization.isSuccess(error)) {
+
                                 CredentialStorage.save(response.userId, response.appKey, response.cookie);
                                 d.startLoadingServices(response.userId, response.appKey, response.cookie);
+                                return;
+
+                            } else if (Authorization.isRequired2FA(error)) {
+
+                                authSecurityCodeBody.appCode = response.codeType === 5;
+                                authSecurityCodeBody.authToken = response.authToken;
+                                authSecurityCodeBody.userId = response.userId;
+                                authContainer.state = "securityCode";
                                 return;
                             }
 

@@ -998,6 +998,14 @@ Please try again later.</source>
         <translation>Ошибка! Неверный код.</translation>
     </message>
     <message>
+        <source>AUTH_BODY_REMEMBER_THIS_COMPUTER</source>
+        <translation>Запомнить на этом компьютере</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_REMEMBER_THIS_COMPUTER_TOOLTIP</source>
+        <translation>Установите флажок, если хотите, чтобы на этом компьютере больше не приходилось вводить код</translation>
+    </message>
+    <message>
         <source>AUTH_FAIL_GAMENET_UNKNOWN</source>
         <translation>Непредвиденная ошибка, код: %1.</translation>
     </message>
@@ -1028,6 +1036,10 @@ Please try again later.</source>
     <message>
         <source>AUTH_CANCEL_BUTTON</source>
         <translation type="unfinished">Отмена</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_REMEMBER_TEXT</source>
+        <translation type="obsolete">Запомнить меня</translation>
     </message>
 </context>
 <context>
