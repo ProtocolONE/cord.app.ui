@@ -40,9 +40,15 @@ WidgetModel {
             console.log('Centrifuge connected');
             centrifugeClient.startBatch();
             centrifugeClient.subscribe('qgna_zone_' + App.updateArea());
-            centrifugeClient.subscribeUserChannel("money");
-            centrifugeClient.subscribeUserChannel("profile");
-            centrifugeClient.subscribeUserChannel("notifications");
+
+            centrifugeClient.subscribeUserChannel("user:private");
+            centrifugeClient.subscribe("game:general");
+
+//            for(var i = 0; i < 100; ++i) {
+//                var chanelName = 'user_fake_channel_' + i;
+//                centrifugeClient.subscribeUserChannel(chanelName);
+//            }
+
             centrifugeClient.stopBatch();
         }
 
@@ -52,8 +58,29 @@ WidgetModel {
 
         onUserMessageReceived: {
             switch(channel) {
-            case 'money':
-                console.log('new balance: ', params.balance)
+            case 'user:private':
+                switch (params.type) {
+                case 'balance_changed' :
+                    User.balanceChangedByPush(params.args.balance);
+                    console.log('new balance: ', params.args.balance)
+                    break;
+                }
+                break;
+            }
+        }
+
+        onMessageReceived: {
+            switch(channel) {
+            case 'game:general':
+                switch (params.type) {
+                case 'news_added' :
+                    var gNews = WidgetManager.getWidgetByName("GameNews");
+                    if (gNews && gNews.model) {
+                        gNews.model.updateNewsByPush(params.args);
+                        console.log('news added: ', JSON.stringify(params.args))
+                    }
+                    break;
+                }
                 break;
             }
         }

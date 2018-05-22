@@ -23,6 +23,17 @@ WidgetModel {
         }, function(){});
     }
 
+    function updateNewsByPush(elem) {
+        if (!!news) {
+            return;          
+        }
+
+        var sNumTime = elem.time;
+        var pushElem = {sNumTime : elem};
+
+        Lodash._.assign(news, pushElem);
+    }
+
     Component.onCompleted: refreshNewsTimer.start()
 
     Timer {

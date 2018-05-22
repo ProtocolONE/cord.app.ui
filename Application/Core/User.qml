@@ -305,6 +305,10 @@ Item {
         return d.anotherComputer;
     }
 
+    function balanceChangedByPush(newBalance) {
+        d.balance = newBalance;
+    }
+
     QtObject {
         id: d
 

@@ -14,6 +14,7 @@ import Application.Core.MessageBox 1.0
 import Application.Core.Popup 1.0
 import Application.Blocks 1.0
 import Application.Core.Authorization 1.0
+import Application.Core.Settings 1.0
 
 Rectangle {
     width: 1000
@@ -32,10 +33,11 @@ Rectangle {
 
         MessageBox.init(messageLayer);
 
-        d.initRestApi();
-
+        WidgetManager.registerWidget('Application.Widgets.ApplicationSettings');
         WidgetManager.registerWidget('Application.Widgets.Centrifugo');
         WidgetManager.init();
+
+        d.initRestApi();
     }
 
     QtObject {
@@ -77,6 +79,7 @@ Rectangle {
         }
 
         function authDone(userId, appKey) {
+            console.log('userid = ' + userId);
             RestApi.Core.setUserId(userId);
             RestApi.Core.setAppKey(appKey);
             User.setCredential(userId, appKey, "");
@@ -89,9 +92,9 @@ Rectangle {
 
         Button {
             function startAuth() {
-                //d.authDone('400001000129602790', '2c1a900517acb61cc43d53b1d709889ff41af3cd'); // gna@unit.test sabirov.dev
+                d.authDone('400001000129602790', '2c1a900517acb61cc43d53b1d709889ff41af3cd'); // gna@unit.test sabirov.dev
                 //d.authDone('400001000001634860', '4c2f65777d38eb07d32d111061005dcd5a119150'); // gna@unit.test gamenet.ru
-                d.authDone('400001000129602790', '2c1a900517acb61cc43d53b1d709889ff41af3cd'); // gna@unit.test stg.gamenet.ru
+                //d.authDone('400001000129602790', '2c1a900517acb61cc43d53b1d709889ff41af3cd'); // gna@unit.test stg.gamenet.ru
                 d.requestServices();
                 //connectToGo();
             }
