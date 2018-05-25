@@ -106,9 +106,12 @@ FocusScope {
 
         function userChanged() {
             d.editMessageCounter = -1;
-            var conversation = MessengerJs.getConversation(MessengerJs.selectedUser().jid);
-            d.messageModel = conversation.messages;
-            d.isGroup = conversation.type == 3;
+            var selUser = MessengerJs.selectedUser();
+            if (selUser.isValid()) {
+                var conversation = MessengerJs.getConversation(selUser.jid);
+                d.messageModel = conversation.messages;
+                d.isGroup = conversation.type == 3;
+            }
         }
 
         function getPlainText() {

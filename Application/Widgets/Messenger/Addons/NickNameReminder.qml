@@ -15,7 +15,7 @@ Item {
         target: MessengerJs.instance()
         onSelectedUserChanged: {
             var user = MessengerJs.selectedUser(MessengerJs.USER_INFO_JID);
-            if (!user || !user.jid || MessengerJs.isSelectedGamenet()) {
+            if (!user || !user.isValid || !user.jid || MessengerJs.isSelectedGamenet()) {
                 return;
             }
 
