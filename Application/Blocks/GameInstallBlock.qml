@@ -41,7 +41,7 @@ Item {
     Item {
         id: d
 
-        property bool isBlackDesert: gameItem.gameId === 1021 // BlackDesert id
+        property bool isBlackDesert: gameItem ? (gameItem.gameId === 1021) : false // BlackDesert id
 
         anchors {
             fill: parent

@@ -176,7 +176,7 @@ PopupBase {
                 return qsTr("NO_BD_ACCOUNTS_SUB_TITLE");
             } else if(!d.is2fa) {
                 return qsTr("NO_2FA_BODY_SUB_TITLE").arg(Config.GnUrl.site("/my-settings/security/"));
-            } else if (root.appCode) {
+            } else if (d.appCode) {
                 return qsTr("AUTH_APPCODE_BODY_SUB_TITLE");
             } else {
                 return qsTr("AUTH_SMSCODE_BODY_SUB_TITLE");
