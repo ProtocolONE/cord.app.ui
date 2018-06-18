@@ -1,0 +1,2 @@
+module Application.Widgets.Messenger.Plugins.CheckFullScreen
+singleton CheckFullScreen 1.0 CheckFullScreen.qml

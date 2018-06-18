@@ -12,6 +12,7 @@ import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
 
 import Application.Core 1.0
+import Application.Widgets.Messenger.Plugins.CheckFullScreen 1.0
 
 import "../Models/Messenger.js" as MessengerJs
 import "./Popups.js" as Popups
@@ -36,6 +37,13 @@ Item {
             }
 
             if (MessengerJs.isSelectedUser(user) && Qt.application.active) {
+                return;
+            }
+
+            var gameId = App.currentGame() ? App.currentGame().gameId : 0;
+            if (gameId === 1021 /*BlackDesert id*/ &&
+                    App.isAnyServiceStarted() &&
+                    CheckFullScreen.isFullScreen()) {
                 return;
             }
 
