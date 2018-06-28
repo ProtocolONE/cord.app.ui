@@ -40,9 +40,7 @@ Item {
                 return;
             }
 
-            var gameId = App.currentGame() ? App.currentGame().gameId : 0;
-            if (gameId === 1021 /*BlackDesert id*/ &&
-                    App.isAnyServiceStarted() &&
+            if (App.isServiceRunning('30000000000') /*BlackDesert id*/ &&
                     CheckFullScreen.isFullScreen()) {
                 return;
             }
