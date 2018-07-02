@@ -24,14 +24,23 @@ WidgetModel {
     }
 
     function updateNewsByPush(elem) {
-        if (!!news) {
-            return;          
+
+        if (typeof news === "undefined") {
+            return;
         }
 
-        var sNumTime = elem.time;
-        var pushElem = {sNumTime : elem};
+        // Need to update full
+        // Single property doesnt trigger change notification
 
-        Lodash._.assign(news, pushElem);
+        var sNumTime = elem.time;
+        var pushElem = {};
+        pushElem[sNumTime] = elem;
+        var newNews = news;
+
+        var newsArray = news["news"];
+        Lodash._.assign(newsArray, pushElem);
+        newNews["news"] = newsArray;
+        news = newNews;
     }
 
     Component.onCompleted: refreshNewsTimer.start()
