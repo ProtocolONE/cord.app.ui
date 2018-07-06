@@ -84,14 +84,12 @@ ListModel {
                                 });
         }
 
-        if (element.gameType === "standalone") {
-            root.appendMenuItem(element.menu,
-                            {
-                                icon: 'gameMenuSettingsIcon',
-                                text: qsTr("GAME_MENU_GAME_SETTINGS_TEXT"),
-                                page: "GameSettings",
-                            });
-        }
+        root.appendMenuItem(element.menu,
+                        {
+                            icon: 'gameMenuSettingsIcon',
+                            text: qsTr("GAME_MENU_GAME_SETTINGS_TEXT"),
+                            page: "GameSettings",
+                        });
 
         if (element.hasPremiumServer) {
             root.appendMenuItem(element.menu,

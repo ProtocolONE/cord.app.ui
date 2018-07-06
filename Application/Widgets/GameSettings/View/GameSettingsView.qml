@@ -41,7 +41,7 @@ PopupBase {
     }
 
     defaultMargins: 44
-    width: 740
+    width: (!!root.currentGame && root.currentGame.gameType !== "browser") ? 740 : 600
     title: qsTr("GAME_SETTINGS_TITLE").arg(App.currentGame().name)
     defaultBackgroundColor: Styles.applicationBackground
 
@@ -68,7 +68,7 @@ PopupBase {
 
     Item {
         width: parent.width - 1 + root.defaultMargins
-        height: 440
+        height: (!!root.currentGame && root.currentGame.gameType !== "browser") ? 440 : 220
         anchors {
             left: parent.left
             leftMargin: - root.defaultMargins + 1
@@ -89,7 +89,7 @@ PopupBase {
 
                 SettingsTextButton {
                      checked: root.state === "GeneralPage"
-                     text: qsTr("FOLDERS_TAB")
+                     text: (!!root.currentGame && root.currentGame.gameType !== "browser") ? qsTr("FOLDERS_TAB") : qsTr("SHORTCUT_TAB")
                      analytics {
                          category: 'GameSettings'
                          label: 'GeneralPage'
@@ -121,6 +121,7 @@ PopupBase {
                 }
 
                 SettingsTextButton {
+                    visible: !!root.currentGame && root.currentGame.gameType !== "browser"
                     text: qsTr("UNINSTALL_GAME")
 
                     analytics {
@@ -132,6 +133,7 @@ PopupBase {
                 }
 
                 SettingsTextButton {
+                    visible: !!root.currentGame && root.currentGame.gameType !== "browser"
                     text: qsTr("RESTORE_CLIENT")
                     analytics {
                         category: 'GameSettings'
@@ -166,6 +168,7 @@ PopupBase {
 
                     anchors.fill: parent
                     currentItem: root.currentGame
+                    visible: !!root.currentGame && root.currentGame.gameType !== "browser"
                 }
 
                 GameOverlaySettings {

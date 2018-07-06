@@ -1340,22 +1340,22 @@
   <context>
     <name>GameGeneralSettings</name>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="105" />
+      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="108" />
       <source>BUTTON_CREATE_DESKTOP_SHORTCUT</source>
       <translation>Создать ярлык на рабочем столе</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="119" />
+      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="122" />
       <source>BUTTON_CREATE_START_MENU_SHORTCUT</source>
       <translation>Создать ярлык в меню пуск</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="78" />
+      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="79" />
       <source>DISTRIB_INSTALL_PATH</source>
       <translation>Путь установки дистрибутивов</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="56" />
+      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="57" />
       <source>GAME_INSTALL_PATH</source>
       <translation>Путь установки игры</translation>
     </message>
@@ -1738,22 +1738,27 @@
       <translation>Оверлей</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="135" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="137" />
       <source>RESTORE_CLIENT</source>
       <translation>Восстановить</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="148" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="150" />
       <source>RESTORE_CLIENT_TOOLTIP</source>
       <translation>Нажми, если у тебя возникли сложности с запуском игры. Мы проверим и исправим файлы игры.</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="203" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="206" />
       <source>SAVE_BUTTON_LABEL</source>
       <translation>Сохранить настройки</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="124" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="92" />
+      <source>SHORTCUT_TAB</source>
+      <translation>Ярлыки</translation>
+    </message>
+    <message>
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="125" />
       <source>UNINSTALL_GAME</source>
       <translation>Удалить</translation>
     </message>
@@ -1781,7 +1786,7 @@
       <translation>Форум</translation>
     </message>
     <message>
-      <location filename="../Application/Models/GamesListModel.qml" line="91" />
+      <location filename="../Application/Models/GamesListModel.qml" line="90" />
       <source>GAME_MENU_GAME_SETTINGS_TEXT</source>
       <translation>Настройки</translation>
     </message>
@@ -1796,7 +1801,7 @@
       <translation>Новости</translation>
     </message>
     <message>
-      <location filename="../Application/Models/GamesListModel.qml" line="100" />
+      <location filename="../Application/Models/GamesListModel.qml" line="98" />
       <source>Доступ</source>
       <translation type="unfinished">Доступ</translation>
     </message>
@@ -3123,6 +3128,36 @@
       <translation>Закрыть</translation>
     </message>
     <message>
+      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="103" />
+      <source>DOWNLOAD_INFO_CHANGE</source>
+      <translation type="unfinished">Изменить настройки скачивания</translation>
+    </message>
+    <message>
+      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="97" />
+      <source>DOWNLOAD_INFO_TEXT</source>
+      <translation type="unfinished">Если во время загрузки игры у вас возникли проблемы со скоростью интернета, &lt;br&gt; попробуйте изменить настройки скачивания.</translation>
+    </message>
+    <message>
+      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="151" />
+      <source>GAME_LOAD_CONTINUE</source>
+      <translation type="unfinished">Продолжить</translation>
+    </message>
+    <message>
+      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="151" />
+      <source>GAME_LOAD_PAUSE</source>
+      <translation type="unfinished">Пауза</translation>
+    </message>
+    <message>
+      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="42" />
+      <source>GAME_LOAD_VIEW_HEADER_TEXT</source>
+      <translation type="unfinished">Загрузка %1</translation>
+    </message>
+    <message>
+      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="248" />
+      <source>HIDE_STATISTICS</source>
+      <translation type="unfinished">Скрыть статистику</translation>
+    </message>
+    <message>
       <location filename="../Application/Widgets/ResetPin/View/ResetPinView.qml" line="178" />
       <source>NO_2FA_BODY_SUB_TITLE</source>
       <translation>Самостоятельный сброс пин-кода в Black Desert возможен только при подключенной двухэтапной аутентификации. Для ее подключения перейдите в настройки профиля GameNet, &lt;a href="%1"&gt;раздел «Безопасность»&lt;/a&gt;.</translation>
@@ -3154,6 +3189,27 @@
       <location filename="../Application/Widgets/ResetPin/View/ResetPinView.qml" line="26" />
       <source>RESET_PIN_VIEW_HEADER_TEXT</source>
       <translation>Сброс пин-кода в Black Desert</translation>
+    </message>
+    <message>
+      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="185" />
+      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="241" />
+      <source>SHOW_STATISTICS</source>
+      <translation type="unfinished">Показать статистику</translation>
+    </message>
+    <message>
+      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="165" />
+      <source>Вы уверены, что хотите отменить загрузку игры?</source>
+      <translation type="unfinished">Вы уверены, что хотите отменить загрузку игры?</translation>
+    </message>
+    <message>
+      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="164" />
+      <source>Отмена загрузки игры %1</source>
+      <translation type="unfinished">Отмена загрузки игры %1</translation>
+    </message>
+    <message>
+      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="160" />
+      <source>Отменить</source>
+      <translation type="unfinished">Отменить</translation>
     </message>
   </context>
   <context>
