@@ -30,7 +30,6 @@ Item {
 
     function hide() {
         root.state = "close";
-        root.visible = false;
     }
 
     function activateWidget(widgetName, widgetView, popupId, widgetPage) {
