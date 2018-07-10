@@ -3552,17 +3552,12 @@ Thank you for helping us test the application. You're helping us make GameNet ev
   <context>
     <name>UserProfileView</name>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="308" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="306" />
       <source>ADVANCED_ACCOUNT_HINT_IN_DAYS</source>
       <translation type="unfinished">%1 d. left</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="306" />
-      <source>ADVANCED_ACCOUNT_HINT_MORE_THAN_2000_DAYS</source>
-      <translation type="unfinished" />
-    </message>
-    <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="310" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="308" />
       <source>ADVANCED_ACCOUNT_HINT_TODAY</source>
       <translation type="unfinished">Expires today</translation>
     </message>
@@ -3582,12 +3577,12 @@ Thank you for helping us test the application. You're helping us make GameNet ev
       <translation type="unfinished">Attention!</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="398" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="396" />
       <source>NO_NICKNAME</source>
       <translation type="unfinished">No nickname</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="324" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="322" />
       <source>PREMIUM_TOOLTIP</source>
       <translation type="unfinished">Expanded account</translation>
     </message>
@@ -3602,32 +3597,32 @@ Thank you for helping us test the application. You're helping us make GameNet ev
       <translation type="unfinished">Add funds to account</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="460" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="458" />
       <source>PROFILE_CHOISE_NICKNAME</source>
       <translation type="unfinished">Select nickname</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="469" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="467" />
       <source>PROFILE_CHOISE_NICKNAME_TULTIP</source>
       <translation type="unfinished">Select nickname</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="492" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="490" />
       <source>PROFILE_CONFIRM_LOGIN</source>
       <translation type="unfinished">Confirm email address</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="501" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="499" />
       <source>PROFILE_CONFIRM_LOGIN_TULTIP</source>
       <translation type="unfinished">Increase anti-hacking protection</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="325" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="323" />
       <source>PROFILE_EXTENDED_ACCOUNT_TEXT</source>
       <translation type="unfinished">Expand account</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="530" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="528" />
       <source>PROFILE_LEVEL_TEXT</source>
       <translation type="unfinished">level</translation>
     </message>
@@ -3637,7 +3632,7 @@ Thank you for helping us test the application. You're helping us make GameNet ev
       <translation type="unfinished">coins</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="403" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="401" />
       <source>SET_NICKNAME</source>
       <translation type="unfinished">Select nickname</translation>
     </message>
@@ -3682,12 +3677,12 @@ Thank you for helping us test the application. You're helping us make GameNet ev
       <translation type="unfinished">Security</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="363" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="361" />
       <source>YOUR_AVATAR</source>
       <translation type="unfinished">Change avatar</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="401" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="399" />
       <source>YOUR_NICKNAME</source>
       <translation type="unfinished">My nickname</translation>
     </message>
@@ -3700,7 +3695,7 @@ Thank you for helping us test the application. You're helping us make GameNet ev
 <context>
     <name>Vk</name>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="397" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="395" />
       <source>Гость</source>
       <translation type="unfinished">Guest</translation>
     </message>
@@ -3708,7 +3703,7 @@ Thank you for helping us test the application. You're helping us make GameNet ev
 <context>
     <name>qGNA_Main</name>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="428" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="426" />
       <source>Завершить регистрацию</source>
       <translation type="unfinished">Complete signup</translation>
     </message>

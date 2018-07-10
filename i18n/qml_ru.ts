@@ -3552,17 +3552,12 @@
   <context>
     <name>UserProfileView</name>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="308" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="306" />
       <source>ADVANCED_ACCOUNT_HINT_IN_DAYS</source>
       <translation>Осталось %1 д.</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="306" />
-      <source>ADVANCED_ACCOUNT_HINT_MORE_THAN_2000_DAYS</source>
-      <translation>Осталось более 2000 дней.</translation>
-    </message>
-    <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="310" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="308" />
       <source>ADVANCED_ACCOUNT_HINT_TODAY</source>
       <translation>Истекает сегодня</translation>
     </message>
@@ -3582,12 +3577,12 @@
       <translation type="unfinished">Внимание!</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="398" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="396" />
       <source>NO_NICKNAME</source>
       <translation>Без никнейма</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="324" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="322" />
       <source>PREMIUM_TOOLTIP</source>
       <translation>Расширенный аккаунт</translation>
     </message>
@@ -3602,32 +3597,32 @@
       <translation>Пополнить счет</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="460" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="458" />
       <source>PROFILE_CHOISE_NICKNAME</source>
       <translation>Выберите никнейм</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="469" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="467" />
       <source>PROFILE_CHOISE_NICKNAME_TULTIP</source>
       <translation>Выбрать никнейм</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="492" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="490" />
       <source>PROFILE_CONFIRM_LOGIN</source>
       <translation>Подтвердите e-mail</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="501" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="499" />
       <source>PROFILE_CONFIRM_LOGIN_TULTIP</source>
       <translation>Повысить защиту от взлома</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="325" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="323" />
       <source>PROFILE_EXTENDED_ACCOUNT_TEXT</source>
       <translation>Расширить аккаунт</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="530" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="528" />
       <source>PROFILE_LEVEL_TEXT</source>
       <translation>уровень</translation>
     </message>
@@ -3637,7 +3632,7 @@
       <translation>монет</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="403" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="401" />
       <source>SET_NICKNAME</source>
       <translation>Выбрать  никнейм</translation>
     </message>
@@ -3682,12 +3677,12 @@
       <translation type="unfinished">Безопасность</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="363" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="361" />
       <source>YOUR_AVATAR</source>
       <translation>Изменить аватар</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="401" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="399" />
       <source>YOUR_NICKNAME</source>
       <translation>Мой никнейм</translation>
     </message>
@@ -3697,12 +3692,12 @@
       <translation type="unfinished">В два раза больше GN-монет за те же деньги</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="397" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="395" />
       <source>Гость</source>
       <translation type="unfinished">Гость</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="428" />
+      <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="426" />
       <source>Завершить регистрацию</source>
       <translation type="unfinished">Завершить регистрацию</translation>
     </message>

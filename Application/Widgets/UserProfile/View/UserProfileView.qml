@@ -302,9 +302,7 @@ WidgetView {
                     ImageButton {
                         function getText() {
                             var durationInDays = Math.floor(model.premiumDuration / 86400);
-                            if (durationInDays > 2000) {
-                                return qsTr("ADVANCED_ACCOUNT_HINT_MORE_THAN_2000_DAYS");
-                            } else if (durationInDays > 0) {
+                            if (durationInDays > 0) {
                                 return qsTr("ADVANCED_ACCOUNT_HINT_IN_DAYS").arg(durationInDays);
                             } else {
                                 return qsTr("ADVANCED_ACCOUNT_HINT_TODAY");
