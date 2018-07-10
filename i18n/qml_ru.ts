@@ -3128,36 +3128,6 @@
       <translation>Закрыть</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="103" />
-      <source>DOWNLOAD_INFO_CHANGE</source>
-      <translation type="unfinished">Изменить настройки скачивания</translation>
-    </message>
-    <message>
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="97" />
-      <source>DOWNLOAD_INFO_TEXT</source>
-      <translation type="unfinished">Если во время загрузки игры у вас возникли проблемы со скоростью интернета, &lt;br&gt; попробуйте изменить настройки скачивания.</translation>
-    </message>
-    <message>
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="151" />
-      <source>GAME_LOAD_CONTINUE</source>
-      <translation type="unfinished">Продолжить</translation>
-    </message>
-    <message>
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="151" />
-      <source>GAME_LOAD_PAUSE</source>
-      <translation type="unfinished">Пауза</translation>
-    </message>
-    <message>
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="42" />
-      <source>GAME_LOAD_VIEW_HEADER_TEXT</source>
-      <translation type="unfinished">Загрузка %1</translation>
-    </message>
-    <message>
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="248" />
-      <source>HIDE_STATISTICS</source>
-      <translation type="unfinished">Скрыть статистику</translation>
-    </message>
-    <message>
       <location filename="../Application/Widgets/ResetPin/View/ResetPinView.qml" line="178" />
       <source>NO_2FA_BODY_SUB_TITLE</source>
       <translation>Самостоятельный сброс пин-кода в Black Desert возможен только при подключенной двухэтапной аутентификации. Для ее подключения перейдите в настройки профиля GameNet, &lt;a href="%1"&gt;раздел «Безопасность»&lt;/a&gt;.</translation>
@@ -3189,27 +3159,6 @@
       <location filename="../Application/Widgets/ResetPin/View/ResetPinView.qml" line="26" />
       <source>RESET_PIN_VIEW_HEADER_TEXT</source>
       <translation>Сброс пин-кода в Black Desert</translation>
-    </message>
-    <message>
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="185" />
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="241" />
-      <source>SHOW_STATISTICS</source>
-      <translation type="unfinished">Показать статистику</translation>
-    </message>
-    <message>
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="165" />
-      <source>Вы уверены, что хотите отменить загрузку игры?</source>
-      <translation type="unfinished">Вы уверены, что хотите отменить загрузку игры?</translation>
-    </message>
-    <message>
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="164" />
-      <source>Отмена загрузки игры %1</source>
-      <translation type="unfinished">Отмена загрузки игры %1</translation>
-    </message>
-    <message>
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="160" />
-      <source>Отменить</source>
-      <translation type="unfinished">Отменить</translation>
     </message>
   </context>
   <context>

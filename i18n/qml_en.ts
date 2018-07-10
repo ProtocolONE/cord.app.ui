@@ -3128,36 +3128,6 @@ Thank you for helping us test the application. You're helping us make GameNet ev
       <translation type="unfinished" />
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="103" />
-      <source>DOWNLOAD_INFO_CHANGE</source>
-      <translation type="unfinished" />
-    </message>
-    <message>
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="97" />
-      <source>DOWNLOAD_INFO_TEXT</source>
-      <translation type="unfinished" />
-    </message>
-    <message>
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="151" />
-      <source>GAME_LOAD_CONTINUE</source>
-      <translation type="unfinished" />
-    </message>
-    <message>
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="151" />
-      <source>GAME_LOAD_PAUSE</source>
-      <translation type="unfinished" />
-    </message>
-    <message>
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="42" />
-      <source>GAME_LOAD_VIEW_HEADER_TEXT</source>
-      <translation type="unfinished" />
-    </message>
-    <message>
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="248" />
-      <source>HIDE_STATISTICS</source>
-      <translation type="unfinished" />
-    </message>
-    <message>
       <location filename="../Application/Widgets/ResetPin/View/ResetPinView.qml" line="178" />
       <source>NO_2FA_BODY_SUB_TITLE</source>
       <translation type="unfinished" />
@@ -3188,27 +3158,6 @@ Thank you for helping us test the application. You're helping us make GameNet ev
     <message>
       <location filename="../Application/Widgets/ResetPin/View/ResetPinView.qml" line="26" />
       <source>RESET_PIN_VIEW_HEADER_TEXT</source>
-      <translation type="unfinished" />
-    </message>
-    <message>
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="185" />
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="241" />
-      <source>SHOW_STATISTICS</source>
-      <translation type="unfinished" />
-    </message>
-    <message>
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="165" />
-      <source>Вы уверены, что хотите отменить загрузку игры?</source>
-      <translation type="unfinished" />
-    </message>
-    <message>
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="164" />
-      <source>Отмена загрузки игры %1</source>
-      <translation type="unfinished" />
-    </message>
-    <message>
-      <location filename="../Application/Blocks/GameInstallBlock/ResetPinView.qml" line="160" />
-      <source>Отменить</source>
       <translation type="unfinished" />
     </message>
   </context>
