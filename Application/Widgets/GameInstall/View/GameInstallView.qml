@@ -49,13 +49,7 @@ PopupBase {
                 installationPath.bestPath = d.getExepectedPath();
                 gameSettingsModelInstance.installPath = installationPath.bestPath;
 
-                MessageBox.show(qsTr("INFO_CAPTION"), qsTr("<p>В пути установки клиента обнаружены запрещенные символы. Это может привести к проблемам запуска игры. В пути установки клиента игры должны содержаться только латинские буквы и цифры. Подробнее в статье службы поддержки: <b><a href=\"https://support.gamenet.ru/kb/articles/1193-failed-to-load-file-data-meta-dat\">ссылка</a></b> </p>
-
-<p>Что делать?</p>
-
-<ul><li>Измените название папки, в которую установлена игра. Например, <br />C:\\Games\\BattleCarnival</li>
-<li>После этого измените путь установки игры в настройках приложения, слева от кнопки \"Начать игру\". Это необходимо сделать для того, чтобы не перекачивать клиент игры заново.</li>
-</ul>"),
+                MessageBox.show(qsTr("INFO_CAPTION"), qsTr("BATTLE_CARNIVAL_HACK"),
                                 MessageBox.button.Ok,
                                 function(result) { });
 

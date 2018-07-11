@@ -1477,27 +1477,27 @@ Members: %3</translation>
     <name>GameInstallView</name>
     <message>
       <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="52" />
-      <source>&lt;p&gt;В пути установки клиента обнаружены запрещенные символы. Это может привести к проблемам запуска игры. В пути установки клиента игры должны содержаться только латинские буквы и цифры. Подробнее в статье службы поддержки: &lt;b&gt;&lt;a href="https://support.gamenet.ru/kb/articles/1193-failed-to-load-file-data-meta-dat"&gt;ссылка&lt;/a&gt;&lt;/b&gt; &lt;/p&gt;
+      <source>BATTLE_CARNIVAL_HACK</source>
+      <translation>&lt;p&gt;Prohibited characters were found in the client's install path. This could lead to problems when launching the game. The client's install path should only contain Latin letters and Arabic numerals. You can read more in this support service article: &lt;b&gt;&lt;a href="https://support.gamenet.ru/kb/articles/1193-failed-to-load-file-data-meta-dat"&gt;link&lt;/a&gt;&lt;/b&gt; &lt;/p&gt;
 
-&lt;p&gt;Что делать?&lt;/p&gt;
+&lt;p&gt;What can I do?&lt;/p&gt;
 
-&lt;ul&gt;&lt;li&gt;Измените название папки, в которую установлена игра. Например, &lt;br /&gt;C:\Games\BattleCarnival&lt;/li&gt;
-&lt;li&gt;После этого измените путь установки игры в настройках приложения, слева от кнопки "Начать игру". Это необходимо сделать для того, чтобы не перекачивать клиент игры заново.&lt;/li&gt;
-&lt;/ul&gt;</source>
-      <translation type="unfinished" />
+&lt;ul&gt;&lt;li&gt;Change the name of the folder the game is installed in. For example, you could change it to &lt;br /&gt;C:\Games\BattleCarnival&lt;/li&gt;
+&lt;li&gt;Then change the game's install path in the application's settings to the left of the "Start game" button. Do this to avoid downloading the game client a second time.&lt;/li&gt;
+&lt;/ul&gt;</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="142" />
+      <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="136" />
       <source>CREATE_DESKTOP_SHORTCUT</source>
       <translation type="unfinished">Create a desktop icon</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="151" />
+      <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="145" />
       <source>CREATE_STARTMENU_SHORTCUT</source>
       <translation type="unfinished">Create a Start Menu icon</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="100" />
+      <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="94" />
       <source>DESTINATION_FOLDER_CAPTION</source>
       <translation type="unfinished">Select game install path</translation>
     </message>
@@ -1507,7 +1507,7 @@ Members: %3</translation>
       <translation type="unfinished">Attention</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="213" />
+      <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="207" />
       <source>INSTALL_BUTTON_CAPTION</source>
       <translation type="unfinished">Install</translation>
     </message>
@@ -1517,7 +1517,7 @@ Members: %3</translation>
       <translation type="unfinished">Launch %1</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="163" />
+      <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="157" />
       <source>LICENSE_TIP</source>
       <translation type="unfinished">By clicking on "Install," you agree to the &lt;a href='http://'&gt;&lt;font style='text-decoration: none;' color='#1ABC9C'&gt;terms and conditions of the license agreement&lt;/font&gt;&lt;/a&gt;</translation>
     </message>

@@ -1477,14 +1477,8 @@
     <name>GameInstallView</name>
     <message>
       <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="52" />
-      <source>&lt;p&gt;В пути установки клиента обнаружены запрещенные символы. Это может привести к проблемам запуска игры. В пути установки клиента игры должны содержаться только латинские буквы и цифры. Подробнее в статье службы поддержки: &lt;b&gt;&lt;a href="https://support.gamenet.ru/kb/articles/1193-failed-to-load-file-data-meta-dat"&gt;ссылка&lt;/a&gt;&lt;/b&gt; &lt;/p&gt;
-
-&lt;p&gt;Что делать?&lt;/p&gt;
-
-&lt;ul&gt;&lt;li&gt;Измените название папки, в которую установлена игра. Например, &lt;br /&gt;C:\Games\BattleCarnival&lt;/li&gt;
-&lt;li&gt;После этого измените путь установки игры в настройках приложения, слева от кнопки "Начать игру". Это необходимо сделать для того, чтобы не перекачивать клиент игры заново.&lt;/li&gt;
-&lt;/ul&gt;</source>
-      <translation type="unfinished">&lt;p&gt;В пути установки клиента обнаружены запрещенные символы. Это может привести к проблемам запуска игры. В пути установки клиента игры должны содержаться только латинские буквы и цифры. Подробнее в статье службы поддержки: &lt;b&gt;&lt;a href="https://support.gamenet.ru/kb/articles/1193-failed-to-load-file-data-meta-dat"&gt;ссылка&lt;/a&gt;&lt;/b&gt; &lt;/p&gt;
+      <source>BATTLE_CARNIVAL_HACK</source>
+      <translation>&lt;p&gt;В пути установки клиента обнаружены запрещенные символы. Это может привести к проблемам запуска игры. В пути установки клиента игры должны содержаться только латинские буквы и цифры. Подробнее в статье службы поддержки: &lt;b&gt;&lt;a href="https://support.gamenet.ru/kb/articles/1193-failed-to-load-file-data-meta-dat"&gt;ссылка&lt;/a&gt;&lt;/b&gt; &lt;/p&gt;
 
 &lt;p&gt;Что делать?&lt;/p&gt;
 
@@ -1493,17 +1487,17 @@
 &lt;/ul&gt;</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="142" />
+      <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="136" />
       <source>CREATE_DESKTOP_SHORTCUT</source>
       <translation>Создать ярлык на рабочем столе</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="151" />
+      <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="145" />
       <source>CREATE_STARTMENU_SHORTCUT</source>
       <translation>Создать ярлык в меню Пуск</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="100" />
+      <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="94" />
       <source>DESTINATION_FOLDER_CAPTION</source>
       <translation>Выбери путь установки игры</translation>
     </message>
@@ -1513,7 +1507,7 @@
       <translation type="unfinished">Внимание</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="213" />
+      <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="207" />
       <source>INSTALL_BUTTON_CAPTION</source>
       <translation>Установить</translation>
     </message>
@@ -1523,7 +1517,7 @@
       <translation>Запуск %1</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="163" />
+      <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="157" />
       <source>LICENSE_TIP</source>
       <translation>Нажимая "Установить", ты соглашаешься с &lt;a href='http://'&gt;&lt;font style='text-decoration: none;' color='#1ABC9C'&gt;условиями лицензионного соглашения&lt;/font&gt;&lt;/a&gt;</translation>
     </message>
