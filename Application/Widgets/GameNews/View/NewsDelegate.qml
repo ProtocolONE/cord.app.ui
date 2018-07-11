@@ -78,34 +78,6 @@ Item {
                 source: previewImage
                 cache: false
                 asynchronous: true
-
-                Image {
-                    anchors {
-                        right: commentCountText.left
-                        bottom: parent.bottom
-                        bottomMargin: 3
-                        rightMargin: 5
-                    }
-                    cache: true
-                    source: installPath + 'Assets/Images/Application/Widgets/GameNews/commentCount.png'
-                }
-
-                Text {
-                    id: commentCountText
-
-                    anchors {
-                        right: parent.right
-                        bottom: parent.bottom
-                        margins: 5
-                        bottomMargin: 3
-                    }
-                    font {
-                        family: 'Arial'
-                        pixelSize: 12
-                    }
-                    color: Styles.textAttention
-                    text: commentCount
-                }
             }
 
             Column {
