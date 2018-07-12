@@ -67,6 +67,10 @@ Item {
             case "reset":
                 Popup.show('ResetPin', 'ResetPinView');
                 break;
+            case "download":
+                root.gameItem.noRun = true;
+                App.downloadButtonStart(root.gameItem.serviceId);
+                break;
             case "refresh":
                 root.gameItem.noRun = true;
                 root.gameItem.showInfo = true;
@@ -82,22 +86,33 @@ Item {
         function fillContextMenu(menu) {
             var options = [];
 
-            if (d.isBlackDesert) {
+            if (stateGroup.state === "NotInstalled") {
+
                 options.push({
-                                 name: qsTr("PLAY_MENU_RESET_PIN"),
-                                 action: "reset"
+                                 name: qsTr("PLAY_MENU_DOWNLOAD"),
+                                 action: "download"
+                             });
+
+            } else {
+
+                if (d.isBlackDesert) {
+
+                    options.push({
+                                     name: qsTr("PLAY_MENU_RESET_PIN"),
+                                     action: "reset"
+                                 });
+                }
+
+                options.push({
+                                 name: qsTr("PLAY_MENU_REFRESH"),
+                                 action: "refresh"
+                             });
+
+                options.push({
+                                 name: qsTr("PLAY_MENU_RESTORE"),
+                                 action: "restore"
                              });
             }
-
-            options.push({
-                             name: qsTr("PLAY_MENU_REFRESH"),
-                             action: "refresh"
-                         });
-
-            options.push({
-                             name: qsTr("PLAY_MENU_RESTORE"),
-                             action: "restore"
-                         });
 
             menu.fill(options);
         }
@@ -170,7 +185,7 @@ Item {
 
             width: 40
             height: button.height
-            visible: button.visible && root.gameItem.gameType !== "browser" && ['Normal', 'Finished'].indexOf(stateGroup.state) !== -1
+            visible: button.visible && root.gameItem.gameType !== "browser" //&& ['Normal', 'Finished'].indexOf(stateGroup.state) !== -1
             anchors.right: parent.right
             enabled: button.enabled
             style {
@@ -185,7 +200,9 @@ Item {
                     return;
                 }
 
-                if (d.isBlackDesert)
+                if (stateGroup.state === "NotInstalled")
+                    ContextMenu.show({x:0, y:-44}, button, playContextMenuComponent, {});
+                else if (d.isBlackDesert)
                     ContextMenu.show({x:0, y:-100}, button, playContextMenuComponent, {});
                 else
                     ContextMenu.show({x:0, y:-72}, button, playContextMenuComponent, {});
