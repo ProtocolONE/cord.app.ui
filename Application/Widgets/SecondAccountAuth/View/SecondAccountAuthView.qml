@@ -211,8 +211,8 @@ PopupBase {
                 root.state = "auth";
             }
             onError: {
-                d.showError(message, supportButton);
                 root.state = "auth";
+                d.showError(message);
             }
             onAuthDone: {
                 d.authSuccess(userId, appKey, cookie, remember, auth.login);
