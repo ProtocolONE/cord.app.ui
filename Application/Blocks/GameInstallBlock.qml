@@ -107,6 +107,7 @@ Item {
                 return;
             }
 
+            root.gameItem.firstInstall = stateGroup.state === "NotInstalled";
             App.activateGameByServiceId(root.gameItem.serviceId);
 
             switch (stateGroup.state) {
