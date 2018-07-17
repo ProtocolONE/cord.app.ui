@@ -128,15 +128,6 @@ Item {
                 visible: !!serviceItem.typeShortcut && image.isReady
             }
 
-            BrowserIcon {
-                anchors {
-                    right: parent.right
-                    top: parent.top
-                    margins: 4
-                }
-
-                visible: root.isWebGame
-            }
         }
 
         CursorMouseArea {

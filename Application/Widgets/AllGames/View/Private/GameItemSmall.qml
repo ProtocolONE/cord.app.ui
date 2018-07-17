@@ -106,16 +106,6 @@ Column {
             visible: !!serviceItem.typeShortcut && webImage.isReady
         }
 
-        BrowserIcon {
-            anchors {
-                right: parent.right
-                top: parent.top
-                margins: 3
-            }
-
-            visible: root.isWebGame
-        }
-
         CursorMouseArea {
             id: mouseArea
 
