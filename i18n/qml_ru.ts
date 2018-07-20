@@ -396,7 +396,7 @@
     <message>
       <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="165" />
       <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
-      <translation type="unfinished">Ваш аккаунт заблокирован. Для получения более подробной информации обратитесь в службу поддержки. Подробности в &lt;a href="https://support.gamenet.ru/kb/articles/899"&gt;KB-899&lt;/a&gt;.</translation>
+      <translation>Ваш аккаунт заблокирован. Для получения более подробной информации обратитесь в службу поддержки. Подробности в &lt;a href="https://support.gamenet.ru/kb/articles/899"&gt;KB-899&lt;/a&gt;.</translation>
     </message>
     <message>
       <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="91" />

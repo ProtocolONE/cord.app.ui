@@ -49,24 +49,6 @@ WidgetView {
                 }
             }
 
-            /*for (var button in MessageBox.buttonNames()) {
-                if ((message.buttons & button) == button) {
-                    if (d.isPositiveButton(button)) {
-                        ++buttonCount;
-                        d.addButton(positiveButton, button);
-                    }
-                }
-            }
-
-            for (var button in MessageBox.buttonNames()) {
-                if ((message.buttons & button) == button) {
-                    if (!d.isPositiveButton(button)) {
-                        ++buttonCount;
-                        d.addButton(negativeButton, button);
-                    }
-                }
-            }*/
-
             if (buttonCount == 0) {
                 d.addButton(positiveButton, MessageBox.button.ok);
             }
