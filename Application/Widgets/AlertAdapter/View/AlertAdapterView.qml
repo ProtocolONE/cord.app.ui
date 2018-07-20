@@ -44,6 +44,13 @@ WidgetView {
 
             for (var button in MessageBox.buttonNames()) {
                 if ((message.buttons & button) == button) {
+                    ++buttonCount;
+                    d.addButton(d.buttonType(button), button);
+                }
+            }
+
+            /*for (var button in MessageBox.buttonNames()) {
+                if ((message.buttons & button) == button) {
                     if (d.isPositiveButton(button)) {
                         ++buttonCount;
                         d.addButton(positiveButton, button);
@@ -58,7 +65,7 @@ WidgetView {
                         d.addButton(negativeButton, button);
                     }
                 }
-            }
+            }*/
 
             if (buttonCount == 0) {
                 d.addButton(positiveButton, MessageBox.button.ok);
@@ -82,17 +89,25 @@ WidgetView {
             alertModule.close.connect(obj.destroy);
         }
 
-        function isPositiveButton(button) {
+        function buttonType(button) {
             switch (+button) {
             case MessageBox.button.cancel:
             case MessageBox.button.discard:
             case MessageBox.button.no:
             case MessageBox.button.noToAll:
-                return false;
+                return negativeButton;
+            case MessageBox.button.support:
+                return normalButton;
+            default:
+                return positiveButton;
             }
-
-            return true;
         }
+    }
+
+    Component {
+        id: normalButton
+
+        NormalButton {}
     }
 
     Component {

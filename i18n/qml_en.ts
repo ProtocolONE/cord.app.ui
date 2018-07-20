@@ -127,7 +127,7 @@
       <translation type="unfinished">Reset</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="48" />
+      <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="49" />
       <source>RestoreDefaults</source>
       <translation type="unfinished">Reset to default</translation>
     </message>
@@ -145,6 +145,11 @@
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="33" />
       <source>SaveAll</source>
       <translation type="unfinished">Save all</translation>
+    </message>
+    <message>
+      <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="48" />
+      <source>Support</source>
+      <translation type="unfinished" />
     </message>
     <message>
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="35" />
@@ -1698,7 +1703,7 @@ Members: %3</translation>
   <context>
     <name>GameRemoteFeature</name>
     <message>
-      <location filename="../Application/Widgets/GameRemoteFeature/GameRemoteFeature.qml" line="29" />
+      <location filename="../Application/Widgets/GameRemoteFeature/GameRemoteFeature.qml" line="34" />
       <source>GAME_CONTROL_REMOTE_ALL_STOP</source>
       <translation type="unfinished">Your access to games has been blocked. If you believe this to be a mistake, contact &lt;a href="https://support.gamenet.ru/new-ticket"&gt;GameNet's support service&lt;/a&gt;</translation>
     </message>
@@ -1709,7 +1714,7 @@ Members: %3</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/GameRemoteFeature/GameRemoteFeature.qml" line="22" />
-      <location filename="../Application/Widgets/GameRemoteFeature/GameRemoteFeature.qml" line="31" />
+      <location filename="../Application/Widgets/GameRemoteFeature/GameRemoteFeature.qml" line="36" />
       <source>INFO_CAPTION</source>
       <translation type="unfinished">Attention</translation>
     </message>
@@ -2054,14 +2059,19 @@ Members: %3</translation>
   <context>
     <name>Index</name>
     <message>
-      <location filename="../Application/Blocks/Auth/Index.qml" line="390" />
+      <location filename="../Application/Blocks/Auth/Index.qml" line="396" />
       <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
       <translation type="unfinished">Your account has been blocked. To obtain more detailed information, contact our &lt;a href="http://support.gamenet.ru"&gt;support service&lt;/a&gt;. Details can be found in the &lt;a href="https://support.gamenet.ru/kb/articles/899"&gt;KB-899&lt;/a&gt;.</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/Auth/Index.qml" line="394" />
+      <location filename="../Application/Blocks/Auth/Index.qml" line="400" />
       <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
       <translation type="unfinished">Failed to log in as a VK user. Try again later.</translation>
+    </message>
+    <message>
+      <location filename="../Application/Blocks/Auth/Index.qml" line="338" />
+      <source>INFO_CAPTION</source>
+      <translation type="unfinished">Attention</translation>
     </message>
   </context>
   <context>
@@ -2208,14 +2218,19 @@ Members: %3</translation>
   <context>
     <name>MessageBody</name>
     <message>
-      <location filename="../Application/Blocks/Auth/MessageBody.qml" line="17" />
+      <location filename="../Application/Blocks/Auth/MessageBody.qml" line="19" />
       <source>MESSAGE_TITLE</source>
       <translation type="unfinished">Something went wrong</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/Auth/MessageBody.qml" line="27" />
+      <location filename="../Application/Blocks/Auth/MessageBody.qml" line="39" />
       <source>OK_BUTTON_LABEL</source>
       <translation type="unfinished">OK</translation>
+    </message>
+    <message>
+      <location filename="../Application/Blocks/Auth/MessageBody.qml" line="32" />
+      <source>SUPPORT_BUTTON_LABEL</source>
+      <translation type="unfinished" />
     </message>
   </context>
   <context>
@@ -3181,17 +3196,22 @@ Thank you for helping us test the application. You're helping us make GameNet ev
   <context>
     <name>SecondAccountAuthView</name>
     <message>
-      <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="82" />
+      <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="93" />
       <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
       <translation type="unfinished">Your account has been blocked. To obtain more detailed information, contact our &lt;a href="http://support.gamenet.ru"&gt;support service&lt;/a&gt;. Details can be found in the &lt;a href="https://support.gamenet.ru/kb/articles/899"&gt;KB-899&lt;/a&gt;.</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="86" />
+      <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="97" />
       <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
       <translation type="unfinished">Failed to log in as a VK user. Try again later.</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="28" />
+      <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="43" />
+      <source>INFO_CAPTION</source>
+      <translation type="unfinished">Attention</translation>
+    </message>
+    <message>
+      <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="29" />
       <source>SECOND_ACCOUNT_ACTIVATION_TITLE</source>
       <translation type="unfinished">Additional account</translation>
     </message>

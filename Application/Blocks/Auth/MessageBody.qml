@@ -1,4 +1,5 @@
 import QtQuick 2.4
+import GameNet.Controls 1.0
 import Application.Controls 1.0
 
 import Application.Core 1.0
@@ -10,6 +11,7 @@ Form {
     id: root
 
     property alias message: root.subTitle
+    property bool supportButton: false
 
     implicitHeight: 473
     implicitWidth: 500
@@ -22,8 +24,18 @@ Form {
 
     signal clicked();
 
+    AuxiliaryButton {
+        visible: root.supportButton
+        anchors.right: parent.right
+        anchors.rightMargin: 180
+        width: 150
+        text: qsTr("SUPPORT_BUTTON_LABEL");
+        onClicked: App.openExternalUrl("https://support.gamenet.ru");
+    }
+
     PrimaryButton {
-        width: 200
+        anchors.right: parent.right
+        width: 150
         text: qsTr("OK_BUTTON_LABEL");
         onClicked: root.clicked();
         analytics {

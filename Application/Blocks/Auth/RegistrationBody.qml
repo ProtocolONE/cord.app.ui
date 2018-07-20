@@ -31,7 +31,7 @@ Form {
 
     property alias inProgress: d.inProgress
 
-    signal error(string message);
+    signal error(string message, bool supportButton);
     signal authDone(string userId, string appKey, string cookie);
     signal codeRequired();
     signal captchaRequired();
@@ -95,7 +95,7 @@ Form {
                 }
 
                 if (errorCode == -2) {//BLOCKED_AUTH
-                   root.error(qsTr("AUTH_FAIL_ACCOUNT_BLOCKED"));
+                   root.error(qsTr("AUTH_FAIL_ACCOUNT_BLOCKED"), true);
                    return;
                 }
 

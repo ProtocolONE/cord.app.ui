@@ -40,7 +40,7 @@ Form {
 
     signal codeRequired();
     signal securityCodeRequired(bool appCode);
-    signal error(string message);
+    signal error(string message, bool supportButton);
     signal authDone(string userId, string appKey, string cookie, bool remember);
 
     function showCaptcha() {
@@ -195,7 +195,7 @@ Form {
                     errorMessage = response ? (msg[response.code] || msg[0]) : msg[0];
                 }
 
-                root.error(errorMessage);
+                root.error(errorMessage, error === Authorization.Result.ServiceAccountBlocked);
             });
         }
 

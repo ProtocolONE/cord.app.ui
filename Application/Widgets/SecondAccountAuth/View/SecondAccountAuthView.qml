@@ -21,6 +21,7 @@ import Application.Core 1.0
 import Application.Core.Styles 1.0
 import Application.Core.Authorization 1.0
 import Application.Core.Settings 1.0
+import Application.Core.MessageBox 1.0
 
 PopupBase {
     id: root
@@ -36,6 +37,16 @@ PopupBase {
 
         property string savePrefix: "second_"
         property bool vkAuthInProgress: false
+
+        function showError(message, supportButton) {
+
+            MessageBox.show(qsTr("INFO_CAPTION"), message,
+                MessageBox.button.ok | (supportButton ? MessageBox.button.support : 0),
+                function(result) {
+                    if (result === MessageBox.button.support) {
+                        App.openExternalUrl("https://support.gamenet.ru");
+                    }});
+        }
 
         function startOAuth(network) {
             var authFunction, gaMarker;
@@ -79,7 +90,7 @@ PopupBase {
                             }
 
                             if (error === Authorization.Result.ServiceAccountBlocked) {
-                                d.showError(qsTr("AUTH_FAIL_ACCOUNT_BLOCKED"));
+                                d.showError(qsTr("AUTH_FAIL_ACCOUNT_BLOCKED"), true);
                                 return;
                             }
 
@@ -143,6 +154,8 @@ PopupBase {
                 authSecurityCodeBody.password = auth.password;
                 authSecurityCodeBody.captcha = auth.captcha;
                 authSecurityCodeBody.remember = auth.remember;
+                authSecurityCodeBody.authToken = auth.authToken;
+                authSecurityCodeBody.userId = auth.userId;
                 auth.password = "";
                 root.state = "securityCode";
             }
@@ -151,7 +164,7 @@ PopupBase {
                 codeForm.codeSended = false;
                 root.state = "code"
             }
-            onError: d.showError(message);
+            onError: d.showError(message, supportButton);
             loginSuggestion: d.loginSuggestion();
 
             onAuthDone: {
@@ -169,7 +182,7 @@ PopupBase {
 
             visible: false
             onFooterPrimaryButtonClicked:  root.state = "auth"
-            onError: d.showError(message);
+            onError: d.showError(message, supportButton);
             onAuthDone: d.authSuccess(userId, appKey, cookie, true, registration.login);
             vkButtonInProgress: d.vkAuthInProgress
             onFooterOAuthClicked: d.startOAuth(network);
@@ -195,11 +208,11 @@ PopupBase {
             visible: false
 
             onCancel: {
-                authContainer.state = "auth";
+                root.state = "auth";
             }
             onError: {
-                authContainer.state = "auth";
-                d.showError(message);
+                d.showError(message, supportButton);
+                root.state = "auth";
             }
             onAuthDone: {
                 d.authSuccess(userId, appKey, cookie, remember, auth.login);

@@ -2,6 +2,7 @@ import QtQuick 2.4
 
 QtObject {
     readonly property int noButton           : 0x00000000
+    readonly property int support            : 0x00000200
     readonly property int ok                 : 0x00000400
     readonly property int save               : 0x00000800
     readonly property int saveAll            : 0x00001000

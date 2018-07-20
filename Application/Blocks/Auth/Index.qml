@@ -18,6 +18,7 @@ import Application.Core 1.0
 import Application.Core.Settings 1.0
 import Application.Core.Styles 1.0
 import Application.Core.Authorization 1.0
+import Application.Core.MessageBox 1.0
 
 import "./Controls"
 import "./Controls/Inputs"
@@ -128,7 +129,7 @@ Item {
                     codeForm.codeSended = false;
                     authContainer.state = "code"
                 }
-                onError: d.showError(message);
+                onError: d.showError(message, supportButton);
                 onAuthDone: {
                     d.startLoadingServices(userId, appKey, cookie, !remember);
 
@@ -157,7 +158,7 @@ Item {
                 id: registration
 
                 visible: false
-                onError: d.showError(message);
+                onError: d.showError(message, supportButton);
                 onAuthDone: {
                     d.startLoadingServices(userId, appKey, cookie);
 
@@ -211,7 +212,7 @@ Item {
                 }
                 onError: {
                     authContainer.state = "auth";
-                    d.showError(message);
+                    d.showError(message, supportButton);
                 }
                 onAuthDone: {
                     d.startLoadingServices(userId, appKey, cookie, !remember);
@@ -240,6 +241,7 @@ Item {
                 id: messageBody
 
                 property string backState
+                //property bool supportButton
 
                 visible: false
                 onClicked: authContainer.state = messageBody.backState;
@@ -331,10 +333,14 @@ Item {
             return refreshDate > 0 || authDone == 1;
         }
 
-        function showError(message) {
-            messageBody.backState = authContainer.state;
-            messageBody.message = message;
-            authContainer.state = "message";
+        function showError(message, supportButton) {
+
+            MessageBox.show(qsTr("INFO_CAPTION"), message,
+                MessageBox.button.ok | (supportButton ? MessageBox.button.support : 0),
+                function(result) {
+                    if (result === MessageBox.button.support) {
+                        App.openExternalUrl("https://support.gamenet.ru");
+                    }});
         }
 
         function startOAuth(network) {
@@ -387,7 +393,7 @@ Item {
                             }
 
                             if (error === Authorization.Result.ServiceAccountBlocked) {
-                                d.showError(qsTr("AUTH_FAIL_ACCOUNT_BLOCKED"));
+                                d.showError(qsTr("AUTH_FAIL_ACCOUNT_BLOCKED"), true);
                                 return;
                             }
 

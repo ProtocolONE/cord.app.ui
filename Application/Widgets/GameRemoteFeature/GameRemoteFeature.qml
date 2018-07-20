@@ -21,7 +21,12 @@ WidgetModel {
             MessageBox.show(
                         qsTr("INFO_CAPTION"),
                         message || defaultMessage,
-                        MessageBox.button.ok);
+                        MessageBox.button.ok | MessageBox.button.support,
+                        function(result) {
+                            if (result === MessageBox.button.support) {
+                                App.openExternalUrl("https://support.gamenet.ru/new-ticket");
+                            }});
+
         }
 
         onTerminateAllGame: {
@@ -30,7 +35,11 @@ WidgetModel {
             MessageBox.show(
                         qsTr("INFO_CAPTION"),
                         message || defaultMessage,
-                        MessageBox.button.ok);
+                        MessageBox.button.ok | MessageBox.button.support,
+                        function(result) {
+                            if (result === MessageBox.button.support) {
+                                App.openExternalUrl("https://support.gamenet.ru/new-ticket");
+                            }});
         }
     }
 }

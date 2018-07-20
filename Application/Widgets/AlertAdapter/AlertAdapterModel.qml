@@ -45,6 +45,7 @@ WidgetModel {
         result[MessageBox.button['help']] = qsTr("Help");
         result[MessageBox.button['apply']] = qsTr("Apply");
         result[MessageBox.button['reset']] = qsTr("Reset");
+        result[MessageBox.button['support']] = qsTr("Support");
         result[MessageBox.button['restoreDefaults']] = qsTr("RestoreDefaults");
 
         MessageBox.setButtonNames(result);

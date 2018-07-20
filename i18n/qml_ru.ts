@@ -127,7 +127,7 @@
       <translation>Сбросить</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="48" />
+      <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="49" />
       <source>RestoreDefaults</source>
       <translation>Сбросить по умолчанию</translation>
     </message>
@@ -145,6 +145,11 @@
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="33" />
       <source>SaveAll</source>
       <translation>Сохранить все</translation>
+    </message>
+    <message>
+      <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="48" />
+      <source>Support</source>
+      <translation>Найти решение</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="35" />
@@ -329,7 +334,7 @@
     <message>
       <location filename="../Application/Blocks/Auth/AuthBody.qml" line="188" />
       <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
-      <translation>Ваш аккаунт заблокирован. Для получения более подробной информации обратитесь в &lt;a href="http://support.gamenet.ru"&gt;службу поддержки&lt;/a&gt;. Подробности в &lt;a href="https://support.gamenet.ru/kb/articles/899"&gt;KB-899&lt;/a&gt;.</translation>
+      <translation>Ваш аккаунт заблокирован. Для получения более подробной информации обратитесь в службу поддержки. Подробности в &lt;a href="https://support.gamenet.ru/kb/articles/899"&gt;KB-899&lt;/a&gt;.</translation>
     </message>
     <message>
       <location filename="../Application/Blocks/Auth/AuthBody.qml" line="157" />
@@ -391,7 +396,7 @@
     <message>
       <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="165" />
       <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
-      <translation type="unfinished">Ваш аккаунт заблокирован. Для получения более подробной информации обратитесь в &lt;a href="http://support.gamenet.ru"&gt;службу поддержки&lt;/a&gt;. Подробности в &lt;a href="https://support.gamenet.ru/kb/articles/899"&gt;KB-899&lt;/a&gt;.</translation>
+      <translation type="unfinished">Ваш аккаунт заблокирован. Для получения более подробной информации обратитесь в службу поддержки. Подробности в &lt;a href="https://support.gamenet.ru/kb/articles/899"&gt;KB-899&lt;/a&gt;.</translation>
     </message>
     <message>
       <location filename="../Application/Blocks/Auth/AuthSecurityCodeBody.qml" line="91" />
@@ -1504,7 +1509,7 @@
     <message>
       <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="52" />
       <source>INFO_CAPTION</source>
-      <translation type="unfinished">Внимание</translation>
+      <translation>Внимание</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/GameInstall/View/GameInstallView.qml" line="207" />
@@ -1698,18 +1703,18 @@
   <context>
     <name>GameRemoteFeature</name>
     <message>
-      <location filename="../Application/Widgets/GameRemoteFeature/GameRemoteFeature.qml" line="29" />
+      <location filename="../Application/Widgets/GameRemoteFeature/GameRemoteFeature.qml" line="34" />
       <source>GAME_CONTROL_REMOTE_ALL_STOP</source>
-      <translation>Доступ к играм заблокирован. Если вы считаете, что это ошибка, Вы можете создать обращение в &lt;a href="https://support.gamenet.ru/new-ticket"&gt;службу поддержки GameNet&lt;/a&gt;</translation>
+      <translation>Доступ к играм заблокирован. Если вы считаете, что это ошибка, Вы можете создать обращение в службу поддержки GameNet</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/GameRemoteFeature/GameRemoteFeature.qml" line="20" />
       <source>GAME_CONTROL_REMOTE_STOP</source>
-      <translation>Клиент игры %1 был закрыт в связи с нарушением. Для получения дополнительной информации Вы можете создать обращение в &lt;a href="https://support.gamenet.ru/new-ticket"&gt;службу поддержки GameNet&lt;/a&gt;</translation>
+      <translation>Клиент игры %1 был закрыт в связи с нарушением. Для получения дополнительной информации Вы можете создать обращение в службу поддержки GameNet</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/GameRemoteFeature/GameRemoteFeature.qml" line="22" />
-      <location filename="../Application/Widgets/GameRemoteFeature/GameRemoteFeature.qml" line="31" />
+      <location filename="../Application/Widgets/GameRemoteFeature/GameRemoteFeature.qml" line="36" />
       <source>INFO_CAPTION</source>
       <translation>Внимание</translation>
     </message>
@@ -1945,7 +1950,7 @@
     <message>
       <location filename="../Application/Blocks/Auth/GuestConfirmBody.qml" line="110" />
       <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
-      <translation>Учётная запись заблокирована. Если вы считаете, что так не должно быть, обратитесь в &lt;a href="http://support.gamenet.ru"&gt;&lt;font color='#d8e5d4'&gt;службу поддержки&lt;/font&gt;&lt;/a&gt;.  </translation>
+      <translation>Учётная запись заблокирована. Если вы считаете, что так не должно быть, обратитесь в службу поддержки.</translation>
     </message>
     <message>
       <location filename="../Application/Blocks/Auth/GuestConfirmBody.qml" line="37" />
@@ -2054,14 +2059,19 @@
   <context>
     <name>Index</name>
     <message>
-      <location filename="../Application/Blocks/Auth/Index.qml" line="390" />
+      <location filename="../Application/Blocks/Auth/Index.qml" line="396" />
       <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
-      <translation>Ваш аккаунт заблокирован. Для получения более подробной информации обратитесь в &lt;a href="http://support.gamenet.ru"&gt;службу поддержки&lt;/a&gt;. Подробности в &lt;a href="https://support.gamenet.ru/kb/articles/899"&gt;KB-899&lt;/a&gt;.</translation>
+      <translation>Ваш аккаунт заблокирован. Для получения более подробной информации обратитесь в службу поддержки. Подробности в &lt;a href="https://support.gamenet.ru/kb/articles/899"&gt;KB-899&lt;/a&gt;.</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/Auth/Index.qml" line="394" />
+      <location filename="../Application/Blocks/Auth/Index.qml" line="400" />
       <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
       <translation>Не удалось войти как пользователь Вконтакте. Попробуйте ещё раз позже.</translation>
+    </message>
+    <message>
+      <location filename="../Application/Blocks/Auth/Index.qml" line="338" />
+      <source>INFO_CAPTION</source>
+      <translation>Внимание</translation>
     </message>
   </context>
   <context>
@@ -2208,14 +2218,19 @@
   <context>
     <name>MessageBody</name>
     <message>
-      <location filename="../Application/Blocks/Auth/MessageBody.qml" line="17" />
+      <location filename="../Application/Blocks/Auth/MessageBody.qml" line="19" />
       <source>MESSAGE_TITLE</source>
       <translation>Что-то пошло не так</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/Auth/MessageBody.qml" line="27" />
+      <location filename="../Application/Blocks/Auth/MessageBody.qml" line="39" />
       <source>OK_BUTTON_LABEL</source>
       <translation>Ok</translation>
+    </message>
+    <message>
+      <location filename="../Application/Blocks/Auth/MessageBody.qml" line="32" />
+      <source>SUPPORT_BUTTON_LABEL</source>
+      <translation>Найти решение</translation>
     </message>
   </context>
   <context>
@@ -3012,7 +3027,7 @@
     <message>
       <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="98" />
       <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
-      <translation type="unfinished">Учётная запись заблокирована. Если вы считаете, что так не должно быть, обратитесь в службу поддержки &lt;a href="http://support.gamenet.ru"&gt;службу поддержки&lt;/a&gt;.</translation>
+      <translation>Учётная запись заблокирована. Если вы считаете, что так не должно быть, обратитесь в службу поддержки.</translation>
     </message>
     <message>
       <location filename="../Application/Blocks/Auth/RegistrationBody.qml" line="154" />
@@ -3181,17 +3196,22 @@
   <context>
     <name>SecondAccountAuthView</name>
     <message>
-      <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="82" />
+      <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="93" />
       <source>AUTH_FAIL_ACCOUNT_BLOCKED</source>
-      <translation>Ваш аккаунт заблокирован. Для получения более подробной информации обратитесь в &lt;a href="http://support.gamenet.ru"&gt;службу поддержки&lt;/a&gt;. Подробности в &lt;a href="https://support.gamenet.ru/kb/articles/899"&gt;KB-899&lt;/a&gt;.</translation>
+      <translation>Ваш аккаунт заблокирован. Для получения более подробной информации обратитесь в службу поддержки. Подробности в &lt;a href="https://support.gamenet.ru/kb/articles/899"&gt;KB-899&lt;/a&gt;.</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="86" />
+      <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="97" />
       <source>AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR</source>
       <translation>Не удалось войти как пользователь Вконтакте. Попробуйте ещё раз позже.</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="28" />
+      <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="43" />
+      <source>INFO_CAPTION</source>
+      <translation>Внимание</translation>
+    </message>
+    <message>
+      <location filename="../Application/Widgets/SecondAccountAuth/View/SecondAccountAuthView.qml" line="29" />
       <source>SECOND_ACCOUNT_ACTIVATION_TITLE</source>
       <translation>Дополнительный аккаунт</translation>
     </message>

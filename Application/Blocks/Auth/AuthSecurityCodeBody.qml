@@ -27,7 +27,7 @@ Form {
 
     signal securityCodeRequired(bool appCode);
     signal authDone(string userId, string appKey, string cookie, bool remember);
-    signal error(string message);
+    signal error(string message, bool supportButton);
     signal cancel();
 
     property string login
@@ -172,7 +172,7 @@ Form {
                     errorMessage = response ? (msg[response.code] || msg[0]) : msg[0];
                 }
 
-                root.error(errorMessage);
+                root.error(errorMessage, error === Authorization.Result.ServiceAccountBlocked);
             };
 
             if (root.authToken.length > 0 && root.userId.length > 0)
