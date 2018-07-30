@@ -69,97 +69,97 @@
     <message>
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="39" />
       <source>Abort</source>
-      <translation type="unfinished">Cancel</translation>
+      <translation>Cancel</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="46" />
       <source>Apply</source>
-      <translation type="unfinished">Apply</translation>
+      <translation>Apply</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="43" />
       <source>Cancel</source>
-      <translation type="unfinished">Cancel</translation>
+      <translation>Cancel</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="42" />
       <source>Close</source>
-      <translation type="unfinished">Close</translation>
+      <translation>Close</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="44" />
       <source>Discard</source>
-      <translation type="unfinished">Decline</translation>
+      <translation>Decline</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="45" />
       <source>Help</source>
-      <translation type="unfinished">Help</translation>
+      <translation>Help</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="41" />
       <source>Ignore</source>
-      <translation type="unfinished">Ignore</translation>
+      <translation>Ignore</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="37" />
       <source>No</source>
-      <translation type="unfinished">No</translation>
+      <translation>No</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="38" />
       <source>NoToAll</source>
-      <translation type="unfinished">No to all</translation>
+      <translation>No to all</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="31" />
       <source>OK</source>
-      <translation type="unfinished">OK</translation>
+      <translation>OK</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="34" />
       <source>Open</source>
-      <translation type="unfinished">Open</translation>
+      <translation>Open</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="47" />
       <source>Reset</source>
-      <translation type="unfinished">Reset</translation>
+      <translation>Reset</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="49" />
       <source>RestoreDefaults</source>
-      <translation type="unfinished">Reset to default</translation>
+      <translation>Reset to default</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="40" />
       <source>Retry</source>
-      <translation type="unfinished">Confirm</translation>
+      <translation>Confirm</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="32" />
       <source>Save</source>
-      <translation type="unfinished">Save</translation>
+      <translation>Save</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="33" />
       <source>SaveAll</source>
-      <translation type="unfinished">Save all</translation>
+      <translation>Save all</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="48" />
       <source>Support</source>
-      <translation type="unfinished" />
+      <translation>Troubleshoot</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="35" />
       <source>Yes</source>
-      <translation type="unfinished">Yes</translation>
+      <translation>Yes</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/AlertAdapter/AlertAdapterModel.qml" line="36" />
       <source>YesToAll</source>
-      <translation type="unfinished">Yes to all</translation>
+      <translation>Yes to all</translation>
     </message>
   </context>
   <context>
@@ -2235,7 +2235,7 @@ Members: %3</translation>
     <message>
       <location filename="../Application/Blocks/Auth/MessageBody.qml" line="32" />
       <source>SUPPORT_BUTTON_LABEL</source>
-      <translation type="unfinished" />
+      <translation>Troubleshoot</translation>
     </message>
   </context>
   <context>
