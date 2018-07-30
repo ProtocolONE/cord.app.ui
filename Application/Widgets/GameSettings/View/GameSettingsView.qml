@@ -28,6 +28,8 @@ PopupBase {
 
     property variant gameWithSettings: [ "30000000000", "370000000000"]
 
+    property bool notBrowser: !!root.currentGame && root.currentGame.gameType !== "browser"
+
     function hasGameSettings(serviceId) {
         var i;
 
@@ -41,7 +43,7 @@ PopupBase {
     }
 
     defaultMargins: 44
-    width: (!!root.currentGame && root.currentGame.gameType !== "browser") ? 740 : 600
+    width: root.notBrowser ? 740 : 600
     title: qsTr("GAME_SETTINGS_TITLE").arg(App.currentGame().name)
     defaultBackgroundColor: Styles.applicationBackground
 
@@ -68,7 +70,7 @@ PopupBase {
 
     Item {
         width: parent.width - 1 + root.defaultMargins
-        height: (!!root.currentGame && root.currentGame.gameType !== "browser") ? 440 : 220
+        height: root.notBrowser ? 440 : 220
         anchors {
             left: parent.left
             leftMargin: - root.defaultMargins + 1
@@ -89,7 +91,7 @@ PopupBase {
 
                 SettingsTextButton {
                      checked: root.state === "GeneralPage"
-                     text: (!!root.currentGame && root.currentGame.gameType !== "browser") ? qsTr("FOLDERS_TAB") : qsTr("SHORTCUT_TAB")
+                     text: root.notBrowser ? qsTr("FOLDERS_TAB") : qsTr("SHORTCUT_TAB")
                      analytics {
                          category: 'GameSettings'
                          label: 'GeneralPage'
@@ -121,7 +123,7 @@ PopupBase {
                 }
 
                 SettingsTextButton {
-                    visible: !!root.currentGame && root.currentGame.gameType !== "browser"
+                    visible: root.notBrowser
                     text: qsTr("UNINSTALL_GAME")
 
                     analytics {
@@ -133,7 +135,7 @@ PopupBase {
                 }
 
                 SettingsTextButton {
-                    visible: !!root.currentGame && root.currentGame.gameType !== "browser"
+                    visible: root.notBrowser
                     text: qsTr("RESTORE_CLIENT")
                     analytics {
                         category: 'GameSettings'
@@ -168,7 +170,7 @@ PopupBase {
 
                     anchors.fill: parent
                     currentItem: root.currentGame
-                    visible: !!root.currentGame && root.currentGame.gameType !== "browser"
+                    visible: root.notBrowser
                 }
 
                 GameOverlaySettings {

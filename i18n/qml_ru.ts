@@ -1769,7 +1769,7 @@
     <message>
       <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="103" />
       <source>Игровые настройки</source>
-      <translation type="unfinished">Игровые настройки</translation>
+      <translation>Игровые настройки</translation>
     </message>
   </context>
   <context>
@@ -1807,7 +1807,7 @@
     <message>
       <location filename="../Application/Models/GamesListModel.qml" line="98" />
       <source>Доступ</source>
-      <translation type="unfinished">Доступ</translation>
+      <translation>Доступ</translation>
     </message>
   </context>
   <context>

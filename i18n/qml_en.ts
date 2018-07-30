@@ -1347,22 +1347,22 @@ Members: %3</translation>
     <message>
       <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="108" />
       <source>BUTTON_CREATE_DESKTOP_SHORTCUT</source>
-      <translation type="unfinished">Create a desktop icon</translation>
+      <translation>Create a desktop icon</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="122" />
       <source>BUTTON_CREATE_START_MENU_SHORTCUT</source>
-      <translation type="unfinished">Create a Start Menu icon</translation>
+      <translation>Create a Start Menu icon</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="79" />
       <source>DISTRIB_INSTALL_PATH</source>
-      <translation type="unfinished">Distributable install path</translation>
+      <translation>Distributable install path</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="57" />
       <source>GAME_INSTALL_PATH</source>
-      <translation type="unfinished">Game install path</translation>
+      <translation>Game install path</translation>
     </message>
   </context>
   <context>
@@ -1729,7 +1729,7 @@ Members: %3</translation>
     <message>
       <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="92" />
       <source>FOLDERS_TAB</source>
-      <translation type="unfinished">Folders</translation>
+      <translation>Folders</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="45" />
@@ -1739,12 +1739,12 @@ Members: %3</translation>
     <message>
       <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="114" />
       <source>OVERLAY_TAB</source>
-      <translation type="unfinished">Overlay</translation>
+      <translation>Overlay</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="137" />
       <source>RESTORE_CLIENT</source>
-      <translation type="unfinished">Restore</translation>
+      <translation>Restore</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="150" />
@@ -1754,22 +1754,22 @@ Members: %3</translation>
     <message>
       <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="206" />
       <source>SAVE_BUTTON_LABEL</source>
-      <translation type="unfinished">Save settings</translation>
+      <translation>Save settings</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="92" />
       <source>SHORTCUT_TAB</source>
-      <translation type="unfinished" />
+      <translation>Shortcuts</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="125" />
       <source>UNINSTALL_GAME</source>
-      <translation type="unfinished">Delete</translation>
+      <translation>Delete</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="103" />
       <source>Игровые настройки</source>
-      <translation type="unfinished">Game settings</translation>
+      <translation>Game settings</translation>
     </message>
   </context>
   <context>
@@ -1777,37 +1777,37 @@ Members: %3</translation>
     <message>
       <location filename="../Application/Models/GamesListModel.qml" line="50" />
       <source>GAME_MENU_ABOUT_GAME_TEXT</source>
-      <translation type="unfinished">About the game</translation>
+      <translation>About</translation>
     </message>
     <message>
       <location filename="../Application/Models/GamesListModel.qml" line="60" />
       <source>GAME_MENU_BLOG_TEXT</source>
-      <translation type="unfinished">Blog</translation>
+      <translation>Blog</translation>
     </message>
     <message>
       <location filename="../Application/Models/GamesListModel.qml" line="82" />
       <source>GAME_MENU_FORUM_TEXT</source>
-      <translation type="unfinished">Forum</translation>
+      <translation>Forum</translation>
     </message>
     <message>
       <location filename="../Application/Models/GamesListModel.qml" line="90" />
       <source>GAME_MENU_GAME_SETTINGS_TEXT</source>
-      <translation type="unfinished">Settings</translation>
+      <translation>Settings</translation>
     </message>
     <message>
       <location filename="../Application/Models/GamesListModel.qml" line="72" />
       <source>GAME_MENU_GUIDES_TEXT</source>
-      <translation type="unfinished">Guides</translation>
+      <translation>Guides</translation>
     </message>
     <message>
       <location filename="../Application/Models/GamesListModel.qml" line="42" />
       <source>GAME_MENU_NEWS_TEXT</source>
-      <translation type="unfinished">News</translation>
+      <translation>News</translation>
     </message>
     <message>
       <location filename="../Application/Models/GamesListModel.qml" line="98" />
       <source>Доступ</source>
-      <translation type="unfinished">Access</translation>
+      <translation>Access</translation>
     </message>
   </context>
   <context>
