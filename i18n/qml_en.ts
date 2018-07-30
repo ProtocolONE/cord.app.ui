@@ -996,12 +996,12 @@ Please try again later.</translation>
     <message>
       <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="148" />
       <source>REFRESH_INFO</source>
-      <translation type="unfinished" />
+      <translation type="unfinished">Update</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="148" />
       <source>REFRESH_MESSAGE</source>
-      <translation type="unfinished" />
+      <translation type="unfinished">The game has been updated to the latest version</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="359" />
@@ -1386,75 +1386,75 @@ Members: %3</translation>
   <context>
     <name>GameInstallBlock</name>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="276" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="280" />
       <source>%1 GN</source>
       <translation type="unfinished">%1 GN coins</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="290" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="294" />
       <source>ABOUT_PLAY_NOT_INSTALLED</source>
       <translation type="unfinished">Details</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="350" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="354" />
       <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
       <translation type="unfinished">Start game</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="322" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="326" />
       <source>BUTTON_PLAY_ERROR_STATE</source>
       <translation type="unfinished">Fix (error)</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="296" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="300" />
       <source>BUTTON_PLAY_NOT_INSTALLED</source>
       <translation type="unfinished">Start game</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="343" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="347" />
       <source>BUTTON_PLAY_ON_DETAILS_STATE</source>
       <translation type="unfinished">Stop download</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="328" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="332" />
       <source>BUTTON_PLAY_ON_PAUSED_STATE</source>
       <translation type="unfinished">Resume</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="335" />
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="336" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="339" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="340" />
       <source>BUTTON_UNINSTALLING_STATE</source>
       <translation type="unfinished">Delete game</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="88" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="92" />
       <source>PLAY_MENU_DOWNLOAD</source>
-      <translation type="unfinished" />
+      <translation>Download</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="103" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="107" />
       <source>PLAY_MENU_REFRESH</source>
-      <translation type="unfinished" />
+      <translation>Update</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="97" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="101" />
       <source>PLAY_MENU_RESET_PIN</source>
-      <translation type="unfinished" />
+      <translation>Reset PIN code</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="108" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="112" />
       <source>PLAY_MENU_RESTORE</source>
-      <translation type="unfinished" />
+      <translation>Restore</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="283" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="287" />
       <source>Оплачено</source>
-      <translation type="unfinished">Paid</translation>
+      <translation>Paid</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="269" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="273" />
       <source>Скоро</source>
-      <translation type="unfinished">Soon</translation>
+      <translation>Soon</translation>
     </message>
   </context>
   <context>
@@ -2225,12 +2225,12 @@ Members: %3</translation>
     <message>
       <location filename="../Application/Blocks/Auth/MessageBody.qml" line="19" />
       <source>MESSAGE_TITLE</source>
-      <translation type="unfinished">Something went wrong</translation>
+      <translation>Something went wrong</translation>
     </message>
     <message>
       <location filename="../Application/Blocks/Auth/MessageBody.qml" line="39" />
       <source>OK_BUTTON_LABEL</source>
-      <translation type="unfinished">OK</translation>
+      <translation>OK</translation>
     </message>
     <message>
       <location filename="../Application/Blocks/Auth/MessageBody.qml" line="32" />
@@ -3139,17 +3139,17 @@ Thank you for helping us test the application. You're helping us make GameNet ev
     <message>
       <location filename="../Application/Widgets/ResetPin/View/ResetPinView.qml" line="228" />
       <source>CLOSE_BUTTON_LABEL</source>
-      <translation type="unfinished" />
+      <translation type="unfinished">Close</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/ResetPin/View/ResetPinView.qml" line="178" />
       <source>NO_2FA_BODY_SUB_TITLE</source>
-      <translation type="unfinished" />
+      <translation type="unfinished">In Black Desert you can reset your PIN code on your own only if you have the two-step verification enabled. To enable it go to your GameNet profile settings, &lt;a href=”%1”&gt;Security section&lt;/a&gt;.</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/ResetPin/View/ResetPinView.qml" line="176" />
       <source>NO_BD_ACCOUNTS_SUB_TITLE</source>
-      <translation type="unfinished" />
+      <translation type="unfinished">You don’t have any characters in this game.</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/ResetPin/View/ResetPinView.qml" line="111" />
@@ -3157,22 +3157,22 @@ Thank you for helping us test the application. You're helping us make GameNet ev
       <location filename="../Application/Widgets/ResetPin/View/ResetPinView.qml" line="149" />
       <location filename="../Application/Widgets/ResetPin/View/ResetPinView.qml" line="160" />
       <source>RESET_PIN_FAIL_UNKNOWN</source>
-      <translation type="unfinished" />
+      <translation type="unfinished">Unexpected error</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/ResetPin/View/ResetPinView.qml" line="140" />
       <source>RESET_PIN_INFO</source>
-      <translation type="unfinished" />
+      <translation type="unfinished">Reset PIN code</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/ResetPin/View/ResetPinView.qml" line="140" />
       <source>RESET_PIN_MESSAGE</source>
-      <translation type="unfinished" />
+      <translation type="unfinished">PIN code was reset successfully</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/ResetPin/View/ResetPinView.qml" line="26" />
       <source>RESET_PIN_VIEW_HEADER_TEXT</source>
-      <translation type="unfinished" />
+      <translation type="unfinished">Reset PIN code in Black Desert</translation>
     </message>
   </context>
   <context>
@@ -3578,7 +3578,7 @@ Thank you for helping us test the application. You're helping us make GameNet ev
     <message>
       <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="306" />
       <source>ADVANCED_ACCOUNT_HINT_MORE_THAN_2000_DAYS</source>
-      <translation type="unfinished" />
+      <translation type="unfinished">More than 2,000 days remaining.</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="310" />
@@ -3608,7 +3608,7 @@ Thank you for helping us test the application. You're helping us make GameNet ev
     <message>
       <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="324" />
       <source>PREMIUM_TOOLTIP</source>
-      <translation type="unfinished">Expanded account</translation>
+      <translation>Premium account</translation>
     </message>
     <message>
       <location filename="../Application/Widgets/UserProfile/View/UserProfileView.qml" line="254" />

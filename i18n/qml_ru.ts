@@ -1386,75 +1386,75 @@
   <context>
     <name>GameInstallBlock</name>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="276" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="280" />
       <source>%1 GN</source>
       <translation type="unfinished">%1 GN</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="290" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="294" />
       <source>ABOUT_PLAY_NOT_INSTALLED</source>
       <translation>Подробнее</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="350" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="354" />
       <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
       <translation>Начать игру</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="322" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="326" />
       <source>BUTTON_PLAY_ERROR_STATE</source>
       <translation>Исправить (ошибка)</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="296" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="300" />
       <source>BUTTON_PLAY_NOT_INSTALLED</source>
       <translation>Начать игру</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="343" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="347" />
       <source>BUTTON_PLAY_ON_DETAILS_STATE</source>
       <translation>Остановить загрузку</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="328" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="332" />
       <source>BUTTON_PLAY_ON_PAUSED_STATE</source>
       <translation>Продолжить</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="335" />
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="336" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="339" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="340" />
       <source>BUTTON_UNINSTALLING_STATE</source>
       <translation>Удаление игры</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="88" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="92" />
       <source>PLAY_MENU_DOWNLOAD</source>
       <translation>Скачать</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="103" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="107" />
       <source>PLAY_MENU_REFRESH</source>
-      <translation type="unfinished">Обновить</translation>
+      <translation>Обновить</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="97" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="101" />
       <source>PLAY_MENU_RESET_PIN</source>
-      <translation type="unfinished">Сбросить пин-код</translation>
+      <translation>Сбросить пин-код</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="108" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="112" />
       <source>PLAY_MENU_RESTORE</source>
-      <translation type="unfinished">Восстановить</translation>
+      <translation>Восстановить</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="283" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="287" />
       <source>Оплачено</source>
-      <translation type="unfinished">Оплачено</translation>
+      <translation>Оплачено</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="269" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="273" />
       <source>Скоро</source>
-      <translation type="unfinished">Скоро</translation>
+      <translation>Скоро</translation>
     </message>
   </context>
   <context>
