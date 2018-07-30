@@ -185,7 +185,7 @@ Item {
 
             width: 40
             height: button.height
-            visible: button.visible && root.gameItem.gameType !== "browser" //&& ['Normal', 'Finished'].indexOf(stateGroup.state) !== -1
+            visible: button.visible && root.gameItem.gameType !== "browser"
             anchors.right: parent.right
             enabled: button.enabled
             style {
