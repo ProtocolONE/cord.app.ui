@@ -1345,22 +1345,22 @@ Members: %3</translation>
   <context>
     <name>GameGeneralSettings</name>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="108" />
+      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="110" />
       <source>BUTTON_CREATE_DESKTOP_SHORTCUT</source>
       <translation>Create a desktop icon</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="122" />
+      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="124" />
       <source>BUTTON_CREATE_START_MENU_SHORTCUT</source>
       <translation>Create a Start Menu icon</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="79" />
+      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="81" />
       <source>DISTRIB_INSTALL_PATH</source>
       <translation>Distributable install path</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="57" />
+      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="59" />
       <source>GAME_INSTALL_PATH</source>
       <translation>Game install path</translation>
     </message>
@@ -1727,47 +1727,47 @@ Members: %3</translation>
   <context>
     <name>GameSettingsView</name>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="92" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="94" />
       <source>FOLDERS_TAB</source>
       <translation>Folders</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="45" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="47" />
       <source>GAME_SETTINGS_TITLE</source>
       <translation type="unfinished">%1 settings</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="114" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="116" />
       <source>OVERLAY_TAB</source>
       <translation>Overlay</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="137" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="139" />
       <source>RESTORE_CLIENT</source>
       <translation>Restore</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="150" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="152" />
       <source>RESTORE_CLIENT_TOOLTIP</source>
       <translation type="unfinished">Click here if you're having trouble launching the game. We will check and fix the game files.</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="206" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="208" />
       <source>SAVE_BUTTON_LABEL</source>
       <translation>Save settings</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="92" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="94" />
       <source>SHORTCUT_TAB</source>
       <translation>Shortcuts</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="125" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="127" />
       <source>UNINSTALL_GAME</source>
       <translation>Delete</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="103" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="105" />
       <source>Игровые настройки</source>
       <translation>Game settings</translation>
     </message>
@@ -1882,6 +1882,29 @@ Members: %3</translation>
       <location filename="../Application/Widgets/GameUninstall/View/GameUninstallView.qml" line="27" />
       <source>UNINSTALL_TITLE</source>
       <translation type="unfinished">Delete %1</translation>
+    </message>
+  </context>
+  <context>
+    <name>GameWebInstallView</name>
+    <message>
+      <location filename="../Application/Widgets/GameWebInstall/View/GameWebInstallView.qml" line="49" />
+      <source>CREATE_DESKTOP_SHORTCUT</source>
+      <translation type="unfinished">Create a desktop icon</translation>
+    </message>
+    <message>
+      <location filename="../Application/Widgets/GameWebInstall/View/GameWebInstallView.qml" line="58" />
+      <source>CREATE_STARTMENU_SHORTCUT</source>
+      <translation type="unfinished">Create a Start Menu icon</translation>
+    </message>
+    <message>
+      <location filename="../Application/Widgets/GameWebInstall/View/GameWebInstallView.qml" line="34" />
+      <source>INSTALL_VIEW_TITLE</source>
+      <translation type="unfinished">Launch %1</translation>
+    </message>
+    <message>
+      <location filename="../Application/Widgets/GameWebInstall/View/GameWebInstallView.qml" line="95" />
+      <source>RUN_BUTTON_CAPTION</source>
+      <translation type="unfinished" />
     </message>
   </context>
   <context>

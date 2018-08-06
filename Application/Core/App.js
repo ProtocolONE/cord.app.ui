@@ -49,6 +49,7 @@ function createService(data) {
     item.currentMenuIndex = 1;
     item.widgets = {};
     item.recheck = false;
+    item.firstDownload = false;
 
     // External item properties
     item.gameId = data.gameId || 0;

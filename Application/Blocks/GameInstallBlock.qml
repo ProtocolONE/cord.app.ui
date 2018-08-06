@@ -122,7 +122,6 @@ Item {
                 return;
             }
 
-            root.gameItem.firstInstall = stateGroup.state === "NotInstalled";
             App.activateGameByServiceId(root.gameItem.serviceId);
 
             switch (stateGroup.state) {
@@ -185,9 +184,8 @@ Item {
 
             width: 40
             height: button.height
-            visible: button.visible && root.gameItem.gameType !== "browser"
+            visible: button.visible && button.enabled && root.gameItem.gameType !== "browser" && ['Starting', 'Started'].indexOf(stateGroup.state) === -1
             anchors.right: parent.right
-            enabled: button.enabled
             style {
                 normal: button.style.normal
                 hover: button.style.hover

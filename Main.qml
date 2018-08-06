@@ -42,6 +42,7 @@ Rectangle {
         WidgetManager.registerWidget('Application.Widgets.GameAdBanner');
         WidgetManager.registerWidget('Application.Widgets.GameInfo');
         WidgetManager.registerWidget('Application.Widgets.GameInstall');
+        WidgetManager.registerWidget('Application.Widgets.GameWebInstall');
         WidgetManager.registerWidget('Application.Widgets.Maintenance');
         WidgetManager.registerWidget('Application.Widgets.Messenger');
         WidgetManager.registerWidget('Application.Widgets.PremiumShop');

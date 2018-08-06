@@ -1345,22 +1345,22 @@
   <context>
     <name>GameGeneralSettings</name>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="108" />
+      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="110" />
       <source>BUTTON_CREATE_DESKTOP_SHORTCUT</source>
       <translation>Создать ярлык на рабочем столе</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="122" />
+      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="124" />
       <source>BUTTON_CREATE_START_MENU_SHORTCUT</source>
       <translation>Создать ярлык в меню пуск</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="79" />
+      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="81" />
       <source>DISTRIB_INSTALL_PATH</source>
       <translation>Путь установки дистрибутивов</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="57" />
+      <location filename="../Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml" line="59" />
       <source>GAME_INSTALL_PATH</source>
       <translation>Путь установки игры</translation>
     </message>
@@ -1727,47 +1727,47 @@
   <context>
     <name>GameSettingsView</name>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="92" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="94" />
       <source>FOLDERS_TAB</source>
       <translation>Папки</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="45" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="47" />
       <source>GAME_SETTINGS_TITLE</source>
       <translation>Настройки игры %1</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="114" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="116" />
       <source>OVERLAY_TAB</source>
       <translation>Оверлей</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="137" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="139" />
       <source>RESTORE_CLIENT</source>
       <translation>Восстановить</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="150" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="152" />
       <source>RESTORE_CLIENT_TOOLTIP</source>
       <translation>Нажми, если у тебя возникли сложности с запуском игры. Мы проверим и исправим файлы игры.</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="206" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="208" />
       <source>SAVE_BUTTON_LABEL</source>
       <translation>Сохранить настройки</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="92" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="94" />
       <source>SHORTCUT_TAB</source>
       <translation>Ярлыки</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="125" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="127" />
       <source>UNINSTALL_GAME</source>
       <translation>Удалить</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="103" />
+      <location filename="../Application/Widgets/GameSettings/View/GameSettingsView.qml" line="105" />
       <source>Игровые настройки</source>
       <translation>Игровые настройки</translation>
     </message>
@@ -1882,6 +1882,29 @@
       <location filename="../Application/Widgets/GameUninstall/View/GameUninstallView.qml" line="27" />
       <source>UNINSTALL_TITLE</source>
       <translation>Удаление игры %1</translation>
+    </message>
+  </context>
+  <context>
+    <name>GameWebInstallView</name>
+    <message>
+      <location filename="../Application/Widgets/GameWebInstall/View/GameWebInstallView.qml" line="49" />
+      <source>CREATE_DESKTOP_SHORTCUT</source>
+      <translation type="unfinished">Создать ярлык на рабочем столе</translation>
+    </message>
+    <message>
+      <location filename="../Application/Widgets/GameWebInstall/View/GameWebInstallView.qml" line="58" />
+      <source>CREATE_STARTMENU_SHORTCUT</source>
+      <translation type="unfinished">Создать ярлык в меню Пуск</translation>
+    </message>
+    <message>
+      <location filename="../Application/Widgets/GameWebInstall/View/GameWebInstallView.qml" line="34" />
+      <source>INSTALL_VIEW_TITLE</source>
+      <translation type="unfinished">Запуск %1</translation>
+    </message>
+    <message>
+      <location filename="../Application/Widgets/GameWebInstall/View/GameWebInstallView.qml" line="95" />
+      <source>RUN_BUTTON_CAPTION</source>
+      <translation>Запустить</translation>
     </message>
   </context>
   <context>
