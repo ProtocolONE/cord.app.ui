@@ -276,10 +276,6 @@ Item {
         return mainWindowInstance().pos;
     }
 
-    function isSilentMode() {
-        return mainWindowInstance().silent();
-    }
-
     function executeSecondService(serviceId, userId, appKey) {
         mainWindowInstance().executeSecondService(serviceId, userId, appKey);
     }

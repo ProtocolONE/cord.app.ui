@@ -1,3 +1,0 @@
-module Application.Widgets.SilentMode
-PluginContainer 1.0 PluginContainer.qml 
-SilentModeModel 1.0 SilentModeModel.qml

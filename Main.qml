@@ -72,7 +72,6 @@ Rectangle {
         WidgetManager.registerWidget('Application.Widgets.GameSettings');
         WidgetManager.registerWidget('Application.Widgets.ApplicationSettings');
         WidgetManager.registerWidget('Application.Widgets.StandaloneGameShop');
-        WidgetManager.registerWidget('Application.Widgets.SilentMode');
 
         WidgetManager.registerWidget('Application.Widgets.GameRemoteFeature')
 

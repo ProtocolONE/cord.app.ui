@@ -414,17 +414,9 @@ WidgetModel {
         onServiceStarted: gameStartedCallback(gameItem.serviceId)
         onServiceFinished: gameClosedCallback(gameItem.serviceId)
         onServiceInstalled: {
-            if (!App.isWindowVisible() && !App.isSilentMode()) {
+            if (!App.isWindowVisible()) {
                 announcements.showGameInstalledAnnounce(gameItem.serviceId);
             }
-        }
-
-        onSilentModeShowLicenseAnnouncement : {
-            if (App.isLicenseAccepted(serviceId)) {
-                return;
-            }
-
-            d.showArtNoLicenseRemind(serviceId);
         }
 
         onBuyGameCompleted: {
@@ -493,17 +485,6 @@ WidgetModel {
     QtObject {
         id: d
 
-        function setNoLicenseRemindShown() {
-            var today = Qt.formatDate(new Date(), "yyyy-MM-dd");
-            AppSettings.setValue("qml/features/SilentMode", "showDate", today);
-        }
-
-        function isNoLicenseRemindShownToday() {
-            var today = Qt.formatDate(new Date(), "yyyy-MM-dd");
-            var showDate = AppSettings.value("qml/features/SilentMode", "showDate", 0);
-            return (today == showDate);
-        }
-
         function shouldNoLicenseRemind() {
             var installDate = ApplicationStatistic.installDate();
             if (!installDate) {
@@ -535,33 +516,6 @@ WidgetModel {
 
             var installDate = ApplicationStatistic.installDate(),
                 currentDate = Math.floor((+ new Date()) / 1000);
-
-            var serviceId = ApplicationStatistic.installWithService();
-            if (serviceId == "0") {
-                serviceId = "300012010000000000"
-            }
-
-            d.showArtNoLicenseRemind(serviceId);
-        }
-
-        function showArtNoLicenseRemind(serviceId) {
-            var gameItem = App.serviceItemByServiceId(serviceId),
-                popUpOptions;
-
-            if (gameItem.gameType != "standalone") {
-                return;
-            }
-
-            var page = ('/silenceMode/reminder/art/%1').arg(serviceId)
-
-            popUpOptions = {
-                gameItem: gameItem,
-                page: page,
-                buttonCaption: qsTr("SILENT_REMIND_POPUP_BUTTON"),
-                message: qsTr("SILENT_REMIND_POPUP_MESSAGE").arg(gameItem.licenseUrl),
-            };
-
-            TrayPopup.showPopup(artNoLicenseRemind, popUpOptions, 'silentModeRemider' + serviceId);
         }
 
         function showBuyGameCompletedPopup(serviceId, message) {
@@ -575,38 +529,6 @@ WidgetModel {
                                     buttonCaption: qsTr("Играть"),
                                     messageFontSize: 16
                                 }, 'buyGameCompletedAnnounce' + serviceId);
-        }
-    }
-
-    Component {
-        id: artNoLicenseRemind
-
-        ArtPopup {
-            id: popUp
-
-            property string page
-
-            onPlayClicked: {
-                announcements.gameAcceptLicenseClicked(popUp.gameItem.serviceId);
-                Ga.trackEvent(popUp.page, 'Announcement SilentModeRemider', 'action', gameItem.gaName);
-            }
-
-            onAnywhereClicked: {
-                announcements.gameMissLicenseClicked(popUp.gameItem.serviceId);
-                Ga.trackEvent(popUp.page, 'Announcement SilentModeRemider', 'miss click', gameItem.gaName);
-            }
-
-            onCloseButtonClicked: {
-                Ga.trackEvent(popUp.page, 'Announcement SilentModeRemider', 'close', gameItem.gaName);
-            }
-
-            onTimeoutClosed: {
-                Ga.trackEvent(popUp.page, 'Announcement SilentModeRemider', 'timeout close', gameItem.gaName);
-            }
-
-            Component.onCompleted: {
-                Ga.trackEvent(page, 'Announcement SilentModeRemider', 'show', gameItem.gaName);
-            }
         }
     }
 

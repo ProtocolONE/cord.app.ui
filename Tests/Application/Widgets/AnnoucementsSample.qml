@@ -195,7 +195,6 @@ Window {
 
         function setupMockForLicenseReminder() {
             AppSettings.remove("qml/Announcements2/reminderNeverExecute/300003010000000000/", "showDate");
-            AppSettings.setValue("qml/features/SilentMode", "showDate", 0);
             AppSettings.setValue("GameDownloader/300003010000000000/", "installDate", Math.floor((+Date.now() / 1000)) - 604810);
 
 //            ApplicationStatistic.installDate = function() {

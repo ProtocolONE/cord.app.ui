@@ -132,10 +132,6 @@ Item {
     function onProgressUpdated(value, status) {
     }
 
-    function silent() {
-        return true;
-    }
-
     function saveLanguage() {
 
     }

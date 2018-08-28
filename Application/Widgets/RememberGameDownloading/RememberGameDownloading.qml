@@ -21,11 +21,6 @@ WidgetModel {
 
             var serviceId = AppSettings.value('RememberGameDownloading', 'service');
             if (serviceId && App.serviceExists(serviceId) && !ApplicationStatistic.isServiceInstalled(serviceId)) {
-                if (App.isSilentMode()) {
-                    App.forceDownload(serviceId);
-                    return;
-                }
-
                 App.downloadButtonStart(serviceId);
             }
             root.isFirstRun = false;
