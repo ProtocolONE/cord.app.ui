@@ -1,13 +1,3 @@
-/****************************************************************************
-** This file is a part of Syncopate Limited GameNet Application or it parts.
-**
-** Copyright (©) 2011 - 2013, Syncopate Limited and/or affiliates.
-** All rights reserved.
-**
-** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
-** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-****************************************************************************/
-
 import QtQuick 2.4
 import GameNet.Core 1.0
 import GameNet.Components.Widgets 1.0
@@ -26,7 +16,6 @@ WidgetView {
 
     property bool nicknameValid: model.nickname.indexOf('@') == -1
     property bool isLoginConfirmed: model.isLoginConfirmed
-    property bool isGuest: model.isGuest
     property bool isPromoActionActive: model.isPromoActionActive
 
     implicitWidth: 230
@@ -51,9 +40,6 @@ WidgetView {
                 break;
             case "confirmemail":
                 App.openExternalUrlWithAuth(Config.GnUrl.site("/my-settings/email/"));
-                break;
-            case "confirmguest":
-                Popup.show('GuestConfirm');
                 break;
             case "profile":
                 d.openProfile();
@@ -107,25 +93,17 @@ WidgetView {
                              });
             }
 
-            if (!root.isGuest) {
-                options.push({
-                                 name: qsTr("USER_PROFILE_CONTEXT_MENU_PROFILE"),// "Профиль",
-                                 action: "profile",
-                                 iconLink : Styles.linkIconTray
-                             });
+            options.push({
+                             name: qsTr("USER_PROFILE_CONTEXT_MENU_PROFILE"),// "Профиль",
+                             action: "profile",
+                             iconLink : Styles.linkIconTray
+                         });
 
-                options.push({
-                                 name: qsTr("USER_PROFILE_CONTEXT_MENU_MONEY"),// "Пополнить счет",
-                                 action: "money",
-                                 iconLink : Styles.linkIconTray
-                             });
-
-            } else {
-                options.push({
-                                 name: qsTr("USER_PROFILE_CONTEXT_MENU_GUEST_CONFIRM"),// "Подтвердить гостя",
-                                 action: "confirmguest"
-                             });
-            }
+            options.push({
+                             name: qsTr("USER_PROFILE_CONTEXT_MENU_MONEY"),// "Пополнить счет",
+                             action: "money",
+                             iconLink : Styles.linkIconTray
+                         });
 
             options.push({
                             name: qsTr("USER_PROFILE_CONTEXT_MENU_SECURITY"),// "Безопасность"
@@ -151,10 +129,6 @@ WidgetView {
 
         function openProfile() {
             App.openExternalUrlWithAuth(d.getGameNetProfileUrl());
-        }
-
-        function guestTooltip() {
-            return qsTr("Мы рекомендуем завершить регистрацию, чтобы не потерять прогресс в играх.");
         }
     }
 
@@ -360,15 +334,10 @@ WidgetView {
                             CursorMouseArea {
                                 anchors.fill: parent
                                 hoverEnabled: true
-                                toolTip: root.isGuest ? d.guestTooltip() : qsTr("YOUR_AVATAR")
+                                toolTip: qsTr("YOUR_AVATAR")
                                 tooltipGlueCenter: true
                                 acceptedButtons: Qt.LeftButton
                                 onClicked: {
-                                    if (root.isGuest) {
-                                        Popup.show('GuestConfirm');
-                                        return;
-                                    }
-
                                     App.openExternalUrlWithAuth(Config.GnUrl.site('/edit/#edit-avatar'))
                                 }
                             }
@@ -394,49 +363,15 @@ WidgetView {
 
                                     nickname: root.nicknameValid
                                               ? model.nickname
-                                              : root.isGuest ? qsTr("Гость")
-                                                             : qsTr("NO_NICKNAME")
+                                              : qsTr("NO_NICKNAME")
 
                                     tooltip: root.nicknameValid
                                              ? qsTr("YOUR_NICKNAME")
-                                             : root.isGuest ? d.guestTooltip()
-                                                            :  qsTr("SET_NICKNAME")
+                                             : qsTr("SET_NICKNAME")
 
                                     onNicknameClicked: {
                                         ContextMenu.show(mouse, area, userProfileContextMenuComponent, { });
                                         Ga.trackEvent('UserProfile', 'click', 'nickname');
-                                    }
-                                }
-
-                                Item {
-                                    width: parent.width
-                                    height: 20
-
-                                    visible: root.state === 'Guest'
-
-                                    Row {
-                                        id: rowGuest
-
-                                        height: parent.height
-                                        spacing: 5
-
-                                        Image {
-                                            source: installPath  + "Assets/Images/Application/Widgets/UserProfile/attention.png"
-                                        }
-
-                                        Text {
-                                            text: qsTr("Завершить регистрацию")
-                                            color: Styles.textBase
-                                            font.pixelSize: 12
-                                        }
-                                    }
-
-                                    CursorMouseArea {
-                                        width: rowGuest.width
-                                        height: rowGuest.height
-                                        toolTip: d.guestTooltip()
-                                        onClicked: Popup.show('GuestConfirm');
-                                        acceptedButtons: Qt.LeftButton
                                     }
                                 }
 
@@ -566,7 +501,6 @@ WidgetView {
     }
 
     states: [
-        State { name: 'Guest'; when: root.isGuest},
         State { name: 'DefaultNickname'; when: !root.nicknameValid},
         State { name: 'ConfirmEmail'; when: root.nicknameValid && !root.isLoginConfirmed},
         State { name: 'Normal'; when: root.nicknameValid && root.isLoginConfirmed}

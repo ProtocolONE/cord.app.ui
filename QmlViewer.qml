@@ -42,10 +42,5 @@ Window {
     Main {
         id: main
     }
-
-//    Button {
-//        text: "test"
-//        onClicked: Authorization.test();
-//    }
 }
 

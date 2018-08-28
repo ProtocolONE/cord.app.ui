@@ -1,12 +1,3 @@
-/****************************************************************************
-** This file is a part of Syncopate Limited GameNet Application or it parts.
-**
-** Copyright (©) 2011 - 2014, Syncopate Limited and/or affiliates.
-** All rights reserved.
-**
-** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
-** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-****************************************************************************/
 var MessageState = function() {};
 MessageState.None = 0;       ///< The message does not contain any chat state information.
 MessageState.Active = 1;     ///< User is actively participating in the chat session.

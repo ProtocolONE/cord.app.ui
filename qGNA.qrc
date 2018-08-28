@@ -8,6 +8,7 @@
 		<file>Application/Blocks/Auth/AnimatedBackground/Sun.qml</file>
 		<file>Application/Blocks/Auth/AnimatedBackground/VkDoggy.qml</file>
 		<file>Application/Blocks/Auth/AuthBody.qml</file>
+		<file>Application/Blocks/Auth/AuthSecurityCodeBody.qml</file>
 		<file>Application/Blocks/Auth/AuthUrlSubscription.qml</file>
 		<file>Application/Blocks/Auth/CodeBody.qml</file>
 		<file>Application/Blocks/Auth/Controls/Footer.qml</file>
@@ -21,7 +22,6 @@
 		<file>Application/Blocks/Auth/Controls/Inputs/PasswordInput.qml</file>
 		<file>Application/Blocks/Auth/Controls/LicenseText.qml</file>
 		<file>Application/Blocks/Auth/Controls/SupportButton.qml</file>
-		<file>Application/Blocks/Auth/GuestConfirmBody.qml</file>
 		<file>Application/Blocks/Auth/Index.qml</file>
 		<file>Application/Blocks/Auth/LoginInput.qml</file>
 		<file>Application/Blocks/Auth/MessageBody.qml</file>
@@ -153,6 +153,7 @@
 		<file>Application/Widgets/AlertAdapter/View/AlertAdapter.js</file>
 		<file>Application/Widgets/AlertAdapter/View/AlertAdapterView.qml</file>
 		<file>Application/Widgets/AlertAdapter/View/NegativeButton.qml</file>
+		<file>Application/Widgets/AlertAdapter/View/NormalButton.qml</file>
 		<file>Application/Widgets/AlertAdapter/View/PositiveButton.qml</file>
 		<file>Application/Widgets/AllGames/AllGamesModel.qml</file>
 		<file>Application/Widgets/AllGames/PluginContainer.qml</file>
@@ -267,23 +268,18 @@
 		<file>Application/Widgets/GameSettings/PluginContainer.qml</file>
 		<file>Application/Widgets/GameSettings/qmldir</file>
 		<file>Application/Widgets/GameSettings/View/GameSettingsView.qml</file>
-		<file>Application/Widgets/GameSettings/View/Pages/GameControls/BattleCarnival.qml</file>
-		<file>Application/Widgets/GameSettings/View/Pages/GameControls/BlackDesert.qml</file>
 		<file>Application/Widgets/GameSettings/View/Pages/GameControls/NotAvailableSettings.qml</file>
 		<file>Application/Widgets/GameSettings/View/Pages/GameControlSettings.qml</file>
 		<file>Application/Widgets/GameSettings/View/Pages/GameGeneralSettings.qml</file>
 		<file>Application/Widgets/GameSettings/View/Pages/GameOverlaySettings.qml</file>
-		<file>Application/Widgets/GameSurvey/GameSurveyModel.qml</file>
-		<file>Application/Widgets/GameSurvey/PluginContainer.qml</file>
-		<file>Application/Widgets/GameSurvey/qmldir</file>
 		<file>Application/Widgets/GameUninstall/GameUninstallModel.qml</file>
 		<file>Application/Widgets/GameUninstall/PluginContainer.qml</file>
 		<file>Application/Widgets/GameUninstall/qmldir</file>
 		<file>Application/Widgets/GameUninstall/View/GameUninstallView.qml</file>
-		<file>Application/Widgets/GuestConfirm/GuestConfirmModel.qml</file>
-		<file>Application/Widgets/GuestConfirm/PluginContainer.qml</file>
-		<file>Application/Widgets/GuestConfirm/qmldir</file>
-		<file>Application/Widgets/GuestConfirm/View/GuestConfirmView.qml</file>
+		<file>Application/Widgets/GameWebInstall/GameWebInstallModel.qml</file>
+		<file>Application/Widgets/GameWebInstall/PluginContainer.qml</file>
+		<file>Application/Widgets/GameWebInstall/qmldir</file>
+		<file>Application/Widgets/GameWebInstall/View/GameWebInstallView.qml</file>
 		<file>Application/Widgets/Maintenance/MaintenanceModel.js</file>
 		<file>Application/Widgets/Maintenance/MaintenanceModel.qml</file>
 		<file>Application/Widgets/Maintenance/PluginContainer.qml</file>
@@ -341,6 +337,8 @@
 		<file>Application/Widgets/Messenger/Plugins/Blacklist/qmldir</file>
 		<file>Application/Widgets/Messenger/Plugins/Bookmarks/Bookmarks.js</file>
 		<file>Application/Widgets/Messenger/Plugins/ChatCommands/ChatCommands.js</file>
+		<file>Application/Widgets/Messenger/Plugins/CheckFullScreen/CheckFullScreen.qml</file>
+		<file>Application/Widgets/Messenger/Plugins/CheckFullScreen/qmldir</file>
 		<file>Application/Widgets/Messenger/Plugins/Events/Events.js</file>
 		<file>Application/Widgets/Messenger/Plugins/Logger/Logger.js</file>
 		<file>Application/Widgets/Messenger/Plugins/Logger/Logger.qml</file>
@@ -436,28 +434,11 @@
 		<file>Application/Widgets/Overlay/View/Chat/PopupHelper.qml</file>
 		<file>Application/Widgets/Overlay/View/Chat/Popups.js</file>
 		<file>Application/Widgets/Overlay/View/Chat/StringHelper.js</file>
-		<file>Application/Widgets/Overlay/View/Games/Aika.qml</file>
-		<file>Application/Widgets/Overlay/View/Games/BS.qml</file>
-		<file>Application/Widgets/Overlay/View/Games/CA.qml</file>
-		<file>Application/Widgets/Overlay/View/Games/Reborn.qml</file>
 		<file>Application/Widgets/Overlay/View/OverlayBase.js</file>
 		<file>Application/Widgets/Overlay/View/OverlayBase.qml</file>
-		<file>Application/Widgets/P2PCancelRequest/P2PCancelRequestModel.qml</file>
-		<file>Application/Widgets/P2PCancelRequest/PluginContainer.qml</file>
-		<file>Application/Widgets/P2PCancelRequest/qmldir</file>
-		<file>Application/Widgets/P2PCancelRequest/View/P2PCancelRequestView.qml</file>
-		<file>Application/Widgets/P2PTransferRequest/P2PTransferRequestModel.qml</file>
-		<file>Application/Widgets/P2PTransferRequest/PluginContainer.qml</file>
-		<file>Application/Widgets/P2PTransferRequest/qmldir</file>
-		<file>Application/Widgets/P2PTransferRequest/View/P2PTransferRequestView.qml</file>
 		<file>Application/Widgets/PremiumNotifier/PluginContainer.qml</file>
 		<file>Application/Widgets/PremiumNotifier/PremiumNotifierModel.qml</file>
 		<file>Application/Widgets/PremiumNotifier/qmldir</file>
-		<file>Application/Widgets/PremiumServer/PluginContainer.qml</file>
-		<file>Application/Widgets/PremiumServer/PremiumServerModel.qml</file>
-		<file>Application/Widgets/PremiumServer/qmldir</file>
-		<file>Application/Widgets/PremiumServer/View/PremiumServerLineView.qml</file>
-		<file>Application/Widgets/PremiumServer/View/PremiumServerPopupView.qml</file>
 		<file>Application/Widgets/PremiumShop/PluginContainer.qml</file>
 		<file>Application/Widgets/PremiumShop/PremiumShopModel.qml</file>
 		<file>Application/Widgets/PremiumShop/qmldir</file>
@@ -578,8 +559,6 @@
 		<file>GameNet/Core/RestApi.js</file>
 		<file>GameNet/Core/Strings.js</file>
 		<file>Main.qml</file>
-		<file>plugin/QXmpp/qmldir</file>
-		<file>plugin/Tulip/Overlay/qmldir</file>
 		<file>plugin/Tulip/qmldir</file>
 		<file>Version.qml</file>
 	</qresource>

@@ -994,32 +994,32 @@ Please try again later.</translation>
       <translation type="unfinished">The game is ready to launch!</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="148" />
+      <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="152" />
       <source>REFRESH_INFO</source>
       <translation type="unfinished">Update</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="148" />
+      <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="152" />
       <source>REFRESH_MESSAGE</source>
       <translation type="unfinished">The game has been updated to the latest version</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="359" />
+      <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="365" />
       <source>TEXT_PROGRESSBAR_DOWNLOADING_NOW_STATE</source>
       <translation type="unfinished">Loading game: %1 out of %2</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="184" />
+      <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="188" />
       <source>TEXT_PROGRESSBAR_NOW_PLAYING_STATE</source>
       <translation type="unfinished">Game launched</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="344" />
+      <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="350" />
       <source>TEXT_PROGRESSBAR_REHASH_NOW_STATE</source>
       <translation type="unfinished">Checking game files, %1%</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="358" />
+      <location filename="../Application/Widgets/DownloadManagerConnector/DownloadManagerConnector.qml" line="364" />
       <source>TEXT_PROGRESSBAR_UPDATING_NOW_STATE</source>
       <translation type="unfinished">Updating game: %1 out of %2</translation>
     </message>
@@ -1386,43 +1386,43 @@ Members: %3</translation>
   <context>
     <name>GameInstallBlock</name>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="280" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="279" />
       <source>%1 GN</source>
       <translation type="unfinished">%1 GN coins</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="294" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="293" />
       <source>ABOUT_PLAY_NOT_INSTALLED</source>
       <translation type="unfinished">Details</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="354" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="353" />
       <source>BUTTON_PLAY_DOWNLOADED_AND_READY_STATE</source>
       <translation type="unfinished">Start game</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="326" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="325" />
       <source>BUTTON_PLAY_ERROR_STATE</source>
       <translation type="unfinished">Fix (error)</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="300" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="299" />
       <source>BUTTON_PLAY_NOT_INSTALLED</source>
       <translation type="unfinished">Start game</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="347" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="346" />
       <source>BUTTON_PLAY_ON_DETAILS_STATE</source>
       <translation type="unfinished">Stop download</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="332" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="331" />
       <source>BUTTON_PLAY_ON_PAUSED_STATE</source>
       <translation type="unfinished">Resume</translation>
     </message>
     <message>
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="338" />
       <location filename="../Application/Blocks/GameInstallBlock.qml" line="339" />
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="340" />
       <source>BUTTON_UNINSTALLING_STATE</source>
       <translation type="unfinished">Delete game</translation>
     </message>
@@ -1447,12 +1447,12 @@ Members: %3</translation>
       <translation>Restore</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="287" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="286" />
       <source>Оплачено</source>
       <translation>Paid</translation>
     </message>
     <message>
-      <location filename="../Application/Blocks/GameInstallBlock.qml" line="273" />
+      <location filename="../Application/Blocks/GameInstallBlock.qml" line="272" />
       <source>Скоро</source>
       <translation>Soon</translation>
     </message>
@@ -1887,12 +1887,12 @@ Members: %3</translation>
   <context>
     <name>GameWebInstallView</name>
     <message>
-      <location filename="../Application/Widgets/GameWebInstall/View/GameWebInstallView.qml" line="49" />
+      <location filename="../Application/Widgets/GameWebInstall/View/GameWebInstallView.qml" line="44" />
       <source>CREATE_DESKTOP_SHORTCUT</source>
       <translation type="unfinished">Create a desktop icon</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameWebInstall/View/GameWebInstallView.qml" line="58" />
+      <location filename="../Application/Widgets/GameWebInstall/View/GameWebInstallView.qml" line="53" />
       <source>CREATE_STARTMENU_SHORTCUT</source>
       <translation type="unfinished">Create a Start Menu icon</translation>
     </message>
@@ -1902,7 +1902,7 @@ Members: %3</translation>
       <translation type="unfinished">Launch %1</translation>
     </message>
     <message>
-      <location filename="../Application/Widgets/GameWebInstall/View/GameWebInstallView.qml" line="95" />
+      <location filename="../Application/Widgets/GameWebInstall/View/GameWebInstallView.qml" line="90" />
       <source>RUN_BUTTON_CAPTION</source>
       <translation type="unfinished" />
     </message>

@@ -1,13 +1,4 @@
 .pragma library
-/****************************************************************************
-** This file is a part of Syncopate Limited GameNet Application or it parts.
-**
-** Copyright (©) 2011 - 2012, Syncopate Limited and/or affiliates.
-** All rights reserved.
-**
-** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
-** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-****************************************************************************/
 
 Qt.include('Config.js');
 
@@ -79,18 +70,10 @@ function createService(data) {
     item.socialNet = data.socialNet || '';
     item.isRunnable = !!data.isRunnable;
     item.backgroundInApp = data.backgroundInApp || '';
-    item.hasPremiumServer = false;
 
     // standalone properties
     item.isStandalone = !!data.isStandalone;
     item.isClosedBeta = !!data.isClosedBeta;
-
-    if (item.gameId == 1021) {
-        //HACK Use this hack due have just one game (BlackDesert) with that feature.
-        if (Date.now() > 1451480400000) {
-            item.hasPremiumServer = true;
-        }
-    }
 
     urlProps = [
         'mainUrl',

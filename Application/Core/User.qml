@@ -1,12 +1,3 @@
-/****************************************************************************
-** This file is a part of Syncopate Limited GameNet Application or it parts.
-**
-** Copyright (©) 2011 - 2013, Syncopate Limited and/or affiliates.
-** All rights reserved.
-**
-** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
-** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-****************************************************************************/
 pragma Singleton
 
 import QtQuick 1.1
@@ -134,7 +125,6 @@ Item {
         d.avatarLarge = userInfo.avatarLarge;
         d.avatarMedium = userInfo.avatarMedium;
         d.avatarSmall = userInfo.avatarSmall;
-        d.guest = (userInfo.guest == 1);
         d.isLoginConfirmed = (userInfo.loginConfirmed || false);
     }
 
@@ -217,10 +207,6 @@ Item {
 
     function getAvatarSmall() {
         return d.avatarSmall;
-    }
-
-    function isGuest() {
-        return d.guest;
     }
 
     function isPromoActionActive() {
@@ -328,8 +314,6 @@ Item {
         property string avatarLarge
         property string avatarMedium
         property string avatarSmall
-
-        property bool guest: false
 
         property string secondNickname
         property string secondUserId

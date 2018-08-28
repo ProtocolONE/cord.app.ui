@@ -1,14 +1,8 @@
 .pragma library
 //@see http://doc-snapshot.qt-project.org/4.8/qdeclarativejavascript.html
-/****************************************************************************
- ** This file is a part of Syncopate Limited GameNet Application or it parts.
- **
- ** Copyright (©) 2011 - 2012, Syncopate Limited and/or affiliates.
- ** All rights reserved.
- **
- ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
- ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
- ****************************************************************************/
+
+
+
 /*!
  * jsUri v@1.1.2
  * https://github.com/derek-watson/jsUri
@@ -468,7 +462,8 @@ var Uri = (function () {
     return Uri;
 }());
 
-var Error = function() {
+
+var Error = function() { // jshint ignore:line
 };
 
 //UNDONE Это не весь перечень ошибок. При необходимости - добавляйте.
@@ -514,6 +509,7 @@ Error.PAKKANEN_PERMISSION_DENIED = 601;
 Error.PAKKANEN_VK_LINK = 602;
 Error.PAKKANEN_PHONE_VERIFICATION = 603;
 Error.PAKKANEN_VK_LINK_AND_PHONE_VERIFICATION = 604;
+
 var http = function() {
 };
 
@@ -550,9 +546,9 @@ http.request = function(options, callback) {
             var tmp = 'Request: ' + uri.toString();
             try {
                 var debugResponseObject = JSON.parse(xhr.responseText);
-                tmp += '\nResponse: \n' + JSON.stringify(debugResponseObject, null, 2)
+                tmp += '\nResponse: \n' + JSON.stringify(debugResponseObject, null, 2);
             } catch(e) {
-                tmp += '\nResponse: \n' + xhr.responseText
+                tmp += '\nResponse: \n' + xhr.responseText;
             }
             console.log(tmp);
         }
@@ -578,7 +574,8 @@ http.request = function(options, callback) {
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.send(uri.query().toString().substring(1)); //jsuri return query with '?' always
     }
-}
+};
+
 
 var Core = function(options) {
     this._lang = (options && options.lang) ? options.lang : 'ru';
@@ -656,7 +653,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.176.9fb6e1eb7aa96f4ae41726e70eea402380780c5c",
+    version: "1.0.177",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',
@@ -676,7 +673,7 @@ Core.prototype = {
                 case 'function':
                     paramValue = '';
                     break;
-                case 'object':
+//                case 'object':
                 default:
                     paramValue = params[field].toString();
             }
@@ -694,9 +691,9 @@ Core.prototype = {
 
         format = params.format || 'json';
 
-        stringParams = "?method=" + method
-            + "&format=" + format + "&lang=" + this._lang
-            + this.prepareRequestArgs(params);
+        stringParams = "?method=" + method + 
+	    "&format=" + format + "&lang=" + this._lang +
+             this.prepareRequestArgs(params);
 
         if (this._auth && Core._userId.length && Core._appKey.length) {
             stringParams += "&userId=" + Core._userId + "&appKey=" + Core._appKey;
@@ -750,7 +747,7 @@ Core.prototype = {
             successCallback(responseObject.response);
         });
     }
-}
+};
 
 var Auth = function() {
 };
@@ -762,6 +759,7 @@ Auth.getRedirectToken = function(successCallback, failedCallback) {
 Auth.getCentrifugoToken = function(timestamp, successCallback, failedCallback) {
     Core.execute('auth.getCentrifugoToken', {timestamp:timestamp}, true, successCallback, failedCallback);
 };
+
 var Billing = function() {
 };
 
@@ -779,6 +777,7 @@ Billing.isInGameRefillAvailable = function(successCallback, failedCallback) {
         version: 1
     }, true, successCallback, failedCallback);
 };
+
 var Games = function() {
 };
 
@@ -820,13 +819,6 @@ Games.getThemes = function(successCallback, failedCallback) {
     Core.execute('games.getThemes', {}, false, successCallback, failedCallback);
 };
 
-Games.resetBlackDesertPin = function(code, successCallback, failedCallback) {
-    Core.execute('games.resetBlackDesertPin', {
-        code: code
-    },
-    true, successCallback, failedCallback);
-};
-
 var Marketing = function() {
 };
 
@@ -839,9 +831,7 @@ Marketing.getMidDetails = function(mid, successCallback, failedCallback) {
         successCallback,
         failedCallback);
 };
-/**
- * Created by Ilya on 18.10.16.
- */
+
 var Misc = function() {
 };
 
@@ -849,12 +839,14 @@ Misc.getTime = function(successCallback, failedCallback) {
     Core.execute('misc.getTime', {}, false, successCallback, failedCallback);
 };
 
+
 var Premium = function() {
 };
 
 Premium.getStatus = function(successCallback, failedCallback) {
     Core.execute('premium.getStatus', {version: 1}, true, successCallback, failedCallback);
 };
+
 var Service = function() {
 };
 
@@ -870,6 +862,10 @@ Service.getGrid = function(successCallback, failedCallback) {
     Core.execute('service.getGrid', {}, true, successCallback, failedCallback);
 };
 
+Service.getGridById = function(id, successCallback, failedCallback) {
+    Core.execute('service.getGrid', {id : id}, true, successCallback, failedCallback);
+};
+
 Service.getItems = function(serviceId, type, successCallback, failedCallback) {
     Core.execute('service.getItems', { serviceId: serviceId, type: type }, true, successCallback, failedCallback);
 };
@@ -877,7 +873,6 @@ Service.getItems = function(serviceId, type, successCallback, failedCallback) {
 Service.getPromoKeysSettings = function(serviceId, successCallback, failedCallback) {
     Core.execute('service.getPromoKeysSettings', { serviceId: serviceId }, false, successCallback, failedCallback);
 };
-
 
 
 var Social = function() {
@@ -902,6 +897,7 @@ Social.agreeInvite = function(friendId, successCallback, failedCallback) {
 Social.discardInvite = function(friendId, successCallback, failedCallback) {
     Core.execute('social.discardInvite', {friendId : friendId}, true, successCallback, failedCallback);
 };
+
 var User = function() {
 };
 
@@ -974,7 +970,7 @@ User.getIgnoreList = function(successCallback, failedCallback) {
     Core.execute('user.getIgnoreList', { }, true, successCallback, failedCallback);
 };
 
-// target - �?дентификатор, никнейм или ссылка на профиль игнорируемого пользователя
+// target - Идентификатор, никнейм или ссылка на профиль игнорируемого пользователя
 User.addToIgnoreList = function(target, successCallback, failedCallback) {
     Core.execute('user.addToIgnoreList', { target: target }, true, successCallback, failedCallback);
 };
@@ -995,6 +991,7 @@ User.get2FaStatus = function(successCallback, failedCallback) {
     Core.execute('user.get2FaStatus', { }, true, successCallback, failedCallback);
 };
 
+
 var Virality = function() {
 };
 
@@ -1002,6 +999,7 @@ var Virality = function() {
 Virality.linkAccount = function(code, vkReturnPath, successCallback, failedCallback) {
     Core.execute('virality.linkAccount', {code : code, vkReturnPath: vkReturnPath}, true, successCallback, failedCallback);
 };
+
 var Wall = function() {
 };
 

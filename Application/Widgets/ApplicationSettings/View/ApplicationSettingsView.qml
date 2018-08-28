@@ -20,7 +20,7 @@ PopupBase {
             generalSettingsPage.load();
             downloadSettingsPage.load();
             notificationSettingsPage.load();
-            messengerSettingsPage.load();
+            //messengerSettingsPage.load();
             blacklistPage.load();
         } catch (e) {
             console.log(e)
@@ -34,7 +34,7 @@ PopupBase {
         generalSettingsPage.reset();
         downloadSettingsPage.reset();
         notificationSettingsPage.reset();
-        messengerSettingsPage.reset();
+        //messengerSettingsPage.reset();
         blacklistPage.reset();
     }
 
@@ -43,7 +43,7 @@ PopupBase {
             generalSettingsPage.save();
             downloadSettingsPage.save();
             notificationSettingsPage.save();
-            messengerSettingsPage.save();
+            //messengerSettingsPage.save();
             blacklistPage.save();
         } catch (e) {
             console.log(e);
@@ -58,7 +58,7 @@ PopupBase {
         generalSettingsPage.setMarketingsParams(result);
         downloadSettingsPage.setMarketingsParams(result);
         notificationSettingsPage.setMarketingsParams(result);
-        messengerSettingsPage.setMarketingsParams(result);
+        //messengerSettingsPage.setMarketingsParams(result);
         return result;
     }
 
@@ -136,15 +136,15 @@ PopupBase {
                     onClicked: root.state = "NotificationsPage";
                 }
 
-                SettingsTextButton {
-                    checked: root.state === "MessengerPage"
-                    text: qsTr("MESSENGER_TAB")
-                    analytics {
-                        category: 'ApplicationSettings'
-                        action: 'Switch to MessengerPage'
-                    }
-                    onClicked: root.state = "MessengerPage";
-                }
+//                SettingsTextButton {
+//                    checked: root.state === "MessengerPage"
+//                    text: qsTr("MESSENGER_TAB")
+//                    analytics {
+//                        category: 'ApplicationSettings'
+//                        action: 'Switch to MessengerPage'
+//                    }
+//                    onClicked: root.state = "MessengerPage";
+//                }
 
                 SettingsTextButton {
                     checked: root.state === "BlacklistPage"
@@ -190,11 +190,11 @@ PopupBase {
                     anchors.fill: parent
                 }
 
-                MessengerSettings {
-                    id: messengerSettingsPage
+//                MessengerSettings {
+//                    id: messengerSettingsPage
 
-                    anchors.fill: parent
-                }
+//                    anchors.fill: parent
+//                }
 
                 Blacklist {
                     id: blacklistPage
@@ -274,14 +274,14 @@ PopupBase {
                 }
             }
         },
-        State {
-            name: "MessengerPage"
-            StateChangeScript {
-                script: {
-                    pageSwitcher.switchTo(messengerSettingsPage);
-                }
-            }
-        },
+//        State {
+//            name: "MessengerPage"
+//            StateChangeScript {
+//                script: {
+//                    pageSwitcher.switchTo(messengerSettingsPage);
+//                }
+//            }
+//        },
         State {
             name: "BlacklistPage"
             StateChangeScript {

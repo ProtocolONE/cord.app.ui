@@ -13,20 +13,7 @@ WidgetModel {
         target: SignalBus
         onNavigate: {
             if (link == 'gogamenetmoney') {
-                RestApi.Billing.isInGameRefillAvailable(function(response) {
-                    if (App.isOverlayEnabled()
-                            && response
-                            && !!response.enabled
-                            && false // INFO временно выключенно, пока будет исправлено пополнение GN-8648
-                       ) {
-                        root.openMoneyOverlay();
-                        return;
-                    }
-
-                    App.openExternalUrlWithAuth(Config.GnUrl.site("/pay/"));
-                }, function() {
-                    App.openExternalUrlWithAuth(Config.GnUrl.site("/pay/"));
-                });
+                App.openExternalUrlWithAuth(Config.GnUrl.site("/pay/"));
             }
         }
     }

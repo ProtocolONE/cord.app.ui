@@ -1,13 +1,3 @@
-/****************************************************************************
-** This file is a part of Syncopate Limited GameNet Application or it parts.
-**
-** Copyright (©) 2011 - 2012, Syncopate Limited and/or affiliates.
-** All rights reserved.
-**
-** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
-** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-****************************************************************************/
-
 import QtQuick 2.4
 import Tulip 1.0
 
@@ -34,7 +24,6 @@ Form {
     property string userId
     property alias loginSuggestion: loginSuggestion.dictionary
     property int loginMaxSize: 254
-    property bool guestMode
 
     property alias inProgress: d.inProgress
 
@@ -60,7 +49,6 @@ Form {
         visible: true
         title: qsTr("AUTH_BODY_REGISTER_TEXT")
         text: qsTr("AUTH_BODY_REGISTER_BUTTON")
-        guestMode: root.guestMode
     }
 
     Keys.onTabPressed: loginInput.forceActiveFocus()

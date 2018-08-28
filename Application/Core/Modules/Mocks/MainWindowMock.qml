@@ -67,8 +67,6 @@ Item {
     signal hide();
     signal windowActivated();
 
-    signal authGuestConfirmRequest(string serviceId);
-
     signal onSecondServiceFinished();
 
     function openExternalUrl(url) {

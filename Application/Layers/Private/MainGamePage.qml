@@ -21,14 +21,6 @@ ScrollArea {
     }
 
     WidgetContainer {
-        visible: root.hasCurrentGame
-            && root.currentGame.hasPremiumServer
-
-        widget: visible ? 'PremiumServer' : ''
-        view: 'PremiumServerLineView'
-    }
-
-    WidgetContainer {
         widget: 'GameAdBanner'
     }
 

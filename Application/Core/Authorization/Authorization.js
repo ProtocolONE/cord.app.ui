@@ -926,48 +926,6 @@ var _private = {
     }
 }
 
-var ProviderGuest = function() {
-};
-
-ProviderGuest.prototype.login = function(gameId, callback) {
-    var request = new Uri(_gnLoginUrl).addQueryParam('guest', 'register');
-
-    if (_mid) {
-        request.addQueryParam('mid', _mid)
-    }
-
-    if (_hwid) {
-        request.addQueryParam('hwid', _hwid)
-    }
-
-    if (gameId) {
-        request.addQueryParam('gameId', gameId)
-    }
-
-    http.request(request, function(response) {
-        _private.jsonCredentialCallback(response, callback);
-    });
-};
-
-ProviderGuest.prototype.confirm = function(userId, appKey, login, password, callback) {
-    var request = new Uri(_gnLoginUrl)
-        .addQueryParam('guest', 'confirm')
-        .addQueryParam('hwid', _hwid)
-        .addQueryParam('userId', userId)
-        .addQueryParam('appKey', appKey)
-        .addQueryParam('login', login)
-        .addQueryParam('password', encodeURIComponent(password));
-
-    var options = {
-        method: "post",
-        uri: request
-    };
-    
-    http.request(options, function(response) {
-        _private.jsonCredentialCallback(response, callback);
-    });
-};
-
 var ProviderOAuth = function(parent, hwid) {
     this.appId = "Unknown";
     this.networkId = "Unknown";

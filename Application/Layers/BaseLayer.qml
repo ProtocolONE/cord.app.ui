@@ -57,7 +57,6 @@ Item {
                     Popup.show('ApplicationSettings');
                     return;
                 }
-                case 'PremiumServer':
                 case 'GameSettings': {
                     return;
                 }
@@ -107,12 +106,12 @@ Item {
                     widget: 'UserProfile'
                 }
 
-                WidgetContainer {
-                    height: parent.height - userProfile.height
-                    width: 230
-                    widget: 'Messenger'
-                    view: 'Contacts'
-                }
+//                WidgetContainer {
+//                    height: parent.height - userProfile.height
+//                    width: 230
+//                    widget: 'Messenger'
+//                    view: 'Contacts'
+//                }
             }
 
             Item {
@@ -238,21 +237,6 @@ Item {
                             }
 
                             Popup.show('GameSettings');
-                            break;
-                        case 'PremiumServer':
-                            if (!root.selectedGamePage) {
-                                console.log('Fail to open PremiumServer popup');
-                                return;
-                            }
-
-                            if (User.hasUnlimitedSubscription(root.currentGame.serviceId)) {
-                                MessageBox.show(
-                                            qsTr("Доступ к премиум-серверу"),
-                                            qsTr("Доступ на премиум-сервер открыт Вам на весь период времени, в течение которого Администрация осуществляет поддержку и обеспечивает функционирование специально выделенных серверов игры."),
-                                            MessageBox.button.ok);
-                            } else {
-                                Popup.show('PremiumServer');
-                            }
                             break;
                         case 'AboutGame':
                             widgetContent.sourceComponent = aboutGameCmp;

@@ -7,6 +7,7 @@ import Application.Controls 1.0
 import Application.Controls.MessagePopup 1.0
 import Application.Core 1.0
 import Application.Core.Styles 1.0
+
 import Application.Widgets.Messenger.Addons 1.0
 
 import "../Models/Messenger.js" as MessengerJs

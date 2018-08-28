@@ -1,3 +1,0 @@
-module Application.Widgets.GuestConfirm
-PluginContainer 1.0 PluginContainer.qml 
-GuestConfirmView 1.0 View/GuestConfirmView.qml

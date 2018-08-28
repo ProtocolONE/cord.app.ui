@@ -1,4 +1,0 @@
-module Application.Widgets.P2PTransferRequest
-PluginContainer 1.0 PluginContainer.qml 
-P2PTransferRequestView 1.0 View/P2PTransferRequestView.qml
-P2PTransferRequestModel 1.0 P2PTransferRequestModel.qml

@@ -1,13 +1,3 @@
-/****************************************************************************
-** This file is a part of Syncopate Limited GameNet Application or it parts.
-**
-** Copyright (©) 2011 - 2013, Syncopate Limited and/or affiliates.
-** All rights reserved.
-**
-** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
-** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-****************************************************************************/
-
 import QtQuick 2.4
 import Tulip 1.0
 
@@ -41,8 +31,6 @@ Item {
     Item {
         id: d
 
-        property bool isBlackDesert: gameItem ? (gameItem.gameId === 1021) : false // BlackDesert id
-
         anchors {
             fill: parent
             margins: 9
@@ -64,9 +52,6 @@ Item {
 
             switch(action) {
 
-            case "reset":
-                Popup.show('ResetPin', 'ResetPinView');
-                break;
             case "download":
                 root.gameItem.noRun = true;
                 App.downloadButtonStart(root.gameItem.serviceId);
@@ -94,15 +79,6 @@ Item {
                              });
 
             } else {
-
-                if (d.isBlackDesert) {
-
-                    options.push({
-                                     name: qsTr("PLAY_MENU_RESET_PIN"),
-                                     action: "reset"
-                                 });
-                }
-
                 options.push({
                                  name: qsTr("PLAY_MENU_REFRESH"),
                                  action: "refresh"

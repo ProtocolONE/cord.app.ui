@@ -72,3 +72,6 @@ packages/
 *.rcc
 test.qml
 /Develop
+
+*.qmlc
+*.jsc

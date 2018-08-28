@@ -22,11 +22,8 @@ if %errorlevel% neq 0 goto rccFailed
 
 @rem call "%BUILD_PATH%\build_fix_cc.cmd" %BUILD_PATH%  >> qrc_build.log
                                   
-"%QTDIR%\bin\rcc.exe" -compress 3 -threshold 4 -binary  "%BUILD_PATH%\qGNA.qrc" -o "%BUILD_PATH%\qGNA.tmp"
+"%QTDIR%\bin\rcc.exe" -compress 3 -threshold 4 -binary  "%BUILD_PATH%\qGNA.qrc" -o "%BUILD_PATH%\qGNA.rcc"
 if %errorlevel% neq 0 goto rccFailed
-
-"%QTDIR%\bin\ert" e "%BUILD_PATH%\qGNA.tmp" "%BUILD_PATH%\qGNA.rcc"
-del /F /Q "%BUILD_PATH%\qGNA.tmp"
 
 set DST_PATH=.\
 

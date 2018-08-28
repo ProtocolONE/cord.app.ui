@@ -21,7 +21,6 @@ FocusScope {
     property alias vkButtonInProgress: footerItem.vkButtonInProgress
 
     signal footerPrimaryButtonClicked();
-    signal footerGuestButtonClicked();
     signal footerOAuthClicked(string network);
 
     //Не используйте childRect - он не пересчитывает при изменении visibily элементов в Column/Row
@@ -119,9 +118,7 @@ FocusScope {
         visible: footer.visible
         title: footer.title
         text: footer.text
-        guestMode: footer.guestMode
         onOpenOAuth: root.footerOAuthClicked(network);
         onClicked: root.footerPrimaryButtonClicked()
-        onGuestClicked: root.footerGuestButtonClicked()
     }
 }

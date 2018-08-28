@@ -1,13 +1,3 @@
-/****************************************************************************
-** This file is a part of Syncopate Limited GameNet Application or it parts.
-**
-** Copyright (©) 2011 - 2012, Syncopate Limited and/or affiliates.
-** All rights reserved.
-**
-** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
-** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-****************************************************************************/
-
 import QtQuick 2.4
 
 import Tulip 1.0
@@ -44,7 +34,7 @@ Rectangle {
         WidgetManager.registerWidget('Application.Widgets.GameInstall');
         WidgetManager.registerWidget('Application.Widgets.GameWebInstall');
         WidgetManager.registerWidget('Application.Widgets.Maintenance');
-        WidgetManager.registerWidget('Application.Widgets.Messenger');
+        //WidgetManager.registerWidget('Application.Widgets.Messenger');
         WidgetManager.registerWidget('Application.Widgets.PremiumShop');
         WidgetManager.registerWidget('Application.Widgets.TaskBar');
         WidgetManager.registerWidget('Application.Widgets.TaskList');
@@ -73,7 +63,7 @@ Rectangle {
           manager.registerWidget('Application.Widgets.MyGamesMenu');
         */
         WidgetManager.registerWidget('Application.Widgets.NicknameReminder');
-        WidgetManager.registerWidget('Application.Widgets.Overlay');
+        //WidgetManager.registerWidget('Application.Widgets.Overlay');
         WidgetManager.registerWidget('Application.Widgets.Money');
         WidgetManager.registerWidget('Application.Widgets.PremiumNotifier');
         WidgetManager.registerWidget('Application.Widgets.ServiceLockConnector');
@@ -81,12 +71,9 @@ Rectangle {
         WidgetManager.registerWidget('Application.Widgets.DetailedUserInfo');
         WidgetManager.registerWidget('Application.Widgets.GameSettings');
         WidgetManager.registerWidget('Application.Widgets.ApplicationSettings');
-        WidgetManager.registerWidget('Application.Widgets.PremiumServer');
         WidgetManager.registerWidget('Application.Widgets.StandaloneGameShop');
-        WidgetManager.registerWidget('Application.Widgets.GuestConfirm');
         WidgetManager.registerWidget('Application.Widgets.SilentMode');
 
-        WidgetManager.registerWidget('Application.Widgets.P2PTransferRequest')
         WidgetManager.registerWidget('Application.Widgets.GameRemoteFeature')
 
         //WidgetManager.registerWidget('Application.Widgets.AccountLogoutHelper');
@@ -97,8 +84,6 @@ Rectangle {
         }
 
         WidgetManager.registerWidget('Application.Widgets.Centrifugo')
-        WidgetManager.registerWidget('Application.Widgets.GameSurvey');
-        WidgetManager.registerWidget('Application.Widgets.ResetPin');
     }
 
     DragWindowArea {

@@ -12,11 +12,9 @@ Item {
     property alias vkButtonInProgress: vkButton.inProgress
     property alias title: primaryTextButton.title
     property alias text: primaryTextButton.text
-    property bool guestMode
 
     signal openOAuth(string network);
     signal clicked();
-    signal guestClicked();
 
     implicitHeight: 100
     implicitWidth: 500
@@ -116,13 +114,6 @@ Item {
 
                 anchors.right: parent.right
                 onClicked: root.clicked();
-            }
-
-            FooterButton {
-                title: qsTr("LOGIN_BY_GUEST_TITLE")
-                text: qsTr("LOGIN_BY_GUEST_BUTTON_TEXT")
-                visible: root.guestMode
-                onClicked: root.guestClicked();
             }
         }
     }

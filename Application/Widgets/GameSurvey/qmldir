@@ -1,3 +1,0 @@
-module Application.Widgets.GameSurvey
-PluginContainer 1.0 PluginContainer.qml 
-GameSurveyModel 1.0 GameSurveyModel.qml

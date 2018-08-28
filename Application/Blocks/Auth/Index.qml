@@ -1,13 +1,3 @@
-/****************************************************************************
-** This file is a part of Syncopate Limited GameNet Application or it parts.
-**
-** Copyright (©) 2011 - 2012, Syncopate Limited and/or affiliates.
-** All rights reserved.
-**
-** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
-** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-****************************************************************************/
-
 import QtQuick 2.4
 import Tulip 1.0
 import GameNet.Core 1.0
@@ -97,21 +87,6 @@ Item {
                 id: auth
 
                 visible: false
-                guestMode: isGuestExists()
-
-                function isGuestExists() {
-                    var guest = CredentialStorage.loadGuest();
-                    return !!guest && !!guest.userId && !!guest.appKey && !!guest.cookie;
-                }
-
-                function loadGuest() {
-                    var guest = CredentialStorage.loadGuest();
-                    if (!guest || !guest.userId || !guest.appKey || !guest.cookie) {
-                        return;
-                    }
-
-                    d.startLoadingServices(guest.userId, guest.appKey, guest.cookie);
-                }
 
                 onSecurityCodeRequired: {
                     authSecurityCodeBody.appCode = appCode;
@@ -148,7 +123,6 @@ Item {
                     }
                 }
 
-                onFooterGuestButtonClicked: loadGuest()
                 onFooterOAuthClicked: d.startOAuth(network)
                 loginSuggestion: d.loginSuggestion()
                 vkButtonInProgress: d.vkAuthInProgress
@@ -241,7 +215,6 @@ Item {
                 id: messageBody
 
                 property string backState
-                //property bool supportButton
 
                 visible: false
                 onClicked: authContainer.state = messageBody.backState;
@@ -440,41 +413,7 @@ Item {
 
             var savedAuth = CredentialStorage.load();
             if (!savedAuth || !savedAuth.userId || !savedAuth.appKey || !savedAuth.cookie) {
-                var guest = CredentialStorage.loadGuest();
-
-                if (!guest || !guest.userId || !guest.appKey || !guest.cookie) {
-                    authContainer.state = d.isAnyAuthorizationWasDone() ? "auth" : "registration";
-
-                    if (App.isSilentMode()) {
-                        var auth = new Authorization.ProviderGuest(),
-                            startingServiceId = App.startingService() || "0";
-
-                        if (startingServiceId == "0") {
-                            startingServiceId = ApplicationStatistic.installWithService();
-                        }
-
-                        auth.login(App.serviceItemByServiceId(startingServiceId).gameId, function(code, response) {
-                            if (!Authorization.isSuccess(code)) {
-                                // TODO ? Auth failed
-                                return;
-                            }
-
-                            Marketing.send(Marketing.GuestAccountRequest, startingServiceId, { userId: response.userId });
-
-                            CredentialStorage.saveGuest(response.userId, response.appKey, response.cookie, true);
-                            CredentialStorage.save(response.userId, response.appKey, response.cookie, true);
-                            d.startLoadingServices(response.userId, response.appKey, response.cookie);
-                        });
-
-                        return;
-                    }
-
-                    return;
-                }
-
-                savedAuth = guest;
-                CredentialStorage.save(guest.userId, guest.appKey, guest.cookie, true);
-                savedAuth.guest = true;
+                authContainer.state = d.isAnyAuthorizationWasDone() ? "auth" : "registration";
             }
 
             var lastRefresh = AppSettings.value("qml/auth/", "refreshDate", -1);

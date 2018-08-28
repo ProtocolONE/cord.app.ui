@@ -1,13 +1,3 @@
-/****************************************************************************
-** This file is a part of Syncopate Limited GameNet Application or it parts.
-**
-** Copyright (©) 2011 - 2013, Syncopate Limited and/or affiliates.
-** All rights reserved.
-**
-** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
-** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-****************************************************************************/
-
 import QtQuick 2.4
 import Tulip 1.0
 import GameNet.Core 1.0
@@ -35,16 +25,6 @@ WidgetModel {
         var gameItem = App.serviceItemByServiceId(serviceId);
         executeServiceDelay.serviceId = serviceId;
 
-        // INFO QGNA-1709 Включили 28.09.2017, выключить 11.10.2017
-//        if (serviceId === "30000000000") {
-//            var model = WidgetManager.getWidgetByName('P2PTransferRequest').model;
-//            if (model) {
-//                p2pTransferRequestConnection.target = model;
-//                model.checkTransfer(serviceId);
-//                return;
-//            }
-//        }
-
         if (gameItem.checkNicknameBeforeStart && !User.isNicknameValid()) {
             root.internalPopupId = Popup.show('NicknameEdit');
             root.closeView();
@@ -66,26 +46,26 @@ WidgetModel {
         SignalBus.progressChanged(gameItem);
     }
 
-    Connections {
-        id: p2pTransferRequestConnection
+//    Connections {
+//        id: p2pTransferRequestConnection
 
-        ignoreUnknownSignals: true
-        onProceed: {
-            // INFO fast execute after P2PTransferPopup
-            executeServiceDelay.interval = 500;
-            root.executeGame(executeServiceDelay.serviceId);
-        }
+//        ignoreUnknownSignals: true
+//        onProceed: {
+//            // INFO fast execute after P2PTransferPopup
+//            executeServiceDelay.interval = 500;
+//            root.executeGame(executeServiceDelay.serviceId);
+//        }
 
-        onCheckLicensedResult: {
-            if (!shouldShow) {
-                root.executeGame(executeServiceDelay.serviceId);
-                return;
-            }
+//        onCheckLicensedResult: {
+//            if (!shouldShow) {
+//                root.executeGame(executeServiceDelay.serviceId);
+//                return;
+//            }
 
-            root.internalP2PTransferPopupId = Popup.show('P2PTransferRequest');
-            root.closeView();
-        }
-    }
+//            root.internalP2PTransferPopupId = Popup.show('P2PTransferRequest');
+//            root.closeView();
+//        }
+//    }
 
     Connections {
         target: Popup
