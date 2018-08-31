@@ -1,5 +1,5 @@
 import QtQuick 2.4
-import GameNet.Controls 1.0
+import ProtocolOne.Controls 1.0
 
 Item {
     id: control
@@ -116,7 +116,7 @@ Item {
         visible: false
         anchors.centerIn: parent
         playing: visible
-        source: visible ? installPath + "Assets/Images/GameNet/Controls/Button/wait.gif" : ""
+        source: visible ? installPath + "Assets/Images/ProtocolOne/Controls/Button/wait.gif" : ""
     }
 
     StateGroup {

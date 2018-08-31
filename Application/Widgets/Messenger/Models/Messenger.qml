@@ -1,10 +1,10 @@
 import QtQuick 2.4
 import Tulip 1.0
 import QXmpp 1.0
-import GameNet.Core 1.0
-import GameNet.Controls 1.0
-import GameNet.Components.JobWorker 1.0
-import GameNet.Components.ItemModel 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Controls 1.0
+import ProtocolOne.Components.JobWorker 1.0
+import ProtocolOne.Components.ItemModel 1.0
 
 import Application.Core 1.0
 import Application.Core.Settings 1.0
@@ -40,7 +40,7 @@ Item {
     property string selectedJid
     property int currentTime
 
-    property variant gamenetUser
+    property variant protocolOneUser
 
     property bool contactReceived: false
     property bool connecting: false
@@ -196,7 +196,7 @@ Item {
 
         var options = {};
         var currentTime = Date.now();
-        options.resource = "QGNA_" + currentTime.toString() + Math.floor(Math.random() * 100);
+        options.resource = "Launcher_" + currentTime.toString() + Math.floor(Math.random() * 100);
         options.streamManagementMode = 1;
 
         root.connecting = true;
@@ -373,16 +373,16 @@ Item {
         return data.lastActivity || 0;
     }
 
-    function isGamenetUser(jid) {
-        return jid == UserJs.getGamenetUserJid();
+    function isProtocolOneUser(jid) {
+        return jid == UserJs.getProtocolOneUserJid();
     }
 
-    function isSelectedGamenet() {
-        return root.selectedJid == UserJs.getGamenetUserJid();
+    function isSelectedProtocolOne() {
+        return root.selectedJid == UserJs.getProtocolOneUserJid();
     }
 
-    function getGamenetUser() {
-        return usersModel.getById(UserJs.getGamenetUserJid());
+    function getProtocolOneUser() {
+        return usersModel.getById(UserJs.getProtocolOneUserJid());
     }
 
     function openDialog(options) {
@@ -534,13 +534,13 @@ Item {
         xmppClient.rosterManager.removeItem(user.jid);
     }
 
-    function isGameNetMember(user) {
+    function isProtocolOneMember(user) {
         var data = root.getUser(user.jid);
         if (!data.isValid()) {
             return false;
         }
 
-        return !!data.isGameNetMember;
+        return !!data.isProtocolOneMember;
     }
 
     function isUserBlocked(user) {
@@ -625,13 +625,13 @@ Item {
                                                        }));
         }
 
-        function createGamenetUser() {
-            if (usersModel.contains(UserJs.getGamenetUserJid())) {
+        function createProtocolOneUser() {
+            if (usersModel.contains(UserJs.getProtocolOneUserJid())) {
                 return;
             }
 
-            var rawUser = UserJs.createGamenetUser();
-            rawUser.statusMessage = qsTr("MESSENGER_GAMENET_USER_STATUS_MESSAGE");
+            var rawUser = UserJs.createProtocolOneUser();
+            rawUser.statusMessage = qsTr("MESSENGER_PROTOCOLONE_USER_STATUS_MESSAGE");
             usersModel.append(rawUser);
         }
 
@@ -810,7 +810,7 @@ Item {
                 }
 
                 MessengerPrivateJs.shortInfoQueue[jid] = 1;
-                user.isGameNetMember = (Lodash._.indexOf(groupMember.split(','), 'labelInChat') !== -1);
+                user.isProtocolOneMember = (Lodash._.indexOf(groupMember.split(','), 'labelInChat') !== -1);
             } catch(e) {
             }
         }
@@ -848,7 +848,7 @@ Item {
         }
 
         onUpdatePropertyRequest: {
-            if (key == "isGameNetMember") {
+            if (key == "isProtocolOneMember") {
                 d.requestShortInfo(id);
             }
         }
@@ -944,7 +944,7 @@ Item {
         onConnected: {
             console.log("Connected to server ");
 
-            d.createGamenetUser();
+            d.createProtocolOneUser();
 
             root.connected = true;
             root.everConnected = true;
@@ -954,7 +954,7 @@ Item {
             xmppClient.vcardManager.requestVCard(myUser.jid);
 
             root.connectedToServer();
-            root.gamenetUser = root.getGamenetUser();
+            root.ProtocolOneUser = root.getProtocolOneUser();
         }
 
         onDisconnected: {

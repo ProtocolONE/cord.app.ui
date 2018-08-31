@@ -4,8 +4,8 @@ import QtQuick.Window 2.2
 import QtWebEngine 1.1
 import QtWebEngine.experimental 1.0
 
-import GameNet.Core 1.0
-import GameNet.Controls 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Controls 1.0
 import Application.Core.Styles 1.0
 
 import Tulip 1.0

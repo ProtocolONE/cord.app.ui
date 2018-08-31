@@ -1,7 +1,7 @@
 import QtQuick 2.4
 
-import GameNet.Core 1.0
-import GameNet.Controls 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Controls 1.0
 
 import Application.Controls 1.0
 import Application.Core 1.0
@@ -105,12 +105,12 @@ Item {
             return Messenger.jidToUser(root.user.jid);
         }
 
-        function isGameNetMember() {
+        function isProtocolOneMember() {
             if (!root.user) {
                 return false;
             }
 
-            return Messenger.isGameNetMember(root.user)
+            return Messenger.isProtocolOneMember(root.user)
         }
 
         function getView() {
@@ -357,7 +357,7 @@ Item {
             extendedStatus: ''
             presenceStatus: d.presenceStatus()
             userId: d.userId()
-            isGameNetMember: d.isGameNetMember()
+            isProtocolOneMember: d.isProtocolOneMember()
 
             onGroupButtonClicked: {
                 if (Messenger.editGroupModel().isActive()) {

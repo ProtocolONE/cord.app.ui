@@ -5,7 +5,7 @@ import Tulip 1.0
 Item {
     id: root
 
-    property string defaultNamespace: "qGNA/settings/"
+    property string defaultNamespace: "Launcher/settings/"
 
     function value(path, key, value) {
        return Settings.value(path, key, value);

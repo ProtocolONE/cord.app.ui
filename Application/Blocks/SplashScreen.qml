@@ -1,5 +1,5 @@
 import QtQuick 2.4
-import GameNet.Controls 1.0
+import ProtocolOne.Controls 1.0
 
 import "SplashScreen"
 import Application.Core 1.0
@@ -31,7 +31,7 @@ Item {
         property int progress: 0
 
         function updateManagerFinished() {
-            startingGameNetText.text = qsTr("TEXT_STARTING_APPLICATION");
+            startingProtocolOneText.text = qsTr("TEXT_STARTING_APPLICATION");
             d.progress = 100;
             d.isUpdateManagerFinished = true;
             d.updateFinished();
@@ -98,7 +98,7 @@ Item {
     }
 
     Text {
-        id: startingGameNetText
+        id: startingProtocolOneText
 
         anchors { left: parent.left; leftMargin: 20; bottom: parent.bottom; bottomMargin: 15 }
         color: "#ffffff"

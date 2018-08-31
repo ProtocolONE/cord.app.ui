@@ -1,6 +1,6 @@
 import QtQuick 2.4
 
-import GameNet.Controls 1.0
+import ProtocolOne.Controls 1.0
 
 import Application.Controls 1.0
 import Application.Core.Styles 1.0

@@ -1,7 +1,7 @@
 import QtQuick 2.4
 import QXmpp 1.0
 import Tulip 1.0
-import GameNet.Core 1.0
+import ProtocolOne.Core 1.0
 import Application.Core.Settings 1.0
 
 import "User.js" as UserJs
@@ -28,8 +28,6 @@ QXmppClient {
     signal gamingInfoReceived(variant info);
 
     /**
-      INFO https://jira.gamenet.ru:8443/browse/QGNA-1130
-
       Этот врапер нужен для того, чтобы проверка на специальное событие не расползалась по всему коду приложения.
       Если где-то вам потребуется обычное сообщение - просто подписывайтесь на MessageReceived вместо
       MessageReceivedEx.
@@ -133,7 +131,7 @@ QXmppClient {
     }
 
     function isEvent(message) {
-        return (message.from === 'GameNet')
+        return (message.from === 'ProtocolOne')
                 && message.body.indexOf('EVENT:') === 0;
     }
 

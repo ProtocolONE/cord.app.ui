@@ -2,7 +2,7 @@ pragma Singleton
 
 import QtQuick 2.4
 
-import GameNet.Core 1.0
+import ProtocolOne.Core 1.0
 
 import Application.Models 1.0
 import Application.Core.Settings 1.0
@@ -312,7 +312,7 @@ Item {
         var i,
                 item,
                 last,
-                isGameNetItem,
+                isProtocolOneItem,
                 isItemShouldBeShown;
 
         root.count = data.length;
@@ -326,8 +326,8 @@ Item {
                 continue;
             }
 
-            isGameNetItem = (item.serviceId == '0');
-            isItemShouldBeShown = isPrivateTestVersion() || item.isPublishedInApp || isGameNetItem;
+            isProtocolOneItem = (item.serviceId == '0');
+            isItemShouldBeShown = isPrivateTestVersion() || item.isPublishedInApp || isProtocolOneItem;
 
             if (!isItemShouldBeShown) {
                 continue;
@@ -516,7 +516,7 @@ Item {
 
     function openSupportUrl(returnPath) {
         //id=10 это хардкоженная переменная, которую можно получить только после
-        //установки плагина авторизации GameNet в DeskPro.
+        //установки плагина авторизации ProtocolOne в DeskPro.
 
         var uri = ConfigJs.GnUrl.login('/integrations/deskpro/?id=10');
         if (returnPath) {

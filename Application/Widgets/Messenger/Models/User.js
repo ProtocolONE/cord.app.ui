@@ -59,17 +59,17 @@ function createRawGroupChat(roomJid, nickname) {
     return result;
 }
 
-function createGamenetUser() {
-    var obj = createRawUser("", "GameNet");
-    obj.jid = getGamenetUserJid();
+function createProtocolOneUser() {
+    var obj = createRawUser("", "ProtocolOne");
+    obj.jid = getProtocolOneUserJid();
     obj.userId = "";
     obj.presenceState = "online";
     obj.online = true;
     return obj;
 }
 
-function getGamenetUserJid() {
-    return "GameNet";
+function getProtocolOneUserJid() {
+    return "ProtocolOne";
 }
 
 function User(item, model, jabber) {
@@ -155,11 +155,11 @@ function User(item, model, jabber) {
     });
     defSetter("lastActivity");
 
-    this.__defineGetter__("isGameNetMember", function() {
-        _model.updatePropertyRequest(_item.jid, "isGameNetMember");
-        return _item.isGameNetMember;
+    this.__defineGetter__("isProtocolOneMember", function() {
+        _model.updatePropertyRequest(_item.jid, "isProtocolOneMember");
+        return _item.isProtocolOneMember;
     });
-    defSetter("isGameNetMember");
+    defSetter("isProtocolOneMember");
 
     this.__defineGetter__("groups", function() {
         var result = [];
@@ -279,8 +279,8 @@ function GroupChat(item, model, jabber) {
     }
 }
 
-function getGamenetUserJid() {
-    return "GameNet";
+function getProtocolOneUserJid() {
+    return "ProtocolOne";
 }
 
 function jidToUser(jid) {
@@ -312,12 +312,12 @@ function isOnline(status) {
     }
 }
 
-function isGameNet(item) {
+function isProtocolOne(item) {
     if (!item) {
         return false;
     }
 
-    return item.jid === getGamenetUserJid();
+    return item.jid === getProtocolOneUserJid();
 }
 
 function userIdToJid(userId) {

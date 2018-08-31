@@ -1,8 +1,8 @@
 import QtQuick 2.4
 import Tulip 1.0
 import QtWebKit 1.1
-import GameNet.Components.Widgets 1.0
-import GameNet.Controls 1.0
+import ProtocolOne.Components.Widgets 1.0
+import ProtocolOne.Controls 1.0
 import Application.Core 1.0
 
 import "./Money.js" as MoneyJs
@@ -76,7 +76,7 @@ WidgetView {
             }
 
             function getMoneyUrl() {
-                return User.getUrlWithCookieAuth("https://www.gamenet.ru/pay");
+                return User.getUrlWithCookieAuth("https://www.protocol.one/pay");
             }
 
             function urlEncondingHack(url) {

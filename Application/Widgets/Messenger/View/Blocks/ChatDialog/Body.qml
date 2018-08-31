@@ -1,9 +1,9 @@
 import QtQuick 2.4
 import Tulip 1.0
 
-import GameNet.Core 1.0
-import GameNet.Controls 1.0
-import GameNet.Components.Widgets 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Controls 1.0
+import ProtocolOne.Components.Widgets 1.0
 
 import Application.Controls 1.0
 import Application.Core 1.0
@@ -203,7 +203,7 @@ Item {
             onLinkActivated:  {
                 MessengerJs.instance().messageLinkActivated(root.user, link);
                 if (model.type === "invite") {
-                    var message = (link === "gamenet://subscription/accept"
+                    var message = (link === "protocolone://subscription/accept"
                     ? qsTr("MESSAGE_BODY_SUBSCRIPTION_INVITE_ACCEPTED") //"Вы приняли приглашение пользователя " + MessengerJs.getNickname(model)
                     : qsTr("MESSAGE_BODY_SUBSCRIPTION_INVITE_DECLINED")) //"Вы отказали пользователю " + MessengerJs.getNickname(model);
 
@@ -212,7 +212,7 @@ Item {
                 }
             }
 
-            isGameNetMember: MessengerJs.isGameNetMember(model);
+            isProtocolOneMember: MessengerJs.isProtocolOneMember(model);
 
             MouseArea {
                 anchors.fill: parent

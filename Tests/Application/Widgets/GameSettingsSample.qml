@@ -4,8 +4,8 @@ import Tulip 1.0
 
 import Application 1.0
 
-import GameNet.Components.Widgets 1.0
-import GameNet.Controls 1.0
+import ProtocolOne.Components.Widgets 1.0
+import ProtocolOne.Controls 1.0
 
 import Application.Core 1.0
 import Application.Core.MessageBox 1.0
@@ -29,8 +29,8 @@ Rectangle {
         id: fakeGameSettingsModelInstance
 
         property bool hasDownloadPath: true
-        property string installPath: "C:\\Program Files (x86)\\QGNA\\Games"
-        property string downloadPath: "C:\\Program Files (x86)\\QGNA\\Downloads"
+        property string installPath: "C:\\Program Files (x86)\\ProtocolOne\\Launcher\\Games"
+        property string downloadPath: "C:\\Program Files (x86)\\ProtocolOne\\Launcher\\Downloads"
 
         function switchGame(serviceId) {
         }

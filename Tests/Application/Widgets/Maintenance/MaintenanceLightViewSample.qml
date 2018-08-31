@@ -2,9 +2,9 @@ import QtQuick 2.4
 
 import Dev 1.0
 
-import GameNet.Core 1.0
-import GameNet.Components.Widgets 1.0
-import GameNet.Controls 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Components.Widgets 1.0
+import ProtocolOne.Controls 1.0
 
 import Application.Core 1.0
 import Application.Core.Styles 1.0
@@ -31,7 +31,7 @@ Rectangle {
 
                     "title":  "Технические работы окончатся через gggg",
                     "newsTitle": "Заголовок новости",
-                    "newsLink":  "https://gamenet.ru/games/phantomers/post/1iorr7/",
+                    "newsLink":  "https://protocol.one/games/phantomers/post/1iorr7/",
                     "newsText": "18 октября, с 8:00 до 12:00 часов по московскому времени серверы игры Phantomers будут остановлены для проведения плановых технических работ. В это время игра будет недоступна.
     В ходе технических работ будет проведено обслуживание серверной части и программного обеспечения.
     Приносим извинения за возможные неудобства.",

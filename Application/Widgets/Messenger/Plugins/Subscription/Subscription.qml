@@ -33,8 +33,8 @@ Item {
 
             var subscriptionRequestMessage = qsTr("MESSENGER_SUBSCRIPTION_REQUEST_MESSAGE")
                 .arg(reason)
-                .arg('gamenet://subscription/decline')
-                .arg('gamenet://subscription/accept');
+                .arg('protocolone://subscription/decline')
+                .arg('protocolone://subscription/accept');
 
             var tmpMessage = {
                 to: messenger.authedUser().jid,

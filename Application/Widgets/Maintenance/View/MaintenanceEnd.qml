@@ -1,5 +1,5 @@
 import QtQuick 2.4
-import GameNet.Core 1.0
+import ProtocolOne.Core 1.0
 
 import Application.Blocks 1.0
 import Application.Core 1.0

@@ -4,7 +4,7 @@ import QtQuick.Window 2.2
 import Tulip 1.0
 import QXmpp 1.0
 
-import GameNet.Controls 1.0
+import ProtocolOne.Controls 1.0
 
 import "pretty-data.js" as Pd
 

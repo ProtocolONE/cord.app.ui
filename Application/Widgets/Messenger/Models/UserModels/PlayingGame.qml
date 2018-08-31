@@ -1,7 +1,7 @@
 import QtQuick 2.4
-import GameNet.Core 1.0
-import GameNet.Controls 1.0
-import GameNet.Components.JobWorker 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Controls 1.0
+import ProtocolOne.Components.JobWorker 1.0
 
 import Application.Core 1.0
 
@@ -72,7 +72,7 @@ Item {
                 jid = keys[i];
                 modelUser = usersModel.get(jid);
 
-                if (!UserJs.isOnline(modelUser.presenceState) || UserJs.isGameNet(modelUser) || !modelUser.inContacts) {
+                if (!UserJs.isOnline(modelUser.presenceState) || UserJs.isProtocolOne(modelUser) || !modelUser.inContacts) {
                     continue;
                 }
 
@@ -291,7 +291,7 @@ Item {
             scheme = gameUri.scheme();
             host = gameUri.host();
 
-            if (scheme === 'gamenet://' && host === 'startservice') {
+            if (scheme === 'protocolone://' && host === 'startservice') {
                 serviceId = gameUri.path().split('/')[1] || "";
                 if (!App.serviceExists(serviceId)) {
                     serviceId = "";
@@ -345,7 +345,7 @@ Item {
             serviceId = App.currentRunningMainService() || App.currentRunningSecondService();
             if (serviceId) {
                 info = {
-                    uri: 'gamenet://startservice/' + serviceId + '/',
+                    uri: 'protocolone://startservice/' + serviceId + '/',
                     name: App.serviceItemByServiceId(serviceId).name
                 };
             }
@@ -380,7 +380,7 @@ Item {
 
         onServiceStarted: {
             var info = {
-                uri: 'gamenet://startservice/' + gameItem.serviceId + '/',
+                uri: 'protocolone://startservice/' + gameItem.serviceId + '/',
                 name: gameItem.name
             };
 

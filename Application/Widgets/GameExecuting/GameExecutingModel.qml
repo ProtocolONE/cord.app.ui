@@ -1,17 +1,13 @@
 import QtQuick 2.4
 import Tulip 1.0
-import GameNet.Core 1.0
-import GameNet.Components.Widgets 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Components.Widgets 1.0
 import Application.Blocks 1.0
 
-import "../../Core/App.js" as App
-import "../../Core/Popup.js" as Popup
-import "../../Core/restapi.js" as RestApi
-import "../../Core/TrayPopup.js" as TrayPopup
-import "../../Core/MessageBox.js" as MessageBox
-import "../../Core/User.js" as User
-import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
-import "../../../GameNet/Components/Widgets/WidgetManager.js" as WidgetManager
+import Application.Core 1.0
+import Application.Core.Popup 1.0
+import Application.Core.MessageBox 1.0
+import "../../../ProtocolOne/Components/Widgets/WidgetManager.js" as WidgetManager
 
 WidgetModel {
     id: root

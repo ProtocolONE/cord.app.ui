@@ -78,7 +78,7 @@ function createService(data) {
     urlProps = [
         'mainUrl',
         'guideUrl',
-        //'blogUrl', // https://jira.gamenet.ru:8443/browse/QGNA-1264
+        //'blogUrl',
         'licenseUrl',
     ];
 

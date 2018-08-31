@@ -1,7 +1,7 @@
 import QtQuick 2.4
 
-import GameNet.Components.Widgets 1.0
-import GameNet.Controls 1.0
+import ProtocolOne.Components.Widgets 1.0
+import ProtocolOne.Controls 1.0
 
 import Application.Core 1.0
 import Dev 1.0
@@ -31,11 +31,11 @@ Rectangle {
             "genre":"MMORPG",
             "genreId":3,
             "genrePosition":1,
-            "imageSmall":"https://images.gamenet.ru/pics/app/service/1421682897544.png",
-            "imageHorizontalSmall":"https://images.gamenet.ru/pics/app/service/1418739837872.png",
-            "imageLogoSmall":"https://images.gamenet.ru/pics/app/service/1418739840565.png",
-            "imagePopupArt":"https://images.gamenet.ru/pics/app/service/1418739843767.png",
-            "forumUrl":"https://forum.gamenet.ru/forumdisplay.php?f=4",
+            "imageSmall":"https://images.protocol.one/pics/app/service/1421682897544.png",
+            "imageHorizontalSmall":"https://images.protocol.one/pics/app/service/1418739837872.png",
+            "imageLogoSmall":"https://images.protocol.one/pics/app/service/1418739840565.png",
+            "imagePopupArt":"https://images.protocol.one/pics/app/service/1418739843767.png",
+            "forumUrl":"https://forum.protocol.one/forumdisplay.php?f=4",
             "guideUrl":"/games/bs/guides/",
             "blogUrl":"/games/bs/blog/",
             "licenseUrl":"/games/bs/rules/",
@@ -53,14 +53,14 @@ Rectangle {
 
             "isPublishedInApp":true,
             "isRunnable":true,
-            "iconInApp":"https://images.gamenet.ru/pics/app/service/1421926626182.ico",
+            "iconInApp":"https://images.protocol.one/pics/app/service/1421926626182.ico",
             "typeShortcut":"",
 
             "sortPositionInApp":4,
             "hasOverlay":true,
 
             "socialNet":[{"id":"vk","name":"VK","link":"http://vk.com/bloodandsoul"},{"id":"fb","name":"Facebook","link":""},{"id":"ok","name":"?????????????","link":""},{"id":"mm","name":"??????","link":""},{"id":"gp","name":"Google+","link":""},{"id":"tw","name":"Twitter","link":""},{"id":"yt","name":"YouTube","link":"http://www.youtube.com/bloodandsoulru"}],
-            "backgroundInApp":"https://images.gamenet.ru/pics/app/service/1432643400180.jpg"
+            "backgroundInApp":"https://images.protocol.one/pics/app/service/1432643400180.jpg"
         };
 
     }
@@ -165,7 +165,7 @@ Rectangle {
         }
 
         opacity: 0
-        text: qsTr("Чтобы открыть чат GameNet используете хоткей %1").arg("Ctrl+Alt+Del")
+        text: qsTr("Чтобы открыть чат ProtocolOne используете хоткей %1").arg("Ctrl+Alt+Del")
 
         Behavior on opacity { NumberAnimation { duration: 200 } }
 

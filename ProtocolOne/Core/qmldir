@@ -1,0 +1,7 @@
+module GameNet.Core
+RestApi 1.0 RestApi.js
+Ga 1.0 Analytics.js
+Lodash 1.0 lodash.js
+Moment 1.0 moment.js
+EmojiOne 1.0 EmojiOne.js
+StringHelper 1.0 Strings.js

@@ -2,9 +2,9 @@ import QtQuick 2.4
 
 import Dev 1.0
 
-import GameNet.Core 1.0
-import GameNet.Controls 1.0
-import GameNet.Components.Widgets 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Controls 1.0
+import ProtocolOne.Components.Widgets 1.0
 
 import Application 1.0
 import Application.Core 1.0
@@ -56,7 +56,7 @@ Rectangle {
         function initRestApi(options) {
             var url = Config.GnUrl.api();
             if (!Config.GnUrl.overrideApi()) {
-                url = AppSettings.value('qGNA/restApi', 'url', url);
+                url = AppSettings.value('Launcher/restApi', 'url', url);
             }
 
             RestApi.Core.setup({
@@ -93,8 +93,8 @@ Rectangle {
         Button {
             function startAuth() {
                 d.authDone('400001000129602790', '2c1a900517acb61cc43d53b1d709889ff41af3cd'); // gna@unit.test sabirov.dev
-                //d.authDone('400001000001634860', '4c2f65777d38eb07d32d111061005dcd5a119150'); // gna@unit.test gamenet.ru
-                //d.authDone('400001000129602790', '2c1a900517acb61cc43d53b1d709889ff41af3cd'); // gna@unit.test stg.gamenet.ru
+                //d.authDone('400001000001634860', '4c2f65777d38eb07d32d111061005dcd5a119150'); // gna@unit.test protocol.one
+                //d.authDone('400001000129602790', '2c1a900517acb61cc43d53b1d709889ff41af3cd'); // gna@unit.test stg.protocol.one
                 d.requestServices();
                 //connectToGo();
             }

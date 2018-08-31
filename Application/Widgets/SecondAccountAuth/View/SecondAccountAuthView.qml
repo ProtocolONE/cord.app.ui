@@ -1,8 +1,8 @@
 import QtQuick 2.4
 import Tulip 1.0
 
-import GameNet.Controls 1.0
-import GameNet.Components.Widgets 1.0
+import ProtocolOne.Controls 1.0
+import ProtocolOne.Components.Widgets 1.0
 
 import Application.Blocks.Auth 1.0
 import Application.Blocks.Popup 1.0
@@ -34,7 +34,7 @@ PopupBase {
                 MessageBox.button.ok | (supportButton ? MessageBox.button.support : 0),
                 function(result) {
                     if (result === MessageBox.button.support) {
-                        App.openExternalUrl("https://support.gamenet.ru");
+                        App.openExternalUrl("https://support.protocol.one");
                     }});
         }
 

@@ -11,11 +11,11 @@ Item {
         var serviceMatch
         , serviceId
         , subscriptionResult
-        , gameNetPattern = /^https?:\/\/(www\.|support\.|rewards\.)?gamenet\.ru/ig
-        , startServicePattern = /gamenet:\/\/startservice\/(\d*)/
-        , subscriptionResultPattern = /gamenet:\/\/subscription\/(decline|accept)/
+        , protocolOnePattern = /^https?:\/\/(www\.|support\.|rewards\.)?protocol\.one/ig
+        , startServicePattern = /protocolone:\/\/startservice\/(\d*)/
+        , subscriptionResultPattern = /protocolone:\/\/subscription\/(decline|accept)/
 
-        if (gameNetPattern.test(link)) {
+        if (protocolOnePattern.test(link)) {
             App.openExternalUrlWithAuth(link);
             return;
         }

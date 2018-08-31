@@ -1,7 +1,7 @@
 import QtQuick 2.4
 import Tulip 1.0
 
-import GameNet.Controls 1.0
+import ProtocolOne.Controls 1.0
 
 import Application.Core 1.0
 import Application.Core.Styles 1.0
@@ -20,7 +20,7 @@ Item {
     property alias presenceStatus: presenceIcon.status
 
     property string userId: ""
-    property alias isGameNetMember: shieldItem.visible
+    property alias isProtocolOneMember: shieldItem.visible
 
     signal nicknameClicked()
     signal clicked()
@@ -37,7 +37,7 @@ Item {
     QtObject {
         id: d
 
-        property bool isGameNetUser: !root.userId // у GameNet пользователя userId пустой
+        property bool isProtocolOneUser: !root.userId // у ProtocolOne пользователя userId пустой
         property string imageRoot: installPath + "Assets/Images/Application/Widgets/Messenger/ContactItem/"
 
         function openProfile() {
@@ -66,7 +66,7 @@ Item {
             asynchronous: true
 
             CursorMouseArea {
-                visible: !d.isGameNetUser
+                visible: !d.isProtocolOneUser
                 toolTip: qsTr("CONTACT_ITEM_NICKNAME_TOOLTIP").arg(nicknameText.text)
                 anchors.fill: parent
                 onClicked: root.nicknameClicked();
@@ -118,7 +118,7 @@ Item {
                         textFormat: Text.PlainText
 
                         CursorMouseArea {
-                            visible: !d.isGameNetUser
+                            visible: !d.isProtocolOneUser
                             toolTip: qsTr("CONTACT_ITEM_NICKNAME_TOOLTIP").arg(nicknameText.text)
                             width: nickRowItem.paintedWidth
                             height: nickRowItem.height
@@ -126,7 +126,7 @@ Item {
                         }
                     }
 
-                    Blocks.GameNetShield {
+                    Blocks.ProtocolOneShield {
                         id: shieldItem
 
                         anchors {
@@ -183,7 +183,7 @@ Item {
             right: parent.right
         }
 
-        visible: !d.isGameNetUser
+        visible: !d.isProtocolOneUser
         checked: false
         onClicked: root.groupButtonClicked()
     }

@@ -21,7 +21,7 @@ Item {
     property color trayPopupText: "#FFFFFF"
 
     // Images header
-    property string headerGameNetLogo: "Assets/Images/Application/Blocks/Header/GamenetLogo.png"
+    property string headerProtocolOneLogo: "Assets/Images/Application/Blocks/Header/ProtocolOneLogo.png"
     property string headerAllGames: "Assets/Images/Application/Blocks/Header/AllGames.png"
     property string headerMyGames: "Assets/Images/Application/Blocks/Header/MyGames.png"
     property string headerSupport: "Assets/Images/Application/Blocks/Header/Support.png"
@@ -82,15 +82,15 @@ Item {
     // Ask link
     property string linkIconAsk: "Assets/Images/Application/Blocks/link14_sign.png"
 
-    //GameNet Input
-    property string inputCaptchaIcon: "Assets/Images/GameNet/Controls/Input/captcha.png"
-    property string inputEmailIcon: "Assets/Images/GameNet/Controls/Input/email.png"
-    property string inputPasswordIcon: "Assets/Images/GameNet/Controls/Input/password.png"
-    property string inputUpdateIcon: "Assets/Images/GameNet/Controls/Input/update.png"
+    //ProtocolOne Input
+    property string inputCaptchaIcon: "Assets/Images/ProtocolOne/Controls/Input/captcha.png"
+    property string inputEmailIcon: "Assets/Images/ProtocolOne/Controls/Input/email.png"
+    property string inputPasswordIcon: "Assets/Images/ProtocolOne/Controls/Input/password.png"
+    property string inputUpdateIcon: "Assets/Images/ProtocolOne/Controls/Input/update.png"
 
     property string allGamesDropDown: "Assets/Images/Application/Widgets/AllGames/crossButton.png"
 
-    // GameNet 3.4
+    // ProtocolOne 3.4
     property double baseBackgroundOpacity: 0.75
     property double darkBackgroundOpacity: 0.90
     property double blockInnerOpacity: 0.10 //block_inner
@@ -227,7 +227,7 @@ Item {
     property color downloadProgressBackground: "#0d5043"
     property color downloadProgressLine: "#35cfb1"
 
-    // End of GameNet 3.4
+    // End of ProtocolOne 3.4
 
     //PRIVATE PART
     property variant styleList

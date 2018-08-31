@@ -1,6 +1,6 @@
 import QtQuick 2.4
 import Tulip 1.0
-import GameNet.Controls 1.0
+import ProtocolOne.Controls 1.0
 import Application.Controls 1.0
 
 import "../../../Models/Messenger.js" as MessengerJs

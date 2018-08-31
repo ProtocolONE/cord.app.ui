@@ -1,8 +1,8 @@
 import QtQuick 2.4
 import Tulip 1.0
 
-import GameNet.Controls 1.0
-import GameNet.Core 1.0
+import ProtocolOne.Controls 1.0
+import ProtocolOne.Core 1.0
 
 import Application.Controls 1.0
 import Application.Core 1.0
@@ -78,11 +78,11 @@ Form {
                 }
 
                 if (!response) {
-                    root.error(qsTr("AUTH_FAIL_GAMENET_UNAVAILABLE"));
+                    root.error(qsTr("AUTH_FAIL_PROTOCOLONE_UNAVAILABLE"));
                     return;
                 }
 
-                var errorMessage = response.message || (qsTr("AUTH_FAIL_GAMENET_UNKNOWN").arg(response.code));
+                var errorMessage = response.message || (qsTr("AUTH_FAIL_PROTOCOLONE_UNKNOWN").arg(response.code));
                 root.error(errorMessage);
             });
         }
@@ -141,7 +141,7 @@ Form {
                 }
 
                 if (!response) {
-                    root.error(qsTr("AUTH_FAIL_GAMENET_UNAVAILABLE"));
+                    root.error(qsTr("AUTH_FAIL_PROTOCOLONE_UNAVAILABLE"));
                     return;
                 }
 
@@ -168,7 +168,7 @@ Form {
             if (root.authToken.length > 0 && root.userId.length > 0)
                 Authorization.requestValidateAuthToken(root.authToken, root.userId, rememberThisComputer.checked, authCallback);
             else
-                Authorization.loginByGameNet(root.login, root.password, root.remember, authCallback);
+                Authorization.loginByProtocolOne(root.login, root.password, root.remember, authCallback);
         }
     }
 

@@ -1,7 +1,7 @@
 import QtQuick 2.4
 import Tulip 1.0
-import GameNet.Core 1.0
-import GameNet.Controls 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Controls 1.0
 
 import Application.Core 1.0
 import Application.Core.Styles 1.0
@@ -24,7 +24,7 @@ Item {
     property bool firstMessageInGroup: false
     property bool isReplacedMessage: false
 
-    property alias isGameNetMember: shieldItem.visible
+    property alias isProtocolOneMember: shieldItem.visible
 
     signal linkActivated(string link);
     signal userClicked();
@@ -176,7 +176,7 @@ Item {
                             }
                         }
 
-                        Blocks.GameNetShield {
+                        Blocks.ProtocolOneShield {
                             id: shieldItem
 
                             anchors {

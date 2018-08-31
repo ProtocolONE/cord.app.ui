@@ -1,6 +1,6 @@
 import QtQuick 2.4
 
-import GameNet.Controls 1.0
+import ProtocolOne.Controls 1.0
 
 import Application.Blocks 1.0
 import Application.Blocks.Popup 1.0
@@ -31,7 +31,6 @@ PopupBase {
         property bool isBattleCarnival: !!root.currentGame && root.currentGame.serviceId == "370000000000"
 
         function battleCarnivalHack() {
-            // INFO https://jira.gamenet.ru/browse/QGNA-1611
             var newPath = gameSettingsModelInstance.installPath;
             var validContactPattern = new RegExp("^[-0-9a-zA-Z:_()\\\\\/\. ]+$");
             if (!validContactPattern.test(newPath)) {

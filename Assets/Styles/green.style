@@ -8,8 +8,8 @@
     },
     "authors": [
         {
-            "name": "GameNet",
-            "email": "support@gamenet.ru"
+            "name": "ProtocolOne",
+            "email": "support@ProtocolOne.ru"
         }
     ],
     "styles": {
@@ -121,7 +121,7 @@
         "popupSplitter": "#ffffff",
         "downloadProgressBackground": "#0d5043",
         "downloadProgressLine": "#35cfb1",
-        "headerGameNetLogo": "Assets/Images/Application/Blocks/Header/GamenetLogo.png",
+        "headerProtocolOneLogo": "Assets/Images/Application/Blocks/Header/ProtocolOneLogo.png",
         "headerAllGames": "Assets/Images/Styles/green/Application/Blocks/Header/AllGames.png",
         "headerMyGames": "Assets/Images/Application/Blocks/Header/MyGames.png",
         "headerSupport": "Assets/Images/Styles/green/Application/Blocks/Header/Support.png",
@@ -159,10 +159,10 @@
         "promoCodeIcon": "Assets/Images/Application/Widgets/PromoCode/promo.png",
         "nicknameEditIcon": "Assets/Images/Application/Widgets/NicknameEdit/nickname.png",
         "supportIcon": "Assets/Images/Styles/green/Application/Blocks/bug.png",
-        "inputCaptchaIcon": "Assets/Images/GameNet/Controls/Input/captcha.png",
-        "inputEmailIcon": "Assets/Images/GameNet/Controls/Input/email.png",
-        "inputPasswordIcon": "Assets/Images/GameNet/Controls/Input/password.png",
-        "inputUpdateIcon": "Assets/Images/GameNet/Controls/Input/update.png",
+        "inputCaptchaIcon": "Assets/Images/ProtocolOne/Controls/Input/captcha.png",
+        "inputEmailIcon": "Assets/Images/ProtocolOne/Controls/Input/email.png",
+        "inputPasswordIcon": "Assets/Images/ProtocolOne/Controls/Input/password.png",
+        "inputUpdateIcon": "Assets/Images/ProtocolOne/Controls/Input/update.png",
         "allGamesDropDown": "Assets/Images/Application/Widgets/AllGames/crossButton.png",
         "headerCollapse": "Assets/Images/Styles/green/Application/Blocks/Header/CollapseIcon.png",
         "linkIconHeader": "Assets/Images/Application/Blocks/link14.png",

@@ -1,5 +1,5 @@
 import QtQuick 2.4
-import GameNet.Controls 1.0
+import ProtocolOne.Controls 1.0
 import Application.Controls 1.0
 import Application.Core 1.0
 import Application.Core.Styles 1.0
@@ -18,7 +18,7 @@ Item {
             leftMargin: 8
             verticalCenter: parent.verticalCenter
         }
-        source: installPath + Styles.headerGameNetLogo
+        source: installPath + Styles.headerProtocolOneLogo
     }
 
     ImageButton {

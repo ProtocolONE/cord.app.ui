@@ -1,5 +1,5 @@
 import QtQuick 2.4
-import GameNet.Controls 1.0
+import ProtocolOne.Controls 1.0
 import "./Occupant.js" as OccupantJs
 
 Item {
@@ -26,7 +26,7 @@ Item {
     property bool inContacts: false
     property bool isGroupChat: false
     property int subscription: 0
-    property bool isGameNetMember: false
+    property bool isProtocolOneMember: false
 
     function participants() {
         return partisipantsLoader.item

@@ -3,9 +3,9 @@ import QtQuick.Window 2.2
 
 import Tulip 1.0
 
-import GameNet.Core 1.0
-import GameNet.Components.Widgets 1.0
-import GameNet.Controls 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Components.Widgets 1.0
+import ProtocolOne.Controls 1.0
 
 import Dev 1.0
 
@@ -161,7 +161,7 @@ Window {
                                 id: Math.random(),
                                 serviceId: '300003010000000000',
                                 size: popupSize,
-                                image: 'https://images.gamenet.ru/pics/app/service/1418914233742.png',
+                                image: 'https://images.protocol.one/pics/app/service/1418914233742.png',
                                 buttonColor: 1,
                                 text: 'Hello',
                                 textOnButton: 'Play',

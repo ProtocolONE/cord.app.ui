@@ -1,7 +1,7 @@
 import QtQuick 2.4
 import Tulip 1.0
-import GameNet.Core 1.0
-import GameNet.Controls 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Controls 1.0
 
 import Application.Controls 1.0
 import Application.Core 1.0
@@ -312,7 +312,7 @@ Item {
                 MessageBox.button.ok | (supportButton ? MessageBox.button.support : 0),
                 function(result) {
                     if (result === MessageBox.button.support) {
-                        App.openExternalUrl("https://support.gamenet.ru");
+                        App.openExternalUrl("https://support.protocol.one");
                     }});
         }
 

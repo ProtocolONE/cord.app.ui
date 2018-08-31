@@ -1,6 +1,6 @@
 import QtQuick 2.4
 import QtMultimedia 5.5
-import GameNet.Controls 1.0
+import ProtocolOne.Controls 1.0
 
 Item {
     id: root

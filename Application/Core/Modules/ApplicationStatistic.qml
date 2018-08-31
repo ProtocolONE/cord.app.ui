@@ -10,7 +10,7 @@ Item {
             return wrapper.item.installDate();
         }
 
-        return AppSettings.value('qGNA', 'installDate', 0);
+        return AppSettings.value('Launcher', 'installDate', 0);
     }
 
     function installWithService() {
@@ -18,7 +18,7 @@ Item {
             return wrapper.item.installWithService();
         }
 
-        return AppSettings.value('qGNA', 'installWithService', "0");
+        return AppSettings.value('Launcher', 'installWithService', "0");
     }
 
     function executeGameSuccessCount(serviceId) {

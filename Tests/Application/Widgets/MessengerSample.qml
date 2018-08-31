@@ -1,9 +1,9 @@
 import QtQuick 2.4
 
-import GameNet.Core 1.0
-import GameNet.Components.Widgets 1.0
-import GameNet.Components.JobWorker 1.0
-import GameNet.Controls 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Components.Widgets 1.0
+import ProtocolOne.Components.JobWorker 1.0
+import ProtocolOne.Controls 1.0
 
 import Dev 1.0
 
@@ -109,7 +109,7 @@ Rectangle {
         width: 30
         height: 30
         widget: 'Messenger'
-        view: 'GameNetNotification'
+        view: 'ProtocolOneNotification'
 
         anchors {
             right: parent.right
@@ -248,10 +248,10 @@ Rectangle {
            height: 30
            text: 'Test '
            onClicked: {
-               var q = "GameNet";
-                MessengerJs.instance().messageReceived(q, "Добро пожаловать в GameNet", {
+               var q = "ProtocolOne";
+                MessengerJs.instance().messageReceived(q, "Добро пожаловать в ProtocolOne", {
                                                            from: q,
-                                                           body: "Добро пожаловать в GameNet"
+                                                           body: "Добро пожаловать в ProtocolOne"
                                                        });
            }
 
@@ -306,7 +306,7 @@ Rectangle {
                         text: 'Get blacklist'
                         onClicked: {
                             MessengerJs.instance().getJabberClient().blacklistManager.requestList();
-                            //400001000001709310@qj.gamenet.ru
+                            //400001000001709310@qj.protocol.one
                         }
                     }
 
@@ -316,8 +316,8 @@ Rectangle {
                         text: 'Add to blacklist'
                         onClicked: {
 
-                            MessengerJs.instance().getJabberClient().blacklistManager.blockUser('400001000001709310@qj.gamenet.ru');
-                            //400001000001709310@qj.gamenet.ru
+                            MessengerJs.instance().getJabberClient().blacklistManager.blockUser('400001000001709310@qj.protocol.one');
+                            //400001000001709310@qj.protocol.one
                         }
                     }
 
@@ -325,8 +325,8 @@ Rectangle {
                         height: 30
                         text: 'Remove from blacklist'
                         onClicked: {
-                            MessengerJs.instance().getJabberClient().blacklistManager.unblockUser('400001000001709310@qj.gamenet.ru');
-                            //400001000001709310@qj.gamenet.ru
+                            MessengerJs.instance().getJabberClient().blacklistManager.unblockUser('400001000001709310@qj.protocol.one');
+                            //400001000001709310@qj.protocol.one
                         }
                     }
 

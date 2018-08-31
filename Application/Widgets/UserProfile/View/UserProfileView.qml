@@ -1,7 +1,7 @@
 import QtQuick 2.4
-import GameNet.Core 1.0
-import GameNet.Components.Widgets 1.0
-import GameNet.Controls 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Components.Widgets 1.0
+import ProtocolOne.Controls 1.0
 import Application.Controls 1.0
 
 import Tulip 1.0
@@ -24,7 +24,7 @@ WidgetView {
     QtObject {
         id: d
 
-        function getGameNetProfileUrl() {
+        function getProtocolOneProfileUrl() {
             return Config.GnUrl.site("/users/" + (User.getTechName() || User.userId()) + "/");
         }
 
@@ -128,7 +128,7 @@ WidgetView {
         }
 
         function openProfile() {
-            App.openExternalUrlWithAuth(d.getGameNetProfileUrl());
+            App.openExternalUrlWithAuth(d.getProtocolOneProfileUrl());
         }
     }
 
@@ -181,7 +181,7 @@ WidgetView {
 
                                 color: Styles.textBase
                                 font { family: "Arial"; pixelSize: 12 }
-                                text: qsTr("GAMENET_BALANCE")
+                                text: qsTr("PROTOCOLONE_BALANCE")
                             }
 
                             Text {

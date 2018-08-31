@@ -1,9 +1,9 @@
 import QtQuick 2.4
 import Tulip 1.0
 
-import GameNet.Core 1.0
-import GameNet.Controls 1.0
-import GameNet.Components.Widgets 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Controls 1.0
+import ProtocolOne.Components.Widgets 1.0
 
 import Application.Blocks 1.0
 import Application.Core 1.0
@@ -175,7 +175,6 @@ WidgetModel {
         }
     }
 
-    // INFO Disabled by QGNA-1752
     function checkAndShowDyingAnnouncements() {
         if (!AnnouncementsHelper.announceList)
             return;
@@ -373,7 +372,6 @@ WidgetModel {
 
         d.noLicenseRemind();
 
-        // INFO Disabled by QGNA-1752
         // checkAndShowDyingAnnouncements();
 
         var now = +(new Date());

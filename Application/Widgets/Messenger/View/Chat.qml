@@ -1,9 +1,9 @@
 import QtQuick 2.4
 import Tulip 1.0
 
-import GameNet.Core 1.0
-import GameNet.Controls 1.0
-import GameNet.Components.Widgets 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Controls 1.0
+import ProtocolOne.Components.Widgets 1.0
 
 import Application.Controls 1.0
 import Application.Core 1.0
@@ -89,7 +89,7 @@ WidgetView {
             right: parent.right
         }
 
-        height: MessengerJs.isSelectedGamenet()
+        height: MessengerJs.isSelectedProtocolOne()
                     ? (root.height - header.height - 2)
                     : (separator.y - header.height)
 
@@ -98,7 +98,7 @@ WidgetView {
     ChatDialog.MessageInput {
         id: messageInput
 
-        visible: !MessengerJs.isSelectedGamenet()
+        visible: !MessengerJs.isSelectedProtocolOne()
         width: parent.width
         anchors {
             bottom: parent.bottom

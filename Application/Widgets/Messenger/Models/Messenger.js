@@ -149,12 +149,12 @@ function userLastActivity(item) {
     return _modelInstance.lastActivity(item);
 }
 
-function isSelectedGamenet() {
-    return _modelInstance.isSelectedGamenet();
+function isSelectedProtocolOne() {
+    return _modelInstance.isSelectedProtocolOne();
 }
 
-function isGamenetUser(item) {
-    return _modelInstance.isGamenetUser(item.jid);
+function isProtocolOneUser(item) {
+    return _modelInstance.isProtocolOneUser(item.jid);
 }
 
 function isConnecting() {
@@ -165,8 +165,8 @@ function isConnected() {
     return _modelInstance.connected;
 }
 
-function getGamenetUser() {
-    return _modelInstance.gamenetUser;
+function getProtocolOneUser() {
+    return _modelInstance.protocolOneUser;
 }
 
 function openDialog(user) {
@@ -266,8 +266,8 @@ function removeContact(user) {
     _modelInstance.removeContact(user);
 }
 
-function isGameNetMember(user) {
-    return _modelInstance.isGameNetMember(user);
+function isProtocolOneMember(user) {
+    return _modelInstance.isProtocolOneMember(user);
 }
 
 function isUserBlocked(user) {

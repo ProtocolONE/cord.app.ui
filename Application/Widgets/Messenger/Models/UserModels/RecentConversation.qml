@@ -1,8 +1,8 @@
 import QtQuick 2.4
 import Tulip 1.0
 
-import GameNet.Core 1.0
-import GameNet.Controls 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Controls 1.0
 
 import Application.Controls 1.0
 import Application.Core 1.0
@@ -20,7 +20,7 @@ Item {
     property bool pauseProcessing
 
     property int unreadContactCount: d.calcUnreadContactCount()
-    property bool unreadGameNetMessages: d.hasUnreadGameNetMessages()
+    property bool unreadProtocolOneMessages: d.hasUnreadProtocolOneMessages()
     property alias proxyModel: proxyModel
     property alias count: proxyModel.count
 
@@ -116,7 +116,7 @@ Item {
                 }
 
                 lastTalkDate = modelUser.lastTalkDate || 0;
-                if (lastTalkDate == 0 || UserJs.isGameNet(modelUser)) {
+                if (lastTalkDate == 0 || UserJs.isProtocolOne(modelUser)) {
                     continue;
                 }
 
@@ -211,7 +211,7 @@ Item {
         function talkDateChanged(userId) {
             var user = messenger.getUser(userId);
 
-            if (UserJs.isGameNet(user)) {
+            if (UserJs.isProtocolOne(user)) {
                 return;
             }
 
@@ -253,7 +253,7 @@ Item {
             return result;
         }
 
-        function hasUnreadGameNetMessages() {
+        function hasUnreadProtocolOneMessages() {
             if (!messenger) {
                 return false;
             }
@@ -261,9 +261,9 @@ Item {
             // HACK: значение нужно для биндинга, но фактически не используется
             var count = proxyModel.count;
 
-            var gameNetUser = messenger.getGamenetUser();
-            if (gameNetUser) {
-                return gameNetUser.unreadMessageCount > 0;
+            var ProtocolOneUser = messenger.getProtocolOneUser();
+            if (protocolOneUser) {
+                return protocolOneUser.unreadMessageCount > 0;
             }
 
             return false;

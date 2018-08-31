@@ -4,7 +4,7 @@ import QtQuick.Window 2.2
 // INFO It's exports install path
 import Dev 1.0
 
-import GameNet.Controls 1.0
+import ProtocolOne.Controls 1.0
 
 import Application.Core 1.0
 import Application.Core.RootWindow 1.0
@@ -18,7 +18,7 @@ Window {
     height: main.height
     color: "transparent"
 
-    title: "GameNet" + App.fileVersion()
+    title: "ProtocolOne" + App.fileVersion()
     flags: Qt.Window
            | Qt.FramelessWindowHint
            | Qt.WindowMinimizeButtonHint

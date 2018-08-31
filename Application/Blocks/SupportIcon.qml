@@ -1,14 +1,9 @@
-import QtQuick 1.1
-import GameNet.Controls 1.0
+import QtQuick 2.4
+
+import ProtocolOne.Controls 1.0
+
 import Application.Controls 1.0
 
-import "../Core/App.js" as App
-import "../Core/Styles.js" as Styles
-import "../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
-
-/*
-More info in https://jira.gamenet.ru:8443/browse/QGNA-1348
-*/
 Item {
     id: root
 

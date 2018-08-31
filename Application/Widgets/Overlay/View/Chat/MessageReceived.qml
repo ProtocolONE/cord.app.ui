@@ -1,7 +1,7 @@
 import QtQuick 2.4
 
-import GameNet.Core 1.0
-import GameNet.Controls 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Controls 1.0
 
 import Application.Controls 1.0
 import Application.Controls.MessagePopup 1.0

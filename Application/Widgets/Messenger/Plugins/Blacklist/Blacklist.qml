@@ -3,7 +3,7 @@ pragma Singleton
 import QtQuick 2.0
 import QXmpp 1.0
 
-import GameNet.Core 1.0
+import ProtocolOne.Core 1.0
 
 import Application.Widgets.Messenger.Models.Managers 1.0
 import Application.Core 1.0
@@ -14,7 +14,7 @@ import "./Blacklist.js" as Js
 Item {
     id: root
 
-    property variant gamenetBlacklist
+    property variant protocolOneBlacklist
 
     property variant jabber
     property variant messenger
@@ -55,7 +55,7 @@ Item {
             return;
         }
 
-        root.gamenetBlacklist = res
+        root.protocolOneBlacklist = res
             .filter(function(item) {
                 return !(!item || !item.id);
             })
@@ -64,7 +64,7 @@ Item {
             });
 
         Js.clear();
-        root.gamenetBlacklist.forEach(function(jid) {
+        root.protocolOneBlacklist.forEach(function(jid) {
             Js.block(jid)
         });
 
@@ -74,8 +74,8 @@ Item {
     function jabberBlacklistReceived(blacklist) {
         var jabberBlacklist = Object.keys(blacklist).map(function(i) { return blacklist[i]; });
 
-        var usersToUnblock = Lodash._.difference(jabberBlacklist, root.gamenetBlacklist);
-        var usersToBlock = Lodash._.difference(root.gamenetBlacklist, jabberBlacklist);
+        var usersToUnblock = Lodash._.difference(jabberBlacklist, root.protocolOneBlacklist);
+        var usersToBlock = Lodash._.difference(root.protocolOneBlacklist, jabberBlacklist);
 
         usersToBlock.forEach(root.jabberBlockUser);
         usersToUnblock.forEach(root.jabberUnblockUser);
@@ -87,11 +87,11 @@ Item {
         root.jabber.blacklistManager.unblockUser(jid);
         root.jabber.resetVcardCache(jid);
 
-        var updateList = root.gamenetBlacklist.filter(function(item) {
+        var updateList = root.protocolOneBlacklist.filter(function(item) {
             return item != jid;
         });
 
-        root.gamenetBlacklist = updateList;
+        root.protocolOneBlacklist = updateList;
 
         Js.unblock(jid);
 
@@ -110,10 +110,10 @@ Item {
         }
 
         var updateList = [];
-        root.gamenetBlacklist.forEach(function(i) { updateList.push(i); } );
+        root.protocolOneBlacklist.forEach(function(i) { updateList.push(i); } );
         updateList.push(jid);
 
-        root.gamenetBlacklist = updateList;
+        root.protocolOneBlacklist = updateList;
 
         Js.block(jid);
 

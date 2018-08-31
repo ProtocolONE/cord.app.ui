@@ -1,13 +1,13 @@
 .pragma library
-Qt.include("../../../../GameNet/Core/Strings.js")
+Qt.include("../../../../ProtocolOne/Core/Strings.js")
 Qt.include("./Quote.js")
 
 /**
- * Заменяет ссылку вида gamenet://startservice/<serviceId> на гиперссылку
- * <a href="gamenet://startservice/<serviceId>">Имя игры</a>
+ * Заменяет ссылку вида protocolone://startservice/<serviceId> на гиперссылку
+ * <a href="protocolone://startservice/<serviceId>">Имя игры</a>
  */
-function replaceGameNetHyperlinks(message, makeHyperlink, getServiceItemFn, style) {
-    return message.replace(/(gamenet:\/\/startservice\/(\d+)\/?)/ig, function(str, gnLink, serviceId) {
+function replaceProtocolOneHyperlinks(message, makeHyperlink, getServiceItemFn, style) {
+    return message.replace(/(protocolone:\/\/startservice\/(\d+)\/?)/ig, function(str, gnLink, serviceId) {
         var serviceItem = getServiceItemFn(serviceId)
             , serviceName;
 
@@ -28,7 +28,7 @@ function replaceGameNetHyperlinks(message, makeHyperlink, getServiceItemFn, styl
 }
 
 function replaceMessengerSubscriptionRequestLink(message, style) {
-    return message.replace(/(gamenet:\/\/subscription\/(decline|accept))/ig, function(str, gnLink, request) {
+    return message.replace(/(protocolone:\/\/subscription\/(decline|accept))/ig, function(str, gnLink, request) {
         return "<a style='color:" +
                 (style || "#FFFFFF") +
                 "' href='" + gnLink + "'>" + (request == "accept" ? qsTr("MESSENGER_SUBSCRIPTION_REQUEST_ACCEPT") : qsTr("MESSENGER_SUBSCRIPTION_REQUEST_DECLINE")) + "</a>";
@@ -72,7 +72,7 @@ function prepareText(message, options) {
     text = options.smileResolver(text);
     text = quoteToHtml(text, options.quoteAuthorColor, options.installPath);
     text = replaceHyperlinks(text, options.hyperLinkStyle);
-    text = replaceGameNetHyperlinks(text, true, options.serviceResolver, options.hyperLinkStyle);
+    text = replaceProtocolOneHyperlinks(text, true, options.serviceResolver, options.hyperLinkStyle);
     text = replaceMessengerSubscriptionRequestLink(text, options.hyperLinkStyle);
     text = replaceNewLines(text);
     return text;

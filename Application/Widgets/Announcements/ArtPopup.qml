@@ -1,7 +1,8 @@
 import QtQuick 2.4
 import Tulip 1.0
 
-import GameNet.Controls 1.0
+import ProtocolOne.Controls 1.0
+import Application.Controls 1.0
 
 import Application.Controls 1.0 as AppControls
 
@@ -83,7 +84,7 @@ AppControls.TrayPopupBase {
                 }
             }
 
-            //  INFO: В соответсвие с дизайном QGNA 3.4 размер фоновой картинки для
+            //  INFO: В соответсвие с дизайном размер фоновой картинки для
             //  артовой всплывашки должен быть 238х288
             Item {
                 width: parent.width

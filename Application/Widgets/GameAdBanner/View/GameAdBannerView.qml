@@ -1,7 +1,7 @@
 import QtQuick 2.4
-import GameNet.Core 1.0
-import GameNet.Components.Widgets 1.0
-import GameNet.Controls 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Components.Widgets 1.0
+import ProtocolOne.Controls 1.0
 
 import Application.Core 1.0
 import "GameAdBannerView.js" as GameAdBannerView
@@ -104,7 +104,7 @@ WidgetView {
         function switchToNext() {
             //  INFO: на всякий случай - если не задали поля для баннеров
             var textLabel = GameAdBannerView.filtered[root.index].description || "";
-            var imageSource = GameAdBannerView.filtered[root.index].imageQgna;
+            var imageSource = GameAdBannerView.filtered[root.index].imageLauncher;
             var bannerId = GameAdBannerView.filtered[root.index].id;
 
             if (currentItem === content1) {

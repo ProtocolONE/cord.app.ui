@@ -4,9 +4,9 @@ import Application.Core 1.0
 import "../Models/Messenger.js" as Messenger
 
 Item {
-    property int gamenetMessages: Messenger.getRecentConversationItem().unreadGameNetMessages ? 1 : 0
+    property int protocolOneMessages: Messenger.getRecentConversationItem().unreadProtocolOneMessages ? 1 : 0
     property int rosterUnreadContacts: Messenger.getRecentConversationItem().unreadContactCount
-    property int unreadContactsCount: gamenetMessages + rosterUnreadContacts
+    property int unreadContactsCount: protocolOneMessages + rosterUnreadContacts
 
     onUnreadContactsCountChanged: {
         SignalBus.unreadContactsChanged(unreadContactsCount);

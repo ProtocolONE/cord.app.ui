@@ -8,8 +8,8 @@ QtObject {
     property string installPath: "D:/Games/BattleCarnival"
     property string downloadPath: "D:/Games/BattleCarnival"
 
-    //property string installPath: "C:\\Program Files (x86)\\QGNA\\Games"
-    //property string downloadPath: "C:\\Program Files (x86)\\QGNA\\Downloads"
+    //property string installPath: "C:\\Program Files (x86)\\ProtocolOne\\Launcher\\Games"
+    //property string downloadPath: "C:\\Program Files (x86)\\ProtocolOne\\Launcher\\Downloads"
 
     function switchGame(serviceId) {
     }

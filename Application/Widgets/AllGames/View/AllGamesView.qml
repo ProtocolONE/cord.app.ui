@@ -1,8 +1,8 @@
 import QtQuick 2.4
 
-import GameNet.Core 1.0
-import GameNet.Controls 1.0
-import GameNet.Components.Widgets 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Controls 1.0
+import ProtocolOne.Components.Widgets 1.0
 
 import Application.Controls 1.0
 import Application.Blocks.Popup 1.0
@@ -67,7 +67,6 @@ WidgetView {
                 gridServices[item.serviceId] = 1;
             });
 
-            //INFO https://jira.gamenet.ru/browse/QGNA-1513
             function buildButtonGameList(response) {
                 function parseResponse(response) {
                     if (!response.hasOwnProperty('userInfo') || !response.userInfo[0]) {
@@ -141,12 +140,12 @@ WidgetView {
 
         // Detect firsttime show
         function isAppSettingsSet() {
-            return AppSettings.value("qGna", "isLogoutHelpShown", 0) == 1;
+            return AppSettings.value("Launcher", "isLogoutHelpShown", 0) == 1;
         }
 
         //Set property that we this widget was shown
         function setAppsettings() {
-            AppSettings.setValue("qGna", "isLogoutHelpShown", 1);
+            AppSettings.setValue("Launcher", "isLogoutHelpShown", 1);
         }
 
         visible: !logoutOverlay.isAppSettingsSet()

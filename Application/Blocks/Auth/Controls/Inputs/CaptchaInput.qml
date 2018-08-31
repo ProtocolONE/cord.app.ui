@@ -1,6 +1,6 @@
 import QtQuick 2.4
 import Tulip 1.0
-import GameNet.Controls 1.0
+import ProtocolOne.Controls 1.0
 import Application.Controls 1.0
 
 import Application.Core 1.0
@@ -82,8 +82,8 @@ Item {
                     }
 
                     styleImages {
-                        normal: installPath + Styles.inputUpdateIcon //"Assets/Images/GameNet/Controls/Input/update.png"
-                        hover: installPath + Styles.inputUpdateIcon.replace('.png', '_hover.png') //"Assets/Images/GameNet/Controls/Input/update_hover.png"
+                        normal: installPath + Styles.inputUpdateIcon //"Assets/Images/ProtocolOne/Controls/Input/update.png"
+                        hover: installPath + Styles.inputUpdateIcon.replace('.png', '_hover.png') //"Assets/Images/ProtocolOne/Controls/Input/update_hover.png"
                     }
 
                     onClicked: root.refresh();

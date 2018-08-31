@@ -1,8 +1,8 @@
 import QtQuick 2.4
 import Tulip 1.0
 
-import GameNet.Core 1.0
-import GameNet.Controls 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Controls 1.0
 
 import Application.Blocks 1.0
 import Application.Core 1.0
@@ -113,7 +113,7 @@ Item {
         }
 
         console.log("\nAnalytics starting up\n");
-        console.log('GameNet Application version: ' + version);
+        console.log('ProtocolOne Application version: ' + version);
         console.log('CID', cid);
         console.log('Desktop', desktop);
 
@@ -121,10 +121,10 @@ Item {
         Ga.setClientId(cid);
         Ga.setUserAgent('Mozilla/5.0 ' + GoogleAnalyticsHelper.systemVersion());
 
-        Ga.setApplicationName('GameNet');
+        Ga.setApplicationName('ProtocolOne');
         Ga.setApplicationVersion(version);
-        Ga.setApplicationId('vabanaul.gamenet');
-        Ga.setApplicationInstallerId('vabanaul.gamenet');
+        Ga.setApplicationId('publisher.ProtocolOne');
+        Ga.setApplicationInstallerId('publisher.ProtocolOne');
 
         Ga.setUserLanguage(GoogleAnalyticsHelper.systemLanguage());
         Ga.setScreenResolution(desktop);

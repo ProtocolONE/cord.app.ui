@@ -1,6 +1,6 @@
 import QtQuick 2.4
-import GameNet.Core 1.0
-import GameNet.Controls 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Controls 1.0
 
 import Application.Controls 1.0
 import Application.Core 1.0
@@ -120,7 +120,7 @@ NavigatableContactList {
             }
 
             result.nickname = item.nickname || "";
-            result.gamenetid = item.gamenetid || "";
+            result.protocolOneid = item.protocolOneid || "";
             result.avatar = item.avatar || "";
             result.gender = item.gender || "";
             result.firstname = item.firstname || "";
@@ -249,22 +249,22 @@ NavigatableContactList {
         delegate: WebSearchContact {
             function isSelected() {
                 var user = MessengerJs.selectedUser(MessengerJs.USER_INFO_JID);
-                if (!user || !user.jid || !model.gamenetid) {
+                if (!user || !user.jid || !model.protocolOneid) {
                     return false;
                 }
 
-                return user.jid == MessengerJs.userIdToJid(model.gamenetid);
+                return user.jid == MessengerJs.userIdToJid(model.protocolOneid);
             }
 
             function internalSubscrition(m) {
-                return MessengerJs.getUser(MessengerJs.userIdToJid(m.gamenetid)).subscription || 0;
+                return MessengerJs.getUser(MessengerJs.userIdToJid(m.protocolOneid)).subscription || 0;
             }
 
             width: listView.width
             isHighlighted: listView.currentIndex === index;
             isActive: isSelected();
             searchText: root.searchText
-            nickname: model.nickname || model.gamenetid
+            nickname: model.nickname || model.protocolOneid
             avatar: model.avatar || listView.getDefaultAvatar(index)
             charsText: model.charsText
             subscrition: internalSubscrition(model)
@@ -276,14 +276,14 @@ NavigatableContactList {
             }
 
             onRequestAddToContact: {
-                MessengerJs.addContact(MessengerJs.userIdToJid(model.gamenetid));
+                MessengerJs.addContact(MessengerJs.userIdToJid(model.protocolOneid));
                 listViewModel.setProperty(model.index, 'friendInviteSended', true)
                 select();
             }
 
             function select() {
-                if (model.gamenetid) {
-                    MessengerJs.openDialog({jid: MessengerJs.userIdToJid(model.gamenetid),
+                if (model.protocolOneid) {
+                    MessengerJs.openDialog({jid: MessengerJs.userIdToJid(model.protocolOneid),
                                                nickname: model.nickname});
                 }
             }
@@ -317,7 +317,7 @@ NavigatableContactList {
                 }
 
                 onClicked: SignalBus.openDetailedUserInfo({
-                                                        userId: model.gamenetid,
+                                                        userId: model.protocolOneid,
                                                         nickname: model.nickname,
                                                         status: "",
                                                         isFriend: model.isFriend,

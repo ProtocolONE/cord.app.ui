@@ -1,9 +1,9 @@
 import QtQuick 2.4
 import Dev 1.0
 
-import GameNet.Core 1.0
-import GameNet.Components.Widgets 1.0
-import GameNet.Controls 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Components.Widgets 1.0
+import ProtocolOne.Controls 1.0
 
 import Application.Core 1.0
 import Application.Core.MessageBox 1.0
@@ -35,7 +35,7 @@ Rectangle {
         }
 
         function genericAuth(login, password, done) {
-            Authorization.loginByGameNet(login, password, false, function(error, response) {
+            Authorization.loginByProtocolOne(login, password, false, function(error, response) {
                 if (!Authorization.isSuccess(error)) {
                     console.log('Auth failed!')
                     return;

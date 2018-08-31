@@ -1,7 +1,7 @@
 import QtQuick 2.4
 import Tulip 1.0
 
-import GameNet.Components.Widgets 1.0
+import ProtocolOne.Components.Widgets 1.0
 
 import Application.Blocks 1.0 as Blocks
 import Application.Blocks.GameMenu 1.0 as GameMenu
@@ -58,7 +58,7 @@ Rectangle {
                                 icon: "gameMenuForumIcon",
                                 text: "Форум",
                                 link: true,
-                                url: "https://forum.gamenet.ru/forumdisplay.php?f=4"
+                                url: "https://forum.protocol.one/forumdisplay.php?f=4"
                             });
 
         root.appendMenuItem(menuModel,
@@ -66,7 +66,7 @@ Rectangle {
                                 icon: "gameMenuGuidesIcon",
                                 text: "Гайды",
                                 link: true,
-                                url: "https://www.gamenet.ru/games/bs/guides/"
+                                url: "https://www.protocol.one/games/bs/guides/"
                             });
 
         root.appendMenuItem(menuModel,
@@ -74,7 +74,7 @@ Rectangle {
                                 icon: "gameMenuBlogIcon",
                                 text: "Блог",
                                 link: true,
-                                url: "https://www.gamenet.ru/games/bs/blog/"
+                                url: "https://www.protocol.one/games/bs/blog/"
                             });
 
         root.appendMenuItem(menuModel,
@@ -86,7 +86,7 @@ Rectangle {
     }
 
     Image {
-        source: 'https://images.gamenet.ru/pics/app/service/1432643350524.jpg'
+        source: 'https://images.protocol.one/pics/app/service/1432643350524.jpg'
     }
 
     WidgetManager {

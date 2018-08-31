@@ -2,11 +2,8 @@ pragma Singleton
 
 import QtQuick 1.1
 
-import "App.js" as AppJs
-import "restapi.js" as RestApiJs
-import "../Core/moment.js" as Moment
-
-import GameNet.Controls 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Controls 1.0
 
 Item {
     id: root

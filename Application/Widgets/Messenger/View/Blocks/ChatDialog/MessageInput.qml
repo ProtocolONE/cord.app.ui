@@ -1,8 +1,8 @@
 import QtQuick 2.4
 import Tulip 1.0
 
-import GameNet.Core 1.0
-import GameNet.Controls 1.0
+import ProtocolOne.Core 1.0
+import ProtocolOne.Controls 1.0
 import Application.Controls 1.0
 
 import Application.Core 1.0
@@ -263,7 +263,7 @@ FocusScope {
         function validateMessage(msg) {
             //  INFO: стандарт не предусматривает ограничение длины сообщения, но на момент 17.12.2014
             //  на наших серверах стоит ограничение 64кб на станзу (это с учетом служебной инфы)
-            //  Поэтому, в рамках QGNA-1117 решено сделать ограничение 32кб на длину самого сообщения
+            //  Поэтому, решено сделать ограничение 32кб на длину самого сообщения
             //  Ссылки по теме:
             //      - http://xmpp.org/extensions/xep-0205.html#rec-stanzasize
             //      - http://www.xmpp.org/extensions/inbox/stanzalimits.html
@@ -280,11 +280,11 @@ FocusScope {
         function canSendMessage() {
             return MessengerJs.getStatus() === MessengerJs.ROSTER_RECEIVED
                 && !MessengerJs.editGroupModel().isActive()
-                && !MessengerJs.isSelectedGamenet();
+                && !MessengerJs.isSelectedProtocolOne();
         }
 
         function canEditMessage() {
-            return !MessengerJs.editGroupModel().isActive() && !MessengerJs.isSelectedGamenet();
+            return !MessengerJs.editGroupModel().isActive() && !MessengerJs.isSelectedProtocolOne();
         }
     }
 
