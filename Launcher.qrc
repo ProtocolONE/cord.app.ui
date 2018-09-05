@@ -392,15 +392,15 @@
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/Splash.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/WebSearch.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/WebSearchContact.qml</file>
-		<file>Application/Widgets/Messenger/View/Blocks/GameNetShield.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/Group/EditCheckBox.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/Group/EditView.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/Group/EditViewBackground.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/Group/GroupNameInput.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/Group/MemberItem.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ProtocolOneShield.qml</file>
 		<file>Application/Widgets/Messenger/View/Chat.qml</file>
 		<file>Application/Widgets/Messenger/View/Contacts.qml</file>
-		<file>Application/Widgets/Messenger/View/GameNetNotification.qml</file>
+		<file>Application/Widgets/Messenger/View/ProtocolOneNotification.qml</file>
 		<file>Application/Widgets/Money/MoneyModel.qml</file>
 		<file>Application/Widgets/Money/PluginContainer.qml</file>
 		<file>Application/Widgets/Money/qmldir</file>
@@ -460,9 +460,6 @@
 		<file>Application/Widgets/ServiceLockConnector/PluginContainer.qml</file>
 		<file>Application/Widgets/ServiceLockConnector/qmldir</file>
 		<file>Application/Widgets/ServiceLockConnector/ServiceLockConnector.qml</file>
-		<file>Application/Widgets/SilentMode/PluginContainer.qml</file>
-		<file>Application/Widgets/SilentMode/qmldir</file>
-		<file>Application/Widgets/SilentMode/SilentModeModel.qml</file>
 		<file>Application/Widgets/StandaloneGameShop/PluginContainer.qml</file>
 		<file>Application/Widgets/StandaloneGameShop/qmldir</file>
 		<file>Application/Widgets/StandaloneGameShop/StandaloneGameShopModel.qml</file>
@@ -489,77 +486,80 @@
 		<file>Application/Widgets/UserProfile/View/NicknameEdit.qml</file>
 		<file>Application/Widgets/UserProfile/View/PromoActionIconView.qml</file>
 		<file>Application/Widgets/UserProfile/View/UserProfileView.qml</file>
-		<file>GameNet/Components/Centrifugo/CentrifugoClient.js</file>
-		<file>GameNet/Components/Centrifugo/CentrifugoClient.qml</file>
-		<file>GameNet/Components/Centrifugo/qmldir</file>
-		<file>GameNet/Components/ItemModel/ItemModel.js</file>
-		<file>GameNet/Components/ItemModel/ItemModel.qml</file>
-		<file>GameNet/Components/ItemModel/qmldir</file>
-		<file>GameNet/Components/JobWorker/JobWorker.js</file>
-		<file>GameNet/Components/JobWorker/JobWorker.qml</file>
-		<file>GameNet/Components/JobWorker/qmldir</file>
-		<file>GameNet/Components/Widgets/PluginContainer.qml</file>
-		<file>GameNet/Components/Widgets/qmldir</file>
-		<file>GameNet/Components/Widgets/WidgetContainer.qml</file>
-		<file>GameNet/Components/Widgets/WidgetManager.js</file>
-		<file>GameNet/Components/Widgets/WidgetManager.qml</file>
-		<file>GameNet/Components/Widgets/WidgetManagerPrivate.qml</file>
-		<file>GameNet/Components/Widgets/WidgetModel.qml</file>
-		<file>GameNet/Components/Widgets/WidgetSettings.qml</file>
-		<file>GameNet/Components/Widgets/WidgetView.qml</file>
-		<file>GameNet/Controls/Button.qml</file>
-		<file>GameNet/Controls/ButtonBehavior.qml</file>
-		<file>GameNet/Controls/ButtonStyleColors.qml</file>
-		<file>GameNet/Controls/ButtonStyleImages.qml</file>
-		<file>GameNet/Controls/CheckBox.qml</file>
-		<file>GameNet/Controls/ComboBox.qml</file>
-		<file>GameNet/Controls/ComboBoxStyle.qml</file>
-		<file>GameNet/Controls/ContextMenu.js</file>
-		<file>GameNet/Controls/CursorMouseArea.qml</file>
-		<file>GameNet/Controls/Empty.qml</file>
-		<file>GameNet/Controls/ErrorContainer.qml</file>
-		<file>GameNet/Controls/ErrorMessage.qml</file>
-		<file>GameNet/Controls/ErrorMessageStyle.qml</file>
-		<file>GameNet/Controls/ExtendedListModel.js</file>
-		<file>GameNet/Controls/ExtendedListModel.qml</file>
-		<file>GameNet/Controls/GlobalProgress.qml</file>
-		<file>GameNet/Controls/GoogleAnalyticsEvent.qml</file>
-		<file>GameNet/Controls/HorizontalSplit.qml</file>
-		<file>GameNet/Controls/ImageButton.qml</file>
-		<file>GameNet/Controls/Input.qml</file>
-		<file>GameNet/Controls/InputBehaviour.qml</file>
-		<file>GameNet/Controls/InputStyleColors.qml</file>
-		<file>GameNet/Controls/ListViewScrollBar.qml</file>
-		<file>GameNet/Controls/PageSwitcher.js</file>
-		<file>GameNet/Controls/PageSwitcher.qml</file>
-		<file>GameNet/Controls/ParallaxLayer.qml</file>
-		<file>GameNet/Controls/ParallaxView.qml</file>
-		<file>GameNet/Controls/PathInput.qml</file>
-		<file>GameNet/Controls/ProgressBar.qml</file>
-		<file>GameNet/Controls/ProgressBarStyleColors.qml</file>
-		<file>GameNet/Controls/qmldir</file>
-		<file>GameNet/Controls/RadioButton.qml</file>
-		<file>GameNet/Controls/ScrollText.qml</file>
-		<file>GameNet/Controls/SplitterStyleColors.qml</file>
-		<file>GameNet/Controls/Switcher.js</file>
-		<file>GameNet/Controls/Switcher.qml</file>
-		<file>GameNet/Controls/TextButton.qml</file>
-		<file>GameNet/Controls/TopErrorContainer.qml</file>
-		<file>GameNet/Controls/TryLoader.qml</file>
-		<file>GameNet/Controls/TypeaheadBehaviour.qml</file>
-		<file>GameNet/Controls/VerticalSplit.qml</file>
-		<file>GameNet/Controls/Wait.qml</file>
-		<file>GameNet/Controls/WebImage.qml</file>
-		<file>GameNet/Core/Analytics.js</file>
-		<file>GameNet/Core/EmojiOne.js</file>
-		<file>GameNet/Core/GoogleAnalytics.js</file>
-		<file>GameNet/Core/lodash.js</file>
-		<file>GameNet/Core/moment.js</file>
-		<file>GameNet/Core/qmldir</file>
-		<file>GameNet/Core/RestApi.js</file>
-		<file>GameNet/Core/Strings.js</file>
 		<file>Main.qml</file>
 		<file>plugin/Tulip/qmldir</file>
+		<file>ProtocolOne/Components/Centrifugo/CentrifugoClient.js</file>
+		<file>ProtocolOne/Components/Centrifugo/CentrifugoClient.qml</file>
+		<file>ProtocolOne/Components/Centrifugo/qmldir</file>
+		<file>ProtocolOne/Components/ItemModel/ItemModel.js</file>
+		<file>ProtocolOne/Components/ItemModel/ItemModel.qml</file>
+		<file>ProtocolOne/Components/ItemModel/qmldir</file>
+		<file>ProtocolOne/Components/JobWorker/JobWorker.js</file>
+		<file>ProtocolOne/Components/JobWorker/JobWorker.qml</file>
+		<file>ProtocolOne/Components/JobWorker/qmldir</file>
+		<file>ProtocolOne/Components/Widgets/PluginContainer.qml</file>
+		<file>ProtocolOne/Components/Widgets/qmldir</file>
+		<file>ProtocolOne/Components/Widgets/WidgetContainer.qml</file>
+		<file>ProtocolOne/Components/Widgets/WidgetManager.js</file>
+		<file>ProtocolOne/Components/Widgets/WidgetManager.qml</file>
+		<file>ProtocolOne/Components/Widgets/WidgetManagerPrivate.qml</file>
+		<file>ProtocolOne/Components/Widgets/WidgetModel.qml</file>
+		<file>ProtocolOne/Components/Widgets/WidgetSettings.qml</file>
+		<file>ProtocolOne/Components/Widgets/WidgetView.qml</file>
+		<file>ProtocolOne/Controls/Button.qml</file>
+		<file>ProtocolOne/Controls/ButtonBehavior.qml</file>
+		<file>ProtocolOne/Controls/ButtonStyleColors.qml</file>
+		<file>ProtocolOne/Controls/ButtonStyleImages.qml</file>
+		<file>ProtocolOne/Controls/CheckBox.qml</file>
+		<file>ProtocolOne/Controls/ComboBox.qml</file>
+		<file>ProtocolOne/Controls/ComboBoxStyle.qml</file>
+		<file>ProtocolOne/Controls/ContextMenu.js</file>
+		<file>ProtocolOne/Controls/CursorMouseArea.qml</file>
+		<file>ProtocolOne/Controls/DebugRectangle.qml</file>
+		<file>ProtocolOne/Controls/Empty.qml</file>
+		<file>ProtocolOne/Controls/ErrorContainer.qml</file>
+		<file>ProtocolOne/Controls/ErrorMessage.qml</file>
+		<file>ProtocolOne/Controls/ErrorMessageStyle.qml</file>
+		<file>ProtocolOne/Controls/ExtendedListModel.js</file>
+		<file>ProtocolOne/Controls/ExtendedListModel.qml</file>
+		<file>ProtocolOne/Controls/GlobalProgress.qml</file>
+		<file>ProtocolOne/Controls/GoogleAnalyticsEvent.qml</file>
+		<file>ProtocolOne/Controls/HorizontalSplit.qml</file>
+		<file>ProtocolOne/Controls/ImageButton.qml</file>
+		<file>ProtocolOne/Controls/Input.qml</file>
+		<file>ProtocolOne/Controls/InputBehaviour.qml</file>
+		<file>ProtocolOne/Controls/InputStyleColors.qml</file>
+		<file>ProtocolOne/Controls/ListViewScrollBar.qml</file>
+		<file>ProtocolOne/Controls/PageSwitcher.js</file>
+		<file>ProtocolOne/Controls/PageSwitcher.qml</file>
+		<file>ProtocolOne/Controls/ParallaxLayer.qml</file>
+		<file>ProtocolOne/Controls/ParallaxView.qml</file>
+		<file>ProtocolOne/Controls/PathInput.qml</file>
+		<file>ProtocolOne/Controls/ProgressBar.qml</file>
+		<file>ProtocolOne/Controls/ProgressBarStyleColors.qml</file>
+		<file>ProtocolOne/Controls/qmldir</file>
+		<file>ProtocolOne/Controls/RadioButton.qml</file>
+		<file>ProtocolOne/Controls/ScrollText.qml</file>
+		<file>ProtocolOne/Controls/SplitterStyleColors.qml</file>
+		<file>ProtocolOne/Controls/Switcher.js</file>
+		<file>ProtocolOne/Controls/Switcher.qml</file>
+		<file>ProtocolOne/Controls/TextButton.qml</file>
+		<file>ProtocolOne/Controls/Tooltip.js</file>
+		<file>ProtocolOne/Controls/Tooltip.qml</file>
+		<file>ProtocolOne/Controls/TopErrorContainer.qml</file>
+		<file>ProtocolOne/Controls/TryLoader.qml</file>
+		<file>ProtocolOne/Controls/TypeaheadBehaviour.qml</file>
+		<file>ProtocolOne/Controls/VerticalSplit.qml</file>
+		<file>ProtocolOne/Controls/Wait.qml</file>
+		<file>ProtocolOne/Controls/WebImage.qml</file>
+		<file>ProtocolOne/Core/Analytics.js</file>
+		<file>ProtocolOne/Core/EmojiOne.js</file>
+		<file>ProtocolOne/Core/GoogleAnalytics.js</file>
+		<file>ProtocolOne/Core/lodash.js</file>
+		<file>ProtocolOne/Core/moment.js</file>
+		<file>ProtocolOne/Core/qmldir</file>
+		<file>ProtocolOne/Core/RestApi.js</file>
+		<file>ProtocolOne/Core/Strings.js</file>
 		<file>Version.qml</file>
 	</qresource>
 </RCC>

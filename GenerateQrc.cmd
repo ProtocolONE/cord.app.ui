@@ -1,7 +1,7 @@
 @rem Для использования необходимо положить батник в корень проекта.
 @rem Имя файла с результатом должно быть написано тут:
 
-Set TargetQrcName=qGNA.qrc
+Set TargetQrcName=Launcher.qrc
 set CUR_PATH=%~dp0
 
 SET WinDirNet=%WinDir%\Microsoft.NET\Framework

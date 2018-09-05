@@ -22,7 +22,7 @@ if %errorlevel% neq 0 goto rccFailed
 
 @rem call "%BUILD_PATH%\build_fix_cc.cmd" %BUILD_PATH%  >> qrc_build.log
                                   
-"%QTDIR%\bin\rcc.exe" -compress 3 -threshold 4 -binary  "%BUILD_PATH%\qGNA.qrc" -o "%BUILD_PATH%\qGNA.rcc"
+"%QTDIR%\bin\rcc.exe" -compress 3 -threshold 4 -binary  "%BUILD_PATH%\Launcher.qrc" -o "%BUILD_PATH%\Launcher.rcc"
 if %errorlevel% neq 0 goto rccFailed
 
 set DST_PATH=.\
@@ -35,7 +35,7 @@ if not exist "%DST_PATH%" (
     mkdir "%DST_PATH%"
 )
 
-xcopy /I /Q /R /Y "%BUILD_PATH%\qGNA.rcc" "%DST_PATH%"
+xcopy /I /Q /R /Y "%BUILD_PATH%\Launcher.rcc" "%DST_PATH%"
 xcopy /I /Q /R /Y "%QGNAQMLDIR%\smiles.rcc" "%DST_PATH%"
 
 rmdir /S /Q %BUILD_PATH%
