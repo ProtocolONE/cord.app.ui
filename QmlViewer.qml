@@ -1,5 +1,5 @@
-import QtQuick 2.4
 import QtQuick.Window 2.2
+import QtQuick 2.4
 
 // INFO It's exports install path
 import Dev 1.0
@@ -12,6 +12,7 @@ import Application.Core.RootWindow 1.0
 import Application.Core.Authorization 1.0
 
 Window {
+
     id: root
 
     width: main.width
@@ -29,6 +30,7 @@ Window {
         RootWindow.rootWindow = root;
     }
 
+    // @disable-check M16
     onClosing: {
         Qt.quit();
     }

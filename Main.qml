@@ -85,6 +85,10 @@ Rectangle {
         WidgetManager.registerWidget('Application.Widgets.Centrifugo')
     }
 
+    Cache {
+
+    }
+
     DragWindowArea {
         anchors.fill: parent
         rootWindow: RootWindow.rootWindow

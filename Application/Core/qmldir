@@ -6,3 +6,4 @@ singleton ServiceHandleModel 1.0 Modules/ServiceHandleModel.qml
 singleton TrayPopup 1.0 TrayPopup.qml
 singleton User 1.0 User.qml
 Config 1.0 Config.js
+Cache 1.0 Cache.qml
