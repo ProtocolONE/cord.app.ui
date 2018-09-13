@@ -562,22 +562,22 @@
   <context>
     <name>Bootstrap</name>
     <message>
-      <location filename="../Application/Bootstrap.qml" line="91" />
+      <location filename="../Application/Bootstrap.qml" line="95" />
       <source>CLOSE_APP_CAPTION</source>
       <translation type="unfinished">Confirm logout</translation>
     </message>
     <message>
-      <location filename="../Application/Bootstrap.qml" line="92" />
+      <location filename="../Application/Bootstrap.qml" line="96" />
       <source>CLOSE_APP_TEXT</source>
       <translation type="unfinished">The game will be closed along with the application. The game cannot run without the application. Close the application and game?</translation>
     </message>
     <message>
-      <location filename="../Application/Bootstrap.qml" line="228" />
+      <location filename="../Application/Bootstrap.qml" line="232" />
       <source>INFO_CAPTION</source>
       <translation type="unfinished">Attention</translation>
     </message>
     <message>
-      <location filename="../Application/Bootstrap.qml" line="229" />
+      <location filename="../Application/Bootstrap.qml" line="233" />
       <source>UPDATE_FOUND_MESSAGE</source>
       <translation type="unfinished">The ProtocolOne application update will be installed. The application must be restarted.</translation>
     </message>

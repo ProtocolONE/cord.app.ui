@@ -13,7 +13,7 @@ WidgetModel {
         target: SignalBus
         onNavigate: {
             if (link == 'goprotocolonemoney') {
-                App.openExternalUrlWithAuth(Config.GnUrl.site("/pay/"));
+                App.openExternalUrlWithAuth(Config.site("/pay/"));
             }
         }
     }

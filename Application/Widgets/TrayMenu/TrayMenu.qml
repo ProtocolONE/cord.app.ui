@@ -33,7 +33,7 @@ WidgetModel {
             Ga.trackEvent('Tray', 'outer link', 'Profile');
             break;
         case 'Balance':
-            App.openExternalUrlWithAuth(Config.GnUrl.site("/pay/"))
+            App.openExternalUrlWithAuth(Config.site("/pay/"))
 
             Ga.trackEvent('Tray', 'outer link', 'Money');
             break;

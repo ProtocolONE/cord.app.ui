@@ -582,7 +582,6 @@ var Core = function(options) {
     this._auth = (options && options.auth) ? options.auth : false;
     this._url =  (options && options.url) ? options.url : "https://gnapi.com:8443/restapi";
     this._genericErrorCallback = undefined;
-    this._cacheLookupCallback = undefined;
 
     this.__defineSetter__('lang', function(value) {
         this._lang = value;
@@ -599,11 +598,6 @@ var Core = function(options) {
     this.__defineSetter__("genericErrorCallback", function(value) {
         this._genericErrorCallback = value;
     });
-
-    this.__defineSetter__('cacheLookupCallback', function(value) {
-        this._cacheLookupCallback = value;
-    });
-
 };
 
 Core.instance = undefined;
@@ -639,10 +633,6 @@ Core.setup = function(options){
     if (options.genericErrorCallback) {
         Core.instance.genericErrorCallback = options.genericErrorCallback;
     }
-
-    if (options.cacheLookupCallback) {
-        Core.instance.cacheLookupCallback = options.cacheLookupCallback;
-    }
 };
 
 Core.execute = function(method, params, auth, successCallback, errorCallback) {
@@ -663,7 +653,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.192",
+    version: "1.0.177",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',
@@ -697,7 +687,7 @@ Core.prototype = {
     },
 
     execute:  function(method, params, successCallback, errorCallback) {
-        var responseObject, internalParams, stringParams, format, response, genericErrorCallback, cacheResponse;
+        var responseObject, internalParams, stringParams, format, response, genericErrorCallback;
 
         format = params.format || 'json';
 
@@ -715,25 +705,6 @@ Core.prototype = {
         };
 
         genericErrorCallback = this._genericErrorCallback;
-
-        if (this._cacheLookupCallback) {
-            cacheResponse = this._cacheLookupCallback(internalParams);
-            if (cacheResponse && cacheResponse.success) {
-                if (format !== 'json') {
-                    successCallback(cacheResponse.response);
-                    return;
-                }
-
-                try {
-                    responseObject = JSON.parse(cacheResponse.response);
-                    if (responseObject.hasOwnProperty('response')) {
-                        successCallback(responseObject.response);
-                        return;
-                    }
-                } catch (e) {
-                }
-            }
-        }
 
         http.request(internalParams, function(response) {
 

@@ -98,9 +98,6 @@
 		<file>Application/Core/Authorization/Authorization.js</file>
 		<file>Application/Core/Authorization/qmldir</file>
 		<file>Application/Core/Authorization/Vk.qml</file>
-		<file>Application/Core/Config.debug.js</file>
-		<file>Application/Core/Config.js</file>
-		<file>Application/Core/Config.release.js</file>
 		<file>Application/Core/MessageBox/MessageBox.js</file>
 		<file>Application/Core/MessageBox/MessageBox.qml</file>
 		<file>Application/Core/MessageBox/MessageBoxButtons.qml</file>

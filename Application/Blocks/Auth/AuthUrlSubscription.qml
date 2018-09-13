@@ -16,7 +16,7 @@ Item {
                 var authUrl = originalUrl;
                 try {
                     if (!!resp && !!resp.token) {
-                        authUrl = Config.GnUrl.login("/redirect?userId=") + User.userId();
+                        authUrl = Config.login("/redirect?userId=") + User.userId();
 
                         if (!User.isAnotherComputer()) {
                             authUrl += "&trustedLocation=1";

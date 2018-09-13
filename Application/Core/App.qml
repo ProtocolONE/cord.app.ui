@@ -1,6 +1,7 @@
 pragma Singleton
 
 import QtQuick 2.4
+import Tulip 1.0
 
 import ProtocolOne.Core 1.0
 
@@ -9,7 +10,6 @@ import Application.Core.Settings 1.0
 
 import 'Modules/Mocks'
 import "./App.js" as Js
-import "./Config.js" as ConfigJs
 Item {
     id: root
 
@@ -320,7 +320,7 @@ Item {
         Games.clear();
 
         for (i = 0; i < root.count; ++i) {
-            item = Js.createService(data[i]);
+            item = Js.createService(data[i], Config.site);
 
             if (!item) {
                 continue;

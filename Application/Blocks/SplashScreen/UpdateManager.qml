@@ -1,5 +1,6 @@
 import QtQuick 2.4
 import Launcher.Library 1.0
+import Tulip 1.0
 
 import Application.Core 1.0
 import ProtocolOne.Core 1.0
@@ -67,7 +68,7 @@ Item {
         repeat: true
         triggeredOnStart: true
         onTriggered: {
-            RestApi.http.request(Config.GnUrl.statusUrl(), function(data) {
+            RestApi.http.request(Config.value("status\\url", "https://gnapi.com/status.json"), function(data) {
                 var message,
                     obj;
 

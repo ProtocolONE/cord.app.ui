@@ -215,7 +215,7 @@ Item {
     // В том методе не используется кука, что безопаснее.
     function getUrlWithCookieAuth(url) {
         return  d.cookie
-                ? Config.GnUrl.login("/?auth=") + d.cookie + '&rp=' + encodeURIComponent(url)
+                ? Config.login("/?auth=") + d.cookie + '&rp=' + encodeURIComponent(url)
                 : url;
     }
 

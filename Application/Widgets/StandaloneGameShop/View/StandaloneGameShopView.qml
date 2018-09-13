@@ -71,7 +71,7 @@ PopupBase {
 
         function directBuyResponse(response) {
             if (!response || !!response.error || !response.result) {
-                var url = Config.GnUrl.site('/money/buyitem/?itemId=%1&serviceId=%2&port=1337'
+                var url = Config.site('/money/buyitem/?itemId=%1&serviceId=%2&port=1337'
                     .arg(d.itemId)
                     .arg(d.serviceId));
 

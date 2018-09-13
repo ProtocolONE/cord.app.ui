@@ -54,8 +54,8 @@ Rectangle {
         }
 
         function initRestApi(options) {
-            var url = Config.GnUrl.api();
-            if (!Config.GnUrl.overrideApi()) {
+            var url = Config.api();
+            if (!Config.overrideApi()) {
                 url = AppSettings.value('Launcher/restApi', 'url', url);
             }
 
@@ -73,7 +73,7 @@ Rectangle {
                                    }
                                });
 
-//            if (Config.GnUrl.debugApi()) {
+//            if (Config.debugApi()) {
 //                RestApi.http.logRequest = true;
 //            }
         }

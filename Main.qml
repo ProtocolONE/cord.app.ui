@@ -23,6 +23,8 @@ Rectangle {
     Component.onCompleted:  {
         // UNFO чтоб работала функциональность, приходиться продернуть синглтоны.
         //RootWindow.initWindow();
+        console.log("!!! Init config!");
+        Config.show();
 
         WidgetManager.registerWidget('Application.Widgets.Analytics');
         WidgetManager.registerWidget('Application.Widgets.AllGames');
@@ -85,11 +87,10 @@ Rectangle {
         WidgetManager.registerWidget('Application.Widgets.Centrifugo')
     }
 
-    Cache {
+     Cache {
+     }
 
-    }
-
-    DragWindowArea {
+     DragWindowArea {
         anchors.fill: parent
         rootWindow: RootWindow.rootWindow
     }

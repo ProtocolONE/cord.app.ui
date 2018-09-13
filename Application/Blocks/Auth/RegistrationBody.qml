@@ -214,7 +214,7 @@ Form {
 
             LicenseText {
                 anchors.right: parent.right
-                onClicked: App.openExternalUrl(Config.GnUrl.site("/license"));
+                onClicked: App.openExternalUrl(Config.site("/license"));
             }
         }
     }

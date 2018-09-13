@@ -27,7 +27,7 @@ Item {
     }
 
     function openNews(gameShortName, eventId) {
-        App.openExternalUrlWithAuth(Config.GnUrl.site("/games/") + gameShortName + "/post/" + eventId + "/");
+        App.openExternalUrlWithAuth(Config.site("/games/") + gameShortName + "/post/" + eventId + "/");
 
         Ga.trackEvent('GameNews', 'outer link', eventId);
     }

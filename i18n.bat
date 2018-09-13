@@ -1,3 +1,4 @@
+set QTDIR=D:\Projects\Syncopate\sources\Components\qt\5.11.1\x86
 mkdir i18n
 SET lupdate=%QTDIR%\bin\lupdate.exe
 SET UpdateConfig= -no-obsolete -locations absolute

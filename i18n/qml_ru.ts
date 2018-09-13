@@ -562,22 +562,22 @@
   <context>
     <name>Bootstrap</name>
     <message>
-      <location filename="../Application/Bootstrap.qml" line="91" />
+      <location filename="../Application/Bootstrap.qml" line="95" />
       <source>CLOSE_APP_CAPTION</source>
       <translation>Подтверждение выхода</translation>
     </message>
     <message>
-      <location filename="../Application/Bootstrap.qml" line="92" />
+      <location filename="../Application/Bootstrap.qml" line="96" />
       <source>CLOSE_APP_TEXT</source>
       <translation>Игра будет закрыта вместе с приложением. Работа игры без приложения невозможна. Закрыть приложение и игру?</translation>
     </message>
     <message>
-      <location filename="../Application/Bootstrap.qml" line="228" />
+      <location filename="../Application/Bootstrap.qml" line="232" />
       <source>INFO_CAPTION</source>
       <translation>Внимание</translation>
     </message>
     <message>
-      <location filename="../Application/Bootstrap.qml" line="229" />
+      <location filename="../Application/Bootstrap.qml" line="233" />
       <source>UPDATE_FOUND_MESSAGE</source>
       <translation>Будет установлено обновление приложения ProtocolOne. Необходимо перезапустить приложение.</translation>
     </message>

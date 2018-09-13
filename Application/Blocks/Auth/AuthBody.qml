@@ -274,7 +274,7 @@ Form {
                         label: 'Restore password'
                     }
                     fontSize: 12
-                    onClicked: App.openExternalUrl(Config.GnUrl.site("/restore/?login=") + d.login);
+                    onClicked: App.openExternalUrl(Config.site("/restore/?login=") + d.login);
                 }
             }
 

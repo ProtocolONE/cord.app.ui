@@ -25,7 +25,7 @@ WidgetView {
         id: d
 
         function getProtocolOneProfileUrl() {
-            return Config.GnUrl.site("/users/" + (User.getTechName() || User.userId()) + "/");
+            return Config.site("/users/" + (User.getTechName() || User.userId()) + "/");
         }
 
         function contextMenuClicked(action) {
@@ -39,7 +39,7 @@ WidgetView {
                 Popup.show('NicknameEdit');
                 break;
             case "confirmemail":
-                App.openExternalUrlWithAuth(Config.GnUrl.site("/my-settings/email/"));
+                App.openExternalUrlWithAuth(Config.site("/my-settings/email/"));
                 break;
             case "profile":
                 d.openProfile();
@@ -48,7 +48,7 @@ WidgetView {
                 App.replenishAccount();
                 break;
             case "security":
-                App.openExternalUrlWithAuth(Config.GnUrl.site("/my-settings/security/"));
+                App.openExternalUrlWithAuth(Config.site("/my-settings/security/"));
                 break;
             case "logout":
                 if (!App.currentRunningMainService() && !App.currentRunningSecondService()) {
@@ -338,7 +338,7 @@ WidgetView {
                                 tooltipGlueCenter: true
                                 acceptedButtons: Qt.LeftButton
                                 onClicked: {
-                                    App.openExternalUrlWithAuth(Config.GnUrl.site('/edit/#edit-avatar'))
+                                    App.openExternalUrlWithAuth(Config.site('/edit/#edit-avatar'))
                                 }
                             }
                         }
@@ -434,7 +434,7 @@ WidgetView {
                                         width: row1.width
                                         height: row1.height
                                         toolTip: qsTr("PROFILE_CONFIRM_LOGIN_TULTIP")
-                                        onClicked: App.openExternalUrlWithAuth(Config.GnUrl.site("/my-settings/email/"));
+                                        onClicked: App.openExternalUrlWithAuth(Config.site("/my-settings/email/"));
                                         acceptedButtons: Qt.LeftButton
                                     }
                                 }

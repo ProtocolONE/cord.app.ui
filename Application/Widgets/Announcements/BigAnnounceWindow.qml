@@ -102,7 +102,7 @@ Window {
 
             CursorMouseArea {
                 anchors.fill: parent
-                onClicked: App.openExternalUrl(Config.GnUrl.site())
+                onClicked: App.openExternalUrl(Config.site())
             }
         }
 

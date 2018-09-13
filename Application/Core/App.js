@@ -1,7 +1,5 @@
 .pragma library
 
-Qt.include('Config.js');
-
 var indexToGameItem = {},
     gameIdToGameItem = {},
     serviceIdToGameItemIdex = {},
@@ -11,7 +9,7 @@ var indexToGameItem = {},
     runningService = {},
     sellItems = {};
 
-function createService(data) {
+function createService(data, site) {
     var item = {},
         properties,
         urlProps;
@@ -87,7 +85,7 @@ function createService(data) {
         if (data.hasOwnProperty(prop) && !!data[prop]) {
             propValue = '' + data[prop];
             item[prop] = (propValue.indexOf('//') != -1) ? propValue
-                                                         : GnUrl.site(propValue);
+                                                         : site(propValue);
         } else {
             item[prop] = '';
         }

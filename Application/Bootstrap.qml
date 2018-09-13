@@ -28,12 +28,12 @@ Item {
             var authConfig = {
                 mid: mid,
                 hwid: encodeURIComponent(result),
-                gnLoginUrl: Config.GnUrl.login(),
-                titleApiUrl: (new RestApi.Uri(Config.GnUrl.login())).host(),
-                apiUrl: Config.GnUrl.api()
+                gnLoginUrl: Config.login(),
+                titleApiUrl: (new RestApi.Uri(Config.login())).host(),
+                apiUrl: Config.api()
             };
 
-            if (Config.GnUrl.debugApi()) {
+            if (Config.debugApi()) {
                 authConfig.debug = true;
             }
 
@@ -161,12 +161,12 @@ Item {
     }
 
     function initRestApi() {
-        var url = Config.GnUrl.api();
-        if (!Config.GnUrl.overrideApi()) {
+        var url = Config.api();
+        if (!Config.overrideApi()) {
             url = AppSettings.value('qGNA/restApi', 'url', url);
         }
 
-        if (Config.GnUrl.debugApi()) {
+        if (Config.debugApi()) {
             RestApi.http.logRequest = true;
         }
 
