@@ -98,6 +98,8 @@
 		<file>Application/Core/Authorization/Authorization.js</file>
 		<file>Application/Core/Authorization/qmldir</file>
 		<file>Application/Core/Authorization/Vk.qml</file>
+		<file>Application/Core/Cache.qml</file>
+		<file>Application/Core/Config.qml</file>
 		<file>Application/Core/MessageBox/MessageBox.js</file>
 		<file>Application/Core/MessageBox/MessageBox.qml</file>
 		<file>Application/Core/MessageBox/MessageBoxButtons.qml</file>

@@ -6,6 +6,7 @@ import Application.Controls 1.0
 
 import Application.Core 1.0
 import Application.Core.Styles 1.0
+import Application.Core.Config 1.0
 
 Item {
     id: root

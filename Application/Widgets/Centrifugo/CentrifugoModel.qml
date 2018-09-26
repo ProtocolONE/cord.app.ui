@@ -6,6 +6,7 @@ import ProtocolOne.Components.Widgets 1.0
 import ProtocolOne.Components.Centrifugo 1.0
 
 import Application.Core 1.0
+import Application.Core.Config 1.0
 
 WidgetModel {
     id: root

@@ -3,6 +3,8 @@ import Launcher.Library 1.0
 import Tulip 1.0
 
 import Application.Core 1.0
+import Application.Core.Config 1.0
+
 import ProtocolOne.Core 1.0
 
 Item {

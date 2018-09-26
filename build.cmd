@@ -21,8 +21,11 @@ call "%BUILD_PATH%\GenerateQrc.cmd"
 if %errorlevel% neq 0 goto rccFailed
 
 @rem call "%BUILD_PATH%\build_fix_cc.cmd" %BUILD_PATH%  >> qrc_build.log
-                                  
+
+pushd "%BUILD_PATH%"
 "%QTDIR%\bin\rcc.exe" -compress 3 -threshold 4 -binary  "%BUILD_PATH%\Launcher.qrc" -o "%BUILD_PATH%\Launcher.rcc"
+popd "%BUILD_PATH%"
+
 if %errorlevel% neq 0 goto rccFailed
 
 set DST_PATH=.\

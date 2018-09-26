@@ -11,6 +11,7 @@ import Application.Core.Styles 1.0
 import Application.Core.Popup 1.0
 import Application.Core.MessageBox 1.0
 import Application.Core.Authorization 1.0
+import Application.Core.Config 1.0
 
 Item {
     id: root

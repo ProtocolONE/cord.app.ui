@@ -37,7 +37,6 @@ Item {
     Shortcut {
         key: "Ctrl+Shift+L"
         onActivated: {
-         console.log('--------------------------------------------- ')
             content.sourceComponent = windowCmp
         }
     }

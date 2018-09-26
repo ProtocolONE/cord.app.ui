@@ -7,6 +7,7 @@ import ProtocolOne.Core 1.0
 
 import Application.Models 1.0
 import Application.Core.Settings 1.0
+import Application.Core.Config 1.0
 
 import 'Modules/Mocks'
 import "./App.js" as Js

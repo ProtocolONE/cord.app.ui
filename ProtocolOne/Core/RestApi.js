@@ -543,12 +543,12 @@ http.request = function(options, callback) {
 
         if (http.logRequest) {
             // INFO debug output
-            var tmp = 'Request: ' + uri.toString();
+            var tmp = '[RestApi] Request: ' + uri.toString();
             try {
                 var debugResponseObject = JSON.parse(xhr.responseText);
-                tmp += '\nResponse: \n' + JSON.stringify(debugResponseObject, null, 2);
+                tmp += '\n[RestApi] Response: \n' + JSON.stringify(debugResponseObject, null, 2);
             } catch(e) {
-                tmp += '\nResponse: \n' + xhr.responseText;
+                tmp += '\n[RestApi] Response: \n' + xhr.responseText;
             }
             console.log(tmp);
         }
@@ -582,6 +582,8 @@ var Core = function(options) {
     this._auth = (options && options.auth) ? options.auth : false;
     this._url =  (options && options.url) ? options.url : "https://gnapi.com:8443/restapi";
     this._genericErrorCallback = undefined;
+    this._cacheLookupCallback = undefined;
+    this._cacheSaveCallback = undefined;
 
     this.__defineSetter__('lang', function(value) {
         this._lang = value;
@@ -597,6 +599,14 @@ var Core = function(options) {
 
     this.__defineSetter__("genericErrorCallback", function(value) {
         this._genericErrorCallback = value;
+    });
+
+    this.__defineSetter__('cacheLookupCallback', function(value) {
+        this._cacheLookupCallback = value;
+    });
+
+    this.__defineSetter__('cacheSaveCallback', function(value) {
+        this._cacheSaveCallback = value;
     });
 };
 
@@ -633,6 +643,14 @@ Core.setup = function(options){
     if (options.genericErrorCallback) {
         Core.instance.genericErrorCallback = options.genericErrorCallback;
     }
+
+    if (options.cacheLookupCallback) {
+        Core.instance.cacheLookupCallback = options.cacheLookupCallback;
+    }
+
+    if (options.cacheSaveCallback) {
+        Core.instance.cacheSaveCallback = options.cacheSaveCallback;
+    }
 };
 
 Core.execute = function(method, params, auth, successCallback, errorCallback) {
@@ -653,7 +671,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.177",
+    version: "1.0.192",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',
@@ -687,7 +705,8 @@ Core.prototype = {
     },
 
     execute:  function(method, params, successCallback, errorCallback) {
-        var responseObject, internalParams, stringParams, format, response, genericErrorCallback;
+        var responseObject, internalParams, stringParams, format, response, genericErrorCallback, cacheResponse
+            , cacheSaveCallback;
 
         format = params.format || 'json';
 
@@ -706,8 +725,14 @@ Core.prototype = {
 
         genericErrorCallback = this._genericErrorCallback;
 
-        http.request(internalParams, function(response) {
+        if (this._cacheLookupCallback) {
+            if (this._cacheLookupCallback(internalParams, successCallback)) {
+                return;
+            }
+        }
 
+        cacheSaveCallback = this._cacheSaveCallback;
+        http.request(internalParams, function(response) {
             if (response.status !== 200) {
                 if (typeof errorCallback === 'function') {
                     errorCallback(response.status);
@@ -717,6 +742,10 @@ Core.prototype = {
 
             if (typeof successCallback !== 'function') {
                 return;
+            }
+
+            if (cacheSaveCallback) {
+                cacheSaveCallback(internalParams, response.body);
             }
 
             if (format !== 'json') {

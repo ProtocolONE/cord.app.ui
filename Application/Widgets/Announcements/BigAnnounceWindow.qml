@@ -4,9 +4,11 @@ import QtQuick.Window 2.2
 
 import ProtocolOne.Core 1.0
 import ProtocolOne.Controls 1.0
+
 import Application.Blocks 1.0
 import Application.Core 1.0
 import Application.Controls 1.0
+import Application.Core.Config 1.0
 
 Window {
     id: bigAnnounceWindow

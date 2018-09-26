@@ -11,6 +11,7 @@ import Application.Core 1.0
 import Application.Core.RootWindow 1.0
 
 import Application.Core.Authorization 1.0
+import Application.Core.Config 1.0
 
 Window {
     id: root

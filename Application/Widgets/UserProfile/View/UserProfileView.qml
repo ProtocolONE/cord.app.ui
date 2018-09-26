@@ -10,6 +10,7 @@ import Application.Core 1.0
 import Application.Core.Styles 1.0
 import Application.Core.Popup 1.0
 import Application.Core.MessageBox 1.0
+import Application.Core.Config 1.0
 
 WidgetView {
     id: root

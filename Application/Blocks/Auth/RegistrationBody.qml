@@ -6,6 +6,7 @@ import ProtocolOne.Core 1.0
 import Application.Controls 1.0
 import Application.Core 1.0
 import Application.Core.Authorization 1.0
+import Application.Core.Config 1.0
 
 import "./Controls"
 import "./Controls/Inputs"

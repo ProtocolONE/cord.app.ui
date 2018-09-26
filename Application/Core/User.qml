@@ -5,6 +5,9 @@ import QtQuick 1.1
 import ProtocolOne.Core 1.0
 import ProtocolOne.Controls 1.0
 
+import Application.Core 1.0
+import Application.Core.Config 1.0
+
 Item {
     id: root
 

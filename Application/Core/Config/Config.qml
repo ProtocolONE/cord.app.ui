@@ -1,6 +1,6 @@
 pragma Singleton
 
-import QtQuick 2.0
+import QtQuick 2.4
 import Tulip 1.0
 
 Item {
@@ -78,10 +78,14 @@ Item {
     }
 
     function overrideApi() {
-        return d.configContent["overrideApi"] || false;
+        return d.configContent["overrideApi"] === "true";
     }
 
     function debugApi() {
-        return d.configContent["debugApi"] || false;
+        return d.configContent["debugApi"] === "true";
+    }
+
+    function saveApi() {
+        return d.configContent["saveApi"] === "true";
     }
 }
