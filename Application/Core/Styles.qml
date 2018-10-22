@@ -51,17 +51,6 @@ Item {
     property color secondAccountPopupAuthTitleText: "#363636"
     property color secondAccountPopupAuthSubTitleText: "#66758F"
 
-    property color inputNormal: "#66758F"
-    property color inputHover: "#3498DB"
-    property color inputActive: "#3498DB"
-    property color inputDisabled: "#66758F"
-    property color inputError: "#FF6555"
-    property color inputPlaceholder: "#d6d6d6"
-    property color inputBackground: "#FFFFFF"
-    property color inputText: "#000000"
-    property color errorContainerText: "#FF2E44"
-    property color errorContainerBackground: "#00000000"
-
     //FACTS WIDGET
     property color factsWidgetBackground: "#092135"
     property color factsWidgetValue: "#ff6555"
@@ -156,34 +145,6 @@ Item {
     property color settingsControlDisabled: "#FF4F02"
     property color settingsButtonNormal: "#3498BD"
     property color settingsButtonHover: "#3670DC"
-
-    // AUTH / REGISTRATION
-    property color authBackground: '#fafafa'
-    property color authHeaderBackground: '#fafafa'
-    property color authDelimiter: "#CCCCCC"
-    property color authTitleText: "#363636"
-    property color authSubTitleText: "#66758F"
-    property color authSupportButtonNormal: "#ffae02"
-    property color authSupportButtonHover: "#ffcc02"
-    property color authSupportButtonText: "#FFFFFF"
-    property color authLicenseButtonTextNormal: "#3498db"
-    property color authLicenseButtonTextHover: "#3670DC"
-    property color authAmnesiaButtonTextNormal: "#3498db"
-    property color authAmnesiaButtonTextHover: "#3670DC"
-    property color authSwitchPageButtonHormal: "#3498db"
-    property color authSwitchPageButtonHover: "#3670DC"
-    property color authRememberCheckBoxNormal: "#1ADC9C"
-    property color authRememberCheckBoxHover: "#019074"
-    property color authVkButtonNormal: "#4D739E"
-    property color authVkButtonHover: "#3378c7"
-    property color authVkButtonText: "#FFFFFF"
-    property color authSendCodeButtonNormal: "#1ABC9C"
-    property color authSendCodeButtonHover: "#019074"
-    property color authCancelCodeHormal: "#3498db"
-    property color authCancelCodeHover: "#3670DC"
-    property color authRegistrationNavigateItem: '#fffffd'
-    property color authRegistrationNavigateItemHover: '#ff4f03'
-    property color authRegistrationNavigateItemDisabled: '#818c92'
 
     // NEWS
     property color newsBackground: '#f0f5f8'
@@ -301,15 +262,16 @@ Item {
     property color messengerContactPresenceDnd: "#FFCC00"
     property color messengerContactPresenceOffline: "#CCCCCC"
 
-    property color messengerRecentContactsUnreadIcon: "#189A19"
-
-    property color detailedUserInfoGameCharsPlayingIcon: "#1abc9c"
-    property color detailedUserInfoGameCharsTableFriendText: "#1abc9c"
-
-    property color detailedUserInfoMainInfoLevelProgressLine: "#1abc9c"
-
-    // Если будет использоваться еще, то вероятно переименовать:
-    property color searchBorder: "#3498db"
+    property color inputNormal: "#363636"
+    property color inputHover: "#3498db"
+    property color inputActive: "#3498db"
+    property color inputDisabled: "#66758F"
+    property color inputBackground: "#FFFFFF"
+    property color errorContainerText: "#FF3b30"
+    property color errorContainerBackground: "#00000000"
+    property color inputError: "#FF3b30"
+    property color inputPlaceholder: "#a1c1d2"
+    property color inputText: "#363636"
     // End of GameNet 3.4
 
     //PRIVATE PART

@@ -11,6 +11,7 @@
 import QtQuick 1.1
 import Tulip 1.0
 import GameNet.Controls 1.0
+import Application.Controls 1.0
 
 import "../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
@@ -19,19 +20,233 @@ import "../../../Application/Core/User.js" as User
 import "../../../Application/Core/App.js" as App
 import "../../../Application/Core/Styles.js" as Styles
 
-import "./AuthHelper.js" as AuthHelper
+import "./Controls"
+import "./Controls/Inputs"
 
-import "AnimatedBackground" as AnimatedBackground
+import "./AuthBody.js" as AuthHelper
 
-Rectangle {
+Item {
     id: root
 
-    width: 1000
-    height: 600
+    implicitWidth: 1000
+    implicitHeight: 600
 
-    color: Styles.style.authBackground
+    property bool serviceLoading: authContainer.state === 'serviceLoading'
 
     Component.onCompleted: d.autoLogin();
+
+    Image {
+        anchors.fill: parent
+        smooth: true
+        fillMode: Image.PreserveAspectCrop
+        source: installPath + '/Assets/Images/Application/Blocks/Auth/background.jpg'
+    }
+
+    Header {
+        anchors { left: parent.left; right: parent.right }
+        visible: !root.serviceLoading
+        state: authContainer.state
+    }
+
+    SupportButton {
+        anchors { verticalCenter: parent.verticalCenter; right: parent.right }
+        visible: !root.serviceLoading
+        onClicked: App.openExternalUrl("https://support.gamenet.ru/kb");
+    }
+
+    Rectangle {
+        x: authContainer.x -1
+        y: authContainer.y -1
+        width: authContainer.width + 1
+        height: authContainer.height + 1
+        color: "#00000000"
+        border.color: Styles.style.light
+        opacity: Styles.style.blockInnerOpacity
+    }
+
+    Item {
+        id: authContainer
+
+        anchors {
+            left:parent.left
+            right: parent.right
+            bottom: parent.bottom
+            bottomMargin: 30
+            leftMargin: 200
+            rightMargin: 200
+        }
+        height: formContainer.height
+
+        ContentBackground {
+            anchors.fill: parent
+            opacity: 0.85
+        }
+
+        Column {
+            id: formContainer
+
+            anchors {
+                left: parent.left
+                right: parent.right
+                bottom: parent.bottom
+                leftMargin: 50
+                rightMargin: 50
+            }
+
+            AuthBody {
+                id: auth
+
+                visible: false
+                guestMode: isGuestExists()
+
+                function isGuestExists() {
+                    var guest = CredentialStorage.loadGuest();
+                    return guest && guest.userId && guest.appKey & guest.cookie;
+                }
+
+
+                function loadGuest() {
+                    var guest = CredentialStorage.loadGuest();
+                    if (!guest || !guest.userId || !guest.appKey || !guest.cookie) {
+                        return;
+                    }
+
+                    d.startLoadingServices(guest.userId, guest.appKey, guest.cookie);
+                }
+
+                onCodeRequired: {
+                    codeForm.codeSended = false;
+                    authContainer.state = "code"
+                }
+                onError: d.showError(message);
+                onAuthDone: {
+                    d.startLoadingServices(userId, appKey, cookie);
+
+                    if (remember) {
+                        CredentialStorage.save(userId, appKey, cookie, false);
+                        d.saveAuthorizedLogins(auth.login);
+                    } else {
+                        auth.login = "";
+                    }
+                }
+                onFooterPrimaryButtonClicked: {
+                    if (!auth.inProgress) {
+                         GoogleAnalytics.trackEvent('/Auth', 'Auth', 'Switch To Registration');
+                         auth.password = "";
+                         authContainer.state = "registration";
+                    }
+                }
+
+                onFooterGuestButtonClicked: loadGuest()
+                onFooterVkClicked: d.startVkAuth()
+                loginSuggestion: d.loginSuggestion()
+                vkButtonInProgress: d.vkAuthInProgress
+            }
+
+            RegistrationBody {
+                id: registration
+
+                visible: false
+                onError: d.showError(message);
+                onAuthDone: {
+                    d.startLoadingServices(userId, appKey, cookie);
+
+                    CredentialStorage.save(userId, appKey, cookie, false);
+                    d.saveAuthorizedLogins(registration.login);
+                }
+
+                onFooterPrimaryButtonClicked: {
+                    if (!registration.inProgress) {
+                         GoogleAnalytics.trackEvent('/Auth', 'Auth', 'Switch To Login');
+                         registration.password = "";
+                         authContainer.state = "auth";
+                     }
+                }
+                onFooterVkClicked: d.startVkAuth()
+                vkButtonInProgress: d.vkAuthInProgress
+            }
+
+            CodeBody {
+                id: codeForm
+
+                visible: false
+                login: auth.login
+                onCancel: authContainer.state = "auth"
+                onSuccess: authContainer.state = "auth"
+                onFooterVkClicked: d.startVkAuth()
+                vkButtonInProgress: d.vkAuthInProgress
+            }
+
+            MessageBody {
+                id: messageBody
+
+                property string backState
+
+                visible: false
+                onClicked: authContainer.state = messageBody.backState;
+            }
+        }
+
+        states: [
+            State {
+                name :"Initial"
+                PropertyChanges {target: auth; visible: false}
+                PropertyChanges {target: registration; visible: false}
+                PropertyChanges {target: codeForm; visible: false}
+                PropertyChanges {target: messageBody; visible: false}
+            },
+
+            State {
+                name: "auth"
+                extend: "Initial"
+                PropertyChanges {target: auth; visible: true}
+                StateChangeScript {
+                    script: auth.forceActiveFocus();
+                }
+            },
+            State {
+                name: "registration"
+                extend: "Initial"
+                PropertyChanges {target: registration; visible: true}
+                StateChangeScript {
+                    script: registration.forceActiveFocus();
+                }
+            },
+            State {
+                name: "code"
+                extend: "Initial"
+                PropertyChanges {target: codeForm; visible: true}
+            },
+            State {
+                name: "message"
+                extend: "Initial"
+                PropertyChanges {target: messageBody; visible: true}
+            },
+            State {
+                name: "serviceLoading"
+                PropertyChanges { target: serviceLoading; visible: true}
+                StateChangeScript {
+                    script: serviceLoading.requestServices();
+                }
+            }
+        ]
+    }
+
+    Rectangle {
+        width: parent.width -1
+        height: parent.height -1
+        color: "#00000000"
+        border.color: Styles.style.light
+        opacity: Styles.style.blockInnerOpacity
+    }
+
+    ServiceLoading {
+        id: serviceLoading
+
+        visible: false
+        anchors.fill: parent
+        onFinished: App.authDone(userId, appKey, cookie);
+    }
 
     QtObject {
         id: d
@@ -171,269 +386,5 @@ Rectangle {
         }
 
         onVkAuthInProgressChanged: App.setGlobalProgressVisible(d.vkAuthInProgress);
-    }
-
-    /*AnimatedBackground.Index {
-        id: background
-
-        function registerInfoValid() {
-            var loginReg = /^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,4})$/;
-            return registration.password.length >= 6 && loginReg.test(registration.login);
-        }
-
-        anchors.fill: parent
-        isDoggyVisible: footer.vkButtonContainsMouse
-        goodSignActive: background.registerInfoValid();
-    }*/
-
-    Header {
-        id: header
-
-        anchors { left: parent.left; right: parent.right }
-        visible: authContainer.state !== 'serviceLoading'
-        state: authContainer.state
-    }
-
-    Item {
-        id: authContainer
-
-        anchors {
-            top: header.bottom
-            bottom: footer.top
-            left: parent.left
-            right: parent.right
-        }
-
-        Switcher {
-            id: centralSwitcher
-
-            anchors {
-                fill: parent
-                leftMargin: 250
-                rightMargin: 250
-            }
-
-            forceFocus: true
-
-            AuthBody {
-                id: auth
-
-                anchors.fill: parent
-                onSwitchToRegistration: {
-                    authContainer.state = "registration";
-                    GoogleAnalytics.trackEvent('/Auth', 'Auth', 'Switch To Registration');
-                }
-                onCodeRequired: {
-                    codeForm.codeSended = false;
-                    authContainer.state = "code"
-                }
-                onError: d.showError(message);
-
-                onAuthDone: {
-                    d.startLoadingServices(userId, appKey, cookie);
-
-                    if (remember) {
-                        CredentialStorage.save(userId, appKey, cookie, false);
-                        d.saveAuthorizedLogins(auth.login);
-                    } else {
-                        auth.login = "";
-                    }
-                }
-
-                loginSuggestion: d.loginSuggestion();
-            }
-
-            RegistrationBody {
-                id: registration
-
-                anchors.fill: parent
-                onError: d.showError(message);
-                onSwitchToLogin: {
-                    authContainer.state = "auth";
-                    GoogleAnalytics.trackEvent('/Auth', 'Auth', 'Switch To Login');
-                }
-
-                onAuthDone: {
-                    d.startLoadingServices(userId, appKey, cookie);
-
-                    CredentialStorage.save(userId, appKey, cookie, false);
-                    d.saveAuthorizedLogins(registration.login);
-                }
-            }
-
-            CodeBody {
-                id: codeForm
-
-                anchors.fill: parent
-                login: auth.login
-                onCancel: authContainer.state = "auth"
-                onSuccess: authContainer.state = "auth"
-            }
-
-            MessageBody {
-                id: messageBody
-
-                property string backState
-
-                anchors.fill: parent
-                onClicked: authContainer.state = messageBody.backState;
-            }
-        }
-
-        state: ""
-
-        states: [
-            State {
-                name: "auth"
-
-                StateChangeScript {
-                    script: centralSwitcher.switchTo(auth);
-                }
-            },
-            State {
-                name: "registration"
-
-                StateChangeScript {
-                    script: centralSwitcher.switchTo(registration);
-                }
-            },
-            State {
-                name: "code"
-
-                StateChangeScript {
-                    script: centralSwitcher.switchTo(codeForm);
-                }
-            },
-            State {
-                name: "message"
-
-                StateChangeScript {
-                    script: centralSwitcher.switchTo(messageBody);
-                }
-            },
-            State {
-                name: "serviceLoading"
-
-                PropertyChanges {
-                    target: serviceLoading; visible: true
-                }
-                StateChangeScript {
-                    script: serviceLoading.requestServices();
-                }
-            }
-        ]
-    }
-
-    Footer {
-        id: footer
-
-        anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
-        anchors { leftMargin: 250; rightMargin: 250 }
-        onOpenVkAuth: d.startVkAuth();
-        vkButtonInProgress: d.vkAuthInProgress
-    }
-
-    Button {
-        function loadGuest() {
-            var guest = CredentialStorage.loadGuest();
-
-            if (!guest || !guest.userId || !guest.appKey || !guest.cookie) {
-                return;
-            }
-
-            d.startLoadingServices(guest.userId, guest.appKey, guest.cookie);
-        }
-
-        function isGuestExists() {
-            var guest = CredentialStorage.loadGuest();
-
-            if (!guest || !guest.userId || !guest.appKey || !guest.cookie) {
-                return false;
-            }
-
-            return true;
-        }
-
-        width: 160
-        height: 25
-
-        visible: isGuestExists() && authContainer.state == "auth";
-
-        anchors {
-            bottom: parent.bottom
-            bottomMargin: 20
-            right: parent.right
-            rightMargin: 320
-        }
-
-        text: qsTr("LOGIN_BY_GUEST_BUTTON_TEXT")
-        onClicked: loadGuest();
-    }
-
-    Button {
-        width: 32
-        height: 146
-        anchors { verticalCenter: parent.verticalCenter; right: parent.right }
-        visible: authContainer.state !== 'serviceLoading'
-
-        style {
-            normal: Styles.style.authSupportButtonNormal
-            hover: Styles.style.authSupportButtonHover
-        }
-
-        onClicked: {
-            App.openExternalUrl("https://support.gamenet.ru/kb");
-        }
-
-        Column {
-            anchors.fill: parent
-
-            Item {
-                width: parent.width
-                height: parent.height - width - 1
-
-                Item {
-                    anchors.centerIn: parent
-                    rotation: -90
-                    width: parent.height
-                    height: parent.width
-
-                    Text {
-                        anchors.centerIn: parent
-                        text: qsTr("AUTH_SUPPORT_BUTTON_TEXT")
-                        color: Styles.style.authSupportButtonText
-                        font {
-                            family: "Arial"
-                            pixelSize: 14
-                        }
-                    }
-                }
-            }
-
-            Rectangle {
-                width: parent.width
-                height: 1
-                color: Styles.style.authSupportButtonText
-                opacity: 0.2
-            }
-
-            Item {
-                width: parent.width
-                height: width
-
-                Image {
-                    anchors.centerIn: parent
-                    source: installPath + "Assets/Images/Auth/support.png"
-                }
-            }
-        }
-    }
-
-    ServiceLoading {
-        id: serviceLoading
-
-        visible: false
-        anchors.fill: parent
-        onFinished: App.authDone(userId, appKey, cookie);
     }
 }

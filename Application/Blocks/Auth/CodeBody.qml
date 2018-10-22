@@ -10,10 +10,14 @@
 
 import QtQuick 1.1
 import GameNet.Controls 1.0
+import Application.Controls 1.0
 
 import "../../Core/Authorization.js" as Authorization
 import "../../Core/App.js" as App
 import "../../Core/Styles.js" as Styles
+
+import "./Controls"
+import "./Controls/Inputs"
 
 Form {
     id: root
@@ -24,8 +28,12 @@ Form {
     signal success();
     signal cancel();
 
-    implicitHeight: 473
-    implicitWidth: 500
+    title: qsTr("CODE_BODY_TITLE")
+    subTitle: qsTr("CODE_BODY_INFO")
+
+    footer {
+        visible: true
+    }
 
     onVisibleChanged: requestError.error = false;
 
@@ -63,38 +71,8 @@ Form {
     }
 
     Column {
-        anchors.fill: parent
+        width: parent.width
         spacing: 20
-
-        Item {
-            width: parent.width
-            height: 90
-
-            Column {
-                anchors.fill: parent
-                spacing: 20
-
-                Item {
-                    width: parent.width
-                    height: 35
-
-                    Text {
-                        text: qsTr("CODE_BODY_TITLE")
-                        font { family: "Arial"; pixelSize: 20 }
-                        anchors.baseline: parent.bottom
-                        color: root.style.authTitleText
-                    }
-                }
-
-                Text {
-                    width: parent.width
-                    font { family: "Arial"; pixelSize: 14 }
-                    color: root.style.authSubTitleText
-                    wrapMode: Text.WordWrap
-                    text: qsTr("CODE_BODY_INFO")
-                }
-            }
-        }
 
         TopErrorContainer {
             id: requestError
@@ -146,7 +124,7 @@ Form {
                 width: parent.width
                 height: 48
                 placeholder: qsTr("CODE_BODY_CODE_INPUT_PLACEHOLDER")
-                icon: installPath + "Assets/Images/GameNet/Controls/PasswordInput/lock.png"
+                icon: installPath + "Assets/Images/GameNet/Controls/Input/password.png"
             }
         }
 
@@ -163,10 +141,10 @@ Form {
                 onClicked: d.unblock();
             }
 
-            Rectangle {
+            ContentStroke {
                 width: 1
-                color: root.style.authDelimiter
                 height: parent.height
+                opacity: 0.25
             }
 
             TextButton {
@@ -174,9 +152,9 @@ Form {
 
                 anchors.verticalCenter: parent.verticalCenter
                 style {
-                    normal: Styles.style.authCancelCodeHormal
-                    hover: Styles.style.authCancelCodeHover
-                    disabled: Styles.style.authCancelCodeHormal
+                    normal: Styles.style.linkText
+                    hover: Styles.style.linkText
+                    disabled: Styles.style.linkText
                 }
 
                 onClicked: root.cancel();

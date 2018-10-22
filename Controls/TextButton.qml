@@ -27,6 +27,7 @@ Text {
     signal clicked(variant mouse)
 
     color: control.style.normal
+    smooth: true
     font {
         family: "Arial"
         pixelSize: 16

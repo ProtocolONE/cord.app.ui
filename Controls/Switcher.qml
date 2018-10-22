@@ -5,6 +5,7 @@ Item {
     id: root
 
     property bool forceFocus: false
+    property int duration: 250
 
     default property alias child: stash.data
 
@@ -62,7 +63,7 @@ Item {
             property: "opacity"
             easing.type: Easing.OutQuart
             to: 0
-            duration: 250
+            duration: root.duration
         }
 
         ScriptAction {

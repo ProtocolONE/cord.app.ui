@@ -29,7 +29,7 @@ Item {
 
     AnimatedImage {
         anchors.centerIn: parent
-        source: installPath + "/Assets/Images/Auth/wait.gif"
+        source: installPath + "/Assets/Images/Application/Blocks/Auth/wait.gif"
     }
 
     Timer {

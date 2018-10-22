@@ -69,7 +69,7 @@ Item {
 
             color: control.style.normal
             font { family: "Arial"; pixelSize: 16 }
-            anchors { baseline: parent.bottom; baselineOffset: -2 }
+            anchors { baseline: parent.bottom; baselineOffset: -6 }
 
             Behavior on color {
                 PropertyAnimation { duration: 250 }

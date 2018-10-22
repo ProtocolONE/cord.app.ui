@@ -16,6 +16,9 @@ import "../../Core/Authorization.js" as Authorization
 import "../../Core/App.js" as App
 import "../../Core/Styles.js" as Styles
 
+import "./Controls"
+import "./Controls/Inputs"
+
 Form {
     id: root
 
@@ -23,14 +26,23 @@ Form {
     property alias password: passwordInput.text
     property int loginMaxSize: 254
 
-    signal switchToLogin();
+    property alias inProgress: d.inProgress
+
     signal error(string message);
     signal authDone(string userId, string appKey, string cookie);
 
-    implicitHeight: 473
-    implicitWidth: 500
-    Component.onCompleted: loginInput.focus = true;
-    Keys.onTabPressed: loginInput.forceActiveFocus();
+    title: qsTr("REGISTER_BODY_TITLE")
+    subTitle: qsTr("REGISTER_BODY_SUB_TITLE")
+
+    footer {
+        visible: true
+        title: qsTr("REGISTER_BODY_AUTH_TEXT")
+        text: qsTr("REGISTER_BODY_AUTH_BUTTON")
+    }
+
+    Keys.onTabPressed: loginInput.forceActiveFocus()
+    Component.onCompleted: loginInput.focus = true
+
 
     QtObject {
         id: d
@@ -57,7 +69,7 @@ Form {
             d.password = "";
             d.inProgress = true;
 
-            Authorization.register(login, password, function(error, response) {                
+            Authorization.register(login, password, function(error, response) {
                 if (Authorization.isSuccess(error)) {
                     d.auth(login, password);
                     return;
@@ -113,70 +125,60 @@ Form {
     }
 
     Column {
-        anchors.fill: parent
-        spacing: 20
+        width: parent.width
+        spacing: 15
+
+        Column {
+            width: parent.width
+            height: childrenRect.height
+            spacing: 14
+
+            LoginInput {
+                id: loginInput
+
+                width: parent.width
+                placeholder: qsTr("REGISTER_BODY_LOGIN_PLACEHOLDER")
+                maximumLength: loginMaxSize + 1
+                z: 1
+
+                onTextChanged: {
+                    if (loginInput.text.length > root.loginMaxSize) {
+                      loginInput.errorMessage = qsTr("REGISTER_FAIL_LOGIN_TOO_LONG");
+                      loginInput.error = true;
+                    }
+                }
+                onTabPressed: passwordInput.forceActiveFocus();
+                onBackTabPressed: passwordInput.forceActiveFocus();
+            }
+
+            PasswordInput {
+                id: passwordInput
+
+                width: parent.width
+                placeholder: qsTr("REGISTER_BODY_PASSWORD_PLACEHOLDER")
+
+                onTabPressed: loginInput.forceActiveFocus();
+                onBackTabPressed: loginInput.forceActiveFocus();
+
+                Keys.onReturnPressed: d.register();
+                Keys.onEnterPressed: d.register();
+            }
+        }
+
+
 
         Item {
             width: parent.width
-            height: 74
-
-            Text {
-                text: qsTr("REGISTER_BODY_TITLE")
-                font { family: "Arial"; pixelSize: 20 }
-                anchors { baseline: parent.top; baselineOffset: 35 }
-                color: root.style.authTitleText
-            }
-
-            Text {
-                text: qsTr("REGISTER_BODY_SUB_TITLE")
-                color: root.style.authSubTitleText
-                anchors { baseline: parent.top; baselineOffset: 64 }
-                font { family: "Arial"; pixelSize: 14 }
-            }
-        }
-
-        LoginInput {
-            id: loginInput
-
-            width: parent.width
-            placeholder: qsTr("REGISTER_BODY_LOGIN_PLACEHOLDER")
-            maximumLength: loginMaxSize + 1
-            z: 1
-
-            onTextChanged: {
-                if (loginInput.text.length > root.loginMaxSize) {
-                  loginInput.errorMessage = qsTr("REGISTER_FAIL_LOGIN_TOO_LONG");
-                  loginInput.error = true;
-                }
-            }
-            onTabPressed: passwordInput.forceActiveFocus();
-            onBackTabPressed: passwordInput.forceActiveFocus();
-        }
-
-        PasswordInput {
-            id: passwordInput
-
-            width: parent.width
-            placeholder: qsTr("REGISTER_BODY_PASSWORD_PLACEHOLDER")
-
-            onTabPressed: loginInput.forceActiveFocus();
-            onBackTabPressed: loginInput.forceActiveFocus();
-
-            Keys.onReturnPressed: d.register();
-            Keys.onEnterPressed: d.register();
-        }
-
-        Row {
-            width: parent.width
             height: 48
-            spacing: 30
 
             Button {
                 width: 200
                 height: parent.height
                 inProgress: d.inProgress
+                anchors.left: parent.left
                 text: qsTr("REGISTER_BODY_REGISTER_BUTTON")
                 onClicked: d.register();
+                font {family: "Open Sans Regular"; pixelSize: 15}
                 analytics {
                    page: '/Auth'
                    category: 'RegistrationBody'
@@ -184,83 +186,10 @@ Form {
                 }
             }
 
-            Rectangle {
-                width: 1
-                color: root.style.authDelimiter
-                height: parent.height
-            }
-
-            Row {
-                height: parent.height
-                width: 200
-                spacing: 5
-
-                Text {
-                    anchors { baseline: parent.bottom; baselineOffset: -21 }
-                    color: root.style.authSubTitleText
-                    font { family: "Arial"; pixelSize: 12 }
-                    text: qsTr("REGISTER_BODY_AUTH_TEXT")
-                }
-
-                TextButton {
-                    anchors { baseline: parent.bottom; baselineOffset: -21 }
-                    height: parent.height
-                    text: qsTr("REGISTER_BODY_AUTH_BUTTON")
-                    style {
-                        normal: Styles.style.authSwitchPageButtonHormal
-                        hover: Styles.style.authSwitchPageButtonHover
-                    }
-
-                    fontSize: 12
-                    onClicked: {
-                        if (!d.inProgress) {
-                            passwordInput.text = "";
-                            root.switchToLogin();
-                        }
-                    }
-                }
+            LicenseText {
+                anchors.right: parent.right
+                onClicked: App.openExternalUrl("https://www.gamenet.ru/license");
             }
         }
-    }
-
-    Row {
-        opacity: licenseMouse.containsMouse ? 1 : 0.8
-        height: 40
-        anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
-        spacing: 5
-
-        Text {
-            anchors { baseline: parent.bottom; baselineOffset: -20 }
-            font.pixelSize: 12
-            color: root.style.authSubTitleText
-            text: qsTr("REGISTER_BODY_LICENSE_PART1")
-        }
-
-        TextButton {
-            anchors { baseline: parent.bottom; baselineOffset: -20 }
-            fontSize: 12
-            text: qsTr("REGISTER_BODY_LICENSE_PART2")
-
-            style {
-                normal: Styles.style.authLicenseButtonTextNormal
-                hover: Styles.style.authLicenseButtonTextHover
-            }
-
-            onClicked: App.openExternalUrl("https://www.gamenet.ru/license");
-
-            CursorArea {
-                anchors.fill: parent
-                cursor: licenseMouse.containsMouse ? CursorArea.PointingHandCursor : CursorArea.ArrowCursor
-            }
-        }
-    }
-
-    MouseArea {
-        id: licenseMouse
-
-        height: 25
-        anchors { left: parent.left; right: parent.right; bottom: parent.bottom; bottomMargin: 15 }
-        hoverEnabled: true
-        acceptedButtons: Qt.NoButton
     }
 }

@@ -17,24 +17,38 @@ import "../../Core/restapi.js" as RestApi
 import "../../Core/App.js" as AppProxy
 import "../../Core/Styles.js" as Styles
 
-import "./AuthHelper.js" as AuthHelper
+import "./AuthBody.js" as AuthHelper
+
+import "./Controls"
+import "./Controls/Inputs"
 
 Form {
     id: root
 
     property alias login: loginInput.text
+    property alias password: passwordInput.text
     property alias loginSuggestion: loginSuggestion.dictionary
     property int loginMaxSize: 254
+    property bool guestMode
 
-    signal switchToRegistration();
+    property alias inProgress: d.inProgress
+
     signal codeRequired();
     signal error(string message);
     signal authDone(string userId, string appKey, string cookie, bool remember);
 
-    implicitHeight: 473
-    implicitWidth: 500
-    Component.onCompleted: loginInput.focus = true;
-    Keys.onTabPressed: loginInput.forceActiveFocus();
+    title: qsTr("AUTH_BODY_TITLE")
+    subTitle: qsTr("AUTH_BODY_SUB_TITLE")
+
+    footer {
+        visible: true
+        title: qsTr("AUTH_BODY_REGISTER_TEXT")
+        text: qsTr("AUTH_BODY_REGISTER_BUTTON")
+        guestMode: root.guestMode
+    }
+
+    Keys.onTabPressed: loginInput.forceActiveFocus()
+    Component.onCompleted: loginInput.focus = true
 
     QtObject {
         id: d
@@ -166,101 +180,114 @@ Form {
     }
 
     Column {
-        anchors.fill: parent
-        spacing: 20
+        width: parent.width
+        spacing: 15
+
+        Column {
+            spacing: 24
+            width: parent.width
+
+            LoginInput {
+                id: loginInput
+
+                function nextBackTabItem() {
+                    if (d.captchaRequired) {
+                        captchInput.forceActiveFocus();
+                    } else {
+                        passwordInput.forceActiveFocus();
+                    }
+                }
+
+                width: parent.width
+                placeholder: qsTr("AUTH_BODY_LOGIN_PLACEHOLDER")
+
+                onTabPressed: passwordInput.forceActiveFocus();
+                onBackTabPressed: loginInput.nextBackTabItem();
+                maximumLength: loginMaxSize + 1
+
+                onTextChanged: {
+                    if (loginInput.text.length > root.loginMaxSize) {
+                      loginInput.errorMessage = qsTr("REGISTER_FAIL_LOGIN_TOO_LONG");
+                      loginInput.error = true;
+                    }
+
+                    d.captchaRequired = false;
+                }
+                z: 1
+
+                typeahead: TypeaheadBehaviour {
+                    id: loginSuggestion
+
+                    function sortFunction(a, b) {
+                        return (b.data || 0) - (a.data || 0);
+                    }
+                }
+            }
+
+            PasswordInput {
+                id: passwordInput
+
+                function nextTabItem() {
+                    if (d.captchaRequired) {
+                        captchInput.forceActiveFocus();
+                    } else {
+                        loginInput.forceActiveFocus();
+                    }
+                }
+
+                width: parent.width
+                placeholder: qsTr("AUTH_BODY_PASSWORD_PLACEHOLDER")
+
+                onTabPressed: passwordInput.nextTabItem();
+                onBackTabPressed: loginInput.forceActiveFocus();
+
+                Keys.onEnterPressed: d.genericAuth();
+                Keys.onReturnPressed: d.genericAuth();
+
+                TextButton {
+                    anchors {
+                        right: parent.right
+                        bottom: parent.top
+                        bottomMargin: 5
+                    }
+                    height: 15
+                    text: qsTr("AUTH_BODY_AMNESIA_TEXT")
+
+                    fontSize: 12
+                    style {
+                        normal: Styles.style.linkText
+                        hover: Styles.style.linkText
+                    }
+
+                    onClicked: AppProxy.openExternalUrl("https://gamenet.ru/restore/?login=" + d.login);
+                }
+            }
+
+            CaptchaInput {
+                id: captchInput
+
+                visible: d.captchaRequired
+
+                onTabPressed: loginInput.forceActiveFocus();
+                onBackTabPressed: passwordInput.forceActiveFocus();
+                Keys.onEnterPressed: d.genericAuth();
+                Keys.onReturnPressed: d.genericAuth();
+                onRefresh: d.refreshCaptcha();
+            }
+        }
 
         Item {
             width: parent.width
-            height: 45
-
-            Text {
-                text: qsTr("AUTH_BODY_TITLE")
-                font { family: "Arial"; pixelSize: 20 }
-                color: root.style.authTitleText
-                anchors { baseline: parent.top; baselineOffset: 35 }
-            }
-        }
-
-        LoginInput {
-            id: loginInput
-
-            function nextBackTabItem() {
-                if (d.captchaRequired) {
-                    captchInput.forceActiveFocus();
-                } else {
-                    passwordInput.forceActiveFocus();
-                }
-            }
-
-            width: parent.width
-            placeholder: qsTr("AUTH_BODY_LOGIN_PLACEHOLDER")
-
-            onTabPressed: passwordInput.forceActiveFocus();
-            onBackTabPressed: loginInput.nextBackTabItem();
-            maximumLength: loginMaxSize + 1
-
-            onTextChanged: {
-                if (loginInput.text.length > root.loginMaxSize) {
-                  loginInput.errorMessage = qsTr("REGISTER_FAIL_LOGIN_TOO_LONG");
-                  loginInput.error = true;
-                }
-
-                d.captchaRequired = false;
-            }
-            z: 1
-
-            typeahead: TypeaheadBehaviour {
-                id: loginSuggestion
-
-                function sortFunction(a, b) {
-                    return (b.data || 0) - (a.data || 0);
-                }
-            }
-        }
-
-        PasswordInput {
-            id: passwordInput
-
-            function nextTabItem() {
-                if (d.captchaRequired) {
-                    captchInput.forceActiveFocus();
-                } else {
-                    loginInput.forceActiveFocus();
-                }
-            }
-
-            width: parent.width
-            placeholder: qsTr("AUTH_BODY_PASSWORD_PLACEHOLDER")
-
-            onTabPressed: passwordInput.nextTabItem();
-            onBackTabPressed: loginInput.forceActiveFocus();
-
-            Keys.onEnterPressed: d.genericAuth();
-            Keys.onReturnPressed: d.genericAuth();
-        }
-
-        CaptchaInput {
-            id: captchInput
-
-            visible: d.captchaRequired
-
-            onTabPressed: loginInput.forceActiveFocus();
-            onBackTabPressed: passwordInput.forceActiveFocus();
-            Keys.onEnterPressed: d.genericAuth();
-            Keys.onReturnPressed: d.genericAuth();
-
-            onRefresh: d.refreshCaptcha();
-        }
-
-        Row {
-            width: parent.width
-            height: 16
-            spacing: 20
+            height: 48
 
             CheckBox {
                 id: rememberAuth
 
-                height: parent.height
+                anchors{
+                    left: parent.left
+                    verticalCenter: parent.verticalCenter
+                }
+                height: 20
                 checked: AuthHelper.rememberAccount != undefined ? AuthHelper.rememberAccount : true
                 text: qsTr("AUTH_BODY_REMEMBER_TEXT")
                 enabled: !d.inProgress
@@ -269,78 +296,21 @@ Form {
                     normal: Styles.style.authRememberCheckBoxNormal
                     hover: Styles.style.authRememberCheckBoxHover
                 }
-                onToggled: {
-                    AuthHelper.rememberAccount = rememberAuth.checked;
-                }
+                onToggled: AuthHelper.rememberAccount = rememberAuth.checked;
             }
-
-            TextButton {
-                anchors { baseline: parent.bottom; baselineOffset: -2 }
-                height: parent.height
-                text: qsTr("AUTH_BODY_AMNESIA_TEXT")
-
-                fontSize: 14
-                style {
-                    normal: Styles.style.authAmnesiaButtonTextNormal
-                    hover: Styles.style.authAmnesiaButtonTextHover
-                }
-
-                onClicked: AppProxy.openExternalUrl("https://gamenet.ru/restore/?login=" + d.login);
-            }
-        }
-
-        Row {
-            width: parent.width
-            height: 48
-            spacing: 30
 
             Button {
-                width: 200
+                width: 170
                 height: parent.height
+                anchors.right: parent.right
                 text: qsTr("AUTH_BODY_LOGIN_BUTTON")
+                font {family: "Open Sans Regular"; pixelSize: 15}
                 inProgress: d.inProgress
                 onClicked: d.genericAuth();
                 analytics {
                    page: '/Auth'
                    category: 'AuthBody'
                    action: 'Login button pressed'
-                }
-            }
-
-            Rectangle {
-                width: 1
-                color: root.style.authDelimiter
-                height: parent.height
-            }
-
-            Row {
-                height: parent.height
-                width: 200
-                spacing: 5
-
-                Text {
-                    anchors { baseline: parent.bottom; baselineOffset: -21 }
-                    color: root.style.authSubTitleText
-                    text: qsTr("AUTH_BODY_REGISTER_TEXT")
-                    font { family: "Arial"; pixelSize: 12 }
-                }
-
-                TextButton {
-                    anchors { baseline: parent.bottom; baselineOffset: -21 }
-                    height: parent.height
-                    text: qsTr("AUTH_BODY_REGISTER_BUTTON")
-                    style {
-                        normal: Styles.style.authSwitchPageButtonHormal
-                        hover: Styles.style.authSwitchPageButtonHover
-                    }
-
-                    onClicked: {
-                        if (!d.inProgress) {
-                            passwordInput.text = "";
-                            root.switchToRegistration();
-                        }
-                    }
-                    fontSize: 12
                 }
             }
         }

@@ -12,7 +12,7 @@ import QtQuick 1.1
 QtObject {
     property color normal: "#FF4F02"
     property color hover: "#FF7902"
-    property color disabled: "#FF4F02"
+    property color disabled: "#577889"
 
     // INFO это состояние походу нигде не используется
     property color active: "#FF4F02"

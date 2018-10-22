@@ -32,7 +32,7 @@ Item {
 
     property alias error: inputBehavior.error
 
-    property alias icon: iconImage.source
+    property alias icon: iconImage.fakeSource
     property alias iconBackground: controlIcon.color
     property bool iconHovered: iconMouseArea.containsMouse
     property alias iconCursor: iconMouseArea.cursor
@@ -41,6 +41,7 @@ Item {
     property alias validator: inputBehavior.validator
 
     property bool clearOnEsc: false
+    property bool passwordType: false
 
     signal iconClicked()
     signal enterPressed()
@@ -84,10 +85,10 @@ Item {
 
         anchors { fill: parent; margins: 1 }
         color: style.background
-        border { width: 2; color: style.normal }
+        border { width: 2; color: style.background }
 
         Behavior on border.color {
-            ColorAnimation { duration: 300 }
+            ColorAnimation { duration: 250 }
         }
     }
 
@@ -98,6 +99,7 @@ Item {
         hoverEnabled: true
         onClicked: inputBehavior.forceActiveFocus();
 
+
         Rectangle {
             id: controlIcon
 
@@ -105,17 +107,24 @@ Item {
             width: root.icon != "" ? parent.height : 0
             height: parent.height
             color: style.background
-
             anchors {
                 left: parent.left
                 verticalCenter: parent.verticalCenter
             }
 
+            Behavior on color {
+                ColorAnimation { duration: 250 }
+            }
+
             Image {
                 id: iconImage
 
+                property string fakeSource: root.icon
+
                 anchors.centerIn: parent
-                source: root.icon
+                source: internalState.state === 'ErrorNormal'
+                        ? (installPath + 'Assets/Images/GameNet/Controls/Input/error.png')
+                        : iconImage.fakeSource
             }
 
             CursorMouseArea {
@@ -204,6 +213,9 @@ Item {
                     right: parent.right
                     verticalCenter: parent.verticalCenter
                 }
+                echoMode: (root.passwordType && !eyeMouser.containsMouse)
+                          ? TextInput.Password
+                          : TextInput.Normal
 
                 Keys.onTabPressed: root.tabPressed();
                 Keys.onBacktabPressed: root.backTabPressed();
@@ -369,6 +381,24 @@ Item {
                         source: installPath + "Assets/Images/GameNet/Controls/Input/capslock.png"
                     }
                 }
+
+                Item {
+                    width: visible ? height : 0
+                    height: parent.height
+                    visible: root.passwordType === true && root.text.length
+
+                    Image {
+                        anchors.centerIn: parent
+                        source: eyeMouser.containsMouse
+                            ? installPath + "Assets/Images/GameNet/Controls/Input/eye_hover.png"
+                            : installPath + "Assets/Images/GameNet/Controls/Input/eye.png"
+                    }
+
+                    CursorMouseArea {
+                        id: eyeMouser
+                        anchors.fill: parent
+                    }
+                }
             }
         }
     }
@@ -507,10 +537,12 @@ Item {
     }
 
     StateGroup {
+        id: internalState
+
         states: [
             State {
                 name: ""
-                PropertyChanges { target: controlBorder; border.color: style.normal }
+                PropertyChanges { target: controlBorder; border.color: style.background }
                 PropertyChanges { target: inputBehavior; color: style.normal }
             },
             State {
@@ -535,6 +567,8 @@ Item {
             State {
                 name: "ErrorNormal"
                 when: inputBehavior.error
+
+                PropertyChanges { target: controlIcon; color: style.error }
                 PropertyChanges { target: controlBorder; border.color: style.error }
                 PropertyChanges { target: inputBehavior; color: style.error }
             },

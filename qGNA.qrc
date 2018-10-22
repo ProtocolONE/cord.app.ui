@@ -281,6 +281,7 @@
 		<file>Application/Widgets/Messenger/Plugins/Subscription/Subscription.js</file>
 		<file>Application/Widgets/Messenger/Plugins/Topic/Topic.js</file>
 		<file>Application/Widgets/Messenger/qmldir</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.js</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/Body.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/BodyHistoryHeader.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/BodySection.qml</file>

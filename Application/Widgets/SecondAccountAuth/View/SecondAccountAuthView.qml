@@ -93,14 +93,6 @@ PopupBase {
         }
     }
 
-    AuthFormStyle {
-        id: popupAuthFormStyle
-
-        authTitleText: Styles.style.secondAccountPopupAuthTitleText
-        authDelimiter: Styles.style.secondAccountPopupAuthDelimiter
-        authSubTitleText: Styles.style.secondAccountPopupAuthSubTitleText
-    }
-
     Item {
         width: root.width
         height: 433
@@ -123,9 +115,8 @@ PopupBase {
                 AuthBody {
                     id: auth
 
-                    style: popupAuthFormStyle
                     anchors.fill: parent
-                    onSwitchToRegistration: authContainer.state = "registration"
+                    onFooterPrimaryButtonClicked:  authContainer.state = "registration"
                     onCodeRequired: {
                         codeForm.codeSended = false;
                         authContainer.state = "code"
@@ -139,27 +130,31 @@ PopupBase {
                             auth.login = "";
                         }
                     }
+                    vkButtonInProgress: d.vkAuthInProgress
+                    onFooterVkClicked: d.startVkAuth();
                 }
 
                 RegistrationBody {
                     id: registration
 
-                    style: popupAuthFormStyle
                     width: parent.width
                     height: 385
-                    onSwitchToLogin: authContainer.state = "auth"
+                    onFooterPrimaryButtonClicked:  authContainer.state = "auth"
                     onError: d.showError(message);
                     onAuthDone: d.authSuccess(userId, appKey, cookie, true, registration.login);
+                    vkButtonInProgress: d.vkAuthInProgress
+                    onFooterVkClicked: d.startVkAuth();
                 }
 
                 CodeBody {
                     id: codeForm
 
-                    style: popupAuthFormStyle
                     anchors.fill: parent
                     login: auth.login
                     onCancel: authContainer.state = "auth"
                     onSuccess: authContainer.state = "auth"
+                    vkButtonInProgress: d.vkAuthInProgress
+                    onFooterVkClicked: d.startVkAuth();
                 }
 
                 MessageBody {
@@ -167,19 +162,9 @@ PopupBase {
 
                     property string backState
 
-                    style: popupAuthFormStyle
                     anchors.fill: parent
                     onClicked: authContainer.state = messageBody.backState;
                 }
-            }
-
-            Footer {
-                id: footer
-
-                style: popupAuthFormStyle
-                anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
-                vkButtonInProgress: d.vkAuthInProgress
-                onOpenVkAuth: d.startVkAuth();
             }
 
             state: "auth"

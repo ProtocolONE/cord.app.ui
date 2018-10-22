@@ -859,11 +859,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>AUTH_BODY_LOGIN_PLACEHOLDER</source>
-        <translation>Логин</translation>
+        <translation>Введите адресс почты</translation>
     </message>
     <message>
         <source>AUTH_BODY_PASSWORD_PLACEHOLDER</source>
-        <translation>Пароль</translation>
+        <translation>Введите пароль</translation>
     </message>
     <message>
         <source>AUTH_BODY_REMEMBER_TEXT</source>
@@ -875,7 +875,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>AUTH_BODY_LOGIN_BUTTON</source>
-        <translation>Войти</translation>
+        <translation>Войти в аккаунт</translation>
     </message>
     <message>
         <source>AUTH_BODY_REGISTER_TEXT</source>
@@ -883,7 +883,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>AUTH_BODY_REGISTER_BUTTON</source>
-        <translation>Зарегистрируйся</translation>
+        <translation>Регистрация</translation>
     </message>
     <message>
         <source>AUTH_BODY_CAPTCHA_FAILED</source>
@@ -894,8 +894,8 @@ Please try again later.</source>
         <translation>Учётной записи с таким логином не существует.</translation>
     </message>
     <message>
-        <source>REGISTER_FAIL_LOGIN_TOO_LONG</source>
-        <translation type="unfinished"></translation>
+        <source>AUTH_BODY_SUB_TITLE</source>
+        <translation type="unfinished">Авторизация в приложении учётной записью GameNet</translation>
     </message>
 </context>
 <context>
@@ -1123,11 +1123,11 @@ Please try again later.</source>
     </message>
     <message>
         <source>CODE_BODY_TITLE</source>
-        <translation>Мы зафиксировали попытку подбора пароля</translation>
+        <translation>Не удаётся войти</translation>
     </message>
     <message>
         <source>CODE_BODY_INFO</source>
-        <translation>Чтобы подтвердить, что ты являешься владельцем этой учетной записи, введи код, полученный при помощи письма или СМС</translation>
+        <translation>Мы зафиксировали попытку подбора пароля. Чтобы подтвердить, что ты являешься владельцем этой учетной записи, введи код, полученный при помощи письма или СМС.</translation>
     </message>
     <message>
         <source>CODE_BODY_SEND_BY_MAIL</source>
@@ -1797,7 +1797,27 @@ Please try again later.</source>
     </message>
     <message>
         <source>AUTH_FOOTER_ALTERNATIVE_LOGIN</source>
-        <translation>Войти с помощью</translation>
+        <translation type="vanished">Войти с помощью</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_REGISTER_TEXT</source>
+        <translation type="obsolete">Нет аккаунта?</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_REGISTER_BUTTON</source>
+        <translation type="obsolete">Зарегистрируйся</translation>
+    </message>
+    <message>
+        <source>VK_LOGIN_BUTTON_TEXT</source>
+        <translation>Войти через ВКонтакте</translation>
+    </message>
+    <message>
+        <source>LOGIN_BY_GUEST_TITLE</source>
+        <translation>или</translation>
+    </message>
+    <message>
+        <source>LOGIN_BY_GUEST_BUTTON_TEXT</source>
+        <translation>Войди как гость</translation>
     </message>
 </context>
 <context>
@@ -2890,15 +2910,15 @@ Please try again later.</source>
     <name>GroupContactItemHeader</name>
     <message>
         <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_SINGLE</source>
-        <translation>участник</translation>
+        <translation type="vanished">участник</translation>
     </message>
     <message>
         <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_DOUBLE</source>
-        <translation>участника</translation>
+        <translation type="vanished">участника</translation>
     </message>
     <message>
         <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_MULTIPLE</source>
-        <translation>участников</translation>
+        <translation type="vanished">участников</translation>
     </message>
 </context>
 <context>
@@ -2920,15 +2940,15 @@ Please try again later.</source>
     <name>GroupEditHeader</name>
     <message>
         <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_SINGLE</source>
-        <translation>участник</translation>
+        <translation type="vanished">участник</translation>
     </message>
     <message>
         <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_DOUBLE</source>
-        <translation>участника</translation>
+        <translation type="vanished">участника</translation>
     </message>
     <message>
         <source>GROUP_CONTACT_HEADER_MEMBER_COUNT_MULTIPLE</source>
-        <translation>участников</translation>
+        <translation type="vanished">участников</translation>
     </message>
 </context>
 <context>
@@ -3069,6 +3089,10 @@ Please try again later.</source>
         <translation>Все запущенные игры будут закрыты. Вы уверены, что хотите выйти?</translation>
     </message>
     <message>
+        <source>AUTHORIZATION_NAVIGATE_LOGIN_ACCOUNT_TEXT</source>
+        <translation>Войти в аккаунт</translation>
+    </message>
+    <message>
         <source>HEADER_BUTTON_THEMES</source>
         <translation>Темы Windows</translation>
     </message>
@@ -3154,11 +3178,27 @@ Please try again later.</source>
     </message>
     <message>
         <source>LOGIN_BY_GUEST_BUTTON_TEXT</source>
-        <translation>Войти как гость</translation>
+        <translation type="vanished">Войти как гость</translation>
     </message>
     <message>
         <source>AUTH_SUPPORT_BUTTON_TEXT</source>
-        <translation>Задать вопрос</translation>
+        <translation type="vanished">Задать вопрос</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_REGISTER_TEXT</source>
+        <translation type="vanished">Нет аккаунта?</translation>
+    </message>
+    <message>
+        <source>AUTH_BODY_REGISTER_BUTTON</source>
+        <translation type="vanished">Регистрация</translation>
+    </message>
+    <message>
+        <source>REGISTER_BODY_AUTH_TEXT</source>
+        <translation type="vanished">Уже есть аккаунт?</translation>
+    </message>
+    <message>
+        <source>REGISTER_BODY_AUTH_BUTTON</source>
+        <translation type="vanished">Войти</translation>
     </message>
 </context>
 <context>
@@ -3223,6 +3263,17 @@ Please try again later.</source>
     <message>
         <source>BUTTON_CANCEL</source>
         <translation type="vanished">Отмена</translation>
+    </message>
+</context>
+<context>
+    <name>LicenseText</name>
+    <message>
+        <source>REGISTER_BODY_LICENSE_PART1</source>
+        <translation type="unfinished">Фактом регистрации вы соглашаетесь с условиями</translation>
+    </message>
+    <message>
+        <source>REGISTER_BODY_LICENSE_PART2</source>
+        <translation type="unfinished">пользовательского соглашения</translation>
     </message>
 </context>
 <context>
@@ -3584,7 +3635,7 @@ Please try again later.</source>
     <name>MessageBody</name>
     <message>
         <source>MESSAGE_TITLE</source>
-        <translation>В настоящий момент сервисы GameNet недоступны.</translation>
+        <translation type="unfinished">Что-то пошло не так</translation>
     </message>
     <message>
         <source>OK_BUTTON_LABEL</source>
@@ -4420,7 +4471,7 @@ Please try again later.</source>
     </message>
     <message>
         <source>VK_LOGIN_BUTTON_TEXT</source>
-        <translation type="vanished">Войти ВКонтакте</translation>
+        <translation type="vanished">Войти через ВКонтакте</translation>
     </message>
     <message>
         <source>AUTH_GUEST_REGISTER_MESSAGE</source>
@@ -4531,11 +4582,11 @@ Please try again later.</source>
     <name>RegistrationBody</name>
     <message>
         <source>REGISTER_BODY_TITLE</source>
-        <translation>Начни играть с регистрации в GameNet</translation>
+        <translation>Начни играть прямо сейчас</translation>
     </message>
     <message>
         <source>REGISTER_BODY_SUB_TITLE</source>
-        <translation>Это просто и займет мало времени, но откроет новые возможности</translation>
+        <translation>Регистрация бесплатна и не займет много вашего времени</translation>
     </message>
     <message>
         <source>REGISTER_BODY_LOGIN_PLACEHOLDER</source>
@@ -4543,23 +4594,23 @@ Please try again later.</source>
     </message>
     <message>
         <source>REGISTER_BODY_PASSWORD_PLACEHOLDER</source>
-        <translation>Придумай пароль от 6 символов</translation>
+        <translation>Придумай пароль (от 6 символов)</translation>
     </message>
     <message>
         <source>REGISTER_BODY_AUTH_TEXT</source>
-        <translation>Уже зарегистрирован?</translation>
+        <translation>Уже есть аккаунт?</translation>
     </message>
     <message>
         <source>REGISTER_BODY_AUTH_BUTTON</source>
-        <translation>Войти в аккаунт</translation>
+        <translation>Войти</translation>
     </message>
     <message>
         <source>REGISTER_BODY_LICENSE_PART1</source>
-        <translation>Фактом регистрации вы соглашаетесь с условиями</translation>
+        <translation type="vanished">Фактом регистрации вы соглашаетесь с условиями</translation>
     </message>
     <message>
         <source>REGISTER_BODY_LICENSE_PART2</source>
-        <translation>пользовательского соглашения</translation>
+        <translation type="vanished">пользовательского соглашения</translation>
     </message>
     <message>
         <source>REGISTER_BODY_REGISTER_BUTTON</source>
@@ -5357,6 +5408,13 @@ Please try again later.</source>
     <message>
         <source>SUPPORT_HELP</source>
         <translation type="vanished">Служба поддержки пользователей GameNet</translation>
+    </message>
+</context>
+<context>
+    <name>SupportButton</name>
+    <message>
+        <source>AUTH_SUPPORT_BUTTON_TEXT</source>
+        <translation type="unfinished">Задать вопрос</translation>
     </message>
 </context>
 <context>
