@@ -433,6 +433,37 @@ Item {
     property color detailedUserInfoMainInfoFriendButtonBorder: "#1abc9c"
     property color detailedUserInfoMainInfoFriendRequestStatus: "#FFFFFF"
 
+    // GameNet 3.4
+    property double baseBackgroundOpacity: 0.75
+    property double darkBackgroundOpacity: 0.90
+    property double blockInnerOpacity: 0.10 //block_inner
+
+    property color light: "#FFFFFF"
+    property color dark: "#000000"
+
+    property color checkedButtonActive: "#31bca0"
+    property color checkedButtonInactive: "#24475a"
+
+    property color titleText: '#45bef6'
+    property color infoText: '#7e8f9e'
+    property color textBase: '#a1c1d2'
+    property color textAttention: '#ff4f02'
+    property color textTime: '#577889' // chat_time
+    property color menuText: "#FFFFFF"
+    property color mainMenuText: "#FFFFFF"
+    property color chatInactiveText: "#577889"
+    property color bannerInfoText: "#FFDD82"
+    property color chatButtonText: "#FFFFFF"
+
+    // Базовый фон самого рута приложения
+    //property color applicationBackground: "red" //"#002336"
+    property color applicationBackground: "#002336" // bg
+    property color contentBackgroundDark: "#00111A" // bg_darkblue
+    property color contentBackgroundLight: "#031d2b" // bg_blue​
+    property color chatBodyBackground: "#19384A"
+
+    // End of GameNet 3.4
+
     //PRIVATE PART
     property variant styleList
     property string styleListOriginal

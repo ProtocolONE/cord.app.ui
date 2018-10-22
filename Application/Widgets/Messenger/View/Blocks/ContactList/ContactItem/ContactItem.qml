@@ -17,7 +17,7 @@ import "../../../../../../Core/App.js" as App
 
 import "../../Group" as GroupEdit
 
-Rectangle {
+Item {
     id: root
 
     property string userId: ""
@@ -32,6 +32,7 @@ Rectangle {
 
     property bool isCurrent: false
     property bool isUnreadMessages: false
+    property int unreadMessageCount: 0
     property bool isHighlighted: false
 
     property bool editMode: false
@@ -44,7 +45,12 @@ Rectangle {
     implicitWidth: 78
     implicitHeight: 40
 
-    color: root.getBgColor()
+    Rectangle {
+        visible: root.isCurrent
+        anchors.fill: parent
+        color: Styles.style.light
+        opacity: 0.10
+    }
 
     function startEdit() {
         editNickname.text = root.nickname;
@@ -53,39 +59,28 @@ Rectangle {
         editNickname.forceActiveFocus();
     }
 
-    function getBgColor() {
-        var map = {
-            unread: Styles.style.messengerContactBackgroundUnread,
-            selected: Styles.style.messengerContactBackgroundSelected,
-            normal: Styles.style.messengerContactBackground,
-        }
-
-        return map[root.state] || Styles.style.messengerContactBackground;
-    }
-
     QtObject {
         id: d
 
         property string imageRoot: installPath + "Assets/Images/Application/Widgets/Messenger/ContactItem/"
-        property bool extendedInfoVisible: mouser.containsMouse || informationIcon.containsMouse
+        property bool extendedInfoVisible: mouser.containsMouse
     }
 
     Rectangle {
         anchors {
             fill: parent
-            topMargin: 1
-            leftMargin: 1
-            bottomMargin: 2
-            rightMargin: 2
+            rightMargin: 1
         }
-        color: root.color
 
-        radius: 1
+        color: "#00000000"
+
+        smooth: false
+        opacity: 0.25
         border {
             width: 1
-            color: Styles.style.messengerContactBackgroundHightlighted
+            color: Styles.style.light
         }
-        visible: root.isHighlighted && !root.isCurrent
+        visible: root.isHighlighted
     }
 
     CursorMouseArea {
@@ -161,13 +156,11 @@ Rectangle {
                             id: nicknameText
 
                             function getTextColor() {
-                                var map = {
-                                    unread: Styles.style.messengerContactNicknameUnread,
-                                    selected: Styles.style.messengerContactNicknameSelected,
-                                    normal: Styles.style.messengerContactNickname,
+                                if (root.isUnreadMessages) {
+                                    return Styles.style.bannerInfoText;
                                 }
 
-                                return map[root.state] || Styles.style.messengerContactNickname;
+                                return Styles.style.menuText;
                             }
 
                             anchors.left: parent.left
@@ -175,11 +168,10 @@ Rectangle {
                             font {
                                 family: "Arial"
                                 pixelSize: 14
-                                bold: root.isUnreadMessages
                             }
 
                             height: 20
-                            width: parent.width - (informationIcon.visible ? informationIcon.width + 8 : 0)
+                            width: parent.width - (unreadMessageCountText.visible ? unreadMessageCountText.width + 14 : 0)
                             color: nicknameText.getTextColor()
                             elide: Text.ElideRight
                             visible: !editNickname.visible
@@ -191,14 +183,14 @@ Rectangle {
 
                             visible: false
                             height: 20
-                            color: Styles.style.messengerContactNickname
+                            color: Styles.style.menuText
 
                             font {
                                 family: "Arial"
                                 pixelSize: 14
                             }
 
-                            width: parent.width - (informationIcon.width + 8)
+                            width: nicknameText.width
                             Keys.onEnterPressed: {
                                 root.nicknameChangeRequest(editNickname.text);
                                 editNickname.visible = false;
@@ -218,42 +210,23 @@ Rectangle {
                             }
                         }
 
-                        ImageButton {
-                            id: informationIcon
+                        Text {
+                            id: unreadMessageCountText
 
-                            visible: root.showInformationIcon && d.extendedInfoVisible
-
-                            width: 11
-                            height: 11
                             anchors {
-                                top: parent.top
-                                topMargin: 2
                                 right: parent.right
-                                rightMargin: 4
+                                rightMargin: 10
+                                baseline: nicknameText.baseline
                             }
 
-                            analytics {
-                                page: "/messenger"
-                                category: "ContactList"
-                                action: "OpenDetailedUserInfo"
+                            text: root.unreadMessageCount > 99 ? "99+" : root.unreadMessageCount
+                            color: Styles.style.bannerInfoText
+                            font {
+                                pixelSize: 12
+                                family: "Arial"
                             }
 
-                            style {
-                                normal: "#00000000"
-                                hover: "#00000000"
-                                disabled: "#00000000"
-                            }
-
-                            styleImages {
-                                normal: d.imageRoot + "infoIconNormal.png"
-                                hover: d.imageRoot + "infoIconHover.png"
-                            }
-
-                            onClicked: App.openDetailedUserInfo({
-                                                                    userId: root.userId,
-                                                                    nickname: root.nickname,
-                                                                    status: root.presenceStatus
-                                                                });
+                            visible: root.isUnreadMessages
                         }
                     }
 
@@ -284,7 +257,8 @@ Rectangle {
                                         ? root.extendedStatus
                                         : root.status
 
-                                color: Styles.style.messengerContactStatusText
+                                color: Styles.style.textBase
+                                opacity: 0.5
                                 font {
                                     family: "Arial"
                                     pixelSize: 12

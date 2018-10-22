@@ -21,15 +21,15 @@ Item {
     }
 
     Rectangle {
-        color: "#000000"
-        opacity: 0.7
+        color: Styles.style.contentBackgroundDark
+        opacity: Styles.style.darkBackgroundOpacity
         height: 560
         visible: d.isChatOpen && !d.isDetailedInfoOpened
 
         anchors {
             right: parent.right
-            rightMargin: 230
             left: parent.left
+            leftMargin: 230
             bottom: parent.bottom
         }
 
@@ -38,14 +38,13 @@ Item {
             hoverEnabled: true
             cursor: CursorArea.ArrowCursor
             onClicked: MessengerJs.closeChat()
-
         }
     }
 
     WidgetContainer {
         anchors {
-            right: parent.right
-            rightMargin: 230
+            left: parent.left
+            leftMargin: 230
             bottom: parent.bottom
         }
 
@@ -56,15 +55,15 @@ Item {
     }
 
     Rectangle {
-        color: "#000000"
-        opacity: 0.7
+        color: Styles.style.contentBackgroundDark
+        opacity: Styles.style.darkBackgroundOpacity
         height: 560
         visible: d.isDetailedInfoOpened
 
         anchors {
             right: parent.right
-            rightMargin: 230
             left: parent.left
+            leftMargin: 230
             bottom: parent.bottom
         }
 
@@ -80,8 +79,8 @@ Item {
         id: userInfo
 
         anchors {
-            right: parent.right
-            rightMargin: 230
+            left: parent.left
+            leftMargin: 230
             bottom: parent.bottom
         }
 

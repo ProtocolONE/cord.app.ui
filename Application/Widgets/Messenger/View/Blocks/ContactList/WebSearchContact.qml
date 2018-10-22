@@ -32,8 +32,9 @@ Item {
         id: background
 
         anchors.fill: parent
+        opacity: Styles.style.baseBackgroundOpacity
         color: root.isActive ? Styles.style.messengerContactBackgroundSelected :
-                               Styles.style.messengerContactBackground
+                               "#00000000"
     }
 
     Rectangle {
@@ -42,7 +43,8 @@ Item {
             margins: 4
             rightMargin: 14
         }
-        color: background.color
+
+        color: "#00000000"
 
         border {
             width: 1

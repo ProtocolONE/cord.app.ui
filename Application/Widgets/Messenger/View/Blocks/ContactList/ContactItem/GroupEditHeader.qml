@@ -17,7 +17,7 @@ import "../../../../../../Core/App.js" as App
 
 import "../../../../Models/Messenger.js" as Messenger
 
-Rectangle {
+Item {
     id: root
 
     property alias occupantModel: occupantView.model
@@ -31,8 +31,6 @@ Rectangle {
 
     implicitWidth: 78
     implicitHeight: 68
-
-    color: Styles.style.messengerContactBackgroundSelected
 
     QtObject {
         id: d
@@ -100,7 +98,7 @@ Rectangle {
                     pixelSize: 14
                 }
 
-                color: Styles.style.messengerContactNickname
+                color: Styles.style.menuText
                 text: root.title
                 elide: Text.ElideRight
                 textFormat: Text.PlainText
@@ -118,7 +116,8 @@ Rectangle {
                     pixelSize: 12
                 }
 
-                color: Styles.style.messengerContactStatusText
+                color: Styles.style.textBase
+                opacity: 0.5
                 text: d.countText()
                 elide: Text.ElideRight
             }
@@ -179,14 +178,7 @@ Rectangle {
             rightMargin: 26
         }
 
-        analytics {
-            page: '/Chat'
-            category: "GroupHeader"
-            action: "OpenGroupEdit"
-        }
-
         checked: true
         onClicked: root.groupButtonClicked()
     }
-
 }

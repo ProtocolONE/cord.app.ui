@@ -18,10 +18,10 @@ import "../../../../../Core/Styles.js" as Styles
 import "../../../Models/Messenger.js" as MessengerJs
 import "../../../../../Core/moment.js" as Moment
 
-Rectangle {
+Item {
     id: root
 
-    color: Styles.style.messengerChatDialogBodyBackground
+   // color: Styles.style.messengerChatDialogBodyBackground
     clip: true
 
     property variant user: MessengerJs.selectedUser(MessengerJs.USER_INFO_JID)
@@ -140,6 +140,7 @@ Rectangle {
         cursorColor: Styles.style.messangerChatDialogScrollBarCursor
     }
 
+    // INFO лежив вверху поверх чата
     BodyHistoryHeader {
         width: messageList.width
         visible: messageList.count == 0

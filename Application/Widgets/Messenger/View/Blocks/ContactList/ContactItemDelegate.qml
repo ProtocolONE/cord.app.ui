@@ -90,6 +90,14 @@ Item {
             return Messenger.hasUnreadMessages(root.user) || false;
         }
 
+        function unreadMessagesCount() {
+            if (!root.user) {
+                return 0;
+            }
+
+            return Messenger.unreadMessagesCount(root.user)|0;
+        }
+
         function isCurrent() {
             if (!root.user) {
                 return false;
@@ -152,7 +160,6 @@ Item {
                 Messenger.removeContact(user);
                 break;
             }
-
 
             ContextMenu.hide();
 
@@ -231,6 +238,7 @@ Item {
             presenceStatus: d.presenceStatus()
 
             isUnreadMessages: !root.isCurrent && d.hasUnreadMessages();
+            unreadMessageCount: d.unreadMessagesCount()
             isCurrent: d.isCurrent()
             isHighlighted: root.isHighlighted
             userId: d.userId()

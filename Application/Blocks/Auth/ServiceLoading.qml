@@ -5,7 +5,7 @@ import "../../Core/App.js" as App
 import "../../Core/Styles.js" as Styles
 import "../../Core/restapi.js" as RestApi
 
-Rectangle {
+Item {
     id: root
 
     signal finished();
@@ -26,8 +26,6 @@ Rectangle {
             retryTimer.start();
         });
     }
-
-    color: Styles.style.base
 
     AnimatedImage {
         anchors.centerIn: parent

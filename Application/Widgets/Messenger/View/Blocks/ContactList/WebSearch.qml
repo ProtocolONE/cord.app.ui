@@ -160,6 +160,8 @@ NavigatableContactList {
         anchors.centerIn: parent
 
         source: d.imageRoot + "EmptyContactInfo/background.png"
+        opacity: Styles.style.baseBackgroundOpacity
+        visible: listView.count == 0
     }
 
     Item {

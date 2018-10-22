@@ -4,13 +4,17 @@ import GameNet.Controls 1.0
 
 import "../../../../../Core/Styles.js" as Styles
 
-Rectangle {
+Item {
     id: root
 
     property string text
     property int waitTopMargin: 160
 
-    color: Styles.style.messengerSplashSolidBackground
+    Rectangle {
+        anchors.fill: parent
+        color: Styles.style.contentBackgroundLight
+        opacity: Styles.style.baseBackgroundOpacity
+    }
 
     Wait {
         id: waitImage

@@ -12,12 +12,11 @@ import Tulip 1.0
 
 import "../../../../../Core/Styles.js" as Styles
 
-Rectangle {
+Item {
     property alias caption: captionText.text
 
     implicitWidth: 100
     implicitHeight: 30
-    color: Styles.style.messengerRecentContactGroupBackground
 
     Text {
         id: captionText
@@ -33,8 +32,7 @@ Rectangle {
             pixelSize: 12
         }
 
-        opacity: 0.5
-        color: Styles.style.messengerRecentContactGroupName
+        color: Styles.style.chatInactiveText
     }
 
     Rectangle {
@@ -47,6 +45,6 @@ Rectangle {
         }
 
         opacity: 0.2
-        color: Styles.style.messengerRecentContactGroupName
+        color: Styles.style.light
     }
 }

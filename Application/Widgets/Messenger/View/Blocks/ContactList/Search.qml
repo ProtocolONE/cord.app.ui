@@ -10,6 +10,7 @@
 
 import QtQuick 1.1
 import GameNet.Controls 1.0
+import Application.Controls 1.0
 
 import "../../../../../Core/Styles.js" as Styles
 import "../../../../../../GameNet/Controls/Tooltip.js" as Tooltip
@@ -27,14 +28,8 @@ FocusScope {
         id: background
 
         anchors.fill: parent
-        color: Styles.style.messengerSearchBackground
-    }
-
-    Rectangle {
-        height: 1
-        width: parent.width
-        color: Qt.lighter(background.color, Styles.style.lighterFactor)
-        anchors.top: parent.top
+        color: "#4ca8db"
+        opacity: 0.15
     }
 
     Row {
@@ -47,16 +42,15 @@ FocusScope {
 
         spacing: 10
 
-        Button {
+        CheckedButton {
             id: button
 
             width: 32
             height: 32
-
-            style {
-                normal: Styles.style.messengerSearchButtonNormal
-                hover: Styles.style.messengerSearchButtonHover
-            }
+            boldBorder: true
+            onClicked: searchContactItem.localSearch = !searchContactItem.localSearch;
+            icon: (installPath + "Assets/Images/Application/Widgets/Messenger/")
+                    + (searchContactItem.localSearch ? "localSearch.png" : "webSearch.png")
 
             StateGroup {
                 states: [
@@ -96,30 +90,6 @@ FocusScope {
                     }
                 ]
             }
-
-            Image {
-                function getImage() {
-                    if (searchContactItem.localSearch) {
-                        if (button.containsMouse) {
-                            return (installPath + "Assets/Images/Application/Widgets/Messenger/norm_search_active.png");
-                        }
-
-                        return installPath + "Assets/Images/Application/Widgets/Messenger/norm_search.png";
-                        return;
-                    }
-
-                    if (button.containsMouse) {
-                        return installPath + "Assets/Images/Application/Widgets/Messenger/web_search_active.png";
-                    }
-
-                    return installPath + "Assets/Images/Application/Widgets/Messenger/web_search.png";
-                }
-
-                anchors.centerIn: parent
-                source: getImage()
-            }
-
-            onClicked: localSearch = !localSearch;
         }
 
         SearchInput {
@@ -150,13 +120,6 @@ FocusScope {
                 property color backgroundActive: Styles.style.messengerSearchInputBackgroundHover
             }
         }
-    }
-
-    Rectangle {
-        height: 1
-        width: parent.width
-        color: Qt.darker(background.color, Styles.style.darkerFactor)
-        anchors.bottom: parent.bottom
     }
 }
 

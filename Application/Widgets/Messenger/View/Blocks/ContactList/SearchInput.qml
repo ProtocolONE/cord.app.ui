@@ -12,6 +12,8 @@ import Tulip 1.0
 
 import GameNet.Controls 1.0
 
+import "../../../../../Core/Styles.js" as Styles
+
 Item {
     id: root
 
@@ -50,8 +52,8 @@ Item {
         id: controlBorder
 
         anchors { fill: parent; margins: 1 }
-        color: style.background
-        border { width: 2; color: style.normal }
+        color: "#00000000"
+        border { width: 2; color: root.style.normal }
 
         Behavior on border.color {
             ColorAnimation { duration: 300 }
@@ -71,7 +73,7 @@ Item {
             visible: root.icon != ""
             width: root.icon != "" ? parent.height : 0
             height: parent.height
-            color: controlBorder.color
+            color: "#00000000"
 
             anchors {
                 left: parent.left
@@ -104,47 +106,6 @@ Item {
             }
             height: parent.height
 
-            Item {
-                anchors.fill: parent
-                clip: true
-
-                Text {
-                    id: autoCompleteText
-
-                    function getFirstPosition() {
-                        // HACK: нужен биндинг на inputBehavior.cursorPosition, но значение его не важно для расчетов.
-                        if (inputBehavior.cursorPosition > 0) {
-                        }
-
-                        return inputBehavior.positionToRectangle(0).x;
-                    }
-
-                    anchors {
-                        left: parent.left
-                        right: parent.right
-                        verticalCenter: parent.verticalCenter
-                    }
-
-                    color: root.style.placeholder
-                    font { family: "Arial"; pixelSize: root.fontSize }
-
-                    visible: autoCompleteText.getFirstPosition() === 0
-                }
-
-                Rectangle {
-                    function getWidth() {
-                        if (inputBehavior.cursorPosition > 0) {
-                        }
-
-                        return inputBehavior.positionToRectangle(inputBehavior.text.length).x
-                    }
-
-                    width: getWidth();
-                    height: parent.height
-                    color: controlBorder.color
-                }
-            }
-
             Text {
                 id: placeholderText
 
@@ -153,7 +114,8 @@ Item {
                     right: parent.right
                     verticalCenter: parent.verticalCenter
                 }
-                color: root.style.placeholder
+
+                color: Styles.style.textBase
                 elide: Text.ElideRight
                 font { family: "Arial"; pixelSize: root.fontSize }
 
@@ -201,7 +163,6 @@ Item {
 
                 onTextChanged: {
                     inputBehavior.error = false;
-                    autoCompleteText.text = "";
                 }
             }
         }
@@ -255,28 +216,24 @@ Item {
             State {
                 name: ""
                 PropertyChanges { target: controlBorder; border.color: style.normal }
-                PropertyChanges { target: controlBorder; color: style.background }
                 PropertyChanges { target: inputBehavior; color: style.textNormal }
             },
             State {
                 name: "Active"
                 when: inputBehavior.activeFocus && Qt.application.active
                 PropertyChanges { target: controlBorder; border.color: style.active }
-                PropertyChanges { target: controlBorder; color: style.backgroundActive }
                 PropertyChanges { target: inputBehavior; color: style.textActive }
             },
             State {
                 name: "Hover"
                 when: mouseArea.containsMouse
                 PropertyChanges { target: controlBorder; border.color: style.active }
-                PropertyChanges { target: controlBorder; color: style.backgroundActive }
                 PropertyChanges { target: inputBehavior; color: style.textActive }
             },
             State {
                 name: "Disabled"
                 when: !root.enabled
                 PropertyChanges { target: controlBorder; border.color: style.disabled }
-                PropertyChanges { target: controlBorder; color: style.background }
                 PropertyChanges { target: iconImage; opacity: 0.2 }
                 PropertyChanges { target: inputBehavior; opacity: 0.2 }
             }

@@ -63,8 +63,8 @@
 		<file>Application/Blocks/SplashScreen/Background.qml</file>
 		<file>Application/Blocks/SplashScreen/UpdateManager.qml</file>
 		<file>Application/Bootstrap.qml</file>
-		<file>Application/Controls/BorderedButton.qml</file>
-		<file>Application/Controls/BorderedButtonStyle.qml</file>
+		<file>Application/Controls/CheckedButton.qml</file>
+		<file>Application/Controls/CheckedButtonStyle.qml</file>
 		<file>Application/Controls/ComboBox.qml</file>
 		<file>Application/Controls/ContextMenuStyle.qml</file>
 		<file>Application/Controls/ContextMenuView.qml</file>
@@ -291,6 +291,7 @@
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupEditHeader.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/PresenceIcon.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTab.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactsTypeTabs.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/EmptyContactListInfo.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/NavigatableContactList.qml</file>
@@ -312,9 +313,6 @@
 		<file>Application/Widgets/Messenger/View/Chat.qml</file>
 		<file>Application/Widgets/Messenger/View/Contacts.qml</file>
 		<file>Application/Widgets/Messenger/View/GameNetNotification.qml</file>
-		<file>Application/Widgets/Messenger/View/Styles/ActiveButtonStyle.qml</file>
-		<file>Application/Widgets/Messenger/View/Styles/CheckButtonStyle.qml</file>
-		<file>Application/Widgets/Messenger/View/Styles/InactiveButtonStyle.qml</file>
 		<file>Application/Widgets/Money/MoneyModel.qml</file>
 		<file>Application/Widgets/Money/PluginContainer.qml</file>
 		<file>Application/Widgets/Money/qmldir</file>

@@ -100,6 +100,10 @@ function hasUnreadMessages(user) {
     return _modelInstance.hasUnreadMessages(user);
 }
 
+function unreadMessagesCount(user) {
+    return _modelInstance.unreadMessagesCount(user);
+}
+
 function userStatusMessage(user) {
     var data = getUser(user.jid);
     if (!data.isValid()) {

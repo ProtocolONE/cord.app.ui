@@ -15,7 +15,7 @@ import "../../Application/Core/Styles.js" as Styles
 
 import "../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 
-Rectangle {
+Item {
     id: root
 
     property variant currentGame: App.currentGame()
@@ -24,12 +24,12 @@ Rectangle {
     implicitWidth: 1000
     implicitHeight: 600
 
-    color: Styles.style.base
-
-    // HACK
-    //    Component.onCompleted: {
-    //        App.activateGame(App.serviceItemByGameId("92"))
-    //    }
+    Component.onCompleted: {
+        if (App.startingService() != '0') {
+            App.activateGame(App.serviceItemByServiceId(App.startingService()));
+            App.navigate("mygame");
+            return;
+        }
 
     Connections {
         target: App.signalBus()
@@ -85,9 +85,9 @@ Rectangle {
 
             anchors { fill: parent;  topMargin: 40}
 
-            Column {id: layer1Col1; width: 180; height: parent.height;}
+            Column {id: layer1Col1; width: 230; height: parent.height;}
             Column {id: layer1Col2; width: 590; height: parent.height;}
-            Column {id: layer1Col3; width: 230; height: parent.height;}
+            Column {id: layer1Col3; width: 180; height: parent.height;}
         }
 
         //2 column set
@@ -97,8 +97,8 @@ Rectangle {
 
             anchors { fill: parent;  topMargin: 40}
 
-            Column {id: layer2Col1 ; width: 770; height: parent.height;}
-            Column {id: layer2Col2; width: 230; height: parent.height;}
+            Column {id: layer2Col1; width: 230; height: parent.height;}
+            Column {id: layer2Col2; width: 770; height: parent.height;}
         }
 
         //1 column set
@@ -127,7 +127,7 @@ Rectangle {
 
 
             onSwitchTo: App.navigate(page);
-            myGamesMenuEnable: App.isMyGamesEnabled();
+            myGamesMenuEnable: true//HACk App.isMyGamesEnabled();
 
             Connections {
                 target: App.signalBus()
@@ -346,7 +346,7 @@ Rectangle {
                 bottom: parent.bottom
             }
 
-            height: 467
+            height: 468
             width: 230
             widget: 'Messenger'
             view: 'Contacts'
@@ -425,11 +425,12 @@ Rectangle {
             name: "SelectedGame"
 
             PropertyChanges { target: centralBlockLoader; sourceComponent: centerBlock}
+
             PropertyChanges { target: header; parent: layer1headerContair}
-            PropertyChanges { target: gameBlock; parent: layer1Col1}
+            PropertyChanges { target: userProfile; parent: layer1Col1}
+            PropertyChanges { target: contactList; parent: layer1Col1}
             PropertyChanges { target: centralBlockLoader; parent: layer1Col2}
-            PropertyChanges { target: userProfile; parent: layer1Col3}
-            PropertyChanges { target: contactList; parent: layer1Col3}
+            PropertyChanges { target: gameBlock; parent: layer1Col3}
         }
         ,
         State {
@@ -437,31 +438,33 @@ Rectangle {
 
             PropertyChanges { target: centralBlockLoader; sourceComponent: allGames}
             PropertyChanges { target: header; parent: layer1headerContair}
-            PropertyChanges { target: centralBlockLoader; parent: layer1Col1}
-            PropertyChanges { target: userProfile; parent: layer2Col2}
-            PropertyChanges { target: contactList; parent: layer2Col2}
+            PropertyChanges { target: userProfile; parent: layer2Col1}
+            PropertyChanges { target: contactList; parent: layer2Col1}
+            PropertyChanges { target: centralBlockLoader; parent: layer1Col2}
         }
         ,
         State {
             name: "AboutGame"
 
             PropertyChanges { target: centralBlockLoader; sourceComponent: aboutGameComponent}
+
             PropertyChanges { target: header; parent: layer1headerContair}
-            PropertyChanges { target: gameBlock; parent: layer1Col1}
+            PropertyChanges { target: userProfile; parent: layer1Col1}
+            PropertyChanges { target: contactList; parent: layer1Col1}
             PropertyChanges { target: centralBlockLoader; parent: layer1Col2}
-            PropertyChanges { target: userProfile; parent: layer2Col2}
-            PropertyChanges { target: contactList; parent: layer2Col2}
+            PropertyChanges { target: gameBlock; parent: layer1Col3}
         }
         ,
         State {
             name: "MyGames"
 
             PropertyChanges { target: centralBlockLoader; sourceComponent: myGamesComponent}
+
             PropertyChanges { target: header; parent: layer1headerContair}
-            PropertyChanges { target: myGamesMenu; parent: layer2Col1}
+            PropertyChanges { target: userProfile; parent: layer1Col1}
+            PropertyChanges { target: contactList; parent: layer1Col1}
             PropertyChanges { target: centralBlockLoader; parent: layer1Col2}
-            PropertyChanges { target: userProfile; parent: layer2Col2}
-            PropertyChanges { target: contactList; parent: layer2Col2}
+            PropertyChanges { target: myGamesMenu; parent: layer1Col3}
         }
     ]
 }

@@ -28,34 +28,9 @@ Item {
 
         anchors.fill: parent
         color: "#1ABC9C"
-        font { family: "Arial"; pixelSize: 14 }
+        font { family: "Arial"; pixelSize: 16 }
         clip: true
-    }
-
-    Rectangle {
-        width: 16
-        height: 19
-        visible: nickText.paintedWidth >= nickText.width
-        anchors {
-            right: nickText.right
-            verticalCenter: nickText.verticalCenter
-        }
-        rotation: -90;
-
-        gradient: Gradient {
-            GradientStop {
-                position: 0.00
-                color: "#00000000"
-            }
-            GradientStop {
-                position: 0.455
-                color: Styles.style.profileBackground
-            }
-            GradientStop {
-                position: 1.00
-                color: Styles.style.profileBackground
-            }
-        }
+        elide: Text.ElideRight
     }
 
     CursorMouseArea {

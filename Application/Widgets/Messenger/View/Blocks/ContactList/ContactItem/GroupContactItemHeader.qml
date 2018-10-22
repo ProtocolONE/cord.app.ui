@@ -17,7 +17,7 @@ import "../../../../../../Core/App.js" as App
 
 import "../../../../Models/Messenger.js" as Messenger
 
-Rectangle {
+Item {
     id: root
 
     property alias occupantModel: occupantView.model
@@ -31,9 +31,7 @@ Rectangle {
     signal groupButtonClicked();
 
     implicitWidth: 78
-    implicitHeight: 68
-
-    color: Styles.style.messengerContactBackgroundSelected
+    implicitHeight: 72
 
     QtObject {
         id: d
@@ -86,7 +84,7 @@ Rectangle {
         spacing: 7
 
         Item {
-            width: 200
+            width: 200 -20
             height: parent.height
 
             Text {
@@ -101,7 +99,7 @@ Rectangle {
                     pixelSize: 14
                 }
 
-                color: Styles.style.messengerContactNickname
+                color: Styles.style.menuText
                 // INFO Этот хак чинит проблему с уползанием текста, когад текст пустой
                 text: root.title ? root.title : "  "
                 elide: Text.ElideRight
@@ -120,14 +118,15 @@ Rectangle {
                     pixelSize: 12
                 }
 
-                color: Styles.style.messengerContactStatusText
+                color: Styles.style.textBase
+                opacity: 0.5
                 text: d.countText()
                 elide: Text.ElideRight
             }
         }
 
         Item {
-            width: 248
+            width: 248  +20
             height: parent.height
 
             ListView {
@@ -139,13 +138,13 @@ Rectangle {
                 orientation: ListView.Horizontal
 
                 delegate: Item {
-                    width: 44
-                    height: 44
+                    width: 48
+                    height: 48
                     anchors.verticalCenter: parent.verticalCenter
 
                     Image {
-                        width: 44
-                        height: 44
+                        width: 48
+                        height: 48
                         source: d.getAvatar(model);
                     }
 
@@ -178,18 +177,10 @@ Rectangle {
     EditGroupButton {
         anchors {
             top: parent.top
-            topMargin: 10
+            topMargin: 12
             right: parent.right
-            rightMargin: 26
         }
 
-        analytics {
-            page: '/Chat'
-            category: "GroupHeader"
-            action: "OpenGroupEdit"
-        }
-
-        checked: false
         onClicked: root.groupButtonClicked()
     }
 

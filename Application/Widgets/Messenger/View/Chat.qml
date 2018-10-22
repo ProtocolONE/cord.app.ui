@@ -36,6 +36,11 @@ WidgetView {
         hoverEnabled: true
     }
 
+    Rectangle {
+        anchors.fill: parent
+        color: Styles.style.chatBodyBackground
+    }
+
     Item {
         anchors {
             fill: parent

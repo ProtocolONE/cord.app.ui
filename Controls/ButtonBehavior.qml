@@ -10,8 +10,8 @@
 import QtQuick 1.1
 
 import "../Core/GoogleAnalytics.js" as GoogleAnalytics
-
 Item {
+
     id: behavior
 
     property GoogleAnalyticsEvent analytics: GoogleAnalyticsEvent{}

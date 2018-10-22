@@ -15,7 +15,7 @@ import GameNet.Controls 1.0
 import "../../../../../../Core/Styles.js" as Styles
 import "../../../../../../Core/App.js" as App
 
-Rectangle {
+Item {
     id: root
 
     property alias nickname : nicknameText.text
@@ -36,9 +36,7 @@ Rectangle {
     signal groupButtonClicked();
 
     implicitWidth: 78
-    implicitHeight: 68
-
-    color: Styles.style.messengerContactBackgroundSelected
+    implicitHeight: 72
 
     onNicknameClicked: d.openProfile()
 
@@ -68,8 +66,8 @@ Rectangle {
         Image {
             id: avatarImage
 
-            width: 44
-            height: 44
+            width: 48
+            height: 48
             cache: false
             asynchronous: true
 
@@ -98,7 +96,7 @@ Rectangle {
 
         Item {
             height: parent.height
-            width: parent.width - 60
+            width: parent.width - (76 + 48 + 8)
 
             Column {
                 anchors.fill: parent
@@ -111,16 +109,6 @@ Rectangle {
                     Text {
                         id: nicknameText
 
-                        function getTextColor() {
-                            var map = {
-                                unread: Styles.style.messengerContactNicknameUnread,
-                                selected: Styles.style.messengerContactNicknameSelected,
-                                normal: Styles.style.messengerContactNickname,
-                            }
-
-                            return map[root.state] || Styles.style.messengerContactNickname;
-                        }
-
                         anchors.left: parent.left
 
                         font {
@@ -130,7 +118,7 @@ Rectangle {
 
                         height: 20
                         width: parent.width
-                        color: nicknameText.getTextColor()
+                        color: Styles.style.menuText
                         elide: Text.ElideRight
                         textFormat: Text.PlainText
 
@@ -169,7 +157,8 @@ Rectangle {
                             width: parent.width - 4 - 22
                             text: root.status
 
-                            color: Styles.style.messengerContactStatusText
+                            color: Styles.style.textBase
+                            opacity: 0.5
                             font {
                                 family: "Arial"
                                 pixelSize: 12
@@ -184,22 +173,14 @@ Rectangle {
     }
 
     EditGroupButton {
-        visible: !d.isGameNetUser
         anchors {
             top: parent.top
-            topMargin: 10
+            topMargin: 12
             right: parent.right
-            rightMargin: 26
         }
 
-        analytics {
-            page: '/Chat'
-            category: "GroupHeader"
-            action: "OpenGroupEdit"
-        }
-
+        visible: !d.isGameNetUser
         checked: false
         onClicked: root.groupButtonClicked()
     }
-
 }

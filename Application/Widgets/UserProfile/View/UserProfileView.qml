@@ -94,6 +94,12 @@ WidgetView {
         }
     }
 
+    Rectangle {
+        anchors.fill: parent
+        color: Styles.style.contentBackgroundLight
+        opacity: Styles.style.baseBackgroundOpacity
+    }
+
     CursorMouseArea {
         id: rootMouse
 
@@ -105,18 +111,18 @@ WidgetView {
             ContextMenu.show(mouse, rootMouse, userProfileContextMenuComponent, { });
         }
 
-        Rectangle {
-            anchors.fill: parent
-            color: Styles.style.profileBackground
-        }
-
         Column {
             anchors.fill: parent
 
-            Rectangle {
+            Item {
                 width: parent.width
-                height: 21
-                color: Styles.style.profileBackgroundTop
+                height: 22
+
+                Rectangle {
+                    anchors.fill: parent
+                    color: Styles.style.light
+                    opacity: 0.15
+                }
 
                 Row {
                     anchors {
@@ -141,13 +147,13 @@ WidgetView {
                             Text {
                                 id: baseText
 
-                                color: Styles.style.profileBaseText
+                                color: Styles.style.textBase
                                 font { family: "Arial"; pixelSize: 12 }
                                 text: qsTr("GAMENET_BALANCE")
                             }
 
                             Text {
-                                color: Styles.style.profileBalanceText
+                                color: Styles.style.menuText
                                 font { family: "Arial"; pixelSize: 12 }
                                 text: model.balance
                             }
@@ -158,7 +164,7 @@ WidgetView {
                             }
 
                             Text {
-                                color: Styles.style.profileBaseText
+                                color: Styles.style.chatInactiveText
                                 font { family: "Arial"; pixelSize: 12 }
                                 text: qsTr("PROFILE_MONEY_TEXT")
                                 visible: (x + width + topRow.spacing) < topItem.width
@@ -166,18 +172,23 @@ WidgetView {
                         }
                     }
 
-                    Rectangle {
+                    Item {
                         width: 83
                         height: parent.height
-                        color: addMoneyMouseArea.containsMouse ? Styles.style.profileAddMoneyHover :
-                                                                 Styles.style.profileAddMoneyNormal
+
+                        Rectangle {
+                            anchors.fill: parent
+                            color: Styles.style.light
+                            opacity: addMoneyMouseArea.containsMouse
+                                    ? 0.25
+                                    : 0.10
+                        }
 
                         Text {
                             anchors.centerIn: parent
                             text: qsTr("PROFILE_ADD_MONEY_TEXT")
-                            color: addMoneyMouseArea.containsMouse ? Styles.style.profileBackgroundTop :
-                                                                     Styles.style.profileAddMoneyTextHover
 
+                            color: Styles.style.bannerInfoText
                             font.pixelSize: 12
                         }
 
@@ -198,7 +209,7 @@ WidgetView {
 
             Item {
                 width: parent.width
-                height: parent.height - 21
+                height: parent.height - 22
 
                 Item {
                     anchors {
@@ -293,8 +304,8 @@ WidgetView {
                                 NicknameEdit {
                                     width: 150 - 30
                                     height: 18
-                                    color: root.nicknameValid ? Styles.style.profileNicknameTextNormal :
-                                                                Styles.style.profileNicknameTextNotValid
+                                    color: root.nicknameValid ? Styles.style.mainMenuText :
+                                                                Styles.style.infoText
 
                                     nickname: root.nicknameValid ? model.nickname : qsTr("NO_NICKNAME")
                                     tooltip: root.nicknameValid ? qsTr("YOUR_NICKNAME") : qsTr("SET_NICKNAME")
@@ -329,7 +340,7 @@ WidgetView {
 
                                         Text {
                                             text: qsTr("PROFILE_CHOISE_NICKNAME")
-                                            color: Styles.style.profileBaseText
+                                            color: Styles.style.textBase
                                             font.pixelSize: 12
                                         }
                                     }
@@ -361,7 +372,7 @@ WidgetView {
 
                                         Text {
                                             text: qsTr("PROFILE_CONFIRM_LOGIN")
-                                            color: Styles.style.profileBaseText
+                                            color: Styles.style.textBase
                                             font.pixelSize: 12
                                         }
                                     }
@@ -392,14 +403,14 @@ WidgetView {
                                         Text {
                                             anchors.verticalCenter: parent.verticalCenter
                                             text: User.getLevel()
-                                            color: Styles.style.profileBaseText
+                                            color: Styles.style.textBase
                                             font.pixelSize: 12
                                         }
 
                                         Text {
                                             anchors.verticalCenter: parent.verticalCenter
                                             text: qsTr("PROFILE_LEVEL_TEXT")
-                                            color: Styles.style.profileBaseText
+                                            color: Styles.style.textBase
                                             font.pixelSize: 12
                                         }
                                     }
@@ -421,6 +432,28 @@ WidgetView {
             onContextClicked: d.contextMenuClicked(action)
             Component.onCompleted: d.fillContextMenu(contextMenu);
         }
+    }
+
+    Rectangle {
+        width: 1
+        height: parent.height
+        color: Styles.style.light
+        opacity: Styles.style.blockInnerOpacity
+    }
+
+    Rectangle {
+        anchors.right: parent.right
+        width: 1
+        height: parent.height
+        color: Styles.style.light
+        opacity: Styles.style.blockInnerOpacity
+    }
+
+    Rectangle {
+        width: parent.width
+        height: 1
+        color: Styles.style.light
+        opacity: Styles.style.blockInnerOpacity
     }
 
     states: [

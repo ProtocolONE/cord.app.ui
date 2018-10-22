@@ -14,7 +14,6 @@ import "../../../../../../GameNet/Core/GoogleAnalytics.js" as GoogleAnalytics
 import "../../../Models/Messenger.js" as Messenger
 
 import "../ContactList"
-import "../../Styles"
 
 Item {
     width: 237
@@ -152,14 +151,15 @@ Item {
                 }
             }
 
-            BorderedButton {
+            CheckedButton {
                 id: saveButton
 
                 width: 139
                 height: 31
 
                 anchors.horizontalCenter: parent.horizontalCenter
-                style: ActiveButtonStyle {}
+                checked: true
+                boldBorder: true
 
                 analytics {
                     page: "/GroupEditView"
@@ -167,10 +167,7 @@ Item {
                     action: "SaveGroup"
                 }
 
-                fontSize: 12
                 text: qsTr("GROUP_EDIT_SAVE_CHANGE") // "Сохранить группу"
-                textColor: Styles.style.messengerMessageInputSendButtonText
-
                 onClicked: {
                     var editModel = Messenger.editGroupModel();
                     editModel.topic = topicInput.text;

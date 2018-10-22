@@ -12,17 +12,16 @@ import Tulip 1.0
 
 import "../../../../../Core/Styles.js" as Styles
 
-Rectangle {
+Item {
     id: root
 
     property bool showSearchTipOnly: false
 
     anchors.fill: parent
-    color: Styles.style.messengerEmptyContactListInfoBackground
 
     Image {
         anchors.centerIn: parent
-
+        opacity: Styles.style.baseBackgroundOpacity
         source: installPath + "/Assets/Images/Application/Widgets/Messenger/EmptyContactInfo/background.png"
     }
 

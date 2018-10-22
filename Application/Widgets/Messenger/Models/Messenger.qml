@@ -177,6 +177,15 @@ Item {
         return data.unreadMessageCount > 0;
     }
 
+    function unreadMessagesCount(user) {
+        var data = root.getUser(user.jid);
+        if (!data.isValid()) {
+            return false;
+        }
+
+        return data.unreadMessageCount;
+    }
+
     function connect(server, userId, password) {
         d.serverUrl = server;
         UserJs.serverUrl = server;

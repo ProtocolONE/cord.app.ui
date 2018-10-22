@@ -31,8 +31,6 @@ import "../../../GameNet/Controls/ContextMenu.js" as ContexMenu
 
 import "./Messenger/Logger.js" as Logger
 
-import "../../../Application/Widgets/Messenger/View/Styles"
-
 Rectangle {
     id: root
 
@@ -51,7 +49,7 @@ Rectangle {
 
     width: 1000
     height: 600
-    color: '#EEEEEE'
+    color: Styles.style.applicationBackground
 
     Component.onCompleted: {
         Styles.init();
@@ -277,6 +275,7 @@ Rectangle {
 
                 Column {
                     anchors.fill: parent
+                    anchors.leftMargin: 10
                     spacing: 10
 
                     Button {
@@ -300,6 +299,7 @@ Rectangle {
                         text: 'gnaunittest'
                         onClicked: startAuth();
                     }
+
                 }
             }
 

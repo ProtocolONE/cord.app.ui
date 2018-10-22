@@ -13,8 +13,6 @@ import Tulip 1.0
 import GameNet.Controls 1.0
 import Application.Controls 1.0
 
-import "../../Styles"
-
 import "../../../../../Core/App.js" as App
 import "../../../../../Core/Styles.js" as Styles
 import "../../../Models/Messenger.js" as MessengerJs
@@ -416,32 +414,16 @@ FocusScope {
                 anchors.fill: parent
                 spacing: 10
 
-                BorderedButton {
+                CheckedButton {
                     id: sendMessageButton
 
                     width: 89
                     height: 30
+                    boldBorder: true
                     enabled: d.canSendMessage();
-                    style: CheckButtonStyle {
-                      checked: sendMessageButton.enabled
-                    }
-
-                    fontSize: 12
-                    opacity: enabled ? 1 : 0.75
-
-                    enabled:  MessengerJs.getStatus() === MessengerJs.ROSTER_RECEIVED;
-                    onClicked: d.sendMessage()
+                    checked: sendMessageButton.enabled
                     text: qsTr("MESSENGER_SEND_BUTTON")
-                    textColor: Styles.style.messengerMessageInputSendButtonText
-
-                    Rectangle {
-                        anchors { fill: parent; margins: 1 }
-                        color: "#00000000"
-                        border {
-                                 width: 2;
-                                 color: Styles.style.messengerMessageInputSendButtonHover
-                        }
-                    }
+                    onClicked: d.sendMessage()
                 }
 
                 Text {

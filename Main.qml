@@ -29,11 +29,16 @@ Rectangle {
     signal dragWindowReleased(int x, int y);
     signal dragWindowPositionChanged(int x, int y);
 
-    color: Styles.style.base
+    color: Styles.style.applicationBackground
     opacity: 0
 
     width: App.clientWidth
     height: App.clientHeight
+
+    // HACK
+    Image {
+        source: installPath + "/Assets/Images/testBackground.png"
+    }
 
     ParallelAnimation {
         id: exitAnimation;

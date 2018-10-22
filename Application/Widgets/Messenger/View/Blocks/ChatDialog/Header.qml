@@ -27,7 +27,7 @@ Rectangle {
 
     implicitWidth: parent.width
     implicitHeight: contactDelegate.height
-    color: Styles.style.messengerChatDialogHeaderBackground
+    color: Styles.style.applicationBackground
 
     ContactList.ContactItemDelegate {
         id: contactDelegate
@@ -36,6 +36,7 @@ Rectangle {
         anchors {
             left: parent.left
             right: parent.right
+            rightMargin: 24
             top: parent.top
         }
 

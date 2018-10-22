@@ -28,37 +28,24 @@ Item {
         anchors.fill: parent
         spacing: 2
 
-        Button {
+        ContactsTypeTab {
             id: contactsButton
 
             width: root.width / 2 - 1
             height: root.height
+
             text: qsTr("CONTACT_LIST_TABS_CONTACTS")
-            style: ButtonStyleColors {
-                normal: Styles.style.messengerContactsTabNormal
-                hover: Styles.style.messengerContactsTabHover
-                disabled: Styles.style.messengerContactsTabSelected
-            }
             onClicked: contactViewState.state = "AllContacts"
-            enabled: true
         }
 
-        Button {
+        ContactsTypeTab {
             id: recentButton
 
             width: root.width / 2 - 1
             height: root.height
-            text: qsTr("CONTACT_LIST_TABS_RECENT")
-            style: ButtonStyleColors {
-                normal: enabled ? Styles.style.messengerContactsTabNormal
-                                : Styles.style.messengerContactsTabSelected
 
-                hover: enabled ? Styles.style.messengerContactsTabHover
-                               : Styles.style.messengerContactsTabSelected
-                disabled: Styles.style.messengerContactsTabSelected
-            }
+            text: qsTr("CONTACT_LIST_TABS_RECENT")
             onClicked: contactViewState.state = "RecentConversation"
-            enabled: true
 
             Rectangle {
                 visible: root.recentUnreadedContacts > 0
@@ -92,8 +79,7 @@ Item {
 
                 PropertyChanges {
                     target: contactsButton
-                    textColor: Styles.style.messengerContactsTabText
-                    enabled: false
+                    selected: true
                 }
             },
             State {
@@ -107,8 +93,7 @@ Item {
 
                 PropertyChanges {
                     target: recentButton
-                    textColor: Styles.style.messengerContactsTabText
-                    enabled: false
+                    selected: true
                 }
             }
         ]

@@ -19,8 +19,6 @@ import "./Blocks/ContactList"
 import "../../../Core/Styles.js" as Styles
 import "../../../../Application/Core/App.js" as App
 
-import "./Styles"
-
 WidgetView {
     id: root
 
@@ -63,17 +61,16 @@ WidgetView {
         property string imageRoot: installPath + "Assets/Images/Application/Widgets/Messenger/"
     }
 
-    Rectangle {
+    Item {
         anchors {
             fill: parent
             leftMargin: 1
         }
 
-        color: searchContactItem.localSearch ? Styles.style.messengerContactsBackground :
-                                               Styles.style.messengerWebSearchBackground
-
-        Behavior on color {
-            ColorAnimation { duration: 250 }
+        Rectangle {
+            anchors.fill: parent
+            color: Styles.style.contentBackgroundLight
+            opacity: Styles.style.baseBackgroundOpacity
         }
 
         Column {
@@ -146,13 +143,13 @@ WidgetView {
                                 width: parent.width
                                 height: 46
 
-                                BorderedButton {
+                                CheckedButton {
                                     id: editGroupButton
-
-                                    property bool checked: MessengerJs.editGroupModel().isActive()
 
                                     width: 32
                                     height: 22
+                                    icon: d.imageRoot + "groupIcon.png"
+                                    checked: MessengerJs.editGroupModel().isActive()
 
                                     anchors {
                                         left: parent.left
@@ -164,16 +161,6 @@ WidgetView {
                                         page: '/ContactList'
                                         category: "EditGroup"
                                         action: "OpenGroupEdit"
-                                    }
-
-                                    style: CheckButtonStyle {
-                                        checked: editGroupButton.checked
-                                    }
-
-                                    Image {
-                                        anchors.centerIn: parent
-                                        source: d.imageRoot + "groupIcon.png"
-                                        opacity: (parent.containsMouse || parent.checked) ? 1.0 : 0.5
                                     }
 
                                     onClicked: {
@@ -272,13 +259,21 @@ WidgetView {
                 fill: parent
                 topMargin: 1
             }
-            color: reconnecting ? Styles.style.messengerSplashTransparentBackground : Styles.style.messengerSplashSolidBackground
         }
     }
 
     Rectangle {
         width: 1
         height: parent.height
-        color: Qt.lighter(Styles.style.messengerContactsBackground, Styles.style.lighterFactor)
+        color: Styles.style.light
+        opacity: Styles.style.blockInnerOpacity
+    }
+
+    Rectangle {
+        anchors.right: parent.right
+        width: 1
+        height: parent.height
+        color: Styles.style.light
+        opacity: Styles.style.blockInnerOpacity
     }
 }
