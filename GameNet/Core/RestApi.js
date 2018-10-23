@@ -475,6 +475,8 @@ var Error = function() {
 Error.UNKNOWN = 1;
 Error.TO_MANY_REQUESTS = 2;
 Error.INVALID_REQUEST = 3;
+Error.TFA_INVALID_CODE = 6;
+Error.TFA_INVALID_TOKEN = 7;
 Error.CAPTCHA_REQUIRED = 11;
 Error.AUTHORIZATION_FAILED = 100;
 Error.ACCOUNT_NOT_EXISTS = 101;
@@ -502,7 +504,7 @@ Error.PHONE_BLOCKED = 130;
 Error.TFA_SMS_TIMEOUT_IS_NOT_EXPIRED = 136;
 Error.TFA_NEED_SMS_CODE = 137;
 Error.TFA_NEED_APP_CODE = 138;
-Error.TFA_INVALID_CODE = 139;
+Error.TFA_INVALID_CODE_OLD = 139;
 Error.PARAMETER_MISSING = 200;
 Error.WRONG_AUTHTYPE = 201;
 Error.WRONG_SERVICEID = 202;
@@ -654,7 +656,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.175.95d04fea0b05b15deb0dc49c36adb461d6d6bc82",
+    version: "1.0.176.9fb6e1eb7aa96f4ae41726e70eea402380780c5c",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',
@@ -965,7 +967,7 @@ User.getIgnoreList = function(successCallback, failedCallback) {
     Core.execute('user.getIgnoreList', { }, true, successCallback, failedCallback);
 };
 
-// target - идентификатор, никнейм или ссылка на профиль игнорируемого пользователя
+// target - �?дентификатор, никнейм или ссылка на профиль игнорируемого пользователя
 User.addToIgnoreList = function(target, successCallback, failedCallback) {
     Core.execute('user.addToIgnoreList', { target: target }, true, successCallback, failedCallback);
 };

@@ -69,6 +69,12 @@ Form {
                     return;
                 }
 
+                if (error === Authorization.Result.SecurityTokenInvalid) {
+                    console.log("authToken is expired, return to login form")
+                    root.cancel();
+                    return;
+                }
+
                 if (error === Authorization.Result.SecurityCodeInvalid) {
                     codeError.errorMessage = qsTr("AUTH_SECURITY_CODE_INVALID");
                     codeError.error = true;
@@ -123,6 +129,12 @@ Form {
                 if (Authorization.isSuccess(error)) {
                     console.log("Authorization is Successed");
                     d.authSuccess(response);
+                    return;
+                }
+
+                if (error === Authorization.Result.SecurityTokenInvalid) {
+                    console.log("authToken is expired, return to login form")
+                    root.cancel();
                     return;
                 }
 

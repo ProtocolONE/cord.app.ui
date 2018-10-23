@@ -375,7 +375,7 @@ Item {
 
                             } else if (Authorization.isRequired2FA(error)) {
 
-                                authSecurityCodeBody.appCode = response.codeType === 5;
+                                authSecurityCodeBody.appCode = response.codeType == 5; // 4 - SMS, 5 - app code. Use == instead of ===
                                 authSecurityCodeBody.authToken = response.authToken;
                                 authSecurityCodeBody.userId = response.userId;
                                 authContainer.state = "securityCode";

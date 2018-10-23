@@ -466,6 +466,8 @@ var Error = function() {
 Error.UNKNOWN = 1;
 Error.TO_MANY_REQUESTS = 2;
 Error.INVALID_REQUEST = 3;
+Error.TFA_INVALID_CODE = 6;
+Error.TFA_INVALID_TOKEN = 7;
 Error.CAPTCHA_REQUIRED = 11;
 Error.AUTHORIZATION_FAILED = 100;
 Error.ACCOUNT_NOT_EXISTS = 101;
@@ -493,7 +495,7 @@ Error.PHONE_BLOCKED = 130;
 Error.TFA_SMS_TIMEOUT_IS_NOT_EXPIRED = 136;
 Error.TFA_NEED_SMS_CODE = 137;
 Error.TFA_NEED_APP_CODE = 138;
-Error.TFA_INVALID_CODE = 139;
+Error.TFA_INVALID_CODE_OLD = 139;
 Error.PARAMETER_MISSING = 200;
 Error.WRONG_AUTHTYPE = 201;
 Error.WRONG_SERVICEID = 202;
@@ -570,7 +572,7 @@ http.request = function(options, callback) {
 }
 
 //Replaced during CI build
-var authVersion = "2.0.55.aed67ecb3dd605cd9e16bb9543513899d0611b28"
+var authVersion = "2.0.57.af5d8871c4841c399925cc7629eb42202995352a"
     , _gnLoginUrl = 'https://gnlogin.ru'
     , _gnLoginTitleApiUrl = 'gnlogin.ru'
     , _apiUrl = 'https://gnapi.com:8443/restapi'
@@ -593,6 +595,7 @@ Result.SecurityAppCodeRequired = 10;
 Result.SecurityCodeInvalid = 11;
 Result.SecurityCodeTimeoutIsNotExpired = 12;
 Result.Required2FA = 13;
+Result.SecurityTokenInvalid = 14;
 
 /**
  * Setup package params - hwid, mid, gnLoginUrl and titleApiUrl.
@@ -698,6 +701,7 @@ function register(login, password, callback) {
         .addQueryParam('license', 'true')
         .addQueryParam('mid', _mid)
         .addQueryParam('hwid', _hwid)
+        .addQueryParam('2fa', 1)
         .addQueryParam('login', login)
         .addQueryParam('password', encodeURIComponent(password));
 
@@ -865,6 +869,7 @@ var _private = {
     remapErrorCode: function(code) {
         var map = {};
         map[0] = Result.UnknownError;
+        map[Error.TFA_INVALID_CODE] = Result.SecurityCodeInvalid;
         map[Error.CAPTCHA_REQUIRED] = Result.CaptchaRequired;
         map[Error.AUTHORIZATION_LIMIT_EXCEED] = Result.CodeRequired;
         map[Error.SERVICE_ACCOUNT_BLOCKED] = Result.ServiceAccountBlocked;
@@ -873,7 +878,8 @@ var _private = {
         map[Error.TFA_SMS_TIMEOUT_IS_NOT_EXPIRED] = Result.SecurityCodeTimeoutIsNotExpired;
         map[Error.TFA_NEED_SMS_CODE] = Result.SecuritySMSCodeRequired;
         map[Error.TFA_NEED_APP_CODE] = Result.SecurityAppCodeRequired;
-        map[Error.TFA_INVALID_CODE] = Result.SecurityCodeInvalid;
+        map[Error.TFA_INVALID_CODE_OLD] = Result.SecurityCodeInvalid;
+        map[Error.TFA_INVALID_TOKEN] = Result.SecurityTokenInvalid;
 
         return map[code] || map[0];
     },
