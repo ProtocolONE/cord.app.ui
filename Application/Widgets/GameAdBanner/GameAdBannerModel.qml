@@ -16,23 +16,22 @@ WidgetModel {
             return;
         }
 
-        RestApi.Games.getAdvertising(gameId, function(response) {
-            if (!response.hasOwnProperty('banners')) {
+
+        RestApi.Games.getBanners(gameId, function(code, response) {
+            if (!RestApi.ErrorEx.isSuccess(code) || response.length === 0) {
                 return;
             }
 
-            if (response.banners.length === 0 && GameAdBannerModel.allAds.hasOwnProperty(gameId)) {
-                return;
-            }
-
-            GameAdBannerModel.allAds[gameId] = response.banners.filter(function(e) {
-                return e.hasOwnProperty('imageLauncher') && e.imageLauncher !== "";
+            GameAdBannerModel.allAds[gameId] = response.filter(function(e) {
+                return e.hasOwnProperty('imageApp') && e.imageLauncher !== "";
+            }).map(function(e) {
+                return {
+                    id: e.id,
+                    description: e.description || "",
+                    image: e.imageApp,
+                    link: e.link || ""
+                }
             });
-
-            GameAdBannerModel.allAds[gameId].sort(function(a, b) {
-                return b.priority - a.priority;
-            });
-
             root.adsChanged();
         });
     }

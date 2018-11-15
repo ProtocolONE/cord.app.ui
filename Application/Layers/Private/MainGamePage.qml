@@ -8,8 +8,8 @@ ScrollArea {
     property variant currentGame
     property bool hasCurrentGame: !!currentGame
 
-    width: 590
-    height: 600
+    implicitWidth: 590
+    implicitHeight: 489 + 30
 
     WidgetContainer {
         visible: root.hasCurrentGame
@@ -22,10 +22,6 @@ ScrollArea {
 
     WidgetContainer {
         widget: 'GameAdBanner'
-    }
-
-    WidgetContainer {
-        widget: 'Facts'
     }
 
     WidgetContainer {

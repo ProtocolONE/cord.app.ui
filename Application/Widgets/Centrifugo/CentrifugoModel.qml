@@ -14,17 +14,17 @@ WidgetModel {
     Connections {
         target: SignalBus
 
-        onAuthDone: {
-            var timestamp = (+Date.now()) + "";
-            RestApi.Auth.getCentrifugoToken(timestamp, function(resp) {
-                centrifugeClient.connect({
-                                             timestamp: timestamp,
-                                             user: User.userId(),
-                                             token: resp.token,
-                                             endpoint: resp.endpoint
-                                         });
-            });
-        }
+//        onAuthDone: {
+//            var timestamp = (+Date.now()) + "";
+//            RestApi.Auth.getCentrifugoToken(timestamp, function(resp) {
+//                centrifugeClient.connect({
+//                                             timestamp: timestamp,
+//                                             user: User.userId(),
+//                                             token: resp.token,
+//                                             endpoint: resp.endpoint
+//                                         });
+//            });
+//        }
 
         onLogoutDone: {
             centrifugeClient.disconnect('logout');

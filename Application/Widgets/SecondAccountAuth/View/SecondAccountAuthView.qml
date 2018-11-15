@@ -163,7 +163,7 @@ PopupBase {
                     auth.login = "";
                 }
             }
-            vkButtonInProgress: d.vkAuthInProgress
+            //vkButtonInProgress: d.vkAuthInProgress
             onFooterOAuthClicked: d.startOAuth(network);
         }
 
@@ -174,7 +174,7 @@ PopupBase {
             onFooterPrimaryButtonClicked:  root.state = "auth"
             onError: d.showError(message, supportButton);
             onAuthDone: d.authSuccess(userId, appKey, cookie, true, registration.login);
-            vkButtonInProgress: d.vkAuthInProgress
+            //vkButtonInProgress: d.vkAuthInProgress
             onFooterOAuthClicked: d.startOAuth(network);
 
             onCaptchaRequired: {
@@ -201,8 +201,8 @@ PopupBase {
                 root.state = "auth";
             }
             onError: {
+                d.showError(message, supportButton);
                 root.state = "auth";
-                d.showError(message);
             }
             onAuthDone: {
                 d.authSuccess(userId, appKey, cookie, remember, auth.login);
@@ -219,7 +219,7 @@ PopupBase {
             login: auth.login
             onCancel: root.state = "auth"
             onSuccess: root.state = "auth"
-            vkButtonInProgress: d.vkAuthInProgress
+            //vkButtonInProgress: d.vkAuthInProgress
             onFooterOAuthClicked: d.startOAuth(network);
         }
 

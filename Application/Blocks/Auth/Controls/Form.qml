@@ -18,10 +18,12 @@ FocusScope {
 
     property FooterProperties footer: FooterProperties{}
 
-    property alias vkButtonInProgress: footerItem.vkButtonInProgress
+    //property alias vkButtonInProgress: footerItem.vkButtonInProgress
+
+    property alias socialButtons: footerItem.socialButtons
 
     signal footerPrimaryButtonClicked();
-    signal footerOAuthClicked(string network);
+    signal footerOAuthClicked(string network, string url);
 
     //Не используйте childRect - он не пересчитывает при изменении visibily элементов в Column/Row
     implicitHeight: contentData.height + (footerItem.visible ? footerItem.height : 0)
@@ -118,7 +120,7 @@ FocusScope {
         visible: footer.visible
         title: footer.title
         text: footer.text
-        onOpenOAuth: root.footerOAuthClicked(network);
+        onOpenOAuth: root.footerOAuthClicked(network, url);
         onClicked: root.footerPrimaryButtonClicked()
     }
 }

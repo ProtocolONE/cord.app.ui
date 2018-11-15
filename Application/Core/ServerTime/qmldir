@@ -1,0 +1,3 @@
+module Application.Core.ServerTime
+singleton ServerTime 1.0 ServerTime.qml
+

@@ -10,7 +10,7 @@ import "FactsView.js" as FactsView
 WidgetView {
     id: root
 
-    property variant currentItem: AppJs.currentGame()
+    property variant currentItem: App.currentGame()
     property int index
     property bool hasFacts: false
 

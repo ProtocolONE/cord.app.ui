@@ -15,8 +15,6 @@ import Application.Core.Popup 1.0
 
 import "../../../Application/Widgets/Messenger/Models/Messenger.js" as MessengerJs
 
-import "../../../Application/Widgets/Messenger/View/Styles"
-
 Rectangle {
     id: root
 

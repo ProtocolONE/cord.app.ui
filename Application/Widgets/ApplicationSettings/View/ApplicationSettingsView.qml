@@ -21,7 +21,7 @@ PopupBase {
             downloadSettingsPage.load();
             notificationSettingsPage.load();
             //messengerSettingsPage.load();
-            blacklistPage.load();
+            //blacklistPage.load();
         } catch (e) {
             console.log(e)
         }
@@ -35,7 +35,7 @@ PopupBase {
         downloadSettingsPage.reset();
         notificationSettingsPage.reset();
         //messengerSettingsPage.reset();
-        blacklistPage.reset();
+        //blacklistPage.reset();
     }
 
     function save() {
@@ -44,7 +44,7 @@ PopupBase {
             downloadSettingsPage.save();
             notificationSettingsPage.save();
             //messengerSettingsPage.save();
-            blacklistPage.save();
+            //blacklistPage.save();
         } catch (e) {
             console.log(e);
         }
@@ -146,15 +146,15 @@ PopupBase {
 //                    onClicked: root.state = "MessengerPage";
 //                }
 
-                SettingsTextButton {
-                    checked: root.state === "BlacklistPage"
-                    text: qsTr("Черный список")
-                    analytics {
-                        category: 'ApplicationSettings'
-                        action: 'Switch to BlacklistPage'
-                    }
-                    onClicked: root.state = "BlacklistPage";
-                }
+//                SettingsTextButton {
+//                    checked: root.state === "BlacklistPage"
+//                    text: qsTr("Черный список")
+//                    analytics {
+//                        category: 'ApplicationSettings'
+//                        action: 'Switch to BlacklistPage'
+//                    }
+//                    onClicked: root.state = "BlacklistPage";
+//                }
 
             }
         }
@@ -196,11 +196,11 @@ PopupBase {
 //                    anchors.fill: parent
 //                }
 
-                Blacklist {
-                    id: blacklistPage
+//                Blacklist {
+//                    id: blacklistPage
 
-                    anchors.fill: parent
-                }
+//                    anchors.fill: parent
+//                }
             }
 
             PopupHorizontalSplit {
@@ -273,7 +273,8 @@ PopupBase {
                     pageSwitcher.switchTo(notificationSettingsPage);
                 }
             }
-        },
+        }
+        //,
 //        State {
 //            name: "MessengerPage"
 //            StateChangeScript {
@@ -282,14 +283,14 @@ PopupBase {
 //                }
 //            }
 //        },
-        State {
-            name: "BlacklistPage"
-            StateChangeScript {
-                script: {
-                    pageSwitcher.switchTo(blacklistPage);
-                }
-            }
-        }
+//        State {
+//            name: "BlacklistPage"
+//            StateChangeScript {
+//                script: {
+//                    pageSwitcher.switchTo(blacklistPage);
+//                }
+//            }
+//        }
     ]
 
 }

@@ -14,18 +14,38 @@ Item {
     property string cookie
     property bool anotherComputer
 
+    property string refreshToken
+    property  string refreshTokenExpireTime
+
+    property string accessToken
+    property string accessTokenExpireTime
+
     function requestServices() {
         retryTimer.count += 1;
 
         RestApi.Core.setUserId(userId);
         RestApi.Core.setAppKey(appKey);
 
-        RestApi.Service.getGrid(function(result) {
-            App.setServiceGrid(result);
+        RestApi.App.getGrid(function(code, result) {
+            if (!RestApi.ErrorEx.isSuccess(code)) {
+                console.log('Get services grid error');
+                retryTimer.start();
+                return;
+            }
+
+            var grid = result.gridItems.map(function(e){
+                return {
+                    serviceId: e.game.id,
+                    col: e.col,
+                    row: e.row,
+                    width: e.width,
+                    height: e.height,
+                    image: e.image || ''
+                }
+            });
+
+            App.setServiceGrid(grid);
             root.finished();
-        }, function(result) {
-            console.log('Get services grid error');
-            retryTimer.start();
         });
     }
 

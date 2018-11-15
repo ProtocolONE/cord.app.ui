@@ -6,8 +6,9 @@ Item {
 
     signal updateFinished();
 
-    signal authDone(string userId, string appKey, string cookie);
-    signal secondAuthDone(string userId, string appKey, string cookie);
+    signal authDone();
+    signal authTokenChanged();
+    signal authTokenExpired();
 
     signal profileUpdated();
 
@@ -35,7 +36,7 @@ Item {
 
     signal downloaderStarted(variant gameItem);
     signal navigate(string link, string from);
-    signal needPakkanenVerification();
+
     signal selectService(string serviceId);
 
     signal leftMousePress(variant rootItem, int x, int y);

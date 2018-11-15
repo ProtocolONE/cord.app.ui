@@ -15,12 +15,11 @@ Item {
     id: root
 
     property bool authAccepted: false
-    property int count: 0 //unused
 
     property variant rootWindow
 
     property int clientWidth: 1000
-    property int clientHeight: 600
+    property int clientHeight: 600 +30
 
     signal openAuthUrlRequest(string url)
 
@@ -45,6 +44,7 @@ Item {
 
         property bool overlayEnabled: false
         property bool overlayChatVisible: false
+        property bool isSingleGameMode: false
     }
 
     function mainWindowInstance() {
@@ -158,12 +158,12 @@ Item {
     }
 
     function openProfile(userId, action) {
-        var uri = ConfigJs.GnUrl.site("/users/") + userId + "/";
-        if (action) {
-            uri += '?action=' + action;
-        }
+//        var uri = ConfigJs.GnUrl.site("/users/") + userId + "/";
+//        if (action) {
+//            uri += '?action=' + action;
+//        }
 
-        openExternalUrlWithAuth(uri);
+//        openExternalUrlWithAuth(uri);
     }
 
     function openExternalUrl(url) {
@@ -174,8 +174,17 @@ Item {
         mainWindowInstance().logout();
     }
 
-    function authSuccessSlot(userId, appKey, cookie) {
-        mainWindowInstance().authSuccessSlot(userId, appKey, cookie);
+    function authSuccessSlot(accessToken, acccessTokenExpiredTime) {
+        mainWindowInstance().authSuccessSlot(accessToken, acccessTokenExpiredTime);
+    }
+
+    function updateAuthCredential(
+              accessTokenOld, acccessTokenExpiredTimeOld
+            , accessTokenNew, acccessTokenExpiredTimeNew)
+    {
+        mainWindowInstance().updateAuthCredential(
+                    accessTokenOld, acccessTokenExpiredTimeOld
+                  , accessTokenNew, acccessTokenExpiredTimeNew);
     }
 
     function downloadButtonStart(serviceId) {
@@ -273,10 +282,6 @@ Item {
         return mainWindowInstance().pos;
     }
 
-    function executeSecondService(serviceId, userId, appKey) {
-        mainWindowInstance().executeSecondService(serviceId, userId, appKey);
-    }
-
     function terminateSecondService() {
         mainWindowInstance().terminateSecondService();
     }
@@ -309,26 +314,23 @@ Item {
         }
     }
 
+
     function fillGamesModel(data) {
         var i,
                 item,
                 last,
-                isProtocolOneItem,
                 isItemShouldBeShown;
-
-        root.count = data.length;
 
         Games.clear();
 
-        for (i = 0; i < root.count; ++i) {
-            item = Js.createService(data[i], Config.site);
+        for (i = 0; i < data.length; ++i) {
+            item = Js.createService(data[i], Config.site());
 
             if (!item) {
                 continue;
             }
 
-            isProtocolOneItem = (item.serviceId == '0');
-            isItemShouldBeShown = isPrivateTestVersion() || item.isPublishedInApp || isProtocolOneItem;
+            isItemShouldBeShown = isPrivateTestVersion() || item.isPublishedInApp;
 
             if (!isItemShouldBeShown) {
                 continue;
@@ -444,7 +446,7 @@ Item {
     }
 
     function replenishAccount() {
-        openExternalUrlWithAuth(ConfigJs.GnUrl.site("/pay/"));
+        //openExternalUrlWithAuth(ConfigJs.GnUrl.site("/pay/"));
     }
 
     function isMainServiceCanBeStarted(item) {
@@ -519,12 +521,12 @@ Item {
         //id=10 это хардкоженная переменная, которую можно получить только после
         //установки плагина авторизации ProtocolOne в DeskPro.
 
-        var uri = ConfigJs.GnUrl.login('/integrations/deskpro/?id=10');
-        if (returnPath) {
-            uri += '&return=' + encodeURIComponent(returnPath);
-        }
+//        var uri = ConfigJs.GnUrl.login('/integrations/deskpro/?id=10');
+//        if (returnPath) {
+//            uri += '&return=' + encodeURIComponent(returnPath);
+//        }
 
-        openExternalUrlWithAuth(uri);
+//        openExternalUrlWithAuth(uri);
     }
 
     function sellItemByServiceId(serviceId) {
@@ -533,5 +535,17 @@ Item {
         }
 
         return Js.sellItems[serviceId];
+    }
+
+    function isSingleGameMode() {
+        return d.isSingleGameMode
+    }
+
+    function setSingleGameMode(value) {
+        d.isSingleGameMode = value;
+    }
+
+    function activateFirstGame() {
+        activateGame(Js.indexToGameItem[0])
     }
 }

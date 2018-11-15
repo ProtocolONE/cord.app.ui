@@ -100,7 +100,7 @@ Item {
             usersModel.sourceChanged();
         });
 
-        rosterManager.rosterReceived.connect(function(){
+        rosterManager.rosterReceived.connect(function() {
             console.log("[Roster] Roster received");
 
             d.rosterReceived();
@@ -237,6 +237,7 @@ Item {
     }
 
     function getUser(jid, type) {
+        var modelItem;
         var userJid = UserJs.jidWithoutResource(jid || ""),
             userType = type || MessengerPrivateJs.USER_INFO_FULL;
 
@@ -249,6 +250,11 @@ Item {
 
         if (-1 !== userJid.indexOf('@') && !usersModel.contains(userJid)) {
             d.appendUser(userJid);
+        }
+
+        modelItem = usersModel.getById(userJid);
+        if (modelItem && modelItem.isGroupChat) {
+            return new UserJs.GroupChat(usersModel.getById(userJid), usersModel, xmppClient);
         }
 
         return new UserJs.User(usersModel.getById(userJid), usersModel, xmppClient);
@@ -653,8 +659,10 @@ Item {
                 return;
             }
 
-            nickname = xmppClient.rosterManager.getNickname(fullJid) || externalNickName;
-            groups = xmppClient.rosterManager.getGroups(fullJid);
+            if (UserJs.isGroupJid(bareJid)) {
+                d.appendGroudUser(fullJid, externalNickName);
+                return;
+            }
 
             nickname = xmppClient.rosterManager.getNickname(fullJid) || "";
 

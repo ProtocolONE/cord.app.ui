@@ -1,4 +1,76 @@
 .pragma library
+//@see http://doc-snapshot.qt-project.org/4.8/qdeclarativejavascript.html
+
+var _timerComponent;
+var _webSocketComponent
+
+var _setTimeout = function(callback, timeout, arg1) {
+    if (!_timerComponent) {
+        _timerComponent = Qt.createComponent('./Timer.qml');
+    }
+
+    var cb = function() {
+        callback(arg1); // undone use arguments
+    }
+
+    var timer = _timerComponent.createObject(null);
+    timer.interval = timeout;
+    timer.repeat = false;
+
+    timer.triggered.connect(cb);
+    timer.triggered.connect(function () {
+        timer.triggered.disconnect(cb);
+        timer.destroy();
+    })
+
+    timer.start();
+}
+
+function setUseRealBrowser() {}
+var _openBrowser = function(url) {
+    return Qt.openUrlExternally(url);
+}
+
+var _startWSServer = function(options) {
+    if (!_webSocketComponent) {
+        _webSocketComponent = Qt.createComponent('./WebSocket.qml');
+        if (_webSocketComponent.errorString()) {
+            console.log('Websocket error: ', _webSocketComponent.errorString())
+        }
+    }
+
+    var nullCb = function() {};
+    var readyCallback = options.readyCallback || nullCb;
+    var messageCallback = options.messageCallback || nullCb;
+    var errorCallback = options.errorCallback || nullCb;
+    var timeout = options.timeout || 60000;
+
+    var ws = _webSocketComponent.createObject(null);
+    ws.timeout = timeout;
+
+    if (options.sslEnabled) {
+        ws.wssKey = options.wssKey;
+        ws.wssCert = options.wssCert;
+        ws.sslEnabled = true;
+    }
+
+    ws.ready.connect(readyCallback);
+    ws.error.connect(errorCallback);
+    ws.textMessage.connect(messageCallback);
+    ws.textMessage.connect(function() {
+        ws.stop();
+        ws.destroy();
+    })
+
+    ws.start();
+}
+
+var _atob = function(data) {
+    return Qt.atob(data);
+}
+
+
+
 
 /*!
  * jsUri v@1.1.2
@@ -459,52 +531,6 @@ var Uri = (function () {
     return Uri;
 }());
 
-var Error = function() {
-};
-
-//UNDONE Это не весь перечень ошибок. При необходимости - добавляйте.
-Error.UNKNOWN = 1;
-Error.TO_MANY_REQUESTS = 2;
-Error.INVALID_REQUEST = 3;
-Error.TFA_INVALID_CODE = 6;
-Error.TFA_INVALID_TOKEN = 7;
-Error.CAPTCHA_REQUIRED = 11;
-Error.AUTHORIZATION_FAILED = 100;
-Error.ACCOUNT_NOT_EXISTS = 101;
-Error.SERVICE_ACCOUNT_BLOCKED = 102;
-Error.AUTHORIZATION_LIMIT_EXCEED = 103;
-Error.UNKNOWN_ACCOUNT_STATUS = 104;
-Error.INCORRECT_ACCOUNT_PASSWORD = 105;
-Error.INCORRECT_FORMAT_EMAIL = 110;
-Error.NICKNAME_FORMAT_INCORRECT = 114;
-Error.NICKNAME_EXISTS = 115;
-Error.TECHNAME_FORMAT_INCORRECT = 116;
-Error.TECHNAME_EXISTS = 117;
-Error.UNABLE_CHANGE_TECHNAME = 118;
-Error.UNABLE_CHANGE_NICKNAME = 119;
-Error.NICKNAME_NOT_SPECIFIED = 121;
-Error.TECHNAME_NOT_SPECIFIED = 122;
-Error.NICKNAME_FORBIDDEN = 123;
-Error.TECHNAME_FORBIDDEN = 124;
-Error.SERVICE_AUTHORIZATION_IMPOSSIBLE = 125;
-Error.INCORRECT_SMS_CODE = 126;
-Error.PHONE_ALREADY_IN_USE = 127;
-Error.UNABLE_DELIVER_SMS = 128;
-Error.INVALID_PHONE_FORMAT = 129;
-Error.PHONE_BLOCKED = 130;
-Error.TFA_SMS_TIMEOUT_IS_NOT_EXPIRED = 136;
-Error.TFA_NEED_SMS_CODE = 137;
-Error.TFA_NEED_APP_CODE = 138;
-Error.TFA_INVALID_CODE_OLD = 139;
-Error.PARAMETER_MISSING = 200;
-Error.WRONG_AUTHTYPE = 201;
-Error.WRONG_SERVICEID = 202;
-Error.WORNG_AUTHID = 203;
-Error.UNKNOWN_METHOD = 204;
-Error.PAKKANEN_PERMISSION_DENIED = 601;
-Error.PAKKANEN_VK_LINK = 602;
-Error.PAKKANEN_PHONE_VERIFICATION = 603;
-Error.PAKKANEN_VK_LINK_AND_PHONE_VERIFICATION = 604;
 
 var http = function() {
 };
@@ -521,7 +547,7 @@ http.request = function(options, callback) {
     if (options instanceof Uri) {
         uri = options;
     } else if (typeof options === 'string') {
-        uri =  new Uri(options);
+        uri = new Uri(options);
     } else if (options.hasOwnProperty('uri') && options.uri instanceof Uri) {
         uri = options.uri;
         if (options.hasOwnProperty('userAgent')) {
@@ -532,22 +558,29 @@ http.request = function(options, callback) {
         throw new Exception('Wrong options');
     }
 
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState !== 4) { // full body received
             return;
         }
 
         if (http.logRequest) {
             // INFO debug output
-            var tmp = '[Auth]Request: ' + uri.toString();
+            var tmp = 'Request: ' + uri.toString();
+            if (options.hasOwnProperty('post')) {
+                tmp += '\nPost:' + options.post;
+            }
+
+            tmp += '\nStatus: ' + xhr.status;
             try {
                 var debugResponseObject = JSON.parse(xhr.responseText);
-                tmp += '\n[Auth]Response: \n' + JSON.stringify(debugResponseObject, null, 2)
-            } catch(e) {
-                tmp += '\n[Auth]Response: \n' + xhr.responseText
+                tmp += '\nResponse: \n' + JSON.stringify(debugResponseObject, null, 2);
+            } catch (e) {
+                tmp += '\nResponse: \n' + xhr.responseText;
             }
+
             console.log(tmp);
         }
+
         callback({status: xhr.status, header: xhr.getAllResponseHeaders(), body: xhr.responseText});
     };
 
@@ -560,641 +593,357 @@ http.request = function(options, callback) {
 
         xhr.send(null);
     } else {
-        xhr.open('POST', uri.protocol() + '://' + uri.host()  + uri.path());
+        xhr.open('POST', uri.toString());
 
         if (userAgent) {
             xhr.setRequestHeader('QtBug', 'QTBUG-20473\r\nUser-Agent: ' + userAgent);
         }
 
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send(uri.query().toString().substring(1)); //jsuri return query with '?' always
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        if (options.hasOwnProperty('post')) {
+            xhr.send(options.post); //jsuri return query with '?' always
+        } else {
+            xhr.send(uri.query().toString().substring(1)); //jsuri return query with '?' always
+        }
     }
-}
+};
+
 
 //Replaced during CI build
-var authVersion = "2.0.57.af5d8871c4841c399925cc7629eb42202995352a"
-    , _gnLoginUrl = 'https://gnlogin.ru'
-    , _gnLoginTitleApiUrl = 'gnlogin.ru'
-    , _apiUrl = 'https://gnapi.com:8443/restapi'
+var authLibVersion = "1.0.0"
+    , _authBaseUrl = 'http://auth.protocol.local:8080'
+    , _apiVersion = 'v1'
+    , _authUrl = 'http://auth.protocol.local:8080/api/v1/'
     , _hwid
     , _mid
     , _captcha
-    , _code2fa = "";
+    , _timeout
+    , _localWebSocketUrl = 'ws://127.0.0.1'
+    , _wssCert
+    , _wssKey
+    , _useWSS = false
+;
 
 var Result = function() {};
+Result.Error = 0;
 Result.Success = 1;
-Result.Cancel = 2;
-Result.ServiceAccountBlocked = 3;
-Result.WrongLoginOrPassword = 4;
-Result.UnknownError = 5;
-Result.Error = 6;
-Result.CaptchaRequired = 7;
-Result.CodeRequired = 8;
-Result.SecuritySMSCodeRequired = 9;
-Result.SecurityAppCodeRequired = 10;
-Result.SecurityCodeInvalid = 11;
-Result.SecurityCodeTimeoutIsNotExpired = 12;
-Result.Required2FA = 13;
-Result.SecurityTokenInvalid = 14;
+Result.InvalidUserNameOrPassword = 2;
+Result.CaptchaRequired = 3;
+Result.TemporaryLock = 4;
+Result.Timeout = 5;
+Result.ServerError = 6;
+Result.BadResponse = 7;
 
-/**
- * Setup package params - hwid, mid, gnLoginUrl and titleApiUrl.
- *
- * @param options
- */
 function setup(options) {
     _hwid = options.hwid || '';
     _mid = options.mid || '';
-    _gnLoginUrl = options.gnLoginUrl || _gnLoginUrl;
-    _gnLoginTitleApiUrl = options.titleApiUrl || _gnLoginTitleApiUrl;
-    _apiUrl = options.apiUrl || _apiUrl;
+    _authBaseUrl = options.authUrl || _authBaseUrl;
+    _apiVersion = options.authVersion || _apiVersion;
+    _authUrl = _authBaseUrl + '/api/' + _apiVersion + '/';
+    _timeout = options.timeout || 60000;
+
+    _localWebSocketUrl = options.localWebSocketUrl || _localWebSocketUrl;
+    _wssCert = options.wssCert || _wssCert;
+    _wssKey = options.wssKey || _wssKey;
+     _useWSS = _localWebSocketUrl.substring(0, 3) === 'wss';
 
     if (options.debug) {
         http.logRequest = true
     }
 }
 
-/**
- * Set captcha text for next authorization attempt.
- */
-function setCaptcha(value) {
-    _captcha = value;
+function setDefaultSettings() {
+    setUseRealBrowser(true);
+    setup({
+        hwid: '',
+        mid: '',
+        authUrl: 'http://auth.protocol.local:8080',
+        authVersion: 'v1'
+    });
 }
 
-/**
- * Set captcha text for next authorization attempt.
- */
-function setCode2fa(value) {
-    _code2fa = value;
-}
-
-/**
- * Get url captcha image for given login.
- */
 function getCaptchaImageSource(login) {
-    var url = new Uri(_gnLoginUrl)
-        .addQueryParam('captcha', 1)
-        .addQueryParam('type', 'login')
+    var url = new Uri(_authUrl+'captcha/login/')
         .addQueryParam('r', Math.random())
-        .addQueryParam('login', login);
+        .addQueryParam('email', login);
 
     return url.toString();
 }
 
-/**
- * Send unblock code to user.
- *
- * @param {string} login ProtocolOne login
- * @param {string} method Should me `email` or `sms`
- * @param {function} callback
- */
-function sendUnblockCode(login, method, callback) {
-    var url = new Uri(_gnLoginUrl)
-        .setPath('/sendCode')
-        .addQueryParam('login', login)
-        .addQueryParam('method', method);
-
-    http.request(url, function(response) {
-        _private.jsonCredentialCallback(response, callback);
-    });
-}
-
-/**
- * Generate new cookie string by given userId and appKey.
- */
-function refreshCookie(userId, appKey, callback) {
-    var request = new Uri(_gnLoginUrl + '/internals/refreshCookie/')
-        .addQueryParam('refreshCookie', '1')
-        .addQueryParam('userId', userId)
-        .addQueryParam('appKey', Qt.md5(appKey + 'EqVGL86ahyzADHEextuEFqHJ'));
-
-    http.request(request, function(response) {
-        _private.jsonCredentialCallback(response, callback);
-    });
-}
-
-/**
- * Unblock user account with given code.
- */
-function unblock(login, code, callback) {
-    var url = new Uri(_gnLoginUrl)
-        .setPath('/unblock')
-        .addQueryParam('login', login)
-        .addQueryParam('code', code);
-
-    http.request(url, function(response) {
-        _private.jsonCredentialCallback(response, callback);
-    });
-}
-
-/**
- * Register new ProtocolOne user.
- *
- * @param {string} login
- * @param {string} password
- * @param {function} callback
- */
-function register(login, password, callback) {
-    var request = new Uri(_gnLoginUrl)
-        .addQueryParam('json', '1')
-        .addQueryParam('registration', '1')
-        .addQueryParam('license', 'true')
-        .addQueryParam('mid', _mid)
-        .addQueryParam('hwid', _hwid)
-        .addQueryParam('2fa', 1)
-        .addQueryParam('login', login)
-        .addQueryParam('password', encodeURIComponent(password));
-
-    var options = {
-        method: "post",
-        uri: request
-    };
-    http.request(options, function(response) {
-        _private.jsonCredentialCallback(response, callback);
-    });
-}
-
-/**
- * Login in ProtocolOne by login and password.
- *
- * @param {string} login
- * @param {string} password
- * @param {bool} remember
- * @param {function} callback
- */
-function loginByProtocolOne(login, password, remember, callback) {
-    var request = new Uri(_gnLoginUrl)
-        .addQueryParam('login', login)
-        .addQueryParam('passhash', encodeURIComponent(password))
-        .addQueryParam('hwid', _hwid)
-        .addQueryParam('new', 1)
-        .addQueryParam('json', 1)
-        .addQueryParam('2fa', 1)
-        .addQueryParam('trustedLocation', remember ? 1 : 0);
-
-    if (_captcha) {
-        request.addQueryParam('captcha', _captcha);
-    }
-
-    if (_code2fa) {
-        request.addQueryParam('code2fa', _code2fa);
-    }
-
-    var options = {
-        method: "post",
-        uri: request
-    };
-
-    http.request(options, function(response) {
-        _private.jsonCredentialCallback(response, callback);
-    });
-}
-
-/**
- * Request security SMS code.
- *
- * @param {string} user (login or userId)
- * @param {bool} type (if type = true then login else if type = false  then userId)
- * @param {function} callback
- */
-function requestSMSCode(user, type, callback) {
-    var request = new Uri(_apiUrl)
-        .addQueryParam('method', 'user.send2FaKeyViaSms')
-        .addQueryParam('format', 'json');
-
-    if (type)
-        request.addQueryParam('login', user);
-    else
-        request.addQueryParam('userId', user);
-
-
-    var options = {
-        method: "post",
-        uri: request
-    };
-
-    http.request(options, function(response) {
-        _private.jsonCredentialCallback(response, callback);
-    });
-}
-
-/**
- * Request validate AuthToken
- *
- * @param {string} token
- * @param {string} userId
- * @param {string} code
- * @param {bool} remember
- * @param {function} callback
- */
-function requestValidateAuthToken (token, userId, remember, callback) {
-    var request = new Uri(_gnLoginUrl + '/validateAuthToken')
-        .addQueryParam('token', token)
-        .addQueryParam('userId', userId)
-        .addQueryParam('code', _code2fa)
-        .addQueryParam('2fa', 1)
-        .addQueryParam('isTrustedLocation', remember ? 1 : 0);
-
-    var options = {
+function getOAuthServices(callback) {
+    var request = new Uri(_authUrl+'oauth/sources/'),
+        options = {
         method: "get",
         uri: request
-    };
+        }
+        , httpStatusToResultMap
+        , result = 0
+        , msg;
+
+
+    httpStatusToResultMap = {
+        200 : Result.Success,
+        400 : Result.InvalidUserNameOrPassword,
+        429 : Result.CaptchaRequired,
+        426 : Result.TemporaryLock,
+    }
 
     http.request(options, function(response) {
-        _private.jsonCredentialCallback(response, callback);
+        if (httpStatusToResultMap.hasOwnProperty(response.status)) {
+            result = httpStatusToResultMap[response.status];
+        }
+
+        msg = response.body;
+        try {
+            msg = JSON.parse(msg);
+        } catch (e) {
+        }
+
+        callback(result, msg);
     });
 }
 
-/**
- * Login in ProtocolOne by VK.
- *
- * @param {QMLObject} parent
- * @param {function} callback
- */
-function loginByVk(parent, callback) {
-    var auth = new ProviderVk(parent);
-    auth.login(callback);
+function _validateAuthResponse(response) {
+    return !!response
+        && response.hasOwnProperty('accessToken')
+        && response.hasOwnProperty('refreshToken')
+        && response.accessToken.hasOwnProperty('value')
+        && response.refreshToken.hasOwnProperty('value')
+        && response.accessToken.hasOwnProperty('exp')
+        && response.refreshToken.hasOwnProperty('exp');
 }
 
-/**
- * Link ProtocolOne account with VK.
- *
- * @param {QMLObject} parent
- * @param {function} callback
- */
-function linkVkAccount(parent, callback) {
-    var auth = new ProviderVk(parent);
-    auth.link(callback);
+function _callAuthCallback(response, result, callback) {
+    var msg = response;
+    try {
+        msg = JSON.parse(response);
+    } catch (e) {
+    }
+
+    if (result != Result.Success) {
+        callback(result, msg);
+        return;
+    }
+
+    if (!_validateAuthResponse(msg)) {
+        callback(Result.BadResponse, msg);
+        return;
+    }
+
+    callback(result, msg);
 }
 
-function loginByOk(parent, callback) {
-    var auth = new ProviderOk(parent);
-    auth.login(callback);
-}
+function loginByOAuth(type, callback) {
+    var url = _authBaseUrl + type;
 
-function linkOkAccount(parent, callback) {
-    var auth = new ProviderOk(parent);
-    auth.link(callback);
-}
+    function ready(port) {
 
-function loginByFb(parent, callback) {
-    var auth = new ProviderFb(parent);
-    auth.login(callback);
-}
+        var ws = _localWebSocketUrl + ':' + port;
+        var authUrl = url + '?_destination='
+            + encodeURIComponent('/api/v1/oauth/result/websocket/?wsUrl='+ws);
 
-function linkFbAccount(parent, callback) {
-    var auth = new ProviderFb(parent);
-    auth.link(callback);
-}
-
-/**
- * Return True is given code is success code.
- *
- * @return bool
- */
-function isSuccess(code) {
-    return Result.Success === code;
-}
-
-/**
- * Return True is given code 2FA is required code.
- *
- * @return bool
- */
-function isRequired2FA(code) {
-    return Result.Required2FA  === code;
-}
-
-var _private = {
-    remapErrorCode: function(code) {
-        var map = {};
-        map[0] = Result.UnknownError;
-        map[Error.TFA_INVALID_CODE] = Result.SecurityCodeInvalid;
-        map[Error.CAPTCHA_REQUIRED] = Result.CaptchaRequired;
-        map[Error.AUTHORIZATION_LIMIT_EXCEED] = Result.CodeRequired;
-        map[Error.SERVICE_ACCOUNT_BLOCKED] = Result.ServiceAccountBlocked;
-        map[Error.AUTHORIZATION_FAILED] = Result.WrongLoginOrPassword;
-        map[Error.INCORRECT_FORMAT_EMAIL] = Result.WrongLoginOrPassword;
-        map[Error.TFA_SMS_TIMEOUT_IS_NOT_EXPIRED] = Result.SecurityCodeTimeoutIsNotExpired;
-        map[Error.TFA_NEED_SMS_CODE] = Result.SecuritySMSCodeRequired;
-        map[Error.TFA_NEED_APP_CODE] = Result.SecurityAppCodeRequired;
-        map[Error.TFA_INVALID_CODE_OLD] = Result.SecurityCodeInvalid;
-        map[Error.TFA_INVALID_TOKEN] = Result.SecurityTokenInvalid;
-
-        return map[code] || map[0];
-    },
-    jsonCredentialCallback: function(response, callback) {
-        var credential;
-
-        if (response.status !== 200) {
-            console.log('Auth error. Response status: ', response.status);
-            callback(Result.UnknownError);
-            return;
+        if (http.logRequest) {
+            console.log('WS opened on port: ' + port);
+            console.log('Open external browser with url:', authUrl);
         }
 
-        _captcha = '';
-        _code2fa = '';
+        _openBrowser(authUrl);
+    }
+
+    function error(type) {
+        callback(type);
+    }
+
+    function messageReceived(msg) {
+        if (http.logRequest) {
+            console.log('WS messageReceived', msg)
+        }
 
         try {
-            credential = JSON.parse(response.body);
+            msg = JSON.parse(msg);
         } catch (e) {
-            console.log('Auth error. Json parse failed. Bad response: ', response.body);
-            callback(Result.UnknownError);
+        }
+
+        if (msg.event !== 'oauthCompletedSuccessfully') {
+            callback(Result.ServerError, msg);
             return;
         }
 
-        if (!credential.hasOwnProperty('response')) {
-            console.log('Auth error. Response is empty. Bad response: ', response.body);
-            callback(Result.UnknownError, credential);
+        if (!_validateAuthResponse(msg.message)) {
+            callback(Result.BadResponse, msg);
             return;
         }
 
-        if (credential.response.hasOwnProperty('error')) {
-            console.log('Auth error. Response has error. Bad response: ', response.body);
-            callback(_private.remapErrorCode(credential.response.error.code), credential.response.error);
-            return;
-        }
-
-        callback(Result.Success, credential.response);
-    },
-    extend: function(Child, Parent) {
-        var F = function() {};
-        F.prototype = Parent.prototype;
-        Child.prototype = new F();
-        Child.prototype.constructor = Child;
-        Child.superclass = Parent.prototype;
+        callback(Result.Success, msg.message);
     }
+
+    _startWSServer({
+        readyCallback: ready,
+        messageCallback:  messageReceived,
+        errorCallback: error,
+        timeout: _timeout,
+        sslEnabled: _useWSS,
+        wssCert: _wssCert,
+        wssKey: _wssKey
+    })
 }
 
-var ProviderOAuth = function(parent, hwid) {
-    this.appId = "Unknown";
-    this.networkId = "Unknown";
-    this.scope = "Unknown";
-    this.authHost = "Unknown";
-    this.authProtocol = "https";
-    this.authPath = "/oauth/authorize";
-    this.displayParams = "mobile";
-
-    this.redirectUrl = _gnLoginUrl + '/oauth';
-    this.titleApiUrl = _gnLoginTitleApiUrl;
-    this.parentObject = parent;
-    this.browser = null;
-    this.browserComponent = null;
-    this.hwid = hwid || _hwid;
-    this.hwid64 = Qt.btoa(this.hwid);
-}
-
-ProviderOAuth.prototype.createBrowserComponent = function(callback) {
-    if (this.browserComponent && this.browserComponent.status == Component.Ready) {
-        callback();
-        return;
-    }
-
-    var self = this;
-    self.browserComponent = Qt.createComponent('./Vk.qml');
-
-    function finishCreation() {
-        // I really don't know why Component unavailable here, so
-        // Component.Ready = 1 Component.Error = 3
-        if (self.browserComponent.status == 1) {
-            callback();
-        } else if (self.browserComponent.status == 3) {
-            // Error Handling
-            console.log("Error loading component:", self.browserComponent.errorString());
-            callback('error');
+function registerUser(email, password, callback) {
+    var request = new Uri(_authUrl+'user/create/'),
+        options = {
+            method: "post",
+            uri: request
         }
+        , httpStatusToResultMap
+        , result = 0;
+
+
+    httpStatusToResultMap = {
+        200 : Result.Success,
+        400 : Result.InvalidUserNameOrPassword,
     }
 
-    if (self.browserComponent.status == 1) {
-        finishCreation();
-    } else if (self.browserComponent.status == 3) {
-        // Error Handling
-        console.log("Error loading component:", self.browserComponent.errorString());
-        callback('error');
-    } else {
-        self.browserComponent.statusChanged.connect(finishCreation);
-    }
-};
+    options.post = JSON.stringify({
+        email: email,
+        password: password,
+        readEula: true
+    })
 
-ProviderOAuth.prototype.link = function(callback) {
-    var self = this;
-
-    if (typeof callback !== 'function') {
-        throw new Exception('Callback must be provided');
-    }
-
-    this.createBrowserComponent(function(error) {
-        if (error) {
-            callback(Result.UnknownError);
-            return;
+    http.request(options, function(response) {
+        if (httpStatusToResultMap.hasOwnProperty(response.status)) {
+            result = httpStatusToResultMap[response.status];
         }
 
-        self.browser = self.browserComponent.createObject(self.parentObject);
-        if (!self.browser) {
-            console.log("can't create browser");
-            callback(Result.UnknownError);
-            return;
-        }
-
-        self.browser.webView.loadFailedFixed.connect(function() { self.loadFailed(callback); });
-        self.browser.webView.titleChanged.connect(function(title) { self.linkTitleChanged(title, callback); });
-        self.browser.webView.urlChanged.connect(function(url) { self.urlChanged(url, callback); });
-        self.browser.webView.url = self.getUrl('action=link');
-        self.browser.closing.connect(function() { callback(Result.Cancel); });
+        _callAuthCallback(response.body, result, callback);
     });
-};
+}
 
-ProviderOAuth.prototype.login = function(callback) {
-    var self = this;
-    if (typeof callback !== 'function') {
-        throw new Exception('Callback must be provided');
+function login(email, password, captcha, callback) {
+    var request = new Uri(_authUrl+'user/login'),
+        options = {
+            method: "post",
+            uri: request
+        }
+        , httpStatusToResultMap
+        , result = 0;
+
+    httpStatusToResultMap = {
+        200 : Result.Success,
+        400 : Result.InvalidUserNameOrPassword,
+        429 : Result.CaptchaRequired,
+        426 : Result.TemporaryLock,
     }
 
-    this.createBrowserComponent(function(error) {
-        if (error) {
-            callback(Result.UnknownError);
-            return;
+    options.post = JSON.stringify({
+        email: email,
+        password: password,
+        captcha: captcha
+    })
+
+    http.request(options, function(response) {
+        if (httpStatusToResultMap.hasOwnProperty(response.status)) {
+            result = httpStatusToResultMap[response.status];
         }
 
-        self.browser = self.browserComponent.createObject(self.parentObject);
-        if (!self.browser) {
-            console.log("can't create browser");
-            callback(Result.UnknownError);
-            return;
-        }
-
-        self.browser.webView.loadFailedFixed.connect(function() { self.loadFailed(callback); });
-        self.browser.webView.titleChanged.connect(function(title) { self.loginTitleChanged(title, callback); });
-        self.browser.webView.urlChanged.connect(function(url) { self.urlChanged(url, callback); });
-        self.browser.webView.url = self.getUrl();
-        self.browser.closing.connect(function() { callback(Result.Cancel); });
+        _callAuthCallback(response.body, result, callback);
     });
-};
+}
 
-ProviderOAuth.prototype.getUrl = function(params) {
-    var rp, uri;
-    rp = new Uri(this.redirectUrl)
-        .addQueryParam("2fa", 1)
-        .addQueryParam("network", this.networkId)
-        .addQueryParam("hwid64", encodeURIComponent(this.hwid64))
-        .toString();
+function requestPasswordResetCode(email, callback) {
+    var request = new Uri(_authUrl+'user/send-email/forgot/')
+            .addQueryParam('email', email)
+        , options = {
+            method: "get",
+            uri: request
+        }
+        , httpStatusToResultMap
+        , result = 0;
 
-    if (!!params) {
-        rp = rp + ('&' + params);
+    httpStatusToResultMap = {
+        200 : Result.Success,
     }
 
-    uri = new Uri()
-        .setProtocol(this.authProtocol)
-        .setHost(this.authHost)
-        .setPath(this.authPath)
-        .addQueryParam('client_id', this.appId)
-        .addQueryParam('response_type', 'code')
-        .addQueryParam('scope', this.scope)
-        .addQueryParam('display', this.displayParams)
-        .addQueryParam('redirect_uri', encodeURIComponent(rp));
-
-    return uri.toString();
-};
-
-ProviderOAuth.prototype.loadFailed = function(callback) {
-    this.browser.destroy();
-    callback(Result.Cancel);
-};
-
-ProviderOAuth.prototype.loginTitleChanged = function(title, callback) {
-    var titleUri = new Uri(this.browser.webView.title),
-        currentUri, userId, appKey, cookie, authToken, codeType;
-
-    if (0 !== titleUri.host().indexOf(this.titleApiUrl)) {
-        return;
-    }
-
-    currentUri = new Uri(this.browser.webView.url);
-
-User.getProfile = function(profiles, successCallback, failedCallback) {
-    Core.execute('user.getProfile', {profileId: profiles, shortInfo: 1, achievements: 1, subscriptions: 1}, true, successCallback, failedCallback);
-};
-
-    if ('1' === titleUri.getQueryParamValue('isBlocked')) {
-        this.browser.destroy();
-        callback(Result.ServiceAccountBlocked);
-        return;
-    }
-
-    if (!this.browser.webView.isLoaded) {
-        return;
-    }
-
-    codeType = titleUri.getQueryParamValue('codeType');
-    authToken = titleUri.getQueryParamValue('authToken');
-    userId = titleUri.getQueryParamValue('userId');
-    appKey = titleUri.getQueryParamValue('appKey');
-    cookie = titleUri.getQueryParamValue('ga');
-
-    this.browser.destroy();
-
-    if (codeType && authToken && userId)
-        callback(Result.Required2FA, { codeType: codeType, userId: userId, authToken: authToken });
-    else if (userId && appKey && cookie)
-        callback(Result.Success, { userId: userId, appKey: appKey, cookie: cookie });
-    else
-        callback(Result.Cancel);
-};
-
-ProviderOAuth.prototype.linkTitleChanged = function(title, callback) {
-    var titleUri = new Uri(this.browser.webView.title),
-        currentUri, code;
-
-    if (0 !== titleUri.host().indexOf(this.titleApiUrl)) {
-        return;
-    }
-
-    currentUri = new Uri(this.browser.webView.url);
-    if ('access_denied' === currentUri.getQueryParamValue('error')) {
-        this.browser.destroy();
-        callback(Result.Cancel);
-        return;
-    }
-
-    if (!this.browser.webView.isLoaded) {
-        return;
-    }
-
-    code = titleUri.getQueryParamValue('code');
-    if ('' === code) {
-        this.browser.destroy();
-        callback(Result.Cancel);
-        return;
-    }
-
-    var self = this;
-    this.browser.link(code, self.redirectUrl + '?action=link', function(isSuccess, response) {
-        if (response.hasOwnProperty('error')) {
-            self.browser.destroy();
-            callback(_private.remapErrorCode(response.error.code), response.error);
-            return;
+    http.request(options, function(response) {
+        if (httpStatusToResultMap.hasOwnProperty(response.status)) {
+            result = httpStatusToResultMap[response.status];
         }
 
-        if (false === isSuccess) {
-            self.browser.destroy();
-            callback(Result.UnknownError);
-            return;
-        }
-
-        if (response.result === 'error') {
-            self.browser.destroy();
-            callback(Result.Error, response.message);
-            return;
-        }
-
-        self.browser.destroy();
-        callback(Result.Success);
+        callback(result, response.body);
     });
-};
+}
 
-ProviderOAuth.prototype.urlChanged = function(url, callback) {
-    var uri = new Uri(this.browser.webView.url);
-    if (0 !== uri.host().indexOf(this.authHost)) {
+function changePassword(email, password, code, callback) {
+    var request = new Uri(_authUrl+'user/change-password/'),
+        options = {
+            method: "post",
+            uri: request
+        }
+        , httpStatusToResultMap
+        , result = 0;
+
+    httpStatusToResultMap = {
+        200 : Result.Success,
+        400 : Result.InvalidUserNameOrPassword,
+        429 : Result.CaptchaRequired,
+        426 : Result.TemporaryLock,
+    }
+
+    options.post = JSON.stringify({
+        email: email,
+        password: password,
+        code: code
+    })
+
+    http.request(options, function(response) {
+        if (httpStatusToResultMap.hasOwnProperty(response.status)) {
+            result = httpStatusToResultMap[response.status];
+        }
+
+        callback(result, response.body);
+    });
+}
+
+function refreshToken(token, callback) {
+    var request = new Uri(_authUrl+'token/refresh/')
+            .addQueryParam('token', token)
+        ,
+        options = {
+            method: "get",
+            uri: request
+        }
+        , httpStatusToResultMap
+        , result = 0;
+
+
+    httpStatusToResultMap = {
+        200 : Result.Success,
+        403 : Result.Error,
+    }
+
+    http.request(options, function(response) {
+        if (httpStatusToResultMap.hasOwnProperty(response.status)) {
+            result = httpStatusToResultMap[response.status];
+        }
+
+        _callAuthCallback(response.body, result, callback);
+    });
+}
+
+function decodeJwt(encodedToken) {
+    var tokens, result;
+    encodedToken = encodedToken || ''
+    tokens = encodedToken.split('.');
+    if (!tokens || tokens.length != 3)
         return;
+
+    try {
+        result = {
+            header: JSON.parse(_atob(tokens[0])),
+            payload: JSON.parse(_atob(tokens[1]))
+        }
+    } catch(e) {
+
     }
 
-    if ('1' === uri.getQueryParamValue('cancel') || uri.getQueryParamValue('logout')) {
-        this.browser.destroy();
-        callback(Result.Cancel);
-    }
-};
-
-var ProviderVk = function(parent, hwid) {
-    ProviderVk.superclass.constructor.apply(this, arguments);
-
-    this.appId = 2452628;
-    this.networkId = "vk";
-    this.scope = "friends,offline,email";
-    this.authHost = "oauth.vk.com";
-    this.authProtocol = "https";
+    return result;
 }
-_private.extend(ProviderVk, ProviderOAuth);
-
-var ProviderOk = function(parent, hwid) {
-    ProviderOk.superclass.constructor.apply(this, arguments);
-
-    this.appId = 1248179200;
-    this.networkId = "ok";
-    this.scope = "valuable_access,get_email";
-    this.authHost = "connect.ok.ru";
-    this.authProtocol = "https";
-}
-_private.extend(ProviderOk, ProviderOAuth);
-
-var ProviderFb = function(parent, hwid) {
-    ProviderFb.superclass.constructor.apply(this, arguments);
-
-    this.appId = "580128682172889";
-    this.networkId = "fb";
-    this.scope = "public_profile,email,user_birthday,user_location,user_friends";
-    this.authHost = "www.facebook.com";
-    this.authProtocol = "https";
-    this.authPath = "/v2.8/dialog/oauth";
-    this.displayParams = 'popup';
-}
-_private.extend(ProviderFb, ProviderOAuth);

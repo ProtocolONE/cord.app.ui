@@ -12,18 +12,18 @@ WidgetView {
     property int rotationTimeout: 5000
     property variant currentGameItem: App.currentGame()
     property int index
-    property bool hasAds: true
+    property bool hasAds: false
     property bool initialized: false
 
     onCurrentGameItemChanged: {
         if (currentGameItem && initialized) {
-            model.refreshAds(currentGameItem.gameId);
+            model.refreshAds(currentGameItem.serviceId);
         }
     }
 
     Component.onCompleted: {
         if (currentGameItem) {
-            model.refreshAds(currentGameItem.gameId);
+            model.refreshAds(currentGameItem.serviceId);
         }
         initialized = true;
     }
@@ -34,7 +34,7 @@ WidgetView {
             return;
         }
 
-        GameAdBannerView.filtered = model.getAds(currentGameItem.gameId);
+        GameAdBannerView.filtered = model.getAds(currentGameItem.serviceId);
         d.banners = GameAdBannerView.filtered;
 
         root.index = 0;
@@ -104,7 +104,7 @@ WidgetView {
         function switchToNext() {
             //  INFO: на всякий случай - если не задали поля для баннеров
             var textLabel = GameAdBannerView.filtered[root.index].description || "";
-            var imageSource = GameAdBannerView.filtered[root.index].imageLauncher;
+            var imageSource = GameAdBannerView.filtered[root.index].image;
             var bannerId = GameAdBannerView.filtered[root.index].id;
 
             if (currentItem === content1) {

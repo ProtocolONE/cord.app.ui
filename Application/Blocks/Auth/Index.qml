@@ -5,6 +5,7 @@ import ProtocolOne.Controls 1.0
 
 import Application.Controls 1.0
 import Application.Core 1.0
+import Application.Core.Config 1.0
 import Application.Core.Settings 1.0
 import Application.Core.Styles 1.0
 import Application.Core.Authorization 1.0
@@ -22,6 +23,7 @@ Item {
     implicitHeight: 600
 
     property bool serviceLoading: authContainer.state === 'serviceLoading'
+    property variant socialButtons: []
 
     Component.onCompleted: d.autoLogin();
 
@@ -36,12 +38,6 @@ Item {
         anchors { left: parent.left; right: parent.right }
         visible: !root.serviceLoading
         state: authContainer.state
-    }
-
-    SupportButton {
-        anchors { verticalCenter: parent.verticalCenter; right: parent.right }
-        visible: !root.serviceLoading
-        onClicked: App.openSupportUrl("/kb");
     }
 
     Rectangle {
@@ -88,33 +84,20 @@ Item {
 
                 visible: false
 
-                onSecurityCodeRequired: {
-                    authSecurityCodeBody.appCode = appCode;
-                    authSecurityCodeBody.login = auth.login;
-                    authSecurityCodeBody.password = auth.password;
-                    authSecurityCodeBody.captcha = auth.captcha;
-                    authSecurityCodeBody.remember = auth.remember;
-                    authSecurityCodeBody.authToken = auth.authToken;
-                    authSecurityCodeBody.userId = auth.userId;
-                    auth.password = "";
-                    authContainer.state = "securityCode";
-                }
-
-                onCodeRequired: {
-                    codeForm.codeSended = false;
-                    authContainer.state = "code"
-                }
                 onError: d.showError(message, supportButton);
-                onAuthDone: {
-                    d.startLoadingServices(userId, appKey, cookie, !remember);
+                onJwtAuthDone: {
+                    User.setTokenRemember(auth.remember);
 
-                    if (remember) {
-                        CredentialStorage.save(userId, appKey, cookie, false);
+                    d.tokenReceived(refreshToken, refreshTokenExpireTime,
+                                    accessToken, accessTokenExpireTime);
+
+                    if (auth.remember) {
                         d.saveAuthorizedLogins(auth.login);
                     } else {
-                        auth.login = "";
+                        auth.login = '';
                     }
                 }
+
                 onFooterPrimaryButtonClicked: {
                     if (!auth.inProgress) {
                         Ga.trackEvent('Auth', 'click', 'Switch To Registration')
@@ -123,9 +106,10 @@ Item {
                     }
                 }
 
-                onFooterOAuthClicked: d.startOAuth(network)
+                onFooterOAuthClicked: d.startOAuth(network, url)
                 loginSuggestion: d.loginSuggestion()
-                vkButtonInProgress: d.vkAuthInProgress
+
+                socialButtons: root.socialButtons
             }
 
             RegistrationBody {
@@ -133,10 +117,11 @@ Item {
 
                 visible: false
                 onError: d.showError(message, supportButton);
-                onAuthDone: {
-                    d.startLoadingServices(userId, appKey, cookie);
 
-                    CredentialStorage.save(userId, appKey, cookie, false);
+                onJwtAuthDone: {
+                    User.setTokenRemember(true);
+                    d.tokenReceived(refreshToken, refreshTokenExpireTime,
+                                    accessToken, accessTokenExpireTime);
                     d.saveAuthorizedLogins(registration.login);
                 }
 
@@ -147,68 +132,10 @@ Item {
                         authContainer.state = "auth";
                      }
                 }
-                onFooterOAuthClicked: d.startOAuth(network)
-                vkButtonInProgress: d.vkAuthInProgress
 
-                onCaptchaRequired: {
-                    auth.setLogin(registration.login);
-                    registration.password = "";
-                    authContainer.state = "auth";
-                    auth.showCaptcha();
-                }
+                onFooterOAuthClicked: d.startOAuth(network, url)
 
-                onCodeRequired: {
-                    auth.setLogin(registration.login);
-                    registration.login = "";
-                    codeForm.codeSended = false;
-                    authContainer.state = "code"
-                }
-
-                onSecurityCodeRequired: {
-                    authSecurityCodeBody.appCode = appCode;
-                    authSecurityCodeBody.login = registration.login;
-                    authSecurityCodeBody.password = registration.password;
-                    authSecurityCodeBody.remember = true;
-                    authSecurityCodeBody.authToken = registration.authToken;
-                    authSecurityCodeBody.userId = registration.userId;
-                    registration.password = "";
-                    authContainer.state = "securityCode";
-                }
-            }
-
-            AuthSecurityCodeBody {
-                id: authSecurityCodeBody
-
-                visible: false
-
-                onCancel: {
-                    authContainer.state = "auth";
-                }
-                onError: {
-                    authContainer.state = "auth";
-                    d.showError(message, supportButton);
-                }
-                onAuthDone: {
-                    d.startLoadingServices(userId, appKey, cookie, !remember);
-
-                    if (remember) {
-                        CredentialStorage.save(userId, appKey, cookie, false);
-                        d.saveAuthorizedLogins(auth.login);
-                    } else {
-                        auth.login = "";
-                    }
-                }
-            }
-
-            CodeBody {
-                id: codeForm
-
-                visible: false
-                login: auth.login
-                onCancel: authContainer.state = "auth"
-                onSuccess: authContainer.state = "auth"
-                onFooterOAuthClicked: d.startOAuth(network)
-                vkButtonInProgress: d.vkAuthInProgress
+                socialButtons: root.socialButtons
             }
 
             MessageBody {
@@ -218,6 +145,7 @@ Item {
 
                 visible: false
                 onClicked: authContainer.state = messageBody.backState;
+                socialButtons: root.socialButtons
             }
         }
 
@@ -227,9 +155,7 @@ Item {
                 PropertyChanges { target: formContainer; visible: true }
                 PropertyChanges {target: auth; visible: false}
                 PropertyChanges {target: registration; visible: false}
-                PropertyChanges {target: codeForm; visible: false}
                 PropertyChanges {target: messageBody; visible: false}
-                PropertyChanges {target: authSecurityCodeBody; visible: false}
             },
 
             State {
@@ -249,17 +175,6 @@ Item {
                 }
             },
             State {
-                name: "securityCode"
-                extend: "Initial"
-                PropertyChanges {target: authSecurityCodeBody; visible: true}
-                PropertyChanges {target: authContainer; anchors.bottomMargin: authSecurityCodeBody.bottomMargin}
-            },
-            State {
-                name: "code"
-                extend: "Initial"
-                PropertyChanges {target: codeForm; visible: true}
-            },
-            State {
                 name: "message"
                 extend: "Initial"
                 PropertyChanges {target: messageBody; visible: true}
@@ -276,8 +191,8 @@ Item {
     }
 
     Rectangle {
-        width: parent.width -1
-        height: parent.height -1
+        width: parent.width - 1
+        height: parent.height - 1
         color: "#00000000"
         border.color: Styles.light
         opacity: Styles.blockInnerOpacity
@@ -290,7 +205,9 @@ Item {
         anchors.fill: parent
         onFinished: {
             SignalBus.anotherComputerChanged(serviceLoading.anotherComputer)
-            SignalBus.authDone(userId, appKey, cookie);
+            SignalBus.authDone();
+            var jwt = User.getAccessToken();
+            App.authSuccessSlot(jwt.value, jwt.exp);
         }
 
     }
@@ -298,7 +215,8 @@ Item {
     QtObject {
         id: d
 
-        property bool vkAuthInProgress: false
+        property bool autoLoginInProgress: false
+        property bool oauthInProgress: false
 
         function isAnyAuthorizationWasDone() {
             var refreshDate = AppSettings.value("qml/auth/", "refreshDate", -1),
@@ -316,65 +234,25 @@ Item {
                     }});
         }
 
-        function startOAuth(network) {
-            var authFunction, gaMarker;
-
-            switch(network) {
-            case 'ok': {
-                authFunction = Authorization.loginByOk;
-                gaMarker = 'Ok Login'
-                break;
-                }
-            case 'vk': {
-                authFunction = Authorization.loginByVk;
-                gaMarker = 'Vk Login'
-                break;
-                }
-            case 'fb': {
-                authFunction = Authorization.loginByFb;
-                gaMarker = 'Fb Login'
-                break;
-                }
-            default: {
-                console.log("Warning. Unknown social network", network);
-                return;
-            }
-            }
-
-            d.vkAuthInProgress = true;
+        function startOAuth(network, url) {
+            d.oauthInProgress = true;
 
             function oAuthResultCallback(error, response) {
-                            d.vkAuthInProgress = false;
+                d.oauthInProgress = false;
+                if (error == Authorization.Result.Success) {
+                    d.tokenReceived(response.refreshToken.value,
+                                    response.refreshToken.exp,
+                                    response.accessToken.value,
+                                    response.accessToken.exp);
+                    return;
+                }
 
-                            if (Authorization.isSuccess(error)) {
+                d.showError(qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR"));
+            }
 
-                                CredentialStorage.save(response.userId, response.appKey, response.cookie);
-                                d.startLoadingServices(response.userId, response.appKey, response.cookie);
-                                return;
 
-                            } else if (Authorization.isRequired2FA(error)) {
-
-                                authSecurityCodeBody.appCode = response.codeType == 5; // 4 - SMS, 5 - app code. Use == instead of ===
-                                authSecurityCodeBody.authToken = response.authToken;
-                                authSecurityCodeBody.userId = response.userId;
-                                authContainer.state = "securityCode";
-                                return;
-                            }
-
-                            if (error === Authorization.Result.Cancel) {
-                                return;
-                            }
-
-                            if (error === Authorization.Result.ServiceAccountBlocked) {
-                                d.showError(qsTr("AUTH_FAIL_ACCOUNT_BLOCKED"), true);
-                                return;
-                            }
-
-                            d.showError(qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_VK_ERROR"));
-                        }
-
-            authFunction(root, oAuthResultCallback);
-            Ga.trackEvent('Auth', 'click', gaMarker)
+            Authorization.loginByOAuth(url, oAuthResultCallback);
+            Ga.trackEvent('Auth', 'click', network)
         }
 
         function loginSuggestion() {
@@ -395,15 +273,21 @@ Item {
         }
 
         function startLoadingServices(userId, appKey, cookie, anotherComputer) {
-            serviceLoading.userId = userId;
-            serviceLoading.appKey = appKey;
-            serviceLoading.cookie = cookie;
-            serviceLoading.anotherComputer = !!anotherComputer;
-
             authContainer.state = "serviceLoading";
         }
 
+        function tokenReceived(refreshToken, refreshTokenExpireTime,
+                               accessToken, accessTokenExpireTime) {
+            AppSettings.setValue("qml/auth/", "authDone", 1);
+            User.setTokens(refreshToken, refreshTokenExpireTime,
+                           accessToken, accessTokenExpireTime);
+
+            d.startLoadingServices();
+        }
+
         function autoLogin() {
+            Authorization.getOAuthServices(d.getOAuthServicesCallback);
+
             if (AuthHelper.autoLoginDone) {
                 authContainer.state = "auth";
                 return;
@@ -411,34 +295,44 @@ Item {
 
             AuthHelper.autoLoginDone = true;
 
-            var savedAuth = CredentialStorage.load();
-            if (!savedAuth || !savedAuth.userId || !savedAuth.appKey || !savedAuth.cookie) {
+            var savedAuth = User.loadCredential();
+            console.log('AuthSaved:' , JSON.stringify(savedAuth, null,  2))
+
+            if (!savedAuth || !savedAuth.refreshToken || !savedAuth.refreshTokenExpiredTime) {
                 authContainer.state = d.isAnyAuthorizationWasDone() ? "auth" : "registration";
-            }
-
-            var lastRefresh = AppSettings.value("qml/auth/", "refreshDate", -1);
-            var currentDate = Math.floor(+new Date() / 1000);
-
-            if (lastRefresh != -1 && (currentDate - lastRefresh < 432000)) {
-                d.startLoadingServices(savedAuth.userId, savedAuth.appKey, savedAuth.cookie);
                 return;
             }
 
-            Authorization.refreshCookie(savedAuth.userId, savedAuth.appKey, function(error, response) {
-               if (Authorization.isSuccess(error)) {
-                   AppSettings.setValue("qml/auth/", "refreshDate", currentDate);
-                   CredentialStorage.save(
-                               savedAuth.userId,
-                               savedAuth.appKey,
-                               response.cookie,
-                               false);
-                   d.startLoadingServices(savedAuth.userId, savedAuth.appKey, response.cookie);
-               } else {
-                   d.startLoadingServices(savedAuth.userId, savedAuth.appKey, savedAuth.cookie);
-               }
-           })
+            d.autoLoginInProgress = true;
+            var cb = function() {
+                console.log('autoLogin changed: ', User.isAuthorized())
+                d.autoLoginInProgress = false;
+                SignalBus.logoutRequest.disconnect(cb);
+                SignalBus.authTokenChanged.disconnect(cb);
+                if (!User.isAuthorized()) {
+                    // INFO autologin failed
+                    authContainer.state = d.isAnyAuthorizationWasDone() ? "auth" : "registration";
+                    return;
+                }
+
+                d.startLoadingServices();
+            }
+
+            User.setTokenRemember(true);
+            User.setTokens(savedAuth.refreshToken, savedAuth.refreshTokenExpiredTime);
+
+            SignalBus.logoutRequest.connect(cb);
+            SignalBus.authTokenChanged.connect(cb);
+
+            User.refreshTokens();
         }
 
-        onVkAuthInProgressChanged: SignalBus.setGlobalProgressVisible(d.vkAuthInProgress, 0);
+        function getOAuthServicesCallback(code, response) {
+            if (code == Authorization.Result.Success) {
+                root.socialButtons = response || [];
+            }
+        }
+
+        onOauthInProgressChanged: SignalBus.setGlobalProgressVisible(d.oauthInProgress, 0);
     }
 }

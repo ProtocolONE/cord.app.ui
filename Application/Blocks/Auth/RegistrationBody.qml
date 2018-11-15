@@ -23,10 +23,8 @@ Form {
     property alias inProgress: d.inProgress
 
     signal error(string message, bool supportButton);
-    signal authDone(string userId, string appKey, string cookie);
-    signal codeRequired();
-    signal captchaRequired();
-    signal securityCodeRequired(bool appCode);
+    signal jwtAuthDone(string refreshToken, string refreshTokenExpireTime,
+                       string accessToken, string accessTokenExpireTime);
 
     title: qsTr("REGISTER_BODY_TITLE")
     subTitle: qsTr("REGISTER_BODY_SUB_TITLE")
@@ -52,7 +50,7 @@ Form {
             var login = d.login,
                 password = d.password;
 
-            if (d.inProgress || !App.authAccepted) {
+            if (d.inProgress) {
                 return;
             }
 
@@ -65,88 +63,32 @@ Form {
             d.password = "";
             d.inProgress = true;
 
-            Authorization.register(login, password, function(error, response) {
-                if (Authorization.isSuccess(error)) {
-                    d.auth(login, password);
-                    return;
-                }
-
+            Authorization.registerUser(login, password, function(error, response) {
                 d.inProgress = false;
-
-                if (!response) {
-                    root.error(qsTr("REGISTER_FAIL_PROTOCOLONE_UNAVAILABLE"));
-                    return;
-                }
-
-                var errorCode = response.code;
-
-                if (errorCode == -1) {//BAD_CAPTCHA
-                    root.captchaRequired();
-                    return;
-                }
-
-                if (errorCode == -2) {//BLOCKED_AUTH
-                   root.error(qsTr("AUTH_FAIL_ACCOUNT_BLOCKED"), true);
+                console.log('[Register] code: ', error)
+                if (error === Authorization.Result.Success) {
+                    root.jwtAuthDone(response.refreshToken.value,
+                                     response.refreshToken.exp,
+                                     response.accessToken.value,
+                                     response.accessToken.exp);
                    return;
                 }
 
-                if (errorCode == -3) {//TEMPORARY_BLOCKED_AUTH
-                   root.codeRequired();
-                   return;
-                }
+                if (error === Authorization.Result.InvalidUserNameOrPassword) {
+                    if (response.hasOwnProperty('email')) {
+                        loginInput.errorMessage = qsTr("AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT");
+                        loginInput.error = true;
+                    }
 
-                if (errorCode === 4 || errorCode === 5) { //REQUIRED_2FA_SMS_CODE or REQUIRED_2FA_APP_CODE
-                    root.authToken = response.authToken ? response.authToken : "";
-                    root.userId = response.userId ? response.userId : "";
-                    root.password = password;
-                    root.securityCodeRequired(errorCode === 5);
+                    if (response.hasOwnProperty('password')) {
+                        passwordInput.errorMessage = qsTr("AUTH_FAIL_MESSAGE_WRONG");
+                        passwordInput.error = true;
+                    }
+
                     return;
                 }
 
-                if (response.message.login) {
-                    loginInput.errorMessage = response.message.login;
-                    loginInput.error = true;
-                }
-
-                if (response.message.password) {
-                    passwordInput.errorMessage = response.message.password;
-                    passwordInput.error = true;
-                }
-            });
-        }
-
-        function auth(login, password) {
-            Authorization.loginByProtocolOne(login, password, true, function(error, response) {
-                d.inProgress = false;
-                SignalBus.setGlobalProgressVisible(false, 0);
-
-                if (Authorization.isSuccess(error)) {
-                    root.authDone(response.userId, response.appKey, response.cookie);
-                    return;
-                }
-
-                if (error === Authorization.Result.SecuritySMSCodeRequired || error === Authorization.Result.SecurityAppCodeRequired) {
-                    root.authToken = response.authToken ? response.authToken : "";
-                    root.userId = response.userId ? response.userId : "";
-                    root.password = password;
-                    root.securityCodeRequired(error === Authorization.Result.SecurityAppCodeRequired);
-                    return;
-                }
-
-                var errorMessage;
-
-                if (!response) {
-                    errorMessage = qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_ERROR");
-                } else {
-                    var map = {
-                        0: qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_ERROR"),
-                    };
-                    map[RestApi.Error.AUTHORIZATION_FAILED] = qsTr("AUTH_FAIL_MESSAGE_WRONG");
-                    map[RestApi.Error.INCORRECT_FORMAT_EMAIL] = qsTr("AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT");
-                    errorMessage = map[response.code] || map[0];
-                }
-
-                root.error(errorMessage);
+                root.error(qsTr("REGISTER_FAIL_PROTOCOLONE_UNAVAILABLE"), false);
             });
         }
 

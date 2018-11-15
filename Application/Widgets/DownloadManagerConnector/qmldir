@@ -1,0 +1,3 @@
+module Application.Widgets.DownloadManagerConnector
+PluginContainer 1.0 PluginContainer.qml 
+DownloadManagerConnector 1.0 DownloadManagerConnector.qml

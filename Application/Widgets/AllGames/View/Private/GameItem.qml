@@ -28,7 +28,7 @@ Item {
     property bool isStandalone: serviceItem && serviceItem.isStandalone
     property bool isClosedBeta: serviceItem && serviceItem.isClosedBeta
     property bool hasSellsItem: serviceItem && serviceItem.hasSellsItem
-    property bool userHasSubscription: serviceItem && User.hasBoughtStandaloneGame(serviceItem.serviceId)
+    property bool userHasSubscription: false// serviceItem && User.hasBoughtStandaloneGame(serviceItem.serviceId)
     property string cost: serviceItem && serviceItem.cost
 
     function buttonText() {

@@ -1,5 +1,4 @@
 .git
 .\!build
-*.qrc
 build.cmd
 build_exlude.txt

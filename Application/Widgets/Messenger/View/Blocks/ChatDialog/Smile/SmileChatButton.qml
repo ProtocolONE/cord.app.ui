@@ -30,8 +30,6 @@ Item {
         cache: false
         asynchronous: false
         anchors.centerIn: parent
-        smooth: true
-
         source: rootButton.imageSource ? rootButton.imageSource : ''
     }
 

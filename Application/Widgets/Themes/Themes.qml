@@ -1,6 +1,7 @@
 import QtQuick 2.4
 
 import Tulip 1.0
+
 import ProtocolOne.Core 1.0
 import ProtocolOne.Components.Widgets 1.0
 
@@ -11,22 +12,33 @@ WidgetModel {
 
     property alias dataModel: list
 
+    property bool available: false
+
     Connections {
         target: SignalBus
         onAuthDone: {
+            root.available = false;
+
             console.log('Query themes');
-            RestApi.Games.getThemes(dataReceived, errorOccured);
+
+            RestApi.Theme.getList(dataReceived);
         }
     }
 
-    function dataReceived(data) {
-        var themes = data.themes.map(function(e){
+    function dataReceived(code, data) {
+        if (!RestApi.ErrorEx.isSuccess(code)) {
+            console.log('Themes load error', code);
+            return;
+        }
+
+        var themes = data.map(function(e){
             return {
                 name: e.name,
-                preview: e.preview,
-                theme: e.theme,
-                showOrder: e.showOrder,
-                updateDate: e.updatedate
+                preview: e.image,
+                theme: e.file,
+                // UNDONE not enough info from api
+                showOrder: 0, //e.showOrder,
+                updateDate: 0 //e.updatedate
             };
         });
 
@@ -38,6 +50,8 @@ WidgetModel {
         themes.forEach(function(e) {
             list.append(e);
         });
+
+        root.available = list.count > 0;
     }
 
     function errorOccured(data) {

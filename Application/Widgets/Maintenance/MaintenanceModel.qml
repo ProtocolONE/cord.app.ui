@@ -1,10 +1,12 @@
 import QtQuick 2.4
 import Tulip 1.0
+
 import ProtocolOne.Core 1.0
 import ProtocolOne.Components.Widgets 1.0
 
 import Application.Core 1.0
 import Application.Core.Settings 1.0
+import Application.Core.ServerTime 1.0
 
 import "MaintenanceModel.js" as MaintenanceModel
 import "View" as View
@@ -52,12 +54,13 @@ WidgetModel {
     }
 
     function update(schedule) {
-        var currentTime = maintCheck.getTime(),
+        var currentTime = ((+Date.now()) / 1000),
             startTime,
             endTime,
             index,
-            index_fake,
             item,
+            gameId,
+            s,
             itemExist,
             nearestInterval = 2294967296;
 
@@ -65,21 +68,23 @@ WidgetModel {
 
         // INFO В Qt/QML есть баг с храненим строковых ключей мап похожих на число. Они приводятся к int32
         // и отбрасывается старший байт (5ый).
-        for (index_fake in schedule) {
-            index = schedule[index_fake].id;
-            endTime = schedule[index].endTime;
+        for (index in schedule) {
+            s = schedule[index];
 
-            item = App.serviceItemByServiceId(index);
+            gameId = s.gameId;
+            endTime = s.endDate;
+
+            item = App.serviceItemByServiceId(gameId);
             if (!item) {
                 continue;
             }
 
             item.maintenanceSettings = {
-                    "title": schedule[index].title || "",
-                    "newsTitle": schedule[index].newsTitle || "",
-                    "newsText": schedule[index].newsText || "",
-                    "newsLink": schedule[index].newsLink || "",
-                    "isSticky": !!schedule[index].isSticky
+                    "title": s.title || "",
+                    "newsTitle": s.newsTitle || "",
+                    "newsText": s.newsText || "",
+                    "newsLink": s.newsLink || "",
+                    "isSticky": s.isSticky
                 }
 
             if (item.ignoreMaintenance) {
@@ -88,16 +93,17 @@ WidgetModel {
                 continue;
             }
 
-            startTime = schedule[index].startTime;
+            startTime = s.startDate;
 
             if (endTime < currentTime) {
                 item.maintenance = false;
                 item.maintenanceInterval = 0;
 
-                if (MaintenanceModel.showMaintenanceEnd[index]) {
-                    delete MaintenanceModel.showMaintenanceEnd[index];
+                if (MaintenanceModel.showMaintenanceEnd[gameId]) {
+                    delete MaintenanceModel.showMaintenanceEnd[gameId];
 
-                    if (!App.isWindowVisible() && AppSettings.isAppSettingsEnabled('notifications', 'maintenanceEndPopup', true)) {
+                    if (!App.isWindowVisible()
+                        && AppSettings.isAppSettingsEnabled('notifications', 'maintenanceEndPopup', true)) {
                         root.showPopupGameMaintenanceEnd(index);
                     }
                 }
@@ -105,7 +111,7 @@ WidgetModel {
                 continue;
             }
 
-            MaintenanceModel.schedule[index] = schedule[index]
+            MaintenanceModel.schedule[gameId] = s;
 
             var maintenance = currentTime >= startTime && currentTime < endTime;
 
@@ -133,25 +139,24 @@ WidgetModel {
             }
         }
 
-        RestApi.Games.getMaintenance(function(response) {
-            if (!response.hasOwnProperty('schedule')) {
-                callcb();
-                return;
-            }
+        RestApi.Games.getMaintenance(function(code, response) {
+            var schedule = response.map(function(e) {
+                return {
+                    gameId: e.game.id,
 
-            RestApi.Misc.getTime(function(data) {
-                var time;
-                if (data.hasOwnProperty('atom')) {
-                    time = Moment.moment(new Date(data.atom));
-                    maintCheck.diff = Moment.moment.duration(time.diff(new Date())).asMilliseconds();
+                    startDate: ServerTime.correctTime( (+(new Date(e.startDate))) / 1000),
+                    endDate: ServerTime.correctTime( (+(new Date(e.endDate))) / 1000),
+
+                    "title": e.title || "",
+                    "newsTitle": e.newsTitle || "",
+                    "newsText": e.newsText || "",
+                    "newsLink": e.newsLink || "",
+                    "isSticky": !!e.isSticky
                 }
-
-                update(response.schedule);
-                callcb();
-            }, function(){
-                update(response.schedule);
-                callcb();
             });
+
+            root.update(schedule);
+            callcb();
         });
     }
 

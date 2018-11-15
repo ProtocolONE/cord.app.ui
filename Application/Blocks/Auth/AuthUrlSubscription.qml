@@ -11,6 +11,11 @@ Item {
         ignoreUnknownSignals: true
 
         onOpenAuthUrlRequest: {
+            //UNDONE Auth on site isn't available
+            App.openExternalUrl(url);
+            return;
+
+
             var originalUrl = url; // исправляет удаление строки в колбеке рестапишного запроса
 
             function parseResp(resp) {

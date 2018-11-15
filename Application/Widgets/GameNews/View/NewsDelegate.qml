@@ -10,37 +10,25 @@ Item {
     id: delegate
 
     property bool shouldShowDelimited: index != 0
-    property string announcementText: announcement
-    property string previewImage: ''
 
     clip: true
     implicitWidth: 590
     implicitHeight: index == 0 ? 130 : 139
 
-    onAnnouncementTextChanged: {
-       var imageMatch = /<\!--p=(.+?)-->/.exec(announcementText);
+//    function openNews(gameShortName, eventId) {
+//        App.openExternalUrlWithAuth(Config.site("/games/") + gameShortName + "/post/" + eventId + "/");
 
-        if (imageMatch && imageMatch.length >= 2) {
-            delegate.previewImage = imageMatch[1];
-        } else {
-            delegate.previewImage = '';
-        }
-    }
+//        Ga.trackEvent('GameNews', 'outer link', eventId);
+//    }
 
-    function openNews(gameShortName, eventId) {
-        App.openExternalUrlWithAuth(Config.site("/games/") + gameShortName + "/post/" + eventId + "/");
+//    CursorMouseArea {
+//        id: mouser
 
-        Ga.trackEvent('GameNews', 'outer link', eventId);
-    }
+//        property bool containsMouseEx: mouser.containsMouse || mouserHeader.containsMouse
 
-    CursorMouseArea {
-        id: mouser
-
-        property bool containsMouseEx: mouser.containsMouse || mouserHeader.containsMouse
-
-        anchors { fill: parent; leftMargin: 10; rightMargin: 10; topMargin: shouldShowDelimited ? 9 : 0}
-        onClicked: openNews(gameShortName, eventId);
-    }
+//        anchors { fill: parent; leftMargin: 10; rightMargin: 10; topMargin: shouldShowDelimited ? 9 : 0}
+//        onClicked: openNews(gameShortName, eventId);
+//    }
 
     Column {
         anchors { fill: parent; leftMargin: 10; rightMargin: 10 }
@@ -66,9 +54,10 @@ Item {
                 visible: previewImage !== ''
                 height: 130
                 width: 160
-                source: previewImage
+                source: model.previewImage
                 cache: false
-                asynchronous: true
+                asynchronous: false
+
             }
 
             Column {
@@ -90,8 +79,8 @@ Item {
 
                         Text {
                             height: 12
-                            text: App.serviceItemByGameId(gameId) ? App.serviceItemByGameId(gameId).name : ''
-                            color: Qt.darker(Styles.textTime, mouser.containsMouseEx ? 1.5: 0)
+                            text: gameName
+                            color: Styles.textTime //Qt.darker(Styles.textTime, mouser.containsMouseEx ? 1.5: 0)
                             font { family: 'Arial'; pixelSize: 12 }
                             visible: !root.isSingleMode
 
@@ -107,11 +96,11 @@ Item {
                                 interval: 60000
                                 triggeredOnStart: true
                                 running: true
-                                onTriggered: timeText.text = Moment.moment(time * 1000).fromNow();
+                                onTriggered: timeText.text = Moment.moment(time).fromNow();
                             }
 
                             height: 12
-                            color: Qt.darker(Styles.chatInactiveText, mouser.containsMouseEx ? 1.5: 0)
+                            color: Styles.chatInactiveText // Qt.darker(Styles.chatInactiveText, mouser.containsMouseEx ? 1.5: 0)
 
                             font { family: 'Arial'; pixelSize: 12 }
 
@@ -134,7 +123,7 @@ Item {
                             height: 23
                             width: 355
                             text: title
-                            color: Qt.darker(Styles.titleText, mouser.containsMouseEx ? 1.5: 0)
+                            color: Styles.titleText// Qt.darker(Styles.titleText, mouser.containsMouseEx ? 1.5: 0)
                             elide: Text.ElideRight
                             font { family: 'Open Sans Light'; pixelSize: 20; bold: false }
 
@@ -143,43 +132,36 @@ Item {
                             }
                         }
 
-                        Image {
-                            id: iconLink
-                            anchors.verticalCenter: parent.verticalCenter
+//                        Image {
+//                            id: iconLink
+//                            anchors.verticalCenter: parent.verticalCenter
 
-                            x: newsHeader.paintedWidth + 5
-                            y: 2
+//                            x: newsHeader.paintedWidth + 5
+//                            y: 2
 
-                            source: installPath + Styles.linkIconNews
-                        }
+//                            source: installPath + Styles.linkIconNews
+//                        }
 
-                        CursorMouseArea {
-                            id: mouserHeader
+//                        CursorMouseArea {
+//                            id: mouserHeader
 
-                            anchors.fill: parent
-                            toolTip: newsHeader.text
-                            hoverEnabled: newsHeader.truncated
-                            acceptedButtons: Qt.NoButton
-                        }
+//                            anchors.fill: parent
+//                            toolTip: newsHeader.text
+//                            hoverEnabled: newsHeader.truncated
+//                            acceptedButtons: Qt.NoButton
+//                        }
                     }
                 }
 
                 Text {
-                    function clearText(text) {
-                        var tmp = StringHelper.stripTags(text);
-                        tmp = StringHelper.htmlDecode(tmp);
-
-                        return tmp.replace(/\s+/g, ' ').trim();
-                    }
-
-                    text: clearText(announcementText)
+                    text: announcement
                     height: 86
                     width: parent.width - 35
                     wrapMode: Text.WordWrap
                     elide: Text.ElideRight
                     maximumLineCount: 4
                     clip: true
-                    color: Qt.darker(Styles.infoText, mouser.containsMouseEx ? 1.5: 0)
+                    color: Styles.infoText //Qt.darker(Styles.infoText, mouser.containsMouseEx ? 1.5: 0)
                     font { family: 'Arial'; pixelSize: 13 }
                     lineHeight: 20
                     lineHeightMode: Text.FixedHeight

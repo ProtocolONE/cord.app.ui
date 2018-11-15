@@ -20,13 +20,6 @@ WidgetModel {
     function startExecuting(serviceId) {
         var gameItem = App.serviceItemByServiceId(serviceId);
         executeServiceDelay.serviceId = serviceId;
-
-        if (gameItem.checkNicknameBeforeStart && !User.isNicknameValid()) {
-            root.internalPopupId = Popup.show('NicknameEdit');
-            root.closeView();
-            return;
-        }
-
         root.executeGame(serviceId);
         return;
     }
@@ -41,27 +34,6 @@ WidgetModel {
         gameItem.statusText = qsTr("TEXT_PROGRESSBAR_STARTING_STATE")
         SignalBus.progressChanged(gameItem);
     }
-
-//    Connections {
-//        id: p2pTransferRequestConnection
-
-//        ignoreUnknownSignals: true
-//        onProceed: {
-//            // INFO fast execute after P2PTransferPopup
-//            executeServiceDelay.interval = 500;
-//            root.executeGame(executeServiceDelay.serviceId);
-//        }
-
-//        onCheckLicensedResult: {
-//            if (!shouldShow) {
-//                root.executeGame(executeServiceDelay.serviceId);
-//                return;
-//            }
-
-//            root.internalP2PTransferPopupId = Popup.show('P2PTransferRequest');
-//            root.closeView();
-//        }
-//    }
 
     Connections {
         target: Popup
@@ -91,8 +63,6 @@ WidgetModel {
             App.activateGameByServiceId(serviceId);
             SignalBus.navigate("mygame", "");
         }
-
-        onNeedPakkanenVerification: Popup.show('AccountActivation');
     }
 
     Connections {

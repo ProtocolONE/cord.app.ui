@@ -55,7 +55,7 @@ Item {
               value = q.params[i][1];
               var requestedValue = request.uri.query().getParamValue(key);
               if (requestedValue != value) {
-                  console.log('Cache miss ', key, requestedValue, value, e.name)
+                  //console.log('Cache miss ', key, requestedValue, value, e.name)
                   result = false;
                   break;
               }
@@ -72,7 +72,7 @@ Item {
 
         var cacheFilePath = files[0].path;
         var cacheResult = FileSystem.readFile(cacheFilePath)
-        console.log('Cache hit:', cacheFilePath)
+        //console.log('Cache hit:', cacheFilePath)
 
         if (request.uri.query().getParamValue("format") === "json") {
             try {
@@ -171,9 +171,9 @@ Item {
         interval: 1
         repeat: true
         onTriggered: {
-            console.log('cache hit')
+            //console.log('cache hit')
             if (Js.queue.length === 0) {
-                console.log('cache empty')
+                //console.log('cache empty')
                 callCb.stop();
                 return;
             }
@@ -181,7 +181,6 @@ Item {
             var nextItem = Js.queue.pop();
 
             if (!!nextItem) {
-                console.log('call cb')
                 nextItem.cb(nextItem.value);
             }
         }

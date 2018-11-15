@@ -205,7 +205,8 @@ FocusScope {
             if (!messengerInput.isMessageTimeValid(message)) 
                 return;
 
-            messengerInput.text = message.text;
+            makeQuoteMessage(message.text, true);
+
             d.setActiveStatus(MessengerJs.selectedUser(), "Active");
             d.xmppId = message.messageId;
             d.editMessageCounter = -1;

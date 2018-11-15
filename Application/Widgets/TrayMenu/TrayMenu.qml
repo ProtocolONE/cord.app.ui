@@ -192,93 +192,74 @@ WidgetModel {
             color: Styles.contentBackground
 
             Rectangle {
+                id: menuHeader
+
                 width: parent.width
                 height: 32
                 color: Styles.trayMenuHeaderBackground
 
-                Rectangle {
-                    id: menuHeader
-
-                    width: parent.width
-                    height: 32
-                    color: Styles.style.menuHeaderBackground
-
-                    Image {
-                        anchors {
-                            left: parent.left
-                            leftMargin: 14
-                            verticalCenter: parent.verticalCenter
-                        }
-
-                        source: installPath + "Assets/Images/Application/Widgets/TrayMenu/trayLogo.png"
+                Image {
+                    anchors {
+                        left: parent.left
+                        leftMargin: 14
+                        verticalCenter: parent.verticalCenter
                     }
+
+                    source: installPath + "Assets/Images/Application/Widgets/TrayMenu/trayLogo.png"
+                }
+            }
+
+            ListView {
+                id: menuView
+
+                function fullMenuAvailable(name) {
+                    return (root.isFullMenu || name == 'Quit') ? true : false
                 }
 
-                ListView {
-                    id: menuView
+                y: 33
+                width: parent.width
+                height: parent.height - 32
 
-                    function fullMenuAvailable(name) {
-                        return (root.isFullMenu || name == 'Quit') ? true : false
-                    }
+                interactive: false
+                spacing: isFullMenu ? 1 : 0
 
-                    y: 33
-                    width: parent.width
-                    height: parent.height - 32
+                delegate: Item {
+                    property bool isCurrent: mouseArea.containsMouse
 
-                    interactive: false
-                    spacing: isFullMenu ? 1 : 0
+                    width: menuView.width
+                    height: menuView.fullMenuAvailable(name) ? 28 : 0
+                    visible: menuView.fullMenuAvailable(name)
 
                     ContentBackground {
                         anchors.fill: parent
                         visible: isCurrent
                     }
 
-                        width: menuView.width
-                        height: menuView.fullMenuAvailable(name) ? 28 : 0
-                        visible: menuView.fullMenuAvailable(name)
+                    Row {
+                        anchors { verticalCenter: parent.verticalCenter }
 
-                        Rectangle {
-                            anchors.fill: parent
-                            opacity: Styles.style.baseBackgroundOpacity
-                            color: Styles.style.applicationBackground
-                            visible: isCurrent
-                        }
+                        Item {
+                            height: 28
+                            width: 44
 
-                        Row {
-                            anchors { verticalCenter: parent.verticalCenter }
-
-                            Item {
-                                height: 28
-                                width: 44
-
-                                Image {
-                                    function getIconPath() {
-                                        if (!icon) {
-                                            return "";
-                                        }
-
-                                        if (isCurrent) {
-                                            return installPath + 'Assets/Images/Application/Widgets/TrayMenu/' + iconActive;
-                                        }
-
-                                        return installPath + 'Assets/Images/Application/Widgets/TrayMenu/' + icon;
+                            Image {
+                                function getIconPath() {
+                                    if (!icon) {
+                                        return "";
                                     }
 
-                                    anchors.centerIn: parent
-                                    source: getIconPath();
-                                    visible: !!icon
-                                }
-                            }
+                                    if (isCurrent) {
+                                        return installPath + 'Assets/Images/Application/Widgets/TrayMenu/' + iconActive;
+                                    }
 
-                            Text {
-                                anchors { verticalCenter: parent.verticalCenter }
-                                font { family: "Arial"; bold: true; pixelSize: 13 }
-                                color: Styles.style.menuText
-                                text: qsTr(label)
+                                    return installPath + 'Assets/Images/Application/Widgets/TrayMenu/' + icon;
+                                }
+
+                                anchors.centerIn: parent
+                                source: getIconPath();
+                                visible: !!icon
                             }
                         }
-                        MouseArea {
-                            id: mouseArea
 
                         Text {
                             anchors { verticalCenter: parent.verticalCenter }
@@ -308,6 +289,8 @@ WidgetModel {
                             window.hide();
                             root.menuClick(name);
                         }
+                    }
+                }
 
                 model: ListModel {
                     ListElement {
@@ -326,12 +309,18 @@ WidgetModel {
                         label: QT_TR_NOOP("MENU_ITEM_MONEY")
                     }
 
-                        ListElement {
-                            name: 'Quit'
-                            icon: 'quit.png'
-                            iconActive: 'quitActive.png'
-                            label: QT_TR_NOOP("MENU_ITEM_QUIT")
-                        }
+                    ListElement {
+                        name: 'Settings'
+                        icon: 'settings.png'
+                        iconActive: 'settingsActive.png'
+                        label: QT_TR_NOOP("MENU_ITEM_SETTINGS")
+                    }
+
+                    ListElement {
+                        name: 'Quit'
+                        icon: 'quit.png'
+                        iconActive: 'quitActive.png'
+                        label: QT_TR_NOOP("MENU_ITEM_QUIT")
                     }
                 }
             }

@@ -290,5 +290,6 @@ Item {
                 visible: !root.isStatusMessage
             }
         }
+
     }
 }

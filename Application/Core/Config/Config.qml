@@ -11,7 +11,7 @@ Item {
     QtObject {
         id: d
 
-        property variant configContent: ConfigReader.read(installPath + "/Config.yaml");
+        property variant configContent: ConfigReader.read(installPath + "Config.yaml");
 
         function value(name, defval) {
             var result;
@@ -37,7 +37,7 @@ Item {
     }
 
     function show() {
-        console.log('Content of the app config file:');
+        console.log('Content of the app config file:', installPath + "/Config.yaml");
         d.show(d.configContent, '');
     }
 

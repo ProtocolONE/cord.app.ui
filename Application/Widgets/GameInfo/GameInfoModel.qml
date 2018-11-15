@@ -23,51 +23,33 @@ WidgetModel {
             return;
         }
 
-        RestApi.Games.getGallery(gameId, function(response) {
-            if (!response || !response.hasOwnProperty('gallery')) {
+        RestApi.Games.getGallery(gameId, function(code, response) {
+            if (!RestApi.ErrorEx.isSuccess(code) || response.length === 0) {
                 return;
             }
 
-            var galleries = Object.keys(response.gallery).map(function(e) {
-                //INFO Due to php realization of serialization `getGallery` response could be object with one key if
-                //we have just one gallery. So make small trick to remove this issue.
-                return response.gallery[e];
-            });
+            GameInfoModel.allInfo[gameId] = Lodash._.chain(response)
+            .filter(function(e) {
+                return !!e.image || !!e.mp4;
+            })
+            .map(function(e) {
+                var type = 0;
+                if (!!e.mp4) {
+                    type = 1;
+                }
 
-            if (galleries.length > 1) {
-                galleries = galleries.filter(function(e) {
-                    return e.category.name == "Скриншоты";
-                });
-            }
+                return {
+                    "id": e.id,
+                    "type": type,
+                    "index": 0,
+                    "preview": e.preview || "",
+                    "source": type === 0 ? (e.image || "") : (e.mp4 || ""),
+                }
+            })
+            .sortBy('type')
+            .reverse()
+            .value();
 
-            if (galleries.length == 0) {
-                return;
-            }
-
-            GameInfoModel.allInfo[gameId] = Lodash._.chain(galleries[0].media)
-                .filter(function(e) {
-                    var type = e.type|0;
-                    return type === 0 || (type === 1 && !!e.rawSource);
-                })
-                .map(function(e) {
-                    var type = e.type|0;
-                    return {
-                        "id": e.id|0,
-                        "category": e.category|0,
-                        "type": type,
-                        "index": e.index|0,
-                        "preview": e.preview || "",
-                        "source": type === 0 ? (e.source || "") : (e.rawSource || ""),
-                    }
-                })
-                .sortBy('type')
-                .reverse()
-                .sortBy('index')
-                .value();
-
-            root.infoChanged();
-        }, function() {
-            console.log('RestApi.Games.getGallery() method failed.');
             root.infoChanged();
         });
     }

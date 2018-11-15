@@ -46,7 +46,6 @@ WidgetView {
             }
         }
 
-
         d.index = index;
         listView.forceLayout();
 
@@ -294,17 +293,6 @@ WidgetView {
                     }
 
                     onClicked: d.incrementIndex();
-                }
-
-                WidgetContainer {
-                    anchors {
-                        bottom: parent.bottom
-                    }
-
-                    width: parent.width
-                    height: 50
-
-                    widget: 'Facts'
                 }
             }
 

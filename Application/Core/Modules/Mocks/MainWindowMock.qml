@@ -52,14 +52,14 @@ Item {
     signal serviceStarted(string service);
     signal serviceFinished(string service, int serviceState);
     signal serviceInstalled(string serviceId);
-    signal wrongCredential(string userId);
 
-    signal secondServiceStarted(string service);
+    signal authorizationError(string accessToken);
+
     signal secondServiceFinished(string service, int serviceState);
 
     signal navigate(string page);
     signal selectService(string serviceId);
-    signal needPakkanenVerification();
+
     signal restartUIRequest();
     signal shutdownUIRequest();
     signal additionalResourcesReady();
@@ -147,4 +147,12 @@ Item {
     function getExpectedInstallPath(qwe) {
         return "D:\\Games\\BattleCarnival"
     }
+
+    function updateAuthCredential(accessTokenOld, acccessTokenExpiredTimeOld
+        , accessTokenNew, acccessTokenExpiredTimeNew) {
+        console.log('[MainWindow] updateAuthCredential'
+                    , accessTokenOld, acccessTokenExpiredTimeOld
+                    , accessTokenNew, acccessTokenExpiredTimeNew);
+    }
+
 }

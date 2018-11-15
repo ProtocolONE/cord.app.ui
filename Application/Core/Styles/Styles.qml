@@ -104,10 +104,6 @@ Item {
     property color primaryButtonText: "#FFFFFF"
     property color primaryBorder: "#FFDD82"
 
-    property color primaryButtonNormal: '#ff4f02'
-    property color primaryButtonHover: '#ff6102'
-    property color primaryButtonDisabled: '#888888'
-
     //Teach english ;) auxiliary = secondary ;)
     property color auxiliaryButtonNormal: "#1ABC9C"
     property color auxiliaryButtonHover: "#019074"
@@ -158,8 +154,8 @@ Item {
     property color premiumInfoText: "#FFDD82" //premium_info
 
     // Базовый фон самого рута приложения
-    property color applicationBackground: "#002336"
-    //property color applicationBackground: "#002336"
+    property color applicationBackground: "#002336" // bg
+    property color contentBackground: "#031d2b" // bg_blue​
     property color contentBackgroundDark: "#00111A" // bg_darkblue
     property color contentBackgroundLight: "#4ca8db" // bg_lightblue
 

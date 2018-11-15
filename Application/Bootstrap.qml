@@ -12,6 +12,9 @@ import Application.Core.Popup 1.0
 import Application.Core.MessageBox 1.0
 import Application.Core.Authorization 1.0
 import Application.Core.Config 1.0
+import Application.Core.ServerTime 1.0
+
+import Application.Models 1.0
 
 Item {
     id: root
@@ -27,15 +30,18 @@ Item {
             var mid = Marketing.mid();
             console.log('Authorization use mid `' + mid + '`');
             var authConfig = {
+                timeout: 15000,
                 mid: mid,
                 hwid: encodeURIComponent(result),
-                gnLoginUrl: Config.login(),
-                titleApiUrl: (new RestApi.Uri(Config.login())).host(),
-                apiUrl: Config.api()
+                authUrl: Config.value('auth\\url', 'http://127.0.0.1'),
+                authVersion: Config.value('auth\\version', 'v1'),
+                localWebSocketUrl: Config.value('auth\\localWebSocketUrl', 'ws://127.0.0.1'),
+                debug: Config.value('auth\\debug', 'false') === 'true'
             };
 
-            if (Config.debugApi()) {
-                authConfig.debug = true;
+
+            if (authConfig.debug) {
+                console.log('AuthConfig:' , JSON.stringify(authConfig, null, 2))
             }
 
             Authorization.setup(authConfig);
@@ -73,10 +79,6 @@ Item {
                 SignalBus.selectService(serviceId);
             });
 
-            mainWindowInstance.needPakkanenVerification.connect(function() {
-                SignalBus.needPakkanenVerification();
-            });
-
             mainWindowInstance.restartUIRequest.connect(root.restartRequest);
             mainWindowInstance.shutdownUIRequest.connect(function() {
                 var anyGameRunning = App.currentRunningMainService() ||
@@ -103,6 +105,10 @@ Item {
     }
 
     function initGoogleAnalytics() {
+        if (Config.value('googleAnalytic\\enabled', 'false') != "true") {
+            return;
+        }
+
         var cid = AppSettings.value('GoogleAnalytics', 'cid'),
             desktop = Desktop.screenWidth + 'x' + Desktop.screenHeight,
             viewport = Desktop.availableWidth + 'x' + Desktop.availableHeight,
@@ -118,14 +124,21 @@ Item {
         console.log('CID', cid);
         console.log('Desktop', desktop);
 
-        Ga.setTrackingId('UA-19398372-80');
+        var trackingId = Config.value('googleAnalytic\\trackingId', '');
+        if (!trackingId) {
+            console.warn("Google analytic tracing id not found. GA disabled.")
+            return;
+        }
+
+        Ga.setTrackingId(trackingId);
         Ga.setClientId(cid);
         Ga.setUserAgent('Mozilla/5.0 ' + GoogleAnalyticsHelper.systemVersion());
 
-        Ga.setApplicationName('ProtocolOne');
+        var appName = Config.value('applicationName', '') || 'ProtocolOne';
+        Ga.setApplicationName(appName);
         Ga.setApplicationVersion(version);
-        Ga.setApplicationId('publisher.ProtocolOne');
-        Ga.setApplicationInstallerId('publisher.ProtocolOne');
+        Ga.setApplicationId('publisher.' + appName);
+        Ga.setApplicationInstallerId('publisher.' + appName);
 
         Ga.setUserLanguage(GoogleAnalyticsHelper.systemLanguage());
         Ga.setScreenResolution(desktop);
@@ -162,6 +175,7 @@ Item {
     }
 
     function initRestApi() {
+        // Deprecated old API:
         var url = Config.api();
         if (!Config.overrideApi()) {
             url = AppSettings.value('qGNA/restApi', 'url', url);
@@ -182,35 +196,45 @@ Item {
                                        || code == RestApi.Error.UNKNOWN_ACCOUNT_STATUS) {
                                        console.log('RestApi generic error', code, message);
 
-                                       if (User.isAuthorized()) {
-                                           SignalBus.logoutRequest();
-                                       }
+//                                       if (User.isAuthorized()) {
+//                                           SignalBus.logoutRequest();
+//                                       }
                                    }
 
                                }
                            });
-    }
 
-    function resetCredential() {
-        CredentialStorage.reset();
-    }
+        // ProtocolOne Api:
+        if (Config.value('api\\debug', 'false') === 'true') {
+            RestApi.http.logRequest = true;
+        }
 
-    function setAuthInfo(userId, appKey, cookie) {
-        AppSettings.setValue("qml/auth/", "authDone", 1);
-        App.authSuccessSlot(userId, appKey, cookie);
-        User.setCredential(userId, appKey, cookie);
+        RestApi.Core.setupEx({
+            version: Config.value('api\\version', 'v1'),
+            url: Config.value('api\\url', 'http://local-auth.protocol.one:3000'),
+            jwtRefreshCallback: function() {
+                User.refreshTokens();
+            }
+        });
+
+        ServerTime.refreshServerTime();
     }
 
     function requestServices() {
         retryTimer.count += 1;
 
-        RestApi.Service.getUi(function(result) {
+        RestApi.App.getUi(function(code, result) {
+            if (!RestApi.ErrorEx.isSuccess(code)) {
+                retryTimer.start();
+                return;
+            }
+
             App.fillGamesModel(result);
+
+            App.setSingleGameMode(Games.count == 1)
+
             SignalBus.servicesLoaded();
             SignalBus.setGlobalState("Authorization");
-        }, function(result) {
-            console.log('get services error', result);
-            retryTimer.start();
         });
     }
 
@@ -290,10 +314,16 @@ Item {
         target: SignalBus
 
         ignoreUnknownSignals: true
+        // ### TODO по хорошему это не должно быть тут
+
+        onAuthTokenChanged: {
+            var jwt = User.getAccessToken();
+            RestApi.Core.setJwt(jwt.value, jwt.exp);
+        }
 
         onLogoutRequest: {
+            RestApi.Core.setJwt();
             App.logout();
-            root.resetCredential();
             App.resetGame();
             SignalBus.logoutDone();
         }
@@ -304,7 +334,7 @@ Item {
         }
 
         onAuthDone: {
-            root.setAuthInfo(userId, appKey, cookie);
+            ServerTime.refreshServerTime();
             SignalBus.setGlobalState('Application');
         }
 
@@ -354,7 +384,6 @@ Item {
             target: App.mainWindowInstance()
 
             onServiceFinished: updateService.recheckUpdateRequired();
-            onSecondServiceFinished: updateService.recheckUpdateRequired();
             onDownloaderStopped: updateService.recheckUpdateRequired();
             onDownloaderFailed: updateService.recheckUpdateRequired();
             onDownloaderFinished: updateService.recheckUpdateRequired();
@@ -364,11 +393,6 @@ Item {
     Connections {
         target: App.mainWindowInstance()
         onNavigate: SignalBus.navigate(page, '');
-        onWrongCredential: {
-            if (userId === User.userId()) {
-                SignalBus.logoutRequest()
-            }
-        }
     }
 
     FontLoader {

@@ -1,17 +1,20 @@
 pragma Singleton
 
-import QtQuick 1.1
+import QtQuick 2.4
 
 import ProtocolOne.Core 1.0
 import ProtocolOne.Controls 1.0
 
 import Application.Core 1.0
 import Application.Core.Config 1.0
+import Application.Core.Authorization 1.0
+import Application.Core.Settings 1.0
+import Application.Core.ServerTime 1.0
+
+import Tulip 1.0
 
 Item {
     id: root
-
-    signal subscriptionsChanged();
 
     property int premiumExpiredNotificationTimeout: 3600000
     property variant lastUpdated: 0
@@ -21,89 +24,80 @@ Item {
     signal subscriptionsChanged();
 
     function refreshUserInfo() {
-        RestApi.User.getProfile(d.userId, function(response) {
-            if (!response || !response.userInfo || response.userInfo.length < 1) {
-                return;
-            }
+//        RestApi.User.getProfile(d.userId, function(response) {
+//            if (!response || !response.userInfo || response.userInfo.length < 1) {
+//                return;
+//            }
+//            setUserInfo(response.userInfo[0].shortInfo);
+//            //setUserSubscriptions(response.userInfo[0].subscriptions);
+//            d.level = response.userInfo[0].experience.level;
+//            root.lastUpdated = Date.now();
+//        }, function() {});
 
-            var info = response.userInfo[0].shortInfo;
-            setUserInfo(info);
-            setUserSubscriptions(response.userInfo[0].subscriptions);
-            root.level = response.userInfo[0].experience.level;
-
-            //mainAuthModule.updateGuestStatus(info.guest || "0");
-        }, function() {});
-
-        refreshPremium();
-        premiumDurationTimer.start();
-        refreshBalance();
-        balanceTimer.start();
+        //refreshPremium();
+        //premiumDurationTimer.start();
+        //refreshBalance();
+        //balanceTimer.start();
     }
 
-    function setUserSubscriptions(data) {
-        var wasUpdated = false;
-        data.filter(function(e) {
-            var service = App.serviceItemByServiceId(e.serviceId)
-            return e.dueDate !== null || (service && service.isStandalone);
-        }).map(function(e) {
-                    // HACK
-//                    if (e.serviceId == "30000000000") {
-//                        e.dueDate = Moment.moment().add(7, 'days');
-//                    }
+//    function setUserSubscriptions(data) {
+//        var wasUpdated = false;
+//        data.filter(function(e) {
+//            var service = App.serviceItemByServiceId(e.serviceId)
+//            return e.dueDate !== null || (service && service.isStandalone);
+//        }).map(function(e) {
+//            if (serviceSubscriptions.contains(e.serviceId)) {
+//                if (e.dueDate != serviceSubscriptions.getPropertyById(e.serviceId, "dueDate")) {
+//                    serviceSubscriptions.setPropertyById(e.serviceId, "dueDate", e.dueDate);
+//                    wasUpdated = true;
+//                }
+//            } else {
+//                serviceSubscriptions.append({
+//                    serviceId: e.serviceId,
+//                    gameId: e.gameId,
+//                    createDate: e.createDate,
+//                    dueDate: e.dueDate
+//                });
+//                wasUpdated = true;
+//            }
+//        });
 
+//        if (wasUpdated) {
+//            root.subscriptionsChanged();
+//        }
+//    }
 
-            if (serviceSubscriptions.contains(e.serviceId)) {
-                if (e.dueDate != serviceSubscriptions.getPropertyById(e.serviceId, "dueDate")) {
-                    serviceSubscriptions.setPropertyById(e.serviceId, "dueDate", e.dueDate);
-                    wasUpdated = true;
-                }
-            } else {
-                serviceSubscriptions.append({
-                    serviceId: e.serviceId,
-                    gameId: e.gameId,
-                    createDate: e.createDate,
-                    dueDate: e.dueDate
-                });
-                wasUpdated = true;
-            }
-        });
+//    function refreshPremium() {
+//        premiumDurationTimer.stop();
+//        RestApi.Premium.getStatus(function(response) {
+//            response = response || {};
 
-        if (wasUpdated) {
-            root.subscriptionsChanged();
-        }
-    }
+//            var duration = response.duration;
+//            if (typeof duration === "undefined" || typeof duration === "boolean" ||duration === null) {
+//                duration = 0;
+//            } else {
+//                duration = +duration;
+//            }
 
-    function refreshPremium() {
-        premiumDurationTimer.stop();
-        RestApi.Premium.getStatus(function(response) {
-            response = response || {};
+//            if (duration > 3001 * 24*60*60) {
+//                duration = 3001 * 24*60*60
+//            }
 
-            var duration = response.duration;
-            if (typeof duration === "undefined" || typeof duration === "boolean" ||duration === null) {
-                duration = 0;
-            } else {
-                duration = +duration;
-            }
+//            if (duration > 0) {
+//                d.isPremium = true;
+//                d.premiumDuration = duration;
+//                premiumExpiredTimer.stop();
+//                premiumDurationTimer.start();
+//            } else {
+//                d.isPremium = false;
+//                d.premiumDuration = 0;
+//            }
 
-            if (duration > 3001 * 24*60*60) {
-                duration = 3001 * 24*60*60
-            }
-
-            if (duration > 0) {
-                d.isPremium = true;
-                d.premiumDuration = duration;
-                premiumExpiredTimer.stop();
-                premiumDurationTimer.start();
-            } else {
-                d.isPremium = false;
-                d.premiumDuration = 0;
-            }
-
-        }, function(error) {
-            d.isPremium = false;
-            d.premiumDuration = 0;
-        })
-    }
+//        }, function(error) {
+//            d.isPremium = false;
+//            d.premiumDuration = 0;
+//        })
+//    }
 
     function refreshBalance() {
         RestApi.User.getBalance(function(response) {
@@ -129,27 +123,114 @@ Item {
     }
 
     function reset() {
-        root.userId = "";
-        root.appKey = "";
-        root.cookie = "";
-        root.isPremium = false;
-        root.premiumDuration = 0;
-        root.balance = 0;
-        root.nickname = "";
-        root.nametech = "";
-        root.level = "";
-        root.avatarLarge = "";
-        root.avatarMedium = "";
-        root.avatarSmall = "";
+        d.refreshToken = '';
+        d.acccessToken = '';
+        d.refreshTokenExpiredTime = '';
+        d.acccessTokenExpiredTime = '';
+        d.rememberToken = false;
+
+        d.userId = "";
+
+        d.appKey = "";
+        d.cookie = "";
+        d.isPremium = false;
+        d.premiumDuration = 0;
+        d.balance = 0;
+        d.nickname = "";
+        d.nametech = "";
+        d.level = "";
+        d.avatarLarge = "";
+        d.avatarMedium = "";
+        d.avatarSmall = "";
         serviceSubscriptions.clear();
     }
 
+    function setTokenRemember(value) {
+        d.rememberToken = value;
+    }
+
+    function setTokens(refreshToken, refreshTokenExpireTime,
+                       accessToken, accessTokenExpireTime)
+    {
+        var oldJwt = {
+            value: d.accessToken,
+            exp: d.acccessTokenExpiredTime
+        }
+
+        d.refreshToken = refreshToken || '';
+        d.refreshTokenExpiredTime = refreshTokenExpireTime || '';
+        d.acccessToken = accessToken || '';
+        d.acccessTokenExpiredTime = accessTokenExpireTime || '';
+
+        var jwt = Authorization.decodeJwt(accessToken) || {};
+        if (jwt.hasOwnProperty('payload') && jwt.payload.hasOwnProperty('id'))
+            d.userId = jwt.payload.id;
+
+
+        console.log('UserId: ', d.userId);
+        if (d.rememberToken && !!d.refreshToken) {
+            root.saveCreadential();
+        }
+
+        App.updateAuthCredential(
+            oldJwt.value,
+            oldJwt.exp,
+            d.acccessToken,
+            d.acccessTokenExpiredTime);
+
+        SignalBus.authTokenChanged();
+    }
+
+    function refreshTokens() {
+        Authorization.refreshToken(d.refreshToken, function(code, response) {
+            if (code != Authorization.Result.Success) {
+                root.reset();
+                SignalBus.logoutRequest();
+                return;
+            }
+
+            root.setTokens(response.refreshToken.value,
+                           ServerTime.correctTime(response.refreshToken.exp),
+                           response.accessToken.value,
+                           ServerTime.correctTime(response.accessToken.exp));
+        })
+    }
+
+    function getAccessToken() {
+        return {
+            value: d.acccessToken,
+            exp: d.acccessTokenExpiredTime
+        };
+    }
+
+    function isAccessTokenValid() {
+        return !!d.acccessToken &&
+                (Moment.moment(d.acccessTokenExpiredTime, 'X') > Moment.moment())
+    }
+
+    function saveCreadential() {
+        AppSettings.setValue("qml/auth/", "refreshToken", d.refreshToken);
+        AppSettings.setValue("qml/auth/", "refreshTokenExpiredTime", d.refreshTokenExpiredTime);
+    }
+
+    function loadCredential() {
+        return {
+            refreshToken: AppSettings.value("qml/auth/", "refreshToken", ""),
+            refreshTokenExpiredTime: AppSettings.value("qml/auth/", "refreshTokenExpiredTime", "")
+        }
+    }
+
+    function setCredential(userId, appKey, cookie) {
+        d.userId = userId;
+        d.appKey = appKey;
+        d.cookie = cookie;
+    }
 
     function userId() {
         return d.userId;
     }
 
-    function appKey() {
+     function appKey() {
         return d.appKey;
     }
 
@@ -158,7 +239,7 @@ Item {
     }
 
     function isAuthorized() {
-        return !!userId() && !!appKey() && !!cookie();
+        return !!d.acccessToken;
     }
 
     function isPremium() {
@@ -213,46 +294,6 @@ Item {
         return d.isPromoActionActive;
     }
 
-    // INFO Этот метод лучше не использовать.
-    // По возможности надо использоваьт метод App.openExternalUrlWithAuth.
-    // В том методе не используется кука, что безопаснее.
-    function getUrlWithCookieAuth(url) {
-        return  d.cookie
-                ? Config.login("/?auth=") + d.cookie + '&rp=' + encodeURIComponent(url)
-                : url;
-    }
-
-    function setSecondCredential(userId, appKey, cookie) {
-        d.secondUserId = userId;
-        d.secondAppKey = appKey;
-        d.secondCookie = cookie;
-    }
-
-    function resetSecond() {
-        setSecondCredential('', '', '');
-        d.secondNickname = "";
-    }
-
-    function secondUserId() {
-        return d.secondUserId;
-    }
-
-    function secondAppKey() {
-        return d.secondAppKey;
-    }
-
-    function secondCookie() {
-        return d.secondCookie;
-    }
-
-    function getSecondNickname() {
-        return d.secondNickname;
-    }
-
-    function isSecondAuthorized() {
-        return !!secondUserId() && !!secondAppKey() && !!secondCookie();
-    }
-
     function isNicknameValid() {
         return getNickname().indexOf('@') == -1;
     }
@@ -298,6 +339,15 @@ Item {
     QtObject {
         id: d
 
+        property string refreshToken
+        property string refreshTokenExpiredTime
+        property string acccessToken
+        property string acccessTokenExpiredTime
+
+        property bool rememberToken: false
+
+
+        // UNDONE remove this
         property string userId
         property string appKey
         property string cookie
@@ -315,11 +365,6 @@ Item {
         property string avatarMedium
         property string avatarSmall
 
-        property string secondNickname
-        property string secondUserId
-        property string secondAppKey
-        property string secondCookie
-
         property bool isPromoActionActive: false
 
         property bool anotherComputer: false
@@ -329,6 +374,53 @@ Item {
         id: serviceSubscriptions
 
         idProperty: "serviceId"
+    }
+
+    Connections {
+        target: App.mainWindowInstance()
+        onNavigate: SignalBus.navigate(page, '');
+
+
+        onAuthorizationError: {
+            var errorJwt = Authorization.decodeJwt(accessToken);
+            if (!errorJwt
+                || !errorJwt.hasOwnProperty('payload')
+                || !errorJwt.payload.hasOwnProperty('id')) {
+                return;
+            }
+
+            if (d.userId != errorJwt.payload.id) {
+                // INFO unknown credential
+                return;
+            }
+
+            var oldJwt = {
+                value: accessToken,
+                exp: acccessTokenExpiredTime
+            }
+
+            if (root.isAccessTokenValid()) {
+                App.updateAuthCredential(
+                    oldJwt.value,
+                    oldJwt.exp,
+                    d.acccessToken,
+                    d.acccessTokenExpiredTime);
+                return;
+            }
+
+            var refreshCb = function() {
+                App.updateAuthCredential(
+                    oldJwt.value,
+                    oldJwt.exp,
+                    d.acccessToken,
+                    d.acccessTokenExpiredTime);
+
+                SignalBus.disconnect.connect(refreshCb);
+            }
+
+            SignalBus.authTokenChanged.connect(refreshCb);
+            root.refreshTokens();
+        }
     }
 
     Connections {
@@ -343,84 +435,66 @@ Item {
 
         onLogoutRequest: {
             root.reset();
+            root.saveCreadential();
         }
 
-        onProfileUpdated: refreshUserInfo();
+        //onProfileUpdated: refreshUserInfo();
 
         onAnotherComputerChanged: {
             d.anotherComputer = value;
         }
 
-        onAuthDone: {
-            d.userId = userId;
-            d.appKey = appKey;
-            d.cookie = cookie;
-
-            refreshUserInfo();
-       }
-
-       onSecondAuthDone: {
-           d.secondUserId = userId;
-           d.secondAppKey = appKey;
-           d.secondCookie = cookie;
-
-           RestApi.User.getProfile(d.secondUserId, function(response) {
-               if (!response || !response.userInfo || response.userInfo.length < 1) {
-                   return;
-               }
-
-               var info = response.userInfo[0].shortInfo;
-               d.secondNickname = info.nickname;
-           }, function() {});
-       }
-    }
-
-    Timer {
-        id: premiumDurationTimer
-
-        interval: 60000
-
-        triggeredOnStart: false
-        repeat: true
-        onTriggered: {
-            var duration = d.premiumDuration - 60;
-            if (duration <= 0) {
-                if(d.premiumDuration > 0) {
-                    premiumExpiredTimer.start();
-                }
-                d.premiumDuration = 0;
-                d.isPremium = false;
-                root.refreshPremium();
-            } else {
-                d.premiumDuration = duration;
-            }
+        onAuthTokenExpired: {
+            root.refreshTokens();
         }
     }
 
-    Timer {
-        id: premiumExpiredTimer
+//    Timer {
+//        id: premiumDurationTimer
 
-        interval: premiumExpiredNotificationTimeout
-        onTriggered: SignalBus.premiumExpired();
-    }
+//        interval: 60000
 
-    Timer {
-        id: balanceTimer
+//        triggeredOnStart: false
+//        repeat: true
+//        onTriggered: {
+//            var duration = d.premiumDuration - 60;
+//            if (duration <= 0) {
+//                if(d.premiumDuration > 0) {
+//                    premiumExpiredTimer.start();
+//                }
+//                d.premiumDuration = 0;
+//                d.isPremium = false;
+//                root.refreshPremium();
+//            } else {
+//                d.premiumDuration = duration;
+//            }
+//        }
+//    }
 
-        property int tickCount: 0
+//    Timer {
+//        id: premiumExpiredTimer
 
-        interval: 60000
-        triggeredOnStart: true
-        repeat: true
+//        interval: premiumExpiredNotificationTimeout
+//        onTriggered: SignalBus.premiumExpired();
+//    }
 
-        onTriggered: {
-            var localTick = balanceTimer.tickCount + 1;
-            if ((App.isWindowVisible() && localTick >= 2) || localTick >= 5) {
-                balanceTimer.tickCount = 0;
-                refreshBalance();
-            } else {
-                balanceTimer.tickCount++;
-            }
-        }
-    }
+//    Timer {
+//        id: balanceTimer
+
+//        property int tickCount: 0
+
+//        interval: 60000
+//        triggeredOnStart: true
+//        repeat: true
+
+//        onTriggered: {
+//            var localTick = balanceTimer.tickCount + 1;
+//            if ((App.isWindowVisible() && localTick >= 2) || localTick >= 5) {
+//                balanceTimer.tickCount = 0;
+//                refreshBalance();
+//            } else {
+//                balanceTimer.tickCount++;
+//            }
+//        }
+//    }
 }

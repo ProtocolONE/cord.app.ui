@@ -169,6 +169,10 @@ function getProtocolOneUser() {
     return _modelInstance.protocolOneUser;
 }
 
+function getCurrentTime() {
+    return _modelInstance.currentTime;
+}
+
 function openDialog(user) {
     _modelInstance.openDialog(user);
 }

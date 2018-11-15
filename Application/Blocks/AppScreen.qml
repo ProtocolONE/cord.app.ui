@@ -8,8 +8,8 @@ Item {
         anchors.fill: parent
     }
 
-    ChatLayer {
-        anchors.fill: parent
-    }
+//    ChatLayer {
+//        anchors.fill: parent
+//    }
 
 }

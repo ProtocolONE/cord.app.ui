@@ -510,11 +510,35 @@ Error.PAKKANEN_VK_LINK = 602;
 Error.PAKKANEN_PHONE_VERIFICATION = 603;
 Error.PAKKANEN_VK_LINK_AND_PHONE_VERIFICATION = 604;
 
+
+var ErrorEx = function() { // jshint ignore:line
+};
+
+ErrorEx.Success = 0;
+ErrorEx.UNKNOWN = 1;
+ErrorEx.Unauthorized = 2;
+
+ErrorEx.isSuccess = function(code) { return code == ErrorEx.Success; }
+
+
+
 var http = function() {
 };
 
 // INFO debug output
 http.logRequest = false;
+
+function setHeaders(xhr, options) {
+    if (!options.hasOwnProperty('headers')) {
+        return;
+    }
+
+    for (var hkey in options.headers) {
+        if (options.headers.hasOwnProperty(hkey)) {
+            xhr.setRequestHeader(hkey, options.headers[hkey]);
+        }
+    }
+}
 
 http.request = function(options, callback) {
     var xhr = new XMLHttpRequest(),
@@ -525,7 +549,7 @@ http.request = function(options, callback) {
     if (options instanceof Uri) {
         uri = options;
     } else if (typeof options === 'string') {
-        uri =  new Uri(options);
+        uri = new Uri(options);
     } else if (options.hasOwnProperty('uri') && options.uri instanceof Uri) {
         uri = options.uri;
         if (options.hasOwnProperty('userAgent')) {
@@ -536,7 +560,7 @@ http.request = function(options, callback) {
         throw new Exception('Wrong options');
     }
 
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState !== 4) { // full body received
             return;
         }
@@ -544,12 +568,22 @@ http.request = function(options, callback) {
         if (http.logRequest) {
             // INFO debug output
             var tmp = '[RestApi] Request: ' + uri.toString();
+            if (options.hasOwnProperty('post')) {
+                tmp += '\n[RestApi] Post:' + options.post;
+            }
+
+            if (options.hasOwnProperty('headers')) {
+                tmp += '\n[RestApi] Request headers:' + JSON.stringify(options.headers, null, 2);
+            }
+
+            tmp += '\n[RestApi] Status: ' + xhr.status;
             try {
                 var debugResponseObject = JSON.parse(xhr.responseText);
                 tmp += '\n[RestApi] Response: \n' + JSON.stringify(debugResponseObject, null, 2);
-            } catch(e) {
+            } catch (e) {
                 tmp += '\n[RestApi] Response: \n' + xhr.responseText;
             }
+
             console.log(tmp);
         }
 
@@ -561,29 +595,53 @@ http.request = function(options, callback) {
 
         if (userAgent) {
             xhr.setRequestHeader('QtBug', 'QTBUG-20473\r\nUser-Agent: ' + userAgent);
+
         }
+        setHeaders(xhr, options);
 
         xhr.send(null);
     } else {
-        xhr.open('POST', uri.protocol() + '://' + uri.host()  + uri.path());
+        xhr.open('POST', uri.toString());
 
         if (userAgent) {
             xhr.setRequestHeader('QtBug', 'QTBUG-20473\r\nUser-Agent: ' + userAgent);
         }
 
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send(uri.query().toString().substring(1)); //jsuri return query with '?' always
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        setHeaders(xhr, options);
+
+        if (options.hasOwnProperty('post')) {
+            xhr.send(options.post);
+        } else {
+            xhr.send(uri.query().toString().substring(1)); //jsuri return query with '?' always
+        }
     }
 };
 
 
 var Core = function(options) {
+    var baseUrl;
+
     this._lang = (options && options.lang) ? options.lang : 'ru';
     this._auth = (options && options.auth) ? options.auth : false;
     this._url =  (options && options.url) ? options.url : "https://gnapi.com:8443/restapi";
     this._genericErrorCallback = undefined;
     this._cacheLookupCallback = undefined;
     this._cacheSaveCallback = undefined;
+
+    this._jwt = undefined;
+    this._jwtExpiredTime = undefined;
+    this._jwtRefreshCallback = function() { this.setJwt(); };
+    this._version = (options && options.version) ? options.version : "v1";
+
+    baseUrl = (options && options.url) ? options.url : "http://api.protocol.local:8080";
+    if (baseUrl[baseUrl.length - 1] == '/')
+        baseUrl = baseUrl.slice(0, baseUrl.length - 1);
+
+    this._urlEx = baseUrl + '/api/' + this._version + '/';
+
+    this._refreshCallbackQueue = [];
+    this._refreshInProgress = false;
 
     this.__defineSetter__('lang', function(value) {
         this._lang = value;
@@ -608,9 +666,23 @@ var Core = function(options) {
     this.__defineSetter__('cacheSaveCallback', function(value) {
         this._cacheSaveCallback = value;
     });
+
+    this.setupEx(options);
 };
 
 Core.instance = undefined;
+Core.setupEx = function(options){
+    if (Core.instance === undefined) {
+        Core.instance = new Core();
+    }
+
+    Core.instance.setupEx(options)
+};
+
+Core.setJwt = function(jwt, jwtExpiredTime) {
+    Core.instance.setJwt(jwt, jwtExpiredTime);
+}
+
 Core.setup = function(options){
     if (Core.instance === undefined) {
         Core.instance = new Core();
@@ -660,6 +732,12 @@ Core.execute = function(method, params, auth, successCallback, errorCallback) {
     Core.instance.execute(method, params, successCallback, errorCallback);
 };
 
+Core.executeEx = function(apiMethod, httpMethod, params, auth, errorCodeMap, callback) {
+    Core.setupEx();
+
+    Core.instance.executeEx(apiMethod, httpMethod, params, auth, errorCodeMap, callback);
+};
+
 Core._userId = '';
 Core.setUserId = function(value) {
     Core._userId = value;
@@ -671,7 +749,7 @@ Core.setAppKey = function(value) {
 
 Core.prototype = {
     //Replaced during CI build
-    version: "1.0.192",
+    version: "1.0.0",
 
     prepareRequestArgs: function(params) {
         var stringParams = '',
@@ -727,12 +805,17 @@ Core.prototype = {
 
         if (this._cacheLookupCallback) {
             if (this._cacheLookupCallback(internalParams, successCallback)) {
+                if (http.logRequest) {
+                    var tmp = '[RestApi] Request hit cache: ' + this._url + stringParams;
+                    console.log(tmp);
+                }
                 return;
             }
         }
 
         cacheSaveCallback = this._cacheSaveCallback;
         http.request(internalParams, function(response) {
+
             if (response.status !== 200) {
                 if (typeof errorCallback === 'function') {
                     errorCallback(response.status);
@@ -775,267 +858,197 @@ Core.prototype = {
 
             successCallback(responseObject.response);
         });
+    },
+
+    executeEx: function(apiMethod, httpMethod, params, auth, errorCodeMap, callback) {
+        var stringParams = ''
+            , internalParams
+            , responseObject
+            , errorCode
+            , self = this;
+
+        if (httpMethod == 'get') {
+            stringParams = '?' + this.prepareRequestArgs(params);
+        }
+
+        internalParams = {
+            method: httpMethod,
+            uri: new Uri(this._urlEx + apiMethod + stringParams)
+        };
+
+        if (httpMethod == 'post') {
+            internalParams.post = JSON.stringify(params);
+        }
+
+        var continueCb = function() {
+            if (!self.isAuthorized()) {
+                // UNDONE Call genericErrorCallback
+                callback(ErrorEx.Unauthorized);
+                return;
+            }
+
+            self.setAuthHeader(internalParams);
+            http.request(internalParams, finishCb);
+        };
+
+        var finishCb = function(response) {
+            if (response.status == 401) {// HTTP/1.1 401 Unauthorized
+                // UNDONE Call genericErrorCallback
+                callback(ErrorEx.Unauthorized);
+                return;
+            }
+
+            if (response.status != 200) {
+                errorCode = ErrorEx.UNKNOWN;
+                if (errorCodeMap.hasOwnProperty(response.status)) {
+                    errorCode = errorCodeMap[response.status];
+                }
+
+                callback(errorCode);
+                return;
+            }
+
+            responseObject = response.body;
+            try {
+                responseObject = JSON.parse(response.body);
+            } catch (e) {
+            }
+
+            callback(ErrorEx.Success, responseObject);
+        };
+
+        var canRetryFinishCb = function(response) {
+            if (response.status == 401) {// HTTP/1.1 401 Unauthorized
+                self.refreshAuth(continueCb);
+                return;
+            }
+
+            finishCb(response);
+        };
+
+        if (!auth) {
+            http.request(internalParams, finishCb);
+            return;
+        }
+
+        if (!this.isAuthorized()) {
+            this.refreshAuth(continueCb);
+            return;
+        }
+
+        this.setAuthHeader(internalParams);
+        http.request(internalParams, canRetryFinishCb);
+    },
+
+    refreshAuth: function(cb) {
+        this._refreshCallbackQueue.push(cb);
+
+        if (this._refreshInProgress) {
+            return;
+        }
+
+        this._refreshInProgress = true;
+        this._jwtRefreshCallback();
+    },
+    isAuthorized: function() {
+        return !!this._jwt && (+(Date.now()/1000) < this._jwtExpiredTime);
+    },
+    setAuthHeader: function(options) {
+        if (!options.hasOwnProperty('headers')) {
+            options.headers = {};
+        }
+
+        options.headers["Authorization"] = 'Bearer ' + this._jwt;
+    },
+    setJwt: function(jwt, jwtExpiredTime) {
+        var c;
+
+        this._jwt = jwt
+        this._jwtExpiredTime = jwtExpiredTime;
+
+        this._refreshInProgress = false;
+
+        while(this._refreshCallbackQueue.length > 0) {
+            c = this._refreshCallbackQueue.pop();
+            c();
+        }
+    },
+    setupEx: function(options){
+        if (options === undefined) {
+            return;
+        }
+
+        if (options.version) {
+            this._version = options.version;
+        }
+
+        if (options.url && options.url.length > 0) {
+            var baseUrl = options.url;
+            if (baseUrl[baseUrl.length - 1] == '/')
+                baseUrl = baseUrl.slice(0, baseUrl.length - 1);
+
+            this._urlEx = baseUrl + '/api/' + this._version + '/';
+        }
+
+        if (options.jwtRefreshCallback) {
+            this._jwtRefreshCallback = options.jwtRefreshCallback;
+        }
     }
+
 };
 
-var Auth = function() {
+var App = function() {
 };
 
-Auth.getRedirectToken = function(successCallback, failedCallback) {
-    Core.execute('auth.getRedirectToken', {}, true, successCallback, failedCallback);
+App.getUi = function(callback) {
+    Core.executeEx('app/ui/', 'get', {}, false, {}, callback);
 };
 
-Auth.getCentrifugoToken = function(timestamp, successCallback, failedCallback) {
-    Core.execute('auth.getCentrifugoToken', {timestamp:timestamp}, true, successCallback, failedCallback);
+App.getGrid = function(callback) {
+    Core.executeEx('app/grid/', 'get', {}, true, {}, callback);
 };
 
-var Billing = function() {
-};
-
-Billing.purchaseItem = function(game, item, itemCount, successCallback, failedCallback) {
-	Core.execute('Billing.purchaseItem', {
-		version: 2,
-		gameId: game, 
-		itemId: item, 
-		count: itemCount
-	}, true, successCallback, failedCallback);
-};
-
-Billing.isInGameRefillAvailable = function(successCallback, failedCallback) {
-    Core.execute('billing.isInGameRefillAvailable', {
-        version: 1
-    }, true, successCallback, failedCallback);
-};
 
 var Games = function() {
 };
 
-Games.getAnnouncement = function(successCallback, failedCallback) {
-    Core.execute('games.getAnnouncement', { version: 2 }, true, successCallback, failedCallback);
+Games.getMaintenance = function(callback) {
+    Core.executeEx('games/maintenance/', 'get', {}, false, {}, callback);
 };
 
-// Метод используется для особой внутренней утилиты. В продакшене не использовать.
-Games.getAnnouncementWithUnpublished = function(successCallback, failedCallback) {
-    Core.execute('games.getAnnouncement', { version: 2, isPublished: 0, rnd: Math.random() }, false, successCallback, failedCallback);
+Games.getNews = function(callback) {
+    Core.executeEx('games/news/', 'get', {}, false, {}, callback);
 };
 
-//Метод сложно протестировать на бою, т.к. расписание и вообще его наличие постоянно меняется
-Games.getMaintenance = function(successCallback, failedCallback) {
-    Core.execute('games.getMaintenance', {}, false, successCallback, failedCallback);
+Games.getGallery = function(gameId, callback) {
+    Core.executeEx('games/gallery/', 'get', {gameId:gameId}, false, {}, callback);
 };
 
-Games.getFacts = function(successCallback, failedCallback) {
-    Core.execute('games.getFacts', {version: 2}, false, successCallback, failedCallback);
+Games.getBanners = function(gameId, callback) {
+    Core.executeEx('games/banners/', 'get', {gameId:gameId}, false, {}, callback);
 };
 
-Games.getAdvertising = function(game, successCallback, failedCallback) {
-    Core.execute('games.getAdvertising', {
-		gameId: game,
-		version: 2
-	},
-	false, successCallback, failedCallback);
+Games.getAnnouncement = function(callback) {
+    Core.executeEx('games/announcement/', 'get', {}, false, {}, callback);
 };
 
-Games.getGallery = function(game, successCallback, failedCallback) {
-    Core.execute('games.getGallery', {
-            gameId: game,
-            version: 1
-        },
-        false, successCallback, failedCallback);
-};
-
-Games.getThemes = function(successCallback, failedCallback) {
-    Core.execute('games.getThemes', {}, false, successCallback, failedCallback);
-};
-
-var Marketing = function() {
-};
-
-// Пока не работает на лайве
-Marketing.getMidDetails = function(mid, successCallback, failedCallback) {
-    Core.execute('marketing.getMidDetails',
-        { mid: mid,
-          secret: 'd11f0c0ec44f08449ded2e49f47ff09298ced944' },
-        false,
-        successCallback,
-        failedCallback);
-};
 
 var Misc = function() {
 };
 
-Misc.getTime = function(successCallback, failedCallback) {
-    Core.execute('misc.getTime', {}, false, successCallback, failedCallback);
+Misc.getTime = function(callback) {
+    Core.executeEx('misc/time/', 'get', {}, false, {}, callback);
+};
+
+Misc.getIp = function(callback) {
+    Core.executeEx('misc/ip/', 'get', {}, false, {}, callback);
 };
 
 
-var Premium = function() {
+var Theme = function() {
 };
 
-Premium.getStatus = function(successCallback, failedCallback) {
-    Core.execute('premium.getStatus', {version: 1}, true, successCallback, failedCallback);
+Theme.getList = function(callback) {
+    Core.executeEx('theme/list/', 'get', {}, false, {}, callback);
 };
 
-var Service = function() {
-};
-
-Service.getServices = function(sessionId, successCallback, failedCallback) {
-    Core.execute('service.getServices', { sessionId : sessionId }, true, successCallback, failedCallback);
-};
-
-Service.getUi = function(successCallback, failedCallback) {
-    Core.execute('service.getUi', {}, false, successCallback, failedCallback);
-};
-
-Service.getGrid = function(successCallback, failedCallback) {
-    Core.execute('service.getGrid', {}, true, successCallback, failedCallback);
-};
-
-Service.getGridById = function(id, successCallback, failedCallback) {
-    Core.execute('service.getGrid', {id : id}, true, successCallback, failedCallback);
-};
-
-Service.getItems = function(serviceId, type, successCallback, failedCallback) {
-    Core.execute('service.getItems', { serviceId: serviceId, type: type }, true, successCallback, failedCallback);
-};
-
-Service.getPromoKeysSettings = function(serviceId, successCallback, failedCallback) {
-    Core.execute('service.getPromoKeysSettings', { serviceId: serviceId }, false, successCallback, failedCallback);
-};
-
-
-var Social = function() {
-};
-
-Social.sendInvite = function(friendId, successCallback, failedCallback) {
-    Core.execute('social.sendInvite', {friendId : friendId}, true, successCallback, failedCallback);
-};
-
-Social.removeFriend = function(friendId, successCallback, failedCallback) {
-     Core.execute('social.removeFriend', {friendId : friendId}, true, successCallback, failedCallback);
-};
-
-Social.getInvitesList = function(offset, count, successCallback, failedCallback) {
-    Core.execute('social.getInvitesList', {offset : offset, count : count}, true, successCallback, failedCallback);
-};
-
-Social.agreeInvite = function(friendId, successCallback, failedCallback) {
-    Core.execute('social.agreeInvite', {friendId : friendId}, true, successCallback, failedCallback);
-};
-
-Social.discardInvite = function(friendId, successCallback, failedCallback) {
-    Core.execute('social.discardInvite', {friendId : friendId}, true, successCallback, failedCallback);
-};
-
-var User = function() {
-};
-
-User.getMainInfo = function(successCallback, failedCallback) {
-    Core.execute('user.getMainInfo', {}, true, successCallback, failedCallback);
-};
-
-User.getSpeedyInfo = function(successCallback, failedCallback) {
-    Core.execute('user.getSpeedyInfo', {}, true, successCallback, failedCallback);
-};
-
-User.getProfile = function(profiles, successCallback, failedCallback) {
-    Core.execute('user.getProfile', {profileId: profiles, shortInfo: 1, achievements: 1, subscriptions: 1}, true, successCallback, failedCallback);
-};
-
-User.getPlayedInfo = function(profiles, successCallback, failedCallback) {
-    Core.execute('user.getProfile', {profileId: profiles, playedGames: 1}, true, successCallback, failedCallback);
-};
-
-//Следующий метод не должен тестироваться по понятным причинам
-User.sendMobileActivationCode = function(phone, successCallback, failedCallback) {
-    Core.execute('user.sendMobileActivationCode', {phone: phone, version: 2}, true, successCallback, failedCallback);
-};
-
-//Следующий метод не должен тестироваться по понятным причинам
-User.validateMobileActivationCode = function(code, successCallback, failedCallback) {
-    Core.execute('user.validateMobileActivationCode', {code: code, version: 2}, true, successCallback, failedCallback);
-};
-
-User.getBalance = function(successCallback, failedCallback) {
-    Core.execute('user.getSpeedyInfo', {}, true, successCallback, failedCallback);
-};
-
-User.validateNickname = function(nickname, successCallback, failedCallback) {
-    Core.execute('user.validateMainInfo', { nickname : nickname }, true, successCallback, failedCallback);
-};
-
-User.validateTechNickname = function(techname, successCallback, failedCallback) {
-    Core.execute('user.validateMainInfo', { techname : techname }, true, successCallback, failedCallback);
-};
-
-// тестирование этого метода требует регистрацию новых пользователей - что не хочется
-User.saveNickname = function(nickname, successCallback, failedCallback) {
-    Core.execute('user.saveMainInfo', { nickname : nickname }, true, successCallback, failedCallback);
-};
-
-// тестирование этого метода требует регистрацию новых пользователей - что не хочется
-User.saveTechNickname = function(techname, successCallback, failedCallback) {
-    Core.execute('user.saveMainInfo', { techname : techname }, true, successCallback, failedCallback);
-};
-
-// тестирование этого метода требует получение актуальных промо ключей - что не хочется
-User.activatePromoKey = function(promoKey, successCallback, failedCallback) {
-    Core.execute('user.activatePromoKey', { key : promoKey }, true, successCallback, failedCallback);
-};
-
-User.search = function(query, priorityForFriends, successCallback, failedCallback) {
-    Core.execute('user.search', { q : query, priorityForFriends: priorityForFriends }, true, successCallback, failedCallback);
-};
-
-User.getChars = function(userId, successCallback, failedCallback) {
-    Core.execute('user.getChars', { targetId: userId }, true, successCallback, failedCallback);
-};
-
-User.getCharsByGame = function(userId, gameId, successCallback, failedCallback) {
-    Core.execute('user.getChars', { targetId: userId, gameId: gameId }, true, successCallback, failedCallback);
-};
-
-User.getIgnoreList = function(successCallback, failedCallback) {
-    Core.execute('user.getIgnoreList', { }, true, successCallback, failedCallback);
-};
-
-// target - Идентификатор, никнейм или ссылка на профиль игнорируемого пользователя
-User.addToIgnoreList = function(target, successCallback, failedCallback) {
-    Core.execute('user.addToIgnoreList', { target: target }, true, successCallback, failedCallback);
-};
-
-User.removeFromIgnoreList = function(targetId, successCallback, failedCallback) {
-    Core.execute('user.removeFromIgnoreList', { targetId: targetId }, true, successCallback, failedCallback);
-};
-
-User.getSMSCode = function(successCallback, failedCallback) {
-    Core.execute('user.send2FaKeyViaSms', { }, true, successCallback, failedCallback);
-};
-
-User.getRecoveryKeys = function(successCallback, failedCallback) {
-    Core.execute('user.get2FaRecoveryKeys', { }, true, successCallback, failedCallback);
-};
-
-User.get2FaStatus = function(successCallback, failedCallback) {
-    Core.execute('user.get2FaStatus', { }, true, successCallback, failedCallback);
-};
-
-
-var Virality = function() {
-};
-
-//INFO Метод не может быть протестирован.
-Virality.linkAccount = function(code, vkReturnPath, successCallback, failedCallback) {
-    Core.execute('virality.linkAccount', {code : code, vkReturnPath: vkReturnPath}, true, successCallback, failedCallback);
-};
-
-var Wall = function() {
-};
-
-Wall.getNews = function(successCallback, failedCallback) {
-    Core.execute('wall.getNews', {}, false, successCallback, failedCallback);
-};
-
-Wall.getNewsXml = function(successCallback, failedCallback) {
-    Core.execute('wall.getNews', { format: 'xml' }, false, successCallback, failedCallback);
-};

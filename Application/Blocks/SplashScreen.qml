@@ -90,17 +90,42 @@ Item {
     }
 
     Text {
-        anchors { right: parent.right; rightMargin: 10; bottom: parent.bottom; bottomMargin: 10 }
+        anchors {
+            right: parent.right
+            rightMargin: 10
+            baseline: parent.bottom
+            baselineOffset: -15
+        }
+
         color: "#ffffff"
         smooth: true
-        font { family: "Segoe UI"; pixelSize: 11; }
+        font { family: "Segoe UI Light"; pixelSize: 11; }
         text: qsTr("TEXT_VERSION").arg(updateManger.item ? updateManger.item.fileVersion : "Debug")
+    }
+
+    Text {
+        anchors {
+            baseline: parent.bottom
+            baselineOffset: -15
+            horizontalCenter: parent.horizontalCenter
+        }
+
+        color: "#ffffff"
+        smooth: true
+        font { family: "Segoe UI Light"; pixelSize: 11; }
+        text: "Powered by Protocol One"
     }
 
     Text {
         id: startingProtocolOneText
 
-        anchors { left: parent.left; leftMargin: 20; bottom: parent.bottom; bottomMargin: 15 }
+        anchors {
+            left: parent.left
+            leftMargin: 20
+            baseline: parent.bottom
+            baselineOffset: -15
+        }
+
         color: "#ffffff"
         smooth: true
         font { family: "Segoe UI Light"; pixelSize: 18; }

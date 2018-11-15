@@ -23,6 +23,11 @@ Item {
     implicitHeight: 600
 
     Component.onCompleted: {
+        if (App.isSingleGameMode()) {
+            App.activateFirstGame();
+            SignalBus.navigate("mygame", "");
+            return;
+        }
 
         if (App.startingService() != '0') {
             App.activateGame(App.serviceItemByServiceId(App.startingService()));
@@ -67,12 +72,20 @@ Item {
 
                 } break;
                 case "allgame": {
+                    if (App.isSingleGameMode()) {
+                        break;
+                    }
+
                     centralBlockLoader.sourceComponent = allGames;
                     root.selectedGamePage = false;
                     App.resetGame();
                 } break;
                 case "themes": {
                     centralBlockLoader.sourceComponent = themes;
+                    if (App.isSingleGameMode()) {
+                        break;
+                    }
+
                     root.selectedGamePage = false;
                     App.resetGame();
                 } break;
@@ -100,11 +113,21 @@ Item {
                 width: 230;
                 height: parent.height;
 
-                WidgetContainer {
-                    id: userProfile
+                visible: !App.isSingleGameMode()
 
-                    widget: 'UserProfile'
+                WidgetContainer {
+                    height: parent.height
+                    width: 230
+
+                    widget: 'AllGames'
+                    view: 'VerticalListView'
                 }
+
+//                WidgetContainer {
+//                    id: userProfile
+
+//                    widget: 'UserProfile'
+//                }
 
 //                WidgetContainer {
 //                    height: parent.height - userProfile.height
@@ -115,15 +138,13 @@ Item {
             }
 
             Item {
-                width: root.width - 230
+                width: root.width - (App.isSingleGameMode() ? 0 : 230)
                 height: parent.height
 
                 Loader {
                     id: centralBlockLoader
 
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    width: 770;
-                    height: parent.height;
+                    anchors.fill: parent
                     onSourceComponentChanged: gc()
                 }
             }
@@ -145,14 +166,14 @@ Item {
     }
 
     // INFO из-за перекрытия нескольких слоев/виджетов пришлось вытащить наружу.
-    WidgetContainer {
-        visible: User.isPromoActionActive()
+//    WidgetContainer {
+//        visible: User.isPromoActionActive()
 
-        widget: visible ? 'UserProfile' : ''
-        view: visible ? 'PromoActionIconView' : ''
-        x: 230
-        y: 31
-    }
+//        widget: visible ? 'UserProfile' : ''
+//        view: visible ? 'PromoActionIconView' : ''
+//        x: 230
+//        y: 31
+//    }
 
     Component {
         id: allGames
@@ -166,8 +187,6 @@ Item {
         id: mainGamePageCmp
 
         MainGamePage {
-            width: 590
-            height: 489
             currentGame: root.currentGame
         }
     }
@@ -175,10 +194,7 @@ Item {
     Component {
         id: aboutGameCmp
 
-        AboutGame {
-            width: 590
-            height: 489
-        }
+        AboutGame { }
     }
 
     Component {
@@ -223,7 +239,10 @@ Item {
             GameMenu {
                 id: gameMenu
 
+                width: parent.width
+
                 anchors.bottom: parent.bottom
+
                 model: root.hasCurrentGame ? root.currentGame.menu : undefined
                 onUrlClicked: App.openExternalUrlWithAuth(url);
                 onPageClicked: {
@@ -247,14 +266,6 @@ Item {
                     }
                 }
             }
-        }
-    }
-
-    Component {
-        id: allGames
-
-        WidgetContainer {
-            widget: 'AllGames'
         }
     }
 

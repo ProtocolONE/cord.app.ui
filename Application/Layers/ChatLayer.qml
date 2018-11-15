@@ -4,7 +4,7 @@ import Tulip 1.0
 import ProtocolOne.Components.Widgets 1.0
 import ProtocolOne.Controls 1.0
 
-//import "../../Application/Widgets/Messenger/Models/Messenger.js" as MessengerJs
+import "../../Application/Widgets/Messenger/Models/Messenger.js" as MessengerJs
 import Application.Core 1.0
 import Application.Core.Styles 1.0
 
@@ -20,7 +20,7 @@ Item {
     QtObject {
         id: d
 
-        //property bool isChatOpen: MessengerJs.userSelected()
+        property bool isChatOpen: MessengerJs.userSelected()
         property bool isDetailedInfoOpened: d.isOpened()
 
         function isOpened() {
@@ -28,11 +28,11 @@ Item {
         }
     }
 
-//    WidgetContainer {
-//        anchors.fill: parent
-//        widget: 'Messenger'
-//        view: 'Chat'
-//    }
+    WidgetContainer {
+        anchors.fill: parent
+        widget: 'Messenger'
+        view: 'Chat'
+    }
 
     Rectangle {
         color: Styles.contentBackgroundDark

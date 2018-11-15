@@ -2,11 +2,7 @@
 	<qresource prefix="/">
 		<file>Application/Blocks/ApplicationFocus.qml</file>
 		<file>Application/Blocks/AppScreen.qml</file>
-		<file>Application/Blocks/Auth/AnimatedBackground/Index.qml</file>
-		<file>Application/Blocks/Auth/AnimatedBackground/LightningBackground.qml</file>
-		<file>Application/Blocks/Auth/AnimatedBackground/ParallaxBottomImage.qml</file>
-		<file>Application/Blocks/Auth/AnimatedBackground/Sun.qml</file>
-		<file>Application/Blocks/Auth/AnimatedBackground/VkDoggy.qml</file>
+		<file>Application/Blocks/Auth/AuthBody.js</file>
 		<file>Application/Blocks/Auth/AuthBody.qml</file>
 		<file>Application/Blocks/Auth/AuthSecurityCodeBody.qml</file>
 		<file>Application/Blocks/Auth/AuthUrlSubscription.qml</file>
@@ -23,9 +19,8 @@
 		<file>Application/Blocks/Auth/Controls/LicenseText.qml</file>
 		<file>Application/Blocks/Auth/Controls/SupportButton.qml</file>
 		<file>Application/Blocks/Auth/Index.qml</file>
-		<file>Application/Blocks/Auth/LoginInput.qml</file>
 		<file>Application/Blocks/Auth/MessageBody.qml</file>
-		<file>Application/Blocks/Auth/PasswordInput.qml</file>
+		<file>Application/Blocks/Auth/qmldir</file>
 		<file>Application/Blocks/Auth/RegistrationBody.qml</file>
 		<file>Application/Blocks/Auth/ServiceLoading.qml</file>
 		<file>Application/Blocks/DownloadStatus.qml</file>
@@ -105,14 +100,10 @@
 		<file>Application/Core/MessageBox/MessageBoxButtons.qml</file>
 		<file>Application/Core/MessageBox/qmldir</file>
 		<file>Application/Core/Modules/ApplicationStatistic.qml</file>
-		<file>Application/Core/Modules/Host.js</file>
-		<file>Application/Core/Modules/Host.qml</file>
+		<file>Application/Core/Modules/ApplicationStatisticPrivate.qml</file>
 		<file>Application/Core/Modules/Mocks/ApplicationSettingsMock.qml</file>
 		<file>Application/Core/Modules/Mocks/GameSettingsMock.qml</file>
 		<file>Application/Core/Modules/Mocks/MainWindowMock.qml</file>
-		<file>Application/Core/Modules/Overlay.js</file>
-		<file>Application/Core/Modules/Service.js</file>
-		<file>Application/Core/Modules/ServiceHandleModel.js</file>
 		<file>Application/Core/Modules/ServiceHandleModel.qml</file>
 		<file>Application/Core/Modules/ServiceHandleModelPrivate.qml</file>
 		<file>Application/Core/Modules/SignalBus.qml</file>
@@ -219,6 +210,7 @@
 		<file>Application/Widgets/GameAdBanner/GameAdBannerModel.qml</file>
 		<file>Application/Widgets/GameAdBanner/PluginContainer.qml</file>
 		<file>Application/Widgets/GameAdBanner/qmldir</file>
+		<file>Application/Widgets/GameAdBanner/View/BannerItem.qml</file>
 		<file>Application/Widgets/GameAdBanner/View/GameAdBannerView.js</file>
 		<file>Application/Widgets/GameAdBanner/View/GameAdBannerView.qml</file>
 		<file>Application/Widgets/GameDownloadError/PluginContainer.qml</file>
@@ -293,6 +285,7 @@
 		<file>Application/Widgets/Messenger/Addons/MessageReceived.qml</file>
 		<file>Application/Widgets/Messenger/Addons/NickNameReminder.qml</file>
 		<file>Application/Widgets/Messenger/Addons/Notifications.qml</file>
+		<file>Application/Widgets/Messenger/Addons/Popups.js</file>
 		<file>Application/Widgets/Messenger/Addons/Popups.qml</file>
 		<file>Application/Widgets/Messenger/Addons/qmldir</file>
 		<file>Application/Widgets/Messenger/Addons/Quote.js</file>
@@ -368,11 +361,14 @@
 		<file>Application/Widgets/Messenger/View/Blocks/ChatDialog/Smile/SmileTab.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/AllContactView.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactFilter.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactFilterButton.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/ContactItem.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/ContactItemHeader.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/EditGroupButton.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupContactItemHeader.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupCountButton.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/GroupEditHeader.qml</file>
+		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/OccupantListView.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/PresenceIcon.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItem/ThreeDots.qml</file>
 		<file>Application/Widgets/Messenger/View/Blocks/ContactList/ContactItemDelegate.qml</file>

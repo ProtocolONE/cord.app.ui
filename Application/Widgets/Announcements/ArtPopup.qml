@@ -4,13 +4,11 @@ import Tulip 1.0
 import ProtocolOne.Controls 1.0
 import Application.Controls 1.0
 
-import Application.Controls 1.0 as AppControls
-
 import Application.Core 1.0
 import Application.Core.Styles 1.0
 
-AppControls.TrayPopupBase {
-    id: popUp
+TrayPopupBase {
+    id: root
 
     signal closeButtonClicked();
     signal playClicked();

@@ -22,7 +22,7 @@ Item {
             manager.registerWidget('Tests.Application.Core.Fixtures.Popup.Sample');
             manager.init();
 
-            AppJs.activateGame(AppJs.serviceItemByGameId("92"));
+            App.activateGame(App.serviceItemByGameId("92"));
         }
     }
 

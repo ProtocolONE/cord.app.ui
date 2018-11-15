@@ -3,7 +3,11 @@ import ProtocolOne.Components.Widgets 1.0
 
 PluginContainer {
     name: "AllGames"
-    view: "AllGamesView"
+    view: [
+        {name: 'AllGamesView', source: 'AllGamesView', byDefault: true},
+        {name: 'VerticalListView', source: 'VerticalListView'}
+    ]
+
     model: "AllGamesModel"
     singletonModel: true
 }

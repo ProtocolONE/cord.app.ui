@@ -3,6 +3,7 @@ import QtQuick 2.4
 import ProtocolOne.Controls 1.0
 
 import Application.Controls 1.0
+import Application.Core.Styles 1.0
 
 Item {
     id: root
@@ -19,7 +20,7 @@ Item {
     Image {
         id: icon
 
-        source: installPath + Styles.style.supportIcon
+        source: installPath + Styles.supportIcon
         anchors.centerIn: parent
         smooth: true
     }

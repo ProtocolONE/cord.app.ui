@@ -28,10 +28,10 @@ Form {
 
     property alias inProgress: d.inProgress
 
-    signal codeRequired();
-    signal securityCodeRequired(bool appCode);
     signal error(string message, bool supportButton);
-    signal authDone(string userId, string appKey, string cookie, bool remember);
+
+    signal jwtAuthDone(string refreshToken, string refreshTokenExpireTime,
+                       string accessToken, string accessTokenExpireTime);
 
     function showCaptcha() {
         d.captchaRequired = true;
@@ -69,7 +69,10 @@ Form {
 
         function authSuccess(response) {
             d.captchaRequired = false;
-            root.authDone(response.userId, response.appKey, response.cookie, d.remember);
+            root.jwtAuthDone(response.refreshToken.value,
+                             response.refreshToken.exp,
+                             response.accessToken.value,
+                             response.accessToken.exp);
         }
 
         function genericAuth() {
@@ -86,29 +89,21 @@ Form {
             d.inProgress = true;
 
             var password = d.password;
+            var captcha = d.captcha;
             d.password = "";
+            d.captcha = "";
             root.focus = true;
 
-            // UNDONE сбрасывать ли состояния ошибок.
-//            passwordInput.error = false;
-//            loginInput.error = false;
-//            captchInput.error = false;
-
-            if (d.captchaRequired) {
-                Authorization.setCaptcha(d.captcha);
-                d.captcha = "";
-            }
-
-            Authorization.loginByProtocolOne(d.login, password, d.remember, function(error, response) {
+            Authorization.login(d.login, password, captcha, function(error, response) {
                 d.inProgress = false;
-
-                if (Authorization.isSuccess(error)) {
-                    d.authSuccess(response);
-                    return;
+                if (error === Authorization.Result.Success) {
+                   d.authSuccess(response);
+                   return;
                 }
 
                 if (error === Authorization.Result.CaptchaRequired) {
                     d.refreshCaptcha();
+
                     if (d.captchaRequired) {
                         passwordInput.forceActiveFocus();
                         captchInput.errorMessage = qsTr("AUTH_BODY_CAPTCHA_FAILED");
@@ -126,65 +121,22 @@ Form {
                     d.refreshCaptcha();
                 }
 
-                if (error === Authorization.Result.SecuritySMSCodeRequired || error === Authorization.Result.SecurityAppCodeRequired) {
 
-                    root.authToken = response.authToken ? response.authToken : "";
-                    root.userId = response.userId ? response.userId : "";
-                    d.password = password;
-                    d.captchaRequired = false;
-                    root.securityCodeRequired(error === Authorization.Result.SecurityAppCodeRequired);
+                if (error === Authorization.Result.InvalidUserNameOrPassword) {
+                    if (response.hasOwnProperty('email')) {
+                        loginInput.errorMessage = qsTr("AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT");
+                        loginInput.error = true;
+                    }
+
+                    if (response.hasOwnProperty('password')) {
+                        passwordInput.errorMessage = qsTr("AUTH_FAIL_MESSAGE_WRONG");
+                        passwordInput.error = true;
+                    }
+
                     return;
                 }
 
-                if (error === Authorization.Result.CodeRequired) {
-                    d.captchaRequired = false;
-                    root.codeRequired();
-                    return;
-                }
-
-                if (!response) {
-                    root.error(qsTr("AUTH_FAIL_PROTOCOLONE_UNAVAILABLE"));
-                    return;
-                }
-
-                if (response.code === RestApi.Error.INCORRECT_FORMAT_EMAIL) {
-                    loginInput.errorMessage = qsTr("AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT");
-                    loginInput.error = true;
-                    return;
-                }
-
-                if (response.code === RestApi.Error.ACCOUNT_NOT_EXISTS) {
-                    loginInput.errorMessage = qsTr("AUTH_FAIL_MESSAGE_ACCOUNT_NOT_EXISTS");
-                    loginInput.error = true;
-                    return;
-                }
-
-                if (response.code === RestApi.Error.AUTHORIZATION_FAILED) {
-                    passwordInput.errorMessage = qsTr("AUTH_FAIL_MESSAGE_WRONG");
-                    passwordInput.error = true;
-                    loginInput.errorMessage = "";
-                    loginInput.error = true;
-                    return;
-                }
-
-
-                var msg = {
-                    0: qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_ERROR"),
-                };
-
-                msg[RestApi.Error.AUTHORIZATION_FAILED] = qsTr("AUTH_FAIL_MESSAGE_WRONG");
-                msg[RestApi.Error.INCORRECT_FORMAT_EMAIL] = qsTr("AUTH_FAIL_MESSAGE_INCORRECT_EMAIL_FORMAT");
-                msg[Authorization.Result.ServiceAccountBlocked] = qsTr("AUTH_FAIL_ACCOUNT_BLOCKED");
-                msg[Authorization.Result.WrongLoginOrPassword] = qsTr("AUTH_FAIL_MESSAGE_WRONG");
-
-                var errorMessage;
-                if (msg[error]) {
-                    errorMessage = msg[error];
-                } else {
-                    errorMessage = response ? (msg[response.code] || msg[0]) : msg[0];
-                }
-
-                root.error(errorMessage, error === Authorization.Result.ServiceAccountBlocked);
+                root.error(qsTr("AUTH_FAIL_MESSAGE_UNKNOWN_ERROR"), false);
             });
         }
 

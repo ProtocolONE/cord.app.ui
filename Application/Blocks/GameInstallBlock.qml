@@ -25,7 +25,7 @@ Item {
     property bool isStandalone: gameItem && gameItem.isStandalone
     property bool isClosedBeta: gameItem && gameItem.isClosedBeta
     property bool hasSellsItem: gameItem && gameItem.hasSellsItem
-    property bool userHasSubscription: gameItem && User.hasBoughtStandaloneGame(gameItem.serviceId)
+    property bool userHasSubscription: false //gameItem && User.hasBoughtStandaloneGame(gameItem.serviceId)
     property string cost: (gameItem && gameItem.cost) || ""
 
     Item {
@@ -160,7 +160,12 @@ Item {
 
             width: 40
             height: button.height
-            visible: button.visible && button.enabled && root.gameItem.gameType !== "browser" && ['Starting', 'Started'].indexOf(stateGroup.state) === -1
+            visible: button.visible
+                     && button.enabled
+                     && !!root.gameItem
+                     && root.gameItem.gameType !== "browser"
+                     && ['Starting', 'Started'].indexOf(stateGroup.state) === -1
+
             anchors.right: parent.right
             style {
                 normal: button.style.normal

@@ -8,13 +8,12 @@ WidgetModel {
     property variant news
 
     function reloadNews() {
-        RestApi.Wall.getNews( function(news) {
-            rootModel.news = news;
-        }, function(){});
+        RestApi.Games.getNews(function(code, result) {
+            rootModel.news = result;
+        });
     }
 
     function updateNewsByPush(elem) {
-
         if (typeof news === "undefined") {
             return;
         }

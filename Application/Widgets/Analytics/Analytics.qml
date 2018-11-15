@@ -49,7 +49,7 @@ WidgetModel {
             }
         }
 
-        onAuthDone: Ga.setUserId(userId);
+        //onAuthDone: Ga.setUserId(userId);
         onLogoutDone: Ga.setUserId(false);
     }
 

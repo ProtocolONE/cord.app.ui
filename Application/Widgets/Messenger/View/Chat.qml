@@ -126,7 +126,7 @@ WidgetView {
                 messageInput.setMessage(message);
                 Ga.trackEvent('ContextMenu', 'editMessage', 'edit');
             }
-            onMessageQuote : {
+            onQuoteMessage : {
                 messageInput.setQuote(messageItem, message);
                 messageInput.forceActiveFocus();
                 Ga.trackEvent('ContextMenu', 'quote', 'insert');

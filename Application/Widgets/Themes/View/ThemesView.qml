@@ -8,11 +8,12 @@ import ProtocolOne.Controls 1.0
 import Application.Controls 1.0
 import Application.Core 1.0
 
+import Application.Core.Styles 1.0
+
 WidgetView {
     id: root
 
-    width: 770
-    height: 570
+    anchors.fill: parent
 
     ScrollArea {
         anchors{
@@ -62,5 +63,20 @@ WidgetView {
         }
     }
 
+    AuxiliaryButton {
+        visible: App.isSingleGameMode()
+        text: qsTr("Close")
+        height: 30
 
+        anchors {
+            right: parent.right
+            rightMargin: 20
+            bottom: parent.bottom
+            bottomMargin: 20
+        }
+
+        onClicked: {
+            SignalBus.navigate("mygame", "");
+        }
+    }
 }

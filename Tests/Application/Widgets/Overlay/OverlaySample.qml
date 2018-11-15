@@ -7,7 +7,8 @@ import ProtocolOne.Core 1.0
 
 import Application.Controls 1.0
 
-import "../../../../Application/Core/App.js" as App
+import Application.Core 1.0
+import Application.Core.Settings 1.0
 import "../"
 
 Rectangle {

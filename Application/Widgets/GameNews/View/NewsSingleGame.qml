@@ -10,7 +10,7 @@ import Application.Core 1.0
 WidgetView {
     id: root
 
-    property string filterGameId: App.currentGame() ? App.currentGame().gameId : '-1'
+    property string filterGameId: App.currentGame() ? App.currentGame().serviceId : '-1'
     property variant newsData: model.news;
 
     width: baseView.width
@@ -23,22 +23,21 @@ WidgetView {
 
     onNewsDataChanged: updateNews()
 
-    function cleanString(value) {
-        return value.replace("<![CDATA[", "").replace("]]>", "");
-    }
-
     function updateNews() {
-        var news = Lodash._.chain((newsData ? newsData.news : []) || [])
+        var news = Lodash._.chain((newsData ? newsData : []) || [])
             .filter(function(e) {
-                return filterGameId === -1 ? e : (e.gameId == filterGameId || e.gameId == 0);
+                return filterGameId === -1 ? e : (e.game.id == filterGameId);
             })
-            .map(function(e){
-                e.time = +e.time;
-                e.commentCount = +e.commentCount;
-                e.likeCount = +e.likeCount;
-                e.title = root.cleanString(e.title);
-                e.announcement = root.cleanString(e.announcement);
-                return e;
+            .map(function(e) {
+
+                return {
+                    time: +(new Date(e.createDate)),
+                    title: e.title,
+                    announcement: e.announcement,
+                    previewImage: e.appImage || '',
+                    gameId: e.game.id,
+                    gameName: e.game.name
+                }
             })
             .sortByAll(['isSticky', 'time'])
             .reverse()

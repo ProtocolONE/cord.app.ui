@@ -8,6 +8,7 @@ import ProtocolOne.Components.Widgets 1.0
 import Application.Blocks 1.0
 import Application.Core 1.0
 import Application.Core.Settings 1.0
+import Application.Core.ServerTime 1.0
 
 import "./AnnouncementsModel.js" as AnnouncementsHelper
 
@@ -360,6 +361,7 @@ WidgetModel {
 
         // INFO если получился следующий показ раньше чем через 5 минут,
         // то покажем через 5 минут.
+
         return Math.max(300000, nextTick - (+now));
     }
 
@@ -388,8 +390,22 @@ WidgetModel {
         logicTimer.start();
     }
 
-    function getAnnouncementSuccessCallback(response) {
-        AnnouncementsHelper.announceList = response.announcement;
+    function getAnnouncementSuccessCallback(code, response) {
+        AnnouncementsHelper.announceList = response.map(function(a) {
+            return {
+                id: a.id,
+                serviceId: a.game.id,
+                size: a.size,
+                startTime: ServerTime.serverAtomTimeToLocalTimestamp(a.startTime),
+                endTime: ServerTime.serverAtomTimeToLocalTimestamp(a.endTime),
+                url: a.url || "",
+                text: a.text || "",
+                textOnButton: a.textOnButton || "",
+                image: a.image || "",
+                buttonColor: (a.buttonColor == "green" ? 1 : 2)
+            }
+        });
+
         logicTick();
     }
 
@@ -695,7 +711,7 @@ WidgetModel {
         onTriggered: {
             logicTimer.stop();
             console.log('Query announcements');
-            RestApi.Games.getAnnouncement(getAnnouncementSuccessCallback, function (){});
+            RestApi.Games.getAnnouncement(getAnnouncementSuccessCallback);
         }
     }
 
