@@ -1,0 +1,3 @@
+[submodule "qml"]
+	path = qml
+	url = git@github.com:ProtocolONE/cord.app.ui.git
