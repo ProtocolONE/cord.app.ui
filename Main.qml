@@ -22,7 +22,7 @@ Rectangle {
     width: App.clientWidth
     height: App.clientHeight
     Component.onCompleted:  {
-        // UNFO чтоб работала функциональность, приходиться продернуть синглтоны.
+        // UNFO 
         //RootWindow.initWindow();
         Config.show();
 
